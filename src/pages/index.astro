@@ -1,16 +1,118 @@
 ---
-
+// src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro'; // 导入主模板
 ---
+<MainLayout>
+	<!-- Hero Section -->
+	<section class="relative h-[85vh] md:h-screen flex items-center justify-center text-center overflow-hidden bg-gray-100 dark:bg-gray-900">
+		<canvas id="hero-canvas"></canvas>
+		<div class="relative z-10 px-6">
+			<h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 reveal">
+				中国可持续发展目标研究院
+			</h1>
+			<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 reveal" style="transition-delay: 150ms;">
+				立足中国视野，探索全球可持续未来。我们致力于通过跨学科研究、深度对话和公共传播，为实现联合国可持续发展目标 (SDGs) 贡献东方智慧与中国方案。
+			</p>
+			<div class="reveal" style="transition-delay: 300ms;">
+				<a href="#categories" class="bg-gray-800 text-white dark:bg-white dark:text-gray-900 px-8 py-3 rounded-lg text-base font-semibold hover:bg-gray-900 dark:hover:bg-gray-200 transition-transform hover:scale-105 transform shadow-lg">
+					开始探索
+				</a>
+			</div>
+		</div>
+	</section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+	<!-- Partners Section -->
+	<section id="about" class="py-16 bg-gray-100 dark:bg-black/20">
+		<div class="container mx-auto px-6">
+			<div class="text-center">
+				<h2 class="text-sm font-semibold text-gray-600 dark:text-gray-400 tracking-widest uppercase reveal">理论参考与合作伙伴</h2>
+				<div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Logo_of_the_United_Nations.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" alt="United Nations">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/The_World_Bank_logo.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 100ms;" alt="World Bank">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/WWF_logo_%28Text_only%29.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 200ms;" alt="WWF">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Logo_UNESCO_2021.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 300ms;" alt="UNESCO">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 400ms;" alt="UNICEF">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/UNFCCC_logo_with_text.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 500ms;" alt="UNFCCC">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 内容分类 Section -->
+	<section id="categories" class="py-16 md:py-24">
+		<div class="container mx-auto px-6">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white reveal">核心内容板块</h2>
+				<p class="mt-4 text-lg text-gray-600 dark:text-gray-400 reveal" style="transition-delay: 150ms;">从多元视角，深度解读可持续发展的核心议题。</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<!-- Updated Card Style -->
+				<a href="/category/podcast" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal">
+					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1590602843213-3994252602e5?q=80&w=1974&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Podcast abstract image"></div>
+					<div class="p-6">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">未来播客</h3>
+						<p class="text-gray-600 dark:text-gray-400 text-sm">聆听来自学术前沿与实践一线的声音。</p>
+					</div>
+				</a>
+				<!-- Updated Card Style -->
+				<a href="/category/interview" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
+					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Interview abstract image"></div>
+					<div class="p-6">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">人物专访</h3>
+						<p class="text-gray-600 dark:text-gray-400 text-sm">记录时代变革者与企业家的思考与行动。</p>
+					</div>
+				</a>
+				<!-- Updated Card Style -->
+				<a href="/category/report" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
+					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Reports abstract image"></div>
+					<div class="p-6">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">研究报告</h3>
+						<p class="text-gray-600 dark:text-gray-400 text-sm">发布原创深度研究，提供数据驱动的洞察。</p>
+					</div>
+				</a>
+				<!-- Updated Card Style -->
+				<a href="/category/event" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 300ms;">
+					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Events abstract image"></div>
+					<div class="p-6">
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">活动与研讨</h3>
+						<p class="text-gray-600 dark:text-gray-400 text-sm">汇聚全球智慧，举办线上线下研讨会。</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- SDG Section -->
+	<section id="sdgs" class="py-16 md:py-24 bg-gray-100 dark:bg-black/20">
+		<div class="container mx-auto px-6">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white reveal">聚焦17个可持续发展目标</h2>
+				<p class="mt-4 text-lg text-gray-600 dark:text-gray-400 reveal" style="transition-delay: 150ms;">我们的研究议程围绕联合国2030年议程展开，探索每个目标的中国路径。</p>
+			</div>
+			<div id="sdg-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+				<!-- SDG Cards will be injected here by JS -->
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Future Scholars CTA Section -->
+	<section id="future-scholars" class="py-16 md:py-24">
+		<div class="container mx-auto px-6">
+			<div class="relative bg-gray-800 dark:bg-gray-800/50 rounded-2xl p-10 md:p-16 text-center overflow-hidden">
+				<div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full"></div>
+				<div class="absolute -bottom-16 -left-10 w-56 h-56 bg-green-500/10 rounded-full"></div>
+				<div class="relative z-10">
+					<h2 class="text-3xl md:text-4xl font-bold text-white reveal">成为下一位全球变革者</h2>
+					<p class="mt-4 text-lg max-w-2xl mx-auto text-gray-300 reveal" style="transition-delay: 150ms;">加入“未来学者”计划，与牛剑导师同行，将你的学术热情转化为世界一流大学的录取通知书。我们提供一对一研究指导，提升你的全球竞争力。</p>
+					<div class="mt-8 reveal" style="transition-delay: 300ms;">
+						<a href="/future-scholars-program" class="bg-white text-gray-900 px-8 py-3 rounded-lg text-base font-semibold hover:bg-gray-200 transition-transform hover:scale-105 transform shadow-lg">
+							了解计划详情
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  </MainLayout>

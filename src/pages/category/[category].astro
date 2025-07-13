@@ -1,0 +1,51 @@
+---
+// src/pages/category/[category].astro (完整最终版)
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getPostsByCategory, type Post } from '../../lib/queries';
+import WaveCard from '../../components/WaveCard.astro';
+
+// 我们定义一个新类型，它包含 Post 的所有字段，并额外加上 coverImageUrl
+type PostForCard = Partial<Post> & { coverImageUrl?: string };
+
+export async function getStaticPaths() {
+  const categories = [
+    { slug: 'podcast', name: '未来播客' },
+    { slug: 'interview', name: '人物专访' },
+    { slug: 'report', name: '研究报告' },
+    { slug: 'event', name: '活动与研讨' },
+  ];
+
+  return categories.map(cat => ({
+    params: { category: cat.slug },
+    props: { categoryName: cat.name }
+  }));
+}
+
+const { category } = Astro.params;
+const { categoryName } = Astro.props;
+// 使用我们定义的新类型 PostForCard
+const posts: PostForCard[] = await getPostsByCategory(category);
+---
+
+<MainLayout title={`分类: ${categoryName}`}>
+  <div class="container mx-auto px-6 pt-24 pb-24">
+    {/* We remove the old h1 and p tags */}
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">{categoryName}</h1>
+    <br>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => (
+              <a href={`/posts/${post.slug}`} class="block group">
+                {/* This container holds the card and the text overlay */}
+                <div class="relative rounded-2xl overflow-hidden">
+                  <WaveCard />
+                  <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                    <h2 class="text-xl font-bold text-white drop-shadow-md">{post.title}</h2>
+                    <p class="text-sm text-white/80 mt-1 drop-shadow-md">{post.excerpt}</p>
+                  </div>
+                </div>
+              </a>
+      ))}
+    </div>
+  </div>
+</MainLayout>
