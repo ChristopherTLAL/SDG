@@ -222,6 +222,58 @@ const { title = "中国可持续发展目标研究院 | China SDG Research Insti
 
             init3D();
 
+            // --- WeChat Modal Logic ---
+            const openModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                
+                const backdrop = modal.querySelector('.modal-backdrop');
+                const content = modal.querySelector('.modal-content');
+
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    if (backdrop) backdrop.style.opacity = 1;
+                    if (content) {
+                        content.style.opacity = 1;
+                        content.style.transform = 'scale(1)';
+                    }
+                }, 10);
+
+                if (modalId === 'planningModal') {
+                    _initRadarChart();
+                }
+            };
+
+            const closeModal = (modalId) => {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+
+                const backdrop = modal.querySelector('.modal-backdrop');
+                const content = modal.querySelector('.modal-content');
+
+                if (backdrop) backdrop.style.opacity = 0;
+                if (content) {
+                    content.style.opacity = 0;
+                    content.style.transform = 'scale(0.95)';
+                }
+                
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            };
+
+            const openResourceModal = (resourceId) => {
+                const data = resourceData[resourceId];
+                if (!data) return;
+
+                document.getElementById('resourceTitle').innerText = data.title;
+                document.getElementById('resourceContent').innerHTML = data.content;
+                openModal('resourceModal');
+            };
+
+                return { openModal, closeModal, openResourceModal };
+            })();
+
             // --- SDG Data with Descriptions ---
             const sdgs = [{
                     id: 1,
@@ -407,7 +459,7 @@ const { title = "中国可持续发展目标研究院 | China SDG Research Insti
             revealElements.forEach(el => {
                 scrollObserver.observe(el);
             });
-        });
+            ;
 
 
     </script>
