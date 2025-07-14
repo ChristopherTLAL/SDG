@@ -13,6 +13,6 @@ if (!projectId || !dataset) {
 export const sanityClient = createClient({
   projectId,
   dataset,
-  useCdn: true, // 在调试期间，永远禁用 CDN
+  useCdn: false, // 在调试期间，永远禁用 CDN
   apiVersion: '2023-07-01',
 });
