@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面试培训系统 - 本科 B类</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #dde1e7;
+            --text-color: #4a5568;
+            --highlight-color: #5a67d8;
+            --feedback-color: #a3b1c6; /* Changed from blue to gray */
+            --rating-bad: #e57373;
+            --rating-mid: #ffb74d;
+            --rating-good: #81c784;
+            --shadow-light: #ffffff;
+            --shadow-dark: #b8c1d1;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overscroll-behavior: none;
+        }
+        .neumo-out {
+            border-radius: 20px;
+            background: var(--bg-color);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            transition: box-shadow 0.3s ease;
+        }
+        .neumo-in {
+            border-radius: 20px;
+            background: var(--bg-color);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+        }
+        .perspective {
+            perspective: 1500px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+        }
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-front {
+            justify-content: center;
+            align-items: center;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .nav-btn.active {
+            color: var(--highlight-color);
+            font-weight: 700;
+            box-shadow: inset 3px 3px 5px var(--shadow-dark), inset -3px -3px 5px var(--shadow-light);
+        }
+        .rating-btn:active, .next-btn:active {
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+        }
+        /* New style for rating feedback */
+        .rating-feedback {
+            box-shadow: 0 0 0 3px var(--feedback-color), 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+        }
+        .loader {
+            border: 4px solid #b8c1d1;
+            border-top: 4px solid var(--highlight-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <div class="flex items-center">
+                    <h1 class="text-xl sm:text-2xl font-bold" style="color: #2d3748">面试培训系统 - 本科 B类</h1>
+                </div>
+                <nav class="flex items-center gap-2 sm:gap-4 p-2 neumo-in">
+                    <button id="nav-practice" class="nav-btn px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300">面试练习</button>
+                    <button id="nav-dashboard" class="nav-btn px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300">复习看板</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div id="loading-container" class="flex flex-col items-center justify-center h-full py-20">
+            <div class="loader mb-4"></div>
+            <p class="text-lg text-slate-500">正在准备您的专属面试题库...</p>
+        </div>
+
+        <div id="app-container" class="w-full max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8 hidden">
+            
+            <!-- Practice Page -->
+            <div id="practice-page" class="w-full">
+                <!-- Flashcard Section -->
+                <div class="perspective w-full max-w-3xl mx-auto h-[55vh] min-h-[420px] mb-8">
+                    <div id="flashcard" class="card w-full h-full cursor-pointer">
+                        <div class="card-inner">
+                            <div class="card-face card-front neumo-out p-10">
+                                <p id="question-text" class="text-center text-xl md:text-2xl font-semibold leading-relaxed" style="color: #2d3748;"></p>
+                            </div>
+                            <div class="card-face card-back neumo-out p-10 overflow-y-auto">
+                                <div id="analysis-content" class="w-full">
+                                   <h3 class="text-xl font-bold mb-3" style="color: var(--highlight-color)">考核重心</h3>
+                                   <p id="analysis-focus" class="mb-6"></p>
+                                   <h3 class="text-xl font-bold mb-3" style="color: var(--highlight-color)">解答思路</h3>
+                                   <ul id="analysis-strategies" class="list-disc pl-5 space-y-3"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls Section -->
+                <div class="flex flex-col items-center gap-6">
+                    <div class="flex items-center gap-3 p-3 neumo-in">
+                        <span class="text-sm font-medium mr-2">为本次回答打分:</span>
+                        <button data-rating="1" class="rating-btn h-10 w-10 font-bold text-lg neumo-out transition-all duration-200" style="color: var(--rating-bad);">1</button>
+                        <button data-rating="2" class="rating-btn h-10 w-10 font-bold text-lg neumo-out transition-all duration-200" style="color: var(--rating-bad);">2</button>
+                        <button data-rating="3" class="rating-btn h-10 w-10 font-bold text-lg neumo-out transition-all duration-200" style="color: var(--rating-mid);">3</button>
+                        <button data-rating="4" class="rating-btn h-10 w-10 font-bold text-lg neumo-out transition-all duration-200" style="color: var(--rating-good);">4</button>
+                        <button data-rating="5" class="rating-btn h-10 w-10 font-bold text-lg neumo-out transition-all duration-200" style="color: var(--rating-good);">5</button>
+                    </div>
+                    <button id="next-question" class="next-btn px-10 py-4 font-bold rounded-full transition-all duration-200 neumo-out" style="color: var(--highlight-color);">
+                        下一个问题 <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="w-full hidden">
+                <h2 class="text-3xl font-bold text-center mb-8" style="color: #2d3748;">整体复习进度看板</h2>
+                <div class="p-6 sm:p-8 neumo-in">
+                    <div id="dashboard-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Dashboard items will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-transparent mt-auto">
+        <div class="max-w-6xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-slate-500 text-sm">
+            <p>&copy; 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        // Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const defaultQuestions = [
+            {
+                id: 1, summary: "选校选专业", mainQuestion: "Why did you choose these programs and this university?", 
+                alternativeQuestions: [
+                    "Which subject did you enjoy the most in high school, and how does it relate to your chosen program?", // New question added here
+                    "Which majors did you choose?", "What attracted you to this program?", "How will this program help your career?", "What do you know about this university's culture?", "What can you contribute to the community?"
+                ],
+                analysis: { 
+                    focus: "考察你对申请专业、学校和个人兴趣的了解与匹配度，以及你的长远规划和学习动机。", 
+                    strategies: [
+                        "思路一 (热情驱动): 从个人兴趣和热情出发，结合具体经历（如相关项目、最喜欢的课程）来解释为何对该专业着迷，展示你不是盲目选择。",
+                        "思路二 (目标导向): 从长远的职业目标反推，说明该专业和学校是实现你目标的最佳路径，强调学校的特定优势（如研究方向、师资）。",
+                        "思路三 (能力匹配): 论证你在某门最感兴趣的课程中培养的能力（如物理课的逻辑思维）如何与申请专业的要求高度契合。", // New strategy
+                        "思路四 (价值匹配): 强调你个人价值观与学校、专业文化的契合度，表明你不仅能从社群中获益，也能为其做出贡献。"
+                    ] 
+                }
+            },
+            {
+                id: 2, summary: "个人优缺点", mainQuestion: "Please introduce yourself.", alternativeQuestions: ["What are your strengths, weaknesses, and achievements?", "Describe yourself in three words.", "Tell me something not on your application.", "What is your greatest weakness?", "Describe achieving a goal.", "What is your greatest accomplishment?"],
+                analysis: { focus: "考察你的自我认知能力、诚实度以及你的核心品质和成就。重点是展示成长型思维（growth mindset）。", strategies: ["思路一 (故事串联): 将优缺点和成就用一个核心故事（如一次领导经历）串联起来，使自我介绍更连贯、更有记忆点。", "思路二 (特质拆解): 选择2-3个核心特质（如'有责任心'、'有创造力'），每个特质用一个简短的例子来证明，优点要具体，缺点要展示反思和改进措施。", "思路三 (成就聚焦): 选择一个最能体现你核心竞争力的成就展开，从中自然地引出你的优点，并坦诚地提及过程中遇到的挑战（可作为弱点）。"] }
+            },
+            {
+                id: 3, summary: "团队合作经历", mainQuestion: "Describe a team experience.", alternativeQuestions: ["Describe working with a difficult team member.", "What role do you play in a team?", "Tell about a key contribution to a team.", "What if team decision-makers disagree?", "How do you ensure everyone's voice is heard in a diverse team?"],
+                analysis: { focus: "考察你的团队合作能力、沟通技巧和解决冲突的能力。面试官想看你是否是一个积极、有建设性的团队成员。", strategies: ["思路一 (冲突解决者): 聚焦于一次具体的分歧，详细描述你如何倾听、理解对方观点，并提出一个双赢的解决方案，强调同理心和沟通能力。", "思路二 (角色定位者): 明确说出你在团队中的典型角色（如协调者、领导者），并用一个实例说明你如何在该角色上为团队成功做出贡献，展示你的自我认知和团队价值。", "思路三 (逆境前行者): 描述团队遇到的一个具体困难或挫折，重点讲述你如何保持积极心态、鼓励他人，并采取了什么具体行动最终克服了困难。"] }
+            },
+            {
+                id: 4, summary: "克服困难方法", mainQuestion: "What qualities help you overcome hardships and motivate yourself?", alternativeQuestions: ["Describe your most significant challenge.", "What do you do when overwhelmed or unmotivated?", "How do you manage your time?", "What drives you to pursue excellence?", "Share an experience dealing with difficulties."],
+                analysis: { focus: "考察你的韧性 (resilience)、自我驱动能力和解决问题的成熟度。看你面对压力和失败时的反应。", strategies: ["思路一 (内在品质法): 强调你的内在品质，如“坚韧不拔”、“乐观”。用一个具体的挑战（学习或课外活动）来证明这个品质如何帮助你坚持下去。", "思路二 (系统方法论): 描述你应对压力的具体“系统”或“方法”，例如时间管理技巧（分解任务）、情绪调节方法（通过个人爱好来解压），展示你的成熟和条理性。", "思路三 (目标驱动法): 强调你的动力来源于一个清晰而强大的目标（如成为某个领域的专家）。说明当遇到困难时，你会重新聚焦于这个长远目标，从而获得继续前进的动力。"] }
+            },
+            {
+                id: 5, summary: "未来职业规划", mainQuestion: "What are your plans after graduation?", alternativeQuestions: ["Where do you see yourself in five or ten years?", "What kind of impact do you want to make?", "Are you more interested in research, industry, or entrepreneurship?", "Do you intend to do anything beyond your degree?"],
+                analysis: { focus: "考察你的规划能力、目标清晰度以及你的抱负。看你的个人目标与所申请的专业是否一致。", strategies: ["思路一 (分阶段规划): 将规划分为短期（如读研深造、专注某个细分领域）和长期（如成为某个领域的专家、解决某个社会问题），展示你的逻辑性和远见。", "思路二 (影响力聚焦): 不只谈职位，更要谈你希望创造的“影响力”或“价值”。例如，不只是“成为工程师”，而是“成为一名能设计高效能源系统的工程师，为可持续发展做贡献”。", "思路三 (路径探索): 可以坦诚地表示你还在探索具体路径（如学术 vs. 工业界），但你的大方向是明确的，并说明你将如何利用大学资源来帮助你做出最终决定。"] }
+            },
+            {
+                id: 6, summary: "处理负面反馈", mainQuestion: "How do you handle negative feedback or criticism?", alternativeQuestions: ["Describe a time your work was criticized.", "Who gives you the most valuable feedback?"],
+                analysis: { focus: "考察你的情绪成熟度、学习能力和开放心态。看你是否能从批评中成长，而不是采取防御姿态。", strategies: ["思路一 (视批评为礼物): 明确表达你将批评视为成长的机会。使用一个具体例子，说明你最初可能有点惊讶或不适，但很快转变为分析和采纳有价值的意见，并最终带来了好的结果。", "思路二 (区分对事与对人): 强调你会区分针对“事”（工作、想法）的批评和针对“人”的攻击。表明你会聚焦于前者，从中提取可操作的改进点，而不会陷入负面情绪。", "思路三 (主动寻求反馈): 拔高一个层次，说明你不仅能被动接受批评，还会主动向老师、同学寻求反馈，因为你相信这是快速进步的最佳途径。"] }
+            },
+            {
+                id: 7, summary: "如何说服他人", mainQuestion: "How do you persuade others to accept your ideas?", alternativeQuestions: ["Describe getting 'buy-in' for an idea.", "How do you build consensus?"],
+                analysis: { focus: "考察你的沟通能力、同理心和影响力。这不是关于“辩论”，而是关于“协作”和“共识”。", strategies: ["思路一 (倾听先行): 强调你的第一步永远是倾听和理解对方的观点和顾虑。只有在理解的基础上，才能找到共同点，并有针对性地调整你的沟通策略。", "思路二 (行动证明): 描述一次你不仅仅用语言，更是通过实际行动（如制作原型、收集数据、组织活动）来展示你想法的价值，让事实和结果来说话。", "思路三 (建立联盟): 描述一次你如何先争取到部分人的支持，然后通过这个小范围的成功案例去影响更多的人，展示你的策略性思维。"] }
+            },
+            {
+                id: 8, summary: "个人热情所在", mainQuestion: "What are you passionate about?", alternativeQuestions: ["What interests you outside the classroom?", "Tell me about something you taught yourself.", "Is there a problem you would love to solve?", "Describe an experience showcasing your creativity."],
+                analysis: { focus: "考察你的内在驱动力、好奇心和创造力。面试官想看到一个鲜活、有趣的人，而不仅仅是成绩单。", strategies: ["思路一 (动手创造): 聚焦于一个具体的创造性项目，讲述你从无到有的过程。重点描述你遇到的困难、自学的内容以及完成时的成就感，将其与专业的核心——“创造与解决问题”联系起来。", "思路二 (跨界融合): 讲述一个看似与专业无关的爱好（如绘画、音乐），并创造性地将其与专业联系起来。例如，音乐的结构和数学的逻辑之美，或绘画中的空间感和工程设计中的构图能力。", "思路三 (解决问题): 描述一个你非常想解决的社会或技术问题。这能直接展示你的热情所在，并自然地引出你为什么需要通过学习该专业来获得解决这个问题的能力。"] }
+            },
+            {
+                id: 9, summary: "尝试全新事物", mainQuestion: "Describe a time you tried something new.", alternativeQuestions: ["Describe being out of your comfort zone.", "How do you deal with uncertainty?", "How do you adapt to a new environment?"],
+                analysis: { focus: "考察你的适应能力、独立性和面对未知的勇气。这是对留学生非常重要的品质。", strategies: ["思路一 (环境适应): 使用一个具体的例子，如出国交换或参加一个全新的夏令营。描述你最初的不适、你采取了哪些主动的步骤去适应（而不是被动等待），以及最终的收获和成长。", "思路二 (技能学习): 描述一次你从零开始学习一项全新技能的经历（如编程、一个新乐器）。重点讲述你的学习方法、如何克服瓶颈以及这个过程如何锻炼了你的自学能力和毅力。", "思路三 (角色转变): 描述一次你承担一个全新角色的经历（如第一次当领导、第一次组织大型活动）。重点在于你如何快速学习、承担责任并适应新角色的要求。"] }
+            },
+            {
+                id: 10, summary: "应对作弊行为", mainQuestion: "What would you do if you witnessed cheating?", alternativeQuestions: ["What if a friend asked you to help them cheat?", "What does academic integrity mean to you?"],
+                analysis: { focus: "考察你的道德准则和正直（integrity）。这是大学非常看重的品质，没有标准答案，但需要展示你成熟的思考。", strategies: ["思路一 (原则与同理心): 首先表明你坚持学术诚信的原则。然后，根据情况（考试 vs. 项目，陌生人 vs. 朋友）进行分析，展示你的同理心。例如，对于朋友，你会私下沟通，了解他/她的困难并提供真正的帮助（如一起学习），而不是直接举报。", "思路二 (重申价值观): 先定义学术诚信对你意味着什么（如尊重自己和他人的努力），并说明其重要性。然后基于这个价值观，阐述你会采取的行动，表明你的行为是有原则指导的。", "思路三 (区分情况): 在考试这种正式场合，直接、悄悄地告知监考人员是合适的。在团队项目或作业中，情况更复杂，可以先与当事人沟通，如果无效，再向老师报告。展示你处理复杂人际关系的能力。"] }
+            },
+            {
+                id: 11, summary: "维持良好关系", mainQuestion: "What are the key ingredients to maintain a good relationship?", alternativeQuestions: ["What's the biggest barrier to effective communication?", "How do you build rapport with new people?"],
+                analysis: { focus: "考察你的人际交往能力和情商（EQ）。看你对人际关系的理解是否深刻、成熟。", strategies: ["思路一 (要素列举法): 提出2-3个你认为最关键的要素（如沟通、同理心、尊重、支持），并用一个简短的个人例子来逐一说明这些要素为什么重要。", "思路二 (沟通核心论): 聚焦于“有效沟通”这一点，并深入探讨。可以讨论有效沟通的障碍（如不倾听、预设立场），并用例子说明你如何努力克服这些障碍来建立良好关系。", "思路三 (行动支持论): 强调“行动上的支持”是维持关系的关键。说明语言是重要的，但真正的支持体现在行动上（如在朋友需要时提供帮助、在团队中主动分担任务）。"] }
+            },
+            {
+                id: 12, summary: "被拒后的计划", mainQuestion: "If you were rejected, how would you plan your next year?", alternativeQuestions: ["What is your backup plan?", "What have you learned from this application process?"],
+                analysis: { focus: "考察你的成熟度、抗挫折能力和规划能力。面试官想看到一个即使面对失败也能积极规划未来的人。", strategies: ["思路一 (B计划展示): 坦诚地表达失望，但立刻转向你的“B计划”。具体说明你会做什么（如准备国内高考、申请其他地区的学校），展示你是有准备、有规划的。", "思路二 (成长收获): 强调无论结果如何，申请过程本身就是一次宝贵的学习经历。具体说明你从中了学到了什么（如更了解自己、提升了英语能力、明确了目标），展示你的积极心态。", "思路三 (持续提升): 表明你会将这一年视为一个“gap year”，用来提升自己，使自己明年成为更强的申请者。具体列出你的提升计划（如参与更多科研、考取更高标化成绩、做实习）。"] }
+            },
+            {
+                id: 13, summary: "成绩与成功", mainQuestion: "Is academic performance the best indicator of future job prospects?", alternativeQuestions: ["What key skills are essential for success after university?", "How would you define a 'successful' career?"],
+                analysis: { focus: "考察你的思辨能力和对“成功”的理解。看你是否有一个超越分数的、更全面的价值观。", strategies: ["思路一 (平衡论): 表明学业成绩是重要的基础，但不是全部。然后列举其他同样重要的能力（如沟通、团队合作、适应能力、创造力），并用你的个人经历来佐证。", "思路二 (重新定义成功): 先给出你对“成功职业”的定义，这个定义应该超越金钱和地位，包含个人成长、社会贡献等。然后基于这个定义，论证为什么单凭成绩无法衡量成功。", "思路三 (学以致用): 强调成绩代表你掌握了知识，但更关键的是“应用知识解决实际问题”的能力。用一个项目实例说明你如何将所学应用于实践，这才是未来前景的关键。"] }
+            },
+            {
+                id: 14, summary: "高等教育价值", mainQuestion: "Is higher education still necessary in today's society?", alternativeQuestions: ["What is the unique value of a physical university?", "What do you hope to gain from university besides a degree?"],
+                analysis: { focus: "考察你对教育价值的深度思考。看你上大学的动机是什么，是否理解大学的真正意义。", strategies: ["思路一 (超越知识): 承认现在获取知识的渠道很多，但大学的价值远不止于此。强调大学提供的独特价值：社群、合作环境、师生互动、动手实验的机会。", "思路二 (软技能培养): 强调大学是培养关键软技能（如批判性思维、沟通、领导力）的最佳场所。通过参与社团、项目等经历，这些能力得到锻炼，而这是自学难以实现的。", "思路三 (探索与成长): 将大学视为一个探索自我、试错和成长的安全空间。在这里你可以接触不同的人和思想，找到自己的热情所在。强调除了专业知识，你更希望获得这种个人成长。"] }
+            },
+            {
+                id: 15, summary: "对留学地看法", mainQuestion: "What do you think of the country/region you are applying to?", alternativeQuestions: ["If you had a budget to improve student life, what would you choose?", "Compare your country's education system to this one's."],
+                analysis: { focus: "考察你对留学国家/地区的了解程度和你的观察力。这是一个展示你做过功课、真心想来学习的好机会。", strategies: ["思路一 (具体赞美): 不要泛泛地说“很好”，而是具体指出你欣赏的一点（如文化多样性、科技创新氛围、教育体系优势），并结合你的个人兴趣或专业进行评论。", "思路二 (比较视角): 可以简要地将该国家/地区的某个方面与你所在的地方进行比较，展示你的分析能力。注意要客观，多谈欣赏，避免过于负面的批评。", "思路三 (提出建设性想法): 在表达欣赏之后，可以引申出一个小小的、有建设性的想法。例如，“我很欣赏XX，如果我有一笔预算，我希望能在此基础上为学生们增加XX”，展示你的思考深度。"] }
+            },
+            {
+                id: 16, summary: "个人冒险经历", mainQuestion: "What is the most adventurous thing you’ve ever done?", alternativeQuestions: ["Tell me about a risk you took.", "What does 'adventure' mean to you?"],
+                analysis: { focus: "考察你的勇气、适应能力和成长心态。'冒险'不一定指极限运动，也可以是精神或智力上的挑战。", strategies: ["思路一 (重新定义冒险): 首先可以简要定义“冒险”对你来说意味着什么（如走出舒适区、挑战未知）。", "思路二 (文化冲击): 讲述一段你身处全新文化环境的经历（如出国交换），重点描述你如何克服不适、主动适应并最终获得成长。", "思路三 (智力挑战): 讲述一次你挑战一个远超当时能力的项目的经历（如自学一个复杂的课题、制作一个有难度的作品），重点在于你承担了“失败的风险”，但依然坚持并学到了很多。"] }
+            },
+            {
+                id: 17, summary: "利用空闲时间", mainQuestion: "How do you utilize your free time in diverse ways?", alternativeQuestions: ["How do you balance academics and personal interests?", "What have you learned from extracurriculars that you will bring to the university?"],
+                analysis: { focus: "考察你是否是一个全面发展、有趣的人，以及你的时间管理能力。", strategies: ["思路一 (分类展示): 将你的课外活动分为几类，如“创造力方面”（艺术爱好）、“团队与沟通方面”（社团活动）、“社会服务方面”（志愿者），展示你的多样性。", "思路二 (技能关联): 不仅要列举活动，更要说明你从这些活动中学到了什么，并强调这些技能（如自律、时间管理、团队合作）将如何帮助你在大学取得成功。", "思路三 (平衡的艺术): 直接回答如何“平衡”，说明你是有意识地规划时间，确保学业和兴趣能够相互促进，而不是相互冲突。例如，艺术爱好能帮助你放松，更好地投入学习。"] }
+            },
+            {
+                id: 18, summary: "解决复杂问题", mainQuestion: "What would you do if faced with a seemingly unsolvable problem?", alternativeQuestions: ["When do you know it's time to ask for help?", "Describe breaking down a complex problem."],
+                analysis: { focus: "考察你的问题解决能力、逻辑思维和寻求帮助的意愿。看你是否会独自蛮干，还是会聪明地利用资源。", strategies: ["思路一 (分解法): 强调你的第一步是“分解问题”。用一个具体的项目实例来说明你如何将一个大问题拆解成几个可管理的小步骤，展示你的逻辑性。", "思路二 (寻求帮助的时机): 明确说明你寻求帮助的时机——不是一遇到困难就求助，而是在自己独立思考和尝试后仍然卡住时。并具体说出你会向谁求助（老师、同学），以及为什么。", "思路三 (改变视角): 描述当你卡住时，你会尝试从一个完全不同的角度来看待问题，或者暂时放下它去做点别的事情来获得新的灵感。"] }
+            },
+            {
+                id: 19, summary: "开放创意问题", mainQuestion: "You wake up and see snow outside. What are you thinking?", alternativeQuestions: ["If you could have dinner with three people, who would they be?", "What book, movie, or song has impacted you?", "Describe your favourite food.", "What do you dislike the most?"],
+                analysis: { focus: "考察你的创造力、个性和思维的灵活性。没有对错之分，关键是展示你的独特性。", strategies: ["思路一 (感性与理性的结合): 将你的第一反应（感性的，如“很美”）和你随后的思考（理性的，如“雪花的结构让我想到了物理/工程”）结合起来，展示你是一个既有情感又善于思考的人。", "思路二 (联系专业): 将这个开放性问题与你的热情或申请的专业巧妙地联系起来。例如，雪花让工程师想到“对称与结构之美”，让艺术家想到“光影与构图”。", "思路三 (讲述一个微型故事): 用这个问题作为开头，讲述一个简短的、能反映你个性的故事或回忆。例如，“看到雪让我想起了小时候第一次XX的经历，那次经历教会了我XX”。"] }
+            },
+            {
+                id: 20, summary: "描述你的家乡", mainQuestion: "Could you describe your hometown?", alternativeQuestions: ["What is your hometown famous for?", "What do you like most about your hometown?", "How has your hometown changed over the years?"],
+                analysis: { focus: "考察你的基本英文口语表达能力和个人背景。这是一个破冰和热身问题，旨在让你放松下来。", strategies: ["思路一 (结构化描述): 分点描述家乡的几个特点，如地理位置、著名景点、美食、文化特色等，让回答有条理。", "思路二 (个人故事): 不做泛泛的介绍，而是通过一个与家乡有关的个人小故事来展示你对家乡的情感和它的特别之处。", "思路三 (展现观察力): 描述家乡近年来的一个具体变化，并谈谈你对这个变化的看法，展示你的思考和观察力。"] }
+            }
+        ];
+        
+        // --- Firebase Config & App State ---
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { projectId: 'fallback-project' };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let app, auth, db, userId;
+        let questions = [];
+        let weightedQuestionPool = [];
+        let currentQuestion = null;
+
+        // --- UI Elements (declare but don't assign)---
+        let loadingContainer, appContainer, practicePage, dashboardPage, navPracticeBtn, navDashboardBtn, flashcard, questionText, analysisFocus, analysisStrategies, nextQuestionBtn, ratingBtns, dashboardGrid;
+
+        // --- Functions ---
+        
+        function initializeUIAndListeners() {
+            loadingContainer = document.getElementById('loading-container');
+            appContainer = document.getElementById('app-container');
+            practicePage = document.getElementById('practice-page');
+            dashboardPage = document.getElementById('dashboard-page');
+            navPracticeBtn = document.getElementById('nav-practice');
+            navDashboardBtn = document.getElementById('nav-dashboard');
+            flashcard = document.getElementById('flashcard');
+            questionText = document.getElementById('question-text');
+            analysisFocus = document.getElementById('analysis-focus');
+            analysisStrategies = document.getElementById('analysis-strategies');
+            nextQuestionBtn = document.getElementById('next-question');
+            ratingBtns = document.querySelectorAll('.rating-btn');
+            dashboardGrid = document.getElementById('dashboard-grid');
+
+            if(flashcard) flashcard.addEventListener('click', () => flashcard.classList.toggle('flipped'));
+            if(nextQuestionBtn) nextQuestionBtn.addEventListener('click', pickNextQuestion);
+            if(navPracticeBtn) navPracticeBtn.addEventListener('click', () => switchPage('practice'));
+            if(navDashboardBtn) navDashboardBtn.addEventListener('click', () => switchPage('dashboard'));
+            
+            if(ratingBtns) {
+                ratingBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const rating = parseInt(e.currentTarget.dataset.rating, 10);
+                        if (currentQuestion) {
+                            if (!currentQuestion.ratings) {
+                                currentQuestion.ratings = [];
+                            }
+                            currentQuestion.ratings.push(rating);
+                            
+                            // Visual feedback with a temporary class
+                            e.currentTarget.classList.add('rating-feedback');
+                            setTimeout(() => {
+                                 e.currentTarget.classList.remove('rating-feedback');
+                            }, 400);
+
+                            saveData();
+                        }
+                    });
+                });
+            }
+        }
+
+        async function initFirebase() {
+             try {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                return new Promise(resolve => {
+                    onAuthStateChanged(auth, async (user) => {
+                        if (user) {
+                            userId = user.uid;
+                            resolve();
+                        } else {
+                            try {
+                                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                                    await signInWithCustomToken(auth, __initial_auth_token);
+                                } else {
+                                    await signInAnonymously(auth);
+                                }
+                            } catch (error) {
+                                console.error("Auth Error:", error);
+                                userId = 'local-user-' + new Date().getTime();
+                                resolve();
+                            }
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Firebase Init Error:", error);
+                userId = 'local-user-' + new Date().getTime();
+            }
+        }
+
+        async function loadData() {
+            if (!userId || !db) {
+                questions = defaultQuestions.map(q => ({ ...q, ratings: [] }));
+                return;
+            }
+            const docRef = doc(db, `artifacts/${appId}/users/${userId}/interviewPrep`, "genericQuestionsV2"); // Use a new doc name for the new structure
+            try {
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists() && docSnap.data().questions) {
+                    const savedQuestions = docSnap.data().questions;
+                    // Merge saved data with default data to ensure completeness
+                    questions = defaultQuestions.map(defaultQ => {
+                        const savedQ = savedQuestions.find(sq => sq.id === defaultQ.id);
+                        return { ...defaultQ, ratings: savedQ ? savedQ.ratings : [] };
+                    });
+                } else {
+                    questions = defaultQuestions.map(q => ({ ...q, ratings: [] }));
+                    await saveData();
+                }
+            } catch (error) {
+                console.error("Error loading data:", error);
+                questions = defaultQuestions.map(q => ({ ...q, ratings: [] }));
+            }
+        }
+
+        async function saveData() {
+            if (!userId || !db) return;
+            const docRef = doc(db, `artifacts/${appId}/users/${userId}/interviewPrep`, "genericQuestionsV2"); // Use a new doc name
+            try {
+                // Only save the necessary data to Firestore
+                await setDoc(docRef, { questions: questions.map(q => ({id: q.id, ratings: q.ratings})) });
+            } catch (error) {
+                console.error("Error saving data:", error);
+            }
+        }
+        
+        function createWeightedPool() {
+            weightedQuestionPool = [];
+            questions.forEach((q, index) => {
+                const weight = q.id <= 14 ? 3 : 1; // Core questions (1-14) are more frequent
+                for (let i = 0; i < weight; i++) {
+                    weightedQuestionPool.push(index);
+                }
+            });
+        }
+
+        function pickNextQuestion() {
+            if (weightedQuestionPool.length === 0) {
+                 if(questionText) questionText.textContent = "所有问题已练习完毕！请前往复习看板查看进度。";
+                 return;
+            }
+            const poolIndex = Math.floor(Math.random() * weightedQuestionPool.length);
+            const questionIndex = weightedQuestionPool[poolIndex];
+            currentQuestion = questions[questionIndex];
+            displayQuestion(currentQuestion);
+        }
+
+        function displayQuestion(question) {
+            // FIX: Reset rating buttons visual state before displaying new question
+            if (ratingBtns) {
+                ratingBtns.forEach(btn => btn.classList.remove('rating-feedback'));
+            }
+
+            const allAlts = [question.mainQuestion, ...question.alternativeQuestions];
+            const randomAltText = allAlts[Math.floor(Math.random() * allAlts.length)];
+            questionText.textContent = randomAltText;
+            
+            analysisFocus.textContent = question.analysis.focus;
+            analysisStrategies.innerHTML = '';
+            question.analysis.strategies.forEach(strategy => {
+                const li = document.createElement('li');
+                const parts = strategy.split(':');
+                li.innerHTML = `<span class="font-bold" style="color:var(--highlight-color)">${parts[0]}:</span>${parts.slice(1).join(':')}`;
+                analysisStrategies.appendChild(li);
+            });
+
+            flashcard.classList.remove('flipped');
+        }
+
+        function updateDashboard() {
+            if (!dashboardGrid) return;
+            dashboardGrid.innerHTML = '';
+            questions.sort((a,b) => a.id - b.id).forEach(q => {
+                const ratings = q.ratings || [];
+                const average = ratings.length > 0 ? ratings.reduce((a, b) => a + b, 0) / ratings.length : 0;
+                
+                let status, colorStyle, icon;
+                if (ratings.length === 0) {
+                    status = "未练习";
+                    colorStyle = `color: var(--text-color);`;
+                    icon = "fa-minus";
+                } else if (average >= 4) {
+                    status = "已掌握";
+                    colorStyle = `color: var(--rating-good);`;
+                    icon = "fa-check-circle";
+                } else if (average >= 2.5) {
+                    status = "正在熟悉";
+                    colorStyle = `color: var(--rating-mid);`;
+                    icon = "fa-star-half-alt";
+                } else {
+                    status = "有待加强";
+                    colorStyle = `color: var(--rating-bad);`;
+                    icon = "fa-exclamation-circle";
+                }
+
+                const itemHTML = `
+                    <div class="flex items-center justify-between p-4 neumo-out">
+                        <div class="flex-grow pr-4 overflow-hidden">
+                            <p class="font-semibold" style="color:#2d3748">${q.id}. ${q.summary}</p>
+                            <p class="text-sm font-medium" style="${colorStyle}">${status} (均分: ${average.toFixed(2)}, 次数: ${ratings.length})</p>
+                        </div>
+                        <i class="fas ${icon} text-xl flex-shrink-0" style="${colorStyle}"></i>
+                    </div>
+                `;
+                dashboardGrid.innerHTML += itemHTML;
+            });
+        }
+        
+        function switchPage(page) {
+            if (!practicePage || !dashboardPage || !navPracticeBtn || !navDashboardBtn) return;
+            if (page === 'practice') {
+                practicePage.classList.remove('hidden');
+                dashboardPage.classList.add('hidden');
+                navPracticeBtn.classList.add('active');
+                navDashboardBtn.classList.remove('active');
+            } else {
+                practicePage.classList.add('hidden');
+                dashboardPage.classList.remove('hidden');
+                navPracticeBtn.classList.remove('active');
+                navDashboardBtn.classList.add('active');
+                updateDashboard();
+            }
+        }
+
+        async function main() {
+            initializeUIAndListeners();
+            await initFirebase();
+            await loadData();
+            createWeightedPool();
+            pickNextQuestion();
+            switchPage('practice');
+            if (loadingContainer) loadingContainer.classList.add('hidden');
+            if (appContainer) appContainer.classList.remove('hidden');
+        }
+        
+        // Ensure DOM is fully loaded before running the main script
+        document.addEventListener('DOMContentLoaded', main);
+
+    </script>
+</body>
+</html>
+
