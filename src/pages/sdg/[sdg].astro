@@ -23,10 +23,10 @@ const posts: PostForCard[] = await getPostsBySdg(sdgId);
 ---
 
 
-<MainLayout title={`SDG ${sdgId} 相关文章`}>
+<MainLayout title={`SDG 相关文章`}>
   <div class="container mx-auto px-6 pt-24 pb-24">
     {/* We remove the old h1 and p tags */}
-    <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">SDG {sdgId}</h1>
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">相关内容</h1>
     <br>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts.map((post) => (
