@@ -232,7 +232,7 @@ import MainLayout from '../layouts/MainLayout.astro'; // 同样导入主模板
                     <div>
                         <h4 class="font-semibold text-xl mb-4 text-gray-900 dark:text-white">独家背景提升资源</h4>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="resource-gallery-item" onclick="App.openResourceModal('coursera')"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.coursera.org%2F&psig=AOvVaw06yBWIxQKdDyYgZwB-sx-E&ust=1752586857691000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOi7q_28vI4DFQAAAAAdAAAAABAL" alt="数据分析仪表盘的图片" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f5f5f7/1d1d1f?text=Data';"><div><span>Coursera 证书</span><span class="arrow">&rarr;</span></div></div>
+                            <div class="resource-gallery-item" onclick="App.openResourceModal('coursera')"><img src="/public/coursera.jpeg" alt="数据分析仪表盘的图片" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f5f5f7/1d1d1f?text=Data';"><div><span>Coursera 证书</span><span class="arrow">&rarr;</span></div></div>
                             <div class="resource-gallery-item" onclick="App.openResourceModal('software')"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" alt="开发者在电脑前编程的图片" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f5f5f7/1d1d1f?text=Code';"><div><span>软件著作权</span><span class="arrow">&rarr;</span></div></div>
                             <div class="resource-gallery-item" onclick="App.openResourceModal('monograph')"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop" alt="图书馆中书架的图片" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f5f5f7/1d1d1f?text=Book';"><div><span>英文专著发表</span><span class="arrow">&rarr;</span></div></div>
                             <div class="resource-gallery-item" onclick="App.openResourceModal('internship')"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="现代办公室中人们协作的图片" onerror="this.onerror=null;this.src='https://placehold.co/400x400/f5f5f7/1d1d1f?text=Team';"><div><span>企业实习</span><span class="arrow">&rarr;</span></div></div>
@@ -417,7 +417,7 @@ import MainLayout from '../layouts/MainLayout.astro'; // 同样导入主模板
         const resourceData = {
             coursera: {
                 title: 'Coursera 专业证书',
-                content: `<div class="resource-section"><img src="https://images.unsplash.com/photo-1620712943543-2858200f7426?q=80&w=800&auto=format&fit=crop" alt="人工智能概念的图片"><div class="text-content"><h3>对接世界名校在线课程</h3><p class="text-gray-600 dark:text-gray-400">我们为您筛选并推荐来自Google、IBM、斯坦福等顶尖企业和大学的在线证书课程，提前修读专业知识，提升学术竞争力，并可写入LinkedIn档案，获得全球认可。</p></div></div><div class="resource-section"><img src="https://images.unsplash.com/photo-1611926653458-092a4234cf55?q=80&w=800&auto=format&fit=crop" alt="专业人士档案页面的图片"><div class="text-content"><h3>提升职业竞争力</h3><p class="text-gray-600 dark:text-gray-400">获得的证书可以直接关联到您的LinkedIn个人资料，向全球的招生官和雇主展示您的专业技能和学习热情。热门证书如吴恩达的《AI For Everyone》、Google的《数据分析专业证书》等，都是申请相关专业时的有力加分项。</p></div></div>`
+                content: `<div class="resource-section"><img src="public/CourseraCertificate.png" alt="人工智能概念的图片"><div class="text-content"><h3>对接世界名校在线课程</h3><p class="text-gray-600 dark:text-gray-400">我们为您筛选并推荐来自Google、IBM、斯坦福等顶尖企业和大学的在线证书课程，提前修读专业知识，提升学术竞争力，并可写入LinkedIn档案，获得全球认可。</p></div></div><div class="resource-section"><img src="public/CourseraLinkedIn.jpg" alt="专业人士档案页面的图片"><div class="text-content"><h3>提升职业竞争力</h3><p class="text-gray-600 dark:text-gray-400">获得的证书可以直接关联到您的LinkedIn个人资料，向全球的招生官和雇主展示您的专业技能和学习热情。热门证书如吴恩达的《AI For Everyone》、Google的《数据分析专业证书》等，都是申请相关专业时的有力加分项。</p></div></div>`
             },
             software: { 
                 title: '软件著作权', 
@@ -446,7 +446,7 @@ import MainLayout from '../layouts/MainLayout.astro'; // 同样导入主模板
                 labels: ['学术成绩', '研究经历', '语言能力', '课外活动', '领导力'],
                 datasets: [{
                     label: '当前能力',
-                    data: [75, 50, 85, 60, 40],
+                    data: [75, 50, 85, 65, 70],
                     fill: true,
                     backgroundColor: 'rgba(59, 130, 246, 0.2)',
                     borderColor: 'rgb(59, 130, 246)',
