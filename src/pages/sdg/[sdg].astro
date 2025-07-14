@@ -9,7 +9,7 @@ import WaveCard from '../../components/WaveCard.astro';
 type PostForCard = Partial<Post> & { coverImageUrl?: string };
 
 export async function getStaticPaths() {
-  const sdgIds = Array.from({ length: 17 }, (_, i) => String(i + 1));
+  const sdgIds = Array.from({ length: 18 }, (_, i) => String(i + 1));
 
   return sdgIds.map(id => ({
     params: { sdg: id },

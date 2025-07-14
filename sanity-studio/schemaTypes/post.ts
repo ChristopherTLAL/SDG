@@ -93,6 +93,7 @@ export default defineType({
             {title: 'SDG 15: 陆地生物', value: '15'},
             {title: 'SDG 16: 和平、正义与强大机构', value: '16'},
             {title: 'SDG 17: 促进目标实现的伙伴关系', value: '17'},
+            {title: '实用工具', value: '18'},
           ]
         }
     }),
