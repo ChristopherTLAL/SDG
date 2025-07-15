@@ -202,6 +202,31 @@
     </footer>
 
     <script>
+    // JSDoc type definitions for static analysis
+    /**
+     * @typedef {Object} Question
+     * @property {number} id
+     * @property {string} type
+     * @property {string} question_en
+     * @property {string} focus
+     * @property {string[]} perspectives
+     * @property {string[]} skills
+     */
+
+    /** @typedef {{[itemId: string]: number}} QuestionScore */
+    /** @typedef {{[questionId: string]: QuestionScore}} Scores */
+    /** @typedef {{[skillName: string]: number}} SkillData */
+    
+    // Extend the Window interface to include Chart for TypeScript
+    /** @type {any} */
+    declare global {
+        interface Window {
+            Chart: any;
+        }
+    }
+    const Chart = window.Chart;
+
+    /** @type {Question[]} */
     const allQuestions = [
         { id: 1, type: 'group', question_en: "Should museums and art galleries be free to the public?", focus: "考察学生的公共资源分配、文化价值与经济效益平衡的思辨能力。", perspectives: ["支持免费：提升公民文化素养、促进教育公平、增强社会凝聚力。", "反对免费：运营成本高昂、可探索差价门票或会员制、免费可能导致资源滥用。", "混合模式：基础展览免费，特展收费，寻求政府与私人赞助平衡。"], skills: ["academic", "adaptability"] },
         { id: 2, type: 'group', question_en: "Do you think it is important to protect local traditions in today's globalized world?", focus: "考察学生的文化认同感、全球化视野以及对文化多样性的理解。", perspectives: ["重要性：文化是身份认同的根基、促进旅游与经济、为世界文明贡献多样性。", "挑战：全球化冲击下的文化同质化、年轻人兴趣减弱、保护方式的与时俱进。", "如何保护：教育传承、数字化存档、与现代元素结合创新。"], skills: ["global_vision", "academic"] },
@@ -307,13 +332,18 @@
         progress: document.getElementById('stat-progress'),
         avgScore: document.getElementById('stat-avg-score'),
         count: document.getElementById('stat-count')
-    }
+    };
 
-    let currentQuestion = null;
-    let scores = {};
-    let chartInstance = null;
+    /** @type {Question | null} */
+    let currentQuestion: { id: string | number; } | null = null;
+    /** @type {{ [key: string]: QuestionScore }} */
+    let scores: { [key: string]: { [itemId: string]: number } } = {};
+    /** @type {any} */
+    let chartInstance: any = null;
     let isFlipping = false;
-    let currentMode = 'individual'; // 'individual' or 'group'
+    /** @type {'individual' | 'group'} */
+    let currentMode: 'individual' | 'group' = 'individual';
+    
     const questionSources = {
         individual: allQuestions.filter(q => q.type === 'individual'),
         group: allQuestions.filter(q => q.type === 'group')
@@ -322,7 +352,12 @@
     // --- Data Persistence ---
     function loadScores() {
         const savedScores = localStorage.getItem('xjtlInterviewScores');
-        scores = savedScores ? JSON.parse(savedScores) : {};
+        try {
+            scores = savedScores ? JSON.parse(savedScores) : {};
+        } catch (e) {
+            console.error("Error parsing scores from localStorage", e);
+            scores = {};
+        }
     }
 
     function saveScores() {
@@ -330,45 +365,61 @@
     }
 
     // --- Core Logic ---
-    function getNextQuestion(mode) {
+    /**
+     * @param {'individual' | 'group'} mode
+     * @returns {Question | null}
+     */
+    function getNextQuestion(mode: 'individual' | 'group') {
         const source = questionSources[mode];
-        if (source.length === 0) return null;
+        if (!source || source.length === 0) return null;
         const randomIndex = Math.floor(Math.random() * source.length);
         return source[randomIndex];
     }
 
-    function updateCardContent(q) {
+    /** @param {Question | null} q */
+    function updateCardContent(q: {
+[x: string]: any; id: string | number; 
+} | null) {
+        const cardFrontP = document.querySelector('#card-front p');
+
         if (!q) {
-            questionEn.textContent = "恭喜！您已完成该模块所有题目！";
-            document.querySelector('#card-front p').style.display = 'none';
-            questionFocus.textContent = '';
-            questionPerspectives.innerHTML = '';
-            scoringSystem.innerHTML = '<p class="text-center text-gray-500">请切换模式或查看进度看板。</p>';
-            submitScoreBtn.disabled = true;
-            submitScoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            if (questionEn) questionEn.textContent = "恭喜！您已完成该模块所有题目！";
+            if (cardFrontP instanceof HTMLElement) cardFrontP.style.display = 'none';
+            if (questionFocus) questionFocus.textContent = '';
+            if (questionPerspectives) questionPerspectives.innerHTML = '';
+            if (scoringSystem) scoringSystem.innerHTML = '<p class="text-center text-gray-500">请切换模式或查看进度看板。</p>';
+            if (submitScoreBtn instanceof HTMLButtonElement) {
+                submitScoreBtn.disabled = true;
+                submitScoreBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
             currentQuestion = null;
             return;
         }
         
-        submitScoreBtn.disabled = false;
-        submitScoreBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        document.querySelector('#card-front p').style.display = 'block';
+        if (submitScoreBtn instanceof HTMLButtonElement) {
+            submitScoreBtn.disabled = false;
+            submitScoreBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+        if (cardFrontP instanceof HTMLElement) cardFrontP.style.display = 'block';
 
         currentQuestion = q;
-        questionEn.textContent = q.question_en;
-        questionFocus.textContent = q.focus;
+        if (questionEn) questionEn.textContent = q.question_en;
+        if (questionFocus) questionFocus.textContent = q.focus;
         
-        questionPerspectives.innerHTML = '';
-        q.perspectives.forEach(p => {
-            const li = document.createElement('li');
-            li.textContent = p;
-            questionPerspectives.appendChild(li);
-        });
+        if (questionPerspectives) {
+            questionPerspectives.innerHTML = '';
+            q.perspectives.forEach((p: string | null) => {
+                const li = document.createElement('li');
+                li.textContent = p;
+                questionPerspectives.appendChild(li);
+            });
+        }
 
         renderScoringSystem();
     }
     
     function renderScoringSystem() {
+        if (!scoringSystem) return;
         scoringSystem.innerHTML = '';
         selfAssessmentItems.forEach(item => {
             const div = document.createElement('div');
@@ -388,18 +439,18 @@
     }
 
     function processNextQuestion() {
-        if (isFlipping) return;
+        if (isFlipping || !card) return;
         
         const nextQ = getNextQuestion(currentMode);
         
         isFlipping = true;
 
         const performFlip = () => {
-            return new Promise(resolve => {
-                const handleFlipEnd = (event) => {
+            return new Promise((resolve) => {
+                const handleFlipEnd = (/** @type {TransitionEvent} */ event: TransitionEvent) => {
                     if (event.target === card) {
                         card.removeEventListener('transitionend', handleFlipEnd);
-                        resolve();
+                        resolve(undefined);
                     }
                 };
                 card.addEventListener('transitionend', handleFlipEnd);
@@ -413,7 +464,6 @@
                 isFlipping = false;
             });
         } else {
-            // If card is already at front, just fade out/in
             card.style.transition = 'opacity 0.4s';
             card.style.opacity = '0';
             setTimeout(() => {
@@ -428,13 +478,14 @@
     }
     
     function handleSubmitScore() {
-        if (isFlipping || !currentQuestion) return;
-        const questionScores = {};
+        if (isFlipping || !currentQuestion || !scoringSystem) return;
+        /** @type {{ [key: string]: number }} */
+        const questionScores: { [key: string]: number } = {};
         let allRated = true;
         selfAssessmentItems.forEach(item => {
-            const rating = scoringSystem.querySelector(`input[name="rating-${item.id}"]:checked`);
-            if (rating) {
-                questionScores[item.id] = parseInt(rating.value);
+            const ratingInput = scoringSystem.querySelector( `input[name="rating-${item.id}"]:checked`);
+            if (ratingInput instanceof HTMLInputElement) {
+                questionScores[item.id] = parseInt(ratingInput.value, 10);
             } else {
                 allRated = false;
             }
@@ -452,19 +503,24 @@
     }
     
     // --- Navigation ---
-    function showPage(page, mode = null) {
+    /**
+     * @param {string} page
+     * @param {'individual' | 'group' | null} mode
+     */
+    function showPage(page: string, mode: 'individual' | 'group' | null = null) {
         document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
-        document.getElementById(page).classList.add('active');
+        const pageElement = document.getElementById(page);
+        if (pageElement) pageElement.classList.add('active');
         
         document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
 
-        if (mode) {
+        if (mode && navButtons[mode]) {
             currentMode = mode;
             navButtons[mode].classList.add('active');
-            card.classList.remove('is-flipped');
+            if (card) card.classList.remove('is-flipped');
             const nextQ = getNextQuestion(mode);
             updateCardContent(nextQ);
-        } else {
+        } else if (navButtons.progress) {
             navButtons.progress.classList.add('active');
             updateProgressPage();
         }
@@ -475,13 +531,14 @@
         loadScores();
         const answeredIds = Object.keys(scores);
         const historyContainer = document.getElementById('history-container');
+        const feedbackContainer = document.getElementById('feedback-container');
 
         if (answeredIds.length === 0) {
-            stats.progress.innerHTML = `<div class="text-gray-500">练习进度</div><div class="text-3xl font-bold mt-1">0%</div>`;
-            stats.avgScore.innerHTML = `<div class="text-gray-500">综合平均分</div><div class="text-3xl font-bold mt-1">N/A</div>`;
-            stats.count.innerHTML = `<div class="text-gray-500">已练习题目</div><div class="text-3xl font-bold mt-1">0</div>`;
-            historyContainer.innerHTML = '<p class="text-center text-gray-500 p-4">暂无练习历史</p>';
-            document.getElementById('feedback-container').innerHTML = '<p class="text-center text-gray-500 p-4">完成至少一道题后，这里会生成您的专属建议。</p>';
+            if (stats.progress) stats.progress.innerHTML = `<div class="text-gray-500">练习进度</div><div class="text-3xl font-bold mt-1">0%</div>`;
+            if (stats.avgScore) stats.avgScore.innerHTML = `<div class="text-gray-500">综合平均分</div><div class="text-3xl font-bold mt-1">N/A</div>`;
+            if (stats.count) stats.count.innerHTML = `<div class="text-gray-500">已练习题目</div><div class="text-3xl font-bold mt-1">0</div>`;
+            if (historyContainer) historyContainer.innerHTML = '<p class="text-center text-gray-500 p-4">暂无练习历史</p>';
+            if (feedbackContainer) feedbackContainer.innerHTML = '<p class="text-center text-gray-500 p-4">完成至少一道题后，这里会生成您的专属建议。</p>';
             if(chartInstance) {
                 chartInstance.destroy();
                 chartInstance = null;
@@ -494,21 +551,21 @@
         const progressPercentage = ((totalAnswered / totalQuestions) * 100).toFixed(0);
         const avgScore = calculateOverallAverage();
 
-        stats.progress.innerHTML = `<div class="text-gray-500">总练习进度</div><div class="text-3xl font-bold mt-1">${progressPercentage}%</div>`;
-        stats.avgScore.innerHTML = `<div class="text-gray-500">综合平均分</div><div class="text-3xl font-bold mt-1">${avgScore.toFixed(2)}</div>`;
-        stats.count.innerHTML = `<div class="text-gray-500">已练习题目</div><div class="text-3xl font-bold mt-1">${totalAnswered}</div>`;
-
-        renderHistory(historyContainer);
+        if (stats.progress) stats.progress.innerHTML = `<div class="text-gray-500">总练习进度</div><div class="text-3xl font-bold mt-1">${progressPercentage}%</div>`;
+        if (stats.avgScore) stats.avgScore.innerHTML = `<div class="text-gray-500">综合平均分</div><div class="text-3xl font-bold mt-1">${avgScore.toFixed(2)}</div>`;
+        if (stats.count) stats.count.innerHTML = `<div class="text-gray-500">已练习题目</div><div class="text-3xl font-bold mt-1">${totalAnswered}</div>`;
+        
+        if (historyContainer) renderHistory(historyContainer);
         const skillData = calculateSkillScores();
         renderRadarChart(skillData);
-        renderFeedback(skillData);
+        if (feedbackContainer) renderFeedback(skillData, feedbackContainer);
     }
 
     function calculateOverallAverage() {
         let totalScore = 0;
         let count = 0;
         Object.values(scores).forEach(questionScore => {
-            Object.values(questionScore).forEach(s => {
+            Object.values(questionScore as Record<string, number>).forEach(s => {
                 totalScore += s;
                 count++;
             });
@@ -516,7 +573,8 @@
         return count > 0 ? totalScore / count : 0;
     }
 
-    function renderHistory(container) {
+    /** @param {HTMLElement} container */
+    function renderHistory(container: HTMLElement) {
         container.innerHTML = '';
         const table = document.createElement('table');
         table.className = 'w-full text-sm text-left text-gray-500';
@@ -531,11 +589,14 @@
             <tbody></tbody>
         `;
         const tbody = table.querySelector('tbody');
+        if (!tbody) return;
+
         Object.keys(scores).reverse().forEach(qId => {
-            const question = allQuestions.find(q => q.id === parseInt(qId));
+            const question = allQuestions.find(q => q.id === parseInt(qId, 10));
             if (!question) return;
             const questionScore = scores[qId];
-            const avg = Object.values(questionScore).reduce((a, b) => a + b, 0) / Object.values(questionScore).length;
+            const scoreValues = Object.values(questionScore as Record<string, number>);
+            const avg = scoreValues.reduce((a, b) => Number(a) + Number(b), 0) / scoreValues.length;
             const tr = document.createElement('tr');
             tr.className = 'bg-white border-b';
             tr.innerHTML = `
@@ -548,20 +609,25 @@
         container.appendChild(table);
     }
     
+    /** @returns {SkillData} */
+    /**
+     * @returns {SkillData}
+     */
     function calculateSkillScores() {
-        const skillScores = {
+        const skillScores: { [key: string]: { total: number; count: number } } = {
             "学术能力": { total: 0, count: 0 },
             "综合素质": { total: 0, count: 0 },
             "适配度": { total: 0, count: 0 },
         };
 
         Object.entries(scores).forEach(([qId, questionScore]) => {
-            const question = allQuestions.find(q => q.id === parseInt(qId));
+            const question = allQuestions.find(q => q.id === parseInt(qId, 10));
             if (!question) return;
-            const avgQScore = Object.values(questionScore).reduce((a, b) => a + b, 0) / Object.values(questionScore).length;
+            const scoreValues = Object.values(questionScore as Record<string, number>);
+            const avgQScore = scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length;
             
             question.skills.forEach(skillKey => {
-                const skillName = skillMap[skillKey];
+                const skillName = skillMap[skillKey as keyof typeof skillMap];
                 if (skillName && skillScores[skillName]) {
                     skillScores[skillName].total += avgQScore;
                     skillScores[skillName].count++;
@@ -569,7 +635,8 @@
             });
         });
 
-        const finalScores = {};
+        /** @type {SkillData} */
+        const finalScores: Record<string, number> = {};
         Object.entries(skillScores).forEach(([name, data]) => {
             finalScores[name] = data.count > 0 ? data.total / data.count : 0;
         });
@@ -577,9 +644,23 @@
         return finalScores;
     }
 
-    function renderRadarChart(skillData) {
-        const ctx = document.getElementById('skill-radar-chart').getContext('2d');
+    /** @param {SkillData} skillData */
+    /**
+     * @param {SkillData} skillData
+     */
+    function renderRadarChart(skillData: { [s: string]: unknown; } | ArrayLike<unknown>) {
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js is not loaded.');
+            return;
+        }
+        const canvas = document.getElementById('skill-radar-chart');
+        if (!(canvas instanceof HTMLCanvasElement)) return;
+        
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        
         if (chartInstance) chartInstance.destroy();
+        
         chartInstance = new Chart(ctx, {
             type: 'radar',
             data: {
@@ -601,17 +682,25 @@
         });
     }
 
-    function renderFeedback(skillData) {
-        const container = document.getElementById('feedback-container');
+    /** * @param {SkillData} skillData 
+     * @param {HTMLElement} container
+     */
+    /**
+     * @param {SkillData} skillData
+     * @param {HTMLElement} container
+     */
+    function renderFeedback(skillData: ArrayLike<unknown> | { [s: string]: unknown; }, container: HTMLElement) {
         container.innerHTML = '';
         Object.entries(skillData).forEach(([skillName, score]) => {
-            let adviceKey = score < 3.0 ? 'low' : (score < 4.5 ? 'mid' : 'high');
-            const adviceText = feedbackAdvice[skillName][adviceKey];
-            const bgColor = score < 3.0 ? 'bg-red-50' : (score < 4.5 ? 'bg-yellow-50' : 'bg-green-50');
-            const borderColor = score < 3.0 ? 'border-red-500' : (score < 4.5 ? 'border-yellow-500' : 'border-green-500');
+            const numericScore = score as number;
+            let adviceKey = numericScore < 3.0 ? 'low' : (numericScore < 4.5 ? 'mid' : 'high');
+            const adviceObj = feedbackAdvice[skillName as keyof typeof feedbackAdvice] as { low: string; mid: string; high: string } | undefined;
+            const adviceText = adviceObj ? adviceObj[adviceKey as keyof typeof adviceObj] : '';
+            const bgColor = numericScore < 3.0 ? 'bg-red-50' : (numericScore < 4.5 ? 'bg-yellow-50' : 'bg-green-50');
+            const borderColor = numericScore < 3.0 ? 'border-red-500' : (numericScore < 4.5 ? 'border-yellow-500' : 'border-green-500');
             container.innerHTML += `
                 <div class="${bgColor} border-l-4 ${borderColor} p-4 rounded">
-                    <p class="font-bold text-gray-800">${skillName} (平均分: ${score.toFixed(2)})</p>
+                    <p class="font-bold text-gray-800">${skillName} (平均分: ${numericScore.toFixed(2)})</p>
                     <p class="mt-1">${adviceText}</p>
                 </div>
             `;
@@ -619,19 +708,28 @@
     }
 
     // --- Event Listeners ---
-    card.addEventListener('click', () => {
-        if (isFlipping || !currentQuestion) return;
-        if (!card.classList.contains('is-flipped')) {
-            card.classList.add('is-flipped');
-        }
-    });
+    if (card) {
+        card.addEventListener('click', (/** @type {MouseEvent} */ e: MouseEvent) => {
+            if (isFlipping || !currentQuestion) return;
+            
+            const target = /** @type {Element | null} */ (e.target);
+            if (!target) return;
 
-    submitScoreBtn.addEventListener('click', handleSubmitScore);
-    skipBtn.addEventListener('click', () => processNextQuestion());
+            // Prevent flip when clicking on the rating system inside the back card
+            if ((target as Element).closest('#scoring-system') || (target as Element).closest('#submit-score-btn')) {
+                return;
+            }
+            if (!card.classList.contains('is-flipped')) {
+                card.classList.add('is-flipped');
+            }
+        });
+    }
 
-    navButtons.individual.addEventListener('click', () => showPage('page-practice', 'individual'));
-    navButtons.group.addEventListener('click', () => showPage('page-practice', 'group'));
-    navButtons.progress.addEventListener('click', () => showPage('page-progress'));
+    if (submitScoreBtn) submitScoreBtn.addEventListener('click', handleSubmitScore);
+    if (skipBtn) skipBtn.addEventListener('click', () => processNextQuestion());
+    if (navButtons.individual) navButtons.individual.addEventListener('click', () => showPage('page-practice', 'individual'));
+    if (navButtons.group) navButtons.group.addEventListener('click', () => showPage('page-practice', 'group'));
+    if (navButtons.progress) navButtons.progress.addEventListener('click', () => showPage('page-progress'));
 
     // --- Initialization ---
     window.onload = () => {
