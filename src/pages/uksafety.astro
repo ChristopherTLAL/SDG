@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英国大学安全深度分析报告 | 信息图</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" integrity="sha384-sBJsPKHvN3ohtzH9jIW/+zDUxgKIzztUwoGUNchpbA5eFuMV8bkYF91c/BJSsIIU" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .tier-card {
+            border-left-width: 8px;
+            padding: 1.5rem;
+        }
+        .tier-1 { border-color: #94d2bd; }
+        .tier-2 { border-color: #ee9b00; }
+        .tier-3 { border-color: #ca6702; }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center py-12 bg-cover bg-center rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 95, 115, 0.7), rgba(0, 95, 115, 0.7)), url('https://placehold.co/1200x400/0a9396/ffffff?text=UK+Universities');">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow">英国顶尖大学安全深度分析</h1>
+            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto text-shadow">为国际学生择校提供数据洞察与决策支持</p>
+        </header>
+
+        <main class="mt-12">
+            <section id="pillars" class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-2">何为“安全”？</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">我们从三个维度综合评估大学安全，揭示数据背后的完整图景。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="card p-6">
+                        <div class="text-6xl text-[#0a9396] mb-4">🏙️</div>
+                        <h3 class="text-2xl font-bold text-[#005f73] mb-2">客观安全</h3>
+                        <p class="text-gray-600">基于官方警务数据，量化大学所在城市的宏观犯罪风险，建立安全基准线。</p>
+                    </div>
+                    <div class="card p-6">
+                        <div class="text-6xl text-[#ee9b00] mb-4">🛡️</div>
+                        <h3 class="text-2xl font-bold text-[#005f73] mb-2">制度安全</h3>
+                        <p class="text-gray-600">评估大学的安保设施、科技应用、支持服务及应急响应能力。</p>
+                    </div>
+                    <div class="card p-6">
+                        <div class="text-6xl text-[#94d2bd] mb-4">😊</div>
+                        <h3 class="text-2xl font-bold text-[#005f73] mb-2">感知安全</h3>
+                        <p class="text-gray-600">通过分析学生真实反馈，捕捉校园生活的实际安全感受与核心关切。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="city-crime" class="mb-16 card p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-2">大学城犯罪率比较</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">此图比较了英国主要大学城2023-2024年的总体犯罪率（每千人犯罪数）。数据显示，伦敦、曼彻斯特等大都市的客观风险较高，而巴斯、埃克塞特等历史名城则更为安全。</p>
+                <div class="chart-container">
+                    <canvas id="cityCrimeChart" role="img" aria-label="柱状图，比较英国主要大学城的犯罪率。伦敦和利物浦最高，埃克塞特最低。"></canvas>
+                </div>
+            </section>
+
+            <section id="paradox" class="mb-16 card p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-2">核心发现：“安全悖论”</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">位于高风险城市的大学，往往会投入更多资源建立顶级的安保体系，形成安全的“校园气泡”。因此，选择大学是在“环境风险”与“制度保障”之间进行权衡。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold text-center text-[#005f73] mb-4">大都市模式 (如伦敦)</h3>
+                        <div class="chart-container" style="height: 250px; max-height: 250px;">
+                             <canvas id="paradoxChartLondon" role="img" aria-label="环形图，显示伦敦模式下城市风险高，但制度保障也极高。"></canvas>
+                        </div>
+                        <p class="mt-4 text-gray-600">较高的城市风险促使大学建立卓越的制度安全保障。</p>
+                    </div>
+                    <div class="text-center">
+                         <h3 class="text-xl font-semibold text-center text-[#005f73] mb-4">校园镇模式 (如圣安德鲁斯)</h3>
+                        <div class="chart-container" style="height: 250px; max-height: 250px;">
+                             <canvas id="paradoxChartStAndrews" role="img" aria-label="环形图，显示圣安德鲁斯模式下城市风险低，制度保障为标准水平。"></canvas>
+                        </div>
+                        <p class="mt-4 text-gray-600">较低的城市风险与标准的制度安全相辅相成。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tiers" class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-2">大学安全等级划分</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">基于综合评估，我们将QS前200的英国大学划分为三个梯队，为您提供决策参考。</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="card tier-card tier-1">
+                        <h3 class="text-2xl font-bold text-[#005f73]">第一梯队：典范级安全</h3>
+                        <p class="text-gray-600 mb-4">位于低犯罪率城市，且自身安保体系完善，提供最安心的整体环境。</p>
+                        <ul class="space-y-2">
+                            <li class="font-medium">圣安德鲁斯大学 (QS #104)</li>
+                            <li class="font-medium">华威大学 (QS #69)</li>
+                            <li class="font-medium">巴斯大学 (QS #150)</li>
+                            <li class="font-medium">杜伦大学 (QS #89)</li>
+                            <li class="font-medium">兰卡斯特大学 (QS #141)</li>
+                        </ul>
+                    </div>
+                    <div class="card tier-card tier-2">
+                        <h3 class="text-2xl font-bold text-[#005f73]">第二梯队：强力保障</h3>
+                        <p class="text-gray-600 mb-4">地处中高风险城市，但顶级的制度安全设施创造了安全的“校内避风港”。</p>
+                        <ul class="space-y-2">
+                            <li class="font-medium">帝国理工学院 (QS #2)</li>
+                            <li class="font-medium">牛津大学 (QS #3)</li>
+                            <li class="font-medium">剑桥大学 (QS #5)</li>
+                             <li class="font-medium">伦敦大学学院 (QS #9)</li>
+                            <li class="font-medium">爱丁堡大学 (QS #27)</li>
+                            <li class="font-medium">曼彻斯特大学 (QS #34)</li>
+                        </ul>
+                    </div>
+                    <div class="card tier-card tier-3">
+                        <h3 class="text-2xl font-bold text-[#005f73]">第三梯队：标准配置</h3>
+                        <p class="text-gray-600 mb-4">提供符合行业标准的安保服务，完全能够保障学生安全。</p>
+                        <ul class="space-y-2">
+                            <li class="font-medium">格拉斯哥大学 (QS #78)</li>
+                            <li class="font-medium">伯明翰大学 (QS #80)</li>
+                            <li class="font-medium">利兹大学 (QS #82)</li>
+                            <li class="font-medium">谢菲尔德大学 (QS #105)</li>
+                            <li class="font-medium">利物浦大学 (QS #165)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="deep-dive" class="mb-16 card p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-2">重点大学深度剖析</h2>
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">通过雷达图直观比较不同类型大学的安全特点。分数越高代表表现越好（注意：“城市风险”分数为逆向指标，越高代表风险越低）。</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-[#005f73]">帝国理工学院</h3>
+                        <div class="chart-container" style="height: 300px; max-height: 300px;">
+                            <canvas id="radarChartICL" role="img" aria-label="雷达图，显示帝国理工学院在校园安保和科技应用方面得分高，但在城市风险（逆向指标）方面得分低。"></canvas>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-[#005f73]">曼彻斯特大学</h3>
+                        <div class="chart-container" style="height: 300px; max-height: 300px;">
+                            <canvas id="radarChartManchester" role="img" aria-label="雷达图，显示曼彻斯特大学在学生支持和校园安保方面得分高，但在城市风险和感知安全方面得分较低。"></canvas>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4 text-[#005f73]">圣安德鲁斯大学</h3>
+                        <div class="chart-container" style="height: 300px; max-height: 300px;">
+                            <canvas id="radarChartStAndrews" role="img" aria-label="雷达图，显示圣安德鲁斯大学在城市风险（逆向指标）和感知安全方面得分极高，但在科技应用方面得分较低。"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="checklist" class="mb-16 card p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#005f73] mb-8">留英学生通用安全清单</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#0a9396]">🚶</span>
+                        <div>
+                            <h4 class="font-bold">夜间出行</h4>
+                            <p class="text-gray-600">尽量结伴而行，选择光线充足的大路，提前规划路线。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#ee9b00]">📱</span>
+                        <div>
+                            <h4 class="font-bold">善用科技</h4>
+                            <p class="text-gray-600">下载并使用学校的SafeZone等安全应用，一键求助。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#ca6702]">🚕</span>
+                        <div>
+                            <h4 class="font-bold">安全交通</h4>
+                            <p class="text-gray-600">预订有执照的出租车或信誉良好的网约车，核对信息。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#94d2bd]">💼</span>
+                        <div>
+                            <h4 class="font-bold">财产保护</h4>
+                            <p class="text-gray-600">财不露白，尤其警惕街头手机抢夺，锁好自行车。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#bb3e03]">🍹</span>
+                        <div>
+                            <h4 class="font-bold">社交警惕</h4>
+                            <p class="text-gray-600">在派对中，绝不让饮品离开视线，不接受陌生人递来的饮品。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-3xl text-[#ae2012]">📧</span>
+                        <div>
+                            <h4 class="font-bold">防范诈骗</h4>
+                            <p class="text-gray-600">警惕任何要求转账的电话或邮件，官方机构不会这样做。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center text-gray-500 py-8 border-t">
+            <p>&copy; 2025 英国大学安全洞察报告。基于公开数据分析，仅供参考。</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // @ts-ignore
+            const Chart = window.Chart;
+            const brilliantBlues = {
+                darkBlue: '#005f73',
+                teal: '#0a9396',
+                lightTeal: '#94d2bd',
+                sand: '#e9d8a6',
+                gold: '#ee9b00',
+                orange: '#ca6702',
+                darkOrange: '#bb3e03',
+                red: '#ae2012',
+                darkRed: '#9b2226'
+            };
+
+            const wrapLabel = (label: string) => {
+                const maxLength = 16;
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).length > maxLength) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = currentLine ? currentLine + ' ' + word : word;
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            };
+            
+            const tooltipTitleCallback = (tooltipItems: any[]) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                  return label.join(' ');
+                } else {
+                  return label;
+                }
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: brilliantBlues.darkBlue,
+                            font: {
+                                size: 14,
+                                family: "'Noto Sans SC', sans-serif"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        },
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleFont: {
+                            size: 16,
+                            family: "'Noto Sans SC', sans-serif"
+                        },
+                        bodyFont: {
+                            size: 14,
+                            family: "'Noto Sans SC', sans-serif"
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: brilliantBlues.darkBlue,
+                            font: { size: 12, family: "'Noto Sans SC', sans-serif" }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: brilliantBlues.darkBlue,
+                            font: { size: 12, family: "'Noto Sans SC', sans-serif" }
+                        },
+                        grid: {
+                            color: '#e0e0e0'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            };
+            
+            const cityCrimeCanvas = document.getElementById('cityCrimeChart');
+            if (cityCrimeCanvas) {
+                const cityCrimeCtx = (cityCrimeCanvas as HTMLCanvasElement).getContext('2d');
+                const cityCrimeData = {
+                    labels: ['伦敦 (威斯敏斯特)', '利物浦', '曼彻斯特', '布里斯托', '纽卡斯尔', '诺丁汉', '谢菲尔德', '利兹', '约克', '兰卡斯特', '巴斯', '埃克塞特'],
+                    datasets: [{
+                        label: '总犯罪率 (每千人)',
+                        data: [131, 135, 128.9, 118, 119, 117, 106, 101.3, 96, 80, 78, 44],
+                        backgroundColor: brilliantBlues.teal,
+                        borderColor: brilliantBlues.darkBlue,
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                };
+                new Chart(cityCrimeCtx, {
+                    type: 'bar',
+                    data: cityCrimeData,
+                    options: defaultChartOptions
+                });
+            }
+
+            const paradoxLondonCanvas = document.getElementById('paradoxChartLondon');
+            if (paradoxLondonCanvas) {
+                const paradoxLondonCtx = (paradoxLondonCanvas as HTMLCanvasElement).getContext('2d');
+                new Chart(paradoxLondonCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['城市风险', '制度保障'],
+                        datasets: [{
+                            data: [80, 95],
+                            backgroundColor: [brilliantBlues.red, brilliantBlues.teal],
+                            borderColor: '#ffffff',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: { ...defaultChartOptions, scales: {} }
+                });
+            }
+
+            const paradoxStAndrewsCanvas = document.getElementById('paradoxChartStAndrews');
+            if (paradoxStAndrewsCanvas) {
+                const paradoxStAndrewsCtx = (paradoxStAndrewsCanvas as HTMLCanvasElement).getContext('2d');
+                new Chart(paradoxStAndrewsCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['城市风险', '制度保障'],
+                        datasets: [{
+                            data: [20, 70],
+                            backgroundColor: [brilliantBlues.lightTeal, brilliantBlues.gold],
+                            borderColor: '#ffffff',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: { ...defaultChartOptions, scales: {} }
+                });
+            }
+            
+            const radarOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: defaultChartOptions.plugins.tooltip
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 95, 115, 0.2)' },
+                        grid: { color: 'rgba(0, 95, 115, 0.2)' },
+                        pointLabels: {
+                            color: brilliantBlues.darkBlue,
+                            font: { size: 12, family: "'Noto Sans SC', sans-serif" }
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: 'rgba(0, 95, 115, 0.7)',
+                            stepSize: 2
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                }
+            };
+            const radarLabels = ['城市风险(逆)', '校园安保', '学生支持', '感知安全', '科技应用'];
+
+            const radarIclCanvas = document.getElementById('radarChartICL');
+            if (radarIclCanvas) {
+                new Chart(radarIclCanvas.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: radarLabels,
+                        datasets: [{
+                            label: '帝国理工',
+                            data: [3, 9, 8, 7, 9],
+                            backgroundColor: 'rgba(10, 147, 150, 0.4)',
+                            borderColor: brilliantBlues.teal,
+                            pointBackgroundColor: brilliantBlues.teal,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: radarOptions
+                });
+            }
+
+            const radarManchesterCanvas = document.getElementById('radarChartManchester');
+            if (radarManchesterCanvas) {
+                new Chart(radarManchesterCanvas.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: radarLabels,
+                        datasets: [{
+                            label: '曼彻斯特',
+                            data: [4, 8, 9, 6, 8],
+                            backgroundColor: 'rgba(238, 155, 0, 0.4)',
+                            borderColor: brilliantBlues.gold,
+                            pointBackgroundColor: brilliantBlues.gold,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: radarOptions
+                });
+            }
+
+            const radarStAndrewsCanvas = document.getElementById('radarChartStAndrews');
+            if (radarStAndrewsCanvas) {
+                new Chart(radarStAndrewsCanvas.getContext('2d'), {
+                    type: 'radar',
+                    data: {
+                        labels: radarLabels,
+                        datasets: [{
+                            label: '圣安德鲁斯',
+                            data: [10, 7, 9, 10, 5],
+                            backgroundColor: 'rgba(148, 210, 189, 0.4)',
+                            borderColor: brilliantBlues.lightTeal,
+                            pointBackgroundColor: brilliantBlues.lightTeal,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: radarOptions
+                });
+            }
+        });
+    </script>
+</body>
+</html>
