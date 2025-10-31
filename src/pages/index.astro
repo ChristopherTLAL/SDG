@@ -1,118 +1,154 @@
 ---
-// src/pages/index.astro
-import MainLayout from '../layouts/MainLayout.astro'; // 导入主模板
+// --- 1. 数据获取 ---
+// 导入你的 Sanity 客户端和图片 URL 构建器
+// (请确保路径 '../lib/sanity' 是正确的)
+import { sanityClient, urlFor } from '../lib/sanity';
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+// 导入主模板
+import MainLayout from '../layouts/MainLayout.astro';
+
+// 定义文章的数据结构 (TypeScript 类型)
+interface Post {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  publishDate: string;
+  coverImage?: SanityImageSource;
+  excerpt?: string;
+}
+
+// GROQ 查询：获取所有类型为 'post' 的文档，按发布日期倒序排列
+const query = `*[_type == "post"] | order(publishDate desc)`;
+
+// 从 Sanity 获取所有文章数据
+const allPosts: Post[] = await sanityClient.fetch(query);
+
+// --- 2. 拆分数据用于布局 ---
+// 将第一篇文章作为 "头条"
+const featuredPost = allPosts[0];
+// 将剩余的文章作为 "最新列表"
+const latestPosts = allPosts.slice(1);
+
+// 辅助函数：简单格式化日期 (例如 2025-10-31)
+function formatDate(dateString: string) {
+  try {
+    const date = new Date(dateString);
+    // 增加一天，修复可能的时区问题 (Sanity 日期可能被解释为 UTC 午夜)
+    date.setUTCDate(date.getUTCDate() + 1);
+    return date.toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  } catch (e) {
+    return dateString; // 出错时返回原始字符串
+  }
+}
 ---
+
 <MainLayout>
-	<!-- Hero Section -->
-	<section class="relative h-[85vh] md:h-screen flex items-center justify-center text-center overflow-hidden bg-gray-100 dark:bg-gray-900">
-		<canvas id="hero-canvas"></canvas>
-		<div class="relative z-10 px-6">
-			<h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 reveal">
-				中国可持续发展目标研究院
-			</h1>
-			<p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 reveal" style="transition-delay: 150ms;">
-				立足中国视野，探索全球可持续未来。我们致力于通过跨学科研究、深度对话和公共传播，为实现联合国可持续发展目标 (SDGs) 贡献东方智慧与中国方案。
-			</p>
-			<div class="reveal" style="transition-delay: 300ms;">
-				<a href="#categories" class="bg-gray-800 text-white dark:bg-white dark:text-gray-900 px-8 py-3 rounded-lg text-base font-semibold hover:bg-gray-900 dark:hover:bg-gray-200 transition-transform hover:scale-105 transform shadow-lg">
-					开始探索
-				</a>
-			</div>
-		</div>
-	</section>
+  <div classT="container mx-auto px-6 py-12 md:py-16">
+    
+    <!-- === 头条文章 (Featured Post) === -->
+    {featuredPost && (
+      <section id="featured-story" class="mb-12 md:mb-16">
+        <a href={`/post/${featuredPost.slug.current}`} class="group block overflow-hidden rounded-2xl bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <div class="md:flex">
+            <!-- 头条-图片 -->
+            {featuredPost.coverImage && (
+              <div class="md:w-3/5 overflow-hidden">
+                <img
+                  src={urlFor(featuredPost.coverImage).width(1200).height(800).auto('format').url()}
+                  alt={`[${featuredPost.title} 的封面图片]`}
+                  class="w-full h-64 md:h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                />
+              </div>
+            )}
+            <!-- 头条-文字 -->
+            <div class="md:w-2/5 p-6 md:p-10 flex flex-col justify-center">
+              <span class="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                头条
+              </span>
+              <h2 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mt-3 mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {featuredPost.title}
+              </h2>
+              <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-5">
+                {featuredPost.excerpt || '暂无摘要'}
+              </p>
+              <span class="text-sm text-gray-500 dark:text-gray-500">
+                {formatDate(featuredPost.publishDate)}
+              </span>
+            </div>
+          </div>
+        </a>
+      </section>
+    )}
 
-	<!-- Partners Section -->
-	<section id="about" class="py-16 bg-gray-100 dark:bg-black/20">
-		<div class="container mx-auto px-6">
-			<div class="text-center">
-				<h2 class="text-sm font-semibold text-gray-600 dark:text-gray-400 tracking-widest uppercase reveal">理论参考与合作伙伴</h2>
-				<div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Logo_of_the_United_Nations.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" alt="United Nations">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/The_World_Bank_logo.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 100ms;" alt="World Bank">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/WWF_logo_%28Text_only%29.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 200ms;" alt="WWF">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Logo_UNESCO_2021.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 300ms;" alt="UNESCO">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 400ms;" alt="UNICEF">
-					<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/UNFCCC_logo_with_text.svg" class="h-8 mx-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 reveal" style="transition-delay: 500ms;" alt="UNFCCC">
-				</div>
-			</div>
-		</div>
-	</section>
+    <!-- === 主要内容区域 (最新文章 + SDG 侧边栏) === -->
+    <section id="content-grid" class="lg:grid lg:grid-cols-12 lg:gap-12">
+      
+      <!-- 最新文章列表 (Main Feed) -->
+      <div class="lg:col-span-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-700 pb-4">
+          最新动态
+        </h2>
+        
+        <div class="space-y-10">
+          {latestPosts.length > 0 ? (
+            latestPosts.map(post => (
+              <a href={`/post/${post.slug.current}`} class="group grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+                <!-- 文章卡片-图片 -->
+                <div class="md:col-span-1 overflow-hidden rounded-lg">
+                  {post.coverImage ? (
+                    <img
+                      src={urlFor(post.coverImage).width(400).height(300).auto('format').url()}
+                      alt={`[${post.title} 的封面图片]`}
+                      class="w-full h-auto object-cover object-center group-hover:opacity-80 transition-opacity duration-300"
+                    />
+                  ) : (
+                    <div class="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500">
+                      无图片
+                    </div>
+                  )}
+                </div>
+                <!-- 文章卡片-文字 -->
+                <div class="md:col-span-3">
+                  <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-3 hidden md:block">
+                    {post.excerpt || '暂无摘要'}
+                  </p>
+                  <span class="text-sm text-gray-500 dark:text-gray-500">
+                    {formatDate(post.publishDate)}
+                  </span>
+                </div>
+              </a>
+            ))
+          ) : (
+            <p class="text-gray-500 dark:text-gray-400">暂无文章。</p>
+          )}
+        </div>
+      </div>
 
-	<!-- 内容分类 Section -->
-	<section id="categories" class="py-16 md:py-24">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white reveal">核心内容板块</h2>
-				<p class="mt-4 text-lg text-gray-600 dark:text-gray-400 reveal" style="transition-delay: 150ms;">从多元视角，深度解读可持续发展的核心议题。</p>
-			</div>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-				<!-- Updated Card Style -->
-				<a href="/category/podcast" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal">
-					<div class="overflow-hidden"><img src="https://images.pexels.com/photos/6954162/pexels-photo-6954162.jpeg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Podcast abstract image"></div>
-					<div class="p-6">
-						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">未来播客</h3>
-						<p class="text-gray-600 dark:text-gray-400 text-sm">聆听来自学术前沿与实践一线的声音。</p>
-					</div>
-				</a>
-				<!-- Updated Card Style -->
-				<a href="/category/interview" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 100ms;">
-					<div class="overflow-hidden"><img src="https://images.pexels.com/photos/7967592/pexels-photo-7967592.jpeg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Interview abstract image"></div>
-					<div class="p-6">
-						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">人物专访</h3>
-						<p class="text-gray-600 dark:text-gray-400 text-sm">记录时代变革者与企业家的思考与行动。</p>
-					</div>
-				</a>
-				<!-- Updated Card Style -->
-				<a href="/category/report" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 200ms;">
-					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Reports abstract image"></div>
-					<div class="p-6">
-						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">研究报告</h3>
-						<p class="text-gray-600 dark:text-gray-400 text-sm">发布原创深度研究，提供数据驱动的洞察。</p>
-					</div>
-				</a>
-				<!-- Updated Card Style -->
-				<a href="/category/event" class="group block rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2 reveal" style="transition-delay: 300ms;">
-					<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" alt="Events abstract image"></div>
-					<div class="p-6">
-						<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">活动与研讨</h3>
-						<p class="text-gray-600 dark:text-gray-400 text-sm">汇聚全球智慧，举办线上线下研讨会。</p>
-					</div>
-				</a>
-			</div>
-		</div>
-	</section>
+      <!-- 侧边栏 (Sidebar) -->
+      <aside class="lg:col-span-4 mt-12 lg:mt-0">
+        <!-- 你原来的 SDG 板块被移到这里，作为侧边栏 -->
+        <section id="sdgs" class="sticky top-24 p-6 bg-gray-100 dark:bg-black/20 rounded-2xl">
+          <div class="text-left mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">聚焦 SDG 目标</h2>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">探索与联合国可持续发展目标相关的议题。</p>
+          </div>
+          <div id="sdg-grid" class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-3">
+            <!-- SDG Cards will be injected here by JS (和你原来一样) -->
+          </div>
+        </section>
+      </aside>
 
-	<!-- SDG Section -->
-	<section id="sdgs" class="py-16 md:py-24 bg-gray-100 dark:bg-black/20">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white reveal">聚焦17个可持续发展目标</h2>
-				<p class="mt-4 text-lg text-gray-600 dark:text-gray-400 reveal" style="transition-delay: 150ms;">我们的研究议程围绕联合国2030年议程展开，探索每个目标的中国路径。</p>
-			</div>
-			<div id="sdg-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-				<!-- SDG Cards will be injected here by JS -->
-			</div>
-		</div>
-	</section>
+    </section>
 
-
-	<!-- Future Scholars CTA Section -->
-	<section id="future-scholars" class="py-16 md:py-24">
-		<div class="container mx-auto px-6">
-			<div class="relative bg-gray-800 dark:bg-gray-800/50 rounded-2xl p-10 md:p-16 text-center overflow-hidden">
-				<div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full"></div>
-				<div class="absolute -bottom-16 -left-10 w-56 h-56 bg-green-500/10 rounded-full"></div>
-				<div class="relative z-10">
-					<h2 class="text-3xl md:text-4xl font-bold text-white reveal">成为下一位全球变革者</h2>
-					<p class="mt-4 text-lg max-w-2xl mx-auto text-gray-300 reveal" style="transition-delay: 150ms;">加入“未来学者”计划，与牛剑导师同行，将你的学术热情转化为世界一流大学的录取通知书。我们提供一对一研究指导，提升你的全球竞争力。</p>
-					<div class="mt-8 reveal" style="transition-delay: 300ms;">
-						<a href="/future-scholars-program" class="bg-white text-gray-900 px-8 py-3 rounded-lg text-base font-semibold hover:bg-gray-200 transition-transform hover:scale-105 transform shadow-lg">
-							了解计划详情
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-  </MainLayout>
+  </div>
+</MainLayout>
