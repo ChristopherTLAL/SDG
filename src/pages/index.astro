@@ -112,7 +112,7 @@ function getSdgTitle(sdgValue: string) {
 
     <!-- === 2. 最新动态 (Top Stories) === -->
     {topStoryPosts.length > 0 && (
-      <section class="top-stories">
+      <section id="top-stories" class="top-stories">
         <h2 class="section-heading">最新动态</h2>
         <div class="top-stories__grid">
           <!-- 大卡片 (左侧) -->
@@ -171,8 +171,9 @@ function getSdgTitle(sdgValue: string) {
     )}
 
     <!-- === 3. SDG 分类板块 (示例 1) === -->
+    <!-- 我给这个 section 添加了 ID，以便导航栏链接能跳转 -->
     {sdg1Posts.length > 0 && (
-      <section class="category-showcase">
+      <section id="sdg-sections" class="category-showcase">
         <h2 class="section-heading">
           <a href="/sdg/1">{getSdgTitle('1')}</a>
         </h2>
@@ -253,29 +254,10 @@ function getSdgTitle(sdgValue: string) {
 
 <!-- 
   === 样式 ===
-  这就是你问题的答案。我们在这里用 <style> 标签定义所有样式。
-  这些是模仿 The Intercept 风格的自定义 CSS。
-  (Astro 默认会将这些样式进行作用域处理，非常棒)
+  这些是 index.astro 页面专属的样式。
+  全局的 :root, .dark, body 样式已移至 MainLayout.astro。
 -->
 <style>
-  /* --- 基础和字体 --- */
-  :root {
-    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-    --color-text: #111;
-    --color-text-dim: #555;
-    --color-bg: #ffffff;
-    --color-border: #eee;
-    --color-accent: #0058e6;
-  }
-
-  .dark {
-    --color-text: #f0f0f0;
-    --color-text-dim: #999;
-    --color-bg: #121212;
-    --color-border: #333;
-  }
-  
   .page-container {
     width: 100%;
     max-width: 1300px;
