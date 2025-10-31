@@ -1,12 +1,20 @@
 ---
 // --- 1. 数据获取 ---
-// 导入你的 Sanity 客户端和图片 URL 构建器
+// 导入你的 Sanity 客户端
 // (请确保路径 '../lib/sanity' 是正确的)
-import { sanityClient, urlFor } from '../lib/sanity';
+import { sanityClient } from '../lib/sanity';
+// 导入 Sanity 图像 URL 构建器
+import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // 导入主模板
 import MainLayout from '../layouts/MainLayout.astro';
+
+// --- 1b. 设置图像 URL 构建器 (修复 Vercel 编译错误) ---
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source: SanityImageSource) {
+  return builder.image(source);
+}
 
 // 定义文章的数据结构 (TypeScript 类型)
 interface Post {
@@ -152,3 +160,4 @@ function formatDate(dateString: string) {
 
   </div>
 </MainLayout>
+
