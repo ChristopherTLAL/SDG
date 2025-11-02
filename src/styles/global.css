@@ -1,15 +1,102 @@
-/*
-  这是你新的 global.css 文件。
-  我删除了所有旧的、冲突的自定义样式
-  (比如 #hero-canvas, .reveal, .resource-gallery-item 等)。
-  我们只保留 Tailwind 的指令。
-*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 我们不再需要在这里添加自定义样式，
-  因为它们现在都在 MainLayout.astro (全局布局) 
-  和 index.astro (页面专属) 的 <style> 标签里。
-*/
+body {
+  font-family: 'Crimson Pro', serif;
+  background-color: #000;
+  color: #fff;
+}
+
+@media (min-width: 1280px) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.font-icons {
+  /* font-family: 'TI-Icons', sans-serif; */
+}
+
+.site-header {
+  background-color: transparent;
+}
+
+.hero-article {
+  position: relative;
+}
+
+.hero-article__link {
+  display: block;
+  position: relative;
+}
+
+.hero-article__image {
+  width: 100%;
+  height: auto;
+}
+
+.hero-article__heading {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.content-card {
+  background-color: #1a1a1a;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.content-card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 1280px) {
+  .content-card {
+    background-color: #fff;
+  }
+  .content-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+}
+
+.article-body p {
+  @apply text-lg leading-relaxed my-6;
+}
+
+.article-body h2 {
+  @apply text-3xl font-bold mt-12 mb-4 font-serif;
+}
+
+.article-body h3 {
+  @apply text-2xl font-bold mt-8 mb-4 font-serif;
+}
+
+.article-body a {
+  @apply text-blue-500 underline;
+}
+
+.article-body blockquote {
+  @apply border-l-4 border-gray-500 pl-4 italic my-6;
+}
+
+
+.bg-accentLight {
+  background-color: #ff6900;
+}
+
+.text-accentDark {
+  color: #cf2e2e;
+}
+
+.bg-concrete {
+  background-color: #f2f2f2;
+}
+
+.text-body {
+  color: #000;
+}

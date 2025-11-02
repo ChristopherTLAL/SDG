@@ -1,0 +1,48 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { client } from '../lib/sanity/client';
+import { POST_BY_SLUG_QUERY, ALL_POST_SLUGS_QUERY } from '../lib/sanity/queries';
+import { urlFor } from '../lib/sanity/image';
+import { formatDate } from '../utils/date';
+import { toHTML } from '@portabletext/to-html';
+
+export async function getStaticPaths() {
+  const slugs = await client.fetch(ALL_POST_SLUGS_QUERY);
+  return slugs.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const post = await client.fetch(POST_BY_SLUG_QUERY, { slug });
+
+if (!post) {
+  return Astro.redirect('/'); // 或者渲染 404
+}
+
+const bodyHtml = toHTML(post.body || []);
+const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined;
+---
+
+
+<MainLayout title={post.title} description={post.excerpt ?? ''} ogImage={ogImage}>
+  <article class="prose prose-neutral max-w-3xl">
+    <p class="mb-2 text-sm text-neutral-500">
+      {post.category && <span class="font-semibold uppercase">{post.category}</span>}
+      {post.publishedAt && <span> · {formatDate(post.publishedAt)}</span>}
+      {post.author?.name && <span> · By {post.author.name}</span>}
+    </p>
+
+    <h1 class="!mb-4">{post.title}</h1>
+
+    {post.mainImage && (
+      <img
+        src={urlFor(post.mainImage).width(1200).url()}
+        alt={post.title}
+        class="w-full rounded-xl"
+      />
+    )}
+
+    {post.excerpt && <p class="text-lg text-neutral-700">{post.excerpt}</p>}
+
+    <div class="mt-6" set:html={bodyHtml} />
+  </article>
+</MainLayout>

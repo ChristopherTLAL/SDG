@@ -1,0 +1,16 @@
+---
+const { category } = Astro.props as { category?: string };
+const map: Record<string, string> = {
+  report: 'bg-emerald-600',
+  event: 'bg-indigo-600',
+  interview: 'bg-rose-600',
+  podcast: 'bg-amber-600',
+};
+const cls = map[category] ?? 'bg-neutral-700';
+---
+
+{category && (
+  <span class={`inline-block rounded-full ${cls} px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-white`}>
+    {category}
+  </span>
+)}

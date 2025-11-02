@@ -1,16 +1,11 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/static';
 import tailwind from '@astrojs/tailwind';
-import react from '@astrojs/react'; // 导入 react 插件
-
-import vercel from '@astrojs/vercel';
+import react from '@astrojs/react';
 
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    react() // 添加 react 插件
-  ],
-
+  output: 'static',
   adapter: vercel(),
+  integrations: [tailwind(), react()],
 });
-

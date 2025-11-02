@@ -1,372 +1,50 @@
 ---
 // src/layouts/MainLayout.astro
-import '../styles/global.css'; // 我们仍然导入这个，主要用于 Tailwind 重置 (如果 global.css 里有的话)
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
-// title 属性保持不变
-const { title = "中国可持续发展目标研究院 | China SDG Research Institute" } = Astro.props;
+const {
+  title = 'Home',
+  description = '',
+  ogImage = undefined,
+} = Astro.props;
+const siteTitle = 'Chinese SDG Institute';
 ---
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — {siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- 移除了 three.min.js，因为它不再被使用 -->
-</head>
-
-<!-- 移除了 body 上的所有 Tailwind 类 -->
-<body>
-
-    <!-- === 新的页眉 (Header) === -->
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="site-title">
-                China SDG Research Institute
-            </a>
-            <nav class="site-nav">
-                <!-- 更新了链接以匹配新的页面结构 -->
-                <a href="/#top-stories">最新动态</a>
-                <a href="/#sdg-sections">SDG 板块</a> <!-- 你需要给你的 SDG 板块加一个 ID，比如 <section id="sdg-sections"> -->
-                <a href="/future-scholars-program">未来学者</a>
-                <a href="/about">关于我们</a>
-            </nav>
-            <div class="header-actions">
-                <button onclick="App.openModal('wechatModal')" class="contact-button">联系我们</button>
-            </div>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- OpenGraph -->
+    <meta property="og:title" content={`${title} — ${siteTitle}`} />
+    <meta property="og:description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-black xl:bg-white text-white xl:text-black">
+    <Header />
+    <slot name="hero" />
+    <div class="relative bg-black xl:bg-white">
+      <main class="mx-auto max-w-6xl px-4 py-8">
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+          <slot />
         </div>
-    </header>
-
-    <!-- 微信联系弹窗 (来自你的旧布局) -->
-    <div id="wechatModal" class="fixed inset-0 z-[100] items-center justify-center p-4" style="display: none;">
-        <div class="modal-backdrop fixed inset-0 bg-black/60 dark:bg-black/80" onclick="App.closeModal('wechatModal')"></div>
-        <div class="modal-content bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-sm text-center p-8 relative">
-            <button onclick="App.closeModal('wechatModal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white text-3xl">&times;</button>
-            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">扫码添加顾问微信</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">即刻开启免费评估</p>
-            <img src="https://placehold.co/256x256/f5f5f7/1d1d1f?text=QR+Code" alt="微信二维码" class="w-64 h-64 mx-auto rounded-lg bg-gray-100" onerror="this.onerror=null;this.src='https://placehold.co/256x256/f5f5f7/1d1d1f?text=Image+Error';">
-        </div>
+      </main>
+      <div class="mx-auto max-w-6xl px-4">
+        <Footer />
+      </div>
     </div>
-    
-    <!-- 
-      <main> 标签现在很干净，没有 'pt-16'。
-      来自 index.astro 的 <slot /> 内容会填充到这里。
-    -->
-    <main>
-        <slot />
-    </main>
-
-    <!-- === 新的页脚 (Footer) === -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3 class="footer-title">China SDG Research Institute</h3>
-                <p class="footer-desc">探索可持续未来</p>
-                <p class="footer-copy">&copy; 2024. All Rights Reserved.</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-heading">快速链接</h4>
-                <ul class="footer-links">
-                    <li><a href="/#top-stories">最新动态</a></li>
-                    <li><a href="/#sdg-sections">SDG 板块</a></li>
-                    <li><a href="/future-scholars-program">未来学者</a></li>
-                    <li><a href="/about">关于我们</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-heading">了解更多</h4>
-                <p class="footer-desc">扫描二维码，获取精选研究资料与活动信息。</p>
-                <div class="qr-code-placeholder">
-                    <span>QR Code</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 移除了 SDG Modal 的 HTML -->
-
-    <!-- === 脚本 === -->
-    <script is:inline>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- 自动暗黑模式 ---
-            const applySystemTheme = () => {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            };
-            applySystemTheme();
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
-
-            // --- 移除了 3D Hero 动画 (init3D, animate, etc.) ---
-            
-            // --- 移除了 SDG Data 和 SDG Modal Logic ---
-            
-            // --- 移除了 Scroll Reveal Animation ---
-        });
-
-        // --- Vercel Analytics ---
-        // (你的 Vercel 脚本会在这里)
-    </script>
-    <script>
-     import { inject } from '@vercel/analytics';
-     import { injectSpeedInsights } from '@vercel/speed-insights';
-
-     inject(); // 注入 Vercel Analytics
-     injectSpeedInsights(); // 注入 Vercel Speed Insights
-    </script>
-
-    <!-- --- 微信弹窗 App 逻辑 (保留) --- -->
-    <script is:inline>
-    const App = (() => {
-        const openModal = (modalId) => {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-            
-            const backdrop = modal.querySelector('.modal-backdrop');
-            const content = modal.querySelector('.modal-content');
-
-            modal.style.display = 'flex';
-            setTimeout(() => {
-                if (backdrop) backdrop.style.opacity = 1;
-                if (content) {
-                    content.style.opacity = 1;
-                    content.style.transform = 'scale(1)';
-                }
-            }, 10);
-        };
-
-        const closeModal = (modalId) => {
-            const modal = document.getElementById(modalId);
-            if (!modal) return;
-
-            const backdrop = modal.querySelector('.modal-backdrop');
-            const content = modal.querySelector('.modal-content');
-
-            if (backdrop) backdrop.style.opacity = 0;
-            if (content) {
-                content.style.opacity = 0;
-                content.style.transform = 'scale(0.95)';
-            }
-            
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
-        };
-        
-        // 移除了 openResourceModal
-        return { openModal, closeModal };
-    })();
-    </script>
-</body>
+  </body>
 </html>
-
-<!-- === 新增的样式 === -->
-<!-- 
-  这些样式用于新的页眉和页脚。
-  我还把 :root 和 .dark 变量从 index.astro 移到了这里，
-  因为它们是全局样式，应该在布局文件中定义。
--->
-<style>
-  /* --- 全局变量和基础 (从 index.astro 移动过来) --- */
-  :root {
-    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-    --color-text: #111;
-    --color-text-dim: #555;
-    --color-bg: #ffffff;
-    --color-border: #eee;
-    --color-accent: #0058e6;
-  }
-
-  .dark {
-    --color-text: #f0f0f0;
-    --color-text-dim: #999;
-    --color-bg: #121212;
-    --color-border: #333;
-  }
-  
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font-body);
-    transition: background-color 0.3s, color 0.3s;
-    margin: 0;
-    padding-top: 70px; /* 为固定页眉留出空间 */
-  }
-
-  /* --- 新页眉 (Site Header) --- */
-  .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(10px);
-    background-color: rgba(var(--color-bg-rgb, 255, 255, 255), 0.8);
-    z-index: 50;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  .dark .site-header {
-     background-color: rgba(var(--color-bg-rgb, 18, 18, 18), 0.8);
-  }
-
-  .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1300px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  @media (min-width: 768px) {
-    .header-container {
-      padding: 0 2rem;
-    }
-  }
-
-  .site-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-text);
-    text-decoration: none;
-  }
-
-  .site-nav {
-    display: none; /* 手机上隐藏 */
-  }
-
-  @media (min-width: 768px) {
-    .site-nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .site-nav a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--color-text-dim);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .site-nav a:hover {
-      color: var(--color-accent);
-    }
-  }
-  
-  .header-actions .contact-button {
-    font-size: 0.9rem;
-    font-weight: 500;
-    background-color: var(--color-accent);
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .header-actions .contact-button:hover {
-    background-color: #0045b6;
-  }
-
-  /* --- 新页脚 (Site Footer) --- */
-  .site-footer {
-    background: #1a1a1a;
-    color: #aaa;
-    padding: 3rem 1rem;
-    margin-top: 4rem;
-  }
-  
-  .dark .site-footer {
-    background: #0a0a0a;
-  }
-
-  .footer-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  @media (min-width: 768px) {
-     .footer-container {
-        grid-template-columns: 2fr 1fr 1fr;
-        padding: 0 2rem;
-     }
-  }
-  
-  .footer-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-  }
-  
-  .footer-heading {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .footer-desc, .footer-copy {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-top: 0.5rem;
-  }
-  
-  .footer-copy {
-    margin-top: 1rem;
-    color: #777;
-  }
-  
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    space-y: 0.5rem;
-  }
-  
-  .footer-links a {
-    font-size: 0.9rem;
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  
-  .footer-links a:hover {
-    color: var(--color-accent);
-  }
-  
-  .qr-code-placeholder {
-    width: 100px;
-    height: 100px;
-    background: #333;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    color: #777;
-    margin-top: 1rem;
-  }
-  
-  /* --- 微信弹窗的 Tailwind 样式 (已存在) --- */
-  /* 你的 'global.css' 应该仍在导入 Tailwind，
-    所以微信弹窗的 Tailwind 类 (fixed, inset-0, bg-black/60 等) 
-    应该可以继续工作。
-  */
-
-</style>

@@ -1,6 +1,6 @@
 import { PortableText } from '@portabletext/react';
 import type { PortableTextBlock } from 'sanity';
-import { urlFor } from '../lib/queries';
+import { urlFor } from '../lib/sanity/image';
 
 const SanityImageComponent = ({ value }: { value: any }) => {
   if (!value?.asset?._ref) {

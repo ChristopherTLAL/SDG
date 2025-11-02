@@ -1,0 +1,42 @@
+---
+import { urlFor } from '../lib/sanity/image';
+import { formatDate } from '../utils/date';
+const { post, size = 'small' } = Astro.props;
+---
+<article class={`content-card content-card--${size} mb-4 group`}>
+  <a
+    class="content-card__link"
+    href={`/post/${post.slug}`}
+  >
+    <div class="content-card__image overflow-hidden">
+      <img
+        class="transform transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        decoding="async"
+        width={size === 'large' ? 1024 : (size === 'medium' ? 600 : 440)}
+        height={size === 'large' ? 683 : (size === 'medium' ? 400 : 440)}
+        src={urlFor(post.mainImage).width(size === 'large' ? 1024 : (size === 'medium' ? 600 : 440)).height(size === 'large' ? 683 : (size === 'medium' ? 400 : 440)).url()}
+        alt={post.title}
+      />
+    </div>
+    <div class="content-card__content p-4">
+      {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
+      <h3 class="content-card__title text-xl font-bold mt-2 group-hover:text-gray-300 xl:group-hover:text-gray-600 transition-colors">
+        {post.title}
+      </h3>
+      <div class="content-card__meta mt-2 text-sm text-gray-500">
+        <div class="content-card__author">
+          {post.author?.name}
+        </div>
+        <div class="content-card__date">
+          {formatDate(post.publishedAt)}
+        </div>
+        {size !== 'small' && post.excerpt && (
+          <div class="content-card__excerpt mt-2">
+            {post.excerpt}
+          </div>
+        )}
+      </div>
+    </div>
+  </a>
+</article>
