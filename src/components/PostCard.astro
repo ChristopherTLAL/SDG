@@ -10,7 +10,7 @@ const { post, size = 'small' } = Astro.props;
   >
     <div class="content-card__image overflow-hidden">
       <img
-        class="transform transition-transform duration-500 group-hover:scale-105"
+        class="transform transition-transform duration-500"
         loading="lazy"
         decoding="async"
         width={size === 'large' ? 1024 : (size === 'medium' ? 600 : 440)}
@@ -19,9 +19,9 @@ const { post, size = 'small' } = Astro.props;
         alt={post.title}
       />
     </div>
-    <div class="content-card__content p-4">
+    <div class="content-card__content p-4 transition-colors">
       {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
-      <h3 class="content-card__title text-xl font-bold mt-2 group-hover:text-gray-300 xl:group-hover:text-gray-600 transition-colors">
+      <h3 class="content-card__title text-2xl font-bold mt-2 group-hover:text-purple transition-colors">
         {post.title}
       </h3>
       <div class="content-card__meta mt-2 text-sm text-gray-500">

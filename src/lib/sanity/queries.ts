@@ -1,25 +1,60 @@
 // src/lib/sanity/queries.ts
 import { client } from './client';
 
-export const LATEST_POSTS_QUERY = /* groq */ `
-    *[_type == "post" && defined(slug.current)] 
-      | order(publishedAt desc)[0...20]{
-        "slug": slug.current,
-        title,
-        excerpt,
-        "category": category->title,
-        mainImage{
-          asset->{url, metadata{lqip}}
-        }
-      }
-  `;
+export const ALL_CATEGORIES_QUERY = /* groq */ `
+  *[_type == "category"]{
+    title,
+    "slug": slug.current
+  }
+`;
 
-// 首页：按发布时间倒序取前 20 条
-export async function getHomepagePosts() {
-  const data = await client.fetch(LATEST_POSTS_QUERY);
+export async function getAllCategories() {
+  const data = await client.fetch(ALL_CATEGORIES_QUERY);
   return Array.isArray(data) ? data : [];
 }
 
+export async function getHomepageData() {
+  const categories = await getAllCategories();
+
+  const topStoriesQuery = /* groq */ `
+    *[_type == "post" && defined(slug.current)] 
+    | order(publishedAt desc)[0...5]{
+      "slug": slug.current,
+      title,
+      excerpt,
+      "category": category->title,
+      mainImage{
+        asset->{url, metadata{lqip}}
+      }
+    }
+  `;
+
+  const categoryPostsQueries = categories.map(category => {
+    return `"${category.slug}": *[_type == "post" && category->slug.current == "${category.slug}"] | order(publishedAt desc)[0...4]{
+      "slug": slug.current,
+      title,
+      excerpt,
+      "category": category->title,
+      mainImage{
+        asset->{url, metadata{lqip}}
+      }
+    }`;
+  }).join(',\n');
+
+  const query = `{
+    "topStories": ${topStoriesQuery},
+    "categoryPosts": {
+      ${categoryPostsQueries}
+    }
+  }`;
+
+  const data = await client.fetch(query);
+  
+  return {
+    ...data,
+    categories,
+  };
+}
 
 export const POST_BY_SLUG_QUERY = /* groq */ `
     *[_type == "post" && slug.current == $slug][0]{

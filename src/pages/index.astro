@@ -1,47 +1,60 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Hero from '../components/Hero.astro';
 import PostCard from '../components/PostCard.astro';
-import { getHomepagePosts } from '../lib/sanity/queries';
+import Hero from '../components/Hero.astro';
+import { getHomepageData } from '../lib/sanity/queries';
 
-const posts = await getHomepagePosts();
-const heroPost = posts[0];
-const featuredPosts = posts.slice(1, 5);
-const recentPosts = posts.slice(5);
+const { topStories, categoryPosts, categories } = await getHomepageData();
+const heroPost = topStories[0];
+const remainingTopStories = topStories.slice(1);
 ---
 
 <MainLayout title="Chinese SDG Institute" description="Promoting sustainable development goals through research and action.">
   <Hero post={heroPost} slot="hero" />
 
-  <nav class="w-full">
-    <div class="mx-auto max-w-6xl px-4">
-        <ul class="flex justify-center items-center gap-8 h-[60px] text-lg font-semibold">
-          <li><a href="/category/report" class="hover:text-gray-300 xl:hover:text-gray-600 transition-colors font-serif">Report</a></li>
-          <li><a href="/category/event" class="hover:text-gray-300 xl:hover:text-gray-600 transition-colors font-serif">Event</a></li>
-          <li><a href="/category/interview" class="hover:text-gray-300 xl:hover:text-gray-600 transition-colors font-serif">Interview</a></li>
-          <li><a href="/category/podcast" class="hover:text-gray-300 xl:hover:text-gray-600 transition-colors font-serif">Podcast</a></li>
-        </ul>
-    </div>
-  </nav>
-
   <div id="content" class="site-content flex-grow site-content--home">
     <div class="entry-content">
-      <section class="top-stories">
-        <h2 class="!text-[2.375rem] xl:!text-[3.5rem] pt-2.5 mt-5 mb-5">
-          Featured Stories
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {featuredPosts.map(post => <PostCard post={post} size="medium" />)}
-        </div>
-      </section>
-      <section class="recent-stories mt-10">
-        <h2 class="!text-[2.375rem] xl:!text-[3.5rem] pt-2.5 mt-5 mb-5">
-          Recent Stories
-        </h2>
-        <div class="flex flex-col gap-5">
-          {recentPosts.map(post => <PostCard post={post} size="small" />)}
-        </div>
-      </section>
+      {remainingTopStories?.length > 0 && (
+        <section class="top-stories mb-12">
+          <h2 class="text-4xl font-bold mb-6 text-center">Top Stories</h2>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+              {remainingTopStories[0] && <PostCard post={remainingTopStories[0]} size="large" />}
+            </div>
+            <div class="flex flex-col gap-8">
+              {remainingTopStories.slice(1, 4).map(post => (
+                post && <PostCard post={post} size="medium" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {categories.map(category => {
+        const posts = categoryPosts[category.slug];
+        return posts?.length > 0 && (
+          <section class={`category-${category.slug} mb-12`}>
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+              <a href={`/category/${category.slug}`} class="hover:text-purple transition-colors">{category.title}</a>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {posts[0] && (
+                <div>
+                  <PostCard post={posts[0]} size="large" />
+                </div>
+              )}
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
+                {posts.slice(1).map(post => (
+                  post && <PostCard post={post} size="medium" />
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      })}
     </div>
   </div>
 </MainLayout>

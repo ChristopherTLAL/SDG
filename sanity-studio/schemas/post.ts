@@ -1,5 +1,23 @@
 // sanity/schemas/post.ts
-import {defineField, defineType} from 'sanity'
+import {defineField, defineType, Rule} from 'sanity'
+
+async function isUniqueHomepageFeature(isHomepageFeature: boolean, context: any) {
+  if (!isHomepageFeature) {
+    return true
+  }
+
+  const {getClient} = context
+  const client = getClient({apiVersion: '2022-12-07'})
+  const id = context.document._id.replace('drafts.', '')
+  const params = {
+    draft: `drafts.${id}`,
+    published: id,
+  }
+  const query = `*[_type == 'post' && isHomepageFeature == true && !(_id in [$draft, $published])]`
+  const result = await client.fetch(query, params)
+
+  return result.length === 0 ? true : '只能有一篇文章被设置为首页主推。请先取消其他文章的主推设置。'
+}
 
 export default defineType({
   name: 'post',
@@ -28,6 +46,7 @@ export default defineType({
       type: 'boolean',
       description: '勾选此项，这篇文章将作为首页顶部的大图文章展示。请确保只有一个文章被勾选。',
       initialValue: false,
+      validation: (Rule: Rule) => Rule.custom(isUniqueHomepageFeature),
     }),
     defineField({
       name: 'author',
