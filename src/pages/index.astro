@@ -21,9 +21,9 @@ const remainingTopStories = topStories.slice(1);
             <div class="lg:col-span-2">
               {remainingTopStories[0] && <PostCard post={remainingTopStories[0]} size="large" />}
             </div>
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col justify-between h-full gap-8">
               {remainingTopStories.slice(1, 4).map(post => (
-                post && <PostCard post={post} size="medium" />
+                post && <div class="flex-1"><PostCard post={post} size="small-horizontal" /></div>
               ))}
             </div>
           </div>
@@ -40,17 +40,10 @@ const remainingTopStories = topStories.slice(1);
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {posts[0] && (
-                <div>
-                  <PostCard post={posts[0]} size="large" />
-                </div>
-              )}
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8">
-                {posts.slice(1).map(post => (
-                  post && <PostCard post={post} size="medium" />
-                ))}
-              </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map(post => (
+                post && <PostCard post={post} size="medium" />
+              ))}
             </div>
           </section>
         )

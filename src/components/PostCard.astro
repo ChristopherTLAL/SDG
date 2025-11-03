@@ -2,41 +2,80 @@
 import { urlFor } from '../lib/sanity/image';
 import { formatDate } from '../utils/date';
 const { post, size = 'small' } = Astro.props;
+
+const isHorizontal = size === 'small-horizontal';
 ---
-<article class={`content-card content-card--${size} mb-4 group`}>
+<article class="content-card mb-4 group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
   <a
-    class="content-card__link"
+    class:list={[
+      "content-card__link h-full flex",
+      { "items-center": isHorizontal }
+    ]}
     href={`/post/${post.slug}`}
   >
-    <div class="content-card__image overflow-hidden">
-      <img
-        class="transform transition-transform duration-500"
-        loading="lazy"
-        decoding="async"
-        width={size === 'large' ? 1024 : (size === 'medium' ? 600 : 440)}
-        height={size === 'large' ? 683 : (size === 'medium' ? 400 : 440)}
-        src={urlFor(post.mainImage).width(size === 'large' ? 1024 : (size === 'medium' ? 600 : 440)).height(size === 'large' ? 683 : (size === 'medium' ? 400 : 440)).url()}
-        alt={post.title}
-      />
-    </div>
-    <div class="content-card__content p-4 transition-colors">
-      {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
-      <h3 class="content-card__title text-2xl font-bold mt-2 group-hover:text-purple transition-colors">
-        {post.title}
-      </h3>
-      <div class="content-card__meta mt-2 text-sm text-gray-500">
-        <div class="content-card__author">
-          {post.author?.name}
+    {isHorizontal ? (
+      <>
+        <div class="flex-shrink-0 p-4">
+          <div class="w-28 h-28 rounded-lg overflow-hidden">
+            {post.mainImage && (
+              <img
+                class="transform transition-transform duration-500 w-full h-full object-cover group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+                src={post.mainImage.url ? post.mainImage.url : urlFor(post.mainImage).width(112).height(112).url()}
+                alt={post.title}
+              />
+            )}
+          </div>
         </div>
-        <div class="content-card__date">
-          {formatDate(post.publishedAt)}
-        </div>
-        {size !== 'small' && post.excerpt && (
-          <div class="content-card__excerpt mt-2">
+        <div class="flex flex-col justify-center p-4">
+          <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2">
+            {post.title}
+          </h3>
+          <div class="content-card__excerpt mt-2 text-gray-500 line-clamp-2">
             {post.excerpt}
           </div>
-        )}
+        </div>
+      </>
+    ) : (
+      <div class="flex flex-col">
+        <div class:list={[
+          "content-card__image overflow-hidden",
+          { "aspect-video": size === 'large' },
+          { "aspect-square": size === 'medium' }
+        ]}>
+          {post.mainImage && (
+            <img
+              class="transform transition-transform duration-500 w-full h-full object-cover group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+              src={post.mainImage.url ? post.mainImage.url : urlFor(post.mainImage).url()}
+              alt={post.title}
+            />
+          )}
+        </div>
+        <div class="content-card__content p-4">
+          {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
+          <h3 class:list={[
+            "content-card__title font-bold mt-2 group-hover:text-purple transition-colors text-2xl",
+            { "line-clamp-2": size === 'large' },
+            { "line-clamp-3": size === 'medium' }
+          ]}>
+            {post.title}
+          </h3>
+          <div class="content-card__meta mt-2 text-lg text-gray-500">
+            {post.excerpt && (
+              <div class:list={[
+                "content-card__excerpt mt-2",
+                { "line-clamp-2": size === 'large' },
+                { "line-clamp-5": size === 'medium' }
+              ]}>
+                {post.excerpt}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    )}
   </a>
 </article>

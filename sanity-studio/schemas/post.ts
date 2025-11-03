@@ -68,6 +68,12 @@ export default defineType({
           type: 'string',
           title: 'Alternative text',
           description: '为图片提供描述性文字，对SEO和可访问性很重要。'
+        },
+        {
+          name: 'url',
+          type: 'url',
+          title: 'Image URL',
+          description: 'Or, paste an image URL here',
         }
       ],
       validation: (Rule) => Rule.required(),

@@ -15,6 +15,19 @@ export async function getAllCategories() {
 
 export async function getHomepageData() {
   const categories = await getAllCategories();
+  
+  // Filter out duplicate categories
+  let uniqueCategories = categories.filter((category, index, self) =>
+    index === self.findIndex((c) => (
+      c.slug === category.slug
+    ))
+  );
+
+  // Sort categories to the desired order
+  const sortOrder = ['report', 'event', 'interview', 'podcast'];
+  uniqueCategories = uniqueCategories.sort((a, b) => {
+    return sortOrder.indexOf(a.slug) - sortOrder.indexOf(b.slug);
+  });
 
   const topStoriesQuery = /* groq */ `
     *[_type == "post" && defined(slug.current)] 
@@ -23,21 +36,17 @@ export async function getHomepageData() {
       title,
       excerpt,
       "category": category->title,
-      mainImage{
-        asset->{url, metadata{lqip}}
-      }
+      mainImage
     }
   `;
 
-  const categoryPostsQueries = categories.map(category => {
-    return `"${category.slug}": *[_type == "post" && category->slug.current == "${category.slug}"] | order(publishedAt desc)[0...4]{
+  const categoryPostsQueries = uniqueCategories.map(category => {
+    return `"${category.slug}": *[_type == "post" && category->slug.current == "${category.slug}"] | order(publishedAt desc)[0...6]{
       "slug": slug.current,
       title,
       excerpt,
       "category": category->title,
-      mainImage{
-        asset->{url, metadata{lqip}}
-      }
+      mainImage
     }`;
   }).join(',\n');
 
@@ -52,7 +61,7 @@ export async function getHomepageData() {
   
   return {
     ...data,
-    categories,
+    categories: uniqueCategories,
   };
 }
 
