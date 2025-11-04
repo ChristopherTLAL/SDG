@@ -2,7 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import { client } from '../lib/sanity/client';
 import { POST_BY_SLUG_QUERY, ALL_POST_SLUGS_QUERY } from '../lib/sanity/queries';
-import { urlFor } from '../lib/sanity/image';
+import { urlForImage } from '../lib/sanity/image';
 import { formatDate } from '../utils/date';
 import { toHTML } from '@portabletext/to-html';
 
@@ -19,7 +19,7 @@ if (!post) {
 }
 
 const bodyHtml = toHTML(post.body || []);
-const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined;
+const ogImage = post.mainImage ? urlForImage(post.mainImage).width(1200).height(630).url() : undefined;
 ---
 
 
@@ -35,7 +35,7 @@ const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).
 
     {post.mainImage && (
       <img
-        src={urlFor(post.mainImage).width(1200).url()}
+        src={urlForImage(post.mainImage).width(1200).url()}
         alt={post.title}
         class="w-full rounded-xl"
       />

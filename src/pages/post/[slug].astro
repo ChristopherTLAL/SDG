@@ -1,8 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import ContentView from '../../components/ContentView.tsx';
+import { ContentView } from '../../components/ContentView.tsx';
 import { getAllPostSlugs, getPostBySlug } from '../../lib/sanity/queries';
-import { urlFor } from '../../lib/sanity/image';
+import { urlForImage } from '../../lib/sanity/image';
 import { formatDate } from '../../utils/date';
 
 export async function getStaticPaths() {
@@ -39,7 +39,7 @@ const post = await getPostBySlug(slug!);
       {post.mainImage && (
         <img
           class="object-cover w-full h-auto mb-8 rounded-lg"
-          src={urlFor(post.mainImage).width(1200).url()}
+          src={urlForImage(post.mainImage).width(1200).url()}
           alt={post.title}
         />
       )}

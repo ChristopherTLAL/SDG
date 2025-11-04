@@ -127,3 +127,12 @@ export async function getPostsBySdg(sdgId: string) {
   `;
   return client.fetch(query, { sdgId });
 }
+
+export const LATEST_POSTS_QUERY = /* groq */ `
+  *[_type == "post"] | order(publishedAt desc)[0...10]{
+    title,
+    "slug": slug.current,
+    publishedAt,
+    excerpt
+  }
+`;
