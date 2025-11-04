@@ -1,9 +1,9 @@
 // src/lib/sanity/image.ts
 import imageUrlBuilder from '@sanity/image-url';
-import { client } from './client';
+import { sanity } from './client';
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(sanity);
 
-export function urlFor(source: any) {
-  return builder.image(source);
+export function urlForImage(source: any) {
+  return builder.image(source).auto('format').fit('max');
 }
