@@ -1,6 +1,7 @@
 ---
 // src/layouts/MainLayout.astro
 import Header from '../components/Header.astro';
+import SubHeader from '../components/SubHeader.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
@@ -10,6 +11,7 @@ const {
   ogImage = undefined,
 } = Astro.props;
 const siteTitle = 'Chinese SDG Institute';
+const isHomePage = Astro.url.pathname === '/';
 ---
 
 <html lang="en">
@@ -34,7 +36,7 @@ const siteTitle = 'Chinese SDG Institute';
     />
   </head>
   <body class="min-h-screen bg-black xl:bg-white text-white xl:text-black">
-    <Header />
+    {isHomePage ? <Header /> : <SubHeader />}
     <slot name="hero" /> 
     <div class="relative bg-black xl:bg-white">
       <main class="mx-auto max-w-6xl px-4 py-8">
