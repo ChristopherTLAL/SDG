@@ -2,9 +2,21 @@
 import { client } from '../lib/sanity/client';
 import groq from 'groq';
 
-const categories = await client.fetch(
-  groq`*[_type == "category" && defined(slug.current)]{ "slug": slug.current, title }`
+const rawCategories = await client.fetch(
+  groq`*[_type == "post" && defined(category->slug.current)]{
+    "slug": category->slug.current,
+    "title": category->title
+  }`
 );
+
+const uniqueCategories = new Map();
+rawCategories.forEach(cat => {
+  if (!uniqueCategories.has(cat.slug)) {
+    uniqueCategories.set(cat.slug, cat);
+  }
+});
+
+const categories = Array.from(uniqueCategories.values());
 ---
 <header class="site-header z-[100] w-full sticky top-0 left-0 bg-black xl:bg-white border-b border-gray-800 xl:border-gray-200">
   <div class="site-header__logo-wrapper h-[77px] xl:h-[110px] w-full px-5 sm:px-10 xl:px-[30px] flex items-center justify-between relative">
@@ -15,7 +27,7 @@ const categories = await client.fetch(
     </div>
     <nav class="hidden md:flex items-center gap-8">
       {categories.map((cat) => (
-        <a href={`/category/${cat.slug.current}`} class="text-white xl:text-black hover:text-gray-400 xl:hover:text-gray-600 transition-colors">
+        <a href={`/category/${cat.slug}`} class="text-white xl:text-black hover:text-gray-400 xl:hover:text-gray-600 transition-colors">
           {cat.title}
         </a>
       ))}
@@ -29,7 +41,7 @@ const categories = await client.fetch(
   <div id="mobile-menu" class="hidden md:hidden bg-black xl:bg-white border-t border-gray-800 xl:border-gray-200">
     <nav class="flex flex-col items-center gap-4 py-4">
       {categories.map((cat) => (
-        <a href={`/category/${cat.slug.current}`} class="text-white xl:text-black hover:text-gray-400 xl:hover:text-gray-600 transition-colors">
+        <a href={`/category/${cat.slug}`} class="text-white xl:text-black hover:text-gray-400 xl:hover:text-gray-600 transition-colors">
           {cat.title}
         </a>
       ))}
