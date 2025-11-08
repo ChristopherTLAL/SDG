@@ -47,8 +47,8 @@ fs.createReadStream(inputFilePath)
         publishedAt: row.publishedAt,
         mainImage: {
           _type: 'image',
-          url: row.imageUrl,
-          alt: row.imageAlt,
+          url: `https://source.unsplash.com/random/800x600?${slugify(row.title)}`,
+          alt: row.title,
         },
         excerpt: row.excerpt,
         body: [
