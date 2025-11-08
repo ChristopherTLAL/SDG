@@ -73,7 +73,7 @@ export default defineType({
           name: 'url',
           type: 'url',
           title: 'Image URL',
-          description: 'Or, paste an image URL here',
+          description: 'Paste an external image URL here. If you upload an image, this URL will be ignored.',
         }
       ],
       validation: (Rule) => Rule.required(),

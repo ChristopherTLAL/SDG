@@ -24,8 +24,9 @@ fs.createReadStream(inputFilePath)
   .on('end', () => {
     let ndjson = '';
     results.forEach((row) => {
-      // Create a unique ID for each post
-      const postId = `imported-post-${uuidv4()}`;
+      // Create a unique ID for each post based on its title
+      const postId = `imported-post-${slugify(row.title)}`;
+      const categoryName = row.categoryId.replace('category-', '');
 
       // Construct the post object for Sanity
       const post = {
@@ -47,7 +48,7 @@ fs.createReadStream(inputFilePath)
         publishedAt: row.publishedAt,
         mainImage: {
           _type: 'image',
-          url: `https://source.unsplash.com/random/800x600?${slugify(row.title)}`,
+          url: `https://source.unsplash.com/random/800x600?${categoryName}`,
           alt: row.title,
         },
         excerpt: row.excerpt,
