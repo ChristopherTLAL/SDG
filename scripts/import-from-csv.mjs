@@ -18,14 +18,70 @@ const slugify = (text) => {
     .replace(/-+$/, ''); // Trim - from end of text
 };
 
+// Function to convert markdown to basic Portable Text
+const markdownToPortableText = (markdown) => {
+  if (!markdown) return [];
+
+  const blocks = markdown.split('\n').filter(Boolean).map(line => {
+    let style = 'normal';
+    let text = line;
+
+    if (/^###\s/.test(line)) {
+      style = 'h3';
+      text = line.replace(/^###\s/, '');
+    } else if (/^##\s/.test(line)) {
+      style = 'h2';
+      text = line.replace(/^##\s/, '');
+    } else if (/^#\s/.test(line)) {
+      style = 'h1';
+      text = line.replace(/^#\s/, '');
+    }
+
+    const children = [];
+    const parts = text.split(/(\*\*.*?\*\*)/g).filter(Boolean);
+
+    parts.forEach(part => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        children.push({
+          _type: 'span',
+          _key: uuidv4(),
+          text: part.slice(2, -2),
+          marks: ['strong']
+        });
+      } else {
+        children.push({
+          _type: 'span',
+          _key: uuidv4(),
+          text: part,
+          marks: []
+        });
+      }
+    });
+
+    return {
+      _type: 'block',
+      style: style,
+      _key: uuidv4(),
+      children: children
+    };
+  });
+
+  return blocks;
+};
+
 fs.createReadStream(inputFilePath)
   .pipe(csv())
-  .on('data', (data) => results.push(data))
+  .on('data', (data) => {
+    const hasEmptyCell = Object.values(data).some(val => val === null || val.toString().trim() === '');
+    if (!hasEmptyCell) {
+      results.push(data);
+    }
+  })
   .on('end', () => {
     let ndjson = '';
     results.forEach((row) => {
-      // Create a unique ID for each post based on its title
-      const postId = `imported-post-${slugify(row.title)}`;
+      const postUUID = uuidv4();
+      const postId = `imported-post-${postUUID}`;
       const categoryName = row.categoryId.replace('category-', '');
 
       // Construct the post object for Sanity
@@ -35,7 +91,7 @@ fs.createReadStream(inputFilePath)
         title: row.title,
         slug: {
           _type: 'slug',
-          current: slugify(row.title),
+          current: `${slugify(row.title)}-${postUUID.substring(0, 8)}`,
         },
         author: {
           _type: 'reference',
@@ -52,18 +108,7 @@ fs.createReadStream(inputFilePath)
           alt: row.title,
         },
         excerpt: row.excerpt,
-        body: [
-          {
-            _type: 'block',
-            style: 'normal',
-            children: [
-              {
-                _type: 'span',
-                text: row.body,
-              },
-            ],
-          },
-        ],
+        body: markdownToPortableText(row.body),
       };
 
       ndjson += JSON.stringify(post) + '\n';

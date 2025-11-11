@@ -91,7 +91,7 @@ export default defineType({
         description: '文章的简短摘要，会显示在列表页。',
         type: 'text',
         rows: 3,
-        validation: (Rule) => Rule.required().max(200),
+        validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'body',
