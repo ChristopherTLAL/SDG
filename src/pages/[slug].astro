@@ -33,14 +33,6 @@ const ogImage = post.mainImage ? urlForImage(post.mainImage).width(1200).height(
 
     <h1 class="!mb-4">{post.title}</h1>
 
-    {post.mainImage && (
-      <img
-        src={urlForImage(post.mainImage).width(1200).url()}
-        alt={post.title}
-        class="w-full rounded-xl"
-      />
-    )}
-
     {post.excerpt && <p class="text-lg text-neutral-700">{post.excerpt}</p>}
 
     <div class="mt-6" set:html={bodyHtml} />

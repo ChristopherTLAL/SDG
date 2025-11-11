@@ -69,12 +69,6 @@ export default defineType({
           title: 'Alternative text',
           description: '为图片提供描述性文字，对SEO和可访问性很重要。'
         },
-        {
-          name: 'url',
-          type: 'url',
-          title: 'Image URL',
-          description: 'Paste an external image URL here. If you upload an image, this URL will be ignored.',
-        }
       ],
       validation: (Rule) => Rule.required(),
     }),

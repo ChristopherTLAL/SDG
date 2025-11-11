@@ -36,14 +36,6 @@ const post = await getPostBySlug(slug!);
         </div>
       </header>
 
-      {post.mainImage && (
-        <img
-          class="object-cover w-full h-auto mb-8 rounded-lg"
-          src={urlForImage(post.mainImage).width(1200).url()}
-          alt={post.title}
-        />
-      )}
-
       <div class="article-body">
         <ContentView client:load value={post.body} />
       </div>
