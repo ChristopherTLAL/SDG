@@ -15,6 +15,11 @@ body {
   }
 }
 
+/* Softer, more diffuse text shadow */
+.hero-title-shadow {
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
 .font-icons {
   /* font-family: 'TI-Icons', sans-serif; */
 }

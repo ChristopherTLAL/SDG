@@ -9,6 +9,7 @@ module.exports = {
         purple: {
           ...violet,
           DEFAULT: '#7c3aed',
+          300: violet[300], // Added lighter shade
         }
       }
     },

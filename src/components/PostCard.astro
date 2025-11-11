@@ -4,78 +4,92 @@ import { formatDate } from '../utils/date';
 const { post, size = 'small' } = Astro.props;
 
 const isHorizontal = size === 'small-horizontal';
+
+let imageUrl;
+if (post.mainImage && post.mainImage.asset && post.mainImage.asset._ref) {
+  try {
+    if (size === 'small-horizontal') {
+      imageUrl = urlForImage(post.mainImage).width(112).height(112).fit('crop').url();
+    } else {
+      imageUrl = urlForImage(post.mainImage).url();
+    }
+  } catch (e) {
+    console.error(`[PostCard Error] Failed to build image URL for post: "${post.title}"`, e);
+    imageUrl = null;
+  }
+} else if (post.mainImage && post.mainImage.url) {
+  imageUrl = post.mainImage.url;
+}
 ---
 <article class="content-card mb-4 group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-  <a
-    class:list={[
-      "content-card__link h-full flex",
-      { "items-center": isHorizontal }
-    ]}
-    href={`/post/${post.slug}`}
-  >
-    {isHorizontal ? (
-      <>
-        <div class="flex-shrink-0 p-4">
-          <div class="w-28 h-28 rounded-lg overflow-hidden">
-            {post.mainImage && (
-              <img
-                class="transform transition-transform duration-500 w-full h-full object-cover group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                src={post.mainImage.url ? post.mainImage.url : urlForImage(post.mainImage).width(112).height(112).url()}
-                alt={post.title}
-              />
-            )}
-          </div>
-        </div>
-        <div class="flex flex-col justify-center p-4">
-          <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2">
-            {post.title}
-          </h3>
-          <div class="content-card__excerpt mt-2 text-gray-500 line-clamp-2">
-            {post.excerpt}
-          </div>
-        </div>
-      </>
-    ) : (
-      <div class="flex flex-col">
-        <div class:list={[
-          "content-card__image overflow-hidden",
-          { "aspect-video": size === 'large' },
-          { "aspect-square": size === 'medium' }
-        ]}>
-          {post.mainImage && (
+  {isHorizontal ? (
+    <a class="h-full flex items-center" href={`/post/${post.slug}`}>
+      <div class="flex-shrink-0 p-4">
+        {/* This is the "box" for horizontal cards */}
+        <div class="w-28 h-28 rounded-lg overflow-hidden bg-gray-200">
+          {imageUrl && (
             <img
-              class="transform transition-transform duration-500 w-full h-full object-cover group-hover:scale-105"
+              class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
-              src={post.mainImage.url ? post.mainImage.url : urlForImage(post.mainImage).url()}
+              src={imageUrl}
               alt={post.title}
             />
           )}
         </div>
-        <div class="content-card__content p-4">
-          {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
-          <h3 class:list={[
-            "content-card__title font-bold mt-2 group-hover:text-purple transition-colors text-2xl",
-            { "line-clamp-2": size === 'large' },
-            { "line-clamp-3": size === 'medium' }
-          ]}>
-            {post.title}
-          </h3>
-          <div class="content-card__meta mt-2 text-lg text-gray-500">
-            {post.excerpt && (
-              <div class:list={[
-                "content-card__excerpt mt-2",
-                { "line-clamp-2": size === 'large' },
-                { "line-clamp-5": size === 'medium' }
-              ]}>
-                {post.excerpt}
-              </div>
-            )}
-          </div>
+      </div>
+      <div class="flex flex-col justify-center p-4">
+        <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2">
+          {post.title}
+        </h3>
+        <div class="content-card__excerpt mt-2 text-gray-500 line-clamp-2">
+          {post.excerpt}
         </div>
       </div>
-    )}
-  </a>
+    </a>
+  ) : (
+    <>
+      {/* This div is the "box" - it exists whether there is an image or not */}
+      <div class:list={[
+        "content-card__image overflow-hidden w-full bg-gray-200",
+        { "aspect-video": size === 'large' },
+        { "aspect-square": size === 'medium' }
+      ]}>
+        {imageUrl && (
+          <a href={`/post/${post.slug}`} class="block h-full w-full">
+            <img
+              class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+              src={imageUrl}
+              alt={post.title}
+            />
+          </a>
+        )}
+      </div>
+      <div class="content-card__content p-4 flex flex-col flex-grow">
+        {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
+        <h3 class:list={[
+          "content-card__title font-bold mt-2 text-2xl",
+          { "line-clamp-2": size === 'large' },
+          { "line-clamp-3": size === 'medium' }
+        ]}>
+          <a href={`/post/${post.slug}`} class="hover:text-purple transition-colors">
+            {post.title}
+          </a>
+        </h3>
+        <div class="content-card__meta mt-2 text-lg text-gray-500 flex-grow">
+          {post.excerpt && (
+            <div class:list={[
+              "content-card__excerpt mt-2",
+              { "line-clamp-2": size === 'large' },
+              { "line-clamp-5": size === 'medium' }
+            ]}>
+              {post.excerpt}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  )}
 </article>

@@ -15,7 +15,7 @@ const remainingTopStories = topStories.slice(1);
   <div id="content" class="site-content flex-grow site-content--home">
     <div class="entry-content">
       {remainingTopStories?.length > 0 && (
-        <section class="top-stories mb-12">
+        <section class="top-stories mb-6"> {/* Changed mb-0 to mb-6 */}
           <h2 class="text-4xl font-bold mb-6 text-center">Top Stories</h2>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2">
