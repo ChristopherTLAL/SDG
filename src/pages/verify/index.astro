@@ -1,0 +1,387 @@
+--- 
+// This page is now standalone and does not use a layout. 
+--- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Embedded Fonts and Styles -->
+    <link rel="stylesheet" href="/verify/embedded_fonts.css">
+    <style>
+        /* Certificate-specific fonts */
+        .certificate-font { font-family: 'Crimson Pro', serif; color: #000000; }
+        .font-recipient { font-family: 'Meddon', cursive; color: #000000; }
+        .font-body { font-family: 'Mrs Saint Delafield', cursive; color: #000000; }
+
+        /* Notion-like body style */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            background-color: #f7f7f5; /* Light gray background */
+            color: #37352f; /* Dark text */
+        }
+        .live-preview-text {
+            position: absolute;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Simple Header -->
+    <header class="p-4 sm:p-6 border-b bg-white">
+        <div class="max-w-7xl mx-auto">
+            <a href="/" class="text-xl font-bold text-gray-800 font-serif">
+                Chinese SDG Institute
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4 lg:p-8">
+        <!-- 
+          View 1: Landing Page
+        -->
+        <div id="landingPage" class="min-h-[70vh] flex items-center justify-center">
+            <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md border">
+                <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Certificate Verification</h1>
+                <div class="space-y-4">
+                    <div>
+                        <label for="certificateId" class="block text-sm font-medium text-gray-700">Please enter your Certificate ID</label>
+                        <div class="mt-1 flex rounded-md shadow-sm">
+                            <input type="text" id="certificateId" class="flex-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., CERT-001">
+                            <button id="verifyButton" class="bg-blue-600 text-white py-2 px-4 rounded-r-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                Verify
+                            </button>
+                        </div>
+                        <p id="verifyStatus" class="mt-2 text-sm text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+          View 2: Loading Page (Hidden)
+        -->
+        <div id="loadingPage" class="hidden min-h-[70vh] flex items-center justify-center text-center">
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700">Verifying...</h2>
+                <p class="text-gray-500">Please wait a moment.</p>
+            </div>
+        </div>
+
+        <!-- 
+          View 3: Certificate Page (Hidden)
+        -->
+        <div id="certificatePage" class="hidden max-w-7xl mx-auto">
+            <button id="backButton" class="mb-6 text-sm font-medium text-blue-600 hover:text-blue-800">
+                &larr; Verify Another Certificate
+            </button>
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Certificate Details</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border space-y-6">
+                    <section>
+                        <h2 class="text-xl font-semibold mb-4 border-b pb-2">Certificate Information</h2>
+                        <div class="space-y-4 bg-gray-50 p-4 rounded-md border">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500">Recipient</label>
+                                <p id="detailRecipient" class="mt-1 text-lg font-medium text-gray-900"></p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500">Details</label>
+                                <p id="detailReason" class="mt-1 text-base text-gray-900 whitespace-pre-wrap"></p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500">Awarding Body</label>
+                                <p id="detailBody" class="mt-1 text-lg text-gray-900"></p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-500">Date</label>
+                                <p id="detailDate" class="mt-1 text-base text-gray-900"></p>
+                            </div>
+                        </div>
+                        <div class="mt-6 space-y-4">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button id="generateImageButton" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-green-700">Download Image (PNG)</button>
+                                <button id="generatePdfButton" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700">Download PDF</button>
+                            </div>
+                            <p id="status" class="mt-4 text-sm text-gray-600"></p>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-4 border-b pb-2">Certificate Preview</h2>
+                    <div id="live-preview-wrapper" class="w-full bg-white shadow-md relative border" style="aspect-ratio: 794 / 1123;">
+                        <div id="preview-placeholder" class="absolute inset-0 flex items-center justify-center text-gray-400 p-8 text-center">
+                            <p>Enter your certificate ID to load the preview.</p>
+                        </div>
+                        <img id="live-img" src="" class="absolute top-0 left-0 w-full h-full" />
+                        <div id="live-recipient" class="live-preview-text font-recipient"></div>
+                        <div id="live-reason" class="live-preview-text certificate-font"></div>
+                        <div id="live-body" class="live-preview-text font-body"></div>
+                        <div id="live-date" class="live-preview-text certificate-font"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Render Container -->
+        <div id="render-container" class="absolute -left-[9999px] top-0">
+            <div id="certificate-preview" class="relative certificate-font" style="width: 794px; height: 1123px; background-color: white; background-size: 100% 100%;">
+                <div id="preview-recipient" class="absolute font-recipient"></div>
+                <div id="preview-reason" class="absolute certificate-font" style="line-height: 1.5; white-space: pre-wrap;"></div>
+                <div id="preview-body" class="absolute font-body"></div>
+                <div id="preview-date" class="absolute certificate-font"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function initializeVerificationPage() {
+            const { jsPDF } = window.jspdf;
+
+            // Constants and UI Elements
+            const CANVAS_WIDTH = 794, CANVAS_HEIGHT = 1123;
+            const controls = {
+                recipient: { Y: 574, X: 197, Size: 48, Width: 400, Align: 'center' },
+                reason:    { Y: 636, X: 140, Size: 18, Width: 500, Align: 'center' },
+                body:      { Y: 854, X: 253, Size: 31, Width: 300, Align: 'center' },
+                date:      { Y: 1093, X: 484, Size: 16, Width: 306, Align: 'right' }
+            };
+            const landingPage = document.getElementById('landingPage'), loadingPage = document.getElementById('loadingPage'), certificatePage = document.getElementById('certificatePage');
+            const certificateId = document.getElementById('certificateId'), verifyButton = document.getElementById('verifyButton'), verifyStatus = document.getElementById('verifyStatus');
+            const backButton = document.getElementById('backButton'), status = document.getElementById('status');
+            const livePreviewWrapper = document.getElementById('live-preview-wrapper'), previewPlaceholder = document.getElementById('preview-placeholder');
+            const detailRecipient = document.getElementById('detailRecipient'), detailReason = document.getElementById('detailReason'), detailBody = document.getElementById('detailBody'), detailDate = document.getElementById('detailDate');
+            const liveImg = document.getElementById('live-img');
+            const liveElements = { recipient: document.getElementById('live-recipient'), reason: document.getElementById('live-reason'), body: document.getElementById('live-body'), date: document.getElementById('live-date') };
+            const hiddenElements = { recipient: document.getElementById('preview-recipient'), reason: document.getElementById('preview-reason'), body: document.getElementById('preview-body'), date: document.getElementById('preview-date') };
+            const hiddenRenderArea = document.getElementById('certificate-preview');
+            const generateImageButton = document.getElementById('generateImageButton'), generatePdfButton = document.getElementById('generatePdfButton');
+            
+            let currentCertificateData = null, loadedImageDataUrl = null, db = null;
+
+            // Event Listeners
+            if(verifyButton) verifyButton.addEventListener('click', verifyCertificate);
+            if(generateImageButton) generateImageButton.addEventListener('click', generateImage);
+            if(generatePdfButton) generatePdfButton.addEventListener('click', generatePdf);
+            if(backButton) backButton.addEventListener('click', showLandingPage);
+            window.addEventListener('resize', updateLivePreview);
+
+            // Functions
+            function showLandingPage() {
+                certificatePage.classList.add('hidden');
+                loadingPage.classList.add('hidden');
+                landingPage.classList.remove('hidden');
+                certificateId.value = '';
+                verifyStatus.textContent = '';
+                status.textContent = '';
+                currentCertificateData = null;
+                clearLivePreview();
+                liveImg.src = '';
+                if (hiddenRenderArea) hiddenRenderArea.style.backgroundImage = '';
+                previewPlaceholder.classList.remove('hidden');
+            }
+
+            async function loadDatabase() {
+                if (db) return db;
+                try {
+                    const response = await fetch('/verify/certificate_data.jsonl');
+                    if (!response.ok) throw new Error('Could not load data file.');
+                    const text = await response.text();
+                    const lines = text.split('\n');
+                    const parsedDb = {};
+                    lines.forEach(line => {
+                        if (!line.trim()) return;
+                        try {
+                            const record = JSON.parse(line);
+                            if (record.id) parsedDb[record.id] = record;
+                        } catch (e) { console.warn('Skipping malformed data line:', line); }
+                    });
+                    db = parsedDb;
+                    return db;
+                } catch (error) {
+                    verifyStatus.textContent = `Data file load error: ${error.message}`;
+                    return null;
+                }
+            }
+
+            async function verifyCertificate() {
+                const idToFind = certificateId.value.trim();
+                if (!idToFind) { verifyStatus.textContent = 'Please enter a valid ID.'; return; }
+                landingPage.classList.add('hidden');
+                loadingPage.classList.remove('hidden');
+                verifyStatus.textContent = '';
+                currentCertificateData = null;
+                clearLivePreview();
+                const database = await loadDatabase();
+                if (!database) { loadingPage.classList.add('hidden'); landingPage.classList.remove('hidden'); verifyStatus.textContent = 'Failed to load certificate database.'; return; }
+                const foundRecord = database[idToFind];
+                if (foundRecord) {
+                    try {
+                        if (!loadedImageDataUrl) loadedImageDataUrl = await loadImageAsDataURL('/verify/certificate_1.png');
+                        liveImg.src = loadedImageDataUrl;
+                        currentCertificateData = foundRecord;
+                        detailRecipient.textContent = foundRecord.recipient;
+                        detailReason.textContent = foundRecord.reason;
+                        detailBody.textContent = foundRecord.body;
+                        detailDate.textContent = foundRecord.date;
+                        loadingPage.classList.add('hidden');
+                        certificatePage.classList.remove('hidden');
+                        previewPlaceholder.classList.add('hidden');
+                        updateLivePreview();
+                    } catch (error) {
+                        console.error(error);
+                        loadingPage.classList.add('hidden');
+                        landingPage.classList.remove('hidden');
+                        verifyStatus.textContent = `Failed to load certificate background: ${error.message}`;
+                    }
+                } else {
+                    loadingPage.classList.add('hidden');
+                    landingPage.classList.remove('hidden');
+                    verifyStatus.textContent = 'Certificate ID not found. Please check and try again.';
+                }
+            }
+
+            function updateLivePreview() {
+                if (!currentCertificateData) return;
+                const wrapperWidth = livePreviewWrapper.clientWidth;
+                if (!wrapperWidth) return;
+                const fontScaleFactor = wrapperWidth / CANVAS_WIDTH;
+                for (const key in controls) {
+                    const el = liveElements[key];
+                    const ctrl = controls[key];
+                    el.style.top = `${(parseFloat(ctrl.Y) / CANVAS_HEIGHT) * 100}%`;
+                    el.style.left = `${(parseFloat(ctrl.X) / CANVAS_WIDTH) * 100}%`;
+                    el.style.width = `${(parseFloat(ctrl.Width) / CANVAS_WIDTH) * 100}%`;
+                    el.style.fontSize = `${parseFloat(ctrl.Size) * fontScaleFactor}px`;
+                    el.style.textAlign = ctrl.Align;
+                    el.textContent = currentCertificateData[key];
+                }
+            }
+
+            function clearLivePreview() { for (const key in liveElements) liveElements[key].textContent = ''; }
+
+            async function generateCertificateCanvas() {
+                updateLivePreview();
+                await new Promise(resolve => requestAnimationFrame(resolve));
+                const liveWrapperRect = livePreviewWrapper.getBoundingClientRect();
+                const scale = 3;
+                const scaleFactor = (CANVAS_WIDTH * scale) / liveWrapperRect.width;
+                const canvas = document.createElement('canvas');
+                canvas.width = CANVAS_WIDTH * scale;
+                canvas.height = CANVAS_HEIGHT * scale;
+                const ctx = canvas.getContext('2d');
+                const bgImage = new Image();
+                bgImage.crossOrigin = 'anonymous';
+                await new Promise((resolve, reject) => {
+                    bgImage.onload = resolve;
+                    bgImage.onerror = reject;
+                    bgImage.src = '/verify/certificate_1.png';
+                });
+                ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+                for (const key of ['recipient', 'reason', 'body', 'date']) {
+                    const liveElement = liveElements[key];
+                    const liveRect = liveElement.getBoundingClientRect();
+                    const styles = window.getComputedStyle(liveElement);
+                    const fontSize = parseFloat(styles.fontSize) * scaleFactor;
+                    const lineHeight = parseFloat(styles.lineHeight) * scaleFactor;
+                    ctx.font = `${fontSize}px ${styles.fontFamily}`;
+                    ctx.fillStyle = styles.color;
+                    ctx.textAlign = styles.textAlign;
+                    let x = (liveRect.left - liveWrapperRect.left) * scaleFactor;
+                    let y = ((liveRect.top - liveWrapperRect.top) * scaleFactor) + 40;
+                    if (ctx.textAlign === 'center') x += (liveRect.width * scaleFactor) / 2;
+                    else if (ctx.textAlign === 'right') x += (liveRect.width * scaleFactor);
+                    ctx.textBaseline = 'top';
+                    if (key === 'reason') {
+                        const text = liveElement.textContent;
+                        const words = text.split(' ');
+                        let line = '';
+                        let currentY = y;
+                        const maxWidth = liveRect.width * scaleFactor;
+                        for (let n = 0; n < words.length; n++) {
+                            const testLine = line + words[n] + ' ';
+                            const metrics = ctx.measureText(testLine);
+                            if (metrics.width > maxWidth && n > 0) {
+                                ctx.fillText(line, x, currentY);
+                                line = words[n] + ' ';
+                                currentY += lineHeight;
+                            } else { line = testLine; }
+                        }
+                        ctx.fillText(line, x, currentY);
+                    } else { ctx.fillText(liveElement.textContent, x, y); }
+                }
+                return canvas;
+            }
+
+            async function generateImage() {
+                if (!currentCertificateData) { status.textContent = 'Error: No data.'; return; }
+                status.textContent = 'Generating PNG...';
+                generateImageButton.disabled = true; generatePdfButton.disabled = true;
+                try {
+                    const canvas = await generateCertificateCanvas();
+                    const finalImageData = canvas.toDataURL('image/png', 1.0);
+                    const link = document.createElement('a');
+                    link.href = finalImageData;
+                    link.download = `certificate-${currentCertificateData.id}.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    status.textContent = 'PNG downloaded!';
+                } catch (error) {
+                    console.error('PNG Generation Failed:', error);
+                    status.textContent = `Generation failed: ${error.message}`;
+                } finally {
+                    generateImageButton.disabled = false; generatePdfButton.disabled = false;
+                }
+            }
+
+            async function generatePdf() {
+                if (!currentCertificateData) { status.textContent = 'Error: No data.'; return; }
+                status.textContent = 'Generating PDF...';
+                generateImageButton.disabled = true; generatePdfButton.disabled = true;
+                try {
+                    const canvas = await generateCertificateCanvas();
+                    const canvasImgData = canvas.toDataURL('image/png', 1.0);
+                    const doc = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = doc.internal.pageSize.getWidth(), pdfHeight = doc.internal.pageSize.getHeight();
+                    doc.addImage(canvasImgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    doc.save(`certificate-${currentCertificateData.id}.pdf`);
+                    status.textContent = 'PDF downloaded!';
+                } catch (error) {
+                    console.error('PDF Generation Failed:', error);
+                    status.textContent = `Generation failed: ${error.message}`;
+                } finally {
+                    generateImageButton.disabled = false; generatePdfButton.disabled = false;
+                }
+            }
+
+            async function loadImageAsDataURL(url) {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Could not fetch image: ${url}`);
+                const blob = await response.blob();
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = (error) => reject(error);
+                    reader.readAsDataURL(blob);
+                });
+            }
+
+            loadDatabase().then(() => { console.log("Certificate database pre-loaded."); });
+        }
+
+        setTimeout(initializeVerificationPage, 0);
+    </script>
+</body>
+</html>
