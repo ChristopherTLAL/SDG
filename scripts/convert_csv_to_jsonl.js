@@ -10,15 +10,16 @@ const csvFilePath = path.join(__dirname, 'certificate_data.csv');
 const jsonlFilePath = path.resolve(__dirname, '../public/verify/certificate_data.jsonl');
 
 const results = [];
+// Corrected order of headers based on observation of the CSV content
+const expectedHeaders = ['id', 'reason', 'recipient', 'body', 'date'];
 
 fs.createReadStream(csvFilePath)
-  .pipe(csv())
+  .pipe(csv({ headers: expectedHeaders, skipLines: 1 })) // Use predefined headers and skip the original header row
   .on('data', (data) => {
-    const headers = Object.keys(data);
     let hasBlankData = false;
-    // Only check the first 5 columns for blank data
-    for (let i = 0; i < 5 && i < headers.length; i++) {
-      const header = headers[i];
+    // Check the first 5 columns for blank data using the expected headers
+    for (let i = 0; i < 5; i++) {
+      const header = expectedHeaders[i];
       if (data[header] === null || data[header].toString().trim() === '') {
         hasBlankData = true;
         break;

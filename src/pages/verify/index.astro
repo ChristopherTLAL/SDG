@@ -147,6 +147,7 @@
 
     <script>
         function initializeVerificationPage() {
+            console.log("Initializing verification page...");
             const { jsPDF } = window.jspdf;
 
             // Constants and UI Elements
@@ -200,13 +201,18 @@
                     const text = await response.text();
                     const lines = text.split('\n');
                     const parsedDb = {};
+                    let recordCount = 0;
                     lines.forEach(line => {
                         if (!line.trim()) return;
                         try {
                             const record = JSON.parse(line);
-                            if (record.id) parsedDb[record.id] = record;
+                            if (record.id) {
+                                parsedDb[record.id] = record;
+                                recordCount++;
+                            }
                         } catch (e) { console.warn('Skipping malformed data line:', line); }
                     });
+                    console.log(`Database loaded with ${recordCount} records.`);
                     db = parsedDb;
                     return db;
                 } catch (error) {
@@ -217,6 +223,7 @@
 
             async function verifyCertificate() {
                 const idToFind = certificateId.value.trim();
+                console.log(`Verifying ID: "${idToFind}"`);
                 if (!idToFind) { verifyStatus.textContent = 'Please enter a valid ID.'; return; }
                 landingPage.classList.add('hidden');
                 loadingPage.classList.remove('hidden');
@@ -226,6 +233,7 @@
                 const database = await loadDatabase();
                 if (!database) { loadingPage.classList.add('hidden'); landingPage.classList.remove('hidden'); verifyStatus.textContent = 'Failed to load certificate database.'; return; }
                 const foundRecord = database[idToFind];
+                console.log("Lookup result:", foundRecord);
                 if (foundRecord) {
                     try {
                         if (!loadedImageDataUrl) loadedImageDataUrl = await loadImageAsDataURL('/verify/certificate_1.png');
@@ -381,7 +389,7 @@
             loadDatabase().then(() => { console.log("Certificate database pre-loaded."); });
         }
 
-        setTimeout(initializeVerificationPage, 0);
+        window.addEventListener('load', initializeVerificationPage);
     </script>
 </body>
 </html>
