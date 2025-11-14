@@ -274,6 +274,19 @@
                     el.style.fontSize = `${parseFloat(ctrl.Size) * fontScaleFactor}px`;
                     el.style.textAlign = ctrl.Align;
                     el.textContent = currentCertificateData[key];
+
+                    if (key === 'recipient') {
+                        el.style.whiteSpace = 'nowrap'; // Prevent wrapping for accurate measurement
+                        let currentFontSize = parseFloat(el.style.fontSize);
+                        
+                        // Iteratively reduce font size until the text fits within the element's width
+                        while (el.scrollWidth > el.clientWidth && currentFontSize > 0) {
+                            currentFontSize -= 1; // Decrement font size
+                            el.style.fontSize = `${currentFontSize}px`;
+                        }
+                    } else {
+                        el.style.whiteSpace = 'pre-wrap'; // Ensure other fields can wrap
+                    }
                 }
             }
 
