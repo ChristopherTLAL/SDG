@@ -52,5 +52,91 @@ const isHomePage = Astro.url.pathname === '/';
         </div>
       </div>
     </div>
+
+    <!-- Hidden container for the single WebGL source canvas -->
+    <div id="shader-gradient-source" style="position: fixed; top: -9999px; left: -9999px; width: 512px; height: 512px;"></div>
   </body>
 </html>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const placeholders = document.querySelectorAll('.shader-gradient-placeholder');
+    if (placeholders.length > 0) {
+      const sourceContainer = document.getElementById('shader-gradient-source');
+      if (!sourceContainer) return;
+
+      const reactPath = 'https://esm.sh/react@19';
+      const reactDomPath = 'https://esm.sh/react-dom@19/client';
+      const shaderGradientPath = 'https://esm.sh/@shadergradient/react';
+
+      Promise.all([
+        import(reactPath),
+        import(reactDomPath),
+        import(shaderGradientPath)
+      ]).then(([React, { createRoot }, shaderGradientModule]) => {
+        const { ShaderGradientCanvas, ShaderGradient } = shaderGradientModule;
+        
+        const root = createRoot(sourceContainer);
+        root.render(
+          React.createElement(ShaderGradientCanvas, {
+            style: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
+            lazyLoad: false,
+            fov: undefined,
+            pixelDensity: 1,
+            pointerEvents: "none"
+          },
+          React.createElement(ShaderGradient, {
+            animate: "on",
+            type: "waterPlane",
+            wireframe: false,
+            shader: "defaults",
+            uTime: 8,
+            uSpeed: 0.3,
+            uStrength: 1.5,
+            uDensity: 1.5,
+            uFrequency: 0,
+            uAmplitude: 0,
+            positionX: 0,
+            positionY: 0,
+            positionZ: 0,
+            rotationX: 50,
+            rotationY: 0,
+            rotationZ: -60,
+            color1: "#d0d2ff",
+            color2: "#fff7d4",
+            color3: "#e4f9ff",
+            reflection: 0.1,
+            cAzimuthAngle: 180,
+            cPolarAngle: 80,
+            cDistance: 2.8,
+            cameraZoom: 9.1,
+            lightType: "3d",
+            brightness: 1,
+            envPreset: "city",
+            grain: "on",
+            toggleAxis: false,
+            zoomOut: false,
+            hoverState: "",
+            enableTransition: false
+          }))
+        );
+
+        // Wait a moment for the canvas to initialize
+        setTimeout(() => {
+          const sourceCanvas = sourceContainer.querySelector('canvas');
+          if (sourceCanvas) {
+            function updatePlaceholders() {
+              const dataUrl = sourceCanvas.toDataURL('image/webp', 0.8);
+              placeholders.forEach(container => {
+                container.style.backgroundImage = `url(${dataUrl})`;
+                container.style.backgroundSize = 'cover';
+              });
+              requestAnimationFrame(updatePlaceholders);
+            }
+            updatePlaceholders();
+          }
+        }, 500);
+
+      }).catch(err => console.error('Failed to dynamically load modules from CDN:', err));
+    }
+  });
+</script>
