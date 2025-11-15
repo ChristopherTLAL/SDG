@@ -1,35 +1,56 @@
 ---
 // src/components/Footer.astro
+const currentYear = new Date().getFullYear();
 ---
 
-<footer id="colophon" class="site-footer font-mono py-10 border-t" role="contentinfo">
-  <div class="wrapper">
-    <div class="flex flex-col xl:flex-row flex-wrap">
-      <div class="xl:w-1/2 mb-10 ml-[-3px] print:mb-0">
-        <a href="/" class="text-2xl font-bold text-body font-serif">
+<footer class="border-t border-gray-200 dark:border-gray-800">
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-1">
+        <a href="/" class="text-2xl font-bold text-black dark:text-white font-serif">
           Chinese SDG Institute
         </a>
       </div>
-      <nav class="xl:w-1/2 xl:flex xl:gap-5 mt-[5px] justify-end print:hidden">
-        <div class="flex-1">
-          <ul id="menu-footer-1" class="footer-menu">
-            <li id="menu-item-427773" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-427773"><a href="/about">About</a></li>
-            <li id="menu-item-427779" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-427779"><a href="/support-us">Support Us</a></li>
-            <li id="menu-item-427778" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-427778"><a href="/newsletter">Join Newsletter</a></li>
-            <li id="menu-item-472523" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-472523"><a href="/jobs">Jobs</a></li>
+      <div class="md:col-span-3 grid grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Quick Links</h3>
+          <ul class="text-black dark:text-white space-y-2">
+            <li><a href="/about" class="hover:underline">About</a></li>
+            <li><a href="/support-us" class="hover:underline">Support Us</a></li>
+            <li><a href="/newsletter" class="hover:underline">Join Newsletter</a></li>
+            <li><a href="/jobs" class="hover:underline">Jobs</a></li>
+            <li><a href="/verify" class="hover:underline">Verify</a></li>
           </ul>
         </div>
-        <div class="flex-1">
-          <ul id="menu-footer-2" class="footer-menu">
-            <li id="menu-item-478555" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-478555"><a href="/contact">Contact Us</a></li>
-            <li id="menu-item-462263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-462263"><a href="/policies">Policies</a></li>
-            <li id="menu-item-427780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427780"><a href="/terms-use">Terms of Use</a></li>
-            <li id="menu-item-427781" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427781"><a href="/privacy-policy">Privacy</a></li>
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Legal</h3>
+          <ul class="text-black dark:text-white space-y-2">
+            <li><a href="/privacy-policy" class="hover:underline">Privacy Policy</a></li>
+            <li><a href="/terms-use" class="hover:underline">Terms of Use</a></li>
+            <li><a href="/policies" class="hover:underline">Policies</a></li>
           </ul>
         </div>
-      </nav>
-      <div class="mt-10 xl:-mt-6">
-        <p class="text-[10px] uppercase leading-3 tracking-widest text-light-copy my-2.5">© Chinese SDG Institute. All rights reserved</p>
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Categories</h3>
+          <ul class="text-black dark:text-white space-y-2">
+            <li><a href="/category/report" class="hover:underline">Report</a></li>
+            <li><a href="/category/event" class="hover:underline">Event</a></li>
+            <li><a href="/category/interview" class="hover:underline">Interview</a></li>
+            <li><a href="/category/podcast" class="hover:underline">Podcast</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        &copy; {currentYear} Chinese SDG Institute. All rights reserved.
+      </p>
+      <div class="flex items-center mt-4 md:mt-0">
+        <!-- Anti-counterfeiting SVG Icon -->
+        <svg class="w-6 h-6 text-gray-600 dark:text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l5.611-1.572A8.966 8.966 0 0112 18c2.685 0 5.18-.992 7.022-2.622A12.02 12.02 0 0021 8.417a11.955 11.955 0 01-5.382-3.04z"></path>
+        </svg>
+        <span class="text-sm text-gray-600 dark:text-gray-400">Official Verification</span>
       </div>
     </div>
   </div>

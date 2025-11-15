@@ -18,12 +18,12 @@ const remainingTopStories = topStories.slice(1);
         <section class="top-stories mb-6"> {/* Changed mb-0 to mb-6 */}
           <h2 class="text-4xl font-bold mb-6 text-center">Top Stories</h2>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-2 h-full">
               {remainingTopStories[0] && <PostCard post={remainingTopStories[0]} size="large" />}
             </div>
             <div class="flex flex-col justify-between h-full gap-8">
               {remainingTopStories.slice(1, 4).map(post => (
-                post && <div class="flex-1"><PostCard post={post} size="small-horizontal" /></div>
+                post && <div class="flex-1 h-full"><PostCard post={post} size="small-horizontal" /></div>
               ))}
             </div>
           </div>
@@ -42,7 +42,7 @@ const remainingTopStories = topStories.slice(1);
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map(post => (
-                post && <PostCard post={post} size="medium" />
+                post && <div class="h-full"><PostCard post={post} size="medium" /></div>
               ))}
             </div>
           </section>

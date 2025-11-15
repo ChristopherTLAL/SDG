@@ -42,15 +42,6 @@ body {
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
-.content-card {
-  @apply bg-gray-100 dark:bg-gray-800;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.content-card:hover {
-  @apply shadow-lg dark:shadow-xl;
-}
-
 .article-body p {
   @apply text-lg leading-relaxed my-6 text-gray-800 dark:text-gray-300;
 }
@@ -97,6 +88,29 @@ body {
 }
 
 #nav-overlay {
+
   height: 100vh;
+
   overflow-y: auto;
+
 }
+
+
+
+
+
+
+
+.large-card-image {
+
+
+
+  aspect-ratio: 4 / 3;
+
+
+
+}
+
+
+
+
