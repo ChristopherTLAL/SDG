@@ -136,3 +136,33 @@ export const LATEST_POSTS_QUERY = /* groq */ `
     excerpt
   }
 `;
+
+export async function getAllPosts() {
+  const query = /* groq */ `
+  *[_type == "post"] | order(publishedAt desc){
+    title,
+    "slug": slug.current,
+    publishedAt,
+    excerpt
+  }
+`;
+  const data = await client.fetch(query);
+  return Array.isArray(data) ? data : [];
+}
+
+export async function searchPosts(term: string) {
+  const query = /* groq */ `
+    *[_type == "post" && (title match $term || pt::text(body) match $term)]
+    | score(title match $term, pt::text(body) match $term)
+    | order(_score desc) {
+      "slug": slug.current,
+      title,
+      excerpt,
+      body,
+      "category": category->title,
+      publishedAt,
+    }
+  `;
+  return client.fetch(query, { term });
+}
+

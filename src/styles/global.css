@@ -4,15 +4,6 @@
 
 body {
   font-family: 'Crimson Pro', serif;
-  background-color: #000;
-  color: #fff;
-}
-
-@media (min-width: 1280px) {
-  body {
-    background-color: #fff;
-    color: #000;
-  }
 }
 
 /* Softer, more diffuse text shadow */
@@ -52,41 +43,32 @@ body {
 }
 
 .content-card {
-  background-color: #1a1a1a;
+  @apply bg-gray-100 dark:bg-gray-800;
   transition: box-shadow 0.3s ease-in-out;
 }
 
 .content-card:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-@media (min-width: 1280px) {
-  .content-card {
-    background-color: #fff;
-  }
-  .content-card:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
+  @apply shadow-lg dark:shadow-xl;
 }
 
 .article-body p {
-  @apply text-lg leading-relaxed my-6;
+  @apply text-lg leading-relaxed my-6 text-gray-800 dark:text-gray-300;
 }
 
 .article-body h2 {
-  @apply text-3xl font-bold mt-12 mb-4 font-serif;
+  @apply text-3xl font-bold mt-12 mb-4 font-serif text-gray-900 dark:text-gray-100;
 }
 
 .article-body h3 {
-  @apply text-2xl font-bold mt-8 mb-4 font-serif;
+  @apply text-2xl font-bold mt-8 mb-4 font-serif text-gray-900 dark:text-gray-100;
 }
 
 .article-body a {
-  @apply text-blue-500 underline;
+  @apply text-blue-500 hover:underline;
 }
 
 .article-body blockquote {
-  @apply border-l-4 border-gray-500 pl-4 italic my-6;
+  @apply border-l-4 border-gray-400 dark:border-gray-600 pl-4 italic my-6 text-gray-600 dark:text-gray-400;
 }
 
 
@@ -103,9 +85,18 @@ body {
 }
 
 .text-body {
-  color: #000;
+  @apply text-black dark:text-white;
 }
 
 .mobile-menu-open {
   overflow: hidden;
+}
+
+.header__search input::placeholder {
+  @apply text-white dark:text-black;
+}
+
+#nav-overlay {
+  height: 100vh;
+  overflow-y: auto;
 }

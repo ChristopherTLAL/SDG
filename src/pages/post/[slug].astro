@@ -18,9 +18,9 @@ const post = await getPostBySlug(slug!);
   {post ? (
     <article class="max-w-2xl mx-auto">
       <header class="mb-8">
-        {post.category && <p class="text-sm font-semibold tracking-wider uppercase text-gray-500">{post.category}</p>}
-        <h1 class="text-4xl font-bold leading-tight text-white xl:text-black mt-2 font-serif">{post.title}</h1>
-        {post.excerpt && <p class="mt-4 text-lg text-gray-400 xl:text-gray-600">{post.excerpt}</p>}
+        {post.category && <p class="text-sm font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-400">{post.category}</p>}
+        <h1 class="text-4xl font-bold leading-tight text-black dark:text-white mt-2 font-serif">{post.title}</h1>
+        {post.excerpt && <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">{post.excerpt}</p>}
         <div class="flex items-center mt-6">
           {post.author?.avatar && (
             <img
@@ -30,8 +30,8 @@ const post = await getPostBySlug(slug!);
             />
           )}
           <div>
-            <p class="text-lg font-semibold text-white xl:text-black">{post.author?.name}</p>
-            <p class="text-sm text-gray-500">{formatDate(post.publishedAt)}</p>
+            <p class="text-lg font-semibold text-black dark:text-white">{post.author?.name}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">{formatDate(post.publishedAt)}</p>
           </div>
         </div>
       </header>

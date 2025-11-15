@@ -1,0 +1,44 @@
+---
+---
+<div id="search-overlay" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center">
+  <div class="relative w-full max-w-md">
+    <input id="search-input-overlay" type="text" placeholder="Search..." class="w-full p-4 bg-transparent border-b border-white text-white placeholder-white focus:outline-none text-2xl dark:text-slate-900 dark:placeholder-slate-500">
+    <button id="search-submit-overlay" type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input-overlay');
+  const searchSubmit = document.getElementById('search-submit-overlay');
+  const searchContent = searchOverlay.querySelector('.relative');
+
+  function performSearch() {
+    const query = searchInput.value.trim();
+    if (query) {
+      window.location.href = `/search?q=${encodeURIComponent(query)}`;
+    }
+  }
+
+  function closeSearch() {
+    searchOverlay.classList.add('hidden');
+  }
+
+  searchSubmit.addEventListener('click', performSearch);
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  searchOverlay.addEventListener('click', (e) => {
+    // If the click is on the overlay background itself (not the search input area), close it.
+    if (e.target === searchOverlay) {
+      closeSearch();
+    }
+  });
+</script>

@@ -22,12 +22,12 @@ if (post.mainImage && post.mainImage.asset && post.mainImage.asset._ref) {
   imageUrl = post.mainImage.url;
 }
 ---
-<article class="content-card mb-4 group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+<article class="content-card mb-4 group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 md:h-full flex flex-col">
   {isHorizontal ? (
     <a class="h-full flex items-center" href={`/post/${post.slug}`}>
       <div class="flex-shrink-0 p-4">
         {/* This is the "box" for horizontal cards */}
-        <div class="w-28 h-28 rounded-lg overflow-hidden bg-gray-200">
+        <div class="w-28 h-28 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
           {imageUrl ? (
             <img
               class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
@@ -42,62 +42,74 @@ if (post.mainImage && post.mainImage.asset && post.mainImage.asset._ref) {
         </div>
       </div>
       <div class="flex flex-col justify-center p-4">
-        <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2">
+        <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2 text-black dark:text-white">
           {post.title}
         </h3>
-        <div class="content-card__excerpt mt-2 text-gray-500 line-clamp-2">
+        <div class="content-card__excerpt mt-2 text-gray-500 dark:text-gray-400 line-clamp-2">
           {post.excerpt}
         </div>
       </div>
     </a>
   ) : (
-    <>
-      {/* This div is the "box" - it exists whether there is an image or not */}
-        <div class:list={[
-        "content-card__image overflow-hidden w-full bg-gray-200",
+    <a href={`/post/${post.slug}`} class="block h-full w-full relative">
+      {/* Image container with overlay for text on small screens */}
+      <div class:list={[
+        "content-card__image overflow-hidden w-full bg-gray-200 dark:bg-gray-800 relative",
         { "aspect-video": size === 'large' },
         { "aspect-square": size === 'medium' }
       ]}>
         {imageUrl ? (
-          <a href={`/post/${post.slug}`} class="block h-full w-full">
-            <img
-              class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-              src={imageUrl}
-              alt={post.title}
-            />
-          </a>
+          <img
+            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            src={imageUrl}
+            alt={post.title}
+          />
         ) : (
           <div class="shader-gradient-placeholder w-full h-full transform transition-transform duration-500 group-hover:scale-105" data-slug={post.slug}></div>
         )}
-      </div>
-      <div class="content-card__content p-4 flex flex-col flex-grow">
-        {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500">{post.category.title}</p>}
-        <h3 class:list={[
-          "content-card__title font-bold mt-2 text-2xl",
-          { "line-clamp-2": size === 'large' },
-          { "line-clamp-3": size === 'medium' }
-        ]}>
-          <a href={`/post/${post.slug}`} class="hover:text-purple transition-colors">
+        
+        {/* Overlay for title and excerpt on small screens */}
+        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent md:hidden">
+          {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-200">{post.category.title}</p>}
+          <h3 class:list={[
+            "content-card__title font-bold mt-1 text-xl text-white",
+            { "line-clamp-2": size === 'large' || size === 'medium' }
+          ]}>
             {post.title}
-          </a>
-        </h3>
-        <div class="content-card__meta mt-2 text-lg text-gray-500 flex-grow">
+          </h3>
           {post.excerpt && (
             <div class:list={[
-              "content-card__excerpt mt-2",
-              { "line-clamp-2": size === 'large' },
-              { "line-clamp-5": size === 'medium' }
+              "content-card__excerpt mt-1 text-sm text-gray-300",
+              { "line-clamp-2": size === 'large' || size === 'medium' }
             ]}>
               {post.excerpt}
             </div>
           )}
         </div>
       </div>
-    </>
+      
+      {/* Content below image for medium and larger screens */}
+      <div class="content-card__content p-4 flex flex-col flex-grow hidden md:flex">
+        {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">{post.category.title}</p>}
+        <h3 class:list={[
+          "content-card__title font-bold mt-2 text-2xl text-black dark:text-white",
+          { "line-clamp-2": size === 'large' },
+          { "line-clamp-3": size === 'medium' }
+        ]}>
+          {post.title}
+        </h3>
+        {post.excerpt && (
+          <div class:list={[
+            "content-card__excerpt mt-2 text-lg text-gray-500 dark:text-gray-400 flex-grow",
+            { "line-clamp-2": size === 'large' },
+            { "line-clamp-5": size === 'medium' }
+          ]}>
+            {post.excerpt}
+          </div>
+        )}
+      </div>
+    </a>
   )}
 </article>
-
-
-

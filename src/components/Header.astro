@@ -1,19 +1,85 @@
 ---
-// src/components/Header.astro
+import { getAllCategories, type SanityCategory } from "../lib/sanity/queries";
+import NavOverlay from "./NavOverlay.astro";
+import SearchOverlay from "./SearchOverlay.astro";
+
+const { isHomePage = false } = Astro.props;
+const categories = await getAllCategories();
+
+const headerClasses = isHomePage
+  ? "site-header absolute top-0 left-0 z-[100] w-full bg-transparent"
+  : "site-header sticky top-0 left-0 z-[100] w-full bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800";
+
+const textClasses = isHomePage
+  ? "text-white"
+  : "text-black dark:text-white";
 ---
 
-<header class="site-header absolute top-0 left-0 z-[100] w-full bg-transparent">
-  <div class="site-header__logo-wrapper h-[77px] xl:h-[110px] w-full pl-5 sm:pl-10 xl:pl-[30px] flex relative">
-    <div class="site-header__logo-inner-wrapper flex gap-6 items-center w-full">
-      <a class="text-2xl font-bold text-white font-serif" href="/" aria-label="Chinese SDG Institute Homepage">
+<header id="site-header" class={headerClasses}>
+  <div class="site-header__logo-wrapper h-[77px] xl:h-[110px] w-full px-5 sm:px-10 xl:px-[30px] flex relative">
+    <div class="site-header__logo-inner-wrapper flex justify-between items-center w-full">
+      <a class:list={["text-2xl font-bold font-serif", textClasses]} href="/" aria-label="Chinese SDG Institute Homepage">
         Chinese SDG Institute
       </a>
-      <div class="ml-auto site-header__logo-container flex xl:ml-0 xl:-order-1 h-[77px] xl:h-auto">
-        <div class="header__hamburger flex px-5 items-center">
-          <button type="button" class="block text-white text-[30px] font-icons icon-TI_Menu leading-none transition" aria-label="Toggle Menu">
+      <div class="flex items-center gap-4">
+        <div class="header__search">
+          <button id="search-toggle" type="button" class={textClasses} aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+        </div>
+        <div class="header__hamburger">
+          <button id="nav-toggle" type="button" class={textClasses} aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<NavOverlay categories={categories} />
+<SearchOverlay />
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const navOverlay = document.getElementById('nav-overlay');
+  const siteHeader = document.getElementById('site-header');
+  const heroSection = document.querySelector('.hero-section');
+
+  navToggle.addEventListener('click', () => {
+    const headerHeight = siteHeader.offsetHeight;
+    // Use a fallback for heroHeight on pages where it doesn't exist
+    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+    
+    // Adjust overlay position based on page type
+    if (heroSection) {
+      navOverlay.style.top = `${headerHeight}px`;
+      navOverlay.style.height = `${heroHeight - headerHeight}px`;
+    } else {
+      navOverlay.style.top = `${headerHeight}px`;
+      navOverlay.style.height = `calc(100vh - ${headerHeight}px)`;
+    }
+    
+    const isHidden = navOverlay.classList.contains('hidden');
+    if (isHidden) {
+      navOverlay.classList.remove('hidden');
+      setTimeout(() => navOverlay.classList.remove('opacity-0'), 10);
+    } else {
+      navOverlay.classList.add('opacity-0');
+      navOverlay.addEventListener('transitionend', () => {
+        navOverlay.classList.add('hidden');
+      }, { once: true });
+    }
+  });
+
+  const searchToggle = document.getElementById('search-toggle');
+  const searchOverlay = document.getElementById('search-overlay');
+
+  searchToggle.addEventListener('click', () => {
+    searchOverlay.classList.remove('hidden');
+  });
+</script>

@@ -1,0 +1,44 @@
+---
+import type { SanityCategory } from "../lib/sanity/queries";
+import CategoryPill from "./CategoryPill.astro";
+
+export interface Props {
+  categories: SanityCategory[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div id="nav-overlay" class="fixed left-0 bg-white dark:bg-slate-900 z-40 hidden w-full transition-opacity duration-300 opacity-0">
+  <div class="container px-6 py-8 flex justify-end">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Quick Links</h3>
+        <ul class="text-black dark:text-white">
+          <li class="mb-2"><a href="/about" class="hover:underline">About</a></li>
+          <li class="mb-2"><a href="/support-us" class="hover:underline">Support Us</a></li>
+          <li class="mb-2"><a href="/newsletter" class="hover:underline">Join Newsletter</a></li>
+          <li class="mb-2"><a href="/jobs" class="hover:underline">Jobs</a></li>
+          <li class="mb-2"><a href="/verify" class="hover:underline">Verify</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Legal</h3>
+        <ul class="text-black dark:text-white">
+          <li class="mb-2"><a href="/privacy-policy" class="hover:underline">Privacy Policy</a></li>
+          <li class="mb-2"><a href="/terms-use" class="hover:underline">Terms of Use</a></li>
+          <li class="mb-2"><a href="/policies" class="hover:underline">Policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-black dark:text-white">Categories</h3>
+        <ul class="text-black dark:text-white">
+          <li class="mb-2"><a href="/category/report" class="hover:underline">Report</a></li>
+          <li class="mb-2"><a href="/category/event" class="hover:underline">Event</a></li>
+          <li class="mb-2"><a href="/category/interview" class="hover:underline">Interview</a></li>
+          <li class="mb-2"><a href="/category/podcast" class="hover:underline">Podcast</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
