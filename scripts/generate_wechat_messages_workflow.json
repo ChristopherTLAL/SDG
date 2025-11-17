@@ -1,0 +1,131 @@
+{
+  "name": "Generate WeChat Messages from JSONL",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "5f45751b-1591-484e-a11b-13a10f794234",
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        300
+      ],
+      "webhookId": "a1e73030-9481-488c-9333-998a1288e037"
+    },
+    {
+      "parameters": {
+        "jsCode": "const jsonlContent = $json.jsonl_content;\nif (!jsonlContent) {\n  return [];\n}\n\n// Split the content by newlines and filter out any empty lines\nconst lines = jsonlContent.split('\n').filter(line => line.trim() !== '');\n\n// Parse each line as JSON\nconst items = lines.map(line => {\n  try {\n    return { json: JSON.parse(line) };\n  } catch (e) {\n    console.error(`Could not parse line: ${line}`, e);\n    return null;\n  }\n}).filter(item => item !== null);\n\nreturn items;"
+      },
+      "id": "0a31211f-131e-45e8-9131-131e45e8e131",
+      "name": "Parse JSONL Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $items.map(item => {\n  const reason = item.json.reason;\n  \n  // Regex to extract Title, Book Name, and ISBN\n  const titleRegex = /chapter titled: ([\s\S]*?) in the internationally published book/;
+  const bookNameRegex = /book\n'([\s\S]*?)'/;
+  const isbnRegex = /\(ISBN: ([\s\S]*?)\)/;
+\n  const titleMatch = reason.match(titleRegex);
+  const bookNameMatch = reason.match(bookNameRegex);
+  const isbnMatch = reason.match(isbnRegex);
+\n  // Add extracted data to the item\n  item.json.extractedTitle = titleMatch ? titleMatch[1].replace(/\n/g, ' ').trim() : 'N/A';
+  item.json.extractedBookName = bookNameMatch ? bookNameMatch[1].replace(/\n/g, ' ').trim() : 'N/A';
+  item.json.extractedIsbn = isbnMatch ? isbnMatch[1].trim() : 'N/A';\n\n  return item;\n});\n\nreturn items;"
+      },
+      "id": "9e4a3121-1f13-4e45-8121-1f134e458121",
+      "name": "Extract Info from 'reason'",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "weChatMessage",
+              "value": "=恭喜{{ $json.recipient }}署名的文章（{{ $json.extractedTitle }}） 已经编入{{ $json.extractedBookName }}这本书（ISBN：{{ $json.extractedIsbn }}），目前可在亚马逊购买（美国亚马逊地址：https://www.amazon.com/dp/1955662096）。\n发表证书请登录 https://sdg.undp.ac.cn/verify 输入证书编号 {{ $json.id }} 获取电子版证书。若网站在中国大陆地区无法打开，请咨询工作人员获取帮助。"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1e4a3121-1f13-4e45-8121-1f134e458121",
+      "name": "Compose Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const allMessages = $items.map(item => item.json.weChatMessage);\n\n// Join all messages with two newlines for separation\nconst finalOutput = allMessages.join('\n\n---\n\n');\n\n// Return a single item with the final text\nreturn [{ json: { full_text: finalOutput } }];"
+      },
+      "id": "2e4a3121-1f13-4e45-8121-1f134e458121",
+      "name": "Aggregate Messages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Parse JSONL Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSONL Input": {
+      "main": [
+        [
+          {
+            "node": "Extract Info from 'reason'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Info from 'reason'": {
+      "main": [
+        [
+          {
+            "node": "Compose Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose Message": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
