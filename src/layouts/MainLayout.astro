@@ -17,9 +17,9 @@ const isHomePage = Astro.url.pathname === '/';
   <head>
     <meta charset="utf-t" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — {siteTitle}</title>
+    <title>{isHomePage ? siteTitle : `${title} — ${siteTitle}`}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/logo.svg" />
     <script is:inline>
       // This script is executed in the head to prevent FOUC (Flash of Unstyled Content)
       const applyTheme = () => {
