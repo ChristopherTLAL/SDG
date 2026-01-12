@@ -34,7 +34,7 @@ fs.createReadStream(csvFilePath)
   .on('end', () => {
     try {
       const jsonlRecords = results.map(record => JSON.stringify(record));
-      fs.appendFileSync(jsonlFilePath, '\n' + jsonlRecords.join('\n'), 'utf8');
+      fs.writeFileSync(jsonlFilePath, jsonlRecords.join('\n'), 'utf8');
       console.log(`Successfully converted ${results.length} records from ${csvFilePath} to ${jsonlFilePath}`);
     } catch (error) {
       console.error('Error writing to JSONL file:', error);
