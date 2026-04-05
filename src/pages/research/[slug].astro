@@ -1,0 +1,117 @@
+---
+// src/pages/research/[slug].astro — Post detail page
+import MainLayout from '../../layouts/MainLayout.astro';
+import { ContentView } from '../../components/ContentView.tsx';
+import SdgChip from '../../components/SdgChip.astro';
+import { getPostBySlug } from '../../lib/sanity/queries';
+import { urlForImage } from '../../lib/sanity/image';
+import { formatDate } from '../../utils/date';
+
+const lang = 'en';
+const { slug } = Astro.params;
+const post = await getPostBySlug(slug!);
+
+// Resolve localized field
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+const title = post ? t(post.title) : 'Post';
+const excerpt = post ? t(post.excerpt) : '';
+const body = post?.body ? (post.body[lang] || post.body.en || post.body) : null;
+
+const contentTypeLabels: Record<string, string> = {
+  news: 'News',
+  research: 'Research Paper',
+  'policy-brief': 'Policy Brief',
+};
+
+let imageUrl: string | null = null;
+if (post?.mainImage?.asset) {
+  try { imageUrl = urlForImage(post.mainImage).width(1200).url(); } catch { imageUrl = null; }
+}
+---
+
+<MainLayout title={`${title} | Chinese SDGs Institute`} description={excerpt} lang={lang}>
+  {post ? (
+    <main class="pt-40 pb-32">
+      <article class="max-w-3xl mx-auto px-6 md:px-12">
+        <!-- Meta -->
+        <div class="flex flex-wrap items-center gap-4 text-[10px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-8">
+          {post.sdgTags?.map((tag: string) => (
+            <SdgChip tag={tag} />
+          ))}
+          {post.contentType && (
+            <span class="font-semibold">{contentTypeLabels[post.contentType] || post.contentType}</span>
+          )}
+          {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+          {post.readingTime && (
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[12px]">timer</span>
+              {post.readingTime} min read
+            </span>
+          )}
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
+          {title}
+        </h1>
+
+        {excerpt && (
+          <p class="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl">{excerpt}</p>
+        )}
+
+        <!-- Author -->
+        {post.author && (
+          <div class="flex items-center gap-4 mb-12 pb-8 border-b border-outline-variant/10">
+            {post.author.avatar && (
+              <img class="w-10 h-10 rounded-full object-cover" src={post.author.avatar} alt={post.author.name} />
+            )}
+            <div>
+              <p class="text-sm font-bold text-on-surface">{post.author.name}</p>
+              {post.publishedAt && (
+                <p class="text-xs text-on-surface-variant">{formatDate(post.publishedAt)}</p>
+              )}
+            </div>
+          </div>
+        )}
+
+        <!-- Image -->
+        {imageUrl && (
+          <div class="mb-12 rounded-2xl overflow-hidden aspect-[16/9]">
+            <img class="w-full h-full object-cover" src={imageUrl} alt={title} />
+          </div>
+        )}
+
+        <!-- Body -->
+        {body && (
+          <div class="article-body">
+            <ContentView client:load value={body} />
+          </div>
+        )}
+
+        <!-- Back link -->
+        <div class="mt-16 pt-8 border-t border-outline-variant/10">
+          <a href="/research" class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to Research Index
+          </a>
+        </div>
+      </article>
+    </main>
+  ) : (
+    <main class="pt-40 pb-32">
+      <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+        <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">search_off</span>
+        <h1 class="text-2xl font-bold text-on-surface mb-4 font-headline">Article not found</h1>
+        <p class="text-on-surface-variant mb-8">The article you're looking for doesn't exist or has been removed.</p>
+        <a href="/research" class="inline-block bg-primary text-on-primary px-8 py-3 rounded-md font-bold text-sm hover:bg-primary-dim transition-all">
+          Browse Research
+        </a>
+      </div>
+    </main>
+  )}
+</MainLayout>

@@ -1,7 +1,7 @@
-// sanity/schemas/author.ts - 正确的写法
+// sanity-studio/schemas/author.ts
 import {defineField, defineType} from 'sanity'
 
-export default defineType({ // <--- 确保这里是 export default
+export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
@@ -10,6 +10,7 @@ export default defineType({ // <--- 确保这里是 export default
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -24,14 +25,18 @@ export default defineType({ // <--- 确保这里是 export default
       name: 'image',
       title: 'Image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: {hotspot: true},
     }),
     defineField({
       name: 'bio',
       title: 'Bio',
-      type: 'text',
+      type: 'localizedText',
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+    },
+  },
 })

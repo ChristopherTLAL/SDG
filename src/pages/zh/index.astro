@@ -1,16 +1,14 @@
 ---
-// src/pages/index.astro — Home page (English)
-import MainLayout from '../layouts/MainLayout.astro';
-import NewsletterForm from '../components/NewsletterForm.astro';
-import { getHomepageData } from '../lib/sanity/queries';
-import { urlForImage } from '../lib/sanity/image';
-import { formatDate } from '../utils/date';
+// src/pages/zh/index.astro — 首页（中文）
+import MainLayout from '../../layouts/MainLayout.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { getHomepageData } from '../../lib/sanity/queries';
+import { formatDate } from '../../utils/date';
 
-const lang = 'en';
+const lang = 'zh';
 const data = await getHomepageData(lang);
 const { latestPosts, trendingPosts, projects, upcomingDialogues } = data || {};
 
-// Status badge colors
 const statusColors: Record<string, string> = {
   active: 'bg-primary text-white',
   recruiting: 'bg-primary text-white',
@@ -18,38 +16,33 @@ const statusColors: Record<string, string> = {
   completed: 'bg-surface-container-high text-on-surface-variant',
 };
 
-// Content type labels
 const contentTypeLabels: Record<string, string> = {
-  news: 'News',
-  research: 'Research Paper',
-  'policy-brief': 'Policy Brief',
+  news: '新闻',
+  research: '研究论文',
+  'policy-brief': '政策简报',
 };
 
-// Resolve localized field helper
 function t(field: any): string {
   if (!field) return '';
   if (typeof field === 'string') return field;
-  return field[lang] || field.en || '';
+  return field.zh || field.en || '';
 }
 
-// Pre-process latest posts for the template
 const processedPosts = (latestPosts || []).map((post: any) => ({
   title: t(post.title),
   excerpt: t(post.excerpt),
-  href: `/research/${post.slug}`,
+  href: `/zh/research/${post.slug}`,
   sdgTag: post.sdgTags?.[0] || '',
   contentType: post.contentType ? (contentTypeLabels[post.contentType] || post.contentType) : '',
   date: post.publishedAt ? formatDate(post.publishedAt) : '',
 }));
 
-// Pre-process trending posts
 const processedTrending = (trendingPosts || []).map((post: any, i: number) => ({
   title: t(post.title),
-  href: `/research/${post.slug}`,
-  label: `${String(i + 1).padStart(2, '0')}. ${contentTypeLabels[post.contentType] || post.contentType || 'Article'}`,
+  href: `/zh/research/${post.slug}`,
+  label: `${String(i + 1).padStart(2, '0')}. ${contentTypeLabels[post.contentType] || post.contentType || '文章'}`,
 }));
 
-// Pre-process projects
 const processedProjects = (projects || []).map((project: any) => ({
   title: t(project.title),
   description: t(project.description),
@@ -61,32 +54,31 @@ const processedProjects = (projects || []).map((project: any) => ({
   teamInitials: project.team ? project.team.substring(0, 2).toUpperCase() : '',
 }));
 
-// Pre-process upcoming dialogues
 const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
   title: t(d.title),
-  dateStr: d.date ? new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase() : '',
+  dateStr: d.date ? new Date(d.date).toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' }) : '',
 }));
 ---
 
-<MainLayout title="Chinese SDGs Institute | The Digital Curator" description="Advancing sustainable development through rigorous research, data transparency, and institutional collaboration." lang={lang}>
+<MainLayout title="中国可持续发展目标研究院 | 数字策展人" description="通过严谨的研究、数据透明和机构合作，推进可持续发展。" lang={lang}>
   <main class="pt-32 pb-24">
-    <!-- Hero Section -->
+    <!-- 英雄区域 -->
     <section class="max-w-6xl mx-auto px-6 md:px-12 mb-40">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
         <div class="md:col-span-7 pt-8">
           <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.05] font-headline">
-            The Digital Curator of Progress
+            进步的数字策展人
           </h1>
           <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-12 max-w-xl font-body">
-            Advancing sustainable development through rigorous research, data transparency, and institutional collaboration. We decode complexity into actionable intelligence.
+            通过严谨的研究、数据透明和机构合作，推进可持续发展。我们将复杂性解码为可操作的情报。
           </p>
           <div class="flex flex-wrap gap-5">
-            <a href="/research" class="bg-primary text-on-primary px-10 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all flex items-center gap-3 shadow-md">
-              Explore Repository
+            <a href="/zh/research" class="bg-primary text-on-primary px-10 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all flex items-center gap-3 shadow-md">
+              探索资料库
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
-            <a href="/about" class="bg-surface-container-high text-on-surface px-10 py-4 rounded-md font-bold text-base hover:bg-surface-container-highest transition-all">
-              Annual Reports
+            <a href="/zh/about" class="bg-surface-container-high text-on-surface px-10 py-4 rounded-md font-bold text-base hover:bg-surface-container-highest transition-all">
+              年度报告
             </a>
           </div>
         </div>
@@ -107,31 +99,26 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
       </div>
     </section>
 
-    <!-- Latest Intelligence Section -->
+    <!-- 最新情报 -->
     <section class="bg-surface-container-low py-28 border-y border-outline-variant/10">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
         <div class="flex justify-between items-end mb-16">
           <div>
-            <span class="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-4 block">Intelligence</span>
-            <h2 class="text-4xl font-bold tracking-tight text-on-surface font-headline">Latest Research &amp; Insights</h2>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-4 block">情报</span>
+            <h2 class="text-4xl font-bold tracking-tight text-on-surface font-headline">最新研究与洞察</h2>
           </div>
-          <a class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2" href="/research">
-            Archive Repository
+          <a class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2" href="/zh/research">
+            档案库
             <span class="material-symbols-outlined text-xs">open_in_new</span>
           </a>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <!-- Main Grid -->
           <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             {processedPosts.length > 0 ? processedPosts.map((p) => (
               <a href={p.href} class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/10 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col group">
                 <div class="flex gap-3 mb-6">
-                  {p.sdgTag && (
-                    <span class="px-2.5 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">{p.sdgTag}</span>
-                  )}
-                  {p.contentType && (
-                    <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">{p.contentType}</span>
-                  )}
+                  {p.sdgTag && <span class="px-2.5 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">{p.sdgTag}</span>}
+                  {p.contentType && <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">{p.contentType}</span>}
                 </div>
                 <h3 class="text-xl font-bold mb-4 leading-snug text-on-surface group-hover:text-primary transition-colors font-headline">{p.title}</h3>
                 {p.excerpt && <p class="text-sm text-on-surface-variant mb-8 line-clamp-3 leading-relaxed">{p.excerpt}</p>}
@@ -145,59 +132,51 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
                 <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/10 flex flex-col">
                   <div class="flex gap-3 mb-6">
                     <span class="px-2.5 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">SDG 7</span>
-                    <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">Research Paper</span>
+                    <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">研究论文</span>
                   </div>
-                  <h3 class="text-xl font-bold mb-4 leading-snug text-on-surface font-headline">Decentralized Energy Grids in rural Zhejiang: A 5-year longitudinal study</h3>
-                  <p class="text-sm text-on-surface-variant mb-8 line-clamp-3 leading-relaxed">Evaluating the socio-economic impact of local solar cooperatives on household income and energy security across three major districts.</p>
+                  <h3 class="text-xl font-bold mb-4 leading-snug text-on-surface font-headline">浙江农村分散式能源电网：五年纵向研究</h3>
+                  <p class="text-sm text-on-surface-variant mb-8 line-clamp-3 leading-relaxed">评估当地太阳能合作社对三个主要地区家庭收入和能源安全的社会经济影响。</p>
                   <div class="flex items-center justify-between mt-auto pt-5 border-t border-outline-variant/10">
-                    <span class="text-[11px] font-medium text-on-surface-variant">Coming Soon</span>
+                    <span class="text-[11px] font-medium text-on-surface-variant">即将推出</span>
                     <span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
                   </div>
                 </div>
                 <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/10 flex flex-col">
                   <div class="flex gap-3 mb-6">
                     <span class="px-2.5 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">SDG 13</span>
-                    <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">Policy Brief</span>
+                    <span class="text-[10px] font-semibold text-on-surface-variant pt-1 uppercase">政策简报</span>
                   </div>
-                  <h3 class="text-xl font-bold mb-4 leading-snug text-on-surface font-headline">Climate Mitigation Strategies for the Pearl River Delta Megacity Region</h3>
-                  <p class="text-sm text-on-surface-variant mb-8 line-clamp-3 leading-relaxed">An analysis of adaptive infrastructure requirements for 2030-2050 sea level projection scenarios.</p>
+                  <h3 class="text-xl font-bold mb-4 leading-snug text-on-surface font-headline">珠三角超大城市区域气候减缓策略</h3>
+                  <p class="text-sm text-on-surface-variant mb-8 line-clamp-3 leading-relaxed">2030-2050年海平面上升预测情景下的适应性基础设施需求分析。</p>
                   <div class="flex items-center justify-between mt-auto pt-5 border-t border-outline-variant/10">
-                    <span class="text-[11px] font-medium text-on-surface-variant">Coming Soon</span>
+                    <span class="text-[11px] font-medium text-on-surface-variant">即将推出</span>
                     <span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
                   </div>
                 </div>
               </>
             )}
           </div>
-
-          <!-- Trending Sidebar -->
           <aside class="lg:col-span-4">
             <div class="sticky top-28 bg-white border border-outline-variant/10 rounded-2xl p-8 shadow-sm">
               <h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-10 flex items-center gap-3">
                 <span class="material-symbols-outlined text-primary text-xl">trending_up</span>
-                Trending Intelligence
+                热门情报
               </h3>
               <ul class="space-y-10">
                 {processedTrending.length > 0 ? processedTrending.map((item) => (
                   <li>
                     <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">{item.label}</span>
-                    <a class="text-sm font-bold leading-snug text-on-surface hover:text-primary transition-colors block" href={item.href}>
-                      {item.title}
-                    </a>
+                    <a class="text-sm font-bold leading-snug text-on-surface hover:text-primary transition-colors block" href={item.href}>{item.title}</a>
                   </li>
                 )) : (
                   <>
                     <li>
-                      <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">01. Research Paper</span>
-                      <span class="text-sm font-bold leading-snug text-on-surface block">Global Green Taxonomy Convergence: China's Role in 2024</span>
+                      <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">01. 研究论文</span>
+                      <span class="text-sm font-bold leading-snug text-on-surface block">全球绿色分类法趋同：中国在2024年的角色</span>
                     </li>
                     <li>
-                      <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">02. Field Report</span>
-                      <span class="text-sm font-bold leading-snug text-on-surface block">Mangrove Restoration Success Metrics in Shenzhen Bay</span>
-                    </li>
-                    <li>
-                      <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">03. White Paper</span>
-                      <span class="text-sm font-bold leading-snug text-on-surface block">AI for Social Good: Ethics Framework for Public Sector Apps</span>
+                      <span class="text-[10px] font-bold text-primary/60 block mb-2 uppercase tracking-wide">02. 田野报告</span>
+                      <span class="text-sm font-bold leading-snug text-on-surface block">深圳湾红树林恢复成功指标</span>
                     </li>
                   </>
                 )}
@@ -211,26 +190,24 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
       </div>
     </section>
 
-    <!-- Social Projects Section -->
+    <!-- 社会项目 -->
     <section class="max-w-6xl mx-auto px-6 md:px-12 py-32">
       <div class="text-center mb-20 max-w-3xl mx-auto">
-        <span class="inline-block px-4 py-1.5 bg-primary-container text-on-primary-container text-[11px] font-bold rounded-full uppercase tracking-widest mb-6">Student Initiatives</span>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-on-surface font-headline">Social Projects &amp; Community Action</h2>
+        <span class="inline-block px-4 py-1.5 bg-primary-container text-on-primary-container text-[11px] font-bold rounded-full uppercase tracking-widest mb-6">学生倡议</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-on-surface font-headline">社会项目与社区行动</h2>
         <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
-          Empowering the next generation of sustainability pioneers. Discover student-led research and field projects making a tangible difference across urban and rural landscapes.
+          赋能新一代可持续发展先驱。发现学生主导的研究和实地项目，在城市和农村地区产生切实影响。
         </p>
-        <a href="/projects" class="inline-block bg-primary text-on-primary px-12 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all shadow-md">
-          Explore Open Projects
+        <a href="/zh/projects" class="inline-block bg-primary text-on-primary px-12 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all shadow-md">
+          探索开放项目
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
         {processedProjects.length > 0 ? processedProjects.map((proj) => (
-          <a href={`/projects#${proj.slug}`} class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 block">
+          <a href={`/zh/projects#${proj.slug}`} class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 block">
             <div class="h-48 bg-surface-container-high relative flex items-center justify-center overflow-hidden">
               <span class="material-symbols-outlined text-primary/20 text-7xl group-hover:scale-110 transition-transform duration-500">{proj.icon}</span>
-              <div class={`absolute bottom-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest ${proj.statusClass}`}>
-                {proj.status}
-              </div>
+              <div class={`absolute bottom-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest ${proj.statusClass}`}>{proj.status}</div>
             </div>
             <div class="p-8">
               <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">{proj.title}</h3>
@@ -245,60 +222,48 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
           </a>
         )) : (
           <>
-            <div class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
+            <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
               <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary/20 text-7xl">eco</span>
-                <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Active</div>
+                <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">进行中</div>
               </div>
               <div class="p-8">
-                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Zero-Waste Campus Pilot</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">A student-led circular economy framework reducing single-use plastic by 40% across five major university dining halls.</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-[10px] font-bold text-on-tertiary-container">ZU</div>
-                  <span class="text-xs font-semibold text-on-surface-variant">Zhejiang University Team</span>
-                </div>
+                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">零废弃校园试点</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">学生主导的循环经济框架，在五所主要大学餐厅减少40%的一次性塑料使用。</p>
               </div>
             </div>
-            <div class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
+            <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
               <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary/20 text-7xl">diversity_3</span>
-                <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Recruiting</div>
+                <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">招募中</div>
               </div>
               <div class="p-8">
-                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Heritage Digital Archive</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Documenting oral histories and intangible cultural heritage in the Liangshan mountains using interactive geospatial mapping.</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">TH</div>
-                  <span class="text-xs font-semibold text-on-surface-variant">Tsinghua Design Collective</span>
-                </div>
+                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">文化遗产数字档案</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">使用交互式地理空间映射技术记录凉山山区的口述历史和非物质文化遗产。</p>
               </div>
             </div>
-            <div class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
+            <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
               <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary/20 text-7xl">water_drop</span>
-                <div class="absolute bottom-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Ongoing</div>
+                <div class="absolute bottom-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">持续中</div>
               </div>
               <div class="p-8">
-                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Urban Water Literacy</h3>
-                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Developing open-source sensors for community-led water quality monitoring in the Suzhou canal network.</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] font-bold text-on-primary-container">SU</div>
-                  <span class="text-xs font-semibold text-on-surface-variant">Soochow University Lab</span>
-                </div>
+                <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">城市水素养</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">开发开源传感器，用于苏州运河网络的社区主导水质监测。</p>
               </div>
             </div>
           </>
         )}
       </div>
 
-      <!-- Upcoming Dialogues & Newsletter Banner -->
+      <!-- 即将举办的对话 & 通讯横幅 -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-primary text-on-primary p-8 md:p-12 rounded-3xl shadow-xl">
         <div class="lg:col-span-7 flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div class="bg-white/10 p-4 rounded-xl shrink-0">
             <span class="material-symbols-outlined text-4xl">event_note</span>
           </div>
           <div>
-            <h4 class="text-xl font-bold mb-3 font-headline">Upcoming Dialogues</h4>
+            <h4 class="text-xl font-bold mb-3 font-headline">即将举办的对话</h4>
             <div class="space-y-4">
               {processedDialogues.length > 0 ? processedDialogues.map((d) => (
                 <div class="flex gap-4 items-center">
@@ -308,12 +273,12 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
               )) : (
                 <>
                   <div class="flex gap-4 items-center">
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">TBD</span>
-                    <p class="text-sm font-medium opacity-90">Urban Resilience: Post-Pandemic Architecture in Asia</p>
+                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">待定</span>
+                    <p class="text-sm font-medium opacity-90">城市韧性：亚洲后疫情时代建筑</p>
                   </div>
                   <div class="flex gap-4 items-center">
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">TBD</span>
-                    <p class="text-sm font-medium opacity-90">Decoding Carbon Markets: A Practical Workshop</p>
+                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">待定</span>
+                    <p class="text-sm font-medium opacity-90">解码碳市场：实践工作坊</p>
                   </div>
                 </>
               )}

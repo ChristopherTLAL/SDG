@@ -1,4 +1,4 @@
-// sanity-studio/schemas/post.ts
+// sanity-studio/schemas/project.ts
 import {defineField, defineType} from 'sanity'
 
 const sdgOptions = Array.from({length: 17}, (_, i) => ({
@@ -7,8 +7,8 @@ const sdgOptions = Array.from({length: 17}, (_, i) => ({
 }))
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'project',
+  title: 'Project',
   type: 'document',
   fields: [
     defineField({
@@ -28,27 +28,29 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'contentType',
-      title: 'Content Type',
+      name: 'status',
+      title: 'Status',
       type: 'string',
       options: {
         list: [
-          {title: 'News', value: 'news'},
-          {title: 'Research Paper', value: 'research'},
-          {title: 'Policy Brief', value: 'policy-brief'},
+          {title: 'Active', value: 'active'},
+          {title: 'Recruiting', value: 'recruiting'},
+          {title: 'Ongoing', value: 'ongoing'},
+          {title: 'Completed', value: 'completed'},
         ],
         layout: 'radio',
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'sdgTags',
-      title: 'SDG Tags',
-      type: 'array',
-      of: [{type: 'string'}],
-      options: {
-        list: sdgOptions,
-      },
+      name: 'description',
+      title: 'Description',
+      type: 'localizedText',
+    }),
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'localizedBlockContent',
     }),
     defineField({
       name: 'mainImage',
@@ -64,37 +66,30 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'localizedText',
+      name: 'team',
+      title: 'Team',
+      type: 'string',
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'localizedBlockContent',
+      name: 'sdgTags',
+      title: 'SDG Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: sdgOptions,
+      },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{type: 'author'}],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published At',
-      type: 'datetime',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'readingTime',
-      title: 'Reading Time (minutes)',
-      type: 'number',
+      name: 'icon',
+      title: 'Icon (Material Symbol name)',
+      type: 'string',
+      description: 'e.g. "eco", "water_drop", "school", "park"',
     }),
   ],
   preview: {
     select: {
       title: 'title.en',
-      subtitle: 'contentType',
+      subtitle: 'status',
       media: 'mainImage',
     },
   },

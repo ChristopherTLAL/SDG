@@ -1,0 +1,70 @@
+---
+// src/components/NewsletterForm.astro
+// Reusable newsletter subscription form — two variants: sidebar (light) and banner (dark/inverted)
+const { variant = 'sidebar', lang = 'en' } = Astro.props as {
+  variant?: 'sidebar' | 'banner';
+  lang?: 'en' | 'zh';
+};
+
+const labels = {
+  en: {
+    title: "Curator's Newsletter",
+    bannerTitle: "The Curator's Brief",
+    bannerDesc: 'Deep dives into the data driving global sustainability, delivered bi-weekly.',
+    placeholder: 'Email Address',
+    bannerPlaceholder: 'Enter your institutional email',
+    button: 'Join',
+    bannerButton: 'Subscribe',
+  },
+  zh: {
+    title: '策展人通讯',
+    bannerTitle: '策展人简报',
+    bannerDesc: '深入剖析驱动全球可持续发展的数据，双周发送。',
+    placeholder: '电子邮箱',
+    bannerPlaceholder: '输入您的机构邮箱',
+    button: '订阅',
+    bannerButton: '订阅',
+  },
+};
+
+const t = labels[lang] || labels.en;
+---
+
+{variant === 'sidebar' ? (
+  <div>
+    <p class="text-xs text-on-surface-variant mb-6 font-bold uppercase tracking-wider">{t.title}</p>
+    <form class="flex gap-2" onsubmit="return false;">
+      <input
+        class="flex-grow bg-surface-container-low border border-outline-variant/10 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+        placeholder={t.placeholder}
+        type="email"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-primary text-white px-5 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-primary-dim transition-all"
+      >
+        {t.button}
+      </button>
+    </form>
+  </div>
+) : (
+  <div class="flex flex-col justify-center">
+    <h4 class="text-lg font-bold mb-2">{t.bannerTitle}</h4>
+    <p class="text-sm opacity-80 mb-6">{t.bannerDesc}</p>
+    <form class="flex gap-3" onsubmit="return false;">
+      <input
+        class="flex-grow bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-white/30 outline-none"
+        placeholder={t.bannerPlaceholder}
+        type="email"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-white text-primary px-6 py-3 rounded-md text-xs font-extrabold uppercase tracking-widest hover:bg-primary-container transition-all"
+      >
+        {t.bannerButton}
+      </button>
+    </form>
+  </div>
+)}

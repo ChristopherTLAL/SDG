@@ -1,56 +1,60 @@
 ---
+// src/pages/search.astro — Search page (restyled)
 import MainLayout from '../layouts/MainLayout.astro';
+
+const lang = 'en';
 ---
 
-<MainLayout title="Search" description="Search for posts on the Chinese SDG Institute website.">
-  <div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-8 text-center">Search</h1>
-    <div class="max-w-2xl mx-auto">
-      <div class="relative">
-        <input id="search-input" type="text" placeholder="Search for articles..." class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <button id="search-button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
+<MainLayout title="Search | Chinese SDGs Institute" description="Search for articles on the Chinese SDG Institute website." lang={lang}>
+  <main class="pt-40 pb-32">
+    <div class="max-w-3xl mx-auto px-6 md:px-12">
+      <h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-8">Search</h1>
+      <div class="relative mb-12">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search for articles..."
+          class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl px-6 py-4 pr-14 text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-lg"
+        />
+        <button id="search-button" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-2xl">search</span>
         </button>
       </div>
+      <div id="search-results">
+        <!-- Search results will be displayed here -->
+      </div>
     </div>
-    <div id="search-results" class="mt-8 max-w-3xl mx-auto">
-      <!-- Search results will be displayed here -->
-    </div>
-  </div>
+  </main>
 </MainLayout>
 
 <script>
-  const searchInput = document.getElementById('search-input');
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const searchButton = document.getElementById('search-button');
   const searchResultsContainer = document.getElementById('search-results');
 
   function performSearch() {
-    const query = searchInput.value;
+    const query = searchInput?.value;
     if (query) {
       window.location.href = `/search?q=${encodeURIComponent(query)}`;
     }
   }
 
-  searchButton.addEventListener('click', performSearch);
-  searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-      performSearch();
-    }
+  searchButton?.addEventListener('click', performSearch);
+  searchInput?.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') performSearch();
   });
 
-  function highlightText(text, query) {
+  function highlightText(text: string, query: string) {
     if (!text) return '';
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark class="bg-primary-container/40 text-on-surface px-0.5 rounded">$1</mark>');
   }
 
-  function getSnippet(text, query) {
+  function getSnippet(text: any, query: string) {
     if (!text) return '';
-    // This is a simplified snippet generation.
-    // A more advanced implementation would be needed for better results.
-    const textAsString = text.map(block => block.children.map(child => child.text).join('')).join('\n');
+    const textAsString = Array.isArray(text)
+      ? text.map((block: any) => block.children?.map((child: any) => child.text).join('')).join('\n')
+      : String(text);
     const index = textAsString.toLowerCase().indexOf(query.toLowerCase());
     if (index === -1) {
       return highlightText(textAsString.substring(0, 200) + '...', query);
@@ -60,50 +64,59 @@ import MainLayout from '../layouts/MainLayout.astro';
     return '...' + highlightText(textAsString.substring(start, end), query) + '...';
   }
 
-  async function fetchAndDisplayResults(query) {
-    searchResultsContainer.innerHTML = `<p class="text-center">Searching for "${query}"...</p>`;
+  async function fetchAndDisplayResults(query: string) {
+    if (!searchResultsContainer) return;
+    searchResultsContainer.innerHTML = `
+      <div class="text-center py-12">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant/40 animate-spin block mb-4">progress_activity</span>
+        <p class="text-on-surface-variant">Searching for "${query}"...</p>
+      </div>`;
     try {
       const response = await fetch(`/api/search-posts.json`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ q: query }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('API Error:', errorData);
-        throw new Error('Search failed');
-      }
+      if (!response.ok) throw new Error('Search failed');
       const results = await response.json();
 
       if (results.length === 0) {
-        searchResultsContainer.innerHTML = '<p class="text-center">No results found.</p>';
+        searchResultsContainer.innerHTML = `
+          <div class="text-center py-12">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/30 block mb-4">search_off</span>
+            <p class="text-on-surface-variant">No results found for "${query}".</p>
+          </div>`;
         return;
       }
 
-      const html = results.map(post => {
-        const snippet = getSnippet(post.body, query);
+      const html = results.map((post: any) => {
+        const title = typeof post.title === 'string' ? post.title : (post.title?.en || post.title?.zh || '');
+        const snippet = getSnippet(post.body || post.excerpt, query);
         return `
-          <div class="mb-8">
-            <a href="/post/${post.slug}" class="text-2xl font-bold hover:underline">${highlightText(post.title, query)}</a>
-            <p class="text-gray-600 mt-2">${snippet}</p>
-          </div>
-        `;
+          <article class="mb-8 pb-8 border-b border-outline-variant/10 group">
+            <a href="/research/${post.slug}" class="block">
+              <h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-2">${highlightText(title, query)}</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">${snippet}</p>
+              ${post.publishedAt ? `<span class="text-[10px] font-medium text-on-surface-variant/60 mt-3 block uppercase tracking-wider">${post.publishedAt.split('T')[0]}</span>` : ''}
+            </a>
+          </article>`;
       }).join('');
 
       searchResultsContainer.innerHTML = html;
     } catch (error) {
-      searchResultsContainer.innerHTML = `<p class="text-center text-red-500">Error: Could not fetch search results.</p>`;
-      console.error(error);
+      searchResultsContainer.innerHTML = `
+        <div class="text-center py-12">
+          <span class="material-symbols-outlined text-5xl text-error block mb-4">error</span>
+          <p class="text-on-surface-variant">Could not fetch search results. Please try again.</p>
+        </div>`;
     }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
-    if (query) {
+    if (query && searchInput) {
       searchInput.value = query;
       fetchAndDisplayResults(query);
     }

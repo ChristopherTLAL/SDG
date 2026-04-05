@@ -1,119 +1,162 @@
 ---
+// src/components/PostCard.astro
+// Variants: 'featured' (large hero article), 'medium' (square image grid), 'compact' (horizontal list)
 import { urlForImage } from '../lib/sanity/image';
 import { formatDate } from '../utils/date';
+import SdgChip from './SdgChip.astro';
 
-const { post, size = 'small' } = Astro.props;
+interface Props {
+  post: {
+    title: { en?: string; zh?: string } | string;
+    slug: string;
+    contentType?: string;
+    sdgTags?: string[];
+    mainImage?: any;
+    excerpt?: { en?: string; zh?: string } | string;
+    publishedAt?: string;
+    readingTime?: number;
+  };
+  variant?: 'featured' | 'medium' | 'compact';
+  lang?: 'en' | 'zh';
+}
 
-const isHorizontal = size === 'small-horizontal';
+const { post, variant = 'medium', lang = 'en' } = Astro.props;
 
-let imageUrl;
-if (post.mainImage && post.mainImage.asset && post.mainImage.asset._ref) {
+// Resolve localized fields
+const title = typeof post.title === 'string' ? post.title : (post.title?.[lang] || post.title?.en || '');
+const excerpt = typeof post.excerpt === 'string' ? post.excerpt : (post.excerpt?.[lang] || post.excerpt?.en || '');
+const href = lang === 'zh' ? `/zh/research/${post.slug}` : `/research/${post.slug}`;
+
+// Content type label
+const typeLabels: Record<string, Record<string, string>> = {
+  en: { news: 'News', research: 'Research Paper', 'policy-brief': 'Policy Brief' },
+  zh: { news: '新闻', research: '研究论文', 'policy-brief': '政策简报' },
+};
+const contentTypeLabel = post.contentType
+  ? (typeLabels[lang]?.[post.contentType] || post.contentType)
+  : '';
+
+// Image URL
+let imageUrl: string | null = null;
+if (post.mainImage?.asset?._ref) {
   try {
-    if (size === 'small-horizontal') {
-      imageUrl = urlForImage(post.mainImage).width(112).height(112).fit('crop').url();
-    } else {
-      imageUrl = urlForImage(post.mainImage).url();
-    }
-  } catch (e) {
-    console.error(`[PostCard Error] Failed to build image URL for post: "${post.title}"`, e);
-    imageUrl = null;
-  }
-} else if (post.mainImage && post.mainImage.url) {
+    const size = variant === 'compact' ? 300 : variant === 'medium' ? 600 : 1200;
+    imageUrl = urlForImage(post.mainImage).width(size).url();
+  } catch { imageUrl = null; }
+} else if (post.mainImage?.url) {
   imageUrl = post.mainImage.url;
 }
+
+const readLabel = lang === 'zh' ? '阅读全文' : 'Read';
+const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
 ---
-<article class="mb-4 group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 md:h-full flex flex-col bg-gray-100 dark:bg-gray-800">
-  {isHorizontal ? (
-    <a class="h-full flex items-center" href={`/post/${post.slug}`}>
-      <div class="flex-shrink-0 p-4">
-        <div class="w-28 h-28 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800">
-          {imageUrl ? (
-            <img
-              class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-              src={imageUrl}
-              alt={post.title}
-            />
-          ) : (
-            <div id={`shader-gradient-container-${post.slug}`} class="w-full h-full"></div>
-          )}
-        </div>
+
+{variant === 'featured' && (
+  <article class="group cursor-pointer border-b border-surface-container-high pb-16">
+    <a href={href} class="space-y-6 block">
+      <div class="flex items-center gap-4 text-[10px] font-label tracking-[0.2em] uppercase text-on-surface-variant">
+        {post.sdgTags?.[0] && <SdgChip tag={post.sdgTags[0]} />}
+        {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+        {post.readingTime && (
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px]">timer</span>
+            {post.readingTime} {minLabel}
+          </span>
+        )}
       </div>
-      <div class="flex flex-col justify-center p-4">
-        <h3 class="content-card__title font-bold group-hover:text-purple transition-colors text-lg line-clamp-2 text-black dark:text-white">
-          {post.title}
-        </h3>
-        <div class="content-card__excerpt mt-2 text-gray-500 dark:text-gray-400 line-clamp-2">
-          {post.excerpt}
-        </div>
-      </div>
-    </a>
-  ) : (
-    <>
-      {/* Image container with overlay for text on small screens */}
-      <div class:list={[
-        "content-card__image overflow-hidden w-full bg-gray-200 dark:bg-gray-800 relative",
-        // On mobile, use aspect ratio. On desktop, use fixed height to ensure consistency.
-        { "aspect-square md:aspect-auto md:h-56": size === 'medium' },
-        { "aspect-video md:aspect-auto md:h-80": size === 'large' }
-      ]}>
-        <a href={`/post/${post.slug}`} class="block h-full w-full">
-        {imageUrl ? (
+      {imageUrl && (
+        <div class="aspect-[16/9] w-full rounded-xl bg-surface-container overflow-hidden">
           <img
-            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
             decoding="async"
             src={imageUrl}
-            alt={post.title}
+            alt={title}
           />
-        ) : (
-          <div class="shader-gradient-placeholder w-full h-full transform transition-transform duration-500 group-hover:scale-105" data-slug={post.slug}></div>
-        )}
-        </a>
-        
-        {/* Overlay for title and excerpt on small screens */}
-        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent md:hidden pointer-events-none">
-          {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-200">{post.category.title}</p>}
-          <h3 class:list={[
-            "content-card__title font-bold mt-1 text-xl text-white",
-            { "line-clamp-2": size === 'large' || size === 'medium' }
-          ]}>
-            {post.title}
-          </h3>
-          {post.excerpt && (
-            <div class:list={[
-              "content-card__excerpt mt-1 text-sm text-gray-300",
-              { "line-clamp-2": size === 'large' || size === 'medium' }
-            ]}>
-              {post.excerpt}
-            </div>
-          )}
         </div>
+      )}
+      <h2 class="text-4xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
+        {title}
+      </h2>
+      {excerpt && (
+        <p class="text-on-surface-variant leading-relaxed text-base line-clamp-3 opacity-80 max-w-3xl">
+          {excerpt}
+        </p>
+      )}
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary">
+          {readLabel} {contentTypeLabel}
+        </span>
+        <span class="material-symbols-outlined text-primary text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
       </div>
-      
-      {/* Content below image for medium and larger screens */}
-      <div class="content-card__content p-4 flex flex-col flex-grow hidden md:flex">
-        {post.category && <p class="content-card__eyebrow text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">{post.category.title}</p>}
-        <h3 class:list={[
-          "content-card__title font-bold mt-2 text-2xl text-black dark:text-white",
-          { "line-clamp-2": size === 'large' },
-          { "line-clamp-3": size === 'medium' }
-        ]}>
-          <a href={`/post/${post.slug}`} class="hover:text-purple transition-colors">
-            {post.title}
-          </a>
-        </h3>
-        {post.excerpt && (
-          <div class:list={[
-            "content-card__excerpt mt-2 text-lg text-gray-500 dark:text-gray-400",
-            { "line-clamp-2": size === 'large' },
-            { "line-clamp-5": size === 'medium' }
-          ]}>
-            {post.excerpt}
-          </div>
+    </a>
+  </article>
+)}
+
+{variant === 'medium' && (
+  <article class="group cursor-pointer flex flex-col">
+    <a href={href} class="flex flex-col h-full">
+      {imageUrl ? (
+        <div class="aspect-square w-full rounded-xl bg-surface-container overflow-hidden mb-6">
+          <img
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            src={imageUrl}
+            alt={title}
+          />
+        </div>
+      ) : (
+        <div class="aspect-square w-full rounded-xl bg-surface-container-high mb-6"></div>
+      )}
+      <div class="flex items-center gap-4 text-[9px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-4">
+        {post.sdgTags?.[0] && <SdgChip tag={post.sdgTags[0]} />}
+        {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+      </div>
+      <h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors leading-snug mb-3">
+        {title}
+      </h3>
+      {excerpt && (
+        <p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2 opacity-80 mb-4">
+          {excerpt}
+        </p>
+      )}
+      <div class="mt-auto flex items-center gap-2">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">{readLabel}</span>
+        <span class="material-symbols-outlined text-primary text-xs transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </div>
+    </a>
+  </article>
+)}
+
+{variant === 'compact' && (
+  <article class="group cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+    <a href={href} class="contents">
+      {imageUrl ? (
+        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container overflow-hidden">
+          <img
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            src={imageUrl}
+            alt={title}
+          />
+        </div>
+      ) : (
+        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container-high"></div>
+      )}
+      <div class="md:col-span-9">
+        <div class="flex items-center gap-4 text-[9px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-2">
+          {contentTypeLabel && <span class="text-primary font-bold">{contentTypeLabel}</span>}
+          {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+        </div>
+        <h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors leading-tight mb-2">
+          {title}
+        </h4>
+        {excerpt && (
+          <p class="text-sm text-on-surface-variant line-clamp-1 opacity-70">{excerpt}</p>
         )}
       </div>
-    </>
-  )}
-</article>
+    </a>
+  </article>
+)}

@@ -1,0 +1,295 @@
+---
+// src/pages/dialogues/index.astro — Dialogues page (English)
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getDialogues, getUpcomingDialogues } from '../../lib/sanity/queries';
+import { formatDate } from '../../utils/date';
+
+const lang = 'en';
+const allDialogues = await getDialogues(lang);
+const upcoming = await getUpcomingDialogues(lang);
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+// Pre-process upcoming for template
+const processedUpcoming = (upcoming || []).map((d: any) => ({
+  title: t(d.title),
+  slug: d.slug,
+  sdgTag: d.sdgTags?.[0] || '',
+  date: d.date ? formatDate(d.date) : '',
+  location: t(d.location),
+  featured: d.featured || false,
+  eventType: d.eventType || 'assembly',
+}));
+
+// Pre-process all dialogues as knowledge repository items
+const processedAll = (allDialogues || []).map((d: any) => ({
+  title: t(d.title),
+  slug: d.slug,
+  description: t(d.description),
+  date: d.date ? formatDate(d.date) : '',
+  eventType: d.eventType || 'assembly',
+  sdgTag: d.sdgTags?.[0] || '',
+}));
+
+const eventTypeLabels: Record<string, string> = {
+  assembly: 'Assembly',
+  panel: 'Expert Panel',
+  workshop: 'Workshop',
+  forum: 'Forum',
+};
+---
+
+<MainLayout title="Dialogues | Chinese SDGs Institute" description="Converging international expertise and local insight for sustainable development." lang={lang}>
+  <main class="pt-40 pb-24">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-40 grid md:grid-cols-12 gap-16 items-center">
+      <div class="md:col-span-7">
+        <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+          <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+          Curated Discourse
+        </div>
+        <h1 class="font-headline font-extrabold text-5xl md:text-7xl text-on-surface tracking-tighter leading-[1.02] mb-10">
+          Architecting <br /><span class="text-primary">Dialogue of Progress</span>
+        </h1>
+        <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-xl">
+          Converging international expertise and local insight to frame the essential questions of sustainable development in the 21st century.
+        </p>
+      </div>
+      <div class="md:col-span-5 hidden md:block">
+        <div class="aspect-[4/5] bg-surface-container-high rounded-2xl overflow-hidden relative shadow-inner">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+          <div class="absolute bottom-10 left-10 right-10">
+            <div class="h-1 w-16 bg-primary mb-6"></div>
+            <div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.3em]">Archive Reference No. 882</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assemblies Section -->
+    <section class="bg-surface-container-low py-40">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+          <div class="max-w-2xl">
+            <h2 class="font-headline font-bold text-4xl tracking-tight text-on-surface mb-6">Upcoming Assemblies &amp; Expert Panels</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed">Structured forums designed to move beyond theory into actionable policy frameworks.</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10">
+          {processedUpcoming.length > 0 ? processedUpcoming.map((d) => (
+            d.featured ? (
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+                <div>
+                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
+                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">{d.title}</h3>
+                  {d.location && <p class="opacity-80 text-lg leading-relaxed mb-12">{d.location}</p>}
+                </div>
+                <div class="space-y-6">
+                  <div class="h-[1px] bg-white/20"></div>
+                  <div class="flex justify-between items-center">
+                    <div class="text-xs uppercase tracking-[0.2em] font-bold">{d.date}</div>
+                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div class="bg-white p-10 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 group border border-surface-container">
+                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
+                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-primary/30">forum</span>
+                  </div>
+                </div>
+                <div class="flex gap-4 mb-6 items-center">
+                  {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">{d.sdgTag}</span>}
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">{d.date}</span>
+                </div>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">{d.title}</h3>
+                {d.location && <p class="text-on-surface-variant mb-10 leading-relaxed">{d.location}</p>}
+                <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
+                  Request Invitation
+                </button>
+              </div>
+            )
+          )) : (
+            <>
+              <div class="bg-white p-10 rounded-2xl hover:shadow-2xl hover:shadow-primary/5 transition-all border border-surface-container">
+                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
+                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-primary/30">forum</span>
+                  </div>
+                </div>
+                <div class="flex gap-4 mb-6 items-center">
+                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">SDG 13</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Coming Soon</span>
+                </div>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Decarbonization Pathways in Pearl River Delta</h3>
+                <p class="text-on-surface-variant mb-10 leading-relaxed">An assembly focused on urban energy transition and industrial synergy.</p>
+              </div>
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+                <div>
+                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
+                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">Annual SDG Policy Forum: Beijing 2024</h3>
+                  <p class="opacity-80 text-lg leading-relaxed mb-12">The flagship assembly for multi-stakeholder dialogue on the 2030 Agenda implementation across greater China.</p>
+                </div>
+                <div class="space-y-6">
+                  <div class="h-[1px] bg-white/20"></div>
+                  <div class="flex justify-between items-center">
+                    <div class="text-xs uppercase tracking-[0.2em] font-bold">TBD</div>
+                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-10 rounded-2xl hover:shadow-2xl hover:shadow-primary/5 transition-all border border-surface-container">
+                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
+                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-primary/30">account_balance</span>
+                  </div>
+                </div>
+                <div class="flex gap-4 mb-6 items-center">
+                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">SDG 09</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Coming Soon</span>
+                </div>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Fintech for Sustainable Rural Development</h3>
+                <p class="text-on-surface-variant mb-10 leading-relaxed">Exploring financial inclusion through digital infrastructure in rural provinces.</p>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Knowledge Repository -->
+    <section class="py-40 bg-surface">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="grid lg:grid-cols-12 gap-16">
+          <div class="lg:col-span-4 lg:sticky lg:top-32 self-start">
+            <h2 class="font-headline font-bold text-4xl tracking-tight text-on-surface mb-8">Knowledge Repository</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-12">
+              A curated archive of past deliberations, policy briefs, and session transcripts dating back to the institute's inception.
+            </p>
+            <div class="space-y-3">
+              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-primary bg-primary/5 px-6 py-4 rounded-xl w-full transition-all border border-primary/10">
+                <span class="material-symbols-outlined text-lg">filter_list</span>
+                All Topics
+              </button>
+              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:bg-surface-container-low px-6 py-4 rounded-xl w-full transition-all border border-transparent">
+                <span class="material-symbols-outlined text-lg">eco</span>
+                Ecological Civilisation
+              </button>
+              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:bg-surface-container-low px-6 py-4 rounded-xl w-full transition-all border border-transparent">
+                <span class="material-symbols-outlined text-lg">lightbulb</span>
+                Tech &amp; Innovation
+              </button>
+            </div>
+          </div>
+          <div class="lg:col-span-8 space-y-16">
+            {processedAll.length > 0 ? processedAll.map((d) => (
+              <>
+                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+                  <div class="flex justify-between items-start mb-6">
+                    <div>
+                      <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">
+                        {eventTypeLabels[d.eventType] || d.eventType} {d.date && `· ${d.date}`}
+                      </span>
+                      <h4 class="font-headline font-bold text-2xl md:text-3xl text-on-surface group-hover:text-primary transition-colors leading-tight">{d.title}</h4>
+                    </div>
+                  </div>
+                  {d.description && (
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">{d.description}</p>
+                  )}
+                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
+                    {d.sdgTag && (
+                      <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[14px]">eco</span>
+                        {d.sdgTag}
+                      </span>
+                    )}
+                    <span class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[14px]">language</span>
+                      Bilingual
+                    </span>
+                  </div>
+                </div>
+                <div class="h-[1px] bg-surface-container"></div>
+              </>
+            )) : (
+              <>
+                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+                  <div class="mb-6">
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">White Paper 2024.01</span>
+                    <h4 class="font-headline font-bold text-3xl text-on-surface leading-tight">The Nexus of Social Equality and Biodiversity</h4>
+                  </div>
+                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+                    Synthesized insights from the Q1 Expert Panel on the preservation of traditional ecological knowledge in Yunnan.
+                  </p>
+                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 12 Min Read</span>
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Mandarin &amp; English</span>
+                  </div>
+                </div>
+                <div class="h-[1px] bg-surface-container"></div>
+                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+                  <div class="mb-6">
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">Executive Summary</span>
+                    <h4 class="font-headline font-bold text-3xl text-on-surface leading-tight">Sustainable Logistics: Re-engineering the Silk Road</h4>
+                  </div>
+                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+                    Deliberations on the carbon footprint reduction strategies for trans-continental freight corridors.
+                  </p>
+                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 08 Min Read</span>
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Mandarin Only</span>
+                  </div>
+                </div>
+                <div class="h-[1px] bg-surface-container"></div>
+                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
+                  <div class="mb-6">
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">Panel Transcript</span>
+                    <h4 class="font-headline font-bold text-3xl text-on-surface leading-tight">Urban Resilience in the Yangtze Delta</h4>
+                  </div>
+                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+                    Full transcript of the August assembly featuring municipal planners and sustainability academics.
+                  </p>
+                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 24 Min Read</span>
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Bilingual</span>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-40 mt-20">
+      <div class="bg-primary rounded-[2rem] p-12 md:p-24 flex flex-col items-center text-center shadow-2xl shadow-primary/20">
+        <div class="max-w-2xl">
+          <h2 class="font-headline font-bold text-4xl md:text-5xl tracking-tight text-white mb-8">Stay informed on the dialogue</h2>
+          <p class="text-white/70 text-lg leading-relaxed mb-16">
+            Subscribe to our monthly digest of synthesized findings, upcoming assemblies, and institutional announcements.
+          </p>
+          <form class="flex flex-col md:flex-row gap-4 w-full" onsubmit="return false;">
+            <input
+              class="flex-grow bg-white/10 border-0 rounded-xl px-8 py-5 text-white placeholder:text-white/40 focus:ring-2 focus:ring-white transition-all text-lg"
+              placeholder="Institutional Email Address"
+              type="email"
+              required
+            />
+            <button type="submit" class="bg-white text-primary px-12 py-5 rounded-xl font-bold hover:bg-surface-bright transition-all whitespace-nowrap text-lg shadow-lg">
+              Subscribe
+            </button>
+          </form>
+          <p class="mt-8 text-[10px] text-white/40 uppercase tracking-[0.4em] font-bold">
+            Privacy secured. Frequency: Monthly.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>

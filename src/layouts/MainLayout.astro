@@ -8,150 +8,38 @@ const {
   title = 'Home',
   description = '',
   ogImage = undefined,
+  lang = 'en',
 } = Astro.props;
-const siteTitle = 'Chinese SDG Institute';
-const isHomePage = Astro.url.pathname === '/';
+const siteTitle = 'Chinese SDGs Institute';
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/zh';
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
-    <meta charset="utf-t" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{isHomePage ? siteTitle : `${title} — ${siteTitle}`}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/logo.svg" />
-    <script is:inline>
-      // This script is executed in the head to prevent FOUC (Flash of Unstyled Content)
-      const applyTheme = () => {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      };
-
-      // Apply the theme on initial load
-      applyTheme();
-
-      // Listen for changes in the system's color scheme preference
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <!-- OpenGraph -->
     <meta property="og:title" content={`${title} — ${siteTitle}`} />
     <meta property="og:description" content={description} />
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
   </head>
-  <body class="min-h-screen bg-white text-black dark:bg-slate-900 dark:text-white">
-    <Header isHomePage={isHomePage} />
-    
-    <div id="page-wrapper">
-      <slot name="hero" /> 
-      <div class="relative bg-white dark:bg-slate-900">
-        <main class="mx-auto max-w-6xl px-4 py-8">
-          {/* This is the div with the corrected padding */}
-          <div class="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-20">
-            <slot />
-          </div>
-        </main>
-        <div class="mx-auto max-w-6xl px-4">
-          <Footer />
-        </div>
-      </div>
-    </div>
+  <body class="bg-background text-on-surface selection:bg-primary-container/30">
+    <Header lang={lang} />
 
-    <!-- Hidden container for the single WebGL source canvas -->
-    <div id="shader-gradient-source" style="position: fixed; top: -9999px; left: -9999px; width: 512px; height: 512px;"></div>
+    <main>
+      <slot />
+    </main>
+
+    <Footer lang={lang} />
   </body>
 </html>
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const placeholders = document.querySelectorAll('.shader-gradient-placeholder');
-    if (placeholders.length > 0) {
-      const sourceContainer = document.getElementById('shader-gradient-source');
-      if (!sourceContainer) return;
-
-      const reactPath = 'https://esm.sh/react@19';
-      const reactDomPath = 'https://esm.sh/react-dom@19/client';
-      const shaderGradientPath = 'https://esm.sh/@shadergradient/react';
-
-      Promise.all([
-        import(reactPath),
-        import(reactDomPath),
-        import(shaderGradientPath)
-      ]).then(([React, { createRoot }, shaderGradientModule]) => {
-        const { ShaderGradientCanvas, ShaderGradient } = shaderGradientModule;
-        
-        const root = createRoot(sourceContainer);
-        root.render(
-          React.createElement(ShaderGradientCanvas, {
-            style: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
-            lazyLoad: false,
-            fov: undefined,
-            pixelDensity: 1,
-            pointerEvents: "none"
-          },
-          React.createElement(ShaderGradient, {
-            animate: "on",
-            type: "waterPlane",
-            wireframe: false,
-            shader: "defaults",
-            uTime: 8,
-            uSpeed: 0.3,
-            uStrength: 1.5,
-            uDensity: 1.5,
-            uFrequency: 0,
-            uAmplitude: 0,
-            positionX: 0,
-            positionY: 0,
-            positionZ: 0,
-            rotationX: 50,
-            rotationY: 0,
-            rotationZ: -60,
-            color1: "#d0d2ff",
-            color2: "#fff7d4",
-            color3: "#e4f9ff",
-            reflection: 0.1,
-            cAzimuthAngle: 180,
-            cPolarAngle: 80,
-            cDistance: 2.8,
-            cameraZoom: 9.1,
-            lightType: "3d",
-            brightness: 1,
-            envPreset: "city",
-            grain: "on",
-            toggleAxis: false,
-            zoomOut: false,
-            hoverState: "",
-            enableTransition: false
-          }))
-        );
-
-        // Wait a moment for the canvas to initialize
-        setTimeout(() => {
-          const sourceCanvas = sourceContainer.querySelector('canvas');
-          if (sourceCanvas) {
-            function updatePlaceholders() {
-              const dataUrl = sourceCanvas.toDataURL('image/webp', 0.8);
-              placeholders.forEach(container => {
-                container.style.backgroundImage = `url(${dataUrl})`;
-                container.style.backgroundSize = 'cover';
-              });
-              requestAnimationFrame(updatePlaceholders);
-            }
-            updatePlaceholders();
-          }
-        }, 500);
-
-      }).catch(err => console.error('Failed to dynamically load modules from CDN:', err));
-    }
-  });
-</script>

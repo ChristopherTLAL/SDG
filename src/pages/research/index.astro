@@ -1,0 +1,194 @@
+---
+// src/pages/research/index.astro — News & Research Index (English)
+import MainLayout from '../../layouts/MainLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { getResearchPosts, getTrendingPosts } from '../../lib/sanity/queries';
+import { formatDate } from '../../utils/date';
+
+const lang = 'en';
+const posts = await getResearchPosts(lang);
+const trending = await getTrendingPosts(lang);
+
+// Resolve localized field
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+// Split posts into featured, secondary pair, and compact list
+const featured = posts[0] || null;
+const secondary = posts.slice(1, 3);
+const compact = posts.slice(3);
+
+// Pre-process trending
+const processedTrending = (trending || []).map((p: any, i: number) => ({
+  num: String(i + 1).padStart(2, '0'),
+  title: t(p.title),
+  href: `/research/${p.slug}`,
+}));
+---
+
+<MainLayout title="News & Research | Chinese SDGs Institute" description="A curated archive of critical analysis, scientific breakthroughs, and policy frameworks." lang={lang}>
+  <main class="pt-40 pb-32">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-20">
+      <div class="max-w-4xl">
+        <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6">
+          <span>Institute</span>
+          <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+          <span class="text-primary font-bold">Intelligence</span>
+        </nav>
+        <h1 class="text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">
+          News &amp; Research Index
+        </h1>
+        <p class="text-lg text-on-surface-variant leading-relaxed font-body max-w-2xl">
+          A curated archive of critical analysis, scientific breakthroughs, and policy frameworks driving sustainable development across the Asia-Pacific region.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Grid Layout -->
+    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-12">
+      <!-- Sidebar: Left Filters -->
+      <aside class="col-span-12 lg:col-span-2 space-y-10">
+        <div class="sticky top-32">
+          <div class="mb-10">
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Content Types</h3>
+            <ul class="flex flex-col gap-1">
+              <li>
+                <a href="/research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg bg-primary text-white font-semibold text-xs transition-all shadow-sm">
+                  <span class="material-symbols-outlined text-sm">apps</span>
+                  <span>All Content</span>
+                </a>
+              </li>
+              <li>
+                <a href="/research?type=news" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
+                  <span class="material-symbols-outlined text-sm group-hover:text-primary">newspaper</span>
+                  <span>News</span>
+                </a>
+              </li>
+              <li>
+                <a href="/research?type=policy-brief" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
+                  <span class="material-symbols-outlined text-sm group-hover:text-primary">description</span>
+                  <span>Policy Briefs</span>
+                </a>
+              </li>
+              <li>
+                <a href="/research?type=research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
+                  <span class="material-symbols-outlined text-sm group-hover:text-primary">school</span>
+                  <span>Research Papers</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Feed -->
+      <div class="col-span-12 lg:col-span-7">
+        <div class="space-y-16">
+          {featured && (
+            <PostCard post={featured} variant="featured" lang={lang} />
+          )}
+
+          {secondary.length > 0 && (
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-surface-container-high pb-16">
+              {secondary.map((post: any) => (
+                <PostCard post={post} variant="medium" lang={lang} />
+              ))}
+            </div>
+          )}
+
+          {compact.length > 0 && (
+            <div class="space-y-12">
+              {compact.map((post: any) => (
+                <PostCard post={post} variant="compact" lang={lang} />
+              ))}
+            </div>
+          )}
+
+          {posts.length === 0 && (
+            <div class="text-center py-20">
+              <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">article</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">No articles yet</h3>
+              <p class="text-on-surface-variant">Research papers and news will appear here once published.</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Sidebar: Right -->
+      <aside class="col-span-12 lg:col-span-3 space-y-10">
+        <!-- Trending -->
+        <div class="bg-white p-6 rounded-xl border border-surface-container-high shadow-sm">
+          <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-primary mb-8 font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">trending_up</span>
+            Trending
+          </h3>
+          <ul class="space-y-6">
+            {processedTrending.length > 0 ? processedTrending.map((item) => (
+              <li class="group">
+                <a class="block" href={item.href}>
+                  <span class="text-[10px] font-bold text-primary/30 mb-1 block">{item.num}</span>
+                  <h4 class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{item.title}</h4>
+                </a>
+              </li>
+            )) : (
+              <>
+                <li>
+                  <span class="text-[10px] font-bold text-primary/30 mb-1 block">01</span>
+                  <span class="text-xs font-bold text-on-surface leading-snug block">The Evolution of Rural ESG Standards in Western Provinces</span>
+                </li>
+                <li>
+                  <span class="text-[10px] font-bold text-primary/30 mb-1 block">02</span>
+                  <span class="text-xs font-bold text-on-surface leading-snug block">Water Scarcity and Silicon Manufacturing Risks</span>
+                </li>
+                <li>
+                  <span class="text-[10px] font-bold text-primary/30 mb-1 block">03</span>
+                  <span class="text-xs font-bold text-on-surface leading-snug block">National Curriculum Reforms for Sustainability</span>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="bg-surface-container-low p-6 rounded-xl border border-surface-container-high/50">
+          <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg text-primary">mark_email_unread</span>
+            Intelligence
+          </h3>
+          <p class="text-[11px] text-on-surface-variant mb-6 leading-relaxed">Weekly policy briefs and research abstracts delivered to your inbox.</p>
+          <NewsletterForm variant="sidebar" lang={lang} />
+        </div>
+
+        <!-- Resources -->
+        <div class="px-2">
+          <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Resources</h3>
+          <ul class="space-y-4">
+            <li>
+              <a class="flex items-center justify-between group" href="#">
+                <span class="text-xs font-medium text-on-surface-variant group-hover:text-primary transition-colors">SDG Data Tracker</span>
+                <span class="material-symbols-outlined text-sm opacity-20 group-hover:opacity-100 transition-all">open_in_new</span>
+              </a>
+            </li>
+            <li>
+              <a class="flex items-center justify-between group" href="#">
+                <span class="text-xs font-medium text-on-surface-variant group-hover:text-primary transition-colors">Policy Simulation Lab</span>
+                <span class="material-symbols-outlined text-sm opacity-20 group-hover:opacity-100 transition-all">open_in_new</span>
+              </a>
+            </li>
+            <li>
+              <a class="flex items-center justify-between group" href="#">
+                <span class="text-xs font-medium text-on-surface-variant group-hover:text-primary transition-colors">Annual Impact Report</span>
+                <span class="material-symbols-outlined text-sm opacity-20 group-hover:opacity-100 transition-all">download</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+</MainLayout>

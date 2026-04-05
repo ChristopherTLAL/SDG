@@ -1,0 +1,88 @@
+---
+// src/pages/zh/research/[slug].astro — 文章详情（中文）
+import MainLayout from '../../../layouts/MainLayout.astro';
+import { ContentView } from '../../../components/ContentView.tsx';
+import SdgChip from '../../../components/SdgChip.astro';
+import { getPostBySlug } from '../../../lib/sanity/queries';
+import { urlForImage } from '../../../lib/sanity/image';
+import { formatDate } from '../../../utils/date';
+
+const lang = 'zh';
+const { slug } = Astro.params;
+const post = await getPostBySlug(slug!);
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field.zh || field.en || '';
+}
+
+const title = post ? t(post.title) : '文章';
+const excerpt = post ? t(post.excerpt) : '';
+const body = post?.body ? (post.body.zh || post.body.en || post.body) : null;
+
+const contentTypeLabels: Record<string, string> = {
+  news: '新闻', research: '研究论文', 'policy-brief': '政策简报',
+};
+
+let imageUrl: string | null = null;
+if (post?.mainImage?.asset) {
+  try { imageUrl = urlForImage(post.mainImage).width(1200).url(); } catch { imageUrl = null; }
+}
+---
+
+<MainLayout title={`${title} | 中国可持续发展目标研究院`} description={excerpt} lang={lang}>
+  {post ? (
+    <main class="pt-40 pb-32">
+      <article class="max-w-3xl mx-auto px-6 md:px-12">
+        <div class="flex flex-wrap items-center gap-4 text-[10px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-8">
+          {post.sdgTags?.map((tag: string) => <SdgChip tag={tag} />)}
+          {post.contentType && <span class="font-semibold">{contentTypeLabels[post.contentType] || post.contentType}</span>}
+          {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+          {post.readingTime && (
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[12px]">timer</span>
+              {post.readingTime} 分钟阅读
+            </span>
+          )}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">{title}</h1>
+        {excerpt && <p class="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl">{excerpt}</p>}
+        {post.author && (
+          <div class="flex items-center gap-4 mb-12 pb-8 border-b border-outline-variant/10">
+            {post.author.avatar && <img class="w-10 h-10 rounded-full object-cover" src={post.author.avatar} alt={post.author.name} />}
+            <div>
+              <p class="text-sm font-bold text-on-surface">{post.author.name}</p>
+              {post.publishedAt && <p class="text-xs text-on-surface-variant">{formatDate(post.publishedAt)}</p>}
+            </div>
+          </div>
+        )}
+        {imageUrl && (
+          <div class="mb-12 rounded-2xl overflow-hidden aspect-[16/9]">
+            <img class="w-full h-full object-cover" src={imageUrl} alt={title} />
+          </div>
+        )}
+        {body && (
+          <div class="article-body">
+            <ContentView client:load value={body} />
+          </div>
+        )}
+        <div class="mt-16 pt-8 border-t border-outline-variant/10">
+          <a href="/zh/research" class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            返回研究索引
+          </a>
+        </div>
+      </article>
+    </main>
+  ) : (
+    <main class="pt-40 pb-32">
+      <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+        <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">search_off</span>
+        <h1 class="text-2xl font-bold text-on-surface mb-4 font-headline">文章未找到</h1>
+        <p class="text-on-surface-variant mb-8">您查找的文章不存在或已被删除。</p>
+        <a href="/zh/research" class="inline-block bg-primary text-on-primary px-8 py-3 rounded-md font-bold text-sm hover:bg-primary-dim transition-all">浏览研究</a>
+      </div>
+    </main>
+  )}
+</MainLayout>

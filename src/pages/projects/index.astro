@@ -1,0 +1,232 @@
+---
+// src/pages/projects/index.astro — Projects page (English)
+import MainLayout from '../../layouts/MainLayout.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { getProjects } from '../../lib/sanity/queries';
+
+const lang = 'en';
+const projects = await getProjects(lang);
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+// Split: first is featured (8-col), rest alternate 4-col and 8-col
+const featured = projects[0] || null;
+const rest = projects.slice(1);
+
+// Pre-process
+const processedFeatured = featured ? {
+  title: t(featured.title),
+  description: t(featured.description),
+  slug: featured.slug,
+  icon: featured.icon || 'school',
+  status: featured.status || 'active',
+  team: featured.team || '',
+} : null;
+
+const processedRest = rest.map((p: any) => ({
+  title: t(p.title),
+  description: t(p.description),
+  slug: p.slug,
+  icon: p.icon || 'eco',
+  status: p.status || 'active',
+  team: p.team || '',
+}));
+---
+
+<MainLayout title="Social Projects | Chinese SDGs Institute" description="Student-led and institutional programs driving local SDG impact." lang={lang}>
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 pt-24 pb-20">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="space-y-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase">
+            Active Mobilization
+          </div>
+          <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.05] font-headline">
+            Social Projects &amp; Community Action
+          </h1>
+          <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+            Bridging institutional expertise with grassroots energy. We empower students and organizations to pilot scalable solutions for the Sustainable Development Goals.
+          </p>
+          <div class="flex flex-wrap gap-5 pt-4">
+            <a href="#projects" class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold hover:bg-primary-dim transition-all shadow-lg shadow-primary/10">
+              Explore Open Projects
+            </a>
+            <a href="/about" class="bg-white border border-outline-variant/30 text-on-surface px-10 py-5 rounded-xl font-bold hover:bg-surface-container-low transition-all">
+              Submit a Proposal
+            </a>
+          </div>
+        </div>
+        <div class="aspect-square bg-primary/5 rounded-[3rem] flex items-center justify-center border border-primary/10 overflow-hidden">
+          <div class="text-primary/10 transform scale-125">
+            <span class="material-symbols-outlined text-[160px]">diversity_3</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Projects -->
+    <section id="projects" class="bg-surface-container-low py-32">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="mb-20">
+          <h2 class="text-4xl font-bold tracking-tight mb-6 font-headline">Active Initiatives</h2>
+          <p class="text-lg text-on-surface-variant max-w-2xl">Ongoing student-led and institutional programs currently accepting applications to drive local SDG impact.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {processedFeatured ? (
+            <>
+              <!-- Featured Project -->
+              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-[0_10px_40px_-15px_rgba(4,47,36,0.05)]" id={processedFeatured.slug}>
+                <div class="space-y-8">
+                  <div class="w-full h-80 bg-primary/5 rounded-3xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary/30 text-7xl">{processedFeatured.icon}</span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-3 py-1 rounded">{processedFeatured.status}</span>
+                    <h3 class="text-3xl font-bold mt-4 font-headline">{processedFeatured.title}</h3>
+                    <p class="text-lg text-on-surface-variant mt-4 leading-relaxed max-w-2xl">{processedFeatured.description}</p>
+                  </div>
+                </div>
+                {processedFeatured.team && (
+                  <div class="mt-12 flex items-center border-t border-primary/5 pt-10">
+                    <span class="text-sm font-semibold text-on-surface-variant">{processedFeatured.team}</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Rest of projects -->
+              {processedRest.map((proj) => (
+                <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col hover:shadow-md transition-shadow" id={proj.slug}>
+                  <div class="h-48 bg-primary/5 rounded-2xl mb-8 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary/20 text-5xl">{proj.icon}</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">{proj.status}</span>
+                  <h3 class="text-2xl font-bold font-headline">{proj.title}</h3>
+                  <p class="text-on-surface-variant mt-4 leading-relaxed">{proj.description}</p>
+                  {proj.team && (
+                    <div class="mt-auto pt-10">
+                      <span class="text-xs font-semibold text-on-surface-variant">{proj.team}</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              <!-- Placeholder: Featured -->
+              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-sm">
+                <div class="space-y-8">
+                  <div class="w-full h-80 bg-primary/5 rounded-3xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary/30 text-7xl">school</span>
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-3 py-1 rounded">Flagship Program</span>
+                    <h3 class="text-3xl font-bold mt-4 font-headline">SDG Youth Ambassadors</h3>
+                    <p class="text-lg text-on-surface-variant mt-4 leading-relaxed max-w-2xl">Our premier leadership program for university students across China. Fellows lead local community assessments and represent the Institute at national sustainability forums.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Placeholder cards -->
+              <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
+                <div class="h-48 bg-primary/5 rounded-2xl mb-8 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary/20 text-5xl">park</span>
+                </div>
+                <h3 class="text-2xl font-bold font-headline">Urban Forest Pilot</h3>
+                <p class="text-on-surface-variant mt-4 leading-relaxed">Mapping biodiversity in metropolitan areas to suggest policy changes for green space preservation.</p>
+              </div>
+              <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
+                <div class="h-48 bg-primary/5 rounded-2xl mb-8 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary/20 text-5xl">menu_book</span>
+                </div>
+                <h3 class="text-2xl font-bold font-headline">Digital Literacy Rural</h3>
+                <p class="text-on-surface-variant mt-4 leading-relaxed">Training rural educators in sustainable development curricula through interactive digital modules.</p>
+              </div>
+              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col md:flex-row gap-10 items-center">
+                <div class="w-full md:w-2/5 h-full min-h-[220px] bg-primary/5 rounded-3xl flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary/30 text-6xl">water_drop</span>
+                </div>
+                <div class="w-full md:w-3/5">
+                  <h3 class="text-3xl font-bold font-headline">Clean River Coalition</h3>
+                  <p class="text-lg text-on-surface-variant mt-4 leading-relaxed">A community monitoring network across the Yangtze river delta, providing real-time data to local environmental agencies.</p>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Institutional Membership -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 py-40">
+      <div class="bg-primary rounded-[2.5rem] p-12 md:p-20 text-on-primary relative overflow-hidden shadow-2xl shadow-primary/20">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-24"></div>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 font-headline">Institutional Membership</h2>
+            <p class="text-white/80 text-lg md:text-xl leading-relaxed mb-12">
+              Partner with us to host your sustainability projects. Gain access to our researcher network, student talent pool, and standardized impact reporting frameworks.
+            </p>
+            <ul class="space-y-6 mb-12">
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-fixed-dim">check_circle</span>
+                <span class="text-lg">Curated access to over 5,000 top-tier student advocates.</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-fixed-dim">check_circle</span>
+                <span class="text-lg">Co-branding on international SDG impact reports.</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-fixed-dim">check_circle</span>
+                <span class="text-lg">Logistical support for community-scale deployments.</span>
+              </li>
+            </ul>
+            <a href="/about" class="inline-block bg-white text-primary px-12 py-5 rounded-2xl font-bold hover:bg-primary-container transition-all shadow-xl">
+              Request Partnership Package
+            </a>
+          </div>
+          <div class="hidden lg:block">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+                <span class="material-symbols-outlined text-5xl">corporate_fare</span>
+                <span class="text-xs font-bold tracking-widest uppercase">Corporates</span>
+              </div>
+              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+                <span class="material-symbols-outlined text-5xl">foundation</span>
+                <span class="text-xs font-bold tracking-widest uppercase">NGOs</span>
+              </div>
+              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+                <span class="material-symbols-outlined text-5xl">account_balance</span>
+                <span class="text-xs font-bold tracking-widest uppercase">Institutions</span>
+              </div>
+              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+                <span class="material-symbols-outlined text-5xl">groups</span>
+                <span class="text-xs font-bold tracking-widest uppercase">Foundations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="max-w-4xl mx-auto px-6 md:px-12 py-32 text-center">
+      <h2 class="text-4xl font-bold tracking-tight mb-6 font-headline">Stay Informed</h2>
+      <p class="text-lg text-on-surface-variant mb-12">Weekly digest of new projects, research findings, and community success stories.</p>
+      <form class="flex flex-col md:flex-row gap-5" onsubmit="return false;">
+        <input
+          class="flex-grow bg-white border border-outline-variant/30 rounded-2xl px-8 py-5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-lg"
+          placeholder="Email address"
+          type="email"
+          required
+        />
+        <button type="submit" class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold hover:bg-primary-dim transition-all text-lg shadow-lg">
+          Subscribe
+        </button>
+      </form>
+    </section>
+  </main>
+</MainLayout>

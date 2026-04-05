@@ -1,168 +1,208 @@
 // src/lib/sanity/queries.ts
 import { client } from './client';
 
-export const ALL_CATEGORIES_QUERY = /* groq */ `
-  *[_type == "category"]{
-    title,
-    "slug": slug.current
-  }
-`;
+// ── Posts (News & Research) ──────────────────────────────────
 
-export async function getAllCategories() {
-  const data = await client.fetch(ALL_CATEGORIES_QUERY);
+export async function getLatestPosts(lang: string = 'en', limit: number = 4) {
+  const query = /* groq */ `
+    *[_type == "post" && defined(slug.current)]
+    | order(publishedAt desc)[0...$limit]{
+      "slug": slug.current,
+      "title": title,
+      contentType,
+      sdgTags,
+      mainImage,
+      "excerpt": excerpt,
+      publishedAt,
+      readingTime
+    }
+  `;
+  const data = await client.fetch(query, { limit });
   return Array.isArray(data) ? data : [];
 }
 
-export async function getHomepageData() {
-  const categories = await getAllCategories();
-  
-  // Filter out duplicate categories
-  let uniqueCategories = categories.filter((category, index, self) =>
-    index === self.findIndex((c) => (
-      c.slug === category.slug
-    ))
-  );
-
-  // Sort categories to the desired order
-  const sortOrder = ['report', 'event', 'interview', 'podcast'];
-  uniqueCategories = uniqueCategories.sort((a, b) => {
-    return sortOrder.indexOf(a.slug) - sortOrder.indexOf(b.slug);
-  });
-
-  const topStoriesQuery = /* groq */ `
-    *[_type == "post" && defined(slug.current)] 
-    | order(publishedAt desc)[0...5]{
+export async function getTrendingPosts(lang: string = 'en', limit: number = 4) {
+  const query = /* groq */ `
+    *[_type == "post" && defined(slug.current)]
+    | order(publishedAt desc)[0...$limit]{
       "slug": slug.current,
-      title,
-      excerpt,
-      "category": category->title,
-      mainImage
+      "title": title,
+      contentType
     }
   `;
-
-  const categoryPostsQueries = uniqueCategories.map(category => {
-    return `"${category.slug}": *[_type == "post" && category->slug.current == "${category.slug}"] | order(publishedAt desc)[0...6]{
-      "slug": slug.current,
-      title,
-      excerpt,
-      "category": category->title,
-      mainImage
-    }`;
-  }).join(',\n');
-
-  const query = `{
-    "topStories": ${topStoriesQuery},
-    "categoryPosts": {
-      ${categoryPostsQueries}
-    }
-  }`;
-
-  const data = await client.fetch(query);
-  
-  return {
-    ...data,
-    categories: uniqueCategories,
-  };
+  const data = await client.fetch(query, { limit });
+  return Array.isArray(data) ? data : [];
 }
 
-export const POST_BY_SLUG_QUERY = /* groq */ `
+export async function getResearchPosts(lang: string = 'en', contentType?: string, limit: number = 20) {
+  const filter = contentType
+    ? `*[_type == "post" && defined(slug.current) && contentType == $contentType]`
+    : `*[_type == "post" && defined(slug.current)]`;
+  const query = /* groq */ `
+    ${filter} | order(publishedAt desc)[0...$limit]{
+      "slug": slug.current,
+      "title": title,
+      contentType,
+      sdgTags,
+      mainImage,
+      "excerpt": excerpt,
+      publishedAt,
+      readingTime,
+      author->{ name, image }
+    }
+  `;
+  const data = await client.fetch(query, { contentType: contentType || '', limit });
+  return Array.isArray(data) ? data : [];
+}
+
+export async function getPostBySlug(slug: string) {
+  const query = /* groq */ `
     *[_type == "post" && slug.current == $slug][0]{
       "slug": slug.current,
-      title,
-      excerpt,
-      body,
-      "category": category->title,
+      "title": title,
+      "excerpt": excerpt,
+      "body": body,
+      contentType,
+      sdgTags,
       publishedAt,
+      readingTime,
       mainImage{
         asset->{url, metadata{lqip}}
       },
       author->{
         name,
-        "avatar": image.asset->url
+        "avatar": image.asset->url,
+        bio
       }
     }
   `;
-
-// 详情：通过 slug 取一篇
-export async function getPostBySlug(slug: string) {
-  return client.fetch(POST_BY_SLUG_QUERY, { slug });
+  return client.fetch(query, { slug });
 }
 
-export const ALL_POST_SLUGS_QUERY = /* groq */ `
-    *[_type == "post" && defined(slug.current)][]{
+export async function getAllPostSlugs() {
+  const query = /* groq */ `
+    *[_type == "post" && defined(slug.current)]{
       "slug": slug.current
     }
   `;
-
-// 生成静态路径需要的 slug 列表
-export async function getAllPostSlugs() {
-  const list = await client.fetch(ALL_POST_SLUGS_QUERY);
+  const list = await client.fetch(query);
   return (Array.isArray(list) ? list : []).map((p: any) => p.slug);
 }
 
-// （可选）按分类取列表
-export async function getCategoryPosts(categorySlug: string) {
+// ── Projects ─────────────────────────────────────────────────
+
+export async function getProjects(lang: string = 'en') {
   const query = /* groq */ `
-    *[_type == "post" && category->slug.current == $categorySlug] 
-      | order(publishedAt desc){
-        "slug": slug.current,
-        title,
-        excerpt,
-        "category": category->title
-      }
+    *[_type == "project" && defined(slug.current)]
+    | order(_createdAt desc){
+      "slug": slug.current,
+      "title": title,
+      status,
+      "description": description,
+      mainImage,
+      team,
+      sdgTags,
+      icon
+    }
   `;
-  return client.fetch(query, { categorySlug });
-}
-
-// Add the new function here
-export async function getPostsBySdg(sdgId: string) {
-  const query = /* groq */ `
-    *[_type == "post" && sdg._ref == $sdgId] 
-      | order(publishedAt desc){
-        "slug": slug.current,
-        title,
-        excerpt,
-        "category": category->title
-      }
-  `;
-  return client.fetch(query, { sdgId });
-}
-
-export const LATEST_POSTS_QUERY = /* groq */ `
-  *[_type == "post"] | order(publishedAt desc)[0...10]{
-    title,
-    "slug": slug.current,
-    publishedAt,
-    excerpt
-  }
-`;
-
-export async function getAllPosts() {
-  const query = /* groq */ `
-  *[_type == "post"] | order(publishedAt desc){
-    title,
-    "slug": slug.current,
-    publishedAt,
-    excerpt
-  }
-`;
   const data = await client.fetch(query);
   return Array.isArray(data) ? data : [];
 }
 
-export async function searchPosts(term: string) {
+// ── Dialogues (Events) ───────────────────────────────────────
+
+export async function getDialogues(lang: string = 'en') {
   const query = /* groq */ `
-    *[_type == "post" && (title match $term || pt::text(body) match $term)]
-    | score(title match $term, pt::text(body) match $term)
+    *[_type == "dialogue" && defined(slug.current)]
+    | order(date desc){
+      "slug": slug.current,
+      "title": title,
+      eventType,
+      date,
+      endDate,
+      "location": location,
+      "description": description,
+      featured,
+      sdgTags
+    }
+  `;
+  const data = await client.fetch(query);
+  return Array.isArray(data) ? data : [];
+}
+
+export async function getUpcomingDialogues(lang: string = 'en', limit: number = 3) {
+  const now = new Date().toISOString();
+  const query = /* groq */ `
+    *[_type == "dialogue" && defined(slug.current) && date >= $now]
+    | order(date asc)[0...$limit]{
+      "slug": slug.current,
+      "title": title,
+      eventType,
+      date,
+      "location": location,
+      featured
+    }
+  `;
+  const data = await client.fetch(query, { now, limit });
+  return Array.isArray(data) ? data : [];
+}
+
+// ── Homepage Aggregate ───────────────────────────────────────
+
+export async function getHomepageData(lang: string = 'en') {
+  const now = new Date().toISOString();
+  const query = /* groq */ `{
+    "latestPosts": *[_type == "post" && defined(slug.current)]
+      | order(publishedAt desc)[0...4]{
+        "slug": slug.current,
+        "title": title,
+        contentType,
+        sdgTags,
+        mainImage,
+        "excerpt": excerpt,
+        publishedAt,
+        readingTime
+      },
+    "trendingPosts": *[_type == "post" && defined(slug.current)]
+      | order(publishedAt desc)[0...4]{
+        "slug": slug.current,
+        "title": title,
+        contentType
+      },
+    "projects": *[_type == "project" && defined(slug.current)]
+      | order(_createdAt desc)[0...3]{
+        "slug": slug.current,
+        "title": title,
+        status,
+        "description": description,
+        icon,
+        team,
+        sdgTags
+      },
+    "upcomingDialogues": *[_type == "dialogue" && defined(slug.current) && date >= $now]
+      | order(date asc)[0...2]{
+        "slug": slug.current,
+        "title": title,
+        date,
+        eventType
+      }
+  }`;
+  return client.fetch(query, { now });
+}
+
+// ── Search ───────────────────────────────────────────────────
+
+export async function searchPosts(term: string, lang: string = 'en') {
+  const query = /* groq */ `
+    *[_type == "post" && (title.en match $term || title.zh match $term || pt::text(body.en) match $term || pt::text(body.zh) match $term)]
+    | score(title.en match $term, title.zh match $term)
     | order(_score desc) {
       "slug": slug.current,
-      title,
-      excerpt,
-      body,
-      "category": category->title,
-      publishedAt,
+      "title": title,
+      "excerpt": excerpt,
+      contentType,
+      publishedAt
     }
   `;
   return client.fetch(query, { term });
 }
-

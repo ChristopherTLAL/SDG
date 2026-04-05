@@ -1,8 +1,21 @@
-// sanity/schemas/index.ts
+// sanity-studio/schemas/index.ts
 import blockContent from './blockContent'
-import category from './category'
 import post from './post'
 import author from './author'
+import project from './project'
+import dialogue from './dialogue'
+import {localizedString, localizedText, localizedBlockContent} from './localeFields'
 
-// 将所有 schema 导入并放在一个数组中导出
-export const schemaTypes = [post, author, category, blockContent]
+export const schemaTypes = [
+  // Locale field types
+  localizedString,
+  localizedText,
+  localizedBlockContent,
+  // Document types
+  post,
+  author,
+  project,
+  dialogue,
+  // Other types
+  blockContent,
+]

@@ -1,0 +1,111 @@
+---
+// src/pages/zh/research/index.astro — 新闻与研究（中文）
+import MainLayout from '../../../layouts/MainLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import NewsletterForm from '../../../components/NewsletterForm.astro';
+import { getResearchPosts, getTrendingPosts } from '../../../lib/sanity/queries';
+
+const lang = 'zh';
+const posts = await getResearchPosts(lang);
+const trending = await getTrendingPosts(lang);
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field.zh || field.en || '';
+}
+
+const featured = posts[0] || null;
+const secondary = posts.slice(1, 3);
+const compact = posts.slice(3);
+
+const processedTrending = (trending || []).map((p: any, i: number) => ({
+  num: String(i + 1).padStart(2, '0'),
+  title: t(p.title),
+  href: `/zh/research/${p.slug}`,
+}));
+---
+
+<MainLayout title="新闻与研究 | 中国可持续发展目标研究院" description="关键分析、科学突破和政策框架的策展档案。" lang={lang}>
+  <main class="pt-40 pb-32">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-20">
+      <div class="max-w-4xl">
+        <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6">
+          <span>研究院</span>
+          <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+          <span class="text-primary font-bold">情报</span>
+        </nav>
+        <h1 class="text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">新闻与研究索引</h1>
+        <p class="text-lg text-on-surface-variant leading-relaxed font-body max-w-2xl">
+          推动亚太地区可持续发展的关键分析、科学突破和政策框架策展档案。
+        </p>
+      </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-12">
+      <aside class="col-span-12 lg:col-span-2 space-y-10">
+        <div class="sticky top-32">
+          <div class="mb-10">
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">内容类型</h3>
+            <ul class="flex flex-col gap-1">
+              <li><a href="/zh/research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg bg-primary text-white font-semibold text-xs"><span class="material-symbols-outlined text-sm">apps</span><span>全部内容</span></a></li>
+              <li><a href="/zh/research?type=news" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">newspaper</span><span>新闻</span></a></li>
+              <li><a href="/zh/research?type=policy-brief" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">description</span><span>政策简报</span></a></li>
+              <li><a href="/zh/research?type=research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">school</span><span>研究论文</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <div class="col-span-12 lg:col-span-7">
+        <div class="space-y-16">
+          {featured && <PostCard post={featured} variant="featured" lang={lang} />}
+          {secondary.length > 0 && (
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-surface-container-high pb-16">
+              {secondary.map((post: any) => <PostCard post={post} variant="medium" lang={lang} />)}
+            </div>
+          )}
+          {compact.length > 0 && (
+            <div class="space-y-12">
+              {compact.map((post: any) => <PostCard post={post} variant="compact" lang={lang} />)}
+            </div>
+          )}
+          {posts.length === 0 && (
+            <div class="text-center py-20">
+              <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">article</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">暂无文章</h3>
+              <p class="text-on-surface-variant">研究论文和新闻发布后将在此显示。</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <aside class="col-span-12 lg:col-span-3 space-y-10">
+        <div class="bg-white p-6 rounded-xl border border-surface-container-high shadow-sm">
+          <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-primary mb-8 font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">trending_up</span>热门
+          </h3>
+          <ul class="space-y-6">
+            {processedTrending.length > 0 ? processedTrending.map((item) => (
+              <li class="group">
+                <a class="block" href={item.href}>
+                  <span class="text-[10px] font-bold text-primary/30 mb-1 block">{item.num}</span>
+                  <h4 class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{item.title}</h4>
+                </a>
+              </li>
+            )) : (
+              <li><span class="text-xs font-bold text-on-surface leading-snug block">暂无热门内容</span></li>
+            )}
+          </ul>
+        </div>
+        <div class="bg-surface-container-low p-6 rounded-xl border border-surface-container-high/50">
+          <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg text-primary">mark_email_unread</span>情报
+          </h3>
+          <p class="text-[11px] text-on-surface-variant mb-6 leading-relaxed">每周政策简报和研究摘要送达您的收件箱。</p>
+          <NewsletterForm variant="sidebar" lang={lang} />
+        </div>
+      </aside>
+    </div>
+  </main>
+</MainLayout>
