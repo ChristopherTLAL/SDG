@@ -1,0 +1,254 @@
+---
+// src/pages/tools/index.astro — Life Planning Tools (English)
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const lang = 'en';
+
+// Tool cards — each will eventually link to its own sub-app or external tool
+const tools = [
+  {
+    title: 'Personality Assessment',
+    description: 'Discover your MBTI type and understand how your personality traits align with academic disciplines and career paths.',
+    icon: 'psychology',
+    status: 'Available',
+    statusColor: 'bg-primary text-white',
+    href: '#',
+    tag: 'Self-Discovery',
+  },
+  {
+    title: 'Career Aptitude Test',
+    description: 'A structured evaluation mapping your interests, skills, and values to potential career trajectories and university majors.',
+    icon: 'work',
+    status: 'Available',
+    statusColor: 'bg-primary text-white',
+    href: '#',
+    tag: 'Career Planning',
+  },
+  {
+    title: 'Oxbridge Interview Simulator',
+    description: 'Practice with AI-generated questions modeled on real Oxford and Cambridge admissions interviews across all subjects.',
+    icon: 'school',
+    status: 'Coming Soon',
+    statusColor: 'bg-surface-container-high text-on-surface-variant',
+    href: '#',
+    tag: 'Interview Prep',
+  },
+  {
+    title: 'HKU Multifaceted Excellence',
+    description: 'Prepare for the University of Hong Kong\'s multi-dimensional interview format with timed practice sessions and feedback.',
+    icon: 'diversity_3',
+    status: 'Coming Soon',
+    statusColor: 'bg-surface-container-high text-on-surface-variant',
+    href: '#',
+    tag: 'Interview Prep',
+  },
+  {
+    title: 'Personal Statement Builder',
+    description: 'A guided framework to craft compelling UCAS and Common App personal statements with structural prompts and exemplars.',
+    icon: 'edit_note',
+    status: 'Coming Soon',
+    statusColor: 'bg-surface-container-high text-on-surface-variant',
+    href: '#',
+    tag: 'Applications',
+  },
+  {
+    title: 'University Shortlist Generator',
+    description: 'Input your profile — grades, interests, budget, location — and receive a curated list of best-fit universities worldwide.',
+    icon: 'location_city',
+    status: 'Coming Soon',
+    statusColor: 'bg-surface-container-high text-on-surface-variant',
+    href: '#',
+    tag: 'University Selection',
+  },
+];
+
+// Resource guides — linking to posts or standalone articles
+const guides = [
+  {
+    title: 'How to Write a Research Proposal',
+    description: 'A step-by-step guide to structuring your undergraduate research proposal, from hypothesis to methodology.',
+    icon: 'description',
+    readingTime: '12 min',
+    href: '#',
+  },
+  {
+    title: 'Choosing the Right Major: A Framework',
+    description: 'Move beyond "what pays well" — a systematic approach to aligning your academic path with your long-term vision.',
+    icon: 'route',
+    readingTime: '8 min',
+    href: '#',
+  },
+  {
+    title: 'Demystifying the Oxbridge Application',
+    description: 'Timeline, requirements, and insider strategies for applying to Oxford and Cambridge from mainland China.',
+    icon: 'auto_stories',
+    readingTime: '15 min',
+    href: '#',
+  },
+  {
+    title: 'Gap Year: Strategic or Risky?',
+    description: 'An evidence-based look at when a gap year strengthens your application and when it doesn\'t.',
+    icon: 'flight_takeoff',
+    readingTime: '6 min',
+    href: '#',
+  },
+  {
+    title: 'Building a Portfolio for Art & Design',
+    description: 'What top programs actually look for, and how to curate 12–20 pieces that tell a coherent creative story.',
+    icon: 'palette',
+    readingTime: '10 min',
+    href: '#',
+  },
+  {
+    title: 'Extracurriculars That Actually Matter',
+    description: 'Quality over quantity — how admissions officers evaluate your activities list and what "depth" really means.',
+    icon: 'emoji_events',
+    readingTime: '7 min',
+    href: '#',
+  },
+];
+---
+
+<MainLayout title="Life Planning Tools | Chinese SDGs Institute" description="Interactive tools and curated resources to navigate university admissions, career planning, and personal development." lang={lang}>
+  <main class="pt-40 pb-32">
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
+      <div class="grid lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+            <span class="material-symbols-outlined text-[14px]">construction</span>
+            Planning Toolkit
+          </div>
+          <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter leading-[1.02] mb-8">
+            Tools for Your<br /><span class="text-primary">Future</span>
+          </h1>
+          <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-xl mb-10">
+            Interactive assessments, interview simulators, and curated guides — everything you need to navigate admissions, career planning, and personal growth.
+          </p>
+          <div class="flex items-center gap-6 text-sm text-on-surface-variant">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-lg">widgets</span>
+              <span class="font-semibold">{tools.length} Tools</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
+              <span class="font-semibold">{guides.length} Guides</span>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 hidden lg:block">
+          <div class="grid grid-cols-2 gap-5">
+            <div class="aspect-square bg-primary/5 rounded-2xl flex items-center justify-center border border-primary/10">
+              <span class="material-symbols-outlined text-primary/20 text-5xl">psychology</span>
+            </div>
+            <div class="aspect-square bg-tertiary-container/30 rounded-2xl flex items-center justify-center border border-tertiary-container/20 translate-y-8">
+              <span class="material-symbols-outlined text-primary/20 text-5xl">school</span>
+            </div>
+            <div class="aspect-square bg-secondary-container/30 rounded-2xl flex items-center justify-center border border-secondary-container/20 -translate-y-4">
+              <span class="material-symbols-outlined text-primary/20 text-5xl">work</span>
+            </div>
+            <div class="aspect-square bg-primary-container/30 rounded-2xl flex items-center justify-center border border-primary-container/20 translate-y-4">
+              <span class="material-symbols-outlined text-primary/20 text-5xl">route</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tools -->
+    <section class="bg-surface-container-low py-32 border-y border-outline-variant/10">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="mb-16">
+          <h2 class="font-headline font-bold text-4xl tracking-tight text-on-surface mb-4">Interactive Tools</h2>
+          <p class="text-on-surface-variant text-lg max-w-2xl">Assessment platforms and simulators designed to give you clarity on who you are and where you're headed.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tools.map((tool) => (
+            <a href={tool.href} class="group bg-white rounded-2xl border border-outline-variant/15 p-8 flex flex-col hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-2xl">{tool.icon}</span>
+                </div>
+                <span class={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${tool.statusColor}`}>{tool.status}</span>
+              </div>
+              <div class="text-[10px] font-bold text-primary/50 uppercase tracking-[0.2em] mb-3">{tool.tag}</div>
+              <h3 class="text-lg font-headline font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">{tool.title}</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-6">{tool.description}</p>
+              <div class="mt-auto flex items-center gap-2 text-xs font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Launch Tool</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Resource Guides -->
+    <section class="py-32">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="grid lg:grid-cols-12 gap-16">
+          <!-- Sticky sidebar -->
+          <div class="lg:col-span-4 lg:sticky lg:top-32 self-start">
+            <h2 class="font-headline font-bold text-4xl tracking-tight text-on-surface mb-6">Resource Library</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+              In-depth guides written by admissions consultants, university students, and industry professionals.
+            </p>
+            <div class="flex items-center gap-2 text-xs font-bold text-primary">
+              <span class="material-symbols-outlined text-sm">auto_awesome</span>
+              <span>Curated by our editorial team</span>
+            </div>
+          </div>
+
+          <!-- Guide list -->
+          <div class="lg:col-span-8">
+            <div class="space-y-6">
+              {guides.map((guide) => (
+                <a href={guide.href} class="group flex gap-6 p-6 -mx-6 rounded-2xl hover:bg-surface-container-low transition-colors">
+                  <div class="shrink-0 w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <span class="material-symbols-outlined text-primary">{guide.icon}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-4 mb-2">
+                      <h3 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">{guide.title}</h3>
+                    </div>
+                    <p class="text-sm text-on-surface-variant leading-relaxed mb-3">{guide.description}</p>
+                    <div class="flex items-center gap-4 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.2em]">
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[12px]">schedule</span>
+                        {guide.readingTime}
+                      </span>
+                      <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[12px]">article</span>
+                        Guide
+                      </span>
+                    </div>
+                  </div>
+                  <div class="shrink-0 self-center">
+                    <span class="material-symbols-outlined text-on-surface-variant/20 group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-20">
+      <div class="bg-primary rounded-[2rem] p-12 md:p-20 relative overflow-hidden shadow-2xl shadow-primary/20">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-24"></div>
+        <div class="relative z-10 max-w-2xl">
+          <h2 class="font-headline font-bold text-3xl md:text-4xl tracking-tight text-white mb-6">Have a tool idea?</h2>
+          <p class="text-white/70 text-lg leading-relaxed mb-10">
+            We're always looking for new tools that help students navigate the complex world of university admissions and career planning. If you have an idea, we'd love to hear from you.
+          </p>
+          <a href="/about" class="inline-block bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-primary-container transition-all shadow-xl">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
