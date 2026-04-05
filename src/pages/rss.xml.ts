@@ -1,26 +1,28 @@
 import type { APIRoute } from 'astro';
-import { client } from '../lib/sanity/client';
-import { LATEST_POSTS_QUERY } from '../lib/sanity/queries';
+import { getLatestPosts } from '../lib/sanity/queries';
 
 export const GET: APIRoute = async () => {
-  const posts = await client.fetch(LATEST_POSTS_QUERY);
+  const posts = await getLatestPosts('en', 20);
 
-  const items = posts.map((p: any) => `
+  const items = posts.map((p: any) => {
+    const title = typeof p.title === 'string' ? p.title : p.title?.en || '';
+    const excerpt = typeof p.excerpt === 'string' ? p.excerpt : p.excerpt?.en || '';
+    return `
     <item>
-      <title><![CDATA[${p.title}]]></title>
-      <link>https://YOUR_DOMAIN/${p.slug}</link>
-      <guid>https://YOUR_DOMAIN/${p.slug}</guid>
+      <title><![CDATA[${title}]]></title>
+      <link>https://sdg.undp.ac.cn/research/${p.slug}</link>
+      <guid>https://sdg.undp.ac.cn/research/${p.slug}</guid>
       <pubDate>${new Date(p.publishedAt || Date.now()).toUTCString()}</pubDate>
-      <description><![CDATA[${p.excerpt || ''}]]></description>
-    </item>
-  `).join('\n');
+      <description><![CDATA[${excerpt}]]></description>
+    </item>`;
+  }).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <rss version="2.0">
     <channel>
-      <title>Your Intercept-like News</title>
-      <link>https://YOUR_DOMAIN/</link>
-      <description>Independent journalism</description>
+      <title>Chinese SDGs Institute — News &amp; Research</title>
+      <link>https://sdg.undp.ac.cn/</link>
+      <description>Critical analysis, scientific breakthroughs, and policy frameworks driving sustainable development.</description>
       ${items}
     </channel>
   </rss>`;

@@ -13,7 +13,8 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const posts = await searchPosts(term);
+    const lang = body.lang || 'en';
+    const posts = await searchPosts(term, lang);
     return new Response(JSON.stringify(posts), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
