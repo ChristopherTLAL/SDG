@@ -21,6 +21,13 @@ const slugImageMap: Record<string, string> = {
   'fintech-rural-development': '/images/fintech.png',
   'urban-resilience-architecture': '/images/roof.png',
 };
+const slugLightImageMap: Record<string, string> = {
+  'biodiversity-social-equity': '/images/biodiversity-light.png',
+  'decarbonization-pearl-river': '/images/decarbon.png',
+  'annual-sdg-forum-beijing-2026': '/images/inclusion.png',
+  'fintech-rural-development': '/images/fintech.png',
+  'urban-resilience-architecture': '/images/roof.png',
+};
 
 // Pre-process upcoming — order: [2nd nearest, nearest (center/featured), 3rd nearest]
 const rawUpcoming = (upcoming || []).map((d: any) => ({
@@ -31,6 +38,7 @@ const rawUpcoming = (upcoming || []).map((d: any) => ({
   location: t(d.location),
   eventType: d.eventType || 'assembly',
   image: slugImageMap[d.slug] || '',
+  lightImage: slugLightImageMap[d.slug] || '',
 }));
 
 // Reorder: center = soonest (index 0), left = 2nd, right = 3rd
@@ -86,7 +94,7 @@ const eventTypeLabels: Record<string, string> = {
               <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
                   <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center overflow-hidden">
-                    {d.image ? <img src={d.image} alt={d.title} class="h-full object-contain opacity-80" /> : <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>}
+                    {d.lightImage ? <img src={d.lightImage} alt={d.title} class="h-full object-contain opacity-90" /> : <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>}
                   </div>
                   <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">{d.title}</h3>
                   {d.location && <p class="opacity-80 leading-relaxed">{d.location}</p>}
@@ -139,7 +147,7 @@ const eventTypeLabels: Record<string, string> = {
               <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
                   <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center overflow-hidden">
-                    <img src="/images/decarbon.png" alt="脱碳" class="h-full object-contain opacity-80" />
+                    <img src="/images/decarbon.png" alt="脱碳" class="h-full object-contain opacity-90" />
                   </div>
                   <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">年度SDG政策论坛：北京2026</h3>
                   <p class="opacity-80 leading-relaxed">关于2030议程在大中华地区实施的多利益相关方对话旗舰大会。</p>

@@ -43,11 +43,18 @@ const processedTrending = (trendingPosts || []).map((post: any, i: number) => ({
   label: `${String(i + 1).padStart(2, '0')}. ${contentTypeLabels[post.contentType] || post.contentType || '文章'}`,
 }));
 
+const iconImageMap: Record<string, string> = {
+  air: '/images/air.png', diversity_3: '/images/inclusion.png', eco: '/images/decarbon.png',
+  water_drop: '/images/water.png', park: '/images/roof.png', account_balance: '/images/fintech.png',
+  school: '/images/inclusion.png',
+};
+
 const processedProjects = (projects || []).map((project: any) => ({
   title: t(project.title),
   description: t(project.description),
   slug: project.slug,
   icon: project.icon || 'eco',
+  image: iconImageMap[project.icon] || '',
   status: project.status || 'active',
   statusClass: statusColors[project.status] || statusColors.active,
   team: project.team || '',
@@ -196,8 +203,8 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
         {processedProjects.length > 0 ? processedProjects.map((proj) => (
           <a href={`/zh/projects#${proj.slug}`} class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 block">
-            <div class="h-48 bg-surface-container-high relative flex items-center justify-center overflow-hidden">
-              <span class="material-symbols-outlined text-primary/20 text-7xl group-hover:scale-110 transition-transform duration-500">{proj.icon}</span>
+            <div class="h-48 bg-surface-container-low relative flex items-center justify-center overflow-hidden">
+              {proj.image ? <img src={proj.image} alt={proj.title} class="h-full object-contain group-hover:scale-110 transition-transform duration-500" /> : <span class="material-symbols-outlined text-primary/20 text-7xl group-hover:scale-110 transition-transform duration-500">{proj.icon}</span>}
               <div class={`absolute bottom-4 left-4 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest ${proj.statusClass}`}>{proj.status}</div>
             </div>
             <div class="p-8">
@@ -214,8 +221,8 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
         )) : (
           <>
             <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
-              <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary/20 text-7xl">eco</span>
+              <div class="h-48 bg-surface-container-low relative flex items-center justify-center overflow-hidden">
+                <img src="/images/decarbon.png" alt="零废弃校园试点" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">进行中</div>
               </div>
               <div class="p-8">
@@ -224,8 +231,8 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
               </div>
             </div>
             <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
-              <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary/20 text-7xl">diversity_3</span>
+              <div class="h-48 bg-surface-container-low relative flex items-center justify-center overflow-hidden">
+                <img src="/images/inclusion.png" alt="文化遗产数字档案" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">招募中</div>
               </div>
               <div class="p-8">
@@ -234,8 +241,8 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
               </div>
             </div>
             <div class="bg-white border border-outline-variant/20 rounded-2xl overflow-hidden">
-              <div class="h-48 bg-surface-container-high relative flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary/20 text-7xl">water_drop</span>
+              <div class="h-48 bg-surface-container-low relative flex items-center justify-center overflow-hidden">
+                <img src="/images/water.png" alt="城市水素养" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">持续中</div>
               </div>
               <div class="p-8">
