@@ -32,17 +32,17 @@ const t = labels[lang] || labels.en;
 
 {variant === 'sidebar' ? (
   <div>
-    <p class="text-xs text-on-surface-variant mb-6 font-bold uppercase tracking-wider">{t.title}</p>
-    <form class="flex gap-2" onsubmit="return false;">
+    <p class="text-xs text-on-surface-variant mb-4 font-bold uppercase tracking-wider">{t.title}</p>
+    <form class="flex flex-col gap-3" onsubmit="return false;">
       <input
-        class="flex-grow bg-surface-container-low border border-outline-variant/10 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+        class="w-full bg-surface-container-low border border-outline-variant/10 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
         placeholder={t.placeholder}
         type="email"
         required
       />
       <button
         type="submit"
-        class="bg-primary text-white px-5 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-primary-dim transition-all"
+        class="w-full bg-primary text-white px-5 py-3 rounded-md text-xs font-bold uppercase tracking-widest hover:bg-primary-dim transition-all"
       >
         {t.button}
       </button>

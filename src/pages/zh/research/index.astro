@@ -17,7 +17,8 @@ function t(field: any): string {
 
 const featured = posts[0] || null;
 const secondary = posts.slice(1, 3);
-const compact = posts.slice(3);
+const compactVisible = posts.slice(3, 6);
+const compactHidden = posts.slice(6);
 
 const processedTrending = (trending || []).map((p: any, i: number) => ({
   num: String(i + 1).padStart(2, '0'),
@@ -44,14 +45,34 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
 
     <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-12">
       <aside class="col-span-12 lg:col-span-2 space-y-10">
-        <div class="sticky top-32">
-          <div class="mb-10">
+        <div class="sticky top-32 space-y-10">
+          <div>
             <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">内容类型</h3>
             <ul class="flex flex-col gap-1">
               <li><a href="/zh/research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg bg-primary text-white font-semibold text-xs"><span class="material-symbols-outlined text-sm">apps</span><span>全部内容</span></a></li>
               <li><a href="/zh/research?type=news" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">newspaper</span><span>新闻</span></a></li>
               <li><a href="/zh/research?type=policy-brief" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">description</span><span>政策简报</span></a></li>
               <li><a href="/zh/research?type=research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs group"><span class="material-symbols-outlined text-sm group-hover:text-primary">school</span><span>研究论文</span></a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">年份</h3>
+            <ul class="flex flex-col gap-1">
+              <li><a href="/zh/research?year=2026" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2026</a></li>
+              <li><a href="/zh/research?year=2025" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2025</a></li>
+              <li><a href="/zh/research?year=2024" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2024</a></li>
+              <li><a href="/zh/research?year=2023" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2023</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">SDG 聚焦</h3>
+            <ul class="flex flex-col gap-1">
+              <li><a href="/zh/research?sdg=1" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 1 — 消除贫困</a></li>
+              <li><a href="/zh/research?sdg=4" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 4 — 优质教育</a></li>
+              <li><a href="/zh/research?sdg=7" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 7 — 清洁能源</a></li>
+              <li><a href="/zh/research?sdg=11" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 11 — 可持续城市</a></li>
+              <li><a href="/zh/research?sdg=13" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 13 — 气候行动</a></li>
+              <li><a href="/zh/research?sdg=17" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 17 — 伙伴关系</a></li>
             </ul>
           </div>
         </div>
@@ -65,9 +86,27 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
               {secondary.map((post: any) => <PostCard post={post} variant="medium" lang={lang} />)}
             </div>
           )}
-          {compact.length > 0 && (
+          {compactVisible.length > 0 && (
             <div class="space-y-12">
-              {compact.map((post: any) => <PostCard post={post} variant="compact" lang={lang} />)}
+              {compactVisible.map((post: any) => <PostCard post={post} variant="compact" lang={lang} />)}
+            </div>
+          )}
+
+          {compactHidden.length > 0 && (
+            <div id="hidden-posts" class="space-y-12 hidden">
+              {compactHidden.map((post: any) => <PostCard post={post} variant="compact" lang={lang} />)}
+            </div>
+          )}
+
+          {compactHidden.length > 0 && (
+            <div class="text-center pt-8" id="load-more-wrap">
+              <button
+                id="load-more-btn"
+                class="bg-surface-container-high text-on-surface px-10 py-4 rounded-md font-bold text-sm hover:bg-surface-container-highest transition-all inline-flex items-center gap-3"
+              >
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+                查看更多档案（{compactHidden.length} 篇）
+              </button>
             </div>
           )}
           {posts.length === 0 && (
@@ -108,4 +147,16 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
       </aside>
     </div>
   </main>
+
+  <script>
+    const btn = document.getElementById('load-more-btn');
+    const hidden = document.getElementById('hidden-posts');
+    const wrap = document.getElementById('load-more-wrap');
+    if (btn && hidden && wrap) {
+      btn.addEventListener('click', () => {
+        hidden.classList.remove('hidden');
+        wrap.remove();
+      });
+    }
+  </script>
 </MainLayout>
