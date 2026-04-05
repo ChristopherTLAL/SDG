@@ -12,8 +12,10 @@ function t(field: any): string {
   return field.zh || field.en || '';
 }
 
-const featured = projects[0] || null;
-const rest = projects.slice(1);
+const topProjects = projects.slice(0, 4);
+const featured = topProjects[0] || null;
+const rest = topProjects.slice(1, 4);
+const totalCount = projects.length;
 
 const processedFeatured = featured ? {
   title: t(featured.title), description: t(featured.description),
@@ -103,6 +105,15 @@ const processedRest = rest.map((p: any) => ({
             </>
           )}
         </div>
+
+        {totalCount > 4 && (
+          <div class="text-center mt-16">
+            <a href="/zh/projects/all" class="inline-flex items-center gap-3 bg-white border border-outline-variant/30 text-on-surface px-10 py-4 rounded-xl font-bold text-sm hover:bg-surface-container-low hover:border-primary/20 transition-all">
+              <span class="material-symbols-outlined text-sm text-primary">grid_view</span>
+              ���览全部项目（{totalCount}）
+            </a>
+          </div>
+        )}
       </div>
     </section>
 

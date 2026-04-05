@@ -14,16 +14,21 @@ function t(field: any): string {
   return field[lang] || field.en || '';
 }
 
-// Pre-process upcoming for template
-const processedUpcoming = (upcoming || []).map((d: any) => ({
+// Pre-process upcoming for template — order: [2nd nearest, nearest (center/featured), 3rd nearest]
+const rawUpcoming = (upcoming || []).map((d: any) => ({
   title: t(d.title),
   slug: d.slug,
   sdgTag: d.sdgTags?.[0] || '',
   date: d.date ? formatDate(d.date) : '',
+  rawDate: d.date || '',
   location: t(d.location),
-  featured: d.featured || false,
   eventType: d.eventType || 'assembly',
 }));
+
+// Reorder: center = soonest (index 0), left = 2nd, right = 3rd
+const processedUpcoming = rawUpcoming.length >= 3
+  ? [rawUpcoming[1], rawUpcoming[0], rawUpcoming[2]]
+  : rawUpcoming;
 
 // Pre-process all dialogues as knowledge repository items
 const processedAll = (allDialogues || []).map((d: any) => ({
@@ -80,81 +85,91 @@ const eventTypeLabels: Record<string, string> = {
           </div>
         </div>
         <div class="grid md:grid-cols-3 gap-10">
-          {processedUpcoming.length > 0 ? processedUpcoming.map((d) => (
-            d.featured ? (
-              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+          {processedUpcoming.length > 0 ? processedUpcoming.map((d, i) => (
+            i === 1 ? (
+              /* Center card: deep emerald featured */
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
-                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
-                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">{d.title}</h3>
-                  {d.location && <p class="opacity-80 text-lg leading-relaxed mb-12">{d.location}</p>}
-                </div>
-                <div class="space-y-6">
-                  <div class="h-[1px] bg-white/20"></div>
-                  <div class="flex justify-between items-center">
-                    <div class="text-xs uppercase tracking-[0.2em] font-bold">{d.date}</div>
-                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>
                   </div>
+                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">{d.title}</h3>
+                  {d.location && <p class="opacity-80 leading-relaxed">{d.location}</p>}
+                </div>
+                <div class="mt-auto space-y-6 pt-8">
+                  <div class="flex gap-4 items-center">
+                    {d.sdgTag && <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">{d.date}</span>
+                  </div>
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">
+                    Request Invitation
+                  </button>
                 </div>
               </div>
             ) : (
-              <div class="bg-white p-10 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 group border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-4xl text-primary/30">forum</span>
-                  </div>
+              /* Side cards: white with image placeholder */
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px] hover:shadow-2xl hover:shadow-primary/5 transition-all">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
-                  {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">{d.sdgTag}</span>}
+                  {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
                   <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">{d.date}</span>
                 </div>
                 <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">{d.title}</h3>
-                {d.location && <p class="text-on-surface-variant mb-10 leading-relaxed">{d.location}</p>}
-                <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
-                  Request Invitation
-                </button>
+                {d.location && <p class="text-on-surface-variant leading-relaxed">{d.location}</p>}
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
+                    Request Invitation
+                  </button>
+                </div>
               </div>
             )
           )) : (
             <>
-              <div class="bg-white p-10 rounded-2xl hover:shadow-2xl hover:shadow-primary/5 transition-all border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-4xl text-primary/30">forum</span>
-                  </div>
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px]">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
-                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">SDG 13</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Coming Soon</span>
+                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 15</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Jul 2026</span>
                 </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Decarbonization Pathways in Pearl River Delta</h3>
-                <p class="text-on-surface-variant mb-10 leading-relaxed">An assembly focused on urban energy transition and industrial synergy.</p>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Biodiversity & Social Equity Nexus</h3>
+                <p class="text-on-surface-variant leading-relaxed">Panel on preserving traditional ecological knowledge in Yunnan.</p>
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">Request Invitation</button>
+                </div>
               </div>
-              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
-                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
-                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">Annual SDG Policy Forum: Beijing 2024</h3>
-                  <p class="opacity-80 text-lg leading-relaxed mb-12">The flagship assembly for multi-stakeholder dialogue on the 2030 Agenda implementation across greater China.</p>
-                </div>
-                <div class="space-y-6">
-                  <div class="h-[1px] bg-white/20"></div>
-                  <div class="flex justify-between items-center">
-                    <div class="text-xs uppercase tracking-[0.2em] font-bold">TBD</div>
-                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>
                   </div>
+                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">Annual SDG Policy Forum: Beijing 2026</h3>
+                  <p class="opacity-80 leading-relaxed">The flagship assembly for multi-stakeholder dialogue on the 2030 Agenda.</p>
+                </div>
+                <div class="mt-auto space-y-6 pt-8">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">SDG 17</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">Nov 2026</span>
+                  </div>
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">Request Invitation</button>
                 </div>
               </div>
-              <div class="bg-white p-10 rounded-2xl hover:shadow-2xl hover:shadow-primary/5 transition-all border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-4xl text-primary/30">account_balance</span>
-                  </div>
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px]">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">account_balance</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
-                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase tracking-tighter">SDG 09</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Coming Soon</span>
+                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 09</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Aug 2026</span>
                 </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Fintech for Sustainable Rural Development</h3>
-                <p class="text-on-surface-variant mb-10 leading-relaxed">Exploring financial inclusion through digital infrastructure in rural provinces.</p>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">FinTech for Sustainable Rural Development</h3>
+                <p class="text-on-surface-variant leading-relaxed">Exploring financial inclusion through digital infrastructure in rural provinces.</p>
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">Request Invitation</button>
+                </div>
               </div>
             </>
           )}

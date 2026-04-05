@@ -14,13 +14,20 @@ function t(field: any): string {
   return field.zh || field.en || '';
 }
 
-const processedUpcoming = (upcoming || []).map((d: any) => ({
+// Pre-process upcoming — order: [2nd nearest, nearest (center/featured), 3rd nearest]
+const rawUpcoming = (upcoming || []).map((d: any) => ({
   title: t(d.title), slug: d.slug,
   sdgTag: d.sdgTags?.[0] || '',
   date: d.date ? formatDate(d.date) : '',
+  rawDate: d.date || '',
   location: t(d.location),
-  featured: d.featured || false,
+  eventType: d.eventType || 'assembly',
 }));
+
+// Reorder: center = soonest (index 0), left = 2nd, right = 3rd
+const processedUpcoming = rawUpcoming.length >= 3
+  ? [rawUpcoming[1], rawUpcoming[0], rawUpcoming[2]]
+  : rawUpcoming;
 
 const processedAll = (allDialogues || []).map((d: any) => ({
   title: t(d.title), slug: d.slug,
@@ -68,73 +75,91 @@ const eventTypeLabels: Record<string, string> = {
           <p class="text-on-surface-variant text-lg leading-relaxed">旨在超越理论进入可操作政策框架的结构化论坛。</p>
         </div>
         <div class="grid md:grid-cols-3 gap-10">
-          {processedUpcoming.length > 0 ? processedUpcoming.map((d) => (
-            d.featured ? (
-              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+          {processedUpcoming.length > 0 ? processedUpcoming.map((d, i) => (
+            i === 1 ? (
+              /* Center card: deep emerald featured */
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
-                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
-                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">{d.title}</h3>
-                  {d.location && <p class="opacity-80 text-lg leading-relaxed mb-12">{d.location}</p>}
-                </div>
-                <div class="space-y-6">
-                  <div class="h-[1px] bg-white/20"></div>
-                  <div class="flex justify-between items-center">
-                    <div class="text-xs uppercase tracking-[0.2em] font-bold">{d.date}</div>
-                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>
                   </div>
+                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">{d.title}</h3>
+                  {d.location && <p class="opacity-80 leading-relaxed">{d.location}</p>}
+                </div>
+                <div class="mt-auto space-y-6 pt-8">
+                  <div class="flex gap-4 items-center">
+                    {d.sdgTag && <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">{d.date}</span>
+                  </div>
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">
+                    申请邀请
+                  </button>
                 </div>
               </div>
             ) : (
-              <div class="bg-white p-10 rounded-2xl hover:shadow-2xl hover:shadow-primary/5 transition-all border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-4xl text-primary/30">forum</span>
-                  </div>
+              /* Side cards: white with image placeholder */
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px] hover:shadow-2xl hover:shadow-primary/5 transition-all">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
                   {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
                   <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">{d.date}</span>
                 </div>
                 <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">{d.title}</h3>
+                {d.location && <p class="text-on-surface-variant leading-relaxed">{d.location}</p>}
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
+                    申请邀请
+                  </button>
+                </div>
               </div>
             )
           )) : (
             <>
-              <div class="bg-white p-10 rounded-2xl border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center"><span class="material-symbols-outlined text-4xl text-primary/30">forum</span></div>
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px]">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
-                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 13</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">即将公布</span>
+                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 15</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">2026年7月</span>
                 </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">珠三角脱碳路径</h3>
-                <p class="text-on-surface-variant leading-relaxed">聚焦城市能源转型和工业协同的大会。</p>
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">生物多样性与社会平等关系</h3>
+                <p class="text-on-surface-variant leading-relaxed">关于云南传统生态知识保护的专家小组。</p>
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">申请邀请</button>
+                </div>
               </div>
-              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20">
+              <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
-                  <span class="material-symbols-outlined text-5xl mb-10 opacity-60">diversity_3</span>
-                  <h3 class="font-headline font-extrabold text-3xl mb-6 leading-tight">年度SDG政策论坛：北京2024</h3>
-                  <p class="opacity-80 text-lg leading-relaxed mb-12">关于2030议程在大中华地区实施的多利益相关方对话旗舰大会。</p>
-                </div>
-                <div class="space-y-6">
-                  <div class="h-[1px] bg-white/20"></div>
-                  <div class="flex justify-between items-center">
-                    <div class="text-xs uppercase tracking-[0.2em] font-bold">待定</div>
-                    <span class="material-symbols-outlined text-2xl">north_east</span>
+                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>
                   </div>
+                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">年度SDG政策论坛：北京2026</h3>
+                  <p class="opacity-80 leading-relaxed">关于2030议程在大中华地区实施的多利益相关方对话旗舰大会。</p>
+                </div>
+                <div class="mt-auto space-y-6 pt-8">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">SDG 17</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">2026年11月</span>
+                  </div>
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">申请邀请</button>
                 </div>
               </div>
-              <div class="bg-white p-10 rounded-2xl border border-surface-container">
-                <div class="aspect-video bg-surface-container mb-8 rounded-xl overflow-hidden">
-                  <div class="w-full h-full bg-primary/5 flex items-center justify-center"><span class="material-symbols-outlined text-4xl text-primary/30">account_balance</span></div>
+              <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px]">
+                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl text-primary/20">account_balance</span>
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
                   <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 09</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">即将公布</span>
+                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">2026年8月</span>
                 </div>
                 <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">金融科技促进可持续农村发展</h3>
                 <p class="text-on-surface-variant leading-relaxed">探索通过数字基础设施实现农村省份金融普惠。</p>
+                <div class="mt-auto pt-8">
+                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">申请邀请</button>
+                </div>
               </div>
             </>
           )}
