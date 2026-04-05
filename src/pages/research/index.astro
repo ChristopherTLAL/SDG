@@ -123,9 +123,9 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
           )}
 
           {compact.length > 0 && (
-            <div id="compact-feed">
+            <div id="compact-feed" class="space-y-12">
               {compact.map((post: any, i: number) => (
-                <div class:list={["compact-item space-y-12", { hidden: i >= COMPACT_PER_PAGE }]} data-index={i}>
+                <div class:list={["compact-item", { hidden: i >= COMPACT_PER_PAGE }]} data-index={i}>
                   <PostCard post={post} variant="compact" lang={lang} />
                 </div>
               ))}
