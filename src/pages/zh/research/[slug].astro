@@ -6,6 +6,7 @@ import SdgChip from '../../../components/SdgChip.astro';
 import { getPostBySlug } from '../../../lib/sanity/queries';
 import { urlForImage } from '../../../lib/sanity/image';
 import { formatDate } from '../../../utils/date';
+import { getIllustration } from '../../../utils/illustrations';
 
 const lang = 'zh';
 const { slug } = Astro.params;
@@ -62,8 +63,8 @@ if (post?.mainImage?.asset) {
             <img class="w-full h-full object-cover" src={imageUrl} alt={title} />
           </div>
         ) : (
-          <div class="mb-12 rounded-2xl aspect-[16/9] bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
-            <span class="material-symbols-outlined text-7xl text-primary/15">article</span>
+          <div class="mb-12 rounded-2xl aspect-[16/9] bg-surface-container-low overflow-hidden flex items-center justify-center">
+            <img class="h-full object-contain" loading="lazy" decoding="async" src={getIllustration(slug!, post?.sdgTags?.[0])} alt={title} />
           </div>
         )}
         {body && (

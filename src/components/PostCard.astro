@@ -3,6 +3,7 @@
 // Variants: 'featured' (large hero article), 'medium' (square image grid), 'compact' (horizontal list)
 import { urlForImage } from '../lib/sanity/image';
 import { formatDate } from '../utils/date';
+import { getIllustration } from '../utils/illustrations';
 import SdgChip from './SdgChip.astro';
 
 interface Props {
@@ -47,6 +48,9 @@ if (post.mainImage?.asset?._ref) {
   imageUrl = post.mainImage.url;
 }
 
+// Fallback illustration when no Sanity image
+const fallbackImage = getIllustration(post.slug, post.sdgTags?.[0]);
+
 const readLabel = lang === 'zh' ? '阅读全文' : 'Read';
 const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
 ---
@@ -75,8 +79,8 @@ const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
           />
         </div>
       ) : (
-        <div class="aspect-[16/9] w-full rounded-xl bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
-          <span class="material-symbols-outlined text-6xl text-primary/15">article</span>
+        <div class="aspect-[16/9] w-full rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center">
+          <img class="h-full object-contain" loading="lazy" decoding="async" src={fallbackImage} alt={title} />
         </div>
       )}
       <h2 class="text-4xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
@@ -111,8 +115,8 @@ const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
           />
         </div>
       ) : (
-        <div class="aspect-square w-full rounded-xl bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 mb-6 flex items-center justify-center">
-          <span class="material-symbols-outlined text-5xl text-primary/15">description</span>
+        <div class="aspect-square w-full rounded-xl bg-surface-container-low overflow-hidden mb-6 flex items-center justify-center">
+          <img class="h-full object-contain" loading="lazy" decoding="async" src={fallbackImage} alt={title} />
         </div>
       )}
       <div class="flex items-center gap-4 text-[9px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-4">
@@ -149,8 +153,8 @@ const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
           />
         </div>
       ) : (
-        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
-          <span class="material-symbols-outlined text-3xl text-primary/15">article</span>
+        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+          <img class="h-full object-contain" loading="lazy" decoding="async" src={fallbackImage} alt={title} />
         </div>
       )}
       <div class="md:col-span-9">
