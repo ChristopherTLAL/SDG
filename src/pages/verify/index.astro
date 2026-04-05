@@ -1,32 +1,62 @@
---- 
-// This page is now standalone and does not use a layout. 
---- 
+---
+// src/pages/verify/index.astro — Certificate Verification (standalone page with Digital Curator styling)
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Verification — Chinese SDG Institute</title>
-    
+    <title>Certificate Verification — Chinese SDGs Institute</title>
+
+    <!-- Design System Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
-    <!-- Embedded Fonts and Styles -->
+
+    <!-- Certificate Fonts -->
     <link rel="stylesheet" href="/verify/embedded_fonts.css">
     <link rel="icon" href="/logo.svg" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#042f24',
+              'primary-dim': '#03231a',
+              'on-primary': '#ffffff',
+              'primary-container': '#c8e6c9',
+              surface: '#fafaf7',
+              'surface-container-low': '#f4f4f0',
+              'surface-container': '#eeeeea',
+              'surface-container-high': '#e8e8e4',
+              'on-surface': '#1a1c18',
+              'on-surface-variant': '#6b6e68',
+              'outline-variant': '#c4c7c0',
+              'tertiary-container': '#e8f0e4',
+            },
+            fontFamily: {
+              headline: ['Manrope', 'system-ui', 'sans-serif'],
+              body: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+
     <style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
         /* Certificate-specific fonts */
         .certificate-font { font-family: 'Crimson Pro', serif; color: #000000; }
         .font-recipient { font-family: 'Meddon', cursive; color: #000000; }
         .font-body { font-family: 'Mrs Saint Delafield', cursive; color: #000000; }
-
-        /* Notion-like body style */
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-            background-color: #f7f7f5; /* Light gray background */
-            color: #37352f; /* Dark text */
-        }
         .live-preview-text {
             position: absolute;
             white-space: pre-wrap;
@@ -36,94 +66,189 @@
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-surface text-on-surface font-body">
 
-    <!-- Simple Header -->
-    <header class="p-4 sm:p-6 border-b bg-white">
-        <div class="max-w-7xl mx-auto">
-            <a href="/" class="text-xl font-bold text-gray-800 font-serif">
-                Chinese SDG Institute
-            </a>
-        </div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-outline-variant/10">
+      <div class="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <img src="/logo.svg" alt="CSDGI" class="h-8 w-8" />
+          <span class="font-headline font-bold text-on-surface text-sm tracking-tight">Chinese SDGs Institute</span>
+        </a>
+        <a href="/tools" class="flex items-center gap-2 text-xs font-bold text-primary hover:underline underline-offset-4">
+          <span class="material-symbols-outlined text-sm">arrow_back</span>
+          Back to Tools
+        </a>
+      </div>
     </header>
 
     <!-- Main Content -->
-    <main class="p-4 lg:p-8">
-        <!-- 
-          View 1: Landing Page
-        -->
-        <div id="landingPage" class="min-h-[70vh] flex items-center justify-center">
-            <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md border">
-                <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Certificate Verification</h1>
-                <div class="space-y-4">
-                    <div>
-                        <label for="certificateId" class="block text-sm font-medium text-gray-700">Please enter your Certificate ID</label>
-                        <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="text" id="certificateId" class="flex-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., CERT-001">
-                            <button id="verifyButton" class="bg-blue-600 text-white py-2 px-4 rounded-r-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                Verify
-                            </button>
-                        </div>
-                        <p id="verifyStatus" class="mt-2 text-sm text-gray-600"></p>
-                    </div>
+    <main class="pt-32 pb-32">
+
+        <!-- View 1: Landing Page -->
+        <div id="landingPage">
+          <!-- Hero Introduction -->
+          <section class="max-w-3xl mx-auto px-6 md:px-12 mb-16">
+            <div class="text-center mb-12">
+              <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+                <span class="material-symbols-outlined text-[14px]">verified</span>
+                Official Verification
+              </div>
+              <h1 class="font-headline font-extrabold text-4xl md:text-5xl text-on-surface tracking-tighter leading-[1.08] mb-6">
+                Certificate <span class="text-primary">Verification</span>
+              </h1>
+              <p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+                Verify the authenticity of certificates issued by the Chinese SDGs Institute.
+                This service allows certificate holders and third parties to confirm
+                the validity of any certificate using its unique identifier.
+              </p>
+            </div>
+          </section>
+
+          <!-- How It Works -->
+          <section class="max-w-4xl mx-auto px-6 md:px-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white rounded-2xl border border-outline-variant/15 p-6 text-center">
+                <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-primary text-xl">search</span>
                 </div>
+                <h3 class="font-headline font-bold text-sm text-on-surface mb-2">Enter Certificate ID</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Locate the unique certificate ID printed on your document and enter it below.</p>
+              </div>
+              <div class="bg-white rounded-2xl border border-outline-variant/15 p-6 text-center">
+                <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-primary text-xl">verified_user</span>
+                </div>
+                <h3 class="font-headline font-bold text-sm text-on-surface mb-2">Instant Verification</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Our system will cross-reference the ID against our official records and display the result.</p>
+              </div>
+              <div class="bg-white rounded-2xl border border-outline-variant/15 p-6 text-center">
+                <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="material-symbols-outlined text-primary text-xl">download</span>
+                </div>
+                <h3 class="font-headline font-bold text-sm text-on-surface mb-2">Download Certificate</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Once verified, download an official copy of the certificate in PNG or PDF format.</p>
+              </div>
             </div>
-        </div>
+          </section>
 
-        <!-- 
-          View 2: Loading Page (Hidden)
-        -->
-        <div id="loadingPage" class="hidden min-h-[70vh] flex items-center justify-center text-center">
-            <div>
-                <h2 class="text-2xl font-semibold text-gray-700">Verifying...</h2>
-                <p class="text-gray-500">Please wait a moment.</p>
-            </div>
-        </div>
-
-        <!-- 
-          View 3: Certificate Page (Hidden)
-        -->
-        <div id="certificatePage" class="hidden max-w-7xl mx-auto">
-            <button id="backButton" class="mb-6 text-sm font-medium text-blue-600 hover:text-blue-800">
-                &larr; Verify Another Certificate
-            </button>
-            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Certificate Details</h1>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md border space-y-6">
-                    <section>
-                        <h2 class="text-xl font-semibold mb-4 border-b pb-2">Certificate Information</h2>
-                        <div class="space-y-4 bg-gray-50 p-4 rounded-md border">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-500">Recipient</label>
-                                <p id="detailRecipient" class="mt-1 text-lg font-medium text-gray-900"></p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-500">Details</label>
-                                <p id="detailReason" class="mt-1 text-base text-gray-900 whitespace-pre-wrap"></p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-500">Awarding Body</label>
-                                <p id="detailBody" class="mt-1 text-lg text-gray-900"></p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-500">Date</label>
-                                <p id="detailDate" class="mt-1 text-base text-gray-900"></p>
-                            </div>
-                        </div>
-                        <div class="mt-6 space-y-4">
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                <button id="generateImageButton" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-green-700">Download Image (PNG)</button>
-                                <button id="generatePdfButton" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-blue-700">Download PDF</button>
-                            </div>
-                            <p id="status" class="mt-4 text-sm text-gray-600"></p>
-                        </div>
-                    </section>
+          <!-- Verification Input -->
+          <section class="max-w-xl mx-auto px-6 md:px-12">
+            <div class="bg-white rounded-2xl border border-outline-variant/15 p-8 md:p-10 shadow-lg shadow-primary/5">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary">shield</span>
                 </div>
                 <div>
-                    <h2 class="text-xl font-semibold mb-4 border-b pb-2">Certificate Preview</h2>
-                    <div id="live-preview-wrapper" class="w-full bg-white shadow-md relative border" style="aspect-ratio: 794 / 1123;">
-                        <div id="preview-placeholder" class="absolute inset-0 flex items-center justify-center text-gray-400 p-8 text-center">
-                            <p>Enter your certificate ID to load the preview.</p>
+                  <h2 class="font-headline font-bold text-lg text-on-surface">Verify a Certificate</h2>
+                  <p class="text-xs text-on-surface-variant">Enter the certificate ID exactly as it appears on the document.</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div>
+                  <label for="certificateId" class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-2">Certificate ID</label>
+                  <div class="flex rounded-xl overflow-hidden border border-outline-variant/20 focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-primary/10 transition-all">
+                    <input type="text" id="certificateId" class="flex-1 block w-full px-4 py-3.5 bg-white text-on-surface font-body text-sm focus:outline-none placeholder:text-on-surface-variant/40" placeholder="e.g., CERT9781955662093CPT493921487">
+                    <button id="verifyButton" class="bg-primary text-on-primary px-6 font-headline font-bold text-sm hover:bg-primary-dim focus:outline-none transition-colors flex items-center gap-2">
+                      <span class="material-symbols-outlined text-lg">search</span>
+                      Verify
+                    </button>
+                  </div>
+                  <p id="verifyStatus" class="mt-3 text-sm font-medium"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notice -->
+            <div class="mt-8 flex items-start gap-3 text-xs text-on-surface-variant/70 max-w-lg mx-auto">
+              <span class="material-symbols-outlined text-[16px] mt-0.5 shrink-0">info</span>
+              <p class="leading-relaxed">
+                This verification service is provided by the Chinese SDGs Institute for the sole purpose of confirming the authenticity of certificates issued by the Institute. If you believe a certificate has been forged or misused, please <a href="/about" class="text-primary font-semibold hover:underline underline-offset-2">contact us</a>.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- View 2: Loading Page (Hidden) -->
+        <div id="loadingPage" class="hidden min-h-[60vh] flex items-center justify-center text-center">
+            <div>
+                <div class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse">
+                  <span class="material-symbols-outlined text-primary text-3xl">hourglass_top</span>
+                </div>
+                <h2 class="font-headline font-bold text-xl text-on-surface mb-2">Verifying Certificate</h2>
+                <p class="text-on-surface-variant text-sm">Cross-referencing against our records...</p>
+            </div>
+        </div>
+
+        <!-- View 3: Certificate Page (Hidden) -->
+        <div id="certificatePage" class="hidden max-w-6xl mx-auto px-6 md:px-12">
+            <button id="backButton" class="mb-8 flex items-center gap-2 text-sm font-bold text-primary hover:underline underline-offset-4">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                Verify Another Certificate
+            </button>
+
+            <!-- Verified Badge -->
+            <div class="flex items-center gap-3 mb-8 bg-emerald-50 border border-emerald-200/50 rounded-xl px-5 py-3">
+              <span class="material-symbols-outlined text-emerald-600 text-xl">check_circle</span>
+              <div>
+                <p class="font-headline font-bold text-sm text-emerald-800">Certificate Verified</p>
+                <p class="text-xs text-emerald-600/80">This certificate is authentic and was issued by the Chinese SDGs Institute.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Certificate Info -->
+                <div class="bg-white rounded-2xl border border-outline-variant/15 p-8 shadow-sm">
+                    <h2 class="font-headline font-bold text-xl text-on-surface mb-6 flex items-center gap-2">
+                      <span class="material-symbols-outlined text-primary">description</span>
+                      Certificate Details
+                    </h2>
+                    <div class="space-y-5 mb-8">
+                        <div class="bg-surface-container-low rounded-xl p-4">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-1">Recipient</label>
+                            <p id="detailRecipient" class="text-lg font-headline font-bold text-on-surface"></p>
+                        </div>
+                        <div class="bg-surface-container-low rounded-xl p-4">
+                            <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-1">Description</label>
+                            <p id="detailReason" class="text-sm text-on-surface leading-relaxed whitespace-pre-wrap"></p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                          <div class="bg-surface-container-low rounded-xl p-4">
+                              <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-1">Signed By</label>
+                              <p id="detailBody" class="text-sm font-semibold text-on-surface"></p>
+                          </div>
+                          <div class="bg-surface-container-low rounded-xl p-4">
+                              <label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-1">Date Issued</label>
+                              <p id="detailDate" class="text-sm font-semibold text-on-surface"></p>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-outline-variant/10 pt-6">
+                      <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.15em] mb-4">Download Official Copy</p>
+                      <div class="flex flex-col sm:flex-row gap-3">
+                          <button id="generateImageButton" class="flex-1 bg-primary text-on-primary py-3 px-6 rounded-xl font-headline font-bold text-sm hover:bg-primary-dim transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">image</span>
+                            Download PNG
+                          </button>
+                          <button id="generatePdfButton" class="flex-1 bg-white text-primary border-2 border-primary py-3 px-6 rounded-xl font-headline font-bold text-sm hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+                            Download PDF
+                          </button>
+                      </div>
+                      <p id="status" class="mt-3 text-xs text-on-surface-variant text-center"></p>
+                    </div>
+                </div>
+
+                <!-- Certificate Preview -->
+                <div>
+                    <h2 class="font-headline font-bold text-xl text-on-surface mb-6 flex items-center gap-2">
+                      <span class="material-symbols-outlined text-primary">preview</span>
+                      Certificate Preview
+                    </h2>
+                    <div id="live-preview-wrapper" class="w-full bg-white shadow-lg shadow-primary/5 rounded-2xl overflow-hidden relative border border-outline-variant/10" style="aspect-ratio: 794 / 1123;">
+                        <div id="preview-placeholder" class="absolute inset-0 flex items-center justify-center text-on-surface-variant/30 p-8 text-center">
+                            <p class="text-sm">Loading preview...</p>
                         </div>
                         <img id="live-img" src="" class="absolute top-0 left-0 w-full h-full" />
                         <div id="live-recipient" class="live-preview-text font-recipient"></div>
@@ -145,6 +270,18 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/10 py-10">
+      <div class="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.2em]">
+          Chinese SDGs Institute
+        </p>
+        <p class="text-[10px] text-on-surface-variant/40 uppercase tracking-[0.15em]">
+          This verification service is for official use only.
+        </p>
+      </div>
+    </footer>
 
     <script>
         function initializeVerificationPage() {
@@ -169,7 +306,7 @@
             const hiddenElements = { recipient: document.getElementById('preview-recipient'), reason: document.getElementById('preview-reason'), body: document.getElementById('preview-body'), date: document.getElementById('preview-date') };
             const hiddenRenderArea = document.getElementById('certificate-preview');
             const generateImageButton = document.getElementById('generateImageButton'), generatePdfButton = document.getElementById('generatePdfButton');
-            
+
             let currentCertificateData = null, loadedImageDataUrl = null, db = null;
 
             // Event Listeners
@@ -177,6 +314,7 @@
             if(generateImageButton) generateImageButton.addEventListener('click', generateImage);
             if(generatePdfButton) generatePdfButton.addEventListener('click', generatePdf);
             if(backButton) backButton.addEventListener('click', showLandingPage);
+            if(certificateId) certificateId.addEventListener('keydown', function(e) { if (e.key === 'Enter') verifyCertificate(); });
             window.addEventListener('resize', updateLivePreview);
 
             // Functions
@@ -186,6 +324,7 @@
                 landingPage.classList.remove('hidden');
                 certificateId.value = '';
                 verifyStatus.textContent = '';
+                verifyStatus.className = 'mt-3 text-sm font-medium';
                 status.textContent = '';
                 currentCertificateData = null;
                 clearLivePreview();
@@ -217,7 +356,8 @@
                     db = parsedDb;
                     return db;
                 } catch (error) {
-                    verifyStatus.textContent = `Data file load error: ${error.message}`;
+                    verifyStatus.textContent = 'Failed to load verification database. Please try again later.';
+                    verifyStatus.className = 'mt-3 text-sm font-medium text-red-600';
                     return null;
                 }
             }
@@ -225,14 +365,19 @@
             async function verifyCertificate() {
                 const idToFind = certificateId.value.trim();
                 console.log(`Verifying ID: "${idToFind}"`);
-                if (!idToFind) { verifyStatus.textContent = 'Please enter a valid ID.'; return; }
+                if (!idToFind) {
+                    verifyStatus.textContent = 'Please enter a valid certificate ID.';
+                    verifyStatus.className = 'mt-3 text-sm font-medium text-red-600';
+                    return;
+                }
                 landingPage.classList.add('hidden');
                 loadingPage.classList.remove('hidden');
                 verifyStatus.textContent = '';
+                verifyStatus.className = 'mt-3 text-sm font-medium';
                 currentCertificateData = null;
                 clearLivePreview();
                 const database = await loadDatabase();
-                if (!database) { loadingPage.classList.add('hidden'); landingPage.classList.remove('hidden'); verifyStatus.textContent = 'Failed to load certificate database.'; return; }
+                if (!database) { loadingPage.classList.add('hidden'); landingPage.classList.remove('hidden'); return; }
                 const foundRecord = database[idToFind];
                 console.log("Lookup result:", foundRecord);
                 if (foundRecord) {
@@ -252,12 +397,14 @@
                         console.error(error);
                         loadingPage.classList.add('hidden');
                         landingPage.classList.remove('hidden');
-                        verifyStatus.textContent = `Failed to load certificate background: ${error.message}`;
+                        verifyStatus.textContent = 'Failed to load certificate template. Please try again.';
+                        verifyStatus.className = 'mt-3 text-sm font-medium text-red-600';
                     }
                 } else {
                     loadingPage.classList.add('hidden');
                     landingPage.classList.remove('hidden');
-                    verifyStatus.textContent = 'Certificate ID not found. Please check and try again.';
+                    verifyStatus.innerHTML = '<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">error</span> Certificate ID not found. Please check the ID and try again.</span>';
+                    verifyStatus.className = 'mt-3 text-sm font-medium text-red-600';
                 }
             }
 
@@ -277,16 +424,14 @@
                     el.textContent = currentCertificateData[key];
 
                     if (key === 'recipient') {
-                        el.style.whiteSpace = 'nowrap'; // Prevent wrapping for accurate measurement
+                        el.style.whiteSpace = 'nowrap';
                         let currentFontSize = parseFloat(el.style.fontSize);
-                        
-                        // Iteratively reduce font size until the text fits within the element's width
                         while (el.scrollWidth > el.clientWidth && currentFontSize > 0) {
-                            currentFontSize -= 1; // Decrement font size
+                            currentFontSize -= 1;
                             el.style.fontSize = `${currentFontSize}px`;
                         }
                     } else {
-                        el.style.whiteSpace = 'pre-wrap'; // Ensure other fields can wrap
+                        el.style.whiteSpace = 'pre-wrap';
                     }
                 }
             }
@@ -359,7 +504,7 @@
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    status.textContent = 'PNG downloaded!';
+                    status.textContent = 'PNG downloaded successfully.';
                 } catch (error) {
                     console.error('PNG Generation Failed:', error);
                     status.textContent = `Generation failed: ${error.message}`;
@@ -379,7 +524,7 @@
                     const pdfWidth = doc.internal.pageSize.getWidth(), pdfHeight = doc.internal.pageSize.getHeight();
                     doc.addImage(canvasImgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                     doc.save(`certificate-${currentCertificateData.id}.pdf`);
-                    status.textContent = 'PDF downloaded!';
+                    status.textContent = 'PDF downloaded successfully.';
                 } catch (error) {
                     console.error('PDF Generation Failed:', error);
                     status.textContent = `Generation failed: ${error.message}`;
