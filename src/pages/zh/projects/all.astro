@@ -16,11 +16,18 @@ const statusLabels: Record<string, string> = {
   active: '进行中', recruiting: '招募中', ongoing: '持续中', completed: '已完成',
 };
 
+const iconImageMap: Record<string, string> = {
+  air: '/images/air.png', diversity_3: '/images/inclusion.png', eco: '/images/decarbon.png',
+  water_drop: '/images/water.png', park: '/images/roof.png', account_balance: '/images/fintech.png',
+  school: '/images/inclusion.png',
+};
+
 const processed = projects.map((p: any) => ({
   title: t(p.title),
   description: t(p.description),
   slug: p.slug,
   icon: p.icon || 'eco',
+  image: iconImageMap[p.icon] || '',
   status: p.status || 'active',
   statusLabel: statusLabels[p.status] || p.status || '进行中',
   team: p.team || '',
@@ -54,8 +61,8 @@ const rest = processed.slice(1);
         {featured && (
           <article class="group border-b border-surface-container-high pb-16">
             <div class="grid md:grid-cols-12 gap-10 items-center">
-              <div class="md:col-span-4 aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 via-surface-container to-tertiary-container/20 flex items-center justify-center">
-                <span class="material-symbols-outlined text-7xl text-primary/20">{featured.icon}</span>
+              <div class="md:col-span-4 aspect-[4/3] rounded-2xl bg-surface-container-low flex items-center justify-center overflow-hidden">
+                {featured.image ? <img src={featured.image} alt={featured.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-7xl text-primary/20">{featured.icon}</span>}
               </div>
               <div class="md:col-span-8">
                 <div class="flex items-center gap-4 text-[10px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-4">
@@ -72,8 +79,8 @@ const rest = processed.slice(1);
 
         {rest.length > 0 && rest.map((proj) => (
           <article class="group grid md:grid-cols-12 gap-8 items-center pb-12 border-b border-surface-container-high/50">
-            <div class="md:col-span-3 aspect-[4/3] rounded-xl bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/20 flex items-center justify-center">
-              <span class="material-symbols-outlined text-5xl text-primary/20">{proj.icon}</span>
+            <div class="md:col-span-3 aspect-[4/3] rounded-xl bg-surface-container-low flex items-center justify-center overflow-hidden">
+              {proj.image ? <img src={proj.image} alt={proj.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-5xl text-primary/20">{proj.icon}</span>}
             </div>
             <div class="md:col-span-9">
               <div class="flex items-center gap-3 text-[9px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-3">

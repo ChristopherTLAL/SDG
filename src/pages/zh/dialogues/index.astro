@@ -14,6 +14,14 @@ function t(field: any): string {
   return field.zh || field.en || '';
 }
 
+const slugImageMap: Record<string, string> = {
+  'biodiversity-social-equity': '/images/biodiversity.png',
+  'decarbonization-pearl-river': '/images/decarbon.png',
+  'annual-sdg-forum-beijing-2026': '/images/inclusion.png',
+  'fintech-rural-development': '/images/fintech.png',
+  'urban-resilience-architecture': '/images/roof.png',
+};
+
 // Pre-process upcoming — order: [2nd nearest, nearest (center/featured), 3rd nearest]
 const rawUpcoming = (upcoming || []).map((d: any) => ({
   title: t(d.title), slug: d.slug,
@@ -22,6 +30,7 @@ const rawUpcoming = (upcoming || []).map((d: any) => ({
   rawDate: d.date || '',
   location: t(d.location),
   eventType: d.eventType || 'assembly',
+  image: slugImageMap[d.slug] || '',
 }));
 
 // Reorder: center = soonest (index 0), left = 2nd, right = 3rd
@@ -76,8 +85,8 @@ const eventTypeLabels: Record<string, string> = {
               /* Center card: deep emerald featured */
               <div class="bg-primary p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-[520px]">
                 <div>
-                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>
+                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center overflow-hidden">
+                    {d.image ? <img src={d.image} alt={d.title} class="h-full object-contain opacity-80" /> : <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>}
                   </div>
                   <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">{d.title}</h3>
                   {d.location && <p class="opacity-80 leading-relaxed">{d.location}</p>}
@@ -95,8 +104,8 @@ const eventTypeLabels: Record<string, string> = {
             ) : (
               /* Side cards: white with image placeholder */
               <div class="bg-white p-10 rounded-2xl border border-surface-container flex flex-col min-h-[520px] hover:shadow-2xl hover:shadow-primary/5 transition-all">
-                <div class="aspect-video rounded-xl mb-8 bg-gradient-to-br from-primary/8 via-surface-container to-tertiary-container/30 flex items-center justify-center">
-                  <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>
+                <div class="aspect-video rounded-xl mb-8 bg-surface-container-low flex items-center justify-center overflow-hidden">
+                  {d.image ? <img src={d.image} alt={d.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>}
                 </div>
                 <div class="flex gap-4 mb-6 items-center">
                   {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
