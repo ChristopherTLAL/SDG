@@ -1,41 +1,24 @@
 ---
 // src/components/Footer.astro
-const { lang = 'en' } = Astro.props as { lang?: 'en' | 'zh' };
 const currentYear = new Date().getFullYear();
 
-const links: Record<string, { label: string; href: string }[]> = {
-  en: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Annual Report', href: '#' },
-    { label: 'Contact', href: '#' },
-  ],
-  zh: [
-    { label: '隐私政策', href: '#' },
-    { label: '服务条款', href: '#' },
-    { label: '年度报告', href: '#' },
-    { label: '联系我们', href: '#' },
-  ],
-};
-
-const footerLinks = links[lang] || links.en;
-const tagline = lang === 'zh'
-  ? `© ${currentYear} Chinese SDGs Institute. 策展可持续未来。`
-  : `© ${currentYear} Chinese SDGs Institute. Curating a Sustainable Future.`;
-const bottomLine = lang === 'zh'
-  ? '机构研究中心 · 数据透明 · 社会影响'
-  : 'Institutional Research Hub · Data Transparency · Social Impact';
+const footerLinks = [
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms of Service', href: '#' },
+  { label: 'Annual Report', href: '#' },
+  { label: 'Contact', href: '#' },
+];
 ---
 
 <footer class="bg-surface-container-low border-t border-outline-variant/10 w-full pt-24 pb-12">
   <div class="max-w-6xl mx-auto px-6 md:px-12">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-16">
       <div class="flex flex-col">
-        <a href={lang === 'zh' ? '/zh' : '/'} class="text-2xl font-headline font-extrabold text-primary mb-3">
+        <a href="/" class="text-2xl font-headline font-extrabold text-primary mb-3">
           Chinese SDGs Institute
         </a>
         <p class="text-xs font-body uppercase tracking-widest text-on-surface-variant font-semibold">
-          {tagline}
+          &copy; {currentYear} Chinese SDGs Institute. Curating a Sustainable Future.
         </p>
       </div>
       <div class="flex flex-wrap gap-x-12 gap-y-6">
@@ -51,7 +34,7 @@ const bottomLine = lang === 'zh'
     </div>
     <div class="pt-8 border-t border-outline-variant/5 text-center">
       <p class="text-[10px] text-on-surface-variant/60 font-medium uppercase tracking-[0.3em]">
-        {bottomLine}
+        Institutional Research Hub · Data Transparency · Social Impact
       </p>
     </div>
   </div>

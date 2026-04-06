@@ -11,7 +11,7 @@ const {
   lang = 'en',
 } = Astro.props;
 const siteTitle = 'Chinese SDGs Institute';
-const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/en' || Astro.url.pathname === '/zh';
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/en';
 ---
 
 <html lang={lang}>
@@ -38,13 +38,13 @@ const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/en' ||
     <div id="mobile-warning-overlay" class="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center px-8 text-center md:hidden">
       <span class="material-symbols-outlined text-5xl text-primary mb-6">desktop_windows</span>
       <h2 class="font-headline font-bold text-xl text-on-surface mb-3">
-        {lang === 'zh' ? '本网站暂未适配移动端' : 'Not Optimized for Mobile'}
+        Not Optimized for Mobile
       </h2>
       <p class="text-on-surface-variant text-sm leading-relaxed mb-8 max-w-xs">
-        {lang === 'zh' ? '为获得最佳浏览体验，建议使用电脑端访问。' : 'For the best experience, please visit on a desktop browser.'}
+        For the best experience, please visit on a desktop browser.
       </p>
       <button id="mobile-warning-dismiss" class="bg-primary text-on-primary px-8 py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-all">
-        {lang === 'zh' ? '继续查看' : 'Continue Anyway'}
+        Continue Anyway
       </button>
     </div>
 
@@ -52,17 +52,17 @@ const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/en' ||
     <div id="mobile-warning-badge" class="fixed bottom-4 left-4 z-[90] hidden md:!hidden">
       <div class="flex items-center gap-1.5 bg-red-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg shadow-red-500/30">
         <span class="material-symbols-outlined text-[14px]">warning</span>
-        {lang === 'zh' ? '未适配移动端' : 'Not Mobile Optimized'}
+        Not Mobile Optimized
       </div>
     </div>
 
-    <Header lang={lang} />
+    <Header />
 
     <main>
       <slot />
     </main>
 
-    <Footer lang={lang} />
+    <Footer />
 
     <script>
       const overlay = document.getElementById('mobile-warning-overlay');

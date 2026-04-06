@@ -1,44 +1,23 @@
 ---
 // src/components/Header.astro
-const { lang = 'en' } = Astro.props;
 const currentPath = Astro.url.pathname;
 
-const nav = {
-  en: [
-    { label: 'Research', href: '/research' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Dialogues', href: '/dialogues' },
-    { label: 'Tools', href: '/tools' },
-    { label: 'About', href: '/about' },
-  ],
-  zh: [
-    { label: '研究', href: '/zh/research' },
-    { label: '项目', href: '/zh/projects' },
-    { label: '对话', href: '/zh/dialogues' },
-    { label: '工具', href: '/zh/tools' },
-    { label: '关于', href: '/zh/about' },
-  ],
-};
-
-const navItems = nav[lang] || nav.en;
-const joinLabel = lang === 'zh' ? '加入我们' : 'Join Us';
+const navItems = [
+  { label: 'Research', href: '/research' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Dialogues', href: '/dialogues' },
+  { label: 'Tools', href: '/tools' },
+  { label: 'About', href: '/about' },
+];
 
 function isActive(href: string) {
   return currentPath.startsWith(href);
-}
-
-// Build the language toggle link
-function getLangToggleHref() {
-  if (lang === 'zh') {
-    return currentPath.replace(/^\/zh/, '') || '/';
-  }
-  return '/zh' + currentPath;
 }
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-outline-variant/10">
   <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 md:px-12 h-20">
-    <a href={lang === 'zh' ? '/zh' : '/'} class="text-xl font-bold tracking-tighter text-primary font-headline">
+    <a href="/" class="text-xl font-bold tracking-tighter text-primary font-headline">
       Chinese SDGs Institute
     </a>
 
@@ -60,21 +39,22 @@ function getLangToggleHref() {
     </div>
 
     <div class="flex items-center space-x-4">
-      <!-- Language Toggle -->
-      <a
-        href={getLangToggleHref()}
+      <!-- Google Translate Toggle -->
+      <button
+        id="translate-toggle"
         class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all"
-        aria-label="Switch Language"
+        aria-label="Translate to Chinese"
+        title="翻译为中文"
       >
-        <span class="material-symbols-outlined">language</span>
-      </a>
+        <span class="material-symbols-outlined">translate</span>
+      </button>
 
       <!-- Join Us CTA -->
       <a
-        href={lang === 'zh' ? '/zh/about' : '/about'}
+        href="/about"
         class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 text-sm font-semibold rounded-md hover:bg-primary-dim transition-all shadow-sm"
       >
-        {joinLabel}
+        Join Us
       </a>
 
       <!-- Mobile Menu Toggle -->
@@ -89,6 +69,19 @@ function getLangToggleHref() {
     </div>
   </nav>
 </header>
+
+<!-- Translation Banner (hidden by default) -->
+<div id="translate-banner" class="fixed top-20 left-0 right-0 z-40 bg-tertiary-container border-b border-outline-variant/15 hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-xs font-medium text-on-surface">
+      <span class="material-symbols-outlined text-tertiary text-[16px]">translate</span>
+      <span>You are viewing a <strong>Google machine translation</strong>. For accurate content, please refer to the <a href="/" class="text-primary font-bold underline underline-offset-2">English version</a>.</span>
+    </div>
+    <button id="translate-banner-close" class="p-1 text-on-surface-variant hover:text-on-surface transition-colors" aria-label="Dismiss">
+      <span class="material-symbols-outlined text-[16px]">close</span>
+    </button>
+  </div>
+</div>
 
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-white hidden flex flex-col pt-24 px-8">
@@ -109,34 +102,123 @@ function getLangToggleHref() {
     ))}
   </nav>
   <div class="mt-auto pb-12 flex flex-col gap-4">
-    <a
-      href={getLangToggleHref()}
+    <button
+      id="mobile-translate-toggle"
       class="flex items-center gap-3 text-on-surface-variant text-sm font-medium"
     >
-      <span class="material-symbols-outlined">language</span>
-      {lang === 'zh' ? 'English' : '中文'}
-    </a>
+      <span class="material-symbols-outlined">translate</span>
+      翻译为中文
+    </button>
     <a
-      href={lang === 'zh' ? '/zh/about' : '/about'}
+      href="/about"
       class="bg-primary text-on-primary px-8 py-4 rounded-md font-bold text-center"
     >
-      {joinLabel}
+      Join Us
     </a>
   </div>
 </div>
 
-<script>
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const close = document.getElementById('mobile-menu-close');
+<!-- Google Translate Element (hidden) -->
+<div id="google_translate_element" class="hidden"></div>
 
-  toggle?.addEventListener('click', () => {
+<script is:inline>
+  // Load Google Translate API
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'zh-CN',
+      autoDisplay: false,
+    }, 'google_translate_element');
+  }
+
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    document.head.appendChild(s);
+  })();
+
+  // Trigger Google Translate
+  function triggerTranslate() {
+    var frame = document.querySelector('.goog-te-menu-frame');
+    if (frame) {
+      var innerDoc = frame.contentDocument || frame.contentWindow.document;
+      var zhItem = innerDoc.querySelector('.goog-te-menu2-item span.text:first-child');
+      if (zhItem) {
+        zhItem.click();
+        showTranslateBanner();
+        return;
+      }
+    }
+    // Fallback: try the select element
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = 'zh-CN';
+      select.dispatchEvent(new Event('change'));
+      showTranslateBanner();
+    }
+  }
+
+  function showTranslateBanner() {
+    var banner = document.getElementById('translate-banner');
+    if (banner) banner.classList.remove('hidden');
+    sessionStorage.setItem('google-translate-active', '1');
+  }
+
+  function hideTranslateBanner() {
+    var banner = document.getElementById('translate-banner');
+    if (banner) banner.classList.add('hidden');
+  }
+
+  // Restore translation on page load
+  if (sessionStorage.getItem('google-translate-active') === '1') {
+    // Check if Google Translate cookie is set (translation persists across pages)
+    var banner = document.getElementById('translate-banner');
+    if (banner) banner.classList.remove('hidden');
+  }
+
+  // Event listeners
+  document.getElementById('translate-toggle')?.addEventListener('click', function() {
+    triggerTranslate();
+  });
+
+  document.getElementById('mobile-translate-toggle')?.addEventListener('click', function() {
+    triggerTranslate();
+    // Close mobile menu
+    document.getElementById('mobile-menu')?.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  document.getElementById('translate-banner-close')?.addEventListener('click', function() {
+    hideTranslateBanner();
+    sessionStorage.removeItem('google-translate-active');
+    // Revert translation by removing the Google Translate cookie
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
+    location.reload();
+  });
+
+  // Mobile menu
+  var toggle = document.getElementById('mobile-menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var close = document.getElementById('mobile-menu-close');
+
+  toggle?.addEventListener('click', function() {
     menu?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   });
 
-  close?.addEventListener('click', () => {
+  close?.addEventListener('click', function() {
     menu?.classList.add('hidden');
     document.body.style.overflow = '';
   });
 </script>
+
+<style is:global>
+  /* Hide Google Translate toolbar and branding */
+  .goog-te-banner-frame, .skiptranslate, #goog-gt-tt, .goog-te-balloon-frame {
+    display: none !important;
+  }
+  body { top: 0 !important; }
+  .goog-text-highlight { background: none !important; box-shadow: none !important; }
+</style>

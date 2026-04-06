@@ -26,7 +26,7 @@ const { post, variant = 'medium', lang = 'en' } = Astro.props;
 // Resolve localized fields
 const title = typeof post.title === 'string' ? post.title : (post.title?.[lang] || post.title?.en || '');
 const excerpt = typeof post.excerpt === 'string' ? post.excerpt : (post.excerpt?.[lang] || post.excerpt?.en || '');
-const href = lang === 'zh' ? `/zh/research/${post.slug}` : `/research/${post.slug}`;
+const href = `/research/${post.slug}`;
 
 // Content type label
 const typeLabels: Record<string, Record<string, string>> = {
@@ -51,8 +51,8 @@ if (post.mainImage?.asset?._ref) {
 // Fallback illustration when no Sanity image
 const fallbackImage = getIllustration(post.slug, post.sdgTags?.[0]);
 
-const readLabel = lang === 'zh' ? '阅读全文' : 'Read';
-const minLabel = lang === 'zh' ? '分钟阅读' : 'min read';
+const readLabel = 'Read';
+const minLabel = 'min read';
 ---
 
 {variant === 'featured' && (
