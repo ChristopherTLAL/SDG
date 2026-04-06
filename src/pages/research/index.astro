@@ -64,32 +64,32 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
 ---
 
 <MainLayout title="News & Research | Chinese SDGs Institute" description="A curated archive of critical analysis, scientific breakthroughs, and policy frameworks." lang={lang}>
-  <main class="pt-40 pb-32">
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
     <!-- Hero Section -->
-    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-20">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-10 md:mb-20">
       <div class="max-w-4xl">
-        <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6">
+        <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-4 md:mb-6">
           <span>Institute</span>
           <span class="material-symbols-outlined text-[12px]">chevron_right</span>
           <span class="text-primary font-bold">Intelligence</span>
         </nav>
-        <h1 class="text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">
+        <h1 class="text-3xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-4 md:mb-6 leading-[1.1]">
           News &amp; Research Index
         </h1>
-        <p class="text-lg text-on-surface-variant leading-relaxed font-body max-w-2xl">
+        <p class="text-base md:text-lg text-on-surface-variant leading-relaxed font-body max-w-2xl">
           A curated archive of critical analysis, scientific breakthroughs, and policy frameworks driving sustainable development across the Asia-Pacific region.
         </p>
       </div>
     </section>
 
     <!-- Main Grid Layout -->
-    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-12">
+    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12">
       <!-- Sidebar: Left Filters -->
-      <aside class="col-span-12 lg:col-span-2 space-y-10">
-        <div class="sticky top-32 space-y-10">
-          <div>
-            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Content Types</h3>
-            <ul class="flex flex-col gap-1">
+      <aside class="col-span-1 lg:col-span-2">
+        <div class="lg:sticky lg:top-32 flex lg:flex-col gap-4 lg:gap-10 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0">
+          <div class="shrink-0">
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-3 lg:mb-6 font-bold opacity-50">Content Types</h3>
+            <ul class="flex lg:flex-col gap-1">
               {[
                 { value: '', label: 'All Content', icon: 'apps' },
                 { value: 'news', label: 'News', icon: 'newspaper' },
@@ -112,9 +112,9 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
               })}
             </ul>
           </div>
-          <div>
-            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Year</h3>
-            <ul class="flex flex-col gap-1">
+          <div class="shrink-0">
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-3 lg:mb-6 font-bold opacity-50">Year</h3>
+            <ul class="flex lg:flex-col gap-1">
               {['2026', '2025', '2024', '2023'].map(year => {
                 const isActive = activeYear === year;
                 return (
@@ -131,9 +131,9 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
               })}
             </ul>
           </div>
-          <div>
-            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">SDG Focus</h3>
-            <ul class="flex flex-col gap-1">
+          <div class="shrink-0">
+            <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-3 lg:mb-6 font-bold opacity-50">SDG Focus</h3>
+            <ul class="flex lg:flex-col gap-1">
               {[
                 { num: '1', label: 'No Poverty' },
                 { num: '4', label: 'Education' },

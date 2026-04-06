@@ -52,7 +52,7 @@ const t = labels[lang] || labels.en;
   <div class="flex flex-col justify-center">
     <h4 class="text-lg font-bold mb-2">{t.bannerTitle}</h4>
     <p class="text-sm opacity-80 mb-6">{t.bannerDesc}</p>
-    <form class="flex gap-3" onsubmit="return false;">
+    <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
       <input
         class="flex-grow bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-white/30 outline-none"
         placeholder={t.bannerPlaceholder}

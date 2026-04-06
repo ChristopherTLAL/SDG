@@ -76,29 +76,29 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
 ---
 
 <MainLayout title="Chinese SDGs Institute | The Digital Curator" description="Advancing sustainable development through rigorous research, data transparency, and institutional collaboration." lang={lang}>
-  <main class="pt-48 pb-24">
+  <main class="pt-28 md:pt-48 pb-16 md:pb-24">
     <!-- Hero Section -->
-    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-40">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
-        <div class="md:col-span-7 pt-12">
-          <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.05] font-headline">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-16 md:mb-40">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-start">
+        <div class="md:col-span-7 pt-6 md:pt-12">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-on-surface mb-6 md:mb-8 leading-[1.05] font-headline">
             The Digital Curator of Progress
           </h1>
-          <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-12 max-w-xl font-body">
+          <p class="text-base md:text-lg lg:text-xl text-on-surface-variant leading-relaxed mb-8 md:mb-12 max-w-xl font-body">
             Advancing sustainable development through rigorous research, data transparency, and institutional collaboration. We decode complexity into actionable intelligence.
           </p>
-          <div class="flex flex-wrap gap-5">
-            <a href="/research" class="bg-primary text-on-primary px-10 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all flex items-center gap-3 shadow-md">
+          <div class="flex flex-wrap gap-3 md:gap-5">
+            <a href="/research" class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-4 rounded-md font-bold text-sm md:text-base hover:bg-primary-dim transition-all flex items-center gap-3 shadow-md">
               Explore Repository
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
-            <a href="/about" class="bg-surface-container-high text-on-surface px-10 py-4 rounded-md font-bold text-base hover:bg-surface-container-highest transition-all">
+            <a href="/about" class="bg-surface-container-high text-on-surface px-6 md:px-10 py-3 md:py-4 rounded-md font-bold text-sm md:text-base hover:bg-surface-container-highest transition-all">
               Annual Reports
             </a>
           </div>
         </div>
         <div class="md:col-span-5 md:pt-16 lg:pt-24">
-          <div class="aspect-square rounded-3xl relative overflow-hidden">
+          <div class="aspect-square rounded-3xl relative overflow-hidden max-w-[280px] mx-auto md:max-w-none">
             <img src="/images/hero-home.png" alt="Chinese SDGs Institute" class="w-full h-full object-contain" />
           </div>
         </div>
@@ -106,23 +106,23 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
     </section>
 
     <!-- Latest Intelligence Section -->
-    <section class="bg-surface-container-low py-28 border-y border-outline-variant/10">
+    <section class="bg-surface-container-low py-16 md:py-28 border-y border-outline-variant/10">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
-        <div class="flex justify-between items-end mb-16">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10 md:mb-16">
           <div>
             <span class="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-4 block">Intelligence</span>
-            <h2 class="text-4xl font-bold tracking-tight text-on-surface font-headline">Latest Research &amp; Insights</h2>
+            <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-on-surface font-headline">Latest Research &amp; Insights</h2>
           </div>
           <a class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2" href="/research">
             Archive Repository
             <span class="material-symbols-outlined text-xs">open_in_new</span>
           </a>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           <!-- Main Grid -->
-          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {processedPosts.length > 0 ? processedPosts.map((p) => (
-              <a href={p.href} class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/10 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col group">
+              <a href={p.href} class="bg-surface-container-lowest p-5 md:p-8 rounded-2xl border border-outline-variant/10 hover:shadow-xl hover:shadow-primary/5 transition-all flex flex-col group">
                 <div class="flex gap-3 mb-6">
                   {p.sdgTag && (
                     <span class="px-2.5 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-wider">{p.sdgTag}</span>
@@ -170,7 +170,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
 
           <!-- Trending Sidebar -->
           <aside class="lg:col-span-4">
-            <div class="sticky top-28 bg-white border border-outline-variant/10 rounded-2xl p-8 shadow-sm">
+            <div class="lg:sticky lg:top-28 bg-white border border-outline-variant/10 rounded-2xl p-5 md:p-8 shadow-sm">
               <h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-10 flex items-center gap-3">
                 <span class="material-symbols-outlined text-primary text-xl">trending_up</span>
                 Trending Intelligence
@@ -210,18 +210,18 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
     </section>
 
     <!-- Social Projects Section -->
-    <section class="max-w-6xl mx-auto px-6 md:px-12 py-32">
-      <div class="text-center mb-20 max-w-3xl mx-auto">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-32">
+      <div class="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
         <span class="inline-block px-4 py-1.5 bg-primary-container text-on-primary-container text-[11px] font-bold rounded-full uppercase tracking-widest mb-6">Student Initiatives</span>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-8 text-on-surface font-headline">Social Projects &amp; Community Action</h2>
-        <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 text-on-surface font-headline">Social Projects &amp; Community Action</h2>
+        <p class="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 md:mb-10">
           Empowering the next generation of sustainability pioneers. Discover student-led research and field projects making a tangible difference across urban and rural landscapes.
         </p>
         <a href="/projects" class="inline-block bg-primary text-on-primary px-12 py-4 rounded-md font-bold text-base hover:bg-primary-dim transition-all shadow-md">
           Explore Open Projects
         </a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 mb-12 md:mb-20">
         {processedProjects.length > 0 ? processedProjects.map((proj) => (
           <a href={`/projects#${proj.slug}`} class="group bg-white border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 block">
             <div class="h-48 bg-surface-container-low relative flex items-center justify-center overflow-hidden">
@@ -230,7 +230,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
                 {proj.status}
               </div>
             </div>
-            <div class="p-8">
+            <div class="p-5 md:p-8">
               <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">{proj.title}</h3>
               {proj.description && <p class="text-sm text-on-surface-variant leading-relaxed mb-6">{proj.description}</p>}
               {proj.team && (
@@ -248,7 +248,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
                 <img src="/images/decarbon.png" alt="Zero-Waste Campus Pilot" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Active</div>
               </div>
-              <div class="p-8">
+              <div class="p-5 md:p-8">
                 <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Zero-Waste Campus Pilot</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed mb-6">A student-led circular economy framework reducing single-use plastic by 40% across five major university dining halls.</p>
                 <div class="flex items-center gap-3">
@@ -262,7 +262,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
                 <img src="/images/inclusion.png" alt="Heritage Digital Archive" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Recruiting</div>
               </div>
-              <div class="p-8">
+              <div class="p-5 md:p-8">
                 <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Heritage Digital Archive</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Documenting oral histories and intangible cultural heritage in the Liangshan mountains using interactive geospatial mapping.</p>
                 <div class="flex items-center gap-3">
@@ -276,7 +276,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
                 <img src="/images/water.png" alt="Urban Water Literacy" class="h-full object-contain" />
                 <div class="absolute bottom-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Ongoing</div>
               </div>
-              <div class="p-8">
+              <div class="p-5 md:p-8">
                 <h3 class="text-xl font-bold mb-3 text-on-surface font-headline">Urban Water Literacy</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Developing open-source sensors for community-led water quality monitoring in the Suzhou canal network.</p>
                 <div class="flex items-center gap-3">
@@ -290,7 +290,7 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
       </div>
 
       <!-- Upcoming Dialogues & Newsletter Banner -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-primary text-on-primary p-8 md:p-12 rounded-3xl shadow-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center bg-primary text-on-primary p-6 md:p-12 rounded-2xl md:rounded-3xl shadow-xl">
         <div class="lg:col-span-7 flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div class="bg-white/10 p-4 rounded-xl shrink-0">
             <span class="material-symbols-outlined text-4xl">event_note</span>

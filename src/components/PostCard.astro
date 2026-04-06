@@ -140,10 +140,10 @@ const minLabel = 'min read';
 )}
 
 {variant === 'compact' && (
-  <article class="group cursor-pointer grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+  <article class="group cursor-pointer grid grid-cols-12 gap-4 md:gap-8 items-center">
     <a href={href} class="contents">
       {imageUrl ? (
-        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container overflow-hidden">
+        <div class="col-span-4 md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container overflow-hidden">
           <img
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
@@ -153,11 +153,11 @@ const minLabel = 'min read';
           />
         </div>
       ) : (
-        <div class="md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+        <div class="col-span-4 md:col-span-3 aspect-[4/3] rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
           <img class="h-full object-contain" loading="lazy" decoding="async" src={fallbackImage} alt={title} />
         </div>
       )}
-      <div class="md:col-span-9">
+      <div class="col-span-8 md:col-span-9">
         <div class="flex items-center gap-4 text-[9px] font-label tracking-[0.2em] uppercase text-on-surface-variant mb-2">
           {contentTypeLabel && <span class="text-primary font-bold">{contentTypeLabel}</span>}
           {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}

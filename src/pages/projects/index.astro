@@ -54,47 +54,47 @@ const processedRest = rest.map((p: any) => ({
 <MainLayout title="Social Projects | Chinese SDGs Institute" description="Student-led and institutional programs driving local SDG impact." lang={lang}>
   <main class="pt-24">
     <!-- Hero Section -->
-    <section class="max-w-6xl mx-auto px-6 md:px-12 pt-24 pb-20">
-      <div class="grid lg:grid-cols-2 gap-20 items-center">
-        <div class="space-y-10">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 pt-12 md:pt-24 pb-12 md:pb-20">
+      <div class="grid lg:grid-cols-2 gap-10 md:gap-20 items-center">
+        <div class="space-y-6 md:space-y-10">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase">
             Active Mobilization
           </div>
-          <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.05] font-headline">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.05] font-headline">
             Social Projects &amp; Community Action
           </h1>
-          <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+          <p class="text-base md:text-xl text-on-surface-variant leading-relaxed max-w-xl">
             Bridging institutional expertise with grassroots energy. We empower students and organizations to pilot scalable solutions for the Sustainable Development Goals.
           </p>
-          <div class="flex flex-wrap gap-5 pt-4">
-            <a href="#projects" class="bg-primary text-on-primary px-10 py-5 rounded-xl font-bold hover:bg-primary-dim transition-all shadow-lg shadow-primary/10">
+          <div class="flex flex-wrap gap-3 md:gap-5 pt-2 md:pt-4">
+            <a href="#projects" class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-primary-dim transition-all shadow-lg shadow-primary/10">
               Explore Open Projects
             </a>
-            <a href="/about" class="bg-white border border-outline-variant/30 text-on-surface px-10 py-5 rounded-xl font-bold hover:bg-surface-container-low transition-all">
+            <a href="/about" class="bg-white border border-outline-variant/30 text-on-surface px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-surface-container-low transition-all">
               Submit a Proposal
             </a>
           </div>
         </div>
-        <div class="aspect-square rounded-[3rem] overflow-hidden">
+        <div class="aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden max-w-[300px] mx-auto lg:max-w-none">
           <img src="/images/hero-projects.png" alt="Social Projects & Community Action" class="w-full h-full object-contain" />
         </div>
       </div>
     </section>
 
     <!-- Bento Grid Projects -->
-    <section id="projects" class="bg-surface-container-low py-32">
+    <section id="projects" class="bg-surface-container-low py-16 md:py-32">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
-        <div class="mb-20">
-          <h2 class="text-4xl font-bold tracking-tight mb-6 font-headline">Active Initiatives</h2>
-          <p class="text-lg text-on-surface-variant max-w-2xl">Ongoing student-led and institutional programs currently accepting applications to drive local SDG impact.</p>
+        <div class="mb-12 md:mb-20">
+          <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 md:mb-6 font-headline">Active Initiatives</h2>
+          <p class="text-base md:text-lg text-on-surface-variant max-w-2xl">Ongoing student-led and institutional programs currently accepting applications to drive local SDG impact.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
           {processedFeatured ? (
             <>
               <!-- Featured Project -->
-              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-[0_10px_40px_-15px_rgba(4,47,36,0.05)]" id={processedFeatured.slug}>
+              <div class="md:col-span-8 bg-white p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-[0_10px_40px_-15px_rgba(4,47,36,0.05)]" id={processedFeatured.slug}>
                 <div class="space-y-8">
-                  <div class="w-full h-80 bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
+                  <div class="w-full h-48 md:h-80 bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
                     {processedFeatured.image ? <img src={processedFeatured.image} alt={processedFeatured.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-primary/30 text-7xl">{processedFeatured.icon}</span>}
                   </div>
                   <div>
@@ -114,7 +114,7 @@ const processedRest = rest.map((p: any) => ({
               {processedRest.map((proj, i) => (
                 i < 2 ? (
                   /* Small cards: 4-col */
-                  <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col hover:shadow-md transition-shadow" id={proj.slug}>
+                  <div class="md:col-span-4 bg-white p-5 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col hover:shadow-md transition-shadow" id={proj.slug}>
                     <div class="h-48 bg-surface-container-low rounded-2xl mb-8 flex items-center justify-center overflow-hidden">
                       {proj.image ? <img src={proj.image} alt={proj.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-primary/20 text-5xl">{proj.icon}</span>}
                     </div>
@@ -129,7 +129,7 @@ const processedRest = rest.map((p: any) => ({
                   </div>
                 ) : (
                   /* Last card: 8-col wide horizontal layout */
-                  <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col md:flex-row gap-10 items-center hover:shadow-md transition-shadow" id={proj.slug}>
+                  <div class="md:col-span-8 bg-white p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col md:flex-row gap-10 items-center hover:shadow-md transition-shadow" id={proj.slug}>
                     <div class="w-full md:w-2/5 h-full min-h-[220px] bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
                       {proj.image ? <img src={proj.image} alt={proj.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-primary/30 text-6xl">{proj.icon}</span>}
                     </div>
@@ -148,9 +148,9 @@ const processedRest = rest.map((p: any) => ({
           ) : (
             <>
               <!-- Placeholder: Featured -->
-              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-sm">
+              <div class="md:col-span-8 bg-white p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] flex flex-col justify-between border border-primary/5 shadow-sm">
                 <div class="space-y-8">
-                  <div class="w-full h-80 bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
+                  <div class="w-full h-48 md:h-80 bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
                     <img src="/images/inclusion.png" alt="SDG Youth Ambassadors" class="h-full object-contain" />
                   </div>
                   <div>
@@ -161,21 +161,21 @@ const processedRest = rest.map((p: any) => ({
                 </div>
               </div>
               <!-- Placeholder cards -->
-              <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
+              <div class="md:col-span-4 bg-white p-5 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
                 <div class="h-48 bg-surface-container-low rounded-2xl mb-8 flex items-center justify-center overflow-hidden">
                   <img src="/images/roof.png" alt="Urban Forest Pilot" class="h-full object-contain" />
                 </div>
                 <h3 class="text-2xl font-bold font-headline">Urban Forest Pilot</h3>
                 <p class="text-on-surface-variant mt-4 leading-relaxed">Mapping biodiversity in metropolitan areas to suggest policy changes for green space preservation.</p>
               </div>
-              <div class="md:col-span-4 bg-white p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
+              <div class="md:col-span-4 bg-white p-5 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col">
                 <div class="h-48 bg-surface-container-low rounded-2xl mb-8 flex items-center justify-center overflow-hidden">
                   <img src="/images/air.png" alt="Digital Literacy Rural" class="h-full object-contain" />
                 </div>
                 <h3 class="text-2xl font-bold font-headline">Digital Literacy Rural</h3>
                 <p class="text-on-surface-variant mt-4 leading-relaxed">Training rural educators in sustainable development curricula through interactive digital modules.</p>
               </div>
-              <div class="md:col-span-8 bg-white p-12 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col md:flex-row gap-10 items-center">
+              <div class="md:col-span-8 bg-white p-6 md:p-12 rounded-2xl md:rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col md:flex-row gap-10 items-center">
                 <div class="w-full md:w-2/5 h-full min-h-[220px] bg-surface-container-low rounded-3xl flex items-center justify-center overflow-hidden">
                   <img src="/images/water.png" alt="Clean River Coalition" class="h-full object-contain" />
                 </div>
@@ -200,13 +200,13 @@ const processedRest = rest.map((p: any) => ({
     </section>
 
     <!-- Institutional Membership -->
-    <section class="max-w-6xl mx-auto px-6 md:px-12 py-40">
-      <div class="bg-primary rounded-[2.5rem] p-12 md:p-20 text-on-primary relative overflow-hidden shadow-2xl shadow-primary/20">
+    <section class="max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-40">
+      <div class="bg-primary rounded-2xl md:rounded-[2.5rem] p-6 md:p-12 lg:p-20 text-on-primary relative overflow-hidden shadow-2xl shadow-primary/20">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-24"></div>
-        <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative z-10 grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <div>
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8 font-headline">Institutional Membership</h2>
-            <p class="text-white/80 text-lg md:text-xl leading-relaxed mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 md:mb-8 font-headline">Institutional Membership</h2>
+            <p class="text-white/80 text-base md:text-lg lg:text-xl leading-relaxed mb-8 md:mb-12">
               Partner with us to host your sustainability projects. Gain access to our researcher network, student talent pool, and standardized impact reporting frameworks.
             </p>
             <ul class="space-y-6 mb-12">
@@ -227,21 +227,21 @@ const processedRest = rest.map((p: any) => ({
               Request Partnership Package
             </a>
           </div>
-          <div class="hidden lg:block">
-            <div class="grid grid-cols-2 gap-6">
-              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+          <div class="hidden md:block">
+            <div class="grid grid-cols-2 gap-4 md:gap-6">
+              <div class="h-28 md:h-44 bg-white/10 rounded-2xl md:rounded-3xl flex flex-col gap-2 md:gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
                 <span class="material-symbols-outlined text-5xl">corporate_fare</span>
                 <span class="text-xs font-bold tracking-widest uppercase">Corporates</span>
               </div>
-              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+              <div class="h-28 md:h-44 bg-white/10 rounded-2xl md:rounded-3xl flex flex-col gap-2 md:gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
                 <span class="material-symbols-outlined text-5xl">foundation</span>
                 <span class="text-xs font-bold tracking-widest uppercase">NGOs</span>
               </div>
-              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+              <div class="h-28 md:h-44 bg-white/10 rounded-2xl md:rounded-3xl flex flex-col gap-2 md:gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
                 <span class="material-symbols-outlined text-5xl">account_balance</span>
                 <span class="text-xs font-bold tracking-widest uppercase">Institutions</span>
               </div>
-              <div class="h-44 bg-white/10 rounded-3xl flex flex-col gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
+              <div class="h-28 md:h-44 bg-white/10 rounded-2xl md:rounded-3xl flex flex-col gap-2 md:gap-3 items-center justify-center border border-white/20 backdrop-blur-sm">
                 <span class="material-symbols-outlined text-5xl">groups</span>
                 <span class="text-xs font-bold tracking-widest uppercase">Foundations</span>
               </div>
@@ -252,17 +252,17 @@ const processedRest = rest.map((p: any) => ({
     </section>
 
     <!-- Newsletter -->
-    <section class="max-w-4xl mx-auto px-6 md:px-12 py-32 text-center">
-      <h2 class="text-4xl font-bold tracking-tight mb-6 font-headline">Stay Informed</h2>
-      <p class="text-lg text-on-surface-variant mb-12">Weekly digest of new projects, research findings, and community success stories.</p>
-      <form class="flex flex-col md:flex-row gap-5" onsubmit="return false;">
+    <section class="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-32 text-center">
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 md:mb-6 font-headline">Stay Informed</h2>
+      <p class="text-base md:text-lg text-on-surface-variant mb-8 md:mb-12">Weekly digest of new projects, research findings, and community success stories.</p>
+      <form class="flex flex-col md:flex-row gap-4 md:gap-5" onsubmit="return false;">
         <input
-          class="flex-grow bg-white border border-outline-variant/30 rounded-2xl px-8 py-5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-lg"
+          class="flex-grow bg-white border border-outline-variant/30 rounded-xl md:rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-base md:text-lg"
           placeholder="Email address"
           type="email"
           required
         />
-        <button type="submit" class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold hover:bg-primary-dim transition-all text-lg shadow-lg">
+        <button type="submit" class="bg-primary text-on-primary px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold hover:bg-primary-dim transition-all text-base md:text-lg shadow-lg">
           Subscribe
         </button>
       </form>
