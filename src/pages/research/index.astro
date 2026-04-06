@@ -7,8 +7,26 @@ import { getResearchPosts, getTrendingPosts } from '../../lib/sanity/queries';
 import { formatDate } from '../../utils/date';
 
 const lang = 'en';
-const posts = await getResearchPosts(lang);
+
+// Read filter params from URL
+const url = Astro.url;
+const activeType = url.searchParams.get('type') || '';
+const activeYear = url.searchParams.get('year') || '';
+const activeSdg = url.searchParams.get('sdg') || '';
+
+// Fetch posts (contentType filter is done in GROQ, year/SDG filtered after)
+const allPosts = await getResearchPosts(lang, activeType || undefined, 100);
 const trending = await getTrendingPosts(lang);
+
+// Server-side filtering for year and SDG
+let posts = allPosts;
+if (activeYear) {
+  posts = posts.filter((p: any) => p.publishedAt && p.publishedAt.startsWith(activeYear));
+}
+if (activeSdg) {
+  const sdgLabel = `SDG ${activeSdg}`;
+  posts = posts.filter((p: any) => Array.isArray(p.sdgTags) && p.sdgTags.includes(sdgLabel));
+}
 
 // Resolve localized field
 function t(field: any): string {
@@ -17,11 +35,25 @@ function t(field: any): string {
   return field[lang] || field.en || '';
 }
 
+// Helper: build filter URL preserving other params
+function filterUrl(key: string, value: string): string {
+  const params = new URLSearchParams();
+  if (key === 'type' && value) params.set('type', value);
+  else if (activeType) params.set('type', activeType);
+  if (key === 'year' && value) params.set('year', value);
+  else if (activeYear) params.set('year', activeYear);
+  if (key === 'sdg' && value) params.set('sdg', value);
+  else if (activeSdg) params.set('sdg', activeSdg);
+  const qs = params.toString();
+  return qs ? `/research?${qs}` : '/research';
+}
+
 // Split posts: 1 featured + 2 secondary + rest as compact (paginated in groups of 3)
 const featured = posts[0] || null;
 const secondary = posts.slice(1, 3);
 const compact = posts.slice(3);
 const COMPACT_PER_PAGE = 3;
+const hasActiveFilter = !!(activeType || activeYear || activeSdg);
 
 // Pre-process trending
 const processedTrending = (trending || []).map((p: any, i: number) => ({
@@ -58,50 +90,71 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
           <div>
             <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Content Types</h3>
             <ul class="flex flex-col gap-1">
-              <li>
-                <a href="/research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg bg-primary text-white font-semibold text-xs transition-all shadow-sm">
-                  <span class="material-symbols-outlined text-sm">apps</span>
-                  <span>All Content</span>
-                </a>
-              </li>
-              <li>
-                <a href="/research?type=news" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
-                  <span class="material-symbols-outlined text-sm group-hover:text-primary">newspaper</span>
-                  <span>News</span>
-                </a>
-              </li>
-              <li>
-                <a href="/research?type=policy-brief" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
-                  <span class="material-symbols-outlined text-sm group-hover:text-primary">description</span>
-                  <span>Policy Briefs</span>
-                </a>
-              </li>
-              <li>
-                <a href="/research?type=research" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all group">
-                  <span class="material-symbols-outlined text-sm group-hover:text-primary">school</span>
-                  <span>Research Papers</span>
-                </a>
-              </li>
+              {[
+                { value: '', label: 'All Content', icon: 'apps' },
+                { value: 'news', label: 'News', icon: 'newspaper' },
+                { value: 'policy-brief', label: 'Policy Briefs', icon: 'description' },
+                { value: 'research', label: 'Research Papers', icon: 'school' },
+              ].map(item => {
+                const isActive = activeType === item.value;
+                return (
+                  <li>
+                    <a href={filterUrl('type', item.value)}
+                      class:list={[
+                        'flex items-center gap-3 w-full px-3 py-2 rounded-lg text-xs transition-all',
+                        isActive ? 'bg-primary text-white font-semibold shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low group'
+                      ]}>
+                      <span class:list={['material-symbols-outlined text-sm', !isActive && 'group-hover:text-primary']}>{item.icon}</span>
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
             <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">Year</h3>
             <ul class="flex flex-col gap-1">
-              <li><a href="/research?year=2026" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2026</a></li>
-              <li><a href="/research?year=2025" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2025</a></li>
-              <li><a href="/research?year=2024" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2024</a></li>
-              <li><a href="/research?year=2023" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">2023</a></li>
+              {['2026', '2025', '2024', '2023'].map(year => {
+                const isActive = activeYear === year;
+                return (
+                  <li>
+                    <a href={filterUrl('year', isActive ? '' : year)}
+                      class:list={[
+                        'block px-3 py-1.5 rounded-lg text-xs transition-all',
+                        isActive ? 'bg-primary text-white font-semibold' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+                      ]}>
+                      {year}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
             <h3 class="text-[10px] font-label uppercase tracking-[0.3em] text-on-surface-variant mb-6 font-bold opacity-50">SDG Focus</h3>
             <ul class="flex flex-col gap-1">
-              <li><a href="/research?sdg=1" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 1 — No Poverty</a></li>
-              <li><a href="/research?sdg=4" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 4 — Education</a></li>
-              <li><a href="/research?sdg=7" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 7 — Clean Energy</a></li>
-              <li><a href="/research?sdg=11" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 11 — Sust. Cities</a></li>
-              <li><a href="/research?sdg=13" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 13 — Climate Action</a></li>
-              <li><a href="/research?sdg=17" class="block px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low text-xs transition-all hover:text-primary">SDG 17 — Partnerships</a></li>
+              {[
+                { num: '1', label: 'No Poverty' },
+                { num: '4', label: 'Education' },
+                { num: '7', label: 'Clean Energy' },
+                { num: '11', label: 'Sust. Cities' },
+                { num: '13', label: 'Climate Action' },
+                { num: '17', label: 'Partnerships' },
+              ].map(sdg => {
+                const isActive = activeSdg === sdg.num;
+                return (
+                  <li>
+                    <a href={filterUrl('sdg', isActive ? '' : sdg.num)}
+                      class:list={[
+                        'block px-3 py-1.5 rounded-lg text-xs transition-all',
+                        isActive ? 'bg-primary text-white font-semibold' : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+                      ]}>
+                      SDG {sdg.num} — {sdg.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -146,9 +199,15 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
 
           {posts.length === 0 && (
             <div class="text-center py-20">
-              <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">article</span>
-              <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">No articles yet</h3>
-              <p class="text-on-surface-variant">Research papers and news will appear here once published.</p>
+              <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">{hasActiveFilter ? 'filter_list_off' : 'article'}</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">{hasActiveFilter ? 'No matching articles' : 'No articles yet'}</h3>
+              <p class="text-on-surface-variant">{hasActiveFilter ? 'Try adjusting your filters to find more content.' : 'Research papers and news will appear here once published.'}</p>
+              {hasActiveFilter && (
+                <a href="/research" class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-primary hover:underline">
+                  <span class="material-symbols-outlined text-sm">clear_all</span>
+                  Clear all filters
+                </a>
+              )}
             </div>
           )}
         </div>
