@@ -38,11 +38,11 @@ function t(field: any): string {
 // Helper: build filter URL preserving other params
 function filterUrl(key: string, value: string): string {
   const params = new URLSearchParams();
-  if (key === 'type' && value) params.set('type', value);
+  if (key === 'type') { if (value) params.set('type', value); }
   else if (activeType) params.set('type', activeType);
-  if (key === 'year' && value) params.set('year', value);
+  if (key === 'year') { if (value) params.set('year', value); }
   else if (activeYear) params.set('year', activeYear);
-  if (key === 'sdg' && value) params.set('sdg', value);
+  if (key === 'sdg') { if (value) params.set('sdg', value); }
   else if (activeSdg) params.set('sdg', activeSdg);
   const qs = params.toString();
   return qs ? `/research?${qs}` : '/research';
