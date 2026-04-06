@@ -70,7 +70,7 @@ const processedRest = rest.map((p: any) => ({
             <a href="#projects" class="bg-primary text-on-primary px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-primary-dim transition-all shadow-lg shadow-primary/10">
               Explore Open Projects
             </a>
-            <a href="/about" class="bg-white border border-outline-variant/30 text-on-surface px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-surface-container-low transition-all">
+            <a href="/contact?subject=research" class="bg-white border border-outline-variant/30 text-on-surface px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-surface-container-low transition-all">
               Submit a Proposal
             </a>
           </div>
@@ -223,7 +223,7 @@ const processedRest = rest.map((p: any) => ({
                 <span class="text-lg">Logistical support for community-scale deployments.</span>
               </li>
             </ul>
-            <a href="/about" class="inline-block bg-white text-primary px-12 py-5 rounded-2xl font-bold hover:bg-primary-container transition-all shadow-xl">
+            <a href="/contact?subject=partnership" class="inline-block bg-white text-primary px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold hover:bg-primary-container transition-all shadow-xl">
               Request Partnership Package
             </a>
           </div>
@@ -255,17 +255,46 @@ const processedRest = rest.map((p: any) => ({
     <section class="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-32 text-center">
       <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 md:mb-6 font-headline">Stay Informed</h2>
       <p class="text-base md:text-lg text-on-surface-variant mb-8 md:mb-12">Weekly digest of new projects, research findings, and community success stories.</p>
-      <form class="flex flex-col md:flex-row gap-4 md:gap-5" onsubmit="return false;">
+      <form class="newsletter-form flex flex-col md:flex-row gap-4 md:gap-5">
         <input
           class="flex-grow bg-white border border-outline-variant/30 rounded-xl md:rounded-2xl px-6 md:px-8 py-4 md:py-5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-base md:text-lg"
           placeholder="Email address"
           type="email"
+          name="email"
           required
         />
         <button type="submit" class="bg-primary text-on-primary px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold hover:bg-primary-dim transition-all text-base md:text-lg shadow-lg">
           Subscribe
         </button>
       </form>
+      <span class="newsletter-status text-sm font-medium hidden mt-4"></span>
+      <script is:inline>
+        (function() {
+          var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMVo_A42bOVHL51h8UJ2tTp7VP3q7uc0uKRDLcu5Cg0xVG3kNpfWNxvV19SkCFmxjUg/exec';
+          document.querySelectorAll('.newsletter-form').forEach(function(form) {
+            if (form.dataset.bound) return;
+            form.dataset.bound = '1';
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              var email = form.querySelector('input[name="email"]').value;
+              var btn = form.querySelector('button[type="submit"]');
+              var status = form.closest('section')?.querySelector('.newsletter-status');
+              var origText = btn.textContent;
+              btn.disabled = true; btn.textContent = '...';
+              fetch(SHEET_URL, {
+                method: 'POST', mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ formType: 'newsletter', email: email, source: window.location.pathname }),
+              }).then(function() {
+                if (status) { status.textContent = 'Subscribed!'; status.className = 'newsletter-status text-sm font-medium text-green-600'; status.classList.remove('hidden'); }
+                form.reset();
+              }).catch(function() {
+                if (status) { status.textContent = 'Failed. Try again.'; status.className = 'newsletter-status text-sm font-medium text-red-500'; status.classList.remove('hidden'); }
+              }).finally(function() { btn.disabled = false; btn.textContent = origText; });
+            });
+          });
+        })();
+      </script>
     </section>
   </main>
 </MainLayout>

@@ -15,6 +15,8 @@ const labels = {
     bannerPlaceholder: 'Enter your institutional email',
     button: 'Join',
     bannerButton: 'Subscribe',
+    success: 'Subscribed!',
+    error: 'Failed. Try again.',
   },
   zh: {
     title: '策展人通讯',
@@ -24,20 +26,24 @@ const labels = {
     bannerPlaceholder: '输入您的机构邮箱',
     button: '订阅',
     bannerButton: '订阅',
+    success: '已订阅！',
+    error: '失败，请重试。',
   },
 };
 
 const t = labels[lang] || labels.en;
+const formId = `newsletter-${variant}-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 {variant === 'sidebar' ? (
   <div>
     <p class="text-xs text-on-surface-variant mb-4 font-bold uppercase tracking-wider">{t.title}</p>
-    <form class="flex flex-col gap-3" onsubmit="return false;">
+    <form class="newsletter-form flex flex-col gap-3" data-form-id={formId}>
       <input
         class="w-full bg-surface-container-low border border-outline-variant/10 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
         placeholder={t.placeholder}
         type="email"
+        name="email"
         required
       />
       <button
@@ -46,17 +52,19 @@ const t = labels[lang] || labels.en;
       >
         {t.button}
       </button>
+      <span class="newsletter-status text-xs font-medium hidden"></span>
     </form>
   </div>
 ) : (
   <div class="flex flex-col justify-center">
     <h4 class="text-lg font-bold mb-2">{t.bannerTitle}</h4>
     <p class="text-sm opacity-80 mb-6">{t.bannerDesc}</p>
-    <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
+    <form class="newsletter-form flex flex-col sm:flex-row gap-3" data-form-id={formId}>
       <input
         class="flex-grow bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm rounded-md px-4 py-3 focus:ring-2 focus:ring-white/30 outline-none"
         placeholder={t.bannerPlaceholder}
         type="email"
+        name="email"
         required
       />
       <button
@@ -66,5 +74,51 @@ const t = labels[lang] || labels.en;
         {t.bannerButton}
       </button>
     </form>
+    <span class="newsletter-status text-xs font-medium hidden mt-3"></span>
   </div>
 )}
+
+<script is:inline>
+  (function() {
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMVo_A42bOVHL51h8UJ2tTp7VP3q7uc0uKRDLcu5Cg0xVG3kNpfWNxvV19SkCFmxjUg/exec';
+
+    document.querySelectorAll('.newsletter-form').forEach(function(form) {
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = form.querySelector('input[name="email"]').value;
+        var btn = form.querySelector('button[type="submit"]');
+        var status = form.closest('div').querySelector('.newsletter-status') || form.parentElement.querySelector('.newsletter-status');
+        var origText = btn.textContent;
+
+        btn.disabled = true;
+        btn.textContent = '...';
+
+        fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formType: 'newsletter', email: email, source: window.location.pathname }),
+        }).then(function() {
+          if (status) {
+            status.textContent = 'Subscribed!';
+            status.className = 'newsletter-status text-xs font-medium text-green-600';
+            status.classList.remove('hidden');
+          }
+          form.reset();
+        }).catch(function() {
+          if (status) {
+            status.textContent = 'Failed. Try again.';
+            status.className = 'newsletter-status text-xs font-medium text-red-500';
+            status.classList.remove('hidden');
+          }
+        }).finally(function() {
+          btn.disabled = false;
+          btn.textContent = origText;
+        });
+      });
+    });
+  })();
+</script>

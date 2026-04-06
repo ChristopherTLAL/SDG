@@ -99,10 +99,17 @@ import MainLayout from '../layouts/MainLayout.astro';
   </main>
 
   <script>
-    const GOOGLE_SHEET_URL = '';
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMVo_A42bOVHL51h8UJ2tTp7VP3q7uc0uKRDLcu5Cg0xVG3kNpfWNxvV19SkCFmxjUg/exec';
 
     const form = document.getElementById('contact-form');
     const status = document.getElementById('contact-status');
+
+    // Auto-select subject from URL param (e.g. /contact?subject=partnership)
+    const urlSubject = new URLSearchParams(window.location.search).get('subject');
+    if (urlSubject) {
+      const select = document.getElementById('contact-subject');
+      if (select) select.value = urlSubject;
+    }
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -114,11 +121,11 @@ import MainLayout from '../layouts/MainLayout.astro';
 
       const data = new FormData(form);
       const payload = {
+        formType: 'contacts',
         name: data.get('name'),
         email: data.get('email'),
         subject: data.get('subject'),
         message: data.get('message'),
-        timestamp: new Date().toISOString(),
       };
 
       if (!GOOGLE_SHEET_URL) {
