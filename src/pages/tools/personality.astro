@@ -68,14 +68,16 @@ const lang = 'en';
     align-items: flex-start;
   }
 
-  /* Sidebar nav — sticky, always visible on desktop */
+  /* Sidebar nav — matches card height, scrollable grid */
   .mdpa-sidebar {
     position: sticky;
     top: 88px;
     width: 200px;
     min-width: 200px;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+    max-height: var(--mdpa-card-min-h);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(0,0,0,0.06);
@@ -112,7 +114,13 @@ const lang = 'en';
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 3px;
+    overflow-y: auto;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
   }
+  .mdpa-nav-grid::-webkit-scrollbar { width: 4px; }
+  .mdpa-nav-grid::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
   .mdpa-nav-sq {
     width: 100%;
     aspect-ratio: 1;
@@ -605,6 +613,9 @@ function renderNav(){
     h+='<button class="mdpa-nav-sq '+cls+'" onclick="jumpTo('+i+')">'+(i+1)+'</button>';
   }
   g.innerHTML=h;
+  // Auto-scroll to current question
+  var cur=g.querySelector('.current');
+  if(cur)cur.scrollIntoView({block:'nearest',behavior:'smooth'});
 }
 function jumpTo(i){S.idx=i;render();}
 
@@ -612,14 +623,6 @@ function jumpTo(i){S.idx=i;render();}
 function render(){
   if(!S.testStarted)return;
   if(S.idx>=S.order.length){showCompletionPage();return;}
-  // Micro-break check
-  if([15,30,45,60,75,90].indexOf(S.idx)!==-1&&!S.resp['_break_'+S.idx]){
-    S.resp['_break_'+S.idx]=true;
-    var pct=Math.round(S.idx/S.order.length*100);
-    var remain=Math.round((S.order.length-S.idx)*10/60);
-    app.innerHTML='<div class="mdpa-break-page"><h2>休息一下</h2><p>已完成 '+pct+'%，预计还需 '+remain+' 分钟<br>凭直觉作答就好，没有对错之分</p><button class="mdpa-btn" onclick="render()">继续</button></div>';
-    renderNav();return;
-  }
   var item=S.order[S.idx];
   var prev=S.resp[item.id];
   var h='';
