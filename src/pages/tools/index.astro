@@ -1,8 +1,10 @@
 ---
 // src/pages/tools/index.astro — Life Planning Tools (English)
 import MainLayout from '../../layouts/MainLayout.astro';
+import { guides as allGuides, categories as guideCategories, getGuidesByCategory } from '../../data/guides-meta';
 
 const lang = 'en';
+const guidesByCategory = getGuidesByCategory();
 
 // Tool cards — each will eventually link to its own sub-app or external tool
 const tools = [
@@ -71,51 +73,7 @@ const tools = [
   },
 ];
 
-// Resource guides — linking to posts or standalone articles
-const guides = [
-  {
-    title: 'How to Write a Research Proposal',
-    description: 'A step-by-step guide to structuring your undergraduate research proposal, from hypothesis to methodology.',
-    icon: 'description',
-    readingTime: '12 min',
-    href: '#',
-  },
-  {
-    title: 'Choosing the Right Major: A Framework',
-    description: 'Move beyond "what pays well" — a systematic approach to aligning your academic path with your long-term vision.',
-    icon: 'route',
-    readingTime: '8 min',
-    href: '#',
-  },
-  {
-    title: 'Demystifying the Oxbridge Application',
-    description: 'Timeline, requirements, and insider strategies for applying to Oxford and Cambridge from mainland China.',
-    icon: 'auto_stories',
-    readingTime: '15 min',
-    href: '#',
-  },
-  {
-    title: 'Gap Year: Strategic or Risky?',
-    description: 'An evidence-based look at when a gap year strengthens your application and when it doesn\'t.',
-    icon: 'flight_takeoff',
-    readingTime: '6 min',
-    href: '#',
-  },
-  {
-    title: 'Building a Portfolio for Art & Design',
-    description: 'What top programs actually look for, and how to curate 12–20 pieces that tell a coherent creative story.',
-    icon: 'palette',
-    readingTime: '10 min',
-    href: '#',
-  },
-  {
-    title: 'Extracurriculars That Actually Matter',
-    description: 'Quality over quantity — how admissions officers evaluate your activities list and what "depth" really means.',
-    icon: 'emoji_events',
-    readingTime: '7 min',
-    href: '#',
-  },
-];
+// Guides now come from guides-meta.ts
 ---
 
 <MainLayout title="Life Planning Tools | Chinese SDGs Institute" description="Interactive tools and curated resources to navigate university admissions, career planning, and personal development." lang={lang}>
@@ -141,7 +99,7 @@ const guides = [
             </div>
             <div class="flex items-center gap-2">
               <span class="material-symbols-outlined text-primary text-lg">menu_book</span>
-              <span class="font-semibold">{guides.length} Guides</span>
+              <span class="font-semibold">{allGuides.length} Guides</span>
             </div>
           </div>
         </div>
@@ -182,54 +140,59 @@ const guides = [
       </div>
     </section>
 
-    <!-- Resource Guides -->
-    <section class="py-16 md:py-32">
+    <!-- Knowledge Base -->
+    <section id="guides" class="py-16 md:py-32">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
-        <div class="grid lg:grid-cols-12 gap-8 md:gap-16">
-          <!-- Sticky sidebar -->
-          <div class="lg:col-span-4 lg:sticky lg:top-32 self-start">
-            <h2 class="font-headline font-bold text-2xl md:text-4xl tracking-tight text-on-surface mb-4 md:mb-6">Resource Library</h2>
-            <p class="text-on-surface-variant text-base md:text-lg leading-relaxed mb-6 md:mb-10">
-              In-depth guides written by admissions consultants, university students, and industry professionals.
-            </p>
-            <div class="flex items-center gap-2 text-xs font-bold text-primary">
-              <span class="material-symbols-outlined text-sm">auto_awesome</span>
-              <span>Curated by our editorial team</span>
-            </div>
-          </div>
-
-          <!-- Guide list -->
-          <div class="lg:col-span-8">
-            <div class="space-y-6">
-              {guides.map((guide) => (
-                <a href={guide.href} class="group flex gap-6 p-6 -mx-6 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div class="shrink-0 w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                    <span class="material-symbols-outlined text-primary">{guide.icon}</span>
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-4 mb-2">
-                      <h3 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">{guide.title}</h3>
-                    </div>
-                    <p class="text-sm text-on-surface-variant leading-relaxed mb-3">{guide.description}</p>
-                    <div class="flex items-center gap-4 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.2em]">
-                      <span class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-[12px]">schedule</span>
-                        {guide.readingTime}
-                      </span>
-                      <span class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-[12px]">article</span>
-                        Guide
-                      </span>
-                    </div>
-                  </div>
-                  <div class="shrink-0 self-center">
-                    <span class="material-symbols-outlined text-on-surface-variant/20 group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
+        <div class="mb-10 md:mb-16 max-w-3xl">
+          <h2 class="font-headline font-bold text-2xl md:text-4xl tracking-tight text-on-surface mb-4">Application Knowledge Base</h2>
+          <p class="text-on-surface-variant text-base md:text-lg leading-relaxed">
+            {allGuides.length} in-depth guides covering every aspect of university admissions, graduate applications, and career planning. Each article is a deep-dive distilled from official university advice and professional experience.
+          </p>
         </div>
+
+        {guideCategories.map((cat) => {
+          const items = guidesByCategory.get(cat.id);
+          if (!items || items.length === 0) return null;
+          return (
+            <div class="mb-12 md:mb-16">
+              <div class="flex items-center gap-3 mb-6">
+                <div class={`w-10 h-10 rounded-xl flex items-center justify-center ${cat.color}`}>
+                  <span class="material-symbols-outlined text-lg">{cat.icon}</span>
+                </div>
+                <div>
+                  <h3 class="font-headline font-bold text-lg text-on-surface">{cat.label}</h3>
+                  <span class="text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-widest">{items.length} {items.length === 1 ? 'guide' : 'guides'}</span>
+                </div>
+              </div>
+              <div class="grid gap-3">
+                {items.map((guide) => (
+                  <a href={`/tools/guides/${guide.slug}`} class="group flex gap-5 p-5 rounded-2xl border border-outline-variant/10 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 bg-white transition-all duration-300">
+                    <div class="shrink-0 w-11 h-11 bg-primary/5 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <span class="material-symbols-outlined text-primary text-xl">{guide.icon}</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="text-base font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-1.5 line-clamp-1">{guide.title}</h4>
+                      <p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2 mb-2">{guide.description}</p>
+                      <div class="flex items-center gap-4 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.15em]">
+                        <span class="flex items-center gap-1">
+                          <span class="material-symbols-outlined text-[12px]">schedule</span>
+                          {guide.readingTime}
+                        </span>
+                        <span class="flex items-center gap-1">
+                          <span class="material-symbols-outlined text-[12px]">local_offer</span>
+                          {guide.tags.slice(0, 2).join(' · ')}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="shrink-0 self-center">
+                      <span class="material-symbols-outlined text-on-surface-variant/20 group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
 
