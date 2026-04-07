@@ -179,6 +179,7 @@ export async function getDialogues(lang: string = 'en') {
 
 export async function getUpcomingDialogues(lang: string = 'en', limit: number = 3) {
   const now = new Date().toISOString();
+  // Try upcoming first, fall back to most recent
   const query = /* groq */ `
     *[_type == "dialogue" && defined(slug.current) && date >= $now]
     | order(date asc)[0...$limit]{
@@ -191,7 +192,50 @@ export async function getUpcomingDialogues(lang: string = 'en', limit: number = 
     }
   `;
   const data = await client.fetch(query, { now, limit });
-  return Array.isArray(data) ? data : [];
+  if (Array.isArray(data) && data.length > 0) return data;
+  // Fallback: most recent events
+  const fallback = /* groq */ `
+    *[_type == "dialogue" && defined(slug.current)]
+    | order(date desc)[0...$limit]{
+      "slug": slug.current,
+      "title": title,
+      eventType,
+      date,
+      "location": location,
+      featured
+    }
+  `;
+  const fb = await client.fetch(fallback, { limit });
+  return Array.isArray(fb) ? fb : [];
+}
+
+export async function getDialogueBySlug(slug: string) {
+  const query = /* groq */ `
+    *[_type == "dialogue" && slug.current == $slug][0]{
+      "slug": slug.current,
+      "title": title,
+      eventType,
+      date,
+      endDate,
+      "location": location,
+      "description": description,
+      "body": body,
+      featured,
+      sdgTags
+    }
+  `;
+  return client.fetch(query, { slug });
+}
+
+export async function getAllDialogueSlugs() {
+  const query = /* groq */ `
+    *[_type == "dialogue" && defined(slug.current)]
+    | order(date desc){
+      "slug": slug.current
+    }
+  `;
+  const list = await client.fetch(query);
+  return (Array.isArray(list) ? list : []).map((d: any) => d.slug);
 }
 
 // ── Homepage Aggregate ───────────────────────────────────────

@@ -1,12 +1,16 @@
 ---
 // src/pages/dialogues/index.astro — Dialogues page (English)
 import MainLayout from '../../layouts/MainLayout.astro';
-import { getDialogues, getUpcomingDialogues } from '../../lib/sanity/queries';
+import { getDialogues } from '../../lib/sanity/queries';
 import { formatDate } from '../../utils/date';
+import { getIllustration } from '../../utils/illustrations';
 
 const lang = 'en';
 const allDialogues = await getDialogues(lang);
-const upcoming = await getUpcomingDialogues(lang);
+
+// Read filter from URL
+const url = Astro.url;
+const activeFilter = url.searchParams.get('type') || '';
 
 function t(field: any): string {
   if (!field) return '';
@@ -14,54 +18,78 @@ function t(field: any): string {
   return field[lang] || field.en || '';
 }
 
-const slugImageMap: Record<string, string> = {
-  'biodiversity-social-equity': '/images/biodiversity.png',
-  'decarbonization-pearl-river': '/images/decarbon.png',
-  'annual-sdg-forum-beijing-2026': '/images/inclusion.png',
-  'fintech-rural-development': '/images/fintech.png',
-  'urban-resilience-architecture': '/images/roof.png',
-};
-const slugLightImageMap: Record<string, string> = {
-  'biodiversity-social-equity': '/images/biodiversity-light.png',
-  'decarbonization-pearl-river': '/images/decarbon.png',
-  'annual-sdg-forum-beijing-2026': '/images/inclusion.png',
-  'fintech-rural-development': '/images/fintech.png',
-  'urban-resilience-architecture': '/images/roof.png',
-};
+// Pre-process all dialogues
+const processedAll = (allDialogues || []).map((d: any, i: number) => {
+  const desc = t(d.description);
+  // Strip disclaimer from preview
+  const cleanDesc = desc.split(/\n\nDisclaimer:/i)[0] || '';
+  return {
+    title: t(d.title),
+    slug: d.slug,
+    description: cleanDesc,
+    date: d.date ? formatDate(d.date) : '',
+    rawDate: d.date || '',
+    eventType: d.eventType || 'assembly',
+    sdgTags: d.sdgTags || [],
+    sdgTag: d.sdgTags?.[0] || '',
+    location: t(d.location),
+    image: getIllustration(i),
+    featured: d.featured || false,
+  };
+});
 
-// Pre-process upcoming for template — order: [2nd nearest, nearest (center/featured), 3rd nearest]
-const rawUpcoming = (upcoming || []).map((d: any) => ({
-  title: t(d.title),
-  slug: d.slug,
-  sdgTag: d.sdgTags?.[0] || '',
-  date: d.date ? formatDate(d.date) : '',
-  rawDate: d.date || '',
-  location: t(d.location),
-  eventType: d.eventType || 'assembly',
-  image: slugImageMap[d.slug] || '',
-  lightImage: slugLightImageMap[d.slug] || '',
-}));
+// Filter for Knowledge Repository
+const filtered = activeFilter
+  ? processedAll.filter(d => d.eventType === activeFilter)
+  : processedAll;
 
-// Reorder: center = soonest (index 0), left = 2nd, right = 3rd
-const processedUpcoming = rawUpcoming.length >= 3
-  ? [rawUpcoming[1], rawUpcoming[0], rawUpcoming[2]]
-  : rawUpcoming;
-
-// Pre-process all dialogues as knowledge repository items
-const processedAll = (allDialogues || []).map((d: any) => ({
-  title: t(d.title),
-  slug: d.slug,
-  description: t(d.description),
-  date: d.date ? formatDate(d.date) : '',
-  eventType: d.eventType || 'assembly',
-  sdgTag: d.sdgTags?.[0] || '',
-}));
+// Top 3 most recent for hero cards
+const topThree = processedAll.slice(0, 3);
+// Reorder: center = most recent (index 0)
+const heroCards = topThree.length >= 3
+  ? [topThree[1], topThree[0], topThree[2]]
+  : topThree;
 
 const eventTypeLabels: Record<string, string> = {
   assembly: 'Assembly',
   panel: 'Expert Panel',
   workshop: 'Workshop',
   forum: 'Forum',
+};
+
+const eventTypeIcons: Record<string, string> = {
+  assembly: 'groups',
+  panel: 'forum',
+  workshop: 'build',
+  forum: 'podium',
+};
+
+// Filter categories with counts
+const categories = [
+  { key: '', label: 'All Events', icon: 'filter_list', count: processedAll.length },
+  { key: 'forum', label: 'Forums', icon: 'podium', count: processedAll.filter(d => d.eventType === 'forum').length },
+  { key: 'assembly', label: 'Assemblies', icon: 'groups', count: processedAll.filter(d => d.eventType === 'assembly').length },
+  { key: 'panel', label: 'Expert Panels', icon: 'forum', count: processedAll.filter(d => d.eventType === 'panel').length },
+  { key: 'workshop', label: 'Workshops', icon: 'build', count: processedAll.filter(d => d.eventType === 'workshop').length },
+];
+
+// Year filters
+const years = [...new Set(processedAll.map(d => d.rawDate ? new Date(d.rawDate).getFullYear().toString() : '').filter(Boolean))].sort().reverse();
+const activeYear = url.searchParams.get('year') || '';
+
+const filteredByYear = activeYear
+  ? filtered.filter(d => d.rawDate && d.rawDate.startsWith(activeYear))
+  : filtered;
+
+// Region filters
+const regionMap: Record<string, string[]> = {
+  'China': ['Beijing', 'Shanghai', 'Jingdezhen', 'China'],
+  'Hong Kong': ['Hong Kong', 'CUHK'],
+  'Japan': ['Tokyo', 'Japan'],
+  'Southeast Asia': ['Singapore', 'Bangkok', 'Thailand', 'Taipei'],
+  'Korea': ['Korea', 'Incheon'],
+  'Online': ['Online', 'Zoom'],
+  'International': ['New York', 'USA'],
 };
 ---
 
@@ -88,103 +116,64 @@ const eventTypeLabels: Record<string, string> = {
       </div>
     </section>
 
-    <!-- Assemblies Section -->
+    <!-- Recent Events Section -->
     <section class="bg-surface-container-low py-16 md:py-40">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 gap-6 md:gap-8">
           <div class="max-w-2xl">
-            <h2 class="font-headline font-bold text-2xl md:text-4xl tracking-tight text-on-surface mb-4 md:mb-6">Upcoming Assemblies &amp; Expert Panels</h2>
+            <h2 class="font-headline font-bold text-2xl md:text-4xl tracking-tight text-on-surface mb-4 md:mb-6">Recent & Featured Events</h2>
             <p class="text-on-surface-variant text-base md:text-lg leading-relaxed">Structured forums designed to move beyond theory into actionable policy frameworks.</p>
           </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-          {processedUpcoming.length > 0 ? processedUpcoming.map((d, i) => (
+          {heroCards.length > 0 ? heroCards.map((d, i) => (
             i === 1 ? (
               /* Center card: deep emerald featured */
-              <div class="bg-primary p-6 md:p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-0 md:min-h-[520px]">
+              <a href={`/dialogues/${d.slug}`} class="group bg-primary p-6 md:p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-0 md:min-h-[520px]">
                 <div>
                   <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center overflow-hidden">
-                    {d.lightImage ? <img src={d.lightImage} alt={d.title} class="h-full object-contain opacity-90" /> : <span class="material-symbols-outlined text-5xl opacity-40">diversity_3</span>}
+                    <img src={d.image} alt={d.title} class="h-full object-contain opacity-90" />
                   </div>
-                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">{d.title}</h3>
-                  {d.location && <p class="opacity-80 leading-relaxed">{d.location}</p>}
+                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight group-hover:opacity-80 transition-opacity">{d.title}</h3>
+                  {d.location && <p class="opacity-80 leading-relaxed text-sm">{d.location}</p>}
                 </div>
-                <div class="mt-auto space-y-6 pt-8">
-                  <div class="flex gap-4 items-center">
+                <div class="mt-auto space-y-4 pt-8">
+                  <div class="flex flex-wrap gap-3 items-center">
                     {d.sdgTag && <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
                     <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">{d.date}</span>
                   </div>
-                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">
-                    Request Invitation
-                  </button>
+                  <span class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary-container transition-all">
+                    View Details
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </span>
                 </div>
-              </div>
+              </a>
             ) : (
-              /* Side cards: white with image placeholder */
-              <div class="bg-white p-6 md:p-10 rounded-2xl border border-surface-container flex flex-col min-h-0 md:min-h-[520px] hover:shadow-2xl hover:shadow-primary/5 transition-all">
+              /* Side cards */
+              <a href={`/dialogues/${d.slug}`} class="group bg-white p-6 md:p-10 rounded-2xl border border-surface-container flex flex-col min-h-0 md:min-h-[520px] hover:shadow-2xl hover:shadow-primary/5 transition-all">
                 <div class="aspect-video rounded-xl mb-8 bg-surface-container-low flex items-center justify-center overflow-hidden">
-                  {d.image ? <img src={d.image} alt={d.title} class="h-full object-contain" /> : <span class="material-symbols-outlined text-4xl text-primary/20">forum</span>}
+                  <img src={d.image} alt={d.title} class="h-full object-contain" />
                 </div>
-                <div class="flex gap-4 mb-6 items-center">
+                <div class="flex gap-3 mb-6 items-center">
                   {d.sdgTag && <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">{d.sdgTag}</span>}
                   <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">{d.date}</span>
                 </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">{d.title}</h3>
-                {d.location && <p class="text-on-surface-variant leading-relaxed">{d.location}</p>}
+                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface group-hover:text-primary transition-colors leading-tight">{d.title}</h3>
+                {d.location && <p class="text-on-surface-variant leading-relaxed text-sm">{d.location}</p>}
                 <div class="mt-auto pt-8">
-                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">
-                    Request Invitation
-                  </button>
+                  <span class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary group-hover:border-primary transition-all">
+                    View Details
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                  </span>
                 </div>
-              </div>
+              </a>
             )
           )) : (
-            <>
-              <div class="bg-white p-6 md:p-10 rounded-2xl border border-surface-container flex flex-col min-h-0 md:min-h-[520px]">
-                <div class="aspect-video rounded-xl mb-8 bg-surface-container-low flex items-center justify-center overflow-hidden">
-                  <img src="/images/biodiversity.png" alt="Biodiversity" class="h-full object-contain" />
-                </div>
-                <div class="flex gap-4 mb-6 items-center">
-                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 15</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Jul 2026</span>
-                </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">Biodiversity & Social Equity Nexus</h3>
-                <p class="text-on-surface-variant leading-relaxed">Panel on preserving traditional ecological knowledge in Yunnan.</p>
-                <div class="mt-auto pt-8">
-                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">Request Invitation</button>
-                </div>
-              </div>
-              <div class="bg-primary p-6 md:p-10 rounded-2xl text-on-primary flex flex-col justify-between shadow-xl shadow-primary/20 min-h-0 md:min-h-[520px]">
-                <div>
-                  <div class="aspect-video rounded-xl mb-8 bg-white/10 flex items-center justify-center overflow-hidden">
-                    <img src="/images/decarbon.png" alt="Decarbonization" class="h-full object-contain opacity-90" />
-                  </div>
-                  <h3 class="font-headline font-extrabold text-2xl mb-4 leading-tight">Annual SDG Policy Forum: Beijing 2026</h3>
-                  <p class="opacity-80 leading-relaxed">The flagship assembly for multi-stakeholder dialogue on the 2030 Agenda.</p>
-                </div>
-                <div class="mt-auto space-y-6 pt-8">
-                  <div class="flex gap-4 items-center">
-                    <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase">SDG 17</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-70">Nov 2026</span>
-                  </div>
-                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest bg-white text-primary rounded-xl hover:bg-primary-container transition-all">Request Invitation</button>
-                </div>
-              </div>
-              <div class="bg-white p-6 md:p-10 rounded-2xl border border-surface-container flex flex-col min-h-0 md:min-h-[520px]">
-                <div class="aspect-video rounded-xl mb-8 bg-surface-container-low flex items-center justify-center overflow-hidden">
-                  <img src="/images/fintech.png" alt="FinTech" class="h-full object-contain" />
-                </div>
-                <div class="flex gap-4 mb-6 items-center">
-                  <span class="text-[10px] font-bold bg-primary text-on-primary px-3 py-1 rounded-full uppercase">SDG 09</span>
-                  <span class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Aug 2026</span>
-                </div>
-                <h3 class="font-headline font-bold text-2xl mb-4 text-on-surface leading-tight">FinTech for Sustainable Rural Development</h3>
-                <p class="text-on-surface-variant leading-relaxed">Exploring financial inclusion through digital infrastructure in rural provinces.</p>
-                <div class="mt-auto pt-8">
-                  <button class="w-full py-4 text-xs font-bold uppercase tracking-widest border border-outline-variant/30 rounded-xl hover:bg-primary hover:text-on-primary hover:border-primary transition-all">Request Invitation</button>
-                </div>
-              </div>
-            </>
+            <div class="col-span-3 text-center py-20">
+              <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">event_busy</span>
+              <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">No events yet</h3>
+              <p class="text-on-surface-variant">Events will appear here once published.</p>
+            </div>
           )}
         </div>
       </div>
@@ -197,97 +186,112 @@ const eventTypeLabels: Record<string, string> = {
           <div class="lg:col-span-4 lg:sticky lg:top-32 self-start">
             <h2 class="font-headline font-bold text-2xl md:text-4xl tracking-tight text-on-surface mb-4 md:mb-8">Knowledge Repository</h2>
             <p class="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 md:mb-12">
-              A curated archive of past deliberations, policy briefs, and session transcripts dating back to the institute's inception.
+              A curated archive of past deliberations, policy forums, and expert panels dating back to the institute's inception.
             </p>
-            <div class="space-y-3">
-              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-primary bg-primary/5 px-6 py-4 rounded-xl w-full transition-all border border-primary/10">
-                <span class="material-symbols-outlined text-lg">filter_list</span>
-                All Topics
-              </button>
-              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:bg-surface-container-low px-6 py-4 rounded-xl w-full transition-all border border-transparent">
-                <span class="material-symbols-outlined text-lg">eco</span>
-                Ecological Civilisation
-              </button>
-              <button class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:bg-surface-container-low px-6 py-4 rounded-xl w-full transition-all border border-transparent">
-                <span class="material-symbols-outlined text-lg">lightbulb</span>
-                Tech &amp; Innovation
-              </button>
+
+            <!-- Event Type Filters -->
+            <div class="space-y-2 mb-8">
+              <span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold block mb-3">Event Type</span>
+              {categories.map((cat) => (
+                <a
+                  href={cat.key ? `?type=${cat.key}${activeYear ? `&year=${activeYear}` : ''}` : activeYear ? `?year=${activeYear}` : '/dialogues'}
+                  class:list={[
+                    'flex items-center gap-4 text-xs font-bold uppercase tracking-widest px-5 py-3.5 rounded-xl w-full transition-all',
+                    activeFilter === cat.key
+                      ? 'text-primary bg-primary/5 border border-primary/10'
+                      : 'text-on-surface-variant hover:bg-surface-container-low border border-transparent',
+                  ]}
+                >
+                  <span class="material-symbols-outlined text-lg">{cat.icon}</span>
+                  <span class="flex-1">{cat.label}</span>
+                  <span class="text-[10px] font-normal opacity-50">{cat.count}</span>
+                </a>
+              ))}
             </div>
+
+            <!-- Year Filters -->
+            {years.length > 0 && (
+              <div class="space-y-2">
+                <span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold block mb-3">Year</span>
+                <a
+                  href={activeFilter ? `?type=${activeFilter}` : '/dialogues'}
+                  class:list={[
+                    'flex items-center gap-4 text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-xl w-full transition-all',
+                    !activeYear
+                      ? 'text-primary bg-primary/5 border border-primary/10'
+                      : 'text-on-surface-variant hover:bg-surface-container-low border border-transparent',
+                  ]}
+                >
+                  <span class="material-symbols-outlined text-lg">date_range</span>
+                  All Years
+                </a>
+                {years.map((year) => (
+                  <a
+                    href={`?year=${year}${activeFilter ? `&type=${activeFilter}` : ''}`}
+                    class:list={[
+                      'flex items-center gap-4 text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-xl w-full transition-all',
+                      activeYear === year
+                        ? 'text-primary bg-primary/5 border border-primary/10'
+                        : 'text-on-surface-variant hover:bg-surface-container-low border border-transparent',
+                    ]}
+                  >
+                    <span class="material-symbols-outlined text-lg">calendar_today</span>
+                    {year}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
-          <div class="lg:col-span-8 space-y-16">
-            {processedAll.length > 0 ? processedAll.map((d) => (
-              <>
-                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div class="flex justify-between items-start mb-6">
-                    <div>
-                      <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">
-                        {eventTypeLabels[d.eventType] || d.eventType} {d.date && `· ${d.date}`}
-                      </span>
-                      <h4 class="font-headline font-bold text-xl md:text-2xl lg:text-3xl text-on-surface group-hover:text-primary transition-colors leading-tight">{d.title}</h4>
-                    </div>
-                  </div>
-                  {d.description && (
-                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">{d.description}</p>
-                  )}
-                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
-                    {d.sdgTag && (
-                      <span class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[14px]">eco</span>
-                        {d.sdgTag}
-                      </span>
-                    )}
-                    <span class="flex items-center gap-2">
-                      <span class="material-symbols-outlined text-[14px]">language</span>
-                      Bilingual
-                    </span>
-                  </div>
-                </div>
-                <div class="h-[1px] bg-surface-container"></div>
-              </>
-            )) : (
-              <>
-                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div class="mb-6">
-                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">White Paper 2024.01</span>
-                    <h4 class="font-headline font-bold text-xl md:text-2xl lg:text-3xl text-on-surface leading-tight">The Nexus of Social Equality and Biodiversity</h4>
-                  </div>
-                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
-                    Synthesized insights from the Q1 Expert Panel on the preservation of traditional ecological knowledge in Yunnan.
-                  </p>
-                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 12 Min Read</span>
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Mandarin &amp; English</span>
-                  </div>
-                </div>
-                <div class="h-[1px] bg-surface-container"></div>
-                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div class="mb-6">
-                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">Executive Summary</span>
-                    <h4 class="font-headline font-bold text-xl md:text-2xl lg:text-3xl text-on-surface leading-tight">Sustainable Logistics: Re-engineering the Silk Road</h4>
-                  </div>
-                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
-                    Deliberations on the carbon footprint reduction strategies for trans-continental freight corridors.
-                  </p>
-                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 08 Min Read</span>
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Mandarin Only</span>
-                  </div>
-                </div>
-                <div class="h-[1px] bg-surface-container"></div>
-                <div class="group cursor-pointer p-2 -m-2 rounded-2xl hover:bg-surface-container-low transition-colors">
-                  <div class="mb-6">
-                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4 block">Panel Transcript</span>
-                    <h4 class="font-headline font-bold text-xl md:text-2xl lg:text-3xl text-on-surface leading-tight">Urban Resilience in the Yangtze Delta</h4>
-                  </div>
-                  <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
-                    Full transcript of the August assembly featuring municipal planners and sustainability academics.
-                  </p>
-                  <div class="flex flex-wrap gap-8 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">schedule</span> 24 Min Read</span>
-                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">language</span> Bilingual</span>
-                  </div>
-                </div>
-              </>
+
+          <div class="lg:col-span-8 space-y-0">
+            {filteredByYear.length > 0 ? (
+              <div class="space-y-0">
+                <p class="text-sm text-on-surface-variant mb-8">{filteredByYear.length} event{filteredByYear.length !== 1 ? 's' : ''} found</p>
+                {filteredByYear.map((d) => (
+                  <>
+                    <a href={`/dialogues/${d.slug}`} class="group block cursor-pointer p-4 -mx-4 rounded-2xl hover:bg-surface-container-low transition-colors">
+                      <div class="flex justify-between items-start mb-4">
+                        <div>
+                          <div class="flex flex-wrap items-center gap-3 mb-3">
+                            <span class="inline-flex items-center gap-1 text-[10px] font-bold text-primary uppercase tracking-[0.2em]">
+                              <span class="material-symbols-outlined text-xs">{eventTypeIcons[d.eventType] || 'event'}</span>
+                              {eventTypeLabels[d.eventType] || d.eventType}
+                            </span>
+                            {d.date && <span class="text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.2em]">{d.date}</span>}
+                          </div>
+                          <h4 class="font-headline font-bold text-xl md:text-2xl text-on-surface group-hover:text-primary transition-colors leading-tight">{d.title}</h4>
+                        </div>
+                        <span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary transition-colors shrink-0 ml-4 mt-2">arrow_forward</span>
+                      </div>
+                      {d.description && (
+                        <p class="text-on-surface-variant leading-relaxed mb-4 max-w-2xl line-clamp-2">{d.description}</p>
+                      )}
+                      <div class="flex flex-wrap gap-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-[0.2em]">
+                        {d.sdgTags.length > 0 && d.sdgTags.map((tag: string) => (
+                          <span class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px]">eco</span>
+                            {tag}
+                          </span>
+                        ))}
+                        {d.location && (
+                          <span class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[12px]">location_on</span>
+                            {d.location}
+                          </span>
+                        )}
+                      </div>
+                    </a>
+                    <div class="h-[1px] bg-surface-container my-2"></div>
+                  </>
+                ))}
+              </div>
+            ) : (
+              <div class="text-center py-20">
+                <span class="material-symbols-outlined text-6xl text-on-surface-variant/30 mb-6 block">search_off</span>
+                <h3 class="text-xl font-bold text-on-surface mb-2 font-headline">No events found</h3>
+                <p class="text-on-surface-variant mb-6">Try adjusting your filters.</p>
+                <a href="/dialogues" class="text-sm font-bold text-primary hover:underline">Clear all filters</a>
+              </div>
             )}
           </div>
         </div>
@@ -300,7 +304,7 @@ const eventTypeLabels: Record<string, string> = {
         <div class="max-w-2xl">
           <h2 class="font-headline font-bold text-2xl md:text-4xl lg:text-5xl tracking-tight text-white mb-6 md:mb-8">Stay informed on the dialogue</h2>
           <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8 md:mb-16">
-            Subscribe to our monthly digest of synthesized findings, upcoming assemblies, and institutional announcements.
+            Subscribe to our monthly digest of synthesized findings, upcoming events, and institutional announcements.
           </p>
           <form class="dialogue-newsletter-form flex flex-col md:flex-row gap-3 md:gap-4 w-full">
             <input
@@ -323,79 +327,8 @@ const eventTypeLabels: Record<string, string> = {
     </section>
   </main>
 
-  <!-- Invitation Modal -->
-  <div id="invitation-modal" class="fixed inset-0 z-[200] bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-6">
-    <div class="bg-white rounded-2xl p-6 md:p-10 max-w-md w-full shadow-2xl">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="font-headline font-bold text-lg text-on-surface">Request Invitation</h3>
-        <button id="invitation-modal-close" class="p-1 text-on-surface-variant hover:text-on-surface">
-          <span class="material-symbols-outlined">close</span>
-        </button>
-      </div>
-      <p id="invitation-event-name" class="text-sm text-on-surface-variant mb-6"></p>
-      <form id="invitation-form" class="space-y-4">
-        <input
-          type="email" name="email" required
-          class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          placeholder="Your email address"
-        />
-        <button type="submit" class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold text-sm hover:bg-primary-dim transition-all">
-          Submit Request
-        </button>
-        <span id="invitation-status" class="text-xs font-medium hidden block text-center"></span>
-      </form>
-    </div>
-  </div>
-
   <script is:inline>
     var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMVo_A42bOVHL51h8UJ2tTp7VP3q7uc0uKRDLcu5Cg0xVG3kNpfWNxvV19SkCFmxjUg/exec';
-
-    // Request Invitation modal
-    var modal = document.getElementById('invitation-modal');
-    var modalClose = document.getElementById('invitation-modal-close');
-    var eventNameEl = document.getElementById('invitation-event-name');
-    var invForm = document.getElementById('invitation-form');
-    var invStatus = document.getElementById('invitation-status');
-    var currentEvent = '';
-
-    document.querySelectorAll('button').forEach(function(btn) {
-      if (btn.textContent.trim() === 'Request Invitation') {
-        btn.addEventListener('click', function() {
-          var card = btn.closest('div[class*="rounded-2xl"]');
-          var title = card ? (card.querySelector('h3') || {}).textContent : '';
-          currentEvent = (title || '').trim();
-          if (eventNameEl) eventNameEl.textContent = currentEvent ? 'Event: ' + currentEvent : '';
-          if (invStatus) { invStatus.classList.add('hidden'); }
-          if (invForm) invForm.reset();
-          modal?.classList.remove('hidden');
-        });
-      }
-    });
-
-    modalClose?.addEventListener('click', function() { modal?.classList.add('hidden'); });
-    modal?.addEventListener('click', function(e) { if (e.target === modal) modal.classList.add('hidden'); });
-
-    invForm?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var email = invForm.querySelector('input[name="email"]').value;
-      var btn = invForm.querySelector('button[type="submit"]');
-      btn.disabled = true; btn.textContent = 'Submitting...';
-
-      fetch(SHEET_URL, {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ formType: 'invitation', email: email, event: currentEvent }),
-      }).then(function() {
-        invStatus.textContent = 'Request submitted! We will be in touch.';
-        invStatus.className = 'text-xs font-medium text-green-600 block text-center';
-        invStatus.classList.remove('hidden');
-        invForm.reset();
-      }).catch(function() {
-        invStatus.textContent = 'Something went wrong. Please try again.';
-        invStatus.className = 'text-xs font-medium text-red-500 block text-center';
-        invStatus.classList.remove('hidden');
-      }).finally(function() { btn.disabled = false; btn.textContent = 'Submit Request'; });
-    });
 
     // Dialogue page newsletter
     var dlForm = document.querySelector('.dialogue-newsletter-form');

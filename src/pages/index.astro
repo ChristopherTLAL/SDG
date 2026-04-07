@@ -66,6 +66,7 @@ const processedProjects = (projects || []).map((project: any, i: number) => ({
 // Pre-process upcoming dialogues
 const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
   title: t(d.title),
+  slug: d.slug,
   dateStr: d.date ? new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase() : '',
 }));
 ---
@@ -294,21 +295,15 @@ const processedDialogues = (upcomingDialogues || []).map((d: any) => ({
             <h4 class="text-xl font-bold mb-3 font-headline">Upcoming Dialogues</h4>
             <div class="space-y-4">
               {processedDialogues.length > 0 ? processedDialogues.map((d) => (
-                <div class="flex gap-4 items-center">
+                <a href={`/dialogues/${d.slug}`} class="flex gap-4 items-center hover:opacity-80 transition-opacity">
                   <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">{d.dateStr}</span>
                   <p class="text-sm font-medium opacity-90">{d.title}</p>
-                </div>
+                </a>
               )) : (
-                <>
-                  <div class="flex gap-4 items-center">
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">TBD</span>
-                    <p class="text-sm font-medium opacity-90">Urban Resilience: Post-Pandemic Architecture in Asia</p>
-                  </div>
-                  <div class="flex gap-4 items-center">
-                    <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">TBD</span>
-                    <p class="text-sm font-medium opacity-90">Decoding Carbon Markets: A Practical Workshop</p>
-                  </div>
-                </>
+                <a href="/dialogues" class="flex gap-4 items-center hover:opacity-80 transition-opacity">
+                  <span class="text-[10px] font-bold bg-white/20 px-2 py-1 rounded uppercase">VIEW</span>
+                  <p class="text-sm font-medium opacity-90">Browse all dialogues and events</p>
+                </a>
               )}
             </div>
           </div>

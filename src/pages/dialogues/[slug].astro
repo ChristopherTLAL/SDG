@@ -1,0 +1,138 @@
+---
+// src/pages/dialogues/[slug].astro — Dialogue detail page
+import MainLayout from '../../layouts/MainLayout.astro';
+import SdgChip from '../../components/SdgChip.astro';
+import { getDialogueBySlug, getAllDialogueSlugs } from '../../lib/sanity/queries';
+import { formatDate } from '../../utils/date';
+import { getIllustration } from '../../utils/illustrations';
+
+const lang = 'en';
+const { slug } = Astro.params;
+const [dialogue, allSlugs] = await Promise.all([
+  getDialogueBySlug(slug!),
+  getAllDialogueSlugs(),
+]);
+
+if (!dialogue) return Astro.redirect('/dialogues');
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+const title = t(dialogue.title);
+const description = t(dialogue.description);
+const location = t(dialogue.location);
+
+const eventTypeLabels: Record<string, string> = {
+  assembly: 'Assembly',
+  panel: 'Expert Panel',
+  workshop: 'Workshop',
+  forum: 'Forum',
+};
+const eventTypeIcons: Record<string, string> = {
+  assembly: 'groups',
+  panel: 'forum',
+  workshop: 'build',
+  forum: 'podium',
+};
+
+const typeLabel = eventTypeLabels[dialogue.eventType] || dialogue.eventType;
+const typeIcon = eventTypeIcons[dialogue.eventType] || 'event';
+
+const dialogueIndex = allSlugs.indexOf(slug!);
+const heroImage = getIllustration(dialogueIndex >= 0 ? dialogueIndex : 0);
+
+// Split description: main content vs disclaimer
+const descParts = description.split(/\n\nDisclaimer:/i);
+const mainDesc = descParts[0] || '';
+const disclaimer = descParts.length > 1 ? descParts[1].trim() : '';
+---
+
+<MainLayout title={`${title} | Chinese SDGs Institute`} description={mainDesc.slice(0, 160)} lang={lang}>
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6 md:mb-8">
+        <a href="/dialogues" class="hover:text-primary transition-colors">Dialogues</a>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-primary font-bold">{typeLabel}</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10 md:mb-16">
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest">
+            <span class="material-symbols-outlined text-xs">{typeIcon}</span>
+            {typeLabel}
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-5">
+          {title}
+        </h1>
+
+        <div class="flex flex-wrap gap-4 text-sm text-on-surface-variant mb-4">
+          {dialogue.date && (
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">event</span>
+              <span>
+                <span class="font-semibold text-on-surface">{formatDate(dialogue.date, lang)}</span>
+                {dialogue.endDate && <span> &ndash; {formatDate(dialogue.endDate, lang)}</span>}
+              </span>
+            </div>
+          )}
+          {location && (
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base">location_on</span>
+              <span>{location}</span>
+            </div>
+          )}
+        </div>
+
+        {dialogue.sdgTags && dialogue.sdgTags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-4">
+            {dialogue.sdgTags.map((tag: string) => (
+              <SdgChip tag={tag} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Hero Image -->
+      <div class="mb-10 md:mb-16 rounded-2xl aspect-[16/9] bg-surface-container-low overflow-hidden flex items-center justify-center">
+        <img src={heroImage} alt={title} class="h-full object-contain" />
+      </div>
+
+      <!-- Description -->
+      {mainDesc && (
+        <div class="mb-12 md:mb-20">
+          <h2 class="text-lg font-headline font-bold text-on-surface mb-4">About This Event</h2>
+          <p class="text-on-surface-variant leading-relaxed text-base md:text-lg whitespace-pre-line">{mainDesc}</p>
+        </div>
+      )}
+
+      <!-- Disclaimer -->
+      {disclaimer && (
+        <div class="mb-12 md:mb-20 px-5 py-4 bg-surface-container-low rounded-xl border border-outline-variant/10">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-on-surface-variant text-xl mt-0.5">info</span>
+            <div>
+              <span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant font-bold block mb-1">Disclaimer</span>
+              <p class="text-sm text-on-surface-variant leading-relaxed">{disclaimer}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Back link -->
+      <div class="mt-12 pt-8 border-t border-outline-variant/10">
+        <a href="/dialogues" class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">arrow_back</span>
+          Back to Dialogues
+        </a>
+      </div>
+    </div>
+  </main>
+</MainLayout>
