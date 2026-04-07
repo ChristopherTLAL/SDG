@@ -106,10 +106,12 @@ export async function getAllPostSlugs() {
 export async function getProjects(lang: string = 'en') {
   const query = /* groq */ `
     *[_type == "project" && defined(slug.current)]
-    | order(_createdAt desc){
+    | order(applicationDeadline desc){
       "slug": slug.current,
       "title": title,
+      projectType,
       status,
+      applicationDeadline,
       "description": description,
       mainImage,
       team,
@@ -119,6 +121,37 @@ export async function getProjects(lang: string = 'en') {
   `;
   const data = await client.fetch(query);
   return Array.isArray(data) ? data : [];
+}
+
+export async function getProjectBySlug(slug: string) {
+  const query = /* groq */ `
+    *[_type == "project" && slug.current == $slug][0]{
+      "slug": slug.current,
+      "title": title,
+      projectType,
+      status,
+      applicationDeadline,
+      "description": description,
+      "body": body,
+      mainImage{
+        asset->{url, metadata{lqip}}
+      },
+      team,
+      sdgTags,
+      icon
+    }
+  `;
+  return client.fetch(query, { slug });
+}
+
+export async function getAllProjectSlugs() {
+  const query = /* groq */ `
+    *[_type == "project" && defined(slug.current)]{
+      "slug": slug.current
+    }
+  `;
+  const list = await client.fetch(query);
+  return (Array.isArray(list) ? list : []).map((p: any) => p.slug);
 }
 
 // ── Dialogues (Events) ───────────────────────────────────────

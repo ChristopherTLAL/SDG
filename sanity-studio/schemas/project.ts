@@ -28,6 +28,19 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'projectType',
+      title: 'Project Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Paper Competition', value: 'paper-competition'},
+          {title: 'Social Project', value: 'social-project'},
+          {title: 'Research Collaboration', value: 'research-collaboration'},
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
       name: 'status',
       title: 'Status',
       type: 'string',
@@ -41,6 +54,12 @@ export default defineType({
         layout: 'radio',
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'applicationDeadline',
+      title: 'Application Deadline',
+      type: 'datetime',
+      description: 'When applications close for this project',
     }),
     defineField({
       name: 'description',

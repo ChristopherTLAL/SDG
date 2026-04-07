@@ -1,0 +1,260 @@
+---
+// src/pages/projects/[slug].astro — Project detail page with registration form
+import MainLayout from '../../layouts/MainLayout.astro';
+import SdgChip from '../../components/SdgChip.astro';
+import { getProjectBySlug } from '../../lib/sanity/queries';
+import { formatDate } from '../../utils/date';
+import { getIllustration } from '../../utils/illustrations';
+
+const lang = 'en';
+const { slug } = Astro.params;
+const project = await getProjectBySlug(slug!);
+
+if (!project) return Astro.redirect('/projects');
+
+function t(field: any): string {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] || field.en || '';
+}
+
+const title = t(project.title);
+const description = t(project.description);
+const isClosed = project.status === 'completed';
+const isActive = !isClosed;
+
+const typeLabels: Record<string, string> = {
+  'paper-competition': 'Paper Competition',
+  'social-project': 'Social Project',
+  'research-collaboration': 'Research Collaboration',
+};
+const typeIcons: Record<string, string> = {
+  'paper-competition': 'edit_document',
+  'social-project': 'volunteer_activism',
+  'research-collaboration': 'science',
+};
+const projectTypeLabel = typeLabels[project.projectType] || 'Project';
+const projectTypeIcon = typeIcons[project.projectType] || 'folder';
+
+const statusLabels: Record<string, string> = {
+  active: 'Open for Applications',
+  recruiting: 'Recruiting',
+  ongoing: 'In Progress',
+  completed: 'Closed',
+};
+const statusLabel = statusLabels[project.status] || project.status;
+
+const iconImageMap: Record<string, string> = {
+  air: '/images/air.png',
+  diversity_3: '/images/inclusion.png',
+  eco: '/images/decarbon.png',
+  water_drop: '/images/water.png',
+  park: '/images/roof.png',
+  account_balance: '/images/fintech.png',
+  school: '/images/inclusion.png',
+  science: '/images/decarbon.png',
+  edit_document: '/images/fintech.png',
+  volunteer_activism: '/images/inclusion.png',
+};
+const heroImage = iconImageMap[project.icon] || '/images/inclusion.png';
+---
+
+<MainLayout title={`${title} | Chinese SDGs Institute`} description={description} lang={lang}>
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6 md:mb-8">
+        <a href="/projects" class="hover:text-primary transition-colors">Projects</a>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-primary font-bold">{projectTypeLabel}</span>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10 md:mb-16">
+        <div class="flex flex-wrap items-center gap-3 mb-5">
+          <span class:list={[
+            'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest',
+            isActive ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-surface-container text-on-surface-variant border border-outline-variant/20'
+          ]}>
+            <span class="material-symbols-outlined text-xs">{isActive ? 'radio_button_checked' : 'check_circle'}</span>
+            {statusLabel}
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest">
+            <span class="material-symbols-outlined text-xs">{projectTypeIcon}</span>
+            {projectTypeLabel}
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-5">
+          {title}
+        </h1>
+
+        {project.applicationDeadline && (
+          <div class="flex items-center gap-2 text-sm text-on-surface-variant mb-4">
+            <span class="material-symbols-outlined text-base">event</span>
+            <span>
+              {isClosed ? 'Closed' : 'Deadline'}:
+              <span class="font-semibold text-on-surface">{formatDate(project.applicationDeadline, lang)}</span>
+            </span>
+          </div>
+        )}
+
+        {project.sdgTags && project.sdgTags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-4">
+            {project.sdgTags.map((tag: string) => (
+              <SdgChip tag={tag} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Hero Image -->
+      <div class="mb-10 md:mb-16 rounded-2xl aspect-[16/9] bg-surface-container-low overflow-hidden flex items-center justify-center">
+        <img src={heroImage} alt={title} class="h-full object-contain" />
+      </div>
+
+      <!-- Description -->
+      {description && (
+        <div class="mb-12 md:mb-20">
+          <h2 class="text-lg font-headline font-bold text-on-surface mb-4">About This Project</h2>
+          <p class="text-on-surface-variant leading-relaxed text-base md:text-lg whitespace-pre-line">{description}</p>
+        </div>
+      )}
+
+      {project.team && (
+        <div class="mb-12 md:mb-20 flex items-center gap-3 px-5 py-4 bg-surface-container-low rounded-xl">
+          <span class="material-symbols-outlined text-primary text-xl">groups</span>
+          <div>
+            <span class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant font-bold block">Organizer</span>
+            <span class="text-sm font-semibold text-on-surface">{project.team}</span>
+          </div>
+        </div>
+      )}
+
+      <!-- Registration Form -->
+      <div class="bg-white p-6 md:p-10 lg:p-14 rounded-2xl border border-surface-container-high shadow-sm relative overflow-hidden" id="apply">
+        {isClosed && (
+          <div class="absolute inset-0 bg-white/60 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/40 mb-4">event_busy</span>
+            <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Applications Closed</h3>
+            <p class="text-sm text-on-surface-variant max-w-sm text-center">This project is no longer accepting applications. Browse our <a href="/projects" class="text-primary font-semibold hover:underline">active projects</a> for open opportunities.</p>
+          </div>
+        )}
+
+        <h2 class="text-2xl font-headline font-extrabold text-on-surface mb-2">
+          {isActive ? 'Apply to This Project' : 'Registration Form'}
+        </h2>
+        <p class="text-sm text-on-surface-variant mb-10">
+          {isActive ? 'Fill out the form below to express your interest. We will review your application and get back to you.' : 'This project is no longer accepting applications.'}
+        </p>
+
+        <form id="project-apply-form" class="space-y-8">
+          <input type="hidden" name="project" value={title} />
+          <input type="hidden" name="projectSlug" value={slug} />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="apply-name" class="block text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-2">Full Name *</label>
+              <input
+                type="text" id="apply-name" name="name" required
+                class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label for="apply-email" class="block text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-2">Email *</label>
+              <input
+                type="email" id="apply-email" name="email" required
+                class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="apply-affiliation" class="block text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-2">Affiliation / University</label>
+              <input
+                type="text" id="apply-affiliation" name="affiliation"
+                class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                placeholder="e.g. Peking University"
+              />
+            </div>
+            <div>
+              <label for="apply-role" class="block text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-2">Role / Title</label>
+              <input
+                type="text" id="apply-role" name="role"
+                class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                placeholder="e.g. Graduate Student, Researcher"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="apply-message" class="block text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-2">Why are you interested? *</label>
+            <textarea
+              id="apply-message" name="message" required rows="4"
+              class="w-full px-4 py-3 rounded-lg border border-outline-variant/20 bg-surface text-on-surface text-sm font-body focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-y"
+              placeholder="Briefly tell us about your interest and relevant experience..."
+            ></textarea>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              type="submit"
+              class="bg-primary text-on-primary px-10 py-3.5 rounded-md font-bold text-sm hover:bg-primary-dim transition-all shadow-sm inline-flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg">send</span>
+              Submit Application
+            </button>
+            <span id="apply-status" class="text-sm font-medium hidden"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-12 pt-8 border-t border-outline-variant/10">
+        <a href="/projects" class="text-sm font-bold text-primary hover:underline underline-offset-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">arrow_back</span>
+          Back to Projects
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script is:inline>
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtMVo_A42bOVHL51h8UJ2tTp7VP3q7uc0uKRDLcu5Cg0xVG3kNpfWNxvV19SkCFmxjUg/exec';
+    var form = document.getElementById('project-apply-form');
+    var status = document.getElementById('apply-status');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        if (!btn || !status) return;
+        btn.disabled = true;
+        var origText = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span> Submitting...';
+
+        var data = {};
+        new FormData(form).forEach(function(v, k) { data[k] = v; });
+        data.formType = 'project-application';
+        data.source = window.location.pathname;
+
+        fetch(SHEET_URL, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        }).then(function() {
+          status.textContent = 'Application submitted successfully!';
+          status.className = 'text-sm font-medium text-green-600';
+          status.classList.remove('hidden');
+          form.reset();
+        }).catch(function() {
+          status.textContent = 'Something went wrong. Please try again.';
+          status.className = 'text-sm font-medium text-red-500';
+          status.classList.remove('hidden');
+        }).finally(function() {
+          btn.disabled = false;
+          btn.innerHTML = origText;
+        });
+      });
+    }
+  </script>
+</MainLayout>
