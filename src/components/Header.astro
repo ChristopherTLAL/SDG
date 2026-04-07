@@ -16,8 +16,8 @@ function isActive(href: string) {
 
 <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-outline-variant/10">
   <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 md:px-12 h-20">
-    <a href="/" class="text-xl font-bold tracking-tighter text-primary font-headline">
-      Chinese SDGs Institute
+    <a href="/" class="logo-text text-xl font-bold tracking-tighter text-primary font-headline flex items-baseline overflow-hidden whitespace-nowrap">
+      <span class="logo-letter logo-keep">C</span><span class="logo-letter logo-hide">h</span><span class="logo-letter logo-hide">i</span><span class="logo-letter logo-hide">n</span><span class="logo-letter logo-hide">e</span><span class="logo-letter logo-hide">s</span><span class="logo-letter logo-hide">e</span><span class="logo-letter logo-hide logo-space">&nbsp;</span><span class="logo-letter logo-keep logo-sdg">S</span><span class="logo-letter logo-keep logo-sdg">D</span><span class="logo-letter logo-keep logo-sdg">G</span><span class="logo-letter logo-keep logo-sdg">s</span><span class="logo-letter logo-hide logo-space">&nbsp;</span><span class="logo-letter logo-keep">I</span><span class="logo-letter logo-hide">n</span><span class="logo-letter logo-hide">s</span><span class="logo-letter logo-hide">t</span><span class="logo-letter logo-hide">i</span><span class="logo-letter logo-hide">t</span><span class="logo-letter logo-hide">u</span><span class="logo-letter logo-hide">t</span><span class="logo-letter logo-hide">e</span>
     </a>
 
     <!-- Desktop Nav -->
@@ -197,6 +197,31 @@ function isActive(href: string) {
     location.reload();
   });
 
+  // Logo morph on scroll
+  (function() {
+    var header = document.querySelector('header');
+    var scrollThreshold = 50;
+    var ticking = false;
+
+    function updateLogo() {
+      if (window.scrollY > scrollThreshold) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateLogo);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    updateLogo();
+  })();
+
   // Mobile menu
   var toggle = document.getElementById('mobile-menu-toggle');
   var menu = document.getElementById('mobile-menu');
@@ -220,4 +245,32 @@ function isActive(href: string) {
   }
   body { top: 0 !important; }
   .goog-text-highlight { background: none !important; box-shadow: none !important; }
+
+  /* Logo morph animation */
+  .logo-letter {
+    display: inline-block;
+    transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    white-space: pre;
+  }
+  .logo-hide {
+    max-width: 1em;
+    opacity: 1;
+  }
+  .logo-space {
+    max-width: 0.35em;
+  }
+  .logo-sdg {
+    transition: color 0.4s ease;
+  }
+
+  /* Scrolled state */
+  header.scrolled .logo-hide {
+    max-width: 0;
+    opacity: 0;
+  }
+  header.scrolled .logo-sdg {
+    color: #6b8f71;
+  }
 </style>
