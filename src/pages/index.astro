@@ -5,6 +5,7 @@ import NewsletterForm from '../components/NewsletterForm.astro';
 import { getHomepageData } from '../lib/sanity/queries';
 import { urlForImage } from '../lib/sanity/image';
 import { formatDate } from '../utils/date';
+import { getIllustration } from '../utils/illustrations';
 
 const lang = 'en';
 const data = await getHomepageData(lang);
@@ -49,19 +50,13 @@ const processedTrending = (trendingPosts || []).map((post: any, i: number) => ({
   label: `${String(i + 1).padStart(2, '0')}. ${contentTypeLabels[post.contentType] || post.contentType || 'Article'}`,
 }));
 
-const iconImageMap: Record<string, string> = {
-  air: '/images/air.png', diversity_3: '/images/inclusion.png', eco: '/images/decarbon.png',
-  water_drop: '/images/water.png', park: '/images/roof.png', account_balance: '/images/fintech.png',
-  school: '/images/inclusion.png',
-};
-
 // Pre-process projects
-const processedProjects = (projects || []).map((project: any) => ({
+const processedProjects = (projects || []).map((project: any, i: number) => ({
   title: t(project.title),
   description: t(project.description),
   slug: project.slug,
   icon: project.icon || 'eco',
-  image: iconImageMap[project.icon] || '',
+  image: getIllustration(i),
   status: project.status || 'active',
   statusClass: statusColors[project.status] || statusColors.active,
   team: project.team || '',

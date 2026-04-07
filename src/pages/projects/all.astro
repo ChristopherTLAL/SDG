@@ -2,6 +2,7 @@
 // src/pages/projects/all.astro — All Projects editorial listing (English)
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getProjects } from '../../lib/sanity/queries';
+import { getIllustration } from '../../utils/illustrations';
 
 const lang = 'en';
 const projects = await getProjects(lang);
@@ -16,18 +17,12 @@ const statusLabels: Record<string, string> = {
   active: 'Active', recruiting: 'Recruiting', ongoing: 'Ongoing', completed: 'Completed',
 };
 
-const iconImageMap: Record<string, string> = {
-  air: '/images/air.png', diversity_3: '/images/inclusion.png', eco: '/images/decarbon.png',
-  water_drop: '/images/water.png', park: '/images/roof.png', account_balance: '/images/fintech.png',
-  school: '/images/inclusion.png',
-};
-
-const processed = projects.map((p: any) => ({
+const processed = projects.map((p: any, i: number) => ({
   title: t(p.title),
   description: t(p.description),
   slug: p.slug,
   icon: p.icon || 'eco',
-  image: iconImageMap[p.icon] || '',
+  image: getIllustration(i),
   status: p.status || 'active',
   statusLabel: statusLabels[p.status] || p.status || 'Active',
   team: p.team || '',

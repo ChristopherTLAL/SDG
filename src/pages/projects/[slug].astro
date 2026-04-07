@@ -44,19 +44,8 @@ const statusLabels: Record<string, string> = {
 };
 const statusLabel = statusLabels[project.status] || project.status;
 
-const iconImageMap: Record<string, string> = {
-  air: '/images/air.png',
-  diversity_3: '/images/inclusion.png',
-  eco: '/images/decarbon.png',
-  water_drop: '/images/water.png',
-  park: '/images/roof.png',
-  account_balance: '/images/fintech.png',
-  school: '/images/inclusion.png',
-  science: '/images/decarbon.png',
-  edit_document: '/images/fintech.png',
-  volunteer_activism: '/images/inclusion.png',
-};
-const heroImage = iconImageMap[project.icon] || '/images/inclusion.png';
+// Use illustration system — hash slug to get a deterministic image
+const heroImage = getIllustration(slug!.split('').reduce((h: number, c: string) => ((h << 5) + h + c.charCodeAt(0)) >>> 0, 5381));
 ---
 
 <MainLayout title={`${title} | Chinese SDGs Institute`} description={description} lang={lang}>

@@ -3,6 +3,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import { getProjects } from '../../lib/sanity/queries';
+import { getIllustration } from '../../utils/illustrations';
 
 const lang = 'en';
 const projects = await getProjects(lang);
@@ -12,16 +13,6 @@ function t(field: any): string {
   if (typeof field === 'string') return field;
   return field[lang] || field.en || '';
 }
-
-const iconImageMap: Record<string, string> = {
-  air: '/images/air.png',
-  diversity_3: '/images/inclusion.png',
-  eco: '/images/decarbon.png',
-  water_drop: '/images/water.png',
-  park: '/images/roof.png',
-  account_balance: '/images/fintech.png',
-  school: '/images/inclusion.png',
-};
 
 // Show max 4 in bento grid: 1 featured (8-col) + 3 small (4-col)
 const topProjects = projects.slice(0, 4);
@@ -35,17 +26,17 @@ const processedFeatured = featured ? {
   description: t(featured.description),
   slug: featured.slug,
   icon: featured.icon || 'school',
-  image: iconImageMap[featured.icon] || '',
+  image: getIllustration(0),
   status: featured.status || 'active',
   team: featured.team || '',
 } : null;
 
-const processedRest = rest.map((p: any) => ({
+const processedRest = rest.map((p: any, i: number) => ({
   title: t(p.title),
   description: t(p.description),
   slug: p.slug,
   icon: p.icon || 'eco',
-  image: iconImageMap[p.icon] || '',
+  image: getIllustration(1 + i),
   status: p.status || 'active',
   team: p.team || '',
 }));
