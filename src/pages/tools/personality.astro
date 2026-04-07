@@ -26,17 +26,20 @@ const lang = 'en';
         </div>
       </div>
 
-      <!-- Nav panel -->
-      <div class="mdpa-nav" id="nav" style="display:none">
-        <div class="mdpa-nav-header" onclick="toggleNav()">
-          <span id="nav-title">第 1 / 114 题</span>
-          <span class="mdpa-nav-toggle" id="nav-toggle">展开导航</span>
+      <!-- Two-column layout: nav sidebar + main content -->
+      <div class="mdpa-layout" id="mdpa-layout">
+        <!-- Sidebar nav (always visible on desktop) -->
+        <div class="mdpa-sidebar" id="nav" style="display:none">
+          <div class="mdpa-nav-header">
+            <span id="nav-title">第 1 / 114 题</span>
+            <div class="mdpa-progress-bar"><div class="mdpa-progress-fill" id="nav-progress"></div></div>
+          </div>
+          <div class="mdpa-nav-grid" id="nav-grid"></div>
         </div>
-        <div class="mdpa-nav-grid" id="nav-grid"></div>
-      </div>
 
-      <!-- Main app container -->
-      <div class="mdpa-main" id="app"></div>
+        <!-- Main app container -->
+        <div class="mdpa-main" id="app"></div>
+      </div>
 
     </div>
   </main>
@@ -55,51 +58,65 @@ const lang = 'en';
     --mdpa-amber: #d97706;
     --mdpa-purple: #7c3aed;
     --mdpa-teal: #0d9488;
+    --mdpa-card-min-h: 420px;
   }
 
-  /* Nav panel — sticky below fixed header */
-  .mdpa-nav {
+  /* ===== TWO-COLUMN LAYOUT ===== */
+  .mdpa-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  /* Sidebar nav — sticky, always visible on desktop */
+  .mdpa-sidebar {
     position: sticky;
-    top: 80px;
-    z-index: 50;
+    top: 88px;
+    width: 200px;
+    min-width: 200px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(0,0,0,0.06);
     border-radius: 16px;
-    padding: 10px 14px;
-    margin-bottom: 16px;
+    padding: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    z-index: 50;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
   }
+  .mdpa-sidebar::-webkit-scrollbar { width: 4px; }
+  .mdpa-sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
   .mdpa-nav-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     color: #1e293b;
+    margin-bottom: 10px;
   }
-  .mdpa-nav-toggle {
-    font-size: 12px;
-    color: var(--mdpa-primary);
-    padding: 4px 10px;
-    border: 1px solid var(--mdpa-primary);
-    border-radius: 8px;
-    font-weight: 600;
+  .mdpa-progress-bar {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .mdpa-progress-fill {
+    height: 100%;
+    background: var(--mdpa-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
   }
   .mdpa-nav-grid {
-    display: none;
-    grid-template-columns: repeat(15, 1fr);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 3px;
-    margin-top: 8px;
-    padding: 4px 0;
   }
-  .mdpa-nav-grid.open { display: grid; }
   .mdpa-nav-sq {
     width: 100%;
     aspect-ratio: 1;
-    border-radius: 6px;
+    border-radius: 5px;
     border: none;
     font-size: 9px;
     cursor: pointer;
@@ -112,12 +129,34 @@ const lang = 'en';
   .mdpa-nav-sq.done { background: var(--mdpa-green-light); color: var(--mdpa-green); }
   .mdpa-nav-sq.current { background: var(--mdpa-primary); color: #fff; }
   .mdpa-nav-sq.empty { background: #e2e8f0; color: #94a3b8; }
-  .mdpa-nav-sq.break { background: #fef3c7; color: var(--mdpa-amber); }
+
+  /* Mobile: sidebar becomes compact sticky top bar */
+  @media (max-width: 767px) {
+    .mdpa-layout {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mdpa-sidebar {
+      position: sticky;
+      top: 64px;
+      width: 100%;
+      min-width: 100%;
+      max-height: none;
+      overflow: visible;
+      padding: 10px 14px;
+    }
+    .mdpa-nav-grid {
+      grid-template-columns: repeat(10, 1fr);
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    :root { --mdpa-card-min-h: 360px; }
+  }
 
   /* Main content area */
-  .mdpa-main { padding: 0; max-width: 640px; margin: 0 auto; }
+  .mdpa-main { flex: 1; min-width: 0; max-width: 640px; }
 
-  /* Card */
+  /* Card — uniform size for all question types */
   .mdpa-card {
     background: #fff;
     border-radius: 16px;
@@ -125,6 +164,10 @@ const lang = 'en';
     margin-bottom: 14px;
     border: 1px solid rgba(0,0,0,0.06);
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    min-height: var(--mdpa-card-min-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   /* Scenario text */
@@ -191,11 +234,14 @@ const lang = 'en';
   .mdpa-sort-item.r3 .rank-num { background: #4a9e85; }
   .mdpa-sort-item.r4 .rank-num { background: #cbd5e1; }
 
-  /* Binary choice */
-  .mdpa-bin-row { display: flex; gap: 10px; }
+  /* Binary choice — stacked for bigger touch targets */
+  .mdpa-bin-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   .mdpa-bin-opt {
-    flex: 1;
-    padding: 14px;
+    padding: 20px 18px;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
     cursor: pointer;
@@ -213,13 +259,13 @@ const lang = 'en';
   .mdpa-anchor {
     background: var(--mdpa-gray-light);
     border-radius: 12px;
-    padding: 12px;
+    padding: 14px;
     font-size: 14px;
     line-height: 1.6;
     font-family: 'Inter', sans-serif;
   }
   .mdpa-anchor b { color: var(--mdpa-primary); }
-  .mdpa-slider-wrap { margin: 16px 0; padding: 0 4px; }
+  .mdpa-slider-wrap { margin: 20px 0; padding: 0 4px; }
   .mdpa-slider-labels {
     display: flex;
     justify-content: space-between;
@@ -238,9 +284,9 @@ const lang = 'en';
   }
   .mdpa-main input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
     background: var(--mdpa-primary);
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -251,6 +297,7 @@ const lang = 'en';
     color: var(--mdpa-primary);
     font-weight: 600;
     min-height: 24px;
+    margin-top: 8px;
     font-family: 'Inter', sans-serif;
   }
   .mdpa-av-unset { color: var(--mdpa-gray); font-style: italic; }
@@ -260,7 +307,7 @@ const lang = 'en';
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
+    padding: 14px 28px;
     background: var(--mdpa-primary);
     color: #fff;
     border: none;
@@ -277,7 +324,7 @@ const lang = 'en';
   .mdpa-btn-outline {
     background: transparent;
     color: var(--mdpa-primary);
-    border: 1.5px solid var(--mdpa-primary);
+    border: 2px solid var(--mdpa-primary);
   }
   .mdpa-btn-outline:hover { background: var(--mdpa-primary-light); }
   .mdpa-btn-sm { padding: 8px 16px; font-size: 13px; }
@@ -286,6 +333,11 @@ const lang = 'en';
   .mdpa-break-page {
     text-align: center;
     padding: 48px 24px;
+    min-height: var(--mdpa-card-min-h);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .mdpa-break-page h2 {
     font-size: 24px;
@@ -302,6 +354,8 @@ const lang = 'en';
   }
 
   /* Report */
+  .mdpa-report { max-width: 720px; }
+  .mdpa-report .mdpa-card { min-height: auto; display: block; }
   .mdpa-report h2 {
     margin: 28px 0 14px;
     font-size: 22px;
@@ -344,13 +398,6 @@ const lang = 'en';
     color: var(--mdpa-primary);
     font-family: 'Manrope', sans-serif;
   }
-  .mdpa-cluster-card {
-    background: var(--mdpa-gray-light);
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 10px;
-    font-family: 'Inter', sans-serif;
-  }
   .mdpa-tag {
     display: inline-block;
     padding: 2px 10px;
@@ -362,22 +409,19 @@ const lang = 'en';
   .mdpa-tag-n { background: #fecaca; color: #991b1b; }
   .mdpa-tag-s { background: var(--mdpa-green-light); color: #166534; }
   .mdpa-tag-m { background: #fef3c7; color: #92400e; }
-  .mdpa-profile-box {
-    margin-top: 14px;
-    padding: 14px;
-    background: var(--mdpa-primary-light);
-    border-radius: 12px;
-    border-left: 4px solid var(--mdpa-primary);
-    font-family: 'Inter', sans-serif;
+  .mdpa-radar-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
   }
   .mdpa-json-box {
     margin-top: 16px;
     padding: 12px;
     background: var(--mdpa-gray-light);
     border-radius: 10px;
-    font-size: 11px;
+    font-size: 10px;
     word-break: break-all;
-    max-height: 180px;
+    max-height: 200px;
     overflow: auto;
     cursor: pointer;
     font-family: monospace;
@@ -550,20 +594,17 @@ var app;
 function renderNav(){
   var t=document.getElementById('nav-title');
   var g=document.getElementById('nav-grid');
+  var p=document.getElementById('nav-progress');
   var answered=Object.keys(S.resp).filter(function(k){return !k.startsWith('_');}).length;
   var total=S.order.length;
-  t.textContent='第 '+(S.idx+1)+' / '+total+' 题 \u00B7 已答 '+answered;
+  t.textContent='\u7B2C '+(S.idx+1)+' / '+total+' \u9898 \u00B7 \u5DF2\u7B54 '+answered;
+  if(p)p.style.width=Math.round(answered/total*100)+'%';
   var h='';
   for(var i=0;i<S.order.length;i++){
     var cls=i===S.idx?'current':S.resp[S.order[i].id]?'done':'empty';
     h+='<button class="mdpa-nav-sq '+cls+'" onclick="jumpTo('+i+')">'+(i+1)+'</button>';
   }
   g.innerHTML=h;
-}
-function toggleNav(){
-  S.navOpen=!S.navOpen;
-  document.getElementById('nav-grid').classList.toggle('open',S.navOpen);
-  document.getElementById('nav-toggle').textContent=S.navOpen?'收起':'展开导航';
 }
 function jumpTo(i){S.idx=i;render();}
 
@@ -796,6 +837,7 @@ function showCompletionPage(){
 // ======== ANALYSIS ========
 function runAnalysis(){
   document.getElementById('nav').style.display='none';
+  document.querySelector('.mdpa-main').style.maxWidth='720px';
   // 1. Pairwise expansion with null reference
   var comps=[];
   Object.values(S.resp).forEach(function(r){
@@ -909,65 +951,118 @@ function runAnalysis(){
 }
 
 // ======== REPORT ========
-function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
-  var DN={E:'外向性',O:'开放性',C:'尽责性',A:'宜人性'};
-  var DC={E:'#3b82f6',O:'#8b5cf6',C:'#10b981',A:'#f59e0b'};
-  var sorted=Object.entries(lamCal).sort(function(a,b){return b[1]-a[1];});
-  var vals=sorted.map(function(s){return s[1];});
-  var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals),rng=mx-mn||1;
+function drawRadar(canvasId,lamCal,nScore){
+  var c=document.getElementById(canvasId);
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W=c.width,H=c.height,cx=W/2,cy=H/2;
+  var R=Math.min(cx,cy)-40;
+  // OCEAN order: O C E A N
+  var dims=['O','C','E','A','N'];
+  var labels=['\u5F00\u653E\u6027 O','\u5C3D\u8D23\u6027 C','\u5916\u5411\u6027 E','\u5B9C\u4EBA\u6027 A','\u795E\u7ECF\u8D28 N'];
+  var colors=['#8b5cf6','#10b981','#3b82f6','#f59e0b','#ef4444'];
+  // Normalize values to 0-1 range
+  var vals=[];
+  var allV=[];
+  for(var i=0;i<dims.length;i++){
+    var v=dims[i]==='N'?nScore:(lamCal[dims[i]]||0);
+    allV.push(v);
+  }
+  var mn=Math.min.apply(null,allV),mx=Math.max.apply(null,allV),rng=mx-mn||1;
+  for(var i2=0;i2<allV.length;i2++){vals.push(Math.max(0.08,(allV[i2]-mn)/rng));}
 
-  var h='<div class="mdpa-report"><h2>MDPA 多维人格评估报告</h2>';
+  var n=5;
+  function angle(i){return (Math.PI*2*i/n)-Math.PI/2;}
+
+  // Grid rings
+  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
+  for(var ring=1;ring<=4;ring++){
+    var rr=R*ring/4;
+    ctx.beginPath();
+    for(var gi=0;gi<n;gi++){
+      var a=angle(gi);
+      var x=cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr;
+      if(gi===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.closePath();ctx.stroke();
+  }
+  // Grid spokes
+  for(var si=0;si<n;si++){
+    var a=angle(si);
+    ctx.beginPath();ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.stroke();
+  }
+
+  // Filled polygon
+  ctx.beginPath();
+  for(var fi=0;fi<n;fi++){
+    var a2=angle(fi);
+    var x2=cx+Math.cos(a2)*R*vals[fi],y2=cy+Math.sin(a2)*R*vals[fi];
+    if(fi===0)ctx.moveTo(x2,y2);else ctx.lineTo(x2,y2);
+  }
+  ctx.closePath();
+  ctx.fillStyle='rgba(4,47,36,0.12)';ctx.fill();
+  ctx.strokeStyle='#042f24';ctx.lineWidth=2;ctx.stroke();
+
+  // Dots + labels
+  for(var di=0;di<n;di++){
+    var a3=angle(di);
+    var dx=cx+Math.cos(a3)*R*vals[di],dy=cy+Math.sin(a3)*R*vals[di];
+    ctx.beginPath();ctx.arc(dx,dy,5,0,Math.PI*2);
+    ctx.fillStyle=colors[di];ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+    // Labels
+    var lx=cx+Math.cos(a3)*(R+24),ly=cy+Math.sin(a3)*(R+24);
+    ctx.font='bold 13px Inter,sans-serif';ctx.fillStyle=colors[di];ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(labels[di],lx,ly);
+    // Value percentage
+    ctx.font='11px Inter,sans-serif';ctx.fillStyle='#94a3b8';
+    ctx.fillText(Math.round(vals[di]*100)+'%',lx,ly+15);
+  }
+}
+
+function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
+  // Compute N score from clusters
+  var nTotal=0,nN=0;
+  var clsEntries=Object.entries(cls);
+  for(var ci=0;ci<clsEntries.length;ci++){
+    nTotal+=clsEntries[ci][1].t;nN+=clsEntries[ci][1].n;
+  }
+  // Convert N ratio to a lambda-like scale to match E/O/C/A range
+  var nRatio=nTotal>0?nN/nTotal:0.5;
+  var vals=[lamCal.E||0,lamCal.O||0,lamCal.C||0,lamCal.A||0];
+  var vmn=Math.min.apply(null,vals),vmx=Math.max.apply(null,vals);
+  var nScore=vmn+(vmx-vmn)*nRatio;
+
+  var h='<div class="mdpa-report"><h2>MDPA \u591A\u7EF4\u4EBA\u683C\u8BC4\u4F30\u62A5\u544A</h2>';
   if(qc.length)h+='<div class="mdpa-card" style="border-left:3px solid #dc2626;font-size:14px">'+qc.join('<br>')+'</div>';
 
   // MBTI
-  h+='<div class="mdpa-card"><h3>你的 MBTI 类型</h3><div class="mdpa-mbti-type">'+mbType+'</div>';
-  var AXL={EI:['I 内向','E 外向'],NS:['S 实感','N 直觉'],FT:['T 思考','F 情感'],JP:['P 感知','J 判断']};
+  h+='<div class="mdpa-card"><h3>\u4F60\u7684 MBTI \u7C7B\u578B</h3><div class="mdpa-mbti-type">'+mbType+'</div>';
+  var AXL={EI:['I \u5185\u5411','E \u5916\u5411'],NS:['S \u5B9E\u611F','N \u76F4\u89C9'],FT:['T \u601D\u8003','F \u60C5\u611F'],JP:['P \u611F\u77E5','J \u5224\u65AD']};
   var axes=['EI','NS','FT','JP'];
   for(var axi=0;axi<axes.length;axi++){
     var ax=axes[axi];
     var v=mbStr[ax];var pct=Math.round(Math.abs(v-0.5)*200);
-    var st=pct>60?'明确':pct>20?'较明确':'边界型';
+    var st=pct>60?'\u660E\u786E':pct>20?'\u8F83\u660E\u786E':'\u8FB9\u754C\u578B';
     var stTag=pct>60?'mdpa-tag-s':pct>20?'mdpa-tag-m':'mdpa-tag-n';
     h+='<div class="mdpa-bar-wrap"><div class="mdpa-bar-label"><span style="font-size:13px">'+AXL[ax][0]+'</span><span class="mdpa-tag '+stTag+'">'+st+'</span><span style="font-size:13px">'+AXL[ax][1]+'</span></div>';
     h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+Math.round(v*100)+'%;background:'+(v>=0.5?'#042f24':'#9ca3af')+'"></div></div></div>';
   }
   h+='</div>';
 
-  // Big Five
-  h+='<div class="mdpa-card"><h3>Big Five 人格画像</h3>';
-  function descMap(v){return v>1?'这是你最鲜明的特质':v>0.3?'在你身上比较明显':v>-0.3?'你在这方面比较灵活':v>-1?'不是你最突出的方面':'你在这方面相对低调';}
-  for(var si=0;si<sorted.length;si++){
-    var dim=sorted[si][0],val=sorted[si][1];
-    var pct2=Math.max(5,Math.round(((val-mn)/rng)*100));
-    h+='<div class="mdpa-bar-wrap"><div class="mdpa-bar-label"><span><b>'+DN[dim]+'</b></span><span style="color:#9ca3af;font-size:13px">'+descMap(val)+'</span></div>';
-    h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+pct2+'%;background:'+DC[dim]+'"></div></div></div>';
-  }
-  h+='<p style="margin-top:14px;font-size:15px"><b>你的特质排序：</b>'+sorted.map(function(d){return DN[d[0]];}).join(' \u203A ')+'</p></div>';
-
-  // N clusters
-  var CN={ar:'深度思考',sv:'压力韧性',er:'情绪节奏'};
-  var CD={ar:'你对过去和未来的事倾向于反复深入加工的程度',sv:'你在压力和挫折面前的恢复速度',er:'你的情绪反应强度和冲动控制'};
-  h+='<div class="mdpa-card"><h3>情绪特质画像</h3>';
-  var clsEntries=Object.entries(cls);
-  for(var ci2=0;ci2<clsEntries.length;ci2++){
-    var k=clsEntries[ci2][0],c=clsEntries[ci2][1];
-    var r=c.t>0?c.n/c.t:0;
-    var dir=r>0.64?'敏感':r<0.36?'稳定':'中间';
-    var tag=r>0.64?'mdpa-tag-n':r<0.36?'mdpa-tag-s':'mdpa-tag-m';
-    h+='<div class="mdpa-cluster-card"><b>'+CN[k]+'</b><span class="mdpa-tag '+tag+'">'+dir+'</span>';
-    h+='<div style="font-size:13px;color:#64748b;margin:4px 0">'+CD[k]+'</div>';
-    h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+Math.round(r*100)+'%;background:'+(r>0.5?'#ef4444':'#22c55e')+'"></div></div></div>';
-  }
-  var arH=cls.ar.t>0&&cls.ar.n/cls.ar.t>0.5,erH=cls.er.t>0&&cls.er.n/cls.er.t>0.5;
-  var prof=arH&&erH?'全面感知型':arH&&!erH?'内省深思型':!arH&&erH?'即时表达型':'沉稳自如型';
-  var profD={'全面感知型':'你对内在和外在的情绪都有敏锐的感知，适合需要高度同理心的角色','内省深思型':'你内心丰富但表面平静，擅长深度思考但要注意别过度内耗','即时表达型':'你的情绪来得快去得也快，行动力强但偶尔需要踩一下刹车','沉稳自如型':'你情绪稳定，在压力下表现从容，是团队里的定心丸'};
-  h+='<div class="mdpa-profile-box"><b>综合型态：'+prof+'</b><div style="font-size:14px;color:#334155;margin-top:6px">'+profD[prof]+'</div></div></div>';
+  // OCEAN Radar Chart
+  h+='<div class="mdpa-card"><h3>OCEAN \u4EBA\u683C\u96F7\u8FBE\u56FE</h3>';
+  h+='<div class="mdpa-radar-wrap"><canvas id="radar-canvas" width="360" height="360"></canvas></div>';
+  h+='</div>';
 
   // Export
-  h+='<div class="mdpa-card"><h3>数据导出</h3><p style="font-size:13px;color:#9ca3af;margin-bottom:8px">点击下方区域复制完整JSON</p>';
+  h+='<div class="mdpa-card"><h3>\u6570\u636E\u5BFC\u51FA</h3><p style="font-size:13px;color:#9ca3af;margin-bottom:8px">\u70B9\u51FB\u4E0B\u65B9\u533A\u57DF\u590D\u5236\u5B8C\u6574JSON</p>';
   var exp={time:new Date().toISOString(),responses:Object.values(S.resp).filter(function(r){return r.mod;}),analysis:{lambda_raw:lamRaw,lambda_cal:lamCal,av_adjustments:avAdj,mbti:{type:mbType,strength:mbStr},n_clusters:Object.fromEntries(Object.entries(cls).map(function(entry){var k=entry[0],v=entry[1];return [k,{n:v.n,t:v.t,r:v.t?+(v.n/v.t).toFixed(3):0}];}))},qc:qc};
-  h+='<div class="mdpa-json-box" onclick="navigator.clipboard.writeText(this.textContent).then(function(){alert(\'已复制\')})">'+JSON.stringify(exp)+'</div></div></div>';
+  h+='<div class="mdpa-json-box" onclick="navigator.clipboard.writeText(this.textContent).then(function(){alert(\'\u5DF2\u590D\u5236\')})">'+JSON.stringify(exp)+'</div></div></div>';
   app.innerHTML=h;
+  // Draw radar after DOM update
+  setTimeout(function(){drawRadar('radar-canvas',lamCal,nScore);},50);
 }
 
 // ======== INIT ========
