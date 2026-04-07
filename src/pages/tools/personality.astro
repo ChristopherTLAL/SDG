@@ -1,0 +1,973 @@
+---
+// src/pages/tools/personality.astro — MDPA Multidimensional Personality Assessment
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const lang = 'en';
+---
+
+<MainLayout title="MDPA Personality Assessment | Chinese SDGs Institute" description="Multidimensional personality assessment combining MBTI, Big Five, and emotional trait profiling through 114 interactive questions." lang={lang}>
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+
+      <!-- Back link -->
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-10">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <!-- Nav panel -->
+      <div class="mdpa-nav" id="nav" style="display:none">
+        <div class="mdpa-nav-header" onclick="toggleNav()">
+          <span id="nav-title">第 1 / 114 题</span>
+          <span class="mdpa-nav-toggle" id="nav-toggle">展开导航</span>
+        </div>
+        <div class="mdpa-nav-grid" id="nav-grid"></div>
+      </div>
+
+      <!-- Main app container -->
+      <div class="mdpa-main" id="app"></div>
+
+    </div>
+  </main>
+</MainLayout>
+
+<style>
+  /* ===== MDPA Design System Override ===== */
+  :root {
+    --mdpa-primary: #042f24;
+    --mdpa-primary-light: #e8f0ed;
+    --mdpa-green: #16a34a;
+    --mdpa-green-light: #bbf7d0;
+    --mdpa-gray: #9ca3af;
+    --mdpa-gray-light: #f5f5f4;
+    --mdpa-red: #dc2626;
+    --mdpa-amber: #d97706;
+    --mdpa-purple: #7c3aed;
+    --mdpa-teal: #0d9488;
+  }
+
+  /* Nav panel — sticky below fixed header */
+  .mdpa-nav {
+    position: sticky;
+    top: 80px;
+    z-index: 50;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .mdpa-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+  }
+  .mdpa-nav-toggle {
+    font-size: 12px;
+    color: var(--mdpa-primary);
+    padding: 4px 10px;
+    border: 1px solid var(--mdpa-primary);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .mdpa-nav-grid {
+    display: none;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 3px;
+    margin-top: 8px;
+    padding: 4px 0;
+  }
+  .mdpa-nav-grid.open { display: grid; }
+  .mdpa-nav-sq {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    border: none;
+    font-size: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: all 0.15s;
+  }
+  .mdpa-nav-sq.done { background: var(--mdpa-green-light); color: var(--mdpa-green); }
+  .mdpa-nav-sq.current { background: var(--mdpa-primary); color: #fff; }
+  .mdpa-nav-sq.empty { background: #e2e8f0; color: #94a3b8; }
+  .mdpa-nav-sq.break { background: #fef3c7; color: var(--mdpa-amber); }
+
+  /* Main content area */
+  .mdpa-main { padding: 0; max-width: 640px; margin: 0 auto; }
+
+  /* Card */
+  .mdpa-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  /* Scenario text */
+  .mdpa-scenario {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+  }
+
+  /* Hint */
+  .mdpa-hint {
+    font-size: 13px;
+    color: var(--mdpa-gray);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Drag sortable */
+  .mdpa-sort-list {
+    position: relative;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .mdpa-sort-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    background: #fff;
+    cursor: grab;
+    user-select: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    font-size: 15px;
+    line-height: 1.5;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-sort-item:active { cursor: grabbing; }
+  .mdpa-sort-item .handle { color: #94a3b8; margin-right: 10px; font-size: 20px; flex-shrink: 0; }
+  .mdpa-sort-item .rank-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 10px;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .mdpa-sort-item.r1 .rank-num { background: var(--mdpa-primary); }
+  .mdpa-sort-item.r2 .rank-num { background: #1a6b52; }
+  .mdpa-sort-item.r3 .rank-num { background: #4a9e85; }
+  .mdpa-sort-item.r4 .rank-num { background: #cbd5e1; }
+
+  /* Binary choice */
+  .mdpa-bin-row { display: flex; gap: 10px; }
+  .mdpa-bin-opt {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-bin-opt:hover { border-color: var(--mdpa-primary); background: var(--mdpa-primary-light); }
+  .mdpa-bin-opt.chosen { border-color: var(--mdpa-primary); background: var(--mdpa-primary-light); font-weight: 600; }
+
+  /* AV slider */
+  .mdpa-av-anchors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .mdpa-anchor {
+    background: var(--mdpa-gray-light);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-anchor b { color: var(--mdpa-primary); }
+  .mdpa-slider-wrap { margin: 16px 0; padding: 0 4px; }
+  .mdpa-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--mdpa-gray);
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-main input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #e2e8f0;
+    margin: 12px 0;
+    outline: none;
+  }
+  .mdpa-main input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background: var(--mdpa-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .mdpa-av-val {
+    text-align: center;
+    font-size: 15px;
+    color: var(--mdpa-primary);
+    font-weight: 600;
+    min-height: 24px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-av-unset { color: var(--mdpa-gray); font-style: italic; }
+
+  /* Buttons */
+  .mdpa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: var(--mdpa-primary);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.15s, transform 0.1s;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-btn:hover { background: #053d2e; transform: translateY(-1px); }
+  .mdpa-btn:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
+  .mdpa-btn-row { display: flex; gap: 8px; margin-top: 14px; }
+  .mdpa-btn-outline {
+    background: transparent;
+    color: var(--mdpa-primary);
+    border: 1.5px solid var(--mdpa-primary);
+  }
+  .mdpa-btn-outline:hover { background: var(--mdpa-primary-light); }
+  .mdpa-btn-sm { padding: 8px 16px; font-size: 13px; }
+
+  /* Break page */
+  .mdpa-break-page {
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .mdpa-break-page h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    color: #1e293b;
+  }
+  .mdpa-break-page p {
+    color: #64748b;
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Report */
+  .mdpa-report h2 {
+    margin: 28px 0 14px;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'Manrope', sans-serif;
+    color: #1e293b;
+  }
+  .mdpa-report h3 {
+    margin: 20px 0 10px;
+    font-size: 16px;
+    color: var(--mdpa-primary);
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+  }
+  .mdpa-bar-wrap { margin: 8px 0; }
+  .mdpa-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 3px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-bar {
+    height: 22px;
+    background: #e2e8f0;
+    border-radius: 11px;
+    overflow: hidden;
+  }
+  .mdpa-bar-fill {
+    height: 100%;
+    border-radius: 11px;
+    transition: width 0.6s ease;
+  }
+  .mdpa-mbti-type {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--mdpa-primary);
+    font-family: 'Manrope', sans-serif;
+  }
+  .mdpa-cluster-card {
+    background: var(--mdpa-gray-light);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .mdpa-tag-n { background: #fecaca; color: #991b1b; }
+  .mdpa-tag-s { background: var(--mdpa-green-light); color: #166534; }
+  .mdpa-tag-m { background: #fef3c7; color: #92400e; }
+  .mdpa-profile-box {
+    margin-top: 14px;
+    padding: 14px;
+    background: var(--mdpa-primary-light);
+    border-radius: 12px;
+    border-left: 4px solid var(--mdpa-primary);
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-json-box {
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--mdpa-gray-light);
+    border-radius: 10px;
+    font-size: 11px;
+    word-break: break-all;
+    max-height: 180px;
+    overflow: auto;
+    cursor: pointer;
+    font-family: monospace;
+  }
+</style>
+
+<script is:inline>
+// ======== ITEM DATA (same as v4, compact) ========
+const SIT=[
+{id:'SIT_001',d:'学业',s:'选修课要做课堂展示，你可以自选主题。',o:[{t:'选一个能让台下同学一起参与讨论的话题',D:'E',d:1},{t:'选一个自己好奇但完全不懂的领域',D:'O',d:1},{t:'选一个资料充分、容易搭出完整框架的话题',D:'C',d:1},{t:'先问问组员对什么感兴趣，照顾大家的意愿',D:'A',d:1}]},
+{id:'SIT_002',d:'学业',s:'老师布置了一个开放性很强的论文题目，没有标准答案。',o:[{t:'找几个同学一起讨论，碰撞一下思路',D:'E',d:1},{t:'太好了，终于可以写自己真正想探索的东西',D:'O',d:1},{t:'反而觉得不好下手，希望有更具体的指引',D:'C',d:-1},{t:'先看看同学们怎么理解，免得自己跑偏',D:'A',d:1}]},
+{id:'SIT_003',d:'学业',s:'小组作业分工，你会主动选什么角色？',o:[{t:'负责最后的展示和答辩',D:'E',d:1},{t:'负责想整体创意和新思路',D:'O',d:1},{t:'负责排进度、盯落实、最后整合',D:'C',d:1},{t:'哪里缺人就补哪里，确保没人掉链子',D:'A',d:1}]},
+{id:'SIT_004',d:'学业',s:'你读到一篇课程材料，里面很多术语看不懂。',o:[{t:'顺着不懂的概念一路搜下去，发现了更多有意思的东西',D:'O',d:1},{t:'先把核心术语查清楚，效率最重要',D:'C',d:1},{t:'找读过的同学问一下重点在哪',D:'E',d:1},{t:'大概翻一翻，不想在不太相关的东西上耗太多时间',D:'O',d:-1}]},
+{id:'SIT_005',d:'学业',s:'期中考完了，成绩还没出。',o:[{t:'和同学对对答案，猜猜分数',D:'E',d:1},{t:'趁这段时间做点考试之外感兴趣的事',D:'O',d:1},{t:'回忆不确定的知识点再查一遍',D:'C',d:1},{t:'去安慰一下觉得自己考砸了的朋友',D:'A',d:1}]},
+{id:'SIT_006',d:'学业',s:'小组讨论时，你有一个和大多数人不同的想法。',o:[{t:'直接说出来，不同意见本来就应该讨论',D:'E',d:1},{t:'把想法再打磨一下，想清楚了再说',D:'C',d:1},{t:'好奇大家为什么那样想，先多听几轮',D:'O',d:1},{t:'觉得在这个场合说出来太费劲了，算了',D:'E',d:-1}]},
+{id:'SIT_007',d:'学业',s:'新学期有几个学分的选修余量。',o:[{t:'选朋友们都在选的课，上课有伴',D:'E',d:1},{t:'选一门完全没接触过的领域试试',D:'O',d:1},{t:'选对未来发展最有帮助的课',D:'C',d:1},{t:'选上课氛围好、大家互动多的课',D:'A',d:1}]},
+{id:'SIT_008',d:'学业',s:'作业分数比预期低，觉得有几处扣分不太合理。',o:[{t:'直接找老师问清楚扣分理由',D:'E',d:1},{t:'重新审视作业，也许有自己没注意到的角度',D:'O',d:1},{t:'记下来下次注意，不值得花太多时间纠结',D:'C',d:1},{t:'想到老师改那么多作业也不容易，就不去了',D:'A',d:1}]},
+{id:'SIT_009',d:'社交',s:'好朋友过生日，你在想送什么礼物。',o:[{t:'组一群人搞个惊喜，越热闹越好',D:'E',d:1},{t:'亲手做一个有设计感的东西',D:'O',d:1},{t:'提前一周就选好包好，不拖到最后一天',D:'C',d:1},{t:'回忆TA念叨想要什么，悄悄买来',D:'A',d:1}]},
+{id:'SIT_010',d:'社交',s:'你去参加一个活动，发现基本都是不认识的人。',o:[{t:'主动找人搭话，很快和几个人聊开了',D:'E',d:1},{t:'先观察一下，找个看起来有意思的人聊',D:'O',d:1},{t:'在旁边待着，等有人来找自己再说',D:'E',d:-1},{t:'找到唯一认识的人，先在TA旁边待着',D:'A',d:1}]},
+{id:'SIT_011',d:'社交',s:'和朋友聊天时意见不合，气氛有点僵。',o:[{t:'继续把观点说清楚，争论不是坏事',D:'E',d:1},{t:'好奇TA为什么这么想，追问理由',D:'O',d:1},{t:'主动退一步，不值得伤感情',D:'A',d:1},{t:'虽然不同意但懒得解释了，岔开话题',D:'C',d:-1}]},
+{id:'SIT_012',d:'社交',s:'你在网上看到一个有意思的线下活动。',o:[{t:'立刻转发到群里看谁要一起',D:'E',d:1},{t:'自己报名，正好认识不同圈子的人',D:'O',d:1},{t:'先查时间地点，看和日程排不排得开',D:'C',d:1},{t:'想想谁可能喜欢，推荐给TA',D:'A',d:1}]},
+{id:'SIT_013',d:'社交',s:'朋友借了钱，说好一周还但已经两周了。',o:[{t:'直接发消息提醒，干脆利落',D:'E',d:1},{t:'想了个巧妙方式来提——聊到AA时顺便带一句',D:'O',d:1},{t:'在记账APP标记，下次见面时自然提',D:'C',d:1},{t:'TA可能更需要这笔钱，不催了',D:'A',d:1}]},
+{id:'SIT_014',d:'社交',s:'几个朋友聚餐选餐厅，意见完全不统一。',o:[{t:'我来定吧，直接推荐一个',D:'E',d:1},{t:'要不试试那家谁都没去过的新店？',D:'O',d:1},{t:'我查一下评分和距离，列出来选',D:'C',d:1},{t:'哪家都行，别讨论这么久了，赶紧定',D:'A',d:-1}]},
+{id:'SIT_015',d:'日常',s:'周末完全没有安排，一整天自由时间。',o:[{t:'约人出去，逛街吃饭什么都行',D:'E',d:1},{t:'去一个没去过的地方随便走走',D:'O',d:1},{t:'正好把拖了很久的事情清理掉',D:'C',d:1},{t:'看看谁心情不好，约TA聊聊',D:'A',d:1}]},
+{id:'SIT_016',d:'日常',s:'你的房间已经乱了好几天了。',o:[{t:'约了朋友来玩之前赶紧收拾',D:'E',d:1},{t:'趁机重新布置房间，换种风格',D:'O',d:1},{t:'系统整理一遍，每样东西分类归位',D:'C',d:1},{t:'乱就乱吧，反正知道东西在哪',D:'C',d:-1}]},
+{id:'SIT_017',d:'日常',s:'外卖APP推荐了一道没听说过的异国料理。',o:[{t:'问室友要不要一起点来尝尝',D:'E',d:1},{t:'直接点，就喜欢试没吃过的东西',D:'O',d:1},{t:'先看评分、配料和评论再决定',D:'C',d:1},{t:'帮室友也点一份',D:'A',d:1}]},
+{id:'SIT_018',d:'日常',s:'暑假有两周没什么安排。',o:[{t:'和朋友组队出去旅行',D:'E',d:1},{t:'一个人去完全陌生的地方走走',D:'O',d:1},{t:'找个实习或学个新技能',D:'C',d:1},{t:'就在家待着，不想折腾',D:'O',d:-1}]},
+{id:'SIT_019',d:'日常',s:'晚上躺在床上一时睡不着。',o:[{t:'给朋友发条消息聊几句',D:'E',d:1},{t:'脑子里天马行空地想各种事情',D:'O',d:1},{t:'在脑子里过一遍明天要做的事',D:'C',d:1},{t:'想想最近有没有忽略谁，该联系一下',D:'A',d:1}]},
+{id:'SIT_020',d:'日常',s:'早上闹钟响了，还有点困。',o:[{t:'想到今天约了人，一下就来精神了',D:'E',d:1},{t:'随手刷点新鲜内容让自己清醒',D:'O',d:1},{t:'按固定流程起床，不给自己赖床借口',D:'C',d:1},{t:'想起朋友昨晚说心情不好，先发消息问问',D:'A',d:1}]},
+{id:'SIT_021',d:'数字',s:'刷到一个有争议的话题，评论区吵得很激烈。',o:[{t:'忍不住留个评论参与讨论',D:'E',d:1},{t:'两边观点都认真看看，觉得挺有意思',D:'O',d:1},{t:'查一下原始出处，搞清楚谁对',D:'C',d:1},{t:'看到有人被骂很惨，帮着说句公道话',D:'A',d:1}]},
+{id:'SIT_022',d:'数字',s:'整理手机相册，发现很多以前的照片。',o:[{t:'选几张发朋友圈，配个文案',D:'E',d:1},{t:'一张张翻过去，沉浸在回忆里',D:'O',d:1},{t:'顺手按时间分类，把模糊的删掉',D:'C',d:1},{t:'觉得太多了，关掉以后再说',D:'C',d:-1}]},
+{id:'SIT_023',d:'数字',s:'看剧时一个片段特别触动你。',o:[{t:'立刻截图发给朋友想讨论',D:'E',d:1},{t:'开始想为什么这个片段会打动自己',D:'O',d:1},{t:'记在备忘录里，以后可能用得上',D:'C',d:1},{t:'想起朋友的类似经历，转发给TA',D:'A',d:1}]},
+{id:'SIT_024',d:'数字',s:'发了一条朋友圈，一小时了一个赞都没有。',o:[{t:'无所谓，发的时候开心就行',D:'E',d:-1},{t:'删了重新编辑一个更有质感的版本',D:'O',d:1},{t:'可能发的时间不好，下次调整',D:'C',d:1},{t:'先去给别人点赞，互动是双向的',D:'A',d:1}]},
+{id:'SIT_025',d:'数字',s:'你注册了一个新的社交平台。',o:[{t:'马上完善资料开始加人互动',D:'E',d:1},{t:'先到处逛逛看有什么新鲜内容',D:'O',d:1},{t:'先把隐私设置和通知偏好调好',D:'C',d:1},{t:'看看有没有认识的人也在用',D:'A',d:1}]},
+{id:'SIT_026',d:'变化',s:'朋友临时取消了周末约好的安排。',o:[{t:'看看别人有没有空，再约一个',D:'E',d:1},{t:'正好做点一直想做但没空做的事',D:'O',d:1},{t:'重新安排周末计划',D:'C',d:1},{t:'TA应该有事吧，回句没关系',D:'A',d:1}]},
+{id:'SIT_027',d:'变化',s:'电脑死机了，写了一小时的东西没保存。',o:[{t:'找朋友吐槽一通，发泄完重来',D:'E',d:1},{t:'趁机重新整理思路，说不定更好',D:'O',d:1},{t:'设好自动保存，按记忆快速恢复',D:'C',d:1},{t:'不想再写了，今天先干别的',D:'C',d:-1}]},
+{id:'SIT_028',d:'变化',s:'导师突然问你要不要参加新的研究项目。',o:[{t:'问有没有其他同学一起',D:'E',d:1},{t:'被课题本身吸引了，想深入了解',D:'O',d:1},{t:'先盘时间精力，看怎么平衡',D:'C',d:1},{t:'觉得导师来问是信任，不想辜负',D:'A',d:1}]},
+{id:'SIT_029',d:'变化',s:'意外收到一笔奖学金/红包。',o:[{t:'请朋友们吃一顿庆祝',D:'E',d:1},{t:'买一个一直好奇但没舍得试的东西',D:'O',d:1},{t:'存起来，花在真正需要的地方',D:'C',d:1},{t:'给家人买点东西',D:'A',d:1}]},
+{id:'SIT_030',d:'变化',s:'有机会去另一个城市交换学习一学期。',o:[{t:'太好了，可以认识很多新朋友',D:'E',d:1},{t:'终于可以体验不同的生活方式',D:'O',d:1},{t:'先确认课程互认和手续',D:'C',d:1},{t:'有点舍不得现在的朋友圈子',D:'A',d:1}]},
+{id:'SIT_031',d:'冲突',s:'小组作业有队友一直没动静，快到截止日了。',o:[{t:'在群里直接@TA问进度',D:'E',d:1},{t:'看看TA的部分能不能换个方式补上',D:'O',d:1},{t:'默默把TA的部分也做了确保按时交',D:'C',d:1},{t:'TA的部分TA负责，做不做是TA的事',D:'A',d:-1}]},
+{id:'SIT_032',d:'冲突',s:'室友很晚了还在外放音乐，你想睡觉。',o:[{t:'直接开口让TA戴耳机',D:'E',d:1},{t:'顺口问在听什么，借聊天自然地提',D:'O',d:1},{t:'自己戴耳塞，不想搞得尴尬',D:'A',d:1},{t:'戴上耳机隔绝外界，安静入睡',D:'E',d:-1}]},
+{id:'SIT_033',d:'冲突',s:'你做了一个重要决定，身边有人不太认同。',o:[{t:'直接把想法和理由摆出来',D:'E',d:1},{t:'让他们看看这个方向的更多可能性',D:'O',d:1},{t:'准备好数据和案例证明可行性',D:'C',d:1},{t:'理解他们的顾虑，花时间慢慢让他们接受',D:'A',d:1}]},
+{id:'SIT_034',d:'冲突',s:'好几门课的截止日撞在同一天。',o:[{t:'找同学分工互助',D:'E',d:1},{t:'挑最感兴趣的先做好，其余将就',D:'O',d:1},{t:'按分值和难度排序，分配时间',D:'C',d:1},{t:'看着就头大，先放一放',D:'C',d:-1}]},
+{id:'SIT_035',d:'冲突',s:'两个好朋友闹矛盾了，都来找你吐槽对方。',o:[{t:'直接把他们拉一起说清楚',D:'E',d:1},{t:'帮他们看到对方的角度',D:'O',d:1},{t:'客观分析问题在哪，给建议',D:'C',d:1},{t:'他们之间的事，我不想掺和',D:'A',d:-1}]},
+{id:'SIT_036',d:'独处',s:'有一笔预算犒劳自己买一件东西。',o:[{t:'买个可以和朋友一起玩的东西',D:'E',d:1},{t:'买一个有设计感、看着就开心的',D:'O',d:1},{t:'买个实用的、能用很久的',D:'C',d:1},{t:'买两件便宜的，自己一件送人一件',D:'A',d:1}]},
+{id:'SIT_037',d:'独处',s:'考虑要不要学一项新技能（编程、摄影、乐器等）。',o:[{t:'看有没有学习小组，和人一起学',D:'E',d:1},{t:'直接开始尝试，边做边摸索',D:'O',d:1},{t:'先研究学习路径，做个计划再开始',D:'C',d:1},{t:'想了一下觉得太麻烦，暂时算了',D:'O',d:-1}]},
+{id:'SIT_038',d:'独处',s:'深夜脑子里突然开始想一些人生大问题。',o:[{t:'拉个好朋友语音聊聊',D:'E',d:1},{t:'顺着想下去，越想越有意思',D:'O',d:1},{t:'把想法写下来理一理',D:'C',d:1},{t:'想想身边重要的人，觉得感恩',D:'A',d:1}]},
+{id:'SIT_039',d:'独处',s:'刷到一篇观点和你完全相反的文章。',o:[{t:'转到群里看看大家怎么看',D:'E',d:1},{t:'认真看完，觉得被挑战是好事',D:'O',d:1},{t:'检查论据和数据来源靠不靠谱',D:'C',d:1},{t:'划走了，不想看和自己想法不一样的',D:'O',d:-1}]},
+{id:'SIT_040',d:'活动',s:'朋友约你尝试一项没玩过的运动。',o:[{t:'好啊！人多一起玩才有意思',D:'E',d:1},{t:'没试过正好，新东西总想体验',D:'O',d:1},{t:'先查需要什么准备',D:'C',d:1},{t:'朋友邀请就去，TA开心最重要',D:'A',d:1}]},
+{id:'SIT_041',d:'活动',s:'天气特别好，一整个下午都空着。',o:[{t:'出去运动或约人打球',D:'E',d:1},{t:'去没去过的公园或街区走走',D:'O',d:1},{t:'趁状态好做需要集中注意力的事',D:'C',d:1},{t:'就在家窝着，享受安静',D:'E',d:-1}]},
+{id:'SIT_042',d:'活动',s:'走在路上，前面有人掉了东西没注意到。',o:[{t:'大声喊一句"你东西掉了！"',D:'E',d:1},{t:'捡起来看看是什么，有点好奇',D:'O',d:1},{t:'捡起来追上去还给TA',D:'C',d:1},{t:'追上去轻声说，怕大声喊让TA尴尬',D:'A',d:1}]},
+{id:'SIT_043',d:'审美',s:'你在布置生活空间（寝室/书桌/手机主屏）。',o:[{t:'贴和朋友的合照，看着就开心',D:'E',d:1},{t:'找好看的壁纸/摆件，整体氛围要对',D:'O',d:1},{t:'按使用频率和类别安排井井有条',D:'C',d:1},{t:'放有纪念意义的东西，每样都有故事',D:'A',d:1}]},
+{id:'SIT_044',d:'审美',s:'做了一个自己很满意的作品。',o:[{t:'发到朋友圈让大家看看',D:'E',d:1},{t:'继续打磨细节，还可以更好',D:'O',d:1},{t:'存档归类，当作品集用',D:'C',d:1},{t:'自己欣赏就行，不需要被别人看到',D:'A',d:-1}]},
+{id:'SIT_045',d:'金钱',s:'月底钱有点紧，但朋友约你吃一顿好的。',o:[{t:'去！难得聚在一起，钱以后再说',D:'E',d:1},{t:'提议换一家便宜但有特色的店',D:'O',d:1},{t:'算一下预算再决定',D:'C',d:1},{t:'跟TA说实话手头紧，下次自己请',D:'A',d:1}]}
+];
+const ATT=[
+{id:'ATT_001',type:'trap',s:'你正在赶一篇明天要交的论文，已经写了大半。',o:[{t:'集中精力把剩下的写完',D:'C',d:1},{t:'换个环境试试，也许效率更高',D:'O',d:1},{t:'问同学有没有好的参考资料',D:'E',d:1},{t:'把已经写好的全部删掉从头来过',D:null,d:null}]},
+{id:'ATT_002',type:'repeat',ref:'SIT_005',s:'考试刚考完，成绩要过几天才出。',o:[{t:'找同学聊聊各自怎么答的',D:'E',d:1},{t:'正好做点考试之外想做的事',D:'O',d:1},{t:'回想不确定的知识点再查一遍',D:'C',d:1},{t:'安慰觉得自己考砸了的同学',D:'A',d:1}]},
+{id:'ATT_003',type:'repeat',ref:'SIT_020',s:'闹钟响了，还有点困。',o:[{t:'想到今天有约就来精神了',D:'E',d:1},{t:'刷点有意思的内容让自己清醒',D:'O',d:1},{t:'按固定流程起床准备出门',D:'C',d:1},{t:'想起朋友最近不开心，先发消息',D:'A',d:1}]}
+];
+const PAIR=[
+{id:'PAIR_01',o:[{t:'我喜欢和很多人在一起的热闹感',D:'E'},{t:'我喜欢沉浸在自己感兴趣的事物里',D:'O'}]},{id:'PAIR_02',o:[{t:'认识新朋友让我充满能量',D:'E'},{t:'接触新想法让我充满能量',D:'O'}]},{id:'PAIR_03',o:[{t:'开心的时候我想找人分享',D:'E'},{t:'开心的时候我想自己慢慢品味',D:'O'}]},
+{id:'PAIR_04',o:[{t:'做事时喜欢边做边和别人讨论',D:'E'},{t:'做事时喜欢一个人想清楚再动手',D:'C'}]},{id:'PAIR_05',o:[{t:'周末有朋友约我就出去了',D:'E'},{t:'周末更想先把该做的事做完',D:'C'}]},{id:'PAIR_06',o:[{t:'我容易被人约走',D:'E'},{t:'我能按计划不被打断',D:'C'}]},
+{id:'PAIR_07',o:[{t:'在团队里我容易成为带头的人',D:'E'},{t:'在团队里我容易成为协调的人',D:'A'}]},{id:'PAIR_08',o:[{t:'聊天时我更多在表达自己想法',D:'E'},{t:'聊天时我更多在听对方说',D:'A'}]},{id:'PAIR_09',o:[{t:'我更享受被人注意到',D:'E'},{t:'我更享受在背后默默支持别人',D:'A'}]},
+{id:'PAIR_10',o:[{t:'做事更看重有没有新意',D:'O'},{t:'做事更看重有没有条理',D:'C'}]},{id:'PAIR_11',o:[{t:'宁可冒风险尝试新方法',D:'O'},{t:'宁可用验证过的靠谱方法',D:'C'}]},{id:'PAIR_12',o:[{t:'灵感来了放下手头的事去追',D:'O'},{t:'灵感来了先记下来做完手头的再说',D:'C'}]},
+{id:'PAIR_13',o:[{t:'讨论时更关注想法有没有意思',D:'O'},{t:'讨论时更关注大家是不是都舒服',D:'A'}]},{id:'PAIR_14',o:[{t:'宁可坚持自己独特的观点',D:'O'},{t:'宁可照顾大多数人的感受',D:'A'}]},{id:'PAIR_15',o:[{t:'更在意自己的想法是否有深度',D:'O'},{t:'更在意我的话有没有让人不舒服',D:'A'}]},
+{id:'PAIR_16',o:[{t:'效率比照顾每个人感受更重要',D:'C'},{t:'照顾每个人感受比效率更重要',D:'A'}]},{id:'PAIR_17',o:[{t:'做决定更看重结果最优',D:'C'},{t:'做决定更看重过程中大家是否开心',D:'A'}]},{id:'PAIR_18',o:[{t:'规则就是规则，应该严格执行',D:'C'},{t:'规则可以灵活，看具体的人和事',D:'A'}]}
+];
+const POL=[
+{id:'POL_EI_01',ax:'EI',o:[{t:'和一群人待在一起让我充电',p:'E'},{t:'独处一段时间让我充电',p:'I'}]},{id:'POL_EI_02',ax:'EI',o:[{t:'想法在说出来的过程中成形',p:'E'},{t:'想法在脑子里理清楚了才说',p:'I'}]},{id:'POL_EI_03',ax:'EI',o:[{t:'朋友圈很广但不一定每段都深',p:'E'},{t:'更看重少数几段很深的关系',p:'I'}]},{id:'POL_EI_04',ax:'EI',o:[{t:'一个人待太久会觉得无聊',p:'E'},{t:'社交太多会需要喘口气',p:'I'}]},{id:'POL_EI_05',ax:'EI',o:[{t:'倾向于先行动再反思',p:'E'},{t:'倾向于先想清楚再行动',p:'I'}]},{id:'POL_EI_06',ax:'EI',o:[{t:'有背景声或人气的地方更能集中',p:'E'},{t:'安静的环境更能集中',p:'I'}]},
+{id:'POL_NS_01',ax:'NS',o:[{t:'更关注事情背后的意义和可能性',p:'N'},{t:'更关注具体细节和实际情况',p:'S'}]},{id:'POL_NS_02',ax:'NS',o:[{t:'经常冒出天马行空的想法',p:'N'},{t:'想法通常比较务实落地',p:'S'}]},{id:'POL_NS_03',ax:'NS',o:[{t:'比起已有方法更想找新路子',p:'N'},{t:'有效的方法就行不必总求新',p:'S'}]},{id:'POL_NS_04',ax:'NS',o:[{t:'喜欢讨论抽象的概念和假设',p:'N'},{t:'喜欢讨论具体事实和亲身经验',p:'S'}]},{id:'POL_NS_05',ax:'NS',o:[{t:'做判断更信自己的直觉',p:'N'},{t:'做判断更信眼前的证据',p:'S'}]},{id:'POL_NS_06',ax:'NS',o:[{t:'未来的可能性比眼前现实更吸引我',p:'N'},{t:'把眼前的事做好比想未来更重要',p:'S'}]},
+{id:'POL_FT_01',ax:'FT',o:[{t:'做决定优先考虑对人的影响',p:'F'},{t:'做决定优先考虑逻辑上说不说得通',p:'T'}]},{id:'POL_FT_02',ax:'FT',o:[{t:'关系和谐比谁对谁错更重要',p:'F'},{t:'搞清楚对错比维持表面和谐更重要',p:'T'}]},{id:'POL_FT_03',ax:'FT',o:[{t:'安慰人时倾向于表达理解和共情',p:'F'},{t:'安慰人时倾向于帮TA分析问题找出路',p:'T'}]},{id:'POL_FT_04',ax:'FT',o:[{t:'被夸"善良贴心"更让我开心',p:'F'},{t:'被夸"聪明能干"更让我开心',p:'T'}]},{id:'POL_FT_05',ax:'FT',o:[{t:'为了维护关系愿意做一些让步',p:'F'},{t:'让步太多会让我觉得失去自己',p:'T'}]},{id:'POL_FT_06',ax:'FT',o:[{t:'打动我的往往是一个真实的故事',p:'F'},{t:'说服我的往往是一套清晰的逻辑',p:'T'}]},
+{id:'POL_JP_01',ax:'JP',o:[{t:'事情定下来了我就安心了',p:'J'},{t:'保持选项开放让我更舒服',p:'P'}]},{id:'POL_JP_02',ax:'JP',o:[{t:'习惯提前完成任务',p:'J'},{t:'经常在截止前才全力爆发',p:'P'}]},{id:'POL_JP_03',ax:'JP',o:[{t:'每天有固定节奏让我舒服',p:'J'},{t:'每天根据心情安排让我舒服',p:'P'}]},{id:'POL_JP_04',ax:'JP',o:[{t:'桌面和文件通常分类清楚',p:'J'},{t:'桌面看起来乱但知道东西在哪',p:'P'}]},{id:'POL_JP_05',ax:'JP',o:[{t:'做计划然后执行让我有满足感',p:'J'},{t:'随机应变解决问题让我有满足感',p:'P'}]},{id:'POL_JP_06',ax:'JP',o:[{t:'开始前要先有完整计划',p:'J'},{t:'开始后再边做边调整方向',p:'P'}]}
+];
+const NSIT=[
+{id:'N_SIT_01',s:'考试前一天晚上，发现还有一章没复习到。',o:[{t:'脑子停不下来，反复盘算哪些可能考到',p:'neurotic'},{t:'有点烦，但决定先睡了明天早起看',p:'stable'}]},
+{id:'N_SIT_02',s:'给朋友发了消息，过了半天没回。',o:[{t:'忍不住回翻自己发的内容，看措辞有没有问题',p:'neurotic'},{t:'TA可能在忙吧，没多想',p:'stable'}]},
+{id:'N_SIT_03',s:'老师在课上批评了你作业的几个问题。',o:[{t:'之后几天脑子里时不时闪过这件事',p:'neurotic'},{t:'有点不好意思，但想想有道理就过去了',p:'stable'}]},
+{id:'N_SIT_04',s:'明天有一个重要的面试/答辩。',o:[{t:'在脑子里把可能被问到的问题过了好几遍',p:'neurotic'},{t:'准备得差不多就放松等着',p:'stable'}]},
+{id:'N_SIT_05',s:'社交场合说了一句话，事后觉得不太妥当。',o:[{t:'那句话在脑子里反复出现，琢磨怎么说更好',p:'neurotic'},{t:'想了一下觉得没那么严重，不管了',p:'stable'}]},
+{id:'N_SIT_06',s:'交了一份很重要的申请材料，结果还没出。',o:[{t:'反复检查有没有遗漏，想万一不行还有什么备选',p:'neurotic'},{t:'交了就交了，结果出来前该干嘛干嘛',p:'stable'}]},
+{id:'N_SIT_07',s:'排队等了很久，到你时被告知没有了。',o:[{t:'心里一下子很恼火，要好一阵子才消退',p:'neurotic'},{t:'虽然不高兴，但转头就去做别的了',p:'stable'}]},
+{id:'N_SIT_08',s:'你心情不好的时候，最可能的反应是：',o:[{t:'容易冲动——大吃一顿、疯狂购物、或对人发脾气',p:'neurotic'},{t:'能控制住自己，不让情绪影响行为',p:'stable'}]}
+];
+const POLN=[
+{id:'POL_N_01',o:[{t:'情绪来得快去得也快，恢复挺快',p:'stable'},{t:'不好的情绪会持续影响我比较久',p:'neurotic'}]},
+{id:'POL_N_02',o:[{t:'别人的评价很少动摇我对自己的看法',p:'stable'},{t:'别人一句话可能让我想很久',p:'neurotic'}]},
+{id:'POL_N_03',o:[{t:'压力大时还是能正常运转',p:'stable'},{t:'压力大时很难集中精力',p:'neurotic'}]},
+{id:'POL_N_04',o:[{t:'遇到挫折能很快调整好',p:'stable'},{t:'遇到挫折需要一段时间走出来',p:'neurotic'}]},
+{id:'POL_N_05',o:[{t:'很少因为小事感到烦躁',p:'stable'},{t:'小事有时也让我突然火大',p:'neurotic'}]},
+{id:'POL_N_06',o:[{t:'很少后悔冲动之下做的事',p:'stable'},{t:'情绪上来做的事后来常后悔',p:'neurotic'}]}
+];
+const AV=[
+{id:'AV_E_01',dim:'E',hi:{n:'小明',d:'每周至少约两次朋友，聚会上喜欢和陌生人聊天。'},lo:{n:'小川',d:'大部分时间一个人待着，偶尔和特别好的朋友见面。'},q:'在社交能量方面：',lb:['比小川还安静','和小川像','偏小川','正中间','偏小明','和小明像','比小明还外向']},
+{id:'AV_E_02',dim:'E',hi:{n:'小红',d:'经常和朋友见面，熟人面前很健谈。'},lo:{n:'小洁',d:'只有几个亲近的朋友，更喜欢一对一深聊。'},q:'在主动性方面：',lb:['比小洁还安静','和小洁像','偏小洁','正中间','偏小红','和小红像','比小红还主动']},
+{id:'AV_O_01',dim:'O',hi:{n:'小杰',d:'看不同类型的书，选课选专业外的，旅行去没人推荐的地方。'},lo:{n:'小薇',d:'看熟悉类型的内容，吃饭去常去的店。'},q:'在好奇心和探索欲方面：',lb:['比小薇还喜欢稳定','和小薇像','偏小薇','正中间','偏小杰','和小杰像','比小杰还爱探索']},
+{id:'AV_O_02',dim:'O',hi:{n:'小航',d:'总有新奇点子，喜欢从不同角度看问题。'},lo:{n:'小蕊',d:'做事踏实，偏好验证过的方法。'},q:'在思维开放程度方面：',lb:['比小蕊还务实','和小蕊像','偏小蕊','正中间','偏小航','和小航像','比小航还天马行空']},
+{id:'AV_C_01',dim:'C',hi:{n:'小李',d:'考前一周就按计划复习，笔记分类清楚，从不迟交。'},lo:{n:'小陈',d:'做事凭感觉，很少列计划，常DDL前一晚赶工。'},q:'在自律方面：',lb:['比小陈还随性','和小陈像','偏小陈','正中间','偏小李','和小李像','比小李还自律']},
+{id:'AV_C_02',dim:'C',hi:{n:'小慧',d:'做事前一定有完整计划，严格按步骤来。'},lo:{n:'小峰',d:'走一步看一步，习惯随机应变。'},q:'在做事风格方面：',lb:['比小峰还随性','和小峰像','偏小峰','正中间','偏小慧','和小慧像','比小慧还严谨']},
+{id:'AV_A_01',dim:'A',hi:{n:'小林',d:'有分歧时通常让步，朋友有困难总第一个帮。'},lo:{n:'小王',d:'觉得每个人应该为自己负责，有不同意见会坚持。'},q:'在包容度方面：',lb:['比小王还独立','和小王像','偏小王','正中间','偏小林','和小林像','比小林还包容']},
+{id:'AV_A_02',dim:'A',hi:{n:'小雨',d:'特别能体会别人感受，但有时把别人情绪背自己身上。'},lo:{n:'小磊',d:'比较理性，帮人习惯给建议而不是陪难过。'},q:'在共情方面：',lb:['比小磊还理性','和小磊像','偏小磊','正中间','偏小雨','和小雨像','比小雨还共情']},
+{id:'AV_N_01',dim:'N',hi:{n:'小张',d:'遇事情绪波动大，考试前明显焦虑，被批评后好几天释怀。'},lo:{n:'小周',d:'心态稳，被批评想想有没有道理就过去了。'},q:'在情绪波动方面：',lb:['比小周还淡定','和小周像','偏小周','正中间','偏小张','和小张像','比小张还敏感']},
+{id:'AV_N_02',dim:'N',hi:{n:'小琪',d:'做决定后常后悔，等结果时特别煎熬。'},lo:{n:'小涛',d:'做了决定就往前走很少回头。'},q:'在面对不确定性时：',lb:['比小涛还心大','和小涛像','偏小涛','正中间','偏小琪','和小琪像','比小琪还敏感']}
+];
+
+// ======== BUILD & ORDER ========
+function buildAll(){
+  var a=[];
+  SIT.forEach(function(i){a.push(Object.assign({},i,{mod:'SIT'}));});
+  ATT.forEach(function(i){a.push(Object.assign({},i,{mod:'SIT'}));});
+  PAIR.forEach(function(i){a.push(Object.assign({},i,{mod:'PAIR'}));});
+  POL.forEach(function(i){a.push(Object.assign({},i,{mod:'POL'}));});
+  NSIT.forEach(function(i){a.push(Object.assign({},i,{mod:'N_SIT'}));});
+  POLN.forEach(function(i){a.push(Object.assign({},i,{mod:'POL_N'}));});
+  AV.forEach(function(i){a.push(Object.assign({},i,{mod:'AV'}));});
+  return a;
+}
+function shuf(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=b[i];b[i]=b[j];b[j]=tmp;}return b;}
+
+function genOrder(items){
+  var sit=shuf(items.filter(function(i){return i.mod==='SIT'&&!i.id.startsWith('ATT');}));
+  var att=items.filter(function(i){return i.id.startsWith('ATT');});
+  var pair=shuf(items.filter(function(i){return i.mod==='PAIR';}));
+  var pol=shuf(items.filter(function(i){return i.mod==='POL';}));
+  var nsit=shuf(items.filter(function(i){return i.mod==='N_SIT';}));
+  var poln=shuf(items.filter(function(i){return i.mod==='POL_N';}));
+  var av=shuf(items.filter(function(i){return i.mod==='AV';}));
+  var s1=sit.findIndex(function(i){return i.id==='SIT_001';});
+  if(s1>0){var tmp=sit[0];sit[0]=sit[s1];sit[s1]=tmp;}
+  var ord=[];
+  var si=0,pi=0,pli=0,ni=0,pni=0,ai=0;
+  var placed=new Set();
+  function put(item){if(item&&!placed.has(item.id)){ord.push(item);placed.add(item.id);}}
+  for(var pos=0;pos<114;pos++){
+    if(pos===24){put(att[0]);continue;}
+    if(pos===63){put(att[1]);continue;}
+    if(pos===78){put(att[2]);continue;}
+    if(pos>=55&&ai<av.length&&(pos%6===1||pos%6===4)){put(av[ai++]);continue;}
+    if(pos>=30&&ni<nsit.length&&pos%8===3){put(nsit[ni++]);continue;}
+    if(pos>=38&&pni<poln.length&&pos%10===7){put(poln[pni++]);continue;}
+    var last=ord.length>0?ord[ord.length-1].mod:'';
+    var last2=ord.length>1?ord[ord.length-2].mod:'';
+    if(last==='SIT'&&last2==='SIT'){
+      if(pi<pair.length)put(pair[pi++]);
+      else if(pli<pol.length)put(pol[pli++]);
+      else if(si<sit.length)put(sit[si++]);
+    }else{
+      if(si<sit.length)put(sit[si++]);
+      else if(pi<pair.length)put(pair[pi++]);
+      else if(pli<pol.length)put(pol[pli++]);
+    }
+  }
+  var rem=sit.slice(si).concat(pair.slice(pi),pol.slice(pli),nsit.slice(ni),poln.slice(pni),av.slice(ai));
+  att.forEach(function(a){if(!placed.has(a.id))rem.push(a);});
+  shuf(rem).forEach(function(r){put(r);});
+  // ensure last is SIT (non-ATT)
+  for(var i=ord.length-1;i>=0;i--){
+    if(ord[i].mod==='SIT'&&!ord[i].id.startsWith('ATT')&&i<ord.length-1){
+      var tmp2=ord[i];ord[i]=ord[ord.length-1];ord[ord.length-1]=tmp2;break;
+    }
+  }
+  return ord;
+}
+
+// ======== STATE ========
+var S={idx:0,order:[],resp:{},startT:0,navOpen:false,testStarted:false};
+var app=document.getElementById('app');
+
+// ======== NAV PANEL ========
+function renderNav(){
+  var t=document.getElementById('nav-title');
+  var g=document.getElementById('nav-grid');
+  var answered=Object.keys(S.resp).filter(function(k){return !k.startsWith('_');}).length;
+  var total=S.order.length;
+  t.textContent='第 '+(S.idx+1)+' / '+total+' 题 \u00B7 已答 '+answered;
+  var h='';
+  for(var i=0;i<S.order.length;i++){
+    var cls=i===S.idx?'current':S.resp[S.order[i].id]?'done':'empty';
+    h+='<button class="mdpa-nav-sq '+cls+'" onclick="jumpTo('+i+')">'+(i+1)+'</button>';
+  }
+  g.innerHTML=h;
+}
+function toggleNav(){
+  S.navOpen=!S.navOpen;
+  document.getElementById('nav-grid').classList.toggle('open',S.navOpen);
+  document.getElementById('nav-toggle').textContent=S.navOpen?'收起':'展开导航';
+}
+function jumpTo(i){S.idx=i;render();}
+
+// ======== RENDER ========
+function render(){
+  if(!S.testStarted)return;
+  if(S.idx>=S.order.length){showCompletionPage();return;}
+  // Micro-break check
+  if([15,30,45,60,75,90].indexOf(S.idx)!==-1&&!S.resp['_break_'+S.idx]){
+    S.resp['_break_'+S.idx]=true;
+    var pct=Math.round(S.idx/S.order.length*100);
+    var remain=Math.round((S.order.length-S.idx)*10/60);
+    app.innerHTML='<div class="mdpa-break-page"><h2>休息一下</h2><p>已完成 '+pct+'%，预计还需 '+remain+' 分钟<br>凭直觉作答就好，没有对错之分</p><button class="mdpa-btn" onclick="render()">继续</button></div>';
+    renderNav();return;
+  }
+  var item=S.order[S.idx];
+  var prev=S.resp[item.id];
+  var h='';
+  if(item.mod==='SIT')h=renderSIT(item,prev);
+  else if(item.mod==='AV')h=renderAV(item,prev);
+  else h=renderBin(item,prev);
+  app.innerHTML=h;
+  S.startT=Date.now();
+  renderNav();
+  // init drag if SIT
+  if(item.mod==='SIT')initDrag();
+  // init AV slider listener
+  if(item.mod==='AV')initAVSlider(item,prev);
+}
+
+// ======== SIT RENDER + DRAG ========
+var sortOrder=[0,1,2,3]; // current order of option indices
+
+function renderSIT(item,prev){
+  sortOrder=prev?prev.ranking.slice():[0,1,2,3];
+  var h='<div class="mdpa-card"><div class="mdpa-scenario">'+item.s+'</div>';
+  h+='<div class="mdpa-hint">\u2B0D 拖动排序：从最像你的排到最不像你的</div>';
+  h+='<div class="mdpa-sort-list" id="sort-list">';
+  for(var rank=0;rank<4;rank++){
+    var oi=sortOrder[rank];
+    h+='<div class="mdpa-sort-item r'+(rank+1)+'" data-oi="'+oi+'"><span class="rank-num">'+(rank+1)+'</span><span class="handle">\u2630</span><span>'+item.o[oi].t+'</span></div>';
+  }
+  h+='</div>';
+  h+='<div class="mdpa-btn-row"><button class="mdpa-btn" style="flex:1" id="sit-confirm" onclick="submitSIT()">确认排序</button></div>';
+  h+='</div>';
+  return h;
+}
+
+function initDrag(){
+  var list=document.getElementById('sort-list');
+  if(!list)return;
+  var drag=null;
+
+  list.addEventListener('pointerdown',function(e){
+    var el=e.target.closest('.mdpa-sort-item');
+    if(!el)return;
+    e.preventDefault();
+    el.setPointerCapture(e.pointerId);
+    drag={el:el,startY:e.clientY,dy:0,lockDir:null};
+    el.style.zIndex='10';
+    el.style.position='relative';
+  });
+
+  list.addEventListener('pointermove',function(e){
+    if(!drag)return;
+    drag.dy=e.clientY-drag.startY;
+    drag.el.style.transform='translateY('+drag.dy+'px) scale(1.02)';
+    drag.el.style.boxShadow='0 4px 16px rgba(4,47,36,0.18)';
+    drag.el.style.borderColor='#042f24';
+
+    // Direction lock: unlock when returning to neutral zone
+    if(Math.abs(drag.dy)<10)drag.lockDir=null;
+
+    var items=Array.from(list.children);
+    var idx=items.indexOf(drag.el);
+    var h=drag.el.offsetHeight+8;
+    var threshold=h*0.35;
+
+    // Swap up
+    if(idx>0&&drag.dy<-threshold&&drag.lockDir!=='down'){
+      var neighbor=items[idx-1];
+      list.insertBefore(drag.el,neighbor);
+      var tmp=sortOrder[idx-1];sortOrder[idx-1]=sortOrder[idx];sortOrder[idx]=tmp;
+      drag.startY-=h;
+      drag.dy=e.clientY-drag.startY;
+      drag.el.style.transform='translateY('+drag.dy+'px) scale(1.02)';
+      drag.lockDir='up';
+      neighbor.style.transition='none';
+      neighbor.style.transform='translateY('+(-h)+'px)';
+      neighbor.offsetHeight;
+      neighbor.style.transition='transform 0.15s ease';
+      neighbor.style.transform='';
+      setTimeout(function(){neighbor.style.transition='';},180);
+      updateRanks();
+    }
+
+    // Swap down
+    if(idx<list.children.length-1&&drag.dy>threshold&&drag.lockDir!=='up'){
+      var neighbor2=items[idx+1];
+      list.insertBefore(neighbor2,drag.el);
+      var tmp2=sortOrder[idx];sortOrder[idx]=sortOrder[idx+1];sortOrder[idx+1]=tmp2;
+      drag.startY+=h;
+      drag.dy=e.clientY-drag.startY;
+      drag.el.style.transform='translateY('+drag.dy+'px) scale(1.02)';
+      drag.lockDir='down';
+      neighbor2.style.transition='none';
+      neighbor2.style.transform='translateY('+h+'px)';
+      neighbor2.offsetHeight;
+      neighbor2.style.transition='transform 0.15s ease';
+      neighbor2.style.transform='';
+      setTimeout(function(){neighbor2.style.transition='';},180);
+      updateRanks();
+    }
+  });
+
+  list.addEventListener('pointerup',function(e){
+    if(!drag)return;
+    drag.el.style.transition='transform 0.15s ease, box-shadow 0.15s, border-color 0.15s';
+    drag.el.style.transform='';
+    drag.el.style.zIndex='';
+    drag.el.style.boxShadow='';
+    drag.el.style.borderColor='';
+    var capturedEl=drag.el;
+    setTimeout(function(){capturedEl.style.transition='';capturedEl.style.position='';drag=null;},160);
+  });
+
+  list.addEventListener('pointercancel',function(){
+    if(!drag)return;
+    drag.el.style.transform='';drag.el.style.zIndex='';drag.el.style.boxShadow='';
+    drag.el.style.borderColor='';drag.el.style.position='';drag=null;
+  });
+}
+
+function updateRanks(){
+  var list=document.getElementById('sort-list');
+  if(!list)return;
+  Array.from(list.children).forEach(function(el,i){
+    el.querySelector('.rank-num').textContent=i+1;
+    el.className='mdpa-sort-item r'+(i+1);
+    el.style.position='relative';
+  });
+}
+
+function submitSIT(){
+  var btn=document.getElementById('sit-confirm');
+  if(btn)btn.disabled=true; // prevent double click
+  var item=S.order[S.idx];
+  S.resp[item.id]={id:item.id,mod:'SIT',ranking:sortOrder.slice(),rt:Date.now()-S.startT,opts:item.o};
+  S.idx++;render();
+}
+
+// ======== BINARY RENDER ========
+function renderBin(item,prev){
+  var h='<div class="mdpa-card">';
+  if(item.s)h+='<div class="mdpa-scenario">'+item.s+'</div>';
+  h+='<div class="mdpa-hint">选一个更像你的</div><div class="mdpa-bin-row">';
+  for(var i=0;i<2;i++){
+    var cls=prev&&prev.chosen===i?'chosen':'';
+    h+='<div class="mdpa-bin-opt '+cls+'" onclick="submitBin('+i+')">'+item.o[i].t+'</div>';
+  }
+  h+='</div></div>';
+  return h;
+}
+var binSubmitting=false;
+function submitBin(idx){
+  if(binSubmitting)return;
+  binSubmitting=true;
+  var item=S.order[S.idx];
+  S.resp[item.id]={id:item.id,mod:item.mod,chosen:idx,rt:Date.now()-S.startT,opts:item.o};
+  var opts=document.querySelectorAll('.mdpa-bin-opt');
+  opts.forEach(function(o,i){o.classList.toggle('chosen',i===idx);});
+  setTimeout(function(){binSubmitting=false;S.idx++;render();},250);
+}
+
+// ======== AV RENDER ========
+function renderAV(item,prev){
+  var h='<div class="mdpa-card">';
+  h+='<div class="mdpa-av-anchors"><div class="mdpa-anchor"><b>'+item.lo.n+'</b>：'+item.lo.d+'</div><div class="mdpa-anchor"><b>'+item.hi.n+'</b>：'+item.hi.d+'</div></div>';
+  h+='<div class="mdpa-scenario">'+item.q+'</div>';
+  h+='<div class="mdpa-slider-wrap"><div class="mdpa-slider-labels"><span>'+item.lb[0]+'</span><span>'+item.lb[6]+'</span></div>';
+  var val=prev?prev.position:4;
+  var touched=!!prev;
+  h+='<input type="range" min="1" max="7" value="'+val+'" id="av-sl">';
+  h+='<div class="mdpa-av-val '+(touched?'':'mdpa-av-unset')+'" id="av-val">'+(touched?item.lb[val-1]:'\u2190 请滑动选择 \u2192')+'</div></div>';
+  h+='<button class="mdpa-btn" id="av-btn" style="width:100%;margin-top:12px" '+(touched?'':'disabled')+' onclick="submitAV()">确认</button>';
+  h+='</div>';
+  return h;
+}
+function initAVSlider(item,prev){
+  var sl=document.getElementById('av-sl');
+  var vl=document.getElementById('av-val');
+  var bt=document.getElementById('av-btn');
+  if(!sl)return;
+  sl.addEventListener('input',function(){
+    vl.textContent=item.lb[sl.value-1];
+    vl.classList.remove('mdpa-av-unset');
+    bt.disabled=false;
+  });
+}
+function submitAV(){
+  var item=S.order[S.idx];
+  var val=parseInt(document.getElementById('av-sl').value);
+  S.resp[item.id]={id:item.id,mod:'AV',position:val,dim:item.dim,rt:Date.now()-S.startT};
+  S.idx++;render();
+}
+
+// ======== COMPLETION CHECK ========
+function showCompletionPage(){
+  var answered=Object.keys(S.resp).filter(function(k){return !k.startsWith('_');}).length;
+  var unanswered=S.order.length-answered;
+  var h='<div class="mdpa-break-page">';
+  if(unanswered===0){
+    h+='<h2>全部完成！</h2><p>你已回答了所有 '+S.order.length+' 道题</p>';
+    h+='<button class="mdpa-btn" onclick="runAnalysis()">查看我的人格报告</button>';
+  }else{
+    h+='<h2>即将完成</h2><p>还有 <b>'+unanswered+'</b> 道题未作答</p>';
+    h+='<p style="font-size:13px;color:#64748b">未作答的题目不会影响已有结果的准确性，但回答越完整画像越精确</p>';
+    // find first unanswered
+    var firstEmpty=S.order.findIndex(function(i){return !S.resp[i.id];});
+    h+='<div class="mdpa-btn-row" style="justify-content:center;flex-wrap:wrap">';
+    if(firstEmpty>=0)h+='<button class="mdpa-btn mdpa-btn-outline" onclick="jumpTo('+firstEmpty+')">去补答未完成的题</button>';
+    h+='<button class="mdpa-btn" onclick="runAnalysis()">直接查看报告</button>';
+    h+='</div>';
+  }
+  h+='</div>';
+  app.innerHTML=h;
+  renderNav();
+}
+
+// ======== ANALYSIS ========
+function runAnalysis(){
+  document.getElementById('nav').style.display='none';
+  // 1. Pairwise expansion with null reference
+  var comps=[];
+  Object.values(S.resp).forEach(function(r){
+    if(r.mod==='SIT'&&r.ranking){
+      for(var i=0;i<r.ranking.length;i++){
+        for(var j=i+1;j<r.ranking.length;j++){
+          var w=r.opts[r.ranking[i]],l=r.opts[r.ranking[j]];
+          if(!w||!l)continue;
+          var wD=(w.d===null||w.d===undefined)?null:(w.d===-1?'null':w.D);
+          var lD=(l.d===null||l.d===undefined)?null:(l.d===-1?'null':l.D);
+          if(wD!==null&&lD!==null)comps.push({w:wD,l:lD});
+        }
+      }
+    }
+    if(r.mod==='PAIR'){
+      var w2=r.opts[r.chosen].D,l2=r.opts[1-r.chosen].D;
+      if(w2&&l2)comps.push({w:w2,l:l2});
+    }
+  });
+
+  // 2. Bradley-Terry with null ref + regularization
+  var players=['E','O','C','A'];
+  var pi={E:1,O:1,C:1,A:1,'null':1};
+  // Add regularization: 0.5 pseudo-wins for each player against null
+  var regComps=comps.slice();
+  players.forEach(function(p){regComps.push({w:p,l:'null'});regComps.push({w:'null',l:p});});
+
+  for(var iter=0;iter<200;iter++){
+    var newPi={};
+    for(var pidx=0;pidx<players.length;pidx++){
+      var p=players[pidx];
+      var wins=regComps.filter(function(c){return c.w===p;}).length;
+      var denom=0;
+      for(var ci=0;ci<regComps.length;ci++){
+        var c=regComps[ci];
+        if(c.w===p||c.l===p){
+          var opp=c.w===p?c.l:c.w;
+          denom+=1/(pi[p]+(pi[opp]||1));
+        }
+      }
+      newPi[p]=denom>0?wins/denom:pi[p];
+    }
+    var mx2=0;
+    for(var pidx2=0;pidx2<players.length;pidx2++){
+      var p2=players[pidx2];
+      mx2=Math.max(mx2,Math.abs((newPi[p2]||0)-(pi[p2]||0)));
+    }
+    for(var pidx3=0;pidx3<players.length;pidx3++){
+      pi[players[pidx3]]=newPi[players[pidx3]]||0.01;
+    }
+    pi['null']=1;
+    if(mx2<0.0001)break;
+  }
+  var lam={};
+  for(var pidx4=0;pidx4<players.length;pidx4++){
+    lam[players[pidx4]]=Math.log(Math.max(pi[players[pidx4]],0.001));
+  }
+
+  // 3. AV calibration (additive)
+  var avAdj={};
+  var avDims=['E','O','C','A','N'];
+  for(var di=0;di<avDims.length;di++){
+    var d=avDims[di];
+    var items=Object.values(S.resp).filter(function(r){return r.mod==='AV'&&r.dim===d;});
+    var avMean=items.length>0?items.reduce(function(s,r){return s+r.position;},0)/items.length:4;
+    avAdj[d]=(avMean-4)*0.15;
+  }
+  var lamCal={};
+  for(var pidx5=0;pidx5<players.length;pidx5++){
+    lamCal[players[pidx5]]=lam[players[pidx5]]+(avAdj[players[pidx5]]||0);
+  }
+
+  // 4. MBTI
+  var mb={EI:{E:0,I:0},NS:{N:0,S:0},FT:{F:0,T:0},JP:{J:0,P:0}};
+  POL.forEach(function(polItem){
+    var r=S.resp[polItem.id];
+    if(!r)return;
+    var pole=polItem.o[r.chosen].p;
+    if(mb[polItem.ax])mb[polItem.ax][pole]++;
+  });
+  var mbType=(mb.EI.E>=mb.EI.I?'E':'I')+(mb.NS.N>=mb.NS.S?'N':'S')+(mb.FT.F>=mb.FT.T?'F':'T')+(mb.JP.J>=mb.JP.P?'J':'P');
+  var mbStr={EI:mb.EI.E/(mb.EI.E+mb.EI.I||1),NS:mb.NS.N/(mb.NS.N+mb.NS.S||1),FT:mb.FT.F/(mb.FT.F+mb.FT.T||1),JP:mb.JP.J/(mb.JP.J+mb.JP.P||1)};
+
+  // 5. N clusters
+  var cls={ar:{n:0,t:0,items:['N_SIT_01','N_SIT_02','N_SIT_04','N_SIT_05','POL_N_01','POL_N_02']},sv:{n:0,t:0,items:['N_SIT_03','N_SIT_06','POL_N_03','POL_N_04']},er:{n:0,t:0,items:['N_SIT_07','N_SIT_08','POL_N_05','POL_N_06']}};
+  NSIT.concat(POLN).forEach(function(item){
+    var r=S.resp[item.id];if(!r)return;
+    var pole=item.o[r.chosen].p;
+    var entries=Object.entries(cls);
+    for(var ei=0;ei<entries.length;ei++){
+      var k=entries[ei][0],c=entries[ei][1];
+      if(c.items.indexOf(item.id)!==-1){c.t++;if(pole==='neurotic')c.n++;}
+    }
+  });
+
+  // 6. Quality
+  var qc=[];
+  var a1=S.resp['ATT_001'];
+  if(a1&&a1.ranking&&a1.ranking[0]===3)qc.push('注意力检查：陷阱题选项被排在第1位');
+  ['ATT_002/SIT_005','ATT_003/SIT_020'].forEach(function(pair){
+    var parts=pair.split('/');
+    var aid=parts[0],sid=parts[1];
+    var ar=S.resp[aid],sr=S.resp[sid];
+    if(ar&&sr&&ar.ranking&&sr.ranking){
+      if(ar.ranking[0]!==sr.ranking[0]&&ar.ranking[3]!==sr.ranking[3])
+        qc.push('一致性检查：'+aid+'与'+sid+'排序差异较大');
+    }
+  });
+
+  showReport(lamCal,lam,mbType,mbStr,cls,avAdj,qc);
+}
+
+// ======== REPORT ========
+function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
+  var DN={E:'外向性',O:'开放性',C:'尽责性',A:'宜人性'};
+  var DC={E:'#3b82f6',O:'#8b5cf6',C:'#10b981',A:'#f59e0b'};
+  var sorted=Object.entries(lamCal).sort(function(a,b){return b[1]-a[1];});
+  var vals=sorted.map(function(s){return s[1];});
+  var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals),rng=mx-mn||1;
+
+  var h='<div class="mdpa-report"><h2>MDPA 多维人格评估报告</h2>';
+  if(qc.length)h+='<div class="mdpa-card" style="border-left:3px solid #dc2626;font-size:14px">'+qc.join('<br>')+'</div>';
+
+  // MBTI
+  h+='<div class="mdpa-card"><h3>你的 MBTI 类型</h3><div class="mdpa-mbti-type">'+mbType+'</div>';
+  var AXL={EI:['I 内向','E 外向'],NS:['S 实感','N 直觉'],FT:['T 思考','F 情感'],JP:['P 感知','J 判断']};
+  var axes=['EI','NS','FT','JP'];
+  for(var axi=0;axi<axes.length;axi++){
+    var ax=axes[axi];
+    var v=mbStr[ax];var pct=Math.round(Math.abs(v-0.5)*200);
+    var st=pct>60?'明确':pct>20?'较明确':'边界型';
+    var stTag=pct>60?'mdpa-tag-s':pct>20?'mdpa-tag-m':'mdpa-tag-n';
+    h+='<div class="mdpa-bar-wrap"><div class="mdpa-bar-label"><span style="font-size:13px">'+AXL[ax][0]+'</span><span class="mdpa-tag '+stTag+'">'+st+'</span><span style="font-size:13px">'+AXL[ax][1]+'</span></div>';
+    h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+Math.round(v*100)+'%;background:'+(v>=0.5?'#042f24':'#9ca3af')+'"></div></div></div>';
+  }
+  h+='</div>';
+
+  // Big Five
+  h+='<div class="mdpa-card"><h3>Big Five 人格画像</h3>';
+  function descMap(v){return v>1?'这是你最鲜明的特质':v>0.3?'在你身上比较明显':v>-0.3?'你在这方面比较灵活':v>-1?'不是你最突出的方面':'你在这方面相对低调';}
+  for(var si=0;si<sorted.length;si++){
+    var dim=sorted[si][0],val=sorted[si][1];
+    var pct2=Math.max(5,Math.round(((val-mn)/rng)*100));
+    h+='<div class="mdpa-bar-wrap"><div class="mdpa-bar-label"><span><b>'+DN[dim]+'</b></span><span style="color:#9ca3af;font-size:13px">'+descMap(val)+'</span></div>';
+    h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+pct2+'%;background:'+DC[dim]+'"></div></div></div>';
+  }
+  h+='<p style="margin-top:14px;font-size:15px"><b>你的特质排序：</b>'+sorted.map(function(d){return DN[d[0]];}).join(' \u203A ')+'</p></div>';
+
+  // N clusters
+  var CN={ar:'深度思考',sv:'压力韧性',er:'情绪节奏'};
+  var CD={ar:'你对过去和未来的事倾向于反复深入加工的程度',sv:'你在压力和挫折面前的恢复速度',er:'你的情绪反应强度和冲动控制'};
+  h+='<div class="mdpa-card"><h3>情绪特质画像</h3>';
+  var clsEntries=Object.entries(cls);
+  for(var ci2=0;ci2<clsEntries.length;ci2++){
+    var k=clsEntries[ci2][0],c=clsEntries[ci2][1];
+    var r=c.t>0?c.n/c.t:0;
+    var dir=r>0.64?'敏感':r<0.36?'稳定':'中间';
+    var tag=r>0.64?'mdpa-tag-n':r<0.36?'mdpa-tag-s':'mdpa-tag-m';
+    h+='<div class="mdpa-cluster-card"><b>'+CN[k]+'</b><span class="mdpa-tag '+tag+'">'+dir+'</span>';
+    h+='<div style="font-size:13px;color:#64748b;margin:4px 0">'+CD[k]+'</div>';
+    h+='<div class="mdpa-bar"><div class="mdpa-bar-fill" style="width:'+Math.round(r*100)+'%;background:'+(r>0.5?'#ef4444':'#22c55e')+'"></div></div></div>';
+  }
+  var arH=cls.ar.t>0&&cls.ar.n/cls.ar.t>0.5,erH=cls.er.t>0&&cls.er.n/cls.er.t>0.5;
+  var prof=arH&&erH?'全面感知型':arH&&!erH?'内省深思型':!arH&&erH?'即时表达型':'沉稳自如型';
+  var profD={'全面感知型':'你对内在和外在的情绪都有敏锐的感知，适合需要高度同理心的角色','内省深思型':'你内心丰富但表面平静，擅长深度思考但要注意别过度内耗','即时表达型':'你的情绪来得快去得也快，行动力强但偶尔需要踩一下刹车','沉稳自如型':'你情绪稳定，在压力下表现从容，是团队里的定心丸'};
+  h+='<div class="mdpa-profile-box"><b>综合型态：'+prof+'</b><div style="font-size:14px;color:#334155;margin-top:6px">'+profD[prof]+'</div></div></div>';
+
+  // Export
+  h+='<div class="mdpa-card"><h3>数据导出</h3><p style="font-size:13px;color:#9ca3af;margin-bottom:8px">点击下方区域复制完整JSON</p>';
+  var exp={time:new Date().toISOString(),responses:Object.values(S.resp).filter(function(r){return r.mod;}),analysis:{lambda_raw:lamRaw,lambda_cal:lamCal,av_adjustments:avAdj,mbti:{type:mbType,strength:mbStr},n_clusters:Object.fromEntries(Object.entries(cls).map(function(entry){var k=entry[0],v=entry[1];return [k,{n:v.n,t:v.t,r:v.t?+(v.n/v.t).toFixed(3):0}];}))},qc:qc};
+  h+='<div class="mdpa-json-box" onclick="navigator.clipboard.writeText(this.textContent).then(function(){alert(\'已复制\')})">'+JSON.stringify(exp)+'</div></div></div>';
+  app.innerHTML=h;
+}
+
+// ======== INIT ========
+var allItems=buildAll();
+S.order=genOrder(allItems);
+app.innerHTML='<div class="mdpa-break-page"><h2>MDPA 多维人格评估</h2><p>共 114 道题，约 18-24 分钟<br>请在安静环境中凭直觉作答<br><br>排序题：拖动卡片排出顺序<br>选择题：点击更像你的选项<br>滑块题：拖动滑块定位自己</p><button class="mdpa-btn" onclick="startTest()">开始测试</button></div>';
+document.getElementById('nav').style.display='none';
+
+function startTest(){
+  S.testStarted=true;
+  document.getElementById('nav').style.display='';
+  render();
+}
+</script>
