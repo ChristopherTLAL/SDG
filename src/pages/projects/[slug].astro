@@ -2,13 +2,18 @@
 // src/pages/projects/[slug].astro — Project detail page with registration form
 import MainLayout from '../../layouts/MainLayout.astro';
 import SdgChip from '../../components/SdgChip.astro';
-import { getProjectBySlug } from '../../lib/sanity/queries';
+import { getProjectBySlug, getAllProjectSlugs } from '../../lib/sanity/queries';
 import { formatDate } from '../../utils/date';
 import { getIllustration } from '../../utils/illustrations';
 
 const lang = 'en';
 const { slug } = Astro.params;
-const project = await getProjectBySlug(slug!);
+const [project, allProjectSlugs] = await Promise.all([
+  getProjectBySlug(slug!),
+  getAllProjectSlugs(),
+]);
+const projectIndex = allProjectSlugs.indexOf(slug!);
+const illustrationIndex = projectIndex >= 0 ? projectIndex : 0;
 
 if (!project) return Astro.redirect('/projects');
 
@@ -44,8 +49,8 @@ const statusLabels: Record<string, string> = {
 };
 const statusLabel = statusLabels[project.status] || project.status;
 
-// Use illustration system — hash slug to get a deterministic image
-const heroImage = getIllustration(slug!.split('').reduce((h: number, c: string) => ((h << 5) + h + c.charCodeAt(0)) >>> 0, 5381));
+// Use illustration system — same sequential index as list page
+const heroImage = getIllustration(illustrationIndex);
 ---
 
 <MainLayout title={`${title} | Chinese SDGs Institute`} description={description} lang={lang}>

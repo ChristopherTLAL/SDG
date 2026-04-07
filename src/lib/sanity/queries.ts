@@ -93,7 +93,8 @@ export async function getPostBySlug(slug: string) {
 
 export async function getAllPostSlugs() {
   const query = /* groq */ `
-    *[_type == "post" && defined(slug.current)]{
+    *[_type == "post" && defined(slug.current)]
+    | order(publishedAt desc){
       "slug": slug.current
     }
   `;
@@ -146,7 +147,8 @@ export async function getProjectBySlug(slug: string) {
 
 export async function getAllProjectSlugs() {
   const query = /* groq */ `
-    *[_type == "project" && defined(slug.current)]{
+    *[_type == "project" && defined(slug.current)]
+    | order(applicationDeadline desc){
       "slug": slug.current
     }
   `;

@@ -3,14 +3,20 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import { ContentView } from '../../components/ContentView.tsx';
 import SdgChip from '../../components/SdgChip.astro';
-import { getPostBySlug } from '../../lib/sanity/queries';
+import { getPostBySlug, getAllPostSlugs } from '../../lib/sanity/queries';
 import { urlForImage } from '../../lib/sanity/image';
 import { formatDate } from '../../utils/date';
-import { getIllustrationByIndex } from '../../utils/illustrations';
+import { getIllustration } from '../../utils/illustrations';
 
 const lang = 'en';
 const { slug } = Astro.params;
-const post = await getPostBySlug(slug!);
+const [post, allSlugs] = await Promise.all([
+  getPostBySlug(slug!),
+  getAllPostSlugs(),
+]);
+// Find this post's chronological index to match the list page illustration
+const postIndex = allSlugs.indexOf(slug!);
+const illustrationIndex = postIndex >= 0 ? postIndex : 0;
 
 // Resolve localized field
 function t(field: any): string {
@@ -87,7 +93,7 @@ if (post?.mainImage?.asset) {
           </div>
         ) : (
           <div class="mb-12 rounded-2xl aspect-[16/9] bg-surface-container-low overflow-hidden flex items-center justify-center">
-            <img class="h-full object-contain" loading="lazy" decoding="async" src={getIllustrationByIndex(slug!.split('').reduce((h, c) => ((h << 5) + h + c.charCodeAt(0)) >>> 0, 5381))} alt={title} />
+            <img class="h-full object-contain" loading="lazy" decoding="async" src={getIllustration(illustrationIndex)} alt={title} />
           </div>
         )}
 
