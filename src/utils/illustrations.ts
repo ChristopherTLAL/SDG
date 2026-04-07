@@ -83,13 +83,16 @@ function hash(str: string): number {
 
 /**
  * Get an illustration path for a post.
- * If sdgTag is provided, picks from relevant images.
- * Falls back to full pool using slug hash.
+ * Uses the full 44-image pool to maximise spread across articles.
+ * SDG tag shifts the starting offset so posts from the same SDG
+ * tend toward thematically relevant images, but still draws from
+ * the entire pool (avoiding the 4-image bottleneck).
  */
 export function getIllustration(slug: string, sdgTag?: string): string {
-  const pool = (sdgTag && sdgMap[sdgTag]) || illustrations;
-  const index = hash(slug) % pool.length;
-  return `/images/illustrations/${pool[index]}.png`;
+  const sdgNum = sdgTag ? parseInt(sdgTag.replace(/\D/g, ''), 10) || 0 : 0;
+  const sdgOffset = sdgNum * 7; // prime-ish stride per SDG
+  const index = (hash(slug) + sdgOffset) % illustrations.length;
+  return `/images/illustrations/${illustrations[index]}.png`;
 }
 
 /**

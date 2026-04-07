@@ -52,7 +52,7 @@ function filterUrl(key: string, value: string): string {
 const featured = posts[0] || null;
 const secondary = posts.slice(1, 3);
 const compact = posts.slice(3);
-const COMPACT_PER_PAGE = 3;
+const COMPACT_PER_PAGE = 5;
 const hasActiveFilter = !!(activeType || activeYear || activeSdg);
 
 // Pre-process trending
@@ -291,7 +291,7 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
     const wrap = document.getElementById('load-more-wrap');
     const text = document.getElementById('load-more-text');
     const items = document.querySelectorAll('.compact-item');
-    const PER_PAGE = 3;
+    const PER_PAGE = 5;
     let shown = PER_PAGE;
 
     if (btn && wrap && items.length > 0) {

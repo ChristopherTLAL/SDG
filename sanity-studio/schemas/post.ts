@@ -90,6 +90,12 @@ export default defineType({
       title: 'Reading Time (minutes)',
       type: 'number',
     }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {

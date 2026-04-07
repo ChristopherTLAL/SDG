@@ -22,8 +22,9 @@ export async function getLatestPosts(lang: string = 'en', limit: number = 4) {
 }
 
 export async function getTrendingPosts(lang: string = 'en', limit: number = 4) {
+  // Prefer editorially featured posts; fall back to latest if none are featured
   const query = /* groq */ `
-    *[_type == "post" && defined(slug.current)]
+    *[_type == "post" && defined(slug.current) && featured == true]
     | order(publishedAt desc)[0...$limit]{
       "slug": slug.current,
       "title": title,
@@ -31,7 +32,18 @@ export async function getTrendingPosts(lang: string = 'en', limit: number = 4) {
     }
   `;
   const data = await client.fetch(query, { limit });
-  return Array.isArray(data) ? data : [];
+  if (Array.isArray(data) && data.length > 0) return data;
+  // Fallback: latest posts
+  const fallback = /* groq */ `
+    *[_type == "post" && defined(slug.current)]
+    | order(publishedAt desc)[0...$limit]{
+      "slug": slug.current,
+      "title": title,
+      contentType
+    }
+  `;
+  const fb = await client.fetch(fallback, { limit });
+  return Array.isArray(fb) ? fb : [];
 }
 
 export async function getResearchPosts(lang: string = 'en', contentType?: string, limit: number = 20) {
@@ -163,7 +175,7 @@ export async function getHomepageData(lang: string = 'en') {
         publishedAt,
         readingTime
       },
-    "trendingPosts": *[_type == "post" && defined(slug.current)]
+    "trendingPosts": *[_type == "post" && defined(slug.current) && featured == true]
       | order(publishedAt desc)[0...4]{
         "slug": slug.current,
         "title": title,
