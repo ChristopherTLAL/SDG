@@ -1,6 +1,6 @@
 // src/utils/illustrations.ts
-// Deterministic illustration assignment — same slug always gets the same image,
-// different slugs spread across the pool to minimize visible repetition.
+// Sequential illustration cycling — posts get illustrations by their
+// chronological index, cycling through all 44 images in order.
 
 const illustrations = [
   'payment-exchange',
@@ -49,58 +49,15 @@ const illustrations = [
   'wildlife-ecosystem',
 ];
 
-// SDG tag → best-fit illustrations (used when SDG tag is available)
-const sdgMap: Record<string, string[]> = {
-  'SDG 1':  ['economic-balance', 'piggy-bank', 'payment-exchange', 'housing-community'],
-  'SDG 2':  ['food-bowl', 'plant-nurture', 'tree-planting', 'sustainable-growth'],
-  'SDG 3':  ['healthcare', 'handwashing', 'community-wellbeing', 'carbon-footprint'],
-  'SDG 4':  ['education-books', 'document-writing', 'key-access', 'cafe-study'],
-  'SDG 5':  ['gender-equality', 'solidarity-hands', 'collective-growth', 'puzzle-collaboration'],
-  'SDG 6':  ['water-pouring', 'ocean-coral', 'handwashing', 'nature-hands'],
-  'SDG 7':  ['solar-energy', 'energy-innovation', 'electric-plug', 'climate-change'],
-  'SDG 8':  ['partnership-gears', 'collective-growth', 'sustainable-growth', 'piggy-bank'],
-  'SDG 9':  ['infrastructure-build', 'technology-device', 'building-blocks', 'partnership-gears'],
-  'SDG 10': ['diversity-circle', 'puzzle-collaboration', 'solidarity-hands', 'gender-equality'],
-  'SDG 11': ['urban-transport', 'housing-community', 'infrastructure-build', 'building-blocks'],
-  'SDG 12': ['package-sharing', 'content-editing', 'sustainable-growth', 'carbon-footprint'],
-  'SDG 13': ['climate-change', 'solar-energy', 'forest-ecosystem', 'carbon-footprint'],
-  'SDG 14': ['ocean-coral', 'water-pouring', 'wildlife-ecosystem', 'nature-hands'],
-  'SDG 15': ['forest-ecosystem', 'wildlife-ecosystem', 'biodiversity-dna', 'tree-planting'],
-  'SDG 16': ['institution-governance', 'handshake', 'olive-branch', 'key-access'],
-  'SDG 17': ['handshake', 'sdg-collaboration', 'unity-circle', 'partnership-gears'],
-};
-
 /**
- * Simple hash from string → number (djb2)
+ * Get an illustration path by numeric index.
+ * Cycles through all 44 illustrations in order, then repeats.
  */
-function hash(str: string): number {
-  let h = 5381;
-  for (let i = 0; i < str.length; i++) {
-    h = ((h << 5) + h + str.charCodeAt(i)) >>> 0;
-  }
-  return h;
-}
-
-/**
- * Get an illustration path for a post.
- * Uses the full 44-image pool to maximise spread across articles.
- * SDG tag shifts the starting offset so posts from the same SDG
- * tend toward thematically relevant images, but still draws from
- * the entire pool (avoiding the 4-image bottleneck).
- */
-export function getIllustration(slug: string, sdgTag?: string): string {
-  const sdgNum = sdgTag ? parseInt(sdgTag.replace(/\D/g, ''), 10) || 0 : 0;
-  const sdgOffset = sdgNum * 7; // prime-ish stride per SDG
-  const index = (hash(slug) + sdgOffset) % illustrations.length;
-  return `/images/illustrations/${illustrations[index]}.png`;
-}
-
-/**
- * Get illustration by numeric index (for fallback cards with no slug).
- * Uses modulo to cycle through all illustrations.
- */
-export function getIllustrationByIndex(index: number): string {
+export function getIllustration(index: number): string {
   return `/images/illustrations/${illustrations[index % illustrations.length]}.png`;
 }
+
+// Alias kept for backwards compatibility
+export const getIllustrationByIndex = getIllustration;
 
 export { illustrations };

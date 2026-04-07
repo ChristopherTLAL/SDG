@@ -17,11 +17,12 @@ interface Props {
     publishedAt?: string;
     readingTime?: number;
   };
+  index?: number;
   variant?: 'featured' | 'medium' | 'compact';
   lang?: 'en' | 'zh';
 }
 
-const { post, variant = 'medium', lang = 'en' } = Astro.props;
+const { post, index = 0, variant = 'medium', lang = 'en' } = Astro.props;
 
 // Resolve localized fields
 const title = typeof post.title === 'string' ? post.title : (post.title?.[lang] || post.title?.en || '');
@@ -49,7 +50,7 @@ if (post.mainImage?.asset?._ref) {
 }
 
 // Fallback illustration when no Sanity image
-const fallbackImage = getIllustration(post.slug, post.sdgTags?.[0]);
+const fallbackImage = getIllustration(index);
 
 const readLabel = 'Read';
 const minLabel = 'min read';

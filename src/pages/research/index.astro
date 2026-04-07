@@ -164,13 +164,13 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
       <div class="col-span-12 lg:col-span-7">
         <div class="space-y-16">
           {featured && (
-            <PostCard post={featured} variant="featured" lang={lang} />
+            <PostCard post={featured} index={0} variant="featured" lang={lang} />
           )}
 
           {secondary.length > 0 && (
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-surface-container-high pb-16">
-              {secondary.map((post: any) => (
-                <PostCard post={post} variant="medium" lang={lang} />
+              {secondary.map((post: any, i: number) => (
+                <PostCard post={post} index={1 + i} variant="medium" lang={lang} />
               ))}
             </div>
           )}
@@ -179,7 +179,7 @@ const processedTrending = (trending || []).map((p: any, i: number) => ({
             <div id="compact-feed" class="space-y-12">
               {compact.map((post: any, i: number) => (
                 <div class:list={["compact-item", { hidden: i >= COMPACT_PER_PAGE }]} data-index={i}>
-                  <PostCard post={post} variant="compact" lang={lang} />
+                  <PostCard post={post} index={3 + i} variant="compact" lang={lang} />
                 </div>
               ))}
             </div>
