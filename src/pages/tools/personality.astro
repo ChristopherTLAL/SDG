@@ -10,10 +10,21 @@ const lang = 'en';
     <div class="max-w-4xl mx-auto px-6 md:px-12">
 
       <!-- Back link -->
-      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-10">
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-6">
         <span class="material-symbols-outlined text-lg">arrow_back</span>
         Back to Tools
       </a>
+
+      <!-- English language notice -->
+      <div id="lang-notice" class="mb-8 px-5 py-4 bg-surface-container-low rounded-2xl border border-outline-variant/10">
+        <div class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-xl mt-0.5">translate</span>
+          <div>
+            <p class="text-sm font-semibold text-on-surface mb-1">Chinese-Language Assessment Only</p>
+            <p class="text-sm text-on-surface-variant leading-relaxed">This tool has been validated with over 4,000 participants in Chinese-speaking contexts. An English version is not yet available. All 114 questions and results are presented in Chinese (Simplified).</p>
+          </div>
+        </div>
+      </div>
 
       <!-- Nav panel -->
       <div class="mdpa-nav" id="nav" style="display:none">
@@ -533,7 +544,7 @@ function genOrder(items){
 
 // ======== STATE ========
 var S={idx:0,order:[],resp:{},startT:0,navOpen:false,testStarted:false};
-var app=document.getElementById('app');
+var app;
 
 // ======== NAV PANEL ========
 function renderNav(){
@@ -960,14 +971,19 @@ function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
 }
 
 // ======== INIT ========
-var allItems=buildAll();
-S.order=genOrder(allItems);
-app.innerHTML='<div class="mdpa-break-page"><h2>MDPA 多维人格评估</h2><p>共 114 道题，约 18-24 分钟<br>请在安静环境中凭直觉作答<br><br>排序题：拖动卡片排出顺序<br>选择题：点击更像你的选项<br>滑块题：拖动滑块定位自己</p><button class="mdpa-btn" onclick="startTest()">开始测试</button></div>';
-document.getElementById('nav').style.display='none';
+function initMDPA(){
+  app=document.getElementById('app');
+  var allItems=buildAll();
+  S.order=genOrder(allItems);
+  app.innerHTML='<div class="mdpa-break-page"><h2>MDPA \u591a\u7ef4\u4eba\u683c\u8bc4\u4f30</h2><p>\u5171 114 \u9053\u9898\uff0c\u7ea6 18-24 \u5206\u949f<br>\u8bf7\u5728\u5b89\u9759\u73af\u5883\u4e2d\u51ed\u76f4\u89c9\u4f5c\u7b54<br><br>\u6392\u5e8f\u9898\uff1a\u62d6\u52a8\u5361\u7247\u6392\u51fa\u987a\u5e8f<br>\u9009\u62e9\u9898\uff1a\u70b9\u51fb\u66f4\u50cf\u4f60\u7684\u9009\u9879<br>\u6ed1\u5757\u9898\uff1a\u62d6\u52a8\u6ed1\u5757\u5b9a\u4f4d\u81ea\u5df1</p><button class="mdpa-btn" onclick="startTest()">\u5f00\u59cb\u6d4b\u8bd5</button></div>';
+  document.getElementById('nav').style.display='none';
+}
 
 function startTest(){
   S.testStarted=true;
   document.getElementById('nav').style.display='';
   render();
 }
+
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initMDPA);}else{initMDPA();}
 </script>
