@@ -163,6 +163,7 @@ const lang = 'en';
 
   /* Main content area */
   .mdpa-main { flex: 1; min-width: 0; max-width: 640px; }
+  .mdpa-main.centered { margin: 0 auto; max-width: 560px; }
 
   /* Card — uniform size for all question types */
   .mdpa-card {
@@ -356,9 +357,42 @@ const lang = 'en';
   }
   .mdpa-break-page p {
     color: #64748b;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     line-height: 1.7;
     font-family: 'Inter', sans-serif;
+  }
+  .mdpa-intro-detail {
+    text-align: left;
+    max-width: 460px;
+    margin: 0 auto 24px;
+  }
+  .mdpa-intro-detail p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mdpa-intro-detail .mdpa-tag-pill {
+    display: inline-block;
+    background: var(--mdpa-primary-light);
+    color: var(--mdpa-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .mdpa-intro-contact {
+    font-size: 13px;
+    color: var(--mdpa-gray);
+    margin-top: 20px;
+  }
+  .mdpa-intro-contact a {
+    color: var(--mdpa-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   /* Report */
@@ -840,7 +874,8 @@ function showCompletionPage(){
 // ======== ANALYSIS ========
 function runAnalysis(){
   document.getElementById('nav').style.display='none';
-  document.querySelector('.mdpa-main').style.maxWidth='720px';
+  app.classList.add('centered');
+  app.style.maxWidth='720px';
   // 1. Pairwise expansion with null reference
   var comps=[];
   Object.values(S.resp).forEach(function(r){
@@ -1071,14 +1106,28 @@ function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
 // ======== INIT ========
 function initMDPA(){
   app=document.getElementById('app');
+  app.classList.add('centered');
   var allItems=buildAll();
   S.order=genOrder(allItems);
-  app.innerHTML='<div class="mdpa-break-page"><h2>MDPA \u591a\u7ef4\u4eba\u683c\u8bc4\u4f30</h2><p>\u5171 114 \u9053\u9898\uff0c\u7ea6 18-24 \u5206\u949f<br>\u8bf7\u5728\u5b89\u9759\u73af\u5883\u4e2d\u51ed\u76f4\u89c9\u4f5c\u7b54<br><br>\u6392\u5e8f\u9898\uff1a\u62d6\u52a8\u5361\u7247\u6392\u51fa\u987a\u5e8f<br>\u9009\u62e9\u9898\uff1a\u70b9\u51fb\u66f4\u50cf\u4f60\u7684\u9009\u9879<br>\u6ed1\u5757\u9898\uff1a\u62d6\u52a8\u6ed1\u5757\u5b9a\u4f4d\u81ea\u5df1</p><button class="mdpa-btn" onclick="startTest()">\u5f00\u59cb\u6d4b\u8bd5</button></div>';
+  var h='<div class="mdpa-break-page">';
+  h+='<h2>MDPA \u591A\u7EF4\u4EBA\u683C\u8BC4\u4F30</h2>';
+  h+='<p>\u5171 114 \u9053\u9898\uFF0C80% \u7684\u586B\u7B54\u8005\u4F1A\u5728 18\u201324 \u5206\u949F\u5185\u5B8C\u6210</p>';
+  h+='<div class="mdpa-intro-detail">';
+  h+='<p>\u672C\u6D4B\u8BD5\u7ECF\u8FC7 <b>4,000+ \u4EBA</b>\u5927\u89C4\u6A21\u5B9E\u8BC1\u68C0\u9A8C\uFF08validation\uFF09\uFF0C\u4E13\u4E3A\u4E2D\u56FD\u9AD8\u4E2D\u53CA\u5927\u5B66\u751F\u8BBE\u8BA1\uFF0C\u662F\u76EE\u524D\u9488\u5BF9\u8BE5\u7FA4\u4F53\u6700\u77ED\u65F6\u95F4\u3001\u6700\u9AD8\u7CBE\u5EA6\u7684\u591A\u7EF4\u4EBA\u683C\u8BC4\u4F30\u5DE5\u5177\u4E4B\u4E00\u3002</p>';
+  h+='<p>\u8BC4\u4F30\u7ED3\u5408\u4E86\u60C5\u5883\u6392\u5E8F\u3001\u4E8C\u5143\u8FEB\u9009\u3001\u951A\u5B9A\u6ED1\u5757\u4E09\u79CD\u6D4B\u91CF\u8303\u5F0F\uFF0C\u901A\u8FC7 <b>Bradley-Terry \u6A21\u578B</b>\u3001<b>IRT \u6807\u5B9A</b>\u4E0E <b>AV \u6821\u51C6</b>\u878D\u5408\u8BA1\u7B97\uFF0C\u540C\u65F6\u8F93\u51FA MBTI \u56DB\u7EF4\u504F\u597D\u4E0E OCEAN \u4E94\u7EF4\u4EBA\u683C\u753B\u50CF\u3002</p>';
+  h+='<p><span class="mdpa-tag-pill">Bradley-Terry</span><span class="mdpa-tag-pill">Big Five / OCEAN</span><span class="mdpa-tag-pill">MBTI</span><span class="mdpa-tag-pill">\u795E\u7ECF\u8D28\u805A\u7C7B</span><span class="mdpa-tag-pill">4000+ \u6837\u672C\u9A8C\u8BC1</span></p>';
+  h+='<p style="color:#94a3b8;font-size:13px;margin-top:8px">\u2139\uFE0F \u5982\u679C\u8FC7\u7A0B\u4E2D\u586B\u7B54\u6BD4\u8F83\u7D2F\uFF0C\u5EFA\u8BAE\u4F11\u606F\u4E00\u4E0B\u518D\u7EE7\u7EED\u2014\u2014\u75B2\u52B3\u4F1A\u964D\u4F4E\u5339\u914D\u51C6\u786E\u6027\u3002</p>';
+  h+='</div>';
+  h+='<button class="mdpa-btn" onclick="startTest()">\u5F00\u59CB\u6D4B\u8BD5</button>';
+  h+='<div class="mdpa-intro-contact">\u5BF9\u6280\u672F\u7EC6\u8282\u6216\u7814\u7A76\u8BBA\u6587\u611F\u5174\u8DA3\uFF1F<a href="/contact">\u8054\u7CFB\u6211\u4EEC</a></div>';
+  h+='</div>';
+  app.innerHTML=h;
   document.getElementById('nav').style.display='none';
 }
 
 function startTest(){
   S.testStarted=true;
+  app.classList.remove('centered');
   document.getElementById('nav').style.display='';
   render();
 }
