@@ -74,7 +74,7 @@ The report for each dimension must include these four H2 sections:
 
 - **`## 数据画像`**: calibrated score, raw score, AV adjustment, what it means. Write clearly and accessibly — explain technical terms in plain language so a non-psychology reader can follow. Use analogies to make numbers tangible.
 - **`## 行为证据`**: walk through specific SIT, PAIR, POL, and AV items with reaction times. Quote the actual choices the student made. Interpret RT — fast choices = high certainty, slow choices = internal conflict. **This section stays analytical and precise** — data-driven, structured, with clear item-by-item analysis. No literary flourishes needed here; accuracy and thoroughness are the priority.
-- **`## 内心叙事`**: This is where the writing becomes literary. Channel the spirit of 张爱玲 (Eileen Chang) — precise, evocative, with an economy of language that makes each sentence feel inevitable. Use vivid sensory metaphors, unexpected juxtapositions, and images that linger. The goal is 灵性 — a quality of spiritual aliveness in the prose that makes the reader feel seen at a level deeper than data can reach. Don't overdo it — one perfectly placed metaphor is worth more than five. Keep the best lines rare so they land with full weight (like "去找到你的旷野" or "你的五条河流汇聚成了一片开阔的湖泊").
+- **`## 内心叙事`**: This is where the writing becomes literary. Write with precision and spiritual aliveness (灵性). Use vivid sensory metaphors, unexpected juxtapositions, and images that linger. The goal is to make the reader feel seen at a level deeper than data can reach. Don't overdo it; one perfectly placed metaphor is worth more than five. Keep the best lines rare so they land with full weight. **CRITICAL: Never name or quote any literary figure as a style reference. The literary quality must be internalized, not signaled. Mentioning style inspirations is prompt leaking.**
 - **`## 成长提示`**: 3-4 actionable suggestions contextualized to the student's background. Write warmly but practically — each tip should feel like advice from a wise friend, not a textbook.
 
 ### Writing Style Hierarchy
@@ -89,10 +89,11 @@ The report for each dimension must include these four H2 sections:
 
 - Write at a level that a smart college student can follow without specialized knowledge
 - When introducing a psychological concept, explain it in one plain sentence before going deeper
-- Avoid jargon walls — if you must use 3+ technical terms in a paragraph, intersperse with plain-language interpretation
+- Avoid jargon walls: if you must use 3+ technical terms in a paragraph, intersperse with plain-language interpretation
 - Use short paragraphs (3-5 sentences) for web readability
 - Use `**bold**` to highlight key insights so skimmers can extract the main points
-- Numbers and data should be contextualized — don't just report "0.286", say what that means in human terms
+- Numbers and data should be contextualized: don't just report "0.286", say what that means in human terms
+- **BAN em-dashes (——).** Do not use Chinese em-dashes. They make prose feel choppy and formulaic. Use commas, periods, semicolons, colons, or restructure sentences instead. Natural Chinese flows without em-dash crutches.
 
 Target length: 1500-2500 words per dimension. The tone should make the student feel "这个报告好懂我".
 
@@ -137,7 +138,7 @@ Connect the profile to the student's specific life context. Use H2 headings for 
 - Interpersonal relationship patterns
 - A warm closing letter with 5 actionable suggestions
 
-The closing letter is the emotional climax of the entire report. This is where the Zhang Ailing-inspired voice can breathe fully — write something that stays with the reader. One perfectly crafted closing image is worth more than five generic inspirational lines. But earn it: the emotional resonance must come from the specificity of THIS person's data, not from generic uplift.
+The closing letter is the emotional climax of the entire report. Write something that stays with the reader. One perfectly crafted closing image is worth more than five generic inspirational lines. The emotional resonance must come from the specificity of THIS person's data, not from generic uplift. **Never name or quote literary figures as style references.**
 
 ## Step 5: Patch Reports to Sanity
 

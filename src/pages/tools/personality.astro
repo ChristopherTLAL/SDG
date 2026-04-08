@@ -821,22 +821,22 @@ function initDrag(){
     }
   });
 
-  list.addEventListener('pointerup',function(e){
+  function finishDrag(){
     if(!drag)return;
-    drag.el.style.transition='transform 0.15s ease, box-shadow 0.15s, border-color 0.15s';
-    drag.el.style.transform='';
-    drag.el.style.zIndex='';
-    drag.el.style.boxShadow='';
-    drag.el.style.borderColor='';
-    var capturedEl=drag.el;
-    setTimeout(function(){capturedEl.style.transition='';capturedEl.style.position='';drag=null;},160);
-  });
+    var el=drag.el;
+    drag=null;
+    el.style.transition='transform 0.15s ease, box-shadow 0.15s, border-color 0.15s';
+    el.style.transform='translateY(0)';
+    el.style.zIndex='';
+    el.style.boxShadow='';
+    el.style.borderColor='';
+    setTimeout(function(){el.style.transition='';el.style.position='';el.style.transform='';},160);
+  }
 
-  list.addEventListener('pointercancel',function(){
-    if(!drag)return;
-    drag.el.style.transform='';drag.el.style.zIndex='';drag.el.style.boxShadow='';
-    drag.el.style.borderColor='';drag.el.style.position='';drag=null;
-  });
+  list.addEventListener('pointerup',finishDrag);
+  list.addEventListener('pointercancel',finishDrag);
+  // Safety: if pointer leaves the window entirely, also finish
+  document.addEventListener('pointerup',finishDrag);
 }
 
 function updateRanks(){

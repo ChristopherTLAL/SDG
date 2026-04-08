@@ -1,11 +1,12 @@
 // MDPA Report display constants
 
+// Morandi-inspired muted palette
 export const DIMENSION_COLORS: Record<string, { bg: string; text: string; accent: string; light: string }> = {
-  O: { bg: 'bg-amber-50', text: 'text-amber-800', accent: 'border-amber-500', light: 'bg-amber-100' },
-  C: { bg: 'bg-blue-50', text: 'text-blue-800', accent: 'border-blue-500', light: 'bg-blue-100' },
-  E: { bg: 'bg-rose-50', text: 'text-rose-800', accent: 'border-rose-500', light: 'bg-rose-100' },
-  A: { bg: 'bg-green-50', text: 'text-green-800', accent: 'border-green-500', light: 'bg-green-100' },
-  N: { bg: 'bg-purple-50', text: 'text-purple-800', accent: 'border-purple-500', light: 'bg-purple-100' },
+  O: { bg: 'bg-[#f5f0e8]', text: 'text-[#8a7a5e]', accent: 'border-[#b5a68a]', light: 'bg-[#ede6d8]' },
+  C: { bg: 'bg-[#eaeff5]', text: 'text-[#5d708a]', accent: 'border-[#8da4b8]', light: 'bg-[#dde5ef]' },
+  E: { bg: 'bg-[#f5eced]', text: 'text-[#8a6068]', accent: 'border-[#c0959c]', light: 'bg-[#eddfe1]' },
+  A: { bg: 'bg-[#edf2ee]', text: 'text-[#5e7a62]', accent: 'border-[#9ab59e]', light: 'bg-[#e0ebe2]' },
+  N: { bg: 'bg-[#f0ecf3]', text: 'text-[#736082]', accent: 'border-[#a898b5]', light: 'bg-[#e5dfe9]' },
 }
 
 export const DIMENSION_LABELS: Record<string, { zh: string; en: string }> = {
