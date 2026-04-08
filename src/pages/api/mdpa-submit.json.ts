@@ -62,11 +62,19 @@ export const POST: APIRoute = async ({ request }) => {
     }
     const nRatio = nTotal > 0 ? nN / nTotal : 0.5;
 
+    // Sanitize student info (trim, limit length)
+    const studentName = typeof body.studentName === 'string' ? body.studentName.trim().slice(0, 100) : '';
+    const studentEmail = typeof body.studentEmail === 'string' ? body.studentEmail.trim().slice(0, 200) : '';
+    const studentBackground = typeof body.studentBackground === 'string' ? body.studentBackground.trim().slice(0, 2000) : '';
+
     // Build document — only store computed scores, not raw question text
     const doc = {
       _type: 'mdpaResult',
       resultId,
       completedAt: body.time || new Date().toISOString(),
+      studentName: studentName || undefined,
+      studentEmail: studentEmail || undefined,
+      studentBackground: studentBackground || undefined,
       mbtiType: a.mbti.type,
       mbtiStrength: a.mbti.strength,
       ocean: {

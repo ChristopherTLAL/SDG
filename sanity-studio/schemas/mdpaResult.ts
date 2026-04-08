@@ -20,6 +20,22 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'studentName',
+      title: 'Student Name',
+      type: 'string',
+    }),
+    defineField({
+      name: 'studentEmail',
+      title: 'Student Email',
+      type: 'string',
+    }),
+    defineField({
+      name: 'studentBackground',
+      title: 'Student Background',
+      type: 'text',
+      description: 'Current major, target program, goals, etc.',
+    }),
+    defineField({
       name: 'mbtiType',
       title: 'MBTI Type',
       type: 'string',
@@ -106,14 +122,15 @@ export default defineType({
   ],
   preview: {
     select: {
-      resultId: 'resultId',
+      studentName: 'studentName',
       mbtiType: 'mbtiType',
       completedAt: 'completedAt',
+      resultId: 'resultId',
     },
-    prepare({ resultId, mbtiType, completedAt }) {
+    prepare({ studentName, mbtiType, completedAt, resultId }) {
       return {
-        title: `${mbtiType || '?'} — ${resultId?.slice(0, 8) || ''}`,
-        subtitle: completedAt ? new Date(completedAt).toLocaleDateString() : '',
+        title: `${studentName || 'Anonymous'} — ${mbtiType || '?'}`,
+        subtitle: `${completedAt ? new Date(completedAt).toLocaleDateString() : ''} · ${resultId?.slice(0, 8) || ''}`,
       }
     },
   },
