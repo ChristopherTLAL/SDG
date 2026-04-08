@@ -29,7 +29,7 @@ export function parseMarkdown(md: string): { html: string; toc: TocEntry[] } {
       toc.push({ id, text: plainText, level: depth })
     }
 
-    const isDetail = DETAIL_HEADING_PATTERNS.some((p) => p.test(plainText))
+    const isDetail = depth === 2 && DETAIL_HEADING_PATTERNS.some((p) => p.test(plainText))
 
     let prefix = ''
 
