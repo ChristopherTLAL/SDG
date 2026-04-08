@@ -4,6 +4,7 @@ import post from './post'
 import author from './author'
 import project from './project'
 import dialogue from './dialogue'
+import mdpaResult from './mdpaResult'
 import {localizedString, localizedText, localizedBlockContent} from './localeFields'
 
 export const schemaTypes = [
@@ -16,6 +17,7 @@ export const schemaTypes = [
   author,
   project,
   dialogue,
+  mdpaResult,
   // Other types
   blockContent,
 ]

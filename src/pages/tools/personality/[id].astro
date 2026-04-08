@@ -1,0 +1,170 @@
+---
+// src/pages/tools/personality/[id].astro — MDPA result viewer
+import MainLayout from '../../../layouts/MainLayout.astro';
+import { client } from '../../../lib/sanity/client';
+
+const { id } = Astro.params;
+
+const result = await client.fetch(
+  `*[_type == "mdpaResult" && resultId == $id][0]`,
+  { id }
+);
+
+if (!result) {
+  return Astro.redirect('/tools/personality');
+}
+
+const mbti = result.mbtiType || '????';
+const mbtiStr = result.mbtiStrength || {};
+const ocean = result.ocean || {};
+---
+
+<MainLayout title={`${mbti} — MDPA Result | Chinese SDGs Institute`} description="Your MDPA personality assessment results." lang="en">
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-2xl mx-auto px-6 md:px-12">
+
+      <!-- Back link -->
+      <a href="/tools/personality" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-8">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Take the test
+      </a>
+
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
+          <span class="material-symbols-outlined text-[14px]">psychology</span>
+          MDPA Result
+        </div>
+        <h1 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-2">
+          Your Personality Profile
+        </h1>
+        <p class="text-sm text-on-surface-variant">
+          Completed {result.completedAt ? new Date(result.completedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}
+          {result.totalQuestions ? ` · ${result.totalQuestions} questions answered` : ''}
+        </p>
+      </div>
+
+      <!-- MBTI Card -->
+      <div class="bg-white rounded-2xl border border-outline-variant/15 p-6 md:p-8 mb-6 shadow-sm">
+        <h2 class="font-headline font-bold text-lg text-on-surface mb-4">MBTI Type</h2>
+        <div class="text-center mb-6">
+          <span class="font-headline font-extrabold text-5xl tracking-[6px] text-primary">{mbti}</span>
+        </div>
+        {(['EI', 'NS', 'FT', 'JP'] as const).map((ax) => {
+          const labels: Record<string, [string, string]> = {
+            EI: ['I \u5185\u5411', 'E \u5916\u5411'],
+            NS: ['S \u5B9E\u611F', 'N \u76F4\u89C9'],
+            FT: ['T \u601D\u8003', 'F \u60C5\u611F'],
+            JP: ['P \u611F\u77E5', 'J \u5224\u65AD'],
+          };
+          const v = mbtiStr[ax] ?? 0.5;
+          const pct = Math.round(Math.abs(v - 0.5) * 200);
+          const strength = pct > 60 ? '\u660E\u786E' : pct > 20 ? '\u8F83\u660E\u786E' : '\u8FB9\u754C\u578B';
+          const strengthColor = pct > 60 ? 'bg-green-100 text-green-800' : pct > 20 ? 'bg-amber-100 text-amber-800' : 'bg-red-100 text-red-800';
+          return (
+            <div class="mb-3">
+              <div class="flex justify-between items-center text-sm mb-1">
+                <span class="text-on-surface-variant">{labels[ax][0]}</span>
+                <span class={`text-[10px] font-bold px-2 py-0.5 rounded-full ${strengthColor}`}>{strength}</span>
+                <span class="text-on-surface-variant">{labels[ax][1]}</span>
+              </div>
+              <div class="h-5 bg-surface-container-low rounded-full overflow-hidden">
+                <div class="h-full rounded-full transition-all" style={`width:${Math.round(v * 100)}%;background:${v >= 0.5 ? '#042f24' : '#9ca3af'}`}></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- OCEAN Radar Chart -->
+      <div class="bg-white rounded-2xl border border-outline-variant/15 p-6 md:p-8 mb-6 shadow-sm">
+        <h2 class="font-headline font-bold text-lg text-on-surface mb-4">OCEAN Personality Radar</h2>
+        <div class="flex justify-center">
+          <canvas id="radar-canvas" width="360" height="360"></canvas>
+        </div>
+      </div>
+
+      <!-- Share / Copy link -->
+      <div class="text-center">
+        <button id="copy-btn" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-primary/90 transition-colors">
+          <span class="material-symbols-outlined text-lg">link</span>
+          Copy Result Link
+        </button>
+        <p class="text-xs text-on-surface-variant mt-3">Share this link to let others view your results</p>
+      </div>
+
+    </div>
+  </main>
+</MainLayout>
+
+<script is:inline define:vars={{ ocean }}>
+// Draw radar chart
+(function(){
+  var c=document.getElementById('radar-canvas');
+  if(!c)return;
+  var ctx=c.getContext('2d');
+  var W=c.width,H=c.height,cx=W/2,cy=H/2;
+  var R=Math.min(cx,cy)-40;
+  var dims=['O','C','E','A','N'];
+  var labels=['\u5F00\u653E\u6027 O','\u5C3D\u8D23\u6027 C','\u5916\u5411\u6027 E','\u5B9C\u4EBA\u6027 A','\u795E\u7ECF\u8D28 N'];
+  var colors=['#8b5cf6','#10b981','#3b82f6','#f59e0b','#ef4444'];
+  var raw=[];
+  for(var i=0;i<dims.length;i++){raw.push(ocean[dims[i]]||0);}
+  // Normalize
+  var mn=Math.min.apply(null,raw),mx=Math.max.apply(null,raw),rng=mx-mn||1;
+  var vals=[];
+  for(var i2=0;i2<raw.length;i2++){vals.push(Math.max(0.08,(raw[i2]-mn)/rng));}
+
+  var n=5;
+  function angle(i){return (Math.PI*2*i/n)-Math.PI/2;}
+
+  ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;
+  for(var ring=1;ring<=4;ring++){
+    var rr=R*ring/4;
+    ctx.beginPath();
+    for(var gi=0;gi<n;gi++){
+      var a=angle(gi);
+      if(gi===0)ctx.moveTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);
+      else ctx.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr);
+    }
+    ctx.closePath();ctx.stroke();
+  }
+  for(var si=0;si<n;si++){
+    var a=angle(si);
+    ctx.beginPath();ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.stroke();
+  }
+  ctx.beginPath();
+  for(var fi=0;fi<n;fi++){
+    var a2=angle(fi);
+    var x2=cx+Math.cos(a2)*R*vals[fi],y2=cy+Math.sin(a2)*R*vals[fi];
+    if(fi===0)ctx.moveTo(x2,y2);else ctx.lineTo(x2,y2);
+  }
+  ctx.closePath();
+  ctx.fillStyle='rgba(4,47,36,0.12)';ctx.fill();
+  ctx.strokeStyle='#042f24';ctx.lineWidth=2;ctx.stroke();
+  for(var di=0;di<n;di++){
+    var a3=angle(di);
+    var dx=cx+Math.cos(a3)*R*vals[di],dy=cy+Math.sin(a3)*R*vals[di];
+    ctx.beginPath();ctx.arc(dx,dy,5,0,Math.PI*2);
+    ctx.fillStyle=colors[di];ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+    var lx=cx+Math.cos(a3)*(R+24),ly=cy+Math.sin(a3)*(R+24);
+    ctx.font='bold 13px Inter,sans-serif';ctx.fillStyle=colors[di];ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(labels[di],lx,ly);
+    ctx.font='11px Inter,sans-serif';ctx.fillStyle='#94a3b8';
+    ctx.fillText(Math.round(vals[di]*100)+'%',lx,ly+15);
+  }
+})();
+
+// Copy link
+document.getElementById('copy-btn').addEventListener('click',function(){
+  navigator.clipboard.writeText(window.location.href).then(function(){
+    var btn=document.getElementById('copy-btn');
+    btn.innerHTML='<span class="material-symbols-outlined text-lg">check</span> Copied!';
+    setTimeout(function(){
+      btn.innerHTML='<span class="material-symbols-outlined text-lg">link</span> Copy Result Link';
+    },2000);
+  });
+});
+</script>

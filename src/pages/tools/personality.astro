@@ -986,6 +986,7 @@ function runAnalysis(){
   });
 
   showReport(lamCal,lam,mbType,mbStr,cls,avAdj,qc);
+  submitToServer(lamCal,lam,mbType,mbStr,cls,avAdj,qc);
 }
 
 // ======== REPORT ========
@@ -1103,6 +1104,43 @@ function showReport(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
   setTimeout(function(){drawRadar('radar-canvas',lamCal,nScore);},50);
 }
 
+// ======== SUBMIT TO SERVER ========
+function submitToServer(lamCal,lamRaw,mbType,mbStr,cls,avAdj,qc){
+  var clsEntries=Object.entries(cls);
+  var payload={
+    time:new Date().toISOString(),
+    responses:Object.values(S.resp).filter(function(r){return r.mod;}),
+    analysis:{
+      lambda_raw:lamRaw,
+      lambda_cal:lamCal,
+      av_adjustments:avAdj,
+      mbti:{type:mbType,strength:mbStr},
+      n_clusters:Object.fromEntries(clsEntries.map(function(entry){
+        var k=entry[0],v=entry[1];
+        return [k,{n:v.n,t:v.t,r:v.t?+(v.n/v.t).toFixed(3):0}];
+      }))
+    },
+    qc:qc,
+    durationSeconds:S.startT?Math.round((Date.now()-S.testStartTime)/1000):null
+  };
+  fetch('/api/mdpa-submit.json',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(res){return res.json();}).then(function(data){
+    if(data.resultId){
+      // Show "View saved result" link in the report
+      var linkDiv=document.createElement('div');
+      linkDiv.style.cssText='text-align:center;margin:20px 0';
+      linkDiv.innerHTML='<a href="/tools/personality/'+data.resultId+'" style="display:inline-flex;align-items:center;gap:8px;background:#042f24;color:#fff;padding:12px 24px;border-radius:12px;font-weight:600;font-size:14px;text-decoration:none;font-family:Inter,sans-serif"><span style="font-family:Material Symbols Outlined;font-size:18px">bookmark</span>\u4FDD\u5B58\u7ED3\u679C\u94FE\u63A5</a>';
+      var report=document.querySelector('.mdpa-report');
+      if(report)report.appendChild(linkDiv);
+      // Also update URL quietly
+      history.replaceState(null,'','/tools/personality/'+data.resultId);
+    }
+  }).catch(function(){/* silent fail — result is still shown locally */});
+}
+
 // ======== INIT ========
 function initMDPA(){
   app=document.getElementById('app');
@@ -1127,6 +1165,7 @@ function initMDPA(){
 
 function startTest(){
   S.testStarted=true;
+  S.testStartTime=Date.now();
   app.classList.remove('centered');
   document.getElementById('nav').style.display='';
   render();
