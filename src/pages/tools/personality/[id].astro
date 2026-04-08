@@ -51,7 +51,7 @@ const ocean = result.ocean || {};
           <span class="font-headline font-extrabold text-5xl tracking-[6px] text-primary">{mbti}</span>
         </div>
         {(['EI', 'NS', 'FT', 'JP'] as const).map((ax) => {
-          const labels: Record<string, [string, string]> = {
+          const labels = {
             EI: ['I \u5185\u5411', 'E \u5916\u5411'],
             NS: ['S \u5B9E\u611F', 'N \u76F4\u89C9'],
             FT: ['T \u601D\u8003', 'F \u60C5\u611F'],
