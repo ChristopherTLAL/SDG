@@ -1,0 +1,647 @@
+---
+// src/pages/tools/doc-generator.astro — Document Generator Tool
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const lang = 'en';
+---
+
+<MainLayout title="Document Generator | Chinese SDGs Institute" description="Generate professional internship certificates, transcripts, and enrollment certificates with customizable bilingual templates." lang={lang}>
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+
+      <!-- Back link -->
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-8">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <!-- Tool container -->
+      <div id="doc-gen-app">
+        <header class="text-center mb-8 no-print">
+            <h1 class="text-2xl md:text-3xl font-headline font-bold text-on-surface tracking-tight">Document Template Generator</h1>
+            <p class="text-on-surface-variant mt-2 text-sm md:text-base" id="header-subtitle"></p>
+            <nav class="mt-6 bg-surface-container-low rounded-lg p-1.5 inline-flex space-x-1">
+                <button class="dg-nav-btn active" data-page="internship">实习证明</button>
+                <button class="dg-nav-btn" data-page="transcript">成绩单/在读证明</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Internship Page -->
+            <div id="page-internship">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="w-full lg:w-[380px] shrink-0 bg-white p-5 rounded-xl border border-outline-variant/15 no-print space-y-5 max-h-[85vh] overflow-y-auto">
+                        <div class="dg-form-section">
+                            <h2 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">模板设置</h2>
+                            <div class="dg-form-group">
+                                <label for="experienceLevel" class="dg-form-label">1. 经历级别</label>
+                                <select id="experienceLevel" class="dg-form-select"><option value="fullTime">全职实习</option><option value="partTime">兼职实习</option><option value="activity">活动/实训</option></select>
+                            </div>
+                            <div class="dg-form-group">
+                                <label for="languageStyle" class="dg-form-label">2. 语言风格</label>
+                                <select id="languageStyle" class="dg-form-select"><option value="formal">默认正式</option><option value="evaluation">带模板评价</option><option value="concise">超简洁</option></select>
+                            </div>
+                            <div class="dg-form-group">
+                                <label for="languageOutput" class="dg-form-label">3. 输出语言</label>
+                                <select id="languageOutput" class="dg-form-select"><option value="bilingual">双语</option><option value="cn">仅中文</option><option value="en">仅英文</option></select>
+                            </div>
+                        </div>
+                        <div class="dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">实习生信息</h3>
+                            <div class="dg-form-group"><label for="name-cn" class="dg-form-label">姓名 (中文)</label><input type="text" id="name-cn" class="dg-form-input" value="李华"></div>
+                            <div class="dg-form-group"><label for="name-en" class="dg-form-label">Name (English)</label><input type="text" id="name-en" class="dg-form-input" value="Li Hua"></div>
+                            <div class="dg-form-group">
+                                <div class="flex justify-between items-center mb-1"><label for="gender-cn" class="dg-form-label">性别</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="show-gender" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                <select id="gender-cn" class="dg-form-select"><option>男</option><option>女</option></select>
+                            </div>
+                            <div class="dg-form-group">
+                                <div class="flex justify-between items-center mb-1"><label for="gender-en" class="dg-form-label">Gender</label><span class="text-xs text-on-surface-variant/50">(自动同步)</span></div>
+                                <select id="gender-en" class="dg-form-select" disabled><option>Male</option><option>Female</option></select>
+                            </div>
+                            <div class="dg-form-group">
+                                <div class="flex justify-between items-center mb-1"><label for="school-name-cn" class="dg-form-label">学校名称</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="show-school" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                <input type="text" id="school-name-cn" class="dg-form-input" value="示例未来大学">
+                            </div>
+                            <div class="dg-form-group"><label for="school-name-en" class="dg-form-label">School Name</label><input type="text" id="school-name-en" class="dg-form-input" value="Future Example University"></div>
+                            <div class="dg-form-group">
+                                <div class="flex justify-between items-center mb-1"><label for="major-cn" class="dg-form-label">专业</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="show-major" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                <input type="text" id="major-cn" class="dg-form-input" value="计算机科学与技术">
+                            </div>
+                            <div class="dg-form-group"><label for="major-en" class="dg-form-label">Major</label><input type="text" id="major-en" class="dg-form-input" value="Computer Science and Technology"></div>
+                        </div>
+                        <div class="dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">实习单位信息</h3>
+                             <div class="dg-form-group"><label for="company-name-cn" class="dg-form-label">公司名称 (中文)</label><input type="text" id="company-name-cn" class="dg-form-input" value="无限创新科技有限公司"></div>
+                             <div class="dg-form-group"><label for="company-name-en" class="dg-form-label">Company Name (English)</label><input type="text" id="company-name-en" class="dg-form-input" value="Infinity Innovation Tech Co., Ltd."></div>
+                             <div class="dg-form-group"><label for="department-cn" class="dg-form-label">实习部门 (中文)</label><input type="text" id="department-cn" class="dg-form-input" value="研发部"></div>
+                             <div class="dg-form-group"><label for="department-en" class="dg-form-label">Department (English)</label><input type="text" id="department-en" class="dg-form-input" value="R&D Department"></div>
+                             <div class="dg-form-group"><label for="position-cn" class="dg-form-label">实习岗位 (中文)</label><input type="text" id="position-cn" class="dg-form-input" value="软件开发实习生"></div>
+                             <div class="dg-form-group"><label for="position-en" class="dg-form-label">Position (English)</label><input type="text" id="position-en" class="dg-form-input" value="Software Development Intern"></div>
+                             <div class="dg-form-group"><label for="start-date" class="dg-form-label">开始日期</label><input type="date" id="start-date" class="dg-form-input" value="2025-07-01"></div>
+                             <div class="dg-form-group"><label for="end-date" class="dg-form-label">结束日期</label><input type="date" id="end-date" class="dg-form-input" value="2025-09-30"></div>
+                             <div class="dg-form-group"><label for="issue-date" class="dg-form-label">证明开具日期</label><input type="date" id="issue-date" class="dg-form-input"></div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="supervisor-cn" class="dg-form-label">导师/负责人</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="show-supervisor" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary">显示</label></div>
+                                 <input type="text" id="supervisor-cn" class="dg-form-input" value="张伟 (技术总监)">
+                             </div>
+                             <div class="dg-form-group"><label for="supervisor-en" class="dg-form-label">Supervisor</label><input type="text" id="supervisor-en" class="dg-form-input" value="Wei Zhang (CTO)"></div>
+                        </div>
+                        <div class="dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">证明正文</h3>
+                            <p class="text-xs text-on-surface-variant mb-2">以下内容已根据模板自动生成，你可以直接编辑修改。</p>
+                            <div class="dg-form-group"><label for="cert-body-cn" class="dg-form-label">正文 (中文)</label><textarea id="cert-body-cn" class="dg-form-textarea" rows="5"></textarea></div>
+                            <div class="dg-form-group"><label for="cert-body-en" class="dg-form-label">Body (English)</label><textarea id="cert-body-en" class="dg-form-textarea" rows="5"></textarea></div>
+                            <button id="regenerate-btn" class="dg-btn dg-btn-secondary mt-2 text-sm !py-1.5">根据上方信息重新生成</button>
+                        </div>
+                        <div class="mt-2"><button id="internship-print-btn" class="dg-btn dg-btn-primary">打印或生成PDF</button></div>
+                    </div>
+                    <div class="flex-1 flex justify-center items-start">
+                        <div id="internship-preview-container" class="dg-a4-preview print-area"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="page-transcript" class="hidden">
+                <!-- Demo disclaimer banner -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 no-print">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-amber-600 text-xl mt-0.5">info</span>
+                        <div>
+                            <p class="text-sm font-semibold text-amber-800">Template Preview Only</p>
+                            <p class="text-xs text-amber-700 mt-1">This section generates sample documents to help students understand standard formatting requirements. All data shown is fictional and for demonstration purposes only. Do not use generated documents for any official purpose.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="w-full lg:w-[380px] shrink-0 bg-white p-5 rounded-xl border border-outline-variant/15 no-print space-y-5 max-h-[85vh] overflow-y-auto">
+                        <div class="dg-form-section">
+                            <h2 class="text-base font-bold mb-3 border-b border-outline-variant/10 pb-2">基础设置</h2>
+                            <div class="dg-form-group"><label class="dg-form-label">1. 选择文档类型</label><select id="t-docType" class="dg-form-select"><option value="transcript">成绩单</option><option value="enrollment">在读证明</option></select></div>
+                            <div class="dg-form-group"><label class="dg-form-label">2. 选择学段</label><select id="t-educationLevel" class="dg-form-select"><option value="highSchool">高中</option><option value="juniorHigh">初中</option><option value="university">大学</option></select></div>
+                        </div>
+                        <div class="dg-form-section">
+                             <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">学生信息</h3>
+                             <div class="dg-form-group"><label for="t-name-cn" class="dg-form-label">姓名 (中文)</label><input type="text" id="t-name-cn" class="dg-form-input" value="李华"></div>
+                             <div class="dg-form-group"><label for="t-name-en" class="dg-form-label">Name (English)</label><input type="text" id="t-name-en" class="dg-form-input" value="Li Hua"></div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-gender-cn" class="dg-form-label">性别</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-gender" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                 <select id="t-gender-cn" class="dg-form-select"><option>男</option><option>女</option></select>
+                             </div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-gender-en" class="dg-form-label">Gender</label><span class="text-xs text-on-surface-variant/50">(自动同步)</span></div>
+                                 <select id="t-gender-en" class="dg-form-select" disabled><option>Male</option><option>Female</option></select>
+                             </div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-birth-date" class="dg-form-label">出生日期</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-birth-date" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                 <input type="date" id="t-birth-date" class="dg-form-input" value="2006-08-15">
+                             </div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-student-id" class="dg-form-label">学号</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-student-id" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                 <input type="text" id="t-student-id" class="dg-form-input" value="G20220318">
+                             </div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-id-card" class="dg-form-label">身份证号</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-id-card" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary">显示</label></div>
+                                 <input type="text" id="t-id-card" class="dg-form-input" value="32050120060815XXXX">
+                             </div>
+                             <div class="dg-form-group">
+                                 <div class="flex justify-between items-center mb-1"><label for="t-current-grade" class="dg-form-label">目前年级</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-current-grade" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                 <select id="t-current-grade" class="dg-form-select"></select>
+                             </div>
+                        </div>
+                        <div class="dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">学校信息</h3>
+                            <div class="dg-form-group"><label for="t-school-name-cn" class="dg-form-label">学校名称 (中文)</label><input type="text" id="t-school-name-cn" class="dg-form-input" value="示例未来中学"></div>
+                            <div class="dg-form-group"><label for="t-school-name-en" class="dg-form-label">School Name (English)</label><input type="text" id="t-school-name-en" class="dg-form-input" value="Future Example High School"></div>
+                            <div class="dg-form-group">
+                                <div class="flex justify-between items-center mb-1"><label for="t-enroll-date" class="dg-form-label">入学日期</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-enroll-date" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                <input type="date" id="t-enroll-date" class="dg-form-input" value="2022-09-01">
+                            </div>
+                            <div class="dg-form-group" id="t-grad-date-group">
+                                <div class="flex justify-between items-center mb-1"><label for="t-grad-date" class="dg-form-label">毕业日期</label><label class="flex items-center text-xs text-on-surface-variant"><input type="checkbox" id="t-show-grad-date" class="mr-1 h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary" checked>显示</label></div>
+                                <input type="date" id="t-grad-date" class="dg-form-input" value="2025-07-01">
+                            </div>
+                            <div class="dg-form-group hidden" id="t-major-cn-group"><label for="t-major-cn" class="dg-form-label">专业 (中文)</label><input type="text" id="t-major-cn" class="dg-form-input" value="计算机科学与技术"></div>
+                            <div class="dg-form-group hidden" id="t-major-en-group"><label for="t-major-en" class="dg-form-label">Major (English)</label><input type="text" id="t-major-en" class="dg-form-input" value="Computer Science and Technology"></div>
+                        </div>
+                        <div id="t-transcript-section" class="dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">成绩信息</h3>
+                            <div class="flex items-end gap-2 mb-3">
+                                <div class="flex-grow dg-form-group"><label for="t-avg-score" class="dg-form-label">期望平均分</label><input type="number" id="t-avg-score" class="dg-form-input" value="85"></div>
+                                <button id="t-random-grades-btn" class="dg-btn dg-btn-secondary whitespace-nowrap !w-auto text-sm">一键随机生成</button>
+                            </div>
+                            <div id="t-courses-container"></div>
+                            <button id="t-add-course-btn" class="dg-btn dg-btn-secondary mt-2 text-sm">+ 添加科目</button>
+                            <div class="dg-form-group mt-3"><label for="t-transcript-notes" class="dg-form-label">成绩备注</label><textarea id="t-transcript-notes" class="dg-form-textarea" rows="3">注：满分100分。优秀 (90-100), 良好 (80-89), 及格 (60-79), 不及格 (0-59)。
+Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail (0-59).</textarea>
+                            </div>
+                        </div>
+                        <div id="t-enrollment-section" class="hidden dg-form-section">
+                            <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">在读证明信息</h3>
+                            <p class="text-xs text-on-surface-variant mb-2">内容已自动生成，可直接编辑修改。</p>
+                            <div class="dg-form-group"><label for="t-enrollment-body-cn" class="dg-form-label">证明正文 (中文)</label><textarea id="t-enrollment-body-cn" class="dg-form-textarea" rows="5"></textarea></div>
+                            <div class="dg-form-group"><label for="t-enrollment-body-en" class="dg-form-label">Certificate Body (English)</label><textarea id="t-enrollment-body-en" class="dg-form-textarea" rows="5"></textarea></div>
+                            <button id="t-regenerate-enrollment-btn" class="dg-btn dg-btn-secondary mt-2 text-sm !py-1.5">根据上方信息重新生成</button>
+                        </div>
+                        <div class="mt-2"><button id="t-print-btn" class="dg-btn dg-btn-primary">打印或生成PDF</button></div>
+                    </div>
+                    <div class="flex-1 flex justify-center items-start">
+                        <div id="transcript-preview-container" class="dg-a4-preview print-area"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scoped styles for the doc generator -->
+  <style is:inline>
+    .dg-a4-preview {
+        width: 100%;
+        max-width: 800px;
+        aspect-ratio: 210 / 297;
+        background: #fff;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        padding: 2.5cm 1.9cm;
+        box-sizing: border-box;
+        color: #000;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+    }
+
+    #transcript-table th, #transcript-table td {
+        border: 1px solid #000;
+        padding: 4px 8px;
+        text-align: center;
+        font-size: 10pt;
+    }
+
+    .dg-nav-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--md-sys-color-on-surface-variant, #49454f);
+        transition: color 0.2s, background-color 0.2s;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .dg-nav-btn.active {
+        background-color: var(--md-sys-color-primary, #042f24);
+        color: #fff;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    }
+
+    .dg-form-section {
+        background-color: #f8faf9;
+        border: 1px solid rgba(0,0,0,0.06);
+        border-radius: 0.75rem;
+        padding: 0.875rem;
+    }
+
+    .dg-form-input, .dg-form-select, .dg-form-textarea {
+        width: 100%;
+        padding: 0.4rem 0.6rem;
+        background-color: #fff;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 150ms ease-in-out;
+    }
+
+    .dg-form-input:focus, .dg-form-select:focus, .dg-form-textarea:focus {
+        outline: none;
+        border-color: var(--md-sys-color-primary, #042f24);
+        box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.15);
+    }
+
+    .dg-form-label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 0.2rem;
+    }
+
+    .dg-form-group { margin-bottom: 0.75rem; }
+    .dg-form-group:last-child { margin-bottom: 0; }
+
+    .dg-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 0.875rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #fff;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        transition: transform 150ms ease-in-out;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .dg-btn:hover { transform: scale(1.02); }
+    .dg-btn-primary { background-color: var(--md-sys-color-primary, #042f24); }
+    .dg-btn-secondary { background-color: #6b7280; }
+    .dg-btn-danger { background-color: #dc2626; }
+
+    @media print {
+        body * { visibility: hidden; }
+        .print-area, .print-area * { visibility: visible; }
+        .print-area {
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+            padding: 1.5cm; box-sizing: border-box; box-shadow: none; border: none;
+        }
+        .no-print { display: none !important; }
+    }
+
+    /* Watermark for transcript preview */
+    #transcript-preview-container::before {
+        content: 'SAMPLE / 样本';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 60px;
+        font-weight: 900;
+        color: rgba(220, 38, 38, 0.06);
+        pointer-events: none;
+        z-index: 1;
+        white-space: nowrap;
+        letter-spacing: 0.1em;
+    }
+    #transcript-preview-container {
+        position: relative;
+    }
+  </style>
+
+  <script is:inline>
+    // --- UTILITY FUNCTIONS ---
+    function formatDate(dateString, lang) {
+        if (!dateString) return '';
+        const date = new Date(dateString + 'T00:00:00');
+        if (lang === 'cn') {
+            return date.getFullYear() + '\u5E74' + (date.getMonth() + 1) + '\u6708' + date.getDate() + '\u65E5';
+        } else {
+            return date.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        }
+    }
+    function formatDateForEnrollment(dateString, locale) {
+        if (!dateString) return { year: '', month: '', day: '', monthNum: '' };
+        const date = new Date(dateString + 'T00:00:00');
+        return { year: date.getFullYear(), month: date.toLocaleString(locale, { month: 'long' }), monthNum: date.getMonth() + 1, day: date.getDate() };
+    }
+
+    // --- MAIN APP CONTROLLER ---
+    document.addEventListener('DOMContentLoaded', function() {
+        var pages = {
+            internship: document.getElementById('page-internship'),
+            transcript: document.getElementById('page-transcript'),
+        };
+        var navButtons = document.querySelectorAll('.dg-nav-btn');
+        var headerSubtitle = document.getElementById('header-subtitle');
+        var subtitles = {
+             internship: '\u586B\u5199\u5DE6\u4FA7\u8868\u5355\uFF0C\u53F3\u4FA7\u5C06\u6839\u636E\u6A21\u677F\u5B9E\u65F6\u751F\u6210\u53EF\u4F9B\u6253\u5370\u7684A4\u5B9E\u4E60\u8BC1\u660E\u3002',
+             transcript: '\u586B\u5199\u5DE6\u4FA7\u8868\u5355\uFF0C\u53F3\u4FA7\u5C06\u5B9E\u65F6\u751F\u6210\u53EF\u4F9B\u6253\u5370\u7684A4\u6210\u7EE9\u5355\u6216\u5728\u8BFB\u8BC1\u660E\u3002',
+        };
+        function switchPage(pageName) {
+            Object.values(pages).forEach(function(page) { page.classList.add('hidden'); });
+            pages[pageName].classList.remove('hidden');
+            navButtons.forEach(function(btn) { btn.classList.toggle('active', btn.dataset.page === pageName); });
+            headerSubtitle.textContent = subtitles[pageName];
+        }
+        navButtons.forEach(function(btn) { btn.addEventListener('click', function() { switchPage(btn.dataset.page); }); });
+
+        internshipGenerator.init();
+        transcriptGenerator.init();
+        switchPage('internship');
+    });
+
+    // --- INTERNSHIP GENERATOR ---
+    var internshipGenerator = {
+        elements: {},
+        templates: {
+            activity: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002\u6D3B\u52A8\u671F\u95F4\u8868\u73B0\u826F\u597D\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student performed well during the activity.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002\u6D3B\u52A8\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u6001\u5EA6\u79EF\u6781\uFF0C\u8BA4\u771F\u5B66\u4E60\uFF0C\u5BF9\u884C\u4E1A\u6709\u4E86\u521D\u6B65\u4E86\u89E3\uFF0C\u5C55\u73B0\u4E86\u826F\u597D\u7684\u7EFC\u5408\u7D20\u8D28\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the activity, the student showed a positive attitude, studied diligently, gained a preliminary understanding of the industry, and demonstrated good comprehensive qualities.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8\u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002", en: "This certifies that {nameEN} participated in the {positionEN} activity at our company from {startDateEN} to {endDateEN}." } },
+            partTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u8BE5\u540C\u5B66\u5DF2\u5B8C\u6210\u4EA4\u4ED8\u7684\u5DE5\u4F5C\u4EFB\u52A1\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student has completed the assigned work tasks.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u80FD\u591F\u9075\u5B88\u516C\u53F8\u89C4\u7AE0\u5236\u5EA6\uFF0C\u5DE5\u4F5C\u6001\u5EA6\u7AEF\u6B63\uFF0C\u534F\u52A9\u5B8C\u6210\u4E86\u90E8\u95E8\u7684\u76F8\u5173\u5DE5\u4F5C\uFF0C\u5177\u5907\u4E86\u4E00\u5B9A\u7684\u5B9E\u8DF5\u80FD\u529B\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the internship, the student complied with company regulations, had a proper work attitude, assisted in completing relevant departmental tasks, and has acquired certain practical skills.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u517C\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} had a part-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } },
+            fullTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002\u8BE5\u540C\u5B66\u5DF2\u987A\u5229\u5B8C\u6210\u5B9E\u4E60\u671F\u7684\u5404\u9879\u5DE5\u4F5C\u5185\u5BB9\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} completed a full-time internship as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student has successfully completed all work content of the internship period.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u5DE5\u4F5C\u8BA4\u771F\u8D1F\u8D23\uFF0C\u865A\u5FC3\u597D\u5B66\uFF0C\u79EF\u6781\u53C2\u4E0E\u56E2\u961F\u9879\u76EE\uFF0C\u8868\u73B0\u51FA\u8F83\u5F3A\u7684\u4E13\u4E1A\u80FD\u529B\u548C\u56E2\u961F\u534F\u4F5C\u7CBE\u795E\uFF0C\u5F97\u5230\u4E86\u90E8\u95E8\u540C\u4E8B\u7684\u4E00\u81F4\u597D\u8BC4\u3002\u6211\u4EEC\u76F8\u4FE1\u8FD9\u6BB5\u7ECF\u5386\u5C06\u4E3A{pronounCN}\u672A\u6765\u7684\u804C\u4E1A\u53D1\u5C55\u5960\u5B9A\u826F\u597D\u57FA\u7840\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the internship, the student was diligent, responsible, and eager to learn. {pronounEN_He_She} actively participated in team projects, demonstrating strong professional skills and a spirit of teamwork, and was unanimously praised by colleagues. We believe this experience will lay a good foundation for {pronounEN_his_her} future career development.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} completed a full-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } }
+        },
+        init: function() {
+            var page = document.getElementById('page-internship');
+            this.elements = {
+                previewContainer: page.querySelector('#internship-preview-container'),
+                regenerateBtn: page.querySelector('#regenerate-btn'),
+                printBtn: page.querySelector('#internship-print-btn'),
+                experienceLevel: page.querySelector('#experienceLevel'),
+                languageStyle: page.querySelector('#languageStyle'),
+                languageOutput: page.querySelector('#languageOutput'),
+                nameCn: page.querySelector('#name-cn'), nameEn: page.querySelector('#name-en'),
+                genderCn: page.querySelector('#gender-cn'), genderEn: page.querySelector('#gender-en'), showGender: page.querySelector('#show-gender'),
+                schoolNameCn: page.querySelector('#school-name-cn'), schoolNameEn: page.querySelector('#school-name-en'), showSchool: page.querySelector('#show-school'),
+                majorCn: page.querySelector('#major-cn'), majorEn: page.querySelector('#major-en'), showMajor: page.querySelector('#show-major'),
+                companyNameCn: page.querySelector('#company-name-cn'), companyNameEn: page.querySelector('#company-name-en'),
+                departmentCn: page.querySelector('#department-cn'), departmentEn: page.querySelector('#department-en'),
+                positionCn: page.querySelector('#position-cn'), positionEn: page.querySelector('#position-en'),
+                startDate: page.querySelector('#start-date'), endDate: page.querySelector('#end-date'), issueDate: page.querySelector('#issue-date'),
+                supervisorCn: page.querySelector('#supervisor-cn'), supervisorEn: page.querySelector('#supervisor-en'), showSupervisor: page.querySelector('#show-supervisor'),
+                certBodyCn: page.querySelector('#cert-body-cn'), certBodyEn: page.querySelector('#cert-body-en'),
+            };
+            this.elements.allInputs = page.querySelectorAll('input, select, textarea');
+            this.elements.issueDate.value = new Date().toISOString().slice(0, 10);
+            this.bindEvents();
+            this.generateCertificateText();
+            this.render();
+        },
+        bindEvents: function() {
+            var self = this;
+            this.elements.allInputs.forEach(function(input) {
+                input.addEventListener('input', function() {
+                    if (input.id === 'gender-cn') self.elements.genderEn.selectedIndex = input.selectedIndex;
+                    if (!input.id.startsWith('cert-body')) self.generateCertificateText();
+                    self.render();
+                });
+            });
+            this.elements.regenerateBtn.addEventListener('click', function() { self.generateCertificateText(); self.render(); });
+            this.elements.printBtn.addEventListener('click', function() { window.print(); });
+        },
+        getVal: function(id) { return this.elements[id] ? this.elements[id].value : ''; },
+        getCheck: function(id) { return this.elements[id] ? this.elements[id].checked : false; },
+        getStudentInfo: function(lang) {
+            var name = this.getVal(lang === 'cn' ? 'nameCn' : 'nameEn');
+            var info = lang === 'cn' ? name + ' \u540C\u5B66' : name;
+            var details = [];
+            if (this.getCheck('showSchool')) details.push(lang === 'cn' ? this.getVal('schoolNameCn') : 'a student from ' + this.getVal('schoolNameEn'));
+            if (this.getCheck('showMajor')) details.push(lang === 'cn' ? this.getVal('majorCn') + '\u4E13\u4E1A' : 'majoring in ' + this.getVal('majorEn'));
+            if (this.getCheck('showGender') && lang === 'cn') details.push(this.getVal('genderCn'));
+            if (details.length === 0) return info;
+            return lang === 'cn' ? details.join(' ') + ' ' + info : info + ', ' + details.join(', ');
+        },
+        generateCertificateText: function() {
+            var gender = this.getVal('genderCn');
+            var pronoun = { cn: gender === '\u5973' ? '\u5979' : '\u4ED6', en_he_she: gender === '\u5973' ? 'She' : 'He', en_his_her: gender === '\u5973' ? 'her' : 'his' };
+            var template = this.templates[this.getVal('experienceLevel')][this.getVal('languageStyle')];
+            var values = {
+                studentInfo: this.getStudentInfo('cn'), studentInfoEN: this.getStudentInfo('en'),
+                nameCN: this.getVal('nameCn'), nameEN: this.getVal('nameEn'),
+                startDate: formatDate(this.getVal('startDate'), 'cn'), endDate: formatDate(this.getVal('endDate'), 'cn'),
+                startDateEN: formatDate(this.getVal('startDate'), 'en'), endDateEN: formatDate(this.getVal('endDate'), 'en'),
+                companyNameCN: this.getVal('companyNameCn'), companyNameEN: this.getVal('companyNameEn'),
+                departmentCN: this.getVal('departmentCn'), departmentEN: this.getVal('departmentEn'),
+                positionCN: this.getVal('positionCn'), positionEN: this.getVal('positionEn'),
+                pronounCN: pronoun.cn, pronounEN_He_She: pronoun.en_he_she, pronounEN_his_her: pronoun.en_his_her
+            };
+            this.elements.certBodyCn.value = template.cn.replace(/\{(\w+)\}/g, function(_, key) { return values[key] || ''; });
+            this.elements.certBodyEn.value = template.en.replace(/\{(\w+)\}/g, function(_, key) { return values[key] || ''; });
+        },
+        render: function() {
+            var lang = this.getVal('languageOutput');
+            var cnPart = this.renderPart('cn'), enPart = this.renderPart('en');
+            var finalHTML = '';
+            if (lang === 'bilingual') finalHTML = '<div class="flex-grow">' + cnPart + '</div><hr class="my-4 border-dashed border-gray-400"><div class="flex-grow">' + enPart + '</div>';
+            else if (lang === 'cn') finalHTML = '<div class="flex-grow">' + cnPart + '</div>';
+            else finalHTML = '<div class="flex-grow">' + enPart + '</div>';
+            this.elements.previewContainer.innerHTML = finalHTML;
+        },
+        renderPart: function(lang) {
+            var isCN = lang === 'cn';
+            var title = isCN ? '\u5B9E \u4E60 \u8BC1 \u660E' : 'Certificate of Internship';
+            var company = this.getVal(isCN ? 'companyNameCn' : 'companyNameEn');
+            var body = this.getVal(isCN ? 'certBodyCn' : 'certBodyEn').replace(/\n/g, '<br>');
+            var supervisor = this.getVal(isCN ? 'supervisorCn' : 'supervisorEn');
+            var issueDateValue = this.getVal('issueDate');
+            var date = formatDate(issueDateValue || new Date().toISOString().slice(0, 10), lang);
+            var showSupervisor = this.getCheck('showSupervisor');
+            var supervisorHTML = (showSupervisor && supervisor) ? '<p class="mt-8">' + (isCN ? '\u5B9E\u4E60\u5BFC\u5E08\uFF1A' : 'Supervisor:') + ' ' + supervisor + '</p>' : '';
+            return '<div class="text-center"><h1 class="text-2xl font-bold tracking-widest">' + title + '</h1></div><div class="mt-12 text-base leading-relaxed" style="' + (isCN ? 'text-indent: 2em;' : '') + '">' + body + '</div><div class="flex-shrink-0 text-right mt-16">' + supervisorHTML + '<p class="mt-8">' + (isCN ? '\uFF08\u516C\u53F8\u76D6\u7AE0\uFF09' : '(Company Seal)') + '</p><p class="mt-2">' + company + '</p><p class="mt-2">' + date + '</p></div>';
+        }
+    };
+
+    // --- TRANSCRIPT/ENROLLMENT GENERATOR ---
+    var transcriptGenerator = {
+        initialCourses: {
+            juniorHigh: [ { cn: '\u8BED\u6587', en: 'Chinese' }, { cn: '\u6570\u5B66', en: 'Mathematics' }, { cn: '\u82F1\u8BED', en: 'English' }, { cn: '\u7269\u7406', en: 'Physics' }, { cn: '\u5316\u5B66', en: 'Chemistry' }, { cn: '\u751F\u7269', en: 'Biology' }, { cn: '\u5386\u53F2', en: 'History' }, { cn: '\u5730\u7406', en: 'Geography' }, { cn: '\u653F\u6CBB', en: 'Politics' }, { cn: '\u4F53\u80B2', en: 'P.E.' } ],
+            highSchool: [ { cn: '\u8BED\u6587', en: 'Chinese' }, { cn: '\u6570\u5B66', en: 'Mathematics' }, { cn: '\u82F1\u8BED', en: 'English' }, { cn: '\u7269\u7406', en: 'Physics' }, { cn: '\u5316\u5B66', en: 'Chemistry' }, { cn: '\u751F\u7269', en: 'Biology' }, { cn: '\u5386\u53F2', en: 'History' }, { cn: '\u5730\u7406', en: 'Geography' }, { cn: '\u653F\u6CBB', en: 'Politics' }, { cn: '\u4F53\u80B2', en: 'P.E.' }, { cn: '\u4FE1\u606F\u6280\u672F', en: 'I.T.' } ],
+            university: [ { cn: '\u9AD8\u7B49\u6570\u5B66', en: 'Advanced Mathematics' }, { cn: '\u7EBF\u6027\u4EE3\u6570', en: 'Linear Algebra' }, { cn: '\u5927\u5B66\u7269\u7406', en: 'College Physics' }, { cn: 'C\u8BED\u8A00\u7A0B\u5E8F\u8BBE\u8BA1', en: 'C Programming' }, { cn: '\u6570\u636E\u7ED3\u6784', en: 'Data Structures' }, { cn: '\u8BA1\u7B97\u673A\u7F51\u7EDC', en: 'Computer Networks' }, { cn: '\u64CD\u4F5C\u7CFB\u7EDF', en: 'Operating Systems' }, { cn: '\u6570\u636E\u5E93\u539F\u7406', en: 'Database Principles' } ]
+        },
+        gradeOptions: { juniorHigh: ['\u521D\u4E00', '\u521D\u4E8C', '\u521D\u4E09'], highSchool: ['\u9AD8\u4E00', '\u9AD8\u4E8C', '\u9AD8\u4E09'], university: ['\u5927\u4E00', '\u5927\u4E8C', '\u5927\u4E09', '\u5927\u56DB'] },
+        courseCounter: 0,
+        elements: {},
+        init: function() {
+            var page = document.getElementById('page-transcript');
+            this.elements = {
+                docType: page.querySelector('#t-docType'), educationLevel: page.querySelector('#t-educationLevel'),
+                currentGrade: page.querySelector('#t-current-grade'), previewContainer: page.querySelector('#transcript-preview-container'),
+                coursesContainer: page.querySelector('#t-courses-container'), addCourseBtn: page.querySelector('#t-add-course-btn'),
+                printBtn: page.querySelector('#t-print-btn'), regenerateEnrollmentBtn: page.querySelector('#t-regenerate-enrollment-btn'),
+                randomGradesBtn: page.querySelector('#t-random-grades-btn'), avgScore: page.querySelector('#t-avg-score'),
+                transcriptSection: page.querySelector('#t-transcript-section'), enrollmentSection: page.querySelector('#t-enrollment-section'),
+                gradDateGroup: page.querySelector('#t-grad-date-group'), majorCnGroup: page.querySelector('#t-major-cn-group'), majorEnGroup: page.querySelector('#t-major-en-group'),
+                nameCn: page.querySelector('#t-name-cn'), nameEn: page.querySelector('#t-name-en'),
+                genderCn: page.querySelector('#t-gender-cn'), showGender: page.querySelector('#t-show-gender'),
+                genderEn: page.querySelector('#t-gender-en'), birthDate: page.querySelector('#t-birth-date'), showBirthDate: page.querySelector('#t-show-birth-date'),
+                studentId: page.querySelector('#t-student-id'), showStudentId: page.querySelector('#t-show-student-id'),
+                idCard: page.querySelector('#t-id-card'), showIdCard: page.querySelector('#t-show-id-card'),
+                showCurrentGrade: page.querySelector('#t-show-current-grade'),
+                schoolNameCn: page.querySelector('#t-school-name-cn'), schoolNameEn: page.querySelector('#t-school-name-en'),
+                enrollDate: page.querySelector('#t-enroll-date'), showEnrollDate: page.querySelector('#t-show-enroll-date'),
+                gradDate: page.querySelector('#t-grad-date'), showGradDate: page.querySelector('#t-show-grad-date'),
+                majorCn: page.querySelector('#t-major-cn'), majorEn: page.querySelector('#t-major-en'),
+                transcriptNotes: page.querySelector('#t-transcript-notes'),
+                enrollmentBodyCn: page.querySelector('#t-enrollment-body-cn'), enrollmentBodyEn: page.querySelector('#t-enrollment-body-en'),
+            };
+            this.elements.allInputs = page.querySelectorAll('input, select, textarea');
+            this.bindEvents();
+            this.updateGradeOptions();
+            this.toggleSections();
+            this.setupCourses();
+            this.render();
+        },
+        bindEvents: function() {
+            var self = this;
+            this.elements.docType.addEventListener('change', function() { self.toggleSections(); self.render(); });
+            this.elements.educationLevel.addEventListener('change', function() { self.updateGradeOptions(); self.setupCourses(); self.toggleSections(); self.render(); });
+            this.elements.addCourseBtn.addEventListener('click', function() { self.addCourse(); });
+            this.elements.allInputs.forEach(function(input) {
+                input.addEventListener('input', function() {
+                    if (input.id === 't-gender-cn') self.elements.genderEn.selectedIndex = input.selectedIndex;
+                    if (self.elements.docType.value === 'enrollment' && !input.id.startsWith('t-enrollment-body')) self.generateEnrollmentText();
+                    self.render();
+                });
+            });
+            this.elements.regenerateEnrollmentBtn.addEventListener('click', function() { self.generateEnrollmentText(); self.render(); });
+            this.elements.randomGradesBtn.addEventListener('click', function() { self.generateRandomScores(); });
+            this.elements.printBtn.addEventListener('click', function() { window.print(); });
+        },
+        getVal: function(id) { return this.elements[id] ? this.elements[id].value : ''; },
+        getCheck: function(id) { return this.elements[id] ? this.elements[id].checked : false; },
+        updateGradeOptions: function() {
+            var level = this.elements.educationLevel.value;
+            var options = this.gradeOptions[level] || [];
+            this.elements.currentGrade.innerHTML = '';
+            options.forEach(function(optionText) {
+                var option = document.createElement('option');
+                option.value = optionText; option.textContent = optionText;
+                this.elements.currentGrade.appendChild(option);
+            }.bind(this));
+            if (this.elements.currentGrade.options.length > 0) this.elements.currentGrade.selectedIndex = this.elements.currentGrade.options.length - 1;
+        },
+        generateEnrollmentText: function() {
+            var schoolLevel = this.getVal('educationLevel');
+            var nameCN = this.getVal('nameCn'), genderCN = this.getVal('genderCn'), studentId = this.getVal('studentId'), schoolNameCN = this.getVal('schoolNameCn'), majorCN = this.getVal('majorCn'), idCard = this.getVal('idCard'), currentGrade = this.getVal('currentGrade');
+            var nameEN = this.getVal('nameEn'), schoolNameEN = this.getVal('schoolNameEn'), majorEN = this.getVal('majorEn');
+            var birthDateCN = formatDateForEnrollment(this.getVal('birthDate'), 'zh-CN');
+            var enrollDateCN = formatDateForEnrollment(this.getVal('enrollDate'), 'zh-CN');
+            var birthDateEN = formatDateForEnrollment(this.getVal('birthDate'), 'en-US');
+            var enrollDateEN = formatDateForEnrollment(this.getVal('enrollDate'), 'en-US');
+            var textCN = '\u5179\u8BC1\u660E ' + nameCN;
+            if(this.getCheck('showGender')) textCN += '\uFF0C' + genderCN;
+            if(this.getCheck('showBirthDate')) textCN += '\uFF0C' + birthDateCN.year + '\u5E74' + birthDateCN.monthNum + '\u6708' + birthDateCN.day + '\u65E5\u51FA\u751F';
+            if(this.getCheck('showIdCard')) textCN += '\uFF0C\u8EAB\u4EFD\u8BC1\u53F7\uFF1A' + idCard;
+            if(this.getCheck('showStudentId')) textCN += '\uFF0C\u5B66\u53F7\uFF1A' + studentId;
+            textCN += '\uFF0C\u4E8E' + enrollDateCN.year + '\u5E74' + enrollDateCN.monthNum + '\u6708\u8FDB\u5165\u6211\u6821' + (schoolLevel === 'university' ? majorCN + '\u4E13\u4E1A' : '') + '\u5B66\u4E60';
+            var durationCN = schoolLevel === 'university' ? '\u56DB' : '\u4E09';
+            textCN += '\uFF0C\u5B66\u5236' + durationCN + '\u5E74';
+            if(this.getCheck('showCurrentGrade')) textCN += '\uFF0C\u73B0\u4E3A' + currentGrade + '\u5B66\u751F';
+            textCN += '\u3002\u6211\u6821\u662F\u88AB\u4E2D\u534E\u4EBA\u6C11\u5171\u548C\u56FD\u6559\u80B2\u90E8\u8BA4\u53EF\u7684\u5168\u65E5\u5236\u9AD8\u7B49\u5B66\u6821\u3002';
+            var textEN = 'This is to certify that ' + nameEN;
+            if(this.getCheck('showGender')) textEN += ', ' + this.getVal('genderEn').toLowerCase();
+            if(this.getCheck('showBirthDate')) textEN += ', born on ' + birthDateEN.month + ' ' + birthDateEN.day + ', ' + birthDateEN.year;
+            if(this.getCheck('showIdCard')) textEN += ', ID Card No.: ' + idCard;
+            if(this.getCheck('showStudentId')) textEN += ', Student No.: ' + studentId;
+            textEN += ', was enrolled in our school in ' + enrollDateEN.month + ', ' + enrollDateEN.year + (schoolLevel === 'university' ? ', majoring in ' + majorEN : '') + '.';
+            var durationEN = schoolLevel === 'university' ? 'four' : 'three';
+            textEN += ' The length of schooling is ' + durationEN + ' years.';
+            if(this.getCheck('showCurrentGrade')) {
+                var gradeMap = { '\u521D\u4E00': 'a Freshman', '\u521D\u4E8C': 'a Sophomore', '\u521D\u4E09': 'a Junior', '\u9AD8\u4E00': 'a Freshman', '\u9AD8\u4E8C': 'a Sophomore', '\u9AD8\u4E09': 'a Junior', '\u5927\u4E00': 'a Freshman', '\u5927\u4E8C': 'a Sophomore', '\u5927\u4E09': 'a Junior', '\u5927\u56DB': 'a Senior' };
+                textEN += ' Now he/she is ' + (gradeMap[currentGrade] || 'a student') + '.';
+            }
+            textEN += ' Our school is a full-time accredited school approved by the Ministry of Education of the People\'s Republic of China.';
+            this.elements.enrollmentBodyCn.value = textCN;
+            this.elements.enrollmentBodyEn.value = textEN;
+        },
+        render: function() {
+            if (this.getVal('docType') === 'transcript') this.renderTranscript(); else this.renderEnrollment();
+        },
+        renderTranscript: function() {
+            var schoolNameCN = this.getVal('schoolNameCn'), schoolNameEN = this.getVal('schoolNameEn'), notes = this.getVal('transcriptNotes').replace(/\n/g, '<br>'), level = this.getVal('educationLevel');
+            var headerInfoHTML = '<div class="grid grid-cols-2 gap-x-6 gap-y-1 mt-4" style="font-size: 10pt;">';
+            headerInfoHTML += '<div><span class="font-semibold">\u59D3\u540D:</span> ' + this.getVal('nameCn') + ' (' + this.getVal('nameEn') + ')</div>';
+            var infoItems = [
+                { cn: '\u6027\u522B', value: this.getVal('genderCn') + ' (' + this.getVal('genderEn') + ')', show: this.getCheck('showGender') },
+                { cn: '\u51FA\u751F\u65E5\u671F', value: this.getVal('birthDate'), show: this.getCheck('showBirthDate') },
+                { cn: '\u5B66\u53F7', value: this.getVal('studentId'), show: this.getCheck('showStudentId') },
+                { cn: '\u8EAB\u4EFD\u8BC1\u53F7', value: this.getVal('idCard'), show: this.getCheck('showIdCard') },
+                { cn: '\u76EE\u524D\u5E74\u7EA7', value: this.getVal('currentGrade'), show: this.getCheck('showCurrentGrade') },
+                { cn: '\u5165\u5B66\u65E5\u671F', value: this.getVal('enrollDate'), show: this.getCheck('showEnrollDate') },
+                { cn: '\u6BD5\u4E1A\u65E5\u671F', value: this.getVal('gradDate'), show: this.getCheck('showGradDate') }
+            ];
+            infoItems.filter(function(item) { return item.show; }).forEach(function(item) { headerInfoHTML += '<div><span class="font-semibold">' + item.cn + ':</span> ' + item.value + '</div>'; });
+            headerInfoHTML += '</div>';
+            var numYears = (level === 'university' ? 4 : 3);
+            var yearNames = level === 'university' ? ['\u7B2C\u4E00\u5B66\u5E74<br>Year 1', '\u7B2C\u4E8C\u5B66\u5E74<br>Year 2', '\u7B2C\u4E09\u5B66\u5E74<br>Year 3', '\u7B2C\u56DB\u5B66\u5E74<br>Year 4'] : ['\u4E00\u5E74\u7EA7<br>Grade 1', '\u4E8C\u5E74\u7EA7<br>Grade 2', '\u4E09\u5E74\u7EA7<br>Grade 3'];
+            var gradeHeaders = '', gradeCols = '';
+            for (var i = 0; i < numYears; i++) { gradeHeaders += '<th colspan="2">' + yearNames[i] + '</th>'; gradeCols += '<th>\u4E0A\u5B66\u671F<br>1st</th><th>\u4E0B\u5B66\u671F<br>2nd</th>'; }
+            var coursesHTML = '';
+            this.elements.coursesContainer.querySelectorAll('.course-row').forEach(function(row) {
+                var courseCN = row.querySelector('[data-type="course-cn"]').value, courseEN = row.querySelector('[data-type="course-en"]').value; var scoresHTML = '';
+                for (var j = 0; j < numYears * 2; j++) { scoresHTML += '<td>' + row.querySelector('[data-term="' + j + '"]').value + '</td>'; }
+                coursesHTML += '<tr><td>' + courseCN + '<br>' + courseEN + '</td>' + scoresHTML + '</tr>';
+            });
+            var transcriptTitles = '<div class="text-center mt-6"><h3 class="text-xl font-bold">\u6210 \u7EE9 \u5355</h3><h4 class="text-lg font-semibold">Transcript</h4></div>';
+            this.elements.previewContainer.innerHTML = '<div class="flex-grow">' + this.getHeader(schoolNameCN, schoolNameEN) + transcriptTitles + headerInfoHTML + '<table id="transcript-table" class="w-full mt-4 border-collapse"><thead><tr><th rowspan="2">\u8BFE\u7A0B<br>Course</th>' + gradeHeaders + '</tr><tr>' + gradeCols + '</tr></thead><tbody>' + coursesHTML + '</tbody></table><div class="mt-4" style="font-size: 9pt;">' + notes + '</div></div>' + this.getFooter();
+        },
+        renderEnrollment: function() {
+            var schoolNameCN = this.getVal('schoolNameCn'), schoolNameEN = this.getVal('schoolNameEn'), bodyCN = this.getVal('enrollmentBodyCn').replace(/\n/g, '<br>'), bodyEN = this.getVal('enrollmentBodyEn').replace(/\n/g, '<br>');
+            this.elements.previewContainer.innerHTML = '<div class="flex-grow">' + this.getHeader(schoolNameCN, schoolNameEN) + '<div class="text-center my-12"><h3 class="text-2xl font-bold tracking-widest">\u8BC1\u00A0\u00A0\u00A0\u00A0\u660E</h3></div><div class="text-lg leading-relaxed" style="text-indent: 2em;">' + bodyCN + '</div><div class="text-right mt-16"><p>' + schoolNameCN + '</p><p>' + formatDate(new Date().toISOString().slice(0, 10), 'cn') + '</p></div><hr class="my-8 border-dashed"><div class="text-center my-8"><h3 class="text-2xl font-bold">Certificate</h3></div><div class="text-base leading-relaxed">' + bodyEN + '</div></div><div class="flex-shrink-0 text-right pt-4"><p>' + schoolNameEN + '</p><p>' + formatDate(new Date().toISOString().slice(0, 10), 'en') + '</p></div>';
+        },
+        getHeader: function(cn, en) { return '<div class="text-center"><h1 class="text-2xl font-bold tracking-widest">' + cn + '</h1><h2 class="text-xl font-semibold">' + en + '</h2></div>'; },
+        getFooter: function() { return '<div class="flex-shrink-0 flex justify-between text-sm pt-4"><div><p>\u5B66\u6821\u76D6\u7AE0 (Official Seal):</p></div><div><p>\u65E5\u671F (Date): ' + new Date().toISOString().slice(0, 10) + '</p></div></div>'; },
+        addCourse: function(course, scores) {
+            course = course || { cn: '', en: '' };
+            scores = scores || [];
+            this.courseCounter++;
+            var courseId = 'course-' + this.courseCounter;
+            var courseDiv = document.createElement('div');
+            courseDiv.className = 'course-row p-2 border border-outline-variant/15 rounded-md mb-2 bg-white';
+            courseDiv.id = courseId;
+            var scoreInputs = '';
+            var numYears = this.getVal('educationLevel') === 'university' ? 4 : 3;
+            for (var i = 0; i < numYears * 2; i++) { scoreInputs += '<div class="dg-form-group !mb-0"><input type="text" class="dg-form-input text-xs" placeholder="T' + (i+1) + '" data-type="score" data-term="' + i + '" value="' + (scores[i] || '') + '"></div>'; }
+            courseDiv.innerHTML = '<div class="grid grid-cols-2 gap-1 mb-1"><div class="dg-form-group !mb-0"><input type="text" class="dg-form-input text-sm" placeholder="\u79D1\u76EE\u540D (\u4E2D\u6587)" data-type="course-cn" value="' + course.cn + '"></div><div class="dg-form-group !mb-0"><input type="text" class="dg-form-input text-sm" placeholder="Course Name" data-type="course-en" value="' + course.en + '"></div></div><div class="grid grid-cols-4 lg:grid-cols-6 gap-1">' + scoreInputs + '</div><button class="dg-btn dg-btn-danger mt-1 w-full text-xs !py-0.5 remove-course-btn">\u2212 \u5220\u9664</button>';
+            this.elements.coursesContainer.appendChild(courseDiv);
+            var self = this;
+            courseDiv.querySelector('.remove-course-btn').addEventListener('click', function() { self.removeCourse(courseId); });
+            courseDiv.querySelectorAll('input').forEach(function(input) { input.addEventListener('input', function() { self.render(); }); });
+        },
+        removeCourse: function(id) { var el = document.getElementById(id); if (el) el.remove(); this.render(); },
+        setupCourses: function() {
+            this.elements.coursesContainer.innerHTML = '';
+            var self = this;
+            this.initialCourses[this.getVal('educationLevel')].forEach(function(course) { self.addCourse(course); });
+        },
+        generateRandomScores: function() {
+            var avg = parseInt(this.getVal('avgScore'), 10) || 85;
+            this.elements.coursesContainer.querySelectorAll('input[data-type="score"]').forEach(function(input) {
+                var randomScore = Math.round(avg + (Math.random() * 20 - 10));
+                input.value = Math.max(60, Math.min(100, randomScore)) + '/100';
+            });
+            this.render();
+        },
+        toggleSections: function() {
+            var isTranscript = this.getVal('docType') === 'transcript', isUniversity = this.getVal('educationLevel') === 'university';
+            this.elements.transcriptSection.classList.toggle('hidden', !isTranscript);
+            this.elements.enrollmentSection.classList.toggle('hidden', isTranscript);
+            this.elements.gradDateGroup.classList.toggle('hidden', !isTranscript);
+            this.elements.majorCnGroup.classList.toggle('hidden', !isUniversity);
+            this.elements.majorEnGroup.classList.toggle('hidden', !isUniversity);
+            if (!isTranscript) this.generateEnrollmentText();
+        },
+    };
+  </script>
+</MainLayout>
