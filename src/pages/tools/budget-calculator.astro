@@ -179,12 +179,27 @@ const lang = 'en';
         <!-- Selected school pills -->
         <div class="flex items-center gap-2 mb-5 flex-wrap" id="bc-selected-bar"></div>
 
+        <!-- Year selector bar -->
+        <div class="flex items-center gap-3 mb-5 flex-wrap">
+          <span class="text-xs font-bold text-on-surface-variant">年数 Years:</span>
+          <div class="flex items-center gap-1">
+            <button class="bc-yr-btn" id="bc-yr-minus">
+              <span class="material-symbols-outlined text-sm">remove</span>
+            </button>
+            <span class="bc-yr-display" id="bc-yr-display">1</span>
+            <button class="bc-yr-btn" id="bc-yr-plus">
+              <span class="material-symbols-outlined text-sm">add</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-1" id="bc-yr-presets"></div>
+        </div>
+
         <!-- Comparison cards -->
         <div id="bc-cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4"></div>
 
         <!-- Total cost ranking -->
         <div id="bc-ranking" class="mt-8 hidden">
-          <h2 class="text-lg font-headline font-bold mb-4">总成本排名 Total Cost Ranking (CNY)</h2>
+          <h2 class="text-lg font-headline font-bold mb-4" id="bc-ranking-title">总成本排名 Total Cost Ranking (CNY)</h2>
           <div id="bc-ranking-bars"></div>
         </div>
 
@@ -260,6 +275,7 @@ const lang = 'en';
     .bc-school-card:hover { border-color: rgba(4,47,36,0.25); }
     .bc-school-card.selected { border-color: var(--md-sys-color-primary, #042f24); background: rgba(4,47,36,0.04); }
     .bc-school-card.disabled { opacity: 0.3; cursor: not-allowed; }
+    .bc-school-card.bc-no-data { opacity: 0.45; }
     .bc-school-card .bc-rank { font-size: 0.6rem; color: #999; min-width: 26px; text-align: right; }
     .bc-school-card .bc-sname { flex: 1; line-height: 1.25; min-width: 0; }
     .bc-school-card .bc-sname-en { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -336,6 +352,24 @@ const lang = 'en';
     .bc-rank-bar { height: 24px; border-radius: 4px; background: var(--md-sys-color-primary, #042f24); transition: width 0.4s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
     .bc-rank-bar span { color: #fff; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
 
+    .bc-yr-btn {
+      width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid #d1d5db;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #555; transition: all 0.15s;
+    }
+    .bc-yr-btn:hover { border-color: var(--md-sys-color-primary, #042f24); color: var(--md-sys-color-primary, #042f24); }
+    .bc-yr-display {
+      min-width: 32px; text-align: center; font-size: 1rem; font-weight: 800;
+      color: var(--md-sys-color-primary, #042f24);
+    }
+    .bc-yr-preset {
+      padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.65rem; font-weight: 700;
+      border: 1.5px solid rgba(4,47,36,0.15); background: transparent; color: #666;
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .bc-yr-preset:hover { border-color: var(--md-sys-color-primary, #042f24); }
+    .bc-yr-preset.active { background: var(--md-sys-color-primary, #042f24); color: #fff; border-color: var(--md-sys-color-primary, #042f24); }
+
     @media (max-width: 768px) {
       .bc-toggle { padding: 0.25rem 0.4rem; font-size: 0.68rem; }
       .bc-rank-name { width: 100px; font-size: 0.7rem; }
@@ -358,8 +392,9 @@ const lang = 'en';
       rates: null,
       ratesLoaded: false,
       search: '',
-      view: 'wizard',  // 'wizard' or 'results'
-      wizardStep: 1
+      view: 'wizard',
+      wizardStep: 1,
+      years: 1
     };
 
     // Flatten schools
@@ -572,12 +607,11 @@ const lang = 'en';
         return true;
       });
 
+      // Sort by QS rank (lower = better), schools without rank go last
       filtered.sort(function(a, b) {
-        var ca = getSchoolCost(a);
-        var cb = getSchoolCost(b);
-        var va = ca ? toCNY(ca.total, a.currency) : Infinity;
-        var vb = cb ? toCNY(cb.total, b.currency) : Infinity;
-        return va - vb;
+        var ra = a.school.qsRank || 9999;
+        var rb = b.school.qsRank || 9999;
+        return ra - rb;
       });
 
       var html = '';
@@ -587,15 +621,16 @@ const lang = 'en';
         var isSelected = state.selectedSchools.some(function(sel) { return sel.school.id === s.id && sel.regionId === entry.regionId; });
         var isFull = state.selectedSchools.length >= MAX_SCHOOLS && !isSelected;
         var cls = 'bc-school-card' + (isSelected ? ' selected' : '') + (isFull ? ' disabled' : '');
-        var costStr = cost ? fmtWan(toCNY(cost.total, entry.currency)) + '/yr' : 'N/A';
+        var costStr = cost ? fmtWan(toCNY(cost.total, entry.currency)) + '/yr' : '\u65E0\u6B64\u4E13\u4E1A';
+        var noData = !cost;
 
-        html += '<div class="' + cls + '" data-sid="' + entry.regionId + '_' + s.id + '">';
+        html += '<div class="' + cls + (noData ? ' bc-no-data' : '') + '" data-sid="' + entry.regionId + '_' + s.id + '">';
         html += '<div class="bc-check">' + (isSelected ? '<span style="color:#fff;font-size:12px;line-height:1;">&#10003;</span>' : '') + '</div>';
         html += '<span class="bc-rank">#' + (s.qsRank || '?') + '</span>';
         html += '<div class="bc-sname"><div class="bc-sname-en">' + escH(s.name) + '</div>';
         if (s.nameCn) html += '<div class="bc-sname-cn">' + escH(s.nameCn) + '</div>';
         html += '</div>';
-        html += '<span class="bc-scost">' + costStr + '</span>';
+        html += '<span class="bc-scost" ' + (noData ? 'style="color:#bbb;font-weight:400;"' : '') + '>' + costStr + '</span>';
         html += '</div>';
       });
 
@@ -681,23 +716,32 @@ const lang = 'en';
           html += '<table class="bc-breakdown">';
           html += '<tr><td>\u5B66\u8D39 Tuition</td><td>' + fmtC(cost.tuition) + '</td></tr>';
           html += '<tr><td>\u751F\u6D3B\u8D39 Living</td><td>' + fmtC(cost.living) + '</td></tr>';
-          html += '<tr><td>\u4FDD\u9669 Insurance</td><td>' + fmtC(cost.insurance) + '</td></tr>';
-          if (cost.nhsSurcharge) {
-            html += '<tr><td>NHS Surcharge</td><td>' + fmtC(cost.nhsSurcharge) + '</td></tr>';
+          if (cost.insurance > 0) {
+            html += '<tr><td>\u4FDD\u9669 Insurance</td><td>' + fmtC(cost.insurance) + '</td></tr>';
           }
-          html += '<tr class="bc-total-row"><td>\u5E74\u8D39 Annual</td><td>' + fmtC(cost.total + (cost.nhsSurcharge || 0)) + '</td></tr>';
+          if (cost.nhsSurcharge > 0) {
+            html += '<tr><td>NHS \u533B\u7597\u9644\u52A0\u8D39</td><td>' + fmtC(cost.nhsSurcharge) + '</td></tr>';
+          }
+          var annualTotal = cost.total + (cost.nhsSurcharge || 0);
+          html += '<tr class="bc-total-row"><td>\u5E74\u8D39 Annual</td><td>' + fmtC(annualTotal) + '</td></tr>';
           html += '</table>';
 
           if (cost.visa) {
-            html += '<div style="font-size:0.7rem;color:#888;margin-bottom:6px;">\u7B7E\u8BC1 Visa: ' + fmtC(cost.visa) + (cost.visaNote ? ' (' + escH(cost.visaNote) + ')' : '') + '</div>';
+            html += '<div style="font-size:0.7rem;color:#888;margin-bottom:6px;">\u7B7E\u8BC1 Visa (\u4E00\u6B21\u6027): ' + fmtC(cost.visa) + '</div>';
           }
 
-          var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0), cur);
-          var totalCNY = annualCNY * cost.duration + toCNY(cost.visa || 0, cur);
+          var annualCNY = toCNY(annualTotal, cur);
+          var yrs = state.years;
+          var totalCNY = annualCNY * yrs + toCNY(cost.visa || 0, cur);
           html += '<div class="bc-cny-box">';
-          html += '<div><div class="bc-cny-label">\u603B\u8D39\u7528 Total (' + cost.duration + '\u5E74+\u7B7E\u8BC1)</div>';
-          html += '<div class="bc-cny-annual">\u2248 ' + fmtWan(annualCNY) + '/year</div></div>';
-          html += '<div class="bc-cny-total">' + fmtWan(totalCNY) + '</div>';
+          if (yrs === 1) {
+            html += '<div><div class="bc-cny-label">\u5E74\u8D39\u7528 Annual Cost</div></div>';
+            html += '<div class="bc-cny-total">' + fmtWan(annualCNY) + '</div>';
+          } else {
+            html += '<div><div class="bc-cny-label">' + yrs + '\u5E74\u603B\u8D39 ' + yrs + '-Year Total (+\u7B7E\u8BC1)</div>';
+            html += '<div class="bc-cny-annual">\u2248 ' + fmtWan(annualCNY) + '/year</div></div>';
+            html += '<div class="bc-cny-total">' + fmtWan(totalCNY) + '</div>';
+          }
           html += '</div>';
 
           if (cost.note) {
@@ -730,13 +774,17 @@ const lang = 'en';
       }
       rankingEl.classList.remove('hidden');
 
+      var yrs = state.years;
+      var titleEl = document.getElementById('bc-ranking-title');
+      if (titleEl) titleEl.textContent = yrs === 1 ? '\u5E74\u8D39\u6392\u540D Annual Cost Ranking (CNY)' : yrs + '\u5E74\u603B\u8D39\u6392\u540D ' + yrs + '-Year Cost Ranking (CNY)';
+
       var items = [];
       state.selectedSchools.forEach(function(entry) {
         var cost = getSchoolCost(entry);
         if (!cost) return;
         var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0), cost.currency);
-        var totalCNY = annualCNY * cost.duration + toCNY(cost.visa || 0, cost.currency);
-        items.push({ name: entry.school.nameCn || entry.school.name, totalCNY: totalCNY, duration: cost.duration });
+        var totalCNY = yrs === 1 ? annualCNY : annualCNY * yrs + toCNY(cost.visa || 0, cost.currency);
+        items.push({ name: entry.school.nameCn || entry.school.name, totalCNY: totalCNY });
       });
 
       items.sort(function(a, b) { return a.totalCNY - b.totalCNY; });
@@ -746,7 +794,7 @@ const lang = 'en';
       items.forEach(function(item) {
         var pct = Math.max(10, (item.totalCNY / maxCNY) * 100);
         html += '<div class="bc-rank-bar-wrap">';
-        html += '<span class="bc-rank-name">' + escH(item.name) + ' (' + item.duration + '\u5E74)</span>';
+        html += '<span class="bc-rank-name">' + escH(item.name) + '</span>';
         html += '<div class="bc-rank-bar" style="width:' + pct + '%;max-width:calc(100% - 220px);">';
         html += '<span>' + fmtWan(item.totalCNY) + '</span>';
         html += '</div></div>';
@@ -823,6 +871,59 @@ const lang = 'en';
           renderCards();
         });
       });
+
+      // Year selector
+      function updateYearDisplay() {
+        var el = document.getElementById('bc-yr-display');
+        if (el) el.textContent = state.years;
+        // Update preset highlights
+        document.querySelectorAll('.bc-yr-preset').forEach(function(btn) {
+          btn.classList.toggle('active', parseInt(btn.dataset.yr) === state.years);
+        });
+      }
+
+      function renderYearPresets() {
+        // Build preset buttons based on selected schools' default durations
+        var presets = new Set();
+        presets.add(1);
+        state.selectedSchools.forEach(function(entry) {
+          var prog = entry.school.programs[state.level];
+          if (prog && prog.duration) presets.add(prog.duration);
+        });
+        // Always offer common durations
+        presets.add(3);
+        presets.add(4);
+        var sorted = Array.from(presets).sort(function(a,b) { return a - b; });
+        var container = document.getElementById('bc-yr-presets');
+        if (!container) return;
+        var html = '';
+        sorted.forEach(function(yr) {
+          var label = yr === 1 ? '1\u5E74' : yr + '\u5E74';
+          html += '<button class="bc-yr-preset' + (yr === state.years ? ' active' : '') + '" data-yr="' + yr + '">' + label + '</button>';
+        });
+        container.innerHTML = html;
+        container.querySelectorAll('.bc-yr-preset').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            state.years = parseInt(btn.dataset.yr);
+            updateYearDisplay();
+            renderCards();
+          });
+        });
+      }
+
+      document.getElementById('bc-yr-minus').addEventListener('click', function() {
+        if (state.years > 1) { state.years--; updateYearDisplay(); renderCards(); }
+      });
+      document.getElementById('bc-yr-plus').addEventListener('click', function() {
+        if (state.years < 8) { state.years++; updateYearDisplay(); renderCards(); }
+      });
+
+      // Override showResults to also render year presets
+      var _origShowResults = showResults;
+      showResults = function() {
+        _origShowResults();
+        renderYearPresets();
+      };
 
       // Fetch rates immediately
       fetchRates();
