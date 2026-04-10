@@ -429,7 +429,7 @@ const lang = 'en';
           });
           state.rates['CNY'] = 1;
           state.ratesLoaded = true;
-          if (statusEl) statusEl.textContent = 'Live rates: ' + data.date + ' (ECB)';
+          if (statusEl) statusEl.textContent = 'Live rates: ' + data.date + ' (ECB +3% \u8D2D\u6C47\u52A0\u70B9)';
           if (state.view === 'results') renderCards();
           // Also re-render school grid costs if on step 3
           if (state.view === 'wizard' && state.wizardStep === 3) renderSchoolGrid();
@@ -441,15 +441,17 @@ const lang = 'en';
           });
           state.rates['CNY'] = 1;
           state.ratesLoaded = true;
-          if (statusEl) statusEl.textContent = 'Fallback rates (live unavailable)';
+          if (statusEl) statusEl.textContent = 'Fallback rates (+3% \u8D2D\u6C47\u52A0\u70B9)';
           if (state.view === 'results') renderCards();
           if (state.view === 'wizard' && state.wizardStep === 3) renderSchoolGrid();
         });
     }
 
+    // Apply 3% markup over ECB mid-rate to reflect actual bank selling rate
+    var BANK_MARKUP = 1.03;
     function toCNY(amount, currency) {
-      if (!state.rates || !state.rates[currency]) return amount * (FALLBACK_RATES[currency] || 1);
-      return amount * state.rates[currency];
+      if (!state.rates || !state.rates[currency]) return amount * (FALLBACK_RATES[currency] || 1) * BANK_MARKUP;
+      return amount * state.rates[currency] * BANK_MARKUP;
     }
 
     function fmtNum(n) {
