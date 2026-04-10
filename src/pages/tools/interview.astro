@@ -68,13 +68,13 @@ const lang = 'en';
               <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
                 <span class="material-symbols-outlined text-emerald-700 text-2xl">forum</span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-600 text-white">20 Topics</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-600 text-white">20 Qs</span>
             </div>
             <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-emerald-700 transition-colors">General Admissions Interview</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Flashcard-style practice with analysis frameworks, self-rating, and review dashboard.</p>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Common admissions questions with analysis frameworks and suggested strategies.</p>
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">style</span> Flashcards</span>
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">star</span> Self-Rating</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 10s + 2min</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic</span> Recording</span>
             </div>
           </button>
 
@@ -205,6 +205,11 @@ const lang = 'en';
           </div>
         </div>
 
+        <!-- Question Navigation Panel -->
+        <div id="iv-nav-panel" class="mb-4 p-3 bg-surface-container-low rounded-xl border border-outline-variant/10">
+          <div id="iv-nav-grid" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
         <!-- Practice Card -->
         <div class="bg-white rounded-2xl border border-outline-variant/15 p-5 md:p-8 lg:p-10 shadow-xl shadow-primary/5">
 
@@ -280,17 +285,6 @@ const lang = 'en';
             </div>
           </div>
 
-          <!-- Self-Rating (general mode) -->
-          <div id="iv-rating-area" class="hidden flex flex-col items-center mb-6">
-            <p class="text-xs font-bold text-on-surface-variant/50 uppercase tracking-widest mb-3">Rate your answer</p>
-            <div class="flex gap-2">
-              <button onclick="rateAnswer(1)" class="iv-rate-btn w-10 h-10 rounded-xl font-bold text-red-400 bg-white border border-outline-variant/15 hover:bg-red-50 transition-colors">1</button>
-              <button onclick="rateAnswer(2)" class="iv-rate-btn w-10 h-10 rounded-xl font-bold text-red-400 bg-white border border-outline-variant/15 hover:bg-red-50 transition-colors">2</button>
-              <button onclick="rateAnswer(3)" class="iv-rate-btn w-10 h-10 rounded-xl font-bold text-amber-500 bg-white border border-outline-variant/15 hover:bg-amber-50 transition-colors">3</button>
-              <button onclick="rateAnswer(4)" class="iv-rate-btn w-10 h-10 rounded-xl font-bold text-emerald-500 bg-white border border-outline-variant/15 hover:bg-emerald-50 transition-colors">4</button>
-              <button onclick="rateAnswer(5)" class="iv-rate-btn w-10 h-10 rounded-xl font-bold text-emerald-500 bg-white border border-outline-variant/15 hover:bg-emerald-50 transition-colors">5</button>
-            </div>
-          </div>
 
           <!-- Primary Action Buttons -->
           <div class="flex flex-col items-center">
@@ -306,21 +300,6 @@ const lang = 'en';
         </div>
       </div>
 
-      <!-- ==================== SCREEN 4: REVIEW DASHBOARD (general mode) ==================== -->
-      <div id="screen-dashboard" class="hidden fade-in">
-        <div class="flex items-center justify-between mb-6">
-          <button onclick="goBack('mode')" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-lg">arrow_back</span> Back
-          </button>
-          <button onclick="switchToDashboardPractice()" class="px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">play_circle</span> Resume Practice
-          </button>
-        </div>
-        <h2 class="font-headline font-bold text-2xl text-on-surface tracking-tight mb-6">Review Dashboard</h2>
-        <div id="dashboard-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <!-- Filled by JS -->
-        </div>
-      </div>
 
     </div>
   </main>
@@ -687,6 +666,7 @@ var state = {
   subject: null,
   questions: [],     // current question set
   qIndex: -1,
+  visited: {},       // { index: true } for visited questions
   phase: 'idle',     // 'idle' | 'prep' | 'record' | 'review'
   timer: null,
   timeLeft: 0,
@@ -699,7 +679,6 @@ var state = {
   mediaStream: null,
   mimeType: '',
   fileExt: '.webm',
-  ratings: {}        // for general mode: { questionId: [ratings] }
 };
 
 // ============================================================
@@ -741,11 +720,10 @@ function selectMode(mode) {
     renderSubjectGrid();
     showScreen('subject');
   } else if (mode === 'general') {
-    state.prepTime = 0;
-    state.answerTime = 0;
-    state.recording = false;
+    state.prepTime = 10;
+    state.answerTime = 120;
+    state.recording = true;
     state.questions = GENERAL_QUESTIONS.map(function(q, i) { return Object.assign({_idx: i}, q); });
-    loadRatings();
     pickRandomQuestion();
     showScreen('practice');
     updatePracticeBadge();
@@ -892,10 +870,55 @@ function startCustomPractice() {
 // ============================================================
 function pickRandomQuestion() {
   if (!state.questions.length) return;
-  var idx = Math.floor(Math.random() * state.questions.length);
-  state.qIndex = idx;
+  state.qIndex = 0;
+  state.visited = { 0: true };
   resetPracticeUI();
   displayCurrentQuestion();
+  renderNavPanel();
+}
+
+function goToQuestion(idx) {
+  if (idx < 0 || idx >= state.questions.length) return;
+  // Stop any in-progress recording/timer
+  clearInterval(state.timer);
+  if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+    state.mediaRecorder.stop();
+    state.mediaRecorder.stream.getTracks().forEach(function(t) { t.stop(); });
+  }
+  state.qIndex = idx;
+  state.visited[idx] = true;
+  resetPracticeUI();
+  displayCurrentQuestion();
+  renderNavPanel();
+}
+
+function nextQuestion() {
+  var next = state.qIndex + 1;
+  if (next >= state.questions.length) next = 0;
+  goToQuestion(next);
+}
+
+function renderNavPanel() {
+  var grid = document.getElementById('iv-nav-grid');
+  grid.innerHTML = '';
+  var modeColors = {
+    hku: { active: 'bg-primary text-white', visited: 'bg-primary/20 text-primary', idle: 'bg-white text-on-surface-variant/60 border border-outline-variant/20' },
+    oxbridge: { active: 'bg-amber-600 text-white', visited: 'bg-amber-100 text-amber-700', idle: 'bg-white text-on-surface-variant/60 border border-outline-variant/20' },
+    general: { active: 'bg-emerald-600 text-white', visited: 'bg-emerald-100 text-emerald-700', idle: 'bg-white text-on-surface-variant/60 border border-outline-variant/20' },
+    custom: { active: 'bg-violet-600 text-white', visited: 'bg-violet-100 text-violet-700', idle: 'bg-white text-on-surface-variant/60 border border-outline-variant/20' }
+  };
+  var colors = modeColors[state.mode] || modeColors.custom;
+  state.questions.forEach(function(q, i) {
+    var btn = document.createElement('button');
+    var cls;
+    if (i === state.qIndex) cls = colors.active + ' font-black shadow-sm';
+    else if (state.visited[i]) cls = colors.visited + ' font-bold';
+    else cls = colors.idle + ' font-medium';
+    btn.className = 'w-8 h-8 rounded-lg text-xs flex items-center justify-center transition-all hover:scale-110 ' + cls;
+    btn.textContent = (i + 1);
+    btn.onclick = function() { goToQuestion(i); };
+    grid.appendChild(btn);
+  });
 }
 
 function displayCurrentQuestion() {
@@ -903,13 +926,8 @@ function displayCurrentQuestion() {
   if (!q) return;
 
   // Main question text
-  var mainText = q.en || q.main || q.question || '';
+  var mainText = q.text || q.en || q.main || q.question || '';
   var subText = q.cn || '';
-  // For general mode, pick random from main + alts
-  if (state.mode === 'general' && q.alts && q.alts.length) {
-    var all = [q.main].concat(q.alts);
-    mainText = all[Math.floor(Math.random() * all.length)];
-  }
   document.getElementById('iv-q-main').textContent = mainText;
   document.getElementById('iv-q-sub').textContent = subText;
 
@@ -965,8 +983,6 @@ function displayCurrentQuestion() {
   // Progress
   document.getElementById('practice-progress').textContent = 'Q' + (state.qIndex + 1) + ' / ' + state.questions.length;
 
-  // Rating area for general mode
-  document.getElementById('iv-rating-area').classList.toggle('hidden', state.mode !== 'general');
 }
 
 function updatePracticeBadge() {
@@ -1009,10 +1025,6 @@ function resetPracticeUI() {
 
   // Timer area visible
   timerArea.classList.remove('hidden');
-  // For general mode (flashcard), hide timer
-  if (state.mode === 'general') {
-    timerArea.classList.add('hidden');
-  }
 }
 
 // ============================================================
@@ -1029,14 +1041,6 @@ document.getElementById('iv-analysis-btn').addEventListener('click', function() 
 
 async function handleMainAction() {
   if (state.phase === 'idle') {
-    // For general mode: just reveal question (no timer/recording)
-    if (state.mode === 'general') {
-      revealQuestion();
-      document.getElementById('iv-btn-icon').textContent = 'shuffle';
-      document.getElementById('iv-btn-text').textContent = 'Next Question';
-      state.phase = 'review';
-      return;
-    }
     // For recording modes: request mic first
     if (state.recording) {
       document.getElementById('iv-btn-text').textContent = 'Requesting microphone...';
@@ -1053,8 +1057,7 @@ async function handleMainAction() {
   } else if (state.phase === 'record') {
     finishRecording();
   } else if (state.phase === 'review') {
-    // Next question
-    pickRandomQuestion();
+    nextQuestion();
   }
 }
 
@@ -1218,55 +1221,10 @@ function updateTimerDisplay() {
   document.getElementById('iv-timer-display').textContent = m + ':' + s;
 }
 
-// ============================================================
-// SELF-RATING (General Mode)
-// ============================================================
-function loadRatings() {
-  try {
-    var saved = localStorage.getItem('iv-ratings-general');
-    if (saved) state.ratings = JSON.parse(saved);
-  } catch(e) {}
-}
 
-function saveRatings() {
-  try { localStorage.setItem('iv-ratings-general', JSON.stringify(state.ratings)); } catch(e) {}
-}
-
-function rateAnswer(score) {
-  var q = state.questions[state.qIndex];
-  if (!q || !q.id) return;
-  if (!state.ratings[q.id]) state.ratings[q.id] = [];
-  state.ratings[q.id].push(score);
-  saveRatings();
-  // Visual feedback
-  var btns = document.querySelectorAll('.iv-rate-btn');
-  btns.forEach(function(b) { b.classList.remove('selected'); });
-  btns[score - 1].classList.add('selected');
-  setTimeout(function() { btns[score - 1].classList.remove('selected'); }, 400);
-}
-
-// ============================================================
-// DASHBOARD (General Mode)
-// ============================================================
-function switchToDashboardPractice() {
-  state.mode = 'general';
-  state.prepTime = 0;
-  state.answerTime = 0;
-  state.recording = false;
-  state.questions = GENERAL_QUESTIONS.map(function(q, i) { return Object.assign({_idx: i}, q); });
-  loadRatings();
-  pickRandomQuestion();
-  showScreen('practice');
-  updatePracticeBadge();
-}
 
 function exitPractice() {
-  if (state.mode === 'general') {
-    renderDashboard();
-    showScreen('dashboard');
-  } else {
-    goBack('mode');
-  }
+  goBack('mode');
   // Cleanup
   clearInterval(state.timer);
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
@@ -1275,22 +1233,4 @@ function exitPractice() {
   }
 }
 
-function renderDashboard() {
-  var grid = document.getElementById('dashboard-grid');
-  grid.innerHTML = '';
-  GENERAL_QUESTIONS.forEach(function(q) {
-    var ratings = state.ratings[q.id] || [];
-    var avg = ratings.length > 0 ? ratings.reduce(function(a,b){return a+b;}, 0) / ratings.length : 0;
-    var status, color, icon;
-    if (ratings.length === 0) { status = '\u672a\u7ec3\u4e60'; color = 'text-on-surface-variant/50'; icon = 'remove'; }
-    else if (avg >= 4) { status = '\u5df2\u638c\u63e1'; color = 'text-emerald-500'; icon = 'check_circle'; }
-    else if (avg >= 2.5) { status = '\u6b63\u5728\u719f\u6089'; color = 'text-amber-500'; icon = 'timelapse'; }
-    else { status = '\u6709\u5f85\u52a0\u5f3a'; color = 'text-red-400'; icon = 'error'; }
-
-    var div = document.createElement('div');
-    div.className = 'flex items-center gap-3 p-4 bg-white rounded-xl border border-outline-variant/10';
-    div.innerHTML = '<span class="material-symbols-outlined text-xl ' + color + '">' + icon + '</span><div class="flex-1 min-w-0"><p class="font-bold text-sm text-on-surface">' + q.id + '. ' + q.summary + '</p><p class="text-xs ' + color + ' font-medium">' + status + ' (\u5747\u5206: ' + avg.toFixed(1) + ', \u6b21\u6570: ' + ratings.length + ')</p></div>';
-    grid.appendChild(div);
-  });
-}
 </script>
