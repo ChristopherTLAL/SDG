@@ -200,7 +200,7 @@ const lang = 'en';
         <!-- Total cost ranking -->
         <div id="bc-ranking" class="mt-8 hidden">
           <h2 class="text-lg font-headline font-bold mb-4" id="bc-ranking-title">总成本排名 Total Cost Ranking (CNY)</h2>
-          <div id="bc-ranking-bars"></div>
+          <div id="bc-ranking-bars" style="padding-bottom:24px;"></div>
         </div>
 
         <!-- Disclaimer -->
@@ -347,9 +347,20 @@ const lang = 'en';
       color: #555; padding: 1px 6px; border-radius: 4px; margin-top: 4px;
     }
 
-    .bc-rank-bar-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.78rem; }
-    .bc-rank-name { width: 200px; text-align: right; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .bc-rank-bar { height: 24px; border-radius: 4px; background: var(--md-sys-color-primary, #042f24); transition: width 0.4s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+    .bc-chart-area { position: relative; }
+    .bc-grid-lines { position: absolute; top: 0; left: 200px; right: 0; bottom: 0; pointer-events: none; }
+    .bc-grid-line {
+      position: absolute; top: 0; bottom: 0; width: 0;
+      border-left: 1px dashed rgba(0,0,0,0.08);
+    }
+    .bc-grid-line span {
+      position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
+      font-size: 0.6rem; color: #aaa; white-space: nowrap;
+    }
+    .bc-rank-bar-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.78rem; position: relative; z-index: 1; }
+    .bc-rank-name { width: 192px; min-width: 192px; text-align: right; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bc-rank-bar-area { flex: 1; min-width: 0; }
+    .bc-rank-bar { height: 28px; border-radius: 4px; background: var(--md-sys-color-primary, #042f24); transition: width 0.4s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; min-width: 50px; }
     .bc-rank-bar span { color: #fff; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
 
     .bc-yr-btn {
@@ -794,17 +805,35 @@ const lang = 'en';
       });
 
       items.sort(function(a, b) { return a.totalCNY - b.totalCNY; });
-      var maxCNY = items.length > 0 ? items[items.length - 1].totalCNY : 1;
+      var maxVal = items.length > 0 ? items[items.length - 1].totalCNY : 100000;
 
-      var html = '';
+      // Absolute scale: round up to nearest 10万
+      var scaleMax = Math.ceil(maxVal / 100000) * 100000;
+      if (scaleMax < 200000) scaleMax = 200000; // minimum 20万
+      var gridStep = 100000; // 10万 per grid line
+      var gridCount = Math.round(scaleMax / gridStep);
+
+      // Build grid lines
+      var gridHtml = '';
+      for (var g = 0; g <= gridCount; g++) {
+        var gPct = (g / gridCount) * 100;
+        var gVal = g * gridStep / 10000;
+        gridHtml += '<div class="bc-grid-line" style="left:' + gPct + '%;">';
+        gridHtml += '<span>' + gVal + '\u4E07</span></div>';
+      }
+
+      var html = '<div class="bc-chart-area">';
+      html += '<div class="bc-grid-lines">' + gridHtml + '</div>';
       items.forEach(function(item) {
-        var pct = Math.max(10, (item.totalCNY / maxCNY) * 100);
+        var pct = Math.min(100, (item.totalCNY / scaleMax) * 100);
         html += '<div class="bc-rank-bar-wrap">';
         html += '<span class="bc-rank-name">' + escH(item.name) + '</span>';
-        html += '<div class="bc-rank-bar" style="width:' + pct + '%;max-width:calc(100% - 220px);">';
+        html += '<div class="bc-rank-bar-area">';
+        html += '<div class="bc-rank-bar" style="width:' + pct + '%;">';
         html += '<span>' + fmtWan(item.totalCNY) + '</span>';
-        html += '</div></div>';
+        html += '</div></div></div>';
       });
+      html += '</div>';
       rankingBars.innerHTML = html;
     }
 
