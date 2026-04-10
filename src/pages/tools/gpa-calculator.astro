@@ -1,0 +1,776 @@
+---
+// src/pages/tools/gpa-calculator.astro — GPA Calculator & Transcript Generator
+import MainLayout from '../../layouts/MainLayout.astro';
+const lang = 'en';
+---
+
+<MainLayout title="GPA Calculator | Chinese SDGs Institute" description="Convert grades between international grading systems and generate reference transcripts. Supports Chinese percentage, US 4.0, UK, IB, A-Level, and more." lang={lang}>
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-6 no-print">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <header class="text-center mb-6 no-print">
+        <h1 class="text-2xl md:text-3xl font-headline font-bold text-on-surface tracking-tight">GPA Calculator & Transcript Generator</h1>
+        <p class="text-on-surface-variant mt-1 text-sm">GPA 换算器与参考成绩单生成</p>
+      </header>
+
+      <!-- A → B Converter Selector -->
+      <div class="flex items-center justify-center gap-3 md:gap-5 mb-8 no-print relative" id="gc-selector-bar">
+        <button class="gc-system-pill" id="gc-from-pill">
+          <span class="text-[10px] uppercase tracking-wider opacity-50">From 源体系</span>
+          <span class="font-bold text-sm" id="gc-from-label">中国百分制</span>
+          <span class="material-symbols-outlined text-base opacity-40">expand_more</span>
+        </button>
+        <span class="text-xl font-bold text-primary select-none">→</span>
+        <button class="gc-system-pill" id="gc-to-pill">
+          <span class="text-[10px] uppercase tracking-wider opacity-50">To 目标体系</span>
+          <span class="font-bold text-sm" id="gc-to-label">US 4.0 (北大算法)</span>
+          <span class="material-symbols-outlined text-base opacity-40">expand_more</span>
+        </button>
+      </div>
+
+      <!-- From Dropdown -->
+      <div id="gc-from-dropdown" class="gc-dropdown hidden">
+        <div class="gc-dropdown-inner">
+          <div class="gc-dg">
+            <div class="gc-dg-label">中国</div>
+            <button class="gc-di active" data-system="cn_pct">百分制 (0-100)</button>
+            <button class="gc-di" data-system="cn_letter">等级制 (A-F)</button>
+            <button class="gc-di" data-system="cn_5pt">五分制 (1-5)</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">North America</div>
+            <button class="gc-di" data-system="us_letter">US Letter Grade (A+ to F)</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">United Kingdom</div>
+            <button class="gc-di" data-system="uk_pct">UK Percentage (0-100)</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">亚太 Asia-Pacific</div>
+            <button class="gc-di" data-system="hk_letter">Hong Kong Letter Grade</button>
+            <button class="gc-di" data-system="jp_grade">Japanese (S/A/B/C/F)</button>
+            <button class="gc-di" data-system="kr_45">Korean 4.5 Scale</button>
+            <button class="gc-di" data-system="au_grade">Australian (HD/D/C/P/F)</button>
+            <button class="gc-di" data-system="indian_cgpa">Indian CGPA (10-point)</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">Europe</div>
+            <button class="gc-di" data-system="german">German (1.0-5.0)</button>
+            <button class="gc-di" data-system="ects">ECTS (A-F)</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">国际课程 International</div>
+            <button class="gc-di" data-system="ib">IB Diploma (1-7)</button>
+            <button class="gc-di" data-system="alevel">A-Level (A*-E)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- To Dropdown -->
+      <div id="gc-to-dropdown" class="gc-dropdown hidden">
+        <div class="gc-dropdown-inner">
+          <div class="gc-dg">
+            <div class="gc-dg-label">US 4.0 GPA</div>
+            <button class="gc-di" data-target="us40_standard">Standard 标准算法</button>
+            <button class="gc-di active" data-target="us40_pku">PKU 北大算法</button>
+            <button class="gc-di" data-target="us40_wes">WES 算法</button>
+            <button class="gc-di" data-target="us40_sjtu43">SJTU 上交 4.3</button>
+            <button class="gc-di" data-target="us40_ustc43">USTC 中科大 4.3</button>
+          </div>
+          <div class="gc-dg">
+            <div class="gc-dg-label">Other Scales</div>
+            <button class="gc-di" data-target="uk_class">UK Classification</button>
+            <button class="gc-di" data-target="ca_43">Canadian 4.3</button>
+            <button class="gc-di" data-target="au_7pt">Australian 7-point</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Algorithm sub-selector (shown for cn_pct source with us40 targets) -->
+      <div id="gc-algo-bar" class="flex items-center justify-center gap-2 mb-6 no-print flex-wrap">
+        <span class="text-xs text-on-surface-variant">算法:</span>
+        <button class="gc-algo-btn" data-algo="us40_standard">标准</button>
+        <button class="gc-algo-btn active" data-algo="us40_pku">北大</button>
+        <button class="gc-algo-btn" data-algo="us40_wes">WES</button>
+        <button class="gc-algo-btn" data-algo="us40_sjtu43">上交4.3</button>
+        <button class="gc-algo-btn" data-algo="us40_ustc43">中科大4.3</button>
+      </div>
+
+      <!-- Main layout -->
+      <div class="flex flex-col lg:flex-row gap-6">
+        <!-- Left: Form -->
+        <div class="w-full lg:w-[420px] shrink-0 space-y-4 no-print max-h-[85vh] overflow-y-auto">
+
+          <!-- Student Info -->
+          <div class="gc-section">
+            <h2 class="text-sm font-bold mb-3 border-b border-outline-variant/10 pb-2">学生信息 Student Info</h2>
+            <div class="gc-fg"><label class="gc-label">姓名 (中文)</label><input type="text" id="gc-name-cn" class="gc-input" value="王小明"></div>
+            <div class="gc-fg"><label class="gc-label">Name (English)</label><input type="text" id="gc-name-en" class="gc-input" value="Xiaoming Wang"></div>
+            <div class="gc-fg"><label class="gc-label">学校 (中文)</label><input type="text" id="gc-school-cn" class="gc-input" value="示例大学"></div>
+            <div class="gc-fg"><label class="gc-label">School (English)</label><input type="text" id="gc-school-en" class="gc-input" value="Example University"></div>
+            <div class="gc-fg"><label class="gc-label">专业 (中文)</label><input type="text" id="gc-major-cn" class="gc-input" value="计算机科学与技术"></div>
+            <div class="gc-fg"><label class="gc-label">Major (English)</label><input type="text" id="gc-major-en" class="gc-input" value="Computer Science and Technology"></div>
+          </div>
+
+          <!-- Course List -->
+          <div class="gc-section">
+            <div class="flex items-center justify-between mb-3 border-b border-outline-variant/10 pb-2">
+              <h2 class="text-sm font-bold">课程成绩 Courses</h2>
+              <span class="text-xs text-on-surface-variant" id="gc-course-count">6 courses</span>
+            </div>
+            <!-- Table header -->
+            <div class="grid grid-cols-[1fr_50px_70px_28px] gap-1.5 mb-2 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
+              <span>课程名 Course</span>
+              <span class="text-center">学分</span>
+              <span class="text-center" id="gc-grade-header">分数</span>
+              <span></span>
+            </div>
+            <div id="gc-course-list" class="space-y-1.5"></div>
+            <button id="gc-add-course" class="gc-btn gc-btn-secondary mt-3 text-sm">+ 添加课程 Add Course</button>
+          </div>
+
+          <!-- Summary -->
+          <div class="gc-section">
+            <h2 class="text-sm font-bold mb-3 border-b border-outline-variant/10 pb-2">换算结果 Result</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-primary/5 rounded-lg p-3 text-center">
+                <div class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Weighted GPA</div>
+                <div class="text-2xl font-bold text-primary" id="gc-result-gpa">0.00</div>
+              </div>
+              <div class="bg-primary/5 rounded-lg p-3 text-center">
+                <div class="text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Total Credits</div>
+                <div class="text-2xl font-bold text-primary" id="gc-result-credits">0</div>
+              </div>
+            </div>
+            <div class="mt-3 text-xs text-on-surface-variant" id="gc-result-note"></div>
+          </div>
+
+          <!-- Actions -->
+          <div class="space-y-2">
+            <button id="gc-print-btn" class="gc-btn gc-btn-primary">打印或生成 PDF / Print or Generate PDF</button>
+          </div>
+        </div>
+
+        <!-- Right: A4 Preview -->
+        <div class="flex-1 flex justify-center items-start">
+          <div id="gc-preview" class="gc-a4-preview print-area"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <style is:inline>
+    .gc-system-pill {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 0.625rem 1.25rem; border-radius: 0.75rem;
+      background: #fff; border: 2px solid rgba(4,47,36,0.15);
+      cursor: pointer; transition: all 0.2s; min-width: 160px; text-align: center;
+    }
+    .gc-system-pill:hover, .gc-system-pill.open { border-color: var(--md-sys-color-primary, #042f24); box-shadow: 0 2px 8px rgba(4,47,36,0.12); }
+    .gc-dropdown {
+      position: relative; z-index: 50; display: flex; justify-content: center; margin-top: -1rem; margin-bottom: 1rem;
+    }
+    .gc-dropdown.hidden { display: none; }
+    .gc-dropdown-inner {
+      background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; max-width: 700px;
+    }
+    .gc-dg { min-width: 180px; }
+    .gc-dg-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(0,0,0,0.35); margin-bottom: 0.375rem; padding-left: 0.5rem; }
+    .gc-di {
+      display: block; width: 100%; text-align: left; padding: 0.375rem 0.5rem; border-radius: 0.375rem;
+      font-size: 0.8rem; border: none; background: transparent; cursor: pointer; color: #333; transition: all 0.15s;
+    }
+    .gc-di:hover { background: rgba(4,47,36,0.06); }
+    .gc-di.active { background: var(--md-sys-color-primary, #042f24); color: #fff; font-weight: 600; }
+    .gc-algo-btn {
+      padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
+      border: 1.5px solid rgba(4,47,36,0.2); background: transparent; color: #555; cursor: pointer; transition: all 0.15s;
+    }
+    .gc-algo-btn:hover { border-color: var(--md-sys-color-primary, #042f24); color: var(--md-sys-color-primary, #042f24); }
+    .gc-algo-btn.active { background: var(--md-sys-color-primary, #042f24); color: #fff; border-color: var(--md-sys-color-primary, #042f24); }
+    .gc-section { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 0.75rem; padding: 0.875rem; }
+    .gc-fg { margin-bottom: 0.5rem; }
+    .gc-fg:last-child { margin-bottom: 0; }
+    .gc-label { display: block; font-size: 0.75rem; font-weight: 600; color: #555; margin-bottom: 0.15rem; }
+    .gc-input, .gc-select {
+      width: 100%; padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;
+      font-size: 0.8rem; background: #fff; transition: all 0.15s; box-sizing: border-box;
+    }
+    .gc-input:focus, .gc-select:focus { outline: none; border-color: var(--md-sys-color-primary, #042f24); box-shadow: 0 0 0 3px rgba(4,47,36,0.12); }
+    .gc-btn {
+      display: flex; justify-content: center; align-items: center; width: 100%;
+      padding: 0.5rem 0.875rem; border-radius: 0.375rem; font-weight: 600; font-size: 0.8rem;
+      border: none; cursor: pointer; transition: transform 0.15s;
+    }
+    .gc-btn:hover { transform: scale(1.02); }
+    .gc-btn-primary { background: var(--md-sys-color-primary, #042f24); color: #fff; }
+    .gc-btn-secondary { background: #6b7280; color: #fff; }
+    .gc-btn-danger { background: #dc2626; color: #fff; padding: 0.25rem; border-radius: 0.25rem; font-size: 0.7rem; }
+    .gc-course-row { display: grid; grid-template-columns: 1fr 50px 70px 28px; gap: 0.375rem; align-items: center; }
+    .gc-course-input {
+      padding: 0.3rem 0.4rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;
+      font-size: 0.78rem; background: #fff; width: 100%; box-sizing: border-box;
+    }
+    .gc-course-input:focus { outline: none; border-color: var(--md-sys-color-primary, #042f24); }
+    .gc-course-select {
+      padding: 0.3rem 0.2rem; border: 1px solid #e5e7eb; border-radius: 0.25rem;
+      font-size: 0.72rem; background: #fff; width: 100%; box-sizing: border-box;
+    }
+    .gc-remove-btn {
+      width: 24px; height: 24px; border-radius: 50%; border: none; background: #fee2e2;
+      color: #dc2626; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .gc-remove-btn:hover { background: #fecaca; }
+
+    .gc-a4-preview {
+      width: 100%; max-width: 780px; aspect-ratio: 210 / 297; background: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1); padding: 1.8cm 1.5cm; box-sizing: border-box;
+      color: #000; overflow: auto; display: flex; flex-direction: column; border-radius: 4px;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif; position: relative;
+    }
+    .gc-a4-preview::before {
+      content: '\4EC5\4F9B\53C2\8003  /  FOR REFERENCE ONLY';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-30deg);
+      font-size: 48px; font-weight: 900; color: rgba(220,38,38,0.05); pointer-events: none;
+      z-index: 1; white-space: nowrap; letter-spacing: 0.05em;
+    }
+    .gc-transcript-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+    .gc-transcript-table th, .gc-transcript-table td { border: 1px solid #333; padding: 3px 6px; text-align: center; }
+    .gc-transcript-table th { background: #f5f5f5; font-weight: 700; font-size: 8pt; }
+    .gc-transcript-table td.text-left { text-align: left; padding-left: 8px; }
+    .gc-footer { font-size: 7pt; color: #666; margin-top: auto; padding-top: 10px; border-top: 1px solid #ddd; }
+    .gc-algo-disclosure { font-size: 7.5pt; color: #444; background: #f9f9f9; padding: 6px 8px; border-radius: 3px; margin-top: 8px; }
+
+    @media print {
+      body * { visibility: hidden; }
+      .print-area, .print-area * { visibility: visible; }
+      .print-area { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 1.5cm; box-sizing: border-box; box-shadow: none; border: none; }
+      .no-print { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gc-system-pill { min-width: 120px; padding: 0.5rem 0.75rem; }
+      .gc-dropdown-inner { flex-direction: column; }
+    }
+  </style>
+
+  <script is:inline>
+    // === CONVERSION ENGINE ===
+
+    // Chinese Percentage algorithms: each entry is [minScore, gpaValue]
+    var CN_ALGOS = {
+      us40_standard: {
+        name: '\u6807\u51C6 4.0', nameEn: 'Standard 4.0', scale: 4.0,
+        table: [[90,4.0],[80,3.0],[70,2.0],[60,1.0],[0,0.0]],
+        disc: '90\u2013100 \u2192 4.0 | 80\u201389 \u2192 3.0 | 70\u201379 \u2192 2.0 | 60\u201369 \u2192 1.0 | <60 \u2192 0.0'
+      },
+      us40_pku: {
+        name: '\u5317\u5927 4.0', nameEn: 'Peking University 4.0', scale: 4.0,
+        table: [[90,4.0],[85,3.7],[82,3.3],[78,3.0],[75,2.7],[72,2.3],[68,2.0],[64,1.5],[60,1.0],[0,0.0]],
+        disc: '90\u2013100 \u2192 4.0 | 85\u201389 \u2192 3.7 | 82\u201384 \u2192 3.3 | 78\u201381 \u2192 3.0 | 75\u201377 \u2192 2.7 | 72\u201374 \u2192 2.3 | 68\u201371 \u2192 2.0 | 64\u201367 \u2192 1.5 | 60\u201363 \u2192 1.0 | <60 \u2192 0.0'
+      },
+      us40_wes: {
+        name: 'WES', nameEn: 'WES Algorithm', scale: 4.0,
+        table: [[85,4.0],[75,3.0],[60,2.0],[0,0.0]],
+        disc: '85\u2013100 \u2192 4.0 | 75\u201384 \u2192 3.0 | 60\u201374 \u2192 2.0 | <60 \u2192 0.0'
+      },
+      us40_sjtu43: {
+        name: '\u4E0A\u4EA4 4.3', nameEn: 'SJTU 4.3 Scale', scale: 4.3,
+        table: [[95,4.3],[90,4.0],[85,3.7],[80,3.3],[75,3.0],[70,2.7],[67,2.3],[65,2.0],[62,1.7],[60,1.0],[0,0.0]],
+        disc: '95\u2013100 \u2192 4.3 | 90\u201394 \u2192 4.0 | 85\u201389 \u2192 3.7 | 80\u201384 \u2192 3.3 | 75\u201379 \u2192 3.0 | 70\u201374 \u2192 2.7 | 67\u201369 \u2192 2.3 | 65\u201366 \u2192 2.0 | 62\u201364 \u2192 1.7 | 60\u201361 \u2192 1.0 | <60 \u2192 0.0'
+      },
+      us40_ustc43: {
+        name: '\u4E2D\u79D1\u5927 4.3', nameEn: 'USTC 4.3 Scale', scale: 4.3,
+        table: [[95,4.3],[90,4.0],[85,3.7],[82,3.3],[78,3.0],[75,2.7],[72,2.3],[68,2.0],[66,1.7],[64,1.5],[62,1.3],[60,1.0],[0,0.0]],
+        disc: '95\u2013100 \u2192 4.3 | 90\u201394 \u2192 4.0 | 85\u201389 \u2192 3.7 | 82\u201384 \u2192 3.3 | 78\u201381 \u2192 3.0 | 75\u201377 \u2192 2.7 | 72\u201374 \u2192 2.3 | 68\u201371 \u2192 2.0 | 66\u201367 \u2192 1.7 | 64\u201365 \u2192 1.5 | 62\u201363 \u2192 1.3 | 60\u201361 \u2192 1.0 | <60 \u2192 0.0'
+      }
+    };
+
+    // Letter grade to US 4.0 mappings
+    var LETTER_MAPS = {
+      us_letter: { 'A+':4.0,'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D+':1.3,'D':1.0,'D-':0.7,'F':0.0 },
+      cn_letter: { 'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D+':1.3,'D':1.0,'F':0.0 },
+      hk_letter: { 'A+':4.0,'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D':1.0,'F':0.0 },
+      jp_grade: { 'S':4.0,'A':3.7,'B':3.0,'C':2.0,'F':0.0 },
+      au_grade: { 'HD':4.0,'D':3.7,'C':3.0,'P':2.0,'F':0.0 },
+      alevel: { 'A*':4.0,'A':4.0,'B':3.3,'C':2.7,'D':2.0,'E':1.3,'U':0.0 },
+      ects: { 'A':4.0,'B':3.5,'C':3.0,'D':2.0,'E':1.0,'FX':0.0,'F':0.0 }
+    };
+
+    // IB 1-7 to US 4.0
+    var IB_MAP = { 7:4.0, 6:3.7, 5:3.3, 4:2.3, 3:1.7, 2:1.0, 1:0.0 };
+
+    // System definitions
+    var SYSTEMS = {
+      cn_pct:     { name:'\u4E2D\u56FD\u767E\u5206\u5236', nameEn:'Chinese Percentage', type:'number', min:0, max:100, step:1 },
+      cn_letter:  { name:'\u4E2D\u56FD\u7B49\u7EA7\u5236', nameEn:'Chinese Letter Grade', type:'select', options:['A','A-','B+','B','B-','C+','C','C-','D+','D','F'] },
+      cn_5pt:     { name:'\u4E94\u5206\u5236', nameEn:'Chinese 5-Point', type:'number', min:1, max:5, step:1 },
+      us_letter:  { name:'US Letter Grade', nameEn:'US Letter Grade', type:'select', options:['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F'] },
+      uk_pct:     { name:'UK Percentage', nameEn:'UK Percentage', type:'number', min:0, max:100, step:1 },
+      hk_letter:  { name:'HK Letter Grade', nameEn:'Hong Kong Letter Grade', type:'select', options:['A+','A','A-','B+','B','B-','C+','C','C-','D','F'] },
+      jp_grade:   { name:'\u65E5\u672C', nameEn:'Japanese Grade', type:'select', options:['S','A','B','C','F'] },
+      kr_45:      { name:'\u97E9\u56FD 4.5', nameEn:'Korean 4.5 Scale', type:'number', min:0, max:4.5, step:0.5 },
+      au_grade:   { name:'Australian', nameEn:'Australian Grade', type:'select', options:['HD','D','C','P','F'] },
+      indian_cgpa:{ name:'Indian CGPA', nameEn:'Indian CGPA (10-pt)', type:'number', min:0, max:10, step:0.1 },
+      german:     { name:'German', nameEn:'German Scale (1.0\u20135.0)', type:'number', min:1.0, max:5.0, step:0.1 },
+      ects:       { name:'ECTS', nameEn:'ECTS Grade', type:'select', options:['A','B','C','D','E','FX','F'] },
+      ib:         { name:'IB', nameEn:'IB Diploma (1\u20137)', type:'number', min:1, max:7, step:1 },
+      alevel:     { name:'A-Level', nameEn:'A-Level', type:'select', options:['A*','A','B','C','D','E','U'] }
+    };
+
+    // Target display info
+    var TARGETS = {
+      us40_standard: { name:'US 4.0 (\u6807\u51C6)', nameEn:'US 4.0 Standard', scale:4.0 },
+      us40_pku:      { name:'US 4.0 (\u5317\u5927)', nameEn:'US 4.0 PKU Algorithm', scale:4.0 },
+      us40_wes:      { name:'US 4.0 (WES)', nameEn:'US 4.0 WES Algorithm', scale:4.0 },
+      us40_sjtu43:   { name:'US 4.3 (\u4E0A\u4EA4)', nameEn:'SJTU 4.3 Scale', scale:4.3 },
+      us40_ustc43:   { name:'US 4.3 (\u4E2D\u79D1\u5927)', nameEn:'USTC 4.3 Scale', scale:4.3 },
+      uk_class:      { name:'UK Classification', nameEn:'UK Degree Classification', scale:100 },
+      ca_43:         { name:'Canadian 4.3', nameEn:'Canadian 4.3 Scale', scale:4.3 },
+      au_7pt:        { name:'Australian 7-pt', nameEn:'Australian 7-point', scale:7.0 }
+    };
+
+    // === CONVERSION FUNCTION ===
+    function lookupTable(table, score) {
+      for (var i = 0; i < table.length; i++) {
+        if (score >= table[i][0]) return table[i][1];
+      }
+      return 0.0;
+    }
+
+    // Convert any source grade to US 4.0 equivalent
+    function toUS4(sourceId, grade) {
+      if (grade === '' || grade === null || grade === undefined) return null;
+      // Letter-based systems
+      if (LETTER_MAPS[sourceId]) {
+        return LETTER_MAPS[sourceId][grade] !== undefined ? LETTER_MAPS[sourceId][grade] : null;
+      }
+      var n = parseFloat(grade);
+      if (isNaN(n)) return null;
+      switch (sourceId) {
+        case 'cn_pct': return null; // handled by algorithm
+        case 'cn_5pt': return [0, 0, 1.0, 2.0, 3.0, 4.0][Math.round(n)] || 0;
+        case 'uk_pct':
+          if (n >= 75) return 4.0; if (n >= 70) return 3.7; if (n >= 65) return 3.5;
+          if (n >= 60) return 3.3; if (n >= 55) return 3.0; if (n >= 50) return 2.7;
+          if (n >= 45) return 2.3; if (n >= 40) return 2.0; if (n >= 35) return 1.3; return 0.0;
+        case 'kr_45': return Math.min(n * (4.0 / 4.5), 4.0);
+        case 'indian_cgpa': return Math.min(n * 0.4, 4.0);
+        case 'german': return n <= 4.0 ? Math.max(0, 5.0 - n) : 0.0;
+        case 'ib': return IB_MAP[Math.round(n)] !== undefined ? IB_MAP[Math.round(n)] : 0.0;
+        default: return null;
+      }
+    }
+
+    // Convert grade using a specific Chinese % algorithm
+    function cnPctToGPA(algo, score) {
+      var n = parseFloat(score);
+      if (isNaN(n)) return null;
+      var a = CN_ALGOS[algo];
+      if (!a) return null;
+      return lookupTable(a.table, n);
+    }
+
+    // Convert US 4.0 to other target scales
+    function fromUS4(targetId, gpa) {
+      if (gpa === null) return { value: '-', label: '' };
+      switch (targetId) {
+        case 'uk_class':
+          if (gpa >= 3.7) return { value: 'First', label: '1st Class' };
+          if (gpa >= 3.3) return { value: '2:1', label: 'Upper Second' };
+          if (gpa >= 2.7) return { value: '2:2', label: 'Lower Second' };
+          if (gpa >= 2.0) return { value: 'Third', label: 'Third Class' };
+          return { value: 'Fail', label: '' };
+        case 'ca_43':
+          return { value: (gpa <= 3.7 ? gpa : Math.min(gpa * (4.3/4.0), 4.3)).toFixed(2), label: '' };
+        case 'au_7pt':
+          return { value: Math.min(1 + gpa * (6.0/4.0), 7.0).toFixed(1), label: '' };
+        default: // us40_*
+          return { value: gpa.toFixed(2), label: '' };
+      }
+    }
+
+    // Get converted GPA for a course
+    function convertGrade(sourceId, targetId, grade) {
+      var gpa;
+      if (sourceId === 'cn_pct') {
+        // Use Chinese % algorithm
+        if (targetId.indexOf('us40_') === 0 && CN_ALGOS[targetId]) {
+          gpa = cnPctToGPA(targetId, grade);
+        } else {
+          // For non-US targets, use PKU as intermediate
+          gpa = cnPctToGPA('us40_pku', grade);
+        }
+      } else {
+        gpa = toUS4(sourceId, grade);
+      }
+      if (gpa === null) return { value: '-', raw: null };
+      // If target is not US 4.0 family, convert from US 4.0
+      if (targetId === 'uk_class' || targetId === 'ca_43' || targetId === 'au_7pt') {
+        var result = fromUS4(targetId, gpa);
+        result.raw = gpa;
+        return result;
+      }
+      return { value: gpa.toFixed(2), raw: gpa };
+    }
+
+    // Get algorithm disclosure text
+    function getDisclosure(sourceId, targetId) {
+      if (sourceId === 'cn_pct' && CN_ALGOS[targetId]) {
+        var a = CN_ALGOS[targetId];
+        return a.nameEn + ' (' + a.name + ')\n' + a.disc;
+      }
+      var src = SYSTEMS[sourceId];
+      var tgt = TARGETS[targetId];
+      return (src ? src.nameEn : sourceId) + ' \u2192 ' + (tgt ? tgt.nameEn : targetId) + '\nStandard conversion table';
+    }
+
+    // === APP STATE ===
+    var state = {
+      sourceId: 'cn_pct',
+      targetId: 'us40_pku',
+      courses: [
+        { name: '\u9AD8\u7B49\u6570\u5B66 / Advanced Mathematics', credits: 4, grade: '92' },
+        { name: '\u5927\u5B66\u82F1\u8BED / College English', credits: 3, grade: '85' },
+        { name: '\u7EBF\u6027\u4EE3\u6570 / Linear Algebra', credits: 3, grade: '88' },
+        { name: '\u5927\u5B66\u7269\u7406 / College Physics', credits: 4, grade: '78' },
+        { name: '\u7A0B\u5E8F\u8BBE\u8BA1 / Programming', credits: 3, grade: '95' },
+        { name: '\u601D\u60F3\u653F\u6CBB / Political Theory', credits: 2, grade: '82' }
+      ]
+    };
+
+    // === UI CONTROLLER ===
+    document.addEventListener('DOMContentLoaded', function() {
+      var fromPill = document.getElementById('gc-from-pill');
+      var toPill = document.getElementById('gc-to-pill');
+      var fromDD = document.getElementById('gc-from-dropdown');
+      var toDD = document.getElementById('gc-to-dropdown');
+      var fromLabel = document.getElementById('gc-from-label');
+      var toLabel = document.getElementById('gc-to-label');
+      var algoBar = document.getElementById('gc-algo-bar');
+      var courseList = document.getElementById('gc-course-list');
+      var courseCount = document.getElementById('gc-course-count');
+      var gradeHeader = document.getElementById('gc-grade-header');
+      var preview = document.getElementById('gc-preview');
+      var addBtn = document.getElementById('gc-add-course');
+      var printBtn = document.getElementById('gc-print-btn');
+      var resultGPA = document.getElementById('gc-result-gpa');
+      var resultCredits = document.getElementById('gc-result-credits');
+      var resultNote = document.getElementById('gc-result-note');
+
+      // Dropdown toggle
+      function closeAllDD() { fromDD.classList.add('hidden'); toDD.classList.add('hidden'); fromPill.classList.remove('open'); toPill.classList.remove('open'); }
+
+      fromPill.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = !fromDD.classList.contains('hidden');
+        closeAllDD();
+        if (!wasOpen) { fromDD.classList.remove('hidden'); fromPill.classList.add('open'); }
+      });
+      toPill.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var wasOpen = !toDD.classList.contains('hidden');
+        closeAllDD();
+        if (!wasOpen) { toDD.classList.remove('hidden'); toPill.classList.add('open'); }
+      });
+      document.addEventListener('click', closeAllDD);
+      fromDD.addEventListener('click', function(e) { e.stopPropagation(); });
+      toDD.addEventListener('click', function(e) { e.stopPropagation(); });
+
+      // From system selection
+      fromDD.querySelectorAll('.gc-di').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          fromDD.querySelectorAll('.gc-di').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.sourceId = btn.dataset.system;
+          updateLabels();
+          rebuildGradeInputs();
+          closeAllDD();
+          render();
+        });
+      });
+
+      // To target selection
+      toDD.querySelectorAll('.gc-di').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          toDD.querySelectorAll('.gc-di').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.targetId = btn.dataset.target;
+          updateLabels();
+          updateAlgoBar();
+          closeAllDD();
+          render();
+        });
+      });
+
+      // Algo bar quick switch
+      algoBar.querySelectorAll('.gc-algo-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          algoBar.querySelectorAll('.gc-algo-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.targetId = btn.dataset.algo;
+          // Also sync the To dropdown
+          toDD.querySelectorAll('.gc-di').forEach(function(b) { b.classList.toggle('active', b.dataset.target === state.targetId); });
+          updateLabels();
+          render();
+        });
+      });
+
+      function updateLabels() {
+        var src = SYSTEMS[state.sourceId];
+        fromLabel.textContent = src ? src.name : state.sourceId;
+        var tgt = TARGETS[state.targetId];
+        toLabel.textContent = tgt ? tgt.name : state.targetId;
+        // Update grade header
+        if (src && src.type === 'number') {
+          gradeHeader.textContent = src.min + '-' + src.max;
+        } else {
+          gradeHeader.textContent = 'Grade';
+        }
+        updateAlgoBar();
+      }
+
+      function updateAlgoBar() {
+        // Show algo bar only for cn_pct source with us40 targets
+        var show = state.sourceId === 'cn_pct' && state.targetId.indexOf('us40_') === 0;
+        algoBar.style.display = show ? 'flex' : 'none';
+        if (show) {
+          algoBar.querySelectorAll('.gc-algo-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.algo === state.targetId);
+          });
+        }
+      }
+
+      // Course list management
+      function buildCourseRow(course, index) {
+        var row = document.createElement('div');
+        row.className = 'gc-course-row';
+        var sys = SYSTEMS[state.sourceId];
+
+        var nameInput = document.createElement('input');
+        nameInput.type = 'text'; nameInput.className = 'gc-course-input'; nameInput.value = course.name;
+        nameInput.placeholder = 'Course name';
+        nameInput.addEventListener('input', function() { state.courses[index].name = nameInput.value; render(); });
+
+        var credInput = document.createElement('input');
+        credInput.type = 'number'; credInput.className = 'gc-course-input'; credInput.style.textAlign = 'center';
+        credInput.value = course.credits; credInput.min = 0; credInput.max = 20; credInput.step = 0.5;
+        credInput.addEventListener('input', function() { state.courses[index].credits = parseFloat(credInput.value) || 0; render(); });
+
+        var gradeEl;
+        if (sys && sys.type === 'select') {
+          gradeEl = document.createElement('select');
+          gradeEl.className = 'gc-course-select';
+          sys.options.forEach(function(opt) {
+            var o = document.createElement('option');
+            o.value = opt; o.textContent = opt;
+            if (opt === course.grade) o.selected = true;
+            gradeEl.appendChild(o);
+          });
+          // If current grade not in options, select first
+          if (sys.options.indexOf(course.grade) === -1 && sys.options.length > 0) {
+            gradeEl.value = sys.options[0];
+            state.courses[index].grade = sys.options[0];
+          }
+          gradeEl.addEventListener('change', function() { state.courses[index].grade = gradeEl.value; render(); });
+        } else {
+          gradeEl = document.createElement('input');
+          gradeEl.type = 'number'; gradeEl.className = 'gc-course-input'; gradeEl.style.textAlign = 'center';
+          gradeEl.value = course.grade;
+          if (sys) { gradeEl.min = sys.min; gradeEl.max = sys.max; gradeEl.step = sys.step; }
+          gradeEl.addEventListener('input', function() { state.courses[index].grade = gradeEl.value; render(); });
+        }
+
+        var removeBtn = document.createElement('button');
+        removeBtn.className = 'gc-remove-btn';
+        removeBtn.innerHTML = '\u00D7';
+        removeBtn.addEventListener('click', function() {
+          state.courses.splice(index, 1);
+          rebuildCourseList();
+          render();
+        });
+
+        row.appendChild(nameInput);
+        row.appendChild(credInput);
+        row.appendChild(gradeEl);
+        row.appendChild(removeBtn);
+        return row;
+      }
+
+      function rebuildCourseList() {
+        courseList.innerHTML = '';
+        state.courses.forEach(function(course, i) {
+          courseList.appendChild(buildCourseRow(course, i));
+        });
+        courseCount.textContent = state.courses.length + ' courses';
+      }
+
+      function rebuildGradeInputs() {
+        rebuildCourseList();
+      }
+
+      addBtn.addEventListener('click', function() {
+        var sys = SYSTEMS[state.sourceId];
+        var defaultGrade = sys && sys.type === 'select' ? sys.options[0] : '';
+        state.courses.push({ name: '', credits: 3, grade: defaultGrade });
+        rebuildCourseList();
+        render();
+      });
+
+      printBtn.addEventListener('click', function() { window.print(); });
+
+      // Listen to student info changes
+      ['gc-name-cn','gc-name-en','gc-school-cn','gc-school-en','gc-major-cn','gc-major-en'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', function() { render(); });
+      });
+
+      // === RENDER ===
+      function render() {
+        // Calculate GPA
+        var totalPoints = 0, totalCredits = 0, converted = [];
+        state.courses.forEach(function(course) {
+          var result = convertGrade(state.sourceId, state.targetId, course.grade);
+          converted.push(result);
+          if (result.raw !== null && result.raw !== undefined && course.credits > 0) {
+            totalPoints += result.raw * course.credits;
+            totalCredits += course.credits;
+          }
+        });
+        var weightedGPA = totalCredits > 0 ? totalPoints / totalCredits : 0;
+        var tgt = TARGETS[state.targetId];
+
+        // Format the overall GPA for non-US targets
+        var displayGPA;
+        if (state.targetId === 'uk_class') {
+          var cls = fromUS4('uk_class', weightedGPA);
+          displayGPA = cls.value;
+        } else if (state.targetId === 'ca_43') {
+          displayGPA = Math.min(weightedGPA * (4.3/4.0), 4.3).toFixed(2);
+        } else if (state.targetId === 'au_7pt') {
+          displayGPA = Math.min(1 + weightedGPA * (6.0/4.0), 7.0).toFixed(1);
+        } else {
+          displayGPA = weightedGPA.toFixed(2);
+        }
+
+        resultGPA.textContent = displayGPA;
+        resultCredits.textContent = totalCredits;
+        resultNote.textContent = tgt ? tgt.nameEn + ' | Weighted by credits' : '';
+
+        // Render A4 preview
+        renderTranscript(converted, weightedGPA, displayGPA, totalCredits);
+      }
+
+      function renderTranscript(converted, rawGPA, displayGPA, totalCredits) {
+        var nameCn = document.getElementById('gc-name-cn').value;
+        var nameEn = document.getElementById('gc-name-en').value;
+        var schoolCn = document.getElementById('gc-school-cn').value;
+        var schoolEn = document.getElementById('gc-school-en').value;
+        var majorCn = document.getElementById('gc-major-cn').value;
+        var majorEn = document.getElementById('gc-major-en').value;
+        var src = SYSTEMS[state.sourceId];
+        var tgt = TARGETS[state.targetId];
+        var today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+        var html = '';
+        // Header
+        html += '<div style="text-align:center;margin-bottom:16px;">';
+        html += '<div style="font-size:11pt;font-weight:700;letter-spacing:0.1em;color:#042f24;">' + escHtml(schoolEn) + '</div>';
+        html += '<div style="font-size:10pt;color:#333;margin-top:2px;">' + escHtml(schoolCn) + '</div>';
+        html += '<div style="font-size:14pt;font-weight:800;margin-top:10px;letter-spacing:0.15em;">ACADEMIC RECORD</div>';
+        html += '<div style="font-size:11pt;letter-spacing:0.3em;color:#555;">\u5B66\u4E1A\u6210\u7EE9\u8BB0\u5F55</div>';
+        html += '<hr style="border:none;border-top:2px solid #042f24;margin-top:10px;">';
+        html += '</div>';
+
+        // Student info
+        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:9pt;margin-bottom:12px;">';
+        html += infoRow('Name \u59D3\u540D', nameEn + ' / ' + nameCn);
+        html += infoRow('Major \u4E13\u4E1A', majorEn + ' / ' + majorCn);
+        html += infoRow('Date \u65E5\u671F', today);
+        html += infoRow('Scale \u8BC4\u5206\u4F53\u7CFB', (src ? src.nameEn : '') + ' \u2192 ' + (tgt ? tgt.nameEn : ''));
+        html += '</div>';
+
+        // Course table
+        html += '<table class="gc-transcript-table">';
+        html += '<thead><tr>';
+        html += '<th style="width:28px;">No.</th>';
+        html += '<th style="text-align:left;">Course Name \u8BFE\u7A0B\u540D\u79F0</th>';
+        html += '<th style="width:55px;">Credits<br>\u5B66\u5206</th>';
+        html += '<th style="width:60px;">Grade<br>\u6210\u7EE9</th>';
+        html += '<th style="width:60px;">GPA<br>\u7EE9\u70B9</th>';
+        html += '<th style="width:70px;">Points<br>\u5B66\u5206\u7EE9\u70B9</th>';
+        html += '</tr></thead><tbody>';
+        var totalQP = 0;
+        state.courses.forEach(function(course, i) {
+          var c = converted[i];
+          var gpa = c.raw !== null && c.raw !== undefined ? c.raw : 0;
+          var qp = gpa * course.credits;
+          if (c.raw !== null && c.raw !== undefined) totalQP += qp;
+          html += '<tr>';
+          html += '<td>' + (i+1) + '</td>';
+          html += '<td class="text-left">' + escHtml(course.name) + '</td>';
+          html += '<td>' + course.credits + '</td>';
+          html += '<td>' + escHtml(String(course.grade)) + '</td>';
+          html += '<td>' + c.value + '</td>';
+          html += '<td>' + (c.raw !== null ? qp.toFixed(1) : '-') + '</td>';
+          html += '</tr>';
+        });
+        // Summary row
+        html += '<tr style="font-weight:700;background:#f0f0f0;">';
+        html += '<td colspan="2" style="text-align:right;padding-right:10px;">Total \u5408\u8BA1</td>';
+        html += '<td>' + totalCredits + '</td>';
+        html += '<td></td>';
+        html += '<td style="font-size:11pt;color:#042f24;">' + displayGPA + '</td>';
+        html += '<td>' + totalQP.toFixed(1) + '</td>';
+        html += '</tr>';
+        html += '</tbody></table>';
+
+        // GPA summary box
+        html += '<div style="margin-top:12px;padding:8px 12px;border:2px solid #042f24;border-radius:4px;display:flex;justify-content:space-between;align-items:center;">';
+        html += '<div style="font-size:10pt;font-weight:700;">Cumulative GPA \u7D2F\u8BA1\u5E73\u5747\u7EE9\u70B9</div>';
+        html += '<div style="font-size:16pt;font-weight:800;color:#042f24;">' + displayGPA + '</div>';
+        html += '</div>';
+
+        // Algorithm disclosure
+        var disc = getDisclosure(state.sourceId, state.targetId);
+        html += '<div class="gc-algo-disclosure">';
+        html += '<div style="font-weight:700;margin-bottom:3px;">Conversion Algorithm \u8F6C\u6362\u7B97\u6CD5</div>';
+        html += '<div style="white-space:pre-wrap;word-break:break-all;">' + escHtml(disc) + '</div>';
+        html += '</div>';
+
+        // Footer
+        html += '<div class="gc-footer">';
+        html += '<div>This document is generated for reference purposes only and does not constitute an official academic record.</div>';
+        html += '<div>\u672C\u6587\u4EF6\u4EC5\u4F9B\u53C2\u8003\uFF0C\u4E0D\u4F5C\u4E3A\u6B63\u5F0F\u5B66\u4E1A\u8BB0\u5F55\u4F7F\u7528\u3002</div>';
+        html += '<div style="margin-top:4px;display:flex;justify-content:space-between;">';
+        html += '<span>Generated by Chinese SDGs Institute | sdgsinstitute.org</span>';
+        html += '<span>' + today + '</span>';
+        html += '</div>';
+        html += '</div>';
+
+        preview.innerHTML = html;
+      }
+
+      function infoRow(label, value) {
+        return '<div style="display:flex;gap:6px;"><span style="font-weight:700;white-space:nowrap;">' + label + ':</span><span>' + escHtml(value) + '</span></div>';
+      }
+
+      function escHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // Initialize
+      updateLabels();
+      rebuildCourseList();
+      render();
+    });
+  </script>
+</MainLayout>
