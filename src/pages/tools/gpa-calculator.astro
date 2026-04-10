@@ -131,7 +131,10 @@ const lang = 'en';
               <span></span>
             </div>
             <div id="gc-course-list" class="space-y-1.5"></div>
-            <button id="gc-add-course" class="gc-btn gc-btn-secondary mt-3 text-sm">+ 添加课程 Add Course</button>
+            <div class="flex gap-2 mt-3">
+              <button id="gc-add-course" class="gc-btn gc-btn-secondary text-sm flex-1">+ 添加课程</button>
+              <button id="gc-clear-all" class="gc-btn gc-btn-danger text-sm" style="width:auto;flex:none;padding:0.5rem 0.75rem;">一键清空</button>
+            </div>
           </div>
 
           <!-- Summary -->
@@ -440,14 +443,37 @@ const lang = 'en';
         { name: '\u7EBF\u6027\u4EE3\u6570', credits: 4, grade: '88' },
         { name: '\u6982\u7387\u8BBA\u4E0E\u6570\u7406\u7EDF\u8BA1', credits: 3, grade: '85' },
         { name: '\u5927\u5B66\u7269\u7406', credits: 4, grade: '78' },
+        { name: '\u5927\u5B66\u7269\u7406\u5B9E\u9A8C', credits: 1, grade: '88' },
         { name: '\u601D\u60F3\u653F\u6CBB', credits: 2, grade: '82' },
         { name: '\u4F53\u80B2', credits: 1, grade: '90' },
-        { name: 'College English', credits: 3, grade: '85' },
+        { name: '\u519B\u4E8B\u7406\u8BBA', credits: 1, grade: '85' },
+        { name: '\u79BB\u6563\u6570\u5B66', credits: 3, grade: '86' },
+        { name: '\u5F62\u52BF\u4E0E\u653F\u7B56', credits: 1, grade: '80' },
+        { name: '\u6BDB\u6982', credits: 2, grade: '79' },
+        { name: '\u9A6C\u514B\u601D\u4E3B\u4E49\u57FA\u672C\u539F\u7406', credits: 3, grade: '77' },
+        { name: 'College English I', credits: 3, grade: '85' },
+        { name: 'College English II', credits: 3, grade: '87' },
+        { name: 'College English III', credits: 2, grade: '90' },
         { name: 'Introduction to Computer Science', credits: 3, grade: '95' },
         { name: 'Data Structures and Algorithms', credits: 4, grade: '91' },
+        { name: 'Operating Systems', credits: 3, grade: '84' },
+        { name: 'Computer Networks', credits: 3, grade: '82' },
+        { name: 'Database Systems', credits: 3, grade: '89' },
         { name: 'Principles of Economics', credits: 3, grade: '76' },
+        { name: 'Software Engineering', credits: 3, grade: '87' },
+        { name: 'Artificial Intelligence', credits: 3, grade: '93' },
+        { name: 'Compiler Design', credits: 3, grade: '81' },
         { name: '\u5927\u5B66\u5316\u5B66 General Chemistry', credits: 3, grade: '83' },
-        { name: '\u7A0B\u5E8F\u8BBE\u8BA1\u57FA\u7840 Fundamentals of Programming', credits: 4, grade: '94' }
+        { name: '\u7A0B\u5E8F\u8BBE\u8BA1\u57FA\u7840 Fundamentals of Programming', credits: 4, grade: '94' },
+        { name: '\u8BA1\u7B97\u673A\u7EC4\u6210\u539F\u7406 Computer Organization', credits: 4, grade: '80' },
+        { name: '\u6570\u5B57\u903B\u8F91\u8BBE\u8BA1 Digital Logic Design', credits: 3, grade: '86' },
+        { name: '\u7B97\u6CD5\u5206\u6790 Algorithm Analysis', credits: 3, grade: '90' },
+        { name: '\u4FE1\u53F7\u4E0E\u7CFB\u7EDF Signals and Systems', credits: 3, grade: '75' },
+        { name: '\u5D4C\u5165\u5F0F\u7CFB\u7EDF Embedded Systems', credits: 3, grade: '88' },
+        { name: '\u673A\u5668\u5B66\u4E60 Machine Learning', credits: 3, grade: '92' },
+        { name: '\u6570\u636E\u5E93\u8BFE\u7A0B\u8BBE\u8BA1', credits: 2, grade: '91' },
+        { name: '\u6BD5\u4E1A\u8BBE\u8BA1', credits: 8, grade: '94' },
+        { name: '\u4E13\u4E1A\u5B9E\u4E60', credits: 4, grade: '90' }
       ]
     };
 
@@ -629,6 +655,13 @@ const lang = 'en';
         render();
       });
 
+      var clearBtn = document.getElementById('gc-clear-all');
+      clearBtn.addEventListener('click', function() {
+        state.courses.forEach(function(c) { c.name = ''; c.grade = ''; c.credits = 0; });
+        rebuildCourseList();
+        render();
+      });
+
       printBtn.addEventListener('click', function() { window.print(); });
 
       // Listen to student info changes
@@ -695,11 +728,13 @@ const lang = 'en';
         html += '</div>';
 
         // Student info
-        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:9pt;margin-bottom:12px;">';
+        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px 20px;font-size:8.5pt;margin-bottom:10px;">';
         html += infoRow('Name \u59D3\u540D', nameEn + ' / ' + nameCn);
-        html += infoRow('Major \u4E13\u4E1A', majorEn + ' / ' + majorCn);
         html += infoRow('Date \u65E5\u671F', today);
-        html += infoRow('Scale \u8BC4\u5206\u4F53\u7CFB', (src ? src.nameEn : '') + ' \u2192 ' + (tgt ? tgt.nameEn : ''));
+        html += infoRow('Major', escHtml(majorEn));
+        html += infoRow('\u4E13\u4E1A', escHtml(majorCn));
+        html += infoRow('Source Scale \u539F\u59CB\u4F53\u7CFB', src ? src.nameEn : '');
+        html += infoRow('Target Scale \u8F6C\u5165\u4F53\u7CFB', tgt ? tgt.nameEn : '');
         html += '</div>';
 
         // Course table — dual column layout
