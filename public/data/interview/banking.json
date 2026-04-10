@@ -82,8 +82,9 @@
     "text": "How do you stay informed about financial markets and current events?"
   },
   {
-    "type": "simple",
-    "text": "If you had to pitch a stock right now, which company would you choose and why?"
+    "type": "material",
+    "material": "Consider the following fictional company:<br><br><strong>NovaTech Industries (NVT)</strong> — Mid-cap industrial automation company<br>Share price: $47.20 (down 18% YTD)<br>Market cap: $6.8B<br>P/E ratio: 14.2x (industry average: 19.5x)<br>EV/EBITDA: 9.1x<br>Revenue growth (last 3 years): +8%, +12%, +6%<br>Free cash flow yield: 7.3%<br>Net debt/EBITDA: 1.4x<br>Dividend yield: 2.1%<br><br>The stock has underperformed its peers after a guidance cut last quarter due to supply chain disruptions. However, the company recently won a $400M multi-year contract with a major automaker for robotic assembly systems, and its order backlog is at an all-time high.",
+    "text": "Based on this information, would you pitch NovaTech as a buy? Walk me through your investment thesis, including catalysts, risks, and a target valuation."
   },
   {
     "type": "material",
@@ -331,8 +332,9 @@
     "text": "Describe a time when you had to choose between doing something the easy way and doing it the right way."
   },
   {
-    "type": "simple",
-    "text": "What do you think is the most undervalued sector in the market today, and what is your thesis?"
+    "type": "material",
+    "material": "Here is a snapshot of sector valuations as of the most recent quarter:<br><br><strong>Technology:</strong> Forward P/E 28.4x, EV/EBITDA 22.1x, YTD return +24%<br><strong>Healthcare:</strong> Forward P/E 16.8x, EV/EBITDA 13.2x, YTD return +4%<br><strong>Industrials:</strong> Forward P/E 18.1x, EV/EBITDA 12.7x, YTD return +9%<br><strong>Energy:</strong> Forward P/E 9.2x, EV/EBITDA 5.8x, YTD return -7%<br><strong>Consumer Staples:</strong> Forward P/E 20.3x, EV/EBITDA 14.6x, YTD return +2%<br><strong>Financials:</strong> Forward P/E 11.4x, Price/Book 1.1x, YTD return +11%<br><br>The 10-year Treasury yield is currently 4.6%, and the Fed has signalled it may begin cutting rates in the next two quarters.",
+    "text": "Which sector looks most attractive to you on a risk-adjusted basis? Walk me through your reasoning, including how rate expectations factor into your analysis."
   },
   {
     "type": "simple",
@@ -341,5 +343,35 @@
   {
     "type": "simple",
     "text": "How would you handle a situation where you are asked to work on a project that conflicts with a personal commitment you have already made?"
+  },
+  {
+    "type": "material",
+    "material": "<strong>M&A Scenario:</strong> Your client, MegaPharm Inc. (market cap $45B), is considering acquiring BioGenix, a clinical-stage biotech company with a promising cancer immunotherapy drug in Phase III trials.<br><br>BioGenix financials:<br>Current share price: $32 (52-week range: $18–$41)<br>Market cap: $4.2B<br>Revenue: $0 (pre-revenue)<br>Cash on hand: $800M<br>Cash burn rate: $150M/quarter<br>Lead drug probability of FDA approval (analyst consensus): 55%<br>Estimated peak annual sales if approved: $3.5B<br><br>MegaPharm's largest revenue-generating drug loses patent exclusivity in 18 months.",
+    "text": "How would you think about the valuation of BioGenix? What premium, if any, would you advise MegaPharm to offer? What are the key risks and deal structure considerations?"
+  },
+  {
+    "type": "material",
+    "material": "<strong>Restructuring Scenario:</strong> RetailCo is a mid-size department store chain with 120 locations across the UK. Key financial data:<br><br>Revenue: £2.1B (down 22% over 3 years)<br>EBITDA: £85M (EBITDA margin: 4.0%, down from 9.5% three years ago)<br>Net debt: £1.4B<br>Interest expense: £95M/year<br>Lease obligations: £600M<br>Cash on hand: £110M<br>Credit rating: CCC+<br><br>Same-store sales have declined for 11 consecutive quarters. The company's bonds are trading at 62 cents on the dollar. A debt maturity of £400M is due in 9 months.",
+    "text": "Walk me through the restructuring options available to RetailCo. Consider both in-court and out-of-court solutions. How would you prioritise stakeholder interests?"
+  },
+  {
+    "type": "material",
+    "material": "<strong>IPO Advisory Scenario:</strong> CloudSync, a B2B SaaS company specialising in enterprise data integration, is considering an IPO. Key metrics:<br><br>ARR (Annual Recurring Revenue): $320M, growing 35% YoY<br>Net revenue retention rate: 125%<br>Gross margin: 78%<br>Operating margin: -12% (investing heavily in R&D and sales)<br>Free cash flow: -$25M<br>Total addressable market: $48B<br>Customer count: 2,400 enterprise clients<br><br>Comparable public SaaS companies trade at 12–18x forward revenue. The IPO window has been mixed, with several recent tech IPOs trading below their offer price.",
+    "text": "How would you advise CloudSync on IPO timing and pricing? What valuation range would you suggest, and what are the key risks to a successful offering?"
+  },
+  {
+    "type": "material",
+    "material": "<strong>Leveraged Buyout Scenario:</strong> A private equity firm is evaluating the acquisition of PackRight, a packaging manufacturer. Key data:<br><br>Enterprise value: $1.8B<br>LTM Revenue: $950M<br>LTM EBITDA: $210M (margin: 22.1%)<br>Capital expenditure: $55M/year<br>Revenue growth: 4% (stable, largely contractual)<br>Customer concentration: top 5 customers = 35% of revenue<br><br>The PE firm plans to finance the acquisition with 60% debt (senior term loan at SOFR + 350bps and high-yield notes at 8.5%) and 40% equity. They target a 5-year hold period and a 2.5x MOIC.",
+    "text": "Is this an attractive LBO candidate? Walk me through the key return drivers and how you would assess whether the target returns are achievable."
+  },
+  {
+    "type": "material",
+    "material": "<strong>Debt Capital Markets Scenario:</strong> GreenEnergy Corp, a renewable energy developer, needs to raise $500M to finance a portfolio of offshore wind projects. The company is rated BBB-. Key context:<br><br>Current 10-year BBB corporate spread: 175bps over Treasuries<br>Company's existing debt: $1.2B (net debt/EBITDA: 3.8x)<br>EBITDA: $320M<br>Interest coverage ratio: 4.2x<br>The projects have 20-year power purchase agreements with investment-grade utilities.<br><br>The CFO is deciding between issuing investment-grade bonds, project finance debt secured by the wind assets, or a convertible bond offering.",
+    "text": "Compare the three financing options. What would you recommend and why? How would each option affect the company's credit profile and cost of capital?"
+  },
+  {
+    "type": "material",
+    "material": "<strong>Market Analysis Scenario:</strong> It is Monday morning, and the following events occurred over the weekend:<br><br>1. The US Federal Reserve Chair gave a hawkish speech suggesting rates may stay higher for longer than expected<br>2. A major European bank reported a $4B loss on commercial real estate loans<br>3. China announced a larger-than-expected stimulus package targeting infrastructure and consumer spending<br>4. OPEC+ agreed to extend production cuts through Q2<br><br>Pre-market futures: S&P 500 -1.2%, FTSE 100 -0.8%, Hang Seng +2.4%, Oil (Brent) +3.1%, 10-year Treasury yield +8bps to 4.72%, Gold +0.6%, USD/EUR +0.4%",
+    "text": "Walk me through how you would interpret these market moves. Are there any trades or positioning ideas that come to mind? How would these developments affect current M&A and capital markets activity?"
   }
 ]

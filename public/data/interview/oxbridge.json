@@ -333,11 +333,6 @@
         "text": "Why are ladybirds and strawberries both red? Are the reasons the same?"
       },
       {
-        "type": "material",
-        "material": "Here is a skeleton of an animal you have probably never seen before. Examine it carefully for the next few minutes.",
-        "text": "What can you deduce about this animal? Was it a predator or prey? Did it live on land or in water? What did it eat? Explain your reasoning from the anatomical features."
-      },
-      {
         "type": "simple",
         "text": "Why is blood red?"
       },
@@ -419,7 +414,7 @@
       },
       {
         "type": "material",
-        "material": "Consider the graph of oxygen dissociation curves for haemoglobin and myoglobin. Haemoglobin has a sigmoidal curve while myoglobin has a hyperbolic curve.",
+        "material": "Haemoglobin and myoglobin are both oxygen-carrying proteins. Myoglobin has a simple hyperbolic oxygen dissociation curve: its saturation rises steeply at low partial pressures of oxygen and plateaus quickly. Haemoglobin, by contrast, has a sigmoidal (S-shaped) curve: at low partial pressures its saturation is <em>lower</em> than myoglobin's, but it rises steeply in the middle range and approaches full saturation at high partial pressures. This sigmoidal shape reflects cooperative binding — the binding of one O<sub>2</sub> molecule increases the affinity of the remaining haem groups for oxygen.",
         "text": "Why are the shapes different? What is the physiological significance of haemoglobin's sigmoidal curve? How does carbon monoxide poisoning relate to this?"
       },
       {
@@ -749,8 +744,8 @@
       },
       {
         "type": "material",
-        "material": "In Shakespeare's The Merchant of Venice, Antonio agrees that Shylock may take a pound of his flesh if he defaults on a loan.",
-        "text": "Would English courts today enforce this bargain? What principles of contract law are relevant? Does it matter that Antonio agreed voluntarily?"
+        "material": "In Shakespeare's <em>The Merchant of Venice</em>, the merchant Antonio borrows 3,000 ducats from the moneylender Shylock to help his friend Bassanio. The loan agreement stipulates that if Antonio fails to repay within three months, Shylock may cut \"a pound of flesh\" from any part of Antonio's body. Antonio agrees freely to these terms, confident his ships will return in time. When his ships are lost at sea, Shylock demands enforcement of the bond.<br><br>In the trial scene, Portia (disguised as a lawyer) argues that the bond entitles Shylock to flesh but not to a single drop of blood, rendering enforcement impossible.",
+        "text": "Would English courts today enforce this bargain? Consider the principles of freedom of contract, unconscionability, public policy, and the distinction between penalty clauses and liquidated damages. Does it matter that Antonio agreed voluntarily?"
       },
       {
         "type": "simple",
@@ -788,7 +783,7 @@
       },
       {
         "type": "material",
-        "material": "A social media company's algorithm promotes content that increases engagement but also spreads misinformation and causes harm to mental health.",
+        "material": "In 2021, internal documents leaked from a major social media company revealed that its recommendation algorithm systematically promoted inflammatory and divisive content because such content generated higher user engagement. The company's own researchers found that the algorithm was associated with increased rates of eating disorders among teenage girls, the spread of vaccine misinformation, and the amplification of extremist political content. Despite these findings, the company chose not to alter the algorithm because doing so would reduce advertising revenue.<br><br>Several governments are now considering legislation that would make platforms legally liable for algorithmic amplification of harmful content.",
         "text": "Should the company be legally liable for harm caused by its algorithm? How would you define 'harm' in this context? Where should we draw the line between free speech and regulation?"
       },
       {
@@ -801,7 +796,7 @@
       },
       {
         "type": "material",
-        "material": "A person downloads a digital book for free from a pirate website. No physical object has been taken. The publisher claims they have lost a sale.",
+        "material": "Consider the following scenario: A university student downloads a digital copy of a textbook from a pirate website. The textbook retails for £85. The student argues: (a) no physical object has been taken from anyone; (b) they would never have bought the book at full price, so the publisher has not truly \"lost\" a sale; and (c) the information in the book should be freely accessible for education.<br><br>The publisher responds that copyright exists precisely to incentivise the creation and dissemination of knowledge, and that without enforcement, authors and publishers would have no viable business model.",
         "text": "Is this theft? How does copyright differ from property rights over physical objects? Should digital goods have the same legal protections?"
       },
       {
@@ -819,11 +814,6 @@
         "text": "How do you organise a successful revolution?"
       },
       {
-        "type": "material",
-        "material": "Here is a propaganda poster from World War I showing a soldier pointing at the viewer with the caption 'Your Country Needs YOU.'",
-        "text": "What can we learn from this source? What can we not learn? How would you verify claims made in propaganda?"
-      },
-      {
         "type": "simple",
         "text": "How much of the past can you count? What role do statistics play in historical understanding?"
       },
@@ -833,7 +823,7 @@
       },
       {
         "type": "material",
-        "material": "Consider two historians writing about the French Revolution. One argues it was caused by economic inequality. The other argues it was caused by Enlightenment ideas.",
+        "material": "Consider two historians writing about the causes of the French Revolution of 1789.<br><br><strong>Historian A</strong> (economic interpretation): \"The fundamental cause of the Revolution was the fiscal crisis of the Bourbon monarchy and the extreme inequality between the privileged estates and the Third Estate. Bread prices in Paris had doubled by July 1789; the average worker spent over 80% of their wages on food. Meanwhile, the nobility and clergy paid virtually no taxes.\"<br><br><strong>Historian B</strong> (intellectual interpretation): \"The Revolution was above all a revolution of ideas. Without Voltaire's attacks on clerical authority, Rousseau's concept of the general will, and Montesquieu's theory of the separation of powers, the grievances of 1789 would have produced a bread riot, not a Declaration of the Rights of Man.\"",
         "text": "Can both be right? How do historians choose between competing explanations? Is one type of cause more 'fundamental' than another?"
       },
       {
@@ -846,7 +836,7 @@
       },
       {
         "type": "material",
-        "material": "Here is a passage from a diary written by a soldier in the trenches during World War I, describing his daily routine.",
+        "material": "Read the following diary entry written by Private Albert Smith (fictional composite) on the Western Front, 1916:<br><br><em>\"Another day in this wretched mud. Stood to at dawn as usual — nothing happened. Spent the morning reinforcing the parapet with sandbags. The rats are bolder now; one ran across Johnson's face while he slept. Rations came up at dusk: bully beef and hard biscuit, same as always. A shell landed thirty yards to the left around teatime but nobody was hurt. Wrote a letter home telling Mother everything is fine. It is not fine. Henderson from B Company was killed by a sniper yesterday — he was twenty.\"</em>",
         "text": "How useful is this source for understanding the experience of war? What are its limitations? How would you corroborate what it says?"
       },
       {
@@ -900,7 +890,7 @@
       },
       {
         "type": "material",
-        "material": "Read the following poem by William Blake: 'Tyger Tyger, burning bright, / In the forests of the night; / What immortal hand or eye, / Could frame thy fearful symmetry?'",
+        "material": "Read the opening and closing stanzas of William Blake's <em>The Tyger</em> (1794), from <em>Songs of Experience</em>:<br><br><em>Tyger Tyger, burning bright,<br>In the forests of the night;<br>What immortal hand or eye,<br>Could frame thy fearful symmetry?</em><br><br><em>...</em><br><br><em>Tyger Tyger, burning bright,<br>In the forests of the night;<br>What immortal hand or eye,<br>Dare frame thy fearful symmetry?</em><br><br>Note that this poem is the companion piece to <em>The Lamb</em> in Blake's <em>Songs of Innocence</em>, which asks: \"Little Lamb who made thee / Dost thou know who made thee?\"",
         "text": "What is Blake doing with the idea of creation here? Why 'fearful symmetry'? How does the rhythm of the poem contribute to its meaning?"
       },
       {
@@ -909,8 +899,8 @@
       },
       {
         "type": "material",
-        "material": "Here is the opening paragraph of a novel you have probably not read before. [A short passage of prose would be provided.]",
-        "text": "What can you tell me about this text from just the first paragraph? What expectations does it set up? What techniques is the author using?"
+        "material": "Read the following opening paragraph:<br><br><em>\"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.\"</em><br><br>— Jane Austen, <em>Pride and Prejudice</em> (1813)",
+        "text": "What can you tell me about this text from just the first paragraph? What expectations does it set up? What is the effect of the word 'truth' in the opening clause, and how does the second sentence complicate or undercut the first?"
       },
       {
         "type": "simple",
@@ -935,7 +925,7 @@
       },
       {
         "type": "material",
-        "material": "Here are two translations of the opening of Homer's Odyssey — one from the 18th century and one from the 21st century.",
+        "material": "Here are two translations of the opening of Homer's <em>Odyssey</em>:<br><br><strong>Alexander Pope (1726):</strong><br><em>\"The man for wisdom's various arts renown'd, / Long exercis'd in woes, O Muse! resound; / Who, when his arms had wrought the destin'd fall / Of sacred Troy, and raz'd her heav'n-built wall, / Wand'ring from clime to clime, observant stray'd.\"</em><br><br><strong>Emily Wilson (2018):</strong><br><em>\"Tell me about a complicated man. / Muse, tell me how he wandered and was lost / when he had wrecked the holy town of Troy, / and where he went, and who he met, the pain / he suffered in the storms at sea, and how / he worked to save his life and bring his men / home.\"</em>",
         "text": "What differences do you notice? What does the choice of translation reveal about the values of each period? Is there such a thing as a definitive translation?"
       },
       {
@@ -961,7 +951,7 @@
       },
       {
         "type": "material",
-        "material": "Here is a short passage of dialogue from a play. Two characters are having a conversation but seem to be talking past each other.",
+        "material": "Read the following exchange from Harold Pinter's <em>The Homecoming</em> (1965):<br><br><strong>LENNY:</strong> How long you gone for?<br><strong>TEDDY:</strong> We're just passing through.<br><strong>LENNY:</strong> Just passing through? On your way to where?<br><strong>TEDDY:</strong> We live in America.<br><strong>LENNY:</strong> You live in America, do you? Whereabouts?<br><strong>TEDDY:</strong> I teach philosophy at a university there.<br><strong>LENNY:</strong> Philosophy. Well. I've got a little problem I'd like your opinion on.",
         "text": "What is actually happening in this exchange? What is each character trying to achieve? How does the subtext differ from the surface meaning?"
       },
       {
@@ -989,8 +979,8 @@
       },
       {
         "type": "material",
-        "material": "Consider the following scenario: a runaway trolley is heading toward five people tied to the track. You can pull a lever to divert it onto another track where only one person is tied.",
-        "text": "Should you pull the lever? What if instead of a lever, you had to push a large man off a bridge to stop the trolley? Why might your answer differ?"
+        "material": "Consider the following thought experiment, first proposed by philosopher Philippa Foot in 1967:<br><br><strong>Scenario 1 (Switch):</strong> A runaway trolley is heading toward five railway workers who cannot escape. You are standing next to a lever that can divert the trolley onto a side track, where only one worker is standing. If you pull the lever, one person dies instead of five.<br><br><strong>Scenario 2 (Footbridge):</strong> The same trolley is heading toward five workers. You are standing on a footbridge above the track. Next to you is a very large man. If you push him off the bridge, his body will stop the trolley, saving the five workers, but he will die. There is no other way to stop the trolley.",
+        "text": "Should you act in each scenario? Most people say yes to Scenario 1 but no to Scenario 2, even though the arithmetic is identical. What explains this moral asymmetry? How would a utilitarian, a Kantian, and a virtue ethicist each respond?"
       },
       {
         "type": "simple",
@@ -1091,7 +1081,7 @@
       },
       {
         "type": "material",
-        "material": "In Milgram's obedience experiment, participants were instructed by an authority figure to administer what they believed were electric shocks to another person. 65% continued to the maximum voltage.",
+        "material": "In Stanley Milgram's 1963 obedience experiment at Yale University, participants were told they were taking part in a study on learning and memory. They were assigned the role of \"teacher\" and instructed by a researcher in a grey lab coat to administer electric shocks to a \"learner\" (actually a confederate) each time the learner gave a wrong answer. The shocks increased in 15-volt increments from 15V to 450V.<br><br>At 150V, the learner screamed and demanded to be released. At 300V, the learner pounded on the wall and went silent. Despite visible distress, 65% of participants continued to the maximum 450V when prompted by the researcher with phrases like \"The experiment requires that you continue\" and \"You have no other choice; you must go on.\"<br><br>Variations of the experiment showed that obedience dropped when the researcher left the room (to ~21%) and when participants saw others refuse (to ~10%).",
         "text": "What does this tell us about human nature? Would you expect the same results today? What ethical problems does this experiment raise?"
       },
       {
