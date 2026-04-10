@@ -1,0 +1,2742 @@
+{
+  "meta": {
+    "lastUpdated": "2026-04",
+    "disclaimer": "Estimates based on 2025-2026 published rates. Actual costs may vary.",
+    "exchangeRates": {
+      "note": "Exchange rates are fetched in real-time via frontend API. These are fallback rates.",
+      "USD": 7.25,
+      "GBP": 9.15,
+      "AUD": 4.70,
+      "CAD": 5.25,
+      "EUR": 7.90,
+      "CHF": 8.30,
+      "SGD": 5.40,
+      "HKD": 0.93,
+      "JPY": 0.048,
+      "KRW": 0.0053,
+      "SEK": 0.70,
+      "DKK": 1.06,
+      "NOK": 0.68
+    }
+  },
+  "regions": [
+    {
+      "id": "us",
+      "name": "United States",
+      "nameCn": "美国",
+      "currency": "USD",
+      "commonCosts": {
+        "visa": 510,
+        "visaNote": "SEVIS fee $350 + visa fee $160"
+      },
+      "schools": [
+        {
+          "id": "mit",
+          "name": "Massachusetts Institute of Technology",
+          "nameCn": "麻省理工学院",
+          "city": "Cambridge, MA",
+          "qsRank": 1,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 65500, "living": 22000, "insurance": 4500, "total": 92000 },
+              "engineering": { "tuition": 65500, "living": 22000, "insurance": 4500, "total": 92000 },
+              "humanities": { "tuition": 65500, "living": 22000, "insurance": 4500, "total": 92000 },
+              "business": { "tuition": 65500, "living": 22000, "insurance": 4500, "total": 92000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 64310, "living": 22000, "insurance": 4500, "total": 90810 },
+              "engineering": { "tuition": 64310, "living": 22000, "insurance": 4500, "total": 90810 },
+              "humanities": { "tuition": 64310, "living": 22000, "insurance": 4500, "total": 90810 },
+              "business": { "tuition": 89000, "living": 22000, "insurance": 4500, "total": 115500, "note": "MIT Sloan MBA" }
+            }
+          }
+        },
+        {
+          "id": "stanford",
+          "name": "Stanford University",
+          "nameCn": "斯坦福大学",
+          "city": "Stanford, CA",
+          "qsRank": 2,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 62484, "living": 24000, "insurance": 7000, "total": 93484 },
+              "engineering": { "tuition": 62484, "living": 24000, "insurance": 7000, "total": 93484 },
+              "humanities": { "tuition": 62484, "living": 24000, "insurance": 7000, "total": 93484 },
+              "business": { "tuition": 62484, "living": 24000, "insurance": 7000, "total": 93484 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 60000, "living": 24000, "insurance": 7000, "total": 91000 },
+              "engineering": { "tuition": 60000, "living": 24000, "insurance": 7000, "total": 91000 },
+              "humanities": { "tuition": 60000, "living": 24000, "insurance": 7000, "total": 91000 },
+              "business": { "tuition": 85755, "living": 24000, "insurance": 7000, "total": 116755, "note": "Stanford GSB MBA" }
+            }
+          }
+        },
+        {
+          "id": "harvard",
+          "name": "Harvard University",
+          "nameCn": "哈佛大学",
+          "city": "Cambridge, MA",
+          "qsRank": 3,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 57328, "living": 22000, "insurance": 4308, "total": 83636 },
+              "engineering": { "tuition": 57328, "living": 22000, "insurance": 4308, "total": 83636 },
+              "humanities": { "tuition": 57328, "living": 22000, "insurance": 4308, "total": 83636 },
+              "business": { "tuition": 57328, "living": 22000, "insurance": 4308, "total": 83636 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 54032, "living": 22000, "insurance": 4308, "total": 80340 },
+              "engineering": { "tuition": 54032, "living": 22000, "insurance": 4308, "total": 80340 },
+              "humanities": { "tuition": 54032, "living": 22000, "insurance": 4308, "total": 80340 },
+              "business": { "tuition": 78700, "living": 22000, "insurance": 4308, "total": 105008, "note": "Harvard Business School MBA" }
+            }
+          }
+        },
+        {
+          "id": "caltech",
+          "name": "California Institute of Technology",
+          "nameCn": "加州理工学院",
+          "city": "Pasadena, CA",
+          "qsRank": 4,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 65622, "living": 24000, "insurance": 5049, "total": 94671 },
+              "engineering": { "tuition": 65622, "living": 24000, "insurance": 5049, "total": 94671 },
+              "humanities": { "tuition": 65622, "living": 24000, "insurance": 5049, "total": 94671, "note": "Limited humanities offerings" },
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 63000, "living": 24000, "insurance": 5049, "total": 92049 },
+              "engineering": { "tuition": 63000, "living": 24000, "insurance": 5049, "total": 92049 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "uchicago",
+          "name": "University of Chicago",
+          "nameCn": "芝加哥大学",
+          "city": "Chicago, IL",
+          "qsRank": 5,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 73266, "living": 21000, "insurance": 4500, "total": 98766 },
+              "engineering": { "tuition": 73266, "living": 21000, "insurance": 4500, "total": 98766 },
+              "humanities": { "tuition": 73266, "living": 21000, "insurance": 4500, "total": 98766 },
+              "business": { "tuition": 73266, "living": 21000, "insurance": 4500, "total": 98766 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 65000, "living": 21000, "insurance": 4500, "total": 90500 },
+              "engineering": { "tuition": 65000, "living": 21000, "insurance": 4500, "total": 90500 },
+              "humanities": { "tuition": 65000, "living": 21000, "insurance": 4500, "total": 90500 },
+              "business": { "tuition": 87354, "living": 21000, "insurance": 4500, "total": 112854, "note": "Booth School MBA" }
+            }
+          }
+        },
+        {
+          "id": "upenn",
+          "name": "University of Pennsylvania",
+          "nameCn": "宾夕法尼亚大学",
+          "city": "Philadelphia, PA",
+          "qsRank": 6,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 60920, "living": 23000, "insurance": 4000, "total": 87920 },
+              "engineering": { "tuition": 60920, "living": 23000, "insurance": 4000, "total": 87920 },
+              "humanities": { "tuition": 60920, "living": 23000, "insurance": 4000, "total": 87920 },
+              "business": { "tuition": 60920, "living": 23000, "insurance": 4000, "total": 87920 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 58000, "living": 23000, "insurance": 4000, "total": 85000 },
+              "engineering": { "tuition": 60000, "living": 23000, "insurance": 4000, "total": 87000 },
+              "humanities": { "tuition": 55000, "living": 23000, "insurance": 4000, "total": 82000 },
+              "business": { "tuition": 87970, "living": 23000, "insurance": 4000, "total": 114970, "note": "Wharton MBA" }
+            }
+          }
+        },
+        {
+          "id": "yale",
+          "name": "Yale University",
+          "nameCn": "耶鲁大学",
+          "city": "New Haven, CT",
+          "qsRank": 7,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 67250, "living": 20500, "insurance": 3422, "total": 91172 },
+              "engineering": { "tuition": 67250, "living": 20500, "insurance": 3422, "total": 91172 },
+              "humanities": { "tuition": 67250, "living": 20500, "insurance": 3422, "total": 91172 },
+              "business": { "tuition": 67250, "living": 20500, "insurance": 3422, "total": 91172 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 50900, "living": 20500, "insurance": 3422, "total": 74822 },
+              "engineering": { "tuition": 50900, "living": 20500, "insurance": 3422, "total": 74822 },
+              "humanities": { "tuition": 50900, "living": 20500, "insurance": 3422, "total": 74822 },
+              "business": { "tuition": 87800, "living": 20500, "insurance": 3422, "total": 111722, "note": "Yale SOM MBA" }
+            }
+          }
+        },
+        {
+          "id": "columbia",
+          "name": "Columbia University",
+          "nameCn": "哥伦比亚大学",
+          "city": "New York, NY",
+          "qsRank": 8,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 70170, "living": 24000, "insurance": 4200, "total": 98370 },
+              "engineering": { "tuition": 70170, "living": 24000, "insurance": 4200, "total": 98370 },
+              "humanities": { "tuition": 70170, "living": 24000, "insurance": 4200, "total": 98370 },
+              "business": { "tuition": 70170, "living": 24000, "insurance": 4200, "total": 98370 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 60000, "living": 24000, "insurance": 4200, "total": 88200 },
+              "engineering": { "tuition": 60000, "living": 24000, "insurance": 4200, "total": 88200 },
+              "humanities": { "tuition": 60000, "living": 24000, "insurance": 4200, "total": 88200 },
+              "business": { "tuition": 91172, "living": 24000, "insurance": 4200, "total": 119372, "note": "Columbia Business School MBA" }
+            }
+          }
+        },
+        {
+          "id": "princeton",
+          "name": "Princeton University",
+          "nameCn": "普林斯顿大学",
+          "city": "Princeton, NJ",
+          "qsRank": 9,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 62400, "living": 21000, "insurance": 3800, "total": 87200 },
+              "engineering": { "tuition": 62400, "living": 21000, "insurance": 3800, "total": 87200 },
+              "humanities": { "tuition": 62400, "living": 21000, "insurance": 3800, "total": 87200 },
+              "business": { "tuition": 62400, "living": 21000, "insurance": 3800, "total": 87200 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 65936, "living": 21000, "insurance": 3800, "total": 90736 },
+              "engineering": { "tuition": 65936, "living": 21000, "insurance": 3800, "total": 90736 },
+              "humanities": { "tuition": 65936, "living": 21000, "insurance": 3800, "total": 90736 },
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "cornell",
+          "name": "Cornell University",
+          "nameCn": "康奈尔大学",
+          "city": "Ithaca, NY",
+          "qsRank": 10,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 72270, "living": 20500, "insurance": 3500, "total": 96270 },
+              "engineering": { "tuition": 72270, "living": 20500, "insurance": 3500, "total": 96270 },
+              "humanities": { "tuition": 72270, "living": 20500, "insurance": 3500, "total": 96270 },
+              "business": { "tuition": 72270, "living": 20500, "insurance": 3500, "total": 96270 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 62000, "living": 20500, "insurance": 3500, "total": 86000 },
+              "engineering": { "tuition": 62000, "living": 20500, "insurance": 3500, "total": 86000 },
+              "humanities": { "tuition": 55000, "living": 20500, "insurance": 3500, "total": 79000 },
+              "business": { "tuition": 85000, "living": 20500, "insurance": 3500, "total": 109000, "note": "Johnson MBA" }
+            }
+          }
+        },
+        {
+          "id": "jhu",
+          "name": "Johns Hopkins University",
+          "nameCn": "约翰斯·霍普金斯大学",
+          "city": "Baltimore, MD",
+          "qsRank": 11,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 66670, "living": 19000, "insurance": 3800, "total": 89470 },
+              "engineering": { "tuition": 66670, "living": 19000, "insurance": 3800, "total": 89470 },
+              "humanities": { "tuition": 66670, "living": 19000, "insurance": 3800, "total": 89470 },
+              "business": { "tuition": 66670, "living": 19000, "insurance": 3800, "total": 89470 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 60000, "living": 19000, "insurance": 3800, "total": 82800 },
+              "engineering": { "tuition": 60000, "living": 19000, "insurance": 3800, "total": 82800 },
+              "humanities": { "tuition": 55000, "living": 19000, "insurance": 3800, "total": 77800 },
+              "business": { "tuition": 70000, "living": 19000, "insurance": 3800, "total": 92800, "note": "Carey Business School MBA" }
+            }
+          }
+        },
+        {
+          "id": "duke",
+          "name": "Duke University",
+          "nameCn": "杜克大学",
+          "city": "Durham, NC",
+          "qsRank": 12,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 70265, "living": 19000, "insurance": 3500, "total": 92765 },
+              "engineering": { "tuition": 70265, "living": 19000, "insurance": 3500, "total": 92765 },
+              "humanities": { "tuition": 70265, "living": 19000, "insurance": 3500, "total": 92765 },
+              "business": { "tuition": 70265, "living": 19000, "insurance": 3500, "total": 92765 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 62000, "living": 19000, "insurance": 3500, "total": 84500 },
+              "engineering": { "tuition": 62000, "living": 19000, "insurance": 3500, "total": 84500 },
+              "humanities": { "tuition": 60000, "living": 19000, "insurance": 3500, "total": 82500 },
+              "business": { "tuition": 81000, "living": 19000, "insurance": 3500, "total": 103500, "note": "Fuqua MBA" }
+            }
+          }
+        },
+        {
+          "id": "northwestern",
+          "name": "Northwestern University",
+          "nameCn": "西北大学",
+          "city": "Evanston, IL",
+          "qsRank": 13,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 70589, "living": 23000, "insurance": 5919, "total": 99508 },
+              "engineering": { "tuition": 70589, "living": 23000, "insurance": 5919, "total": 99508 },
+              "humanities": { "tuition": 70589, "living": 23000, "insurance": 5919, "total": 99508 },
+              "business": { "tuition": 70589, "living": 23000, "insurance": 5919, "total": 99508 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 60000, "living": 23000, "insurance": 5919, "total": 88919 },
+              "engineering": { "tuition": 60000, "living": 23000, "insurance": 5919, "total": 88919 },
+              "humanities": { "tuition": 55000, "living": 23000, "insurance": 5919, "total": 83919 },
+              "business": { "tuition": 86370, "living": 23000, "insurance": 5919, "total": 115289, "note": "Kellogg MBA" }
+            }
+          }
+        },
+        {
+          "id": "ucla",
+          "name": "University of California, Los Angeles",
+          "nameCn": "加州大学洛杉矶分校",
+          "city": "Los Angeles, CA",
+          "qsRank": 14,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 53302, "living": 22000, "insurance": 3579, "total": 78881 },
+              "engineering": { "tuition": 53302, "living": 22000, "insurance": 3579, "total": 78881 },
+              "humanities": { "tuition": 53302, "living": 22000, "insurance": 3579, "total": 78881 },
+              "business": { "tuition": 53302, "living": 22000, "insurance": 3579, "total": 78881 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 48000, "living": 22000, "insurance": 3579, "total": 73579 },
+              "engineering": { "tuition": 48000, "living": 22000, "insurance": 3579, "total": 73579 },
+              "humanities": { "tuition": 48000, "living": 22000, "insurance": 3579, "total": 73579 },
+              "business": { "tuition": 79452, "living": 22000, "insurance": 3579, "total": 105031, "note": "Anderson MBA" }
+            }
+          }
+        },
+        {
+          "id": "ucberkeley",
+          "name": "University of California, Berkeley",
+          "nameCn": "加州大学伯克利分校",
+          "city": "Berkeley, CA",
+          "qsRank": 15,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 48726, "living": 23500, "insurance": 3500, "total": 75726 },
+              "engineering": { "tuition": 48726, "living": 23500, "insurance": 3500, "total": 75726 },
+              "humanities": { "tuition": 48726, "living": 23500, "insurance": 3500, "total": 75726 },
+              "business": { "tuition": 48726, "living": 23500, "insurance": 3500, "total": 75726 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 48000, "living": 23500, "insurance": 3500, "total": 75000 },
+              "engineering": { "tuition": 48000, "living": 23500, "insurance": 3500, "total": 75000 },
+              "humanities": { "tuition": 43000, "living": 23500, "insurance": 3500, "total": 70000 },
+              "business": { "tuition": 89033, "living": 23500, "insurance": 3500, "total": 116033, "note": "Haas MBA" }
+            }
+          }
+        },
+        {
+          "id": "nyu",
+          "name": "New York University",
+          "nameCn": "纽约大学",
+          "city": "New York, NY",
+          "qsRank": 16,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 65622, "living": 25500, "insurance": 4000, "total": 95122 },
+              "engineering": { "tuition": 65622, "living": 25500, "insurance": 4000, "total": 95122 },
+              "humanities": { "tuition": 65622, "living": 25500, "insurance": 4000, "total": 95122 },
+              "business": { "tuition": 65622, "living": 25500, "insurance": 4000, "total": 95122 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 58000, "living": 25500, "insurance": 4000, "total": 87500 },
+              "engineering": { "tuition": 58000, "living": 25500, "insurance": 4000, "total": 87500 },
+              "humanities": { "tuition": 55000, "living": 25500, "insurance": 4000, "total": 84500 },
+              "business": { "tuition": 89524, "living": 25500, "insurance": 4000, "total": 119024, "note": "Stern MBA" }
+            }
+          }
+        },
+        {
+          "id": "umich",
+          "name": "University of Michigan, Ann Arbor",
+          "nameCn": "密歇根大学安娜堡分校",
+          "city": "Ann Arbor, MI",
+          "qsRank": 17,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 61264, "living": 18000, "insurance": 3200, "total": 82464 },
+              "engineering": { "tuition": 65000, "living": 18000, "insurance": 3200, "total": 86200 },
+              "humanities": { "tuition": 61264, "living": 18000, "insurance": 3200, "total": 82464 },
+              "business": { "tuition": 63000, "living": 18000, "insurance": 3200, "total": 84200, "note": "Ross BBA premium" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 55000, "living": 18000, "insurance": 3200, "total": 76200 },
+              "engineering": { "tuition": 58000, "living": 18000, "insurance": 3200, "total": 79200 },
+              "humanities": { "tuition": 50000, "living": 18000, "insurance": 3200, "total": 71200 },
+              "business": { "tuition": 75000, "living": 18000, "insurance": 3200, "total": 96200, "note": "Ross MBA" }
+            }
+          }
+        },
+        {
+          "id": "cmu",
+          "name": "Carnegie Mellon University",
+          "nameCn": "卡内基梅隆大学",
+          "city": "Pittsburgh, PA",
+          "qsRank": 18,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 67020, "living": 21000, "insurance": 2877, "total": 90897 },
+              "engineering": { "tuition": 67020, "living": 21000, "insurance": 2877, "total": 90897 },
+              "humanities": { "tuition": 67020, "living": 21000, "insurance": 2877, "total": 90897 },
+              "business": { "tuition": 67020, "living": 21000, "insurance": 2877, "total": 90897 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 57420, "living": 21000, "insurance": 2877, "total": 81297 },
+              "engineering": { "tuition": 57420, "living": 21000, "insurance": 2877, "total": 81297 },
+              "humanities": { "tuition": 57420, "living": 21000, "insurance": 2877, "total": 81297 },
+              "business": { "tuition": 57420, "living": 21000, "insurance": 2877, "total": 81297, "note": "Tepper MBA" }
+            }
+          }
+        },
+        {
+          "id": "uiuc",
+          "name": "University of Illinois at Urbana-Champaign",
+          "nameCn": "伊利诺伊大学厄巴纳-香槟分校",
+          "city": "Champaign, IL",
+          "qsRank": 19,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 39392, "living": 18000, "insurance": 3000, "total": 60392 },
+              "engineering": { "tuition": 49742, "living": 18000, "insurance": 3000, "total": 70742 },
+              "humanities": { "tuition": 39392, "living": 18000, "insurance": 3000, "total": 60392 },
+              "business": { "tuition": 46000, "living": 18000, "insurance": 3000, "total": 67000, "note": "Gies College of Business" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 38000, "living": 18000, "insurance": 3000, "total": 59000 },
+              "engineering": { "tuition": 48000, "living": 18000, "insurance": 3000, "total": 69000 },
+              "humanities": { "tuition": 35000, "living": 18000, "insurance": 3000, "total": 56000 },
+              "business": { "tuition": 52000, "living": 18000, "insurance": 3000, "total": 73000, "note": "Gies MBA" }
+            }
+          }
+        },
+        {
+          "id": "gatech",
+          "name": "Georgia Institute of Technology",
+          "nameCn": "佐治亚理工学院",
+          "city": "Atlanta, GA",
+          "qsRank": 20,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 35192, "living": 18000, "insurance": 2800, "total": 55992 },
+              "engineering": { "tuition": 35192, "living": 18000, "insurance": 2800, "total": 55992 },
+              "humanities": { "tuition": 35192, "living": 18000, "insurance": 2800, "total": 55992, "note": "Limited liberal arts (Ivan Allen College)" },
+              "business": { "tuition": 35192, "living": 18000, "insurance": 2800, "total": 55992 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 33000, "living": 18000, "insurance": 2800, "total": 53800 },
+              "engineering": { "tuition": 33000, "living": 18000, "insurance": 2800, "total": 53800 },
+              "humanities": { "tuition": 33000, "living": 18000, "insurance": 2800, "total": 53800 },
+              "business": { "tuition": 44912, "living": 18000, "insurance": 2800, "total": 65712, "note": "Scheller MBA" }
+            }
+          }
+        },
+        {
+          "id": "utaustin",
+          "name": "University of Texas at Austin",
+          "nameCn": "德克萨斯大学奥斯汀分校",
+          "city": "Austin, TX",
+          "qsRank": 21,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 41000, "living": 19000, "insurance": 2500, "total": 62500 },
+              "engineering": { "tuition": 44000, "living": 19000, "insurance": 2500, "total": 65500, "note": "Cockrell differential" },
+              "humanities": { "tuition": 40582, "living": 19000, "insurance": 2500, "total": 62082 },
+              "business": { "tuition": 44000, "living": 19000, "insurance": 2500, "total": 65500, "note": "McCombs differential" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 38000, "living": 19000, "insurance": 2500, "total": 59500 },
+              "engineering": { "tuition": 42000, "living": 19000, "insurance": 2500, "total": 63500 },
+              "humanities": { "tuition": 36000, "living": 19000, "insurance": 2500, "total": 57500 },
+              "business": { "tuition": 61214, "living": 19000, "insurance": 2500, "total": 82714, "note": "McCombs MBA" }
+            }
+          }
+        },
+        {
+          "id": "uwashington",
+          "name": "University of Washington",
+          "nameCn": "华盛顿大学",
+          "city": "Seattle, WA",
+          "qsRank": 22,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 42000, "living": 20000, "insurance": 3000, "total": 65000 },
+              "engineering": { "tuition": 42000, "living": 20000, "insurance": 3000, "total": 65000 },
+              "humanities": { "tuition": 42000, "living": 20000, "insurance": 3000, "total": 65000 },
+              "business": { "tuition": 42000, "living": 20000, "insurance": 3000, "total": 65000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 40000, "living": 20000, "insurance": 3000, "total": 63000 },
+              "engineering": { "tuition": 40000, "living": 20000, "insurance": 3000, "total": 63000 },
+              "humanities": { "tuition": 38000, "living": 20000, "insurance": 3000, "total": 61000 },
+              "business": { "tuition": 60000, "living": 20000, "insurance": 3000, "total": 83000, "note": "Foster MBA" }
+            }
+          }
+        },
+        {
+          "id": "uwmadison",
+          "name": "University of Wisconsin-Madison",
+          "nameCn": "威斯康星大学麦迪逊分校",
+          "city": "Madison, WI",
+          "qsRank": 23,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 42103, "living": 16500, "insurance": 2700, "total": 61303 },
+              "engineering": { "tuition": 42103, "living": 16500, "insurance": 2700, "total": 61303 },
+              "humanities": { "tuition": 42103, "living": 16500, "insurance": 2700, "total": 61303 },
+              "business": { "tuition": 42103, "living": 16500, "insurance": 2700, "total": 61303 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 38000, "living": 16500, "insurance": 2700, "total": 57200 },
+              "engineering": { "tuition": 38000, "living": 16500, "insurance": 2700, "total": 57200 },
+              "humanities": { "tuition": 35000, "living": 16500, "insurance": 2700, "total": 54200 },
+              "business": { "tuition": 50000, "living": 16500, "insurance": 2700, "total": 69200, "note": "Wisconsin School of Business MBA" }
+            }
+          }
+        },
+        {
+          "id": "purdue",
+          "name": "Purdue University",
+          "nameCn": "普渡大学",
+          "city": "West Lafayette, IN",
+          "qsRank": 24,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 28794, "living": 14000, "insurance": 2500, "total": 45294 },
+              "engineering": { "tuition": 30844, "living": 14000, "insurance": 2500, "total": 47344 },
+              "humanities": { "tuition": 28794, "living": 14000, "insurance": 2500, "total": 45294 },
+              "business": { "tuition": 30230, "living": 14000, "insurance": 2500, "total": 46730, "note": "Daniels School of Business" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 28000, "living": 14000, "insurance": 2500, "total": 44500 },
+              "engineering": { "tuition": 30000, "living": 14000, "insurance": 2500, "total": 46500 },
+              "humanities": { "tuition": 26000, "living": 14000, "insurance": 2500, "total": 42500 },
+              "business": { "tuition": 50000, "living": 14000, "insurance": 2500, "total": 66500, "note": "Krannert MBA" }
+            }
+          }
+        },
+        {
+          "id": "ucsd",
+          "name": "University of California, San Diego",
+          "nameCn": "加州大学圣迭戈分校",
+          "city": "San Diego, CA",
+          "qsRank": 25,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 47676, "living": 20000, "insurance": 3500, "total": 71176 },
+              "engineering": { "tuition": 47676, "living": 20000, "insurance": 3500, "total": 71176 },
+              "humanities": { "tuition": 47676, "living": 20000, "insurance": 3500, "total": 71176 },
+              "business": { "tuition": 47676, "living": 20000, "insurance": 3500, "total": 71176 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 46000, "living": 20000, "insurance": 3500, "total": 69500 },
+              "engineering": { "tuition": 46000, "living": 20000, "insurance": 3500, "total": 69500 },
+              "humanities": { "tuition": 43000, "living": 20000, "insurance": 3500, "total": 66500 },
+              "business": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "nameCn": "英国",
+      "currency": "GBP",
+      "commonCosts": {
+        "visa": 524,
+        "visaNote": "Student Route visa application fee",
+        "nhsSurcharge": 776,
+        "nhsSurchargeNote": "NHS Immigration Health Surcharge per year"
+      },
+      "schools": [
+        {
+          "id": "cambridge",
+          "name": "University of Cambridge",
+          "nameCn": "剑桥大学",
+          "city": "Cambridge",
+          "qsRank": 2,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 39162, "living": 14500, "insurance": 776, "total": 54438, "note": "Lab-based sciences; includes college fee ~11000" },
+              "engineering": { "tuition": 39162, "living": 14500, "insurance": 776, "total": 54438, "note": "Includes college fee" },
+              "humanities": { "tuition": 25734, "living": 14500, "insurance": 776, "total": 41010, "note": "Includes college fee" },
+              "business": { "tuition": 39162, "living": 14500, "insurance": 776, "total": 54438, "note": "Management Studies; includes college fee" }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 36000, "living": 14500, "insurance": 776, "total": 51276 },
+              "engineering": { "tuition": 36000, "living": 14500, "insurance": 776, "total": 51276 },
+              "humanities": { "tuition": 29000, "living": 14500, "insurance": 776, "total": 44276 },
+              "business": { "tuition": 69000, "living": 14500, "insurance": 776, "total": 84276, "note": "Judge MBA" }
+            }
+          }
+        },
+        {
+          "id": "oxford",
+          "name": "University of Oxford",
+          "nameCn": "牛津大学",
+          "city": "Oxford",
+          "qsRank": 3,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 48620, "living": 16500, "insurance": 776, "total": 65896 },
+              "engineering": { "tuition": 48620, "living": 16500, "insurance": 776, "total": 65896 },
+              "humanities": { "tuition": 36905, "living": 16500, "insurance": 776, "total": 54181 },
+              "business": { "tuition": 38550, "living": 16500, "insurance": 776, "total": 55826, "note": "Economics & Management" }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 37500, "living": 16500, "insurance": 776, "total": 54776 },
+              "engineering": { "tuition": 37500, "living": 16500, "insurance": 776, "total": 54776 },
+              "humanities": { "tuition": 32175, "living": 16500, "insurance": 776, "total": 49451 },
+              "business": { "tuition": 83770, "living": 16500, "insurance": 776, "total": 101046, "note": "Said MBA" }
+            }
+          }
+        },
+        {
+          "id": "imperial",
+          "name": "Imperial College London",
+          "nameCn": "帝国理工学院",
+          "city": "London",
+          "qsRank": 6,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 40375, "living": 16600, "insurance": 776, "total": 57751, "note": "Average of science departments" },
+              "engineering": { "tuition": 40940, "living": 16600, "insurance": 776, "total": 58316 },
+              "humanities": null,
+              "business": { "tuition": 40940, "living": 16600, "insurance": 776, "total": 58316, "note": "Via Engineering; Imperial is STEM-focused" }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 39850, "living": 16600, "insurance": 776, "total": 57226 },
+              "engineering": { "tuition": 41325, "living": 16600, "insurance": 776, "total": 58701 },
+              "humanities": null,
+              "business": { "tuition": 57200, "living": 16600, "insurance": 776, "total": 74576, "note": "Imperial MBA" }
+            }
+          }
+        },
+        {
+          "id": "ucl",
+          "name": "University College London",
+          "nameCn": "伦敦大学学院",
+          "city": "London",
+          "qsRank": 9,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 35250, "living": 16600, "insurance": 776, "total": 52626 },
+              "engineering": { "tuition": 36500, "living": 16600, "insurance": 776, "total": 53876 },
+              "humanities": { "tuition": 28000, "living": 16600, "insurance": 776, "total": 45376 },
+              "business": { "tuition": 32400, "living": 16600, "insurance": 776, "total": 49776 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 35500, "living": 16600, "insurance": 776, "total": 52876 },
+              "engineering": { "tuition": 35500, "living": 16600, "insurance": 776, "total": 52876 },
+              "humanities": { "tuition": 29000, "living": 16600, "insurance": 776, "total": 46376 },
+              "business": { "tuition": 46000, "living": 16600, "insurance": 776, "total": 63376, "note": "UCL MBA" }
+            }
+          }
+        },
+        {
+          "id": "edinburgh",
+          "name": "University of Edinburgh",
+          "nameCn": "爱丁堡大学",
+          "city": "Edinburgh",
+          "qsRank": 27,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 34150, "living": 13250, "insurance": 776, "total": 48176, "note": "Scottish system: 4-year degree" },
+              "engineering": { "tuition": 34150, "living": 13250, "insurance": 776, "total": 48176 },
+              "humanities": { "tuition": 26500, "living": 13250, "insurance": 776, "total": 40526 },
+              "business": { "tuition": 29000, "living": 13250, "insurance": 776, "total": 43026 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 33400, "living": 13250, "insurance": 776, "total": 47426 },
+              "engineering": { "tuition": 33400, "living": 13250, "insurance": 776, "total": 47426 },
+              "humanities": { "tuition": 25800, "living": 13250, "insurance": 776, "total": 39826 },
+              "business": { "tuition": 39900, "living": 13250, "insurance": 776, "total": 53926, "note": "Edinburgh MBA" }
+            }
+          }
+        },
+        {
+          "id": "manchester",
+          "name": "University of Manchester",
+          "nameCn": "曼彻斯特大学",
+          "city": "Manchester",
+          "qsRank": 34,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 30500, "living": 13000, "insurance": 776, "total": 44276 },
+              "engineering": { "tuition": 31500, "living": 13000, "insurance": 776, "total": 45276 },
+              "humanities": { "tuition": 23500, "living": 13000, "insurance": 776, "total": 37276 },
+              "business": { "tuition": 26700, "living": 13000, "insurance": 776, "total": 40476 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 30500, "living": 13000, "insurance": 776, "total": 44276 },
+              "engineering": { "tuition": 32500, "living": 13000, "insurance": 776, "total": 46276 },
+              "humanities": { "tuition": 24500, "living": 13000, "insurance": 776, "total": 38276 },
+              "business": { "tuition": 50000, "living": 13000, "insurance": 776, "total": 63776, "note": "Alliance MBS MBA" }
+            }
+          }
+        },
+        {
+          "id": "kcl",
+          "name": "King's College London",
+          "nameCn": "伦敦国王学院",
+          "city": "London",
+          "qsRank": 40,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 32900, "living": 16600, "insurance": 776, "total": 50276 },
+              "engineering": { "tuition": 32900, "living": 16600, "insurance": 776, "total": 50276, "note": "Limited engineering offerings" },
+              "humanities": { "tuition": 28050, "living": 16600, "insurance": 776, "total": 45426 },
+              "business": { "tuition": 30500, "living": 16600, "insurance": 776, "total": 47876 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 31500, "living": 16600, "insurance": 776, "total": 48876 },
+              "engineering": { "tuition": 32500, "living": 16600, "insurance": 776, "total": 49876 },
+              "humanities": { "tuition": 27000, "living": 16600, "insurance": 776, "total": 44376 },
+              "business": { "tuition": 34000, "living": 16600, "insurance": 776, "total": 51376 }
+            }
+          }
+        },
+        {
+          "id": "lse",
+          "name": "London School of Economics and Political Science",
+          "nameCn": "伦敦政治经济学院",
+          "city": "London",
+          "qsRank": 45,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": null,
+              "engineering": null,
+              "humanities": { "tuition": 26000, "living": 16600, "insurance": 776, "total": 43376 },
+              "business": { "tuition": 31000, "living": 16600, "insurance": 776, "total": 48376 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": null,
+              "engineering": null,
+              "humanities": { "tuition": 31500, "living": 16600, "insurance": 776, "total": 48876 },
+              "business": { "tuition": 41000, "living": 16600, "insurance": 776, "total": 58376, "note": "Master in Management" }
+            }
+          }
+        },
+        {
+          "id": "bristol",
+          "name": "University of Bristol",
+          "nameCn": "布里斯托大学",
+          "city": "Bristol",
+          "qsRank": 54,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 30400, "living": 13000, "insurance": 776, "total": 44176 },
+              "engineering": { "tuition": 31450, "living": 13000, "insurance": 776, "total": 45226 },
+              "humanities": { "tuition": 26100, "living": 13000, "insurance": 776, "total": 39876 },
+              "business": { "tuition": 27400, "living": 13000, "insurance": 776, "total": 41176 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 30000, "living": 13000, "insurance": 776, "total": 43776 },
+              "engineering": { "tuition": 30000, "living": 13000, "insurance": 776, "total": 43776 },
+              "humanities": { "tuition": 25500, "living": 13000, "insurance": 776, "total": 39276 },
+              "business": { "tuition": 29500, "living": 13000, "insurance": 776, "total": 43276 }
+            }
+          }
+        },
+        {
+          "id": "warwick",
+          "name": "University of Warwick",
+          "nameCn": "华威大学",
+          "city": "Coventry",
+          "qsRank": 60,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 33520, "living": 13000, "insurance": 776, "total": 47296 },
+              "engineering": { "tuition": 33520, "living": 13000, "insurance": 776, "total": 47296 },
+              "humanities": { "tuition": 26290, "living": 13000, "insurance": 776, "total": 40066 },
+              "business": { "tuition": 33520, "living": 13000, "insurance": 776, "total": 47296 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 32500, "living": 13000, "insurance": 776, "total": 46276 },
+              "engineering": { "tuition": 32500, "living": 13000, "insurance": 776, "total": 46276 },
+              "humanities": { "tuition": 26000, "living": 13000, "insurance": 776, "total": 39776 },
+              "business": { "tuition": 47450, "living": 13000, "insurance": 776, "total": 61226, "note": "WBS MBA" }
+            }
+          }
+        },
+        {
+          "id": "glasgow",
+          "name": "University of Glasgow",
+          "nameCn": "格拉斯哥大学",
+          "city": "Glasgow",
+          "qsRank": 55,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 31800, "living": 11750, "insurance": 776, "total": 44326, "note": "Scottish system: 4-year degree" },
+              "engineering": { "tuition": 31800, "living": 11750, "insurance": 776, "total": 44326 },
+              "humanities": { "tuition": 26580, "living": 11750, "insurance": 776, "total": 39106 },
+              "business": { "tuition": 26580, "living": 11750, "insurance": 776, "total": 39106 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 30500, "living": 11750, "insurance": 776, "total": 43026 },
+              "engineering": { "tuition": 30500, "living": 11750, "insurance": 776, "total": 43026 },
+              "humanities": { "tuition": 25500, "living": 11750, "insurance": 776, "total": 38026 },
+              "business": { "tuition": 29500, "living": 11750, "insurance": 776, "total": 42026 }
+            }
+          }
+        },
+        {
+          "id": "leeds",
+          "name": "University of Leeds",
+          "nameCn": "利兹大学",
+          "city": "Leeds",
+          "qsRank": 75,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 29250, "living": 11750, "insurance": 776, "total": 41776 },
+              "engineering": { "tuition": 29250, "living": 11750, "insurance": 776, "total": 41776 },
+              "humanities": { "tuition": 23675, "living": 11750, "insurance": 776, "total": 36201 },
+              "business": { "tuition": 25750, "living": 11750, "insurance": 776, "total": 38276 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 29000, "living": 11750, "insurance": 776, "total": 41526 },
+              "engineering": { "tuition": 29000, "living": 11750, "insurance": 776, "total": 41526 },
+              "humanities": { "tuition": 25565, "living": 11750, "insurance": 776, "total": 38091 },
+              "business": { "tuition": 29755, "living": 11750, "insurance": 776, "total": 42281 }
+            }
+          }
+        },
+        {
+          "id": "southampton",
+          "name": "University of Southampton",
+          "nameCn": "南安普顿大学",
+          "city": "Southampton",
+          "qsRank": 78,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 30000, "living": 12250, "insurance": 776, "total": 43026 },
+              "engineering": { "tuition": 30000, "living": 12250, "insurance": 776, "total": 43026 },
+              "humanities": { "tuition": 24000, "living": 12250, "insurance": 776, "total": 37026 },
+              "business": { "tuition": 27000, "living": 12250, "insurance": 776, "total": 40026 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 29000, "living": 12250, "insurance": 776, "total": 42026 },
+              "engineering": { "tuition": 30000, "living": 12250, "insurance": 776, "total": 43026 },
+              "humanities": { "tuition": 26000, "living": 12250, "insurance": 776, "total": 39026 },
+              "business": { "tuition": 31000, "living": 12250, "insurance": 776, "total": 44026 }
+            }
+          }
+        },
+        {
+          "id": "birmingham",
+          "name": "University of Birmingham",
+          "nameCn": "伯明翰大学",
+          "city": "Birmingham",
+          "qsRank": 80,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 28000, "living": 12000, "insurance": 776, "total": 40776 },
+              "engineering": { "tuition": 29000, "living": 12000, "insurance": 776, "total": 41776 },
+              "humanities": { "tuition": 23925, "living": 12000, "insurance": 776, "total": 36701 },
+              "business": { "tuition": 26500, "living": 12000, "insurance": 776, "total": 39276 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 28000, "living": 12000, "insurance": 776, "total": 40776 },
+              "engineering": { "tuition": 29000, "living": 12000, "insurance": 776, "total": 41776 },
+              "humanities": { "tuition": 24000, "living": 12000, "insurance": 776, "total": 36776 },
+              "business": { "tuition": 29000, "living": 12000, "insurance": 776, "total": 41776 }
+            }
+          }
+        },
+        {
+          "id": "sheffield",
+          "name": "University of Sheffield",
+          "nameCn": "谢菲尔德大学",
+          "city": "Sheffield",
+          "qsRank": 82,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 27785, "living": 11500, "insurance": 776, "total": 40061 },
+              "engineering": { "tuition": 27785, "living": 11500, "insurance": 776, "total": 40061 },
+              "humanities": { "tuition": 24405, "living": 11500, "insurance": 776, "total": 36681 },
+              "business": { "tuition": 25405, "living": 11500, "insurance": 776, "total": 37681 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 28000, "living": 11500, "insurance": 776, "total": 40276 },
+              "engineering": { "tuition": 28000, "living": 11500, "insurance": 776, "total": 40276 },
+              "humanities": { "tuition": 24000, "living": 11500, "insurance": 776, "total": 36276 },
+              "business": { "tuition": 27500, "living": 11500, "insurance": 776, "total": 39776 }
+            }
+          }
+        },
+        {
+          "id": "nottingham",
+          "name": "University of Nottingham",
+          "nameCn": "诺丁汉大学",
+          "city": "Nottingham",
+          "qsRank": 82,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 30750, "living": 11500, "insurance": 776, "total": 43026 },
+              "engineering": { "tuition": 30750, "living": 11500, "insurance": 776, "total": 43026 },
+              "humanities": { "tuition": 23000, "living": 11500, "insurance": 776, "total": 35276 },
+              "business": { "tuition": 24300, "living": 11500, "insurance": 776, "total": 36576 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 28500, "living": 11500, "insurance": 776, "total": 40776 },
+              "engineering": { "tuition": 28500, "living": 11500, "insurance": 776, "total": 40776 },
+              "humanities": { "tuition": 23500, "living": 11500, "insurance": 776, "total": 35776 },
+              "business": { "tuition": 28500, "living": 11500, "insurance": 776, "total": 40776 }
+            }
+          }
+        },
+        {
+          "id": "standrews",
+          "name": "University of St Andrews",
+          "nameCn": "圣安德鲁斯大学",
+          "city": "St Andrews",
+          "qsRank": 68,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 32375, "living": 12000, "insurance": 776, "total": 45151, "note": "Scottish system: 4-year degree" },
+              "engineering": null,
+              "humanities": { "tuition": 32375, "living": 12000, "insurance": 776, "total": 45151 },
+              "business": { "tuition": 32375, "living": 12000, "insurance": 776, "total": 45151 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 33000, "living": 12000, "insurance": 776, "total": 45776 },
+              "engineering": null,
+              "humanities": { "tuition": 30000, "living": 12000, "insurance": 776, "total": 42776 },
+              "business": { "tuition": 32500, "living": 12000, "insurance": 776, "total": 45276 }
+            }
+          }
+        },
+        {
+          "id": "qmul",
+          "name": "Queen Mary University of London",
+          "nameCn": "伦敦玛丽女王大学",
+          "city": "London",
+          "qsRank": 85,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 27500, "living": 15500, "insurance": 776, "total": 43776 },
+              "engineering": { "tuition": 27500, "living": 15500, "insurance": 776, "total": 43776 },
+              "humanities": { "tuition": 25000, "living": 15500, "insurance": 776, "total": 41276 },
+              "business": { "tuition": 26500, "living": 15500, "insurance": 776, "total": 42776 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 29750, "living": 15500, "insurance": 776, "total": 46026 },
+              "engineering": { "tuition": 29750, "living": 15500, "insurance": 776, "total": 46026 },
+              "humanities": { "tuition": 25000, "living": 15500, "insurance": 776, "total": 41276 },
+              "business": { "tuition": 30750, "living": 15500, "insurance": 776, "total": 47026 }
+            }
+          }
+        },
+        {
+          "id": "durham",
+          "name": "Durham University",
+          "nameCn": "杜伦大学",
+          "city": "Durham",
+          "qsRank": 75,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 27400, "living": 11500, "insurance": 776, "total": 39676 },
+              "engineering": { "tuition": 27400, "living": 11500, "insurance": 776, "total": 39676 },
+              "humanities": { "tuition": 22450, "living": 11500, "insurance": 776, "total": 34726 },
+              "business": { "tuition": 25250, "living": 11500, "insurance": 776, "total": 37526 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 26000, "living": 11500, "insurance": 776, "total": 38276 },
+              "engineering": { "tuition": 26000, "living": 11500, "insurance": 776, "total": 38276 },
+              "humanities": { "tuition": 21750, "living": 11500, "insurance": 776, "total": 34026 },
+              "business": { "tuition": 26000, "living": 11500, "insurance": 776, "total": 38276 }
+            }
+          }
+        },
+        {
+          "id": "lancaster",
+          "name": "Lancaster University",
+          "nameCn": "兰卡斯特大学",
+          "city": "Lancaster",
+          "qsRank": 96,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 26838, "living": 11000, "insurance": 776, "total": 38614 },
+              "engineering": { "tuition": 26838, "living": 11000, "insurance": 776, "total": 38614 },
+              "humanities": { "tuition": 24375, "living": 11000, "insurance": 776, "total": 36151 },
+              "business": { "tuition": 26000, "living": 11000, "insurance": 776, "total": 37776 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 26000, "living": 11000, "insurance": 776, "total": 37776 },
+              "engineering": { "tuition": 26000, "living": 11000, "insurance": 776, "total": 37776 },
+              "humanities": { "tuition": 22000, "living": 11000, "insurance": 776, "total": 33776 },
+              "business": { "tuition": 28524, "living": 11000, "insurance": 776, "total": 40300 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "au",
+      "name": "Australia",
+      "nameCn": "澳大利亚",
+      "currency": "AUD",
+      "commonCosts": {
+        "visa": 2000,
+        "visaNote": "Student Visa Subclass 500",
+        "oshc": 600,
+        "oshcNote": "Overseas Student Health Cover per year (approximate)"
+      },
+      "schools": [
+        {
+          "id": "melbourne",
+          "name": "University of Melbourne",
+          "nameCn": "墨尔本大学",
+          "city": "Melbourne",
+          "qsRank": 14,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 49600, "living": 27000, "insurance": 600, "total": 77200 },
+              "engineering": { "tuition": 52000, "living": 27000, "insurance": 600, "total": 79600, "note": "Melbourne Model: no direct UG engineering; figure is Master of Engineering indicative fee" },
+              "humanities": { "tuition": 44800, "living": 27000, "insurance": 600, "total": 72400 },
+              "business": { "tuition": 52400, "living": 27000, "insurance": 600, "total": 80000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 55000, "living": 27000, "insurance": 600, "total": 82600, "note": "Estimated 10% above UG" },
+              "engineering": { "tuition": 52000, "living": 27000, "insurance": 600, "total": 79600, "note": "Master of Engineering" },
+              "humanities": { "tuition": 49000, "living": 27000, "insurance": 600, "total": 76600, "note": "Estimated from UG" },
+              "business": { "tuition": 58000, "living": 27000, "insurance": 600, "total": 85600, "note": "Estimated MBA/Masters" }
+            }
+          }
+        },
+        {
+          "id": "sydney",
+          "name": "University of Sydney",
+          "nameCn": "悉尼大学",
+          "city": "Sydney",
+          "qsRank": 18,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 56300, "living": 28500, "insurance": 600, "total": 85400 },
+              "engineering": { "tuition": 60600, "living": 28500, "insurance": 600, "total": 89700 },
+              "humanities": { "tuition": 49200, "living": 28500, "insurance": 600, "total": 78300 },
+              "business": { "tuition": 56300, "living": 28500, "insurance": 600, "total": 85400 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 62000, "living": 28500, "insurance": 600, "total": 91100, "note": "Estimated 10% above UG" },
+              "engineering": { "tuition": 66000, "living": 28500, "insurance": 600, "total": 95100, "note": "Estimated from UG" },
+              "humanities": { "tuition": 54000, "living": 28500, "insurance": 600, "total": 83100, "note": "Estimated from UG" },
+              "business": { "tuition": 62000, "living": 28500, "insurance": 600, "total": 91100, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "unsw",
+          "name": "UNSW Sydney",
+          "nameCn": "新南威尔士大学",
+          "city": "Sydney",
+          "qsRank": 19,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 58560, "living": 27000, "insurance": 600, "total": 86160 },
+              "engineering": { "tuition": 58560, "living": 27000, "insurance": 600, "total": 86160 },
+              "humanities": { "tuition": 45120, "living": 27000, "insurance": 600, "total": 72720 },
+              "business": { "tuition": 54000, "living": 27000, "insurance": 600, "total": 81600 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 64000, "living": 27000, "insurance": 600, "total": 91600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 64000, "living": 27000, "insurance": 600, "total": 91600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 50000, "living": 27000, "insurance": 600, "total": 77600, "note": "Estimated from UG" },
+              "business": { "tuition": 59000, "living": 27000, "insurance": 600, "total": 86600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "anu",
+          "name": "Australian National University",
+          "nameCn": "澳大利亚国立大学",
+          "city": "Canberra",
+          "qsRank": 30,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 50400, "living": 23000, "insurance": 600, "total": 74000 },
+              "engineering": { "tuition": 50400, "living": 23000, "insurance": 600, "total": 74000 },
+              "humanities": { "tuition": 43680, "living": 23000, "insurance": 600, "total": 67280 },
+              "business": { "tuition": 48000, "living": 23000, "insurance": 600, "total": 71600 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 55000, "living": 23000, "insurance": 600, "total": 78600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 55000, "living": 23000, "insurance": 600, "total": 78600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 48000, "living": 23000, "insurance": 600, "total": 71600, "note": "Estimated from UG" },
+              "business": { "tuition": 53000, "living": 23000, "insurance": 600, "total": 76600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "monash",
+          "name": "Monash University",
+          "nameCn": "蒙纳士大学",
+          "city": "Melbourne",
+          "qsRank": 37,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 56600, "living": 25000, "insurance": 600, "total": 82200 },
+              "engineering": { "tuition": 59600, "living": 25000, "insurance": 600, "total": 85200, "note": "4-year Honours program" },
+              "humanities": { "tuition": 44600, "living": 25000, "insurance": 600, "total": 70200 },
+              "business": { "tuition": 55900, "living": 25000, "insurance": 600, "total": 81500 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 62000, "living": 25000, "insurance": 600, "total": 87600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 65000, "living": 25000, "insurance": 600, "total": 90600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 49000, "living": 25000, "insurance": 600, "total": 74600, "note": "Estimated from UG" },
+              "business": { "tuition": 61000, "living": 25000, "insurance": 600, "total": 86600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "uq",
+          "name": "University of Queensland",
+          "nameCn": "昆士兰大学",
+          "city": "Brisbane",
+          "qsRank": 40,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 50000, "living": 23500, "insurance": 600, "total": 74100 },
+              "engineering": { "tuition": 53120, "living": 23500, "insurance": 600, "total": 77220 },
+              "humanities": { "tuition": 40000, "living": 23500, "insurance": 600, "total": 64100 },
+              "business": { "tuition": 47000, "living": 23500, "insurance": 600, "total": 71100 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 55000, "living": 23500, "insurance": 600, "total": 79100, "note": "Estimated from UG" },
+              "engineering": { "tuition": 58000, "living": 23500, "insurance": 600, "total": 82100, "note": "Estimated from UG" },
+              "humanities": { "tuition": 44000, "living": 23500, "insurance": 600, "total": 68100, "note": "Estimated from UG" },
+              "business": { "tuition": 52000, "living": 23500, "insurance": 600, "total": 76100, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "uwa",
+          "name": "University of Western Australia",
+          "nameCn": "西澳大学",
+          "city": "Perth",
+          "qsRank": 77,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 44000, "living": 22000, "insurance": 600, "total": 66600 },
+              "engineering": { "tuition": 46500, "living": 22000, "insurance": 600, "total": 69100 },
+              "humanities": { "tuition": 37500, "living": 22000, "insurance": 600, "total": 60100 },
+              "business": { "tuition": 42000, "living": 22000, "insurance": 600, "total": 64600 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 48000, "living": 22000, "insurance": 600, "total": 70600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 51000, "living": 22000, "insurance": 600, "total": 73600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 41000, "living": 22000, "insurance": 600, "total": 63600, "note": "Estimated from UG" },
+              "business": { "tuition": 46000, "living": 22000, "insurance": 600, "total": 68600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "adelaide",
+          "name": "University of Adelaide",
+          "nameCn": "阿德莱德大学",
+          "city": "Adelaide",
+          "qsRank": 82,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 46000, "living": 21000, "insurance": 600, "total": 67600 },
+              "engineering": { "tuition": 48000, "living": 21000, "insurance": 600, "total": 69600 },
+              "humanities": { "tuition": 38000, "living": 21000, "insurance": 600, "total": 59600 },
+              "business": { "tuition": 44000, "living": 21000, "insurance": 600, "total": 65600 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 50000, "living": 21000, "insurance": 600, "total": 71600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 53000, "living": 21000, "insurance": 600, "total": 74600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 42000, "living": 21000, "insurance": 600, "total": 63600, "note": "Estimated from UG" },
+              "business": { "tuition": 48000, "living": 21000, "insurance": 600, "total": 69600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "uts",
+          "name": "University of Technology Sydney",
+          "nameCn": "悉尼科技大学",
+          "city": "Sydney",
+          "qsRank": 85,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 48000, "living": 27000, "insurance": 600, "total": 75600 },
+              "engineering": { "tuition": 50400, "living": 27000, "insurance": 600, "total": 78000 },
+              "humanities": { "tuition": 38400, "living": 27000, "insurance": 600, "total": 66000 },
+              "business": { "tuition": 44400, "living": 27000, "insurance": 600, "total": 72000 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 53000, "living": 27000, "insurance": 600, "total": 80600, "note": "Estimated from UG" },
+              "engineering": { "tuition": 55000, "living": 27000, "insurance": 600, "total": 82600, "note": "Estimated from UG" },
+              "humanities": { "tuition": 42000, "living": 27000, "insurance": 600, "total": 69600, "note": "Estimated from UG" },
+              "business": { "tuition": 49000, "living": 27000, "insurance": 600, "total": 76600, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "macquarie",
+          "name": "Macquarie University",
+          "nameCn": "麦考瑞大学",
+          "city": "Sydney",
+          "qsRank": 95,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 43200, "living": 25500, "insurance": 600, "total": 69300 },
+              "engineering": { "tuition": 43200, "living": 25500, "insurance": 600, "total": 69300 },
+              "humanities": { "tuition": 37900, "living": 25500, "insurance": 600, "total": 64000 },
+              "business": { "tuition": 42000, "living": 25500, "insurance": 600, "total": 68100 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 47000, "living": 25500, "insurance": 600, "total": 73100, "note": "Estimated from UG" },
+              "engineering": { "tuition": 47000, "living": 25500, "insurance": 600, "total": 73100, "note": "Estimated from UG" },
+              "humanities": { "tuition": 42000, "living": 25500, "insurance": 600, "total": 68100, "note": "Estimated from UG" },
+              "business": { "tuition": 46000, "living": 25500, "insurance": 600, "total": 72100, "note": "Estimated from UG" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ca",
+      "name": "Canada",
+      "nameCn": "加拿大",
+      "currency": "CAD",
+      "commonCosts": {
+        "visa": 235,
+        "visaNote": "Study permit $150 + biometrics $85"
+      },
+      "schools": [
+        {
+          "id": "utoronto",
+          "name": "University of Toronto",
+          "nameCn": "多伦多大学",
+          "city": "Toronto, ON",
+          "qsRank": 21,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 61720, "living": 21000, "insurance": 792, "total": 83512 },
+              "engineering": { "tuition": 67370, "living": 21000, "insurance": 792, "total": 89162 },
+              "humanities": { "tuition": 61720, "living": 21000, "insurance": 792, "total": 83512 },
+              "business": { "tuition": 61720, "living": 21000, "insurance": 792, "total": 83512, "note": "Rotman Commerce" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 68000, "living": 21000, "insurance": 792, "total": 89792, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 74000, "living": 21000, "insurance": 792, "total": 95792, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 68000, "living": 21000, "insurance": 792, "total": 89792, "note": "Estimated from UG" },
+              "business": { "tuition": 90000, "living": 21000, "insurance": 792, "total": 111792, "note": "Rotman MBA estimated" }
+            }
+          }
+        },
+        {
+          "id": "ubc",
+          "name": "University of British Columbia",
+          "nameCn": "不列颠哥伦比亚大学",
+          "city": "Vancouver, BC",
+          "qsRank": 34,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 51041, "living": 21000, "insurance": 900, "total": 72941 },
+              "engineering": { "tuition": 51611, "living": 21000, "insurance": 900, "total": 73511 },
+              "humanities": { "tuition": 49549, "living": 21000, "insurance": 900, "total": 71449 },
+              "business": { "tuition": 64114, "living": 21000, "insurance": 900, "total": 86014, "note": "Sauder School of Business" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 56000, "living": 21000, "insurance": 900, "total": 77900, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 57000, "living": 21000, "insurance": 900, "total": 78900, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 54000, "living": 21000, "insurance": 900, "total": 75900, "note": "Estimated from UG" },
+              "business": { "tuition": 70000, "living": 21000, "insurance": 900, "total": 91900, "note": "Sauder MBA estimated" }
+            }
+          }
+        },
+        {
+          "id": "mcgill",
+          "name": "McGill University",
+          "nameCn": "麦吉尔大学",
+          "city": "Montreal, QC",
+          "qsRank": 29,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 52000, "living": 17000, "insurance": 1000, "total": 70000 },
+              "engineering": { "tuition": 66328, "living": 17000, "insurance": 1000, "total": 84328 },
+              "humanities": { "tuition": 47282, "living": 17000, "insurance": 1000, "total": 65282 },
+              "business": { "tuition": 70894, "living": 17000, "insurance": 1000, "total": 88894, "note": "Desautels Faculty of Management" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 57000, "living": 17000, "insurance": 1000, "total": 75000, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 73000, "living": 17000, "insurance": 1000, "total": 91000, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 52000, "living": 17000, "insurance": 1000, "total": 70000, "note": "Estimated from UG" },
+              "business": { "tuition": 78000, "living": 17000, "insurance": 1000, "total": 96000, "note": "Desautels MBA estimated" }
+            }
+          }
+        },
+        {
+          "id": "alberta",
+          "name": "University of Alberta",
+          "nameCn": "阿尔伯塔大学",
+          "city": "Edmonton, AB",
+          "qsRank": 96,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 38000, "living": 15000, "insurance": 0, "total": 53000, "note": "Free provincial health coverage (AHCIP)" },
+              "engineering": { "tuition": 45482, "living": 15000, "insurance": 0, "total": 60482, "note": "Free provincial health coverage (AHCIP)" },
+              "humanities": { "tuition": 33968, "living": 15000, "insurance": 0, "total": 48968, "note": "Free provincial health coverage (AHCIP)" },
+              "business": { "tuition": 40301, "living": 15000, "insurance": 0, "total": 55301, "note": "Alberta School of Business; free AHCIP" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 42000, "living": 15000, "insurance": 0, "total": 57000, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 50000, "living": 15000, "insurance": 0, "total": 65000, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 37000, "living": 15000, "insurance": 0, "total": 52000, "note": "Estimated from UG" },
+              "business": { "tuition": 44000, "living": 15000, "insurance": 0, "total": 59000, "note": "Estimated MBA" }
+            }
+          }
+        },
+        {
+          "id": "waterloo",
+          "name": "University of Waterloo",
+          "nameCn": "滑铁卢大学",
+          "city": "Waterloo, ON",
+          "qsRank": 112,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 49120, "living": 18000, "insurance": 792, "total": 67912 },
+              "engineering": { "tuition": 68510, "living": 18000, "insurance": 792, "total": 87302, "note": "Co-op program; includes co-op fees" },
+              "humanities": { "tuition": 54020, "living": 18000, "insurance": 792, "total": 72812 },
+              "business": { "tuition": 56000, "living": 18000, "insurance": 792, "total": 74792 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 54000, "living": 18000, "insurance": 792, "total": 72792, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 75000, "living": 18000, "insurance": 792, "total": 93792, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 59000, "living": 18000, "insurance": 792, "total": 77792, "note": "Estimated from UG" },
+              "business": { "tuition": 62000, "living": 18000, "insurance": 792, "total": 80792, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "udemontreal",
+          "name": "Universite de Montreal",
+          "nameCn": "蒙特利尔大学",
+          "city": "Montreal, QC",
+          "qsRank": 111,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 28700, "living": 16000, "insurance": 1000, "total": 45700, "note": "French-language instruction" },
+              "engineering": { "tuition": 29500, "living": 16000, "insurance": 1000, "total": 46500, "note": "French-language instruction" },
+              "humanities": { "tuition": 27100, "living": 16000, "insurance": 1000, "total": 44100, "note": "French-language instruction" },
+              "business": { "tuition": 28700, "living": 16000, "insurance": 1000, "total": 45700, "note": "French-language instruction" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 31500, "living": 16000, "insurance": 1000, "total": 48500, "note": "Estimated from UG +10%; French instruction" },
+              "engineering": { "tuition": 32500, "living": 16000, "insurance": 1000, "total": 49500, "note": "Estimated from UG +10%; French instruction" },
+              "humanities": { "tuition": 29800, "living": 16000, "insurance": 1000, "total": 46800, "note": "Estimated from UG; French instruction" },
+              "business": { "tuition": 31500, "living": 16000, "insurance": 1000, "total": 48500, "note": "Estimated from UG; French instruction" }
+            }
+          }
+        },
+        {
+          "id": "mcmaster",
+          "name": "McMaster University",
+          "nameCn": "麦克马斯特大学",
+          "city": "Hamilton, ON",
+          "qsRank": 140,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 47535, "living": 16000, "insurance": 792, "total": 64327 },
+              "engineering": { "tuition": 56233, "living": 16000, "insurance": 792, "total": 73025 },
+              "humanities": { "tuition": 45158, "living": 16000, "insurance": 792, "total": 61950 },
+              "business": { "tuition": 50003, "living": 16000, "insurance": 792, "total": 66795 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 52000, "living": 16000, "insurance": 792, "total": 68792, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 62000, "living": 16000, "insurance": 792, "total": 78792, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 50000, "living": 16000, "insurance": 792, "total": 66792, "note": "Estimated from UG" },
+              "business": { "tuition": 55000, "living": 16000, "insurance": 792, "total": 71792, "note": "Estimated from UG" }
+            }
+          }
+        },
+        {
+          "id": "ottawa",
+          "name": "University of Ottawa",
+          "nameCn": "渥太华大学",
+          "city": "Ottawa, ON",
+          "qsRank": 189,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 52000, "living": 16000, "insurance": 792, "total": 68792 },
+              "engineering": { "tuition": 57000, "living": 16000, "insurance": 792, "total": 73792 },
+              "humanities": { "tuition": 43000, "living": 16000, "insurance": 792, "total": 59792 },
+              "business": { "tuition": 52000, "living": 16000, "insurance": 792, "total": 68792, "note": "Telfer School of Management" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 57000, "living": 16000, "insurance": 792, "total": 73792, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 63000, "living": 16000, "insurance": 792, "total": 79792, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 47000, "living": 16000, "insurance": 792, "total": 63792, "note": "Estimated from UG" },
+              "business": { "tuition": 57000, "living": 16000, "insurance": 792, "total": 73792, "note": "Estimated Telfer MBA" }
+            }
+          }
+        },
+        {
+          "id": "western",
+          "name": "Western University",
+          "nameCn": "韦仕敦大学",
+          "city": "London, ON",
+          "qsRank": 172,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 52000, "living": 16000, "insurance": 792, "total": 68792 },
+              "engineering": { "tuition": 58000, "living": 16000, "insurance": 792, "total": 74792 },
+              "humanities": { "tuition": 48000, "living": 16000, "insurance": 792, "total": 64792 },
+              "business": { "tuition": 55000, "living": 16000, "insurance": 792, "total": 71792, "note": "Ivey Business School" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 57000, "living": 16000, "insurance": 792, "total": 73792, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 64000, "living": 16000, "insurance": 792, "total": 80792, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 53000, "living": 16000, "insurance": 792, "total": 69792, "note": "Estimated from UG" },
+              "business": { "tuition": 85000, "living": 16000, "insurance": 792, "total": 101792, "note": "Ivey MBA estimated" }
+            }
+          }
+        },
+        {
+          "id": "calgary",
+          "name": "University of Calgary",
+          "nameCn": "卡尔加里大学",
+          "city": "Calgary, AB",
+          "qsRank": 170,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 35000, "living": 15000, "insurance": 0, "total": 50000, "note": "Free provincial health coverage (AHCIP)" },
+              "engineering": { "tuition": 40000, "living": 15000, "insurance": 0, "total": 55000, "note": "Schulich School of Engineering; free AHCIP" },
+              "humanities": { "tuition": 30000, "living": 15000, "insurance": 0, "total": 45000, "note": "Free provincial health coverage (AHCIP)" },
+              "business": { "tuition": 36000, "living": 15000, "insurance": 0, "total": 51000, "note": "Haskayne School of Business; free AHCIP" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 38500, "living": 15000, "insurance": 0, "total": 53500, "note": "Estimated from UG +10%" },
+              "engineering": { "tuition": 44000, "living": 15000, "insurance": 0, "total": 59000, "note": "Estimated from UG +10%" },
+              "humanities": { "tuition": 33000, "living": 15000, "insurance": 0, "total": 48000, "note": "Estimated from UG" },
+              "business": { "tuition": 40000, "living": 15000, "insurance": 0, "total": 55000, "note": "Estimated Haskayne MBA" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hk",
+      "name": "Hong Kong",
+      "nameCn": "中国香港",
+      "currency": "HKD",
+      "commonCosts": {
+        "visa": 530,
+        "visaNote": "Student visa application fee"
+      },
+      "schools": [
+        {
+          "id": "hku",
+          "name": "University of Hong Kong",
+          "nameCn": "香港大学",
+          "city": "Hong Kong",
+          "qsRank": 17,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 182000, "living": 140000, "insurance": 5500, "total": 327500 },
+              "engineering": { "tuition": 182000, "living": 140000, "insurance": 5500, "total": 327500 },
+              "humanities": { "tuition": 171000, "living": 140000, "insurance": 5500, "total": 316500 },
+              "business": { "tuition": 182000, "living": 140000, "insurance": 5500, "total": 327500 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 176500, "living": 140000, "insurance": 5500, "total": 322000 },
+              "engineering": { "tuition": 190500, "living": 140000, "insurance": 5500, "total": 336000 },
+              "humanities": { "tuition": 160500, "living": 140000, "insurance": 5500, "total": 306000 },
+              "business": { "tuition": 474000, "living": 140000, "insurance": 5500, "total": 619500, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "hkust",
+          "name": "Hong Kong University of Science and Technology",
+          "nameCn": "香港科技大学",
+          "city": "Hong Kong",
+          "qsRank": 36,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 },
+              "engineering": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 },
+              "humanities": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 },
+              "business": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 167500, "living": 140000, "insurance": 5500, "total": 313000 },
+              "engineering": { "tuition": 182500, "living": 140000, "insurance": 5500, "total": 328000 },
+              "humanities": { "tuition": 167500, "living": 140000, "insurance": 5500, "total": 313000 },
+              "business": { "tuition": 590000, "living": 140000, "insurance": 5500, "total": 735500, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "cuhk",
+          "name": "Chinese University of Hong Kong",
+          "nameCn": "香港中文大学",
+          "city": "Hong Kong",
+          "qsRank": 47,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 },
+              "engineering": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 },
+              "humanities": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 },
+              "business": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 160000, "living": 140000, "insurance": 5500, "total": 305500 },
+              "engineering": { "tuition": 170000, "living": 140000, "insurance": 5500, "total": 315500 },
+              "humanities": { "tuition": 150000, "living": 140000, "insurance": 5500, "total": 295500 },
+              "business": { "tuition": 475000, "living": 140000, "insurance": 5500, "total": 620500, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "polyu",
+          "name": "Hong Kong Polytechnic University",
+          "nameCn": "香港理工大学",
+          "city": "Hong Kong",
+          "qsRank": 57,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 },
+              "engineering": { "tuition": 165000, "living": 140000, "insurance": 5500, "total": 310500 },
+              "humanities": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 },
+              "business": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 155000, "living": 140000, "insurance": 5500, "total": 300500 },
+              "engineering": { "tuition": 165000, "living": 140000, "insurance": 5500, "total": 310500 },
+              "humanities": { "tuition": 145000, "living": 140000, "insurance": 5500, "total": 290500 },
+              "business": { "tuition": 375000, "living": 140000, "insurance": 5500, "total": 520500, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "cityu",
+          "name": "City University of Hong Kong",
+          "nameCn": "香港城市大学",
+          "city": "Hong Kong",
+          "qsRank": 62,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 150000, "living": 140000, "insurance": 5500, "total": 295500 },
+              "engineering": { "tuition": 160000, "living": 140000, "insurance": 5500, "total": 305500 },
+              "humanities": { "tuition": 137500, "living": 140000, "insurance": 5500, "total": 283000 },
+              "business": { "tuition": 150000, "living": 140000, "insurance": 5500, "total": 295500 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 150000, "living": 140000, "insurance": 5500, "total": 295500 },
+              "engineering": { "tuition": 160000, "living": 140000, "insurance": 5500, "total": 305500 },
+              "humanities": { "tuition": 137500, "living": 140000, "insurance": 5500, "total": 283000 },
+              "business": { "tuition": 354000, "living": 140000, "insurance": 5500, "total": 499500, "note": "MBA program" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sg",
+      "name": "Singapore",
+      "nameCn": "新加坡",
+      "currency": "SGD",
+      "commonCosts": {
+        "visa": 90,
+        "visaNote": "Student Pass issuance $60 + multiple journey visa $30"
+      },
+      "schools": [
+        {
+          "id": "nus",
+          "name": "National University of Singapore",
+          "nameCn": "新加坡国立大学",
+          "city": "Singapore",
+          "qsRank": 8,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 45000, "living": 22500, "insurance": 350, "total": 67850 },
+              "engineering": { "tuition": 47500, "living": 22500, "insurance": 350, "total": 70350 },
+              "humanities": { "tuition": 40000, "living": 22500, "insurance": 350, "total": 62850 },
+              "business": { "tuition": 66000, "living": 22500, "insurance": 350, "total": 88850 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 45000, "living": 22500, "insurance": 350, "total": 67850 },
+              "engineering": { "tuition": 47500, "living": 22500, "insurance": 350, "total": 70350 },
+              "humanities": { "tuition": 40000, "living": 22500, "insurance": 350, "total": 62850 },
+              "business": { "tuition": 66000, "living": 22500, "insurance": 350, "total": 88850, "note": "Without MOE tuition grant; MBA ~100,000 SGD total" }
+            }
+          }
+        },
+        {
+          "id": "ntu",
+          "name": "Nanyang Technological University",
+          "nameCn": "南洋理工大学",
+          "city": "Singapore",
+          "qsRank": 15,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 43000, "living": 22500, "insurance": 350, "total": 65850 },
+              "engineering": { "tuition": 45000, "living": 22500, "insurance": 350, "total": 67850 },
+              "humanities": { "tuition": 37500, "living": 22500, "insurance": 350, "total": 60350 },
+              "business": { "tuition": 61500, "living": 22500, "insurance": 350, "total": 84350 }
+            },
+            "masters": {
+              "duration": 1.5,
+              "science": { "tuition": 43000, "living": 22500, "insurance": 350, "total": 65850 },
+              "engineering": { "tuition": 45000, "living": 22500, "insurance": 350, "total": 67850 },
+              "humanities": { "tuition": 37500, "living": 22500, "insurance": 350, "total": 60350 },
+              "business": { "tuition": 61500, "living": 22500, "insurance": 350, "total": 84350, "note": "Without MOE tuition grant; MBA ~90,000 SGD total" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "jp",
+      "name": "Japan",
+      "nameCn": "日本",
+      "currency": "JPY",
+      "commonCosts": {
+        "visa": 10000,
+        "visaNote": "Certificate of Eligibility processing ~4,000 + visa fee ~6,000 (multiple entry)"
+      },
+      "schools": [
+        {
+          "id": "utokyo",
+          "name": "University of Tokyo",
+          "nameCn": "东京大学",
+          "city": "Tokyo",
+          "qsRank": 28,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "engineering": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "humanities": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "business": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800, "note": "Standardized national university fee" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "engineering": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "humanities": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "business": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800, "note": "Standardized national university fee; same for all disciplines" }
+            }
+          }
+        },
+        {
+          "id": "kyoto",
+          "name": "Kyoto University",
+          "nameCn": "京都大学",
+          "city": "Kyoto",
+          "qsRank": 50,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "engineering": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "humanities": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "business": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800, "note": "Standardized national university fee" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "engineering": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "humanities": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "business": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800, "note": "Standardized national university fee" }
+            }
+          }
+        },
+        {
+          "id": "tokyotech",
+          "name": "Tokyo Institute of Technology",
+          "nameCn": "东京工业大学",
+          "city": "Tokyo",
+          "qsRank": 55,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "engineering": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "engineering": { "tuition": 535800, "living": 1400000, "insurance": 25000, "total": 1960800 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "osaka",
+          "name": "Osaka University",
+          "nameCn": "大阪大学",
+          "city": "Osaka",
+          "qsRank": 68,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "engineering": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "humanities": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "business": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800, "note": "Standardized national university fee" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "engineering": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "humanities": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800 },
+              "business": { "tuition": 535800, "living": 1150000, "insurance": 25000, "total": 1710800, "note": "Standardized national university fee" }
+            }
+          }
+        },
+        {
+          "id": "waseda",
+          "name": "Waseda University",
+          "nameCn": "早稻田大学",
+          "city": "Tokyo",
+          "qsRank": 181,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 1650000, "living": 1400000, "insurance": 25000, "total": 3075000 },
+              "engineering": { "tuition": 1700000, "living": 1400000, "insurance": 25000, "total": 3125000 },
+              "humanities": { "tuition": 1150000, "living": 1400000, "insurance": 25000, "total": 2575000 },
+              "business": { "tuition": 1900000, "living": 1400000, "insurance": 25000, "total": 3325000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 1650000, "living": 1400000, "insurance": 25000, "total": 3075000 },
+              "engineering": { "tuition": 1700000, "living": 1400000, "insurance": 25000, "total": 3125000 },
+              "humanities": { "tuition": 1150000, "living": 1400000, "insurance": 25000, "total": 2575000 },
+              "business": { "tuition": 1900000, "living": 1400000, "insurance": 25000, "total": 3325000, "note": "MBA/business programs" }
+            }
+          }
+        },
+        {
+          "id": "keio",
+          "name": "Keio University",
+          "nameCn": "庆应义塾大学",
+          "city": "Tokyo",
+          "qsRank": 188,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 1550000, "living": 1400000, "insurance": 25000, "total": 2975000 },
+              "engineering": { "tuition": 1600000, "living": 1400000, "insurance": 25000, "total": 3025000 },
+              "humanities": { "tuition": 1050000, "living": 1400000, "insurance": 25000, "total": 2475000 },
+              "business": { "tuition": 1550000, "living": 1400000, "insurance": 25000, "total": 2975000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 1550000, "living": 1400000, "insurance": 25000, "total": 2975000 },
+              "engineering": { "tuition": 1600000, "living": 1400000, "insurance": 25000, "total": 3025000 },
+              "humanities": { "tuition": 1050000, "living": 1400000, "insurance": 25000, "total": 2475000 },
+              "business": { "tuition": 2450000, "living": 1400000, "insurance": 25000, "total": 3875000, "note": "MBA program" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "kr",
+      "name": "South Korea",
+      "nameCn": "韩国",
+      "currency": "KRW",
+      "commonCosts": {
+        "visa": 75000,
+        "visaNote": "D-2 student visa (midpoint of 60,000-90,000)"
+      },
+      "schools": [
+        {
+          "id": "snu",
+          "name": "Seoul National University",
+          "nameCn": "首尔国立大学",
+          "city": "Seoul",
+          "qsRank": 31,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 7000000, "living": 14000000, "insurance": 930000, "total": 21930000 },
+              "engineering": { "tuition": 7000000, "living": 14000000, "insurance": 930000, "total": 21930000 },
+              "humanities": { "tuition": 6000000, "living": 14000000, "insurance": 930000, "total": 20930000 },
+              "business": { "tuition": 7250000, "living": 14000000, "insurance": 930000, "total": 22180000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 7000000, "living": 14000000, "insurance": 930000, "total": 21930000 },
+              "engineering": { "tuition": 7000000, "living": 14000000, "insurance": 930000, "total": 21930000 },
+              "humanities": { "tuition": 6000000, "living": 14000000, "insurance": 930000, "total": 20930000 },
+              "business": { "tuition": 7250000, "living": 14000000, "insurance": 930000, "total": 22180000 }
+            }
+          }
+        },
+        {
+          "id": "kaist",
+          "name": "Korea Advanced Institute of Science and Technology",
+          "nameCn": "韩国科学技术院",
+          "city": "Daejeon",
+          "qsRank": 41,
+          "type": "national",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 6500000, "living": 10000000, "insurance": 930000, "total": 17430000 },
+              "engineering": { "tuition": 6500000, "living": 10000000, "insurance": 930000, "total": 17430000 },
+              "humanities": null,
+              "business": { "tuition": 9000000, "living": 10000000, "insurance": 930000, "total": 19930000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 6500000, "living": 10000000, "insurance": 930000, "total": 17430000, "note": "Many research students receive full tuition waiver + stipend" },
+              "engineering": { "tuition": 6500000, "living": 10000000, "insurance": 930000, "total": 17430000, "note": "Many research students receive full tuition waiver + stipend" },
+              "humanities": null,
+              "business": { "tuition": 9000000, "living": 10000000, "insurance": 930000, "total": 19930000 }
+            }
+          }
+        },
+        {
+          "id": "yonsei",
+          "name": "Yonsei University",
+          "nameCn": "延世大学",
+          "city": "Seoul",
+          "qsRank": 56,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 },
+              "engineering": { "tuition": 11000000, "living": 14000000, "insurance": 930000, "total": 25930000 },
+              "humanities": { "tuition": 8250000, "living": 14000000, "insurance": 930000, "total": 23180000 },
+              "business": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 },
+              "engineering": { "tuition": 11000000, "living": 14000000, "insurance": 930000, "total": 25930000 },
+              "humanities": { "tuition": 8250000, "living": 14000000, "insurance": 930000, "total": 23180000 },
+              "business": { "tuition": 14000000, "living": 14000000, "insurance": 930000, "total": 28930000, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "korea",
+          "name": "Korea University",
+          "nameCn": "高丽大学",
+          "city": "Seoul",
+          "qsRank": 67,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 },
+              "engineering": { "tuition": 11000000, "living": 14000000, "insurance": 930000, "total": 25930000 },
+              "humanities": { "tuition": 8000000, "living": 14000000, "insurance": 930000, "total": 22930000 },
+              "business": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 10000000, "living": 14000000, "insurance": 930000, "total": 24930000 },
+              "engineering": { "tuition": 11000000, "living": 14000000, "insurance": 930000, "total": 25930000 },
+              "humanities": { "tuition": 8000000, "living": 14000000, "insurance": 930000, "total": 22930000 },
+              "business": { "tuition": 13500000, "living": 14000000, "insurance": 930000, "total": 28430000, "note": "MBA program" }
+            }
+          }
+        },
+        {
+          "id": "skku",
+          "name": "Sungkyunkwan University",
+          "nameCn": "成均馆大学",
+          "city": "Seoul",
+          "qsRank": 100,
+          "type": "private",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 9500000, "living": 14000000, "insurance": 930000, "total": 24430000 },
+              "engineering": { "tuition": 10500000, "living": 14000000, "insurance": 930000, "total": 25430000 },
+              "humanities": { "tuition": 7750000, "living": 14000000, "insurance": 930000, "total": 22680000 },
+              "business": { "tuition": 12000000, "living": 14000000, "insurance": 930000, "total": 26930000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 9500000, "living": 14000000, "insurance": 930000, "total": 24430000 },
+              "engineering": { "tuition": 10500000, "living": 14000000, "insurance": 930000, "total": 25430000 },
+              "humanities": { "tuition": 7750000, "living": 14000000, "insurance": 930000, "total": 22680000 },
+              "business": { "tuition": 12000000, "living": 14000000, "insurance": 930000, "total": 26930000 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ch",
+      "name": "Switzerland",
+      "nameCn": "瑞士",
+      "currency": "CHF",
+      "commonCosts": {
+        "visa": 160,
+        "visaNote": "Type D visa CHF 60 + residence permit CHF 50-100"
+      },
+      "schools": [
+        {
+          "id": "ethz",
+          "name": "ETH Zurich",
+          "nameCn": "苏黎世联邦理工学院",
+          "city": "Zurich",
+          "qsRank": 7,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 1460, "living": 28000, "insurance": 4500, "total": 33960 },
+              "engineering": { "tuition": 1460, "living": 28000, "insurance": 4500, "total": 33960 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 1460, "living": 28000, "insurance": 4500, "total": 33960 },
+              "engineering": { "tuition": 1460, "living": 28000, "insurance": 4500, "total": 33960 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "epfl",
+          "name": "EPFL",
+          "nameCn": "洛桑联邦理工学院",
+          "city": "Lausanne",
+          "qsRank": 10,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 1266, "living": 25000, "insurance": 4500, "total": 30766 },
+              "engineering": { "tuition": 1266, "living": 25000, "insurance": 4500, "total": 30766 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 1266, "living": 25000, "insurance": 4500, "total": 30766 },
+              "engineering": { "tuition": 1266, "living": 25000, "insurance": 4500, "total": 30766 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "uzh",
+          "name": "University of Zurich",
+          "nameCn": "苏黎世大学",
+          "city": "Zurich",
+          "qsRank": 91,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 },
+              "engineering": null,
+              "humanities": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 },
+              "business": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 },
+              "engineering": null,
+              "humanities": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 },
+              "business": { "tuition": 2520, "living": 28000, "insurance": 4500, "total": 35020 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "de",
+      "name": "Germany",
+      "nameCn": "德国",
+      "currency": "EUR",
+      "commonCosts": {
+        "visa": 150,
+        "visaNote": "National visa EUR 75 + residence permit EUR 50-100"
+      },
+      "schools": [
+        {
+          "id": "tumunich",
+          "name": "Technical University of Munich",
+          "nameCn": "慕尼黑工业大学",
+          "city": "Munich",
+          "qsRank": 28,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810, "note": "New non-EU students may face higher fees in some programs from 2024" },
+              "engineering": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "humanities": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "business": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810, "note": "New non-EU students may face higher fees in some programs from 2024" },
+              "engineering": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "humanities": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "business": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 }
+            }
+          }
+        },
+        {
+          "id": "lmu",
+          "name": "Ludwig Maximilian University of Munich",
+          "nameCn": "慕尼黑大学",
+          "city": "Munich",
+          "qsRank": 52,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "engineering": null,
+              "humanities": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "business": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "engineering": null,
+              "humanities": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 },
+              "business": { "tuition": 260, "living": 14100, "insurance": 1450, "total": 15810 }
+            }
+          }
+        },
+        {
+          "id": "heidelberg",
+          "name": "Heidelberg University",
+          "nameCn": "海德堡大学",
+          "city": "Heidelberg",
+          "qsRank": 47,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390, "note": "Baden-Wurttemberg non-EU surcharge 3000 + Semesterbeitrag 340" },
+              "engineering": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 },
+              "humanities": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 },
+              "business": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390, "note": "Baden-Wurttemberg non-EU surcharge" },
+              "engineering": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 },
+              "humanities": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 },
+              "business": { "tuition": 3340, "living": 10600, "insurance": 1450, "total": 15390 }
+            }
+          }
+        },
+        {
+          "id": "huberlin",
+          "name": "Humboldt University of Berlin",
+          "nameCn": "柏林洪堡大学",
+          "city": "Berlin",
+          "qsRank": 87,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970, "note": "Semesterbeitrag includes transit pass" },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            }
+          }
+        },
+        {
+          "id": "fuberlin",
+          "name": "Freie Universitat Berlin",
+          "nameCn": "柏林自由大学",
+          "city": "Berlin",
+          "qsRank": 85,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970, "note": "Semesterbeitrag includes transit pass" },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            }
+          }
+        },
+        {
+          "id": "tuberlin",
+          "name": "Technical University of Berlin",
+          "nameCn": "柏林工业大学",
+          "city": "Berlin",
+          "qsRank": 106,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "engineering": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "humanities": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 },
+              "business": { "tuition": 320, "living": 13200, "insurance": 1450, "total": 14970 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "nl",
+      "name": "Netherlands",
+      "nameCn": "荷兰",
+      "currency": "EUR",
+      "commonCosts": {
+        "visa": 420,
+        "visaNote": "MVV entry visa EUR 210 + residence permit EUR 210"
+      },
+      "schools": [
+        {
+          "id": "uva",
+          "name": "University of Amsterdam",
+          "nameCn": "阿姆斯特丹大学",
+          "city": "Amsterdam",
+          "qsRank": 53,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 16500, "living": 16750, "insurance": 1850, "total": 35100 },
+              "engineering": { "tuition": 17500, "living": 16750, "insurance": 1850, "total": 36100 },
+              "humanities": { "tuition": 14500, "living": 16750, "insurance": 1850, "total": 33100 },
+              "business": { "tuition": 25000, "living": 16750, "insurance": 1850, "total": 43600 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 16500, "living": 16750, "insurance": 1850, "total": 35100 },
+              "engineering": { "tuition": 17500, "living": 16750, "insurance": 1850, "total": 36100 },
+              "humanities": { "tuition": 14500, "living": 16750, "insurance": 1850, "total": 33100 },
+              "business": { "tuition": 25000, "living": 16750, "insurance": 1850, "total": 43600, "note": "MBA programs higher" }
+            }
+          }
+        },
+        {
+          "id": "tudelft",
+          "name": "Delft University of Technology",
+          "nameCn": "代尔夫特理工大学",
+          "city": "Delft",
+          "qsRank": 47,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 17250, "living": 13850, "insurance": 1850, "total": 32950 },
+              "engineering": { "tuition": 17250, "living": 13850, "insurance": 1850, "total": 32950 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 17250, "living": 13850, "insurance": 1850, "total": 32950 },
+              "engineering": { "tuition": 17250, "living": 13850, "insurance": 1850, "total": 32950 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "leiden",
+          "name": "Leiden University",
+          "nameCn": "莱顿大学",
+          "city": "Leiden",
+          "qsRank": 113,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 17500, "living": 13850, "insurance": 1850, "total": 33200 },
+              "engineering": null,
+              "humanities": { "tuition": 15500, "living": 13850, "insurance": 1850, "total": 31200 },
+              "business": { "tuition": 18000, "living": 13850, "insurance": 1850, "total": 33700 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 17500, "living": 13850, "insurance": 1850, "total": 33200 },
+              "engineering": null,
+              "humanities": { "tuition": 15500, "living": 13850, "insurance": 1850, "total": 31200 },
+              "business": { "tuition": 18000, "living": 13850, "insurance": 1850, "total": 33700 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr",
+      "name": "France",
+      "nameCn": "法国",
+      "currency": "EUR",
+      "commonCosts": {
+        "visa": 99,
+        "visaNote": "VLS-TS student visa",
+        "cvec": 103,
+        "cvecNote": "Student life contribution (CVEC) per year, mandatory"
+      },
+      "schools": [
+        {
+          "id": "psl",
+          "name": "Paris Sciences et Lettres University",
+          "nameCn": "巴黎文理研究大学",
+          "city": "Paris",
+          "qsRank": 24,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 380, "living": 15200, "insurance": 0, "total": 15580, "note": "Public component (ENS); tuition varies by constituent school" },
+              "engineering": { "tuition": 380, "living": 15200, "insurance": 0, "total": 15580, "note": "Public component" },
+              "humanities": { "tuition": 380, "living": 15200, "insurance": 0, "total": 15580, "note": "Public component" },
+              "business": { "tuition": 12000, "living": 15200, "insurance": 0, "total": 27200, "note": "Dauphine component; free health insurance via Securite sociale" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 380, "living": 15200, "insurance": 0, "total": 15580, "note": "Public component; free health insurance" },
+              "engineering": { "tuition": 380, "living": 15200, "insurance": 0, "total": 15580 },
+              "humanities": { "tuition": 3445, "living": 15200, "insurance": 0, "total": 18645, "note": "Midpoint of public component fees" },
+              "business": { "tuition": 18500, "living": 15200, "insurance": 0, "total": 33700, "note": "Dauphine MBA; free health insurance via Securite sociale" }
+            }
+          }
+        },
+        {
+          "id": "sorbonne",
+          "name": "Sorbonne University",
+          "nameCn": "索邦大学",
+          "city": "Paris",
+          "qsRank": 58,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 2770, "living": 15200, "insurance": 0, "total": 17970, "note": "Non-EU differentiated fee; free health insurance" },
+              "engineering": { "tuition": 2770, "living": 15200, "insurance": 0, "total": 17970 },
+              "humanities": { "tuition": 2770, "living": 15200, "insurance": 0, "total": 17970 },
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 3770, "living": 15200, "insurance": 0, "total": 18970, "note": "Non-EU master's rate; free health insurance" },
+              "engineering": { "tuition": 3770, "living": 15200, "insurance": 0, "total": 18970 },
+              "humanities": { "tuition": 3770, "living": 15200, "insurance": 0, "total": 18970 },
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "polytechnique",
+          "name": "Ecole Polytechnique",
+          "nameCn": "巴黎综合理工学院",
+          "city": "Palaiseau",
+          "qsRank": 46,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 15500, "living": 15200, "insurance": 0, "total": 30700, "note": "Grande Ecole; free health insurance" },
+              "engineering": { "tuition": 15500, "living": 15200, "insurance": 0, "total": 30700 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 15500, "living": 15200, "insurance": 0, "total": 30700, "note": "Grande Ecole; free health insurance" },
+              "engineering": { "tuition": 15500, "living": 15200, "insurance": 0, "total": 30700 },
+              "humanities": null,
+              "business": { "tuition": 30000, "living": 15200, "insurance": 0, "total": 45200, "note": "MiM/MBA program" }
+            }
+          }
+        },
+        {
+          "id": "sciencespo",
+          "name": "Sciences Po",
+          "nameCn": "巴黎政治学院",
+          "city": "Paris",
+          "qsRank": 90,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": null,
+              "engineering": null,
+              "humanities": { "tuition": 19450, "living": 15200, "insurance": 0, "total": 34650, "note": "Income-based fees 14,500-24,400; midpoint used; free health insurance" },
+              "business": { "tuition": 19450, "living": 15200, "insurance": 0, "total": 34650, "note": "Income-based fees" }
+            },
+            "masters": {
+              "duration": 2,
+              "science": null,
+              "engineering": null,
+              "humanities": { "tuition": 19450, "living": 15200, "insurance": 0, "total": 34650, "note": "Income-based fees; free health insurance" },
+              "business": { "tuition": 19450, "living": 15200, "insurance": 0, "total": 34650, "note": "Income-based fees" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "se",
+      "name": "Sweden",
+      "nameCn": "瑞典",
+      "currency": "SEK",
+      "commonCosts": {
+        "visa": 1500,
+        "visaNote": "Residence permit application fee"
+      },
+      "schools": [
+        {
+          "id": "kth",
+          "name": "KTH Royal Institute of Technology",
+          "nameCn": "瑞典皇家理工学院",
+          "city": "Stockholm",
+          "qsRank": 73,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 172500, "living": 120000, "insurance": 0, "total": 292500, "note": "Health coverage included with 1yr+ residence permit" },
+              "engineering": { "tuition": 172500, "living": 120000, "insurance": 0, "total": 292500 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 172500, "living": 120000, "insurance": 0, "total": 292500, "note": "Health coverage included with 1yr+ residence permit" },
+              "engineering": { "tuition": 172500, "living": 120000, "insurance": 0, "total": 292500 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        },
+        {
+          "id": "lund",
+          "name": "Lund University",
+          "nameCn": "隆德大学",
+          "city": "Lund",
+          "qsRank": 78,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 160000, "living": 106000, "insurance": 0, "total": 266000, "note": "Health coverage included with 1yr+ residence permit" },
+              "engineering": { "tuition": 172500, "living": 106000, "insurance": 0, "total": 278500 },
+              "humanities": { "tuition": 120000, "living": 106000, "insurance": 0, "total": 226000 },
+              "business": { "tuition": 195000, "living": 106000, "insurance": 0, "total": 301000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 160000, "living": 106000, "insurance": 0, "total": 266000 },
+              "engineering": { "tuition": 172500, "living": 106000, "insurance": 0, "total": 278500 },
+              "humanities": { "tuition": 120000, "living": 106000, "insurance": 0, "total": 226000 },
+              "business": { "tuition": 195000, "living": 106000, "insurance": 0, "total": 301000 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dk",
+      "name": "Denmark",
+      "nameCn": "丹麦",
+      "currency": "DKK",
+      "commonCosts": {
+        "visa": 2340,
+        "visaNote": "Residence permit application fee"
+      },
+      "schools": [
+        {
+          "id": "ucph",
+          "name": "University of Copenhagen",
+          "nameCn": "哥本哈根大学",
+          "city": "Copenhagen",
+          "qsRank": 76,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 105000, "living": 118800, "insurance": 0, "total": 223800, "note": "Free health insurance via CPR registration" },
+              "engineering": null,
+              "humanities": { "tuition": 87500, "living": 118800, "insurance": 0, "total": 206300 },
+              "business": { "tuition": 105000, "living": 118800, "insurance": 0, "total": 223800 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 105000, "living": 118800, "insurance": 0, "total": 223800 },
+              "engineering": null,
+              "humanities": { "tuition": 87500, "living": 118800, "insurance": 0, "total": 206300 },
+              "business": { "tuition": 105000, "living": 118800, "insurance": 0, "total": 223800 }
+            }
+          }
+        },
+        {
+          "id": "dtu",
+          "name": "Technical University of Denmark",
+          "nameCn": "丹麦技术大学",
+          "city": "Lyngby",
+          "qsRank": 98,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 110000, "living": 118800, "insurance": 0, "total": 228800, "note": "Free health insurance via CPR registration" },
+              "engineering": { "tuition": 110000, "living": 118800, "insurance": 0, "total": 228800 },
+              "humanities": null,
+              "business": null
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 110000, "living": 118800, "insurance": 0, "total": 228800 },
+              "engineering": { "tuition": 110000, "living": 118800, "insurance": 0, "total": 228800 },
+              "humanities": null,
+              "business": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "be",
+      "name": "Belgium",
+      "nameCn": "比利时",
+      "currency": "EUR",
+      "commonCosts": {
+        "visa": 200,
+        "visaNote": "Student visa application fee"
+      },
+      "schools": [
+        {
+          "id": "kuleuven",
+          "name": "KU Leuven",
+          "nameCn": "鲁汶大学",
+          "city": "Leuven",
+          "qsRank": 59,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 3,
+              "science": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "engineering": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "humanities": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "business": { "tuition": 7250, "living": 10400, "insurance": 350, "total": 18000 }
+            },
+            "masters": {
+              "duration": 2,
+              "science": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "engineering": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "humanities": { "tuition": 5050, "living": 10400, "insurance": 350, "total": 15800 },
+              "business": { "tuition": 7250, "living": 10400, "insurance": 350, "total": 18000, "note": "Business programs may be higher" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ie",
+      "name": "Ireland",
+      "nameCn": "爱尔兰",
+      "currency": "EUR",
+      "commonCosts": {
+        "visa": 300,
+        "visaNote": "Stamp 2 immigration registration fee"
+      },
+      "schools": [
+        {
+          "id": "tcd",
+          "name": "Trinity College Dublin",
+          "nameCn": "都柏林圣三一学院",
+          "city": "Dublin",
+          "qsRank": 81,
+          "type": "public",
+          "programs": {
+            "ug": {
+              "duration": 4,
+              "science": { "tuition": 25000, "living": 19550, "insurance": 1000, "total": 45550 },
+              "engineering": { "tuition": 27000, "living": 19550, "insurance": 1000, "total": 47550 },
+              "humanities": { "tuition": 21000, "living": 19550, "insurance": 1000, "total": 41550 },
+              "business": { "tuition": 27000, "living": 19550, "insurance": 1000, "total": 47550 }
+            },
+            "masters": {
+              "duration": 1,
+              "science": { "tuition": 25000, "living": 19550, "insurance": 1000, "total": 45550 },
+              "engineering": { "tuition": 27000, "living": 19550, "insurance": 1000, "total": 47550 },
+              "humanities": { "tuition": 21000, "living": 19550, "insurance": 1000, "total": 41550 },
+              "business": { "tuition": 30500, "living": 19550, "insurance": 1000, "total": 51050, "note": "MBA program" }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,559 @@
+---
+// src/pages/tools/budget-calculator.astro — Study Abroad Budget Calculator
+import MainLayout from '../../layouts/MainLayout.astro';
+import budgetData from '../../data/budget-data.json';
+const lang = 'en';
+---
+
+<MainLayout title="Study Abroad Budget Calculator | Chinese SDGs Institute" description="Compare tuition, living costs, and total expenses across 105 universities in 16 countries. Real-time CNY conversion." lang={lang}>
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-6">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <header class="text-center mb-6">
+        <h1 class="text-2xl md:text-3xl font-headline font-bold text-on-surface tracking-tight">Study Abroad Budget Calculator</h1>
+        <p class="text-on-surface-variant mt-1 text-sm">105 Universities across 16 Countries | Real-time CNY Conversion</p>
+        <p class="text-on-surface-variant text-xs mt-1">留学预算计算器 | 105所大学 16个国家和地区 | 实时汇率换算</p>
+      </header>
+
+      <!-- Step 1: Discipline + Level -->
+      <div class="flex flex-col items-center gap-4 mb-8">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Degree 学历</span>
+          <div class="bc-toggle-group" id="bc-level-group">
+            <button class="bc-toggle active" data-level="ug">本科 Undergrad</button>
+            <button class="bc-toggle" data-level="masters">硕士 Masters</button>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Field 方向</span>
+          <div class="bc-toggle-group" id="bc-field-group">
+            <button class="bc-toggle active" data-field="science">理科 Science</button>
+            <button class="bc-toggle" data-field="engineering">工科 Engineering</button>
+            <button class="bc-toggle" data-field="humanities">文社科 Humanities</button>
+            <button class="bc-toggle" data-field="business">商科 Business</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Region filter + School selector -->
+      <div class="flex flex-col lg:flex-row gap-6">
+
+        <!-- Left: Filters + school list -->
+        <div class="w-full lg:w-[360px] shrink-0 space-y-4 max-h-[80vh] overflow-y-auto">
+          <!-- Region filter -->
+          <div class="bc-panel">
+            <h2 class="text-sm font-bold mb-2">地区 Region</h2>
+            <div class="flex flex-wrap gap-1.5" id="bc-region-chips"></div>
+          </div>
+
+          <!-- School list -->
+          <div class="bc-panel">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-sm font-bold">选择学校 Select Schools</h2>
+              <span class="text-xs text-on-surface-variant" id="bc-school-count">0 / 105</span>
+            </div>
+            <input type="text" id="bc-search" class="bc-input mb-2" placeholder="搜索学校 Search...">
+            <div class="text-xs text-on-surface-variant mb-2">点击添加对比 (最多 4 所) | Click to compare (max 4)</div>
+            <div id="bc-school-list" class="space-y-1 max-h-[50vh] overflow-y-auto"></div>
+          </div>
+        </div>
+
+        <!-- Right: Comparison cards -->
+        <div class="flex-1 min-w-0">
+          <!-- Selected schools pills -->
+          <div class="flex items-center gap-2 mb-4 flex-wrap" id="bc-selected-bar">
+            <span class="text-xs text-on-surface-variant">对比中 Comparing:</span>
+          </div>
+
+          <!-- Exchange rate bar -->
+          <div class="flex items-center gap-3 mb-4 text-xs text-on-surface-variant" id="bc-rate-bar">
+            <span class="material-symbols-outlined text-sm">currency_exchange</span>
+            <span id="bc-rate-status">Loading exchange rates...</span>
+          </div>
+
+          <!-- Cards grid -->
+          <div id="bc-cards" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+            <div class="bc-empty-state">
+              <span class="material-symbols-outlined text-4xl text-on-surface-variant/20">school</span>
+              <p class="text-sm text-on-surface-variant/50 mt-2">从左侧选择学校开始对比</p>
+              <p class="text-xs text-on-surface-variant/30">Select schools from the left to start comparing</p>
+            </div>
+          </div>
+
+          <!-- Total cost ranking -->
+          <div id="bc-ranking" class="mt-8 hidden">
+            <h2 class="text-lg font-headline font-bold mb-4">总成本排名 Total Cost Ranking (CNY)</h2>
+            <div id="bc-ranking-bars"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="mt-8 p-4 bg-surface-container-low rounded-xl text-xs text-on-surface-variant">
+        <p class="font-bold mb-1">Disclaimer 免责声明</p>
+        <p>Cost estimates are based on 2025-2026 published rates and may vary. Living costs are university-provided estimates. Exchange rates are fetched in real-time from the European Central Bank (ECB). This tool is for reference only; always verify with the university directly.</p>
+        <p class="mt-1">费用数据基于2025-2026学年公布费率，可能有所变动。生活费为大学官方估算。汇率通过欧洲央行实时获取。本工具仅供参考，请以大学官方信息为准。</p>
+        <p class="mt-1 text-on-surface-variant/50">Data source: sdg.undp.ac.cn/tools/budget-calculator | Last updated: {budgetData.meta.lastUpdated}</p>
+      </div>
+    </div>
+  </main>
+
+  <style is:inline>
+    .bc-toggle-group { display: inline-flex; background: #f1f3f2; border-radius: 0.5rem; padding: 3px; gap: 2px; }
+    .bc-toggle {
+      padding: 0.375rem 0.875rem; border-radius: 0.375rem; font-size: 0.8rem; font-weight: 600;
+      border: none; background: transparent; color: #666; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .bc-toggle.active { background: var(--md-sys-color-primary, #042f24); color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    .bc-panel { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 0.75rem; padding: 0.875rem; }
+    .bc-input {
+      width: 100%; padding: 0.4rem 0.6rem; border: 1px solid #d1d5db; border-radius: 0.375rem;
+      font-size: 0.8rem; background: #fff; box-sizing: border-box;
+    }
+    .bc-input:focus { outline: none; border-color: var(--md-sys-color-primary, #042f24); box-shadow: 0 0 0 3px rgba(4,47,36,0.12); }
+    .bc-region-chip {
+      padding: 0.25rem 0.625rem; border-radius: 999px; font-size: 0.7rem; font-weight: 600;
+      border: 1.5px solid rgba(4,47,36,0.2); background: transparent; color: #555; cursor: pointer; transition: all 0.15s;
+    }
+    .bc-region-chip:hover { border-color: var(--md-sys-color-primary, #042f24); }
+    .bc-region-chip.active { background: var(--md-sys-color-primary, #042f24); color: #fff; border-color: var(--md-sys-color-primary, #042f24); }
+    .bc-school-item {
+      display: flex; align-items: center; gap: 8px; padding: 0.375rem 0.5rem; border-radius: 0.375rem;
+      font-size: 0.78rem; cursor: pointer; transition: all 0.12s; border: 1px solid transparent;
+    }
+    .bc-school-item:hover { background: rgba(4,47,36,0.04); }
+    .bc-school-item.selected { background: rgba(4,47,36,0.08); border-color: rgba(4,47,36,0.2); }
+    .bc-school-item.disabled { opacity: 0.35; cursor: not-allowed; }
+    .bc-school-item .bc-rank { font-size: 0.65rem; color: #999; min-width: 24px; text-align: right; }
+    .bc-school-item .bc-sname { flex: 1; line-height: 1.3; }
+    .bc-school-item .bc-scost { font-size: 0.7rem; font-weight: 700; color: var(--md-sys-color-primary, #042f24); white-space: nowrap; }
+    .bc-selected-pill {
+      display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.5rem 0.25rem 0.625rem;
+      background: var(--md-sys-color-primary, #042f24); color: #fff; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 600;
+    }
+    .bc-pill-remove { cursor: pointer; opacity: 0.7; font-size: 14px; line-height: 1; }
+    .bc-pill-remove:hover { opacity: 1; }
+
+    .bc-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 1rem;
+      padding: 1rem; position: relative; transition: box-shadow 0.2s;
+    }
+    .bc-card:hover { box-shadow: 0 4px 20px rgba(4,47,36,0.08); }
+    .bc-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
+    .bc-card-school { font-size: 0.85rem; font-weight: 700; line-height: 1.3; }
+    .bc-card-city { font-size: 0.7rem; color: #888; margin-top: 2px; }
+    .bc-card-close {
+      width: 22px; height: 22px; border-radius: 50%; border: none; background: #f1f1f1;
+      font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #888;
+    }
+    .bc-card-close:hover { background: #fee2e2; color: #dc2626; }
+    .bc-breakdown { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin-bottom: 0.75rem; }
+    .bc-breakdown td { padding: 4px 0; border-bottom: 1px solid #f3f3f3; }
+    .bc-breakdown td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .bc-breakdown tr:last-child td { border-bottom: none; }
+    .bc-total-row td { font-weight: 700; font-size: 0.85rem; border-top: 2px solid #042f24; border-bottom: none; padding-top: 6px; }
+    .bc-total-row td:last-child { color: var(--md-sys-color-primary, #042f24); }
+    .bc-cny-box {
+      background: linear-gradient(135deg, #f0faf6, #e8f5ee); border-radius: 0.5rem; padding: 0.5rem 0.625rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .bc-cny-label { font-size: 0.7rem; color: #555; }
+    .bc-cny-annual { font-size: 0.7rem; color: #555; }
+    .bc-cny-total { font-size: 1.1rem; font-weight: 800; color: var(--md-sys-color-primary, #042f24); }
+    .bc-note { font-size: 0.65rem; color: #999; margin-top: 0.5rem; line-height: 1.3; }
+    .bc-duration-badge {
+      display: inline-block; font-size: 0.6rem; font-weight: 700; background: #f1f3f2;
+      color: #555; padding: 1px 6px; border-radius: 4px; margin-top: 4px;
+    }
+    .bc-empty-state { text-align: center; padding: 3rem; grid-column: 1 / -1; }
+
+    .bc-rank-bar-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.78rem; }
+    .bc-rank-name { width: 200px; text-align: right; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bc-rank-bar { height: 24px; border-radius: 4px; background: var(--md-sys-color-primary, #042f24); transition: width 0.4s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+    .bc-rank-bar span { color: #fff; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
+
+    @media (max-width: 768px) {
+      .bc-toggle { padding: 0.3rem 0.5rem; font-size: 0.7rem; }
+    }
+  </style>
+
+  <script is:inline define:vars={{ budgetDataJSON: JSON.stringify(budgetData) }}>
+    var DATA = JSON.parse(budgetDataJSON);
+    var FALLBACK_RATES = DATA.meta.exchangeRates;
+
+    // State
+    var state = {
+      level: 'ug',
+      field: 'science',
+      activeRegions: [],
+      selectedSchools: [],
+      rates: null,
+      ratesLoaded: false,
+      search: ''
+    };
+
+    // Flatten schools for easy access
+    var allSchools = [];
+    DATA.regions.forEach(function(region) {
+      region.schools.forEach(function(school) {
+        allSchools.push({
+          regionId: region.id,
+          regionName: region.name,
+          regionNameCn: region.nameCn,
+          currency: region.currency,
+          commonCosts: region.commonCosts,
+          school: school
+        });
+      });
+    });
+
+    // === EXCHANGE RATES ===
+    function fetchRates() {
+      var statusEl = document.getElementById('bc-rate-status');
+      fetch('https://api.frankfurter.app/latest?from=CNY')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          // frankfurter returns rates FROM CNY, we need TO CNY
+          // So 1 CNY = X USD means 1 USD = 1/X CNY
+          state.rates = {};
+          Object.keys(data.rates).forEach(function(cur) {
+            state.rates[cur] = 1 / data.rates[cur];
+          });
+          state.rates['CNY'] = 1;
+          state.ratesLoaded = true;
+          statusEl.textContent = 'Exchange rates updated: ' + data.date + ' (ECB)';
+          renderCards();
+        })
+        .catch(function() {
+          // Fallback to static rates
+          state.rates = {};
+          Object.keys(FALLBACK_RATES).forEach(function(cur) {
+            if (cur !== 'note') state.rates[cur] = FALLBACK_RATES[cur];
+          });
+          state.rates['CNY'] = 1;
+          state.ratesLoaded = true;
+          statusEl.textContent = 'Using fallback exchange rates (live rates unavailable)';
+          renderCards();
+        });
+    }
+
+    function toCNY(amount, currency) {
+      if (!state.rates || !state.rates[currency]) return amount * (FALLBACK_RATES[currency] || 1);
+      return amount * state.rates[currency];
+    }
+
+    function fmtNum(n) {
+      if (n === null || n === undefined) return '-';
+      return n.toLocaleString('en-US');
+    }
+
+    function fmtCNY(n) {
+      if (n === null || n === undefined) return '-';
+      return '\u00A5' + Math.round(n).toLocaleString('en-US');
+    }
+
+    // === GET COST DATA FOR A SCHOOL ===
+    function getSchoolCost(entry) {
+      var prog = entry.school.programs[state.level];
+      if (!prog) return null;
+      var disc = prog[state.field];
+      if (!disc) return null;
+      return {
+        tuition: disc.tuition,
+        living: disc.living,
+        insurance: disc.insurance,
+        total: disc.total,
+        note: disc.note || null,
+        duration: prog.duration,
+        visa: entry.commonCosts.visa || 0,
+        visaNote: entry.commonCosts.visaNote || '',
+        currency: entry.currency,
+        nhsSurcharge: entry.commonCosts.nhsSurcharge || 0,
+        nhsNote: entry.commonCosts.nhsSurchargeNote || ''
+      };
+    }
+
+    // === DOM ===
+    document.addEventListener('DOMContentLoaded', function() {
+      var regionChips = document.getElementById('bc-region-chips');
+      var schoolList = document.getElementById('bc-school-list');
+      var schoolCount = document.getElementById('bc-school-count');
+      var searchInput = document.getElementById('bc-search');
+      var selectedBar = document.getElementById('bc-selected-bar');
+      var cardsEl = document.getElementById('bc-cards');
+      var rankingEl = document.getElementById('bc-ranking');
+      var rankingBars = document.getElementById('bc-ranking-bars');
+
+      // Level toggles
+      document.getElementById('bc-level-group').querySelectorAll('.bc-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.getElementById('bc-level-group').querySelectorAll('.bc-toggle').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.level = btn.dataset.level;
+          renderSchoolList();
+          renderCards();
+        });
+      });
+
+      // Field toggles
+      document.getElementById('bc-field-group').querySelectorAll('.bc-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.getElementById('bc-field-group').querySelectorAll('.bc-toggle').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.field = btn.dataset.field;
+          renderSchoolList();
+          renderCards();
+        });
+      });
+
+      // Region chips
+      function renderRegionChips() {
+        var html = '<button class="bc-region-chip active" data-region="all">\u5168\u90E8 All</button>';
+        DATA.regions.forEach(function(r) {
+          html += '<button class="bc-region-chip" data-region="' + r.id + '">' + r.nameCn + ' ' + r.schools.length + '</button>';
+        });
+        regionChips.innerHTML = html;
+        regionChips.querySelectorAll('.bc-region-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            var rid = chip.dataset.region;
+            if (rid === 'all') {
+              state.activeRegions = [];
+              regionChips.querySelectorAll('.bc-region-chip').forEach(function(c) { c.classList.remove('active'); });
+              chip.classList.add('active');
+            } else {
+              regionChips.querySelector('[data-region="all"]').classList.remove('active');
+              chip.classList.toggle('active');
+              var active = [];
+              regionChips.querySelectorAll('.bc-region-chip.active').forEach(function(c) {
+                if (c.dataset.region !== 'all') active.push(c.dataset.region);
+              });
+              state.activeRegions = active;
+              if (active.length === 0) {
+                regionChips.querySelector('[data-region="all"]').classList.add('active');
+              }
+            }
+            renderSchoolList();
+          });
+        });
+      }
+
+      // Search
+      searchInput.addEventListener('input', function() {
+        state.search = searchInput.value.toLowerCase();
+        renderSchoolList();
+      });
+
+      // School list
+      function renderSchoolList() {
+        var filtered = allSchools.filter(function(entry) {
+          // Region filter
+          if (state.activeRegions.length > 0 && state.activeRegions.indexOf(entry.regionId) === -1) return false;
+          // Search filter
+          if (state.search) {
+            var q = state.search;
+            var s = entry.school;
+            var match = s.name.toLowerCase().indexOf(q) !== -1 ||
+                        (s.nameCn && s.nameCn.indexOf(q) !== -1) ||
+                        s.city.toLowerCase().indexOf(q) !== -1 ||
+                        entry.regionNameCn.indexOf(q) !== -1;
+            if (!match) return false;
+          }
+          return true;
+        });
+
+        // Sort by annual total cost for current selection
+        filtered.sort(function(a, b) {
+          var ca = getSchoolCost(a);
+          var cb = getSchoolCost(b);
+          var va = ca ? toCNY(ca.total, a.currency) : Infinity;
+          var vb = cb ? toCNY(cb.total, b.currency) : Infinity;
+          return va - vb;
+        });
+
+        var html = '';
+        filtered.forEach(function(entry) {
+          var s = entry.school;
+          var cost = getSchoolCost(entry);
+          var isSelected = state.selectedSchools.some(function(sel) { return sel.school.id === s.id && sel.regionId === entry.regionId; });
+          var isFull = state.selectedSchools.length >= 4 && !isSelected;
+          var cls = 'bc-school-item' + (isSelected ? ' selected' : '') + (isFull ? ' disabled' : '');
+          var costStr = cost ? fmtCNY(toCNY(cost.total, entry.currency)) + '/yr' : 'N/A';
+          html += '<div class="' + cls + '" data-sid="' + entry.regionId + '_' + s.id + '">';
+          html += '<span class="bc-rank">#' + (s.qsRank || '?') + '</span>';
+          html += '<span class="bc-sname"><span style="font-weight:600;">' + escH(s.name) + '</span>';
+          if (s.nameCn) html += '<br><span style="font-size:0.7rem;color:#888;">' + escH(s.nameCn) + '</span>';
+          html += '</span>';
+          html += '<span class="bc-scost">' + costStr + '</span>';
+          html += '</div>';
+        });
+
+        schoolList.innerHTML = html || '<div style="text-align:center;padding:1rem;color:#999;font-size:0.8rem;">No schools match filters</div>';
+        schoolCount.textContent = filtered.length + ' / ' + allSchools.length;
+
+        // Bind clicks
+        schoolList.querySelectorAll('.bc-school-item').forEach(function(item) {
+          item.addEventListener('click', function() {
+            if (item.classList.contains('disabled')) return;
+            var sid = item.dataset.sid;
+            var parts = sid.split('_');
+            var regionId = parts[0];
+            var schoolId = parts.slice(1).join('_');
+            var idx = state.selectedSchools.findIndex(function(sel) { return sel.regionId === regionId && sel.school.id === schoolId; });
+            if (idx !== -1) {
+              state.selectedSchools.splice(idx, 1);
+            } else if (state.selectedSchools.length < 4) {
+              var entry = allSchools.find(function(e) { return e.regionId === regionId && e.school.id === schoolId; });
+              if (entry) state.selectedSchools.push(entry);
+            }
+            renderSchoolList();
+            renderCards();
+          });
+        });
+      }
+
+      // Selected bar
+      function renderSelectedBar() {
+        var html = '<span class="text-xs text-on-surface-variant">\u5BF9\u6BD4\u4E2D Comparing:</span>';
+        if (state.selectedSchools.length === 0) {
+          html += '<span class="text-xs text-on-surface-variant/50">\u672A\u9009\u62E9 None selected</span>';
+        }
+        state.selectedSchools.forEach(function(entry, i) {
+          html += '<span class="bc-selected-pill">' + escH(entry.school.nameCn || entry.school.name);
+          html += '<span class="bc-pill-remove" data-idx="' + i + '">\u00D7</span></span>';
+        });
+        selectedBar.innerHTML = html;
+        selectedBar.querySelectorAll('.bc-pill-remove').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            state.selectedSchools.splice(parseInt(btn.dataset.idx), 1);
+            renderSchoolList();
+            renderCards();
+          });
+        });
+      }
+
+      // Cards
+      function renderCards() {
+        renderSelectedBar();
+        if (state.selectedSchools.length === 0) {
+          cardsEl.innerHTML = '<div class="bc-empty-state"><span class="material-symbols-outlined text-4xl text-on-surface-variant/20">school</span><p class="text-sm text-on-surface-variant/50 mt-2">\u4ECE\u5DE6\u4FA7\u9009\u62E9\u5B66\u6821\u5F00\u59CB\u5BF9\u6BD4</p><p class="text-xs text-on-surface-variant/30">Select schools from the left to start comparing</p></div>';
+          rankingEl.classList.add('hidden');
+          return;
+        }
+
+        var html = '';
+        state.selectedSchools.forEach(function(entry, i) {
+          var cost = getSchoolCost(entry);
+          var s = entry.school;
+          html += '<div class="bc-card">';
+          html += '<div class="bc-card-header">';
+          html += '<div><div class="bc-card-school">' + escH(s.nameCn || s.name) + '</div>';
+          html += '<div class="bc-card-city">' + escH(s.city) + ' | ' + escH(entry.regionNameCn) + ' | QS #' + (s.qsRank || '?') + '</div>';
+          if (cost) html += '<span class="bc-duration-badge">' + cost.duration + ' \u5E74 years</span>';
+          html += '</div>';
+          html += '<button class="bc-card-close" data-cidx="' + i + '">\u00D7</button>';
+          html += '</div>';
+
+          if (!cost) {
+            html += '<div style="text-align:center;padding:1rem;color:#999;font-size:0.8rem;">No data for this program / \u65E0\u6B64\u9879\u76EE\u6570\u636E</div>';
+          } else {
+            var cur = cost.currency;
+            var sym = cur === 'JPY' ? '\u00A5' : cur === 'GBP' ? '\u00A3' : cur === 'EUR' ? '\u20AC' : cur === 'KRW' ? '\u20A9' : cur === 'CNY' ? '\u00A5' : (cur === 'USD' || cur === 'AUD' || cur === 'CAD' || cur === 'HKD' || cur === 'SGD' || cur === 'NZD') ? '$' : '';
+            var fmtC = function(n) { return sym + fmtNum(n) + ' ' + cur; };
+
+            html += '<table class="bc-breakdown">';
+            html += '<tr><td>\u5B66\u8D39 Tuition</td><td>' + fmtC(cost.tuition) + '</td></tr>';
+            html += '<tr><td>\u751F\u6D3B\u8D39 Living</td><td>' + fmtC(cost.living) + '</td></tr>';
+            html += '<tr><td>\u4FDD\u9669 Insurance</td><td>' + fmtC(cost.insurance) + '</td></tr>';
+            if (cost.nhsSurcharge) {
+              html += '<tr><td>NHS Surcharge</td><td>' + fmtC(cost.nhsSurcharge) + '</td></tr>';
+            }
+            html += '<tr class="bc-total-row"><td>\u5E74\u8D39 Annual</td><td>' + fmtC(cost.total + (cost.nhsSurcharge || 0)) + '</td></tr>';
+            html += '</table>';
+
+            // Visa (one-time)
+            if (cost.visa) {
+              html += '<div style="font-size:0.7rem;color:#888;margin-bottom:6px;">\u7B7E\u8BC1 Visa: ' + fmtC(cost.visa) + (cost.visaNote ? ' (' + escH(cost.visaNote) + ')' : '') + '</div>';
+            }
+
+            // CNY conversion box
+            var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0), cur);
+            var totalCNY = annualCNY * cost.duration + toCNY(cost.visa || 0, cur);
+            html += '<div class="bc-cny-box">';
+            html += '<div><div class="bc-cny-label">\u603B\u8D39\u7528 Total (' + cost.duration + '\u5E74+\u7B7E\u8BC1)</div>';
+            html += '<div class="bc-cny-annual">\u00A5' + fmtNum(Math.round(annualCNY)) + '/year</div></div>';
+            html += '<div class="bc-cny-total">' + fmtCNY(totalCNY) + '</div>';
+            html += '</div>';
+
+            if (cost.note) {
+              html += '<div class="bc-note">' + escH(cost.note) + '</div>';
+            }
+          }
+          html += '</div>';
+        });
+
+        cardsEl.innerHTML = html;
+
+        // Bind card close buttons
+        cardsEl.querySelectorAll('.bc-card-close').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            state.selectedSchools.splice(parseInt(btn.dataset.cidx), 1);
+            renderSchoolList();
+            renderCards();
+          });
+        });
+
+        // Render ranking
+        renderRanking();
+      }
+
+      function renderRanking() {
+        if (state.selectedSchools.length < 2) {
+          rankingEl.classList.add('hidden');
+          return;
+        }
+        rankingEl.classList.remove('hidden');
+
+        var items = [];
+        state.selectedSchools.forEach(function(entry) {
+          var cost = getSchoolCost(entry);
+          if (!cost) return;
+          var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0), cost.currency);
+          var totalCNY = annualCNY * cost.duration + toCNY(cost.visa || 0, cost.currency);
+          items.push({ name: entry.school.nameCn || entry.school.name, totalCNY: totalCNY, duration: cost.duration });
+        });
+
+        items.sort(function(a, b) { return a.totalCNY - b.totalCNY; });
+        var maxCNY = items.length > 0 ? items[items.length - 1].totalCNY : 1;
+
+        var html = '';
+        items.forEach(function(item) {
+          var pct = Math.max(10, (item.totalCNY / maxCNY) * 100);
+          html += '<div class="bc-rank-bar-wrap">';
+          html += '<span class="bc-rank-name">' + escH(item.name) + ' (' + item.duration + '\u5E74)</span>';
+          html += '<div class="bc-rank-bar" style="width:' + pct + '%;max-width:calc(100% - 220px);">';
+          html += '<span>' + fmtCNY(item.totalCNY) + '</span>';
+          html += '</div></div>';
+        });
+        rankingBars.innerHTML = html;
+      }
+
+      function escH(s) {
+        var d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+
+      // Init
+      renderRegionChips();
+      renderSchoolList();
+      renderCards();
+      fetchRates();
+    });
+  </script>
+</MainLayout>
