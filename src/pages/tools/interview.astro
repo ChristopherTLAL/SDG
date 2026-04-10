@@ -748,16 +748,13 @@ function pickRandomQuestion() {
 
 function goToQuestion(idx) {
   if (idx < 0 || idx >= state.questions.length) return;
-  // Stop any in-progress recording/timer
+  // Stop any in-progress recording/timer — discard the recording
   clearInterval(state.timer);
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+    state.mediaRecorder.onstop = null; // detach so handleAudioReady doesn't fire
     state.mediaRecorder.stop();
   }
-  if (state.mediaStream) {
-    state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
-    state.mediaStream = null;
-  }
-  document.getElementById('iv-video-preview').srcObject = null;
+  stopMediaTracks();
   state.qIndex = idx;
   state.visited[idx] = true;
   resetPracticeUI();
@@ -1100,15 +1097,22 @@ function finishRecording() {
   clearInterval(state.timer);
   state.phase = 'review';
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+    // Let onstop handler (handleAudioReady) deal with cleanup and playback
+    // Do NOT stop tracks here — MediaRecorder needs them alive to flush final data
     state.mediaRecorder.stop();
+  } else {
+    // Not recording (e.g. non-recording mode) — clean up immediately
+    stopMediaTracks();
+    enterReviewPhase();
   }
-  // Stop all tracks (mic + camera)
+}
+
+function stopMediaTracks() {
   if (state.mediaStream) {
     state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
     state.mediaStream = null;
   }
   document.getElementById('iv-video-preview').srcObject = null;
-  enterReviewPhase();
 }
 
 function enterReviewPhase() {
@@ -1125,6 +1129,9 @@ function enterReviewPhase() {
 }
 
 function handleAudioReady() {
+  // Now safe to stop tracks — all data has been flushed
+  stopMediaTracks();
+
   var mime = state.mimeType || 'audio/webm';
   var blob = new Blob(state.audioChunks, { type: mime });
   if (state.audioBlobURL) URL.revokeObjectURL(state.audioBlobURL);
@@ -1155,6 +1162,9 @@ function handleAudioReady() {
   var dl = document.getElementById('iv-download');
   dl.href = state.audioBlobURL;
   dl.download = fileName;
+
+  // Now enter review phase (after playback is ready)
+  enterReviewPhase();
 }
 
 function detectAudioFormat() {
@@ -1207,15 +1217,12 @@ function exitPractice() {
   // Cleanup
   clearInterval(state.timer);
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
+    state.mediaRecorder.onstop = null;
     state.mediaRecorder.stop();
   }
-  if (state.mediaStream) {
-    state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
-    state.mediaStream = null;
-  }
+  stopMediaTracks();
   // Reset video UI
   document.getElementById('iv-video-area').classList.add('hidden');
-  document.getElementById('iv-video-preview').srcObject = null;
   state.videoMode = false;
   state.hasVideo = false;
 }
