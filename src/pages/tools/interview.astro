@@ -685,8 +685,9 @@ var state = {
 // SCREEN MANAGEMENT
 // ============================================================
 function showScreen(id) {
-  ['screen-mode', 'screen-subject', 'screen-import', 'screen-practice', 'screen-dashboard'].forEach(function(s) {
-    document.getElementById(s).classList.add('hidden');
+  ['screen-mode', 'screen-subject', 'screen-import', 'screen-practice'].forEach(function(s) {
+    var el = document.getElementById(s);
+    if (el) el.classList.add('hidden');
   });
   var el = document.getElementById('screen-' + id);
   el.classList.remove('hidden');
