@@ -87,10 +87,10 @@ const lang = 'en';
               <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-sky-600 text-white">83 Qs</span>
             </div>
             <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-sky-700 transition-colors">Kira Talent (Video Interview)</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Timed video interview questions used by top business schools (Rotman, Ivey, INSEAD, LBS).</p>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Timed video interview questions used by top business schools. Camera + mic recording simulates the real Kira experience.</p>
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 30s + 90s</span>
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic</span> Recording</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">videocam</span> Video Rec</span>
             </div>
           </button>
 
@@ -372,12 +372,28 @@ const lang = 'en';
             </div>
           </div>
 
-          <!-- Audio Playback -->
+          <!-- Video Preview (Kira mode) -->
+          <div id="iv-video-area" class="hidden mb-6">
+            <div class="relative rounded-2xl overflow-hidden bg-black aspect-video max-w-lg mx-auto border-2 border-outline-variant/10">
+              <video id="iv-video-preview" autoplay muted playsinline class="w-full h-full object-cover"></video>
+              <div id="iv-video-off" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-white/60">
+                <span class="material-symbols-outlined text-4xl mb-2">videocam_off</span>
+                <span class="text-xs font-bold">Camera unavailable — audio only</span>
+              </div>
+              <div id="iv-video-rec-dot" class="hidden absolute top-3 right-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm rounded-full px-2.5 py-1">
+                <span class="w-2.5 h-2.5 bg-rose-500 rounded-full animate-pulse"></span>
+                <span class="text-white text-[10px] font-bold tracking-wider">REC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Playback (audio or video) -->
           <div id="iv-audio-area" class="hidden flex flex-col items-center bg-primary/5 rounded-2xl p-6 border-2 border-primary/10 mb-6">
             <div class="flex items-center text-primary font-bold mb-3">
               <span class="material-symbols-outlined text-xl mr-2">check_circle</span> Response recorded
             </div>
             <audio id="iv-audio-player" controls class="w-full max-w-lg mb-4 shadow-sm rounded-full"></audio>
+            <video id="iv-video-player" controls class="hidden w-full max-w-lg mb-4 rounded-xl shadow-sm"></video>
             <div class="flex gap-3">
               <a id="iv-download" class="px-4 py-2 bg-white border border-primary/20 text-primary font-semibold text-sm rounded-xl hover:bg-primary/5 transition-colors cursor-pointer flex items-center gap-1">
                 <span class="material-symbols-outlined text-base">download</span> Download
@@ -415,6 +431,12 @@ const lang = 'en';
   @keyframes pulse-orange { 0% { color: #f97316; } 50% { color: #ea580c; text-shadow: 0 0 10px rgba(234,88,12,0.3); } 100% { color: #f97316; } }
   .iv-tab-active { background: var(--md-sys-color-primary, #042f24); color: white; }
   .iv-rate-btn.selected { transform: scale(1.15); box-shadow: 0 0 0 3px rgba(4,47,36,0.2); }
+  /* Rich text formatting in questions/materials */
+  #iv-material-text code, #iv-q-main code { background: rgba(0,0,0,0.06); padding: 0.1em 0.35em; border-radius: 0.25rem; font-size: 0.9em; font-family: ui-monospace, 'SF Mono', 'Cascadia Code', monospace; }
+  #iv-material-text pre { background: rgba(0,0,0,0.04); border-radius: 0.5rem; padding: 0.75rem 1rem; overflow-x: auto; margin: 0.5rem 0; }
+  #iv-material-text pre code { background: none; padding: 0; font-size: 0.85em; }
+  #iv-material-text strong, #iv-q-main strong { font-weight: 700; }
+  #iv-material-text em, #iv-q-main em { font-style: italic; }
 </style>
 
 <script is:inline>
@@ -429,7 +451,7 @@ var BANK_REGISTRY = {
   hku:        { file: '/data/interview/hku.json', prepTime: 30, answerTime: 120, recording: true },
   general:    { file: '/data/interview/general.json', prepTime: 10, answerTime: 120, recording: true },
   oxbridge:   { file: '/data/interview/oxbridge.json', prepTime: -1, answerTime: 0, recording: true },
-  kira:       { file: '/data/interview/kira.json', prepTime: 30, answerTime: 90, recording: true },
+  kira:       { file: '/data/interview/kira.json', prepTime: 30, answerTime: 90, recording: true, video: true },
   faang:      { file: '/data/interview/faang.json', prepTime: -1, answerTime: 0, recording: false },
   consulting: { file: '/data/interview/consulting.json', prepTime: -1, answerTime: 0, recording: false },
   banking:    { file: '/data/interview/banking.json', prepTime: -1, answerTime: 0, recording: false },
@@ -471,6 +493,8 @@ var state = {
   prepTime: 30,
   answerTime: 120,
   recording: true,
+  videoMode: false,   // true for Kira-style video recording
+  hasVideo: false,    // true if camera access was granted
   mediaRecorder: null,
   audioChunks: [],
   audioBlobURL: null,
@@ -530,6 +554,8 @@ function selectMode(mode) {
     state.prepTime = reg.prepTime;
     state.answerTime = reg.answerTime;
     state.recording = reg.recording;
+    state.videoMode = !!reg.video;
+    state.hasVideo = false;
     state.questions = questions.map(function(q, i) { return Object.assign({_idx: i}, q); });
     pickRandomQuestion();
     showScreen('practice');
@@ -692,8 +718,12 @@ function goToQuestion(idx) {
   clearInterval(state.timer);
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
     state.mediaRecorder.stop();
-    state.mediaRecorder.stream.getTracks().forEach(function(t) { t.stop(); });
   }
+  if (state.mediaStream) {
+    state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
+    state.mediaStream = null;
+  }
+  document.getElementById('iv-video-preview').srcObject = null;
   state.qIndex = idx;
   state.visited[idx] = true;
   resetPracticeUI();
@@ -743,8 +773,8 @@ function displayCurrentQuestion() {
   // Main question text
   var mainText = q.text || q.en || q.main || q.question || '';
   var subText = q.cn || '';
-  document.getElementById('iv-q-main').textContent = mainText;
-  document.getElementById('iv-q-sub').textContent = subText;
+  document.getElementById('iv-q-main').innerHTML = mainText;
+  document.getElementById('iv-q-sub').innerHTML = subText;
 
   // Category badge
   var catBadge = document.getElementById('iv-cat-badge');
@@ -763,7 +793,7 @@ function displayCurrentQuestion() {
   var matEl = document.getElementById('iv-material');
   if (q.material) {
     matEl.classList.remove('hidden');
-    document.getElementById('iv-material-text').textContent = q.material;
+    document.getElementById('iv-material-text').innerHTML = q.material;
   } else {
     matEl.classList.add('hidden');
   }
@@ -835,8 +865,14 @@ function resetPracticeUI() {
 
   // Audio
   document.getElementById('iv-audio-area').classList.add('hidden');
+  document.getElementById('iv-video-area').classList.add('hidden');
   if (state.audioBlobURL) { URL.revokeObjectURL(state.audioBlobURL); state.audioBlobURL = null; }
   document.getElementById('iv-audio-player').src = '';
+  document.getElementById('iv-video-player').src = '';
+  document.getElementById('iv-video-player').classList.add('hidden');
+  document.getElementById('iv-audio-player').classList.remove('hidden');
+  var recDot = document.getElementById('iv-video-rec-dot');
+  if (recDot) recDot.classList.add('hidden');
 
   // Timer area visible
   timerArea.classList.remove('hidden');
@@ -856,16 +892,45 @@ document.getElementById('iv-analysis-btn').addEventListener('click', function() 
 
 async function handleMainAction() {
   if (state.phase === 'idle') {
-    // For recording modes: request mic first
+    // For recording modes: request mic (and optionally camera) first
     if (state.recording) {
-      document.getElementById('iv-btn-text').textContent = 'Requesting microphone...';
-      try {
-        state.mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        detectAudioFormat();
-      } catch(err) {
-        alert('Please allow microphone access to use recording mode.');
-        document.getElementById('iv-btn-text').textContent = 'Start';
-        return;
+      if (state.videoMode) {
+        document.getElementById('iv-btn-text').textContent = 'Requesting camera & microphone...';
+        try {
+          state.mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: 'user' } });
+          state.hasVideo = true;
+          detectVideoFormat();
+        } catch(err) {
+          // Camera denied — fall back to audio only with black screen
+          try {
+            state.mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            state.hasVideo = false;
+            detectAudioFormat();
+          } catch(err2) {
+            alert('Please allow at least microphone access to use recording mode.');
+            document.getElementById('iv-btn-text').textContent = 'Start';
+            return;
+          }
+        }
+        // Show video area
+        document.getElementById('iv-video-area').classList.remove('hidden');
+        if (state.hasVideo) {
+          document.getElementById('iv-video-preview').srcObject = state.mediaStream;
+          document.getElementById('iv-video-off').classList.add('hidden');
+        } else {
+          document.getElementById('iv-video-preview').srcObject = null;
+          document.getElementById('iv-video-off').classList.remove('hidden');
+        }
+      } else {
+        document.getElementById('iv-btn-text').textContent = 'Requesting microphone...';
+        try {
+          state.mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          detectAudioFormat();
+        } catch(err) {
+          alert('Please allow microphone access to use recording mode.');
+          document.getElementById('iv-btn-text').textContent = 'Start';
+          return;
+        }
       }
     }
     enterPrepPhase();
@@ -970,6 +1035,12 @@ function enterRecordPhase() {
   state.mediaRecorder.onstop = handleAudioReady;
   state.mediaRecorder.start();
 
+  // Show REC dot on video preview
+  if (state.videoMode) {
+    var recDot = document.getElementById('iv-video-rec-dot');
+    if (recDot) recDot.classList.remove('hidden');
+  }
+
   if (state.answerTime > 0) {
     state.timeLeft = state.answerTime;
     updateTimerDisplay();
@@ -994,8 +1065,13 @@ function finishRecording() {
   state.phase = 'review';
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
     state.mediaRecorder.stop();
-    state.mediaRecorder.stream.getTracks().forEach(function(t) { t.stop(); });
   }
+  // Stop all tracks (mic + camera)
+  if (state.mediaStream) {
+    state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
+    state.mediaStream = null;
+  }
+  document.getElementById('iv-video-preview').srcObject = null;
   enterReviewPhase();
 }
 
@@ -1018,11 +1094,27 @@ function handleAudioReady() {
   if (state.audioBlobURL) URL.revokeObjectURL(state.audioBlobURL);
   state.audioBlobURL = URL.createObjectURL(blob);
 
-  document.getElementById('iv-audio-player').src = state.audioBlobURL;
+  var isVideo = state.videoMode && state.hasVideo;
+  var audioPlayer = document.getElementById('iv-audio-player');
+  var videoPlayer = document.getElementById('iv-video-player');
+
+  if (isVideo) {
+    audioPlayer.classList.add('hidden');
+    videoPlayer.classList.remove('hidden');
+    videoPlayer.src = state.audioBlobURL;
+  } else {
+    audioPlayer.classList.remove('hidden');
+    videoPlayer.classList.add('hidden');
+    audioPlayer.src = state.audioBlobURL;
+  }
   document.getElementById('iv-audio-area').classList.remove('hidden');
 
-  var q = state.questions[state.qIndex];
-  var prefix = state.mode === 'hku' ? 'HKU' : (state.mode === 'oxbridge' ? 'Oxbridge' : 'Interview');
+  // Hide video preview, hide REC dot
+  document.getElementById('iv-video-area').classList.add('hidden');
+  var recDot = document.getElementById('iv-video-rec-dot');
+  if (recDot) recDot.classList.add('hidden');
+
+  var prefix = state.mode === 'hku' ? 'HKU' : (state.mode === 'oxbridge' ? 'Oxbridge' : (state.mode === 'kira' ? 'Kira' : 'Interview'));
   var fileName = prefix + '_Q' + (state.qIndex + 1) + '_' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + state.fileExt;
   var dl = document.getElementById('iv-download');
   dl.href = state.audioBlobURL;
@@ -1047,6 +1139,24 @@ function detectAudioFormat() {
   state.fileExt = '.weba';
 }
 
+function detectVideoFormat() {
+  var types = [
+    { mime: 'video/mp4', ext: '.mp4' },
+    { mime: 'video/webm;codecs=vp9,opus', ext: '.webm' },
+    { mime: 'video/webm;codecs=vp8,opus', ext: '.webm' },
+    { mime: 'video/webm', ext: '.webm' }
+  ];
+  for (var i = 0; i < types.length; i++) {
+    if (MediaRecorder.isTypeSupported(types[i].mime)) {
+      state.mimeType = types[i].mime;
+      state.fileExt = types[i].ext;
+      return;
+    }
+  }
+  // Fall back to audio format detection if no video format works
+  detectAudioFormat();
+}
+
 function updateTimerDisplay() {
   var t = Math.abs(state.timeLeft);
   var m = Math.floor(t / 60).toString().padStart(2, '0');
@@ -1062,8 +1172,16 @@ function exitPractice() {
   clearInterval(state.timer);
   if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
     state.mediaRecorder.stop();
-    state.mediaRecorder.stream.getTracks().forEach(function(t) { t.stop(); });
   }
+  if (state.mediaStream) {
+    state.mediaStream.getTracks().forEach(function(t) { t.stop(); });
+    state.mediaStream = null;
+  }
+  // Reset video UI
+  document.getElementById('iv-video-area').classList.add('hidden');
+  document.getElementById('iv-video-preview').srcObject = null;
+  state.videoMode = false;
+  state.hasVideo = false;
 }
 
 </script>
