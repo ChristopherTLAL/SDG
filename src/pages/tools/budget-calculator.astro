@@ -490,7 +490,8 @@ const lang = 'en';
         visaNote: entry.commonCosts.visaNote || '',
         currency: entry.currency,
         nhsSurcharge: entry.commonCosts.nhsSurcharge || 0,
-        nhsNote: entry.commonCosts.nhsSurchargeNote || ''
+        nhsNote: entry.commonCosts.nhsSurchargeNote || '',
+        travel: entry.commonCosts.travel || 0
       };
     }
 
@@ -621,7 +622,7 @@ const lang = 'en';
         var isSelected = state.selectedSchools.some(function(sel) { return sel.school.id === s.id && sel.regionId === entry.regionId; });
         var isFull = state.selectedSchools.length >= MAX_SCHOOLS && !isSelected;
         var cls = 'bc-school-card' + (isSelected ? ' selected' : '') + (isFull ? ' disabled' : '');
-        var costStr = cost ? fmtWan(toCNY(cost.total, entry.currency)) + '/yr' : '\u65E0\u6B64\u4E13\u4E1A';
+        var costStr = cost ? fmtWan(toCNY(cost.total + (cost.nhsSurcharge || 0) + (cost.travel || 0), entry.currency)) + '/yr' : '\u65E0\u6B64\u4E13\u4E1A';
         var noData = !cost;
 
         html += '<div class="' + cls + (noData ? ' bc-no-data' : '') + '" data-sid="' + entry.regionId + '_' + s.id + '">';
@@ -722,7 +723,10 @@ const lang = 'en';
           if (cost.nhsSurcharge > 0) {
             html += '<tr><td>NHS \u533B\u7597\u9644\u52A0\u8D39</td><td>' + fmtC(cost.nhsSurcharge) + '</td></tr>';
           }
-          var annualTotal = cost.total + (cost.nhsSurcharge || 0);
+          if (cost.travel > 0) {
+            html += '<tr><td>\u673A\u7968\u6742\u9879 Travel/Misc</td><td>' + fmtC(cost.travel) + '</td></tr>';
+          }
+          var annualTotal = cost.total + (cost.nhsSurcharge || 0) + (cost.travel || 0);
           html += '<tr class="bc-total-row"><td>\u5E74\u8D39 Annual</td><td>' + fmtC(annualTotal) + '</td></tr>';
           html += '</table>';
 
@@ -782,7 +786,7 @@ const lang = 'en';
       state.selectedSchools.forEach(function(entry) {
         var cost = getSchoolCost(entry);
         if (!cost) return;
-        var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0), cost.currency);
+        var annualCNY = toCNY(cost.total + (cost.nhsSurcharge || 0) + (cost.travel || 0), cost.currency);
         var totalCNY = yrs === 1 ? annualCNY : annualCNY * yrs + toCNY(cost.visa || 0, cost.currency);
         items.push({ name: entry.school.nameCn || entry.school.name, totalCNY: totalCNY });
       });
