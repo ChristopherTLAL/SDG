@@ -55,9 +55,9 @@ const lang = 'en';
               <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-600 text-white" id="oxbridge-count">13 Subjects · 239 Qs</span>
             </div>
             <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-amber-700 transition-colors">Oxbridge Tutorial Interview</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Read a question or passage, 3-second pause, then respond freely with no time limit.</p>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Read a question or passage at your own pace, then click to start recording with no time limit.</p>
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 3s + Unlimited</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">menu_book</span> Read + Click</span>
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic</span> Recording</span>
             </div>
           </button>
@@ -170,8 +170,12 @@ const lang = 'en';
           </h3>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label class="text-xs font-bold text-on-surface-variant/60 block mb-1">Prep Time (seconds)</label>
-              <input type="number" id="custom-prep" value="10" min="0" max="300" class="w-full border border-outline-variant/20 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary/40" />
+              <label class="text-xs font-bold text-on-surface-variant/60 block mb-1">Prep Timer</label>
+              <select id="custom-prep-toggle" onchange="document.getElementById('custom-prep-seconds').classList.toggle('hidden', this.value==='off')" class="w-full border border-outline-variant/20 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary/40 mb-2">
+                <option value="off">Off (click when ready)</option>
+                <option value="on">Timed countdown</option>
+              </select>
+              <input type="number" id="custom-prep-seconds" value="10" min="1" max="300" placeholder="seconds" class="hidden w-full border border-outline-variant/20 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary/40" />
             </div>
             <div>
               <label class="text-xs font-bold text-on-surface-variant/60 block mb-1">Answer Time (seconds, 0 = unlimited)</label>
@@ -756,7 +760,7 @@ function renderSubjectGrid() {
 
 function selectSubject(subjectId) {
   state.subject = subjectId;
-  state.prepTime = 3;
+  state.prepTime = -1; // manual: read at own pace, click to record
   state.answerTime = 0; // unlimited
   state.recording = true;
   state.questions = (OXBRIDGE_QUESTIONS[subjectId] || []).map(function(q, i) { return Object.assign({_idx: i}, q); });
@@ -856,7 +860,8 @@ function startCustomPractice() {
   }
   if (!questions || questions.length === 0) return;
 
-  state.prepTime = parseInt(document.getElementById('custom-prep').value) || 0;
+  var prepToggle = document.getElementById('custom-prep-toggle').value;
+  state.prepTime = prepToggle === 'off' ? -1 : (parseInt(document.getElementById('custom-prep-seconds').value) || 10);
   state.answerTime = parseInt(document.getElementById('custom-answer').value) || 0;
   state.recording = document.getElementById('custom-record').value === 'on';
   state.questions = questions.map(function(q, i) { return Object.assign({_idx: i}, q); });
@@ -1055,6 +1060,9 @@ async function handleMainAction() {
       }
     }
     enterPrepPhase();
+  } else if (state.phase === 'ready') {
+    // Manual prep done, user clicked "Start Recording"
+    enterRecordPhase();
   } else if (state.phase === 'record') {
     finishRecording();
   } else if (state.phase === 'review') {
@@ -1063,7 +1071,7 @@ async function handleMainAction() {
 }
 
 function handleSkip() {
-  if (state.phase === 'prep') enterRecordPhase();
+  if (state.phase === 'prep' || state.phase === 'ready') enterRecordPhase();
   else if (state.phase === 'record') finishRecording();
 }
 
@@ -1077,12 +1085,27 @@ function enterPrepPhase() {
   revealQuestion();
 
   var timerArea = document.getElementById('iv-timer-area');
+  var btnMain = document.getElementById('iv-btn-main');
+
+  // Manual prep mode (prepTime === -1): no countdown, user clicks when ready
+  if (state.prepTime === -1) {
+    timerArea.classList.add('hidden');
+    btnMain.disabled = false;
+    btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-200 hover:bg-rose-700 transition-all flex justify-center items-center gap-2';
+    document.getElementById('iv-btn-icon').textContent = 'mic';
+    document.getElementById('iv-btn-text').textContent = 'Start Recording';
+    document.getElementById('iv-btn-skip').classList.add('hidden');
+    // Override: clicking main button goes to record
+    state.phase = 'ready';
+    return;
+  }
+
+  // Timed prep mode (prepTime > 0): countdown then auto-start
   timerArea.className = 'flex flex-col items-center justify-center rounded-2xl p-6 mb-6 border-2 transition-all duration-300 bg-blue-50 border-blue-200 shadow-inner';
   document.getElementById('iv-timer-label').textContent = 'PREP (' + state.prepTime + 's)';
   document.getElementById('iv-timer-label').className = 'text-xs font-bold uppercase tracking-widest mb-1 text-blue-500';
   document.getElementById('iv-timer-display').className = 'text-6xl font-mono font-black tracking-tighter transition-colors text-blue-600';
 
-  var btnMain = document.getElementById('iv-btn-main');
   btnMain.disabled = true;
   btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-surface-container text-on-surface-variant/50 cursor-not-allowed font-bold text-lg flex justify-center items-center gap-2';
   document.getElementById('iv-btn-icon').textContent = 'hourglass_top';
