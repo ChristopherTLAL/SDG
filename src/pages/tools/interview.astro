@@ -36,7 +36,7 @@ const lang = 'en';
               <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                 <span class="material-symbols-outlined text-primary text-2xl">diversity_3</span>
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-primary text-white">26 Qs</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-primary text-white">22 Qs</span>
             </div>
             <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">HKU Multifaceted Excellence</h3>
             <p class="text-sm text-on-surface-variant leading-relaxed mb-3">30-second reading period, 2-minute timed response with audio recording.</p>
@@ -75,22 +75,6 @@ const lang = 'en';
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 10s + 2min</span>
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic</span> Recording</span>
-            </div>
-          </button>
-
-          <!-- Custom Import Mode -->
-          <button onclick="selectMode('custom')" class="iv-mode-card group text-left bg-white rounded-2xl border border-outline-variant/15 p-6 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-12 h-12 bg-violet-50 rounded-xl flex items-center justify-center group-hover:bg-violet-100 transition-colors">
-                <span class="material-symbols-outlined text-violet-700 text-2xl">upload_file</span>
-              </div>
-              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-violet-600 text-white">DIY</span>
-            </div>
-            <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-violet-700 transition-colors">Import Your Own Questions</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Paste from spreadsheet, upload CSV/JSON, or type questions manually. Fully customizable timing.</p>
-            <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">table</span> CSV/JSON</span>
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">tune</span> Custom Timing</span>
             </div>
           </button>
 
@@ -187,6 +171,22 @@ const lang = 'en';
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 2min + 8min</span>
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic_off</span> No Recording</span>
+            </div>
+          </button>
+
+          <!-- Custom Import Mode (always last) -->
+          <button onclick="selectMode('custom')" class="iv-mode-card group text-left bg-white rounded-2xl border border-outline-variant/15 p-6 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 bg-violet-50 rounded-xl flex items-center justify-center group-hover:bg-violet-100 transition-colors">
+                <span class="material-symbols-outlined text-violet-700 text-2xl">upload_file</span>
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-violet-600 text-white">DIY</span>
+            </div>
+            <h3 class="text-lg font-headline font-bold text-on-surface mb-2 group-hover:text-violet-700 transition-colors">Import Your Own Questions</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Paste from spreadsheet, upload CSV/JSON, or type questions manually. Fully customizable timing.</p>
+            <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">table</span> CSV/JSON</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">tune</span> Custom Timing</span>
             </div>
           </button>
         </div>
@@ -422,365 +422,39 @@ const lang = 'en';
 // QUESTION BANKS
 // ============================================================
 
-var HKU_QUESTIONS = [
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "What are the benefits and drawbacks of remote work for both companies and employees?", cn: "\u8fdc\u7a0b\u5de5\u4f5c\u5bf9\u516c\u53f8\u548c\u5458\u5de5\u6709\u54ea\u4e9b\u5229\u5f0a\uff1f", hint: "\u4e2a\u4eba\u7ef4\u5ea6\uff1a\u7075\u6d3b\u5ea6\u3001\u7701\u901a\u52e4 vs \u5b64\u72ec\u3001\u751f\u6d3b\u5de5\u4f5c\u754c\u9650\u6a21\u7cca\uff1b\u516c\u53f8\u7ef4\u5ea6\uff1a\u7701\u573a\u5730\u8d39\u3001\u5168\u7403\u62a2\u4eba vs \u76d1\u7763\u96be\u3001\u56e2\u961f\u51dd\u805a\u529b\u4e0b\u964d\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "Coworkers vs Work Performance: Which one is more important?", cn: "\u540c\u4e8b\u5173\u7cfb vs \u5de5\u4f5c\u8868\u73b0\uff1a\u54ea\u4e2a\u66f4\u91cd\u8981\uff1f", hint: "\u4e2a\u4eba\uff1a\u8868\u73b0\u597d\u80fd\u5347\u804c\uff1b\u5173\u7cfb\u597d\u63d0\u4f9b\u60c5\u7eea\u4ef7\u503c\u3002\u56e2\u961f\uff1a\u597d\u5173\u7cfb\u964d\u6c9f\u901a\u6210\u672c\u3002\u516c\u53f8\uff1a\u9700\u8981\u56e2\u961f\u534f\u4f5c\u800c\u975e\u5355\u6253\u72ec\u6597\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "Why do big companies introduce new products frequently?", cn: "\u4e3a\u4ec0\u4e48\u5927\u516c\u53f8\u9891\u7e41\u63a8\u51fa\u65b0\u4ea7\u54c1\uff1f", hint: "\u6d88\u8d39\u8005\uff1a\u8fce\u5408\u559c\u65b0\u538c\u65e7\u3002\u7ade\u4e89\u5bf9\u624b\uff1a\u62a2\u5360\u4efd\u989d\u5efa\u58c1\u5792\u3002\u80a1\u4e1c\uff1a\u7ef4\u6301\u54c1\u724c\u70ed\u5ea6\u63a8\u9ad8\u80a1\u4ef7\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "If you were a school president, would you give resources to top students or struggling students?", cn: "\u5982\u679c\u4f60\u662f\u6821\u957f\uff0c\u4f60\u4f1a\u628a\u8d44\u6e90\u7ed9\u597d\u5b66\u751f\u8fd8\u662f\u5dee\u751f\uff1f", hint: "\u597d\u5b66\u751f\uff1a\u56de\u62a5\u7387\u9ad8\u62c9\u6392\u540d\u3002\u5dee\u751f\uff1a\u6258\u5e95\u6548\u5e94\u4e0e\u6559\u80b2\u516c\u5e73\u3002\u5b66\u6821\uff1a\u957f\u8fdc\u54c1\u724c\u58f0\u8a89\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "What are the cultural impacts of tourism on a community?", cn: "\u65c5\u6e38\u4e1a\u5bf9\u4e00\u4e2a\u793e\u533a\u6709\u4ec0\u4e48\u6587\u5316\u5f71\u54cd\uff1f", hint: "\u5c45\u6c11\uff1a\u589e\u6536\u3001\u81ea\u8c6a\u611f vs \u6587\u5316\u8fc7\u5ea6\u5546\u4e1a\u5316\u3002\u6e38\u5ba2\uff1a\u6253\u7834\u523b\u677f\u5370\u8c61\u3002\u653f\u5e9c\uff1a\u7a0e\u6536 vs \u8bbe\u65bd\u7ef4\u62a4\u6210\u672c\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "Discuss the balance between privacy rights and national security.", cn: "\u8ba8\u8bba\u9690\u79c1\u6743\u4e0e\u56fd\u5bb6\u5b89\u5168\u4e4b\u95f4\u7684\u5e73\u8861\u3002", hint: "\u516c\u6c11\uff1a\u9632\u8303\u6743\u529b\u6ee5\u7528\uff0c\u4fdd\u969c\u7cbe\u795e\u5b89\u5168\u611f\u3002\u56fd\u5bb6\u673a\u5668\uff1a\u9632\u8303\u72af\u7f6a\u6050\u6016\u4e3b\u4e49\uff0c\u4fdd\u969c\u7269\u7406\u5b89\u5168\u611f\u3002" },
-  { cat: "Stakeholder Model", catZh: "\u5229\u76ca\u76f8\u5173\u8005\u6a21\u578b", en: "Should university tuition be free for all students?", cn: "\u5927\u5b66\u5b66\u8d39\u5e94\u8be5\u5bf9\u6240\u6709\u5b66\u751f\u514d\u8d39\u5417\uff1f", hint: "\u5b66\u751f\uff1a\u51cf\u8f7b\u8d1f\u503a\u5b9e\u73b0\u9636\u5c42\u8dc3\u5347\u3002\u5b66\u6821\uff1a\u6559\u80b2\u8d44\u6e90\u7a00\u91ca\u3001\u8d22\u653f\u5403\u7d27\u3002\u7eb3\u7a0e\u4eba\uff1a\u8d4b\u7a0e\u52a0\u91cd\u3002" },
-
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "How do you perceive a school\u2019s ranking and its academic atmosphere?", cn: "\u4f60\u5982\u4f55\u770b\u5f85\u4e00\u6240\u5b66\u6821\u7684\u6392\u540d\u53ca\u5176\u5b66\u672f\u6c1b\u56f4\uff1f", hint: "\u6392\u540d\uff08\u786c/\u7269\u8d28\uff09\uff1a\u627e\u5de5\u4f5c\u6572\u95e8\u7816\uff0c\u786c\u4ef6\u4fdd\u969c\u3002\u6c1b\u56f4\uff08\u8f6f/\u7cbe\u795e\uff09\uff1a\u6559\u6388\u542f\u53d1\uff0c\u6821\u53cb\u4e92\u52a9\uff0c\u5851\u9020\u601d\u7ef4\u3002" },
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "Should education focus more on practical skills or academic knowledge?", cn: "\u6559\u80b2\u5e94\u8be5\u66f4\u591a\u5173\u6ce8\u5b9e\u8df5\u6280\u80fd\u8fd8\u662f\u5b66\u672f\u77e5\u8bc6\uff1f", hint: "\u5b9e\u8df5\u6280\u80fd\uff1a\u5de5\u5177\u7406\u6027\uff0c\u8fc5\u901f\u5c31\u4e1a\u3002\u5b66\u672f\u77e5\u8bc6\uff1a\u4ef7\u503c\u7406\u6027\uff0c\u57f9\u517b\u6279\u5224\u6027\u601d\u7ef4\uff0c\u51b3\u5b9a\u804c\u4e1a\u4e0a\u9650\u3002" },
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "Discuss the impact of social media on interpersonal communication.", cn: "\u8ba8\u8bba\u793e\u4ea4\u5a92\u4f53\u5bf9\u4eba\u9645\u6c9f\u901a\u7684\u5f71\u54cd\u3002", hint: "\u5de5\u5177\u6548\u7387\uff1a\u964d\u672c\u589e\u6548\uff0c\u8de8\u8d8a\u5730\u7406\u9650\u5236\u3002\u60c5\u611f\u6df1\u5ea6\uff1a\u7f3a\u4e4f\u975e\u8bed\u8a00\u6697\u793a\uff0c\u5bfc\u81f4\u7fa4\u4f53\u6027\u5b64\u72ec\u548c\u80a4\u6d45\u6c9f\u901a\u3002" },
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "Printed Books vs eBooks: Which do you prefer?", cn: "\u7eb8\u8d28\u4e66 vs \u7535\u5b50\u4e66\uff1a\u4f60\u66f4\u559c\u6b22\u54ea\u4e2a\uff1f", hint: "\u7535\u5b50\u4e66\uff1a\u68c0\u7d22\u5feb\u3001\u73af\u4fdd\u4fbf\u643a\u3002\u7eb8\u8d28\u4e66\uff1a\u7ffb\u9875\u4eea\u5f0f\u611f\uff0c\u8fdc\u79bb\u5c4f\u5e55\u5e26\u6765\u7684\u6df1\u5ea6\u4e13\u6ce8\u4e0e\u60c5\u611f\u5bc4\u6258\u3002" },
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "What is your opinion about the role of money in people\u2019s lives?", cn: "\u4f60\u5bf9\u91d1\u94b1\u5728\u4eba\u4eec\u751f\u6d3b\u4e2d\u7684\u4f5c\u7528\u6709\u4f55\u770b\u6cd5\uff1f", hint: "\u7269\u8d28\u5e95\u7ebf\uff1a\u6297\u98ce\u9669\u80fd\u529b\uff0c\u6ee1\u8db3\u751f\u7406\u5b89\u5168\u3002\u7cbe\u795e\u81ea\u7531\uff1a\u4e70\u4e0d\u6765\u610f\u4e49\uff0c\u4f46\u80fd\u4e70\u6765\u8bf4\u300c\u4e0d\u300d\u7684\u5e95\u6c14\u548c\u65f6\u95f4\u3002" },
-  { cat: "Material vs Spiritual", catZh: "\u7269\u8d28\u4e0e\u7cbe\u795e\u6a21\u578b", en: "What is the importance of arts and humanities in education?", cn: "\u827a\u672f\u548c\u4eba\u6587\u5b66\u79d1\u5728\u6559\u80b2\u4e2d\u6709\u4ec0\u4e48\u91cd\u8981\u6027\uff1f", hint: "\u8868\u5c42\u529f\u5229\uff1a\u96be\u4ee5\u76f4\u63a5\u8f6c\u5316\u4e3a\u9ad8\u85aa\u3002\u6df1\u5c42\u5185\u6838\uff1a\u57f9\u517b\u5ba1\u7f8e\u3001\u5171\u60c5\u548c\u9053\u5fb7\u5224\u65ad\uff0c\u662fAI\u65f6\u4ee3\u4eba\u7c7b\u4e0d\u88ab\u53d6\u4ee3\u7684\u6839\u672c\u3002" },
-
-  { cat: "Micro to Macro", catZh: "\u5fae\u89c2\u5230\u5b8f\u89c2\u6a21\u578b", en: "What steps should be taken to address climate change by individual countries and globally?", cn: "\u5404\u4e2a\u56fd\u5bb6\u548c\u5168\u7403\u5e94\u8be5\u91c7\u53d6\u54ea\u4e9b\u63aa\u65bd\u6765\u5e94\u5bf9\u6c14\u5019\u53d8\u5316\uff1f", hint: "\u5fae\u89c2\uff1a\u4e2a\u4eba\u7eff\u8272\u6d88\u8d39\u5012\u903c\u4f01\u4e1a\u3002\u4e2d\u89c2\uff1a\u56fd\u5bb6\u6295\u8d44\u65b0\u80fd\u6e90\u57fa\u5efa\u3002\u5b8f\u89c2\uff1a\u8de8\u8d8a\u5730\u7f18\u653f\u6cbb\u6267\u884c\u56fd\u9645\u51cf\u6392\u534f\u8bae\u3002" },
-  { cat: "Micro to Macro", catZh: "\u5fae\u89c2\u5230\u5b8f\u89c2\u6a21\u578b", en: "What are the pros and cons of universal basic income (UBI)?", cn: "\u5168\u6c11\u57fa\u672c\u6536\u5165\u7684\u5229\u5f0a\u662f\u4ec0\u4e48\uff1f", hint: "\u4e2a\u4f53\uff1a\u8d4b\u4e88\u751f\u5b58\u5c0a\u4e25\uff0c\u6562\u4e8e\u8bd5\u9519\u521b\u4e1a\u3002\u56fd\u5bb6\uff1a\u53ef\u80fd\u5bfc\u81f4\u52b3\u52a8\u529b\u77ed\u7f3a\uff0c\u5f15\u53d1\u901a\u80c0\u53ca\u5de8\u5927\u8d22\u653f\u8d64\u5b57\u3002" },
-  { cat: "Micro to Macro", catZh: "\u5fae\u89c2\u5230\u5b8f\u89c2\u6a21\u578b", en: "Study in a group vs study alone. Which is better?", cn: "\u5728\u5c0f\u7ec4\u4e2d\u5b66\u4e60\u66f4\u6709\u6548\u8fd8\u662f\u72ec\u81ea\u5b66\u4e60\u66f4\u597d\uff1f", hint: "\u4e2a\u4eba\uff08\u72ec\u81ea\uff09\uff1a\u6df1\u5ea6\u4e13\u6ce8\uff0c\u5efa\u7acb\u77e5\u8bc6\u58c1\u5792\u3002\u793e\u4f1a\u5316\uff08\u5c0f\u7ec4\uff09\uff1a\u6a21\u62df\u804c\u573a\uff0c\u953b\u70bc\u6c9f\u901a\u3001\u59a5\u534f\u548c\u9886\u5bfc\u529b\u3002" },
-  { cat: "Micro to Macro", catZh: "\u5fae\u89c2\u5230\u5b8f\u89c2\u6a21\u578b", en: "How can urban planning improve the quality of life in big cities?", cn: "\u57ce\u5e02\u89c4\u5212\u5982\u4f55\u6539\u5584\u5927\u57ce\u5e02\u7684\u751f\u6d3b\u8d28\u91cf\uff1f", hint: "\u5fae\u89c2\u4f53\u9a8c\uff1a\u77ed\u901a\u52e4\uff0c\u4fbf\u5229\u5e97\u3002\u57ce\u5e02\u751f\u6001\uff1a\u589e\u52a0\u516c\u5171\u7a7a\u95f4\u4fc3\u8fdb\u793e\u533a\u51dd\u805a\u529b\uff0c\u4f18\u5316\u57fa\u5efa\u9632\u8303\u57ce\u5e02\u707e\u5bb3\u3002" },
-  { cat: "Micro to Macro", catZh: "\u5fae\u89c2\u5230\u5b8f\u89c2\u6a21\u578b", en: "How do public health initiatives contribute to a nation\u2019s well-being?", cn: "\u516c\u5171\u536b\u751f\u4e3e\u63aa\u5982\u4f55\u4fc3\u8fdb\u56fd\u5bb6\u7684\u798f\u7949\uff1f", hint: "\u4e2a\u4f53\uff1a\u5ef6\u957f\u5bff\u547d\uff0c\u9632\u6b62\u56e0\u75c5\u81f4\u8d2b\u3002\u56fd\u5bb6\uff1a\u9632\u6b62\u533b\u7597\u6324\u5151\uff0c\u4fdd\u969c\u52b3\u52a8\u529b\u5145\u8db3\uff0c\u7a33\u5b9a\u7ecf\u6d4e\u5e95\u76d8\u3002" },
-
-  { cat: "Timeline Dynamic", catZh: "\u65f6\u95f4\u8f74\u52a8\u6001\u6a21\u578b", en: "What measures should be taken to protect cultural relics?", cn: "\u5e94\u8be5\u91c7\u53d6\u4ec0\u4e48\u63aa\u65bd\u6765\u4fdd\u62a4\u6587\u5316\u6587\u7269\uff1f", hint: "\u5f53\u4e0b\u75db\u70b9\uff1a\u4fee\u7f2e\u8d39\u94b1\uff0c\u963b\u7877\u57ce\u5e02\u5546\u4e1a\u6269\u5efa\u3002\u957f\u8fdc\u6536\u76ca\uff1a\u7ed3\u5408VR\u6570\u5b57\u5316\uff0c\u6d3b\u5316\u5386\u53f2\u8d44\u4ea7\uff0c\u5851\u9020\u540e\u4ee3\u6587\u5316\u8ba4\u540c\u3002" },
-  { cat: "Timeline Dynamic", catZh: "\u65f6\u95f4\u8f74\u52a8\u6001\u6a21\u578b", en: "Discuss the potential effects of automation on the job market.", cn: "\u8ba8\u8bba\u81ea\u52a8\u5316\u5bf9\u5c31\u4e1a\u5e02\u573a\u7684\u6f5c\u5728\u5f71\u54cd\u3002", hint: "\u77ed\u671f\u9635\u75db\uff1a\u6d41\u6c34\u7ebf\u3001\u57fa\u7840\u884c\u653f\u5c97\u8fc5\u901f\u88ab\u88c1\uff0c\u5f15\u53d1\u793e\u4f1a\u6050\u614c\u3002\u957f\u671f\u6f14\u8fdb\uff1a\u751f\u4ea7\u529b\u89e3\u653e\uff0c\u903c\u8feb\u4eba\u7c7b\u8f6c\u5411\u521b\u9020\u6027\u548c\u60c5\u611f\u966a\u4f34\u7c7b\u5de5\u4f5c\u3002" },
-  { cat: "Timeline Dynamic", catZh: "\u65f6\u95f4\u8f74\u52a8\u6001\u6a21\u578b", en: "Extensive learning or deep learning: which is better?", cn: "\u5e7f\u6cdb\u5b66\u4e60\u8fd8\u662f\u6df1\u5ea6\u5b66\u4e60\uff1a\u54ea\u4e2a\u66f4\u597d\uff1f", hint: "\u65e9\u671f\uff08\u5e7f\u6cdb\uff09\uff1a\u4f4e\u6210\u672c\u8bd5\u9519\uff0c\u627e\u51c6\u5174\u8da3\u70b9\uff0c\u8de8\u5b66\u79d1\u542f\u53d1\u3002\u540e\u671f\uff08\u6df1\u5ea6\uff09\uff1a\u5efa\u7acb\u6df1\u6c34\u533a\u62a4\u57ce\u6cb3\uff0c\u6210\u4e3a\u4e0d\u53ef\u66ff\u4ee3\u7684\u4e13\u5bb6\u3002" },
-  { cat: "Timeline Dynamic", catZh: "\u65f6\u95f4\u8f74\u52a8\u6001\u6a21\u578b", en: "Should renewable energy be prioritized even if currently more expensive?", cn: "\u5373\u4f7f\u76ee\u524d\u53ef\u518d\u751f\u80fd\u6e90\u66f4\u8d35\uff0c\u662f\u5426\u4e5f\u5e94\u4f18\u5148\u53d1\u5c55\uff1f", hint: "\u77ed\u671f\u4ee3\u4ef7\uff1a\u57fa\u5efa\u6295\u5165\u5de8\u5927\uff0c\u7535\u8d39\u4e0a\u6da8\uff0c\u4f20\u7edf\u5de5\u4eba\u5931\u4e1a\u3002\u957f\u671f\u751f\u5b58\uff1a\u5316\u77f3\u80fd\u6e90\u5fc5\u5c06\u67af\u7aed\uff0c\u73b0\u5728\u7684\u75db\u662f\u6362\u53d6\u672a\u6765\u7684\u6280\u672f\u5e73\u6743\u548c\u4eba\u7c7b\u5ef6\u7eed\u3002" }
-];
-
-var GENERAL_QUESTIONS = [
-  { id: 1, summary: "\u9009\u6821\u9009\u4e13\u4e1a", main: "Why did you choose these programs and this university?", alts: ["Which subject did you enjoy the most in high school?", "Which majors did you choose?", "What attracted you to this program?"], focus: "\u8003\u5bdf\u4f60\u5bf9\u7533\u8bf7\u4e13\u4e1a\u3001\u5b66\u6821\u548c\u4e2a\u4eba\u5174\u8da3\u7684\u4e86\u89e3\u4e0e\u5339\u914d\u5ea6\u3002", strategies: ["\u601d\u8def\u4e00 (\u70ed\u60c5\u9a71\u52a8): \u4ece\u4e2a\u4eba\u5174\u8da3\u51fa\u53d1\uff0c\u7ed3\u5408\u5177\u4f53\u7ecf\u5386\u89e3\u91ca\u4e3a\u4f55\u5bf9\u8be5\u4e13\u4e1a\u7740\u8ff7\u3002", "\u601d\u8def\u4e8c (\u76ee\u6807\u5bfc\u5411): \u4ece\u957f\u8fdc\u804c\u4e1a\u76ee\u6807\u53cd\u63a8\uff0c\u8bf4\u660e\u8be5\u4e13\u4e1a\u548c\u5b66\u6821\u662f\u5b9e\u73b0\u76ee\u6807\u7684\u6700\u4f73\u8def\u5f84\u3002", "\u601d\u8def\u4e09 (\u4ef7\u503c\u5339\u914d): \u5f3a\u8c03\u4e2a\u4eba\u4ef7\u503c\u89c2\u4e0e\u5b66\u6821\u6587\u5316\u7684\u5951\u5408\u5ea6\u3002"] },
-  { id: 2, summary: "\u4e2a\u4eba\u4f18\u7f3a\u70b9", main: "Please introduce yourself.", alts: ["What are your strengths and weaknesses?", "Describe yourself in three words.", "Tell me something not on your application."], focus: "\u8003\u5bdf\u4f60\u7684\u81ea\u6211\u8ba4\u77e5\u80fd\u529b\u3001\u8bda\u5b9e\u5ea6\u4ee5\u53ca\u6838\u5fc3\u54c1\u8d28\u548c\u6210\u5c31\u3002", strategies: ["\u601d\u8def\u4e00 (\u6545\u4e8b\u4e32\u8054): \u5c06\u4f18\u7f3a\u70b9\u548c\u6210\u5c31\u7528\u4e00\u4e2a\u6838\u5fc3\u6545\u4e8b\u4e32\u8054\u8d77\u6765\u3002", "\u601d\u8def\u4e8c (\u7279\u8d28\u62c6\u89e3): \u9009\u62e92-3\u4e2a\u6838\u5fc3\u7279\u8d28\uff0c\u6bcf\u4e2a\u7528\u7b80\u77ed\u4f8b\u5b50\u8bc1\u660e\u3002", "\u601d\u8def\u4e09 (\u6210\u5c31\u805a\u7126): \u9009\u62e9\u4e00\u4e2a\u6700\u80fd\u4f53\u73b0\u6838\u5fc3\u7ade\u4e89\u529b\u7684\u6210\u5c31\u5c55\u5f00\u3002"] },
-  { id: 3, summary: "\u56e2\u961f\u5408\u4f5c\u7ecf\u5386", main: "Describe a team experience.", alts: ["Describe working with a difficult team member.", "What role do you play in a team?"], focus: "\u8003\u5bdf\u4f60\u7684\u56e2\u961f\u5408\u4f5c\u80fd\u529b\u3001\u6c9f\u901a\u6280\u5de7\u548c\u89e3\u51b3\u51b2\u7a81\u7684\u80fd\u529b\u3002", strategies: ["\u601d\u8def\u4e00 (\u51b2\u7a81\u89e3\u51b3\u8005): \u805a\u7126\u4e8e\u4e00\u6b21\u5177\u4f53\u7684\u5206\u6b67\uff0c\u63cf\u8ff0\u4f60\u5982\u4f55\u5012\u542c\u5e76\u63d0\u51fa\u53cc\u8d62\u65b9\u6848\u3002", "\u601d\u8def\u4e8c (\u89d2\u8272\u5b9a\u4f4d\u8005): \u660e\u786e\u4f60\u5728\u56e2\u961f\u4e2d\u7684\u5178\u578b\u89d2\u8272\uff0c\u7528\u5b9e\u4f8b\u8bf4\u660e\u8d21\u732e\u3002", "\u601d\u8def\u4e09 (\u9006\u5883\u524d\u884c\u8005): \u63cf\u8ff0\u56e2\u961f\u56f0\u96be\u4ee5\u53ca\u4f60\u5982\u4f55\u4fdd\u6301\u79ef\u6781\u5fc3\u6001\u5e76\u91c7\u53d6\u884c\u52a8\u3002"] },
-  { id: 4, summary: "\u514b\u670d\u56f0\u96be\u65b9\u6cd5", main: "What qualities help you overcome hardships?", alts: ["Describe your most significant challenge.", "What do you do when overwhelmed?"], focus: "\u8003\u5bdf\u4f60\u7684\u97e7\u6027\u3001\u81ea\u6211\u9a71\u52a8\u80fd\u529b\u548c\u89e3\u51b3\u95ee\u9898\u7684\u6210\u719f\u5ea6\u3002", strategies: ["\u601d\u8def\u4e00 (\u5185\u5728\u54c1\u8d28\u6cd5): \u5f3a\u8c03\u5185\u5728\u54c1\u8d28\u5982\u300c\u575a\u97e7\u4e0d\u62d4\u300d\uff0c\u7528\u5177\u4f53\u6311\u6218\u8bc1\u660e\u3002", "\u601d\u8def\u4e8c (\u7cfb\u7edf\u65b9\u6cd5\u8bba): \u63cf\u8ff0\u4f60\u5e94\u5bf9\u538b\u529b\u7684\u5177\u4f53\u201c\u7cfb\u7edf\u201d\u6216\u201c\u65b9\u6cd5\u201d\u3002", "\u601d\u8def\u4e09 (\u76ee\u6807\u9a71\u52a8\u6cd5): \u5f3a\u8c03\u52a8\u529b\u6765\u6e90\u4e8e\u4e00\u4e2a\u6e05\u6670\u800c\u5f3a\u5927\u7684\u76ee\u6807\u3002"] },
-  { id: 5, summary: "\u672a\u6765\u804c\u4e1a\u89c4\u5212", main: "What are your plans after graduation?", alts: ["Where do you see yourself in five years?", "What kind of impact do you want to make?"], focus: "\u8003\u5bdf\u4f60\u7684\u89c4\u5212\u80fd\u529b\u3001\u76ee\u6807\u6e05\u6670\u5ea6\u4ee5\u53ca\u62b1\u8d1f\u3002", strategies: ["\u601d\u8def\u4e00 (\u5206\u9636\u6bb5\u89c4\u5212): \u5c06\u89c4\u5212\u5206\u4e3a\u77ed\u671f\u548c\u957f\u671f\uff0c\u5c55\u793a\u903b\u8f91\u6027\u548c\u8fdc\u89c1\u3002", "\u601d\u8def\u4e8c (\u5f71\u54cd\u529b\u805a\u7126): \u4e0d\u53ea\u8c08\u804c\u4f4d\uff0c\u66f4\u8981\u8c08\u5e0c\u671b\u521b\u9020\u7684\u300c\u5f71\u54cd\u529b\u300d\u3002", "\u601d\u8def\u4e09 (\u8def\u5f84\u63a2\u7d22): \u5766\u8bda\u8868\u793a\u8fd8\u5728\u63a2\u7d22\uff0c\u4f46\u5927\u65b9\u5411\u660e\u786e\u3002"] },
-  { id: 6, summary: "\u5904\u7406\u8d1f\u9762\u53cd\u9988", main: "How do you handle negative feedback?", alts: ["Describe a time your work was criticized.", "Who gives you the most valuable feedback?"], focus: "\u8003\u5bdf\u4f60\u7684\u60c5\u7eea\u6210\u719f\u5ea6\u3001\u5b66\u4e60\u80fd\u529b\u548c\u5f00\u653e\u5fc3\u6001\u3002", strategies: ["\u601d\u8def\u4e00: \u89c6\u6279\u8bc4\u4e3a\u793c\u7269\uff0c\u7528\u5177\u4f53\u4f8b\u5b50\u8bf4\u660e\u4f60\u5982\u4f55\u4ece\u4e2d\u6210\u957f\u3002", "\u601d\u8def\u4e8c: \u533a\u5206\u5bf9\u4e8b\u4e0e\u5bf9\u4eba\u7684\u6279\u8bc4\uff0c\u805a\u7126\u4e8e\u53ef\u64cd\u4f5c\u7684\u6539\u8fdb\u70b9\u3002", "\u601d\u8def\u4e09: \u8bf4\u660e\u4f60\u4e0d\u4ec5\u88ab\u52a8\u63a5\u53d7\uff0c\u8fd8\u4f1a\u4e3b\u52a8\u5bfb\u6c42\u53cd\u9988\u3002"] },
-  { id: 7, summary: "\u5982\u4f55\u8bf4\u670d\u4ed6\u4eba", main: "How do you persuade others to accept your ideas?", alts: ["Describe getting buy-in for an idea.", "How do you build consensus?"], focus: "\u8003\u5bdf\u4f60\u7684\u6c9f\u901a\u80fd\u529b\u3001\u540c\u7406\u5fc3\u548c\u5f71\u54cd\u529b\u3002", strategies: ["\u601d\u8def\u4e00 (\u5012\u542c\u5148\u884c): \u7b2c\u4e00\u6b65\u6c38\u8fdc\u662f\u5012\u542c\u548c\u7406\u89e3\u5bf9\u65b9\u89c2\u70b9\u3002", "\u601d\u8def\u4e8c (\u884c\u52a8\u8bc1\u660e): \u901a\u8fc7\u5b9e\u9645\u884c\u52a8\u5c55\u793a\u60f3\u6cd5\u7684\u4ef7\u503c\u3002", "\u601d\u8def\u4e09 (\u5efa\u7acb\u8054\u76df): \u5148\u4e89\u53d6\u90e8\u5206\u4eba\u652f\u6301\uff0c\u518d\u6269\u5927\u5f71\u54cd\u3002"] },
-  { id: 8, summary: "\u4e2a\u4eba\u70ed\u60c5\u6240\u5728", main: "What are you passionate about?", alts: ["What interests you outside the classroom?", "Is there a problem you would love to solve?"], focus: "\u8003\u5bdf\u4f60\u7684\u5185\u5728\u9a71\u52a8\u529b\u3001\u597d\u5947\u5fc3\u548c\u521b\u9020\u529b\u3002", strategies: ["\u601d\u8def\u4e00 (\u52a8\u624b\u521b\u9020): \u805a\u7126\u4e8e\u4e00\u4e2a\u5177\u4f53\u7684\u521b\u9020\u6027\u9879\u76ee\u3002", "\u601d\u8def\u4e8c (\u8de8\u754c\u878d\u5408): \u5c06\u770b\u4f3c\u65e0\u5173\u7684\u7231\u597d\u4e0e\u4e13\u4e1a\u8054\u7cfb\u8d77\u6765\u3002", "\u601d\u8def\u4e09 (\u89e3\u51b3\u95ee\u9898): \u63cf\u8ff0\u4e00\u4e2a\u4f60\u975e\u5e38\u60f3\u89e3\u51b3\u7684\u95ee\u9898\u3002"] },
-  { id: 9, summary: "\u5c1d\u8bd5\u5168\u65b0\u4e8b\u7269", main: "Describe a time you tried something new.", alts: ["Describe being out of your comfort zone.", "How do you deal with uncertainty?"], focus: "\u8003\u5bdf\u4f60\u7684\u9002\u5e94\u80fd\u529b\u3001\u72ec\u7acb\u6027\u548c\u9762\u5bf9\u672a\u77e5\u7684\u52c7\u6c14\u3002", strategies: ["\u601d\u8def\u4e00 (\u73af\u5883\u9002\u5e94): \u4f7f\u7528\u51fa\u56fd\u4ea4\u6362\u7b49\u5177\u4f53\u4f8b\u5b50\u3002", "\u601d\u8def\u4e8c (\u6280\u80fd\u5b66\u4e60): \u63cf\u8ff0\u4ece\u96f6\u5f00\u59cb\u5b66\u4e60\u4e00\u9879\u65b0\u6280\u80fd\u7684\u7ecf\u5386\u3002", "\u601d\u8def\u4e09 (\u89d2\u8272\u8f6c\u53d8): \u63cf\u8ff0\u627f\u62c5\u4e00\u4e2a\u5168\u65b0\u89d2\u8272\u7684\u7ecf\u5386\u3002"] },
-  { id: 10, summary: "\u5e94\u5bf9\u4f5c\u5f0a\u884c\u4e3a", main: "What would you do if you witnessed cheating?", alts: ["What if a friend asked you to help them cheat?", "What does academic integrity mean to you?"], focus: "\u8003\u5bdf\u4f60\u7684\u9053\u5fb7\u51c6\u5219\u548c\u6b63\u76f4\uff08integrity\uff09\u3002", strategies: ["\u601d\u8def\u4e00: \u575a\u6301\u5b66\u672f\u8bda\u4fe1\uff0c\u540c\u65f6\u5c55\u793a\u540c\u7406\u5fc3\u3002", "\u601d\u8def\u4e8c: \u5148\u5b9a\u4e49\u5b66\u672f\u8bda\u4fe1\u5bf9\u4f60\u610f\u5473\u7740\u4ec0\u4e48\uff0c\u518d\u9610\u8ff0\u884c\u52a8\u3002", "\u601d\u8def\u4e09: \u533a\u5206\u6b63\u5f0f\u573a\u5408\u548c\u56e2\u961f\u9879\u76ee\u4e2d\u7684\u4e0d\u540c\u5904\u7406\u65b9\u5f0f\u3002"] },
-  { id: 11, summary: "\u7ef4\u6301\u826f\u597d\u5173\u7cfb", main: "What are the key ingredients to maintain a good relationship?", alts: ["What\u2019s the biggest barrier to effective communication?"], focus: "\u8003\u5bdf\u4f60\u7684\u4eba\u9645\u4ea4\u5f80\u80fd\u529b\u548c\u60c5\u5546\u3002", strategies: ["\u601d\u8def\u4e00: \u63d0\u51fa2-3\u4e2a\u5173\u952e\u8981\u7d20\uff08\u6c9f\u901a\u3001\u540c\u7406\u5fc3\u3001\u5c0a\u91cd\uff09\u3002", "\u601d\u8def\u4e8c: \u805a\u7126\u201c\u6709\u6548\u6c9f\u901a\u201d\uff0c\u8ba8\u8bba\u969c\u788d\u53ca\u514b\u670d\u65b9\u6cd5\u3002", "\u601d\u8def\u4e09: \u5f3a\u8c03\u201c\u884c\u52a8\u4e0a\u7684\u652f\u6301\u201d\u662f\u7ef4\u6301\u5173\u7cfb\u7684\u5173\u952e\u3002"] },
-  { id: 12, summary: "\u88ab\u62d2\u540e\u7684\u8ba1\u5212", main: "If you were rejected, how would you plan your next year?", alts: ["What is your backup plan?", "What have you learned from this application process?"], focus: "\u8003\u5bdf\u4f60\u7684\u6210\u719f\u5ea6\u3001\u6297\u632b\u6298\u80fd\u529b\u548c\u89c4\u5212\u80fd\u529b\u3002", strategies: ["\u601d\u8def\u4e00: \u5766\u8bda\u8868\u8fbe\u5931\u671b\uff0c\u4f46\u7acb\u523b\u8f6c\u5411\u4f60\u7684B\u8ba1\u5212\u3002", "\u601d\u8def\u4e8c: \u5f3a\u8c03\u65e0\u8bba\u7ed3\u679c\u5982\u4f55\uff0c\u7533\u8bf7\u8fc7\u7a0b\u672c\u8eab\u5c31\u662f\u5b66\u4e60\u7ecf\u5386\u3002", "\u601d\u8def\u4e09: \u5c06\u8fd9\u4e00\u5e74\u89c6\u4e3agap year\uff0c\u5177\u4f53\u5217\u51fa\u63d0\u5347\u8ba1\u5212\u3002"] },
-  { id: 13, summary: "\u6210\u7ee9\u4e0e\u6210\u529f", main: "Is academic performance the best indicator of future job prospects?", alts: ["What key skills are essential for success?", "How would you define a successful career?"], focus: "\u8003\u5bdf\u4f60\u7684\u601d\u8fa8\u80fd\u529b\u548c\u5bf9\u201c\u6210\u529f\u201d\u7684\u7406\u89e3\u3002", strategies: ["\u601d\u8def\u4e00 (\u5e73\u8861\u8bba): \u5b66\u4e1a\u6210\u7ee9\u662f\u57fa\u7840\uff0c\u4f46\u4e0d\u662f\u5168\u90e8\u3002", "\u601d\u8def\u4e8c: \u91cd\u65b0\u5b9a\u4e49\u201c\u6210\u529f\u804c\u4e1a\u201d\uff0c\u8d85\u8d8a\u91d1\u94b1\u548c\u5730\u4f4d\u3002", "\u601d\u8def\u4e09: \u5f3a\u8c03\u201c\u5e94\u7528\u77e5\u8bc6\u89e3\u51b3\u5b9e\u9645\u95ee\u9898\u201d\u7684\u80fd\u529b\u3002"] },
-  { id: 14, summary: "\u9ad8\u7b49\u6559\u80b2\u4ef7\u503c", main: "Is higher education still necessary in today\u2019s society?", alts: ["What is the unique value of a physical university?", "What do you hope to gain besides a degree?"], focus: "\u8003\u5bdf\u4f60\u5bf9\u6559\u80b2\u4ef7\u503c\u7684\u6df1\u5ea6\u601d\u8003\u3002", strategies: ["\u601d\u8def\u4e00: \u5927\u5b66\u7684\u4ef7\u503c\u8fdc\u4e0d\u6b62\u4e8e\u77e5\u8bc6\uff0c\u8fd8\u6709\u793e\u7fa4\u3001\u5408\u4f5c\u73af\u5883\u3001\u5e08\u751f\u4e92\u52a8\u3002", "\u601d\u8def\u4e8c: \u5f3a\u8c03\u5927\u5b66\u662f\u57f9\u517b\u5173\u952e\u8f6f\u6280\u80fd\u7684\u6700\u4f73\u573a\u6240\u3002", "\u601d\u8def\u4e09: \u5c06\u5927\u5b66\u89c6\u4e3a\u63a2\u7d22\u81ea\u6211\u3001\u8bd5\u9519\u548c\u6210\u957f\u7684\u5b89\u5168\u7a7a\u95f4\u3002"] },
-  { id: 15, summary: "\u5bf9\u7559\u5b66\u5730\u770b\u6cd5", main: "What do you think of the country/region you are applying to?", alts: ["Compare your country\u2019s education system to this one\u2019s."], focus: "\u8003\u5bdf\u4f60\u5bf9\u7559\u5b66\u56fd\u5bb6/\u5730\u533a\u7684\u4e86\u89e3\u7a0b\u5ea6\u3002", strategies: ["\u601d\u8def\u4e00: \u5177\u4f53\u6307\u51fa\u4f60\u6b23\u8d4f\u7684\u4e00\u70b9\uff0c\u7ed3\u5408\u4e2a\u4eba\u5174\u8da3\u8bc4\u8bba\u3002", "\u601d\u8def\u4e8c: \u7b80\u8981\u6bd4\u8f83\uff0c\u5c55\u793a\u5206\u6790\u80fd\u529b\u3002", "\u601d\u8def\u4e09: \u63d0\u51fa\u4e00\u4e2a\u6709\u5efa\u8bbe\u6027\u7684\u60f3\u6cd5\u3002"] },
-  { id: 16, summary: "\u4e2a\u4eba\u5192\u9669\u7ecf\u5386", main: "What is the most adventurous thing you\u2019ve ever done?", alts: ["Tell me about a risk you took.", "What does adventure mean to you?"], focus: "\u8003\u5bdf\u4f60\u7684\u52c7\u6c14\u3001\u9002\u5e94\u80fd\u529b\u548c\u6210\u957f\u5fc3\u6001\u3002", strategies: ["\u601d\u8def\u4e00: \u91cd\u65b0\u5b9a\u4e49\u201c\u5192\u9669\u201d\u5bf9\u4f60\u610f\u5473\u7740\u4ec0\u4e48\u3002", "\u601d\u8def\u4e8c: \u8bb2\u8ff0\u8eab\u5904\u5168\u65b0\u6587\u5316\u73af\u5883\u7684\u7ecf\u5386\u3002", "\u601d\u8def\u4e09: \u8bb2\u8ff0\u6311\u6218\u4e00\u4e2a\u8fdc\u8d85\u80fd\u529b\u7684\u9879\u76ee\u7684\u7ecf\u5386\u3002"] },
-  { id: 17, summary: "\u5229\u7528\u7a7a\u95f2\u65f6\u95f4", main: "How do you utilize your free time?", alts: ["How do you balance academics and personal interests?"], focus: "\u8003\u5bdf\u4f60\u662f\u5426\u662f\u4e00\u4e2a\u5168\u9762\u53d1\u5c55\u3001\u6709\u8da3\u7684\u4eba\u3002", strategies: ["\u601d\u8def\u4e00 (\u5206\u7c7b\u5c55\u793a): \u5c06\u8bfe\u5916\u6d3b\u52a8\u5206\u4e3a\u51e0\u7c7b\u5c55\u793a\u591a\u6837\u6027\u3002", "\u601d\u8def\u4e8c (\u6280\u80fd\u5173\u8054): \u8bf4\u660e\u4ece\u6d3b\u52a8\u4e2d\u5b66\u5230\u4ec0\u4e48\uff0c\u5982\u4f55\u5e2e\u52a9\u5927\u5b66\u751f\u6d3b\u3002", "\u601d\u8def\u4e09 (\u5e73\u8861\u7684\u827a\u672f): \u8bf4\u660e\u4f60\u6709\u610f\u8bc6\u5730\u89c4\u5212\u65f6\u95f4\u3002"] },
-  { id: 18, summary: "\u89e3\u51b3\u590d\u6742\u95ee\u9898", main: "What would you do if faced with a seemingly unsolvable problem?", alts: ["When do you know it\u2019s time to ask for help?"], focus: "\u8003\u5bdf\u4f60\u7684\u95ee\u9898\u89e3\u51b3\u80fd\u529b\u3001\u903b\u8f91\u601d\u7ef4\u548c\u5bfb\u6c42\u5e2e\u52a9\u7684\u610f\u613f\u3002", strategies: ["\u601d\u8def\u4e00 (\u5206\u89e3\u6cd5): \u5f3a\u8c03\u7b2c\u4e00\u6b65\u662f\u201c\u5206\u89e3\u95ee\u9898\u201d\u3002", "\u601d\u8def\u4e8c: \u660e\u786e\u8bf4\u660e\u5bfb\u6c42\u5e2e\u52a9\u7684\u65f6\u673a\u3002", "\u601d\u8def\u4e09: \u63cf\u8ff0\u4ece\u4e0d\u540c\u89d2\u5ea6\u770b\u5f85\u95ee\u9898\u7684\u65b9\u6cd5\u3002"] },
-  { id: 19, summary: "\u5f00\u653e\u521b\u610f\u95ee\u9898", main: "You wake up and see snow outside. What are you thinking?", alts: ["If you could have dinner with three people, who would they be?", "What book or movie has impacted you?"], focus: "\u8003\u5bdf\u4f60\u7684\u521b\u9020\u529b\u3001\u4e2a\u6027\u548c\u601d\u7ef4\u7075\u6d3b\u6027\u3002", strategies: ["\u601d\u8def\u4e00: \u5c06\u611f\u6027\u548c\u7406\u6027\u7ed3\u5408\u8d77\u6765\u3002", "\u601d\u8def\u4e8c: \u5c06\u5f00\u653e\u6027\u95ee\u9898\u4e0e\u4f60\u7684\u4e13\u4e1a\u5de7\u5999\u8054\u7cfb\u3002", "\u601d\u8def\u4e09: \u7528\u8fd9\u4e2a\u95ee\u9898\u4f5c\u4e3a\u5f00\u5934\uff0c\u8bb2\u8ff0\u4e00\u4e2a\u53cd\u6620\u4f60\u4e2a\u6027\u7684\u6545\u4e8b\u3002"] },
-  { id: 20, summary: "\u63cf\u8ff0\u4f60\u7684\u5bb6\u4e61", main: "Could you describe your hometown?", alts: ["What is your hometown famous for?", "How has your hometown changed over the years?"], focus: "\u8003\u5bdf\u4f60\u7684\u57fa\u672c\u82f1\u6587\u53e3\u8bed\u8868\u8fbe\u80fd\u529b\u548c\u4e2a\u4eba\u80cc\u666f\u3002", strategies: ["\u601d\u8def\u4e00 (\u7ed3\u6784\u5316\u63cf\u8ff0): \u5206\u70b9\u63cf\u8ff0\u5bb6\u4e61\u7684\u51e0\u4e2a\u7279\u70b9\u3002", "\u601d\u8def\u4e8c (\u4e2a\u4eba\u6545\u4e8b): \u901a\u8fc7\u4e00\u4e2a\u4e0e\u5bb6\u4e61\u6709\u5173\u7684\u5c0f\u6545\u4e8b\u5c55\u793a\u60c5\u611f\u3002", "\u601d\u8def\u4e09 (\u5c55\u73b0\u89c2\u5bdf\u529b): \u63cf\u8ff0\u5bb6\u4e61\u8fd1\u5e74\u6765\u7684\u4e00\u4e2a\u53d8\u5316\u5e76\u8c08\u770b\u6cd5\u3002"] }
-];
-
-// Oxbridge questions — 239 authentic questions from Oxford & Cambridge official sources
-var OXBRIDGE_SUBJECTS = [
-  { id: 'maths', name: 'Mathematics', icon: 'calculate' },
-  { id: 'physics', name: 'Physics (Natural Sciences - Physical)', icon: 'science' },
-  { id: 'chemistry', name: 'Chemistry (Natural Sciences - Chemical)', icon: 'experiment' },
-  { id: 'biology', name: 'Biology (Natural Sciences - Biological)', icon: 'biotech' },
-  { id: 'medicine', name: 'Medicine', icon: 'medical_services' },
-  { id: 'engineering', name: 'Engineering', icon: 'engineering' },
-  { id: 'cs', name: 'Computer Science', icon: 'terminal' },
-  { id: 'economics', name: 'Economics', icon: 'trending_up' },
-  { id: 'law', name: 'Law', icon: 'gavel' },
-  { id: 'history', name: 'History', icon: 'history_edu' },
-  { id: 'english', name: 'English Literature', icon: 'auto_stories' },
-  { id: 'ppe', name: 'Philosophy, Politics and Economics (PPE)', icon: 'balance' },
-  { id: 'psychology', name: 'Psychology (Experimental Psychology / PBS)', icon: 'psychology' },
-];
-
-var OXBRIDGE_QUESTIONS = {
-  'maths': [
-    { type: 'simple', text: 'How many zeros does the number 30! end with?' },
-    { type: 'simple', text: 'Prove that if n is an integer, then n³ − n is divisible by 6.' },
-    { type: 'simple', text: 'How many solutions does the equation kx = eˣ have for different values of k?' },
-    { type: 'material', material: 'Consider the function f(x) = x³ − 3x + 1.', text: 'Sketch the graph of this function, identifying turning points and roots. How many real roots does it have, and how do you know?' },
-    { type: 'simple', text: 'Integrate x·ln(x) dx.' },
-    { type: 'simple', text: 'How long does a mirror have to be for you to see your whole body in it? Does it depend on how far you stand from the mirror?' },
-    { type: 'material', material: 'Suppose you have a set of n lines in the plane, no two of which are parallel and no three of which meet at a single point.', text: 'Into how many regions do these n lines divide the plane? Can you prove your answer?' },
-    { type: 'simple', text: 'Is there a largest prime number? How would you prove it?' },
-    { type: 'material', material: 'Consider the sequence defined by a₁ = 1, aₙ₊₁ = ½(aₙ + 3/aₙ).', text: 'What does this sequence converge to? Prove that the sequence is decreasing for n ≥ 2.' },
-    { type: 'simple', text: 'Can you think of a function that is continuous everywhere but differentiable nowhere?' },
-    { type: 'material', material: 'You are given a chessboard with two diagonally opposite corners removed, and a set of dominoes, each of which covers exactly two squares.', text: 'Can you cover the remaining 62 squares with 31 dominoes? Prove your answer.' },
-    { type: 'simple', text: 'What is the sum of the series 1/1·2 + 1/2·3 + 1/3·4 + ... + 1/n·(n+1)? Can you prove it?' },
-    { type: 'material', material: 'Consider the inequality (1 + x)ⁿ ≥ 1 + nx for x ≥ −1 and n a positive integer.', text: 'Prove this inequality by induction. Can you find a case where equality holds?' },
-    { type: 'simple', text: 'If I throw two dice, what is the probability that the sum is a prime number?' },
-    { type: 'simple', text: 'Sketch the curve y² = x³. What happens at the origin?' },
-    { type: 'material', material: 'A ladder of length L leans against a wall. The bottom of the ladder slides away from the wall at a constant rate of 1 metre per second.', text: 'How fast is the top of the ladder sliding down the wall when the bottom is x metres from the wall? What happens as x approaches L?' },
-    { type: 'simple', text: 'What is the largest number of pieces you can cut a circular pizza into using n straight cuts?' },
-    { type: 'simple', text: 'Why are manhole covers round rather than square?' },
-    { type: 'material', material: 'Suppose you keep tossing a fair coin until you get two heads in a row.', text: 'What is the expected number of tosses needed? Set up a system of equations to solve this.' },
-    { type: 'simple', text: 'What is special about the number 1089? Multiply any three-digit number where the first digit is larger than the last by itself reversed, and then reverse and add. Can you prove why this always works?' },
-  ],
-  'physics': [
-    { type: 'simple', text: 'How can we estimate the mass of the atmosphere?' },
-    { type: 'material', material: 'A hot air balloon is made of material with negligible mass. The air inside is heated uniformly.', text: 'What temperature would the air inside the balloon need to be in order to lift an elephant? Estimate the size of balloon needed.' },
-    { type: 'simple', text: 'Why do stars twinkle but planets do not?' },
-    { type: 'material', material: 'Consider a gravity dam: a vertical concrete wall holding back water. The water reaches the full height of the wall on one side.', text: 'How would you design this dam? What forces act on it, and how thick does it need to be to avoid toppling over?' },
-    { type: 'simple', text: 'If you drop a mouse, a horse, and an elephant from a tall building, which hits the ground first, and which is most likely to survive? Why?' },
-    { type: 'material', material: 'An astronaut floating in the International Space Station holds a cup of water and turns it upside down.', text: 'What happens to the water? How is this different from Earth? How would you design a cup that works in microgravity?' },
-    { type: 'simple', text: 'Why is the sky blue during the day but red at sunset?' },
-    { type: 'material', material: 'A ball is thrown vertically upward with initial velocity v₀ in a vacuum, and separately in air where drag is proportional to velocity.', text: 'In which case is the ball going faster when it returns to its starting point? Is the time to reach maximum height longer or shorter with air resistance?' },
-    { type: 'simple', text: 'How would you measure the mass of your own head?' },
-    { type: 'material', material: 'A cylinder of ice is placed on a smooth inclined plane. As the ice melts, it becomes a puddle of water.', text: 'Does the water flow down the slope, or does it stay in place? Consider the forces acting at each stage.' },
-    { type: 'simple', text: 'Why are soap bubbles spherical?' },
-    { type: 'simple', text: 'How does a fridge work? Why does it heat the room overall while cooling its interior?' },
-    { type: 'material', material: 'Two identical elastic balls are dropped one on top of the other from the same height. The lower ball hits the ground first.', text: 'How high does the upper ball bounce? Assume all collisions are perfectly elastic.' },
-    { type: 'simple', text: 'What fraction of the ice in a glass of water is above the surface? What happens to the water level when the ice melts?' },
-    { type: 'simple', text: 'Why is it easier to pull a heavy suitcase on wheels than to push it? Think about the forces involved.' },
-    { type: 'material', material: 'A pendulum swings in a sealed box on a weighing scale. Consider the pendulum at different points in its swing.', text: 'Does the reading on the scale change as the pendulum swings? If so, when is it heaviest and when is it lightest?' },
-    { type: 'simple', text: 'If sound travels faster in water than in air, why is it hard to understand someone speaking underwater?' },
-    { type: 'simple', text: 'Estimate the number of piano tuners in the UK.' },
-    { type: 'material', material: 'Consider two identical metal spheres, one charged and one uncharged, placed a distance d apart.', text: 'Is there a force between them? If so, is it attractive or repulsive? What happens as you bring them closer together?' },
-  ],
-  'chemistry': [
-    { type: 'simple', text: 'How many different molecules can be made from six carbon atoms and twelve hydrogen atoms?' },
-    { type: 'material', material: 'Consider the reaction between sodium metal and water: 2Na + 2H₂O → 2NaOH + H₂.', text: 'Why does sodium react so vigorously with water? Why is potassium even more reactive? Explain in terms of electronic structure.' },
-    { type: 'simple', text: 'Why does ice float on water? What would the consequences be if it did not?' },
-    { type: 'material', material: 'Here is the structure of aspirin (acetylsalicylic acid). It contains an ester group and a carboxylic acid group.', text: 'If you dissolve aspirin in water, what happens? How would the pH change over time, and why?' },
-    { type: 'simple', text: 'Why are transition metals often coloured while s-block metals are not?' },
-    { type: 'material', material: 'Consider the equilibrium: N₂O₄(g) ⇌ 2NO₂(g). N₂O₄ is colourless and NO₂ is brown.', text: 'If you increase the temperature, what happens to the colour? What if you increase the pressure? Explain using Le Chatelier\'s principle.' },
-    { type: 'simple', text: 'Why is diamond hard while graphite is soft, even though both are made entirely of carbon?' },
-    { type: 'material', material: 'You are given a bottle of clear liquid and told it is either ethanol or methanol.', text: 'How would you determine which one it is? Describe as many different tests as you can think of, explaining the chemistry behind each.' },
-    { type: 'simple', text: 'What makes a good catalyst? Why do catalysts not change the equilibrium position of a reaction?' },
-    { type: 'simple', text: 'Why does dissolving salt in water lower the freezing point?' },
-    { type: 'material', material: 'Consider the Born-Haber cycle for the formation of sodium chloride from its elements.', text: 'Walk me through each step. Why does NaCl form rather than NaCl₂ or Na₂Cl?' },
-    { type: 'simple', text: 'If you had a beaker of pure water and added one molecule of acid, would the solution be acidic?' },
-    { type: 'material', material: 'Here are the boiling points of the hydrogen halides: HF = 19.5°C, HCl = −85°C, HBr = −67°C, HI = −35°C.', text: 'Why does HF have such an anomalously high boiling point? Why do the boiling points increase from HCl to HI?' },
-    { type: 'simple', text: 'Explain why you can smell things. What is happening at the molecular level?' },
-    { type: 'simple', text: 'Why are organic compounds based on carbon rather than silicon, even though silicon is in the same group?' },
-    { type: 'material', material: 'Consider two beakers: one containing 100ml of 0.1M HCl and one containing 100ml of 0.1M CH₃COOH. You add solid NaOH gradually to each.', text: 'Sketch the pH curves you would expect for each titration. Why do they differ? What happens at the half-equivalence point for the weak acid?' },
-    { type: 'simple', text: 'Why is a diamond transparent while a piece of coal is black?' },
-    { type: 'simple', text: 'What determines whether a chemical reaction is spontaneous?' },
-  ],
-  'biology': [
-    { type: 'simple', text: 'Why does it matter if tigers become extinct?' },
-    { type: 'simple', text: 'Why are ladybirds and strawberries both red? Are the reasons the same?' },
-    { type: 'material', material: 'Here is a skeleton of an animal you have probably never seen before. Examine it carefully for the next few minutes.', text: 'What can you deduce about this animal? Was it a predator or prey? Did it live on land or in water? What did it eat? Explain your reasoning from the anatomical features.' },
-    { type: 'simple', text: 'Why is blood red?' },
-    { type: 'material', material: 'A species of moth exists in two colour forms: light and dark. In industrial areas, the dark form is more common. In rural areas, the light form predominates.', text: 'Explain this pattern. If pollution controls are introduced, what would you predict would happen over the next 50 years and why?' },
-    { type: 'simple', text: 'If you could save either the rainforests or the coral reefs, which would you save and why?' },
-    { type: 'material', material: 'Consider a population of bacteria that doubles every 20 minutes in ideal conditions. You start with a single bacterium and have unlimited nutrients.', text: 'How long before you have a million bacteria? In reality, bacterial growth slows. What factors limit growth, and what does the real growth curve look like?' },
-    { type: 'simple', text: 'Why do some habitats support higher biodiversity than others?' },
-    { type: 'simple', text: 'Why don\'t animals have wheels?' },
-    { type: 'material', material: 'A plant is placed in a sealed glass container with a small amount of radioactive CO₂ (¹⁴CO₂) and left in sunlight for several hours.', text: 'Where would you expect to find the radioactive carbon after those hours? Trace its path through the plant\'s metabolic processes.' },
-    { type: 'simple', text: 'Why do humans have two eyes rather than one or three?' },
-    { type: 'simple', text: 'How would you design an experiment to determine whether a new drug is effective against a disease?' },
-    { type: 'material', material: 'Consider the following data: Species A has a generation time of 2 years and produces 2 offspring per generation. Species B has a generation time of 2 weeks and produces 200 offspring per generation.', text: 'Which species is more likely to evolve resistance to a new pesticide, and why? What other factors might be relevant?' },
-    { type: 'simple', text: 'Why are some diseases more common in certain ethnic groups?' },
-    { type: 'simple', text: 'If you discovered a new organism, how would you classify it?' },
-    { type: 'material', material: 'A gene codes for an enzyme that converts substance A to substance B. A mutation changes one amino acid in the enzyme.', text: 'What are the possible effects of this mutation on enzyme function? Under what circumstances might this mutation be beneficial?' },
-    { type: 'simple', text: 'Why is the heart on the left side of the body? Does it have to be?' },
-    { type: 'simple', text: 'What is the point of sex? Why don\'t all organisms just reproduce asexually?' },
-  ],
-  'medicine': [
-    { type: 'simple', text: 'Why is sugar in your urine a good indicator that you might have diabetes?' },
-    { type: 'material', material: 'A patient comes to you with a persistent cough, weight loss, and night sweats. They have recently returned from travelling in Southeast Asia.', text: 'What diagnoses would you consider? What tests would you order and why? How would you prioritise these?' },
-    { type: 'simple', text: 'Why do we have a pulse?' },
-    { type: 'material', material: 'Consider the graph of oxygen dissociation curves for haemoglobin and myoglobin. Haemoglobin has a sigmoidal curve while myoglobin has a hyperbolic curve.', text: 'Why are the shapes different? What is the physiological significance of haemoglobin\'s sigmoidal curve? How does carbon monoxide poisoning relate to this?' },
-    { type: 'simple', text: 'Why do we have two kidneys but only need one?' },
-    { type: 'simple', text: 'If you were designing the human body from scratch, what one thing would you change and why?' },
-    { type: 'material', material: 'A drug trial shows that Drug X reduces heart attacks by 50%. The trial involved 2,000 people: 1,000 took the drug and 1,000 took a placebo. In the drug group, 2 out of 1,000 had heart attacks. In the placebo group, 4 out of 1,000 had heart attacks.', text: 'Is the claim that the drug reduces heart attacks by 50% accurate? Is this result clinically significant? How might you present these results differently?' },
-    { type: 'simple', text: 'Why do we get fevers when we\'re ill? Is a fever helpful or harmful?' },
-    { type: 'simple', text: 'What makes a good doctor? Is it more important to be knowledgeable or compassionate?' },
-    { type: 'material', material: 'An elderly patient with terminal cancer is in significant pain and asks you to help end their life. Euthanasia is illegal in the UK.', text: 'What ethical principles are in conflict here? How would you approach this situation? What is the difference between withdrawing treatment and actively ending life?' },
-    { type: 'simple', text: 'Why do antibiotics not work against viruses?' },
-    { type: 'simple', text: 'Why do we get cancer more as we get older?' },
-    { type: 'material', material: 'Consider a community where vaccination rates have dropped below 85% due to misinformation about vaccine safety.', text: 'What is herd immunity, and why does it matter that rates have dropped? How would you, as a doctor, approach a parent who refuses to vaccinate their child?' },
-    { type: 'simple', text: 'How does a stethoscope work?' },
-    { type: 'simple', text: 'Should the NHS fund homeopathic treatments?' },
-    { type: 'material', material: 'A study claims that people who drink moderate amounts of red wine live longer than those who don\'t drink at all.', text: 'Does this mean red wine is good for you? What are the potential flaws in this type of study? How could you design a better study?' },
-    { type: 'simple', text: 'What are the arguments for and against an opt-out organ donation system?' },
-    { type: 'simple', text: 'How does your immune system know the difference between your own cells and foreign cells?' },
-    { type: 'simple', text: 'Why is it that humans share about 50% of their DNA with bananas, yet we are so different?' },
-  ],
-  'engineering': [
-    { type: 'material', material: 'Place your finger under the centre of a ruler and balance it. Now slide your fingers in from each end. Observe what happens.', text: 'Why do your fingers always end up meeting at the centre of the ruler? What physical forces are at work? What happens if the ruler has a weight attached at one end?' },
-    { type: 'material', material: 'Consider a football being kicked. It travels in an arc through the air, spinning as it goes.', text: 'Sketch and explain the forces acting on the ball at different points in its trajectory. How does spin affect the ball\'s path?' },
-    { type: 'simple', text: 'How would you design a gravity dam for holding back water?' },
-    { type: 'material', material: 'You have a black box with two terminals. You can connect a battery and measure current, or apply different voltages and measure current.', text: 'How would you determine what is inside the black box? What components might it contain, and how would your measurements help you distinguish between possibilities?' },
-    { type: 'simple', text: 'Why do bicycle wheels have spokes?' },
-    { type: 'material', material: 'A bridge must span a 100-metre gap. You have access to steel, concrete, and cable.', text: 'What type of bridge would you design? Explain the forces in your design. What are the advantages and disadvantages of different bridge types?' },
-    { type: 'simple', text: 'How would you design a kettle for a left-handed person?' },
-    { type: 'simple', text: 'What is the most important engineering development of the last 50 years?' },
-    { type: 'material', material: 'A water pipe has a narrowing section where the diameter halves.', text: 'What happens to the velocity and pressure of the water as it passes through the narrow section? Can you derive the relationship using conservation principles?' },
-    { type: 'simple', text: 'If you had to move a 10-tonne stone block, and you lived 4,000 years ago, how would you do it?' },
-    { type: 'material', material: 'Consider a simple crane: a vertical pole with a horizontal arm, from which a load hangs. A cable runs from the top of the pole to the end of the arm.', text: 'Draw a force diagram. What is the tension in the cable? What happens to the forces if the arm is extended?' },
-    { type: 'simple', text: 'Why are eggs egg-shaped?' },
-    { type: 'simple', text: 'How do noise-cancelling headphones work?' },
-    { type: 'material', material: 'A car drives at constant speed around a circular track banked at angle θ.', text: 'Draw the forces on the car. At what speed does the car need no friction to stay on the track? What happens above and below this speed?' },
-    { type: 'simple', text: 'Why don\'t tall chimneys fall over in the wind?' },
-    { type: 'simple', text: 'If teleportation was invented tomorrow, what would be the engineering challenges?' },
-    { type: 'material', material: 'You need to design a system to deliver clean water to a village 5km from a river, where the village is 200m higher than the river.', text: 'What approaches could you use? Compare the energy requirements, reliability, and cost of different solutions.' },
-    { type: 'simple', text: 'Why are manhole covers round?' },
-  ],
-  'cs': [
-    { type: 'material', material: 'You have 10 boxes and 100 wooden blocks in 10 different colours (10 of each colour). Each block must go in exactly one box.', text: 'Show that it is always possible to pack the blocks so that each box contains blocks of at most 2 different colours.' },
-    { type: 'material', material: 'A function f(x) is defined on the interval [0, 1] and has exactly one maximum. You can evaluate f at any point.', text: 'How would you find the approximate location of the maximum? How many evaluations of f do you need to find the maximum to within a tolerance of ε?' },
-    { type: 'simple', text: 'How would you sort a list of one million numbers as efficiently as possible? What is the theoretical minimum number of comparisons needed?' },
-    { type: 'material', material: 'Consider a binary search algorithm on a sorted list of n items.', text: 'How many comparisons does it need in the worst case? Can you do better? What if the list isn\'t sorted?' },
-    { type: 'simple', text: 'Can a machine think? How would you decide whether it could?' },
-    { type: 'material', material: 'You have 8 coins that look identical. One is slightly heavier than the others. You have a balance scale.', text: 'What is the minimum number of weighings needed to find the heavy coin? Can you generalise this to n coins?' },
-    { type: 'simple', text: 'Explain recursion to someone who doesn\'t know programming. Give an everyday example.' },
-    { type: 'material', material: 'Consider the following problem: you have a 3×3 grid. Starting from the top-left corner, you can only move right or down.', text: 'How many different paths are there to the bottom-right corner? Can you generalise this to an m×n grid?' },
-    { type: 'simple', text: 'What is an algorithm? Is a recipe an algorithm?' },
-    { type: 'material', material: 'You write a program to play noughts and crosses (tic-tac-toe) optimally.', text: 'How many possible game states are there? How would you reduce this number using symmetry? What strategy guarantees you never lose?' },
-    { type: 'simple', text: 'How does the internet know where to send your email?' },
-    { type: 'material', material: 'Consider a stack of n pancakes of different sizes, in random order. You can only sort them by inserting a spatula and flipping all pancakes above it.', text: 'What is the maximum number of flips needed to sort any stack of n pancakes? Can you describe a strategy?' },
-    { type: 'simple', text: 'Why do computers use binary rather than decimal?' },
-    { type: 'simple', text: 'Is there a problem that a computer can never solve, no matter how powerful it is?' },
-    { type: 'material', material: 'You need to schedule n jobs on a single machine. Each job has a deadline and a penalty for being late.', text: 'How would you schedule the jobs to minimise the total penalty? Does your approach always give the best answer?' },
-    { type: 'simple', text: 'How would you explain what a database is to a five-year-old?' },
-    { type: 'simple', text: 'What happens when you type a URL into your web browser and press Enter?' },
-    { type: 'material', material: 'Consider two players taking turns removing 1, 2, or 3 stones from a pile of 15 stones. The player who takes the last stone wins.', text: 'Is there a winning strategy for the first player? What about for a pile of n stones?' },
-  ],
-  'economics': [
-    { type: 'material', material: 'Two sandwich shops are on the same street, 1km apart. Customers are evenly distributed along the street and will walk to the nearest shop. Each shop has the same costs.', text: 'If both shops sell sandwiches at the same price, where should they locate to maximise their own customers? What happens to the outcome if they can change prices?' },
-    { type: 'simple', text: 'Why might a company choose to give its product away for free?' },
-    { type: 'material', material: 'The UK government is considering introducing a tax on sugary drinks to reduce obesity.', text: 'Who bears the burden of this tax: producers or consumers? How does the elasticity of demand affect your answer? Could the tax make things worse?' },
-    { type: 'simple', text: 'Would it be a good idea to abolish all taxes and instead fund the government through a national lottery?' },
-    { type: 'material', material: 'Consider the following game: two firms must simultaneously choose to set a high price or a low price. If both set high, each earns £10m. If both set low, each earns £5m. If one sets high and the other low, the low-price firm earns £12m and the high-price firm earns £2m.', text: 'What will each firm do? Is the outcome efficient? How might the outcome change if the game is played repeatedly?' },
-    { type: 'simple', text: 'Is inequality necessary for economic growth?' },
-    { type: 'simple', text: 'Why do we pay footballers more than nurses?' },
-    { type: 'material', material: 'A country\'s GDP has been growing at 5% per year, but median wages have been stagnant.', text: 'How is this possible? Is GDP growth a good measure of a country\'s wellbeing? What alternatives might you suggest?' },
-    { type: 'simple', text: 'Should governments ever bail out failing banks?' },
-    { type: 'simple', text: 'Explain how \'economies of scale\' can influence a firm\'s production decisions.' },
-    { type: 'material', material: 'A town has two petrol stations on opposite sides of the road. They can see each other\'s prices.', text: 'What pricing behaviour would you expect? Would consumers be better off if there were only one station? Why might we observe price cycles?' },
-    { type: 'simple', text: 'What would happen if the government set a maximum price for housing rent in London?' },
-    { type: 'simple', text: 'Why is it hard to find a taxi when it\'s raining?' },
-    { type: 'material', material: 'You run a business selling widgets. Your costs are: fixed costs of £1000 per month, and variable costs of £2 per widget. You currently sell 500 widgets per month at £5 each.', text: 'A new customer offers to buy 200 additional widgets at £3 each. Should you accept? What factors affect your decision?' },
-    { type: 'simple', text: 'Is trade always beneficial? When might a country be worse off from free trade?' },
-    { type: 'simple', text: 'If a bank lends out more money than it has in deposits, where does the extra money come from?' },
-    { type: 'material', material: 'Consider a market where buyers don\'t know the quality of used cars, but sellers do. There are \'good\' cars worth £5000 and \'lemons\' worth £2000.', text: 'What price will buyers be willing to pay? What happens to the market over time? This is known as Akerlof\'s \'Market for Lemons\' — what solutions exist?' },
-    { type: 'simple', text: 'Does quantitative easing cause inflation? Why or why not?' },
-  ],
-  'law': [
-    { type: 'simple', text: 'Should it be illegal to run a red light in the middle of the night on an empty road?' },
-    { type: 'material', material: 'A man parks his car on double yellow lines to rush into a pharmacy to buy medicine for his seriously ill child.', text: 'Should he receive a parking fine? Does the law need to take circumstances into account, or should rules be applied uniformly?' },
-    { type: 'simple', text: 'What does it mean for someone to \'take\' another person\'s car? At what point has a theft occurred?' },
-    { type: 'material', material: 'In Shakespeare\'s The Merchant of Venice, Antonio agrees that Shylock may take a pound of his flesh if he defaults on a loan.', text: 'Would English courts today enforce this bargain? What principles of contract law are relevant? Does it matter that Antonio agreed voluntarily?' },
-    { type: 'simple', text: 'Is it possible to have a just society without laws?' },
-    { type: 'simple', text: 'What are the arguments for and against making bicycle helmets compulsory?' },
-    { type: 'material', material: 'A company produces a product it knows has a small chance of causing harm. A safer version would cost twice as much to produce and the company would go out of business.', text: 'Should the company be allowed to sell the product? Who should decide what level of risk is acceptable? What role should the law play?' },
-    { type: 'simple', text: 'Where does honesty fit into law?' },
-    { type: 'simple', text: 'Should the law protect people from themselves? For example, should it be illegal to not wear a seatbelt?' },
-    { type: 'material', material: 'Two neighbours share a fence. Neighbour A paints their side of the fence pink. Neighbour B objects strongly and says it reduces their property value.', text: 'Should Neighbour B have any legal recourse? How should the law balance property rights against individual freedom?' },
-    { type: 'simple', text: 'What is the difference between law and morality? Can something be legal but immoral?' },
-    { type: 'simple', text: 'Should judges make law, or should they only interpret it?' },
-    { type: 'material', material: 'A social media company\'s algorithm promotes content that increases engagement but also spreads misinformation and causes harm to mental health.', text: 'Should the company be legally liable for harm caused by its algorithm? How would you define \'harm\' in this context? Where should we draw the line between free speech and regulation?' },
-    { type: 'simple', text: 'How do you think the House of Lords should be reformed, if at all?' },
-    { type: 'simple', text: 'Is the purpose of prison to punish, to rehabilitate, or to protect the public? Can it be all three?' },
-    { type: 'material', material: 'A person downloads a digital book for free from a pirate website. No physical object has been taken. The publisher claims they have lost a sale.', text: 'Is this theft? How does copyright differ from property rights over physical objects? Should digital goods have the same legal protections?' },
-    { type: 'simple', text: 'Should we have an international law that applies to all countries? Who would enforce it?' },
-    { type: 'simple', text: 'Can you think of a law that exists now which you think should not exist? Why?' },
-  ],
-  'history': [
-    { type: 'simple', text: 'How do you organise a successful revolution?' },
-    { type: 'material', material: 'Here is a propaganda poster from World War I showing a soldier pointing at the viewer with the caption \'Your Country Needs YOU.\'', text: 'What can we learn from this source? What can we not learn? How would you verify claims made in propaganda?' },
-    { type: 'simple', text: 'How much of the past can you count? What role do statistics play in historical understanding?' },
-    { type: 'simple', text: 'Does the word \'political\' mean different things in different periods of history?' },
-    { type: 'material', material: 'Consider two historians writing about the French Revolution. One argues it was caused by economic inequality. The other argues it was caused by Enlightenment ideas.', text: 'Can both be right? How do historians choose between competing explanations? Is one type of cause more \'fundamental\' than another?' },
-    { type: 'simple', text: 'If you could interview any historical figure, who would it be and what would you ask?' },
-    { type: 'simple', text: 'Why should we study history at all? What is it for?' },
-    { type: 'material', material: 'Here is a passage from a diary written by a soldier in the trenches during World War I, describing his daily routine.', text: 'How useful is this source for understanding the experience of war? What are its limitations? How would you corroborate what it says?' },
-    { type: 'simple', text: 'Is it possible to write unbiased history?' },
-    { type: 'simple', text: 'Was the British Empire a force for good or for harm?' },
-    { type: 'material', material: 'Between 1800 and 1850, the population of England doubled, the percentage of people living in cities increased from 20% to 50%, and child labour was widespread.', text: 'Was the Industrial Revolution a positive development? For whom? How do you weigh short-term suffering against long-term progress?' },
-    { type: 'simple', text: 'Why do some civilisations decline while others thrive?' },
-    { type: 'simple', text: 'Should we judge historical figures by modern moral standards?' },
-    { type: 'material', material: 'In 1989, the Berlin Wall fell. Within two years, the Soviet Union had dissolved.', text: 'Was the end of the Cold War inevitable? What factors do you think were most important? How do we distinguish between causes and triggers?' },
-    { type: 'simple', text: 'How does the study of history differ from the study of the past?' },
-    { type: 'simple', text: 'If you had to give up studying one century of history entirely, which would you sacrifice and why?' },
-    { type: 'simple', text: 'What is the relationship between history and memory? Are they the same thing?' },
-    { type: 'material', material: 'Consider the claim: \'History is written by the victors.\'', text: 'To what extent is this true? Can you think of examples where it is not? How does this affect our understanding of past events?' },
-  ],
-  'english': [
-    { type: 'simple', text: 'What makes a novel different from a short story? Is it just length?' },
-    { type: 'material', material: 'Read the following poem by William Blake: \'Tyger Tyger, burning bright, / In the forests of the night; / What immortal hand or eye, / Could frame thy fearful symmetry?\'', text: 'What is Blake doing with the idea of creation here? Why \'fearful symmetry\'? How does the rhythm of the poem contribute to its meaning?' },
-    { type: 'simple', text: 'Would you rather be a novel or a poem?' },
-    { type: 'material', material: 'Here is the opening paragraph of a novel you have probably not read before. [A short passage of prose would be provided.]', text: 'What can you tell me about this text from just the first paragraph? What expectations does it set up? What techniques is the author using?' },
-    { type: 'simple', text: 'Why might a writer choose to write a poem instead of a piece of prose?' },
-    { type: 'simple', text: 'If it could take a physical form, what shape would the novel To the Lighthouse become?' },
-    { type: 'material', material: 'Consider this sentence: \'The old man the boats.\' Read it again if it doesn\'t make sense at first.', text: 'Why is this sentence confusing initially? What does it reveal about how we process language and meaning?' },
-    { type: 'simple', text: 'Is the author\'s intention relevant to the meaning of a text?' },
-    { type: 'simple', text: 'Can literature change the world? Give an example.' },
-    { type: 'material', material: 'Here are two translations of the opening of Homer\'s Odyssey — one from the 18th century and one from the 21st century.', text: 'What differences do you notice? What does the choice of translation reveal about the values of each period? Is there such a thing as a definitive translation?' },
-    { type: 'simple', text: 'What is the difference between a fairy tale and a myth?' },
-    { type: 'simple', text: 'Should we still read books that contain racist or sexist language?' },
-    { type: 'material', material: 'Consider a story told from two different points of view: first by a child, then by an adult recalling the same events.', text: 'How does the perspective change the story? Which account is more trustworthy? What is the author gaining by using dual perspectives?' },
-    { type: 'simple', text: 'What is the point of literary criticism? Can\'t we just enjoy the book?' },
-    { type: 'simple', text: 'Why do we use metaphor? Why not just say what we mean directly?' },
-    { type: 'material', material: 'Here is a short passage of dialogue from a play. Two characters are having a conversation but seem to be talking past each other.', text: 'What is actually happening in this exchange? What is each character trying to achieve? How does the subtext differ from the surface meaning?' },
-    { type: 'simple', text: 'Is there a difference between a \'good\' book and one that you enjoy?' },
-    { type: 'simple', text: 'If Shakespeare had never existed, would English literature be fundamentally different?' },
-  ],
-  'ppe': [
-    { type: 'simple', text: 'Is there essentially any difference between taxation and the state forcibly taking one of your arms?' },
-    { type: 'material', material: 'Imagine 100 people each put £1 into a pot for a prize. Each person chooses a number between 0 and 100. The winner is the person whose number is closest to two-thirds of the average of all numbers chosen.', text: 'What number will you choose, and why? What number would you choose if you knew everyone else was perfectly rational?' },
-    { type: 'simple', text: 'If all countries had nuclear weapons, would there still be wars?' },
-    { type: 'material', material: 'Consider the following scenario: a runaway trolley is heading toward five people tied to the track. You can pull a lever to divert it onto another track where only one person is tied.', text: 'Should you pull the lever? What if instead of a lever, you had to push a large man off a bridge to stop the trolley? Why might your answer differ?' },
-    { type: 'simple', text: 'How do you measure the success of a political voting system?' },
-    { type: 'simple', text: 'Instead of politicians, why don\'t we let the managers of IKEA or Tesco run the country?' },
-    { type: 'material', material: 'A government proposes paying people £1000 for every A-grade they achieve at A-level.', text: 'Would this be fair? Would it be effective? What unintended consequences might arise? Consider this from philosophical, political, and economic perspectives.' },
-    { type: 'simple', text: 'Do you really consent to any government, given that there is barely anywhere in the world to escape some government or other?' },
-    { type: 'simple', text: 'Should we discount the wellbeing of future generations in our policy decisions?' },
-    { type: 'material', material: 'In 2008, bankers received large bonuses despite their institutions requiring government bailouts.', text: 'Should bankers\' bonuses be capped? Consider the ethical arguments, the political feasibility, and the economic consequences.' },
-    { type: 'simple', text: 'How do you know there is a tree in the garden outside this office?' },
-    { type: 'simple', text: 'Can you have democracy without political parties?' },
-    { type: 'material', material: 'Country A has a GDP per capita of $50,000 and high inequality (Gini coefficient 0.45). Country B has GDP per capita of $30,000 and low inequality (Gini coefficient 0.25).', text: 'Which country\'s citizens are better off? How would a utilitarian answer differently from a Rawlsian? What additional information would you want?' },
-    { type: 'simple', text: 'Is it morally wrong to buy a £5 coffee when that money could vaccinate a child in a developing country?' },
-    { type: 'simple', text: 'What is freedom? Is being free from interference the same as being free to do things?' },
-    { type: 'material', material: 'A social media platform decides to ban a controversial political figure for spreading misinformation.', text: 'Does the platform have the right to do this? Is this censorship? How should we balance free speech against potential harm in the digital age?' },
-    { type: 'simple', text: 'How many people are in this room? Are you sure?' },
-    { type: 'simple', text: 'Can economics be a science in the same way that physics is?' },
-    { type: 'simple', text: 'If you could go back in time and change one political decision, which would it be and why?' },
-  ],
-  'psychology': [
-    { type: 'material', material: 'Imagine that 100 people each put £1 into a pot for a prize that will go to the winner of a simple game. Each person has to choose a number between 0 and 100. The prize goes to the person whose number is closest to two-thirds of the average of all the numbers chosen.', text: 'What number will you choose, and why? What does this tell us about how people reason about other people\'s thinking?' },
-    { type: 'simple', text: 'Why do we dream? Is dreaming useful?' },
-    { type: 'material', material: 'A researcher shows participants a video of a car crash and then asks either \'How fast were the cars going when they hit each other?\' or \'How fast were the cars going when they smashed into each other?\'', text: 'Would the wording affect participants\' speed estimates? What does this tell us about memory? This is based on a real study — what are its implications for eyewitness testimony?' },
-    { type: 'simple', text: 'Is human behaviour more influenced by nature or nurture?' },
-    { type: 'simple', text: 'Why do we find some faces more attractive than others?' },
-    { type: 'material', material: 'A study finds a correlation of r = 0.8 between ice cream sales and drowning deaths.', text: 'Does ice cream cause drowning? What is the difference between correlation and causation? How would you design a study to establish causation?' },
-    { type: 'simple', text: 'Can animals be said to have emotions?' },
-    { type: 'material', material: 'In Milgram\'s obedience experiment, participants were instructed by an authority figure to administer what they believed were electric shocks to another person. 65% continued to the maximum voltage.', text: 'What does this tell us about human nature? Would you expect the same results today? What ethical problems does this experiment raise?' },
-    { type: 'simple', text: 'Why do people conform to group opinions even when the group is clearly wrong?' },
-    { type: 'simple', text: 'What is consciousness? How would you study it scientifically?' },
-    { type: 'material', material: 'Children under about 4 years old typically fail the \'false belief\' test: if they see a toy hidden in Location A, and then watch it being moved to Location B while another person is absent, they predict the absent person will look in Location B.', text: 'Why do young children fail this test? What does it tell us about cognitive development? At what age do children typically develop this ability, and what might drive the change?' },
-    { type: 'simple', text: 'Why do optical illusions work?' },
-    { type: 'simple', text: 'Is there such a thing as a \'criminal personality\'?' },
-    { type: 'material', material: 'A patient with damage to the hippocampus can remember events from their childhood but cannot form new memories. Another patient with damage to a different brain region can form new memories but has lost childhood memories.', text: 'What does this tell us about how memory is organised in the brain? Are there different types of memory stored in different places?' },
-    { type: 'simple', text: 'Why do we forget things? Is forgetting a failure of memory or a feature?' },
-    { type: 'simple', text: 'Can a computer ever be conscious?' },
-    { type: 'material', material: 'You design an experiment to test whether background music helps students study. You have 100 student volunteers.', text: 'How would you design this experiment? What variables would you control? What statistical test would you use and why?' },
-    { type: 'simple', text: 'Why are phobias often of things like spiders and snakes rather than cars, which are statistically more dangerous?' },
-  ],
+// ============================================================
+// QUESTION BANK REGISTRY (metadata only — questions loaded on demand)
+// ============================================================
+var BANK_REGISTRY = {
+  hku:        { file: '/data/interview/hku.json', prepTime: 30, answerTime: 120, recording: true },
+  general:    { file: '/data/interview/general.json', prepTime: 10, answerTime: 120, recording: true },
+  oxbridge:   { file: '/data/interview/oxbridge.json', prepTime: -1, answerTime: 0, recording: true },
+  kira:       { file: '/data/interview/kira.json', prepTime: 30, answerTime: 90, recording: true },
+  faang:      { file: '/data/interview/faang.json', prepTime: -1, answerTime: 0, recording: false },
+  consulting: { file: '/data/interview/consulting.json', prepTime: -1, answerTime: 0, recording: false },
+  banking:    { file: '/data/interview/banking.json', prepTime: -1, answerTime: 0, recording: false },
+  gradschool: { file: '/data/interview/gradschool.json', prepTime: -1, answerTime: 0, recording: false },
+  mmi:        { file: '/data/interview/mmi.json', prepTime: 120, answerTime: 480, recording: false }
 };
 
-// ============================================================
-// EXTRA QUESTION BANKS
-// ============================================================
-var BANK_KIRA = [{"type": "simple", "text": "Tell us about yourself and why you are applying to this program."}, {"type": "simple", "text": "Describe a time when you had to adapt to a significant change. How did you handle it?"}, {"type": "simple", "text": "What is the most meaningful accomplishment in your career so far?"}, {"type": "simple", "text": "If you could have dinner with any person, living or dead, who would it be and why?"}, {"type": "simple", "text": "Tell us about a time you failed. What did you learn from it?"}, {"type": "simple", "text": "How would your colleagues describe you in three words?"}, {"type": "simple", "text": "What is one thing you would change about your industry?"}, {"type": "simple", "text": "Describe a situation where you had to work with someone who was difficult to get along with."}, {"type": "simple", "text": "What book has had the greatest impact on your professional development?"}, {"type": "simple", "text": "If you were given $1 million to start a business, what would you create?"}, {"type": "simple", "text": "Tell us about a time you took a risk. What was the outcome?"}, {"type": "simple", "text": "What is a current global issue that you feel strongly about, and what would you do to address it?"}, {"type": "simple", "text": "Describe a time when you had to persuade someone to see things your way."}, {"type": "simple", "text": "What unique perspective will you bring to the classroom?"}, {"type": "simple", "text": "If you could master any skill overnight, what would it be and why?"}, {"type": "material", "material": "Your team has been working on a project for three months. One week before the deadline, a key team member announces they are leaving the company and cannot complete their portion of the work.", "text": "How would you handle this situation to ensure the project is delivered on time?"}, {"type": "material", "material": "You are the only person from your department at a company-wide strategy meeting. The CEO presents a new initiative that you believe will negatively impact your team's work and morale.", "text": "What would you do in this meeting, and how would you communicate with your team afterward?"}, {"type": "simple", "text": "Tell us about a time you received critical feedback. How did you respond?"}, {"type": "simple", "text": "What would you do on your first day as CEO of your current company?"}, {"type": "simple", "text": "Describe a situation where you had to make a decision with incomplete information."}, {"type": "simple", "text": "What is something people often misunderstand about your field of work?"}, {"type": "simple", "text": "Tell us about a time you went above and beyond what was expected of you."}, {"type": "material", "material": "You notice that a classmate in your MBA program has been submitting work that appears to be heavily plagiarized from online sources. Other students have noticed too, but no one has said anything.", "text": "What would you do in this situation?"}];
+// Cache for loaded question data
+var questionCache = {};
 
-var BANK_FAANG = [{"type": "material", "material": "Amazon Leadership Principle: Customer Obsession — Leaders start with the customer and work backwards.", "text": "Tell me about a time when you went above and beyond for a customer or end user."}, {"type": "material", "material": "Amazon Leadership Principle: Ownership — Leaders act on behalf of the entire company, beyond just their own team.", "text": "Tell me about a time you took on something significant outside your area of responsibility."}, {"type": "material", "material": "Amazon Leadership Principle: Invent and Simplify — Leaders expect and require innovation from their teams and always find ways to simplify.", "text": "Tell me about a time you found a simple solution to a complex problem."}, {"type": "material", "material": "Amazon Leadership Principle: Are Right, A Lot — Leaders have strong judgment and good instincts.", "text": "Tell me about a time when you had to make a decision with limited data. How did you arrive at your decision?"}, {"type": "material", "material": "Amazon Leadership Principle: Hire and Develop the Best — Leaders raise the performance bar with every hire and promotion.", "text": "Tell me about a time you mentored or coached someone. What was the impact?"}, {"type": "material", "material": "Amazon Leadership Principle: Insist on the Highest Standards — Leaders have relentlessly high standards that many people may think are unreasonably high.", "text": "Tell me about a time when you refused to compromise on quality even when under pressure to deliver."}, {"type": "material", "material": "Amazon Leadership Principle: Bias for Action — Speed matters in business. Many decisions are reversible and do not need extensive study.", "text": "Tell me about a time when you took a calculated risk and moved forward without having all the answers."}, {"type": "material", "material": "Amazon Leadership Principle: Earn Trust — Leaders listen attentively, speak candidly, and treat others respectfully.", "text": "Tell me about a time you had to deliver difficult feedback to a peer or manager. How did you handle it?"}, {"type": "material", "material": "Amazon Leadership Principle: Dive Deep — Leaders operate at all levels, stay connected to the details, and audit frequently.", "text": "Tell me about a time when you identified a problem that others had missed by digging into the details."}, {"type": "material", "material": "Amazon Leadership Principle: Disagree and Commit — Leaders respectfully challenge decisions when they disagree, but once a decision is made, they commit wholly.", "text": "Tell me about a time when you disagreed with your manager or team on a decision. What did you do?"}, {"type": "material", "material": "Amazon Leadership Principle: Deliver Results — Leaders focus on the key inputs and deliver them with the right quality and in a timely fashion.", "text": "Tell me about a time when you had to deliver a project under a very tight deadline. How did you ensure success?"}, {"type": "simple", "text": "Tell me about a time you had to deal with ambiguity on a project. How did you create clarity for your team?"}, {"type": "simple", "text": "Describe a situation where you had to influence a team or stakeholders without having direct authority over them."}, {"type": "simple", "text": "Tell me about your most challenging cross-functional collaboration. What made it difficult and how did you navigate it?"}, {"type": "simple", "text": "Give me an example of a time you used data to make a decision that others initially disagreed with."}, {"type": "simple", "text": "Tell me about a time you had to prioritize between competing demands from different stakeholders."}, {"type": "simple", "text": "Describe a time when a project you were leading failed. What happened and what did you learn?"}, {"type": "simple", "text": "Tell me about a time you had to quickly learn a new technology or domain to solve a problem."}, {"type": "material", "material": "Amazon Leadership Principle: Frugality — Accomplish more with less. Constraints breed resourcefulness, self-sufficiency, and invention.", "text": "Tell me about a time when you had to achieve a goal with significantly fewer resources than you expected."}, {"type": "material", "material": "Amazon Leadership Principle: Think Big — Leaders create and communicate a bold direction that inspires results.", "text": "Tell me about a time when you proposed a bold, unconventional idea. How did you get buy-in?"}, {"type": "simple", "text": "Tell me about a time you received negative feedback from a customer or user. How did you respond?"}, {"type": "simple", "text": "Describe a situation where you had to balance speed of delivery with technical quality."}, {"type": "simple", "text": "Tell me about the most impactful project you have worked on. What was your specific contribution?"}, {"type": "material", "material": "Amazon Leadership Principle: Learn and Be Curious — Leaders are never done learning and always seek to improve themselves.", "text": "Tell me about a time you proactively learned something new that ended up being valuable for your work."}, {"type": "simple", "text": "Tell me about a time you had to deal with a significant conflict within your team. How did you resolve it?"}];
-
-var BANK_CONSULTING = [{"type": "simple", "text": "Why consulting? And why specifically this firm?"}, {"type": "simple", "text": "Walk me through your resume."}, {"type": "material", "material": "McKinsey PEI Dimension: Personal Impact — The ability to influence others and create change without relying on positional authority.", "text": "Tell me about a time when you had to persuade a group of people to change their approach or perspective on an important issue."}, {"type": "material", "material": "McKinsey PEI Dimension: Entrepreneurial Drive — Building something from scratch or achieving results significantly beyond expectations.", "text": "Tell me about a time when you identified an opportunity and took initiative to create something of significant impact, without being asked."}, {"type": "material", "material": "McKinsey PEI Dimension: Inclusive Leadership — The ability to lead diverse teams, resolve conflicts, and bring out the best in others.", "text": "Tell me about a time when you led a team through a challenging situation where team members had conflicting views or motivations."}, {"type": "simple", "text": "Tell me about your most significant leadership experience."}, {"type": "simple", "text": "Describe a time when you had to solve a problem with an analytical approach. Walk me through your process."}, {"type": "simple", "text": "Tell me about a time when you faced a setback and how you overcame it."}, {"type": "simple", "text": "What is your greatest professional achievement and why?"}, {"type": "simple", "text": "Where do you see yourself in five to ten years?"}, {"type": "simple", "text": "Tell me about a time when you had to manage multiple stakeholders with competing interests."}, {"type": "simple", "text": "Describe a situation where you had to drive results in a team where you were not the formal leader."}, {"type": "material", "material": "BCG values collaboration and diverse thinking. They look for candidates who can work effectively with clients and team members from different backgrounds.", "text": "Give me an example of a time you worked with someone whose working style was very different from yours. How did you adapt?"}, {"type": "simple", "text": "Tell me about a time you had to make a difficult decision with significant trade-offs. How did you approach it?"}, {"type": "simple", "text": "What is the biggest risk you have ever taken? What was the outcome?"}, {"type": "simple", "text": "Tell me about a time you received tough feedback. What did you do with it?"}, {"type": "material", "material": "Bain looks for candidates with a 'Bainee' collaborative culture fit and a track record of driving results.", "text": "Tell me about a time when you exceeded expectations on a deliverable. What drove you to go further?"}, {"type": "simple", "text": "Why should we hire you over other candidates?"}, {"type": "simple", "text": "Tell me about a time you had to communicate a complex idea to a non-technical audience."}, {"type": "simple", "text": "Describe a situation where you had to work under significant time pressure. How did you prioritize?"}, {"type": "material", "material": "McKinsey PEI Dimension: Courageous Change — Challenging the status quo and driving meaningful change even when it is uncomfortable.", "text": "Tell me about a time when you challenged a prevailing assumption or pushed back on an established way of doing things."}];
-
-var BANK_BANKING = [{"type": "simple", "text": "Walk me through your resume."}, {"type": "simple", "text": "Why investment banking?"}, {"type": "simple", "text": "Why this bank specifically?"}, {"type": "simple", "text": "Tell me about a deal or transaction you have been following in the news. What makes it interesting?"}, {"type": "simple", "text": "What do you think makes a successful investment banker?"}, {"type": "simple", "text": "Tell me about a time you worked on a team under extreme time pressure."}, {"type": "simple", "text": "Investment banking requires long hours and significant personal sacrifice. How do you handle stress and maintain your performance?"}, {"type": "simple", "text": "Describe a time you had to pay close attention to detail to avoid a significant mistake."}, {"type": "simple", "text": "Tell me about a time you had to manage multiple projects simultaneously. How did you prioritize?"}, {"type": "simple", "text": "What other firms are you interviewing with? Where does this firm rank?"}, {"type": "material", "material": "A client is considering an acquisition of a competitor. During your due diligence, you discover that the target company's revenue projections appear overly optimistic compared to industry benchmarks.", "text": "How would you raise this concern with the deal team and the client?"}, {"type": "simple", "text": "Tell me about a time you built a financial model or performed a detailed quantitative analysis. What was the result?"}, {"type": "simple", "text": "Where do you see yourself in five years within the finance industry?"}, {"type": "simple", "text": "What industry or sector are you most interested in covering, and why?"}, {"type": "simple", "text": "Describe a situation where you had to quickly learn a new financial concept or tool to complete an assignment."}, {"type": "simple", "text": "Tell me about a leadership experience where you had to motivate a team to meet a tight deadline."}, {"type": "material", "material": "You are working on a live deal. At 2 AM, you discover an error in the financial model that could materially change the valuation range presented to the client. The pitch is at 8 AM.", "text": "Walk me through exactly what you would do in this situation."}, {"type": "simple", "text": "What is the most important quality you would bring to our analyst class?"}, {"type": "simple", "text": "Tell me about a time you disagreed with a supervisor. How did you handle it?"}, {"type": "simple", "text": "How do you stay informed about financial markets and current events?"}, {"type": "simple", "text": "If you had to pitch a stock right now, which company would you choose and why?"}, {"type": "material", "material": "You are a first-year analyst. A Vice President asks you to make a change to a presentation that you believe contains misleading information, though it is not technically false.", "text": "How would you handle this situation?"}, {"type": "simple", "text": "Tell me about a time when your integrity was tested."}];
-
-var BANK_GRADSCHOOL = [{"type": "simple", "text": "Tell us about yourself and your academic background."}, {"type": "simple", "text": "Why are you interested in this specific program and university?"}, {"type": "simple", "text": "Describe your research interests and how they align with the work being done in this department."}, {"type": "simple", "text": "Which faculty members are you interested in working with, and why?"}, {"type": "simple", "text": "Walk me through your most significant research experience. What was your specific contribution?"}, {"type": "simple", "text": "What research question do you want to explore during your graduate studies?"}, {"type": "simple", "text": "Where do you see yourself in five to ten years after completing this program?"}, {"type": "simple", "text": "How has your academic and professional experience prepared you for graduate study?"}, {"type": "simple", "text": "Describe a time when an experiment or project did not go as planned. How did you adapt?"}, {"type": "simple", "text": "What is a paper or study in your field that has significantly influenced your thinking?"}, {"type": "simple", "text": "How would you handle disagreements with your advisor about the direction of your research?"}, {"type": "simple", "text": "What are the most important methodological skills you bring to this program?"}, {"type": "simple", "text": "Tell us about a time you had to explain a complex concept to someone outside your field."}, {"type": "material", "material": "Graduate programs often require balancing coursework, research, teaching responsibilities, and personal well-being, particularly over a 4-6 year PhD timeline.", "text": "How do you plan to manage these competing demands, and what strategies have you used in the past to maintain productivity during challenging periods?"}, {"type": "simple", "text": "What other programs have you applied to, and what makes this one your preferred choice?"}, {"type": "simple", "text": "Describe your experience with [specific methodology relevant to the program: statistical analysis, lab techniques, fieldwork, etc.]."}, {"type": "simple", "text": "What do you consider to be the biggest open question or challenge in your field right now?"}, {"type": "material", "material": "You are conducting research and discover that your preliminary results contradict the hypothesis proposed in your advisor's recent publication.", "text": "How would you approach this situation?"}, {"type": "simple", "text": "What experience do you have with teaching or mentoring? How has it influenced your approach to your own learning?"}, {"type": "simple", "text": "How would you contribute to the intellectual community of this department beyond your own research?"}, {"type": "simple", "text": "Is there anything else about your candidacy that you would like us to know?"}];
-
-var BANK_MMI = [{"type": "material", "material": "You are a physician. A 14-year-old patient comes to you requesting birth control pills. She asks that you not tell her parents. In your jurisdiction, minors have the right to confidential reproductive health care.", "text": "How would you handle this situation? What are the ethical considerations?"}, {"type": "material", "material": "Your close friend and fellow medical student confides in you that they have been struggling with depression and have been self-medicating with prescription drugs they obtained from the hospital supply during a clinical rotation.", "text": "What would you do? Walk through your reasoning."}, {"type": "material", "material": "A patient with terminal cancer has decided to stop all treatment. Their adult children are begging you to continue treatment and are threatening to sue if you comply with the patient's wishes. The patient is mentally competent.", "text": "How do you navigate this situation? What principles guide your decision?"}, {"type": "material", "material": "You are on a committee allocating one available organ (a liver) to one of two patients: Patient A is a 35-year-old single mother of three young children with alcoholic liver disease who has been sober for 6 months. Patient B is a 12-year-old child with a congenital liver condition.", "text": "How would you approach this decision? What factors should be considered?"}, {"type": "material", "material": "A pharmaceutical company offers to fund your research lab with a $2 million grant. In return, they want first access to review your findings before publication and the right to delay publication by up to 6 months.", "text": "Would you accept this offer? Discuss the ethical implications."}, {"type": "material", "material": "You observe a senior resident yelling at a nurse in front of patients and other staff members. The nurse appears visibly upset. The resident is known to be an excellent clinician and is well-liked by the attending physicians.", "text": "What would you do in this situation?"}, {"type": "material", "material": "A patient who is a Jehovah's Witness is brought to the emergency room after a car accident with life-threatening blood loss. They are conscious and explicitly refuse a blood transfusion on religious grounds. Their spouse, who is not a Jehovah's Witness, is begging you to administer the transfusion.", "text": "What do you do? Explain your reasoning."}, {"type": "material", "material": "The government is considering implementing a policy that would require all healthcare workers to be vaccinated against influenza annually, with no religious or philosophical exemptions, only medical exemptions.", "text": "What is your position on this policy? Discuss both sides of the argument."}, {"type": "material", "material": "You are a medical student on a surgical rotation. During a procedure, you notice that the attending surgeon appears to be intoxicated. The surgery is halfway complete.", "text": "What would you do? Consider immediate patient safety and longer-term concerns."}, {"type": "material", "material": "A couple comes to you for genetic counseling. Testing reveals that the fetus has Down syndrome. The couple asks for your personal recommendation on whether to continue or terminate the pregnancy.", "text": "How do you respond? What is the role of a physician in this situation?"}, {"type": "simple", "text": "What does empathy mean to you, and how have you demonstrated it in your life?"}, {"type": "simple", "text": "Describe a time when you had to advocate for someone who could not advocate for themselves."}, {"type": "material", "material": "Healthcare resources are limited. In a pandemic scenario, you must decide how to allocate 100 ventilators among 300 critically ill patients. You must establish allocation criteria.", "text": "What criteria would you use, and how would you justify your approach?"}, {"type": "material", "material": "You are a family physician. A patient asks you to prescribe ivermectin for COVID-19, citing information they found on social media. Current evidence-based guidelines do not support this use.", "text": "How do you handle this conversation while maintaining the patient-physician relationship?"}, {"type": "material", "material": "Role-play scenario: You will be speaking with a standardized patient. Mrs. Johnson is a 70-year-old woman who has just been told she needs hip replacement surgery. She is terrified of the procedure and wants to leave the hospital immediately.", "text": "Your task is to speak with Mrs. Johnson, address her concerns, and help her make an informed decision about her care."}, {"type": "material", "material": "An Indigenous community in a remote area has significantly worse health outcomes than the national average. The community has historically been distrustful of the healthcare system due to past abuses.", "text": "If you were tasked with improving healthcare delivery to this community, how would you approach it?"}, {"type": "simple", "text": "What do you think is the most pressing issue facing healthcare today, and what role can physicians play in addressing it?"}, {"type": "material", "material": "A wealthy donor offers your hospital $10 million on the condition that the money be used exclusively to build a state-of-the-art cosmetic surgery wing. The hospital desperately needs funding for its emergency department and pediatric ward.", "text": "Should the hospital accept the donation? Discuss the ethical considerations."}, {"type": "material", "material": "You discover that a colleague in medical school has been fabricating data in their research project. This research is being submitted for publication and may be used to inform clinical practice.", "text": "What steps would you take? What are the potential consequences of acting or not acting?"}, {"type": "simple", "text": "Tell me about a time when you had to work with someone whose values or beliefs were very different from your own. How did you find common ground?"}, {"type": "material", "material": "A 17-year-old athlete is brought to the ER with a knee injury. During examination, you notice bruises on their arms and torso that are inconsistent with a sports injury. The patient's parent is in the room and is answering all questions on the patient's behalf.", "text": "How would you handle this situation?"}];
-
-var EXTRA_BANKS = [
-  { id: 'kira', name: 'Kira Talent (Video Interview)', icon: 'videocam', description: 'Timed video interview questions commonly used by top business schools (Rotman, Ivey, Schulich, INSEAD, LBS) and professional programs.', prepTime: 30, answerTime: 90, recording: true, questions: BANK_KIRA },
-  { id: 'faang', name: 'FAANG / Big Tech Behavioral', icon: 'business', description: 'Behavioral interview questions from Google, Amazon, Meta, Apple, and Microsoft. Heavy focus on Amazon Leadership Principles and the STAR method.', prepTime: -1, answerTime: 0, recording: false, questions: BANK_FAANG },
-  { id: 'consulting', name: 'Management Consulting (MBB)', icon: 'trending_up', description: 'Fit and behavioral questions from McKinsey (PEI), BCG, and Bain interviews. Focused on leadership, personal impact, and entrepreneurial drive.', prepTime: -1, answerTime: 0, recording: false, questions: BANK_CONSULTING },
-  { id: 'banking', name: 'Investment Banking / Finance', icon: 'account_balance', description: 'Behavioral and motivational questions from Goldman Sachs, JP Morgan, Morgan Stanley, and other bulge bracket banks.', prepTime: -1, answerTime: 0, recording: false, questions: BANK_BANKING },
-  { id: 'gradschool', name: 'Graduate School Admissions', icon: 'science', description: 'Common interview questions for PhD and Master\'s program admissions across disciplines in the US and UK.', prepTime: -1, answerTime: 0, recording: false, questions: BANK_GRADSCHOOL },
-  { id: 'mmi', name: 'Medical School (MMI)', icon: 'local_hospital', description: 'Multiple Mini Interview station questions used by medical schools worldwide. Includes ethical dilemmas, scenario-based questions, and policy discussions.', prepTime: 120, answerTime: 480, recording: false, questions: BANK_MMI },
-];
+function loadQuestions(bankId, callback) {
+  if (questionCache[bankId]) { callback(questionCache[bankId]); return; }
+  var reg = BANK_REGISTRY[bankId];
+  if (!reg) { callback(null); return; }
+  fetch(reg.file)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      questionCache[bankId] = data;
+      callback(data);
+    })
+    .catch(function(err) {
+      console.error('Failed to load questions for ' + bankId, err);
+      callback(null);
+    });
+}
 
 // ============================================================
 // STATE
@@ -818,6 +492,7 @@ function showScreen(id) {
   el.classList.remove('fade-in');
   void el.offsetWidth;
   el.classList.add('fade-in');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function goBack(to) {
@@ -833,58 +508,49 @@ function goBack(to) {
 // ============================================================
 function selectMode(mode) {
   state.mode = mode;
-  if (mode === 'hku') {
-    state.prepTime = 30;
-    state.answerTime = 120;
-    state.recording = true;
-    state.questions = HKU_QUESTIONS.map(function(q, i) { return Object.assign({_idx: i}, q); });
-    pickRandomQuestion();
-    showScreen('practice');
-    updatePracticeBadge();
-  } else if (mode === 'oxbridge') {
-    renderSubjectGrid();
-    showScreen('subject');
-  } else if (mode === 'general') {
-    state.prepTime = 10;
-    state.answerTime = 120;
-    state.recording = true;
-    state.questions = GENERAL_QUESTIONS.map(function(q, i) { return Object.assign({_idx: i}, q); });
-    pickRandomQuestion();
-    showScreen('practice');
-    updatePracticeBadge();
-  } else if (mode === 'custom') {
+  if (mode === 'custom') {
     showScreen('import');
-  } else {
-    // Check extra banks
-    var bank = null;
-    for (var i = 0; i < EXTRA_BANKS.length; i++) {
-      if (EXTRA_BANKS[i].id === mode) { bank = EXTRA_BANKS[i]; break; }
-    }
-    if (bank) {
-      state.prepTime = bank.prepTime;
-      state.answerTime = bank.answerTime;
-      state.recording = bank.recording;
-      state.questions = bank.questions.map(function(q, idx) { return Object.assign({_idx: idx}, q); });
-      pickRandomQuestion();
-      showScreen('practice');
-      updatePracticeBadge();
-    }
+    return;
   }
+  if (mode === 'oxbridge') {
+    // Oxbridge needs subject picker first
+    loadQuestions('oxbridge', function(data) {
+      if (!data) return;
+      questionCache._oxbridgeData = data; // store full {subjects, questions}
+      renderSubjectGrid(data);
+      showScreen('subject');
+    });
+    return;
+  }
+  // All other modes: load from registry
+  var reg = BANK_REGISTRY[mode];
+  if (!reg) return;
+  loadQuestions(mode, function(questions) {
+    if (!questions) return;
+    state.prepTime = reg.prepTime;
+    state.answerTime = reg.answerTime;
+    state.recording = reg.recording;
+    state.questions = questions.map(function(q, i) { return Object.assign({_idx: i}, q); });
+    pickRandomQuestion();
+    showScreen('practice');
+    updatePracticeBadge();
+  });
 }
 
 // ============================================================
 // SUBJECT GRID (Oxbridge)
 // ============================================================
-function renderSubjectGrid() {
+function renderSubjectGrid(data) {
   var grid = document.getElementById('subject-grid');
   grid.innerHTML = '';
-  // If Oxbridge data is empty, show placeholder
-  if (OXBRIDGE_SUBJECTS.length === 0) {
+  var subjects = data.subjects || [];
+  var questions = data.questions || {};
+  if (subjects.length === 0) {
     grid.innerHTML = '<div class="col-span-full text-center py-12 text-on-surface-variant"><p class="text-lg font-bold mb-2">Oxbridge questions coming soon</p><p class="text-sm">We are curating real interview questions from Oxford and Cambridge. Check back soon.</p></div>';
     return;
   }
-  OXBRIDGE_SUBJECTS.forEach(function(subj) {
-    var count = (OXBRIDGE_QUESTIONS[subj.id] || []).length;
+  subjects.forEach(function(subj) {
+    var count = (questions[subj.id] || []).length;
     var btn = document.createElement('button');
     btn.className = 'text-left p-4 bg-white rounded-xl border border-outline-variant/15 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100/50 transition-all group';
     btn.innerHTML = '<div class="flex items-center gap-3 mb-2"><span class="material-symbols-outlined text-amber-600 text-xl">' + (subj.icon || 'school') + '</span><span class="text-xs font-bold text-on-surface-variant/50">' + count + ' Qs</span></div><h4 class="font-headline font-bold text-on-surface group-hover:text-amber-700 transition-colors text-sm">' + subj.name + '</h4>';
@@ -894,11 +560,13 @@ function renderSubjectGrid() {
 }
 
 function selectSubject(subjectId) {
+  var data = questionCache._oxbridgeData;
+  if (!data) return;
   state.subject = subjectId;
   state.prepTime = -1; // manual: read at own pace, click to record
   state.answerTime = 0; // unlimited
   state.recording = true;
-  state.questions = (OXBRIDGE_QUESTIONS[subjectId] || []).map(function(q, i) { return Object.assign({_idx: i}, q); });
+  state.questions = (data.questions[subjectId] || []).map(function(q, i) { return Object.assign({_idx: i}, q); });
   pickRandomQuestion();
   showScreen('practice');
   updatePracticeBadge();

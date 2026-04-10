@@ -1,0 +1,1142 @@
+{
+  "subjects": [
+    {
+      "id": "maths",
+      "name": "Mathematics",
+      "icon": "calculate"
+    },
+    {
+      "id": "physics",
+      "name": "Physics (Natural Sciences - Physical)",
+      "icon": "science"
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry (Natural Sciences - Chemical)",
+      "icon": "experiment"
+    },
+    {
+      "id": "biology",
+      "name": "Biology (Natural Sciences - Biological)",
+      "icon": "biotech"
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine",
+      "icon": "medical_services"
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "icon": "engineering"
+    },
+    {
+      "id": "cs",
+      "name": "Computer Science",
+      "icon": "terminal"
+    },
+    {
+      "id": "economics",
+      "name": "Economics",
+      "icon": "trending_up"
+    },
+    {
+      "id": "law",
+      "name": "Law",
+      "icon": "gavel"
+    },
+    {
+      "id": "history",
+      "name": "History",
+      "icon": "history_edu"
+    },
+    {
+      "id": "english",
+      "name": "English Literature",
+      "icon": "auto_stories"
+    },
+    {
+      "id": "ppe",
+      "name": "Philosophy, Politics and Economics (PPE)",
+      "icon": "balance"
+    },
+    {
+      "id": "psychology",
+      "name": "Psychology (Experimental Psychology / PBS)",
+      "icon": "psychology"
+    }
+  ],
+  "questions": {
+    "maths": [
+      {
+        "type": "simple",
+        "text": "How many zeros does the number 30! end with?"
+      },
+      {
+        "type": "simple",
+        "text": "Prove that if n is an integer, then n³ − n is divisible by 6."
+      },
+      {
+        "type": "simple",
+        "text": "How many solutions does the equation kx = eˣ have for different values of k?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the function f(x) = x³ − 3x + 1.",
+        "text": "Sketch the graph of this function, identifying turning points and roots. How many real roots does it have, and how do you know?"
+      },
+      {
+        "type": "simple",
+        "text": "Integrate x·ln(x) dx."
+      },
+      {
+        "type": "simple",
+        "text": "How long does a mirror have to be for you to see your whole body in it? Does it depend on how far you stand from the mirror?"
+      },
+      {
+        "type": "material",
+        "material": "Suppose you have a set of n lines in the plane, no two of which are parallel and no three of which meet at a single point.",
+        "text": "Into how many regions do these n lines divide the plane? Can you prove your answer?"
+      },
+      {
+        "type": "simple",
+        "text": "Is there a largest prime number? How would you prove it?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the sequence defined by a₁ = 1, aₙ₊₁ = ½(aₙ + 3/aₙ).",
+        "text": "What does this sequence converge to? Prove that the sequence is decreasing for n ≥ 2."
+      },
+      {
+        "type": "simple",
+        "text": "Can you think of a function that is continuous everywhere but differentiable nowhere?"
+      },
+      {
+        "type": "material",
+        "material": "You are given a chessboard with two diagonally opposite corners removed, and a set of dominoes, each of which covers exactly two squares.",
+        "text": "Can you cover the remaining 62 squares with 31 dominoes? Prove your answer."
+      },
+      {
+        "type": "simple",
+        "text": "What is the sum of the series 1/1·2 + 1/2·3 + 1/3·4 + ... + 1/n·(n+1)? Can you prove it?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the inequality (1 + x)ⁿ ≥ 1 + nx for x ≥ −1 and n a positive integer.",
+        "text": "Prove this inequality by induction. Can you find a case where equality holds?"
+      },
+      {
+        "type": "simple",
+        "text": "If I throw two dice, what is the probability that the sum is a prime number?"
+      },
+      {
+        "type": "simple",
+        "text": "Sketch the curve y² = x³. What happens at the origin?"
+      },
+      {
+        "type": "material",
+        "material": "A ladder of length L leans against a wall. The bottom of the ladder slides away from the wall at a constant rate of 1 metre per second.",
+        "text": "How fast is the top of the ladder sliding down the wall when the bottom is x metres from the wall? What happens as x approaches L?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the largest number of pieces you can cut a circular pizza into using n straight cuts?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are manhole covers round rather than square?"
+      },
+      {
+        "type": "material",
+        "material": "Suppose you keep tossing a fair coin until you get two heads in a row.",
+        "text": "What is the expected number of tosses needed? Set up a system of equations to solve this."
+      },
+      {
+        "type": "simple",
+        "text": "What is special about the number 1089? Multiply any three-digit number where the first digit is larger than the last by itself reversed, and then reverse and add. Can you prove why this always works?"
+      }
+    ],
+    "physics": [
+      {
+        "type": "simple",
+        "text": "How can we estimate the mass of the atmosphere?"
+      },
+      {
+        "type": "material",
+        "material": "A hot air balloon is made of material with negligible mass. The air inside is heated uniformly.",
+        "text": "What temperature would the air inside the balloon need to be in order to lift an elephant? Estimate the size of balloon needed."
+      },
+      {
+        "type": "simple",
+        "text": "Why do stars twinkle but planets do not?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a gravity dam: a vertical concrete wall holding back water. The water reaches the full height of the wall on one side.",
+        "text": "How would you design this dam? What forces act on it, and how thick does it need to be to avoid toppling over?"
+      },
+      {
+        "type": "simple",
+        "text": "If you drop a mouse, a horse, and an elephant from a tall building, which hits the ground first, and which is most likely to survive? Why?"
+      },
+      {
+        "type": "material",
+        "material": "An astronaut floating in the International Space Station holds a cup of water and turns it upside down.",
+        "text": "What happens to the water? How is this different from Earth? How would you design a cup that works in microgravity?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is the sky blue during the day but red at sunset?"
+      },
+      {
+        "type": "material",
+        "material": "A ball is thrown vertically upward with initial velocity v₀ in a vacuum, and separately in air where drag is proportional to velocity.",
+        "text": "In which case is the ball going faster when it returns to its starting point? Is the time to reach maximum height longer or shorter with air resistance?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you measure the mass of your own head?"
+      },
+      {
+        "type": "material",
+        "material": "A cylinder of ice is placed on a smooth inclined plane. As the ice melts, it becomes a puddle of water.",
+        "text": "Does the water flow down the slope, or does it stay in place? Consider the forces acting at each stage."
+      },
+      {
+        "type": "simple",
+        "text": "Why are soap bubbles spherical?"
+      },
+      {
+        "type": "simple",
+        "text": "How does a fridge work? Why does it heat the room overall while cooling its interior?"
+      },
+      {
+        "type": "material",
+        "material": "Two identical elastic balls are dropped one on top of the other from the same height. The lower ball hits the ground first.",
+        "text": "How high does the upper ball bounce? Assume all collisions are perfectly elastic."
+      },
+      {
+        "type": "simple",
+        "text": "What fraction of the ice in a glass of water is above the surface? What happens to the water level when the ice melts?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is it easier to pull a heavy suitcase on wheels than to push it? Think about the forces involved."
+      },
+      {
+        "type": "material",
+        "material": "A pendulum swings in a sealed box on a weighing scale. Consider the pendulum at different points in its swing.",
+        "text": "Does the reading on the scale change as the pendulum swings? If so, when is it heaviest and when is it lightest?"
+      },
+      {
+        "type": "simple",
+        "text": "If sound travels faster in water than in air, why is it hard to understand someone speaking underwater?"
+      },
+      {
+        "type": "simple",
+        "text": "Estimate the number of piano tuners in the UK."
+      },
+      {
+        "type": "material",
+        "material": "Consider two identical metal spheres, one charged and one uncharged, placed a distance d apart.",
+        "text": "Is there a force between them? If so, is it attractive or repulsive? What happens as you bring them closer together?"
+      }
+    ],
+    "chemistry": [
+      {
+        "type": "simple",
+        "text": "How many different molecules can be made from six carbon atoms and twelve hydrogen atoms?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the reaction between sodium metal and water: 2Na + 2H₂O → 2NaOH + H₂.",
+        "text": "Why does sodium react so vigorously with water? Why is potassium even more reactive? Explain in terms of electronic structure."
+      },
+      {
+        "type": "simple",
+        "text": "Why does ice float on water? What would the consequences be if it did not?"
+      },
+      {
+        "type": "material",
+        "material": "Here is the structure of aspirin (acetylsalicylic acid). It contains an ester group and a carboxylic acid group.",
+        "text": "If you dissolve aspirin in water, what happens? How would the pH change over time, and why?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are transition metals often coloured while s-block metals are not?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the equilibrium: N₂O₄(g) ⇌ 2NO₂(g). N₂O₄ is colourless and NO₂ is brown.",
+        "text": "If you increase the temperature, what happens to the colour? What if you increase the pressure? Explain using Le Chatelier's principle."
+      },
+      {
+        "type": "simple",
+        "text": "Why is diamond hard while graphite is soft, even though both are made entirely of carbon?"
+      },
+      {
+        "type": "material",
+        "material": "You are given a bottle of clear liquid and told it is either ethanol or methanol.",
+        "text": "How would you determine which one it is? Describe as many different tests as you can think of, explaining the chemistry behind each."
+      },
+      {
+        "type": "simple",
+        "text": "What makes a good catalyst? Why do catalysts not change the equilibrium position of a reaction?"
+      },
+      {
+        "type": "simple",
+        "text": "Why does dissolving salt in water lower the freezing point?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the Born-Haber cycle for the formation of sodium chloride from its elements.",
+        "text": "Walk me through each step. Why does NaCl form rather than NaCl₂ or Na₂Cl?"
+      },
+      {
+        "type": "simple",
+        "text": "If you had a beaker of pure water and added one molecule of acid, would the solution be acidic?"
+      },
+      {
+        "type": "material",
+        "material": "Here are the boiling points of the hydrogen halides: HF = 19.5°C, HCl = −85°C, HBr = −67°C, HI = −35°C.",
+        "text": "Why does HF have such an anomalously high boiling point? Why do the boiling points increase from HCl to HI?"
+      },
+      {
+        "type": "simple",
+        "text": "Explain why you can smell things. What is happening at the molecular level?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are organic compounds based on carbon rather than silicon, even though silicon is in the same group?"
+      },
+      {
+        "type": "material",
+        "material": "Consider two beakers: one containing 100ml of 0.1M HCl and one containing 100ml of 0.1M CH₃COOH. You add solid NaOH gradually to each.",
+        "text": "Sketch the pH curves you would expect for each titration. Why do they differ? What happens at the half-equivalence point for the weak acid?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is a diamond transparent while a piece of coal is black?"
+      },
+      {
+        "type": "simple",
+        "text": "What determines whether a chemical reaction is spontaneous?"
+      }
+    ],
+    "biology": [
+      {
+        "type": "simple",
+        "text": "Why does it matter if tigers become extinct?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are ladybirds and strawberries both red? Are the reasons the same?"
+      },
+      {
+        "type": "material",
+        "material": "Here is a skeleton of an animal you have probably never seen before. Examine it carefully for the next few minutes.",
+        "text": "What can you deduce about this animal? Was it a predator or prey? Did it live on land or in water? What did it eat? Explain your reasoning from the anatomical features."
+      },
+      {
+        "type": "simple",
+        "text": "Why is blood red?"
+      },
+      {
+        "type": "material",
+        "material": "A species of moth exists in two colour forms: light and dark. In industrial areas, the dark form is more common. In rural areas, the light form predominates.",
+        "text": "Explain this pattern. If pollution controls are introduced, what would you predict would happen over the next 50 years and why?"
+      },
+      {
+        "type": "simple",
+        "text": "If you could save either the rainforests or the coral reefs, which would you save and why?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a population of bacteria that doubles every 20 minutes in ideal conditions. You start with a single bacterium and have unlimited nutrients.",
+        "text": "How long before you have a million bacteria? In reality, bacterial growth slows. What factors limit growth, and what does the real growth curve look like?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do some habitats support higher biodiversity than others?"
+      },
+      {
+        "type": "simple",
+        "text": "Why don't animals have wheels?"
+      },
+      {
+        "type": "material",
+        "material": "A plant is placed in a sealed glass container with a small amount of radioactive CO₂ (¹⁴CO₂) and left in sunlight for several hours.",
+        "text": "Where would you expect to find the radioactive carbon after those hours? Trace its path through the plant's metabolic processes."
+      },
+      {
+        "type": "simple",
+        "text": "Why do humans have two eyes rather than one or three?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you design an experiment to determine whether a new drug is effective against a disease?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the following data: Species A has a generation time of 2 years and produces 2 offspring per generation. Species B has a generation time of 2 weeks and produces 200 offspring per generation.",
+        "text": "Which species is more likely to evolve resistance to a new pesticide, and why? What other factors might be relevant?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are some diseases more common in certain ethnic groups?"
+      },
+      {
+        "type": "simple",
+        "text": "If you discovered a new organism, how would you classify it?"
+      },
+      {
+        "type": "material",
+        "material": "A gene codes for an enzyme that converts substance A to substance B. A mutation changes one amino acid in the enzyme.",
+        "text": "What are the possible effects of this mutation on enzyme function? Under what circumstances might this mutation be beneficial?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is the heart on the left side of the body? Does it have to be?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the point of sex? Why don't all organisms just reproduce asexually?"
+      }
+    ],
+    "medicine": [
+      {
+        "type": "simple",
+        "text": "Why is sugar in your urine a good indicator that you might have diabetes?"
+      },
+      {
+        "type": "material",
+        "material": "A patient comes to you with a persistent cough, weight loss, and night sweats. They have recently returned from travelling in Southeast Asia.",
+        "text": "What diagnoses would you consider? What tests would you order and why? How would you prioritise these?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we have a pulse?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the graph of oxygen dissociation curves for haemoglobin and myoglobin. Haemoglobin has a sigmoidal curve while myoglobin has a hyperbolic curve.",
+        "text": "Why are the shapes different? What is the physiological significance of haemoglobin's sigmoidal curve? How does carbon monoxide poisoning relate to this?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we have two kidneys but only need one?"
+      },
+      {
+        "type": "simple",
+        "text": "If you were designing the human body from scratch, what one thing would you change and why?"
+      },
+      {
+        "type": "material",
+        "material": "A drug trial shows that Drug X reduces heart attacks by 50%. The trial involved 2,000 people: 1,000 took the drug and 1,000 took a placebo. In the drug group, 2 out of 1,000 had heart attacks. In the placebo group, 4 out of 1,000 had heart attacks.",
+        "text": "Is the claim that the drug reduces heart attacks by 50% accurate? Is this result clinically significant? How might you present these results differently?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we get fevers when we're ill? Is a fever helpful or harmful?"
+      },
+      {
+        "type": "simple",
+        "text": "What makes a good doctor? Is it more important to be knowledgeable or compassionate?"
+      },
+      {
+        "type": "material",
+        "material": "An elderly patient with terminal cancer is in significant pain and asks you to help end their life. Euthanasia is illegal in the UK.",
+        "text": "What ethical principles are in conflict here? How would you approach this situation? What is the difference between withdrawing treatment and actively ending life?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do antibiotics not work against viruses?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we get cancer more as we get older?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a community where vaccination rates have dropped below 85% due to misinformation about vaccine safety.",
+        "text": "What is herd immunity, and why does it matter that rates have dropped? How would you, as a doctor, approach a parent who refuses to vaccinate their child?"
+      },
+      {
+        "type": "simple",
+        "text": "How does a stethoscope work?"
+      },
+      {
+        "type": "simple",
+        "text": "Should the NHS fund homeopathic treatments?"
+      },
+      {
+        "type": "material",
+        "material": "A study claims that people who drink moderate amounts of red wine live longer than those who don't drink at all.",
+        "text": "Does this mean red wine is good for you? What are the potential flaws in this type of study? How could you design a better study?"
+      },
+      {
+        "type": "simple",
+        "text": "What are the arguments for and against an opt-out organ donation system?"
+      },
+      {
+        "type": "simple",
+        "text": "How does your immune system know the difference between your own cells and foreign cells?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is it that humans share about 50% of their DNA with bananas, yet we are so different?"
+      }
+    ],
+    "engineering": [
+      {
+        "type": "material",
+        "material": "Place your finger under the centre of a ruler and balance it. Now slide your fingers in from each end. Observe what happens.",
+        "text": "Why do your fingers always end up meeting at the centre of the ruler? What physical forces are at work? What happens if the ruler has a weight attached at one end?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a football being kicked. It travels in an arc through the air, spinning as it goes.",
+        "text": "Sketch and explain the forces acting on the ball at different points in its trajectory. How does spin affect the ball's path?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you design a gravity dam for holding back water?"
+      },
+      {
+        "type": "material",
+        "material": "You have a black box with two terminals. You can connect a battery and measure current, or apply different voltages and measure current.",
+        "text": "How would you determine what is inside the black box? What components might it contain, and how would your measurements help you distinguish between possibilities?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do bicycle wheels have spokes?"
+      },
+      {
+        "type": "material",
+        "material": "A bridge must span a 100-metre gap. You have access to steel, concrete, and cable.",
+        "text": "What type of bridge would you design? Explain the forces in your design. What are the advantages and disadvantages of different bridge types?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you design a kettle for a left-handed person?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the most important engineering development of the last 50 years?"
+      },
+      {
+        "type": "material",
+        "material": "A water pipe has a narrowing section where the diameter halves.",
+        "text": "What happens to the velocity and pressure of the water as it passes through the narrow section? Can you derive the relationship using conservation principles?"
+      },
+      {
+        "type": "simple",
+        "text": "If you had to move a 10-tonne stone block, and you lived 4,000 years ago, how would you do it?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a simple crane: a vertical pole with a horizontal arm, from which a load hangs. A cable runs from the top of the pole to the end of the arm.",
+        "text": "Draw a force diagram. What is the tension in the cable? What happens to the forces if the arm is extended?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are eggs egg-shaped?"
+      },
+      {
+        "type": "simple",
+        "text": "How do noise-cancelling headphones work?"
+      },
+      {
+        "type": "material",
+        "material": "A car drives at constant speed around a circular track banked at angle θ.",
+        "text": "Draw the forces on the car. At what speed does the car need no friction to stay on the track? What happens above and below this speed?"
+      },
+      {
+        "type": "simple",
+        "text": "Why don't tall chimneys fall over in the wind?"
+      },
+      {
+        "type": "simple",
+        "text": "If teleportation was invented tomorrow, what would be the engineering challenges?"
+      },
+      {
+        "type": "material",
+        "material": "You need to design a system to deliver clean water to a village 5km from a river, where the village is 200m higher than the river.",
+        "text": "What approaches could you use? Compare the energy requirements, reliability, and cost of different solutions."
+      },
+      {
+        "type": "simple",
+        "text": "Why are manhole covers round?"
+      }
+    ],
+    "cs": [
+      {
+        "type": "material",
+        "material": "You have 10 boxes and 100 wooden blocks in 10 different colours (10 of each colour). Each block must go in exactly one box.",
+        "text": "Show that it is always possible to pack the blocks so that each box contains blocks of at most 2 different colours."
+      },
+      {
+        "type": "material",
+        "material": "A function f(x) is defined on the interval [0, 1] and has exactly one maximum. You can evaluate f at any point.",
+        "text": "How would you find the approximate location of the maximum? How many evaluations of f do you need to find the maximum to within a tolerance of ε?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you sort a list of one million numbers as efficiently as possible? What is the theoretical minimum number of comparisons needed?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a binary search algorithm on a sorted list of n items.",
+        "text": "How many comparisons does it need in the worst case? Can you do better? What if the list isn't sorted?"
+      },
+      {
+        "type": "simple",
+        "text": "Can a machine think? How would you decide whether it could?"
+      },
+      {
+        "type": "material",
+        "material": "You have 8 coins that look identical. One is slightly heavier than the others. You have a balance scale.",
+        "text": "What is the minimum number of weighings needed to find the heavy coin? Can you generalise this to n coins?"
+      },
+      {
+        "type": "simple",
+        "text": "Explain recursion to someone who doesn't know programming. Give an everyday example."
+      },
+      {
+        "type": "material",
+        "material": "Consider the following problem: you have a 3×3 grid. Starting from the top-left corner, you can only move right or down.",
+        "text": "How many different paths are there to the bottom-right corner? Can you generalise this to an m×n grid?"
+      },
+      {
+        "type": "simple",
+        "text": "What is an algorithm? Is a recipe an algorithm?"
+      },
+      {
+        "type": "material",
+        "material": "You write a program to play noughts and crosses (tic-tac-toe) optimally.",
+        "text": "How many possible game states are there? How would you reduce this number using symmetry? What strategy guarantees you never lose?"
+      },
+      {
+        "type": "simple",
+        "text": "How does the internet know where to send your email?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a stack of n pancakes of different sizes, in random order. You can only sort them by inserting a spatula and flipping all pancakes above it.",
+        "text": "What is the maximum number of flips needed to sort any stack of n pancakes? Can you describe a strategy?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do computers use binary rather than decimal?"
+      },
+      {
+        "type": "simple",
+        "text": "Is there a problem that a computer can never solve, no matter how powerful it is?"
+      },
+      {
+        "type": "material",
+        "material": "You need to schedule n jobs on a single machine. Each job has a deadline and a penalty for being late.",
+        "text": "How would you schedule the jobs to minimise the total penalty? Does your approach always give the best answer?"
+      },
+      {
+        "type": "simple",
+        "text": "How would you explain what a database is to a five-year-old?"
+      },
+      {
+        "type": "simple",
+        "text": "What happens when you type a URL into your web browser and press Enter?"
+      },
+      {
+        "type": "material",
+        "material": "Consider two players taking turns removing 1, 2, or 3 stones from a pile of 15 stones. The player who takes the last stone wins.",
+        "text": "Is there a winning strategy for the first player? What about for a pile of n stones?"
+      }
+    ],
+    "economics": [
+      {
+        "type": "material",
+        "material": "Two sandwich shops are on the same street, 1km apart. Customers are evenly distributed along the street and will walk to the nearest shop. Each shop has the same costs.",
+        "text": "If both shops sell sandwiches at the same price, where should they locate to maximise their own customers? What happens to the outcome if they can change prices?"
+      },
+      {
+        "type": "simple",
+        "text": "Why might a company choose to give its product away for free?"
+      },
+      {
+        "type": "material",
+        "material": "The UK government is considering introducing a tax on sugary drinks to reduce obesity.",
+        "text": "Who bears the burden of this tax: producers or consumers? How does the elasticity of demand affect your answer? Could the tax make things worse?"
+      },
+      {
+        "type": "simple",
+        "text": "Would it be a good idea to abolish all taxes and instead fund the government through a national lottery?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the following game: two firms must simultaneously choose to set a high price or a low price. If both set high, each earns £10m. If both set low, each earns £5m. If one sets high and the other low, the low-price firm earns £12m and the high-price firm earns £2m.",
+        "text": "What will each firm do? Is the outcome efficient? How might the outcome change if the game is played repeatedly?"
+      },
+      {
+        "type": "simple",
+        "text": "Is inequality necessary for economic growth?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we pay footballers more than nurses?"
+      },
+      {
+        "type": "material",
+        "material": "A country's GDP has been growing at 5% per year, but median wages have been stagnant.",
+        "text": "How is this possible? Is GDP growth a good measure of a country's wellbeing? What alternatives might you suggest?"
+      },
+      {
+        "type": "simple",
+        "text": "Should governments ever bail out failing banks?"
+      },
+      {
+        "type": "simple",
+        "text": "Explain how 'economies of scale' can influence a firm's production decisions."
+      },
+      {
+        "type": "material",
+        "material": "A town has two petrol stations on opposite sides of the road. They can see each other's prices.",
+        "text": "What pricing behaviour would you expect? Would consumers be better off if there were only one station? Why might we observe price cycles?"
+      },
+      {
+        "type": "simple",
+        "text": "What would happen if the government set a maximum price for housing rent in London?"
+      },
+      {
+        "type": "simple",
+        "text": "Why is it hard to find a taxi when it's raining?"
+      },
+      {
+        "type": "material",
+        "material": "You run a business selling widgets. Your costs are: fixed costs of £1000 per month, and variable costs of £2 per widget. You currently sell 500 widgets per month at £5 each.",
+        "text": "A new customer offers to buy 200 additional widgets at £3 each. Should you accept? What factors affect your decision?"
+      },
+      {
+        "type": "simple",
+        "text": "Is trade always beneficial? When might a country be worse off from free trade?"
+      },
+      {
+        "type": "simple",
+        "text": "If a bank lends out more money than it has in deposits, where does the extra money come from?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a market where buyers don't know the quality of used cars, but sellers do. There are 'good' cars worth £5000 and 'lemons' worth £2000.",
+        "text": "What price will buyers be willing to pay? What happens to the market over time? This is known as Akerlof's 'Market for Lemons' — what solutions exist?"
+      },
+      {
+        "type": "simple",
+        "text": "Does quantitative easing cause inflation? Why or why not?"
+      }
+    ],
+    "law": [
+      {
+        "type": "simple",
+        "text": "Should it be illegal to run a red light in the middle of the night on an empty road?"
+      },
+      {
+        "type": "material",
+        "material": "A man parks his car on double yellow lines to rush into a pharmacy to buy medicine for his seriously ill child.",
+        "text": "Should he receive a parking fine? Does the law need to take circumstances into account, or should rules be applied uniformly?"
+      },
+      {
+        "type": "simple",
+        "text": "What does it mean for someone to 'take' another person's car? At what point has a theft occurred?"
+      },
+      {
+        "type": "material",
+        "material": "In Shakespeare's The Merchant of Venice, Antonio agrees that Shylock may take a pound of his flesh if he defaults on a loan.",
+        "text": "Would English courts today enforce this bargain? What principles of contract law are relevant? Does it matter that Antonio agreed voluntarily?"
+      },
+      {
+        "type": "simple",
+        "text": "Is it possible to have a just society without laws?"
+      },
+      {
+        "type": "simple",
+        "text": "What are the arguments for and against making bicycle helmets compulsory?"
+      },
+      {
+        "type": "material",
+        "material": "A company produces a product it knows has a small chance of causing harm. A safer version would cost twice as much to produce and the company would go out of business.",
+        "text": "Should the company be allowed to sell the product? Who should decide what level of risk is acceptable? What role should the law play?"
+      },
+      {
+        "type": "simple",
+        "text": "Where does honesty fit into law?"
+      },
+      {
+        "type": "simple",
+        "text": "Should the law protect people from themselves? For example, should it be illegal to not wear a seatbelt?"
+      },
+      {
+        "type": "material",
+        "material": "Two neighbours share a fence. Neighbour A paints their side of the fence pink. Neighbour B objects strongly and says it reduces their property value.",
+        "text": "Should Neighbour B have any legal recourse? How should the law balance property rights against individual freedom?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the difference between law and morality? Can something be legal but immoral?"
+      },
+      {
+        "type": "simple",
+        "text": "Should judges make law, or should they only interpret it?"
+      },
+      {
+        "type": "material",
+        "material": "A social media company's algorithm promotes content that increases engagement but also spreads misinformation and causes harm to mental health.",
+        "text": "Should the company be legally liable for harm caused by its algorithm? How would you define 'harm' in this context? Where should we draw the line between free speech and regulation?"
+      },
+      {
+        "type": "simple",
+        "text": "How do you think the House of Lords should be reformed, if at all?"
+      },
+      {
+        "type": "simple",
+        "text": "Is the purpose of prison to punish, to rehabilitate, or to protect the public? Can it be all three?"
+      },
+      {
+        "type": "material",
+        "material": "A person downloads a digital book for free from a pirate website. No physical object has been taken. The publisher claims they have lost a sale.",
+        "text": "Is this theft? How does copyright differ from property rights over physical objects? Should digital goods have the same legal protections?"
+      },
+      {
+        "type": "simple",
+        "text": "Should we have an international law that applies to all countries? Who would enforce it?"
+      },
+      {
+        "type": "simple",
+        "text": "Can you think of a law that exists now which you think should not exist? Why?"
+      }
+    ],
+    "history": [
+      {
+        "type": "simple",
+        "text": "How do you organise a successful revolution?"
+      },
+      {
+        "type": "material",
+        "material": "Here is a propaganda poster from World War I showing a soldier pointing at the viewer with the caption 'Your Country Needs YOU.'",
+        "text": "What can we learn from this source? What can we not learn? How would you verify claims made in propaganda?"
+      },
+      {
+        "type": "simple",
+        "text": "How much of the past can you count? What role do statistics play in historical understanding?"
+      },
+      {
+        "type": "simple",
+        "text": "Does the word 'political' mean different things in different periods of history?"
+      },
+      {
+        "type": "material",
+        "material": "Consider two historians writing about the French Revolution. One argues it was caused by economic inequality. The other argues it was caused by Enlightenment ideas.",
+        "text": "Can both be right? How do historians choose between competing explanations? Is one type of cause more 'fundamental' than another?"
+      },
+      {
+        "type": "simple",
+        "text": "If you could interview any historical figure, who would it be and what would you ask?"
+      },
+      {
+        "type": "simple",
+        "text": "Why should we study history at all? What is it for?"
+      },
+      {
+        "type": "material",
+        "material": "Here is a passage from a diary written by a soldier in the trenches during World War I, describing his daily routine.",
+        "text": "How useful is this source for understanding the experience of war? What are its limitations? How would you corroborate what it says?"
+      },
+      {
+        "type": "simple",
+        "text": "Is it possible to write unbiased history?"
+      },
+      {
+        "type": "simple",
+        "text": "Was the British Empire a force for good or for harm?"
+      },
+      {
+        "type": "material",
+        "material": "Between 1800 and 1850, the population of England doubled, the percentage of people living in cities increased from 20% to 50%, and child labour was widespread.",
+        "text": "Was the Industrial Revolution a positive development? For whom? How do you weigh short-term suffering against long-term progress?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do some civilisations decline while others thrive?"
+      },
+      {
+        "type": "simple",
+        "text": "Should we judge historical figures by modern moral standards?"
+      },
+      {
+        "type": "material",
+        "material": "In 1989, the Berlin Wall fell. Within two years, the Soviet Union had dissolved.",
+        "text": "Was the end of the Cold War inevitable? What factors do you think were most important? How do we distinguish between causes and triggers?"
+      },
+      {
+        "type": "simple",
+        "text": "How does the study of history differ from the study of the past?"
+      },
+      {
+        "type": "simple",
+        "text": "If you had to give up studying one century of history entirely, which would you sacrifice and why?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the relationship between history and memory? Are they the same thing?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the claim: 'History is written by the victors.'",
+        "text": "To what extent is this true? Can you think of examples where it is not? How does this affect our understanding of past events?"
+      }
+    ],
+    "english": [
+      {
+        "type": "simple",
+        "text": "What makes a novel different from a short story? Is it just length?"
+      },
+      {
+        "type": "material",
+        "material": "Read the following poem by William Blake: 'Tyger Tyger, burning bright, / In the forests of the night; / What immortal hand or eye, / Could frame thy fearful symmetry?'",
+        "text": "What is Blake doing with the idea of creation here? Why 'fearful symmetry'? How does the rhythm of the poem contribute to its meaning?"
+      },
+      {
+        "type": "simple",
+        "text": "Would you rather be a novel or a poem?"
+      },
+      {
+        "type": "material",
+        "material": "Here is the opening paragraph of a novel you have probably not read before. [A short passage of prose would be provided.]",
+        "text": "What can you tell me about this text from just the first paragraph? What expectations does it set up? What techniques is the author using?"
+      },
+      {
+        "type": "simple",
+        "text": "Why might a writer choose to write a poem instead of a piece of prose?"
+      },
+      {
+        "type": "simple",
+        "text": "If it could take a physical form, what shape would the novel To the Lighthouse become?"
+      },
+      {
+        "type": "material",
+        "material": "Consider this sentence: 'The old man the boats.' Read it again if it doesn't make sense at first.",
+        "text": "Why is this sentence confusing initially? What does it reveal about how we process language and meaning?"
+      },
+      {
+        "type": "simple",
+        "text": "Is the author's intention relevant to the meaning of a text?"
+      },
+      {
+        "type": "simple",
+        "text": "Can literature change the world? Give an example."
+      },
+      {
+        "type": "material",
+        "material": "Here are two translations of the opening of Homer's Odyssey — one from the 18th century and one from the 21st century.",
+        "text": "What differences do you notice? What does the choice of translation reveal about the values of each period? Is there such a thing as a definitive translation?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the difference between a fairy tale and a myth?"
+      },
+      {
+        "type": "simple",
+        "text": "Should we still read books that contain racist or sexist language?"
+      },
+      {
+        "type": "material",
+        "material": "Consider a story told from two different points of view: first by a child, then by an adult recalling the same events.",
+        "text": "How does the perspective change the story? Which account is more trustworthy? What is the author gaining by using dual perspectives?"
+      },
+      {
+        "type": "simple",
+        "text": "What is the point of literary criticism? Can't we just enjoy the book?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we use metaphor? Why not just say what we mean directly?"
+      },
+      {
+        "type": "material",
+        "material": "Here is a short passage of dialogue from a play. Two characters are having a conversation but seem to be talking past each other.",
+        "text": "What is actually happening in this exchange? What is each character trying to achieve? How does the subtext differ from the surface meaning?"
+      },
+      {
+        "type": "simple",
+        "text": "Is there a difference between a 'good' book and one that you enjoy?"
+      },
+      {
+        "type": "simple",
+        "text": "If Shakespeare had never existed, would English literature be fundamentally different?"
+      }
+    ],
+    "ppe": [
+      {
+        "type": "simple",
+        "text": "Is there essentially any difference between taxation and the state forcibly taking one of your arms?"
+      },
+      {
+        "type": "material",
+        "material": "Imagine 100 people each put £1 into a pot for a prize. Each person chooses a number between 0 and 100. The winner is the person whose number is closest to two-thirds of the average of all numbers chosen.",
+        "text": "What number will you choose, and why? What number would you choose if you knew everyone else was perfectly rational?"
+      },
+      {
+        "type": "simple",
+        "text": "If all countries had nuclear weapons, would there still be wars?"
+      },
+      {
+        "type": "material",
+        "material": "Consider the following scenario: a runaway trolley is heading toward five people tied to the track. You can pull a lever to divert it onto another track where only one person is tied.",
+        "text": "Should you pull the lever? What if instead of a lever, you had to push a large man off a bridge to stop the trolley? Why might your answer differ?"
+      },
+      {
+        "type": "simple",
+        "text": "How do you measure the success of a political voting system?"
+      },
+      {
+        "type": "simple",
+        "text": "Instead of politicians, why don't we let the managers of IKEA or Tesco run the country?"
+      },
+      {
+        "type": "material",
+        "material": "A government proposes paying people £1000 for every A-grade they achieve at A-level.",
+        "text": "Would this be fair? Would it be effective? What unintended consequences might arise? Consider this from philosophical, political, and economic perspectives."
+      },
+      {
+        "type": "simple",
+        "text": "Do you really consent to any government, given that there is barely anywhere in the world to escape some government or other?"
+      },
+      {
+        "type": "simple",
+        "text": "Should we discount the wellbeing of future generations in our policy decisions?"
+      },
+      {
+        "type": "material",
+        "material": "In 2008, bankers received large bonuses despite their institutions requiring government bailouts.",
+        "text": "Should bankers' bonuses be capped? Consider the ethical arguments, the political feasibility, and the economic consequences."
+      },
+      {
+        "type": "simple",
+        "text": "How do you know there is a tree in the garden outside this office?"
+      },
+      {
+        "type": "simple",
+        "text": "Can you have democracy without political parties?"
+      },
+      {
+        "type": "material",
+        "material": "Country A has a GDP per capita of $50,000 and high inequality (Gini coefficient 0.45). Country B has GDP per capita of $30,000 and low inequality (Gini coefficient 0.25).",
+        "text": "Which country's citizens are better off? How would a utilitarian answer differently from a Rawlsian? What additional information would you want?"
+      },
+      {
+        "type": "simple",
+        "text": "Is it morally wrong to buy a £5 coffee when that money could vaccinate a child in a developing country?"
+      },
+      {
+        "type": "simple",
+        "text": "What is freedom? Is being free from interference the same as being free to do things?"
+      },
+      {
+        "type": "material",
+        "material": "A social media platform decides to ban a controversial political figure for spreading misinformation.",
+        "text": "Does the platform have the right to do this? Is this censorship? How should we balance free speech against potential harm in the digital age?"
+      },
+      {
+        "type": "simple",
+        "text": "How many people are in this room? Are you sure?"
+      },
+      {
+        "type": "simple",
+        "text": "Can economics be a science in the same way that physics is?"
+      },
+      {
+        "type": "simple",
+        "text": "If you could go back in time and change one political decision, which would it be and why?"
+      }
+    ],
+    "psychology": [
+      {
+        "type": "material",
+        "material": "Imagine that 100 people each put £1 into a pot for a prize that will go to the winner of a simple game. Each person has to choose a number between 0 and 100. The prize goes to the person whose number is closest to two-thirds of the average of all the numbers chosen.",
+        "text": "What number will you choose, and why? What does this tell us about how people reason about other people's thinking?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we dream? Is dreaming useful?"
+      },
+      {
+        "type": "material",
+        "material": "A researcher shows participants a video of a car crash and then asks either 'How fast were the cars going when they hit each other?' or 'How fast were the cars going when they smashed into each other?'",
+        "text": "Would the wording affect participants' speed estimates? What does this tell us about memory? This is based on a real study — what are its implications for eyewitness testimony?"
+      },
+      {
+        "type": "simple",
+        "text": "Is human behaviour more influenced by nature or nurture?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we find some faces more attractive than others?"
+      },
+      {
+        "type": "material",
+        "material": "A study finds a correlation of r = 0.8 between ice cream sales and drowning deaths.",
+        "text": "Does ice cream cause drowning? What is the difference between correlation and causation? How would you design a study to establish causation?"
+      },
+      {
+        "type": "simple",
+        "text": "Can animals be said to have emotions?"
+      },
+      {
+        "type": "material",
+        "material": "In Milgram's obedience experiment, participants were instructed by an authority figure to administer what they believed were electric shocks to another person. 65% continued to the maximum voltage.",
+        "text": "What does this tell us about human nature? Would you expect the same results today? What ethical problems does this experiment raise?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do people conform to group opinions even when the group is clearly wrong?"
+      },
+      {
+        "type": "simple",
+        "text": "What is consciousness? How would you study it scientifically?"
+      },
+      {
+        "type": "material",
+        "material": "Children under about 4 years old typically fail the 'false belief' test: if they see a toy hidden in Location A, and then watch it being moved to Location B while another person is absent, they predict the absent person will look in Location B.",
+        "text": "Why do young children fail this test? What does it tell us about cognitive development? At what age do children typically develop this ability, and what might drive the change?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do optical illusions work?"
+      },
+      {
+        "type": "simple",
+        "text": "Is there such a thing as a 'criminal personality'?"
+      },
+      {
+        "type": "material",
+        "material": "A patient with damage to the hippocampus can remember events from their childhood but cannot form new memories. Another patient with damage to a different brain region can form new memories but has lost childhood memories.",
+        "text": "What does this tell us about how memory is organised in the brain? Are there different types of memory stored in different places?"
+      },
+      {
+        "type": "simple",
+        "text": "Why do we forget things? Is forgetting a failure of memory or a feature?"
+      },
+      {
+        "type": "simple",
+        "text": "Can a computer ever be conscious?"
+      },
+      {
+        "type": "material",
+        "material": "You design an experiment to test whether background music helps students study. You have 100 student volunteers.",
+        "text": "How would you design this experiment? What variables would you control? What statistical test would you use and why?"
+      },
+      {
+        "type": "simple",
+        "text": "Why are phobias often of things like spiders and snakes rather than cars, which are statistically more dangerous?"
+      }
+    ]
+  }
+}
