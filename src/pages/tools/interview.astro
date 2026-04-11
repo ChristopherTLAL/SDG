@@ -1060,7 +1060,7 @@ function enterAnswerPhase() {
     document.getElementById('iv-btn-text').textContent = 'Stop Recording';
     document.getElementById('iv-btn-skip').classList.add('hidden');
 
-    // Start MediaRecorder
+    // Start MediaRecorder with 1s timeslice for robust chunk collection
     state.audioChunks = [];
     try {
       var opts = state.mimeType ? { mimeType: state.mimeType } : {};
@@ -1069,7 +1069,8 @@ function enterAnswerPhase() {
       state.mediaRecorder = new MediaRecorder(state.mediaStream);
     }
     state.mediaRecorder.ondataavailable = function(ev) { if (ev.data.size > 0) state.audioChunks.push(ev.data); };
-    state.mediaRecorder.start();
+    state.mediaRecorder.onerror = function(ev) { console.error('MediaRecorder error:', ev); };
+    state.mediaRecorder.start(1000);
 
     // Show REC dot on video preview
     if (state.videoMode) {
@@ -1134,17 +1135,35 @@ function stopMediaTracks() {
 // Returns a Promise<Blob|null>. Resolves after onstop fires and all chunks are flushed.
 function collectRecording() {
   return new Promise(function(resolve) {
-    if (!state.mediaRecorder || state.mediaRecorder.state !== 'recording') {
-      resolve(null);
+    var rec = state.mediaRecorder;
+    if (!rec || rec.state === 'inactive') {
+      // Already stopped or never started — build blob from whatever chunks we have
+      if (state.audioChunks.length > 0) {
+        var mime = state.mimeType || 'audio/webm';
+        resolve(new Blob(state.audioChunks, { type: mime }));
+      } else {
+        resolve(null);
+      }
+      state.mediaRecorder = null;
       return;
     }
-    state.mediaRecorder.onstop = function() {
+    // Safety timeout: if onstop never fires (some browsers), resolve after 2s
+    var safetyTimer = setTimeout(function() {
+      var mime = state.mimeType || 'audio/webm';
+      var blob = state.audioChunks.length > 0 ? new Blob(state.audioChunks, { type: mime }) : null;
+      state.mediaRecorder = null;
+      resolve(blob);
+    }, 2000);
+    rec.onstop = function() {
+      clearTimeout(safetyTimer);
       var mime = state.mimeType || 'audio/webm';
       var blob = new Blob(state.audioChunks, { type: mime });
       state.mediaRecorder = null;
       resolve(blob);
     };
-    state.mediaRecorder.stop();
+    // Flush any buffered data before stopping
+    try { rec.requestData(); } catch(e) {}
+    rec.stop();
   });
 }
 
