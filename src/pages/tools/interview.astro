@@ -748,13 +748,8 @@ function pickRandomQuestion() {
 
 function goToQuestion(idx) {
   if (idx < 0 || idx >= state.questions.length) return;
-  // Stop any in-progress recording/timer — discard the recording
   clearInterval(state.timer);
-  if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
-    state.mediaRecorder.onstop = null; // detach so handleAudioReady doesn't fire
-    state.mediaRecorder.stop();
-  }
-  stopMediaTracks();
+  discardRecording();
   state.qIndex = idx;
   state.visited[idx] = true;
   resetPracticeUI();
@@ -1065,7 +1060,6 @@ function enterRecordPhase() {
     state.mediaRecorder = new MediaRecorder(state.mediaStream);
   }
   state.mediaRecorder.ondataavailable = function(ev) { if (ev.data.size > 0) state.audioChunks.push(ev.data); };
-  state.mediaRecorder.onstop = handleAudioReady;
   state.mediaRecorder.start();
 
   // Show REC dot on video preview
@@ -1093,19 +1087,10 @@ function enterRecordPhase() {
   }
 }
 
-function finishRecording() {
-  clearInterval(state.timer);
-  state.phase = 'review';
-  if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
-    // Let onstop handler (handleAudioReady) deal with cleanup and playback
-    // Do NOT stop tracks here — MediaRecorder needs them alive to flush final data
-    state.mediaRecorder.stop();
-  } else {
-    // Not recording (e.g. non-recording mode) — clean up immediately
-    stopMediaTracks();
-    enterReviewPhase();
-  }
-}
+// ── Unified recording lifecycle ──────────────────────────────
+// One function to stop MediaRecorder and get the blob (promise-based).
+// One function to show playback UI. One to clean up tracks.
+// Every code path (finish, skip, exit, navigate) calls these same primitives.
 
 function stopMediaTracks() {
   if (state.mediaStream) {
@@ -1115,25 +1100,35 @@ function stopMediaTracks() {
   document.getElementById('iv-video-preview').srcObject = null;
 }
 
-function enterReviewPhase() {
-  state.phase = 'review';
-  document.getElementById('iv-btn-main').classList.remove('hidden');
-  document.getElementById('iv-btn-main').disabled = false;
-  document.getElementById('iv-btn-main').className = 'w-full md:w-2/3 py-4 rounded-2xl bg-primary text-on-primary font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all flex justify-center items-center gap-2';
-  document.getElementById('iv-btn-icon').textContent = 'shuffle';
-  document.getElementById('iv-btn-text').textContent = 'Next Question';
-  document.getElementById('iv-btn-skip').classList.add('hidden');
-
-  var timerArea = document.getElementById('iv-timer-area');
-  timerArea.classList.add('hidden');
+// Returns a Promise<Blob|null>. Resolves after onstop fires and all chunks are flushed.
+function collectRecording() {
+  return new Promise(function(resolve) {
+    if (!state.mediaRecorder || state.mediaRecorder.state !== 'recording') {
+      resolve(null);
+      return;
+    }
+    state.mediaRecorder.onstop = function() {
+      var mime = state.mimeType || 'audio/webm';
+      var blob = new Blob(state.audioChunks, { type: mime });
+      state.mediaRecorder = null;
+      resolve(blob);
+    };
+    state.mediaRecorder.stop();
+  });
 }
 
-function handleAudioReady() {
-  // Now safe to stop tracks — all data has been flushed
+// Discard any in-progress recording without waiting for data. Used by goToQuestion/exitPractice.
+function discardRecording() {
+  if (state.mediaRecorder) {
+    state.mediaRecorder.onstop = null;
+    if (state.mediaRecorder.state === 'recording') state.mediaRecorder.stop();
+    state.mediaRecorder = null;
+  }
   stopMediaTracks();
+}
 
-  var mime = state.mimeType || 'audio/webm';
-  var blob = new Blob(state.audioChunks, { type: mime });
+// Show the audio/video playback area with the given blob.
+function showPlayback(blob) {
   if (state.audioBlobURL) URL.revokeObjectURL(state.audioBlobURL);
   state.audioBlobURL = URL.createObjectURL(blob);
 
@@ -1152,18 +1147,38 @@ function handleAudioReady() {
   }
   document.getElementById('iv-audio-area').classList.remove('hidden');
 
-  // Hide video preview, hide REC dot
+  // Hide video preview + REC dot
   document.getElementById('iv-video-area').classList.add('hidden');
   var recDot = document.getElementById('iv-video-rec-dot');
   if (recDot) recDot.classList.add('hidden');
 
+  // Download link
   var prefix = state.mode === 'hku' ? 'HKU' : (state.mode === 'oxbridge' ? 'Oxbridge' : (state.mode === 'kira' ? 'Kira' : 'Interview'));
   var fileName = prefix + '_Q' + (state.qIndex + 1) + '_' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + state.fileExt;
   var dl = document.getElementById('iv-download');
   dl.href = state.audioBlobURL;
   dl.download = fileName;
+}
 
-  // Now enter review phase (after playback is ready)
+function enterReviewPhase() {
+  state.phase = 'review';
+  document.getElementById('iv-btn-main').classList.remove('hidden');
+  document.getElementById('iv-btn-main').disabled = false;
+  document.getElementById('iv-btn-main').className = 'w-full md:w-2/3 py-4 rounded-2xl bg-primary text-on-primary font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all flex justify-center items-center gap-2';
+  document.getElementById('iv-btn-icon').textContent = 'shuffle';
+  document.getElementById('iv-btn-text').textContent = 'Next Question';
+  document.getElementById('iv-btn-skip').classList.add('hidden');
+  document.getElementById('iv-timer-area').classList.add('hidden');
+}
+
+// The single finish path: collect blob → show playback → enter review. Always awaits the blob.
+async function finishRecording() {
+  clearInterval(state.timer);
+  // Disable button to prevent double-clicks during async stop
+  document.getElementById('iv-btn-main').disabled = true;
+  var blob = await collectRecording();
+  stopMediaTracks();
+  if (blob && blob.size > 0) showPlayback(blob);
   enterReviewPhase();
 }
 
@@ -1214,14 +1229,8 @@ function updateTimerDisplay() {
 
 function exitPractice() {
   goBack('mode');
-  // Cleanup
   clearInterval(state.timer);
-  if (state.mediaRecorder && state.mediaRecorder.state === 'recording') {
-    state.mediaRecorder.onstop = null;
-    state.mediaRecorder.stop();
-  }
-  stopMediaTracks();
-  // Reset video UI
+  discardRecording();
   document.getElementById('iv-video-area').classList.add('hidden');
   state.videoMode = false;
   state.hasVideo = false;
