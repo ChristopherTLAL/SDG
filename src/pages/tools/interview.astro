@@ -170,7 +170,7 @@ const lang = 'en';
             <p class="text-sm text-on-surface-variant leading-relaxed mb-3">Multiple Mini Interview stations with ethical dilemmas, scenarios, and policy discussions.</p>
             <div class="flex items-center gap-3 text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.12em]">
               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">timer</span> 2min + 8min</span>
-              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic_off</span> No Recording</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">mic</span> Recording</span>
             </div>
           </button>
 
@@ -488,7 +488,7 @@ var BANK_REGISTRY = {
   consulting: { file: '/data/interview/consulting.json', prepTime: -1, answerTime: 0, recording: false },
   banking:    { file: '/data/interview/banking.json', prepTime: -1, answerTime: 0, recording: false },
   gradschool: { file: '/data/interview/gradschool.json', prepTime: -1, answerTime: 0, recording: false },
-  mmi:        { file: '/data/interview/mmi.json', prepTime: 120, answerTime: 480, recording: false },
+  mmi:        { file: '/data/interview/mmi.json', prepTime: 120, answerTime: 480, recording: true },
   algorithms: { file: '/data/interview/algorithms.json', prepTime: -1, answerTime: 0, recording: false },
   quant:      { file: '/data/interview/quant.json', prepTime: -1, answerTime: 0, recording: false }
 };
@@ -963,8 +963,8 @@ async function handleMainAction() {
     }
     enterPrepPhase();
   } else if (state.phase === 'ready') {
-    // Manual prep done, user clicked "Start Recording"
-    enterRecordPhase();
+    // Manual prep done, user clicked to start answer phase
+    enterAnswerPhase();
   } else if (state.phase === 'record') {
     finishRecording();
   } else if (state.phase === 'review') {
@@ -973,7 +973,7 @@ async function handleMainAction() {
 }
 
 function handleSkip() {
-  if (state.phase === 'prep' || state.phase === 'ready') enterRecordPhase();
+  if (state.phase === 'prep' || state.phase === 'ready') enterAnswerPhase();
   else if (state.phase === 'record') finishRecording();
 }
 
@@ -993,11 +993,16 @@ function enterPrepPhase() {
   if (state.prepTime === -1) {
     timerArea.classList.add('hidden');
     btnMain.disabled = false;
-    btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-200 hover:bg-rose-700 transition-all flex justify-center items-center gap-2';
-    document.getElementById('iv-btn-icon').textContent = 'mic';
-    document.getElementById('iv-btn-text').textContent = 'Start Recording';
+    if (state.recording) {
+      btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-200 hover:bg-rose-700 transition-all flex justify-center items-center gap-2';
+      document.getElementById('iv-btn-icon').textContent = 'mic';
+      document.getElementById('iv-btn-text').textContent = 'Start Recording';
+    } else {
+      btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-primary text-on-primary font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all flex justify-center items-center gap-2';
+      document.getElementById('iv-btn-icon').textContent = 'play_circle';
+      document.getElementById('iv-btn-text').textContent = 'Start Answer';
+    }
     document.getElementById('iv-btn-skip').classList.add('hidden');
-    // Override: clicking main button goes to record
     state.phase = 'ready';
     return;
   }
@@ -1027,54 +1032,80 @@ function enterPrepPhase() {
     if (state.timeLeft <= 0) {
       clearInterval(state.timer);
       document.getElementById('iv-timer-display').classList.remove('warning-pulse');
-      if (state.recording) enterRecordPhase();
-      else enterReviewPhase();
+      enterAnswerPhase();
     }
   }, 1000);
 }
 
-function enterRecordPhase() {
+// Unified answer phase: handles both recording and non-recording modes.
+// Recording modes: start MediaRecorder + timer. Non-recording: just timer.
+function enterAnswerPhase() {
   clearInterval(state.timer);
   state.phase = 'record';
 
   var timerArea = document.getElementById('iv-timer-area');
-  timerArea.className = 'flex flex-col items-center justify-center rounded-2xl p-6 mb-6 border-2 transition-all duration-300 bg-rose-50 border-rose-200 recording-pulse';
-  var label = state.answerTime > 0 ? 'RECORDING (' + Math.floor(state.answerTime/60) + 'min ' + (state.answerTime%60) + 's)' : 'RECORDING (no limit)';
-  document.getElementById('iv-timer-label').textContent = label;
-  document.getElementById('iv-timer-label').className = 'text-xs font-bold uppercase tracking-widest mb-1 text-rose-500 animate-pulse';
-  document.getElementById('iv-timer-display').className = 'text-6xl font-mono font-black tracking-tighter transition-colors text-rose-600';
-
   var btnMain = document.getElementById('iv-btn-main');
-  btnMain.disabled = false;
-  btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-200 hover:bg-rose-700 transition-all flex justify-center items-center gap-2';
-  document.getElementById('iv-btn-icon').textContent = 'stop_circle';
-  document.getElementById('iv-btn-text').textContent = 'Stop Recording';
-  document.getElementById('iv-btn-skip').classList.add('hidden');
 
-  // Start recording
-  state.audioChunks = [];
-  try {
-    var opts = state.mimeType ? { mimeType: state.mimeType } : {};
-    state.mediaRecorder = new MediaRecorder(state.mediaStream, opts);
-  } catch(e) {
-    state.mediaRecorder = new MediaRecorder(state.mediaStream);
+  if (state.recording) {
+    // ── Recording mode: rose theme + MediaRecorder ──
+    timerArea.className = 'flex flex-col items-center justify-center rounded-2xl p-6 mb-6 border-2 transition-all duration-300 bg-rose-50 border-rose-200 recording-pulse';
+    var label = state.answerTime > 0 ? 'RECORDING (' + Math.floor(state.answerTime/60) + 'min ' + (state.answerTime%60) + 's)' : 'RECORDING (no limit)';
+    document.getElementById('iv-timer-label').textContent = label;
+    document.getElementById('iv-timer-label').className = 'text-xs font-bold uppercase tracking-widest mb-1 text-rose-500 animate-pulse';
+    document.getElementById('iv-timer-display').className = 'text-6xl font-mono font-black tracking-tighter transition-colors text-rose-600';
+
+    btnMain.disabled = false;
+    btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-rose-600 text-white font-bold text-lg shadow-lg shadow-rose-200 hover:bg-rose-700 transition-all flex justify-center items-center gap-2';
+    document.getElementById('iv-btn-icon').textContent = 'stop_circle';
+    document.getElementById('iv-btn-text').textContent = 'Stop Recording';
+    document.getElementById('iv-btn-skip').classList.add('hidden');
+
+    // Start MediaRecorder
+    state.audioChunks = [];
+    try {
+      var opts = state.mimeType ? { mimeType: state.mimeType } : {};
+      state.mediaRecorder = new MediaRecorder(state.mediaStream, opts);
+    } catch(e) {
+      state.mediaRecorder = new MediaRecorder(state.mediaStream);
+    }
+    state.mediaRecorder.ondataavailable = function(ev) { if (ev.data.size > 0) state.audioChunks.push(ev.data); };
+    state.mediaRecorder.start();
+
+    // Show REC dot on video preview
+    if (state.videoMode) {
+      var recDot = document.getElementById('iv-video-rec-dot');
+      if (recDot) recDot.classList.remove('hidden');
+    }
+  } else {
+    // ── Non-recording mode: green/emerald theme, answer timer only ──
+    timerArea.classList.remove('hidden');
+    timerArea.className = 'flex flex-col items-center justify-center rounded-2xl p-6 mb-6 border-2 transition-all duration-300 bg-emerald-50 border-emerald-200';
+    var ansLabel = state.answerTime > 0 ? 'ANSWER TIME (' + Math.floor(state.answerTime/60) + 'min ' + (state.answerTime%60) + 's)' : 'ANSWER TIME (no limit)';
+    document.getElementById('iv-timer-label').textContent = ansLabel;
+    document.getElementById('iv-timer-label').className = 'text-xs font-bold uppercase tracking-widest mb-1 text-emerald-600';
+    document.getElementById('iv-timer-display').className = 'text-6xl font-mono font-black tracking-tighter transition-colors text-emerald-700';
+
+    btnMain.disabled = false;
+    btnMain.className = 'w-full md:w-2/3 py-4 rounded-2xl bg-primary text-on-primary font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all flex justify-center items-center gap-2';
+    document.getElementById('iv-btn-icon').textContent = 'done';
+    document.getElementById('iv-btn-text').textContent = 'Finish';
+    document.getElementById('iv-btn-skip').classList.add('hidden');
   }
-  state.mediaRecorder.ondataavailable = function(ev) { if (ev.data.size > 0) state.audioChunks.push(ev.data); };
-  state.mediaRecorder.start();
 
-  // Show REC dot on video preview
-  if (state.videoMode) {
-    var recDot = document.getElementById('iv-video-rec-dot');
-    if (recDot) recDot.classList.remove('hidden');
-  }
-
+  // ── Timer (shared by both modes) ──
   if (state.answerTime > 0) {
     state.timeLeft = state.answerTime;
     updateTimerDisplay();
     state.timer = setInterval(function() {
       state.timeLeft--;
       updateTimerDisplay();
-      if (state.timeLeft <= 0) finishRecording();
+      if (state.timeLeft <= 5 && state.timeLeft > 0) {
+        document.getElementById('iv-timer-display').classList.add('warning-pulse');
+      }
+      if (state.timeLeft <= 0) {
+        document.getElementById('iv-timer-display').classList.remove('warning-pulse');
+        finishRecording();
+      }
     }, 1000);
   } else {
     // Unlimited: count up
