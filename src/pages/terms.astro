@@ -1,0 +1,89 @@
+---
+// src/pages/terms.astro — Terms of Use
+import MainLayout from '../layouts/MainLayout.astro';
+
+const lang = 'en';
+const lastUpdated = 'April 17, 2026';
+---
+
+<MainLayout title="Terms of Use" description="The terms under which you may use the Chinese SDGs Institute website and services." lang={lang}>
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
+    <article class="max-w-3xl mx-auto px-6 md:px-12">
+      <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6 md:mb-8">
+        <span>Institute</span>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-primary font-bold">Terms</span>
+      </nav>
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-6 md:mb-8">
+        Terms of Use
+      </h1>
+
+      <p class="text-sm text-on-surface-variant/70 mb-10">Last updated: {lastUpdated}</p>
+
+      <div class="article-body">
+        <p>
+          These terms govern your use of the Chinese SDGs Institute website and the tools, publications, and services we make available on it. By using this site, you agree to these terms. If you do not agree, please do not use the site.
+        </p>
+
+        <h2>Who we are</h2>
+        <p>
+          The Chinese SDGs Institute is a youth-led, non-profit initiative supporting research and education on the United Nations Sustainable Development Goals. We are independent and do not claim formal affiliation with the United Nations or its agencies.
+        </p>
+
+        <h2>Content and intellectual property</h2>
+        <p>
+          Research articles, policy briefs, project descriptions, and other written material on this site are produced by our volunteer contributors and editorial team. Unless a specific article states otherwise, our content is provided for educational and non-commercial reference. You may quote short passages with clear attribution to the author and the Chinese SDGs Institute.
+        </p>
+        <p>
+          The Institute's name, logo, illustrations, and site design remain our property and may not be reproduced without permission. External links, data sources, and third-party images we cite are the property of their respective owners.
+        </p>
+
+        <h2>Certificate verification</h2>
+        <p>
+          The <a href="/verify">certificate verification service</a> lets holders and third parties confirm the authenticity of certificates we have issued. A successful lookup indicates that a certificate with that ID was entered into our records; it is not a guarantee of the holder's present identity or standing. Forged certificates, altered certificate IDs, and misrepresentation of our credentials are strictly prohibited. If you believe a certificate has been fabricated or misused, please <a href="/contact">contact us</a> so we can investigate.
+        </p>
+
+        <h2>Volunteer contributions</h2>
+        <p>
+          If you contribute writing, research, or other work to the Institute, you retain authorship and are credited on the published piece. By submitting work, you grant us a non-exclusive, royalty-free license to publish, edit, and distribute it on this site and in related publications (including the books and reports we issue). You may republish your own work elsewhere. Volunteer contributions are unpaid; the value we offer is the editorial platform, peer community, and the public record of your work.
+        </p>
+
+        <h2>Acceptable use</h2>
+        <p>When using this site you agree not to:</p>
+        <ul>
+          <li>Scrape, crawl, or automate access to our pages in ways that burden our servers.</li>
+          <li>Submit false, misleading, or abusive content through our forms.</li>
+          <li>Attempt to gain unauthorized access to our systems or data.</li>
+          <li>Use our content, name, or certificates to misrepresent your credentials.</li>
+          <li>Infringe on the intellectual property or privacy rights of others.</li>
+        </ul>
+
+        <h2>Tools and calculators</h2>
+        <p>
+          We offer interactive tools — interview simulators, GPA converters, budget calculators, personality tests, and similar — as educational aids. Their output is indicative, not authoritative, and should not replace professional advice or official admissions information. We are not responsible for decisions you make based on tool output.
+        </p>
+
+        <h2>Third-party links</h2>
+        <p>
+          Our pages link to third-party websites, research, and data sources that we do not control. We are not responsible for the content, accuracy, or policies of those external sites.
+        </p>
+
+        <h2>Disclaimers and limitation of liability</h2>
+        <p>
+          The site is provided "as is" without warranties of any kind. We make no guarantees that the site will be uninterrupted, error-free, or suitable for any particular purpose. To the maximum extent permitted by law, the Institute and its volunteers are not liable for any indirect, incidental, or consequential damages arising from your use of this site or the information on it.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          We may update these terms as our programs evolve. Material changes will be reflected in the "Last updated" date above. Your continued use of the site after a change indicates acceptance of the updated terms.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms, content licensing, or certificate authenticity can be directed to us through the <a href="/contact">contact form</a>.
+        </p>
+      </div>
+    </article>
+  </main>
+</MainLayout>

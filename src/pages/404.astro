@@ -1,0 +1,62 @@
+---
+// src/pages/404.astro — Branded 404 page
+import MainLayout from '../layouts/MainLayout.astro';
+
+const lang = 'en';
+---
+
+<MainLayout title="Page Not Found" description="The page you were looking for doesn't exist." lang={lang} noindex={true}>
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
+    <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+      <!-- Large 404 graphic -->
+      <div class="mb-8 md:mb-10">
+        <p class="font-headline font-extrabold text-primary/10 text-[8rem] md:text-[12rem] leading-none tracking-tighter select-none">
+          404
+        </p>
+      </div>
+
+      <h1 class="font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tight text-on-surface leading-[1.1] mb-5">
+        Goal Not Found
+      </h1>
+
+      <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl mx-auto mb-12">
+        This page doesn't exist — but the 17 Sustainable Development Goals still do.
+        Let's help you find your way back.
+      </p>
+
+      <!-- Action cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-16">
+        <a href="/" class="group bg-white border border-outline-variant/15 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all text-left">
+          <span class="material-symbols-outlined text-primary text-2xl mb-3 block">home</span>
+          <h3 class="font-headline font-bold text-sm text-on-surface mb-1 group-hover:text-primary transition-colors">Home</h3>
+          <p class="text-xs text-on-surface-variant">Start over from the beginning.</p>
+        </a>
+        <a href="/research" class="group bg-white border border-outline-variant/15 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all text-left">
+          <span class="material-symbols-outlined text-primary text-2xl mb-3 block">menu_book</span>
+          <h3 class="font-headline font-bold text-sm text-on-surface mb-1 group-hover:text-primary transition-colors">Research</h3>
+          <p class="text-xs text-on-surface-variant">Browse our published work.</p>
+        </a>
+        <a href="/contact" class="group bg-white border border-outline-variant/15 rounded-2xl p-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all text-left">
+          <span class="material-symbols-outlined text-primary text-2xl mb-3 block">mail</span>
+          <h3 class="font-headline font-bold text-sm text-on-surface mb-1 group-hover:text-primary transition-colors">Contact</h3>
+          <p class="text-xs text-on-surface-variant">Reach out if you need help.</p>
+        </a>
+      </div>
+
+      <!-- Quick sections -->
+      <div class="pt-10 border-t border-outline-variant/10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-on-surface-variant/50 mb-6">
+          Or explore
+        </p>
+        <div class="flex flex-wrap justify-center gap-2">
+          <a href="/about" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">About</a>
+          <a href="/projects" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">Projects</a>
+          <a href="/dialogues" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">Dialogues</a>
+          <a href="/publications" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">Publications</a>
+          <a href="/tools" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">Tools</a>
+          <a href="/verify" class="px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-full transition-colors">Verify Certificate</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</MainLayout>

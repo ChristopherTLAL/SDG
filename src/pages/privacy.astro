@@ -1,0 +1,93 @@
+---
+// src/pages/privacy.astro — Privacy Policy
+import MainLayout from '../layouts/MainLayout.astro';
+
+const lang = 'en';
+const lastUpdated = 'April 17, 2026';
+---
+
+<MainLayout title="Privacy Policy" description="How the Chinese SDGs Institute handles your personal data." lang={lang}>
+  <main class="pt-24 md:pt-40 pb-16 md:pb-32">
+    <article class="max-w-3xl mx-auto px-6 md:px-12">
+      <nav class="flex items-center gap-2 text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant mb-6 md:mb-8">
+        <span>Institute</span>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-primary font-bold">Privacy</span>
+      </nav>
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-headline font-extrabold tracking-tight text-on-surface leading-[1.1] mb-6 md:mb-8">
+        Privacy Policy
+      </h1>
+
+      <p class="text-sm text-on-surface-variant/70 mb-10">Last updated: {lastUpdated}</p>
+
+      <div class="article-body">
+        <p>
+          The Chinese SDGs Institute ("we", "us", "the Institute") operates this website at sdg.undp.ac.cn. This page explains what information we collect, how we use it, and your rights over it. We have deliberately kept our data practices minimal.
+        </p>
+
+        <h2>Information we collect</h2>
+        <p>We only collect information when you actively provide it:</p>
+        <ul>
+          <li><strong>Newsletter subscription.</strong> If you sign up for our newsletter, we collect your email address and the page you subscribed from.</li>
+          <li><strong>Contact form.</strong> If you use our contact form, we collect your name, email address, the subject category you selected, and the message you sent.</li>
+          <li><strong>Certificate verification.</strong> Entering a certificate ID at <a href="/verify">/verify</a> performs a lookup against a public file. No personal data is collected or transmitted.</li>
+        </ul>
+        <p>
+          Form submissions are sent through Google Apps Script and stored in a private Google Sheets spreadsheet accessible only to Institute staff. We do not run Google Analytics, Facebook Pixel, or any comparable tracking service on this site.
+        </p>
+
+        <h2>Cookies and translation</h2>
+        <p>
+          The site offers an optional Chinese translation through Google Translate, which sets a <code>googtrans</code> cookie in your browser when you enable it. This cookie can be cleared at any time through your browser settings. We do not set any other tracking or advertising cookies.
+        </p>
+
+        <h2>How we use your information</h2>
+        <ul>
+          <li>To send you the newsletter you subscribed to.</li>
+          <li>To respond to questions, partnership inquiries, volunteer applications, or media requests you send us.</li>
+          <li>To improve our research and programs in aggregate.</li>
+        </ul>
+        <p>We do not sell, rent, or share your personal information with advertisers or unrelated third parties.</p>
+
+        <h2>Third-party services we rely on</h2>
+        <ul>
+          <li><strong>Google (Apps Script, Sheets, Translate)</strong> — form handling and optional translation. Google's privacy terms apply.</li>
+          <li><strong>Vercel</strong> — hosting. Vercel's privacy terms apply to server logs and deployment data.</li>
+          <li><strong>Sanity</strong> — content management system for our research and project content.</li>
+        </ul>
+
+        <h2>Your rights</h2>
+        <p>You can at any time ask us to:</p>
+        <ul>
+          <li>Show you the information we have about you.</li>
+          <li>Correct information that is wrong or out of date.</li>
+          <li>Delete your information and unsubscribe you from communications.</li>
+        </ul>
+        <p>
+          To exercise any of these rights, email us via the <a href="/contact">contact form</a> with the subject "Data request". We will respond within a reasonable time frame.
+        </p>
+
+        <h2>Data retention</h2>
+        <p>
+          We keep newsletter subscribers on our list until you unsubscribe. Contact messages are retained for as long as they remain useful for following up with you; you may request deletion at any time.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          The Institute works with youth researchers and young writers. We do not knowingly collect personal information from anyone under 13. If you believe a minor has submitted information without parental consent, please contact us and we will delete it promptly.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          If we materially change how we handle your data, we will update this page and the "Last updated" date above. Continuing to use the site after a change indicates acceptance of the updated policy.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about privacy or a data request can be directed to us through the <a href="/contact">contact form</a>.
+        </p>
+      </div>
+    </article>
+  </main>
+</MainLayout>

@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 
 export default defineConfig({
+  site: 'https://sdg.undp.ac.cn',
   output: 'server',
   adapter: vercel(),
   integrations: [tailwind(), react()],
