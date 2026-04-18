@@ -43,19 +43,27 @@ const totalBriefs = policyBriefs.length;
       </p>
 
       <!-- Stats strip -->
-      <div class="grid grid-cols-3 gap-4 mb-20 max-w-xl">
+      <div class="flex flex-wrap gap-x-10 gap-y-4 mb-20 max-w-xl">
         <div>
           <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">1</p>
           <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Book</p>
         </div>
         <div>
-          <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalPapers}</p>
-          <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Research Papers</p>
+          <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalChapters}</p>
+          <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Chapters</p>
         </div>
-        <div>
-          <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalBriefs}</p>
-          <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Policy Briefs</p>
-        </div>
+        {totalPapers > 0 && (
+          <div>
+            <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalPapers}</p>
+            <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Research Papers</p>
+          </div>
+        )}
+        {totalBriefs > 0 && (
+          <div>
+            <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalBriefs}</p>
+            <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Policy Briefs</p>
+          </div>
+        )}
       </div>
 
       <!-- ── BOOK SECTION ── -->
