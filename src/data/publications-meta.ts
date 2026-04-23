@@ -34,7 +34,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'September 4, 2024',
       description:
         'The first volume in the series. Essays from student leaders examining the integrated relationship between climate change and sustainable development through the lens of the Global South — environmental resources, food systems, gender justice in climate policy, and indigenous knowledge systems in developing nations.',
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/0ah3Q9gO',
       accent: 'emerald',
     },
     {
@@ -44,7 +44,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'September 9, 2024',
       description:
         'Student essays on the effects and ethical implications of AI in China — education, healthcare, environmental protection, governance, and cultural preservation. Examines the tension between innovation and concerns around privacy, surveillance, algorithmic discrimination, and the rural-urban divide.',
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/00fWgy9L',
       accent: 'sky',
     },
     {
@@ -54,7 +54,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'November 21, 2024',
       description:
         'Analyses of the intersections of language, gender, and digital culture in contemporary China. Covers multilingual signage in Suzhou, femvertising in cosmetic marketing, socioeconomic effects on children\'s language development, internet addiction, and how Chinese journalists adapt to social media.',
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/0f8xEiKn',
       accent: 'rose',
     },
     {
@@ -64,7 +64,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'December 25, 2024',
       description:
         "Essays on the ethics and innovation of China's biotechnology revolution — balancing agricultural productivity with environmental stewardship, the CRISPR babies controversy, GMO food safety, traditional Chinese medicine, and equitable access to genetic technologies.",
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/08eblXiu',
       accent: 'amber',
     },
     {
@@ -74,7 +74,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'February 24, 2025',
       description:
         'Critical essays interrogating how digital technology — language-learning apps, content moderation, AI systems, educational platforms — reproduces and amplifies colonial power structures, often privileging Western epistemologies while marginalizing indigenous and non-Western ways of knowing.',
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/0brFjX70',
       accent: 'indigo',
     },
     {
@@ -84,7 +84,7 @@ export const studentCriticalEssaySeries: BookSeries = {
       publishedDate: 'November 7, 2025',
       description:
         'A sweeping collection confronting the paradox: how can we harness AI for global sustainability without automating our own crises? Covers the environmental paradox of AI, algorithmic bias and decolonization, human-AI collaboration in Industry 5.0 and the arts, and the governance imperative.',
-      amazonUrl: SERIES_URL,
+      amazonUrl: 'https://a.co/d/0fvKtbND',
       accent: 'violet',
     },
   ],
