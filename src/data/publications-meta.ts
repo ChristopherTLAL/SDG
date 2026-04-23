@@ -1,116 +1,94 @@
-export interface BookChapter {
-  title: string;
-  author: string;
-  certificateId: string;
-}
+// Student Critical Essay Series — 6-volume book series
+// Source: https://www.amazon.com/dp/B0DG6NNB2Y
+// Updated April 2026
 
-export interface PublishedBook {
+export interface SeriesBook {
   title: string;
   subtitle?: string;
-  isbn: string;
+  authors: string;
   publishedDate: string;
-  editor: string;
   description: string;
   amazonUrl: string;
-  chapters: BookChapter[];
+  accent?: 'emerald' | 'amber' | 'sky' | 'rose' | 'indigo' | 'violet';
 }
 
-export const digitalSymbiosis: PublishedBook = {
-  title: 'Digital Symbiosis',
-  subtitle: 'Co-Evolving AI and Humanity in an Age of Sustainability',
-  isbn: '978-1-955662-09-3',
-  publishedDate: 'November 3, 2025',
-  editor: 'Oliver Sinclair',
-  description: 'A collective volume exploring how artificial intelligence and humanity can co-evolve to advance the United Nations Sustainable Development Goals. Contributions from young researchers across disciplines examine the philosophy, ethics, infrastructure, and social dynamics of human-AI collaboration in climate action, education, governance, health, and creative life.',
-  amazonUrl: 'https://www.amazon.com/dp/B0DG6NNB2Y?binding=hardcover&ref=dbs_dp_rwt_sb_pc_thcv',
-  chapters: [
-    { title: 'The Digital Symbiosis: Redefining Human Identity in the Age of AI Co-Evolution', author: 'Jia Tianyi', certificateId: 'CERT9781955662093CPT493921487' },
-    { title: 'AI as a Catalyst for Global Sustainability: An Analysis of the UN\'s SDGs', author: 'Liu Wenxin', certificateId: 'CERT9781955662093CPT730771720' },
-    { title: 'Ethical Frameworks for Human-AI Collaboration in Environmental Conservation', author: 'Chen Qihan', certificateId: 'CERT9781955662093CPT763610876' },
-    { title: 'The Role of AI in Transitioning to a Global Circular Economy', author: 'Wang Zixuan', certificateId: 'CERT9781955662093CPT653322656' },
-    { title: 'Co-Evolving Consciousness: Philosophical Implications of Human-AI Integration', author: 'Li Minghao', certificateId: 'CERT9781955662093CPT157772532' },
-    { title: 'AI-Driven Innovations in Sustainable Agriculture for Global Food Security', author: 'Zhang Yuxin', certificateId: 'CERT9781955662093CPT213601158' },
-    { title: 'Human-AI Partnerships in Creative Expression: A New Frontier for Sustainability Communication', author: 'Yang Haoran', certificateId: 'CERT9781955662093CPT438507504' },
-    { title: 'The Future of Work: Navigating Job Displacement and Creation in a Sustainable AI-Driven Economy', author: 'Zhao Yinuo', certificateId: 'CERT9781955662093CPT565718571' },
-    { title: 'AI-Powered Environmental Monitoring Systems: A Double-Edged Sword for Sustainability', author: 'Wu Zihan', certificateId: 'CERT9781955662093CPT173070222' },
-    { title: 'Digital Symbiosis and Urban Planning: Designing Sustainable Smart Cities with AI', author: 'Qian Yichen', certificateId: 'CERT9781955662093CPT807248372' },
-    { title: 'The Algorithmic Bias in Sustainability AI: A Threat to Environmental Justice?', author: 'Sun Xinyi', certificateId: 'CERT9781955662093CPT327876821' },
-    { title: 'Human-in-the-Loop AI for Critical Sustainability Decisions', author: 'Zhou Haoyu', certificateId: 'CERT9781955662093CPT617238099' },
-    { title: 'AI and the Decarbonization of Global Supply Chains', author: 'Ma Yuxuan', certificateId: 'CERT9781955662093CPT505784240' },
-    { title: 'The Psychological Impact of Digital Symbiosis on Human Well-being', author: 'Yu Ruoyan', certificateId: 'CERT9781955662093CPT557995388' },
-    { title: 'AI-Enhanced Education for a Sustainable Future: A Global Perspective', author: 'Hu Yuhan', certificateId: 'CERT9781955662093CPT263296133' },
-    { title: 'The Co-Evolution of Human and AI Ethics in the Anthropocene', author: 'Lin Yize', certificateId: 'CERT9781955662093CPT978692544' },
-    { title: 'AI\'s Role in Protecting Biodiversity and Preventing Extinction', author: 'Guo Zixuan', certificateId: 'CERT9781955662093CPT246733823' },
-    { title: 'Sustainable AI: Minimizing the Carbon Footprint of Machine Learning', author: 'Wang Zihan', certificateId: 'CERT9781955662093CPT607606951' },
-    { title: 'The Symbiotic Relationship between AI and Renewable Energy Grids', author: 'Gao Yinuo', certificateId: 'CERT9781955662093CPT163920880' },
-    { title: 'AI Governance for a Sustainable and Equitable Co-existence with Humanity', author: 'Luo Zihan', certificateId: 'CERT9781955662093CPT385168842' },
-    { title: 'The Impact of AI on Water Scarcity and Sustainable Water Management', author: 'Song Yuxin', certificateId: 'CERT9781955662093CPT879807037' },
-    { title: 'Human-AI Collaboration in Disaster Response and Climate Change Adaptation', author: 'Cheng Haoran', certificateId: 'CERT9781955662093CPT241946721' },
-    { title: 'AI and the Preservation of Indigenous Knowledge for Sustainability', author: 'Xie Yinuo', certificateId: 'CERT9781955662093CPT792750944' },
-    { title: 'The Future of Sustainable Transportation in an AI-Driven World', author: 'Han Zixuan', certificateId: 'CERT9781955662093CPT929593385' },
-    { title: 'Digital Symbiosis and Healthcare: AI\'s Role in Global Health Sustainability', author: 'Zhang Zhaolu', certificateId: 'CERT9781955662093CPT622756250' },
-    { title: 'AI-Facilitated Sustainable Consumption and Production Patterns', author: 'Liang Yuxin', certificateId: 'CERT9781955662093CPT854247910' },
-    { title: 'The Co-Evolution of Language and Culture in a Human-AI Symbiotic Society', author: 'Ye Haoran', certificateId: 'CERT9781955662093CPT266486416' },
-    { title: 'AI\'s Contribution to Ocean Conservation and the Blue Economy', author: 'Feng Zihan', certificateId: 'CERT9781955662093CPT171897300' },
-    { title: 'The Ethics of AI in Predicting and Mitigating Social Crises for a Sustainable Society', author: 'Dong Yichen', certificateId: 'CERT9781955662093CPT546858870' },
-    { title: 'Human Augmentation and AI: The Next Step in Sustainable Human Evolution?', author: 'Cao Yinuo', certificateId: 'CERT9781955662093CPT485016265' },
-    { title: 'The Role of AI in Empowering Local Communities for Sustainable Development', author: 'Yuan Zixuan', certificateId: 'CERT9781955662093CPT790740725' },
-    { title: 'AI and the Future of Sustainable Finance and Investment', author: 'Wang Yizhuo', certificateId: 'CERT9781955662093CPT726006083' },
-    { title: 'Co-designing Sustainable Futures: A Human-AI Participatory Approach', author: 'Huang Yuxin', certificateId: 'CERT9781955662093CPT597846743' },
-    { title: 'The Impact of AI-Generated Art on Environmental Awareness and Activism', author: 'Jin Haoran', certificateId: 'CERT9781955662093CPT542438140' },
-    { title: 'AI for Sustainable Tourism: Balancing Economic Growth and Environmental Protection', author: 'Wei Zihan', certificateId: 'CERT9781955662093CPT841305480' },
-    { title: 'The Symbiotic City: How AI and Citizens Can Co-create Sustainable Urban Environments', author: 'Yan Yichen', certificateId: 'CERT9781955662093CPT174082587' },
-    { title: 'AI and the Fight Against Illegal Deforestation and Wildlife Trafficking', author: 'Su Yinuo', certificateId: 'CERT9781955662093CPT847245121' },
-    { title: 'The Future of Democracy in an Age of AI-Driven Information Ecosystems and Sustainable Governance', author: 'Cai Zixuan', certificateId: 'CERT9781955662093CPT664685830' },
-    { title: 'Human-AI Teaming in Scientific Research for Accelerated Sustainability Breakthroughs', author: 'Ding Minghao', certificateId: 'CERT9781955662093CPT701711346' },
-    { title: 'The Role of AI in Promoting Mental Health and Well-being in a Sustainable Society', author: 'Cen Yuxin', certificateId: 'CERT9781955662093CPT310284844' },
-    { title: 'AI-Powered Personalized Learning for Environmental Literacy', author: 'Yao Haoran', certificateId: 'CERT9781955662093CPT800626059' },
-    { title: 'The Co-Evolution of Trust and Transparency in Human-AI Sustainable Systems', author: 'Zou Zihan', certificateId: 'CERT9781955662093CPT158657082' },
-    { title: 'AI and the Ethics of Resource Allocation in a Climate-Changed World', author: 'Ren Yichen', certificateId: 'CERT9781955662093CPT397505859' },
-    { title: 'Sustainable AI Hardware: Designing Energy-Efficient and Recyclable Computing', author: 'Dai Yinuo', certificateId: 'CERT9781955662093CPT934756924' },
-    { title: 'The Symbiotic Relationship Between AI and Citizen Science for Environmental Data Collection', author: 'Jiang Zixuan', certificateId: 'CERT9781955662093CPT977268623' },
-    { title: 'AI\'s Role in Predicting and Managing Pandemics for a More Sustainable Global Health System', author: 'Xue Minghao', certificateId: 'CERT9781955662093CPT238454689' },
-    { title: 'The Future of Sustainable Manufacturing: A Human-AI Collaborative Approach', author: 'Lai Yuxin', certificateId: 'CERT9781955662093CPT438469291' },
-    { title: 'AI-Driven Nudging for Sustainable Consumer Behavior', author: 'Meng Haoran', certificateId: 'CERT9781955662093CPT502653585' },
-    { title: 'The Adaptation Gap: Navigating the Real Crisis of the AI Revolution', author: 'Wu Qingtian', certificateId: 'CERT9781955662093CPT454332317' },
-    { title: 'The Co-Evolution of Legal Frameworks for AI and Sustainable Development', author: 'Zhong Zihan', certificateId: 'CERT9781955662093CPT391307423' },
-    { title: 'The Ethics of Using AI to Create Synthetic Realities for Sustainability Education', author: 'Lu Yichen', certificateId: 'CERT9781955662093CPT491415673' },
-    { title: 'AI and the Future of Sustainable Energy Storage Solutions', author: 'Fan Yinuo', certificateId: 'CERT9781955662093CPT582705823' },
-    { title: 'Human-AI Collaboration in Urban Farming for Localized and Sustainable Food Systems', author: 'Shi Zixuan', certificateId: 'CERT9781955662093CPT237888049' },
-    { title: 'The Role of AI in Waste Management and Recycling Optimization', author: 'Tan Minghao', certificateId: 'CERT9781955662093CPT118652301' },
-    { title: 'AI-Powered Storytelling for a More Empathetic and Sustainable World', author: 'Mo Yuxin', certificateId: 'CERT9781955662093CPT258276916' },
-    { title: 'The Co-evolution of AI and Sustainable Business Models', author: 'He Haichuan', certificateId: 'CERT9781955662093CPT495166945' },
-    { title: 'The Impact of AI on the Fashion Industry\'s Transition to Sustainability', author: 'Nie Zihan', certificateId: 'CERT9781955662093CPT383014075' },
-    { title: 'AI for Soil Health Monitoring and Regeneration in Agriculture', author: 'Bao Yichen', certificateId: 'CERT9781955662093CPT935743255' },
-    { title: 'The Symbiotic Relationship between AI and Space Exploration for Earth Sustainability', author: 'Gong Yinuo', certificateId: 'CERT9781955662093CPT826843781' },
-    { title: 'AI Ethics in the Global South: A Perspective on Sustainable Development', author: 'Ruan Zixuan', certificateId: 'CERT9781955662093CPT579935757' },
-    { title: 'Human-AI Partnerships for the Restoration of Degraded Ecosystems', author: 'Shao Minghao', certificateId: 'CERT9781955662093CPT635653106' },
-    { title: 'The Role of AI in Building Resilient and Sustainable Infrastructure', author: 'Fu Yuxin', certificateId: 'CERT9781955662093CPT564420388' },
-    { title: 'AI and the Future of Sustainable Packaging and Material Innovation', author: 'Kang Haoran', certificateId: 'CERT9781955662093CPT694837700' },
-    { title: 'The Co-Evolution of AI and Human Creativity in Solving Complex Sustainability Problems', author: 'Peng Zihan', certificateId: 'CERT9781955662093CPT192235118' },
-    { title: 'The Ethics of AI-Driven Weather Modification for Climate Change Mitigation', author: 'Tao Yichen', certificateId: 'CERT9781955662093CPT810039472' },
-    { title: 'AI for Sustainable Fisheries Management and Combating Illegal Fishing', author: 'Ying Yinuo', certificateId: 'CERT9781955662093CPT620569123' },
-    { title: 'The Symbiotic Home: AI and IoT for Sustainable Household Management', author: 'Qi Zixuan', certificateId: 'CERT9781955662093CPT141914344' },
-    { title: 'AI and the Decolonization of Knowledge for Global Sustainability', author: 'Chang Minghao', certificateId: 'CERT9781955662093CPT335431895' },
-    { title: 'Human-AI Collaboration in Sustainable Product Design and Lifecycle Management', author: 'Ai Yuxin', certificateId: 'CERT9781955662093CPT347244255' },
-    { title: 'The Role of AI in Promoting Intergenerational Equity for a Sustainable Future', author: 'Lei Haoran', certificateId: 'CERT9781955662093CPT980317187' },
-    { title: 'AI-Powered Early Warning Systems for Social and Environmental Tipping Points', author: 'Jing Zihan', certificateId: 'CERT9781955662093CPT438749348' },
-    { title: 'The Co-Evolution of AI and Global Cooperation for Sustainable Peace and Justice', author: 'Xi Yichen', certificateId: 'CERT9781955662093CPT918415384' },
-    { title: 'The Ethics of AI in Shaping Human Desires and Consumption for Sustainability', author: 'Bi Yinuo', certificateId: 'CERT9781955662093CPT322748723' },
-    { title: 'AI for the Preservation of Cultural Heritage in the Face of Climate Change', author: 'Dou Zixuan', certificateId: 'CERT9781955662093CPT307162935' },
-    { title: 'The Symbiotic Classroom: AI as a Personalized Tutor for Sustainability Education', author: 'Gu Minghao', certificateId: 'CERT9781955662093CPT537533268' },
-    { title: 'AI and the Future of Sustainable and Ethical Marketing', author: 'Yuan Chenfei', certificateId: 'CERT9781955662093CPT868409325' },
-    { title: 'Human-AI Governance Models for the Sustainable Management of Global Commons', author: 'Lou Haoran', certificateId: 'CERT9781955662093CPT283945401' },
-    { title: 'The Role of AI in Mitigating the Environmental Impact of the Tech Industry', author: 'Niu Zihan', certificateId: 'CERT9781955662093CPT935997189' },
-    { title: 'AI-Assisted Negotiation and Conflict Resolution for Environmental Agreements', author: 'Pei Yichen', certificateId: 'CERT9781955662093CPT284003258' },
-    { title: 'The Co-evolution of AI and Our Understanding of Complex Ecological Systems', author: 'Qiu Yinuo', certificateId: 'CERT9781955662093CPT939173765' },
-    { title: 'The Ethics of AI in Geoengineering and Large-Scale Climate Interventions', author: 'Rao Zixuan', certificateId: 'CERT9781955662093CPT802078958' },
-    { title: 'The Persistence of Patriarchy: From Structural Insight to Systemic Transformation', author: 'Shi Wenqing', certificateId: 'CERT9781955662093CPT339375764' },
-    { title: 'Augmenting Humanity: AI as a Catalyst for Creative and Scholarly Expansion', author: 'Shi Yanxuan', certificateId: 'CERT9781955662093CPT527564866' },
-    { title: 'Balancing Efficiency and Empathy: The Case for AI and Humanities in Education', author: 'Xu Kexuan', certificateId: 'CERT9781955662093CPT129260813' },
-    { title: 'AI’s "Binary Exclusion": Digital Literacy as the New Cornerstone of Equity', author: 'Wang Han', certificateId: 'CERT9781955662093CPT317377607' },
-    { title: 'The Symbiotic Archive: AI, ACG, and the Co-Evolution of Cultural Sustainability', author: 'Jin Ziyi', certificateId: 'CERT9781955662093CPT146419408' },
+export interface BookSeries {
+  name: string;
+  description: string;
+  amazonUrl: string;
+  books: SeriesBook[];
+}
+
+const SERIES_URL = 'https://www.amazon.com/dp/B0DG6NNB2Y?binding=hardcover&ref=dbs_dp_rwt_sb_pc_thcv';
+
+export const studentCriticalEssaySeries: BookSeries = {
+  name: 'Student Critical Essay Series',
+  description:
+    'A collection showcasing the voices of young thinkers addressing crucial global issues through the lens of the UN Sustainable Development Goals. Each volume brings together essays from talented students across institutions, offering fresh perspectives on regional and thematic challenges — bridging academic thought and real-world action in the pursuit of a more sustainable and equitable future.',
+  amazonUrl: SERIES_URL,
+  books: [
+    {
+      title: 'Climate Crossroads',
+      subtitle: 'Sustainability in the Global South',
+      authors: 'Shijie Wang · Oliver Sinclair',
+      publishedDate: 'September 4, 2024',
+      description:
+        'The first volume in the series. Essays from student leaders examining the integrated relationship between climate change and sustainable development through the lens of the Global South — environmental resources, food systems, gender justice in climate policy, and indigenous knowledge systems in developing nations.',
+      amazonUrl: SERIES_URL,
+      accent: 'emerald',
+    },
+    {
+      title: 'Code and Culture',
+      subtitle: 'Artificial Intelligence and Social Change in China',
+      authors: 'Shijie Wang · Oliver Sinclair',
+      publishedDate: 'September 9, 2024',
+      description:
+        'Student essays on the effects and ethical implications of AI in China — education, healthcare, environmental protection, governance, and cultural preservation. Examines the tension between innovation and concerns around privacy, surveillance, algorithmic discrimination, and the rural-urban divide.',
+      amazonUrl: SERIES_URL,
+      accent: 'sky',
+    },
+    {
+      title: 'Chinese Mosaic',
+      subtitle: 'Language, Gender, and Digital Culture in an Evolving Urban Landscape',
+      authors: 'Oliver Sinclair and others',
+      publishedDate: 'November 21, 2024',
+      description:
+        'Analyses of the intersections of language, gender, and digital culture in contemporary China. Covers multilingual signage in Suzhou, femvertising in cosmetic marketing, socioeconomic effects on children\'s language development, internet addiction, and how Chinese journalists adapt to social media.',
+      amazonUrl: SERIES_URL,
+      accent: 'rose',
+    },
+    {
+      title: "The Dragon's DNA",
+      subtitle: "Ethics and Innovation in China's Biotechnology Revolution",
+      authors: 'Yi Jin and others',
+      publishedDate: 'December 25, 2024',
+      description:
+        "Essays on the ethics and innovation of China's biotechnology revolution — balancing agricultural productivity with environmental stewardship, the CRISPR babies controversy, GMO food safety, traditional Chinese medicine, and equitable access to genetic technologies.",
+      amazonUrl: SERIES_URL,
+      accent: 'amber',
+    },
+    {
+      title: 'Echoes of Empire',
+      subtitle: 'Digital English Education in a Postcolonial Context',
+      authors: 'Oliver Sinclair · Shijie Wang (Editor)',
+      publishedDate: 'February 24, 2025',
+      description:
+        'Critical essays interrogating how digital technology — language-learning apps, content moderation, AI systems, educational platforms — reproduces and amplifies colonial power structures, often privileging Western epistemologies while marginalizing indigenous and non-Western ways of knowing.',
+      amazonUrl: SERIES_URL,
+      accent: 'indigo',
+    },
+    {
+      title: 'Digital Symbiosis',
+      subtitle: 'Co-Evolving AI and Humanity in an Age of Sustainability',
+      authors: 'Oliver Sinclair',
+      publishedDate: 'November 7, 2025',
+      description:
+        'A sweeping collection confronting the paradox: how can we harness AI for global sustainability without automating our own crises? Covers the environmental paradox of AI, algorithmic bias and decolonization, human-AI collaboration in Industry 5.0 and the arts, and the governance imperative.',
+      amazonUrl: SERIES_URL,
+      accent: 'violet',
+    },
   ],
 };
 
-export const books: PublishedBook[] = [digitalSymbiosis];
+// Legacy export kept for backward compatibility with /verify certificates
+// The 86 chapter certificates for Digital Symbiosis live in public/verify/certificate_data.jsonl

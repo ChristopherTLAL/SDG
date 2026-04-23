@@ -1,13 +1,12 @@
 ---
 // src/pages/publications.astro — Publications overview
 import MainLayout from '../layouts/MainLayout.astro';
-import { digitalSymbiosis } from '../data/publications-meta';
+import { studentCriticalEssaySeries } from '../data/publications-meta';
 import { getResearchPosts } from '../lib/sanity/queries';
 import { formatDate } from '../utils/date';
 
 const lang = 'en';
 
-// Fetch research papers and policy briefs from Sanity (in parallel)
 const [researchPapers, policyBriefs] = await Promise.all([
   getResearchPosts('en', 'research', 50).catch(() => []),
   getResearchPosts('en', 'policy-brief', 30).catch(() => []),
@@ -19,8 +18,20 @@ function t(field: any): string {
   return field[lang] || field.en || '';
 }
 
+const totalBooks = studentCriticalEssaySeries.books.length;
 const totalPapers = researchPapers.length;
 const totalBriefs = policyBriefs.length;
+
+// Map accent keyword → Tailwind gradient classes for cover art
+const coverGradient: Record<string, string> = {
+  emerald: 'from-emerald-700 to-emerald-500',
+  amber: 'from-amber-700 to-amber-500',
+  sky: 'from-sky-700 to-sky-500',
+  rose: 'from-rose-700 to-rose-500',
+  indigo: 'from-indigo-700 to-indigo-500',
+  violet: 'from-violet-700 to-violet-500',
+  default: 'from-primary to-primary/70',
+};
 ---
 
 <MainLayout title="Publications" description="Books, research papers, and policy briefs from the Chinese SDGs Institute." lang={lang}>
@@ -38,14 +49,14 @@ const totalBriefs = policyBriefs.length;
       </h1>
 
       <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl mb-16">
-        Books, peer-edited research papers, and policy briefs produced by our volunteer research community. Every chapter and paper is authored by a named contributor and linked to a verifiable certificate of authorship.
+        Books, peer-edited research papers, and policy briefs produced by our volunteer research community. Every contributor is credited by name with a verifiable certificate of authorship.
       </p>
 
       <!-- Stats strip -->
       <div class="flex flex-wrap gap-x-10 gap-y-4 mb-20 max-w-xl">
         <div>
-          <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">1</p>
-          <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Book</p>
+          <p class="font-headline font-extrabold text-3xl md:text-4xl text-primary tracking-tighter">{totalBooks}</p>
+          <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">Books</p>
         </div>
         {totalPapers > 0 && (
           <div>
@@ -61,74 +72,65 @@ const totalBriefs = policyBriefs.length;
         )}
       </div>
 
-      <!-- ── BOOK SECTION ── -->
+      <!-- ── BOOK SERIES ── -->
       <section class="mb-24">
         <div class="flex items-center gap-3 mb-8">
           <h2 class="font-headline font-extrabold text-2xl md:text-3xl text-on-surface tracking-tight">
-            Books
+            {studentCriticalEssaySeries.name}
           </h2>
           <span class="text-xs font-bold text-on-surface-variant/40">01</span>
         </div>
 
-        <!-- Featured book -->
-        <div class="bg-white border border-outline-variant/15 rounded-2xl p-6 md:p-10 shadow-sm">
-          <div class="grid md:grid-cols-3 gap-8 md:gap-10 items-start">
-            <!-- Cover placeholder -->
-            <div class="md:col-span-1">
-              <div class="relative aspect-[2/3] bg-gradient-to-br from-primary to-primary/60 rounded-xl overflow-hidden shadow-lg shadow-primary/10 flex flex-col justify-between p-6">
-                <div class="text-white/90">
-                  <p class="text-[9px] font-bold uppercase tracking-[0.25em] opacity-70 mb-4">Chinese SDGs Institute</p>
-                  <h3 class="font-headline font-extrabold text-2xl md:text-3xl leading-[1.05] tracking-tight mb-3">
-                    {digitalSymbiosis.title}
+        <!-- Series intro -->
+        <div class="bg-white border border-outline-variant/15 rounded-2xl p-6 md:p-10 mb-8">
+          <p class="text-base md:text-lg text-on-surface-variant leading-relaxed mb-6 max-w-3xl">
+            {studentCriticalEssaySeries.description}
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href={studentCriticalEssaySeries.amazonUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-5 py-2.5 bg-primary text-on-primary font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors">
+              <span class="material-symbols-outlined text-base">shopping_bag</span>
+              View the full series on Amazon
+            </a>
+            <a href="/verify" class="inline-flex items-center gap-1.5 px-5 py-2.5 border border-outline-variant/20 text-on-surface font-bold text-sm rounded-lg hover:border-primary/30 hover:text-primary transition-colors">
+              <span class="material-symbols-outlined text-base">verified</span>
+              Verify a contributor's certificate
+            </a>
+          </div>
+        </div>
+
+        <!-- Books grid -->
+        <div class="grid md:grid-cols-2 gap-5">
+          {studentCriticalEssaySeries.books.map((book, i) => (
+            <article class="bg-white border border-outline-variant/15 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all flex flex-col">
+              <!-- Cover -->
+              <div class={`relative aspect-[5/2] bg-gradient-to-br ${coverGradient[book.accent || 'default']} p-5 flex flex-col justify-between`}>
+                <p class="text-[9px] font-bold uppercase tracking-[0.25em] text-white/70">Vol. {String(i + 1).padStart(2, '0')}</p>
+                <div>
+                  <h3 class="font-headline font-extrabold text-white text-xl md:text-2xl leading-[1.1] tracking-tight mb-1">
+                    {book.title}
                   </h3>
-                  <p class="text-xs font-medium opacity-80 leading-snug">
-                    {digitalSymbiosis.subtitle}
-                  </p>
-                </div>
-                <div class="text-white/60">
-                  <p class="text-[9px] font-bold uppercase tracking-[0.25em]">Edited by</p>
-                  <p class="text-xs font-semibold">{digitalSymbiosis.editor}</p>
+                  {book.subtitle && (
+                    <p class="text-white/70 text-[11px] leading-tight font-medium line-clamp-2">{book.subtitle}</p>
+                  )}
                 </div>
               </div>
-            </div>
 
-            <!-- Book info -->
-            <div class="md:col-span-2">
-              <div class="flex flex-wrap items-center gap-2 mb-4">
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
-                  <span class="material-symbols-outlined text-[13px]">menu_book</span>
-                  Edited Volume
-                </span>
-                <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">
-                  Published {digitalSymbiosis.publishedDate}
-                </span>
-              </div>
-
-              <h3 class="font-headline font-extrabold text-2xl md:text-3xl text-on-surface tracking-tight leading-tight mb-2">
-                {digitalSymbiosis.title}:
-                <span class="text-on-surface-variant/80">{digitalSymbiosis.subtitle}</span>
-              </h3>
-
-              <p class="text-sm text-on-surface-variant/70 font-mono mb-5">
-                ISBN {digitalSymbiosis.isbn} · Editor: {digitalSymbiosis.editor}
-              </p>
-
-              <p class="text-base text-on-surface-variant leading-relaxed mb-6">
-                {digitalSymbiosis.description}
-              </p>
-
-              <div class="flex flex-wrap gap-3">
-                <a href={digitalSymbiosis.amazonUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-5 py-2.5 bg-primary text-on-primary font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors">
-                  <span class="material-symbols-outlined text-base">shopping_bag</span>
+              <!-- Body -->
+              <div class="flex-1 p-6 flex flex-col">
+                <div class="flex flex-wrap items-center gap-2 mb-3 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">
+                  <span>{book.publishedDate}</span>
+                </div>
+                <p class="text-xs text-on-surface-variant/70 mb-3 font-semibold">{book.authors}</p>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-5 flex-1">
+                  {book.description}
+                </p>
+                <a href={book.amazonUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 self-start px-4 py-2 bg-primary/5 text-primary font-bold text-xs rounded-lg hover:bg-primary/10 transition-colors">
+                  <span class="material-symbols-outlined text-sm">shopping_bag</span>
                   Buy on Amazon
                 </a>
-                <a href="/verify" class="inline-flex items-center gap-1.5 px-5 py-2.5 border border-outline-variant/20 text-on-surface font-bold text-sm rounded-lg hover:border-primary/30 hover:text-primary transition-colors">
-                  <span class="material-symbols-outlined text-base">verified</span>
-                  Verify a chapter certificate
-                </a>
               </div>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -188,13 +190,6 @@ const totalBriefs = policyBriefs.length;
             ))}
           </div>
         </section>
-      )}
-
-      <!-- Empty state hint if no research posts -->
-      {totalPapers === 0 && totalBriefs === 0 && (
-        <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-2xl p-10 text-center">
-          <p class="text-on-surface-variant">More publications coming soon. Check our <a href="/research" class="text-primary font-semibold hover:underline">research feed</a> for the latest work.</p>
-        </div>
       )}
     </div>
   </main>
