@@ -1,17 +1,9 @@
 ---
 // src/pages/team.astro — Team & Contributors page
 import MainLayout from '../layouts/MainLayout.astro';
-import { digitalSymbiosis } from '../data/publications-meta';
 
 const lang = 'en';
 
-// Unique book contributors — shown as public roster
-const bookContributors = Array.from(
-  new Set(digitalSymbiosis.chapters.map(c => c.author))
-).sort((a, b) => a.localeCompare(b));
-
-// Editorial & advisory: derived from public institute records (certificates).
-// These are the individuals who have signed certificates as "body" (signatory).
 const leadership = [
   {
     name: 'Haishan Fu',
@@ -80,23 +72,13 @@ const leadership = [
           </h2>
           <span class="text-xs font-bold text-on-surface-variant/40">02</span>
         </div>
-        <p class="text-sm text-on-surface-variant mb-8 max-w-2xl">
-          Authors of chapters in <em>Digital Symbiosis</em> (ISBN 978-1-955662-09-3), published November 2025. Additional research papers and policy briefs are credited on each <a href="/research" class="text-primary font-semibold hover:underline">research article</a>.
+        <p class="text-base text-on-surface-variant leading-relaxed mb-6 max-w-2xl">
+          Our published work is authored by a growing community of student and early-career volunteer researchers. Rather than maintain a static roster here, we issue each contributor a named certificate at the time of publication — creating a verifiable, permanent record of authorship.
         </p>
-
-        <div class="bg-surface-container-low/50 border border-outline-variant/10 rounded-2xl p-5 md:p-8">
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-3">
-            {bookContributors.map(name => (
-              <div class="flex items-center gap-2 py-2 border-b border-outline-variant/10">
-                <span class="w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0"></span>
-                <span class="text-sm text-on-surface font-medium truncate">{name}</span>
-              </div>
-            ))}
-          </div>
-          <p class="text-[11px] text-on-surface-variant/60 mt-6 italic">
-            {bookContributors.length} contributors listed. Each chapter carries a verifiable certificate of authorship — look up any author's certificate at <a href="/verify" class="text-primary font-semibold hover:underline">/verify</a>.
-          </p>
-        </div>
+        <a href="/verify" class="inline-flex items-center gap-2 px-5 py-2.5 border border-outline-variant/20 text-on-surface font-bold text-sm rounded-lg hover:border-primary/30 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-base">verified</span>
+          Look up a contributor's certificate
+        </a>
       </section>
 
       <!-- ── Join ── -->

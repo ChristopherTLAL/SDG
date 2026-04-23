@@ -11,6 +11,7 @@ export interface PublishedBook {
   publishedDate: string;
   editor: string;
   description: string;
+  amazonUrl: string;
   chapters: BookChapter[];
 }
 
@@ -21,6 +22,7 @@ export const digitalSymbiosis: PublishedBook = {
   publishedDate: 'November 3, 2025',
   editor: 'Oliver Sinclair',
   description: 'A collective volume exploring how artificial intelligence and humanity can co-evolve to advance the United Nations Sustainable Development Goals. Contributions from young researchers across disciplines examine the philosophy, ethics, infrastructure, and social dynamics of human-AI collaboration in climate action, education, governance, health, and creative life.',
+  amazonUrl: 'https://www.amazon.com/dp/B0DG6NNB2Y?binding=hardcover&ref=dbs_dp_rwt_sb_pc_thcv',
   chapters: [
     { title: 'The Digital Symbiosis: Redefining Human Identity in the Age of AI Co-Evolution', author: 'Jia Tianyi', certificateId: 'CERT9781955662093CPT493921487' },
     { title: 'AI as a Catalyst for Global Sustainability: An Analysis of the UN\'s SDGs', author: 'Liu Wenxin', certificateId: 'CERT9781955662093CPT730771720' },
