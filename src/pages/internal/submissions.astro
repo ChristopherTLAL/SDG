@@ -1,0 +1,202 @@
+---
+// src/pages/internal/submissions.astro — inbox for Shijie to process
+import InternalLayout from '../../layouts/InternalLayout.astro';
+import { supabase } from '../../lib/supabase/client';
+
+const url = new URL(Astro.request.url);
+const filter = url.searchParams.get('filter') || 'unprocessed'; // unprocessed | all | processed
+const typeFilter = url.searchParams.get('type') || '';
+
+let q = supabase
+  .from('submissions')
+  .select('id, student_id, student_name_raw, type, submitted_at, submitted_by, summary, content, audio_url, attachment_url, ai_transcript, ai_summary, processed, processed_at, students(name, mid_advisor, stage)')
+  .order('submitted_at', { ascending: false })
+  .limit(200);
+
+if (filter === 'unprocessed') q = q.eq('processed', false);
+else if (filter === 'processed') q = q.eq('processed', true);
+
+if (typeFilter) q = q.eq('type', typeFilter);
+
+const { data: rows, error } = await q;
+const submissions = rows ?? [];
+
+// Count summaries for the filter bar
+const { count: unprocessedCount } = await supabase
+  .from('submissions')
+  .select('id', { count: 'exact', head: true })
+  .eq('processed', false);
+
+function fmt(dt: string | null): string {
+  if (!dt) return '—';
+  const d = new Date(dt);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+
+const typeColors: Record<string, string> = {
+  沟通记录: '#6366f1',
+  录音: '#dc2626',
+  重要comment: '#d97706',
+  状态更新: '#059669',
+  会议: '#7c3aed',
+  其他: '#64748b',
+};
+---
+
+<InternalLayout title="Inbox" active="submissions">
+  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+    <div>
+      <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
+        Inbox
+      </h1>
+      <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
+        员工提交，你审 + 归档进 Obsidian。
+      </p>
+    </div>
+    <div style="font-size: 13px; color: var(--text-muted);">
+      <strong style="color: var(--danger); font-size: 22px; font-family: 'JetBrains Mono', monospace;">
+        {unprocessedCount ?? 0}
+      </strong> 条待处理
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div style="display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap;">
+    {[
+      { key: 'unprocessed', label: 'Unprocessed', accent: 'var(--danger)' },
+      { key: 'all', label: 'All', accent: 'var(--text-muted)' },
+      { key: 'processed', label: 'Processed', accent: 'var(--success)' },
+    ].map(({ key, label, accent }) => (
+      <a href={`/internal/submissions?filter=${key}${typeFilter ? `&type=${typeFilter}` : ''}`}
+        style={`padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; border: 1px solid ${filter === key ? accent : 'var(--border)'}; color: ${filter === key ? accent : 'var(--text-muted)'}; background: ${filter === key ? 'white' : 'transparent'};`}>
+        {label}
+      </a>
+    ))}
+    <span style="width: 1px; background: var(--border); margin: 0 6px;"></span>
+    {['', '沟通记录', '录音', '重要comment', '状态更新', '会议', '其他'].map(t => (
+      <a href={`/internal/submissions?filter=${filter}${t ? `&type=${t}` : ''}`}
+        style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${typeFilter === t ? 'var(--primary)' : 'var(--border)'}; color: ${typeFilter === t ? 'var(--primary)' : 'var(--text-muted)'}; background: ${typeFilter === t ? '#e8f0ee' : 'transparent'};`}>
+        {t || 'All types'}
+      </a>
+    ))}
+  </div>
+
+  {error && (
+    <div style="padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 8px; font-size: 13px;">
+      数据库错误：{error.message}
+    </div>
+  )}
+
+  {!error && submissions.length === 0 && (
+    <div style="text-align: center; padding: 80px 24px; color: var(--text-soft); font-size: 14px;">
+      没有匹配的记录。
+    </div>
+  )}
+
+  <div style="display: grid; gap: 14px;">
+    {submissions.map((s: any) => {
+      const student = s.students;
+      const displayName = student?.name ?? s.student_name_raw ?? '(unknown)';
+      const isNew = !s.student_id && s.student_name_raw;
+      return (
+        <article data-id={s.id}
+          style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${typeColors[s.type] || 'var(--text-muted)'}; border-radius: 10px; padding: 18px 20px; opacity: ${s.processed ? 0.6 : 1};`}>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap;">
+            <span style={`font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: ${typeColors[s.type] || 'var(--text-muted)'};`}>
+              {s.type}
+            </span>
+            <span>·</span>
+            <span class="font-mono">{fmt(s.submitted_at)}</span>
+            <span>·</span>
+            <span>by <strong style="color: var(--text);">{s.submitted_by || '—'}</strong></span>
+            {s.processed && (
+              <>
+                <span>·</span>
+                <span style="color: var(--success); font-weight: 700;">✓ processed</span>
+              </>
+            )}
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;">
+            <h3 style="margin: 0; font-size: 16px; font-weight: 700;">
+              <a href={`/internal/students${s.student_id ? `#${s.student_id}` : ''}`} style="color: var(--primary); border-bottom: 1px dashed var(--primary); padding-bottom: 1px;">
+                {displayName}
+              </a>
+              {isNew && <span style="font-size: 10px; background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 700;">新客</span>}
+            </h3>
+            {student?.mid_advisor && (
+              <span style="font-size: 11px; color: var(--text-muted);">{student.mid_advisor}</span>
+            )}
+            {student?.stage && (
+              <span style="font-size: 11px; color: var(--text-muted);">· {student.stage}</span>
+            )}
+          </div>
+          {s.summary && (
+            <p style="margin: 0 0 10px; font-size: 14px; font-weight: 500;">
+              {s.summary}
+            </p>
+          )}
+          {s.content && (
+            <div style="margin: 8px 0; padding: 12px 14px; background: var(--surface); border-radius: 6px; font-size: 13px; line-height: 1.55; white-space: pre-wrap;">
+              {s.content}
+            </div>
+          )}
+          {s.ai_transcript && (
+            <details style="margin: 8px 0;">
+              <summary style="cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); padding: 4px 0;">
+                AI 转写（{s.ai_transcript.length} 字符）
+              </summary>
+              <div style="margin-top: 8px; padding: 12px 14px; background: #f1f5f9; border-radius: 6px; font-size: 13px; line-height: 1.55; white-space: pre-wrap;">
+                {s.ai_transcript}
+              </div>
+            </details>
+          )}
+          {s.ai_summary && (
+            <div style="margin: 8px 0; padding: 12px 14px; background: #ecfdf5; border-left: 3px solid var(--success); border-radius: 4px; font-size: 13px; line-height: 1.55;">
+              <strong style="font-size: 11px; letter-spacing: 0.05em; color: var(--success);">AI SUMMARY</strong>
+              <div style="margin-top: 4px;">{s.ai_summary}</div>
+            </div>
+          )}
+
+          <div style="display: flex; gap: 10px; align-items: center; margin-top: 12px; font-size: 12px;">
+            {s.audio_url && (
+              <span style="color: var(--text-muted);">🎙 <code style="font-size: 11px;">{s.audio_url}</code></span>
+            )}
+            {s.attachment_url && (
+              <span style="color: var(--text-muted);">📎 <code style="font-size: 11px;">{s.attachment_url}</code></span>
+            )}
+            <span style="flex: 1;"></span>
+            <button
+              class="toggle-processed"
+              data-id={s.id}
+              data-processed={String(s.processed)}
+              style={`padding: 6px 14px; border-radius: 6px; border: 1px solid ${s.processed ? 'var(--border)' : 'var(--success)'}; background: ${s.processed ? 'white' : 'var(--success)'}; color: ${s.processed ? 'var(--text-muted)' : 'white'}; font-weight: 700; font-size: 12px; cursor: pointer;`}>
+              {s.processed ? 'Unmark' : 'Mark processed'}
+            </button>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+
+  <script is:inline>
+    document.querySelectorAll('.toggle-processed').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.dataset.id;
+        const wasProcessed = btn.dataset.processed === 'true';
+        btn.disabled = true;
+        try {
+          const r = await fetch(`/internal/api/submissions/${id}/processed`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ processed: !wasProcessed }),
+          });
+          if (!r.ok) throw new Error(await r.text());
+          location.reload();
+        } catch (err) {
+          alert('Failed: ' + err.message);
+          btn.disabled = false;
+        }
+      });
+    });
+  </script>
+</InternalLayout>

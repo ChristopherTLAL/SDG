@@ -1,0 +1,130 @@
+---
+// src/pages/internal/index.astro — dashboard overview
+import InternalLayout from '../../layouts/InternalLayout.astro';
+import { supabase } from '../../lib/supabase/client';
+
+// Parallel fetches
+const [
+  { count: totalStudents },
+  { count: totalSubmissions },
+  { count: unprocessed },
+  { data: recentSubmissions },
+  { data: overdueStudents },
+] = await Promise.all([
+  supabase.from('students').select('id', { count: 'exact', head: true }),
+  supabase.from('submissions').select('id', { count: 'exact', head: true }),
+  supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('processed', false),
+  supabase
+    .from('submissions')
+    .select('id, type, submitted_at, submitted_by, summary, student_name_raw, students(name)')
+    .order('submitted_at', { ascending: false })
+    .limit(8),
+  supabase
+    .from('students')
+    .select('id, name, mid_advisor, stage, last_contact_at')
+    .not('last_contact_at', 'is', null)
+    .not('stage', 'in', '(已结案,退费,已完成)')
+    .order('last_contact_at', { ascending: true })
+    .limit(10),
+]);
+
+const today = new Date();
+function daysSince(d: string | null): number | null {
+  if (!d) return null;
+  return Math.floor((today.getTime() - new Date(d).getTime()) / 86400000);
+}
+
+function fmt(dt: string | null): string {
+  if (!dt) return '—';
+  const d = new Date(dt);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+
+// Only show overdue (>= 12 days) in the radar panel
+const radar = (overdueStudents ?? [])
+  .map((s: any) => ({ ...s, _ds: daysSince(s.last_contact_at) }))
+  .filter((s: any) => s._ds !== null && s._ds >= 12);
+---
+
+<InternalLayout title="Overview" active="overview">
+  <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
+    Overview
+  </h1>
+  <p style="color: var(--text-muted); margin: 0 0 32px; font-size: 14px;">
+    全局概览。数据来自 Obsidian YAML + 员工提交。
+  </p>
+
+  <!-- Stat cards -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 32px;">
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">学生总数</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px;">{totalStudents ?? 0}</div>
+    </div>
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">累计提交</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px;">{totalSubmissions ?? 0}</div>
+    </div>
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px; border-left: 3px solid var(--danger);">
+      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">待处理</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px; color: var(--danger);">{unprocessed ?? 0}</div>
+    </div>
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px; border-left: 3px solid var(--warning);">
+      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">雷达预警</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px; color: var(--warning);">{radar.length}</div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+    <!-- Recent submissions -->
+    <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+        <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">最近提交</h2>
+        <a href="/internal/submissions" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部 →</a>
+      </div>
+      {(recentSubmissions ?? []).length === 0 ? (
+        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有提交记录。</p>
+      ) : (
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          {(recentSubmissions ?? []).map((s: any) => (
+            <li style="padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
+              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px;">
+                <span style="font-weight: 700;">{s.students?.name ?? s.student_name_raw ?? '—'}</span>
+                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">{s.type}</span>
+                <span style="flex: 1;"></span>
+                <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{fmt(s.submitted_at)}</span>
+              </div>
+              {s.summary && <div style="color: var(--text-muted); font-size: 13px;">{s.summary}</div>}
+              {s.submitted_by && <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">by {s.submitted_by}</div>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+
+    <!-- Radar (overdue students) -->
+    <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+        <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">🔴 雷达预警（≥12 天未联系）</h2>
+        <a href="/internal/students" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部 →</a>
+      </div>
+      {radar.length === 0 ? (
+        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">全员在 12 天内都有接触，干得漂亮。</p>
+      ) : (
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          {radar.map((s: any) => (
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; display: flex; align-items: baseline; gap: 10px;">
+              <span style="font-weight: 700;">{s.name}</span>
+              <span style="font-size: 11px; color: var(--text-muted);">{s.mid_advisor ?? '—'} · {s.stage ?? '—'}</span>
+              <span style="flex: 1;"></span>
+              <span class="font-mono" style={`font-weight: 700; font-size: 12px; color: ${s._ds >= 14 ? 'var(--danger)' : 'var(--warning)'};`}>
+                {s._ds}d
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  </div>
+</InternalLayout>

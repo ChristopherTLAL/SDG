@@ -1,0 +1,68 @@
+-- Supabase schema for /internal (planning dashboard)
+-- Run this once in the Supabase SQL editor.
+--
+-- Tables:
+--   students     — synced from Obsidian vault (read-only from web)
+--   submissions  — employee uploads (the "inbox" for Shijie to process)
+--   contracts    — later
+--   leads        — later
+
+-- ─── STUDENTS ────────────────────────────────────────────────
+create table if not exists public.students (
+  id              bigserial primary key,
+  name            text not null unique,           -- 姓名 (YAML key)
+  enroll_year     text,                           -- 入学年份 (e.g. "2028 fall")
+  stage           text,                           -- 当前进度
+  contract_type   text,                           -- 合同类型
+  major_intention text,                           -- 意向专业方向
+  current_school  text,                           -- 目前就读学校
+  early_advisor   text,                           -- 前期顾问
+  mid_advisor     text,                           -- 中期顾问
+  last_contact_at date,                           -- 最后沟通时间
+  obsidian_path   text,                           -- 01_Student/{姓名}
+  tags            text[] default '{}',
+  synced_at       timestamptz default now(),
+  created_at      timestamptz default now()
+);
+
+create index if not exists students_stage_idx         on public.students (stage);
+create index if not exists students_mid_advisor_idx   on public.students (mid_advisor);
+create index if not exists students_last_contact_idx  on public.students (last_contact_at desc);
+
+-- ─── SUBMISSIONS ─────────────────────────────────────────────
+create type submission_type as enum (
+  '沟通记录',
+  '录音',
+  '重要comment',
+  '状态更新',
+  '会议',
+  '其他'
+);
+
+create table if not exists public.submissions (
+  id                bigserial primary key,
+  student_id        bigint references public.students(id) on delete set null,
+  student_name_raw  text,                         -- employee's typed name (fallback for un-synced students)
+  type              submission_type not null,
+  submitted_at      timestamptz default now(),
+  submitted_by      text,                         -- employee name
+  summary           text,
+  content           text,
+  audio_url         text,                         -- Supabase Storage URL
+  attachment_url    text,
+  ai_transcript     text,                         -- filled by n8n
+  ai_summary        text,                         -- filled by n8n
+  processed         boolean default false,
+  processed_at      timestamptz,
+  processed_path    text                          -- e.g. "01_Student/刘昱彤/沟通记录/刘昱彤 规划沟通 2026-04-17.md"
+);
+
+create index if not exists submissions_processed_idx  on public.submissions (processed, submitted_at desc);
+create index if not exists submissions_student_id_idx on public.submissions (student_id);
+create index if not exists submissions_type_idx       on public.submissions (type);
+
+-- ─── STORAGE BUCKET (create via Supabase Dashboard → Storage) ───
+-- Bucket name: submissions
+-- Access: private (we'll use signed URLs)
+-- Allowed MIME types: audio/*, application/pdf, image/*, application/msword,
+--                    application/vnd.openxmlformats-officedocument.*
