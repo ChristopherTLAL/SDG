@@ -1,0 +1,264 @@
+---
+// src/pages/internal/students/[id].astro — student detail page
+// Renders: YAML metadata panel, main note body, communication notes (newest first),
+// attachments list. Wikilinks `[[xxx]]` are resolved against the student-scope index.
+import InternalLayout from '../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../lib/supabase/client';
+import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
+import { marked } from 'marked';
+
+const { id } = Astro.params;
+const studentId = Number(id);
+
+if (!Number.isFinite(studentId)) {
+  return Astro.redirect('/internal/students');
+}
+
+const { data: student, error: studentErr } = await supabase
+  .from('students')
+  .select('*')
+  .eq('id', studentId)
+  .single();
+
+if (studentErr || !student) {
+  return new Response(`Student ${studentId} not found`, { status: 404 });
+}
+
+// Fetch this student's communication notes
+const { data: notes } = await supabase
+  .from('student_notes')
+  .select('id, note_name, body_md, note_date, obsidian_path')
+  .eq('student_id', studentId)
+  .order('note_date', { ascending: false, nullsFirst: false });
+
+// Fetch all students + all notes for the wikilink index
+// Scoped to student notes only per current product decision.
+const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
+const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
+
+const wikiIndex = buildWikilinkIndex({
+  students: allStudents ?? [],
+  notes: allNotes ?? [],
+});
+
+marked.setOptions({ gfm: true, breaks: true });
+
+function renderMarkdown(md: string | null | undefined): string {
+  if (!md || !md.trim()) return '';
+  const preprocessed = resolveWikilinks(md, wikiIndex);
+  return marked.parse(preprocessed) as string;
+}
+
+const mainHtml = renderMarkdown(student.body_md);
+const renderedNotes = (notes ?? []).map(n => ({
+  ...n,
+  html: renderMarkdown(n.body_md),
+  anchor: noteAnchor(n.note_name),
+}));
+
+// Days since last contact (for the badge)
+const today = new Date();
+let daysSince: number | null = null;
+if (student.last_contact_at) {
+  daysSince = Math.floor((today.getTime() - new Date(student.last_contact_at).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// Build the metadata panel rows
+type Row = { label: string; value: string | null | undefined; mono?: boolean };
+const metaRows: Row[] = [
+  { label: '当前进度', value: student.stage },
+  { label: '入学年份', value: student.enroll_year },
+  { label: '合同', value: (student.contracts?.length ? student.contracts.join(' / ') : student.contract_type) },
+  { label: '意向方向', value: student.major_intention },
+  { label: '在读专业', value: student.major_current },
+  { label: '目前就读学校', value: student.current_school },
+  { label: '年级', value: student.grade },
+  { label: 'GPA', value: student.gpa, mono: true },
+  { label: '前期顾问', value: student.early_advisor },
+  { label: '中期顾问', value: student.mid_advisor },
+  { label: '客户邮箱', value: student.client_email, mono: true },
+  { label: '最后沟通', value: student.last_contact_at, mono: true },
+];
+---
+
+<InternalLayout title={student.name} active="students">
+  <div style="margin-bottom: 8px;">
+    <a href="/internal/students" style="font-size: 12px; color: var(--text-soft); font-weight: 600;">
+      ← Students
+    </a>
+  </div>
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
+    <h1 class="font-headline" style="font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
+      {student.name}
+    </h1>
+    {daysSince !== null && (
+      <span class="font-mono" style={`font-size: 12px; padding: 4px 10px; border-radius: 999px; background: ${daysSince >= 14 ? '#fee2e2' : daysSince >= 12 ? '#fef3c7' : '#d1fae5'}; color: ${daysSince >= 14 ? '#991b1b' : daysSince >= 12 ? '#92400e' : '#065f46'}; font-weight: 700;`}>
+        {daysSince}d 未联系
+      </span>
+    )}
+  </div>
+  <p style="color: var(--text-soft); font-size: 12px; margin: 0 0 24px; font-family: 'JetBrains Mono', monospace;">
+    {student.obsidian_path}
+  </p>
+
+  <div style="display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start;">
+    {/* Left: metadata panel */}
+    <aside style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 6px;">
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
+        Frontmatter
+      </div>
+      <dl style="margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px;">
+        {metaRows.map(r => (
+          <div>
+            <dt style="font-size: 11px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 2px;">
+              {r.label}
+            </dt>
+            <dd style={`margin: 0; font-size: 13px; color: ${r.value ? 'var(--text)' : 'var(--text-soft)'}; ${r.mono ? "font-family: 'JetBrains Mono', monospace; font-size: 12px;" : ''}`}>
+              {r.value || '—'}
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      {student.attachments && student.attachments.length > 0 && (
+        <>
+          <div style="border-top: 1px solid var(--border); margin: 16px -18px 12px;"></div>
+          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+            个性化材料 ({student.attachments.length})
+          </div>
+          <ul style="margin: 0 0 12px; padding: 0; list-style: none;">
+            {student.attachments.map((f: string) => (
+              <li style="font-size: 12px; color: var(--text-muted); padding: 4px 0; word-break: break-all;">
+                📎 {f}
+              </li>
+            ))}
+          </ul>
+          <p style="font-size: 10px; color: var(--text-soft); margin: 0 0 12px; line-height: 1.5;">
+            文件本体在 Obsidian 个性化材料文件夹，目前只显示文件名。
+          </p>
+        </>
+      )}
+    </aside>
+
+    {/* Right: rendered markdown */}
+    <div>
+      <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 24px;">
+        <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
+          主档案
+        </div>
+        {mainHtml ? (
+          <div class="md-body" set:html={mainHtml} />
+        ) : (
+          <p style="color: var(--text-soft); font-size: 13px; margin: 0;">主档案 body 为空。</p>
+        )}
+      </section>
+
+      {renderedNotes.length > 0 && (
+        <section>
+          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
+            沟通记录 ({renderedNotes.length})
+          </div>
+          {renderedNotes.map(n => (
+            <article id={n.anchor} style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; scroll-margin-top: 80px;">
+              <header style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+                <h3 class="font-headline" style="margin: 0; font-size: 16px; font-weight: 700;">
+                  {n.note_name}
+                </h3>
+                {n.note_date && (
+                  <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{n.note_date}</span>
+                )}
+              </header>
+              <div class="md-body" set:html={n.html} />
+            </article>
+          ))}
+        </section>
+      )}
+
+      {renderedNotes.length === 0 && (
+        <section style="background: var(--surface-raised); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center; color: var(--text-soft); font-size: 13px;">
+          还没有沟通记录。
+        </section>
+      )}
+    </div>
+  </div>
+</InternalLayout>
+
+<style is:global>
+  /* Markdown body styling — scoped via .md-body to keep it inside the article cards */
+  .md-body { font-size: 14px; line-height: 1.65; color: var(--text); }
+  .md-body p { margin: 0 0 12px; }
+  .md-body h1, .md-body h2, .md-body h3, .md-body h4 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .md-body h1 { font-size: 22px; }
+  .md-body h2 { font-size: 18px; }
+  .md-body h3 { font-size: 15px; }
+  .md-body ul, .md-body ol { padding-left: 22px; margin: 0 0 12px; }
+  .md-body li { margin: 4px 0; }
+  .md-body code {
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+  }
+  .md-body pre {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    overflow-x: auto;
+  }
+  .md-body pre code { background: transparent; padding: 0; }
+  .md-body blockquote {
+    margin: 0 0 12px;
+    padding: 4px 14px;
+    border-left: 3px solid var(--border);
+    color: var(--text-muted);
+  }
+  .md-body a { color: var(--primary); text-decoration: underline; text-decoration-color: rgba(4, 47, 36, 0.3); text-underline-offset: 2px; }
+  .md-body a:hover { text-decoration-color: var(--primary); }
+  .md-body hr { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
+  .md-body table {
+    border-collapse: collapse;
+    margin: 0 0 12px;
+    font-size: 13px;
+  }
+  .md-body th, .md-body td {
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    text-align: left;
+  }
+  .md-body th { background: #f8fafc; font-weight: 600; }
+
+  /* Wikilink chrome */
+  .wikilink-student, .wikilink-note {
+    color: var(--primary);
+    background: rgba(4, 47, 36, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .wikilink-student:hover, .wikilink-note:hover {
+    background: rgba(4, 47, 36, 0.12);
+  }
+  .wikilink-attachment {
+    color: var(--text-muted);
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+  }
+  .wikilink-unresolved {
+    color: var(--text-soft);
+    background: transparent;
+    border-bottom: 1px dashed var(--text-soft);
+    padding: 0 2px;
+    cursor: help;
+  }
+</style>

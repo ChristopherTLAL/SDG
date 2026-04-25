@@ -11,8 +11,8 @@
 // Reads every `01_Student/<name>/<name>.md`, parses the YAML frontmatter,
 // and upserts into `students` keyed by `name`.
 
-import { readdir, readFile } from 'node:fs/promises';
-import { join, basename } from 'node:path';
+import { readdir, readFile, stat } from 'node:fs/promises';
+import { join, basename, extname } from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 import matter from 'gray-matter';
 import 'dotenv/config';
@@ -67,9 +67,65 @@ function pickArray(obj, key) {
   return s.split(/[,，、]/).map(x => x.trim()).filter(Boolean);
 }
 
+// Find a YYYY-MM-DD anywhere in a filename, e.g. "刘昱彤 规划沟通 2026-04-17"
+function dateFromName(name) {
+  const m = name.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (!m) return null;
+  const [, y, mo, d] = m;
+  return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
+}
+
+async function listDir(path) {
+  try {
+    return await readdir(path, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+}
+
+// Read all .md files in 01_Student/<name>/沟通记录/
+async function loadCommunicationNotes(studentFolder, studentName) {
+  const notesDir = join(studentFolder, '沟通记录');
+  const entries = await listDir(notesDir);
+  const notes = [];
+  for (const e of entries) {
+    if (!e.isFile()) continue;
+    if (extname(e.name).toLowerCase() !== '.md') continue;
+    const noteName = e.name.slice(0, -3); // strip .md
+    let raw = '';
+    try {
+      raw = await readFile(join(notesDir, e.name), 'utf8');
+    } catch {
+      continue;
+    }
+    // Strip YAML frontmatter if present, keep body only
+    let body = raw;
+    try {
+      body = matter(raw).content;
+    } catch {
+      // ignore — fall back to raw
+    }
+    notes.push({
+      note_name: noteName,
+      body_md: body,
+      obsidian_path: `01_Student/${studentName}/沟通记录/${e.name}`,
+      note_date: dateFromName(noteName),
+    });
+  }
+  return notes;
+}
+
+// List filenames in 01_Student/<name>/个性化材料/
+async function loadAttachmentNames(studentFolder) {
+  const attachDir = join(studentFolder, '个性化材料');
+  const entries = await listDir(attachDir);
+  return entries.filter(e => e.isFile() && !e.name.startsWith('.')).map(e => e.name);
+}
+
 async function loadStudents() {
   const entries = await readdir(STUDENT_DIR, { withFileTypes: true });
   const records = [];
+  const notesByStudentName = new Map(); // name → notes[]
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
@@ -87,13 +143,15 @@ async function loadStudents() {
       continue;
     }
 
-    let fm;
+    let parsed;
     try {
-      fm = matter(raw).data;
+      parsed = matter(raw);
     } catch (err) {
       console.warn(`  ⚠  ${entry.name}: YAML parse failed — ${err.message}`);
       continue;
     }
+    const fm = parsed.data;
+    const body = parsed.content ?? '';
 
     // YAML uses Chinese keys. Map them to DB columns.
     // Contracts can be either array `合同: [英国跃领]` (current) or string `合同类型: 英国跃领` (legacy).
@@ -101,8 +159,13 @@ async function loadStudents() {
     const legacyContractType = pickString(fm, '合同类型');
     const finalContracts = contracts.length ? contracts : (legacyContractType ? [legacyContractType] : []);
 
+    const attachments = await loadAttachmentNames(folder);
+    const commNotes = await loadCommunicationNotes(folder, entry.name);
+
+    const studentName = pickString(fm, '姓名') || entry.name;
+
     const record = {
-      name: pickString(fm, '姓名') || entry.name,
+      name: studentName,
       enroll_year: pickString(fm, '入学年份'),
       stage: pickString(fm, '当前进度'),
       contracts: finalContracts,
@@ -117,19 +180,64 @@ async function loadStudents() {
       mid_advisor: pickString(fm, '中期顾问'),
       last_contact_at: parseDate(fm['最后沟通时间']),
       obsidian_path: `01_Student/${entry.name}`,
+      body_md: body,
+      attachments,
       tags: [],
       synced_at: new Date().toISOString(),
     };
 
     records.push(record);
+    notesByStudentName.set(studentName, commNotes);
   }
 
-  return records;
+  return { records, notesByStudentName };
+}
+
+async function syncStudentNotes(studentIdByName, notesByStudentName) {
+  let totalNotes = 0;
+  let totalStudents = 0;
+
+  for (const [studentName, notes] of notesByStudentName) {
+    const studentId = studentIdByName.get(studentName);
+    if (!studentId) continue;
+    totalStudents++;
+
+    // Replace strategy: delete all this student's notes, then insert current set.
+    // Simpler than diffing and keeps the table free of orphans when files get renamed/deleted.
+    const { error: delErr } = await supabase
+      .from('student_notes')
+      .delete()
+      .eq('student_id', studentId);
+    if (delErr) {
+      console.warn(`  ⚠  ${studentName}: delete old notes failed — ${delErr.message}`);
+      continue;
+    }
+
+    if (!notes.length) continue;
+
+    const rows = notes.map(n => ({
+      student_id: studentId,
+      note_name: n.note_name,
+      body_md: n.body_md,
+      obsidian_path: n.obsidian_path,
+      note_date: n.note_date,
+      synced_at: new Date().toISOString(),
+    }));
+
+    const { error: insErr } = await supabase.from('student_notes').insert(rows);
+    if (insErr) {
+      console.warn(`  ⚠  ${studentName}: insert notes failed — ${insErr.message}`);
+      continue;
+    }
+    totalNotes += rows.length;
+  }
+
+  return { totalNotes, totalStudents };
 }
 
 async function main() {
   console.log(`Reading vault at ${STUDENT_DIR} …`);
-  const records = await loadStudents();
+  const { records, notesByStudentName } = await loadStudents();
   console.log(`Parsed ${records.length} student records.\n`);
 
   if (!records.length) {
@@ -155,6 +263,11 @@ async function main() {
     console.log(`   ${r.name.padEnd(10)} · ${r.stage ?? '—'.padEnd(6)} · ${r.last_contact_at ?? '—'}`);
   }
   if (records.length > 5) console.log(`   … and ${records.length - 5} more`);
+
+  // Sync communication notes (one extra step per student).
+  const studentIdByName = new Map((data ?? []).map(r => [r.name, r.id]));
+  const { totalNotes, totalStudents } = await syncStudentNotes(studentIdByName, notesByStudentName);
+  console.log(`\n✅ Synced ${totalNotes} communication notes across ${totalStudents} students.`);
 }
 
 main().catch(err => {

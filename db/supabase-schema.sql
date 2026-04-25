@@ -36,10 +36,29 @@ alter table public.students add column if not exists major_current text;
 alter table public.students add column if not exists grade text;
 alter table public.students add column if not exists gpa text;
 alter table public.students add column if not exists client_email text;
+alter table public.students add column if not exists body_md text;
+alter table public.students add column if not exists attachments text[] default '{}';
 
 create index if not exists students_stage_idx         on public.students (stage);
 create index if not exists students_mid_advisor_idx   on public.students (mid_advisor);
 create index if not exists students_last_contact_idx  on public.students (last_contact_at desc);
+
+-- ─── STUDENT NOTES (communication records) ───────────────────
+-- One row per file under 01_Student/<name>/沟通记录/*.md
+create table if not exists public.student_notes (
+  id              bigserial primary key,
+  student_id      bigint not null references public.students(id) on delete cascade,
+  note_name       text not null,                -- filename without .md (also the wikilink target)
+  body_md         text,
+  obsidian_path   text,                         -- 01_Student/<name>/沟通记录/<note_name>.md
+  note_date       date,                         -- parsed from filename if it contains YYYY-MM-DD
+  synced_at       timestamptz default now(),
+  unique (student_id, note_name)
+);
+
+create index if not exists student_notes_student_id_idx on public.student_notes (student_id);
+create index if not exists student_notes_name_idx       on public.student_notes (note_name);
+create index if not exists student_notes_date_idx       on public.student_notes (note_date desc);
 
 -- ─── SUBMISSIONS ─────────────────────────────────────────────
 do $$ begin

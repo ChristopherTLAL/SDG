@@ -132,7 +132,9 @@ function radarColor(s: any): { label: string; color: string } {
             return (
               <tr id={String(s.id)} style="border-bottom: 1px solid var(--border);">
                 <td style="padding: 10px 14px; font-weight: 600;">
-                  {s.name}
+                  <a href={`/internal/students/${s.id}`} style="color: var(--primary); text-decoration: none;">
+                    {s.name}
+                  </a>
                   {s.client_email && (
                     <div style="font-size: 11px; color: var(--text-soft); font-weight: 400; margin-top: 2px;">{s.client_email}</div>
                   )}
