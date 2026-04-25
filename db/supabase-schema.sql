@@ -13,9 +13,14 @@ create table if not exists public.students (
   name            text not null unique,           -- 姓名 (YAML key)
   enroll_year     text,                           -- 入学年份 (e.g. "2028 fall")
   stage           text,                           -- 当前进度
-  contract_type   text,                           -- 合同类型
+  contracts       text[] default '{}',            -- 合同 (array, e.g. [英国跃领, 格物计划])
+  contract_type   text,                           -- legacy: 合同类型 (deprecated, kept for migration)
   major_intention text,                           -- 意向专业方向
+  major_current   text,                           -- 专业 (在读专业，区别于意向)
   current_school  text,                           -- 目前就读学校
+  grade           text,                           -- 年级 (e.g. 高一下, 11年级)
+  gpa             text,                           -- GPA (free-form)
+  client_email    text,                           -- 客户邮箱
   early_advisor   text,                           -- 前期顾问
   mid_advisor     text,                           -- 中期顾问
   last_contact_at date,                           -- 最后沟通时间
@@ -24,6 +29,13 @@ create table if not exists public.students (
   synced_at       timestamptz default now(),
   created_at      timestamptz default now()
 );
+
+-- Migration: add columns if they don't exist (safe to run multiple times)
+alter table public.students add column if not exists contracts text[] default '{}';
+alter table public.students add column if not exists major_current text;
+alter table public.students add column if not exists grade text;
+alter table public.students add column if not exists gpa text;
+alter table public.students add column if not exists client_email text;
 
 create index if not exists students_stage_idx         on public.students (stage);
 create index if not exists students_mid_advisor_idx   on public.students (mid_advisor);

@@ -56,6 +56,17 @@ function pickString(obj, key) {
   return s.length ? s : null;
 }
 
+// Coerce to text[] — accept string ("英国跃领"), array (["英国跃领"]), or null.
+function pickArray(obj, key) {
+  const v = obj[key];
+  if (v === undefined || v === null) return [];
+  if (Array.isArray(v)) return v.map(x => String(x).trim()).filter(Boolean);
+  const s = String(v).trim();
+  if (!s) return [];
+  // Allow comma-separated fallback
+  return s.split(/[,，、]/).map(x => x.trim()).filter(Boolean);
+}
+
 async function loadStudents() {
   const entries = await readdir(STUDENT_DIR, { withFileTypes: true });
   const records = [];
@@ -85,13 +96,23 @@ async function loadStudents() {
     }
 
     // YAML uses Chinese keys. Map them to DB columns.
+    // Contracts can be either array `合同: [英国跃领]` (current) or string `合同类型: 英国跃领` (legacy).
+    const contracts = pickArray(fm, '合同');
+    const legacyContractType = pickString(fm, '合同类型');
+    const finalContracts = contracts.length ? contracts : (legacyContractType ? [legacyContractType] : []);
+
     const record = {
       name: pickString(fm, '姓名') || entry.name,
       enroll_year: pickString(fm, '入学年份'),
       stage: pickString(fm, '当前进度'),
-      contract_type: pickString(fm, '合同类型'),
+      contracts: finalContracts,
+      contract_type: legacyContractType ?? (finalContracts[0] ?? null),
       major_intention: pickString(fm, '意向专业方向'),
+      major_current: pickString(fm, '专业'),
       current_school: pickString(fm, '目前就读学校'),
+      grade: pickString(fm, '年级'),
+      gpa: pickString(fm, 'GPA'),
+      client_email: pickString(fm, '客户邮箱'),
       early_advisor: pickString(fm, '前期顾问'),
       mid_advisor: pickString(fm, '中期顾问'),
       last_contact_at: parseDate(fm['最后沟通时间']),

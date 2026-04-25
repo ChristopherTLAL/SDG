@@ -9,7 +9,7 @@ const advisorFilter = url.searchParams.get('advisor') || '';
 
 let q = supabase
   .from('students')
-  .select('id, name, stage, contract_type, major_intention, current_school, early_advisor, mid_advisor, last_contact_at, enroll_year, synced_at');
+  .select('id, name, stage, contracts, contract_type, major_intention, major_current, current_school, grade, gpa, client_email, early_advisor, mid_advisor, last_contact_at, enroll_year, synced_at');
 
 if (stageFilter) q = q.eq('stage', stageFilter);
 if (advisorFilter) q = q.eq('mid_advisor', advisorFilter);
@@ -116,8 +116,9 @@ function radarColor(s: any): { label: string; color: string } {
           <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
             <th style="text-align: left; padding: 10px 14px;">姓名</th>
             <th style="text-align: left; padding: 10px 14px;">阶段</th>
-            <th style="text-align: left; padding: 10px 14px;">合同类型</th>
+            <th style="text-align: left; padding: 10px 14px;">合同</th>
             <th style="text-align: left; padding: 10px 14px;">方向</th>
+            <th style="text-align: left; padding: 10px 14px;">学校 / 年级</th>
             <th style="text-align: left; padding: 10px 14px;">中期</th>
             <th style="text-align: left; padding: 10px 14px;">最后沟通</th>
             <th style="text-align: left; padding: 10px 14px;">雷达</th>
@@ -126,12 +127,30 @@ function radarColor(s: any): { label: string; color: string } {
         <tbody>
           {withRadar.map((s: any) => {
             const r = radarColor(s);
+            const contractLabels = (s.contracts && s.contracts.length) ? s.contracts.join(' / ') : (s.contract_type ?? '—');
+            const schoolGrade = [s.current_school, s.grade].filter(Boolean).join(' · ') || '—';
             return (
               <tr id={String(s.id)} style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 10px 14px; font-weight: 600;">{s.name}</td>
+                <td style="padding: 10px 14px; font-weight: 600;">
+                  {s.name}
+                  {s.client_email && (
+                    <div style="font-size: 11px; color: var(--text-soft); font-weight: 400; margin-top: 2px;">{s.client_email}</div>
+                  )}
+                </td>
                 <td style="padding: 10px 14px; color: var(--text-muted);">{s.stage ?? '—'}</td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">{s.contract_type ?? '—'}</td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{s.major_intention ?? '—'}</td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">{contractLabels}</td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  {s.major_intention ?? '—'}
+                  {s.major_current && (
+                    <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">在读：{s.major_current}</div>
+                  )}
+                </td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  {schoolGrade}
+                  {s.gpa && (
+                    <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">GPA {s.gpa}</div>
+                  )}
+                </td>
                 <td style="padding: 10px 14px; color: var(--text-muted);">{s.mid_advisor ?? '—'}</td>
                 <td style="padding: 10px 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">{s.last_contact_at ?? '—'}</td>
                 <td style={`padding: 10px 14px; color: ${r.color}; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 12px;`}>

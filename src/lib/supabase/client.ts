@@ -26,9 +26,14 @@ export type Student = {
   name: string;
   enroll_year: string | null;
   stage: string | null;
-  contract_type: string | null;
-  major_intention: string | null;
+  contracts: string[];                // 合同 (e.g. ["英国跃领"])
+  contract_type: string | null;       // legacy single value
+  major_intention: string | null;     // 意向专业方向
+  major_current: string | null;       // 专业 (current major)
   current_school: string | null;
+  grade: string | null;               // 年级
+  gpa: string | null;
+  client_email: string | null;
   early_advisor: string | null;
   mid_advisor: string | null;
   last_contact_at: string | null; // YYYY-MM-DD
