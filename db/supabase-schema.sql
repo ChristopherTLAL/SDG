@@ -42,14 +42,17 @@ create index if not exists students_mid_advisor_idx   on public.students (mid_ad
 create index if not exists students_last_contact_idx  on public.students (last_contact_at desc);
 
 -- ─── SUBMISSIONS ─────────────────────────────────────────────
-create type submission_type as enum (
-  '沟通记录',
-  '录音',
-  '重要comment',
-  '状态更新',
-  '会议',
-  '其他'
-);
+do $$ begin
+  create type submission_type as enum (
+    '沟通记录',
+    '录音',
+    '重要comment',
+    '状态更新',
+    '会议',
+    '其他'
+  );
+exception when duplicate_object then null;
+end $$;
 
 create table if not exists public.submissions (
   id                bigserial primary key,

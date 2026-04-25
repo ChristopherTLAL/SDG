@@ -20,12 +20,60 @@ If the build fails, fix errors before proceeding. Common issues:
 - Missing imports after adding new utilities
 - TypeScript errors in `.astro` frontmatter
 
-## Commit and Push
+## Commit and Push via GitHub MCP
 
-1. Run `git status` and `git diff --stat` to review changes
-2. Stage only relevant files (avoid `.env`, `node_modules`, credentials)
-3. Write a concise commit message describing what changed and why
-4. Push to `main` branch — Vercel auto-deploys from main
+**ALWAYS use the GitHub MCP (`mcp__github`) for git operations.** Do NOT use local `git` commands — the local disk I/O frequently stalls and causes timeouts.
+
+### Step 1: Read the current file from GitHub to confirm the diff
+
+```
+mcp__github__get_file_contents({owner: "ChristopherTLAL", repo: "SDG", path: "<file_path>"})
+```
+
+### Step 2: Push changes using GitHub MCP
+
+For each changed file, use `create_or_update_file` to commit and push directly:
+
+```
+mcp__github__create_or_update_file({
+  owner: "ChristopherTLAL",
+  repo: "SDG",
+  path: "<file_path>",
+  content: "<file_content_base64_or_text>",
+  message: "commit message",
+  branch: "main",
+  sha: "<current_file_sha>"  // from get_file_contents
+})
+```
+
+For multiple files in one commit, use `push_files`:
+
+```
+mcp__github__push_files({
+  owner: "ChristopherTLAL",
+  repo: "SDG",
+  branch: "main",
+  message: "commit message",
+  files: [
+    { path: "src/pages/example.astro", content: "..." },
+    ...
+  ]
+})
+```
+
+### Fallback: Local git (only if GitHub MCP is unavailable)
+
+If the GitHub MCP is down, use local git with the temp-index trick to avoid disk I/O issues:
+
+```bash
+rm -f /tmp/git_temp_idx
+GIT_INDEX_FILE=/tmp/git_temp_idx git read-tree HEAD
+GIT_INDEX_FILE=/tmp/git_temp_idx git add <files>
+TREE=$(GIT_INDEX_FILE=/tmp/git_temp_idx git write-tree)
+COMMIT=$(printf 'message\n' | git commit-tree "$TREE" -p HEAD)
+git update-ref refs/heads/main "$COMMIT"
+git push
+```
 
 ## Monitor Deployment
 
@@ -46,9 +94,4 @@ After successful deployment, verify key pages load:
 
 ## Rollback
 
-If something is seriously broken, the user can revert via:
-```bash
-git revert HEAD
-git push
-```
-Always confirm with the user before reverting.
+If something is seriously broken, revert via GitHub MCP by pushing the previous version of the file. Always confirm with the user before reverting.
