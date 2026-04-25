@@ -2,125 +2,336 @@
 // src/pages/internal/index.astro — dashboard overview
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
+import {
+  tierFor, tierStyle, tierLabel, daysSinceToday,
+  inTriage, tierRank, type RadarTier,
+} from '../../utils/contact-radar';
 
 // Parallel fetches
 const [
   { count: totalStudents },
-  { count: totalSubmissions },
   { count: unprocessed },
   { data: recentSubmissions },
-  { data: overdueStudents },
+  { data: allActiveStudents },
+  { data: recentNotes },
 ] = await Promise.all([
   supabase.from('students').select('id', { count: 'exact', head: true }),
-  supabase.from('submissions').select('id', { count: 'exact', head: true }),
   supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('processed', false),
   supabase
     .from('submissions')
-    .select('id, type, submitted_at, submitted_by, summary, student_name_raw, students(name)')
+    .select('id, type, submitted_at, submitted_by, summary, student_name_raw, students(id, name)')
     .order('submitted_at', { ascending: false })
-    .limit(8),
+    .limit(6),
+  // Pull every active student once — drives both Triage and the Cohort×Advisor matrix.
   supabase
     .from('students')
-    .select('id, name, mid_advisor, stage, last_contact_at')
-    .not('last_contact_at', 'is', null)
-    .not('stage', 'in', '(已结案,退费,已完成)')
-    .order('last_contact_at', { ascending: true })
-    .limit(10),
+    .select('id, name, mid_advisor, early_advisor, stage, last_contact_at, enroll_year')
+    .order('last_contact_at', { ascending: true, nullsFirst: false }),
+  supabase
+    .from('student_notes')
+    .select('id, student_id, note_name, note_date, students(name)')
+    .order('note_date', { ascending: false, nullsFirst: false })
+    .limit(6),
 ]);
 
-const today = new Date();
-function daysSince(d: string | null): number | null {
-  if (!d) return null;
-  return Math.floor((today.getTime() - new Date(d).getTime()) / 86400000);
+type StudentRow = {
+  id: number; name: string;
+  mid_advisor: string | null; early_advisor: string | null;
+  stage: string | null; last_contact_at: string | null; enroll_year: string | null;
+};
+
+const students: (StudentRow & { daysSince: number | null; tier: RadarTier })[] =
+  (allActiveStudents ?? []).map((s: any) => {
+    const ds = daysSinceToday(s.last_contact_at);
+    return { ...s, daysSince: ds, tier: tierFor(ds, s.stage) };
+  });
+
+// ── Triage (pink and worse, sorted most-overdue first) ──
+const triage = students
+  .filter(s => inTriage(s.tier))
+  .sort((a, b) => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+
+const tierCounts = {
+  critical: students.filter(s => s.tier === 'critical').length,
+  red:      students.filter(s => s.tier === 'red').length,
+  pink:     students.filter(s => s.tier === 'pink').length,
+  yellow:   students.filter(s => s.tier === 'yellow').length,
+};
+
+// ── Cohort × Advisor matrix ──
+// Rows: enroll_year (sorted asc, nulls last as "未填")
+// Cols: mid_advisor (sorted by total desc, nulls as "未分配")
+// Cells: count + worst-tier indicator
+type Cell = { count: number; worstRank: number; worstTier: RadarTier };
+
+const COHORT_FALLBACK = '未填';
+const ADVISOR_FALLBACK = '未分配';
+
+const cohortKeys = Array.from(new Set(students.map(s => s.enroll_year || COHORT_FALLBACK)));
+cohortKeys.sort((a, b) => {
+  if (a === COHORT_FALLBACK) return 1;
+  if (b === COHORT_FALLBACK) return -1;
+  return a.localeCompare(b);
+});
+
+const advisorTotals = new Map<string, number>();
+for (const s of students) {
+  const key = s.mid_advisor || ADVISOR_FALLBACK;
+  advisorTotals.set(key, (advisorTotals.get(key) ?? 0) + 1);
+}
+const advisorKeys = Array.from(advisorTotals.entries())
+  .sort((a, b) => {
+    if (a[0] === ADVISOR_FALLBACK) return 1;
+    if (b[0] === ADVISOR_FALLBACK) return -1;
+    return b[1] - a[1];
+  })
+  .map(([k]) => k);
+
+const matrix = new Map<string, Cell>(); // key: `${cohort}::${advisor}`
+const rowTotals = new Map<string, Cell>();
+const colTotals = new Map<string, Cell>();
+const grandTotal: Cell = { count: 0, worstRank: -1, worstTier: 'inactive' };
+
+function bumpCell(c: Cell, tier: RadarTier) {
+  c.count += 1;
+  const r = tierRank(tier);
+  if (r > c.worstRank) { c.worstRank = r; c.worstTier = tier; }
 }
 
-function fmt(dt: string | null): string {
+for (const s of students) {
+  const cohort = s.enroll_year || COHORT_FALLBACK;
+  const advisor = s.mid_advisor || ADVISOR_FALLBACK;
+  const key = `${cohort}::${advisor}`;
+
+  if (!matrix.has(key))     matrix.set(key, { count: 0, worstRank: -1, worstTier: 'inactive' });
+  if (!rowTotals.has(cohort)) rowTotals.set(cohort, { count: 0, worstRank: -1, worstTier: 'inactive' });
+  if (!colTotals.has(advisor)) colTotals.set(advisor, { count: 0, worstRank: -1, worstTier: 'inactive' });
+
+  bumpCell(matrix.get(key)!, s.tier);
+  bumpCell(rowTotals.get(cohort)!, s.tier);
+  bumpCell(colTotals.get(advisor)!, s.tier);
+  bumpCell(grandTotal, s.tier);
+}
+
+function cellLink(cohort: string, advisor: string): string {
+  const params = new URLSearchParams();
+  if (cohort !== COHORT_FALLBACK) params.set('cohort', cohort);
+  if (advisor !== ADVISOR_FALLBACK) params.set('advisor', advisor);
+  return params.toString() ? `/internal/students?${params}` : '/internal/students';
+}
+
+function fmtDateTime(dt: string | null): string {
   if (!dt) return '—';
   const d = new Date(dt);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
 }
-
-// Only show overdue (>= 12 days) in the radar panel
-const radar = (overdueStudents ?? [])
-  .map((s: any) => ({ ...s, _ds: daysSince(s.last_contact_at) }))
-  .filter((s: any) => s._ds !== null && s._ds >= 12);
 ---
 
 <InternalLayout title="Overview" active="overview">
   <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
     Overview
   </h1>
-  <p style="color: var(--text-muted); margin: 0 0 32px; font-size: 14px;">
-    全局概览。数据来自 Obsidian YAML + 员工提交。
+  <p style="color: var(--text-muted); margin: 0 0 28px; font-size: 14px;">
+    分诊台。先看 Triage，再看 cohort × advisor 结构。
   </p>
 
-  <!-- Stat cards -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 32px;">
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">学生总数</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px;">{totalStudents ?? 0}</div>
+  <!-- ── Stat strip ── -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px;">
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;">
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">学生总数</div>
+      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{totalStudents ?? 0}</div>
     </div>
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">累计提交</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px;">{totalSubmissions ?? 0}</div>
+    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('critical').border}; border-radius: 10px; padding: 16px 18px;`}>
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">⚠️ 28d+ 失联</div>
+      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('critical').border};`}>{tierCounts.critical}</div>
     </div>
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px; border-left: 3px solid var(--danger);">
-      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">待处理</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px; color: var(--danger);">{unprocessed ?? 0}</div>
+    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('red').border}; border-radius: 10px; padding: 16px 18px;`}>
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">21–27d 红</div>
+      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('red').border};`}>{tierCounts.red}</div>
     </div>
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px; border-left: 3px solid var(--warning);">
-      <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">雷达预警</div>
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; margin-top: 6px; color: var(--warning);">{radar.length}</div>
+    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('pink').border}; border-radius: 10px; padding: 16px 18px;`}>
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">14–20d 淡红</div>
+      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('pink').border};`}>{tierCounts.pink}</div>
+    </div>
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 10px; padding: 16px 18px;">
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Inbox 待处理</div>
+      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px; color: var(--primary);">{unprocessed ?? 0}</div>
     </div>
   </div>
 
-  <!-- Two-column layout -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+  <!-- ── Triage ── -->
+  <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+      <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">
+        Triage <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">14d+ 没联系，按天数倒序</span>
+      </h2>
+      <a href="/internal/students" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部学生 →</a>
+    </div>
+    {triage.length === 0 ? (
+      <p style="color: var(--text-soft); font-size: 13px; margin: 0;">所有人都在 14 天内有过接触，干得漂亮。</p>
+    ) : (
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px;">
+        {triage.map(s => {
+          const ts = tierStyle(s.tier);
+          return (
+            <li style={`display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; background: ${ts.bg}; border-left: 3px solid ${ts.border};`}>
+              <a href={`/internal/students/${s.id}`} style={`font-weight: 700; font-size: 13px; color: ${ts.fg}; text-decoration: none;`}>
+                {s.name}
+              </a>
+              <span style={`font-size: 11px; color: ${ts.fg}; opacity: 0.75;`}>
+                {s.mid_advisor ?? '—'}
+              </span>
+              <span style="flex: 1;"></span>
+              <span class="font-mono" style={`font-weight: 700; font-size: 12px; color: ${ts.fg};`}>
+                {tierLabel(s.tier, s.daysSince)}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
 
-    <!-- Recent submissions -->
+  <!-- ── Cohort × Advisor matrix ── -->
+  <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+      <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">
+        Cohort × Advisor <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">行：入学年份 · 列：中期顾问 · 单元角标 = 14d+ 学生数</span>
+      </h2>
+    </div>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <thead>
+          <tr>
+            <th style="text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); position: sticky; left: 0; background: var(--surface-raised);">
+              Cohort \ Advisor
+            </th>
+            {advisorKeys.map(a => (
+              <th style="text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text-muted); white-space: nowrap;">
+                {a}
+              </th>
+            ))}
+            <th style="text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text); background: #f8fafc;">
+              总计
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {cohortKeys.map(cohort => {
+            const rowTotal = rowTotals.get(cohort) ?? { count: 0, worstRank: -1, worstTier: 'inactive' as RadarTier };
+            return (
+              <tr style="border-bottom: 1px solid var(--border);">
+                <th style="text-align: left; padding: 10px; font-weight: 700; font-size: 13px; position: sticky; left: 0; background: var(--surface-raised); white-space: nowrap;">
+                  {cohort}
+                </th>
+                {advisorKeys.map(advisor => {
+                  const cell = matrix.get(`${cohort}::${advisor}`);
+                  if (!cell || cell.count === 0) {
+                    return <td style="text-align: center; padding: 10px; color: var(--text-soft);">·</td>;
+                  }
+                  const ts = tierStyle(cell.worstTier);
+                  const showFlag = inTriage(cell.worstTier);
+                  return (
+                    <td style="text-align: center; padding: 6px;">
+                      <a href={cellLink(cohort, advisor)} style="text-decoration: none; display: inline-block;">
+                        <span style={`display: inline-flex; align-items: baseline; gap: 4px; padding: 4px 10px; border-radius: 6px; ${showFlag ? `background: ${ts.bg}; color: ${ts.fg};` : 'color: var(--text);'} font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px;`}>
+                          {cell.count}
+                          {showFlag && (
+                            <sup style={`font-size: 9px; opacity: 0.85; color: ${ts.fg};`}>
+                              {cell.worstTier === 'critical' ? '⚠️' : cell.worstTier === 'red' ? '!!' : '!'}
+                            </sup>
+                          )}
+                        </span>
+                      </a>
+                    </td>
+                  );
+                })}
+                <td style="text-align: center; padding: 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px; background: #f8fafc;">
+                  {rowTotal.count}
+                </td>
+              </tr>
+            );
+          })}
+          {/* Column totals row */}
+          <tr style="background: #f8fafc; border-top: 2px solid var(--border);">
+            <th style="text-align: left; padding: 10px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); position: sticky; left: 0; background: #f8fafc;">
+              总计
+            </th>
+            {advisorKeys.map(advisor => {
+              const t = colTotals.get(advisor) ?? { count: 0, worstRank: -1, worstTier: 'inactive' as RadarTier };
+              return (
+                <td style="text-align: center; padding: 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px;">
+                  {t.count}
+                </td>
+              );
+            })}
+            <td style="text-align: center; padding: 10px; font-weight: 800; font-family: 'JetBrains Mono', monospace; font-size: 14px; background: #eef2f7;">
+              {grandTotal.count}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size: 11px; color: var(--text-soft); margin: 10px 0 0;">
+      角标含义：⚠️ 28d+，!! 21–27d，! 14–20d。点击单元格跳转到对应筛选的学生列表。
+    </p>
+  </section>
+
+  <!-- ── Activity streams ── -->
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <!-- Inbox preview -->
     <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
-        <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">最近提交</h2>
-        <a href="/internal/submissions" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部 →</a>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近 Inbox 提交</h2>
+        <a href="/internal/submissions" style="font-size: 12px; color: var(--primary); font-weight: 600;">Inbox →</a>
       </div>
       {(recentSubmissions ?? []).length === 0 ? (
         <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有提交记录。</p>
       ) : (
         <ul style="list-style: none; margin: 0; padding: 0;">
           {(recentSubmissions ?? []).map((s: any) => (
-            <li style="padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
-              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px;">
-                <span style="font-weight: 700;">{s.students?.name ?? s.student_name_raw ?? '—'}</span>
-                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">{s.type}</span>
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
+              <div style="display: flex; align-items: baseline; gap: 8px;">
+                {s.students?.id ? (
+                  <a href={`/internal/students/${s.students.id}`} style="font-weight: 700; color: var(--text); text-decoration: none;">
+                    {s.students.name}
+                  </a>
+                ) : (
+                  <span style="font-weight: 700;">{s.student_name_raw ?? '—'}</span>
+                )}
+                <span style="font-size: 11px; font-weight: 600; color: var(--text-muted);">{s.type}</span>
                 <span style="flex: 1;"></span>
-                <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{fmt(s.submitted_at)}</span>
+                <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{fmtDateTime(s.submitted_at)}</span>
               </div>
-              {s.summary && <div style="color: var(--text-muted); font-size: 13px;">{s.summary}</div>}
-              {s.submitted_by && <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">by {s.submitted_by}</div>}
+              {s.summary && <div style="color: var(--text-muted); font-size: 12px; margin-top: 2px;">{s.summary}</div>}
+              {s.submitted_by && <div style="font-size: 11px; color: var(--text-soft); margin-top: 1px;">by {s.submitted_by}</div>}
             </li>
           ))}
         </ul>
       )}
     </section>
 
-    <!-- Radar (overdue students) -->
+    <!-- Recent Obsidian sync -->
     <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
-        <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">🔴 雷达预警（≥12 天未联系）</h2>
-        <a href="/internal/students" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部 →</a>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近沟通记录 <span style="color: var(--text-soft); font-weight: 500; font-size: 12px;">来自 Obsidian</span></h2>
       </div>
-      {radar.length === 0 ? (
-        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">全员在 12 天内都有接触，干得漂亮。</p>
+      {(recentNotes ?? []).length === 0 ? (
+        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有同步到沟通记录。</p>
       ) : (
         <ul style="list-style: none; margin: 0; padding: 0;">
-          {radar.map((s: any) => (
-            <li style="padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; display: flex; align-items: baseline; gap: 10px;">
-              <span style="font-weight: 700;">{s.name}</span>
-              <span style="font-size: 11px; color: var(--text-muted);">{s.mid_advisor ?? '—'} · {s.stage ?? '—'}</span>
-              <span style="flex: 1;"></span>
-              <span class="font-mono" style={`font-weight: 700; font-size: 12px; color: ${s._ds >= 14 ? 'var(--danger)' : 'var(--warning)'};`}>
-                {s._ds}d
-              </span>
+          {(recentNotes ?? []).map((n: any) => (
+            <li style="padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
+              <div style="display: flex; align-items: baseline; gap: 8px;">
+                <a href={`/internal/students/${n.student_id}`} style="font-weight: 700; color: var(--text); text-decoration: none;">
+                  {n.students?.name ?? '—'}
+                </a>
+                <span style="flex: 1;"></span>
+                <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{n.note_date ?? '—'}</span>
+              </div>
+              <div style="color: var(--text-muted); font-size: 12px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {n.note_name}
+              </div>
             </li>
           ))}
         </ul>

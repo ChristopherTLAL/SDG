@@ -2,10 +2,12 @@
 // src/pages/internal/students.astro — student roster (read-only, sourced from Obsidian)
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
+import { tierFor, tierStyle, tierLabel, daysSinceToday } from '../../utils/contact-radar';
 
 const url = new URL(Astro.request.url);
 const stageFilter = url.searchParams.get('stage') || '';
 const advisorFilter = url.searchParams.get('advisor') || '';
+const cohortFilter = url.searchParams.get('cohort') || '';
 
 let q = supabase
   .from('students')
@@ -13,35 +15,36 @@ let q = supabase
 
 if (stageFilter) q = q.eq('stage', stageFilter);
 if (advisorFilter) q = q.eq('mid_advisor', advisorFilter);
+if (cohortFilter) q = q.eq('enroll_year', cohortFilter);
 
 const { data: studentsRaw, error } = await q.order('last_contact_at', { ascending: false, nullsFirst: false }).limit(500);
 const students = studentsRaw ?? [];
 
-// Compute days-since-contact for the radar column
-const today = new Date();
 const withRadar = students.map((s: any) => {
-  let daysSince = null;
-  if (s.last_contact_at) {
-    const d = new Date(s.last_contact_at);
-    daysSince = Math.floor((today.getTime() - d.getTime()) / (24 * 60 * 60 * 1000));
-  }
-  return { ...s, daysSince };
+  const ds = daysSinceToday(s.last_contact_at);
+  const tier = tierFor(ds, s.stage);
+  return { ...s, daysSince: ds, tier };
 });
 
-// Enumerate stages/advisors for filter chips
+// Enumerate stages/advisors/cohorts for filter chips
 const stages = Array.from(new Set(students.map((s: any) => s.stage).filter(Boolean))).sort();
 const advisors = Array.from(new Set(students.map((s: any) => s.mid_advisor).filter(Boolean))).sort();
+const cohorts = Array.from(new Set(students.map((s: any) => s.enroll_year).filter(Boolean))).sort();
 
-// Aggregate counts
-const red = withRadar.filter((s: any) => s.daysSince !== null && s.daysSince >= 14 && !['已结案', '退费', '已完成'].includes(s.stage ?? '')).length;
-const yellow = withRadar.filter((s: any) => s.daysSince !== null && s.daysSince >= 12 && s.daysSince < 14 && !['已结案', '退费', '已完成'].includes(s.stage ?? '')).length;
+// Aggregate counts: critical (28+) and red (21-27) and pink (14-20) for the header
+const criticalCount = withRadar.filter((s: any) => s.tier === 'critical').length;
+const redCount = withRadar.filter((s: any) => s.tier === 'red').length;
+const pinkCount = withRadar.filter((s: any) => s.tier === 'pink').length;
+const yellowCount = withRadar.filter((s: any) => s.tier === 'yellow').length;
 
-function radarColor(s: any): { label: string; color: string } {
-  if (['已结案', '退费', '已完成'].includes(s.stage)) return { label: '—', color: 'var(--text-soft)' };
-  if (s.daysSince === null) return { label: '?', color: 'var(--text-soft)' };
-  if (s.daysSince >= 14) return { label: `${s.daysSince}d 🔴`, color: 'var(--danger)' };
-  if (s.daysSince >= 12) return { label: `${s.daysSince}d 🟡`, color: 'var(--warning)' };
-  return { label: `${s.daysSince}d`, color: 'var(--success)' };
+function buildHref(overrides: Record<string, string>): string {
+  const params = new URLSearchParams();
+  const next = { stage: stageFilter, advisor: advisorFilter, cohort: cohortFilter, ...overrides };
+  for (const [k, v] of Object.entries(next)) {
+    if (v) params.set(k, v);
+  }
+  const qs = params.toString();
+  return qs ? `/internal/students?${qs}` : '/internal/students';
 }
 ---
 
@@ -55,12 +58,18 @@ function radarColor(s: any): { label: string; color: string } {
         从 Obsidian YAML 同步。页面只读，改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。
       </p>
     </div>
-    <div style="display: flex; gap: 16px; font-size: 13px; color: var(--text-muted);">
-      <div>
-        <strong style="color: var(--danger); font-size: 22px; font-family: 'JetBrains Mono', monospace;">{red}</strong> 红色
+    <div style="display: flex; gap: 18px; font-size: 12px; color: var(--text-muted); align-items: baseline;">
+      <div title="28d+ 没联系">
+        <strong style={`color: ${tierStyle('critical').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{criticalCount}</strong> ⚠️
       </div>
-      <div>
-        <strong style="color: var(--warning); font-size: 22px; font-family: 'JetBrains Mono', monospace;">{yellow}</strong> 黄色
+      <div title="21-27d 没联系">
+        <strong style={`color: ${tierStyle('red').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{redCount}</strong> 红
+      </div>
+      <div title="14-20d 没联系">
+        <strong style={`color: ${tierStyle('pink').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{pinkCount}</strong> 淡红
+      </div>
+      <div title="7-13d 没联系">
+        <strong style={`color: ${tierStyle('yellow').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{yellowCount}</strong> 黄
       </div>
       <div>
         <strong style="font-size: 22px; font-family: 'JetBrains Mono', monospace;">{students.length}</strong> 总数
@@ -69,14 +78,28 @@ function radarColor(s: any): { label: string; color: string } {
   </div>
 
   {/* Filters */}
-  <div style="display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap;">
+  <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
+    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Cohort</span>
+    <a href={buildHref({ cohort: '' })}
+      style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!cohortFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!cohortFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
+      All
+    </a>
+    {cohorts.map(c => (
+      <a href={buildHref({ cohort: c as string })}
+        style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${cohortFilter === c ? 'var(--primary)' : 'var(--border)'}; color: ${cohortFilter === c ? 'var(--primary)' : 'var(--text-muted)'};`}>
+        {c}
+      </a>
+    ))}
+  </div>
+
+  <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
     <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Stage</span>
-    <a href={`/internal/students${advisorFilter ? `?advisor=${advisorFilter}` : ''}`}
+    <a href={buildHref({ stage: '' })}
       style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!stageFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!stageFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
       All
     </a>
     {stages.map(s => (
-      <a href={`/internal/students?stage=${s}${advisorFilter ? `&advisor=${advisorFilter}` : ''}`}
+      <a href={buildHref({ stage: s as string })}
         style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${stageFilter === s ? 'var(--primary)' : 'var(--border)'}; color: ${stageFilter === s ? 'var(--primary)' : 'var(--text-muted)'};`}>
         {s}
       </a>
@@ -85,12 +108,12 @@ function radarColor(s: any): { label: string; color: string } {
 
   <div style="display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap;">
     <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Advisor</span>
-    <a href={`/internal/students${stageFilter ? `?stage=${stageFilter}` : ''}`}
+    <a href={buildHref({ advisor: '' })}
       style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!advisorFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!advisorFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
       All
     </a>
     {advisors.map(a => (
-      <a href={`/internal/students?advisor=${a}${stageFilter ? `&stage=${stageFilter}` : ''}`}
+      <a href={buildHref({ advisor: a as string })}
         style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${advisorFilter === a ? 'var(--primary)' : 'var(--border)'}; color: ${advisorFilter === a ? 'var(--primary)' : 'var(--text-muted)'};`}>
         {a}
       </a>
@@ -126,7 +149,8 @@ function radarColor(s: any): { label: string; color: string } {
         </thead>
         <tbody>
           {withRadar.map((s: any) => {
-            const r = radarColor(s);
+            const ts = tierStyle(s.tier);
+            const label = tierLabel(s.tier, s.daysSince);
             const contractLabels = (s.contracts && s.contracts.length) ? s.contracts.join(' / ') : (s.contract_type ?? '—');
             const schoolGrade = [s.current_school, s.grade].filter(Boolean).join(' · ') || '—';
             return (
@@ -155,8 +179,10 @@ function radarColor(s: any): { label: string; color: string } {
                 </td>
                 <td style="padding: 10px 14px; color: var(--text-muted);">{s.mid_advisor ?? '—'}</td>
                 <td style="padding: 10px 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">{s.last_contact_at ?? '—'}</td>
-                <td style={`padding: 10px 14px; color: ${r.color}; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 12px;`}>
-                  {r.label}
+                <td style="padding: 10px 14px;">
+                  <span style={`display: inline-block; padding: 3px 8px; border-radius: 999px; background: ${ts.bg}; color: ${ts.fg}; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap;`}>
+                    {label}
+                  </span>
                 </td>
               </tr>
             );
