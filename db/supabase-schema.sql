@@ -98,5 +98,7 @@ create index if not exists submissions_type_idx       on public.submissions (typ
 -- ─── STORAGE BUCKET (create via Supabase Dashboard → Storage) ───
 -- Bucket name: submissions
 -- Access: private (we'll use signed URLs)
--- Allowed MIME types: audio/*, application/pdf, image/*, application/msword,
+-- Allowed MIME types: application/pdf, image/*, application/msword,
 --                    application/vnd.openxmlformats-officedocument.*
+-- Note: audio uploads are disabled at the application layer to stay
+-- within the Supabase free 1 GB storage tier.

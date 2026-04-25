@@ -20,7 +20,7 @@ const dbError = error?.message ?? null;
     Submit
   </h1>
   <p style="color: var(--text-muted); margin: 0 0 32px; font-size: 14px;">
-    员工提交：沟通记录 / 录音 / 重要 comment / 状态更新 / 会议 / 其他
+    员工提交：沟通记录 / 重要 comment / 状态更新 / 会议 / 其他
   </p>
 
   {dbError && (
@@ -72,7 +72,6 @@ const dbError = error?.message ?? null;
       <select name="type" id="type" required
         style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: white;">
         <option value="沟通记录">沟通记录</option>
-        <option value="录音">录音（上传后 n8n 自动转文字）</option>
         <option value="重要comment">重要 comment</option>
         <option value="状态更新">状态更新</option>
         <option value="会议">会议</option>
@@ -106,20 +105,8 @@ const dbError = error?.message ?? null;
         详细内容
       </span>
       <textarea name="content" id="content" rows="6"
-        placeholder="沟通要点、comment 正文、状态变化原因等。录音可以留空，转文字后自动补。"
+        placeholder="沟通要点、comment 正文、状态变化原因等。"
         style="padding: 12px; border: 1px solid var(--border); border-radius: 8px; resize: vertical; font-family: inherit;"></textarea>
-    </label>
-
-    <!-- Audio upload (only for 录音) -->
-    <label id="audio-wrap" style="grid-column: 1 / -1; display: none; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        录音文件
-      </span>
-      <input type="file" name="audio_file" id="audio_file" accept="audio/*"
-        style="padding: 10px 12px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;" />
-      <small style="color: var(--text-soft); font-size: 11px;">
-        支持 mp3/m4a/wav/ogg。上传后自动触发阿里云转写 workflow（在 n8n 里跑）。
-      </small>
     </label>
 
     <!-- Generic attachment -->
@@ -148,20 +135,13 @@ const dbError = error?.message ?? null;
     const form = document.getElementById('submit-form');
     const statusEl = document.getElementById('status');
     const submitBtn = document.getElementById('submit-btn');
-    const typeSel = document.getElementById('type');
-    const audioWrap = document.getElementById('audio-wrap');
     const studentSel = document.getElementById('student_id');
     const newStudentWrap = document.getElementById('new-student-wrap');
 
-    function toggleAudio() {
-      audioWrap.style.display = typeSel.value === '录音' ? 'flex' : 'none';
-    }
     function toggleNewStudent() {
       newStudentWrap.style.display = studentSel.value === '__new__' ? 'flex' : 'none';
     }
-    typeSel.addEventListener('change', toggleAudio);
     studentSel.addEventListener('change', toggleNewStudent);
-    toggleAudio();
     toggleNewStudent();
 
     form.addEventListener('submit', async (e) => {
@@ -181,7 +161,6 @@ const dbError = error?.message ?? null;
         statusEl.textContent = '✓ 已提交 #' + json.id;
         statusEl.style.color = 'var(--success)';
         form.reset();
-        toggleAudio();
         toggleNewStudent();
       } catch (err) {
         statusEl.textContent = '✗ ' + err.message;

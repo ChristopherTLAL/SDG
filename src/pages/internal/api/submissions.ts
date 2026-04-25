@@ -1,10 +1,12 @@
 // POST /internal/api/submissions — create a new submission row
 // Protected by Cloudflare Access (the whole /internal/* path is).
+//
+// Audio uploads are intentionally disabled to keep us inside Supabase's free
+// 1 GB storage tier. PDF/Word/image attachments are still allowed.
 
 import type { APIRoute } from 'astro';
 import { supabase } from '../../../lib/supabase/client';
 
-const N8N_WEBHOOK_URL = import.meta.env.N8N_WEBHOOK_URL; // optional
 const BUCKET = 'submissions';
 
 async function uploadFile(file: File, subdir: string): Promise<string | null> {
@@ -39,11 +41,16 @@ export const POST: APIRoute = async ({ request }) => {
     const summary = fd.get('summary')?.toString().trim() || null;
     const content = fd.get('content')?.toString().trim() || null;
 
-    const audioFile = fd.get('audio_file') as File | null;
     const attachFile = fd.get('attachment') as File | null;
 
     if (!type) {
       return new Response(JSON.stringify({ error: 'type is required' }), {
+        status: 400,
+        headers: { 'content-type': 'application/json' },
+      });
+    }
+    if (type === '录音') {
+      return new Response(JSON.stringify({ error: '录音上传已停用' }), {
         status: 400,
         headers: { 'content-type': 'application/json' },
       });
@@ -77,13 +84,7 @@ export const POST: APIRoute = async ({ request }) => {
       }
     }
 
-    // Upload files (if any)
-    let audioUrl: string | null = null;
     let attachmentUrl: string | null = null;
-
-    if (audioFile && audioFile.size > 0) {
-      audioUrl = await uploadFile(audioFile, 'audio');
-    }
     if (attachFile && attachFile.size > 0) {
       attachmentUrl = await uploadFile(attachFile, 'attachment');
     }
@@ -97,7 +98,6 @@ export const POST: APIRoute = async ({ request }) => {
         submitted_by: submittedBy,
         summary,
         content,
-        audio_url: audioUrl,
         attachment_url: attachmentUrl,
       })
       .select('id')
@@ -109,19 +109,6 @@ export const POST: APIRoute = async ({ request }) => {
         status: 500,
         headers: { 'content-type': 'application/json' },
       });
-    }
-
-    // Fire-and-forget trigger to n8n for audio transcription
-    if (N8N_WEBHOOK_URL && audioUrl) {
-      fetch(N8N_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          event: 'submission.audio_uploaded',
-          submission_id: data.id,
-          audio_path: audioUrl,
-        }),
-      }).catch(err => console.warn('[submissions] n8n webhook failed:', err));
     }
 
     return new Response(JSON.stringify({ id: data.id }), {

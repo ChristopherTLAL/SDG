@@ -39,7 +39,6 @@ In Vercel project settings → **Environment Variables**:
 |---|---|---|
 | `SUPABASE_URL` | `https://xxxxxx.supabase.co` | Production, Preview, Development |
 | `SUPABASE_SERVICE_ROLE_KEY` | `eyJh…` (service_role) | Production, Preview, Development |
-| `N8N_WEBHOOK_URL` | `https://n8n.undp.ac.cn/webhook/…` (optional, later) | Production, Preview |
 
 Re-deploy after adding.
 
@@ -96,38 +95,18 @@ Options for automation:
 - **Obsidian Git plugin + hook**: on push, run the script
 - **cron**: `*/30 * * * * cd /path && npm run sync-students >> sync.log 2>&1`
 
-## 9. n8n transcription (later)
+## 9. Audio uploads — disabled
 
-Two ways to hook up your Aliyun transcription workflow:
+Audio recording uploads are intentionally turned off. Reason: Supabase free
+tier gives us 1 GB Storage, and a handful of multi-minute recordings would
+burn through it in weeks. The `submission_type` enum still has `录音` for
+historical compatibility but the form no longer offers it and the API
+rejects POSTs of that type.
 
-### A. Via Astro API (push)
-
-Set `N8N_WEBHOOK_URL` env var. Whenever audio is uploaded, our API POSTs to n8n:
-
-```json
-{
-  "event": "submission.audio_uploaded",
-  "submission_id": 42,
-  "audio_path": "audio/1745493123-x7k2.mp3"
-}
-```
-
-Your n8n workflow:
-1. Receives webhook → downloads file from Supabase Storage (signed URL)
-2. Uploads to Aliyun → polls for transcript
-3. Deletes Aliyun copy
-4. Updates `submissions.ai_transcript` via Supabase REST API
-
-### B. Via Supabase Database Webhook (pull)
-
-In Supabase → **Database → Webhooks** → create a new webhook:
-- Table: `submissions`
-- Events: `INSERT`
-- Conditions: `type = 录音 AND audio_url IS NOT NULL`
-- URL: your n8n webhook endpoint
-- Method: POST
-
-This decouples Astro from n8n entirely.
+The original n8n + Aliyun transcription workflow (previously documented
+here) is parked. If we ever revive it, we'll either move to a paid
+Supabase tier first or pipe audio directly to Aliyun without storing it
+in Supabase.
 
 ## 10. Adding more employees
 

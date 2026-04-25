@@ -73,7 +73,7 @@ const typeColors: Record<string, string> = {
       </a>
     ))}
     <span style="width: 1px; background: var(--border); margin: 0 6px;"></span>
-    {['', '沟通记录', '录音', '重要comment', '状态更新', '会议', '其他'].map(t => (
+    {['', '沟通记录', '重要comment', '状态更新', '会议', '其他'].map(t => (
       <a href={`/internal/submissions?filter=${filter}${t ? `&type=${t}` : ''}`}
         style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${typeFilter === t ? 'var(--primary)' : 'var(--border)'}; color: ${typeFilter === t ? 'var(--primary)' : 'var(--text-muted)'}; background: ${typeFilter === t ? '#e8f0ee' : 'transparent'};`}>
         {t || 'All types'}
