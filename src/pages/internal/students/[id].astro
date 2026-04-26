@@ -65,6 +65,7 @@ const matchedSOPs = findSOPsForStudent(student.contracts).map(m => ({
   deliverables: m.sop.deliverables.map(d => ({
     key: d.key,
     title: d.title,
+    repeats: d.repeats ?? 1,
     emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: student.mid_advisor }),
     emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: student.mid_advisor }),
   })),
@@ -258,7 +259,7 @@ const metaRows: Row[] = [
                   </h3>
                 </span>
                 <span style="font-size: 11px; color: var(--text-soft); white-space: nowrap;">
-                  {m.deliverables.length} 项 · 「{m.contractName}」
+                  {m.deliverables.reduce((s, d) => s + (d.repeats ?? 1), 0)} 项 · 「{m.contractName}」
                 </span>
               </summary>
               <ol style="list-style: none; margin: 0; padding: 8px 14px 14px; counter-reset: sop; border-top: 1px solid var(--border); background: #fafafa;">
@@ -272,7 +273,14 @@ const metaRows: Row[] = [
                           <span class="font-mono" style="display: inline-block; min-width: 22px; font-size: 11px; color: var(--text-soft); font-weight: 700;">
                             {String([...m.deliverables].indexOf(d) + 1).padStart(2, '0')}
                           </span>
-                          <span style="flex: 1;">{d.title}</span>
+                          <span style="flex: 1;">
+                            {d.title}
+                            {d.repeats > 1 && (
+                              <span class="font-mono" style="display: inline-block; margin-left: 8px; padding: 1px 7px; background: var(--primary); color: white; border-radius: 999px; font-size: 10px; font-weight: 700;">
+                                ×{d.repeats}
+                              </span>
+                            )}
+                          </span>
                           <span style="font-size: 11px; color: var(--primary); font-weight: 600;">查看邮件 →</span>
                         </summary>
                         <div style="padding: 14px; background: #fafafa; border-top: 1px solid var(--border); display: grid; gap: 10px;">

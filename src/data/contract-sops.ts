@@ -11,6 +11,9 @@
 export type Deliverable = {
   key: string;
   title: string;
+  // For deliverables that repeat with the same template (e.g. 11 monthly
+  // reports). When > 1, we render a "× N" badge instead of duplicating rows.
+  repeats?: number;
   emailSubject: string;
   emailBody: string;
 };
@@ -68,14 +71,15 @@ const resumeReport: Deliverable = {
 苏州前途中期规划团队`,
 };
 
-function monthlyReport(n: number): Deliverable {
+function monthlyReport(repeats: number): Deliverable {
   return {
-    key: `monthly-${n}`,
-    title: `月度规划报告 #${n}`,
-    emailSubject: `【苏州前途·格物计划】{{学生姓名}} 第 ${n} 月规划报告`,
+    key: 'monthly',
+    title: '月度规划报告',
+    repeats,
+    emailSubject: `【苏州前途·格物计划】{{学生姓名}} 月度规划报告`,
     emailBody: `家长您好：
 
-附件是 {{学生姓名}} 第 ${n} 个月的规划报告。
+附件是 {{学生姓名}} 本月的规划报告。
 
 ▎本月已完成
 - ……
@@ -104,22 +108,14 @@ export const SOPS: ContractSOP[] = [
     id: 'gewu-half',
     displayName: '格物计划（半年期）',
     matchPatterns: ['格物半年', '半年期'],
-    deliverables: [
-      careerPlan,
-      ...Array.from({ length: 5 }, (_, i) => monthlyReport(i + 1)),
-      resumeReport,
-    ],
+    deliverables: [careerPlan, monthlyReport(5), resumeReport],
   },
   {
     id: 'gewu-1y',
     displayName: '格物计划（一年期）',
     // Catch-all: anything with "格物" lands here unless half-year matched first.
     matchPatterns: ['格物一年', '格物计划', '格物'],
-    deliverables: [
-      careerPlan,
-      ...Array.from({ length: 11 }, (_, i) => monthlyReport(i + 1)),
-      resumeReport,
-    ],
+    deliverables: [careerPlan, monthlyReport(11), resumeReport],
   },
 ];
 
