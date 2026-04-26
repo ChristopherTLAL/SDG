@@ -5,7 +5,7 @@
 
 interface Props {
   title: string;
-  active?: 'overview' | 'submit' | 'submissions' | 'students';
+  active?: 'overview' | 'submit' | 'submissions' | 'students' | 'daily-reports';
 }
 
 const { title, active } = Astro.props;
@@ -15,6 +15,7 @@ const navItems: { label: string; href: string; key: NonNullable<Props['active']>
   { label: 'Submit', href: '/internal/submit', key: 'submit' },
   { label: 'Inbox', href: '/internal/submissions', key: 'submissions' },
   { label: 'Students', href: '/internal/students', key: 'students' },
+  { label: 'Daily', href: '/internal/daily-reports', key: 'daily-reports' },
 ];
 ---
 

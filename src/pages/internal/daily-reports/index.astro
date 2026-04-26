@@ -1,0 +1,113 @@
+---
+// src/pages/internal/daily-reports/index.astro — overview of all advisors' daily reports
+import InternalLayout from '../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../lib/supabase/client';
+
+const { data: reportsRaw } = await supabase
+  .from('daily_reports')
+  .select('advisor, body_md, synced_at, obsidian_path')
+  .order('advisor');
+const reports = reportsRaw ?? [];
+
+// For each report, extract the most recent date heading + a tiny preview snippet
+type ReportCard = {
+  advisor: string;
+  latestDate: string | null;
+  preview: string;
+  totalEntries: number;
+  bytes: number;
+  syncedAt: string;
+};
+
+function summarize(body: string | null): { latestDate: string | null; preview: string; totalEntries: number } {
+  if (!body) return { latestDate: null, preview: '', totalEntries: 0 };
+  const lines = body.split('\n');
+  let latestDate: string | null = null;
+  const dateMatches: string[] = [];
+  for (const line of lines) {
+    const m = line.match(/^##\s+(\d{4}-\d{2}-\d{2})/);
+    if (m) {
+      dateMatches.push(m[1]);
+      if (!latestDate) latestDate = m[1];
+    }
+  }
+  // Preview: the first 200 chars of content after the first ## heading
+  const idx = body.search(/^##\s/m);
+  let preview = '';
+  if (idx >= 0) {
+    preview = body.slice(idx).split('\n').slice(1, 6).join('\n').trim();
+    if (preview.length > 240) preview = preview.slice(0, 240) + '…';
+  }
+  return { latestDate, preview, totalEntries: dateMatches.length };
+}
+
+const cards: ReportCard[] = reports.map((r: any) => {
+  const s = summarize(r.body_md);
+  return {
+    advisor: r.advisor,
+    latestDate: s.latestDate,
+    preview: s.preview,
+    totalEntries: s.totalEntries,
+    bytes: r.body_md ? r.body_md.length : 0,
+    syncedAt: r.synced_at,
+  };
+});
+
+// Days since the latest date entry
+const today = new Date();
+function daysSince(d: string | null): number | null {
+  if (!d) return null;
+  return Math.floor((today.getTime() - new Date(d).getTime()) / 86400000);
+}
+
+function fmtKB(b: number): string {
+  if (b < 1024) return `${b} B`;
+  return `${(b / 1024).toFixed(1)} KB`;
+}
+---
+
+<InternalLayout title="Daily Reports" active="daily-reports">
+  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+    <div>
+      <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
+        Daily Reports
+      </h1>
+      <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
+        从 Obsidian 同步的 <code style="font-size: 12px;">02_Project Manager/日报-{'{顾问}'}.md</code>。每个顾问一份 rolling 文件，新的在顶部。
+      </p>
+    </div>
+    <div style="font-size: 13px; color: var(--text-muted);">
+      <strong style="font-size: 22px; font-family: 'JetBrains Mono', monospace;">{cards.length}</strong> 位顾问
+    </div>
+  </div>
+
+  {cards.length === 0 ? (
+    <div style="text-align: center; padding: 80px 24px; color: var(--text-soft); font-size: 14px;">
+      还没有日报文件。在 Obsidian 里写一个 <code>02_Project Manager/日报-王世杰.md</code> 然后跑 <code>npm run sync-students</code>。
+    </div>
+  ) : (
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px;">
+      {cards.map(c => {
+        const ds = daysSince(c.latestDate);
+        const stale = ds !== null && ds > 3;
+        return (
+          <a href={`/internal/daily-reports/${encodeURIComponent(c.advisor)}`}
+             style="display: block; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; text-decoration: none; color: inherit; transition: border-color 0.15s;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px;">
+              <h3 class="font-headline" style="margin: 0; font-size: 16px; font-weight: 700;">
+                {c.advisor}
+              </h3>
+              <span class="font-mono" style={`font-size: 11px; color: ${stale ? 'var(--warning)' : 'var(--text-soft)'};`}>
+                {c.latestDate ?? '—'} {ds !== null && `· ${ds}d 前`}
+              </span>
+            </div>
+            <div style="font-size: 11px; color: var(--text-soft); margin-bottom: 10px;">
+              {c.totalEntries} 个日期条目 · {fmtKB(c.bytes)}
+            </div>
+            <pre style="margin: 0; font-family: inherit; font-size: 12px; line-height: 1.5; color: var(--text-muted); white-space: pre-wrap; word-break: break-word; max-height: 100px; overflow: hidden;">{c.preview || '(暂无最近条目)'}</pre>
+          </a>
+        );
+      })}
+    </div>
+  )}
+</InternalLayout>

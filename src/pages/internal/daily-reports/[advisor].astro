@@ -1,0 +1,183 @@
+---
+// src/pages/internal/daily-reports/[advisor].astro — single advisor's daily report
+import InternalLayout from '../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../lib/supabase/client';
+import { buildWikilinkIndex, resolveWikilinks } from '../../../utils/wikilinks';
+import { marked } from 'marked';
+
+const { advisor } = Astro.params;
+const advisorName = decodeURIComponent(advisor ?? '');
+
+if (!advisorName) {
+  return Astro.redirect('/internal/daily-reports');
+}
+
+const { data: report, error } = await supabase
+  .from('daily_reports')
+  .select('advisor, body_md, synced_at, obsidian_path')
+  .eq('advisor', advisorName)
+  .single();
+
+if (error || !report) {
+  return new Response(`No daily report found for ${advisorName}`, { status: 404 });
+}
+
+// Wikilink resolver (scope: students + their notes — same as detail page)
+const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
+const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
+const wikiIndex = buildWikilinkIndex({
+  students: allStudents ?? [],
+  notes: allNotes ?? [],
+});
+
+marked.setOptions({ gfm: true, breaks: true });
+const html = (() => {
+  const body = report.body_md ?? '';
+  if (!body.trim()) return '';
+  const preprocessed = resolveWikilinks(body, wikiIndex);
+  return marked.parse(preprocessed) as string;
+})();
+
+// Extract all date entries for the right-side TOC
+type Entry = { date: string; lineCount: number };
+const dateEntries: Entry[] = [];
+if (report.body_md) {
+  const lines = report.body_md.split('\n');
+  let cur: { date: string; start: number } | null = null;
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^##\s+(\d{4}-\d{2}-\d{2})/);
+    if (m) {
+      if (cur) dateEntries.push({ date: cur.date, lineCount: i - cur.start });
+      cur = { date: m[1], start: i };
+    }
+  }
+  if (cur) dateEntries.push({ date: cur.date, lineCount: lines.length - cur.start });
+}
+
+// All advisors for the picker
+const { data: allAdvisors } = await supabase
+  .from('daily_reports')
+  .select('advisor')
+  .order('advisor');
+
+function dateAnchor(d: string): string {
+  return `d-${d}`;
+}
+---
+
+<InternalLayout title={`Daily Report — ${advisorName}`} active="daily-reports">
+  <div style="margin-bottom: 8px;">
+    <a href="/internal/daily-reports" style="font-size: 12px; color: var(--text-soft); font-weight: 600;">
+      ← Daily Reports
+    </a>
+  </div>
+
+  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
+    <h1 class="font-headline" style="font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
+      日报 · {advisorName}
+    </h1>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      {(allAdvisors ?? []).filter((a: any) => a.advisor !== advisorName).map((a: any) => (
+        <a href={`/internal/daily-reports/${encodeURIComponent(a.advisor)}`}
+           style="font-size: 11px; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-weight: 600;">
+          {a.advisor}
+        </a>
+      ))}
+    </div>
+  </div>
+  <p style="color: var(--text-soft); font-size: 12px; margin: 0 0 24px; font-family: 'JetBrains Mono', monospace;">
+    {report.obsidian_path} · 同步于 {new Date(report.synced_at).toLocaleString('zh-CN')}
+  </p>
+
+  <div style="display: grid; grid-template-columns: 1fr 220px; gap: 32px; align-items: start;">
+    <article style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 24px 32px;">
+      {html ? (
+        <div class="md-body daily-report-body" set:html={html} />
+      ) : (
+        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">日报为空。</p>
+      )}
+    </article>
+
+    <aside style="position: sticky; top: 16px;">
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px;">
+        时间轴 ({dateEntries.length})
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; max-height: 70vh; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-raised);">
+        {dateEntries.slice(0, 60).map(e => (
+          <li>
+            <a href={`#${dateAnchor(e.date)}`}
+               style="display: flex; align-items: baseline; justify-content: space-between; padding: 8px 12px; font-size: 12px; color: var(--text); border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace;">
+              <span>{e.date}</span>
+              <span style="color: var(--text-soft); font-size: 11px;">{e.lineCount}L</span>
+            </a>
+          </li>
+        ))}
+        {dateEntries.length > 60 && (
+          <li style="padding: 8px 12px; font-size: 11px; color: var(--text-soft); text-align: center;">
+            … 还有 {dateEntries.length - 60} 个更早的条目
+          </li>
+        )}
+      </ul>
+    </aside>
+  </div>
+</InternalLayout>
+
+<script is:inline>
+  // Auto-attach id="d-YYYY-MM-DD" to ## date headings so the TOC anchors work.
+  document.querySelectorAll('.daily-report-body h2').forEach(h => {
+    const m = h.textContent && h.textContent.match(/^(\d{4}-\d{2}-\d{2})/);
+    if (m) h.id = 'd-' + m[1];
+  });
+</script>
+
+<style is:global>
+  .md-body { font-size: 14px; line-height: 1.65; color: var(--text); }
+  .md-body p { margin: 0 0 12px; }
+  .md-body h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    margin: 24px 0 10px;
+    font-size: 17px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 80px;
+  }
+  .md-body h2:first-child { margin-top: 0; }
+  .md-body ul, .md-body ol { padding-left: 22px; margin: 0 0 12px; }
+  .md-body li { margin: 4px 0; }
+  .md-body code {
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+  }
+  .md-body a { color: var(--primary); text-decoration: underline; text-decoration-color: rgba(4, 47, 36, 0.3); text-underline-offset: 2px; }
+  .md-body a:hover { text-decoration-color: var(--primary); }
+  .md-body strong { font-weight: 700; }
+
+  .wikilink-student, .wikilink-note {
+    color: var(--primary);
+    background: rgba(4, 47, 36, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .wikilink-student:hover, .wikilink-note:hover {
+    background: rgba(4, 47, 36, 0.12);
+  }
+  .wikilink-attachment {
+    color: var(--text-muted);
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+  }
+  .wikilink-unresolved {
+    color: var(--text-soft);
+    background: transparent;
+    border-bottom: 1px dashed var(--text-soft);
+    padding: 0 2px;
+  }
+</style>

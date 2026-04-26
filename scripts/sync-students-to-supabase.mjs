@@ -20,6 +20,7 @@ import 'dotenv/config';
 const VAULT = process.env.OBSIDIAN_VAULT_ROOT ||
   '/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板';
 const STUDENT_DIR = join(VAULT, '01_Student');
+const REPORTS_DIR = join(VAULT, '02_Project Manager');
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -235,6 +236,51 @@ async function syncStudentNotes(studentIdByName, notesByStudentName) {
   return { totalNotes, totalStudents };
 }
 
+// Read all 02_Project Manager/日报-*.md files and upsert into daily_reports.
+async function syncDailyReports() {
+  let entries;
+  try {
+    entries = await readdir(REPORTS_DIR, { withFileTypes: true });
+  } catch {
+    return { count: 0, advisors: [] };
+  }
+
+  const reports = [];
+  for (const e of entries) {
+    if (!e.isFile()) continue;
+    const m = e.name.match(/^日报-(.+)\.md$/);
+    if (!m) continue;
+    const advisor = m[1].trim();
+    if (!advisor) continue;
+
+    let body = '';
+    try {
+      body = await readFile(join(REPORTS_DIR, e.name), 'utf8');
+    } catch {
+      continue;
+    }
+    reports.push({
+      advisor,
+      body_md: body,
+      obsidian_path: `02_Project Manager/${e.name}`,
+      synced_at: new Date().toISOString(),
+    });
+  }
+
+  if (!reports.length) return { count: 0, advisors: [] };
+
+  const { error } = await supabase
+    .from('daily_reports')
+    .upsert(reports, { onConflict: 'advisor', ignoreDuplicates: false });
+
+  if (error) {
+    console.warn('  ⚠  daily_reports upsert failed:', error.message);
+    return { count: 0, advisors: [] };
+  }
+
+  return { count: reports.length, advisors: reports.map(r => r.advisor) };
+}
+
 async function main() {
   console.log(`Reading vault at ${STUDENT_DIR} …`);
   const { records, notesByStudentName } = await loadStudents();
@@ -268,6 +314,10 @@ async function main() {
   const studentIdByName = new Map((data ?? []).map(r => [r.name, r.id]));
   const { totalNotes, totalStudents } = await syncStudentNotes(studentIdByName, notesByStudentName);
   console.log(`\n✅ Synced ${totalNotes} communication notes across ${totalStudents} students.`);
+
+  // Sync per-advisor daily reports.
+  const { count: dailyCount, advisors } = await syncDailyReports();
+  console.log(`\n✅ Synced ${dailyCount} daily report${dailyCount === 1 ? '' : 's'}: ${advisors.join(', ') || '—'}`);
 }
 
 main().catch(err => {
