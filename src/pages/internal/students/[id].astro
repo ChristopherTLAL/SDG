@@ -5,6 +5,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
+import { findSOPsForStudent, substitute } from '../../../data/contract-sops';
 import { marked } from 'marked';
 
 const { id } = Astro.params;
@@ -54,6 +55,19 @@ const renderedNotes = (notes ?? []).map(n => ({
   ...n,
   html: renderMarkdown(n.body_md),
   anchor: noteAnchor(n.note_name),
+}));
+
+// Match contracts to SOP definitions and pre-substitute placeholders so the
+// emails appear with the student's name + advisor already filled in.
+const matchedSOPs = findSOPsForStudent(student.contracts).map(m => ({
+  contractName: m.contractName,
+  sop: m.sop,
+  deliverables: m.sop.deliverables.map(d => ({
+    key: d.key,
+    title: d.title,
+    emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: student.mid_advisor }),
+    emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: student.mid_advisor }),
+  })),
 }));
 
 // Days since last contact (for the badge)
@@ -227,6 +241,87 @@ const metaRows: Row[] = [
             }
           });
         })();
+      </script>
+
+      {matchedSOPs.length > 0 && (
+        <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 24px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
+            合同 SOP
+          </div>
+          {matchedSOPs.map(m => (
+            <div style="margin-bottom: 18px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border);">
+                <h3 class="font-headline" style="margin: 0; font-size: 15px; font-weight: 700;">
+                  {m.sop.displayName}
+                </h3>
+                <span style="font-size: 11px; color: var(--text-soft);">
+                  {m.deliverables.length} 项交付 · 合同名："{m.contractName}"
+                </span>
+              </div>
+              <ol style="list-style: none; margin: 0; padding: 0; counter-reset: sop;">
+                {m.deliverables.map(d => {
+                  const subjectId = `subj-${m.sop.id}-${d.key}`;
+                  const bodyId = `body-${m.sop.id}-${d.key}`;
+                  return (
+                    <li style="counter-increment: sop; padding: 4px 0;">
+                      <details style="border: 1px solid var(--border); border-radius: 8px; padding: 0; overflow: hidden;">
+                        <summary style="cursor: pointer; padding: 10px 14px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; list-style: none;">
+                          <span class="font-mono" style="display: inline-block; min-width: 22px; font-size: 11px; color: var(--text-soft); font-weight: 700;">
+                            {String([...m.deliverables].indexOf(d) + 1).padStart(2, '0')}
+                          </span>
+                          <span style="flex: 1;">{d.title}</span>
+                          <span style="font-size: 11px; color: var(--primary); font-weight: 600;">查看邮件 →</span>
+                        </summary>
+                        <div style="padding: 14px; background: #fafafa; border-top: 1px solid var(--border); display: grid; gap: 10px;">
+                          <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">主题</span>
+                              <button type="button" class="sop-copy" data-target={subjectId}
+                                style="font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); background: white; border-radius: 4px; cursor: pointer; font-weight: 600; color: var(--primary);">
+                                复制
+                              </button>
+                            </div>
+                            <pre id={subjectId} style="margin: 0; padding: 8px 10px; background: white; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 13px; white-space: pre-wrap; word-break: break-word;">{d.emailSubject}</pre>
+                          </div>
+                          <div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">正文</span>
+                              <button type="button" class="sop-copy" data-target={bodyId}
+                                style="font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); background: white; border-radius: 4px; cursor: pointer; font-weight: 600; color: var(--primary);">
+                                复制
+                              </button>
+                            </div>
+                            <pre id={bodyId} style="margin: 0; padding: 10px 12px; background: white; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">{d.emailBody}</pre>
+                          </div>
+                        </div>
+                      </details>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))}
+          <p style="font-size: 11px; color: var(--text-soft); margin: 4px 0 0; line-height: 1.5;">
+            邮件模板在 <code style="font-size: 11px;">src/data/contract-sops.ts</code>。改完 push 一下就生效。占位符 <code style="font-size: 11px;">{'{{学生姓名}}'}</code> 和 <code style="font-size: 11px;">{'{{中期顾问}}'}</code> 已自动替换。
+          </p>
+        </section>
+      )}
+
+      <script is:inline>
+        document.addEventListener('click', async (e) => {
+          const btn = e.target.closest && e.target.closest('.sop-copy');
+          if (!btn) return;
+          const target = document.getElementById(btn.dataset.target);
+          if (!target) return;
+          try {
+            await navigator.clipboard.writeText(target.textContent);
+            const old = btn.textContent;
+            btn.textContent = '✓ 已复制';
+            setTimeout(() => { btn.textContent = old; }, 1500);
+          } catch (err) {
+            btn.textContent = '✗ 失败';
+          }
+        });
       </script>
 
       <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 24px;">
