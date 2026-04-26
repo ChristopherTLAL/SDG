@@ -27,6 +27,24 @@ const { count: unprocessedCount } = await supabase
   .select('id', { count: 'exact', head: true })
   .eq('processed', false);
 
+// Generate signed download URLs for any attachments (1 hour expiry).
+// Stored as bucket-relative paths; we mint URLs at render time.
+const SIGN_TTL = 3600;
+const filesToSign = submissions
+  .flatMap((s: any) => [s.attachment_url, s.audio_url].filter(Boolean));
+const signedByPath = new Map<string, string>();
+if (filesToSign.length) {
+  const { data: signed } = await supabase.storage
+    .from('submissions')
+    .createSignedUrls(filesToSign, SIGN_TTL);
+  for (const item of signed ?? []) {
+    if (item.path && item.signedUrl) signedByPath.set(item.path, item.signedUrl);
+  }
+}
+function basename(path: string): string {
+  return path.split('/').pop() ?? path;
+}
+
 function fmt(dt: string | null): string {
   if (!dt) return '—';
   const d = new Date(dt);
@@ -118,7 +136,7 @@ const typeColors: Record<string, string> = {
           </div>
           <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;">
             <h3 style="margin: 0; font-size: 16px; font-weight: 700;">
-              <a href={`/internal/students${s.student_id ? `#${s.student_id}` : ''}`} style="color: var(--primary); border-bottom: 1px dashed var(--primary); padding-bottom: 1px;">
+              <a href={s.student_id ? `/internal/students/${s.student_id}` : '/internal/students'} style="color: var(--primary); border-bottom: 1px dashed var(--primary); padding-bottom: 1px;">
                 {displayName}
               </a>
               {isNew && <span style="font-size: 10px; background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 700;">新客</span>}
@@ -157,14 +175,43 @@ const typeColors: Record<string, string> = {
             </div>
           )}
 
-          <div style="display: flex; gap: 10px; align-items: center; margin-top: 12px; font-size: 12px;">
+          <div style="display: flex; gap: 10px; align-items: center; margin-top: 12px; font-size: 12px; flex-wrap: wrap;">
             {s.audio_url && (
-              <span style="color: var(--text-muted);">🎙 <code style="font-size: 11px;">{s.audio_url}</code></span>
+              signedByPath.get(s.audio_url)
+                ? <a href={signedByPath.get(s.audio_url)} target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">🎙 {basename(s.audio_url)}</a>
+                : <span style="color: var(--text-soft);">🎙 {basename(s.audio_url)} <em>(URL 失败)</em></span>
             )}
             {s.attachment_url && (
-              <span style="color: var(--text-muted);">📎 <code style="font-size: 11px;">{s.attachment_url}</code></span>
+              signedByPath.get(s.attachment_url)
+                ? <a href={signedByPath.get(s.attachment_url)} target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">📎 {basename(s.attachment_url)}</a>
+                : <span style="color: var(--text-soft);">📎 {basename(s.attachment_url)} <em>(URL 失败)</em></span>
             )}
             <span style="flex: 1;"></span>
+            <button
+              class="copy-md"
+              data-id={s.id}
+              data-payload={JSON.stringify({
+                id: s.id,
+                type: s.type,
+                submitted_at: s.submitted_at,
+                submitted_by: s.submitted_by,
+                summary: s.summary,
+                content: s.content,
+                student_name: displayName,
+                student_id: s.student_id,
+                mid_advisor: student?.mid_advisor ?? null,
+                early_advisor: null,
+                stage: student?.stage ?? null,
+                ai_transcript: s.ai_transcript,
+                ai_summary: s.ai_summary,
+                attachment_url: s.attachment_url,
+                attachment_signed: s.attachment_url ? (signedByPath.get(s.attachment_url) ?? null) : null,
+                audio_url: s.audio_url,
+                audio_signed: s.audio_url ? (signedByPath.get(s.audio_url) ?? null) : null,
+              })}
+              style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: white; color: var(--primary); font-weight: 600; font-size: 12px; cursor: pointer;">
+              复制为 markdown
+            </button>
             <button
               class="toggle-processed"
               data-id={s.id}
@@ -195,6 +242,75 @@ const typeColors: Record<string, string> = {
         } catch (err) {
           alert('Failed: ' + err.message);
           btn.disabled = false;
+        }
+      });
+    });
+
+    function buildMarkdown(p) {
+      const lines = [];
+      lines.push('---');
+      lines.push(`submission_id: ${p.id}`);
+      lines.push(`type: ${p.type}`);
+      lines.push(`submitted_at: ${p.submitted_at}`);
+      if (p.submitted_by) lines.push(`submitted_by: ${p.submitted_by}`);
+      lines.push(`student: ${p.student_name}`);
+      if (p.student_id) lines.push(`student_id: ${p.student_id}`);
+      if (p.mid_advisor) lines.push(`mid_advisor: ${p.mid_advisor}`);
+      if (p.stage) lines.push(`stage: ${p.stage}`);
+      lines.push('---');
+      lines.push('');
+      lines.push(`# ${p.type} · ${p.student_name} · ${p.submitted_at?.slice(0, 10) ?? ''}`);
+      lines.push('');
+      if (p.summary) {
+        lines.push('## 摘要');
+        lines.push(p.summary);
+        lines.push('');
+      }
+      if (p.content) {
+        lines.push('## 详细内容');
+        lines.push(p.content);
+        lines.push('');
+      }
+      if (p.ai_transcript) {
+        lines.push('## AI 转写');
+        lines.push(p.ai_transcript);
+        lines.push('');
+      }
+      if (p.ai_summary) {
+        lines.push('## AI 摘要');
+        lines.push(p.ai_summary);
+        lines.push('');
+      }
+      if (p.attachment_url || p.audio_url) {
+        lines.push('## 附件');
+        if (p.attachment_url) {
+          const name = p.attachment_url.split('/').pop();
+          lines.push(p.attachment_signed
+            ? `- [${name}](${p.attachment_signed}) (signed URL，1 小时内有效)`
+            : `- ${name} (Supabase Storage path: ${p.attachment_url})`);
+        }
+        if (p.audio_url) {
+          const name = p.audio_url.split('/').pop();
+          lines.push(p.audio_signed
+            ? `- 🎙 [${name}](${p.audio_signed}) (signed URL，1 小时内有效)`
+            : `- 🎙 ${name} (Supabase Storage path: ${p.audio_url})`);
+        }
+        lines.push('');
+      }
+      return lines.join('\n');
+    }
+
+    document.querySelectorAll('.copy-md').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          const payload = JSON.parse(btn.dataset.payload);
+          const md = buildMarkdown(payload);
+          await navigator.clipboard.writeText(md);
+          const old = btn.textContent;
+          btn.textContent = '✓ 已复制';
+          setTimeout(() => { btn.textContent = old; }, 1500);
+        } catch (err) {
+          alert('复制失败：' + err.message);
         }
       });
     });
