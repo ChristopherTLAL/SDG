@@ -249,16 +249,19 @@ const metaRows: Row[] = [
             合同 SOP
           </div>
           {matchedSOPs.map(m => (
-            <div style="margin-bottom: 18px;">
-              <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border);">
-                <h3 class="font-headline" style="margin: 0; font-size: 15px; font-weight: 700;">
-                  {m.sop.displayName}
-                </h3>
-                <span style="font-size: 11px; color: var(--text-soft);">
-                  {m.deliverables.length} 项交付 · 合同名："{m.contractName}"
+            <details style="margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px;">
+              <summary style="cursor: pointer; padding: 12px 14px; list-style: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+                <span style="display: flex; align-items: baseline; gap: 10px;">
+                  <span style="display: inline-block; transition: transform 0.15s;" class="sop-chevron">▸</span>
+                  <h3 class="font-headline" style="margin: 0; font-size: 14px; font-weight: 700;">
+                    {m.sop.displayName}
+                  </h3>
                 </span>
-              </div>
-              <ol style="list-style: none; margin: 0; padding: 0; counter-reset: sop;">
+                <span style="font-size: 11px; color: var(--text-soft); white-space: nowrap;">
+                  {m.deliverables.length} 项 · 「{m.contractName}」
+                </span>
+              </summary>
+              <ol style="list-style: none; margin: 0; padding: 8px 14px 14px; counter-reset: sop; border-top: 1px solid var(--border); background: #fafafa;">
                 {m.deliverables.map(d => {
                   const subjectId = `subj-${m.sop.id}-${d.key}`;
                   const bodyId = `body-${m.sop.id}-${d.key}`;
@@ -299,13 +302,17 @@ const metaRows: Row[] = [
                   );
                 })}
               </ol>
-            </div>
+            </details>
           ))}
-          <p style="font-size: 11px; color: var(--text-soft); margin: 4px 0 0; line-height: 1.5;">
+          <p style="font-size: 11px; color: var(--text-soft); margin: 10px 0 0; line-height: 1.5;">
             邮件模板在 <code style="font-size: 11px;">src/data/contract-sops.ts</code>。改完 push 一下就生效。占位符 <code style="font-size: 11px;">{'{{学生姓名}}'}</code> 和 <code style="font-size: 11px;">{'{{中期顾问}}'}</code> 已自动替换。
           </p>
         </section>
       )}
+
+      <style>
+        details[open] > summary > span > .sop-chevron { transform: rotate(90deg); }
+      </style>
 
       <script is:inline>
         document.addEventListener('click', async (e) => {
