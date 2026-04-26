@@ -4,18 +4,19 @@ import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 import {
   tierFor, tierStyle, tierLabel, daysSinceToday,
-  inTriage, tierRank, type RadarTier,
+  inTriage, tierRank, isInactive, type RadarTier,
 } from '../../utils/contact-radar';
+
+const url = new URL(Astro.request.url);
+const includeInactive = url.searchParams.get('include_inactive') === '1';
 
 // Parallel fetches
 const [
-  { count: totalStudents },
   { count: unprocessed },
   { data: recentSubmissions },
   { data: allActiveStudents },
   { data: recentNotes },
 ] = await Promise.all([
-  supabase.from('students').select('id', { count: 'exact', head: true }),
   supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('processed', false),
   supabase
     .from('submissions')
@@ -40,11 +41,14 @@ type StudentRow = {
   stage: string | null; last_contact_at: string | null; enroll_year: string | null;
 };
 
-const students: (StudentRow & { daysSince: number | null; tier: RadarTier })[] =
+const allStudentsTagged: (StudentRow & { daysSince: number | null; tier: RadarTier })[] =
   (allActiveStudents ?? []).map((s: any) => {
     const ds = daysSinceToday(s.last_contact_at);
     return { ...s, daysSince: ds, tier: tierFor(ds, s.stage) };
   });
+
+const inactiveCount = allStudentsTagged.filter(s => isInactive(s.stage)).length;
+const students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));
 
 // ── Triage (pink and worse, sorted most-overdue first) ──
 const triage = students
@@ -128,18 +132,24 @@ function fmtDateTime(dt: string | null): string {
 ---
 
 <InternalLayout title="Overview" active="overview">
-  <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
-    Overview
-  </h1>
+  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
+    <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
+      Overview
+    </h1>
+    <a href={includeInactive ? '/internal' : '/internal?include_inactive=1'}
+      style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'}; white-space: nowrap;`}>
+      {includeInactive ? `✓ 已包含 已结案/退费 (${inactiveCount})` : `+ 包含 已结案/退费 (${inactiveCount})`}
+    </a>
+  </div>
   <p style="color: var(--text-muted); margin: 0 0 28px; font-size: 14px;">
-    分诊台。先看 Triage，再看 cohort × advisor 结构。
+    分诊台。先看 Triage，再看 cohort × advisor 结构。{!includeInactive && '已结案/退费 学生默认不计入。'}
   </p>
 
   <!-- ── Stat strip ── -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px;">
     <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;">
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">学生总数</div>
-      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{totalStudents ?? 0}</div>
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">{includeInactive ? '学生总数' : '在管学生'}</div>
+      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{students.length}</div>
     </div>
     <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('critical').border}; border-radius: 10px; padding: 16px 18px;`}>
       <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">⚠️ 28d+ 失联</div>

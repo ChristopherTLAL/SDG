@@ -4,10 +4,14 @@
 
 export type RadarTier = 'green' | 'yellow' | 'pink' | 'red' | 'critical' | 'inactive' | 'unknown';
 
-const INACTIVE_STAGES = new Set(['已结案', '退费', '已完成']);
+export const INACTIVE_STAGES = new Set(['已结案', '退费', '已完成']);
+
+export function isInactive(stage: string | null | undefined): boolean {
+  return !!stage && INACTIVE_STAGES.has(stage);
+}
 
 export function tierFor(daysSince: number | null, stage?: string | null): RadarTier {
-  if (stage && INACTIVE_STAGES.has(stage)) return 'inactive';
+  if (isInactive(stage)) return 'inactive';
   if (daysSince === null || daysSince === undefined) return 'unknown';
   if (daysSince < 7) return 'green';
   if (daysSince < 14) return 'yellow';

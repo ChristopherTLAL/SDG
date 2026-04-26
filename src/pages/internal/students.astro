@@ -2,12 +2,13 @@
 // src/pages/internal/students.astro — student roster (read-only, sourced from Obsidian)
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
-import { tierFor, tierStyle, tierLabel, daysSinceToday } from '../../utils/contact-radar';
+import { tierFor, tierStyle, tierLabel, daysSinceToday, isInactive, INACTIVE_STAGES } from '../../utils/contact-radar';
 
 const url = new URL(Astro.request.url);
 const stageFilter = url.searchParams.get('stage') || '';
 const advisorFilter = url.searchParams.get('advisor') || '';
 const cohortFilter = url.searchParams.get('cohort') || '';
+const includeInactive = url.searchParams.get('include_inactive') === '1';
 
 let q = supabase
   .from('students')
@@ -16,9 +17,21 @@ let q = supabase
 if (stageFilter) q = q.eq('stage', stageFilter);
 if (advisorFilter) q = q.eq('mid_advisor', advisorFilter);
 if (cohortFilter) q = q.eq('enroll_year', cohortFilter);
+// If a specific inactive stage is being filtered, always show those rows
+// regardless of the include_inactive toggle.
+const stageIsInactive = stageFilter && INACTIVE_STAGES.has(stageFilter);
+if (!includeInactive && !stageIsInactive) {
+  q = q.not('stage', 'in', `(${Array.from(INACTIVE_STAGES).join(',')})`);
+}
 
 const { data: studentsRaw, error } = await q.order('last_contact_at', { ascending: false, nullsFirst: false }).limit(500);
 const students = studentsRaw ?? [];
+
+// Count of inactive students total (for the toggle badge)
+const { count: inactiveCount } = await supabase
+  .from('students')
+  .select('id', { count: 'exact', head: true })
+  .in('stage', Array.from(INACTIVE_STAGES));
 
 const withRadar = students.map((s: any) => {
   const ds = daysSinceToday(s.last_contact_at);
@@ -39,7 +52,13 @@ const yellowCount = withRadar.filter((s: any) => s.tier === 'yellow').length;
 
 function buildHref(overrides: Record<string, string>): string {
   const params = new URLSearchParams();
-  const next = { stage: stageFilter, advisor: advisorFilter, cohort: cohortFilter, ...overrides };
+  const next: Record<string, string> = {
+    stage: stageFilter,
+    advisor: advisorFilter,
+    cohort: cohortFilter,
+    include_inactive: includeInactive ? '1' : '',
+    ...overrides,
+  };
   for (const [k, v] of Object.entries(next)) {
     if (v) params.set(k, v);
   }
@@ -54,9 +73,13 @@ function buildHref(overrides: Record<string, string>): string {
       <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
         Students
       </h1>
-      <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
-        从 Obsidian YAML 同步。页面只读，改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。
+      <p style="color: var(--text-muted); margin: 0 0 8px; font-size: 14px;">
+        从 Obsidian YAML 同步。页面只读，改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。{!includeInactive && '已结案/退费 默认不显示。'}
       </p>
+      <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
+        style={`display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'};`}>
+        {includeInactive ? `✓ 已包含 已结案/退费 (${inactiveCount ?? 0})` : `+ 包含 已结案/退费 (${inactiveCount ?? 0})`}
+      </a>
     </div>
     <div style="display: flex; gap: 18px; font-size: 12px; color: var(--text-muted); align-items: baseline;">
       <div title="28d+ 没联系">
