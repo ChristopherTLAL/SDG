@@ -1,0 +1,54 @@
+---
+// Debug-only endpoint — shows raw CF Access headers + middleware viewer state.
+// Used to diagnose why identity isn't reaching the app. Safe to leave in (CF
+// Access still gates this path), but can be removed after debugging.
+
+const h = Astro.request.headers;
+
+const relevant: Record<string, string | null> = {
+  'cf-access-authenticated-user-email': h.get('cf-access-authenticated-user-email'),
+  'cf-access-jwt-assertion-present':    h.get('cf-access-jwt-assertion') ? `(present, ${h.get('cf-access-jwt-assertion')!.length} chars)` : null,
+  'cf-connecting-ip':                   h.get('cf-connecting-ip'),
+  'cf-ipcountry':                       h.get('cf-ipcountry'),
+  'cf-ray':                             h.get('cf-ray'),
+  'x-forwarded-for':                    h.get('x-forwarded-for'),
+};
+
+const allCfHeaders: Record<string, string> = {};
+for (const [k, v] of h.entries()) {
+  if (k.toLowerCase().startsWith('cf-')) allCfHeaders[k] = v.length > 80 ? v.slice(0, 60) + ' …(truncated)' : v;
+}
+
+const viewer = Astro.locals?.viewer ?? null;
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>whoami debug</title>
+  <style>
+    body { font-family: 'JetBrains Mono', ui-monospace, monospace; padding: 24px; max-width: 900px; margin: 0 auto; font-size: 13px; line-height: 1.6; }
+    h2 { font-size: 14px; margin-top: 24px; color: #042f24; }
+    pre { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px; overflow-x: auto; }
+    .ok { color: #059669; }
+    .miss { color: #dc2626; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size: 18px;">whoami · debug</h1>
+
+  <h2>Astro.locals.viewer (resolved by middleware)</h2>
+  <pre>{JSON.stringify(viewer, null, 2)}</pre>
+  <p>{viewer ? <span class="ok">✓ viewer resolved</span> : <span class="miss">✗ viewer is null — middleware couldn't extract identity</span>}</p>
+
+  <h2>Relevant headers</h2>
+  <pre>{JSON.stringify(relevant, null, 2)}</pre>
+
+  <h2>All Cf-* headers</h2>
+  <pre>{JSON.stringify(allCfHeaders, null, 2)}</pre>
+
+  <h2>Path</h2>
+  <pre>{Astro.url.pathname}</pre>
+</body>
+</html>
