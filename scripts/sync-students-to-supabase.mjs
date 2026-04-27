@@ -302,7 +302,7 @@ async function syncAdvisors() {
     });
   }
 
-  if (!records.length) return { count: 0, names: [] };
+  if (!records.length) return { count: 0, names: [], emails: [] };
 
   const { error } = await supabase
     .from('advisors')
@@ -310,10 +310,31 @@ async function syncAdvisors() {
 
   if (error) {
     console.warn('  ⚠  advisors upsert failed:', error.message);
-    return { count: 0, names: [] };
+    return { count: 0, names: [], emails: [] };
   }
 
-  return { count: records.length, names: records.map(r => r.name) };
+  // Prune: drop DB advisors no longer in vault
+  const vaultNames = new Set(records.map(r => r.name));
+  const { data: dbAll } = await supabase.from('advisors').select('id, name');
+  const orphans = (dbAll ?? []).filter(r => !vaultNames.has(r.name));
+  if (orphans.length > 0) {
+    if (records.length < (dbAll?.length ?? 0) * 0.5) {
+      console.warn(`  ⚠  Refusing to prune advisors: vault has ${records.length} but DB has ${dbAll?.length}`);
+    } else {
+      const { error: delErr } = await supabase.from('advisors').delete().in('id', orphans.map(r => r.id));
+      if (delErr) {
+        console.warn('  ⚠  Advisor prune failed:', delErr.message);
+      } else {
+        console.log(`🧹 Pruned ${orphans.length} advisor${orphans.length === 1 ? '' : 's'}: ${orphans.map(r => r.name).join(', ')}`);
+      }
+    }
+  }
+
+  return {
+    count: records.length,
+    names: records.map(r => r.name),
+    emails: records.map(r => r.email).filter(Boolean),
+  };
 }
 
 // Read all 02_Project Manager/日报-*.md files and upsert into daily_reports.
@@ -358,7 +379,117 @@ async function syncDailyReports() {
     return { count: 0, advisors: [] };
   }
 
+  // Prune: drop DB daily_reports for advisors no longer in vault
+  const vaultAdvisors = new Set(reports.map(r => r.advisor));
+  const { data: dbAll } = await supabase.from('daily_reports').select('advisor');
+  const orphans = (dbAll ?? []).filter(r => !vaultAdvisors.has(r.advisor));
+  if (orphans.length > 0) {
+    if (reports.length < (dbAll?.length ?? 0) * 0.5) {
+      console.warn(`  ⚠  Refusing to prune daily_reports: vault has ${reports.length} but DB has ${dbAll?.length}`);
+    } else {
+      const { error: delErr } = await supabase
+        .from('daily_reports')
+        .delete()
+        .in('advisor', orphans.map(r => r.advisor));
+      if (delErr) {
+        console.warn('  ⚠  daily_reports prune failed:', delErr.message);
+      } else {
+        console.log(`🧹 Pruned ${orphans.length} daily report${orphans.length === 1 ? '' : 's'}: ${orphans.map(r => r.advisor).join(', ')}`);
+      }
+    }
+  }
+
   return { count: reports.length, advisors: reports.map(r => r.advisor) };
+}
+
+// Replace the OTP policy's include list with explicit per-advisor emails so
+// that a departing advisor (file removed from vault) automatically loses
+// access. The personal admin failsafe (christophertlal@outlook.com) is always
+// retained so we can't lock ourselves out if a vault read goes sideways.
+async function syncCFAccessPolicy(advisorEmails) {
+  const token     = process.env.CF_API_TOKEN;
+  const accountId = process.env.CF_ACCOUNT_ID;
+  const policyId  = process.env.CF_ACCESS_OTP_POLICY_ID;
+
+  if (!token || !accountId || !policyId) {
+    console.log('  · CF Access policy sync: skipping (missing CF_API_TOKEN / CF_ACCOUNT_ID / CF_ACCESS_OTP_POLICY_ID)');
+    return;
+  }
+
+  const FAILSAFE_EMAILS = ['christophertlal@outlook.com'];
+  const desired = Array.from(
+    new Set(
+      [...advisorEmails, ...FAILSAFE_EMAILS]
+        .map(e => String(e || '').trim().toLowerCase())
+        .filter(Boolean)
+    )
+  ).sort();
+
+  // If only the failsafe survives, vault read almost certainly failed — bail.
+  if (desired.length <= FAILSAFE_EMAILS.length) {
+    console.warn(`  ⚠  CF Access policy: refusing to wipe — only ${desired.length} email(s) resolved.`);
+    return;
+  }
+
+  const headers = {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
+  };
+  const policyUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/access/policies/${policyId}`;
+
+  let current;
+  try {
+    const res = await fetch(policyUrl, { headers });
+    const j = await res.json();
+    if (!j.success) {
+      console.warn('  ⚠  CF Access policy GET failed:', JSON.stringify(j.errors));
+      return;
+    }
+    current = j.result;
+  } catch (err) {
+    console.warn('  ⚠  CF Access policy GET errored:', err.message);
+    return;
+  }
+
+  // Skip the PUT when the include list already matches: same set of explicit
+  // emails AND no leftover wildcard rules (email_domain etc.).
+  const currentEmails = (current.include ?? [])
+    .map(rule => rule?.email?.email)
+    .filter(Boolean)
+    .map(e => e.toLowerCase())
+    .sort();
+  const allExplicit = (current.include ?? []).every(rule => rule?.email?.email);
+  const sameSet = allExplicit
+    && currentEmails.length === desired.length
+    && currentEmails.every((e, i) => e === desired[i]);
+  if (sameSet) {
+    console.log(`  · CF Access policy already in sync (${desired.length} email${desired.length === 1 ? '' : 's'})`);
+    return;
+  }
+
+  const body = {
+    name:     current.name,
+    decision: current.decision,
+    include:  desired.map(email => ({ email: { email } })),
+    require:  current.require ?? [],
+    exclude:  current.exclude ?? [],
+  };
+
+  try {
+    const res = await fetch(policyUrl, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(body),
+    });
+    const j = await res.json();
+    if (!j.success) {
+      console.warn('  ⚠  CF Access policy PUT failed:', JSON.stringify(j.errors));
+      return;
+    }
+    console.log(`🔐 Updated CF Access policy: ${desired.length} email${desired.length === 1 ? '' : 's'} — ${desired.join(', ')}`);
+  } catch (err) {
+    console.warn('  ⚠  CF Access policy PUT errored:', err.message);
+  }
 }
 
 async function main() {
@@ -419,8 +550,14 @@ async function main() {
   console.log(`\n✅ Synced ${totalNotes} communication notes across ${totalStudents} students.`);
 
   // Sync advisor profiles.
-  const { count: advisorCount, names: advisorNames } = await syncAdvisors();
+  const { count: advisorCount, names: advisorNames, emails: advisorEmails } = await syncAdvisors();
   console.log(`\n✅ Synced ${advisorCount} advisor${advisorCount === 1 ? '' : 's'}: ${advisorNames.join(', ') || '—'}`);
+
+  // Mirror the advisor email list into the Cloudflare Access OTP policy so a
+  // departing advisor (their vault file removed) automatically loses access.
+  if (advisorEmails && advisorEmails.length) {
+    await syncCFAccessPolicy(advisorEmails);
+  }
 
   // Sync per-advisor daily reports.
   const { count: dailyCount, advisors } = await syncDailyReports();
