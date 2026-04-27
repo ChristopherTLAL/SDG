@@ -97,9 +97,15 @@ select mid_advisor as advisor, id, name, stage, last_contact_at, enroll_year,
        major_intention, current_school
 from students
 where mid_advisor = any($advisor_names)
+  -- Exclude inactive cases (already-closed / refunded / completed):
   and (stage is null or stage not in ('已结案','退费','已完成'))
+  -- Exclude 私单 (non-company contracts) — they're not part of the
+  -- company digest stream. Catches both "私单" and "私单（非公司合同）":
+  and not (contracts && ARRAY['私单','私单（非公司合同）']::text[]);
 order by mid_advisor, last_contact_at asc nulls first;
 ```
+
+The 私单 + inactive filter is **lead-side**, applied here before any subagent dispatch. Composer subagents only see the filtered list, so they can't accidentally include excluded students.
 
 Group rows by `advisor`. Result: a Map<advisor_name, students[]>.
 
@@ -137,17 +143,27 @@ advisor or any student not in this list):
 
 YOUR JOB
 For EACH student in the list above where days_since_last_contact >= 14
-(or last_contact_at is null), enrich with two SQL queries:
+(or last_contact_at is null), enrich with up to THREE SQL queries:
 
-  - Latest note for context:
-    select note_name, note_date, body_md from student_notes
-    where student_id = <id> order by note_date desc nulls last limit 1;
+  1. Latest sync'd note (the primary source if it exists):
+     select note_name, note_date, body_md from student_notes
+     where student_id = <id> order by note_date desc nulls last limit 1;
 
-  - Unprocessed inbox (use only as a signal for "建议推进" hints if the
-    submission summary contains a question / open ask. Don't display the count;
-    just fold any urgent items into the hints line):
-    select id, type, summary from submissions
-    where student_id = <id> and processed = false;
+  2. Unprocessed inbox (signal-only — fold any urgent open ask into 建议推进
+     hints; don't display count):
+     select id, type, summary from submissions
+     where student_id = <id> and processed = false;
+
+  3. **Fallback context: student's main file body** (use this when the latest
+     note from query 1 is missing OR much older than `last_contact_at`. The main
+     `<name>.md` body often has a `## 沟通与纪要汇总` section with a recent
+     one-line summary of touches that may not yet be a separate note):
+     select body_md from students where id = <id>;
+
+     From this body, extract the most-recent line under 沟通与纪要汇总 (look
+     for `- **YYYY-MM-DD ...**:` patterns; pick the one closest to
+     `last_contact_at`). Use it as the "最近沟通" line if note_date is older
+     than last_contact_at by more than ~14 days, or if there's no note at all.
 
 Then compose a markdown body following the EMAIL FORMAT below. days_since =
 (today - last_contact_at). Null last_contact_at = treat as ≥14d.

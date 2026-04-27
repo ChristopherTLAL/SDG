@@ -11,6 +11,16 @@ The internal dashboard at `/internal/submissions` collects entries from employee
 
 The hard part: the vault's skills (`_agents/skills/meeting-minutes/`, `summarize/`, `onboarding/`, `planning-roadmap/`, `lor_writer/`, etc.) and the vault's `CLAUDE.md` (with the "two iron rules" and trigger table) only load when Claude Code starts inside the vault directory. So this skill spawns headless `claude -p` instances inside the vault, one per student.
 
+## NON-NEGOTIABLE: every submission must produce a 沟通记录 .md
+
+**Every submission, no matter how short, MUST result in a real markdown file written to `01_Student/<student_name>/沟通记录/`.** No exceptions.
+
+Why: downstream systems depend on this — the morning-digest skill reads `student_notes` (synced from this folder) to compose per-student attention items, and falls back to `<name>.md` body only when no recent note exists. If you skip note creation for "trivial" submissions (like a one-line status update), the digest loses signal and the student looks like they have no recent activity even though they do.
+
+If the submission is too small to warrant the full `meeting-minutes` skill treatment (just a short comment / status flag), still create a note with a concise body — type / date / submitter / summary / content. Filename pattern: `{YYYY-MM-DD} {type} - {summary 前30字}.md`.
+
+The vault claude must be told this explicitly in the payload — see the per-student payload template below.
+
 ## Architecture (read this carefully — it's the whole point)
 
 ```
@@ -166,15 +176,25 @@ Use Write to put this content at <PAYLOAD FILE>:
 
   你正在 vault 里运行（CLAUDE.md 已加载），需要把下面的 submission 按 vault
   的规矩归档。要点：
-  - 选合适的 skill（依 CLAUDE.md 的触发表，e.g. STT/录音文本 → meeting-minutes，
-    长内容 → summarize 后再归档，短沟通 → 直接归档为 沟通记录）
-  - 触发任何 skill 前先 Read 对应 SKILL.md（铁律一）
-  - 完成后必须更新（铁律二）：
-    1. 01_Student/<student_name>/沟通记录/ — 写新的 .md
-    2. 01_Student/<student_name>/<student_name>.md — 更新 最后沟通时间 + 加双向链接
-    3. 02_Project Manager/日报-<mid_advisor>.md — 当月文件，**插入到顶部**（
-       `# 日报` 标题之后），≤4 行/条目，≤15 行/天。如果该顾问的当月日报文件
-       不存在，新建一个，第一行 `# 日报-<mid_advisor>-<YYYY-MM>`
+
+  **铁律一：每条 submission 必须产出一个 沟通记录 .md** — 不许跳过。
+  即使是一句话的 status update / 简短 comment，也要写一个 .md 文件到
+  01_Student/<student_name>/沟通记录/。下游 morning-digest skill 依赖
+  这些文件做学生关注清单；跳过 = 学生显得"零最近活动"，digest 失真。
+
+  - 选合适的 skill 处理内容（依 CLAUDE.md 触发表，e.g. STT/录音文本 →
+    meeting-minutes，长内容 → summarize 后归档）；如果内容太短不值得 skill
+    treatment，仍然要直接写 .md（type / by / summary / content 即可），
+    **不能不写**
+  - 触发任何 skill 前先 Read 对应 SKILL.md（vault 铁律一）
+  - 完成后必须更新（vault 铁律二，全部 4 项）：
+    1. **01_Student/<student_name>/沟通记录/{YYYY-MM-DD} {type} - {summary前30字}.md**
+       — 这一项 NON-NEGOTIABLE，每个 submission 都要一个 .md
+    2. 01_Student/<student_name>/<student_name>.md — 更新 `最后沟通时间`
+       + 在 `## 沟通与纪要汇总` 下追加 `[[文件名]]` 双向链接 + 一行精华
+       （e.g. `2026-04-27 沟通：定 USABO 排课 + 上海 wet lab 联系`）
+    3. 02_Project Manager/日报-<mid_advisor>.md — 顶部插入条目，
+       ≤4 行/条目。如该顾问日报不存在则新建，第一行 `# 日报-<mid_advisor>`
     4. 02_Project Manager/待办任务看板.md — 如果有新 todo
   - 附件：从下面列的本地路径 mv 到 01_Student/<student_name>/个性化材料/，
     重命名为 `{YYYY-MM-DD} {summary前20字}.{ext}`
