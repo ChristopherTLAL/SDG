@@ -93,7 +93,13 @@ Default is plain text — good for most one-shot emails. Switch to HTML when:
 - Embedding inline images (rare; use attachments instead unless inline matters)
 - The body is long enough that paragraph spacing matters
 
-For HTML, set `"html": true` and put a complete `<html><body>...</body></html>` (or just inner HTML — n8n wraps it).
+**Easy path: write markdown, set `"markdown": true`.** The script converts your markdown to a styled HTML email (inline CSS for h1/h2/h3, tables, lists, code, links — renders consistently across Gmail / Outlook / xdf company mail). This is the recommended approach for any email that has structure (headings, lists, tables). You don't need to write HTML by hand.
+
+```json
+{ "to": "...", "subject": "...", "body": "# Heading\n\n- item 1\n- item 2", "markdown": true }
+```
+
+**Manual HTML path**: set `"html": true` and put your own HTML in `body` (full `<html>` doc or inner-only — n8n wraps either). Use this only if `markdown: true` doesn't give you enough control.
 
 ## Examples
 

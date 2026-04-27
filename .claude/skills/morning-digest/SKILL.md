@@ -244,15 +244,16 @@ Reply:
 
 ### Step 7 — Send
 
-For each draft, call send-email via Bash:
+For each draft, call send-email via Bash. **Always set `markdown: true`** — drafts are markdown, send-email will convert to styled HTML so the email renders properly (h1/h2 styling, table borders, list indentation, etc.) instead of showing raw markdown text.
 
 ```bash
 cat <<EOF | python3 .claude/skills/send-email/scripts/send.py
 {
-  "to":      "<recipient per mode>",
-  "subject": "<final subject>",
-  "body":    "<draft body>",
-  "sender":  "xdf"
+  "to":       "<recipient per mode>",
+  "subject":  "<final subject>",
+  "body":     "<draft body in markdown>",
+  "sender":   "xdf",
+  "markdown": true
 }
 EOF
 ```

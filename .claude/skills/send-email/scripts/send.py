@@ -12,8 +12,11 @@ Payload schema (same as n8n webhook expects, with helpers added):
   {
     "to":       "recipient@example.com",      // required
     "subject":  "Subject line",                // required
-    "body":     "Plain text or HTML",          // required
+    "body":     "Plain text, markdown, or HTML",  // required
     "html":     false,                         // optional, default false
+    "markdown": false,                         // optional — when true, body is markdown:
+                                               //   we convert to HTML server-side and
+                                               //   send with html=true. Trumps `html`.
     "sender":   "xdf" | "automation",          // optional, defaults to "xdf"
     "attachments": [
       // Three input modes — use exactly one of {path, url, content}:
@@ -106,6 +109,44 @@ def materialize_attachment(att: dict) -> dict:
     die(f"attachment has none of {{path, url, content}}: {att}")
 
 
+def md_to_html(md: str) -> str:
+    """Convert markdown to a self-styled HTML email body.
+
+    Uses the `markdown` library with extras for tables and fenced code, then
+    wraps in a minimal inline-styled <html> shell so it renders consistently
+    across Gmail / Outlook / corporate clients (most strip <style> tags).
+    """
+    try:
+        import markdown  # python-markdown
+    except ImportError:
+        die("markdown=true requested but Python `markdown` package is not installed. "
+            "Run: pip3 install markdown")
+
+    inner = markdown.markdown(md, extensions=["tables", "fenced_code", "sane_lists"])
+
+    # Inline-style wrapper. Most email clients strip <style>, so use inline styles.
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:14px;line-height:1.65;color:#0f172a;max-width:720px;margin:0 auto;padding:24px;">
+<style>
+  h1 {{ font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 2px solid #042f24; color: #042f24; }}
+  h2 {{ font-size: 16px; font-weight: 700; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; color: #0f172a; }}
+  h3 {{ font-size: 14px; font-weight: 700; margin: 18px 0 6px; color: #0f172a; }}
+  p {{ margin: 0 0 12px; }}
+  ul, ol {{ padding-left: 22px; margin: 0 0 12px; }}
+  li {{ margin: 3px 0; }}
+  table {{ border-collapse: collapse; margin: 0 0 16px; font-size: 13px; }}
+  th, td {{ border: 1px solid #e5e7eb; padding: 6px 10px; text-align: left; }}
+  th {{ background: #f8fafc; font-weight: 700; }}
+  code {{ background: #f1f5f9; padding: 1px 6px; border-radius: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.9em; }}
+  a {{ color: #042f24; text-decoration: underline; text-decoration-color: rgba(4,47,36,0.3); }}
+  hr {{ border: 0; border-top: 1px solid #e5e7eb; margin: 16px 0; }}
+  strong {{ font-weight: 700; }}
+</style>
+{inner}
+</body></html>"""
+
+
 def build_payload(spec: dict) -> dict:
     # Required fields
     for k in ("to", "subject", "body"):
@@ -116,12 +157,18 @@ def build_payload(spec: dict) -> dict:
     if sender not in VALID_SENDERS:
         die(f"invalid sender {sender!r}; valid: {sorted(VALID_SENDERS)}")
 
+    body = spec["body"]
+    is_html = bool(spec.get("html", False))
+    if spec.get("markdown"):
+        body = md_to_html(body)
+        is_html = True  # markdown trumps html flag — we just emitted HTML
+
     payload: dict = {
         "to":      spec["to"],
         "subject": spec["subject"],
-        "body":    spec["body"],
+        "body":    body,
         "sender":  sender,
-        "html":    bool(spec.get("html", False)),
+        "html":    is_html,
     }
 
     if spec.get("attachments"):
