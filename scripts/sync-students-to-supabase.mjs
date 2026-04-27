@@ -21,6 +21,7 @@ const VAULT = process.env.OBSIDIAN_VAULT_ROOT ||
   '/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板';
 const STUDENT_DIR = join(VAULT, '01_Student');
 const REPORTS_DIR = join(VAULT, '02_Project Manager');
+const ADVISORS_DIR = join(REPORTS_DIR, '顾问');
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -236,6 +237,67 @@ async function syncStudentNotes(studentIdByName, notesByStudentName) {
   return { totalNotes, totalStudents };
 }
 
+// Read all 02_Project Manager/顾问/*.md files and upsert into advisors.
+async function syncAdvisors() {
+  let entries;
+  try {
+    entries = await readdir(ADVISORS_DIR, { withFileTypes: true });
+  } catch {
+    return { count: 0, names: [] };
+  }
+
+  const records = [];
+  for (const e of entries) {
+    if (!e.isFile()) continue;
+    if (extname(e.name).toLowerCase() !== '.md') continue;
+    if (e.name.startsWith('.') || e.name.startsWith('_')) continue;
+
+    let raw;
+    try {
+      raw = await readFile(join(ADVISORS_DIR, e.name), 'utf8');
+    } catch {
+      continue;
+    }
+
+    let fm;
+    try {
+      fm = matter(raw).data;
+    } catch (err) {
+      console.warn(`  ⚠  顾问/${e.name}: YAML parse failed — ${err.message}`);
+      continue;
+    }
+
+    const name = pickString(fm, '姓名') || e.name.slice(0, -3);
+    const email = pickString(fm, '邮箱');
+    const roles = pickArray(fm, '角色');
+    const active = fm.active !== false;       // default true unless explicitly false
+    const isAdmin = fm.admin === true;        // default false unless explicitly true
+
+    records.push({
+      name,
+      email,
+      roles,
+      active,
+      is_admin: isAdmin,
+      obsidian_path: `02_Project Manager/顾问/${e.name}`,
+      synced_at: new Date().toISOString(),
+    });
+  }
+
+  if (!records.length) return { count: 0, names: [] };
+
+  const { error } = await supabase
+    .from('advisors')
+    .upsert(records, { onConflict: 'name', ignoreDuplicates: false });
+
+  if (error) {
+    console.warn('  ⚠  advisors upsert failed:', error.message);
+    return { count: 0, names: [] };
+  }
+
+  return { count: records.length, names: records.map(r => r.name) };
+}
+
 // Read all 02_Project Manager/日报-*.md files and upsert into daily_reports.
 async function syncDailyReports() {
   let entries;
@@ -314,6 +376,10 @@ async function main() {
   const studentIdByName = new Map((data ?? []).map(r => [r.name, r.id]));
   const { totalNotes, totalStudents } = await syncStudentNotes(studentIdByName, notesByStudentName);
   console.log(`\n✅ Synced ${totalNotes} communication notes across ${totalStudents} students.`);
+
+  // Sync advisor profiles.
+  const { count: advisorCount, names: advisorNames } = await syncAdvisors();
+  console.log(`\n✅ Synced ${advisorCount} advisor${advisorCount === 1 ? '' : 's'}: ${advisorNames.join(', ') || '—'}`);
 
   // Sync per-advisor daily reports.
   const { count: dailyCount, advisors } = await syncDailyReports();
