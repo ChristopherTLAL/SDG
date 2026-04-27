@@ -74,9 +74,18 @@ function buildHref(overrides: Record<string, string>): string {
   return qs ? `/internal/students?${qs}` : '/internal/students';
 }
 
-function joinList(arr: string[] | null | undefined, fallback = '—'): string {
-  if (!arr || !arr.length) return fallback;
-  return arr.join(' / ');
+// Stage badge palette — semantic by progression. Anything unmapped falls back to neutral.
+const STAGE_STYLE: Record<string, { bg: string; fg: string }> = {
+  '需对接':   { bg: '#dbeafe', fg: '#1e40af' },
+  '中期在途': { bg: '#dcfce7', fg: '#166534' },
+  '后期在途': { bg: '#bbf7d0', fg: '#14532d' },
+  '已结案':   { bg: '#e5e7eb', fg: '#475569' },
+  '已完成':   { bg: '#e0e7ff', fg: '#3730a3' },
+  '退费':     { bg: '#fee2e2', fg: '#991b1b' },
+};
+function stageBadge(stage: string | null | undefined) {
+  if (!stage) return { bg: '#f1f5f9', fg: '#64748b' };
+  return STAGE_STYLE[stage] ?? { bg: '#f1f5f9', fg: '#475569' };
 }
 ---
 
@@ -169,20 +178,30 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
   )}
 
   {students.length > 0 && (
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;">
-      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+      <table class="roster-table">
+        <colgroup>
+          <col style="width: 11%;" />
+          <col style="width: 11%;" />
+          <col style="width: 13%;" />
+          <col style="width: 17%;" />
+          <col style="width: 13%;" />
+          <col style="width: 9%;" />
+          <col style="width: 11%;" />
+          <col style="width: 9%;" />
+          <col style="width: 6%;" />
+        </colgroup>
         <thead>
-          <tr style="background: #f8fafc; border-bottom: 1px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
-            <th style="text-align: left; padding: 10px 14px;">姓名</th>
-            <th style="text-align: left; padding: 10px 14px;">阶段</th>
-            <th style="text-align: left; padding: 10px 14px;">合同</th>
-            <th style="text-align: left; padding: 10px 14px;">方向</th>
-            <th style="text-align: left; padding: 10px 14px;">学校</th>
-            <th style="text-align: left; padding: 10px 14px;">入学年份</th>
-            <th style="text-align: left; padding: 10px 14px;">目标地区</th>
-            <th style="text-align: left; padding: 10px 14px;">中期</th>
-            <th style="text-align: left; padding: 10px 14px;">最后沟通</th>
-            <th style="text-align: left; padding: 10px 14px;">雷达</th>
+          <tr>
+            <th>姓名</th>
+            <th>阶段</th>
+            <th>合同</th>
+            <th>方向</th>
+            <th>学校</th>
+            <th>入学</th>
+            <th>目标地区</th>
+            <th>中期</th>
+            <th>雷达</th>
           </tr>
         </thead>
         <tbody>
@@ -190,41 +209,48 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
             const ts = tierStyle(s.tier);
             const label = tierLabel(s.tier, s.daysSince);
             const contractLabels = (s.contracts && s.contracts.length) ? s.contracts.join(' / ') : (s.contract_type ?? '—');
+            const sb = stageBadge(s.stage);
             return (
-              <tr id={String(s.id)} style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 10px 14px; font-weight: 600;">
-                  <a href={`/internal/students/${s.id}`} style="color: var(--primary); text-decoration: none;">
-                    {s.name}
-                  </a>
-                  {s.client_email && (
-                    <div style="font-size: 11px; color: var(--text-soft); font-weight: 400; margin-top: 2px;">{s.client_email}</div>
-                  )}
+              <tr id={String(s.id)}>
+                <td class="cell-name">
+                  <a href={`/internal/students/${s.id}`}>{s.name}</a>
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted);">{s.stage ?? '—'}</td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">{contractLabels}</td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                <td>
+                  {s.stage
+                    ? <span class="badge" style={`background: ${sb.bg}; color: ${sb.fg};`}>{s.stage}</span>
+                    : <span class="badge badge-empty">—</span>}
+                </td>
+                <td class="cell-text">{contractLabels}</td>
+                <td class="cell-text">
                   {s.major_intention ?? '—'}
                   {s.major_current && (
-                    <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">在读：{s.major_current}</div>
+                    <div class="cell-sub">在读：{s.major_current}</div>
                   )}
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                  {s.current_school ?? '—'}
+                <td class="cell-text">{s.current_school ?? '—'}</td>
+                <td>
+                  <div class="badges-stack">
+                    {(s.enroll_years && s.enroll_years.length)
+                      ? s.enroll_years.map((y: string) => <span class="badge badge-neutral">{y}</span>)
+                      : <span class="badge badge-empty">—</span>}
+                  </div>
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">
-                  {joinList(s.enroll_years)}
+                <td>
+                  <div class="badges-stack">
+                    {(s.target_regions && s.target_regions.length)
+                      ? s.target_regions.map((r: string) => <span class="badge badge-neutral">{r}</span>)
+                      : <span class="badge badge-empty">—</span>}
+                  </div>
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                  {joinList(s.target_regions)}
+                <td>
+                  <div class="badges-stack">
+                    {(s.mid_advisors && s.mid_advisors.length)
+                      ? s.mid_advisors.map((a: string) => <span class="badge badge-neutral">{a}</span>)
+                      : <span class="badge badge-empty">—</span>}
+                  </div>
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">
-                  {joinList(s.mid_advisors)}
-                </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">{s.last_contact_at ?? '—'}</td>
-                <td style="padding: 10px 14px;">
-                  <span style={`display: inline-block; padding: 3px 8px; border-radius: 999px; background: ${ts.bg}; color: ${ts.fg}; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap;`}>
-                    {label}
-                  </span>
+                <td>
+                  <span class="badge badge-mono" style={`background: ${ts.bg}; color: ${ts.fg};`}>{label}</span>
                 </td>
               </tr>
             );
@@ -233,4 +259,44 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
       </table>
     </div>
   )}
+
+  <style>
+    .roster-table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
+    .roster-table thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .roster-table thead th {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: left;
+      padding: 10px 14px;
+      white-space: nowrap;
+    }
+    .roster-table tbody tr { border-bottom: 1px solid var(--border); }
+    .roster-table tbody tr:hover { background: #fafbff; }
+    .roster-table td { padding: 10px 14px; vertical-align: middle; color: var(--text-muted); }
+    .roster-table .cell-name a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .roster-table .cell-text { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .roster-table .cell-sub { font-size: 11px; color: var(--text-soft); margin-top: 2px; }
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .badge-neutral { background: #f1f5f9; color: #475569; }
+    .badge-empty { background: transparent; color: var(--text-soft); padding-left: 0; padding-right: 0; }
+    .badge-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; font-size: 11px; }
+    .badges-stack { display: flex; flex-wrap: wrap; gap: 3px; }
+  </style>
 </InternalLayout>

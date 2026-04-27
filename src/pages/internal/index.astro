@@ -333,18 +333,11 @@ function fmtDateTime(dt: string | null): string {
                   if (!cell || cell.count === 0) {
                     return <td style={`text-align: center; padding: 10px; color: var(--text-soft); background: ${cellBg};`}>·</td>;
                   }
-                  const ts = tierStyle(cell.worstTier);
-                  const showFlag = inTriage(cell.worstTier);
                   return (
                     <td style={`text-align: center; padding: 6px; background: ${cellBg};`}>
                       <a href={cellLink(cohort, advisor)} style="text-decoration: none; display: inline-block;">
-                        <span style={`display: inline-flex; align-items: baseline; gap: 4px; padding: 4px 10px; border-radius: 6px; ${showFlag ? `background: ${ts.bg}; color: ${ts.fg};` : 'color: var(--text);'} font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px;`}>
+                        <span style="display: inline-block; padding: 4px 10px; border-radius: 6px; color: var(--text); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px;">
                           {cell.count}
-                          {showFlag && (
-                            <sup style={`font-size: 9px; opacity: 0.85; color: ${ts.fg};`}>
-                              {cell.worstTier === 'critical' ? '⚠️' : cell.worstTier === 'red' ? '!!' : '!'}
-                            </sup>
-                          )}
                         </span>
                       </a>
                     </td>
@@ -375,9 +368,6 @@ function fmtDateTime(dt: string | null): string {
         </tbody>
       </table>
     </div>
-    <p style="font-size: 11px; color: var(--text-soft); margin: 10px 0 0;">
-      ⚠️ 28d+ ｜ !! 21–27d ｜ ! 14–20d 未联系。
-    </p>
   </section>
 
   <!-- ── Activity streams ── -->
