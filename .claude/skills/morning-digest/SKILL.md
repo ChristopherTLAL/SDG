@@ -1,6 +1,6 @@
 ---
 name: morning-digest
-description: Generate and send the daily morning digest emails to mid-stage advisors — one personalized email per advisor with their own students' attention list, contact frequency, and deeper per-student context (latest comm note, last submission, current stage). Uses a subagent team — one composer subagent per advisor (parallel, isolated context windows so each one can dive deep into their own caseload) plus one reviewer subagent for QC. After composing, prints all drafts in chat for user approval, then sends via send-email skill. **DEFAULT MODE: test-all-to-me** — every send goes to wangshijie11@xdf.cn with subject prefixed `[TEST → 顾问名]` so 王世杰 sees what each advisor would receive. Only switch to production (real recipients) when 王世杰 explicitly says "正式发" / "send for real" / "go production". Use whenever the user says "morning digest", "早报", "今日关注清单", "发顾问邮件", "推一下今日学生", or asks to compose/send the daily advisor briefings. Don't undertrigger.
+description: Generate and send the daily morning digest emails to mid-stage advisors — one personalized email per advisor with their own students' attention list, contact frequency, and deeper per-student context (latest comm note, last submission, current stage). Each advisor with > 0 students gets a dedicated isolated subagent (parallel, plain Agent — NO TeamCreate) so each composer has a clean context window. Zero-caseload advisors are filled in inline with a simple template (no subagent waste). After all drafts assemble, the lead validates them inline (each draft mentions only its own advisor's students), prints all in chat for user approval, then sends via send-email skill. **DEFAULT MODE: test-all-to-me** — every send goes to wangshijie11@xdf.cn with subject prefixed `[TEST → 顾问名]` so 王世杰 sees what each advisor would receive. Only switch to production (real recipients) when 王世杰 explicitly says "正式发" / "send for real" / "go production". Use whenever the user says "morning digest", "早报", "今日关注清单", "发顾问邮件", "推一下今日学生", or asks to compose/send the daily advisor briefings. Don't undertrigger.
 ---
 
 # morning-digest
@@ -13,8 +13,6 @@ Composes and sends a personalized daily email to each active mid-stage advisor (
 2. Per-student rich context: latest comm note title + date, latest unprocessed submission, current stage
 3. A small caseload summary (total active, % overdue)
 4. (Phase 2 future) Daily/weekly enrichment images attached
-
-The skill orchestrates a team of subagents (one per advisor) so each composer has its own isolated context window and can dive deep into that advisor's caseload without polluting the lead context. A reviewer subagent does a final QC pass.
 
 ## DEFAULT MODE: test-all-to-me
 
@@ -31,54 +29,51 @@ If unsure, stay in test mode. Re-confirm in the chat before sending in prod.
 
 - **Source of truth for advisor list + emails**: Supabase table `public.advisors` (synced from `<vault>/02_Project Manager/顾问/*.md`)
 - **Sender**: always `xdf` (work address), via the `send-email` skill
-- **Send-email skill**: `.claude/skills/send-email/SKILL.md` — use it via stdin to its Python helper, don't reinvent the HTTP call
+- **Send-email skill**: `.claude/skills/send-email/SKILL.md` — use it via stdin to its Python helper
 - **Eligible advisors**: `active = true AND '中期' = ANY(roles)` — currently 10 people
 - **Date for the digest**: today (Asia/Shanghai), formatted YYYY-MM-DD
 
-## Architecture
+## Architecture — important: NO TeamCreate
+
+**Earlier version of this skill used `TeamCreate` + `team_name`. That was wrong.** Team-managed agents share a mailbox and can see each other; when the lead sends followup messages, multiple agents pick up each other's tasks ("cross-cover"), producing duplicate drafts and wasted compute. We don't need any inter-agent coordination here — each composer is independent.
+
+**Correct architecture:**
 
 ```
-/morning-digest (sdg-html main coordinator)
+/morning-digest (lead, sdg-html context)
 │
 ├─ 1. Query advisors table (active, 中期)
-├─ 2. For each advisor, count their students (preview log)
-├─ 3. TeamCreate("morning-digest-<ts>")
 │
-├─ 4. Spawn N composer Agents IN PARALLEL (one per advisor)
-│      Each composer:
-│        - receives advisor info + the list of their student IDs
-│        - queries Supabase for richer per-student context (notes, submissions, stage)
-│        - composes a markdown email body (see Email format section below)
-│        - returns { advisor, body, subject_base }
+├─ 2. Pre-fetch a per-advisor student count (one SQL) so we can split:
+│        WITH_CASELOAD = advisors with > 0 students
+│        ZERO_CASELOAD = advisors with 0 students
 │
-├─ 5. Wait for all composers
+├─ 3. For each WITH_CASELOAD advisor: spawn a PLAIN Agent (no team_name)
+│        - Each composer gets a focused prompt with ONLY their own advisor's name
+│          and their own student id list (lead pre-fetches the list and embeds it
+│          so the subagent can't accidentally query other advisors)
+│        - Composer queries Supabase for per-student notes/submissions context
+│        - Returns JSON via the Agent tool's synchronous result (no mailbox)
+│        Spawn ALL of them in a single message so they run in parallel.
 │
-├─ 6. Spawn 1 reviewer Agent
-│      - reads all 10 drafts
-│      - flags: format inconsistencies, missing sections, obvious errors,
-│        accidental cross-advisor data leaks, blank bodies
-│      - returns: APPROVED <one-line note> or ISSUES <bulleted list>
+├─ 4. For each ZERO_CASELOAD advisor: lead inlines the "no caseload" template.
+│        No subagent. Saves 5 agent-spawns of pure waste.
 │
-├─ 7. Print all 10 drafts to user as a preview (compact: subject + first 6 lines)
-│      Wait for user response: "send" | "send for real" | edits | "abort"
+├─ 5. Lead validates all 10 drafts inline:
+│        - Parse each JSON
+│        - For each draft, verify the body only mentions students from the
+│          advisor's own student list (cross-leak check)
+│        - Verify no empty / placeholder bodies
+│        - Verify stats are plausible
+│        If any issue: surface to user, do NOT auto-proceed.
 │
-├─ 8. On "send" (test-all-to-me, default):
-│      For each draft, send via send-email skill:
-│        to       = wangshijie11@xdf.cn
-│        subject  = [TEST → <advisor_name>] <subject_base>
-│        body     = <draft body>
-│        sender   = xdf
-│      Loop sequentially (10 calls, ~5s total)
+├─ 6. Print preview to user (compact: subject + key stats per draft).
+│        User responds: send | send for real | show N | abort | edit instructions
 │
-├─ 8b. On "send for real" (prod):
-│      For each draft, send via send-email skill:
-│        to       = advisor.email
-│        subject  = <subject_base>
-│        body     = <draft body>
-│        sender   = xdf
-│
-└─ 9. Final report: "Sent N emails (test-mode | prod). messageIds: ..."
+└─ 7. Send: loop send-email skill 10 times with the right `to` per mode.
 ```
+
+**Why no separate reviewer subagent**: with the new architecture, each composer is constrained to its own advisor (no cross-leak possible by construction). Lead-side inline validation is cheap and sufficient.
 
 ## Step-by-step
 
@@ -93,184 +88,191 @@ where active = true and '中期' = any(roles)
 order by name;
 ```
 
-If empty → abort, tell user "no active 中期 advisors in the table".
+If empty → abort.
 
-### Step 2 — Sketch the batch (no DB writes yet)
+### Step 2 — Pre-fetch each advisor's student list
 
-Print: `Found N 中期 advisors: [name × email]. Composing drafts in parallel...`
-
-### Step 3 — TeamCreate
-
-```
-TeamCreate({
-  team_name: "morning-digest-<timestamp>",
-  description: "Compose per-advisor morning digest emails for <date>"
-})
+```sql
+select mid_advisor as advisor, id, name, stage, last_contact_at, enroll_year,
+       major_intention, current_school
+from students
+where mid_advisor = any($advisor_names)
+  and (stage is null or stage not in ('已结案','退费','已完成'))
+order by mid_advisor, last_contact_at asc nulls first;
 ```
 
-### Step 4 — Spawn composer subagents in parallel
+Group rows by `advisor`. Result: a Map<advisor_name, students[]>.
 
-For each advisor, spawn an Agent **in the same message** (parallel tool calls):
+Print a one-line caseload summary: `"袁辰飞 8, 张曌璐 1, ..., 高幸玲 0"`. Confirm with user before dispatching if you want — or proceed straight to step 3.
+
+### Step 3 — Dispatch composer subagents IN PARALLEL (only for caseload > 0)
+
+For each advisor with `students.length > 0`, spawn a **plain Agent** (NO `team_name`) in the same message:
 
 ```
 Agent({
-  name: <advisor_name>,
-  team_name: "morning-digest-<ts>",
+  description: "Compose digest for <advisor>",
   subagent_type: "general-purpose",
   prompt: <see template>,
 })
 ```
+
+`description` is short, only used for UI. There's no `name` (no team), no `team_name`. The subagent runs in foreground, returns its JSON via the Agent tool's result.
 
 #### Composer subagent prompt template
 
 ```
-You are composing the morning digest email for advisor "<advisor_name>".
+You are composing today's morning digest email for ONE specific advisor.
+
+ADVISOR: <advisor_name>
+EMAIL:   <email>
+ROLES:   <roles>
+TODAY:   <YYYY-MM-DD>
+
+YOUR ASSIGNED STUDENTS (this is the COMPLETE list — do NOT query for any other
+advisor or any student not in this list):
+
+<embed the student list as a JSON array, one object per student with id, name,
+ stage, last_contact_at, enroll_year, major_intention, current_school>
 
 YOUR JOB
-Compose a markdown email body addressed to <advisor_name> covering only THEIR
-students. Do NOT send the email — just return the body and a suggested subject.
-Don't reach beyond your assigned advisor's students. Today's date is <YYYY-MM-DD>.
+For EACH student in the list above where days_since_last_contact >= 14
+(or last_contact_at is null), enrich with two SQL queries:
 
-CONTEXT YOU HAVE
-- Advisor name: <advisor_name>
-- Advisor email: <email>
-- Advisor roles: <roles>
+  - Latest note for context:
+    select note_name, note_date, body_md from student_notes
+    where student_id = <id> order by note_date desc nulls last limit 1;
 
-YOUR DATA
-Use mcp__supabase__execute_sql to query. Don't assume — verify.
+  - Unprocessed inbox count + summary:
+    select id, type, summary from submissions
+    where student_id = <id> and processed = false;
 
-1. Active students assigned to you (mid_advisor):
-   select id, name, stage, last_contact_at, enroll_year, major_intention
-   from students
-   where mid_advisor = '<advisor_name>'
-     and (stage is null or stage not in ('已结案','退费','已完成'))
-   order by last_contact_at asc nulls first;
+Then compose a markdown body following the EMAIL FORMAT below. days_since =
+(today - last_contact_at). Null last_contact_at = treat as ≥14d.
 
-2. For each student needing attention (>= 14d since last_contact_at), enrich:
-   - latest student note (note_name + note_date) for context:
-     select note_name, note_date, body_md
-     from student_notes
-     where student_id = <id>
-     order by note_date desc nulls last
-     limit 1;
-   - any unprocessed submission for this student:
-     select id, type, summary, submitted_at, submitted_by
-     from submissions
-     where student_id = <id> and processed = false
-     order by submitted_at desc;
+EMAIL FORMAT (Chinese markdown)
 
-EMAIL FORMAT
-Use the format specified in src/skills/morning-digest/SKILL.md "Email format"
-section. Keep tone friendly-professional. Group by tier (⚠️ 28d+ first,
-then 21–27d 红, then 14–20d 淡红).
+# 中期顾问每日关注清单 · YYYY-MM-DD · <advisor_name>
 
-OUTPUT
-Return strictly this JSON (no extra prose):
+你好 <advisor_name>，
+
+以下是你今天的关注清单。共 N 个在管学生，M 人需要联系。
+
+## 需要联系的学生
+(group by tier: ⚠️ 28d+ first, then 🔴 21-27d, then 🟠 14-20d. Within group, sort by days desc)
+
+### <emoji> 学生姓名 — Nd 未联系 · stage
+- 入学年份：X · 意向：Y
+- 最近沟通 (MM-DD)：[[note_name]] — <一句精华提炼，从 body_md 取，<=30 字>
+- 待处理 inbox：<count> 条 (<summary 简短>) OR (无)
+
+## 你的带案概览
+
+- 在管学生：N
+- 14d+ 未联系：M (X%)
+- 28d+ ⚠️：critical_count
+
+——
+苏州前途中期看板 · sdg.undp.ac.cn/internal
+
+If all students < 14d:
+  Replace "## 需要联系的学生" section with:
+  你的 N 个在管学生今天都在 14 天内有过接触 ✓
+
+OUTPUT (return ONLY this strict JSON, no markdown wrapping, no other prose):
 {
-  "advisor":      "<advisor_name>",
-  "subject_base": "中期顾问每日关注清单 · <YYYY-MM-DD> · <advisor_name>",
-  "body":         "<full markdown body>",
-  "stats": {
-    "total_active":      <int>,
-    "needs_attention":   <int (>= 14d)>,
-    "critical":          <int (>= 28d)>
-  }
+  "advisor": "<advisor_name>",
+  "subject_base": "中期顾问每日关注清单 · YYYY-MM-DD · <advisor_name>",
+  "body": "<full markdown body with \\n line breaks>",
+  "stats": {"total_active": <int>, "needs_attention": <int>, "critical": <int>}
 }
+
+CRITICAL CONSTRAINTS
+- Do NOT query for any student or advisor not in YOUR ASSIGNED STUDENTS list above
+- Do NOT compose drafts for other advisors
+- Do NOT respond to or speculate about other advisors' work
 ```
 
-### Step 5 — Wait for all composers, collect drafts
+### Step 4 — Inline ZERO_CASELOAD templates
 
-### Step 6 — Reviewer subagent
-
-```
-Agent({
-  name: "reviewer",
-  team_name: "morning-digest-<ts>",
-  subagent_type: "general-purpose",
-  prompt: <see template>,
-})
-```
-
-#### Reviewer prompt template
+For each advisor with 0 students, the lead generates the body inline (no subagent):
 
 ```
-You are the reviewer for the morning digest batch.
+# 中期顾问每日关注清单 · YYYY-MM-DD · <advisor_name>
 
-DRAFTS TO REVIEW
-<paste all N composer outputs here>
+你好 <advisor_name>，
 
-CHECKS
-1. Each draft mentions only its own advisor's students (cross-leaks = 严重)
-2. Sections present: title, attention list (or "全员都好" placeholder if zero), caseload summary
-3. No empty body or placeholder text like "TODO" / "<insert>"
-4. Tier ordering correct (⚠️ before red before pink)
-5. Markdown is well-formed (no broken tables, dangling brackets)
+你目前还没有分到学生。如果有问题可以联系王世杰。
 
-OUTPUT
-APPROVED <one-line summary>
-or
-ISSUES
-- <draft N>: <specific problem>
-- ...
-
-Do not edit any drafts.
+——
+苏州前途中期看板 · sdg.undp.ac.cn/internal
 ```
 
-### Step 7 — Preview to user
+Stats: `{"total_active": 0, "needs_attention": 0, "critical": 0}`
 
-Print in chat:
+### Step 5 — Lead-side validation
+
+For each of the 10 drafts:
+
+1. Parse JSON. If parse fails → flag and surface to user.
+2. Cross-leak check: extract all student names mentioned in the body (regex `### .* 学生名 — ` or look for known names). Verify each name is in that advisor's pre-fetched student list. If any name belongs to a different advisor → flag.
+3. Empty check: body must be > 100 chars.
+4. Stats sanity: `needs_attention <= total_active`, `critical <= needs_attention`.
+
+If any flags → list them and ask user how to proceed. Do NOT auto-send.
+
+### Step 6 — Preview to user
 
 ```
-✅ Reviewer: APPROVED — all 10 drafts look clean
+✅ 10 drafts ready (all validated, no cross-leaks)
 
-Drafts ready to send (test-mode default → wangshijie11@xdf.cn):
+Drafts (test-mode default → wangshijie11@xdf.cn):
 
-1. [TEST → 王世杰]   3 attention (1 ⚠️) — 54 active
-2. [TEST → 袁辰飞]   2 attention (0 ⚠️) — 8 active
-3. [TEST → 张曌璐]   1 attention (0 ⚠️) — 1 active
-...
-10. [TEST → 钟婷婷]  0 attention — 0 active
+  1. [TEST → 王世杰]   55 active · 36 attention · 22 ⚠️
+  2. [TEST → 袁辰飞]    8 active ·  2 attention ·  2 ⚠️
+  3. [TEST → 张曌璐]    1 active ·  0 attention ·  0 ⚠️
+  ...
+ 10. [TEST → 高幸玲]    0 active
 
-Reply with:
-  - "send" or "go" → send all 10 to wangshijie11@xdf.cn (test mode)
-  - "send for real" → send all 10 to actual recipients (prod)
-  - "show full N" → print full body of draft #N
-  - "abort"        → cancel
+Reply:
+  send / go        → send all 10 to wangshijie11@xdf.cn (test mode)
+  send for real    → send all 10 to actual recipients (prod)
+  show N           → print full body of draft #N
+  edit N: <note>   → ask the composer to revise draft #N with your note
+  abort            → cancel
 ```
 
-If reviewer flagged ISSUES, list them and ask user how to proceed; do NOT auto-send.
+### Step 7 — Send
 
-### Step 8 — Send
-
-For each draft, call send-email skill via Bash:
+For each draft, call send-email via Bash:
 
 ```bash
 cat <<EOF | python3 .claude/skills/send-email/scripts/send.py
 {
-  "to": "<recipient>",
+  "to":      "<recipient per mode>",
   "subject": "<final subject>",
-  "body": "<draft body>",
-  "sender": "xdf"
+  "body":    "<draft body>",
+  "sender":  "xdf"
 }
 EOF
 ```
 
-Send sequentially. Capture each `messageId`. If any fail, report and continue.
+Send sequentially (~5s for 10). Capture each `messageId`. If any fail, report and continue.
 
-### Step 9 — Report
+In test mode: `to = wangshijie11@xdf.cn`, `subject = "[TEST → <advisor>] " + subject_base`
+In prod mode: `to = advisor.email`, `subject = subject_base`
 
-Final summary:
+### Step 8 — Final report
 
 ```
-✅ Sent 10 emails (test mode → wangshijie11@xdf.cn)
+✅ Sent N emails (test | prod)
    1. [TEST → 王世杰]  messageId=<...>
-   2. [TEST → 袁辰飞]  messageId=<...>
    ...
 ```
 
-## Email format (canonical)
+## Email format examples
 
-Each composer returns markdown like this:
+**With attention items:**
 
 ```markdown
 # 中期顾问每日关注清单 · 2026-04-27 · 袁辰飞
@@ -281,27 +283,26 @@ Each composer returns markdown like this:
 
 ## 需要联系的学生
 
-### ⚠️ 张三 — 30d 未联系 · 中期在途
-- 入学年份：2028 fall · 意向：Bioinformatics
-- 最近沟通 (3-28)：[[张三 规划沟通 2026-03-28]] — 雅思节奏定档 + 8 月二战 6.0+
-- 待处理 inbox：1 条 (家长问选校时间)
+### ⚠️ 孙钟谋 — 33d 未联系 · 需对接
+- 入学年份：待定 · 意向：可持续与绿色金融 (ESG) / 环境经济
+- 最近沟通 (3-11)：[[孙钟谋规划沟通会议 260311]] — 大气科学跨考 ESG，定暑期实习+雅思路线
+- 待处理 inbox：（无）
 
-### 🟠 李四 — 17d 未联系 · 后期在途
-- 入学年份：2027 fall · 意向：CS
-- 最近沟通 (4-10)：[[李四 选校确认 2026-04-10]] — IC offer 接受
-- 待处理 inbox：(无)
+### ⚠️ 王艺蒙 — 31d 未联系 · 需对接
+- 入学年份：2028 fall · 意向：艺术管理 (不考虑作品集专业)
+- 最近沟通 (3-6)：[[王艺蒙 规划沟通 2026-03-06]] — UCL/KCL 艺管，GPA 冲 90、写 Writing sample
+- 待处理 inbox：（无）
 
 ## 你的带案概览
-
 - 在管学生：8
 - 14d+ 未联系：2 (25%)
-- 28d+ ⚠️：1
+- 28d+ ⚠️：2
 
 ——
 苏州前途中期看板 · sdg.undp.ac.cn/internal
 ```
 
-If 0 students need attention:
+**All clean (caseload > 0 but all < 14d):**
 
 ```markdown
 # 中期顾问每日关注清单 · 2026-04-27 · 张曌璐
@@ -311,13 +312,15 @@ If 0 students need attention:
 你的 1 个在管学生今天都在 14 天内有过接触 ✓
 
 ## 你的带案概览
-
 - 在管学生：1
 - 14d+ 未联系：0
 - 28d+ ⚠️：0
+
+——
+苏州前途中期看板 · sdg.undp.ac.cn/internal
 ```
 
-If 0 students total (advisor has no caseload yet):
+**Zero caseload (lead inlines, no subagent):**
 
 ```markdown
 # 中期顾问每日关注清单 · 2026-04-27 · 高幸玲
@@ -330,23 +333,22 @@ If 0 students total (advisor has no caseload yet):
 苏州前途中期看板 · sdg.undp.ac.cn/internal
 ```
 
-(Future: this section will be populated with daily/weekly enrichment content.)
-
 ## Phase 2 (later, when you provide source)
 
 - **每日素材附件**: separate broadcast channel — same content × 10 recipients (王世杰 + 9 advisors). Likely a different skill (`/daily-materials`) since the workflow is different (single content, no per-recipient compute).
-- **Caseload comparison table**: small table at the bottom showing all advisors' counts so each one can see relative load. Optional — depends on whether 王世杰 wants peer visibility.
+- **Caseload comparison table** in 王世杰's email so he sees relative load.
+- **Edit-by-instruction** ("edit 1: shorten the intro") for fast revision before send.
 
 ## Edge cases
 
-- **Composer fails for one advisor**: skip that draft, note in the preview, continue with the rest. Don't block the batch on one advisor.
-- **send-email script fails**: report the messageId failure, continue with next, end summary lists failures separately
-- **Subagent times out**: spawn a follow-up that just queries that one advisor and composes; or skip with a note
-- **Reviewer flags ISSUES**: surface verbatim, do NOT auto-send. User decides
+- **Composer subagent fails** for one advisor → mark that draft missing, surface to user before any sending. Do NOT silently send 9.
+- **send-email script fails** for a recipient → report messageId failure, continue with next, end summary lists failures separately.
+- **Cross-leak detected in validation** → surface verbatim, do NOT auto-send. User decides whether to override.
 
 ## What this skill does NOT do
 
-- Doesn't auto-send without user approval (always preview + confirm in chat first)
-- Doesn't loop / schedule itself (use launchd / cron / a /loop skill if you want recurring)
-- Doesn't update the Supabase advisors table (read-only here; edit in vault YAML + sync)
-- Doesn't handle Phase 2 enrichment images (separate skill when ready)
+- **Does NOT use TeamCreate.** Each composer is a plain isolated Agent. (Earlier broken design used TeamCreate; that caused cross-cover bugs.)
+- Doesn't auto-send without user approval (always preview + confirm in chat first).
+- Doesn't loop / schedule itself.
+- Doesn't update the Supabase advisors table (read-only here; edit in vault YAML + sync).
+- Doesn't handle Phase 2 enrichment images (separate skill when ready).
