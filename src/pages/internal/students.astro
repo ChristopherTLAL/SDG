@@ -1,11 +1,6 @@
 ---
-// src/pages/internal/students.astro — student roster (read-only, sourced from Obsidian)
-//
-// Multi-select fields: a student can have multiple mid_advisors / enroll_years /
-// target_regions / contracts. We use array containment for filtering and " / " joined
-// strings for display.
-//
-// 私单 (private contracts) are hidden by default; show only when filter targets 王世杰.
+// src/pages/internal/students.astro — student roster (auth-gated).
+// Multi-select fields rendered " / " joined. 私单 visible only to 王世杰 / admin.
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES } from '../../utils/contact-radar';
@@ -15,9 +10,10 @@ const stageFilter = url.searchParams.get('stage') || '';
 const advisorFilter = url.searchParams.get('advisor') || '';
 const cohortFilter = url.searchParams.get('cohort') || '';
 const includeInactive = url.searchParams.get('include_inactive') === '1';
+const viewer = Astro.locals?.viewer ?? null;
 
 const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
-const showPrivateForFilter = advisorFilter === '王世杰';
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 let q = supabase
   .from('students')
@@ -33,9 +29,8 @@ if (!includeInactive && !stageIsInactive) {
   q = q.not('stage', 'in', `(${Array.from(INACTIVE_STAGES).join(',')})`);
 }
 
-// 私单 hide: array overlap negation (overlaps == has any of the excluded values).
-// PostgREST: `not.ov.{私单,私单（非公司合同）}` — done via .not('contracts', 'ov', '{...}').
-if (!showPrivateForFilter) {
+// Hide private-contract students from anyone who shouldn't see them. Silent — no UI mention.
+if (!canSeePrivate) {
   q = q.not('contracts', 'ov', `{${PRIVATE_CONTRACTS.join(',')}}`);
 }
 
@@ -92,11 +87,11 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
         Students
       </h1>
       <p style="color: var(--text-muted); margin: 0 0 8px; font-size: 14px;">
-        从 Obsidian YAML 同步。{!includeInactive && '已结案/退费 默认不显示。'}{!showPrivateForFilter && ' 私单不显示（点 王世杰 chip 可见他名下私单）。'} 改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。
+        在管学生总览。点击姓名查看详情。
       </p>
       <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
         style={`display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'};`}>
-        {includeInactive ? `✓ 已包含 已结案/退费 (${inactiveCount ?? 0})` : `+ 包含 已结案/退费 (${inactiveCount ?? 0})`}
+        {includeInactive ? '✓ 含已结案' : `+ 已结案 (${inactiveCount ?? 0})`}
       </a>
     </div>
     <div style="display: flex; gap: 18px; font-size: 12px; color: var(--text-muted); align-items: baseline;">
@@ -169,7 +164,7 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
 
   {!error && students.length === 0 && (
     <div style="text-align: center; padding: 80px 24px; color: var(--text-soft); font-size: 14px;">
-      没有数据。跑一次 <code>npm run sync-students</code> 把 Obsidian 同步过来。
+      没有匹配的学生。
     </div>
   )}
 
@@ -195,9 +190,8 @@ function joinList(arr: string[] | null | undefined, fallback = '—'): string {
             const ts = tierStyle(s.tier);
             const label = tierLabel(s.tier, s.daysSince);
             const contractLabels = (s.contracts && s.contracts.length) ? s.contracts.join(' / ') : (s.contract_type ?? '—');
-            const isPrivateRow = (s.contracts ?? []).some((c: string) => PRIVATE_CONTRACTS.includes(c));
             return (
-              <tr id={String(s.id)} style={`border-bottom: 1px solid var(--border); ${isPrivateRow ? 'background: #fffbeb;' : ''}`}>
+              <tr id={String(s.id)} style="border-bottom: 1px solid var(--border);">
                 <td style="padding: 10px 14px; font-weight: 600;">
                   <a href={`/internal/students/${s.id}`} style="color: var(--primary); text-decoration: none;">
                     {s.name}

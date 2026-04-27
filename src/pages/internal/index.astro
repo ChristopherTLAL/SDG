@@ -1,13 +1,11 @@
 ---
-// src/pages/internal/index.astro — dashboard overview
+// src/pages/internal/index.astro — dashboard overview (publicly visible).
 //
 // Data model: a STUDENT can map to multiple CASES = (student × mid_advisor × enroll_year).
-// We use case-counting for the cohort matrix and per-advisor caseload (so 刘昱彤 with
-// mid_advisors=[王世杰, 陆梦婕] shows up under both columns), and DISTINCT-student counting
-// for the headline "在管学生" stat (so the same human isn't double-counted there).
+// Multi-counted in the cohort×advisor matrix, distinct-counted in the headline stat.
 //
-// 私单 (private contracts, non-company) are hidden by default. They re-appear only when
-// the advisor filter is set to 王世杰 (his personal view), since he supervises them.
+// 私单 visibility: 王世杰 (admin) sees his 私单 students when authenticated; everyone
+// else (anonymous + other advisors) doesn't see them at all.
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 import {
@@ -18,12 +16,17 @@ import {
 const url = new URL(Astro.request.url);
 const includeInactive = url.searchParams.get('include_inactive') === '1';
 const advisorFilter = url.searchParams.get('advisor') || '';
+const viewer = Astro.locals?.viewer ?? null;
 
 const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
 function isPrivate(contracts: string[] | null | undefined): boolean {
   if (!contracts) return false;
   return contracts.some(c => PRIVATE_CONTRACTS.has(c));
 }
+
+// Only 王世杰 (admin / explicit name match) sees private-contract students,
+// and only when they overlap his caseload.
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 // Parallel fetches
 const [
@@ -85,15 +88,12 @@ const allStudentsTagged: (StudentRow & { daysSince: number | null; tier: RadarTi
 
 const inactiveCount = allStudentsTagged.filter(s => isInactive(s.stage)).length;
 
-// Stage filter (already-closed/refunded/completed)
+// Stage filter (closed / refunded / completed)
 let students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));
 
-// 私单 filter:
-//   - default (no advisor filter, or filter != 王世杰): hide 私单 students entirely
-//   - filter = 王世杰: include 私单 students that have 王世杰 in their mid_advisors
-//     (his personal view; he manages those even if they're not company contracts)
-const showPrivateForFilter = advisorFilter === '王世杰';
-if (!showPrivateForFilter) {
+// Private-contract students: only visible to authenticated viewers who can see them
+// (王世杰 / admin). Everyone else has them filtered out — silently, no UI mention.
+if (!canSeePrivate) {
   students = students.filter(s => !isPrivate(s.contracts));
 }
 
@@ -200,8 +200,6 @@ function fmtDateTime(dt: string | null): string {
   return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
 }
 
-const totalActiveDistinct = students.length;
-const totalCases = grandTotal.count;
 ---
 
 <InternalLayout title={advisorFilter ? `Overview · ${advisorFilter}` : 'Overview'} active="overview">
@@ -211,14 +209,11 @@ const totalCases = grandTotal.count;
     </h1>
     <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
       style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'}; white-space: nowrap;`}>
-      {includeInactive ? `✓ 已包含 已结案/退费 (${inactiveCount})` : `+ 包含 已结案/退费 (${inactiveCount})`}
+      {includeInactive ? '✓ 含已结案' : `+ 已结案 (${inactiveCount})`}
     </a>
   </div>
   <p style="color: var(--text-muted); margin: 0 0 16px; font-size: 14px;">
-    分诊台。"在管学生" = 真人数（DISTINCT），"带案量"/矩阵 = case 数（多顾问/多入学年份按 case 多算）。
-    {!includeInactive && '已结案/退费/已完成 默认不计入。'}
-    {!showPrivateForFilter && ' 私单不在 dashboard 显示。'}
-    {advisorFilter && <span style="color: var(--primary); font-weight: 600;"> · 已筛选「{advisorFilter}」: stat 和 Triage 只看 ta 的学生（含多顾问命中），矩阵保持完整。</span>}
+    实时联系频率分诊。点击顾问名查看其视角。
   </p>
 
   <!-- Advisor filter chips -->
@@ -238,7 +233,7 @@ const totalCases = grandTotal.count;
 
   <!-- ── Stat strip ── -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px;">
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;" title="DISTINCT 学生数（多顾问/多入学的同一个人只算一次）">
+    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;">
       <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">
         {advisorFilter ? `${advisorFilter} 在管` : (includeInactive ? '学生总数' : '在管学生')}
       </div>
@@ -300,7 +295,7 @@ const totalCases = grandTotal.count;
   <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;">
     <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
       <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">
-        Cohort × Advisor <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">行：入学年份 · 列：中期顾问 · 单元 = case 数（多顾问/多入学双算）· 角标 = 14d+ 严重度</span>
+        分布 <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">入学年份 × 中期顾问</span>
       </h2>
     </div>
     <div style="overflow-x: auto;">
@@ -381,8 +376,7 @@ const totalCases = grandTotal.count;
       </table>
     </div>
     <p style="font-size: 11px; color: var(--text-soft); margin: 10px 0 0;">
-      角标含义：⚠️ 28d+，!! 21–27d，! 14–20d。点击单元格跳转到对应筛选的学生列表。
-      <strong>真人数 {totalActiveDistinct}, case 数 {totalCases}</strong>（差额 = 多顾问 + 多入学年份）。
+      ⚠️ 28d+ ｜ !! 21–27d ｜ ! 14–20d 未联系。
     </p>
   </section>
 
@@ -421,7 +415,7 @@ const totalCases = grandTotal.count;
 
     <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
       <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
-        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近沟通记录 <span style="color: var(--text-soft); font-weight: 500; font-size: 12px;">来自 Obsidian</span></h2>
+        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近沟通记录</h2>
       </div>
       {(recentNotes ?? []).length === 0 ? (
         <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有同步到沟通记录。</p>

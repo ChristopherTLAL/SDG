@@ -112,6 +112,27 @@ in Supabase.
 
 CF Access → Zero Trust → **Access → Applications** → your app → **Policies** → edit the "Allowed Employees" policy → add more emails.
 
+## 11. Public dashboard, gated everything else (auth setup)
+
+The `/internal` dashboard is publicly viewable; every other `/internal/*` page requires CF Access OTP login. Identity (when present) is read from the `Cf-Access-Authenticated-User-Email` header injected by CF Access and resolved against the `advisors` table.
+
+### What you need to do in Cloudflare Zero Trust
+
+1. **Access → Applications** → your app for `sdg.undp.ac.cn/internal/*`
+2. **Add a new "Bypass" policy** (or edit the existing app to split into two paths):
+   - **Bypass policy**: matches `sdg.undp.ac.cn/internal` exact (no trailing slash, or both `/internal` and `/internal/`). Action: Bypass. Audience: everyone.
+   - **OTP policy**: matches `sdg.undp.ac.cn/internal/*` (trailing wildcard). Action: Allow. Audience: your "Allowed Employees" email list. Identity providers: Email OTP.
+3. Order matters — the Bypass policy should evaluate first so the dashboard is open.
+
+After this, hitting the dashboard goes through with no auth; clicking any nav tab triggers the OTP flow.
+
+### How identity works in the app
+
+- `src/middleware.ts` reads `Cf-Access-Authenticated-User-Email` on every `/internal/*` request and resolves it to a `Viewer { email, name, isAdmin }` via the `advisors` table.
+- Pages access the viewer via `Astro.locals.viewer` (null = anonymous, non-null = authenticated).
+- `viewer.isAdmin` is true for `wangshijie11@xdf.cn` or any advisor row with `admin: true` in their YAML.
+- 私单 students appear only when the current viewer can see them (王世杰 / admin). For everyone else they're filtered out silently.
+
 ---
 
 ## File layout reference

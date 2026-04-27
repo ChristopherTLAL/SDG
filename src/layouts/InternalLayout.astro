@@ -1,7 +1,8 @@
 ---
 // src/layouts/InternalLayout.astro
-// Minimal layout for the internal dashboard. No public Header/Footer.
-// Sits under /internal/* (protected by Cloudflare Access).
+// Layout for /internal/* — dashboard is publicly viewable; other pages are
+// gated by Cloudflare Access (email OTP). Identity (when present) comes from
+// Astro.locals.viewer, populated by middleware.
 
 interface Props {
   title: string;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { title, active } = Astro.props;
+const viewer = Astro.locals?.viewer ?? null;
 
 const navItems: { label: string; href: string; key: NonNullable<Props['active']> }[] = [
   { label: 'Overview', href: '/internal', key: 'overview' },
@@ -84,9 +86,16 @@ const navItems: { label: string; href: string; key: NonNullable<Props['active']>
             </a>
           ))}
         </nav>
-        <span style="font-size: 11px; opacity: 0.5; font-family: 'JetBrains Mono', monospace;">
-          Protected by Cloudflare Access
-        </span>
+        {viewer ? (
+          <span style="font-size: 12px; opacity: 0.85; display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ade80;"></span>
+            {viewer.name}
+          </span>
+        ) : (
+          <a href="/internal/students" style="font-size: 12px; padding: 6px 14px; border-radius: 6px; background: rgba(255,255,255,0.12); font-weight: 600;">
+            登录
+          </a>
+        )}
       </div>
     </header>
     <main style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px;">

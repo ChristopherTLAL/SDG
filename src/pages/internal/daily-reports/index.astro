@@ -73,7 +73,7 @@ function fmtKB(b: number): string {
         Daily Reports
       </h1>
       <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
-        从 Obsidian 同步的 <code style="font-size: 12px;">02_Project Manager/日报-{'{顾问}'}.md</code>。每个顾问一份 rolling 文件，新的在顶部。
+        每位顾问的日报 rolling 流，新的在顶部。
       </p>
     </div>
     <div style="font-size: 13px; color: var(--text-muted);">
@@ -83,7 +83,7 @@ function fmtKB(b: number): string {
 
   {cards.length === 0 ? (
     <div style="text-align: center; padding: 80px 24px; color: var(--text-soft); font-size: 14px;">
-      还没有日报文件。在 Obsidian 里写一个 <code>02_Project Manager/日报-王世杰.md</code> 然后跑 <code>npm run sync-students</code>。
+      暂无日报。
     </div>
   ) : (
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px;">
