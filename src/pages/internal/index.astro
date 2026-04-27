@@ -9,6 +9,7 @@ import {
 
 const url = new URL(Astro.request.url);
 const includeInactive = url.searchParams.get('include_inactive') === '1';
+const advisorFilter = url.searchParams.get('advisor') || '';
 
 // Parallel fetches
 const [
@@ -16,6 +17,7 @@ const [
   { data: recentSubmissions },
   { data: allActiveStudents },
   { data: recentNotes },
+  { data: advisorList },
 ] = await Promise.all([
   supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('processed', false),
   supabase
@@ -33,7 +35,28 @@ const [
     .select('id, student_id, note_name, note_date, students(name)')
     .order('note_date', { ascending: false, nullsFirst: false })
     .limit(6),
+  supabase
+    .from('advisors')
+    .select('name, roles')
+    .eq('active', true),
 ]);
+
+// Active advisor chips: 中期 only, sorted by current student count desc
+const midAdvisorNames = (advisorList ?? [])
+  .filter((a: any) => Array.isArray(a.roles) && a.roles.includes('中期'))
+  .map((a: any) => a.name);
+
+function buildHref(overrides: Record<string, string>): string {
+  const params = new URLSearchParams();
+  const next: Record<string, string> = {
+    advisor: advisorFilter,
+    include_inactive: includeInactive ? '1' : '',
+    ...overrides,
+  };
+  for (const [k, v] of Object.entries(next)) if (v) params.set(k, v);
+  const qs = params.toString();
+  return qs ? `/internal?${qs}` : '/internal';
+}
 
 type StudentRow = {
   id: number; name: string;
@@ -48,19 +71,34 @@ const allStudentsTagged: (StudentRow & { daysSince: number | null; tier: RadarTi
   });
 
 const inactiveCount = allStudentsTagged.filter(s => isInactive(s.stage)).length;
-const students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));
+let students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));
+// Stat strip + Triage filter to the selected advisor; matrix stays full (its job is the global view)
+const studentsForFocus = advisorFilter ? students.filter(s => s.mid_advisor === advisorFilter) : students;
 
-// ── Triage (pink and worse, sorted most-overdue first) ──
-const triage = students
+// ── Triage (pink and worse, sorted most-overdue first) — respects advisor filter ──
+const triage = studentsForFocus
   .filter(s => inTriage(s.tier))
   .sort((a, b) => (b.daysSince ?? 0) - (a.daysSince ?? 0));
 
 const tierCounts = {
-  critical: students.filter(s => s.tier === 'critical').length,
-  red:      students.filter(s => s.tier === 'red').length,
-  pink:     students.filter(s => s.tier === 'pink').length,
-  yellow:   students.filter(s => s.tier === 'yellow').length,
+  critical: studentsForFocus.filter(s => s.tier === 'critical').length,
+  red:      studentsForFocus.filter(s => s.tier === 'red').length,
+  pink:     studentsForFocus.filter(s => s.tier === 'pink').length,
+  yellow:   studentsForFocus.filter(s => s.tier === 'yellow').length,
 };
+
+// Per-advisor counts for the chip row (sorted by total student count desc)
+const advisorChipCounts = new Map<string, number>();
+for (const s of students) {
+  if (!s.mid_advisor) continue;
+  advisorChipCounts.set(s.mid_advisor, (advisorChipCounts.get(s.mid_advisor) ?? 0) + 1);
+}
+// Include any advisor in the advisors table even if they have zero students
+for (const name of midAdvisorNames) {
+  if (!advisorChipCounts.has(name)) advisorChipCounts.set(name, 0);
+}
+const advisorChips = Array.from(advisorChipCounts.entries())
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 
 // ── Cohort × Advisor matrix ──
 // Rows: enroll_year (sorted asc, nulls last as "未填")
@@ -131,25 +169,43 @@ function fmtDateTime(dt: string | null): string {
 }
 ---
 
-<InternalLayout title="Overview" active="overview">
+<InternalLayout title={advisorFilter ? `Overview · ${advisorFilter}` : 'Overview'} active="overview">
   <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
     <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
-      Overview
+      Overview {advisorFilter && <span style="font-weight: 600; font-size: 20px; color: var(--primary);">· {advisorFilter}</span>}
     </h1>
-    <a href={includeInactive ? '/internal' : '/internal?include_inactive=1'}
+    <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
       style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'}; white-space: nowrap;`}>
       {includeInactive ? `✓ 已包含 已结案/退费 (${inactiveCount})` : `+ 包含 已结案/退费 (${inactiveCount})`}
     </a>
   </div>
-  <p style="color: var(--text-muted); margin: 0 0 28px; font-size: 14px;">
+  <p style="color: var(--text-muted); margin: 0 0 16px; font-size: 14px;">
     分诊台。先看 Triage，再看 cohort × advisor 结构。{!includeInactive && '已结案/退费 学生默认不计入。'}
+    {advisorFilter && <span style="color: var(--primary); font-weight: 600;"> · 已筛选「{advisorFilter}」: stat 和 Triage 只看 ta 的学生，矩阵保持完整。</span>}
   </p>
+
+  <!-- Advisor filter chips -->
+  <div style="display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; align-items: center;">
+    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">中期</span>
+    <a href={buildHref({ advisor: '' })}
+      style={`padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${!advisorFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!advisorFilter ? 'var(--primary)' : 'var(--text-muted)'}; background: ${!advisorFilter ? '#e8f0ee' : 'transparent'};`}>
+      All
+    </a>
+    {advisorChips.map(([name, count]) => (
+      <a href={buildHref({ advisor: name })}
+        style={`padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${advisorFilter === name ? 'var(--primary)' : 'var(--border)'}; color: ${advisorFilter === name ? 'var(--primary)' : 'var(--text-muted)'}; background: ${advisorFilter === name ? '#e8f0ee' : 'transparent'};`}>
+        {name} <span style="opacity: 0.6; font-family: 'JetBrains Mono', monospace;">{count}</span>
+      </a>
+    ))}
+  </div>
 
   <!-- ── Stat strip ── -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px;">
     <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;">
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">{includeInactive ? '学生总数' : '在管学生'}</div>
-      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{students.length}</div>
+      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">
+        {advisorFilter ? `${advisorFilter} 在管` : (includeInactive ? '学生总数' : '在管学生')}
+      </div>
+      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{studentsForFocus.length}</div>
     </div>
     <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('critical').border}; border-radius: 10px; padding: 16px 18px;`}>
       <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">⚠️ 28d+ 失联</div>
@@ -216,11 +272,14 @@ function fmtDateTime(dt: string | null): string {
             <th style="text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); position: sticky; left: 0; background: var(--surface-raised);">
               Cohort \ Advisor
             </th>
-            {advisorKeys.map(a => (
-              <th style="text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text-muted); white-space: nowrap;">
-                {a}
-              </th>
-            ))}
+            {advisorKeys.map(a => {
+              const isSel = advisorFilter === a;
+              return (
+                <th style={`text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: ${isSel ? 'var(--primary)' : 'var(--text-muted)'}; white-space: nowrap; background: ${isSel ? '#e8f0ee' : 'transparent'};`}>
+                  {a}
+                </th>
+              );
+            })}
             <th style="text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: var(--text); background: #f8fafc;">
               总计
             </th>
@@ -236,13 +295,15 @@ function fmtDateTime(dt: string | null): string {
                 </th>
                 {advisorKeys.map(advisor => {
                   const cell = matrix.get(`${cohort}::${advisor}`);
+                  const isSel = advisorFilter === advisor;
+                  const cellBg = isSel ? '#f4faf7' : 'transparent';
                   if (!cell || cell.count === 0) {
-                    return <td style="text-align: center; padding: 10px; color: var(--text-soft);">·</td>;
+                    return <td style={`text-align: center; padding: 10px; color: var(--text-soft); background: ${cellBg};`}>·</td>;
                   }
                   const ts = tierStyle(cell.worstTier);
                   const showFlag = inTriage(cell.worstTier);
                   return (
-                    <td style="text-align: center; padding: 6px;">
+                    <td style={`text-align: center; padding: 6px; background: ${cellBg};`}>
                       <a href={cellLink(cohort, advisor)} style="text-decoration: none; display: inline-block;">
                         <span style={`display: inline-flex; align-items: baseline; gap: 4px; padding: 4px 10px; border-radius: 6px; ${showFlag ? `background: ${ts.bg}; color: ${ts.fg};` : 'color: var(--text);'} font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 13px;`}>
                           {cell.count}
