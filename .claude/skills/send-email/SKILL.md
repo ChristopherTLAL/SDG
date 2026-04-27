@@ -168,6 +168,46 @@ The script aborts loudly (non-zero exit, message on stderr) when:
 
 If the script succeeds but the email never arrives, check spam first (especially first time `xdf` writes to a new external domain), then check n8n's execution log at `localhost:5678` for the workflow run.
 
+## Common mistakes (read this if HTML emails arrive as raw markdown)
+
+### Mistake #1: bypassing send.py and POSTing `markdown: true` directly to the n8n webhook
+
+**The n8n workflow does NOT understand `markdown: true`.** Its "Process Input" code node only reads `body.html` (boolean). If you send `{"markdown": true, "body": "# heading"}` directly to `http://localhost:5678/webhook/send-email`, the workflow:
+- ignores the `markdown` field
+- sees `html` is undefined → defaults to `false`
+- sets the SMTP node's `emailFormat` to `text`
+- **the recipient sees raw `# heading` as plain text**
+
+Symptom: emails arrive looking ugly, with `#`, `##`, `|`, `-` showing as literal characters instead of styled headings/tables/lists.
+
+**Fix**: always go through `send.py`, which converts markdown → styled HTML and sets `html: true` for you. If you must POST to the webhook directly (e.g., from a one-off batch script in `/tmp/`), do the markdown→HTML conversion yourself **and** set `"html": true` in the payload — never `"markdown": true`.
+
+### The n8n workflow's input contract (canonical reference)
+
+The webhook's first node is a JS code node that reads these fields from the incoming JSON, and only these:
+
+```javascript
+const body = $input.item.json.body || $input.item.json;
+body.to            // string, required
+body.subject       // string, required
+body.body          // string (text or HTML), required
+body.html          // boolean — if true, emailFormat = 'html'
+body.sender        // 'xdf' | 'automation', defaults to 'automation'
+body.attachments   // array of {filename, content (base64), mimeType}
+```
+
+Any other top-level field (`markdown`, `cc`, `bcc`, `reply_to`, etc.) is **silently dropped**. If you need a new feature in the n8n workflow, edit the workflow in the n8n UI; don't try to pass extra fields.
+
+### Mistake #2: passing the `body` as an object instead of a string
+
+The first line `const body = $input.item.json.body || $input.item.json;` has a quirk: if the request happens to have a top-level `body` field that's a **string**, that string becomes `body` and `body.to`, `body.html` etc. all become undefined. This happens when you wrap your real payload as `{"body": "<actual JSON>"}`.
+
+Always send a **flat** JSON payload at the top level:
+```json
+✓ {"to": "x@y.com", "body": "...", "html": true}
+✗ {"body": {"to": "x@y.com", "body": "...", "html": true}}
+```
+
 ## What this skill does NOT do
 
 - Doesn't manage scheduling — pair with launchd / cron / a /loop skill for recurring sends

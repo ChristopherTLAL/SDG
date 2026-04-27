@@ -143,12 +143,18 @@ For EACH student in the list above where days_since_last_contact >= 14
     select note_name, note_date, body_md from student_notes
     where student_id = <id> order by note_date desc nulls last limit 1;
 
-  - Unprocessed inbox count + summary:
+  - Unprocessed inbox (use only as a signal for "建议推进" hints if the
+    submission summary contains a question / open ask. Don't display the count;
+    just fold any urgent items into the hints line):
     select id, type, summary from submissions
     where student_id = <id> and processed = false;
 
 Then compose a markdown body following the EMAIL FORMAT below. days_since =
 (today - last_contact_at). Null last_contact_at = treat as ≥14d.
+
+The 「建议推进」 line is the most important per-student field. See the
+"Building 「建议推进」" section near the bottom of this SKILL for source
+priority, style, and examples.
 
 EMAIL FORMAT (Chinese markdown)
 
@@ -164,7 +170,7 @@ EMAIL FORMAT (Chinese markdown)
 ### <emoji> 学生姓名 — Nd 未联系 · stage
 - 入学年份：X · 意向：Y
 - 最近沟通 (MM-DD)：[[note_name]] — <一句精华提炼，从 body_md 取，<=30 字>
-- 待处理 inbox：<count> 条 (<summary 简短>) OR (无)
+- 建议推进：<1–3 条 short hints, separated by ` / `>  ← see "Building 建议推进" below
 
 ## 你的带案概览
 
@@ -287,12 +293,12 @@ In prod mode: `to = advisor.email`, `subject = subject_base`
 ### ⚠️ 孙钟谋 — 33d 未联系 · 需对接
 - 入学年份：待定 · 意向：可持续与绿色金融 (ESG) / 环境经济
 - 最近沟通 (3-11)：[[孙钟谋规划沟通会议 260311]] — 大气科学跨考 ESG，定暑期实习+雅思路线
-- 待处理 inbox：（无）
+- 建议推进：催雅思备考材料 / 发 3-5 个暑期实习清单
 
 ### ⚠️ 王艺蒙 — 31d 未联系 · 需对接
 - 入学年份：2028 fall · 意向：艺术管理 (不考虑作品集专业)
 - 最近沟通 (3-6)：[[王艺蒙 规划沟通 2026-03-06]] — UCL/KCL 艺管，GPA 冲 90、写 Writing sample
-- 待处理 inbox：（无）
+- 建议推进：复盘 GPA 现状 / Writing sample 导师匹配 / 暑期美术馆实习
 
 ## 你的带案概览
 - 在管学生：8
@@ -333,6 +339,40 @@ In prod mode: `to = advisor.email`, `subject = subject_base`
 ——
 苏州前途中期看板 · sdg.undp.ac.cn/internal
 ```
+
+## Building 「建议推进」 — what to put there
+
+Each per-student card shows 1–3 short hints (separated by ` / `, no leading bullet) that give the advisor concrete things to bring up in the next contact. The hints come FROM the latest comm note's content — extract action items / next steps / open questions / promises made by the advisor that are now overdue.
+
+**Source priority** (composer subagent walks these in order):
+
+1. **Action items in the latest note** (e.g., a "Action Items" / "下一步" / "顾问 Action" / "待办" section). Lift the verb-phrase, drop fluff. Cap at ~12 字 each.
+2. **Promises the advisor made** ("我下周给你...", "我会帮你筛..."). These are highest priority — the student is waiting.
+3. **Open questions left from last meeting** ("学校还没定" / "实习方向再想想").
+4. **Stage + days-elapsed default** if the note has nothing actionable: e.g.
+   - `中期在途` + 30d+ → "确认近况 / 标化进度"
+   - `后期在途` + 14d+ → "签证 / 行前节奏"
+   - `需对接` + 30d+ → "首联 + 基础档案"
+
+**Style**:
+- Each hint is ≤ 12 字, action-shaped (verb-led), concrete.
+- Use ` / ` to separate. Max 3.
+- If literally nothing actionable (e.g., new student no notes yet), write `首联建档` or similar single hint.
+
+**Examples**:
+
+```
+- 建议推进：催雅思备考材料 / 跟进 3 个暑期实习筛选清单
+- 建议推进：复盘 USABO 排课 / 催牛剑营录取 / 上海 wet lab 资源
+- 建议推进：确认 offer 押金 / 签证递交节奏
+- 建议推进：方向探索访谈（兴趣测评 + 学科偏好）
+- 建议推进：首联 + 港大数学路径节点
+```
+
+**What NOT to write here**:
+- ❌ Long context ("根据上次沟通学生选了 Natural Sciences...") — that's already in the 最近沟通 line above
+- ❌ "联系学生" / "跟进" 这种空话 — be specific
+- ❌ Inbox counts — we removed that field intentionally; if there's a real urgent submission, surface it as one of the hints (e.g. "回家长关于雅思时间的问题")
 
 ## Phase 2 (later, when you provide source)
 
