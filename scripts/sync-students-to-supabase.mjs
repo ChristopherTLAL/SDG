@@ -390,6 +390,29 @@ async function main() {
   }
   if (records.length > 5) console.log(`   … and ${records.length - 5} more`);
 
+  // Prune: any student in DB whose name isn't in the vault anymore was deleted
+  // from Obsidian. Drop the row (cascade deletes student_notes; submissions
+  // FK is ON DELETE SET NULL so they orphan but don't break).
+  // Sanity: only prune if we read a plausible number of vault students. If the
+  // read count drops by >50% suddenly, something's wrong — bail rather than
+  // mass-delete. (Adjust threshold if vault legitimately shrinks.)
+  const vaultNames = new Set(records.map(r => r.name));
+  const { data: dbAll } = await supabase.from('students').select('id, name');
+  const orphaned = (dbAll ?? []).filter(r => !vaultNames.has(r.name));
+  if (orphaned.length === 0) {
+    console.log(`\n✓ No orphaned students to prune.`);
+  } else if (records.length < (dbAll?.length ?? 0) * 0.5) {
+    console.warn(`\n⚠  Refusing to prune: vault has ${records.length} students but DB has ${dbAll?.length} — read may have failed. Skipping prune.`);
+  } else {
+    const orphanIds = orphaned.map(r => r.id);
+    const { error: delErr } = await supabase.from('students').delete().in('id', orphanIds);
+    if (delErr) {
+      console.warn(`\n⚠  Prune failed: ${delErr.message}`);
+    } else {
+      console.log(`\n🧹 Pruned ${orphaned.length} student${orphaned.length === 1 ? '' : 's'} no longer in vault: ${orphaned.map(r => r.name).join(', ')}`);
+    }
+  }
+
   // Sync communication notes (one extra step per student).
   const studentIdByName = new Map((data ?? []).map(r => [r.name, r.id]));
   const { totalNotes, totalStudents } = await syncStudentNotes(studentIdByName, notesByStudentName);

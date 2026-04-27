@@ -37,7 +37,7 @@ export function tierStyle(tier: RadarTier): TierStyle {
 export function tierLabel(tier: RadarTier, daysSince: number | null): string {
   if (tier === 'inactive') return '—';
   if (tier === 'unknown' || daysSince === null) return '?';
-  if (tier === 'critical') return `⚠️ ${daysSince}d`;
+  // Critical tier doesn't need an emoji prefix — the dark red pill bg is loud enough.
   return `${daysSince}d`;
 }
 
