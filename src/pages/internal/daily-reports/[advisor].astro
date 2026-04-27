@@ -1,15 +1,27 @@
 ---
-// src/pages/internal/daily-reports/[advisor].astro — single advisor's daily report
+// src/pages/internal/daily-reports/[advisor].astro — single advisor's daily report.
+// Access: viewer must be the same advisor OR admin. Non-matching viewers are
+// redirected to their own report (helpful) rather than 403'd.
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks } from '../../../utils/wikilinks';
 import { marked } from 'marked';
 
+const viewer = Astro.locals?.viewer ?? null;
 const { advisor } = Astro.params;
 const advisorName = decodeURIComponent(advisor ?? '');
 
 if (!advisorName) {
   return Astro.redirect('/internal/daily-reports');
+}
+
+// Access control — only the advisor herself, or an admin, can view.
+if (!viewer) {
+  return new Response('Unauthorized', { status: 401 });
+}
+if (!viewer.isAdmin && viewer.name !== advisorName) {
+  // Non-admin trying to peek at someone else's report → bounce to their own.
+  return Astro.redirect(`/internal/daily-reports/${encodeURIComponent(viewer.name)}`);
 }
 
 const { data: report, error } = await supabase
@@ -54,11 +66,12 @@ if (report.body_md) {
   if (cur) dateEntries.push({ date: cur.date, lineCount: lines.length - cur.start });
 }
 
-// All advisors for the picker
-const { data: allAdvisors } = await supabase
-  .from('daily_reports')
-  .select('advisor')
-  .order('advisor');
+// Advisor picker is admin-only — regular advisors don't need to switch (they only
+// have access to their own).
+const { data: allAdvisorsRaw } = viewer.isAdmin
+  ? await supabase.from('daily_reports').select('advisor').order('advisor')
+  : { data: [] as { advisor: string }[] };
+const allAdvisors = allAdvisorsRaw ?? [];
 
 function dateAnchor(d: string): string {
   return `d-${d}`;
@@ -66,24 +79,28 @@ function dateAnchor(d: string): string {
 ---
 
 <InternalLayout title={`Daily Report — ${advisorName}`} active="daily-reports">
-  <div style="margin-bottom: 8px;">
-    <a href="/internal/daily-reports" style="font-size: 12px; color: var(--text-soft); font-weight: 600;">
-      ← Daily Reports
-    </a>
-  </div>
+  {viewer.isAdmin && (
+    <div style="margin-bottom: 8px;">
+      <a href="/internal/daily-reports" style="font-size: 12px; color: var(--text-soft); font-weight: 600;">
+        ← Daily Reports
+      </a>
+    </div>
+  )}
 
   <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
     <h1 class="font-headline" style="font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
       日报 · {advisorName}
     </h1>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-      {(allAdvisors ?? []).filter((a: any) => a.advisor !== advisorName).map((a: any) => (
-        <a href={`/internal/daily-reports/${encodeURIComponent(a.advisor)}`}
-           style="font-size: 11px; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-weight: 600;">
-          {a.advisor}
-        </a>
-      ))}
-    </div>
+    {viewer.isAdmin && allAdvisors.length > 1 && (
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        {allAdvisors.filter((a: any) => a.advisor !== advisorName).map((a: any) => (
+          <a href={`/internal/daily-reports/${encodeURIComponent(a.advisor)}`}
+             style="font-size: 11px; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-weight: 600;">
+            {a.advisor}
+          </a>
+        ))}
+      </div>
+    )}
   </div>
   <p style="color: var(--text-soft); font-size: 12px; margin: 0 0 24px; font-family: 'JetBrains Mono', monospace;">
     {report.obsidian_path} · 同步于 {new Date(report.synced_at).toLocaleString('zh-CN')}

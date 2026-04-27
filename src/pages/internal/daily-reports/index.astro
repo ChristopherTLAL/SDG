@@ -1,7 +1,16 @@
 ---
-// src/pages/internal/daily-reports/index.astro — overview of all advisors' daily reports
+// src/pages/internal/daily-reports/index.astro — overview.
+// Admin sees every advisor's report card; a regular advisor is sent straight
+// to their own report (no need to pick from a list — they'd see only one card).
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
+
+const viewer = Astro.locals?.viewer ?? null;
+
+// Non-admin advisors → straight to their own page. Skip the picker entirely.
+if (viewer && !viewer.isAdmin) {
+  return Astro.redirect(`/internal/daily-reports/${encodeURIComponent(viewer.name)}`);
+}
 
 const { data: reportsRaw } = await supabase
   .from('daily_reports')
