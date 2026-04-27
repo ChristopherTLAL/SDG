@@ -166,26 +166,44 @@ async function loadStudents() {
 
     const studentName = pickString(fm, '姓名') || entry.name;
 
+    // Multi-select fields — YAML may have scalar OR array; pickArray normalizes both.
+    const midAdvisors    = pickArray(fm, '中期顾问');
+    const earlyAdvisors  = pickArray(fm, '前期顾问');
+    const lateAdvisors   = pickArray(fm, '后期顾问');
+    const enrollYears    = pickArray(fm, '入学年份');
+    const targetRegions  = pickArray(fm, '目标地区');
+
     const record = {
       name: studentName,
-      enroll_year: pickString(fm, '入学年份'),
       stage: pickString(fm, '当前进度'),
       contracts: finalContracts,
       contract_type: legacyContractType ?? (finalContracts[0] ?? null),
       major_intention: pickString(fm, '意向专业方向'),
       major_current: pickString(fm, '专业'),
       current_school: pickString(fm, '目前就读学校'),
-      grade: pickString(fm, '年级'),
-      gpa: pickString(fm, 'GPA'),
       client_email: pickString(fm, '客户邮箱'),
-      early_advisor: pickString(fm, '前期顾问'),
-      mid_advisor: pickString(fm, '中期顾问'),
       last_contact_at: parseDate(fm['最后沟通时间']),
       obsidian_path: `01_Student/${entry.name}`,
       body_md: body,
       attachments,
       tags: [],
       synced_at: new Date().toISOString(),
+
+      // ── Multi-select arrays (canonical going forward) ──
+      mid_advisors:   midAdvisors,
+      early_advisors: earlyAdvisors,
+      late_advisors:  lateAdvisors,
+      enroll_years:   enrollYears,
+      target_regions: targetRegions,
+
+      // ── Singular columns (kept for back-compat with old code paths) ──
+      // Populated as the FIRST element of the array, or null if empty.
+      mid_advisor:   midAdvisors[0]   ?? null,
+      early_advisor: earlyAdvisors[0] ?? null,
+      enroll_year:   enrollYears[0]   ?? null,
+      // grade / gpa: vault no longer has these fields; leave null.
+      grade: null,
+      gpa: null,
     };
 
     records.push(record);

@@ -92,22 +92,29 @@ If empty → abort.
 
 ### Step 2 — Pre-fetch each advisor's student list
 
+Students can have **multiple mid_advisors** (e.g., 刘昱彤 = `[王世杰, 陆梦婕]`). Such a student must appear in BOTH advisors' digests. Use `unnest(mid_advisors)` to expand:
+
 ```sql
-select mid_advisor as advisor, id, name, stage, last_contact_at, enroll_year,
-       major_intention, current_school
+select unnest(mid_advisors) as advisor,
+       id, name, stage, last_contact_at, enroll_years,
+       mid_advisors, major_intention, current_school, target_regions
 from students
-where mid_advisor = any($advisor_names)
+where mid_advisors && $advisor_names::text[]
   -- Exclude inactive cases (already-closed / refunded / completed):
   and (stage is null or stage not in ('已结案','退费','已完成'))
   -- Exclude 私单 (non-company contracts) — they're not part of the
   -- company digest stream. Catches both "私单" and "私单（非公司合同）":
-  and not (contracts && ARRAY['私单','私单（非公司合同）']::text[]);
-order by mid_advisor, last_contact_at asc nulls first;
+  and not (contracts && ARRAY['私单','私单（非公司合同）']::text[])
+order by advisor, last_contact_at asc nulls first;
 ```
 
-The 私单 + inactive filter is **lead-side**, applied here before any subagent dispatch. Composer subagents only see the filtered list, so they can't accidentally include excluded students.
+`mid_advisors && $advisor_names` checks array overlap (any of the student's advisors is in our active list).
 
-Group rows by `advisor`. Result: a Map<advisor_name, students[]>.
+The 私单 + inactive filter is **lead-side**, applied here before any subagent dispatch. Composer subagents only see the filtered list.
+
+Group rows by `advisor` (the unnested column). Result: a Map<advisor_name, students[]>. A multi-mid-advisor student appears once per advisor.
+
+**Multi-入学年份 students** (e.g., 马江涛 with `[2026 fall, 2028 fall]`) — keep the `enroll_years` array intact in the per-student record. The composer should display them joined: `2026 fall + 2028 fall (硕博双轨)`. Don't expand into 2 entries per advisor; one entry, one card, both years shown.
 
 Print a one-line caseload summary: `"袁辰飞 8, 张曌璐 1, ..., 高幸玲 0"`. Confirm with user before dispatching if you want — or proceed straight to step 3.
 
@@ -139,7 +146,13 @@ YOUR ASSIGNED STUDENTS (this is the COMPLETE list — do NOT query for any other
 advisor or any student not in this list):
 
 <embed the student list as a JSON array, one object per student with id, name,
- stage, last_contact_at, enroll_year, major_intention, current_school>
+ stage, last_contact_at, enroll_years (array), mid_advisors (array),
+ major_intention, current_school, target_regions (array)>
+
+If a student has multiple `enroll_years`, render as `2026 fall + 2028 fall (硕博双轨)` in
+the cohort/intake position of the card. If multiple `mid_advisors` (the student is shared
+with another advisor), include a small note like `· 共管：陆梦婕` after the stage line so
+the advisor knows there's a co-owner.
 
 YOUR JOB
 For EACH student in the list above where days_since_last_contact >= 14

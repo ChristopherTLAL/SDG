@@ -1,8 +1,14 @@
 ---
 // src/pages/internal/students.astro — student roster (read-only, sourced from Obsidian)
+//
+// Multi-select fields: a student can have multiple mid_advisors / enroll_years /
+// target_regions / contracts. We use array containment for filtering and " / " joined
+// strings for display.
+//
+// 私单 (private contracts) are hidden by default; show only when filter targets 王世杰.
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
-import { tierFor, tierStyle, tierLabel, daysSinceToday, isInactive, INACTIVE_STAGES } from '../../utils/contact-radar';
+import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES } from '../../utils/contact-radar';
 
 const url = new URL(Astro.request.url);
 const stageFilter = url.searchParams.get('stage') || '';
@@ -10,24 +16,33 @@ const advisorFilter = url.searchParams.get('advisor') || '';
 const cohortFilter = url.searchParams.get('cohort') || '';
 const includeInactive = url.searchParams.get('include_inactive') === '1';
 
+const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
+const showPrivateForFilter = advisorFilter === '王世杰';
+
 let q = supabase
   .from('students')
-  .select('id, name, stage, contracts, contract_type, major_intention, major_current, current_school, grade, gpa, client_email, early_advisor, mid_advisor, last_contact_at, enroll_year, synced_at');
+  .select('id, name, stage, contracts, contract_type, major_intention, major_current, current_school, client_email, early_advisors, mid_advisors, late_advisors, last_contact_at, enroll_years, target_regions, synced_at');
 
 if (stageFilter) q = q.eq('stage', stageFilter);
-if (advisorFilter) q = q.eq('mid_advisor', advisorFilter);
-if (cohortFilter) q = q.eq('enroll_year', cohortFilter);
-// If a specific inactive stage is being filtered, always show those rows
-// regardless of the include_inactive toggle.
+// Multi-select: contains check (mid_advisors contains the filtered name)
+if (advisorFilter) q = q.contains('mid_advisors', [advisorFilter]);
+if (cohortFilter)  q = q.contains('enroll_years', [cohortFilter]);
+
 const stageIsInactive = stageFilter && INACTIVE_STAGES.has(stageFilter);
 if (!includeInactive && !stageIsInactive) {
   q = q.not('stage', 'in', `(${Array.from(INACTIVE_STAGES).join(',')})`);
 }
 
+// 私单 hide: array overlap negation (overlaps == has any of the excluded values).
+// PostgREST: `not.ov.{私单,私单（非公司合同）}` — done via .not('contracts', 'ov', '{...}').
+if (!showPrivateForFilter) {
+  q = q.not('contracts', 'ov', `{${PRIVATE_CONTRACTS.join(',')}}`);
+}
+
 const { data: studentsRaw, error } = await q.order('last_contact_at', { ascending: false, nullsFirst: false }).limit(500);
 const students = studentsRaw ?? [];
 
-// Count of inactive students total (for the toggle badge)
+// Counts for header badges
 const { count: inactiveCount } = await supabase
   .from('students')
   .select('id', { count: 'exact', head: true })
@@ -39,12 +54,12 @@ const withRadar = students.map((s: any) => {
   return { ...s, daysSince: ds, tier };
 });
 
-// Enumerate stages/advisors/cohorts for filter chips
+// Build filter chip values from the FULL active student set (so filters don't disappear
+// when current page is empty). Reasonable approximation: enumerate over current results.
 const stages = Array.from(new Set(students.map((s: any) => s.stage).filter(Boolean))).sort();
-const advisors = Array.from(new Set(students.map((s: any) => s.mid_advisor).filter(Boolean))).sort();
-const cohorts = Array.from(new Set(students.map((s: any) => s.enroll_year).filter(Boolean))).sort();
+const cohorts = Array.from(new Set(students.flatMap((s: any) => (s.enroll_years ?? [])).filter(Boolean))).sort() as string[];
+const advisors = Array.from(new Set(students.flatMap((s: any) => (s.mid_advisors ?? [])).filter(Boolean))).sort() as string[];
 
-// Aggregate counts: critical (28+) and red (21-27) and pink (14-20) for the header
 const criticalCount = withRadar.filter((s: any) => s.tier === 'critical').length;
 const redCount = withRadar.filter((s: any) => s.tier === 'red').length;
 const pinkCount = withRadar.filter((s: any) => s.tier === 'pink').length;
@@ -59,11 +74,14 @@ function buildHref(overrides: Record<string, string>): string {
     include_inactive: includeInactive ? '1' : '',
     ...overrides,
   };
-  for (const [k, v] of Object.entries(next)) {
-    if (v) params.set(k, v);
-  }
+  for (const [k, v] of Object.entries(next)) if (v) params.set(k, v);
   const qs = params.toString();
   return qs ? `/internal/students?${qs}` : '/internal/students';
+}
+
+function joinList(arr: string[] | null | undefined, fallback = '—'): string {
+  if (!arr || !arr.length) return fallback;
+  return arr.join(' / ');
 }
 ---
 
@@ -74,7 +92,7 @@ function buildHref(overrides: Record<string, string>): string {
         Students
       </h1>
       <p style="color: var(--text-muted); margin: 0 0 8px; font-size: 14px;">
-        从 Obsidian YAML 同步。页面只读，改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。{!includeInactive && '已结案/退费 默认不显示。'}
+        从 Obsidian YAML 同步。{!includeInactive && '已结案/退费 默认不显示。'}{!showPrivateForFilter && ' 私单不显示（点 王世杰 chip 可见他名下私单）。'} 改动请去 Obsidian 然后跑 <code style="font-size: 12px;">npm run sync-students</code>。
       </p>
       <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
         style={`display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'};`}>
@@ -108,7 +126,7 @@ function buildHref(overrides: Record<string, string>): string {
       All
     </a>
     {cohorts.map(c => (
-      <a href={buildHref({ cohort: c as string })}
+      <a href={buildHref({ cohort: c })}
         style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${cohortFilter === c ? 'var(--primary)' : 'var(--border)'}; color: ${cohortFilter === c ? 'var(--primary)' : 'var(--text-muted)'};`}>
         {c}
       </a>
@@ -136,7 +154,7 @@ function buildHref(overrides: Record<string, string>): string {
       All
     </a>
     {advisors.map(a => (
-      <a href={buildHref({ advisor: a as string })}
+      <a href={buildHref({ advisor: a })}
         style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${advisorFilter === a ? 'var(--primary)' : 'var(--border)'}; color: ${advisorFilter === a ? 'var(--primary)' : 'var(--text-muted)'};`}>
         {a}
       </a>
@@ -164,7 +182,9 @@ function buildHref(overrides: Record<string, string>): string {
             <th style="text-align: left; padding: 10px 14px;">阶段</th>
             <th style="text-align: left; padding: 10px 14px;">合同</th>
             <th style="text-align: left; padding: 10px 14px;">方向</th>
-            <th style="text-align: left; padding: 10px 14px;">学校 / 年级</th>
+            <th style="text-align: left; padding: 10px 14px;">学校</th>
+            <th style="text-align: left; padding: 10px 14px;">入学年份</th>
+            <th style="text-align: left; padding: 10px 14px;">目标地区</th>
             <th style="text-align: left; padding: 10px 14px;">中期</th>
             <th style="text-align: left; padding: 10px 14px;">最后沟通</th>
             <th style="text-align: left; padding: 10px 14px;">雷达</th>
@@ -175,9 +195,9 @@ function buildHref(overrides: Record<string, string>): string {
             const ts = tierStyle(s.tier);
             const label = tierLabel(s.tier, s.daysSince);
             const contractLabels = (s.contracts && s.contracts.length) ? s.contracts.join(' / ') : (s.contract_type ?? '—');
-            const schoolGrade = [s.current_school, s.grade].filter(Boolean).join(' · ') || '—';
+            const isPrivateRow = (s.contracts ?? []).some((c: string) => PRIVATE_CONTRACTS.includes(c));
             return (
-              <tr id={String(s.id)} style="border-bottom: 1px solid var(--border);">
+              <tr id={String(s.id)} style={`border-bottom: 1px solid var(--border); ${isPrivateRow ? 'background: #fffbeb;' : ''}`}>
                 <td style="padding: 10px 14px; font-weight: 600;">
                   <a href={`/internal/students/${s.id}`} style="color: var(--primary); text-decoration: none;">
                     {s.name}
@@ -188,19 +208,24 @@ function buildHref(overrides: Record<string, string>): string {
                 </td>
                 <td style="padding: 10px 14px; color: var(--text-muted);">{s.stage ?? '—'}</td>
                 <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">{contractLabels}</td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                   {s.major_intention ?? '—'}
                   {s.major_current && (
                     <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">在读：{s.major_current}</div>
                   )}
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                  {schoolGrade}
-                  {s.gpa && (
-                    <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">GPA {s.gpa}</div>
-                  )}
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  {s.current_school ?? '—'}
                 </td>
-                <td style="padding: 10px 14px; color: var(--text-muted);">{s.mid_advisor ?? '—'}</td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">
+                  {joinList(s.enroll_years)}
+                </td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  {joinList(s.target_regions)}
+                </td>
+                <td style="padding: 10px 14px; color: var(--text-muted); font-size: 12px;">
+                  {joinList(s.mid_advisors)}
+                </td>
                 <td style="padding: 10px 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">{s.last_contact_at ?? '—'}</td>
                 <td style="padding: 10px 14px;">
                   <span style={`display: inline-block; padding: 3px 8px; border-radius: 999px; background: ${ts.bg}; color: ${ts.fg}; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: nowrap;`}>

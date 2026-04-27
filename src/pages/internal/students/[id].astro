@@ -78,19 +78,25 @@ if (student.last_contact_at) {
   daysSince = Math.floor((today.getTime() - new Date(student.last_contact_at).getTime()) / (24 * 60 * 60 * 1000));
 }
 
-// Build the metadata panel rows
+// Build the metadata panel rows. Prefer the multi-select arrays; fall back to
+// singular columns (for any legacy row that hasn't been re-synced yet).
+function joinOrSingular(arr: string[] | null | undefined, single: string | null | undefined): string | null | undefined {
+  if (Array.isArray(arr) && arr.length) return arr.join(' / ');
+  return single;
+}
+
 type Row = { label: string; value: string | null | undefined; mono?: boolean };
 const metaRows: Row[] = [
   { label: '当前进度', value: student.stage },
-  { label: '入学年份', value: student.enroll_year },
+  { label: '入学年份', value: joinOrSingular(student.enroll_years, student.enroll_year) },
   { label: '合同', value: (student.contracts?.length ? student.contracts.join(' / ') : student.contract_type) },
   { label: '意向方向', value: student.major_intention },
   { label: '在读专业', value: student.major_current },
   { label: '目前就读学校', value: student.current_school },
-  { label: '年级', value: student.grade },
-  { label: 'GPA', value: student.gpa, mono: true },
-  { label: '前期顾问', value: student.early_advisor },
-  { label: '中期顾问', value: student.mid_advisor },
+  { label: '目标地区', value: joinOrSingular(student.target_regions, null) },
+  { label: '前期顾问', value: joinOrSingular(student.early_advisors, student.early_advisor) },
+  { label: '中期顾问', value: joinOrSingular(student.mid_advisors, student.mid_advisor) },
+  { label: '后期顾问', value: joinOrSingular(student.late_advisors, null) },
   { label: '客户邮箱', value: student.client_email, mono: true },
   { label: '最后沟通', value: student.last_contact_at, mono: true },
 ];

@@ -194,7 +194,9 @@ Use Write to put this content at <PAYLOAD FILE>:
        + 在 `## 沟通与纪要汇总` 下追加 `[[文件名]]` 双向链接 + 一行精华
        （e.g. `2026-04-27 沟通：定 USABO 排课 + 上海 wet lab 联系`）
     3. 02_Project Manager/日报-<mid_advisor>.md — 顶部插入条目，
-       ≤4 行/条目。如该顾问日报不存在则新建，第一行 `# 日报-<mid_advisor>`
+       ≤4 行/条目。如该顾问日报不存在则新建，第一行 `# 日报-<mid_advisor>`。
+       **如果学生 mid_advisor 是多选 (e.g. 刘昱彤 = [王世杰, 陆梦婕])，把同一条
+       日报写到 EACH 顾问的 日报-X.md 文件里**（共管学生，两位顾问都需要看到）。
     4. 02_Project Manager/待办任务看板.md — 如果有新 todo
   - 附件：从下面列的本地路径 mv 到 01_Student/<student_name>/个性化材料/，
     重命名为 `{YYYY-MM-DD} {summary前20字}.{ext}`
