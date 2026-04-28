@@ -7,8 +7,12 @@ import { supabase } from '../../../lib/supabase/client';
 
 const viewer = Astro.locals?.viewer ?? null;
 
+// XDF guests (no advisor row) can't see daily reports at all — bounce to dashboard.
+if (!viewer || (!viewer.isAdmin && !viewer.isAdvisor)) {
+  return Astro.redirect('/internal');
+}
 // Non-admin advisors → straight to their own page. Skip the picker entirely.
-if (viewer && !viewer.isAdmin) {
+if (!viewer.isAdmin) {
   return Astro.redirect(`/internal/daily-reports/${encodeURIComponent(viewer.name)}`);
 }
 

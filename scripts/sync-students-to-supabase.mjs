@@ -402,95 +402,12 @@ async function syncDailyReports() {
   return { count: reports.length, advisors: reports.map(r => r.advisor) };
 }
 
-// Replace the OTP policy's include list with explicit per-advisor emails so
-// that a departing advisor (file removed from vault) automatically loses
-// access. The personal admin failsafe (christophertlal@outlook.com) is always
-// retained so we can't lock ourselves out if a vault read goes sideways.
-async function syncCFAccessPolicy(advisorEmails) {
-  const token     = process.env.CF_API_TOKEN;
-  const accountId = process.env.CF_ACCOUNT_ID;
-  const policyId  = process.env.CF_ACCESS_OTP_POLICY_ID;
-
-  if (!token || !accountId || !policyId) {
-    console.log('  · CF Access policy sync: skipping (missing CF_API_TOKEN / CF_ACCOUNT_ID / CF_ACCESS_OTP_POLICY_ID)');
-    return;
-  }
-
-  const FAILSAFE_EMAILS = ['christophertlal@outlook.com'];
-  const desired = Array.from(
-    new Set(
-      [...advisorEmails, ...FAILSAFE_EMAILS]
-        .map(e => String(e || '').trim().toLowerCase())
-        .filter(Boolean)
-    )
-  ).sort();
-
-  // If only the failsafe survives, vault read almost certainly failed — bail.
-  if (desired.length <= FAILSAFE_EMAILS.length) {
-    console.warn(`  ⚠  CF Access policy: refusing to wipe — only ${desired.length} email(s) resolved.`);
-    return;
-  }
-
-  const headers = {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  };
-  const policyUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/access/policies/${policyId}`;
-
-  let current;
-  try {
-    const res = await fetch(policyUrl, { headers });
-    const j = await res.json();
-    if (!j.success) {
-      console.warn('  ⚠  CF Access policy GET failed:', JSON.stringify(j.errors));
-      return;
-    }
-    current = j.result;
-  } catch (err) {
-    console.warn('  ⚠  CF Access policy GET errored:', err.message);
-    return;
-  }
-
-  // Skip the PUT when the include list already matches: same set of explicit
-  // emails AND no leftover wildcard rules (email_domain etc.).
-  const currentEmails = (current.include ?? [])
-    .map(rule => rule?.email?.email)
-    .filter(Boolean)
-    .map(e => e.toLowerCase())
-    .sort();
-  const allExplicit = (current.include ?? []).every(rule => rule?.email?.email);
-  const sameSet = allExplicit
-    && currentEmails.length === desired.length
-    && currentEmails.every((e, i) => e === desired[i]);
-  if (sameSet) {
-    console.log(`  · CF Access policy already in sync (${desired.length} email${desired.length === 1 ? '' : 's'})`);
-    return;
-  }
-
-  const body = {
-    name:     current.name,
-    decision: current.decision,
-    include:  desired.map(email => ({ email: { email } })),
-    require:  current.require ?? [],
-    exclude:  current.exclude ?? [],
-  };
-
-  try {
-    const res = await fetch(policyUrl, {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify(body),
-    });
-    const j = await res.json();
-    if (!j.success) {
-      console.warn('  ⚠  CF Access policy PUT failed:', JSON.stringify(j.errors));
-      return;
-    }
-    console.log(`🔐 Updated CF Access policy: ${desired.length} email${desired.length === 1 ? '' : 's'} — ${desired.join(', ')}`);
-  } catch (err) {
-    console.warn('  ⚠  CF Access policy PUT errored:', err.message);
-  }
-}
+// CF Access policy is managed statically (email_domain: xdf.cn + an admin
+// failsafe email). When an advisor leaves the company XDF revokes their email
+// account, which is what actually cuts dashboard access. Inside the dashboard
+// app, isAdvisor (computed from the advisors table) is the auth-z gate for
+// submit / inbox / daily-reports — so a former advisor whose row was pruned
+// already loses access to those pages even if their email still resolves.
 
 async function main() {
   console.log(`Reading vault at ${STUDENT_DIR} …`);
@@ -550,14 +467,8 @@ async function main() {
   console.log(`\n✅ Synced ${totalNotes} communication notes across ${totalStudents} students.`);
 
   // Sync advisor profiles.
-  const { count: advisorCount, names: advisorNames, emails: advisorEmails } = await syncAdvisors();
+  const { count: advisorCount, names: advisorNames } = await syncAdvisors();
   console.log(`\n✅ Synced ${advisorCount} advisor${advisorCount === 1 ? '' : 's'}: ${advisorNames.join(', ') || '—'}`);
-
-  // Mirror the advisor email list into the Cloudflare Access OTP policy so a
-  // departing advisor (their vault file removed) automatically loses access.
-  if (advisorEmails && advisorEmails.length) {
-    await syncCFAccessPolicy(advisorEmails);
-  }
 
   // Sync per-advisor daily reports.
   const { count: dailyCount, advisors } = await syncDailyReports();

@@ -3,6 +3,14 @@
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 
+const viewer = Astro.locals?.viewer ?? null;
+
+// Submit is for advisors and admin only. XDF guests (any @xdf.cn that's not
+// in the advisors table) bounce back to the dashboard.
+if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
+  return Astro.redirect('/internal');
+}
+
 // Fetch student list for the dropdown. Ordered by last_contact_at desc so
 // the students you've touched recently float to the top.
 const { data: studentsRaw, error } = await supabase
@@ -13,7 +21,6 @@ const { data: studentsRaw, error } = await supabase
 
 const students = studentsRaw ?? [];
 const dbError = error?.message ?? null;
-const viewer = Astro.locals?.viewer ?? null;
 ---
 
 <InternalLayout title="Submit" active="submit">

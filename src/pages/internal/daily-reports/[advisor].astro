@@ -20,8 +20,12 @@ if (!advisorName) {
 if (!viewer) {
   return new Response('Unauthorized', { status: 401 });
 }
+// XDF guests (authenticated but not in the advisors table) → dashboard.
+if (!viewer.isAdmin && !viewer.isAdvisor) {
+  return Astro.redirect('/internal');
+}
 if (!viewer.isAdmin && viewer.name !== advisorName) {
-  // Non-admin trying to peek at someone else's report → bounce to their own.
+  // Advisor trying to peek at someone else's report → bounce to their own.
   return Astro.redirect(`/internal/daily-reports/${encodeURIComponent(viewer.name)}`);
 }
 

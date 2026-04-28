@@ -30,7 +30,17 @@ async function uploadFile(file: File, subdir: string): Promise<string | null> {
   return key;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
+  // Submit is for advisors and admin only. XDF guests (any @xdf.cn that isn't
+  // in the advisors table) can pass CF Access but can't post here.
+  const viewer = locals?.viewer ?? null;
+  if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
+    return new Response(JSON.stringify({ error: 'forbidden' }), {
+      status: 403,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
   try {
     const fd = await request.formData();
 

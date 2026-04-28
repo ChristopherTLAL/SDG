@@ -2,7 +2,16 @@
 import type { APIRoute } from 'astro';
 import { supabase } from '../../../../../lib/supabase/client';
 
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ params, request, locals }) => {
+  // Mark-processed is only meaningful from the inbox, which is admin-only.
+  const viewer = locals?.viewer ?? null;
+  if (!viewer || !viewer.isAdmin) {
+    return new Response(JSON.stringify({ error: 'forbidden' }), {
+      status: 403,
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
   const id = Number(params.id);
   if (!Number.isFinite(id)) {
     return new Response('invalid id', { status: 400 });

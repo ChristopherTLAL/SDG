@@ -12,13 +12,22 @@ interface Props {
 const { title, active } = Astro.props;
 const viewer = Astro.locals?.viewer ?? null;
 
-const navItems: { label: string; href: string; key: NonNullable<Props['active']> }[] = [
-  { label: 'Overview', href: '/internal', key: 'overview' },
-  { label: 'Submit', href: '/internal/submit', key: 'submit' },
-  { label: 'Inbox', href: '/internal/submissions', key: 'submissions' },
-  { label: 'Students', href: '/internal/students', key: 'students' },
-  { label: 'Daily', href: '/internal/daily-reports', key: 'daily-reports' },
+// Nav visibility:
+//   Overview / Students — visible to everyone (anonymous + authed)
+//   Submit / Daily      — only advisors and admin
+//   Inbox               — admin only
+// This is purely UI hiding; the pages also gate at the request level.
+type NavKey = NonNullable<Props['active']>;
+const isAdmin   = !!viewer?.isAdmin;
+const isAdvisor = !!viewer?.isAdvisor || isAdmin;
+const allItems: { label: string; href: string; key: NavKey; visible: boolean }[] = [
+  { label: 'Overview', href: '/internal',                key: 'overview',       visible: true },
+  { label: 'Submit',   href: '/internal/submit',         key: 'submit',         visible: isAdvisor },
+  { label: 'Inbox',    href: '/internal/submissions',    key: 'submissions',    visible: isAdmin },
+  { label: 'Students', href: '/internal/students',       key: 'students',       visible: true },
+  { label: 'Daily',    href: '/internal/daily-reports',  key: 'daily-reports',  visible: isAdvisor },
 ];
+const navItems = allItems.filter(it => it.visible);
 ---
 
 <!doctype html>

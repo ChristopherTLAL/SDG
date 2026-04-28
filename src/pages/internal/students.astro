@@ -6,9 +6,14 @@ import { supabase } from '../../lib/supabase/client';
 import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES } from '../../utils/contact-radar';
 
 const url = new URL(Astro.request.url);
-const stageFilter = url.searchParams.get('stage') || '';
-const advisorFilter = url.searchParams.get('advisor') || '';
-const cohortFilter = url.searchParams.get('cohort') || '';
+// Multi-select filters — values are comma-separated in the URL (?stage=已结案,中期在途).
+function parseMulti(v: string | null): string[] {
+  if (!v) return [];
+  return v.split(',').map(s => s.trim()).filter(Boolean);
+}
+const stageFilter   = parseMulti(url.searchParams.get('stage'));
+const advisorFilter = parseMulti(url.searchParams.get('advisor'));
+const cohortFilter  = parseMulti(url.searchParams.get('cohort'));
 const includeInactive = url.searchParams.get('include_inactive') === '1';
 const viewer = Astro.locals?.viewer ?? null;
 
@@ -19,13 +24,17 @@ let q = supabase
   .from('students')
   .select('id, name, stage, contracts, contract_type, major_intention, major_current, current_school, client_email, early_advisors, mid_advisors, late_advisors, last_contact_at, enroll_years, target_regions, synced_at');
 
-if (stageFilter) q = q.eq('stage', stageFilter);
-// Multi-select: contains check (mid_advisors contains the filtered name)
-if (advisorFilter) q = q.contains('mid_advisors', [advisorFilter]);
-if (cohortFilter)  q = q.contains('enroll_years', [cohortFilter]);
+if (stageFilter.length)   q = q.in('stage', stageFilter);
+// Array-column filters: overlaps = OR semantics (ANY match), good for multi-select.
+if (advisorFilter.length) q = q.overlaps('mid_advisors', advisorFilter);
+if (cohortFilter.length)  q = q.overlaps('enroll_years', cohortFilter);
 
-const stageIsInactive = stageFilter && INACTIVE_STAGES.has(stageFilter);
-if (!includeInactive && !stageIsInactive) {
+// Hide inactive unless either:
+//   - user toggled "+ 已结案" (includeInactive=1), or
+//   - user explicitly picked an inactive stage in the stage filter (then they
+//     obviously want to see those rows)
+const stageHasInactive = stageFilter.some(s => INACTIVE_STAGES.has(s));
+if (!includeInactive && !stageHasInactive) {
   q = q.not('stage', 'in', `(${Array.from(INACTIVE_STAGES).join(',')})`);
 }
 
@@ -43,35 +52,56 @@ const { count: inactiveCount } = await supabase
   .select('id', { count: 'exact', head: true })
   .in('stage', Array.from(INACTIVE_STAGES));
 
+// ── Chip option lists ──
+// Compute from the FULL student set (no filters applied) so chips don't
+// shrink as you select. Same private-contract gate as the main query.
+let chipQ = supabase.from('students').select('stage, mid_advisors, enroll_years');
+if (!canSeePrivate) {
+  chipQ = chipQ.not('contracts', 'ov', `{${PRIVATE_CONTRACTS.join(',')}}`);
+}
+const { data: chipRows } = await chipQ.limit(2000);
+const chipPool = chipRows ?? [];
+const stages   = Array.from(new Set(chipPool.map((s: any) => s.stage).filter(Boolean))).sort() as string[];
+const cohorts  = Array.from(new Set(chipPool.flatMap((s: any) => (s.enroll_years ?? [])).filter(Boolean))).sort() as string[];
+const advisors = Array.from(new Set(chipPool.flatMap((s: any) => (s.mid_advisors ?? [])).filter(Boolean))).sort() as string[];
+
 const withRadar = students.map((s: any) => {
   const ds = daysSinceToday(s.last_contact_at);
   const tier = tierFor(ds, s.stage);
   return { ...s, daysSince: ds, tier };
 });
 
-// Build filter chip values from the FULL active student set (so filters don't disappear
-// when current page is empty). Reasonable approximation: enumerate over current results.
-const stages = Array.from(new Set(students.map((s: any) => s.stage).filter(Boolean))).sort();
-const cohorts = Array.from(new Set(students.flatMap((s: any) => (s.enroll_years ?? [])).filter(Boolean))).sort() as string[];
-const advisors = Array.from(new Set(students.flatMap((s: any) => (s.mid_advisors ?? [])).filter(Boolean))).sort() as string[];
-
 const criticalCount = withRadar.filter((s: any) => s.tier === 'critical').length;
 const redCount = withRadar.filter((s: any) => s.tier === 'red').length;
 const pinkCount = withRadar.filter((s: any) => s.tier === 'pink').length;
 const yellowCount = withRadar.filter((s: any) => s.tier === 'yellow').length;
 
-function buildHref(overrides: Record<string, string>): string {
+// buildHref gives back a URL with the current filter state, with any keys
+// from `overrides` taking precedence. Pass an empty string to clear a key.
+type FilterKey = 'stage' | 'advisor' | 'cohort' | 'include_inactive';
+function buildHref(overrides: Partial<Record<FilterKey, string>>): string {
   const params = new URLSearchParams();
-  const next: Record<string, string> = {
-    stage: stageFilter,
-    advisor: advisorFilter,
-    cohort: cohortFilter,
+  const next: Record<FilterKey, string> = {
+    stage:   stageFilter.join(','),
+    advisor: advisorFilter.join(','),
+    cohort:  cohortFilter.join(','),
     include_inactive: includeInactive ? '1' : '',
     ...overrides,
   };
   for (const [k, v] of Object.entries(next)) if (v) params.set(k, v);
   const qs = params.toString();
   return qs ? `/internal/students?${qs}` : '/internal/students';
+}
+
+// toggleHref returns the URL that would result from adding `value` to the
+// `key` filter if it isn't there yet, or removing it if it is. Used by
+// every chip click for true multi-select toggle.
+function toggleHref(key: 'stage' | 'advisor' | 'cohort', value: string): string {
+  const current = key === 'stage' ? stageFilter : key === 'advisor' ? advisorFilter : cohortFilter;
+  const next = current.includes(value)
+    ? current.filter(v => v !== value)
+    : [...current, value];
+  return buildHref({ [key]: next.join(',') });
 }
 
 // Stage badge palette — semantic by progression. Anything unmapped falls back to neutral.
@@ -108,28 +138,29 @@ function stageBadge(stage: string | null | undefined) {
     </div>
   </div>
 
-  {/* Filters */}
+  {/* Filters — multi-select. "All" clears the row; clicking an option
+       toggles it in the current selection. */}
   <div class="filter-row">
     <span class="filter-row__label">Cohort</span>
-    <a href={buildHref({ cohort: '' })} class={`pill ${!cohortFilter ? 'pill--active' : ''}`}>All</a>
+    <a href={buildHref({ cohort: '' })} class={`pill ${cohortFilter.length === 0 ? 'pill--active' : ''}`}>All</a>
     {cohorts.map(c => (
-      <a href={buildHref({ cohort: c })} class={`pill ${cohortFilter === c ? 'pill--active' : ''}`}>{c}</a>
+      <a href={toggleHref('cohort', c)} class={`pill ${cohortFilter.includes(c) ? 'pill--active' : ''}`}>{c}</a>
     ))}
   </div>
 
   <div class="filter-row">
     <span class="filter-row__label">Stage</span>
-    <a href={buildHref({ stage: '' })} class={`pill ${!stageFilter ? 'pill--active' : ''}`}>All</a>
+    <a href={buildHref({ stage: '' })} class={`pill ${stageFilter.length === 0 ? 'pill--active' : ''}`}>All</a>
     {stages.map(s => (
-      <a href={buildHref({ stage: s as string })} class={`pill ${stageFilter === s ? 'pill--active' : ''}`}>{s}</a>
+      <a href={toggleHref('stage', s)} class={`pill ${stageFilter.includes(s) ? 'pill--active' : ''}`}>{s}</a>
     ))}
   </div>
 
   <div class="filter-row" style="margin-bottom: 24px;">
     <span class="filter-row__label">Advisor</span>
-    <a href={buildHref({ advisor: '' })} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
+    <a href={buildHref({ advisor: '' })} class={`pill ${advisorFilter.length === 0 ? 'pill--active' : ''}`}>All</a>
     {advisors.map(a => (
-      <a href={buildHref({ advisor: a })} class={`pill ${advisorFilter === a ? 'pill--active' : ''}`}>{a}</a>
+      <a href={toggleHref('advisor', a)} class={`pill ${advisorFilter.includes(a) ? 'pill--active' : ''}`}>{a}</a>
     ))}
   </div>
 

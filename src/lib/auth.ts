@@ -13,8 +13,9 @@ import { supabase } from './supabase/client';
 
 export type Viewer = {
   email: string;
-  name: string;        // advisor display name from advisors table
+  name: string;        // advisor display name from advisors table, or email-prefix fallback
   isAdmin: boolean;
+  isAdvisor: boolean;  // true iff email matched a row in the advisors table
 };
 
 const ADMIN_EMAIL = 'wangshijie11@xdf.cn';
@@ -53,14 +54,18 @@ export async function resolveViewer(request: Request): Promise<Viewer | null> {
       email,
       name: data.name,
       isAdmin: !!data.is_admin || email === ADMIN_EMAIL,
+      isAdvisor: true,
     };
   } else {
-    // Email passed CF Access but isn't in our advisors table — still a verified
-    // employee per CF policy, so let them in but with a generic display label.
+    // Email passed CF Access but isn't in our advisors table — likely an XDF
+    // colleague (or a former advisor whose vault file got pruned). Let them
+    // through as a guest viewer; downstream pages gate sensitive actions on
+    // isAdvisor, not on raw authentication.
     viewer = {
       email,
       name: email.split('@')[0],
       isAdmin: email === ADMIN_EMAIL,
+      isAdvisor: false,
     };
   }
 

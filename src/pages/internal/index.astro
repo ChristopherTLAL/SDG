@@ -252,10 +252,12 @@ function fmtDateTime(dt: string | null): string {
       <div class="stat-card__label">14–20d</div>
       <div class="stat-card__value font-mono" style={`color: ${tierStyle('pink').border};`}>{tierCounts.pink}</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-card__label">Inbox 待处理</div>
-      <div class="stat-card__value font-mono" style="color: var(--primary);">{unprocessed ?? 0}</div>
-    </div>
+    {viewer?.isAdmin && (
+      <div class="stat-card">
+        <div class="stat-card__label">Inbox 待处理</div>
+        <div class="stat-card__value font-mono" style="color: var(--primary);">{unprocessed ?? 0}</div>
+      </div>
+    )}
   </div>
 
   <!-- ── Triage ── -->
@@ -367,7 +369,9 @@ function fmtDateTime(dt: string | null): string {
     </div>
   </section>
 
-  <!-- ── Activity streams ── -->
+  <!-- ── Activity streams (admin-only — these surface inbox + recent
+       student notes which can include 私单 references) ── -->
+  {viewer?.isAdmin && (
   <div class="activity-grid">
     <section class="section-card">
       <div class="section-card__header">
@@ -426,6 +430,7 @@ function fmtDateTime(dt: string | null): string {
       )}
     </section>
   </div>
+  )}
 </InternalLayout>
 
 <style>

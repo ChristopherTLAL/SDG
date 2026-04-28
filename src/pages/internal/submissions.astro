@@ -3,6 +3,13 @@
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 
+const viewer = Astro.locals?.viewer ?? null;
+
+// Inbox is admin-only. Anyone else (advisor or XDF guest) bounces to dashboard.
+if (!viewer || !viewer.isAdmin) {
+  return Astro.redirect('/internal');
+}
+
 const url = new URL(Astro.request.url);
 const filter = url.searchParams.get('filter') || 'unprocessed'; // unprocessed | all | processed
 const typeFilter = url.searchParams.get('type') || '';
