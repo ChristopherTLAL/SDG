@@ -179,6 +179,13 @@ const cohortKeys = Array.from(cohortSet).sort((a, b) => {
   return a.localeCompare(b);
 });
 
+// Seed advisorOrder with every active 中期 advisor so empty-caseload advisors
+// still show up as a column (count 0). Anyone already in advisorOrder keeps
+// their student-derived count; new entries land at 0 and sort last.
+for (const name of midAdvisorNames) {
+  if (!advisorOrder.has(name)) advisorOrder.set(name, 0);
+}
+
 const advisorKeys = Array.from(advisorOrder.entries())
   .sort((a, b) => {
     if (a[0] === ADVISOR_FALLBACK) return 1;
