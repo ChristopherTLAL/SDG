@@ -5,6 +5,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks } from '../../../utils/wikilinks';
+import { preprocessCallouts } from '../../../utils/callouts';
 import { marked } from 'marked';
 
 const viewer = Astro.locals?.viewer ?? null;
@@ -46,8 +47,9 @@ marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const body = report.body_md ?? '';
   if (!body.trim()) return '';
-  const preprocessed = resolveWikilinks(body, wikiIndex);
-  return marked.parse(preprocessed) as string;
+  const withWikilinks = resolveWikilinks(body, wikiIndex);
+  const withCallouts = preprocessCallouts(withWikilinks);
+  return marked.parse(withCallouts) as string;
 })();
 
 // Extract all date entries for the right-side TOC

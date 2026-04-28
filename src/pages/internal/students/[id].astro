@@ -5,6 +5,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
+import { preprocessCallouts } from '../../../utils/callouts';
 import { findSOPsForStudent, substitute } from '../../../data/contract-sops';
 import { marked } from 'marked';
 
@@ -47,8 +48,9 @@ marked.setOptions({ gfm: true, breaks: true });
 
 function renderMarkdown(md: string | null | undefined): string {
   if (!md || !md.trim()) return '';
-  const preprocessed = resolveWikilinks(md, wikiIndex);
-  return marked.parse(preprocessed) as string;
+  const withWikilinks = resolveWikilinks(md, wikiIndex);
+  const withCallouts = preprocessCallouts(withWikilinks);
+  return marked.parse(withCallouts) as string;
 }
 
 const mainHtml = renderMarkdown(student.body_md);

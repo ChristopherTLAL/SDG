@@ -22,32 +22,23 @@ const reports = reportsRaw ?? [];
 type ReportCard = {
   advisor: string;
   latestDate: string | null;
-  preview: string;
   totalEntries: number;
-  bytes: number;
   syncedAt: string;
 };
 
-function summarize(body: string | null): { latestDate: string | null; preview: string; totalEntries: number } {
-  if (!body) return { latestDate: null, preview: '', totalEntries: 0 };
+function summarize(body: string | null): { latestDate: string | null; totalEntries: number } {
+  if (!body) return { latestDate: null, totalEntries: 0 };
   const lines = body.split('\n');
   let latestDate: string | null = null;
-  const dateMatches: string[] = [];
+  let count = 0;
   for (const line of lines) {
     const m = line.match(/^##\s+(\d{4}-\d{2}-\d{2})/);
     if (m) {
-      dateMatches.push(m[1]);
+      count++;
       if (!latestDate) latestDate = m[1];
     }
   }
-  // Preview: the first 200 chars of content after the first ## heading
-  const idx = body.search(/^##\s/m);
-  let preview = '';
-  if (idx >= 0) {
-    preview = body.slice(idx).split('\n').slice(1, 6).join('\n').trim();
-    if (preview.length > 240) preview = preview.slice(0, 240) + '…';
-  }
-  return { latestDate, preview, totalEntries: dateMatches.length };
+  return { latestDate, totalEntries: count };
 }
 
 const cards: ReportCard[] = reports.map((r: any) => {
@@ -55,9 +46,7 @@ const cards: ReportCard[] = reports.map((r: any) => {
   return {
     advisor: r.advisor,
     latestDate: s.latestDate,
-    preview: s.preview,
     totalEntries: s.totalEntries,
-    bytes: r.body_md ? r.body_md.length : 0,
     syncedAt: r.synced_at,
   };
 });
@@ -67,11 +56,6 @@ const today = new Date();
 function daysSince(d: string | null): number | null {
   if (!d) return null;
   return Math.floor((today.getTime() - new Date(d).getTime()) / 86400000);
-}
-
-function fmtKB(b: number): string {
-  if (b < 1024) return `${b} B`;
-  return `${(b / 1024).toFixed(1)} KB`;
 }
 ---
 
@@ -98,16 +82,20 @@ function fmtKB(b: number): string {
         const stale = ds !== null && ds > 3;
         return (
           <a href={`/internal/daily-reports/${encodeURIComponent(c.advisor)}`} class="dr-card">
-            <div class="dr-card__header">
-              <h3 class="font-headline dr-card__name">{c.advisor}</h3>
-              <span class="font-mono dr-card__date" style={stale ? 'color: var(--warning);' : ''}>
-                {c.latestDate ?? '—'} {ds !== null && `· ${ds}d 前`}
+            <h3 class="font-headline dr-card__name">{c.advisor}</h3>
+            <div class="dr-card__stats">
+              <span class="dr-card__stat">
+                <span class="dr-card__stat-num font-mono">{c.totalEntries}</span>
+                <span class="dr-card__stat-label">条目</span>
+              </span>
+              <span class="dr-card__stat">
+                <span class="dr-card__stat-num font-mono" style={stale ? 'color: var(--warning);' : ''}>
+                  {ds !== null ? `${ds}d` : '—'}
+                </span>
+                <span class="dr-card__stat-label">距上次</span>
               </span>
             </div>
-            <div class="dr-card__meta">
-              {c.totalEntries} 个日期条目 · {fmtKB(c.bytes)}
-            </div>
-            <pre class="dr-card__preview">{c.preview || '(暂无最近条目)'}</pre>
+            <div class="dr-card__date font-mono">{c.latestDate ?? '—'}</div>
           </a>
         );
       })}
@@ -139,7 +127,7 @@ function fmtKB(b: number): string {
       background: var(--surface-raised);
       border: 1px solid #eef0f3;
       border-radius: 14px;
-      padding: 20px 22px;
+      padding: 22px 24px;
       text-decoration: none;
       color: inherit;
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
@@ -150,40 +138,40 @@ function fmtKB(b: number): string {
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
       transform: translateY(-1px);
     }
-    .dr-card__header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      gap: 8px;
-    }
     .dr-card__name {
-      margin: 0;
-      font-size: 16px;
+      margin: 0 0 18px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: -0.01em;
+    }
+    .dr-card__stats {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 16px;
+    }
+    .dr-card__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .dr-card__stat-num {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--text);
+    }
+    .dr-card__stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
     .dr-card__date {
       font-size: 11px;
       color: var(--text-soft);
-      white-space: nowrap;
-    }
-    .dr-card__meta {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
-    }
-    .dr-card__preview {
-      margin: 0;
-      font-family: inherit;
-      font-size: 12px;
-      line-height: 1.55;
-      color: var(--text-muted);
-      white-space: pre-wrap;
-      word-break: break-word;
-      max-height: 100px;
-      overflow: hidden;
+      letter-spacing: 0.04em;
     }
     .empty-state {
       text-align: center;
