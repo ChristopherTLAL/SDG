@@ -232,56 +232,50 @@ function fmtDateTime(dt: string | null): string {
   </div>
 
   <!-- ── Stat strip ── -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 28px;">
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;">
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">
-        {advisorFilter ? `${advisorFilter} 在管` : (includeInactive ? '学生总数' : '在管学生')}
-      </div>
-      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px;">{studentsForFocus.length}</div>
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-card__label">{advisorFilter ? `${advisorFilter} 在管` : (includeInactive ? '学生总数' : '在管学生')}</div>
+      <div class="stat-card__value font-mono">{studentsForFocus.length}</div>
     </div>
-    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('critical').border}; border-radius: 10px; padding: 16px 18px;`}>
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">⚠️ 28d+ 失联</div>
-      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('critical').border};`}>{tierCounts.critical}</div>
+    <div class="stat-card">
+      <div class="stat-card__label">28d+ 失联</div>
+      <div class="stat-card__value font-mono" style={`color: ${tierStyle('critical').border};`}>{tierCounts.critical}</div>
     </div>
-    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('red').border}; border-radius: 10px; padding: 16px 18px;`}>
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">21–27d 红</div>
-      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('red').border};`}>{tierCounts.red}</div>
+    <div class="stat-card">
+      <div class="stat-card__label">21–27d</div>
+      <div class="stat-card__value font-mono" style={`color: ${tierStyle('red').border};`}>{tierCounts.red}</div>
     </div>
-    <div style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${tierStyle('pink').border}; border-radius: 10px; padding: 16px 18px;`}>
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">14–20d 淡红</div>
-      <div class="font-mono" style={`font-size: 28px; font-weight: 700; margin-top: 4px; color: ${tierStyle('pink').border};`}>{tierCounts.pink}</div>
+    <div class="stat-card">
+      <div class="stat-card__label">14–20d</div>
+      <div class="stat-card__value font-mono" style={`color: ${tierStyle('pink').border};`}>{tierCounts.pink}</div>
     </div>
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 10px; padding: 16px 18px;">
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">Inbox 待处理</div>
-      <div class="font-mono" style="font-size: 28px; font-weight: 700; margin-top: 4px; color: var(--primary);">{unprocessed ?? 0}</div>
+    <div class="stat-card">
+      <div class="stat-card__label">Inbox 待处理</div>
+      <div class="stat-card__value font-mono" style="color: var(--primary);">{unprocessed ?? 0}</div>
     </div>
   </div>
 
   <!-- ── Triage ── -->
-  <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;">
-    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
-      <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">
-        Triage <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">14d+ 没联系，按天数倒序</span>
+  <section class="section-card">
+    <div class="section-card__header">
+      <h2 class="font-headline section-card__title">
+        Triage <span class="section-card__subtitle">14d+ 没联系，按天数倒序</span>
       </h2>
-      <a href="/internal/students" style="font-size: 12px; color: var(--primary); font-weight: 600;">查看全部学生 →</a>
+      <a href="/internal/students" class="section-card__action">查看全部学生 →</a>
     </div>
     {triage.length === 0 ? (
-      <p style="color: var(--text-soft); font-size: 13px; margin: 0;">所有人都在 14 天内有过接触，干得漂亮。</p>
+      <p class="section-card__empty">所有人都在 14 天内有过接触，干得漂亮。</p>
     ) : (
-      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 8px;">
+      <ul class="triage-list">
         {triage.map(s => {
           const ts = tierStyle(s.tier);
           const advisorsLabel = (s.mid_advisors && s.mid_advisors.length) ? s.mid_advisors.join(' / ') : '—';
           return (
-            <li style={`display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; background: ${ts.bg}; border-left: 3px solid ${ts.border};`}>
-              <a href={`/internal/students/${s.id}`} style={`font-weight: 700; font-size: 13px; color: ${ts.fg}; text-decoration: none;`}>
-                {s.name}
-              </a>
-              <span style={`font-size: 11px; color: ${ts.fg}; opacity: 0.75;`}>
-                {advisorsLabel}
-              </span>
-              <span style="flex: 1;"></span>
-              <span class="font-mono" style={`font-weight: 700; font-size: 12px; color: ${ts.fg};`}>
+            <li class="triage-row">
+              <span class="triage-row__dot" style={`background: ${ts.border};`}></span>
+              <a href={`/internal/students/${s.id}`} class="triage-row__name">{s.name}</a>
+              <span class="triage-row__advisor">{advisorsLabel}</span>
+              <span class="triage-row__days font-mono" style={`color: ${ts.border};`}>
                 {tierLabel(s.tier, s.daysSince)}
               </span>
             </li>
@@ -292,10 +286,10 @@ function fmtDateTime(dt: string | null): string {
   </section>
 
   <!-- ── Cohort × Advisor matrix ── -->
-  <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 28px;">
-    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
-      <h2 class="font-headline" style="font-size: 16px; font-weight: 700; margin: 0;">
-        分布 <span style="color: var(--text-soft); font-weight: 500; font-size: 13px;">入学年份 × 中期顾问</span>
+  <section class="section-card">
+    <div class="section-card__header">
+      <h2 class="font-headline section-card__title">
+        分布 <span class="section-card__subtitle">入学年份 × 中期顾问</span>
       </h2>
     </div>
     <div style="overflow-x: auto;">
@@ -371,14 +365,14 @@ function fmtDateTime(dt: string | null): string {
   </section>
 
   <!-- ── Activity streams ── -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-    <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
-        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近 Inbox 提交</h2>
-        <a href="/internal/submissions" style="font-size: 12px; color: var(--primary); font-weight: 600;">Inbox →</a>
+  <div class="activity-grid">
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">最近 Inbox 提交</h2>
+        <a href="/internal/submissions" class="section-card__action">Inbox →</a>
       </div>
       {(recentSubmissions ?? []).length === 0 ? (
-        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有提交记录。</p>
+        <p class="section-card__empty">还没有提交记录。</p>
       ) : (
         <ul style="list-style: none; margin: 0; padding: 0;">
           {(recentSubmissions ?? []).map((s: any) => (
@@ -403,12 +397,12 @@ function fmtDateTime(dt: string | null): string {
       )}
     </section>
 
-    <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
-      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
-        <h2 class="font-headline" style="font-size: 15px; font-weight: 700; margin: 0;">最近沟通记录</h2>
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">最近沟通记录</h2>
       </div>
       {(recentNotes ?? []).length === 0 ? (
-        <p style="color: var(--text-soft); font-size: 13px; margin: 0;">还没有同步到沟通记录。</p>
+        <p class="section-card__empty">还没有同步到沟通记录。</p>
       ) : (
         <ul style="list-style: none; margin: 0; padding: 0;">
           {(recentNotes ?? []).map((n: any) => (
@@ -430,3 +424,133 @@ function fmtDateTime(dt: string | null): string {
     </section>
   </div>
 </InternalLayout>
+
+<style>
+  /* Editorial dashboard — soft hairlines, generous whitespace, restrained accents.
+     One reusable .section-card replaces the prior "white box + hard border" recipe;
+     stat cards drop the colored left border in favor of coloring the number itself. */
+
+  .section-card {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .section-card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .section-card__title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .section-card__subtitle {
+    color: var(--text-soft);
+    font-weight: 500;
+    font-size: 13px;
+    margin-left: 6px;
+  }
+  .section-card__action {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .section-card__empty {
+    color: var(--text-soft);
+    font-size: 13px;
+    margin: 0;
+  }
+
+  /* Stat strip — five flat cards, no left-border accent. Number itself carries the tier color. */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .stat-card__label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .stat-card__value {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 6px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  /* Triage row — dot indicator replaces colored left border + pastel bg. */
+  .triage-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 2px;
+  }
+  .triage-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    transition: background 120ms ease;
+  }
+  .triage-row:hover {
+    background: #f8fafc;
+  }
+  .triage-row__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .triage-row__name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .triage-row__name:hover {
+    color: var(--primary);
+  }
+  .triage-row__advisor {
+    font-size: 11px;
+    color: var(--text-soft);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+  }
+  .triage-row__days {
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Activity grid — same two-column rhythm as before, slightly tighter gap. */
+  .activity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+</style>

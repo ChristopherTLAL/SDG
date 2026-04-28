@@ -57,7 +57,10 @@ const navItems: { label: string; href: string; key: NonNullable<Props['active']>
       }
       * { box-sizing: border-box; }
       .font-headline { font-family: 'Manrope', 'Inter', sans-serif; }
-      .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+      .font-mono {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-variant-numeric: tabular-nums;
+      }
       .material-symbols-outlined {
         font-variation-settings: 'wght' 300, 'FILL' 0;
         font-size: 1.25em;
