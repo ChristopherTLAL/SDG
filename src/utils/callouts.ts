@@ -32,7 +32,11 @@ function escapeAttr(s: string): string {
 }
 
 // `[ \t]*>` allows the callout to be indented inside a list item.
-const CALLOUT_RE = /^([ \t]*)>\s*\[!\s*([^\]｜|]+?)(?:\s*[｜|]\s*([^\]]+?))?\s*\](?:\s+([^\n]*))?\n((?:[ \t]*>.*(?:\n|$))*)/gm;
+// Inside the [!type|title] bracket and around the title-after-bracket, we
+// use horizontal-whitespace [ \t]* only — never \s* — because \s includes
+// \n and any greedy match would eat the line break and swallow the next
+// body line as if it were a same-line title.
+const CALLOUT_RE = /^([ \t]*)>[ \t]*\[![ \t]*([^\]｜|]+?)(?:[ \t]*[｜|][ \t]*([^\]]+?))?[ \t]*\](?:[ \t]+([^\n]*))?\n((?:[ \t]*>.*(?:\n|$))*)/gm;
 
 export function preprocessCallouts(md: string): string {
   return md.replace(CALLOUT_RE, (
