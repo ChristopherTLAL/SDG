@@ -90,78 +90,46 @@ function stageBadge(stage: string | null | undefined) {
 ---
 
 <InternalLayout title="Students" active="students">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+  <div class="roster-header">
     <div>
-      <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
-        Students
-      </h1>
-      <p style="color: var(--text-muted); margin: 0 0 8px; font-size: 14px;">
-        在管学生总览。点击姓名查看详情。
-      </p>
+      <h1 class="font-headline page-title" style="font-size: 26px;">Students</h1>
+      <p class="page-subtitle" style="margin-bottom: 8px;">在管学生总览。点击姓名查看详情。</p>
       <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
-        style={`display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'};`}>
+        class={`pill ${includeInactive ? 'pill--active' : ''}`}>
         {includeInactive ? '✓ 含已结案' : `+ 已结案 (${inactiveCount ?? 0})`}
       </a>
     </div>
-    <div style="display: flex; gap: 18px; font-size: 12px; color: var(--text-muted); align-items: baseline;">
-      <div title="28d+ 没联系">
-        <strong style={`color: ${tierStyle('critical').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{criticalCount}</strong> ⚠️
-      </div>
-      <div title="21-27d 没联系">
-        <strong style={`color: ${tierStyle('red').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{redCount}</strong> 红
-      </div>
-      <div title="14-20d 没联系">
-        <strong style={`color: ${tierStyle('pink').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{pinkCount}</strong> 淡红
-      </div>
-      <div title="7-13d 没联系">
-        <strong style={`color: ${tierStyle('yellow').border}; font-size: 22px; font-family: 'JetBrains Mono', monospace;`}>{yellowCount}</strong> 黄
-      </div>
-      <div>
-        <strong style="font-size: 22px; font-family: 'JetBrains Mono', monospace;">{students.length}</strong> 总数
-      </div>
+    <div class="roster-counters">
+      <span class="rc" title="28d+ 没联系"><span class="rc__dot" style={`background: ${tierStyle('critical').border};`}></span><strong class="font-mono" style={`color: ${tierStyle('critical').border};`}>{criticalCount}</strong> 28d+</span>
+      <span class="rc" title="21–27d 没联系"><span class="rc__dot" style={`background: ${tierStyle('red').border};`}></span><strong class="font-mono" style={`color: ${tierStyle('red').border};`}>{redCount}</strong> 21–27d</span>
+      <span class="rc" title="14–20d 没联系"><span class="rc__dot" style={`background: ${tierStyle('pink').border};`}></span><strong class="font-mono" style={`color: ${tierStyle('pink').border};`}>{pinkCount}</strong> 14–20d</span>
+      <span class="rc" title="7–13d 没联系"><span class="rc__dot" style={`background: ${tierStyle('yellow').border};`}></span><strong class="font-mono" style={`color: ${tierStyle('yellow').border};`}>{yellowCount}</strong> 7–13d</span>
+      <span class="rc rc--total"><strong class="font-mono">{students.length}</strong> 总数</span>
     </div>
   </div>
 
   {/* Filters */}
-  <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
-    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Cohort</span>
-    <a href={buildHref({ cohort: '' })}
-      style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!cohortFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!cohortFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
-      All
-    </a>
+  <div class="filter-row">
+    <span class="filter-row__label">Cohort</span>
+    <a href={buildHref({ cohort: '' })} class={`pill ${!cohortFilter ? 'pill--active' : ''}`}>All</a>
     {cohorts.map(c => (
-      <a href={buildHref({ cohort: c })}
-        style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${cohortFilter === c ? 'var(--primary)' : 'var(--border)'}; color: ${cohortFilter === c ? 'var(--primary)' : 'var(--text-muted)'};`}>
-        {c}
-      </a>
+      <a href={buildHref({ cohort: c })} class={`pill ${cohortFilter === c ? 'pill--active' : ''}`}>{c}</a>
     ))}
   </div>
 
-  <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
-    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Stage</span>
-    <a href={buildHref({ stage: '' })}
-      style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!stageFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!stageFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
-      All
-    </a>
+  <div class="filter-row">
+    <span class="filter-row__label">Stage</span>
+    <a href={buildHref({ stage: '' })} class={`pill ${!stageFilter ? 'pill--active' : ''}`}>All</a>
     {stages.map(s => (
-      <a href={buildHref({ stage: s as string })}
-        style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${stageFilter === s ? 'var(--primary)' : 'var(--border)'}; color: ${stageFilter === s ? 'var(--primary)' : 'var(--text-muted)'};`}>
-        {s}
-      </a>
+      <a href={buildHref({ stage: s as string })} class={`pill ${stageFilter === s ? 'pill--active' : ''}`}>{s}</a>
     ))}
   </div>
 
-  <div style="display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap;">
-    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; align-self: center; margin-right: 6px;">Advisor</span>
-    <a href={buildHref({ advisor: '' })}
-      style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${!advisorFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!advisorFilter ? 'var(--primary)' : 'var(--text-muted)'};`}>
-      All
-    </a>
+  <div class="filter-row" style="margin-bottom: 24px;">
+    <span class="filter-row__label">Advisor</span>
+    <a href={buildHref({ advisor: '' })} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
     {advisors.map(a => (
-      <a href={buildHref({ advisor: a })}
-        style={`padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid ${advisorFilter === a ? 'var(--primary)' : 'var(--border)'}; color: ${advisorFilter === a ? 'var(--primary)' : 'var(--text-muted)'};`}>
-        {a}
-      </a>
+      <a href={buildHref({ advisor: a })} class={`pill ${advisorFilter === a ? 'pill--active' : ''}`}>{a}</a>
     ))}
   </div>
 
@@ -178,7 +146,7 @@ function stageBadge(stage: string | null | undefined) {
   )}
 
   {students.length > 0 && (
-    <div style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;">
+    <div class="roster-wrap">
       <table class="roster-table">
         <colgroup>
           <col style="width: 11%;" />
@@ -261,6 +229,46 @@ function stageBadge(stage: string | null | undefined) {
   )}
 
   <style>
+    /* Roster header — title block left, tier counters right. */
+    .roster-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    .roster-counters {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .rc {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .rc strong { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .rc__dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      align-self: center;
+      margin-right: 1px;
+    }
+    .rc--total strong { color: var(--text); }
+
+    /* Table wrapper uses the editorial card pattern — soft shadow + hairline border. */
+    .roster-wrap {
+      background: var(--surface-raised);
+      border: 1px solid #eef0f3;
+      border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+      overflow: hidden;
+    }
     .roster-table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
     .roster-table thead {
       position: sticky;
@@ -268,21 +276,23 @@ function stageBadge(stage: string | null | undefined) {
       z-index: 10;
     }
     .roster-table thead th {
-      background: #f8fafc;
-      border-bottom: 1px solid var(--border);
+      background: #fbfcfd;
+      border-bottom: 1px solid #eef0f3;
       font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       text-align: left;
-      padding: 10px 14px;
+      padding: 11px 14px;
       white-space: nowrap;
     }
-    .roster-table tbody tr { border-bottom: 1px solid var(--border); }
-    .roster-table tbody tr:hover { background: #fafbff; }
-    .roster-table td { padding: 10px 14px; vertical-align: middle; color: var(--text-muted); }
+    .roster-table tbody tr { border-bottom: 1px solid #f1f3f6; }
+    .roster-table tbody tr:last-child { border-bottom: 0; }
+    .roster-table tbody tr:hover { background: #fafbfc; }
+    .roster-table td { padding: 11px 14px; vertical-align: middle; color: var(--text-muted); }
     .roster-table .cell-name a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .roster-table .cell-name a:hover { text-decoration: underline; }
     .roster-table .cell-text { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .roster-table .cell-sub { font-size: 11px; color: var(--text-soft); margin-top: 2px; }
     .badge {

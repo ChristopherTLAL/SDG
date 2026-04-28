@@ -76,47 +76,120 @@ function fmtKB(b: number): string {
 ---
 
 <InternalLayout title="Daily Reports" active="daily-reports">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+  <div class="page-header" style="margin-bottom: 20px;">
     <div>
-      <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
-        Daily Reports
-      </h1>
-      <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
+      <h1 class="font-headline page-title" style="font-size: 26px;">Daily Reports</h1>
+      <p class="page-subtitle" style="margin-bottom: 0;">
         每位顾问的日报 rolling 流，新的在顶部。
       </p>
     </div>
-    <div style="font-size: 13px; color: var(--text-muted);">
-      <strong style="font-size: 22px; font-family: 'JetBrains Mono', monospace;">{cards.length}</strong> 位顾问
+    <div class="dr-count">
+      <strong class="font-mono">{cards.length}</strong>
+      <span>位顾问</span>
     </div>
   </div>
 
   {cards.length === 0 ? (
-    <div style="text-align: center; padding: 80px 24px; color: var(--text-soft); font-size: 14px;">
-      暂无日报。
-    </div>
+    <div class="empty-state">暂无日报。</div>
   ) : (
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px;">
+    <div class="dr-grid">
       {cards.map(c => {
         const ds = daysSince(c.latestDate);
         const stale = ds !== null && ds > 3;
         return (
-          <a href={`/internal/daily-reports/${encodeURIComponent(c.advisor)}`}
-             style="display: block; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; text-decoration: none; color: inherit; transition: border-color 0.15s;">
-            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px;">
-              <h3 class="font-headline" style="margin: 0; font-size: 16px; font-weight: 700;">
-                {c.advisor}
-              </h3>
-              <span class="font-mono" style={`font-size: 11px; color: ${stale ? 'var(--warning)' : 'var(--text-soft)'};`}>
+          <a href={`/internal/daily-reports/${encodeURIComponent(c.advisor)}`} class="dr-card">
+            <div class="dr-card__header">
+              <h3 class="font-headline dr-card__name">{c.advisor}</h3>
+              <span class="font-mono dr-card__date" style={stale ? 'color: var(--warning);' : ''}>
                 {c.latestDate ?? '—'} {ds !== null && `· ${ds}d 前`}
               </span>
             </div>
-            <div style="font-size: 11px; color: var(--text-soft); margin-bottom: 10px;">
+            <div class="dr-card__meta">
               {c.totalEntries} 个日期条目 · {fmtKB(c.bytes)}
             </div>
-            <pre style="margin: 0; font-family: inherit; font-size: 12px; line-height: 1.5; color: var(--text-muted); white-space: pre-wrap; word-break: break-word; max-height: 100px; overflow: hidden;">{c.preview || '(暂无最近条目)'}</pre>
+            <pre class="dr-card__preview">{c.preview || '(暂无最近条目)'}</pre>
           </a>
         );
       })}
     </div>
   )}
+
+  <style>
+    .dr-count {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .dr-count strong {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .dr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 16px;
+    }
+    .dr-card {
+      display: block;
+      background: var(--surface-raised);
+      border: 1px solid #eef0f3;
+      border-radius: 14px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+    }
+    .dr-card:hover {
+      border-color: var(--text-muted);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+      transform: translateY(-1px);
+    }
+    .dr-card__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+    .dr-card__name {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .dr-card__date {
+      font-size: 11px;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+    .dr-card__meta {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .dr-card__preview {
+      margin: 0;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 100px;
+      overflow: hidden;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+  </style>
 </InternalLayout>

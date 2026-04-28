@@ -62,38 +62,33 @@ const typeColors: Record<string, string> = {
 ---
 
 <InternalLayout title="Inbox" active="submissions">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+  <div class="page-header" style="margin-bottom: 20px;">
     <div>
-      <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
-        Inbox
-      </h1>
-      <p style="color: var(--text-muted); margin: 0; font-size: 14px;">
-        员工提交，待审核与归档。
-      </p>
+      <h1 class="font-headline page-title" style="font-size: 26px;">Inbox</h1>
+      <p class="page-subtitle" style="margin-bottom: 0;">员工提交，待审核与归档。</p>
     </div>
-    <div style="font-size: 13px; color: var(--text-muted);">
-      <strong style="color: var(--danger); font-size: 22px; font-family: 'JetBrains Mono', monospace;">
-        {unprocessedCount ?? 0}
-      </strong> 条待处理
+    <div class="inbox-pending">
+      <strong class="font-mono" style="color: var(--danger);">{unprocessedCount ?? 0}</strong>
+      <span>条待处理</span>
     </div>
   </div>
 
   <!-- Filters -->
-  <div style="display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap;">
+  <div class="filter-row" style="margin-bottom: 20px;">
     {[
-      { key: 'unprocessed', label: 'Unprocessed', accent: 'var(--danger)' },
-      { key: 'all', label: 'All', accent: 'var(--text-muted)' },
-      { key: 'processed', label: 'Processed', accent: 'var(--success)' },
-    ].map(({ key, label, accent }) => (
+      { key: 'unprocessed', label: 'Unprocessed' },
+      { key: 'all', label: 'All' },
+      { key: 'processed', label: 'Processed' },
+    ].map(({ key, label }) => (
       <a href={`/internal/submissions?filter=${key}${typeFilter ? `&type=${typeFilter}` : ''}`}
-        style={`padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; border: 1px solid ${filter === key ? accent : 'var(--border)'}; color: ${filter === key ? accent : 'var(--text-muted)'}; background: ${filter === key ? 'white' : 'transparent'};`}>
+        class={`pill ${filter === key ? 'pill--active' : ''}`}>
         {label}
       </a>
     ))}
-    <span style="width: 1px; background: var(--border); margin: 0 6px;"></span>
+    <span class="filter-divider"></span>
     {['', '沟通记录', '重要comment', '状态更新', '会议', '其他'].map(t => (
       <a href={`/internal/submissions?filter=${filter}${t ? `&type=${t}` : ''}`}
-        style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${typeFilter === t ? 'var(--primary)' : 'var(--border)'}; color: ${typeFilter === t ? 'var(--primary)' : 'var(--text-muted)'}; background: ${typeFilter === t ? '#e8f0ee' : 'transparent'};`}>
+        class={`pill ${typeFilter === t ? 'pill--active' : ''}`}>
         {t || 'All types'}
       </a>
     ))}
@@ -111,84 +106,63 @@ const typeColors: Record<string, string> = {
     </div>
   )}
 
-  <div style="display: grid; gap: 14px;">
+  <div class="sub-list">
     {submissions.map((s: any) => {
       const student = s.students;
       const displayName = student?.name ?? s.student_name_raw ?? '(unknown)';
       const isNew = !s.student_id && s.student_name_raw;
+      const tColor = typeColors[s.type] || 'var(--text-muted)';
       return (
-        <article data-id={s.id}
-          style={`background: var(--surface-raised); border: 1px solid var(--border); border-left: 3px solid ${typeColors[s.type] || 'var(--text-muted)'}; border-radius: 10px; padding: 18px 20px; opacity: ${s.processed ? 0.6 : 1};`}>
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap;">
-            <span style={`font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: ${typeColors[s.type] || 'var(--text-muted)'};`}>
+        <article data-id={s.id} class={`sub-card ${s.processed ? 'is-processed' : ''}`}>
+          <div class="sub-card__meta">
+            <span class="sub-card__type" style={`color: ${tColor}; background: ${tColor}1a;`}>
               {s.type}
             </span>
-            <span>·</span>
-            <span class="font-mono">{fmt(s.submitted_at)}</span>
-            <span>·</span>
-            <span>by <strong style="color: var(--text);">{s.submitted_by || '—'}</strong></span>
-            {s.processed && (
-              <>
-                <span>·</span>
-                <span style="color: var(--success); font-weight: 700;">✓ processed</span>
-              </>
-            )}
+            <span class="font-mono sub-card__time">{fmt(s.submitted_at)}</span>
+            <span class="sub-card__by">by <strong>{s.submitted_by || '—'}</strong></span>
+            {s.processed && <span class="sub-card__processed">✓ processed</span>}
           </div>
-          <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;">
-            <h3 style="margin: 0; font-size: 16px; font-weight: 700;">
-              <a href={s.student_id ? `/internal/students/${s.student_id}` : '/internal/students'} style="color: var(--primary); border-bottom: 1px dashed var(--primary); padding-bottom: 1px;">
+          <div class="sub-card__title-row">
+            <h3 class="sub-card__title">
+              <a href={s.student_id ? `/internal/students/${s.student_id}` : '/internal/students'}>
                 {displayName}
               </a>
-              {isNew && <span style="font-size: 10px; background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 700;">新客</span>}
+              {isNew && <span class="sub-card__new">新客</span>}
             </h3>
-            {student?.mid_advisor && (
-              <span style="font-size: 11px; color: var(--text-muted);">{student.mid_advisor}</span>
-            )}
-            {student?.stage && (
-              <span style="font-size: 11px; color: var(--text-muted);">· {student.stage}</span>
-            )}
+            {student?.mid_advisor && <span class="sub-card__sub">{student.mid_advisor}</span>}
+            {student?.stage && <span class="sub-card__sub">· {student.stage}</span>}
           </div>
-          {s.summary && (
-            <p style="margin: 0 0 10px; font-size: 14px; font-weight: 500;">
-              {s.summary}
-            </p>
-          )}
+          {s.summary && <p class="sub-card__summary">{s.summary}</p>}
           {s.content && (
-            <div style="margin: 8px 0; padding: 12px 14px; background: var(--surface); border-radius: 6px; font-size: 13px; line-height: 1.55; white-space: pre-wrap;">
-              {s.content}
-            </div>
+            <div class="sub-card__content">{s.content}</div>
           )}
           {s.ai_transcript && (
-            <details style="margin: 8px 0;">
-              <summary style="cursor: pointer; font-size: 12px; font-weight: 700; color: var(--text-muted); padding: 4px 0;">
-                AI 转写（{s.ai_transcript.length} 字符）
-              </summary>
-              <div style="margin-top: 8px; padding: 12px 14px; background: #f1f5f9; border-radius: 6px; font-size: 13px; line-height: 1.55; white-space: pre-wrap;">
-                {s.ai_transcript}
-              </div>
+            <details class="sub-card__details">
+              <summary>AI 转写（{s.ai_transcript.length} 字符）</summary>
+              <div class="sub-card__transcript">{s.ai_transcript}</div>
             </details>
           )}
           {s.ai_summary && (
-            <div style="margin: 8px 0; padding: 12px 14px; background: #ecfdf5; border-left: 3px solid var(--success); border-radius: 4px; font-size: 13px; line-height: 1.55;">
-              <strong style="font-size: 11px; letter-spacing: 0.05em; color: var(--success);">AI SUMMARY</strong>
-              <div style="margin-top: 4px;">{s.ai_summary}</div>
+            <div class="sub-card__ai-summary">
+              <strong>AI SUMMARY</strong>
+              <div>{s.ai_summary}</div>
             </div>
           )}
 
-          <div style="display: flex; gap: 10px; align-items: center; margin-top: 12px; font-size: 12px; flex-wrap: wrap;">
+          <div class="sub-card__actions">
             {s.audio_url && (
               signedByPath.get(s.audio_url)
-                ? <a href={signedByPath.get(s.audio_url)} target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">🎙 {basename(s.audio_url)}</a>
-                : <span style="color: var(--text-soft);">🎙 {basename(s.audio_url)} <em>(URL 失败)</em></span>
+                ? <a href={signedByPath.get(s.audio_url)} target="_blank" rel="noopener" class="sub-card__attachment">🎙 {basename(s.audio_url)}</a>
+                : <span class="sub-card__attachment sub-card__attachment--broken">🎙 {basename(s.audio_url)} <em>(URL 失败)</em></span>
             )}
             {s.attachment_url && (
               signedByPath.get(s.attachment_url)
-                ? <a href={signedByPath.get(s.attachment_url)} target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600;">📎 {basename(s.attachment_url)}</a>
-                : <span style="color: var(--text-soft);">📎 {basename(s.attachment_url)} <em>(URL 失败)</em></span>
+                ? <a href={signedByPath.get(s.attachment_url)} target="_blank" rel="noopener" class="sub-card__attachment">📎 {basename(s.attachment_url)}</a>
+                : <span class="sub-card__attachment sub-card__attachment--broken">📎 {basename(s.attachment_url)} <em>(URL 失败)</em></span>
             )}
-            <span style="flex: 1;"></span>
+            <span class="sub-card__spacer"></span>
             <button
-              class="copy-md"
+              class="copy-md btn-ghost"
               data-id={s.id}
               data-payload={JSON.stringify({
                 id: s.id,
@@ -208,15 +182,13 @@ const typeColors: Record<string, string> = {
                 attachment_signed: s.attachment_url ? (signedByPath.get(s.attachment_url) ?? null) : null,
                 audio_url: s.audio_url,
                 audio_signed: s.audio_url ? (signedByPath.get(s.audio_url) ?? null) : null,
-              })}
-              style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border); background: white; color: var(--primary); font-weight: 600; font-size: 12px; cursor: pointer;">
+              })}>
               复制为 markdown
             </button>
             <button
-              class="toggle-processed"
+              class={`toggle-processed ${s.processed ? 'btn-ghost' : 'btn-primary'}`}
               data-id={s.id}
-              data-processed={String(s.processed)}
-              style={`padding: 6px 14px; border-radius: 6px; border: 1px solid ${s.processed ? 'var(--border)' : 'var(--success)'}; background: ${s.processed ? 'white' : 'var(--success)'}; color: ${s.processed ? 'var(--text-muted)' : 'white'}; font-weight: 700; font-size: 12px; cursor: pointer;`}>
+              data-processed={String(s.processed)}>
               {s.processed ? 'Unmark' : 'Mark processed'}
             </button>
           </div>
@@ -224,6 +196,162 @@ const typeColors: Record<string, string> = {
       );
     })}
   </div>
+
+  <style>
+    .inbox-pending {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .inbox-pending strong {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .sub-list { display: grid; gap: 14px; }
+    .sub-card {
+      background: var(--surface-raised);
+      border: 1px solid #eef0f3;
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+      transition: opacity 120ms ease;
+    }
+    .sub-card.is-processed { opacity: 0.55; }
+
+    .sub-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--text-soft);
+      flex-wrap: wrap;
+    }
+    .sub-card__type {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 10.5px;
+    }
+    .sub-card__time { color: var(--text-muted); }
+    .sub-card__by { color: var(--text-soft); }
+    .sub-card__by strong { color: var(--text); font-weight: 600; }
+    .sub-card__processed {
+      color: var(--success);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .sub-card__title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .sub-card__title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .sub-card__title a {
+      color: var(--primary);
+    }
+    .sub-card__title a:hover {
+      text-decoration: underline;
+    }
+    .sub-card__new {
+      font-size: 10px;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .sub-card__sub {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .sub-card__summary {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .sub-card__content {
+      margin: 8px 0;
+      padding: 12px 14px;
+      background: #fafbfc;
+      border: 1px solid #f1f3f6;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+    .sub-card__details summary {
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 4px 0;
+    }
+    .sub-card__transcript {
+      margin-top: 8px;
+      padding: 12px 14px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+    .sub-card__ai-summary {
+      margin: 8px 0;
+      padding: 12px 14px;
+      background: #ecfdf5;
+      border-left: 3px solid var(--success);
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .sub-card__ai-summary strong {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--success);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .sub-card__actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 14px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .sub-card__attachment {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .sub-card__attachment:hover { text-decoration: underline; }
+    .sub-card__attachment--broken {
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+    .sub-card__spacer { flex: 1; }
+  </style>
 
   <script is:inline>
     document.querySelectorAll('.toggle-processed').forEach(btn => {

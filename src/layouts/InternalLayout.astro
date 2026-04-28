@@ -71,6 +71,248 @@ const navItems: { label: string; href: string; key: NonNullable<Props['active']>
         font-family: inherit;
         font-size: inherit;
       }
+
+      /* ── Editorial design language (shared by all /internal pages) ──
+         Soft hairline borders, subtle shadow, larger radius — replaces the
+         old box+border recipe. Use .section-card for any panel/card that
+         frames content; .stat-card for headline-number tiles. */
+
+      .section-card {
+        background: var(--surface-raised);
+        border: 1px solid #eef0f3;
+        border-radius: 14px;
+        padding: 22px 26px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+      }
+      .section-card__header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        gap: 12px;
+      }
+      .section-card__title {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .section-card__subtitle {
+        color: var(--text-soft);
+        font-weight: 500;
+        font-size: 13px;
+        margin-left: 6px;
+      }
+      .section-card__action {
+        font-size: 12px;
+        color: var(--primary);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .section-card__empty {
+        color: var(--text-soft);
+        font-size: 13px;
+        margin: 0;
+      }
+
+      .stat-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .stat-card {
+        background: var(--surface-raised);
+        border: 1px solid #eef0f3;
+        border-radius: 12px;
+        padding: 16px 18px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+      }
+      .stat-card__label {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .stat-card__value {
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 6px;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+      }
+
+      /* Filter chip — used everywhere (advisor / stage / cohort filters). */
+      .pill {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        background: transparent;
+        line-height: 1.4;
+        white-space: nowrap;
+        transition: border-color 120ms ease, color 120ms ease, background 120ms ease;
+      }
+      .pill:hover {
+        border-color: var(--text-muted);
+        color: var(--text);
+      }
+      .pill--active {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: #e8f0ee;
+      }
+      .pill--active:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .filter-row {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .filter-row__label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-right: 4px;
+      }
+      .filter-divider {
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        background: var(--border);
+        margin: 0 6px;
+        align-self: center;
+      }
+
+      /* Buttons — minimal, no shadows. .btn-primary is the brand-green CTA;
+         .btn-ghost is everything else (cancel, copy, secondary action). */
+      .btn-primary, .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border-radius: 7px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid transparent;
+        line-height: 1.4;
+        transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: var(--primary-dim);
+      }
+      .btn-ghost {
+        background: white;
+        color: var(--primary);
+        border-color: var(--border);
+      }
+      .btn-ghost:hover {
+        border-color: var(--text-muted);
+      }
+
+      /* Page-level title row: H1 + optional context (e.g. include-inactive toggle). */
+      .page-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 4px;
+      }
+      .page-title {
+        font-size: 28px;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+      .page-subtitle {
+        color: var(--text-muted);
+        margin: 0 0 16px;
+        font-size: 14px;
+      }
+      .back-link {
+        display: inline-block;
+        font-size: 12px;
+        color: var(--text-soft);
+        font-weight: 600;
+        margin-bottom: 8px;
+        transition: color 120ms ease;
+      }
+      .back-link:hover { color: var(--text-muted); }
+
+      /* Form field — vertical label+control stack used everywhere. */
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .field--full { grid-column: 1 / -1; }
+      .field__label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+      }
+      .field__req { color: var(--danger); margin-left: 2px; }
+      .field__hint { color: var(--text-soft); font-size: 11px; }
+      .field input[type="text"],
+      .field input[type="email"],
+      .field select,
+      .field textarea {
+        padding: 10px 12px;
+        border: 1px solid #e3e6eb;
+        border-radius: 8px;
+        background: white;
+        color: var(--text);
+        transition: border-color 120ms ease, box-shadow 120ms ease;
+      }
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.08);
+      }
+      .field textarea { resize: vertical; font-family: inherit; line-height: 1.5; }
+      .field__file {
+        padding: 10px 12px;
+        border: 1px dashed #d4d8de;
+        border-radius: 8px;
+        background: #fafbfc;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      /* Compact field variant — used inside in-content forms (quick-add). */
+      .field--compact input[type="text"],
+      .field--compact input[type="email"],
+      .field--compact select,
+      .field--compact textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+        border-radius: 7px;
+      }
+      .field--compact .field__label {
+        font-size: 10px;
+        letter-spacing: 0.06em;
+      }
+      .field--compact textarea { padding: 10px; }
     </style>
   </head>
   <body>

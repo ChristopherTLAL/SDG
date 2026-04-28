@@ -17,28 +17,21 @@ const viewer = Astro.locals?.viewer ?? null;
 ---
 
 <InternalLayout title="Submit" active="submit">
-  <h1 class="font-headline" style="font-size: 26px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.02em;">
-    Submit
-  </h1>
-  <p style="color: var(--text-muted); margin: 0 0 32px; font-size: 14px;">
+  <h1 class="font-headline page-title" style="font-size: 26px;">Submit</h1>
+  <p class="page-subtitle" style="margin-bottom: 28px;">
     员工提交：沟通记录 / 重要 comment / 状态更新 / 会议 / 其他
   </p>
 
   {dbError && (
-    <div style="padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 8px; font-size: 13px; margin-bottom: 24px;">
+    <div class="form-error">
       <strong>数据库连接错误：</strong> {dbError}
     </div>
   )}
 
-  <form id="submit-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: var(--surface-raised); padding: 28px; border: 1px solid var(--border); border-radius: 12px;">
-
-    <!-- Student picker -->
-    <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        学生 <span style="color: var(--danger);">*</span>
-      </span>
-      <select name="student_id" id="student_id" required
-        style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: white;">
+  <form id="submit-form" class="submit-form">
+    <label class="field field--full">
+      <span class="field__label">学生 <span class="field__req">*</span></span>
+      <select name="student_id" id="student_id" required>
         <option value="">— 选择学生 —</option>
         {students.map((s: any) => (
           <option value={s.id} data-name={s.name}>
@@ -50,28 +43,18 @@ const viewer = Astro.locals?.viewer ?? null;
         ))}
         <option value="__new__">➕ 新客（还没建档）</option>
       </select>
-      <small style="color: var(--text-soft); font-size: 11px;">
-        {students.length} 个学生。
-      </small>
+      <small class="field__hint">{students.length} 个学生。</small>
     </label>
 
-    <!-- New student name (conditional) -->
-    <label id="new-student-wrap" style="grid-column: 1 / -1; display: none; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        新客姓名 <span style="color: var(--danger);">*</span>
-      </span>
+    <label id="new-student-wrap" class="field field--full" style="display: none;">
+      <span class="field__label">新客姓名 <span class="field__req">*</span></span>
       <input type="text" name="student_name_raw" id="student_name_raw"
-        placeholder="手打姓名，王老师后面会建档并关联"
-        style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;" />
+        placeholder="手打姓名，王老师后面会建档并关联" />
     </label>
 
-    <!-- Type -->
-    <label style="display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        类型 <span style="color: var(--danger);">*</span>
-      </span>
-      <select name="type" id="type" required
-        style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: white;">
+    <label class="field">
+      <span class="field__label">类型 <span class="field__req">*</span></span>
+      <select name="type" id="type" required>
         <option value="沟通记录">沟通记录</option>
         <option value="重要comment">重要 comment</option>
         <option value="状态更新">状态更新</option>
@@ -80,58 +63,75 @@ const viewer = Astro.locals?.viewer ?? null;
       </select>
     </label>
 
-    <!-- Submitted by -->
-    <label style="display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        你是谁 <span style="color: var(--danger);">*</span>
-      </span>
+    <label class="field">
+      <span class="field__label">你是谁 <span class="field__req">*</span></span>
       <input type="text" name="submitted_by" id="submitted_by" required
         value={viewer?.name ?? ''}
-        placeholder="自己的名字（会显示在 inbox 里）"
-        style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;" />
+        placeholder="自己的名字（会显示在 inbox 里）" />
     </label>
 
-    <!-- Summary -->
-    <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        一句话摘要
-      </span>
+    <label class="field field--full">
+      <span class="field__label">一句话摘要</span>
       <input type="text" name="summary" id="summary"
-        placeholder="一句话讲清楚，比如：家长问雅思首考时间 / 今天聊了选校 / 家长可能想退"
-        style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;" />
+        placeholder="一句话讲清楚，比如：家长问雅思首考时间 / 今天聊了选校 / 家长可能想退" />
     </label>
 
-    <!-- Content -->
-    <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        详细内容
-      </span>
+    <label class="field field--full">
+      <span class="field__label">详细内容</span>
       <textarea name="content" id="content" rows="6"
-        placeholder="沟通要点、comment 正文、状态变化原因等。"
-        style="padding: 12px; border: 1px solid var(--border); border-radius: 8px; resize: vertical; font-family: inherit;"></textarea>
+        placeholder="沟通要点、comment 正文、状态变化原因等。"></textarea>
     </label>
 
-    <!-- Generic attachment -->
-    <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;">
-      <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
-        附件（可选）
-      </span>
-      <input type="file" name="attachment" id="attachment"
-        style="padding: 10px 12px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;" />
-      <small style="color: var(--text-soft); font-size: 11px;">
-        PDF / Word / 图片 等。敏感材料（合同、银行卡）请勿上传。
-      </small>
+    <label class="field field--full">
+      <span class="field__label">附件（可选）</span>
+      <input type="file" name="attachment" id="attachment" class="field__file" />
+      <small class="field__hint">PDF / Word / 图片 等。敏感材料（合同、银行卡）请勿上传。</small>
     </label>
 
-    <!-- Submit -->
-    <div style="grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; margin-top: 8px;">
-      <button type="submit" id="submit-btn"
-        style="padding: 12px 24px; background: var(--primary); color: white; border: 0; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer;">
-        提交
-      </button>
-      <span id="status" style="font-size: 13px; color: var(--text-muted);"></span>
+    <div class="field--full submit-form__actions">
+      <button type="submit" id="submit-btn" class="btn-primary submit-form__cta">提交</button>
+      <span id="status" class="submit-form__status"></span>
     </div>
   </form>
+
+  <style>
+    .submit-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background: var(--surface-raised);
+      padding: 28px;
+      border: 1px solid #eef0f3;
+      border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+    }
+    /* .field / .field__* / .field__file live in InternalLayout global. */
+    .submit-form__actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .submit-form__cta {
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+    }
+    .submit-form__status {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .form-error {
+      padding: 14px 16px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+  </style>
 
   <script is:inline>
     const form = document.getElementById('submit-form');

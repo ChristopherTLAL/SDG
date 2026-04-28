@@ -103,39 +103,26 @@ const metaRows: Row[] = [
 ---
 
 <InternalLayout title={student.name} active="students">
-  <div style="margin-bottom: 8px;">
-    <a href="/internal/students" style="font-size: 12px; color: var(--text-soft); font-weight: 600;">
-      ← Students
-    </a>
-  </div>
+  <a href="/internal/students" class="back-link">← Students</a>
 
-  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
-    <h1 class="font-headline" style="font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
-      {student.name}
-    </h1>
+  <div class="sd-header">
+    <h1 class="font-headline sd-title">{student.name}</h1>
     {daysSince !== null && (
-      <span class="font-mono" style={`font-size: 12px; padding: 4px 10px; border-radius: 999px; background: ${daysSince >= 14 ? '#fee2e2' : daysSince >= 12 ? '#fef3c7' : '#d1fae5'}; color: ${daysSince >= 14 ? '#991b1b' : daysSince >= 12 ? '#92400e' : '#065f46'}; font-weight: 700;`}>
+      <span class={`font-mono sd-days ${daysSince >= 14 ? 'sd-days--red' : daysSince >= 12 ? 'sd-days--yellow' : 'sd-days--green'}`}>
         {daysSince}d 未联系
       </span>
     )}
   </div>
-  <p style="color: var(--text-soft); font-size: 12px; margin: 0 0 24px; font-family: 'JetBrains Mono', monospace;">
-    {student.obsidian_path}
-  </p>
+  <p class="sd-path font-mono">{student.obsidian_path}</p>
 
-  <div style="display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start;">
-    {/* Left: metadata panel */}
-    <aside style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 18px 18px 6px;">
-      <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
-        Frontmatter
-      </div>
-      <dl style="margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px;">
+  <div class="sd-grid">
+    <aside class="sd-meta">
+      <div class="meta-eyebrow">Frontmatter</div>
+      <dl class="meta-list">
         {metaRows.map(r => (
-          <div>
-            <dt style="font-size: 11px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 2px;">
-              {r.label}
-            </dt>
-            <dd style={`margin: 0; font-size: 13px; color: ${r.value ? 'var(--text)' : 'var(--text-soft)'}; ${r.mono ? "font-family: 'JetBrains Mono', monospace; font-size: 12px;" : ''}`}>
+          <div class="meta-row">
+            <dt class="meta-row__label">{r.label}</dt>
+            <dd class={`meta-row__value ${r.mono ? 'font-mono' : ''} ${r.value ? '' : 'meta-row__value--empty'}`}>
               {r.value || '—'}
             </dd>
           </div>
@@ -144,39 +131,32 @@ const metaRows: Row[] = [
 
       {student.attachments && student.attachments.length > 0 && (
         <>
-          <div style="border-top: 1px solid var(--border); margin: 16px -18px 12px;"></div>
-          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
-            个性化材料 ({student.attachments.length})
-          </div>
-          <ul style="margin: 0 0 12px; padding: 0; list-style: none;">
+          <div class="meta-divider"></div>
+          <div class="meta-eyebrow">个性化材料 ({student.attachments.length})</div>
+          <ul class="meta-attachments">
             {student.attachments.map((f: string) => (
-              <li style="font-size: 12px; color: var(--text-muted); padding: 4px 0; word-break: break-all;">
-                📎 {f}
-              </li>
+              <li>📎 {f}</li>
             ))}
           </ul>
-          <p style="font-size: 10px; color: var(--text-soft); margin: 0 0 12px; line-height: 1.5;">
-            目前仅显示文件名。
-          </p>
+          <p class="meta-attachments__note">目前仅显示文件名。</p>
         </>
       )}
     </aside>
 
-    {/* Right: rendered markdown */}
     <div>
       {/* Quick add submission */}
-      <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px;">
+      <section class="sd-quickadd">
         <details id="quick-add-details">
-          <summary style="cursor: pointer; font-size: 13px; font-weight: 700; color: var(--primary); list-style: none; display: flex; align-items: center; gap: 8px;">
-            <span style="display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); color: white; font-size: 14px; line-height: 18px; text-align: center; font-weight: 700;">+</span>
+          <summary class="sd-quickadd__summary">
+            <span class="sd-quickadd__plus">+</span>
             新增沟通记录 / Comment / 状态更新
           </summary>
-          <form id="quick-add-form" style="margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <form id="quick-add-form" class="sd-quickadd__form">
             <input type="hidden" name="student_id" value={String(student.id)} />
 
-            <label style="display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">类型</span>
-              <select name="type" required style="padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: white; font-size: 13px;">
+            <label class="field field--compact">
+              <span class="field__label">类型</span>
+              <select name="type" required>
                 <option value="沟通记录">沟通记录</option>
                 <option value="重要comment">重要 comment</option>
                 <option value="状态更新">状态更新</option>
@@ -185,36 +165,29 @@ const metaRows: Row[] = [
               </select>
             </label>
 
-            <label style="display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">你是谁</span>
-              <input type="text" name="submitted_by" required placeholder="自己的名字"
-                style="padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px;" />
+            <label class="field field--compact">
+              <span class="field__label">你是谁</span>
+              <input type="text" name="submitted_by" required placeholder="自己的名字" />
             </label>
 
-            <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">一句话摘要</span>
-              <input type="text" name="summary" placeholder="一句话讲清楚"
-                style="padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px;" />
+            <label class="field field--compact field--full">
+              <span class="field__label">一句话摘要</span>
+              <input type="text" name="summary" placeholder="一句话讲清楚" />
             </label>
 
-            <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">详细内容</span>
-              <textarea name="content" rows="4" placeholder="沟通要点、comment 正文、状态变化原因等"
-                style="padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; resize: vertical; font-family: inherit;"></textarea>
+            <label class="field field--compact field--full">
+              <span class="field__label">详细内容</span>
+              <textarea name="content" rows="4" placeholder="沟通要点、comment 正文、状态变化原因等"></textarea>
             </label>
 
-            <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted);">附件（可选）</span>
-              <input type="file" name="attachment"
-                style="padding: 6px 10px; border: 1px dashed var(--border); border-radius: 6px; background: #fafafa; font-size: 12px;" />
+            <label class="field field--compact field--full">
+              <span class="field__label">附件（可选）</span>
+              <input type="file" name="attachment" class="field__file" />
             </label>
 
-            <div style="grid-column: 1 / -1; display: flex; gap: 12px; align-items: center; margin-top: 4px;">
-              <button type="submit" id="quick-add-btn"
-                style="padding: 8px 18px; background: var(--primary); color: white; border: 0; border-radius: 6px; font-weight: 700; font-size: 13px; cursor: pointer;">
-                提交
-              </button>
-              <span id="quick-add-status" style="font-size: 12px; color: var(--text-muted);"></span>
+            <div class="field--full sd-quickadd__actions">
+              <button type="submit" id="quick-add-btn" class="btn-primary">提交</button>
+              <span id="quick-add-status" class="sd-quickadd__status"></span>
             </div>
           </form>
         </details>
@@ -251,64 +224,52 @@ const metaRows: Row[] = [
       </script>
 
       {matchedSOPs.length > 0 && (
-        <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 24px;">
-          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
-            合同 SOP
-          </div>
+        <section class="sd-sops">
+          <div class="meta-eyebrow" style="margin-bottom: 14px;">合同 SOP</div>
           {matchedSOPs.map(m => (
-            <details style="margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px;">
-              <summary style="cursor: pointer; padding: 12px 14px; list-style: none; display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
-                <span style="display: flex; align-items: baseline; gap: 10px;">
-                  <span style="display: inline-block; transition: transform 0.15s;" class="sop-chevron">▸</span>
-                  <h3 class="font-headline" style="margin: 0; font-size: 14px; font-weight: 700;">
-                    {m.sop.displayName}
-                  </h3>
+            <details class="sop-group">
+              <summary class="sop-group__summary">
+                <span class="sop-group__title">
+                  <span class="sop-chevron">▸</span>
+                  <h3 class="font-headline sop-group__name">{m.sop.displayName}</h3>
                 </span>
-                <span style="font-size: 11px; color: var(--text-soft); white-space: nowrap;">
+                <span class="sop-group__meta">
                   {m.deliverables.reduce((s, d) => s + (d.repeats ?? 1), 0)} 项 · 「{m.contractName}」
                 </span>
               </summary>
-              <ol style="list-style: none; margin: 0; padding: 8px 14px 14px; counter-reset: sop; border-top: 1px solid var(--border); background: #fafafa;">
+              <ol class="sop-list">
                 {m.deliverables.map(d => {
                   const subjectId = `subj-${m.sop.id}-${d.key}`;
                   const bodyId = `body-${m.sop.id}-${d.key}`;
                   return (
-                    <li style="counter-increment: sop; padding: 4px 0;">
-                      <details style="border: 1px solid var(--border); border-radius: 8px; padding: 0; overflow: hidden;">
-                        <summary style="cursor: pointer; padding: 10px 14px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; list-style: none;">
-                          <span class="font-mono" style="display: inline-block; min-width: 22px; font-size: 11px; color: var(--text-soft); font-weight: 700;">
+                    <li class="sop-item">
+                      <details class="sop-deliv">
+                        <summary class="sop-deliv__summary">
+                          <span class="font-mono sop-deliv__num">
                             {String([...m.deliverables].indexOf(d) + 1).padStart(2, '0')}
                           </span>
-                          <span style="flex: 1;">
+                          <span class="sop-deliv__label">
                             {d.title}
                             {d.repeats > 1 && (
-                              <span class="font-mono" style="display: inline-block; margin-left: 8px; padding: 1px 7px; background: var(--primary); color: white; border-radius: 999px; font-size: 10px; font-weight: 700;">
-                                ×{d.repeats}
-                              </span>
+                              <span class="font-mono sop-deliv__count">×{d.repeats}</span>
                             )}
                           </span>
-                          <span style="font-size: 11px; color: var(--primary); font-weight: 600;">查看邮件 →</span>
+                          <span class="sop-deliv__cta">查看邮件 →</span>
                         </summary>
-                        <div style="padding: 14px; background: #fafafa; border-top: 1px solid var(--border); display: grid; gap: 10px;">
+                        <div class="sop-deliv__body">
                           <div>
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-                              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">主题</span>
-                              <button type="button" class="sop-copy" data-target={subjectId}
-                                style="font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); background: white; border-radius: 4px; cursor: pointer; font-weight: 600; color: var(--primary);">
-                                复制
-                              </button>
+                            <div class="sop-deliv__field-head">
+                              <span class="sop-deliv__field-label">主题</span>
+                              <button type="button" class="sop-copy sop-deliv__copy" data-target={subjectId}>复制</button>
                             </div>
-                            <pre id={subjectId} style="margin: 0; padding: 8px 10px; background: white; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 13px; white-space: pre-wrap; word-break: break-word;">{d.emailSubject}</pre>
+                            <pre id={subjectId} class="sop-deliv__pre">{d.emailSubject}</pre>
                           </div>
                           <div>
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-                              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">正文</span>
-                              <button type="button" class="sop-copy" data-target={bodyId}
-                                style="font-size: 11px; padding: 3px 10px; border: 1px solid var(--border); background: white; border-radius: 4px; cursor: pointer; font-weight: 600; color: var(--primary);">
-                                复制
-                              </button>
+                            <div class="sop-deliv__field-head">
+                              <span class="sop-deliv__field-label">正文</span>
+                              <button type="button" class="sop-copy sop-deliv__copy" data-target={bodyId}>复制</button>
                             </div>
-                            <pre id={bodyId} style="margin: 0; padding: 10px 12px; background: white; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">{d.emailBody}</pre>
+                            <pre id={bodyId} class="sop-deliv__pre">{d.emailBody}</pre>
                           </div>
                         </div>
                       </details>
@@ -318,14 +279,15 @@ const metaRows: Row[] = [
               </ol>
             </details>
           ))}
-          <p style="font-size: 11px; color: var(--text-soft); margin: 10px 0 0; line-height: 1.5;">
-            邮件模板在 <code style="font-size: 11px;">src/data/contract-sops.ts</code>。改完 push 一下就生效。占位符 <code style="font-size: 11px;">{'{{学生姓名}}'}</code> 和 <code style="font-size: 11px;">{'{{中期顾问}}'}</code> 已自动替换。
+          <p class="sd-sops__footnote">
+            邮件模板在 <code>src/data/contract-sops.ts</code>。改完 push 一下就生效。占位符 <code>{'{{学生姓名}}'}</code> 和 <code>{'{{中期顾问}}'}</code> 已自动替换。
           </p>
         </section>
       )}
 
       <style>
-        details[open] > summary > span > .sop-chevron { transform: rotate(90deg); }
+        /* SOP chevron: details/summary/span structure unchanged from before — chevron rotates when open. */
+        details[open] > summary .sop-chevron { transform: rotate(90deg); }
       </style>
 
       <script is:inline>
@@ -345,31 +307,23 @@ const metaRows: Row[] = [
         });
       </script>
 
-      <section style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 24px;">
-        <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
-          主档案
-        </div>
+      <section class="sd-main">
+        <div class="meta-eyebrow" style="margin-bottom: 12px;">主档案</div>
         {mainHtml ? (
           <div class="md-body" set:html={mainHtml} />
         ) : (
-          <p style="color: var(--text-soft); font-size: 13px; margin: 0;">主档案 body 为空。</p>
+          <p class="section-card__empty">主档案 body 为空。</p>
         )}
       </section>
 
       {renderedNotes.length > 0 && (
         <section>
-          <div style="font-size: 10px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">
-            沟通记录 ({renderedNotes.length})
-          </div>
+          <div class="meta-eyebrow" style="margin-bottom: 12px;">沟通记录 ({renderedNotes.length})</div>
           {renderedNotes.map(n => (
-            <article id={n.anchor} style="background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; scroll-margin-top: 80px;">
-              <header style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
-                <h3 class="font-headline" style="margin: 0; font-size: 16px; font-weight: 700;">
-                  {n.note_name}
-                </h3>
-                {n.note_date && (
-                  <span class="font-mono" style="font-size: 11px; color: var(--text-soft);">{n.note_date}</span>
-                )}
+            <article id={n.anchor} class="sd-note">
+              <header class="sd-note__header">
+                <h3 class="font-headline sd-note__title">{n.note_name}</h3>
+                {n.note_date && <span class="font-mono sd-note__date">{n.note_date}</span>}
               </header>
               <div class="md-body" set:html={n.html} />
             </article>
@@ -378,13 +332,360 @@ const metaRows: Row[] = [
       )}
 
       {renderedNotes.length === 0 && (
-        <section style="background: var(--surface-raised); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center; color: var(--text-soft); font-size: 13px;">
-          还没有沟通记录。
-        </section>
+        <section class="sd-empty-notes">还没有沟通记录。</section>
       )}
     </div>
   </div>
 </InternalLayout>
+
+<style>
+  /* Student detail page — header, meta panel, quick-add, SOPs, notes. */
+
+  .sd-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .sd-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .sd-days {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  .sd-days--green { background: #d1fae5; color: #065f46; }
+  .sd-days--yellow { background: #fef3c7; color: #92400e; }
+  .sd-days--red { background: #fee2e2; color: #991b1b; }
+  .sd-path {
+    color: var(--text-soft);
+    font-size: 12px;
+    margin: 0 0 24px;
+  }
+
+  .sd-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* Meta panel (left aside) */
+  .sd-meta {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 20px 20px 12px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .meta-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .meta-list {
+    margin: 12px 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .meta-row__label {
+    font-size: 11px;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .meta-row__value {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .meta-row__value.font-mono { font-size: 12px; }
+  .meta-row__value--empty { color: var(--text-soft); }
+  .meta-divider {
+    border-top: 1px solid #eef0f3;
+    margin: 16px -20px 12px;
+  }
+  .meta-attachments {
+    margin: 8px 0 12px;
+    padding: 0;
+    list-style: none;
+  }
+  .meta-attachments li {
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    word-break: break-all;
+  }
+  .meta-attachments__note {
+    font-size: 10px;
+    color: var(--text-soft);
+    margin: 0 0 12px;
+    line-height: 1.5;
+  }
+
+  /* Quick-add submission card */
+  .sd-quickadd {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .sd-quickadd__summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sd-quickadd__summary::-webkit-details-marker { display: none; }
+  .sd-quickadd__plus {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .sd-quickadd__form {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sd-quickadd__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .sd-quickadd__status {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* SOPs section */
+  .sd-sops {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .sd-sops__footnote {
+    font-size: 11px;
+    color: var(--text-soft);
+    margin: 14px 0 0;
+    line-height: 1.5;
+  }
+  .sd-sops__footnote code {
+    font-size: 11px;
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  .sop-group {
+    margin-bottom: 10px;
+    border: 1px solid #eef0f3;
+    border-radius: 10px;
+  }
+  .sop-group__summary {
+    cursor: pointer;
+    padding: 12px 14px;
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sop-group__summary::-webkit-details-marker { display: none; }
+  .sop-group__title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .sop-chevron {
+    display: inline-block;
+    transition: transform 120ms ease;
+    color: var(--text-soft);
+    font-size: 11px;
+  }
+  .sop-group__name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .sop-group__meta {
+    font-size: 11px;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+
+  .sop-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 14px 14px;
+    border-top: 1px solid #eef0f3;
+    background: #fafbfc;
+  }
+  .sop-item { padding: 4px 0; }
+  .sop-deliv {
+    border: 1px solid #eef0f3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+  .sop-deliv__summary {
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+  }
+  .sop-deliv__summary::-webkit-details-marker { display: none; }
+  .sop-deliv__num {
+    display: inline-block;
+    min-width: 22px;
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 700;
+  }
+  .sop-deliv__label { flex: 1; }
+  .sop-deliv__count {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 8px;
+    background: var(--primary);
+    color: white;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .sop-deliv__cta {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .sop-deliv__body {
+    padding: 14px;
+    background: #fafbfc;
+    border-top: 1px solid #eef0f3;
+    display: grid;
+    gap: 12px;
+  }
+  .sop-deliv__field-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .sop-deliv__field-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sop-deliv__copy {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid #eef0f3;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+    transition: border-color 120ms ease;
+  }
+  .sop-deliv__copy:hover { border-color: var(--primary); }
+  .sop-deliv__pre {
+    margin: 0;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid #eef0f3;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Main archive + notes */
+  .sd-main {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .sd-note {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    scroll-margin-top: 80px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  }
+  .sd-note__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef0f3;
+  }
+  .sd-note__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .sd-note__date {
+    font-size: 11px;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+  .sd-empty-notes {
+    background: var(--surface-raised);
+    border: 1px dashed #d4d8de;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+</style>
 
 <style is:global>
   /* Markdown body styling — scoped via .md-body to keep it inside the article cards */

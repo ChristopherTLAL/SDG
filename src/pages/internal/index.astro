@@ -210,8 +210,8 @@ function fmtDateTime(dt: string | null): string {
 ---
 
 <InternalLayout title={advisorFilter ? `Overview · ${advisorFilter}` : 'Overview'} active="overview">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 4px;">
-    <h1 class="font-headline" style="font-size: 28px; font-weight: 800; margin: 0; letter-spacing: -0.02em;">
+  <div class="page-header">
+    <h1 class="font-headline page-title">
       Overview {advisorFilter && <span style="font-weight: 600; font-size: 20px; color: var(--primary);">· {advisorFilter}</span>}
     </h1>
     <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
@@ -219,21 +219,17 @@ function fmtDateTime(dt: string | null): string {
       {includeInactive ? '✓ 含已结案' : `+ 已结案 (${inactiveCount})`}
     </a>
   </div>
-  <p style="color: var(--text-muted); margin: 0 0 16px; font-size: 14px;">
+  <p class="page-subtitle">
     实时联系频率分诊。点击顾问名查看其视角。
   </p>
 
   <!-- Advisor filter chips -->
-  <div style="display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; align-items: center;">
-    <span style="font-size: 11px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-right: 4px;">中期</span>
-    <a href={buildHref({ advisor: '' })}
-      style={`padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${!advisorFilter ? 'var(--primary)' : 'var(--border)'}; color: ${!advisorFilter ? 'var(--primary)' : 'var(--text-muted)'}; background: ${!advisorFilter ? '#e8f0ee' : 'transparent'};`}>
-      All
-    </a>
+  <div class="filter-row" style="margin-bottom: 24px;">
+    <span class="filter-row__label">中期</span>
+    <a href={buildHref({ advisor: '' })} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
     {advisorChips.map(([name, count]) => (
-      <a href={buildHref({ advisor: name })}
-        style={`padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${advisorFilter === name ? 'var(--primary)' : 'var(--border)'}; color: ${advisorFilter === name ? 'var(--primary)' : 'var(--text-muted)'}; background: ${advisorFilter === name ? '#e8f0ee' : 'transparent'};`}>
-        {name} <span style="opacity: 0.6; font-family: 'JetBrains Mono', monospace;">{count}</span>
+      <a href={buildHref({ advisor: name })} class={`pill ${advisorFilter === name ? 'pill--active' : ''}`}>
+        {name} <span style="opacity: 0.6; margin-left: 2px;" class="font-mono">{count}</span>
       </a>
     ))}
   </div>
@@ -433,77 +429,8 @@ function fmtDateTime(dt: string | null): string {
 </InternalLayout>
 
 <style>
-  /* Editorial dashboard — soft hairlines, generous whitespace, restrained accents.
-     One reusable .section-card replaces the prior "white box + hard border" recipe;
-     stat cards drop the colored left border in favor of coloring the number itself. */
-
-  .section-card {
-    background: var(--surface-raised);
-    border: 1px solid #eef0f3;
-    border-radius: 14px;
-    padding: 22px 26px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
-  }
-  .section-card__header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 14px;
-  }
-  .section-card__title {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  .section-card__subtitle {
-    color: var(--text-soft);
-    font-weight: 500;
-    font-size: 13px;
-    margin-left: 6px;
-  }
-  .section-card__action {
-    font-size: 12px;
-    color: var(--primary);
-    font-weight: 600;
-  }
-  .section-card__empty {
-    color: var(--text-soft);
-    font-size: 13px;
-    margin: 0;
-  }
-
-  /* Stat strip — five flat cards, no left-border accent. Number itself carries the tier color. */
-  .stat-strip {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .stat-card {
-    background: var(--surface-raised);
-    border: 1px solid #eef0f3;
-    border-radius: 12px;
-    padding: 16px 18px;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
-  }
-  .stat-card__label {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-  .stat-card__value {
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 6px;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-
-  /* Triage row — dot indicator replaces colored left border + pastel bg. */
+  /* Triage row — dot indicator replaces colored left border + pastel bg.
+     section-card / stat-card / page-header live in InternalLayout's global CSS. */
   .triage-list {
     list-style: none;
     margin: 0;
