@@ -10,6 +10,7 @@ import { marked } from 'marked';
 
 const { id } = Astro.params;
 const studentId = Number(id);
+const viewer = Astro.locals?.viewer ?? null;
 
 if (!Number.isFinite(studentId)) {
   return Astro.redirect('/internal/students');
@@ -167,7 +168,7 @@ const metaRows: Row[] = [
 
             <label class="field field--compact">
               <span class="field__label">你是谁</span>
-              <input type="text" name="submitted_by" required placeholder="自己的名字" />
+              <input type="text" name="submitted_by" required value={viewer?.name ?? ''} placeholder="自己的名字" />
             </label>
 
             <label class="field field--compact field--full">
