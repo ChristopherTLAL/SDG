@@ -1,0 +1,211 @@
+---
+// /welcome — pre-auth landing page that explains the three access tiers
+// before the user clicks through to Cloudflare Access OTP. Linked to from
+// the dashboard's 「登录」 button. Public path (not under /internal/*),
+// so Cloudflare Access doesn't intercept it.
+//
+// Authenticated users won't normally end up here (the dashboard swaps the
+// 「登录」 button for their name once auth resolves), but if they navigate
+// directly we still show the same content so the page is always self-
+// explanatory.
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登录 — 新东方前途出国苏州分公司内部看板</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #042f24;
+        --primary-dim: #0a4535;
+        --surface: #fafafa;
+        --surface-raised: #ffffff;
+        --hairline: #eef0f3;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --text-soft: #94a3b8;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--surface);
+        color: var(--text);
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        font-feature-settings: 'cv11';
+        min-height: 100vh;
+      }
+      a { color: inherit; text-decoration: none; }
+      .font-headline { font-family: 'Manrope', 'Inter', sans-serif; }
+
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 80px 24px 48px;
+      }
+      .logo {
+        font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 36px;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        margin: 0 0 16px;
+      }
+      .lede {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0 0 32px;
+      }
+
+      .tier {
+        background: var(--surface-raised);
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+        padding: 18px 22px;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .tier__num {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(4, 47, 36, 0.08);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+      }
+      .tier__body { flex: 1; }
+      .tier__title {
+        font-weight: 700;
+        font-size: 14.5px;
+        margin: 0 0 4px;
+        color: var(--text);
+        letter-spacing: -0.005em;
+      }
+      .tier__desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 32px;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        background: var(--primary);
+        color: white;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        transition: background 120ms ease;
+      }
+      .cta:hover { background: var(--primary-dim); }
+      .cta-secondary {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .cta-secondary:hover { color: var(--text); }
+
+      .contact {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--hairline);
+        font-size: 13px;
+        color: var(--text-soft);
+        line-height: 1.7;
+      }
+      .contact strong {
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+      .contact a {
+        color: var(--primary);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="logo">SUZHOU XDF · INTERNAL</div>
+
+      <h1 class="font-headline">新东方前途出国苏州分公司<br />中期看板</h1>
+      <p class="lede">
+        登录前请先了解你的访问权限。下面三档对应不同的邮箱身份，登录后系统会自动识别。
+      </p>
+
+      <div class="tier">
+        <div class="tier__num">1</div>
+        <div class="tier__body">
+          <h3 class="tier__title">新东方邮箱（@xdf.cn）</h3>
+          <p class="tier__desc">
+            可以阅读 dashboard、学生总览，无法编辑、无法看任何顾问的日报、无法提交沟通记录。
+          </p>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier__num">2</div>
+        <div class="tier__body">
+          <h3 class="tier__title">在职中期顾问</h3>
+          <p class="tier__desc">
+            在第一档基础上，可以提交名下学生的最新沟通情况入库，可以查看自己的每日工作日报。
+          </p>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier__num">3</div>
+        <div class="tier__body">
+          <h3 class="tier__title">管理员</h3>
+          <p class="tier__desc">
+            完整权限，包括 inbox 审核、所有顾问的日报。
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a href="/internal/students" class="cta">
+          进入看板 →
+        </a>
+        <a href="/internal" class="cta-secondary">先看公开 dashboard</a>
+      </div>
+
+      <div class="contact">
+        <strong>登录方式</strong>：点击「进入看板」后，系统会发送一次性验证码到你的邮箱。<br />
+        <strong>其他情况</strong>：联系王世杰 <a href="mailto:wangshijie11@xdf.cn">wangshijie11@xdf.cn</a>
+      </div>
+    </main>
+  </body>
+</html>
