@@ -458,10 +458,23 @@ const chartPayload = {
             },
             upperLabel: { show: false },
             itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
-            colorMappingBy: 'value',
-            // Cohesive Morandi sequence — same hue family as the donut
-            // (no clashing teals or muddy greys). Pale beige → forest sage.
-            color: ['#EAE2D5', '#D4C8B6', '#BCB39E', '#A6B8A0', '#8FA189'],
+            // Categorical (cycle by tile index) so we use each Morandi color
+            // discretely instead of interpolating a gradient — matches the
+            // donut palette exactly.
+            colorMappingBy: 'index',
+            color: [
+              '#A6B8A0',  // sage
+              '#C9A29B',  // dusty pink
+              '#93A8B8',  // dusty blue
+              '#C5B383',  // dusty mustard
+              '#B5A0B5',  // mauve
+              '#8AA9A4',  // dusty teal
+              '#DDB7AE',  // peachy pink
+              '#B7B0BF',  // pale lavender
+              '#C8B7A6',  // warm beige
+              '#8FA189',  // forest sage
+              '#ADA39A',  // warm grey
+            ],
           }],
         });
       }
