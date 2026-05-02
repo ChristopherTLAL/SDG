@@ -12,22 +12,32 @@ interface Props {
 const { title, active } = Astro.props;
 const viewer = Astro.locals?.viewer ?? null;
 
-// Nav visibility:
-//   Overview / Students — visible to everyone (anonymous + authed)
-//   Submit / Daily      — only advisors and admin
-//   Inbox               — admin only
-// This is purely UI hiding; the pages also gate at the request level.
+// Nav visibility tiers:
+//   public  — Overview / Students (everyone, including anonymous)
+//   advisor — Submit / Daily (advisors and admin)
+//   admin   — Inbox (admin only)
+//
+// On the public dashboard CF doesn't inject identity headers, so server-side
+// viewer is null even when the user has a valid CF cookie elsewhere on the
+// site. We render all items but mark gated ones with data-requires; the
+// client-side identity probe (below) then reveals the right ones once it
+// confirms the viewer's role via /internal/api/me.
 type NavKey = NonNullable<Props['active']>;
+type NavTier = 'public' | 'advisor' | 'admin';
 const isAdmin   = !!viewer?.isAdmin;
 const isAdvisor = !!viewer?.isAdvisor || isAdmin;
-const allItems: { label: string; href: string; key: NavKey; visible: boolean }[] = [
-  { label: 'Overview', href: '/internal',                key: 'overview',       visible: true },
-  { label: 'Submit',   href: '/internal/submit',         key: 'submit',         visible: isAdvisor },
-  { label: 'Inbox',    href: '/internal/submissions',    key: 'submissions',    visible: isAdmin },
-  { label: 'Students', href: '/internal/students',       key: 'students',       visible: true },
-  { label: 'Daily',    href: '/internal/daily-reports',  key: 'daily-reports',  visible: isAdvisor },
+const allItems: { label: string; href: string; key: NavKey; requires: NavTier }[] = [
+  { label: 'Overview', href: '/internal',                key: 'overview',      requires: 'public' },
+  { label: 'Submit',   href: '/internal/submit',         key: 'submit',        requires: 'advisor' },
+  { label: 'Inbox',    href: '/internal/submissions',    key: 'submissions',   requires: 'admin' },
+  { label: 'Students', href: '/internal/students',       key: 'students',      requires: 'public' },
+  { label: 'Daily',    href: '/internal/daily-reports',  key: 'daily-reports', requires: 'advisor' },
 ];
-const navItems = allItems.filter(it => it.visible);
+function showByTier(tier: NavTier): boolean {
+  if (tier === 'public') return true;
+  if (tier === 'admin') return isAdmin;
+  return isAdvisor;
+}
 ---
 
 <!doctype html>
@@ -376,11 +386,13 @@ const navItems = allItems.filter(it => it.visible);
         <a href="/internal" style="font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', sans-serif; font-weight: 800; letter-spacing: -0.01em; font-size: 15px;">
           苏州前途中期看板
         </a>
-        <nav style="display: flex; gap: 4px; flex: 1;">
-          {navItems.map(item => (
+        <nav style="display: flex; gap: 4px; flex: 1;" data-internal-nav>
+          {allItems.map(item => (
             <a
               href={item.href}
-              style={`padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; opacity: ${active === item.key ? '1' : '0.65'}; background: ${active === item.key ? 'rgba(255,255,255,0.12)' : 'transparent'};`}
+              data-nav-key={item.key}
+              data-requires={item.requires}
+              style={`padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; opacity: ${active === item.key ? '1' : '0.65'}; background: ${active === item.key ? 'rgba(255,255,255,0.12)' : 'transparent'}; display: ${showByTier(item.requires) ? '' : 'none'};`}
             >
               {item.label}
             </a>
@@ -405,20 +417,35 @@ const navItems = allItems.filter(it => it.visible);
       // On bypassed pages (the dashboard), CF Access doesn't inject identity headers
       // even when the user has a valid session cookie elsewhere on the site. Probe
       // the gated /internal/api/me endpoint with credentials: if the cookie is
-      // valid, swap the "登录" button with the user's name. If not, leave it.
+      // valid, swap the "登录" button with the user's name AND reveal the nav
+      // items the viewer's role unlocks (Submit / Daily / Inbox).
       (function () {
         const root = document.getElementById('header-identity');
-        if (!root || root.dataset.authed === 'true') return;
+        if (!root) return;
+        if (root.dataset.authed === 'true') return;
         fetch('/internal/api/me', { credentials: 'include', cache: 'no-store' })
           .then(r => r.ok ? r.json() : null)
           .then(data => {
             if (!data || !data.ok || !data.viewer) return;
+            const v = data.viewer;
+            // Swap login button → name chip
             root.innerHTML = ''
               + '<span style="font-size: 12px; opacity: 0.85; display: flex; align-items: center; gap: 8px;">'
               +   '<span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4ade80;"></span>'
-              +   '<span>' + (data.viewer.name || '') + '</span>'
+              +   '<span>' + (v.name || '') + '</span>'
               + '</span>';
             root.dataset.authed = 'true';
+            // Reveal nav items the viewer's tier unlocks
+            const isAdmin = !!v.isAdmin;
+            const isAdvisor = !!v.isAdvisor || isAdmin;
+            document.querySelectorAll('[data-internal-nav] [data-requires]').forEach(function (el) {
+              const req = el.getAttribute('data-requires');
+              let show = false;
+              if (req === 'public') show = true;
+              else if (req === 'admin') show = isAdmin;
+              else if (req === 'advisor') show = isAdvisor;
+              if (show) el.style.display = '';
+            });
           })
           .catch(() => { /* CF redirected fetch to login page → leave 登录 button */ });
       })();
