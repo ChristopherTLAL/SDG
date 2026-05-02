@@ -329,12 +329,12 @@ const contractColorMap = buildStableColorMap(namedContracts);
 const schoolColors: Record<string, string>   = Object.fromEntries(schoolColorMap);
 const contractColors: Record<string, string> = Object.fromEntries(contractColorMap);
 
-// Stage palette for the stacked bar — Morandi progression. 后期 anchors on
-// the smoky-purple deep tone so the rightmost segment (deepest in the
-// funnel) reads as the visually weightiest.
+// Stage palette — pure purple progression (light → smoky purple). Pipeline
+// reads as a single hue deepening as students move through the funnel,
+// rather than three competing colors. Anchor matches the heatmap.
 const STAGE_COLORS: Record<string, string> = {
-  '需对接':   '#A2B2C0',  // dusty blue (brightened Morandi)
-  '中期在途': '#B1C0AB',  // sage (brightened Morandi)
+  '需对接':   '#DDC9DD',  // very light mauve
+  '中期在途': '#C5AEC5',  // mid mauve
   '后期在途': SMOKY_PURPLE,
 };
 
