@@ -101,15 +101,30 @@ for (const s of students) {
 const regionData = Array.from(regionCounts.entries())
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count);
-// Shared Morandi palette used by treemap / donut / network. Color is
-// assigned by NAME hash (not rank) so 西交利物浦大学 always maps to the
-// same swatch even as caseload shifts. Collisions resolved by walking
-// forward in the palette using a deterministic alphabetical iteration —
-// same input set always yields the same mapping.
+// Shared Morandi palette used by treemap / donut / network.
+// Each hue is the original Morandi tone mixed ~12% with white — keeps
+// the dusty character but lightens enough that black 13px labels stay
+// crisp on top. Color assigned by NAME hash (not rank) so 西交利物浦
+// always maps to the same swatch even as caseload shifts.
 const MORANDI_PALETTE = [
-  '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
-  '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
+  '#B1C0AB',  // sage
+  '#D0ADA7',  // dusty pink
+  '#A2B2C0',  // dusty blue
+  '#CCBC92',  // dusty mustard
+  '#BEABBE',  // mauve
+  '#99B4AF',  // dusty teal
+  '#E1BFB8',  // peachy pink
+  '#C0BAC7',  // pale lavender
+  '#CFBFB1',  // warm beige
+  '#9EAE99',  // forest sage
+  '#B7AEA6',  // warm grey
 ];
+
+// Reserved deepest tone — used as the dark band of the advisor heatmap
+// and as 后期在途 in the stage stacked bar. Kept at the original (un-
+// brightened) Morandi mauve so it stays visually anchoring while the
+// rest of the palette has been lightened.
+const SMOKY_PURPLE = '#B5A0B5';
 function djb2(s: string): number {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
@@ -314,12 +329,13 @@ const contractColorMap = buildStableColorMap(namedContracts);
 const schoolColors: Record<string, string>   = Object.fromEntries(schoolColorMap);
 const contractColors: Record<string, string> = Object.fromEntries(contractColorMap);
 
-// Stage palette for the stacked bar — semantic progression (blue early,
-// progressively deeper green as the student moves through the funnel).
+// Stage palette for the stacked bar — Morandi progression. 后期 anchors on
+// the smoky-purple deep tone so the rightmost segment (deepest in the
+// funnel) reads as the visually weightiest.
 const STAGE_COLORS: Record<string, string> = {
-  '需对接':   '#3b82f6',
-  '中期在途': '#10b981',
-  '后期在途': '#047857',
+  '需对接':   '#A2B2C0',  // dusty blue (brightened Morandi)
+  '中期在途': '#B1C0AB',  // sage (brightened Morandi)
+  '后期在途': SMOKY_PURPLE,
 };
 
 // Pass everything client-side via JSON for the chart inits.
@@ -861,7 +877,9 @@ const chartPayload = {
             bottom: 0,
             itemWidth: 12,
             itemHeight: 120,
-            inRange: { color: ['#f8fafc', '#dcfce7', '#86efac', '#16a34a'] },
+            // pale → smoky-purple gradient (matches the deep tone reserved
+            // for 后期在途 in the stage chart, so the page hangs together).
+            inRange: { color: ['#f8fafc', '#EDE5ED', '#D1BFD1', '#B5A0B5'] },
             textStyle: { color: '#64748b', fontSize: 11 },
           },
           series: [{
