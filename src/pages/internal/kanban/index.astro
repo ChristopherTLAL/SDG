@@ -319,20 +319,17 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── Widget 2: 申请地区分布 + 共申网络 ── -->
+      <!-- ── Widget 2: 申请地区共申网络 ── -->
       <section id="kanban-regions" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            申请地区 <span class="section-card__subtitle">多目标地区按个数累计 · 节点 = 地区，连线 = 共申学生数</span>
+            申请地区 <span class="section-card__subtitle">节点大小 = 学生数（标在节点上） · 连线粗细 = 共申学生数</span>
           </h2>
         </div>
         {regionData.length === 0 ? (
           <p class="section-card__empty">暂无目标地区数据。</p>
         ) : (
-          <div class="region-grid">
-            <div id="chart-regions" style="width: 100%; height: 360px;"></div>
-            <div id="chart-network" style="width: 100%; height: 360px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
-          </div>
+          <div id="chart-network" style="width: 100%; height: 460px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
         )}
       </section>
 
@@ -414,7 +411,6 @@ const chartPayload = {
     (function () {
       const payload = JSON.parse(document.getElementById('chart-payload').textContent);
       const PRIMARY = '#042f24';
-      const PRIMARY_DIM = '#0a4535';
 
       // Resize all chart instances on viewport change.
       const charts = [];
@@ -446,33 +442,8 @@ const chartPayload = {
         });
       }
 
-      // ── Widget 2: regions bar ──
-      const regionEl = document.getElementById('chart-regions');
-      if (regionEl && payload.regionData.length) {
-        const c = echarts.init(regionEl);
-        charts.push(c);
-        c.setOption({
-          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-          grid: { left: 10, right: 32, top: 10, bottom: 16, containLabel: true },
-          xAxis: { type: 'value', splitLine: { lineStyle: { color: '#eef0f3' } } },
-          yAxis: {
-            type: 'category',
-            data: payload.regionData.slice().reverse().map(d => d.name),
-            axisLine: { show: false },
-            axisTick: { show: false },
-            axisLabel: { color: '#475569', fontSize: 12 },
-          },
-          series: [{
-            type: 'bar',
-            data: payload.regionData.slice().reverse().map(d => d.count),
-            itemStyle: { color: PRIMARY_DIM, borderRadius: [0, 4, 4, 0] },
-            barWidth: 16,
-            label: { show: true, position: 'right', color: '#475569', fontSize: 11 },
-          }],
-        });
-      }
-
-      // ── Widget 2 (cont.): co-application network ──
+      // ── Widget 2: co-application network (now full-width, name + count
+      // shown inside each node, size scales with student count) ──
       const netEl = document.getElementById('chart-network');
       if (netEl && payload.network.nodes.length && typeof cytoscape !== 'undefined') {
         const cy = cytoscape({
@@ -481,9 +452,9 @@ const chartPayload = {
           layout: {
             name: 'cose',
             animate: false,
-            padding: 28,
-            nodeRepulsion: 8000,
-            idealEdgeLength: 100,
+            padding: 36,
+            nodeRepulsion: 12000,
+            idealEdgeLength: 130,
             edgeElasticity: 200,
           },
           style: [
@@ -491,15 +462,18 @@ const chartPayload = {
               selector: 'node',
               style: {
                 'background-color': PRIMARY,
-                'label': 'data(label)',
-                'color': '#0f172a',
-                'font-size': 11,
-                'font-weight': 600,
-                'text-margin-y': -6,
+                // Two-line label: region name + student count
+                'label': (n) => `${n.data('label')}\n${n.data('weight')}`,
+                'text-wrap': 'wrap',
+                'text-max-width': '120px',
+                'color': '#ffffff',
+                'font-size': 12,
+                'font-weight': 700,
                 'text-halign': 'center',
-                'text-valign': 'top',
-                'width': (n) => 18 + Math.sqrt(n.data('weight')) * 6,
-                'height': (n) => 18 + Math.sqrt(n.data('weight')) * 6,
+                'text-valign': 'center',
+                'line-height': 1.2,
+                'width':  (n) => 36 + Math.sqrt(n.data('weight')) * 9,
+                'height': (n) => 36 + Math.sqrt(n.data('weight')) * 9,
                 'border-width': 0,
               },
             },
@@ -720,15 +694,6 @@ const chartPayload = {
         flex-wrap: wrap;
         gap: 2px;
       }
-    }
-
-    .region-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 900px) {
-      .region-grid { grid-template-columns: 1fr; }
     }
 
     .advisor-jump-row {
