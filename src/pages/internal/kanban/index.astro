@@ -296,58 +296,16 @@ const chartPayload = {
     <aside class="kanban-toc">
       <div class="kanban-toc__label">章节</div>
       <ul>
-        <li><a href="#kanban-schools">在读学校</a></li>
-        <li><a href="#kanban-regions">申请地区</a></li>
-        <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
         <li><a href="#kanban-advisors">顾问活动</a></li>
+        <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
+        <li><a href="#kanban-regions">申请地区</a></li>
+        <li><a href="#kanban-schools">在读学校</a></li>
         <li><a href="#kanban-contracts">合同</a></li>
       </ul>
     </aside>
 
     <div class="kanban-main">
-      <!-- ── Widget 1: 在读学校分布 ── -->
-      <section id="kanban-schools" class="section-card">
-        <div class="section-card__header">
-          <h2 class="font-headline section-card__title">
-            在读学校分布 <span class="section-card__subtitle">{schoolData.length} 所学校 · 长尾合并</span>
-          </h2>
-        </div>
-        {schoolChartData.length === 0 ? (
-          <p class="section-card__empty">暂无在读学校数据。</p>
-        ) : (
-          <div id="chart-schools" style="width: 100%; height: 480px;"></div>
-        )}
-      </section>
-
-      <!-- ── Widget 2: 申请地区共申网络 ── -->
-      <section id="kanban-regions" class="section-card">
-        <div class="section-card__header">
-          <h2 class="font-headline section-card__title">
-            申请地区 <span class="section-card__subtitle">节点大小 = 学生数（标在节点上） · 连线粗细 = 共申学生数</span>
-          </h2>
-        </div>
-        {regionData.length === 0 ? (
-          <p class="section-card__empty">暂无目标地区数据。</p>
-        ) : (
-          <div id="chart-network" style="width: 100%; height: 460px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
-        )}
-      </section>
-
-      <!-- ── Widget 5: 阶段 × 入学年份 heatmap ── -->
-      <section id="kanban-stage-year" class="section-card">
-        <div class="section-card__header">
-          <h2 class="font-headline section-card__title">
-            阶段 × 入学年份 <span class="section-card__subtitle">每届学生当前所处的阶段分布</span>
-          </h2>
-        </div>
-        {stageYearCells.every(c => c.count === 0) ? (
-          <p class="section-card__empty">暂无入学年份数据。</p>
-        ) : (
-          <div id="chart-stage-year" style="width: 100%; height: 320px;"></div>
-        )}
-      </section>
-
-      <!-- ── Widget 7+9: 顾问活动热力图 ── -->
+      <!-- ── 顾问活动热力图 ── -->
       <section id="kanban-advisors" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
@@ -368,7 +326,49 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── Widget 3: 合同分布 ── -->
+      <!-- ── 阶段 × 入学年份 heatmap ── -->
+      <section id="kanban-stage-year" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            阶段 × 入学年份 <span class="section-card__subtitle">每届学生当前所处的阶段分布</span>
+          </h2>
+        </div>
+        {stageYearCells.every(c => c.count === 0) ? (
+          <p class="section-card__empty">暂无入学年份数据。</p>
+        ) : (
+          <div id="chart-stage-year" style="width: 100%; height: 320px;"></div>
+        )}
+      </section>
+
+      <!-- ── 申请地区共申网络 ── -->
+      <section id="kanban-regions" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            申请地区 <span class="section-card__subtitle">节点大小 = 学生数（标在节点上） · 连线粗细 = 共申学生数</span>
+          </h2>
+        </div>
+        {regionData.length === 0 ? (
+          <p class="section-card__empty">暂无目标地区数据。</p>
+        ) : (
+          <div id="chart-network" style="width: 100%; height: 460px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
+        )}
+      </section>
+
+      <!-- ── 在读学校分布 ── -->
+      <section id="kanban-schools" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            在读学校分布 <span class="section-card__subtitle">{schoolData.length} 所学校 · 长尾合并</span>
+          </h2>
+        </div>
+        {schoolChartData.length === 0 ? (
+          <p class="section-card__empty">暂无在读学校数据。</p>
+        ) : (
+          <div id="chart-schools" style="width: 100%; height: 480px;"></div>
+        )}
+      </section>
+
+      <!-- ── 合同分布 ── -->
       <section id="kanban-contracts" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
@@ -452,7 +452,11 @@ const chartPayload = {
           layout: {
             name: 'cose',
             animate: false,
-            padding: 36,
+            // fit: true makes cose set the viewport to wrap the laid-out
+            // graph + the padding margin, so the nodes spread to the full
+            // div instead of clustering in the center.
+            fit: true,
+            padding: 40,
             nodeRepulsion: 12000,
             idealEdgeLength: 130,
             edgeElasticity: 200,
@@ -505,6 +509,19 @@ const chartPayload = {
         });
         cy.userZoomingEnabled(false);
         cy.userPanningEnabled(false);
+        // Cose layout sometimes finishes before the container has its
+        // final paint size (Astro hydration / TOC sidebar pushing in).
+        // resize + fit on next tick (and on every window resize) makes
+        // the graph fill the container properly. Padding 40 leaves
+        // breathing room around the outermost nodes.
+        const refit = () => { cy.resize(); cy.fit(undefined, 40); };
+        requestAnimationFrame(refit);
+        window.addEventListener('resize', refit);
+        // ResizeObserver catches the case where the kanban-grid shifts
+        // (e.g. sidebar collapses on mobile) without a window resize event.
+        if (typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(refit).observe(netEl);
+        }
       }
 
       // ── Widget 5: stage × year heatmap ──

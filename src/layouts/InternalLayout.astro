@@ -28,11 +28,11 @@ const isAdmin   = !!viewer?.isAdmin;
 const isAdvisor = !!viewer?.isAdvisor || isAdmin;
 const allItems: { label: string; href: string; key: NavKey; requires: NavTier }[] = [
   { label: 'Overview', href: '/internal',                key: 'overview',      requires: 'public' },
+  { label: 'Kanban',   href: '/internal/kanban',         key: 'kanban',        requires: 'advisor' },
   { label: 'Submit',   href: '/internal/submit',         key: 'submit',        requires: 'advisor' },
   { label: 'Inbox',    href: '/internal/submissions',    key: 'submissions',   requires: 'admin' },
   { label: 'Students', href: '/internal/students',       key: 'students',      requires: 'public' },
   { label: 'Daily',    href: '/internal/daily-reports',  key: 'daily-reports', requires: 'advisor' },
-  { label: 'Kanban',   href: '/internal/kanban',         key: 'kanban',        requires: 'advisor' },
 ];
 function showByTier(tier: NavTier): boolean {
   if (tier === 'public') return true;
