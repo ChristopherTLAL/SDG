@@ -498,18 +498,25 @@ const chartPayload = {
             },
             upperLabel: { show: false },
             colorMappingBy: 'index',
+            // Lightened Morandi (donut palette mixed ~20% with white). Same
+            // hue family as the donut, but with the saturation knocked down
+            // because large treemap tiles read more vibrant than small donut
+            // wedges of the same hex. Donut palette stays as-is.
             color: [
-              '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
-              '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
+              '#B9C8B4',  // sage
+              '#D5B4AE',  // dusty pink
+              '#AABBC8',  // dusty blue
+              '#D2C49C',  // dusty mustard
+              '#C7B7C7',  // mauve
+              '#A4BDB9',  // dusty teal
+              '#E5C7C0',  // peachy pink
+              '#C8C3CF',  // pale lavender
+              '#D6C8BB',  // warm beige
+              '#A8B7A4',  // forest sage
+              '#BEB7B0',  // warm grey
             ],
-            // ECharts treemap defaults to colorAlpha:[0.4, 1] which makes
-            // bigger tiles render at full opacity (looking more saturated)
-            // and smaller tiles ghosted. Flatten alpha + take ~12% off so
-            // the tiles read as muted as the donut slices.
             levels: [{
-              colorAlpha: [0.88, 0.88],
-              colorSaturation: undefined,
-              itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
+              itemStyle: { borderColor: '#fafaf8', borderWidth: 3, gapWidth: 3 },
             }],
           }],
         });
