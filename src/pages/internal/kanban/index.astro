@@ -458,24 +458,31 @@ const chartPayload = {
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
 
-      // ── Schools: treemap (Morandi sequential, sqrt-compressed sizing) ──
-      // The raw distribution has one giant cluster (西交利物浦大学 ~32) and
-      // a long tail of 1s — proportional sizing made the long tail invisible.
-      // value uses sqrt(count) for layout so smaller schools still get
-      // legible tiles; realCount carries the true number for label/tooltip.
-      // 其他 bucket excluded.
+      // ── Schools: treemap (Morandi, per-tile explicit color) ──
+      // ECharts treemap was applying its own color treatment on top of my
+      // palette (presumably saturation/value adjustments based on tile
+      // size) which kept making the colors read as bright primaries instead
+      // of muted Morandi. Set itemStyle.color directly on each data point —
+      // ECharts treats that as authoritative and won't post-process. Donut
+      // palette is reused verbatim since this view's not the issue. The
+      // sqrt sizing + 其他 bucket exclusion stay.
       const schoolEl = document.getElementById('chart-schools-treemap');
       if (schoolEl && payload.schoolChartData.length) {
         const c = echarts.init(schoolEl);
         charts.push(c);
+        const MORANDI = [
+          '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
+          '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
+        ];
         const data = payload.schoolChartData
           .filter(d => !d.name.startsWith('其他'))
           .slice()
           .sort((a, b) => b.count - a.count)
-          .map(d => ({
+          .map((d, i) => ({
             name: d.name,
-            value: Math.sqrt(d.count),  // compressed for layout
-            realCount: d.count,         // for display
+            value: Math.sqrt(d.count),
+            realCount: d.count,
+            itemStyle: { color: MORANDI[i % MORANDI.length] },
           }));
         c.setOption({
           tooltip: {
@@ -497,26 +504,14 @@ const chartPayload = {
               },
             },
             upperLabel: { show: false },
-            colorMappingBy: 'index',
-            // Lightened Morandi (donut palette mixed ~20% with white). Same
-            // hue family as the donut, but with the saturation knocked down
-            // because large treemap tiles read more vibrant than small donut
-            // wedges of the same hex. Donut palette stays as-is.
-            color: [
-              '#B9C8B4',  // sage
-              '#D5B4AE',  // dusty pink
-              '#AABBC8',  // dusty blue
-              '#D2C49C',  // dusty mustard
-              '#C7B7C7',  // mauve
-              '#A4BDB9',  // dusty teal
-              '#E5C7C0',  // peachy pink
-              '#C8C3CF',  // pale lavender
-              '#D6C8BB',  // warm beige
-              '#A8B7A4',  // forest sage
-              '#BEB7B0',  // warm grey
-            ],
+            // Don't let ECharts auto-derive colors — items already carry them.
+            colorMappingBy: 'value',
+            colorAlpha: 1,
+            colorSaturation: 1,
             levels: [{
               itemStyle: { borderColor: '#fafaf8', borderWidth: 3, gapWidth: 3 },
+              colorAlpha: 1,
+              colorSaturation: 1,
             }],
           }],
         });
