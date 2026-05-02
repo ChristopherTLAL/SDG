@@ -59,14 +59,31 @@ function pickString(obj, key) {
 }
 
 // Coerce to text[] — accept string ("英国跃领"), array (["英国跃领"]), or null.
+// String fallback splits on , ， 、 BUT respects paren depth, since vault
+// fields like "合同: 当季快捷（定校10所，申请5所）" contain a Chinese comma
+// inside parens that would otherwise wrongly split into 2 entries.
 function pickArray(obj, key) {
   const v = obj[key];
   if (v === undefined || v === null) return [];
   if (Array.isArray(v)) return v.map(x => String(x).trim()).filter(Boolean);
   const s = String(v).trim();
   if (!s) return [];
-  // Allow comma-separated fallback
-  return s.split(/[,，、]/).map(x => x.trim()).filter(Boolean);
+  // Walk char-by-char, only split when not inside ( … ) or （ … ）.
+  const parts = [];
+  let buf = '';
+  let depth = 0;
+  for (const ch of s) {
+    if (ch === '(' || ch === '（') { depth++; buf += ch; continue; }
+    if (ch === ')' || ch === '）') { depth = Math.max(0, depth - 1); buf += ch; continue; }
+    if (depth === 0 && (ch === ',' || ch === '，' || ch === '、')) {
+      if (buf.trim()) parts.push(buf.trim());
+      buf = '';
+      continue;
+    }
+    buf += ch;
+  }
+  if (buf.trim()) parts.push(buf.trim());
+  return parts;
 }
 
 // Find a YYYY-MM-DD anywhere in a filename, e.g. "刘昱彤 规划沟通 2026-04-17"

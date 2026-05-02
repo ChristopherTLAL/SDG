@@ -18,6 +18,9 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
   return Astro.redirect('/internal');
 }
 
+const url = new URL(Astro.request.url);
+const advisorFilter = url.searchParams.get('advisor') || '';
+
 const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
 function isPrivate(contracts: string[] | null | undefined): boolean {
   if (!contracts) return false;
@@ -42,11 +45,25 @@ const allStudents = (rawStudents ?? []) as Array<{
   contracts: string[] | null;
 }>;
 
-const students = allStudents.filter(s => {
+const studentsBeforeAdvisor = allStudents.filter(s => {
   if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
   if (!canSeePrivate && isPrivate(s.contracts)) return false;
   return true;
 });
+
+// Apply the advisor filter to the four widgets that should respect it
+// (school / region / stage-year / contract). The advisor activity heatmap
+// always shows ALL advisors — it IS the team-comparison view, so filtering
+// to one advisor would defeat its purpose.
+const students = advisorFilter
+  ? studentsBeforeAdvisor.filter(s =>
+      Array.isArray(s.mid_advisors) && s.mid_advisors.includes(advisorFilter)
+    )
+  : studentsBeforeAdvisor;
+
+function buildHref(advisor: string): string {
+  return advisor ? `/internal/kanban?advisor=${encodeURIComponent(advisor)}` : '/internal/kanban';
+}
 
 // ── Widget 1: 在读学校分布 ──
 const schoolCounts = new Map<string, number>();
@@ -228,6 +245,14 @@ function slug(s: string): string {
   return encodeURIComponent(s);
 }
 
+// Chip strip — same per-advisor counts the dashboard uses.
+const advisorChipCounts = new Map<string, number>();
+for (const s of studentsBeforeAdvisor) {
+  for (const a of s.mid_advisors ?? []) {
+    advisorChipCounts.set(a, (advisorChipCounts.get(a) ?? 0) + 1);
+  }
+}
+
 // Pass everything client-side via JSON for the chart inits.
 const chartPayload = {
   schoolChartData,
@@ -243,11 +268,29 @@ const chartPayload = {
 };
 ---
 
-<InternalLayout title="Kanban" active="kanban">
-  <h1 class="font-headline page-title">Kanban</h1>
-  <p class="page-subtitle" style="margin-bottom: 28px;">
-    业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。
+<InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
+  <h1 class="font-headline page-title">
+    Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
+  </h1>
+  <p class="page-subtitle" style="margin-bottom: 16px;">
+    {advisorFilter
+      ? <>{advisorFilter} 名下在管学生 <strong style="color: var(--text);">{students.length}</strong>。下方四个图按这位顾问筛选；顾问活动热力图始终显示团队全貌。</>
+      : <>业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。</>}
   </p>
+
+  <!-- Advisor filter chip strip — toggles 4 widgets (school / region /
+       stage-year / contract). Heatmap always team-wide. -->
+  <div class="filter-row" style="margin-bottom: 24px;">
+    <span class="filter-row__label">中期</span>
+    <a href={buildHref('')} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
+    {Array.from(advisorChipCounts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name, count]) => (
+        <a href={buildHref(name)} class={`pill ${advisorFilter === name ? 'pill--active' : ''}`}>
+          {name} <span style="opacity: 0.6; margin-left: 2px;" class="font-mono">{count}</span>
+        </a>
+      ))}
+  </div>
 
   <div class="kanban-grid">
     <aside class="kanban-toc">
@@ -533,7 +576,9 @@ const chartPayload = {
             bottom: 0,
             itemWidth: 12,
             itemHeight: 120,
-            inRange: { color: ['#f1f5f9', '#bbf7d0', '#10b981', '#042f24'] },
+            // Gradient stops at green-600 (#16a34a) instead of near-black —
+            // black text stays readable on every cell, no need to flip.
+            inRange: { color: ['#f1f5f9', '#bbf7d0', '#86efac', '#16a34a'] },
             textStyle: { color: '#64748b', fontSize: 11 },
           },
           series: [{
@@ -543,11 +588,8 @@ const chartPayload = {
               show: true,
               fontSize: 12,
               fontWeight: 600,
-              // Hide the "0" labels — they add visual noise. Flip text to
-              // white once the cell bg is dark enough that black would be
-              // unreadable (~55% of max maps to mid-green territory).
+              color: '#0f172a',
               formatter: (p) => p.value[2] > 0 ? p.value[2] : '',
-              color: (p) => p.value[2] >= maxV * 0.55 ? '#ffffff' : '#0f172a',
             },
             itemStyle: { borderColor: '#fff', borderWidth: 2 },
           }],
@@ -592,7 +634,7 @@ const chartPayload = {
             bottom: 0,
             itemWidth: 12,
             itemHeight: 120,
-            inRange: { color: ['#f8fafc', '#dcfce7', '#10b981', '#042f24'] },
+            inRange: { color: ['#f8fafc', '#dcfce7', '#86efac', '#16a34a'] },
             textStyle: { color: '#64748b', fontSize: 11 },
           },
           series: [{
@@ -601,8 +643,8 @@ const chartPayload = {
             label: {
               show: true,
               fontSize: 11,
+              color: '#0f172a',
               formatter: (p) => p.value[2] > 0 ? p.value[2] : '',
-              color: (p) => p.value[2] >= maxV * 0.55 ? '#ffffff' : '#0f172a',
             },
             itemStyle: { borderColor: '#fff', borderWidth: 1 },
           }],
