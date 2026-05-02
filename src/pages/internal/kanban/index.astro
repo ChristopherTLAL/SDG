@@ -11,7 +11,6 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../utils/contact-radar';
-import { SOPS } from '../../../data/contract-sops';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -389,38 +388,17 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── 合同分布（donut + drilldown list） ── -->
+      <!-- ── 合同分布（donut；扇形可点进入合同 profile） ── -->
       <section id="kanban-contracts" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点击列表行查看详情</span>
+            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点扇形进入合同详情</span>
           </h2>
         </div>
         {contractData.length === 0 ? (
           <p class="section-card__empty">暂无合同数据。</p>
         ) : (
-          <div class="contract-split">
-            <div id="chart-contracts-donut" style="width: 100%; height: 360px;"></div>
-            <ul class="contract-list">
-              {contractData.map(({ name, count }) => {
-                const sopMatch = SOPS.find(s => s.matchPatterns.some(p => name.includes(p)));
-                return (
-                  <li>
-                    <a href={`/internal/kanban/contracts/${slug(name)}`} class="contract-row">
-                      <span class="contract-row__name">
-                        {name}
-                        {sopMatch && <em class="contract-row__hint"> → {sopMatch.displayName}</em>}
-                      </span>
-                      <span class="contract-row__bar-wrap">
-                        <span class="contract-row__bar" style={`width: ${Math.max(2, (count / contractData[0].count) * 100)}%;`}></span>
-                      </span>
-                      <span class="contract-row__count font-mono">{count}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <div id="chart-contracts-donut" style="width: 100%; height: 480px;"></div>
         )}
       </section>
     </div>
@@ -440,15 +418,15 @@ const chartPayload = {
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
 
-      // ── Schools: treemap ──
-      // Area = student count. Color band based on count via gradient. Long-tail
-      // schools (small tiles) still show a label since treemap auto-hides
-      // labels that don't fit, but tooltip works on hover.
+      // ── Schools: treemap (Morandi palette) ──
+      // Area = student count. Long-tail "其他" bucket explicitly excluded —
+      // user wants the visualization to focus on named schools only.
       const schoolEl = document.getElementById('chart-schools-treemap');
       if (schoolEl && payload.schoolChartData.length) {
         const c = echarts.init(schoolEl);
         charts.push(c);
         const data = payload.schoolChartData
+          .filter(d => !d.name.startsWith('其他'))
           .slice()
           .sort((a, b) => b.count - a.count)
           .map(d => ({ name: d.name, value: d.count }));
@@ -467,14 +445,15 @@ const chartPayload = {
               show: true,
               formatter: (p) => `{name|${p.data.name}}\n{val|${p.data.value}}`,
               rich: {
-                name: { color: '#fff', fontSize: 13, fontWeight: 600, lineHeight: 18 },
-                val:  { color: 'rgba(255,255,255,0.85)', fontSize: 11, fontWeight: 500 },
+                name: { color: '#3a3835', fontSize: 13, fontWeight: 600, lineHeight: 18 },
+                val:  { color: 'rgba(58, 56, 53, 0.7)', fontSize: 11, fontWeight: 500 },
               },
             },
             upperLabel: { show: false },
-            itemStyle: { borderColor: '#fff', borderWidth: 2, gapWidth: 2 },
+            itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
             colorMappingBy: 'value',
-            color: ['#bbf7d0', '#86efac', '#22c55e', '#16a34a', '#15803d', '#166534'],
+            // Morandi sequential — pale dusty beige → dusty sage
+            color: ['#E5DED4', '#D4C8B6', '#C8B7A6', '#ADA39A', '#9CA89C', '#8AA9A4', '#7E8B7A'],
           }],
         });
       }
@@ -693,41 +672,58 @@ const chartPayload = {
         });
       }
 
-      // ── Contracts: donut ──
-      // Brand-aligned palette (greens + indigo + amber accents) so each
-      // slice is distinguishable. Top-N + 其他 bucket built server-side.
+      // ── Contracts: donut (Morandi palette, slices clickable) ──
+      // Top-N + 其他 bucket built server-side. Clicking a named slice
+      // navigates to /internal/kanban/contracts/[name]; the 其他 slice is
+      // intentionally inert.
       const dnEl = document.getElementById('chart-contracts-donut');
       if (dnEl && payload.contractDonut.length) {
         const c = echarts.init(dnEl);
         charts.push(c);
         const total = payload.contractDonut.reduce((s, x) => s + x.value, 0);
+        // Categorical Morandi palette — soft, low-saturation, distinguishable
+        // even when adjacent. 11 entries cover top-10 contracts + 其他.
+        const MORANDI = [
+          '#A6B8A0',  // sage
+          '#C9A29B',  // dusty pink
+          '#93A8B8',  // dusty blue
+          '#C5B383',  // dusty mustard
+          '#B5A0B5',  // mauve
+          '#8AA9A4',  // dusty teal
+          '#DDB7AE',  // peachy pink
+          '#B7B0BF',  // pale lavender
+          '#C8B7A6',  // warm beige
+          '#8FA189',  // forest sage
+          '#ADA39A',  // warm grey (used for 其他)
+        ];
         c.setOption({
           tooltip: {
             trigger: 'item',
             formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生 · ${(p.data.value / total * 100).toFixed(1)}%`,
           },
           legend: { show: false },
-          color: ['#042f24', '#15803d', '#16a34a', '#22c55e', '#86efac', '#3b82f6', '#6366f1', '#8b5cf6', '#f59e0b', '#ef4444', '#94a3b8'],
+          color: MORANDI,
           series: [{
             type: 'pie',
             radius: ['52%', '82%'],
             center: ['50%', '50%'],
             avoidLabelOverlap: true,
-            itemStyle: { borderColor: '#fff', borderWidth: 2 },
+            itemStyle: { borderColor: '#fafaf8', borderWidth: 2 },
             label: {
               show: true,
               position: 'outside',
               formatter: (p) => `{n|${p.data.name}}\n{v|${p.data.value} · ${(p.percent ?? 0).toFixed(0)}%}`,
               rich: {
-                n: { color: '#0f172a', fontSize: 12, fontWeight: 600, lineHeight: 16 },
-                v: { color: '#64748b', fontSize: 11, lineHeight: 14 },
+                n: { color: '#3a3835', fontSize: 12, fontWeight: 600, lineHeight: 16 },
+                v: { color: '#7a7872', fontSize: 11, lineHeight: 14 },
               },
             },
-            labelLine: { length: 10, length2: 14, lineStyle: { color: '#cbd5e1' } },
+            labelLine: { length: 12, length2: 16, lineStyle: { color: '#cbd5e1' } },
             emphasis: {
               scale: true,
-              scaleSize: 6,
+              scaleSize: 8,
               label: { fontWeight: 700 },
+              itemStyle: { shadowBlur: 12, shadowColor: 'rgba(0,0,0,0.08)' },
             },
             data: payload.contractDonut,
           }],
@@ -736,15 +732,24 @@ const chartPayload = {
             left: 'center',
             top: 'middle',
             style: {
-              text: `${total}\n合同`,
+              text: `${total}\n合同份数`,
               textAlign: 'center',
-              fill: '#0f172a',
-              fontSize: 18,
+              fill: '#3a3835',
+              fontSize: 22,
               fontWeight: 700,
-              lineHeight: 22,
+              lineHeight: 28,
             },
           }],
         });
+        // Clicking a real-contract slice navigates to its profile page.
+        // The 其他 bucket is intentionally inert.
+        c.on('click', (params) => {
+          if (!params || !params.data || !params.data.name) return;
+          if (params.data.name.startsWith('其他')) return;
+          location.href = '/internal/kanban/contracts/' + encodeURIComponent(params.data.name);
+        });
+        // Hint that the slices are clickable.
+        dnEl.style.cursor = 'pointer';
       }
     })();
   </script>
@@ -819,75 +824,6 @@ const chartPayload = {
       margin-top: 16px;
       padding-top: 14px;
       border-top: 1px solid #eef0f3;
-    }
-
-    /* Contract widget split layout: donut on the left, drilldown list on
-       the right. Donut takes a fixed column on desktop so the list keeps a
-       useful width; on narrower screens both stack. */
-    .contract-split {
-      display: grid;
-      grid-template-columns: minmax(280px, 380px) 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-    @media (max-width: 800px) {
-      .contract-split { grid-template-columns: 1fr; }
-    }
-
-    /* Contract list — 3-col grid (name+hint / bar / count). The hint sits
-       inline inside the name cell so the grid stays balanced even when no
-       SOP match exists for a contract. */
-    .contract-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 4px;
-    }
-    .contract-row {
-      display: grid;
-      grid-template-columns: minmax(180px, 320px) minmax(0, 1fr) 50px;
-      gap: 16px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 8px;
-      transition: background 120ms ease;
-    }
-    .contract-row:hover { background: #f8fafc; }
-    .contract-row__name {
-      font-weight: 600;
-      font-size: 13.5px;
-      color: var(--text);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .contract-row__hint {
-      font-size: 11px;
-      color: var(--text-soft);
-      letter-spacing: 0.04em;
-      font-style: normal;
-      font-weight: 500;
-      margin-left: 4px;
-    }
-    .contract-row__bar-wrap {
-      height: 8px;
-      background: #f1f5f9;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .contract-row__bar {
-      display: block;
-      height: 100%;
-      background: var(--primary);
-      border-radius: 4px;
-      transition: width 240ms ease;
-    }
-    .contract-row__count {
-      font-weight: 700;
-      font-size: 13px;
-      color: var(--text-muted);
-      text-align: right;
     }
 
     html { scroll-behavior: smooth; }
