@@ -418,9 +418,12 @@ const chartPayload = {
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
 
-      // ── Schools: treemap (Morandi palette) ──
-      // Area = student count. Long-tail "其他" bucket explicitly excluded —
-      // user wants the visualization to focus on named schools only.
+      // ── Schools: treemap (Morandi sequential, sqrt-compressed sizing) ──
+      // The raw distribution has one giant cluster (西交利物浦大学 ~32) and
+      // a long tail of 1s — proportional sizing made the long tail invisible.
+      // value uses sqrt(count) for layout so smaller schools still get
+      // legible tiles; realCount carries the true number for label/tooltip.
+      // 其他 bucket excluded.
       const schoolEl = document.getElementById('chart-schools-treemap');
       if (schoolEl && payload.schoolChartData.length) {
         const c = echarts.init(schoolEl);
@@ -429,10 +432,14 @@ const chartPayload = {
           .filter(d => !d.name.startsWith('其他'))
           .slice()
           .sort((a, b) => b.count - a.count)
-          .map(d => ({ name: d.name, value: d.count }));
+          .map(d => ({
+            name: d.name,
+            value: Math.sqrt(d.count),  // compressed for layout
+            realCount: d.count,         // for display
+          }));
         c.setOption({
           tooltip: {
-            formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生`,
+            formatter: (p) => `${p.data.name}<br/><strong>${p.data.realCount}</strong> 学生`,
           },
           series: [{
             type: 'treemap',
@@ -443,17 +450,18 @@ const chartPayload = {
             visibleMin: 0,
             label: {
               show: true,
-              formatter: (p) => `{name|${p.data.name}}\n{val|${p.data.value}}`,
+              formatter: (p) => `{name|${p.data.name}}\n{val|${p.data.realCount}}`,
               rich: {
                 name: { color: '#3a3835', fontSize: 13, fontWeight: 600, lineHeight: 18 },
-                val:  { color: 'rgba(58, 56, 53, 0.7)', fontSize: 11, fontWeight: 500 },
+                val:  { color: 'rgba(58, 56, 53, 0.65)', fontSize: 11, fontWeight: 500 },
               },
             },
             upperLabel: { show: false },
             itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
             colorMappingBy: 'value',
-            // Morandi sequential — pale dusty beige → dusty sage
-            color: ['#E5DED4', '#D4C8B6', '#C8B7A6', '#ADA39A', '#9CA89C', '#8AA9A4', '#7E8B7A'],
+            // Cohesive Morandi sequence — same hue family as the donut
+            // (no clashing teals or muddy greys). Pale beige → forest sage.
+            color: ['#EAE2D5', '#D4C8B6', '#BCB39E', '#A6B8A0', '#8FA189'],
           }],
         });
       }
