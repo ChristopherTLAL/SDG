@@ -377,13 +377,41 @@ const chartPayload = {
       <section id="kanban-regions" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            申请地区 <span class="section-card__subtitle">节点大小 = 学生数（标在节点上） · 连线粗细 = 共申学生数</span>
+            申请地区 <span class="section-card__subtitle">节点 = 地区 · 连线 = 共申学生 · 拖动滑块调整布局</span>
           </h2>
         </div>
         {regionData.length === 0 ? (
           <p class="section-card__empty">暂无目标地区数据。</p>
         ) : (
-          <div id="chart-network" style="width: 100%; height: 560px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
+          <div class="network-row">
+            <div id="chart-network" style="width: 100%; height: 560px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
+            <aside class="network-panel">
+              <div class="panel-section">
+                <div class="panel-label">布局参数</div>
+                <label class="panel-slider">
+                  <span>节点排斥</span>
+                  <input type="range" min="4000" max="60000" step="2000" value="28000" data-tweak="nodeRepulsion" />
+                </label>
+                <label class="panel-slider">
+                  <span>连线长度</span>
+                  <input type="range" min="60" max="400" step="10" value="200" data-tweak="idealEdgeLength" />
+                </label>
+                <label class="panel-slider">
+                  <span>中心引力</span>
+                  <input type="range" min="0.5" max="5" step="0.1" value="2.5" data-tweak="gravity" />
+                </label>
+                <button type="button" class="panel-reset" id="network-reset">重置</button>
+              </div>
+              <div class="panel-section" id="network-selection">
+                <div class="panel-label">节点详情</div>
+                <p class="panel-empty">点一个节点查看共申关系</p>
+              </div>
+              <div class="panel-section">
+                <div class="panel-label">连接度排名</div>
+                <ul id="network-centrality" class="panel-ranking"></ul>
+              </div>
+            </aside>
+          </div>
         )}
       </section>
 
@@ -469,24 +497,20 @@ const chartPayload = {
               },
             },
             upperLabel: { show: false },
-            itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
-            // Categorical (cycle by tile index) so we use each Morandi color
-            // discretely instead of interpolating a gradient — matches the
-            // donut palette exactly.
             colorMappingBy: 'index',
             color: [
-              '#A6B8A0',  // sage
-              '#C9A29B',  // dusty pink
-              '#93A8B8',  // dusty blue
-              '#C5B383',  // dusty mustard
-              '#B5A0B5',  // mauve
-              '#8AA9A4',  // dusty teal
-              '#DDB7AE',  // peachy pink
-              '#B7B0BF',  // pale lavender
-              '#C8B7A6',  // warm beige
-              '#8FA189',  // forest sage
-              '#ADA39A',  // warm grey
+              '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
+              '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
             ],
+            // ECharts treemap defaults to colorAlpha:[0.4, 1] which makes
+            // bigger tiles render at full opacity (looking more saturated)
+            // and smaller tiles ghosted. Flatten alpha + take ~12% off so
+            // the tiles read as muted as the donut slices.
+            levels: [{
+              colorAlpha: [0.88, 0.88],
+              colorSaturation: undefined,
+              itemStyle: { borderColor: '#fafaf8', borderWidth: 2, gapWidth: 2 },
+            }],
           }],
         });
       }
@@ -503,12 +527,16 @@ const chartPayload = {
             animate: false,
             // fit + small padding pushes the laid-out graph to fill the
             // container. Bigger nodeRepulsion keeps the chunkier nodes from
-            // overlapping; idealEdgeLength scales accordingly.
+            // overlapping; idealEdgeLength scales accordingly. Higher
+            // gravity (default 1) pulls nodes — including disconnected
+            // ones — toward the center so an island region doesn't drift
+            // to the corner of the canvas.
             fit: true,
             padding: 12,
             nodeRepulsion: 28000,
             idealEdgeLength: 200,
             edgeElasticity: 200,
+            gravity: 2.5,
           },
           style: [
             {
@@ -573,6 +601,118 @@ const chartPayload = {
         if (typeof ResizeObserver !== 'undefined') {
           new ResizeObserver(refit).observe(netEl);
         }
+
+        // ── Panel: layout sliders, selection details, centrality ranking ──
+        const sliders = document.querySelectorAll('.network-panel input[type="range"]');
+        const baseLayout = {
+          name: 'cose', animate: false, fit: true, padding: 12,
+          edgeElasticity: 200,
+        };
+        let layoutTimer = null;
+        const reLayout = () => {
+          const params = { ...baseLayout };
+          sliders.forEach(s => { params[s.dataset.tweak] = Number(s.value); });
+          clearTimeout(layoutTimer);
+          // 80ms debounce so dragging the slider isn't laggy.
+          layoutTimer = setTimeout(() => cy.layout(params).run(), 80);
+        };
+        sliders.forEach(s => s.addEventListener('input', reLayout));
+
+        const resetBtn = document.getElementById('network-reset');
+        if (resetBtn) {
+          resetBtn.addEventListener('click', () => {
+            const defaults = { nodeRepulsion: 28000, idealEdgeLength: 200, gravity: 2.5 };
+            sliders.forEach(s => { s.value = String(defaults[s.dataset.tweak]); });
+            reLayout();
+          });
+        }
+
+        // Centrality ranking — degree (= # of co-application connections).
+        // Ties broken by student count.
+        const centralityEl = document.getElementById('network-centrality');
+        const ranks = cy.nodes().map(n => ({
+          id: n.id(),
+          name: n.data('label'),
+          weight: n.data('weight'),
+          color: n.data('color'),
+          degree: n.degree(),
+        })).sort((a, b) => b.degree - a.degree || b.weight - a.weight);
+        const maxDegree = Math.max(1, ...ranks.map(r => r.degree));
+        if (centralityEl) {
+          centralityEl.innerHTML = ranks.map((r, i) => `
+            <li data-region="${encodeURIComponent(r.id)}">
+              <span class="panel-ranking__rank">${i + 1}</span>
+              <span>
+                <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r.color};margin-right:6px;"></span>${r.name}
+                <span class="panel-ranking__bar"><span style="width:${(r.degree / maxDegree) * 100}%;"></span></span>
+              </span>
+              <span style="text-align:right;font-weight:600;">${r.degree}</span>
+            </li>
+          `).join('');
+          centralityEl.querySelectorAll('li').forEach(li => {
+            li.addEventListener('click', () => {
+              const id = decodeURIComponent(li.dataset.region || '');
+              const node = cy.getElementById(id);
+              if (node && node.length) {
+                cy.elements().unselect();
+                node.select();
+                showSelection(node);
+              }
+            });
+          });
+        }
+
+        // Selection panel — fill with neighborhood + co-app counts when a
+        // node is clicked. Click-on-empty-canvas clears it.
+        const selEl = document.getElementById('network-selection');
+        const showSelection = (node) => {
+          if (!selEl) return;
+          const region = node.data('label');
+          const total = node.data('weight');
+          const color = node.data('color');
+          const neighbors = node.connectedEdges().map(edge => {
+            const other = edge.source().id() === node.id() ? edge.target() : edge.source();
+            return { name: other.data('label'), color: other.data('color'), weight: edge.data('weight') };
+          }).sort((a, b) => b.weight - a.weight);
+          const list = neighbors.length === 0
+            ? '<p class="panel-empty" style="margin-top:8px;">没有共申地区（孤立节点）</p>'
+            : `<ul class="panel-coapps">${neighbors.map(n => `
+                <li>
+                  <span><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${n.color};margin-right:6px;vertical-align:middle;"></span>${n.name}</span>
+                  <strong>${n.weight}</strong>
+                </li>`).join('')}</ul>`;
+          selEl.innerHTML = `
+            <div class="panel-label">节点详情</div>
+            <div class="panel-region">
+              <span class="panel-region__dot" style="background:${color};"></span>
+              ${region}
+              <span class="panel-region__count">${total} 学生</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.08em;margin-top:8px;">共申地区 (${neighbors.length})</div>
+            ${list}
+          `;
+          // Highlight the matching row in the centrality ranking
+          if (centralityEl) {
+            centralityEl.querySelectorAll('li').forEach(li => {
+              li.classList.toggle('is-active', decodeURIComponent(li.dataset.region || '') === node.id());
+            });
+          }
+        };
+        cy.on('tap', 'node', (e) => showSelection(e.target));
+        cy.on('tap', (e) => {
+          // Clicked outside any node → clear selection panel
+          if (e.target === cy) {
+            if (selEl) {
+              selEl.innerHTML = `
+                <div class="panel-label">节点详情</div>
+                <p class="panel-empty">点一个节点查看共申关系</p>
+              `;
+            }
+            if (centralityEl) {
+              centralityEl.querySelectorAll('li').forEach(li => li.classList.remove('is-active'));
+            }
+          }
+        });
       }
 
       // ── Stage × year: stacked horizontal bar (cohort funnel) ──
@@ -849,6 +989,150 @@ const chartPayload = {
         flex-wrap: wrap;
         gap: 2px;
       }
+    }
+
+    /* ── Network row: graph on the left, live panel on the right ── */
+    .network-row {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .network-row { grid-template-columns: 1fr; }
+    }
+    .network-panel {
+      display: grid;
+      gap: 18px;
+      font-size: 13px;
+    }
+    .panel-section {
+      background: var(--surface-raised);
+      border: 1px solid #eef0f3;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .panel-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+    .panel-slider {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .panel-slider input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+    }
+    .panel-reset {
+      margin-top: 4px;
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: white;
+      border: 1px solid #eef0f3;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: border-color 120ms ease;
+    }
+    .panel-reset:hover { border-color: var(--text-muted); }
+    .panel-empty {
+      color: var(--text-soft);
+      font-size: 12px;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .panel-region {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .panel-region__dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .panel-region__count {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .panel-coapps {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+      font-size: 12px;
+    }
+    .panel-coapps li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 3px 0;
+      color: var(--text-muted);
+    }
+    .panel-coapps li strong {
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+    .panel-ranking {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 3px;
+      font-size: 12px;
+    }
+    .panel-ranking li {
+      display: grid;
+      grid-template-columns: 18px 1fr 32px;
+      gap: 8px;
+      align-items: center;
+      padding: 4px 0;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 120ms ease;
+    }
+    .panel-ranking li:hover { color: var(--text); }
+    .panel-ranking li.is-active { color: var(--text); font-weight: 600; }
+    .panel-ranking__rank {
+      color: var(--text-soft);
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .panel-ranking__bar {
+      height: 4px;
+      background: #f1f5f9;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .panel-ranking__bar > span {
+      display: block;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 200ms ease;
     }
 
     .advisor-jump-row {
