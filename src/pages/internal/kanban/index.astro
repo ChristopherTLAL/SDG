@@ -249,101 +249,118 @@ const chartPayload = {
     业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。
   </p>
 
-  <!-- ── Widget 1: 在读学校分布 ── -->
-  <section class="section-card">
-    <div class="section-card__header">
-      <h2 class="font-headline section-card__title">
-        在读学校分布 <span class="section-card__subtitle">{schoolData.length} 所学校 · 长尾合并</span>
-      </h2>
-    </div>
-    {schoolChartData.length === 0 ? (
-      <p class="section-card__empty">暂无在读学校数据。</p>
-    ) : (
-      <div id="chart-schools" style="width: 100%; height: 480px;"></div>
-    )}
-  </section>
-
-  <!-- ── Widget 2: 申请地区分布 + 共申网络 ── -->
-  <section class="section-card">
-    <div class="section-card__header">
-      <h2 class="font-headline section-card__title">
-        申请地区 <span class="section-card__subtitle">多目标地区按个数累计 · 节点 = 地区，连线 = 共申学生数</span>
-      </h2>
-    </div>
-    {regionData.length === 0 ? (
-      <p class="section-card__empty">暂无目标地区数据。</p>
-    ) : (
-      <div class="region-grid">
-        <div id="chart-regions" style="width: 100%; height: 360px;"></div>
-        <div id="chart-network" style="width: 100%; height: 360px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
-      </div>
-    )}
-  </section>
-
-  <!-- ── Widget 5: 阶段 × 入学年份 heatmap ── -->
-  <section class="section-card">
-    <div class="section-card__header">
-      <h2 class="font-headline section-card__title">
-        阶段 × 入学年份 <span class="section-card__subtitle">每届学生当前所处的阶段分布</span>
-      </h2>
-    </div>
-    {stageYearCells.every(c => c.count === 0) ? (
-      <p class="section-card__empty">暂无入学年份数据。</p>
-    ) : (
-      <div id="chart-stage-year" style="width: 100%; height: 320px;"></div>
-    )}
-  </section>
-
-  <!-- ── Widget 7+9: 顾问活动热力图 ── -->
-  <section class="section-card">
-    <div class="section-card__header">
-      <h2 class="font-headline section-card__title">
-        顾问活动热力 <span class="section-card__subtitle">最近 12 周沟通记录 + 提交（按学生 mid_advisor 多人归属）· 点行查看顾问详情</span>
-      </h2>
-    </div>
-    {advisors.length === 0 ? (
-      <p class="section-card__empty">暂无顾问数据。</p>
-    ) : (
-      <>
-        <div id="chart-advisor-heatmap" style="width: 100%; height: 360px;"></div>
-        <div class="advisor-jump-row">
-          {advisors.map(a => (
-            <a href={`/internal/kanban/advisors/${slug(a)}`} class="pill">{a}</a>
-          ))}
-        </div>
-      </>
-    )}
-  </section>
-
-  <!-- ── Widget 3: 合同分布 ── -->
-  <section class="section-card">
-    <div class="section-card__header">
-      <h2 class="font-headline section-card__title">
-        合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点击查看详情</span>
-      </h2>
-    </div>
-    {contractData.length === 0 ? (
-      <p class="section-card__empty">暂无合同数据。</p>
-    ) : (
-      <ul class="contract-list">
-        {contractData.map(({ name, count }) => {
-          const sopMatch = SOPS.find(s => s.matchPatterns.some(p => name.includes(p)));
-          return (
-            <li>
-              <a href={`/internal/kanban/contracts/${slug(name)}`} class="contract-row">
-                <span class="contract-row__name">{name}</span>
-                {sopMatch && <span class="contract-row__hint">→ {sopMatch.displayName}</span>}
-                <span class="contract-row__bar-wrap">
-                  <span class="contract-row__bar" style={`width: ${Math.max(2, (count / contractData[0].count) * 100)}%;`}></span>
-                </span>
-                <span class="contract-row__count font-mono">{count}</span>
-              </a>
-            </li>
-          );
-        })}
+  <div class="kanban-grid">
+    <aside class="kanban-toc">
+      <div class="kanban-toc__label">章节</div>
+      <ul>
+        <li><a href="#kanban-schools">在读学校</a></li>
+        <li><a href="#kanban-regions">申请地区</a></li>
+        <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
+        <li><a href="#kanban-advisors">顾问活动</a></li>
+        <li><a href="#kanban-contracts">合同</a></li>
       </ul>
-    )}
-  </section>
+    </aside>
+
+    <div class="kanban-main">
+      <!-- ── Widget 1: 在读学校分布 ── -->
+      <section id="kanban-schools" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            在读学校分布 <span class="section-card__subtitle">{schoolData.length} 所学校 · 长尾合并</span>
+          </h2>
+        </div>
+        {schoolChartData.length === 0 ? (
+          <p class="section-card__empty">暂无在读学校数据。</p>
+        ) : (
+          <div id="chart-schools" style="width: 100%; height: 480px;"></div>
+        )}
+      </section>
+
+      <!-- ── Widget 2: 申请地区分布 + 共申网络 ── -->
+      <section id="kanban-regions" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            申请地区 <span class="section-card__subtitle">多目标地区按个数累计 · 节点 = 地区，连线 = 共申学生数</span>
+          </h2>
+        </div>
+        {regionData.length === 0 ? (
+          <p class="section-card__empty">暂无目标地区数据。</p>
+        ) : (
+          <div class="region-grid">
+            <div id="chart-regions" style="width: 100%; height: 360px;"></div>
+            <div id="chart-network" style="width: 100%; height: 360px; background: #fafbfc; border-radius: 10px; border: 1px solid #eef0f3;"></div>
+          </div>
+        )}
+      </section>
+
+      <!-- ── Widget 5: 阶段 × 入学年份 heatmap ── -->
+      <section id="kanban-stage-year" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            阶段 × 入学年份 <span class="section-card__subtitle">每届学生当前所处的阶段分布</span>
+          </h2>
+        </div>
+        {stageYearCells.every(c => c.count === 0) ? (
+          <p class="section-card__empty">暂无入学年份数据。</p>
+        ) : (
+          <div id="chart-stage-year" style="width: 100%; height: 320px;"></div>
+        )}
+      </section>
+
+      <!-- ── Widget 7+9: 顾问活动热力图 ── -->
+      <section id="kanban-advisors" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            顾问活动热力 <span class="section-card__subtitle">最近 12 周沟通记录 + 提交（按学生 mid_advisor 多人归属）· 点行查看顾问详情</span>
+          </h2>
+        </div>
+        {advisors.length === 0 ? (
+          <p class="section-card__empty">暂无顾问数据。</p>
+        ) : (
+          <>
+            <div id="chart-advisor-heatmap" style="width: 100%; height: 360px;"></div>
+            <div class="advisor-jump-row">
+              {advisors.map(a => (
+                <a href={`/internal/kanban/advisors/${slug(a)}`} class="pill">{a}</a>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+
+      <!-- ── Widget 3: 合同分布 ── -->
+      <section id="kanban-contracts" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点击查看详情</span>
+          </h2>
+        </div>
+        {contractData.length === 0 ? (
+          <p class="section-card__empty">暂无合同数据。</p>
+        ) : (
+          <ul class="contract-list">
+            {contractData.map(({ name, count }) => {
+              const sopMatch = SOPS.find(s => s.matchPatterns.some(p => name.includes(p)));
+              return (
+                <li>
+                  <a href={`/internal/kanban/contracts/${slug(name)}`} class="contract-row">
+                    <span class="contract-row__name">
+                      {name}
+                      {sopMatch && <em class="contract-row__hint"> → {sopMatch.displayName}</em>}
+                    </span>
+                    <span class="contract-row__bar-wrap">
+                      <span class="contract-row__bar" style={`width: ${Math.max(2, (count / contractData[0].count) * 100)}%;`}></span>
+                    </span>
+                    <span class="contract-row__count font-mono">{count}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+    </div>
+  </div>
 
   <script type="application/json" id="chart-payload" set:html={JSON.stringify(chartPayload)}></script>
 
@@ -447,9 +464,20 @@ const chartPayload = {
               selector: 'edge',
               style: {
                 'line-color': '#94a3b8',
-                'opacity': 0.55,
+                'opacity': 0.65,
                 'curve-style': 'bezier',
                 'width': (e) => 1 + Math.min(e.data('weight'), 8),
+                // Label edges with the co-app count when ≥ 2 (avoid clutter on
+                // 1-student lines). White-bg pill keeps it readable on any
+                // edge color.
+                'label': (e) => e.data('weight') >= 2 ? String(e.data('weight')) : '',
+                'font-size': 10,
+                'color': '#475569',
+                'text-background-color': '#ffffff',
+                'text-background-opacity': 0.85,
+                'text-background-padding': '2px',
+                'text-background-shape': 'roundrectangle',
+                'text-rotation': 'autorotate',
               },
             },
             {
@@ -511,7 +539,16 @@ const chartPayload = {
           series: [{
             type: 'heatmap',
             data,
-            label: { show: true, color: '#0f172a', fontSize: 12, fontWeight: 600 },
+            label: {
+              show: true,
+              fontSize: 12,
+              fontWeight: 600,
+              // Hide the "0" labels — they add visual noise. Flip text to
+              // white once the cell bg is dark enough that black would be
+              // unreadable (~55% of max maps to mid-green territory).
+              formatter: (p) => p.value[2] > 0 ? p.value[2] : '',
+              color: (p) => p.value[2] >= maxV * 0.55 ? '#ffffff' : '#0f172a',
+            },
             itemStyle: { borderColor: '#fff', borderWidth: 2 },
           }],
         });
@@ -561,13 +598,14 @@ const chartPayload = {
           series: [{
             type: 'heatmap',
             data: payload.heatmapData,
-            label: { show: true, color: '#0f172a', fontSize: 11 },
+            label: {
+              show: true,
+              fontSize: 11,
+              formatter: (p) => p.value[2] > 0 ? p.value[2] : '',
+              color: (p) => p.value[2] >= maxV * 0.55 ? '#ffffff' : '#0f172a',
+            },
             itemStyle: { borderColor: '#fff', borderWidth: 1 },
           }],
-        });
-        // Click a row → drill to that advisor
-        ahEl.addEventListener('click', (e) => {
-          // ECharts emits its own events; intercept via instance
         });
         c.on('click', (params) => {
           if (params.value && typeof params.value[1] === 'number') {
@@ -580,6 +618,68 @@ const chartPayload = {
   </script>
 
   <style>
+    /* Sidebar TOC + main column */
+    .kanban-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .kanban-toc {
+      position: sticky;
+      top: 80px;
+      font-size: 13px;
+    }
+    .kanban-toc__label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      padding: 0 10px;
+    }
+    .kanban-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 2px;
+    }
+    .kanban-toc li a {
+      display: block;
+      padding: 7px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: background 120ms, color 120ms;
+    }
+    .kanban-toc li a:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+    /* Smooth scroll + offset so anchored sections don't tuck under the
+       site header. Each section also gets scroll-margin-top below. */
+    .kanban-main { display: grid; gap: 0; }
+    .kanban-main > section { scroll-margin-top: 24px; }
+    @media (max-width: 800px) {
+      .kanban-grid { grid-template-columns: 1fr; }
+      .kanban-toc {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 8px 0;
+        border-bottom: 1px solid #eef0f3;
+      }
+      .kanban-toc__label { display: none; }
+      .kanban-toc ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+    }
+
     .region-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -598,7 +698,9 @@ const chartPayload = {
       border-top: 1px solid #eef0f3;
     }
 
-    /* Contract list — horizontal bar with slug-link hit area */
+    /* Contract list — 3-col grid (name+hint / bar / count). The hint sits
+       inline inside the name cell so the grid stays balanced even when no
+       SOP match exists for a contract. */
     .contract-list {
       list-style: none;
       margin: 0;
@@ -608,8 +710,8 @@ const chartPayload = {
     }
     .contract-row {
       display: grid;
-      grid-template-columns: minmax(140px, 220px) minmax(0, 1fr) 80px 50px;
-      gap: 12px;
+      grid-template-columns: minmax(180px, 320px) minmax(0, 1fr) 50px;
+      gap: 16px;
       align-items: center;
       padding: 10px 12px;
       border-radius: 8px;
@@ -620,11 +722,17 @@ const chartPayload = {
       font-weight: 600;
       font-size: 13.5px;
       color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .contract-row__hint {
       font-size: 11px;
       color: var(--text-soft);
       letter-spacing: 0.04em;
+      font-style: normal;
+      font-weight: 500;
+      margin-left: 4px;
     }
     .contract-row__bar-wrap {
       height: 8px;
@@ -645,5 +753,7 @@ const chartPayload = {
       color: var(--text-muted);
       text-align: right;
     }
+
+    html { scroll-behavior: smooth; }
   </style>
 </InternalLayout>

@@ -291,6 +291,14 @@ const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
           data: payload.data,
           itemStyle: { color: '#042f24', borderRadius: [4, 4, 0, 0] },
           barWidth: 18,
+          label: {
+            show: true,
+            position: 'top',
+            color: '#475569',
+            fontSize: 11,
+            fontWeight: 600,
+            formatter: (p) => p.value > 0 ? p.value : '',
+          },
         }],
       });
     })();
