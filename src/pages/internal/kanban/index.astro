@@ -101,19 +101,47 @@ for (const s of students) {
 const regionData = Array.from(regionCounts.entries())
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count);
-// Cytoscape node + edge data. Each node carries a Morandi color picked by
-// rank index — same palette as the donut and treemap so the page looks
-// like one product. Stable assignment because regionData is sorted by count.
+// Shared Morandi palette used by treemap / donut / network. Color is
+// assigned by NAME hash (not rank) so 西交利物浦大学 always maps to the
+// same swatch even as caseload shifts. Collisions resolved by walking
+// forward in the palette using a deterministic alphabetical iteration —
+// same input set always yields the same mapping.
 const MORANDI_PALETTE = [
   '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
   '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
 ];
-const networkNodes = regionData.map((r, i) => ({
+function djb2(s: string): number {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+function buildStableColorMap(names: string[]): Map<string, string> {
+  const used = new Set<number>();
+  const sorted = [...names].sort((a, b) => a.localeCompare(b));
+  const out = new Map<string, string>();
+  for (const name of sorted) {
+    let idx = djb2(name) % MORANDI_PALETTE.length;
+    let tries = 0;
+    // Walk forward until we find an unused slot. Past palette size we just
+    // accept a duplicate (only matters if entity count > palette count).
+    while (used.has(idx) && tries < MORANDI_PALETTE.length) {
+      idx = (idx + 1) % MORANDI_PALETTE.length;
+      tries++;
+    }
+    used.add(idx);
+    out.set(name, MORANDI_PALETTE[idx]);
+  }
+  return out;
+}
+const FALLBACK_GREY = '#ADA39A';
+
+const regionColorMap = buildStableColorMap(regionData.map(r => r.name));
+const networkNodes = regionData.map(r => ({
   data: {
     id: r.name,
     label: r.name,
     weight: r.count,
-    color: MORANDI_PALETTE[i % MORANDI_PALETTE.length],
+    color: regionColorMap.get(r.name) ?? FALLBACK_GREY,
   },
 }));
 const networkEdges = Array.from(coOccur.entries())
@@ -276,6 +304,16 @@ const contractDonut = (() => {
   return out;
 })();
 
+// Hash-stable color maps for the treemap and donut. The 其他 bucket gets
+// the neutral grey so it never visually competes with named entries.
+const namedSchools = schoolChartData.filter(d => !d.name.startsWith('其他')).map(d => d.name);
+const schoolColorMap = buildStableColorMap(namedSchools);
+const namedContracts = contractDonut.filter(c => !c.name.startsWith('其他')).map(c => c.name);
+const contractColorMap = buildStableColorMap(namedContracts);
+// Plain object for JSON-serialization into the client payload.
+const schoolColors: Record<string, string>   = Object.fromEntries(schoolColorMap);
+const contractColors: Record<string, string> = Object.fromEntries(contractColorMap);
+
 // Stage palette for the stacked bar — semantic progression (blue early,
 // progressively deeper green as the student moves through the funnel).
 const STAGE_COLORS: Record<string, string> = {
@@ -287,6 +325,7 @@ const STAGE_COLORS: Record<string, string> = {
 // Pass everything client-side via JSON for the chart inits.
 const chartPayload = {
   schoolChartData,
+  schoolColors,
   regionData,
   network: { nodes: networkNodes, edges: networkEdges },
   stageYearCells,
@@ -298,6 +337,7 @@ const chartPayload = {
   heatmapData,
   heatmapMax,
   contractDonut,
+  contractColors,
 };
 ---
 
@@ -470,19 +510,15 @@ const chartPayload = {
       if (schoolEl && payload.schoolChartData.length) {
         const c = echarts.init(schoolEl);
         charts.push(c);
-        const MORANDI = [
-          '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
-          '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
-        ];
         const data = payload.schoolChartData
           .filter(d => !d.name.startsWith('其他'))
           .slice()
           .sort((a, b) => b.count - a.count)
-          .map((d, i) => ({
+          .map(d => ({
             name: d.name,
             value: Math.sqrt(d.count),
             realCount: d.count,
-            itemStyle: { color: MORANDI[i % MORANDI.length] },
+            itemStyle: { color: payload.schoolColors[d.name] || '#ADA39A' },
           }));
         c.setOption({
           tooltip: {
@@ -857,28 +893,22 @@ const chartPayload = {
         const c = echarts.init(dnEl);
         charts.push(c);
         const total = payload.contractDonut.reduce((s, x) => s + x.value, 0);
-        // Categorical Morandi palette — soft, low-saturation, distinguishable
-        // even when adjacent. 11 entries cover top-10 contracts + 其他.
-        const MORANDI = [
-          '#A6B8A0',  // sage
-          '#C9A29B',  // dusty pink
-          '#93A8B8',  // dusty blue
-          '#C5B383',  // dusty mustard
-          '#B5A0B5',  // mauve
-          '#8AA9A4',  // dusty teal
-          '#DDB7AE',  // peachy pink
-          '#B7B0BF',  // pale lavender
-          '#C8B7A6',  // warm beige
-          '#8FA189',  // forest sage
-          '#ADA39A',  // warm grey (used for 其他)
-        ];
+        // Slice colors come from the hash-stable map computed server-side
+        // (so contract X always renders in the same Morandi tone, even if
+        // its rank shifts across syncs). 其他 always uses the neutral grey.
+        const slices = payload.contractDonut.map(d => ({
+          name: d.name,
+          value: d.value,
+          itemStyle: {
+            color: d.name.startsWith('其他') ? '#ADA39A' : (payload.contractColors[d.name] || '#ADA39A'),
+          },
+        }));
         c.setOption({
           tooltip: {
             trigger: 'item',
             formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生 · ${(p.data.value / total * 100).toFixed(1)}%`,
           },
           legend: { show: false },
-          color: MORANDI,
           series: [{
             type: 'pie',
             radius: ['52%', '82%'],
@@ -901,7 +931,7 @@ const chartPayload = {
               label: { fontWeight: 700 },
               itemStyle: { shadowBlur: 12, shadowColor: 'rgba(0,0,0,0.08)' },
             },
-            data: payload.contractDonut,
+            data: slices,
           }],
           graphic: [{
             type: 'text',
