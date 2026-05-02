@@ -103,10 +103,19 @@ const studentsForFocus = advisorFilter
   ? students.filter(s => Array.isArray(s.mid_advisors) && s.mid_advisors.includes(advisorFilter))
   : students;
 
-// Triage (pink and worse)
-const triage = studentsForFocus
-  .filter(s => inTriage(s.tier))
+// Triage — split by stage with different urgency thresholds:
+//   中期在途 + 需对接 → pink/red/critical (14d+)  → left, 4 cols
+//   后期在途           → red/critical only (21d+) → right, 2 cols
+// Rationale: 后期在途 students are deeper into the pipeline and naturally
+// have longer gaps between touchpoints, so 14-20d isn't a real warning
+// signal there. 21d+ is.
+const triageMid = studentsForFocus
+  .filter(s => (s.stage === '中期在途' || s.stage === '需对接') && inTriage(s.tier))
   .sort((a, b) => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+const triageLate = studentsForFocus
+  .filter(s => s.stage === '后期在途' && (s.tier === 'red' || s.tier === 'critical'))
+  .sort((a, b) => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+const triageEmpty = triageMid.length === 0 && triageLate.length === 0;
 
 const tierCounts = {
   critical: studentsForFocus.filter(s => s.tier === 'critical').length,
@@ -264,29 +273,61 @@ function fmtDateTime(dt: string | null): string {
   <section class="section-card">
     <div class="section-card__header">
       <h2 class="font-headline section-card__title">
-        Triage <span class="section-card__subtitle">14d+ 没联系，按天数倒序</span>
+        Triage <span class="section-card__subtitle">中期 14d+ · 后期 21d+，按天数倒序</span>
       </h2>
       <a href="/internal/students" class="section-card__action">查看全部学生 →</a>
     </div>
-    {triage.length === 0 ? (
-      <p class="section-card__empty">所有人都在 14 天内有过接触，干得漂亮。</p>
+    {triageEmpty ? (
+      <p class="section-card__empty">中期都在 14 天内、后期都在 21 天内有过接触，干得漂亮。</p>
     ) : (
-      <ul class="triage-list">
-        {triage.map(s => {
-          const ts = tierStyle(s.tier);
-          const advisorsLabel = (s.mid_advisors && s.mid_advisors.length) ? s.mid_advisors.join(' / ') : '—';
-          return (
-            <li class="triage-row">
-              <span class="triage-row__dot" style={`background: ${ts.border};`}></span>
-              <a href={`/internal/students/${s.id}`} class="triage-row__name">{s.name}</a>
-              <span class="triage-row__advisor">{advisorsLabel}</span>
-              <span class="triage-row__days font-mono" style={`color: ${ts.border};`}>
-                {tierLabel(s.tier, s.daysSince)}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+      <div class="triage-grid">
+        <div class="triage-section">
+          <div class="triage-section__label">中期在途 · 14d+ <span class="triage-section__count font-mono">{triageMid.length}</span></div>
+          {triageMid.length === 0 ? (
+            <p class="triage-section__empty">无</p>
+          ) : (
+            <ul class="triage-list triage-list--mid">
+              {triageMid.map(s => {
+                const ts = tierStyle(s.tier);
+                const advisorsLabel = (s.mid_advisors && s.mid_advisors.length) ? s.mid_advisors.join(' / ') : '—';
+                return (
+                  <li class="triage-row">
+                    <span class="triage-row__dot" style={`background: ${ts.border};`}></span>
+                    <a href={`/internal/students/${s.id}`} class="triage-row__name">{s.name}</a>
+                    <span class="triage-row__advisor">{advisorsLabel}</span>
+                    <span class="triage-row__days font-mono" style={`color: ${ts.border};`}>
+                      {tierLabel(s.tier, s.daysSince)}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+        <div class="triage-section">
+          <div class="triage-section__label">后期在途 · 21d+ <span class="triage-section__count font-mono">{triageLate.length}</span></div>
+          {triageLate.length === 0 ? (
+            <p class="triage-section__empty">无</p>
+          ) : (
+            <ul class="triage-list triage-list--late">
+              {triageLate.map(s => {
+                const ts = tierStyle(s.tier);
+                const advisorsLabel = (s.mid_advisors && s.mid_advisors.length) ? s.mid_advisors.join(' / ') : '—';
+                return (
+                  <li class="triage-row">
+                    <span class="triage-row__dot" style={`background: ${ts.border};`}></span>
+                    <a href={`/internal/students/${s.id}`} class="triage-row__name">{s.name}</a>
+                    <span class="triage-row__advisor">{advisorsLabel}</span>
+                    <span class="triage-row__days font-mono" style={`color: ${ts.border};`}>
+                      {tierLabel(s.tier, s.daysSince)}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
     )}
   </section>
 
@@ -434,15 +475,51 @@ function fmtDateTime(dt: string | null): string {
 </InternalLayout>
 
 <style>
-  /* Triage row — dot indicator replaces colored left border + pastel bg.
+  /* Triage layout: 4-col left (中期在途, 14d+) + 2-col right (后期在途, 21d+).
+     Both halves share .triage-row styling.
      section-card / stat-card / page-header live in InternalLayout's global CSS. */
+  .triage-grid {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 24px;
+  }
+  .triage-section__label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .triage-section__count {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .triage-section__empty {
+    color: var(--text-soft);
+    font-size: 12.5px;
+    margin: 0;
+    padding: 7px 10px;
+  }
   .triage-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
     gap: 2px;
+  }
+  .triage-list--mid  { grid-template-columns: repeat(4, 1fr); }
+  .triage-list--late { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 900px) {
+    .triage-grid { grid-template-columns: 1fr; }
+    .triage-list--mid, .triage-list--late {
+      grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    }
   }
   .triage-row {
     display: flex;
