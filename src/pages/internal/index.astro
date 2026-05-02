@@ -224,7 +224,7 @@ function fmtDateTime(dt: string | null): string {
       Overview {advisorFilter && <span style="font-weight: 600; font-size: 20px; color: var(--primary);">· {advisorFilter}</span>}
     </h1>
     <a href={buildHref({ include_inactive: includeInactive ? '' : '1' })}
-      style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#e8f0ee' : 'transparent'}; white-space: nowrap;`}>
+      style={`padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid ${includeInactive ? 'var(--primary)' : 'var(--border)'}; color: ${includeInactive ? 'var(--primary)' : 'var(--text-muted)'}; background: ${includeInactive ? '#f1f1f1' : 'transparent'}; white-space: nowrap;`}>
       {includeInactive ? '✓ 含已结案' : `+ 已结案 (${inactiveCount})`}
     </a>
   </div>
@@ -348,7 +348,7 @@ function fmtDateTime(dt: string | null): string {
             {advisorKeys.map(a => {
               const isSel = advisorFilter === a;
               return (
-                <th style={`text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: ${isSel ? 'var(--primary)' : 'var(--text-muted)'}; white-space: nowrap; background: ${isSel ? '#e8f0ee' : 'transparent'};`}>
+                <th style={`text-align: center; padding: 8px 10px; border-bottom: 2px solid var(--border); font-size: 11px; font-weight: 700; color: ${isSel ? 'var(--primary)' : 'var(--text-muted)'}; white-space: nowrap; background: ${isSel ? '#f1f1f1' : 'transparent'};`}>
                   {a}
                 </th>
               );
@@ -369,7 +369,7 @@ function fmtDateTime(dt: string | null): string {
                 {advisorKeys.map(advisor => {
                   const cell = matrix.get(`${cohort}::${advisor}`);
                   const isSel = advisorFilter === advisor;
-                  const cellBg = isSel ? '#f4faf7' : 'transparent';
+                  const cellBg = isSel ? '#fafafa' : 'transparent';
                   if (!cell || cell.count === 0) {
                     return <td style={`text-align: center; padding: 10px; color: var(--text-soft); background: ${cellBg};`}>·</td>;
                   }
