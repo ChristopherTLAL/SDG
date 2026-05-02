@@ -101,8 +101,21 @@ for (const s of students) {
 const regionData = Array.from(regionCounts.entries())
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count);
-// Cytoscape node + edge data
-const networkNodes = regionData.map(r => ({ data: { id: r.name, label: r.name, weight: r.count } }));
+// Cytoscape node + edge data. Each node carries a Morandi color picked by
+// rank index — same palette as the donut and treemap so the page looks
+// like one product. Stable assignment because regionData is sorted by count.
+const MORANDI_PALETTE = [
+  '#A6B8A0', '#C9A29B', '#93A8B8', '#C5B383', '#B5A0B5',
+  '#8AA9A4', '#DDB7AE', '#B7B0BF', '#C8B7A6', '#8FA189', '#ADA39A',
+];
+const networkNodes = regionData.map((r, i) => ({
+  data: {
+    id: r.name,
+    label: r.name,
+    weight: r.count,
+    color: MORANDI_PALETTE[i % MORANDI_PALETTE.length],
+  },
+}));
 const networkEdges = Array.from(coOccur.entries())
   .filter(([, w]) => w > 0)
   .map(([k, w]) => {
@@ -412,7 +425,6 @@ const chartPayload = {
   <script is:inline>
     (function () {
       const payload = JSON.parse(document.getElementById('chart-payload').textContent);
-      const PRIMARY = '#042f24';
 
       // Resize all chart instances on viewport change.
       const charts = [];
@@ -502,12 +514,13 @@ const chartPayload = {
             {
               selector: 'node',
               style: {
-                'background-color': PRIMARY,
+                // Each node draws from the Morandi palette via data(color).
+                'background-color': 'data(color)',
                 // Two-line label: region name + student count
                 'label': (n) => `${n.data('label')}\n${n.data('weight')}`,
                 'text-wrap': 'wrap',
                 'text-max-width': '160px',
-                'color': '#ffffff',
+                'color': '#3a3835',  // dark text reads on every Morandi tone
                 'font-size': 17,
                 'font-weight': 800,
                 'text-halign': 'center',
@@ -521,7 +534,7 @@ const chartPayload = {
             {
               selector: 'edge',
               style: {
-                'line-color': '#94a3b8',
+                'line-color': '#A8A39A',  // warm neutral grey — Morandi-ish
                 'opacity': 0.7,
                 'curve-style': 'bezier',
                 'width': (e) => 1.5 + Math.min(e.data('weight'), 8) * 1.5,
@@ -531,7 +544,7 @@ const chartPayload = {
                 'label': (e) => e.data('weight') >= 2 ? String(e.data('weight')) : '',
                 'font-size': 14,
                 'font-weight': 700,
-                'color': '#0f172a',
+                'color': '#3a3835',
                 'text-background-color': '#ffffff',
                 'text-background-opacity': 0.92,
                 'text-background-padding': '3px',
@@ -541,7 +554,7 @@ const chartPayload = {
             },
             {
               selector: 'node:selected',
-              style: { 'background-color': '#dc2626' },
+              style: { 'border-width': 3, 'border-color': '#3a3835' },
             },
           ],
         });
