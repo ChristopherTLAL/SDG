@@ -253,6 +253,25 @@ for (const s of studentsBeforeAdvisor) {
   }
 }
 
+// Donut payload — top-N + 其他 bucket so the slices stay legible.
+const TOP_CONTRACTS = 10;
+const contractDonut = (() => {
+  const top = contractData.slice(0, TOP_CONTRACTS);
+  const rest = contractData.slice(TOP_CONTRACTS);
+  const restSum = rest.reduce((s, x) => s + x.count, 0);
+  const out = top.map(c => ({ name: c.name, value: c.count }));
+  if (restSum > 0) out.push({ name: `其他 (${rest.length} 种)`, value: restSum });
+  return out;
+})();
+
+// Stage palette for the stacked bar — semantic progression (blue early,
+// progressively deeper green as the student moves through the funnel).
+const STAGE_COLORS: Record<string, string> = {
+  '需对接':   '#3b82f6',
+  '中期在途': '#10b981',
+  '后期在途': '#047857',
+};
+
 // Pass everything client-side via JSON for the chart inits.
 const chartPayload = {
   schoolChartData,
@@ -260,11 +279,13 @@ const chartPayload = {
   network: { nodes: networkNodes, edges: networkEdges },
   stageYearCells,
   stages: STAGE_ORDER,
+  stageColors: STAGE_COLORS,
   years: yearList,
   advisors,
   weeks: weeks.map(w => w.label),
   heatmapData,
   heatmapMax,
+  contractDonut,
 };
 ---
 
@@ -326,17 +347,17 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── 阶段 × 入学年份 heatmap ── -->
+      <!-- ── 阶段 × 入学年份（stacked horizontal bar） ── -->
       <section id="kanban-stage-year" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            阶段 × 入学年份 <span class="section-card__subtitle">每届学生当前所处的阶段分布</span>
+            阶段 × 入学年份 <span class="section-card__subtitle">每届学生在阶段间的进度分布</span>
           </h2>
         </div>
         {stageYearCells.every(c => c.count === 0) ? (
           <p class="section-card__empty">暂无入学年份数据。</p>
         ) : (
-          <div id="chart-stage-year" style="width: 100%; height: 320px;"></div>
+          <div id="chart-stage-year" style={`width: 100%; height: ${Math.max(180, yearList.length * 56 + 60)}px;`}></div>
         )}
       </section>
 
@@ -354,49 +375,52 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── 在读学校分布 ── -->
+      <!-- ── 在读学校分布（treemap） ── -->
       <section id="kanban-schools" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            在读学校分布 <span class="section-card__subtitle">{schoolData.length} 所学校 · 长尾合并</span>
+            在读学校分布 <span class="section-card__subtitle">方块面积 = 学生数 · {schoolData.length} 所学校 · 长尾合并</span>
           </h2>
         </div>
         {schoolChartData.length === 0 ? (
           <p class="section-card__empty">暂无在读学校数据。</p>
         ) : (
-          <div id="chart-schools" style="width: 100%; height: 480px;"></div>
+          <div id="chart-schools-treemap" style="width: 100%; height: 480px;"></div>
         )}
       </section>
 
-      <!-- ── 合同分布 ── -->
+      <!-- ── 合同分布（donut + drilldown list） ── -->
       <section id="kanban-contracts" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点击查看详情</span>
+            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点击列表行查看详情</span>
           </h2>
         </div>
         {contractData.length === 0 ? (
           <p class="section-card__empty">暂无合同数据。</p>
         ) : (
-          <ul class="contract-list">
-            {contractData.map(({ name, count }) => {
-              const sopMatch = SOPS.find(s => s.matchPatterns.some(p => name.includes(p)));
-              return (
-                <li>
-                  <a href={`/internal/kanban/contracts/${slug(name)}`} class="contract-row">
-                    <span class="contract-row__name">
-                      {name}
-                      {sopMatch && <em class="contract-row__hint"> → {sopMatch.displayName}</em>}
-                    </span>
-                    <span class="contract-row__bar-wrap">
-                      <span class="contract-row__bar" style={`width: ${Math.max(2, (count / contractData[0].count) * 100)}%;`}></span>
-                    </span>
-                    <span class="contract-row__count font-mono">{count}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <div class="contract-split">
+            <div id="chart-contracts-donut" style="width: 100%; height: 360px;"></div>
+            <ul class="contract-list">
+              {contractData.map(({ name, count }) => {
+                const sopMatch = SOPS.find(s => s.matchPatterns.some(p => name.includes(p)));
+                return (
+                  <li>
+                    <a href={`/internal/kanban/contracts/${slug(name)}`} class="contract-row">
+                      <span class="contract-row__name">
+                        {name}
+                        {sopMatch && <em class="contract-row__hint"> → {sopMatch.displayName}</em>}
+                      </span>
+                      <span class="contract-row__bar-wrap">
+                        <span class="contract-row__bar" style={`width: ${Math.max(2, (count / contractData[0].count) * 100)}%;`}></span>
+                      </span>
+                      <span class="contract-row__count font-mono">{count}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         )}
       </section>
     </div>
@@ -416,28 +440,41 @@ const chartPayload = {
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
 
-      // ── Widget 1: schools horizontal bar ──
-      const schoolEl = document.getElementById('chart-schools');
+      // ── Schools: treemap ──
+      // Area = student count. Color band based on count via gradient. Long-tail
+      // schools (small tiles) still show a label since treemap auto-hides
+      // labels that don't fit, but tooltip works on hover.
+      const schoolEl = document.getElementById('chart-schools-treemap');
       if (schoolEl && payload.schoolChartData.length) {
         const c = echarts.init(schoolEl);
         charts.push(c);
+        const data = payload.schoolChartData
+          .slice()
+          .sort((a, b) => b.count - a.count)
+          .map(d => ({ name: d.name, value: d.count }));
         c.setOption({
-          tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-          grid: { left: 10, right: 32, top: 10, bottom: 16, containLabel: true },
-          xAxis: { type: 'value', splitLine: { lineStyle: { color: '#eef0f3' } } },
-          yAxis: {
-            type: 'category',
-            data: payload.schoolChartData.map(d => d.name),
-            axisLine: { show: false },
-            axisTick: { show: false },
-            axisLabel: { color: '#475569', fontSize: 12 },
+          tooltip: {
+            formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生`,
           },
           series: [{
-            type: 'bar',
-            data: payload.schoolChartData.map(d => d.count),
-            itemStyle: { color: PRIMARY, borderRadius: [0, 4, 4, 0] },
-            barWidth: 14,
-            label: { show: true, position: 'right', color: '#475569', fontSize: 11 },
+            type: 'treemap',
+            data,
+            roam: false,
+            nodeClick: false,
+            breadcrumb: { show: false },
+            visibleMin: 0,
+            label: {
+              show: true,
+              formatter: (p) => `{name|${p.data.name}}\n{val|${p.data.value}}`,
+              rich: {
+                name: { color: '#fff', fontSize: 13, fontWeight: 600, lineHeight: 18 },
+                val:  { color: 'rgba(255,255,255,0.85)', fontSize: 11, fontWeight: 500 },
+              },
+            },
+            upperLabel: { show: false },
+            itemStyle: { borderColor: '#fff', borderWidth: 2, gapWidth: 2 },
+            colorMappingBy: 'value',
+            color: ['#bbf7d0', '#86efac', '#22c55e', '#16a34a', '#15803d', '#166534'],
           }],
         });
       }
@@ -525,66 +562,73 @@ const chartPayload = {
         }
       }
 
-      // ── Widget 5: stage × year heatmap ──
+      // ── Stage × year: stacked horizontal bar (cohort funnel) ──
+      // Each bar = one enroll year, segmented by stage. Reading from left to
+      // right = progression through the pipeline.
       const syEl = document.getElementById('chart-stage-year');
       if (syEl && payload.years.length) {
         const c = echarts.init(syEl);
         charts.push(c);
-        const data = payload.stageYearCells.map(cell => [
-          payload.stages.indexOf(cell.stage),
-          payload.years.indexOf(cell.year),
-          cell.count,
-        ]);
-        const maxV = Math.max(1, ...data.map(d => d[2]));
+        // Reverse years so the most recent / nearest cohort is on top.
+        const yearsAxis = payload.years.slice().reverse();
+        const series = payload.stages.map(stage => ({
+          name: stage,
+          type: 'bar',
+          stack: 'cohort',
+          itemStyle: { color: payload.stageColors[stage] || '#94a3b8' },
+          barCategoryGap: '32%',
+          data: yearsAxis.map(year => {
+            const cell = payload.stageYearCells.find(x => x.year === year && x.stage === stage);
+            return cell ? cell.count : 0;
+          }),
+          label: {
+            show: true,
+            position: 'inside',
+            color: '#fff',
+            fontWeight: 700,
+            fontSize: 12,
+            formatter: (p) => p.value > 0 ? p.value : '',
+          },
+        }));
         c.setOption({
           tooltip: {
-            position: 'top',
-            formatter: (p) => `${payload.years[p.value[1]]} · ${payload.stages[p.value[0]]}<br/><strong>${p.value[2]}</strong> 学生`,
+            trigger: 'axis',
+            axisPointer: { type: 'shadow' },
+            formatter: (params) => {
+              const year = params[0]?.axisValue ?? '';
+              const total = params.reduce((s, p) => s + (p.value || 0), 0);
+              const lines = params
+                .filter(p => p.value > 0)
+                .map(p => `${p.marker} ${p.seriesName}: <strong>${p.value}</strong>`)
+                .join('<br/>');
+              return `<div style="font-weight:700;margin-bottom:4px;">${year} · 共 ${total}</div>${lines}`;
+            },
           },
-          grid: { left: 80, right: 16, top: 32, bottom: 50 },
-          xAxis: {
-            type: 'category',
+          legend: {
             data: payload.stages,
-            position: 'top',
+            top: 0,
+            right: 0,
+            icon: 'roundRect',
+            itemWidth: 12,
+            itemHeight: 12,
+            textStyle: { color: '#475569', fontSize: 12 },
+          },
+          grid: { left: 12, right: 60, top: 36, bottom: 12, containLabel: true },
+          xAxis: {
+            type: 'value',
             axisLine: { show: false },
             axisTick: { show: false },
-            axisLabel: { color: '#475569', fontWeight: 600, fontSize: 12 },
-            splitArea: { show: true },
+            splitLine: { lineStyle: { color: '#eef0f3' } },
+            axisLabel: { color: '#94a3b8', fontSize: 11 },
           },
           yAxis: {
             type: 'category',
-            data: payload.years,
+            data: yearsAxis,
             axisLine: { show: false },
             axisTick: { show: false },
-            axisLabel: { color: '#475569', fontWeight: 600, fontSize: 12 },
-            splitArea: { show: true },
+            axisLabel: { color: '#475569', fontWeight: 600, fontSize: 13 },
           },
-          visualMap: {
-            min: 0,
-            max: maxV,
-            calculable: false,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0,
-            itemWidth: 12,
-            itemHeight: 120,
-            // Gradient stops at green-600 (#16a34a) instead of near-black —
-            // black text stays readable on every cell, no need to flip.
-            inRange: { color: ['#f1f5f9', '#bbf7d0', '#86efac', '#16a34a'] },
-            textStyle: { color: '#64748b', fontSize: 11 },
-          },
-          series: [{
-            type: 'heatmap',
-            data,
-            label: {
-              show: true,
-              fontSize: 12,
-              fontWeight: 600,
-              color: '#0f172a',
-              formatter: (p) => p.value[2] > 0 ? p.value[2] : '',
-            },
-            itemStyle: { borderColor: '#fff', borderWidth: 2 },
-          }],
+          series,
         });
       }
 
@@ -646,6 +690,60 @@ const chartPayload = {
             const advisor = payload.advisors[params.value[1]];
             if (advisor) location.href = '/internal/kanban/advisors/' + encodeURIComponent(advisor);
           }
+        });
+      }
+
+      // ── Contracts: donut ──
+      // Brand-aligned palette (greens + indigo + amber accents) so each
+      // slice is distinguishable. Top-N + 其他 bucket built server-side.
+      const dnEl = document.getElementById('chart-contracts-donut');
+      if (dnEl && payload.contractDonut.length) {
+        const c = echarts.init(dnEl);
+        charts.push(c);
+        const total = payload.contractDonut.reduce((s, x) => s + x.value, 0);
+        c.setOption({
+          tooltip: {
+            trigger: 'item',
+            formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生 · ${(p.data.value / total * 100).toFixed(1)}%`,
+          },
+          legend: { show: false },
+          color: ['#042f24', '#15803d', '#16a34a', '#22c55e', '#86efac', '#3b82f6', '#6366f1', '#8b5cf6', '#f59e0b', '#ef4444', '#94a3b8'],
+          series: [{
+            type: 'pie',
+            radius: ['52%', '82%'],
+            center: ['50%', '50%'],
+            avoidLabelOverlap: true,
+            itemStyle: { borderColor: '#fff', borderWidth: 2 },
+            label: {
+              show: true,
+              position: 'outside',
+              formatter: (p) => `{n|${p.data.name}}\n{v|${p.data.value} · ${(p.percent ?? 0).toFixed(0)}%}`,
+              rich: {
+                n: { color: '#0f172a', fontSize: 12, fontWeight: 600, lineHeight: 16 },
+                v: { color: '#64748b', fontSize: 11, lineHeight: 14 },
+              },
+            },
+            labelLine: { length: 10, length2: 14, lineStyle: { color: '#cbd5e1' } },
+            emphasis: {
+              scale: true,
+              scaleSize: 6,
+              label: { fontWeight: 700 },
+            },
+            data: payload.contractDonut,
+          }],
+          graphic: [{
+            type: 'text',
+            left: 'center',
+            top: 'middle',
+            style: {
+              text: `${total}\n合同`,
+              textAlign: 'center',
+              fill: '#0f172a',
+              fontSize: 18,
+              fontWeight: 700,
+              lineHeight: 22,
+            },
+          }],
         });
       }
     })();
@@ -721,6 +819,19 @@ const chartPayload = {
       margin-top: 16px;
       padding-top: 14px;
       border-top: 1px solid #eef0f3;
+    }
+
+    /* Contract widget split layout: donut on the left, drilldown list on
+       the right. Donut takes a fixed column on desktop so the list keeps a
+       useful width; on narrower screens both stack. */
+    .contract-split {
+      display: grid;
+      grid-template-columns: minmax(280px, 380px) 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .contract-split { grid-template-columns: 1fr; }
     }
 
     /* Contract list — 3-col grid (name+hint / bar / count). The hint sits
