@@ -1,0 +1,508 @@
+---
+// /internal/kanban/contracts/[name] — single-contract profile.
+//
+// Hero (from contract-sops.ts: description / pricing / target audience / SOPs)
+// + Live stats computed from students with this contract in their array.
+// SOPs section reuses the same layout as on the student detail page.
+
+import InternalLayout from '../../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../../lib/supabase/client';
+import { INACTIVE_STAGES } from '../../../../utils/contact-radar';
+import { findSOPByContract, substitute } from '../../../../data/contract-sops';
+
+const viewer = Astro.locals?.viewer ?? null;
+if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
+  return Astro.redirect('/internal');
+}
+
+const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+
+const { name } = Astro.params;
+const contractName = decodeURIComponent(name ?? '');
+if (!contractName) return Astro.redirect('/internal/kanban');
+
+if (!canSeePrivate && PRIVATE_CONTRACTS.has(contractName)) {
+  return Astro.redirect('/internal/kanban');
+}
+
+// Pull every student with this exact contract value in their contracts[]
+const { data: rawStudents } = await supabase
+  .from('students')
+  .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
+  .contains('contracts', [contractName])
+  .order('last_contact_at', { ascending: false, nullsFirst: false });
+
+type Stu = {
+  id: number;
+  name: string;
+  stage: string | null;
+  mid_advisors: string[] | null;
+  enroll_years: string[] | null;
+  target_regions: string[] | null;
+  contracts: string[] | null;
+  last_contact_at: string | null;
+};
+const allStudents = (rawStudents ?? []) as Stu[];
+const active   = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
+const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));
+
+const sop = findSOPByContract(contractName);
+
+// Stage / advisor / region distributions across active students
+function tally<K extends string>(src: Stu[], pick: (s: Stu) => K[]): { name: string; count: number }[] {
+  const m = new Map<string, number>();
+  for (const s of src) {
+    for (const v of pick(s)) {
+      if (!v) continue;
+      m.set(v, (m.get(v) ?? 0) + 1);
+    }
+  }
+  return Array.from(m.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count);
+}
+const STAGE_ORDER = ['需对接', '中期在途', '后期在途'];
+const stageBreak = STAGE_ORDER.map(st => ({
+  name: st,
+  count: active.filter(s => s.stage === st).length,
+}));
+const advisorBreak = tally(active, s => (s.mid_advisors ?? []) as string[]);
+const regionBreak  = tally(active, s => (s.target_regions ?? []) as string[]);
+const yearBreak    = tally(active, s => (s.enroll_years ?? []) as string[]);
+
+// Email template substitution: at the contract-profile level we don't have
+// a specific student, so use a placeholder. Same {{...}} syntax shown so it
+// reads as a template you can drop into a real send context.
+const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期顾问}}' };
+---
+
+<InternalLayout title={`${contractName} · 合同`} active="kanban">
+  <a href="/internal/kanban" class="back-link">← Kanban</a>
+
+  <!-- Hero -->
+  <div class="con-hero">
+    <h1 class="font-headline con-title">{contractName}</h1>
+    {sop && sop.displayName !== contractName && (
+      <p class="con-alias">SOP 模板：{sop.displayName}</p>
+    )}
+    {sop?.description && (
+      <p class="con-desc">{sop.description}</p>
+    )}
+    <div class="con-hero-meta">
+      <div class="con-hero-meta__cell">
+        <span class="con-hero-meta__label">价格</span>
+        <span class="con-hero-meta__value">{sop?.pricing ?? '— 待填'}</span>
+      </div>
+      <div class="con-hero-meta__cell">
+        <span class="con-hero-meta__label">服务周期</span>
+        <span class="con-hero-meta__value">{sop?.durationMonths ? `${sop.durationMonths} 个月` : '— 待填'}</span>
+      </div>
+      <div class="con-hero-meta__cell">
+        <span class="con-hero-meta__label">目标人群</span>
+        <span class="con-hero-meta__value">{sop?.targetAudience ?? '— 待填'}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats strip -->
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-card__label">在管学生</div>
+      <div class="stat-card__value font-mono">{active.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">已结案 / 退费 / 完成</div>
+      <div class="stat-card__value font-mono" style="color: var(--text-muted);">{inactive.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">覆盖顾问</div>
+      <div class="stat-card__value font-mono">{advisorBreak.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">覆盖入学届</div>
+      <div class="stat-card__value font-mono">{yearBreak.length}</div>
+    </div>
+  </div>
+
+  <!-- Distributions grid -->
+  <div class="con-dist-grid">
+    <section class="section-card">
+      <div class="section-card__header"><h2 class="font-headline section-card__title">阶段</h2></div>
+      <ul class="con-bar-list">
+        {stageBreak.map(({ name, count }) => {
+          const pct = active.length ? (count / active.length) * 100 : 0;
+          return (
+            <li>
+              <span class="con-bar-list__label">{name}</span>
+              <span class="con-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+              <span class="con-bar-list__count font-mono">{count}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <div class="section-card__header"><h2 class="font-headline section-card__title">中期顾问</h2></div>
+      {advisorBreak.length === 0 ? (
+        <p class="section-card__empty">暂无</p>
+      ) : (
+        <ul class="con-bar-list">
+          {advisorBreak.map(({ name, count }) => {
+            const pct = active.length ? (count / active.length) * 100 : 0;
+            return (
+              <li>
+                <span class="con-bar-list__label">{name}</span>
+                <span class="con-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+                <span class="con-bar-list__count font-mono">{count}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+
+    <section class="section-card">
+      <div class="section-card__header"><h2 class="font-headline section-card__title">目标地区</h2></div>
+      {regionBreak.length === 0 ? (
+        <p class="section-card__empty">暂无</p>
+      ) : (
+        <ul class="con-bar-list">
+          {regionBreak.map(({ name, count }) => {
+            const pct = active.length ? (count / active.length) * 100 : 0;
+            return (
+              <li>
+                <span class="con-bar-list__label">{name}</span>
+                <span class="con-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+                <span class="con-bar-list__count font-mono">{count}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+
+    <section class="section-card">
+      <div class="section-card__header"><h2 class="font-headline section-card__title">入学届</h2></div>
+      {yearBreak.length === 0 ? (
+        <p class="section-card__empty">暂无</p>
+      ) : (
+        <ul class="con-bar-list">
+          {yearBreak.map(({ name, count }) => {
+            const pct = active.length ? (count / active.length) * 100 : 0;
+            return (
+              <li>
+                <span class="con-bar-list__label">{name}</span>
+                <span class="con-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+                <span class="con-bar-list__count font-mono">{count}</span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+  </div>
+
+  <!-- SOPs / email templates -->
+  {sop && (
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">
+          SOP & 邮件模板 <span class="section-card__subtitle">{sop.deliverables.reduce((s, d) => s + (d.repeats ?? 1), 0)} 项交付</span>
+        </h2>
+      </div>
+      <ol class="con-sop-list">
+        {sop.deliverables.map((d, i) => (
+          <li>
+            <details>
+              <summary class="con-sop-summary">
+                <span class="font-mono con-sop-num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="con-sop-title">
+                  {d.title}
+                  {(d.repeats ?? 1) > 1 && (
+                    <span class="con-sop-count font-mono">×{d.repeats}</span>
+                  )}
+                </span>
+                <span class="con-sop-cta">查看模板 →</span>
+              </summary>
+              <div class="con-sop-body">
+                <div>
+                  <div class="con-sop-field-head">
+                    <span class="con-sop-field-label">主题</span>
+                  </div>
+                  <pre class="con-sop-pre">{substitute(d.emailSubject, TEMPLATE_VARS)}</pre>
+                </div>
+                <div>
+                  <div class="con-sop-field-head">
+                    <span class="con-sop-field-label">正文</span>
+                  </div>
+                  <pre class="con-sop-pre">{substitute(d.emailBody, TEMPLATE_VARS)}</pre>
+                </div>
+              </div>
+            </details>
+          </li>
+        ))}
+      </ol>
+      <p class="con-sop-note">
+        模板中的 <code>{'{{学生姓名}}'}</code> / <code>{'{{中期顾问}}'}</code> 会在学生详情页自动替换为真实姓名。
+        修改模板请改 <code>src/data/contract-sops.ts</code> 后 push。
+      </p>
+    </section>
+  )}
+
+  {!sop && (
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">SOP 模板</h2>
+      </div>
+      <p class="section-card__empty">
+        这个合同名字（「{contractName}」）尚未在 <code>src/data/contract-sops.ts</code> 里注册 SOP 模板。
+        定义后这里会显示交付清单 + 邮件模板。
+      </p>
+    </section>
+  )}
+
+  <!-- Active students list -->
+  <section class="section-card">
+    <div class="section-card__header">
+      <h2 class="font-headline section-card__title">
+        在管学生 <span class="section-card__subtitle">{active.length} 人</span>
+      </h2>
+    </div>
+    {active.length === 0 ? (
+      <p class="section-card__empty">这个合同当前没有在管学生。</p>
+    ) : (
+      <ul class="con-students">
+        {active.map(s => (
+          <li>
+            <a href={`/internal/students/${s.id}`} class="con-student-row">
+              <span class="con-student-row__name">{s.name}</span>
+              <span class="con-student-row__stage">{s.stage ?? '—'}</span>
+              <span class="con-student-row__advisor">{(s.mid_advisors ?? []).join(' / ') || '—'}</span>
+              <span class="con-student-row__years">{(s.enroll_years ?? []).join(' / ') || '—'}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <style>
+    .con-hero {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eef0f3;
+    }
+    .con-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+    .con-alias {
+      color: var(--text-soft);
+      font-size: 13px;
+      margin: 0 0 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .con-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 0 16px;
+    }
+    .con-hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 720px;
+    }
+    .con-hero-meta__cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .con-hero-meta__label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .con-hero-meta__value {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .con-dist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 800px) {
+      .con-dist-grid { grid-template-columns: 1fr; }
+    }
+
+    .con-bar-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .con-bar-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr 40px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .con-bar-list__label { color: var(--text); font-weight: 500; }
+    .con-bar-list__bar {
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .con-bar-list__bar > span {
+      display: block;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: width 240ms ease;
+    }
+    .con-bar-list__count {
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* SOP collapsibles — same recipe as student detail */
+    .con-sop-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .con-sop-list details {
+      border: 1px solid #eef0f3;
+      border-radius: 10px;
+      background: white;
+      overflow: hidden;
+    }
+    .con-sop-summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .con-sop-summary::-webkit-details-marker { display: none; }
+    .con-sop-num {
+      font-size: 11px;
+      color: var(--text-soft);
+      font-weight: 700;
+      min-width: 24px;
+    }
+    .con-sop-title {
+      flex: 1;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .con-sop-count {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 8px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .con-sop-cta {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .con-sop-body {
+      padding: 14px;
+      background: #fafbfc;
+      border-top: 1px solid #eef0f3;
+      display: grid;
+      gap: 12px;
+    }
+    .con-sop-field-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .con-sop-field-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .con-sop-pre {
+      margin: 0;
+      padding: 10px 12px;
+      background: white;
+      border: 1px solid #eef0f3;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .con-sop-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      line-height: 1.5;
+      margin: 14px 0 0;
+    }
+    .con-sop-note code {
+      background: #f1f5f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .con-students {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 2px;
+    }
+    .con-student-row {
+      display: grid;
+      grid-template-columns: minmax(80px, 130px) 100px 1fr 130px;
+      gap: 12px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      color: var(--text);
+      transition: background 120ms ease;
+    }
+    .con-student-row:hover { background: #f8fafc; }
+    .con-student-row__name { font-weight: 600; color: var(--primary); }
+    .con-student-row__stage,
+    .con-student-row__advisor,
+    .con-student-row__years {
+      color: var(--text-muted);
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style>
+</InternalLayout>

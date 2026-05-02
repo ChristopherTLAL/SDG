@@ -6,7 +6,7 @@
 
 interface Props {
   title: string;
-  active?: 'overview' | 'submit' | 'submissions' | 'students' | 'daily-reports';
+  active?: 'overview' | 'submit' | 'submissions' | 'students' | 'daily-reports' | 'kanban';
 }
 
 const { title, active } = Astro.props;
@@ -32,6 +32,7 @@ const allItems: { label: string; href: string; key: NavKey; requires: NavTier }[
   { label: 'Inbox',    href: '/internal/submissions',    key: 'submissions',   requires: 'admin' },
   { label: 'Students', href: '/internal/students',       key: 'students',      requires: 'public' },
   { label: 'Daily',    href: '/internal/daily-reports',  key: 'daily-reports', requires: 'advisor' },
+  { label: 'Kanban',   href: '/internal/kanban',         key: 'kanban',        requires: 'advisor' },
 ];
 function showByTier(tier: NavTier): boolean {
   if (tier === 'public') return true;

@@ -1,0 +1,432 @@
+---
+// /internal/kanban/advisors/[name] — single-advisor profile.
+//
+// Reached by clicking a row in the Kanban heatmap or a chip below it.
+// Shows: caseload, stage breakdown, tier breakdown, recent 12-week
+// activity sparkline, list of students with link to detail.
+
+import InternalLayout from '../../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../../lib/supabase/client';
+import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES, type RadarTier } from '../../../../utils/contact-radar';
+
+const viewer = Astro.locals?.viewer ?? null;
+if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
+  return Astro.redirect('/internal');
+}
+
+const { name } = Astro.params;
+const advisorName = decodeURIComponent(name ?? '');
+if (!advisorName) return Astro.redirect('/internal/kanban');
+
+// Confirm advisor exists in advisors table (catches typo'd URLs early)
+const { data: advisorRow } = await supabase
+  .from('advisors')
+  .select('name, email, roles, active, is_admin')
+  .eq('name', advisorName)
+  .maybeSingle();
+
+if (!advisorRow) {
+  return new Response(`No advisor found with name "${advisorName}"`, { status: 404 });
+}
+
+// Pull every student where this advisor is in mid_advisors
+const { data: rawStudents } = await supabase
+  .from('students')
+  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years, target_regions')
+  .contains('mid_advisors', [advisorName])
+  .order('last_contact_at', { ascending: false, nullsFirst: false });
+
+type Stu = {
+  id: number;
+  name: string;
+  stage: string | null;
+  last_contact_at: string | null;
+  mid_advisors: string[] | null;
+  enroll_years: string[] | null;
+  target_regions: string[] | null;
+};
+const allStudents = (rawStudents ?? []) as Stu[];
+
+const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
+const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));
+
+// Stage breakdown over active students
+const STAGE_ORDER = ['需对接', '中期在途', '后期在途'] as const;
+const stageBreak = STAGE_ORDER.map(st => ({
+  stage: st,
+  count: active.filter(s => s.stage === st).length,
+}));
+
+// Tier breakdown
+const tagged = active.map(s => {
+  const ds = daysSinceToday(s.last_contact_at);
+  return { ...s, daysSince: ds, tier: tierFor(ds, s.stage) };
+});
+type Tier = RadarTier;
+const tierOrder: Tier[] = ['critical', 'red', 'pink', 'yellow', 'green', 'unknown'];
+const tierBreak = tierOrder.map(t => ({
+  tier: t,
+  count: tagged.filter(s => s.tier === t).length,
+}));
+
+// Average days since contact (skip nulls)
+const dsValues = tagged.map(s => s.daysSince).filter((d): d is number => d !== null);
+const avgDays = dsValues.length ? Math.round(dsValues.reduce((s, d) => s + d, 0) / dsValues.length) : null;
+
+// Tier label map — hoisted out of JSX to avoid generic-syntax-vs-JSX clashes
+const TIER_LABELS: { [k in Tier]: string } = {
+  critical: '28d+ 失联',
+  red:      '21–27d',
+  pink:     '14–20d',
+  yellow:   '7–13d',
+  green:    '< 7d',
+  unknown:  '从未联系',
+  inactive: '已结案',
+};
+
+// Recent activity (last 12 weeks): notes + submissions for this advisor's students
+const TODAY = new Date();
+TODAY.setHours(0, 0, 0, 0);
+function startOfWeek(d: Date): Date {
+  const day = d.getDay() || 7;
+  const x = new Date(d);
+  x.setDate(d.getDate() - (day - 1));
+  return x;
+}
+function isoDate(d: Date): string {
+  return d.toISOString().slice(0, 10);
+}
+function fmtWeekLabel(d: Date): string {
+  return `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`;
+}
+const weekStartToday = startOfWeek(TODAY);
+const weeks: { start: string; label: string }[] = [];
+for (let i = 11; i >= 0; i--) {
+  const d = new Date(weekStartToday);
+  d.setDate(weekStartToday.getDate() - i * 7);
+  weeks.push({ start: isoDate(d), label: fmtWeekLabel(d) });
+}
+const weekIndexByStart = new Map(weeks.map((w, i) => [w.start, i]));
+
+const studentIds = allStudents.map(s => s.id);
+const sinceCutoff = weeks[0].start;
+const [{ data: notes }, { data: subs }] = await Promise.all([
+  studentIds.length
+    ? supabase
+        .from('student_notes')
+        .select('note_date')
+        .in('student_id', studentIds)
+        .gte('note_date', sinceCutoff)
+        .not('note_date', 'is', null)
+    : Promise.resolve({ data: [] as any[] }),
+  studentIds.length
+    ? supabase
+        .from('submissions')
+        .select('submitted_at')
+        .in('student_id', studentIds)
+        .gte('submitted_at', sinceCutoff)
+    : Promise.resolve({ data: [] as any[] }),
+]);
+
+const weekActivity = new Array(weeks.length).fill(0) as number[];
+for (const n of (notes ?? [])) {
+  const day = (n.note_date as string).slice(0, 10);
+  const ws = isoDate(startOfWeek(new Date(day)));
+  const wi = weekIndexByStart.get(ws);
+  if (wi !== undefined) weekActivity[wi] += 1;
+}
+for (const sub of (subs ?? [])) {
+  const day = (sub.submitted_at as string).slice(0, 10);
+  const ws = isoDate(startOfWeek(new Date(day)));
+  const wi = weekIndexByStart.get(ws);
+  if (wi !== undefined) weekActivity[wi] += 1;
+}
+
+const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
+---
+
+<InternalLayout title={`${advisorName} · 顾问`} active="kanban">
+  <a href="/internal/kanban" class="back-link">← Kanban</a>
+
+  <div class="adv-header">
+    <h1 class="font-headline adv-title">{advisorName}</h1>
+    <div class="adv-meta">
+      {advisorRow.is_admin && <span class="adv-tag adv-tag--admin">admin</span>}
+      {Array.isArray(advisorRow.roles) && advisorRow.roles.map(r => (
+        <span class="adv-tag">{r}</span>
+      ))}
+      {advisorRow.email && <span class="adv-email font-mono">{advisorRow.email}</span>}
+    </div>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-card">
+      <div class="stat-card__label">在管学生</div>
+      <div class="stat-card__value font-mono">{active.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">已结案 / 退费 / 完成</div>
+      <div class="stat-card__value font-mono" style="color: var(--text-muted);">{inactive.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">平均距上次沟通</div>
+      <div class="stat-card__value font-mono">{avgDays === null ? '—' : `${avgDays}d`}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">12 周活动总量</div>
+      <div class="stat-card__value font-mono">{weekActivity.reduce((s, v) => s + v, 0)}</div>
+    </div>
+  </div>
+
+  <div class="adv-grid">
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">阶段分布</h2>
+      </div>
+      <ul class="adv-bar-list">
+        {stageBreak.map(({ stage, count }) => {
+          const pct = active.length ? (count / active.length) * 100 : 0;
+          return (
+            <li>
+              <span class="adv-bar-list__label">{stage}</span>
+              <span class="adv-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+              <span class="adv-bar-list__count font-mono">{count}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    <section class="section-card">
+      <div class="section-card__header">
+        <h2 class="font-headline section-card__title">联系频率分布</h2>
+      </div>
+      <ul class="adv-bar-list">
+        {tierBreak.map(({ tier, count }) => {
+          const pct = active.length ? (count / active.length) * 100 : 0;
+          const ts = tierStyle(tier);
+          return (
+            <li>
+              <span class="adv-bar-list__label">
+                <span class="adv-dot" style={`background: ${ts.border};`}></span>
+                {TIER_LABELS[tier]}
+              </span>
+              <span class="adv-bar-list__bar">
+                <span style={`width: ${pct}%; background: ${ts.border};`}></span>
+              </span>
+              <span class="adv-bar-list__count font-mono">{count}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  </div>
+
+  <section class="section-card">
+    <div class="section-card__header">
+      <h2 class="font-headline section-card__title">最近 12 周活动</h2>
+    </div>
+    <div id="chart-spark" style="width: 100%; height: 220px;"></div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-card__header">
+      <h2 class="font-headline section-card__title">
+        在管学生 <span class="section-card__subtitle">{active.length} 人 · 按上次沟通由远到近</span>
+      </h2>
+    </div>
+    {active.length === 0 ? (
+      <p class="section-card__empty">这位顾问目前没有在管学生。</p>
+    ) : (
+      <ul class="adv-students">
+        {tagged.sort((a, b) => (b.daysSince ?? -1) - (a.daysSince ?? -1)).map(s => {
+          const ts = tierStyle(s.tier);
+          return (
+            <li>
+              <a href={`/internal/students/${s.id}`} class="adv-student-row">
+                <span class="adv-dot" style={`background: ${ts.border};`}></span>
+                <span class="adv-student-row__name">{s.name}</span>
+                <span class="adv-student-row__stage">{s.stage ?? '—'}</span>
+                <span class="adv-student-row__years">{(s.enroll_years ?? []).join(' / ') || '—'}</span>
+                <span class="adv-student-row__regions">{(s.target_regions ?? []).join(' / ') || '—'}</span>
+                <span class="adv-student-row__days font-mono" style={`color: ${ts.border};`}>
+                  {tierLabel(s.tier, s.daysSince)}
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+
+  <script type="application/json" id="spark-payload" set:html={JSON.stringify(sparkPayload)}></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" is:inline></script>
+  <script is:inline>
+    (function () {
+      const payload = JSON.parse(document.getElementById('spark-payload').textContent);
+      const el = document.getElementById('chart-spark');
+      if (!el) return;
+      const c = echarts.init(el);
+      window.addEventListener('resize', () => c.resize());
+      c.setOption({
+        tooltip: { trigger: 'axis' },
+        grid: { left: 32, right: 16, top: 16, bottom: 28 },
+        xAxis: {
+          type: 'category',
+          data: payload.labels,
+          axisLine: { lineStyle: { color: '#cbd5e1' } },
+          axisTick: { show: false },
+          axisLabel: { color: '#64748b', fontSize: 11 },
+        },
+        yAxis: {
+          type: 'value',
+          axisLine: { show: false },
+          axisTick: { show: false },
+          splitLine: { lineStyle: { color: '#eef0f3' } },
+          axisLabel: { color: '#94a3b8', fontSize: 11 },
+        },
+        series: [{
+          type: 'bar',
+          data: payload.data,
+          itemStyle: { color: '#042f24', borderRadius: [4, 4, 0, 0] },
+          barWidth: 18,
+        }],
+      });
+    })();
+  </script>
+
+  <style>
+    .adv-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .adv-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .adv-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .adv-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      background: #f1f5f9;
+      color: #475569;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    .adv-tag--admin {
+      background: rgba(4, 47, 36, 0.08);
+      color: var(--primary);
+    }
+    .adv-email {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .adv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+      .adv-grid { grid-template-columns: 1fr; }
+    }
+
+    .adv-bar-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .adv-bar-list li {
+      display: grid;
+      grid-template-columns: 130px 1fr 40px;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .adv-bar-list__label {
+      color: var(--text);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .adv-bar-list__bar {
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .adv-bar-list__bar > span {
+      display: block;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: width 240ms ease;
+    }
+    .adv-bar-list__count {
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: right;
+    }
+    .adv-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .adv-students {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 2px;
+    }
+    .adv-student-row {
+      display: grid;
+      grid-template-columns: 14px minmax(80px, 130px) 90px 90px 1fr 50px;
+      gap: 12px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      color: var(--text);
+      transition: background 120ms ease;
+    }
+    .adv-student-row:hover { background: #f8fafc; }
+    .adv-student-row__name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .adv-student-row__stage,
+    .adv-student-row__years,
+    .adv-student-row__regions {
+      color: var(--text-muted);
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .adv-student-row__days {
+      font-weight: 700;
+      font-size: 12px;
+      text-align: right;
+    }
+  </style>
+</InternalLayout>

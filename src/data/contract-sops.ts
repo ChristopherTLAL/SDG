@@ -25,6 +25,14 @@ export type ContractSOP = {
   // contract string wins, so list more-specific patterns first.
   matchPatterns: string[];
   deliverables: Deliverable[];
+
+  // ── Hero fields (rendered on /internal/kanban/contracts/[name]) ──
+  // All optional — placeholder shown if missing. Fill in as you confirm
+  // the values; safe to ship with these blank.
+  description?: string;       // 1-2 sentence elevator pitch
+  pricing?: string;           // e.g. "¥18,800（半年）" — free-form for now
+  durationMonths?: number;    // service window length
+  targetAudience?: string;    // e.g. "高一上学期及以前 / 想留学但还在探索方向"
 };
 
 // ─── Reusable deliverable builders ─────────────────────────
@@ -109,15 +117,32 @@ export const SOPS: ContractSOP[] = [
     displayName: '格物计划（半年期）',
     matchPatterns: ['格物半年', '半年期'],
     deliverables: [careerPlan, monthlyReport(5), resumeReport],
+    // 占位文案 — 王世杰确认实际数值后替换
+    description: '半年期的中期规划服务，覆盖一份生涯规划方案 + 每月规划报告 + 阶段性简历梳理。适合短线方向不明、需要先做出框架的家庭。',
+    pricing: 'TBD',
+    durationMonths: 6,
+    targetAudience: '初一至高一阶段、需要快速建立留学规划框架的学生',
   },
   {
     id: 'gewu-1y',
     displayName: '格物计划（一年期）',
-    // Catch-all: anything with "格物" lands here unless half-year matched first.
     matchPatterns: ['格物一年', '格物计划', '格物'],
     deliverables: [careerPlan, monthlyReport(11), resumeReport],
+    description: '一年期的中期规划服务，节奏与半年期相同但延续 11 个月，能覆盖一个完整学年的执行 + 调整。',
+    pricing: 'TBD',
+    durationMonths: 12,
+    targetAudience: '需要全学年陪跑的学生 / 家长',
   },
 ];
+
+// Find the SOP matching an arbitrary contract name (or null if none).
+// Same precedence rule as findSOPsForStudent — first match wins.
+export function findSOPByContract(contractName: string): ContractSOP | null {
+  for (const sop of SOPS) {
+    if (sop.matchPatterns.some(p => contractName.includes(p))) return sop;
+  }
+  return null;
+}
 
 // ─── Matcher ────────────────────────────────────────────────
 
