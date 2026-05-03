@@ -11,6 +11,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../utils/contact-radar';
+import { resolveContractGroup } from '../../../data/contract-sops';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -282,13 +283,18 @@ advisors.forEach((a, ai) => {
 });
 
 // ── Widget 3: 合同分布 ──
+// Aggregate by GROUP (跃领计划 / 格物计划) when the contract matches a SOP
+// with a groupName — so 跃领-Standard / Pro / Max all roll up to one
+// "跃领计划" slice in the donut. Contracts without a group fall back to
+// their raw vault name (e.g. 启航, 菁英, 私单).
 const contractCounts = new Map<string, number>();
 for (const s of students) {
   for (const c of s.contracts ?? []) {
     const v = c.trim();
     if (!v) continue;
     if (!canSeePrivate && PRIVATE_CONTRACTS.has(v)) continue;
-    contractCounts.set(v, (contractCounts.get(v) ?? 0) + 1);
+    const key = resolveContractGroup(v);
+    contractCounts.set(key, (contractCounts.get(key) ?? 0) + 1);
   }
 }
 const contractData = Array.from(contractCounts.entries())

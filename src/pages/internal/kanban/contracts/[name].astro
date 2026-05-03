@@ -8,7 +8,7 @@
 import InternalLayout from '../../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../../utils/contact-radar';
-import { findSOPByContract, substitute } from '../../../../data/contract-sops';
+import { findSOPByContract, substitute, variantsForGroup, type ContractSOP } from '../../../../data/contract-sops';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -26,12 +26,13 @@ if (!canSeePrivate && PRIVATE_CONTRACTS.has(contractName)) {
   return Astro.redirect('/internal/kanban');
 }
 
-// Pull every student with this exact contract value in their contracts[]
-const { data: rawStudents } = await supabase
-  .from('students')
-  .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
-  .contains('contracts', [contractName])
-  .order('last_contact_at', { ascending: false, nullsFirst: false });
+// Two URL shapes are supported:
+//   1. Group view  — name is a `groupName` (e.g. "跃领计划") that umbrellas
+//      multiple variant SOPs. Aggregates students + shows all variants.
+//   2. Individual  — name is a raw vault contract value (e.g. "启航",
+//      "格物半年"). Original single-contract behaviour.
+const groupVariants = variantsForGroup(contractName);
+const isGroupView = groupVariants.length > 0;
 
 type Stu = {
   id: number;
@@ -43,11 +44,35 @@ type Stu = {
   contracts: string[] | null;
   last_contact_at: string | null;
 };
-const allStudents = (rawStudents ?? []) as Stu[];
+
+let allStudents: Stu[] = [];
+if (isGroupView) {
+  // Pull every student then filter client-side: a student counts iff any
+  // of their vault contract strings matches (via SOP patterns) one of the
+  // variants under this group.
+  const { data: rawAll } = await supabase
+    .from('students')
+    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
+    .order('last_contact_at', { ascending: false, nullsFirst: false });
+  allStudents = ((rawAll ?? []) as Stu[]).filter(s =>
+    (s.contracts ?? []).some(c => findSOPByContract(c)?.groupName === contractName)
+  );
+} else {
+  const { data: rawStudents } = await supabase
+    .from('students')
+    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
+    .contains('contracts', [contractName])
+    .order('last_contact_at', { ascending: false, nullsFirst: false });
+  allStudents = (rawStudents ?? []) as Stu[];
+}
+
 const active   = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));
 
-const sop = findSOPByContract(contractName);
+// Single SOP for individual view; null in group view (renders variants
+// section instead). For group view we hold the variant list separately.
+const sop: ContractSOP | null = isGroupView ? null : findSOPByContract(contractName);
+const sopsToRender: ContractSOP[] = isGroupView ? groupVariants : (sop ? [sop] : []);
 
 // Stage / advisor / region distributions across active students
 function tally<K extends string>(src: Stu[], pick: (s: Stu) => K[]): { name: string; count: number }[] {
@@ -82,25 +107,39 @@ const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期�
 
   <!-- Hero -->
   <div class="con-hero">
-    <h1 class="font-headline con-title">{contractName}</h1>
-    {sop && sop.displayName !== contractName && (
+    <div class="con-title-row">
+      <h1 class="font-headline con-title">{contractName}</h1>
+      {isGroupView && (
+        <span class="con-group-tag">{groupVariants.length} 个变体</span>
+      )}
+      {sop?.variant && (
+        <span class="con-variant-tag">{sop.variant}</span>
+      )}
+    </div>
+    {!isGroupView && sop && sop.displayName !== contractName && (
       <p class="con-alias">SOP 模板：{sop.displayName}</p>
     )}
-    {sop?.description && (
+    {!isGroupView && sop?.description && (
       <p class="con-desc">{sop.description}</p>
+    )}
+    {isGroupView && (
+      <p class="con-desc">
+        包含：{groupVariants.map(v => v.variant ?? v.displayName).join(' / ')}。
+        统计聚合 = 所有变体合并；下方 SOP 与邮件模板 按变体分版本展示。
+      </p>
     )}
     <div class="con-hero-meta">
       <div class="con-hero-meta__cell">
         <span class="con-hero-meta__label">价格</span>
-        <span class="con-hero-meta__value">{sop?.pricing ?? '— 待填'}</span>
+        <span class="con-hero-meta__value">{isGroupView ? '因版本而异' : (sop?.pricing ?? '— 待填')}</span>
       </div>
       <div class="con-hero-meta__cell">
         <span class="con-hero-meta__label">服务周期</span>
-        <span class="con-hero-meta__value">{sop?.durationMonths ? `${sop.durationMonths} 个月` : '— 待填'}</span>
+        <span class="con-hero-meta__value">{isGroupView ? '因版本而异' : (sop?.durationMonths ? `${sop.durationMonths} 个月` : '— 待填')}</span>
       </div>
       <div class="con-hero-meta__cell">
         <span class="con-hero-meta__label">目标人群</span>
-        <span class="con-hero-meta__value">{sop?.targetAudience ?? '— 待填'}</span>
+        <span class="con-hero-meta__value">{(isGroupView ? groupVariants[0]?.targetAudience : sop?.targetAudience) ?? '— 待填'}</span>
       </div>
     </div>
   </div>
@@ -204,16 +243,20 @@ const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期�
     </section>
   </div>
 
-  <!-- SOPs / email templates -->
-  {sop && (
+  <!-- SOPs / email templates: one block per variant in group view, one
+       block in individual view. -->
+  {sopsToRender.map(renderSop => (
     <section class="section-card">
       <div class="section-card__header">
         <h2 class="font-headline section-card__title">
-          SOP & 邮件模板 <span class="section-card__subtitle">{sop.deliverables.reduce((s, d) => s + (d.repeats ?? 1), 0)} 项交付</span>
+          {isGroupView
+            ? <>SOP & 邮件模板 <span class="con-variant-tag" style="margin-left:8px;">{renderSop.variant ?? renderSop.displayName}</span></>
+            : <>SOP & 邮件模板</>}
+          <span class="section-card__subtitle">{renderSop.deliverables.reduce((s, d) => s + (d.repeats ?? 1), 0)} 项交付</span>
         </h2>
       </div>
       <ol class="con-sop-list">
-        {sop.deliverables.map((d, i) => (
+        {renderSop.deliverables.map((d, i) => (
           <li>
             <details>
               <summary class="con-sop-summary">
@@ -244,14 +287,15 @@ const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期�
           </li>
         ))}
       </ol>
-      <p class="con-sop-note">
-        模板中的 <code>{'{{学生姓名}}'}</code> / <code>{'{{中期顾问}}'}</code> 会在学生详情页自动替换为真实姓名。
-        修改模板请改 <code>src/data/contract-sops.ts</code> 后 push。
-      </p>
     </section>
+  ))}
+  {sopsToRender.length > 0 && (
+    <p class="con-sop-note">
+      模板中的 <code>{'{{学生姓名}}'}</code> / <code>{'{{中期顾问}}'}</code> 会在学生详情页自动替换为真实姓名。
+      修改模板请改 <code>src/data/contract-sops.ts</code> 后 push。
+    </p>
   )}
-
-  {!sop && (
+  {sopsToRender.length === 0 && (
     <section class="section-card">
       <div class="section-card__header">
         <h2 class="font-headline section-card__title">SOP 模板</h2>
@@ -294,11 +338,38 @@ const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期�
       padding-bottom: 24px;
       border-bottom: 1px solid #eef0f3;
     }
+    .con-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
     .con-title {
       font-size: 32px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin: 0 0 4px;
+      margin: 0;
+    }
+    .con-group-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      background: rgba(0, 0, 0, 0.06);
+      color: var(--text-muted);
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    .con-variant-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      vertical-align: middle;
     }
     .con-alias {
       color: var(--text-soft);
