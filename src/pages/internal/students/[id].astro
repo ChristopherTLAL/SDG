@@ -7,6 +7,7 @@ import { supabase } from '../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
 import { preprocessCallouts } from '../../../utils/callouts';
 import { findSOPsForStudent, substitute } from '../../../data/contract-sops';
+import { STUDENT_TOOLS } from '../../../data/student-tools';
 import { marked } from 'marked';
 
 const { id } = Astro.params;
@@ -142,6 +143,42 @@ const metaRows: Row[] = [
             ))}
           </ul>
           <p class="meta-attachments__note">目前仅显示文件名。</p>
+        </>
+      )}
+
+      {STUDENT_TOOLS.length > 0 && (
+        <>
+          <div class="meta-divider"></div>
+          <div class="meta-eyebrow">推荐工具 ({STUDENT_TOOLS.length})</div>
+          <ul class="tool-list">
+            {STUDENT_TOOLS.map(t => {
+              const bodyId = `tool-body-${t.id}`;
+              const renderedBody = substitute(t.scriptBody, {
+                studentName: student.name,
+                midAdvisor: student.mid_advisor,
+              });
+              return (
+                <li>
+                  <details class="tool-item">
+                    <summary class="tool-item__summary">
+                      <span class="tool-item__chevron">▸</span>
+                      <span class="tool-item__title">{t.title}</span>
+                    </summary>
+                    <div class="tool-item__body">
+                      {t.description && (
+                        <p class="tool-item__desc">{t.description}</p>
+                      )}
+                      <div class="tool-item__copy-row">
+                        <span class="tool-item__copy-label">话术</span>
+                        <button type="button" class="sop-copy tool-item__copy" data-target={bodyId}>复制</button>
+                      </div>
+                      <pre id={bodyId} class="tool-item__pre">{renderedBody}</pre>
+                    </div>
+                  </details>
+                </li>
+              );
+            })}
+          </ul>
         </>
       )}
     </aside>
@@ -436,6 +473,93 @@ const metaRows: Row[] = [
     color: var(--text-soft);
     margin: 0 0 12px;
     line-height: 1.5;
+  }
+
+  /* 推荐工具 — sidebar collapsibles, each with a copy-to-clipboard script */
+  .tool-list {
+    list-style: none;
+    margin: 0 0 4px;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .tool-item {
+    border: 1px solid #eef0f3;
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+  }
+  .tool-item__summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+    transition: background 120ms ease;
+  }
+  .tool-item__summary::-webkit-details-marker { display: none; }
+  .tool-item__summary:hover { background: #fafbfc; }
+  .tool-item__chevron {
+    display: inline-block;
+    color: var(--text-soft);
+    font-size: 11px;
+    transition: transform 120ms ease;
+  }
+  .tool-item[open] .tool-item__chevron { transform: rotate(90deg); }
+  .tool-item__title { flex: 1; }
+  .tool-item__body {
+    padding: 8px 10px 10px;
+    border-top: 1px solid #f1f3f6;
+    background: #fafbfc;
+    display: grid;
+    gap: 8px;
+  }
+  .tool-item__desc {
+    margin: 0;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .tool-item__copy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tool-item__copy-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .tool-item__copy {
+    font-size: 11px;
+    padding: 3px 9px;
+    border: 1px solid #eef0f3;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+    transition: border-color 120ms ease;
+  }
+  .tool-item__copy:hover { border-color: var(--primary); }
+  .tool-item__pre {
+    margin: 0;
+    padding: 8px 10px;
+    background: white;
+    border: 1px solid #eef0f3;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text);
   }
 
   /* Quick-add submission card */
