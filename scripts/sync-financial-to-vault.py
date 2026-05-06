@@ -162,7 +162,26 @@ def category(simplified_name):
 # ============================================================
 
 def read_financial(xlsx_path):
-    """返回 dict[客户姓名] = list[contract dict]"""
+    """返回 dict[客户姓名] = list[contract dict]
+
+    财务字段语义（重要）：
+      主合同金额 — sticker price (含税)
+      签约金额（实时）— 实际签约 = 主合同 - 优惠减钱 + 选校金额 + 补充金额（含税）
+      优惠减钱 — 实际降价
+      优惠价值 — 等价附送服务（不影响签约金额）
+      选校金额 / 补充金额 — 加项（不一定为 0，邹晶等学生有）
+      退费总金额 — 签约后退的（不影响签约金额本身）
+      已收服务费总额 — 实际到账金额（cash collected）
+      转收入含税 — 已确认收入（含税）= 各阶段报完成之和
+      转收入不含税 — 已确认收入（不含税，即剔除 6% VAT）
+      预收余额（RMB）— 已收 - 转收入含税 = 待交付的服务对应的钱
+                       （是 已收 的子集，不是独立账户）
+
+    关系：
+      签约金额 = 主合同 - 优惠减钱 + 选校金额 + 补充金额
+      已收 ≤ 签约 (分期未付完时小于；正常情况下签约 = 已收)
+      预收余额 = 已收 - 已交付（转收入含税）
+    """
     print(f"📖 读取财务表: {xlsx_path}")
     wb = openpyxl.load_workbook(xlsx_path, read_only=True, data_only=True)
     ws = wb["sheet1"]
@@ -183,10 +202,17 @@ def read_financial(xlsx_path):
             "名称": simplify(full_name),
             "大类": category(simplify(full_name)),
             "签约日期": _format_date(r[COL["日期"]]),
+            # 合同价
             "主合同金额": _money(r[COL["主合同金额"]]),
+            "签约金额": _money(r[COL["签约金额（实时）"]]),  # ERP 权威值
             "优惠减钱": _money(r[COL["优惠金额（减钱）"]]),
             "优惠价值": _money(r[COL["优惠金额（价值）"]]),
+            "选校金额": _money(r[COL["选校金额"]]),
+            "补充金额": _money(r[COL["补充金额"]]),
+            "退费": _money(r[COL["退费总金额"]]),
+            # 现金 / 履约
             "已收": _money(r[COL["已收服务费总额"]]),
+            "已交付": _money(r[COL["转收入含税"]]),       # 已确认收入（含税）
             "预收余额": _money(r[COL["预收余额（RMB）"]]),
         }
         by_name[name.strip()].append(record)
@@ -223,6 +249,8 @@ def consolidate_contracts(records):
     for r in records:
         by_name[r["名称"]].append(r)
 
+    sum_fields = ["主合同金额", "签约金额", "优惠减钱", "优惠价值",
+                  "选校金额", "补充金额", "退费", "已收", "已交付", "预收余额"]
     consolidated = []
     for name, group in by_name.items():
         if len(group) == 1:
@@ -232,12 +260,9 @@ def consolidate_contracts(records):
             "名称": name,
             "大类": group[0]["大类"],
             "签约日期": min(g["签约日期"] for g in group if g["签约日期"]) or "",
-            "主合同金额": sum(g["主合同金额"] for g in group),
-            "优惠减钱": sum(g["优惠减钱"] for g in group),
-            "优惠价值": sum(g["优惠价值"] for g in group),
-            "已收": sum(g["已收"] for g in group),
-            "预收余额": sum(g["预收余额"] for g in group),
         }
+        for f in sum_fields:
+            merged[f] = sum(g.get(f, 0) for g in group)
         consolidated.append(merged)
     # 按签约日期升序
     consolidated.sort(key=lambda r: (r["签约日期"] or "9999"))
@@ -292,7 +317,11 @@ def remove_yaml_field(yaml_text, field):
 
 
 def render_contracts_yaml(categories, contracts):
-    """生成 合同 + 合同明细 两个字段的 YAML 文本。"""
+    """生成 合同 + 合同明细 两个字段的 YAML 文本。
+
+    合同明细字段顺序：基本（名称/大类/签约日期）→ 合同价 → 优惠 → 现金/履约。
+    可选字段（选校/补充/退费/优惠价值）== 0 时不写出，让 YAML 简洁。
+    """
     cats = sorted(set(categories))
     cats_inline = "[" + ", ".join(cats) + "]"
 
@@ -303,12 +332,20 @@ def render_contracts_yaml(categories, contracts):
     for c in contracts:
         lines.append(f"  - 名称: {c['名称']}")
         lines.append(f"    大类: {c['大类']}")
-        if c["签约日期"]:
+        if c.get("签约日期"):
             lines.append(f"    签约日期: {c['签约日期']}")
+        # 合同价
         lines.append(f"    主合同金额: {c['主合同金额']}")
-        lines.append(f"    优惠减钱: {c['优惠减钱']}")
-        lines.append(f"    优惠价值: {c['优惠价值']}")
+        lines.append(f"    签约金额: {c['签约金额']}")
+        # 优惠 / 加项 / 退费 — 只在非零时写
+        if c.get("优惠减钱"): lines.append(f"    优惠减钱: {c['优惠减钱']}")
+        if c.get("优惠价值"): lines.append(f"    优惠价值: {c['优惠价值']}")
+        if c.get("选校金额"): lines.append(f"    选校金额: {c['选校金额']}")
+        if c.get("补充金额"): lines.append(f"    补充金额: {c['补充金额']}")
+        if c.get("退费"):     lines.append(f"    退费: {c['退费']}")
+        # 现金 / 履约
         lines.append(f"    已收: {c['已收']}")
+        lines.append(f"    已交付: {c['已交付']}")
         lines.append(f"    预收余额: {c['预收余额']}")
     return "\n".join(lines)
 

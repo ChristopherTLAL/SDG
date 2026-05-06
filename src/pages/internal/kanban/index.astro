@@ -39,11 +39,18 @@ type ContractDetail = {
   名称?: string;
   大类?: string;
   签约日期?: string;
-  主合同金额?: number;
+  // 合同价
+  主合同金额?: number;       // sticker
+  签约金额?: number;         // 实际签约（ERP 实时）= 主合同 - 优惠减钱 + 选校 + 补充
   优惠减钱?: number;
   优惠价值?: number;
-  已收?: number;
-  预收余额?: number;
+  选校金额?: number;
+  补充金额?: number;
+  退费?: number;
+  // 现金 / 履约
+  已收?: number;             // 实际到账
+  已交付?: number;           // 已确认收入（含税）= 转收入含税
+  预收余额?: number;         // 已收 - 已交付（是已收的子集，不是独立账户）
 };
 
 const allStudents = (rawStudents ?? []) as Array<{
@@ -348,27 +355,30 @@ const liuxueDonut  = buildDonut(liuxueData, 10);
 const productDonut = buildDonut(productData, 12);
 
 // ── Widget: KPI banner + 顾问业绩综合表 (财务 ERP 同步衍生) ──
-// 一次循环算 KPI 全局值 + per-advisor metrics。
-// 归属规则统一用 mid_advisors[0]（主签约者），不平摊—— 1 学生 1 行，metric 自洽。
 //
-// 客单价 = 学生 sum(主合同金额 − 优惠减钱)，单位 ¥
-// 优惠率 = sum(优惠减钱 + 优惠价值) / sum(主合同金额) — 含赠送价值
-// median(P50) 用于补充均值，因为 Max ¥80k+ 会拉高均值，P50 显示典型学生价格
+// 财务字段链条（必懂，避免再犯"已收+预收当独立账户加"的错）：
+//   主合同金额 (sticker) ─→ 签约金额（实时） ─→ 已收 ─→ 已交付 (= 转收入含税)
+//                            (= 主-减钱+选校+补充)         └─ 预收余额 (= 已收 - 已交付)
+// 关键：预收余额 是已收的子集，不是独立账户。已收 = 已交付 + 预收余额。
+// 总营收口径用 签约金额（ERP 权威值，已含选校/补充/扣减优惠）— 不再用 主合同-减钱 推算。
 //
-// totalSigning / received / prepay 同时是 KPI banner 的全局总数（团队层）。
+// 归属规则统一 mid_advisors[0] 主签约者，1 学生 1 行 metric 自洽。
+// 客单价 = 学生 sum(签约金额)
+// 优惠率 = sum(优惠减钱 + 优惠价值) / sum(主合同金额)
 type AdvisorPerf = {
   advisor: string;
   studentCount: number;
-  totalSigning: number;       // sum 学生客单价（= sum 主合同 − 减钱）
-  mainTotal: number;          // sum 主合同金额（优惠率分母）
-  discountCash: number;       // sum 优惠减钱（"优惠减钱"列）
-  discountTotal: number;      // sum (优惠减钱 + 优惠价值)（优惠率分子）
+  totalSigning: number;        // sum 学生签约金额
+  mainTotal: number;           // sum 主合同金额（优惠率分母）
+  discountCash: number;        // sum 优惠减钱（仅减钱）
+  discountTotal: number;       // sum (优惠减钱 + 优惠价值)（优惠率分子）
   perStudentAmounts: number[]; // 每学生客单价 array — 算 mean / P50
 };
 
-let totalSigning = 0;
-let totalReceived = 0;
-let totalPrepay = 0;
+let totalSigning = 0;     // sum(签约金额)
+let totalReceived = 0;    // sum(已收)
+let totalDelivered = 0;   // sum(已交付)
+let totalPrepay = 0;      // sum(预收余额) — 注意 = totalReceived - totalDelivered
 let signedStudentCount = 0;
 const advisorPerfMap = new Map<string, AdvisorPerf>();
 
@@ -376,16 +386,16 @@ for (const s of students) {
   const details = s.contract_details ?? [];
   if (!details.length) continue;
   signedStudentCount++;
-  const studentTotal = details.reduce((sum, d) =>
-    sum + (Number(d['主合同金额']) || 0) - (Number(d['优惠减钱']) || 0), 0);
+  const studentSigning = details.reduce((sum, d) => sum + (Number(d['签约金额']) || 0), 0);
   const mainTotal = details.reduce((sum, d) => sum + (Number(d['主合同金额']) || 0), 0);
   const discountCash = details.reduce((sum, d) => sum + (Number(d['优惠减钱']) || 0), 0);
   const discountTotal = details.reduce((sum, d) =>
     sum + (Number(d['优惠减钱']) || 0) + (Number(d['优惠价值']) || 0), 0);
 
-  totalSigning += studentTotal;
+  totalSigning += studentSigning;
   for (const d of details) {
     totalReceived += Number(d['已收']) || 0;
+    totalDelivered += Number(d['已交付']) || 0;
     totalPrepay += Number(d['预收余额']) || 0;
   }
 
@@ -398,11 +408,11 @@ for (const s of students) {
   }
   const e = advisorPerfMap.get(primary)!;
   e.studentCount++;
-  e.totalSigning += studentTotal;
+  e.totalSigning += studentSigning;
   e.mainTotal += mainTotal;
   e.discountCash += discountCash;
   e.discountTotal += discountTotal;
-  e.perStudentAmounts.push(studentTotal);
+  e.perStudentAmounts.push(studentSigning);
 }
 
 const avgPerStudent = signedStudentCount ? Math.round(totalSigning / signedStudentCount) : 0;
@@ -488,20 +498,26 @@ function fmtMoney(n: number): string {
       : <>业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。</>}
   </p>
 
-  <!-- ── KPI banner — 财务 ERP 同步衍生 (头部速览) ── -->
+  <!-- ── KPI banner — 财务 ERP 同步衍生 (头部速览) ──
+       钱链：签约 → 已收 → 已交付 + 预收（已交付 + 预收 = 已收）。
+       注意：预收余额 是 已收 的子集（unearned portion），不是独立账户。 -->
   {signedStudentCount > 0 && (
     <div class="kpi-banner">
       <div class="kpi-card">
         <div class="kpi-card__value font-mono">{fmtMoney(totalSigning)}</div>
-        <div class="kpi-card__label">总签约额（主合同 − 优惠减钱）</div>
+        <div class="kpi-card__label">总签约额</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-card__value font-mono">{fmtMoney(avgPerStudent)}</div>
         <div class="kpi-card__label">平均客单价</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{fmtMoney(totalReceived)}</div>
-        <div class="kpi-card__label">已收（含税）· 预收余额 {fmtMoney(totalPrepay)}</div>
+        <div class="kpi-card__value font-mono">{fmtMoney(totalDelivered)}</div>
+        <div class="kpi-card__label">已交付收入（已确认）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__value font-mono">{fmtMoney(totalPrepay)}</div>
+        <div class="kpi-card__label">预收余额（待交付）</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-card__value font-mono">{signedStudentCount}<span class="kpi-card__value-unit"> / {students.length}</span></div>
