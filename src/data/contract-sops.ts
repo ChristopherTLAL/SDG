@@ -36,6 +36,14 @@ export type ContractSOP = {
   groupName?: string;
   variant?: string;
 
+  // ── Tier-aware routing (for 跃领 系) ──
+  // 跃领 vault YAML 合同 字段全是 "跃领"（不带 Max/Pro/标准 区分）；分级在
+  // 单独字段 跃领分级（Max / Pro / 标准 / 博士 / 本科）。这个字段让 SOP 按
+  // 学生实际分级路由：findSOPsForStudent(contracts, yuelingTier) 时只匹配
+  // tierMatch === yuelingTier 的 SOP；findSOPByContract（无 tier context）
+  // 跳过有 tierMatch 的 SOP，落到 yueling-default catch-all。
+  tierMatch?: string;
+
   // ── Hero fields (rendered on /internal/kanban/contracts/[name]) ──
   // All optional — placeholder shown if missing. Fill in as you confirm
   // the values; safe to ship with these blank.
@@ -412,6 +420,107 @@ const yuelingOverseasMentorBooking: Deliverable = {
 跃领规划师`,
 };
 
+// Pro-only: 职业发展指导课程
+const yuelingProCareerCourse: Deliverable = {
+  key: 'yl-pro-career-course',
+  title: '职业发展指导课程预约（Pro 专属）',
+  emailSubject: '【新东方前途英国跃领计划研究生-Pro版】职业发展指导课程预约',
+  emailBody: `{{学生姓名}}同学：
+
+你好！
+
+我是你的规划导师{{中期顾问}}，结合前期职业测评反馈和 CSAP 深度访谈沟通，我对你的背景情况已经有了进一步了解。为了帮助你在留学申请准备过程中做好长期的职业发展规划，接下来我将为你匹配合适的职业导师并进行相关职业课程的安排。
+
+请查看下方的【职业发展课程表】，从课程中任选两个主题（建议：1. 行业定位 + 2. 岗位梳理）。
+
+▎课程主题
+1. 行业定位：导师将结合学员兴趣、专业背景和职业目标，分析当前行业发展趋势和就业机会，明确适合的行业方向
+2. 岗位梳理：结合学员的职业目标和个人优势，梳理优选岗位与次选岗位，明确能力提升方向
+3. 简历诊断：诊断学员简历不足点，并提供精修指导，产出可投递版本
+4. 实习/科研建议：根据职业目标和能力水平，提供方向建议，避免盲目投递
+
+▎职业导师课程安排（新东方云教室）
+- 反馈你计划参加的两个课程主题
+- 在你方便的时间段内打钩（请至少选 5 个时段）
+- 课程安排好后，请提前 10 分钟登录【新东方云教室】测试
+
+请使用报名时记录的手机号登录-选择自动登录。
+
+{{中期顾问}}
+跃领规划师`,
+};
+
+// Max-only: 生涯规划指导课程（录播）
+const yuelingMaxLifeCareerCourse: Deliverable = {
+  key: 'yl-max-life-career',
+  title: '生涯规划指导课程（Max 专属）',
+  emailSubject: '【新东方前途英国跃领计划研究生-Max版】生涯规划指导课程安排',
+  emailBody: `{{学生姓名}}同学：
+
+你好！
+
+我是你的规划导师{{中期顾问}}，结合前期职业测评反馈和 CSAP 四维访谈沟通，我对你的背景情况和未来发展计划已经有了进一步了解。为了帮助你做好长期的生涯发展规划，我们安排了以下四个主题的录播课程：
+
+第一讲：学习风格和从经验中学习
+第二讲：思维发展和构建发展主义
+第三讲：设计思维和生涯设计
+第四讲：主观能动性、成长思维和终身发展
+
+请查看附件【课程海报】，扫码完成课程。完成课程后，请通过附件进行相关课程的反馈总结，更好地通过本阶段的课程提升自己的软性实力，并在长期生涯规划中有更好的成长。
+
+{{中期顾问}}
+跃领规划师`,
+};
+
+// Pro-only: 国内教授科研项目（vault YAML 合同明细 中对应 "境内科研" / "【就业力】*国内导师科研" 系列）
+const yuelingProDomesticResearch: Deliverable = {
+  key: 'yl-pro-domestic-research',
+  title: '国内教授科研项目预约（Pro 专属，需反馈）',
+  emailSubject: '【新东方前途英国跃领计划研究生-Pro版】国内教授科研项目预约（需反馈）',
+  emailBody: `{{学生姓名}}同学：
+
+你好！
+
+我是你的规划导师{{中期顾问}}，接下来为了更好的帮助你进行后续的申请规划提升，我们将会为你安排合适的国内教授科研项目。国内科研项目导师（来自 C9 / 中科院）将在线指导，通过项目制及研究性学习的方式，增进学生的研究能力、批判性思维、交流与合作、科研能力及陈述总结技能。
+
+结合前期的沟通反馈，我为你筛选了相关科研项目（详见附件项目海报）。请尽快反馈最终计划参加的项目，以便后续顺利开启。
+
+▎本项目特殊说明
+1. 若第一次投递后录用失败，本项目论文导师会协助申请人选择合适的 EI/CPCI/Scopus/ProQuest/Crossref/EBSCO 或同等级别国际会议进行重投，最多不超过 3 次
+2. 申请人需获得论文导师书面认可的投递确认书后方可投递，否则不再协助二次投递
+3. 如按要求投递但失败，项目方会在首次失败 1 周内免费指导学生根据编辑意见完善论文，申请人需在修改完成后 1 周内进行第二次投递
+4. 如因个人原因，在第一次论文指导后 8 周内不能完成（含全文写作、修改与投递），则项目服务终止
+5. 在导师指导下按时、按质、按量完成全部服务内容
+6. 严禁任何违背学术道德的行为（代写、数据造假、抄袭等）
+
+{{中期顾问}}
+跃领规划师`,
+};
+
+// Max-only: 海外教授科研项目（vault YAML 合同明细 中对应 跃领-科研addon = 海外名校导师远程科研）
+const yuelingMaxOverseasResearch: Deliverable = {
+  key: 'yl-max-overseas-research',
+  title: '海外教授科研项目预约（Max 专属，需反馈）',
+  emailSubject: '【新东方前途英国跃领计划研究生-Max版】海外教授科研项目预约（需反馈）',
+  emailBody: `{{学生姓名}}同学：
+
+你好！
+
+我是你的规划导师{{中期顾问}}，接下来为了更好的帮助你进行后续的申请规划提升，我们将为你安排合适的海外教授科研项目。海外教授导师（来自 G5/QS TOP30）为学生提供灵活多元的项目参与模式，以满足不同领域学生的专业化学习需求。学生在 12 个月的时间内，通过在线项目制学习环境，围绕选题完成科学系统的学术项目，打磨实战经验、扩充科研经历，从而增进个人能力。
+
+结合前期的沟通反馈，我为你筛选了相关科研项目（详见附件项目介绍）。请尽快反馈最终计划参加的项目。
+
+▎本项目特殊说明
+1. 申请人选择项目课题后，可任选小组共同一作或唯一作者投递与发表指导，需要在正式开课前确认，确认后无法更改
+2. 学术指导老师会指导申请人选择合适的国际英文会议进行文章投递，最多不超过 3 次
+3. 申请人可以选择参与或不参与配套论文服务；若参与，前途公司不因此额外收取费用；若不参与，亦不退费
+4. 在导师指导下，按时、按质、按量完成导师布置的各项任务，完成科研项目的全部服务内容
+5. 严禁任何违背学术道德的行为（代写、数据造假、抄袭等），一旦发现将立即终止项目服务
+
+{{中期顾问}}
+跃领规划师`,
+};
+
 // ─── SOP definitions ───────────────────────────────────────
 //
 // matchPatterns are substring-tested against vault YAML 合同 list items.
@@ -456,11 +565,65 @@ export const SOPS: ContractSOP[] = [
     pricing: 'TBD',
     targetAudience: '英国本科申请人',
   },
+  // 跃领硕士 — 按学生 跃领分级 字段路由 Max/Pro/标准 不同 deliverable 套餐：
+  //   Max: 标准 8 件 + 生涯规划录播课 + 海外教授科研项目（境外）
+  //   Pro: 标准 8 件 + 职业发展课程（任选 2）+ 国内教授科研项目（境内）
+  //   标准: 标准 8 件
+  // tierMatch 让 findSOPsForStudent 按学生 跃领分级 选对 SOP；findSOPByContract
+  // 没 tier 上下文，跳过 tierMatch SOPs，落到 yueling-default catch-all。
   {
-    id: 'yueling',
-    displayName: '英国跃领计划研究生',
+    id: 'yueling-max',
+    displayName: '英国跃领计划研究生 · Max版',
     groupName: '跃领计划',
+    variant: 'Max版',
     matchPatterns: ['跃领'],
+    tierMatch: 'Max',
+    deliverables: [
+      yuelingKickoff('Max版'),
+      yuelingCareerAssessment,
+      yuelingCsapInterview,
+      yuelingMaxLifeCareerCourse,
+      yuelingMajorDeepDive,
+      yuelingBrainstormFeedback,
+      yuelingMaxOverseasResearch,
+      yuelingCsapSummary,
+      yuelingPSBrainstorm,
+      yuelingOverseasMentorBooking,
+    ],
+    description: '英国跃领计划最高阶：标准版 + 生涯规划指导录播课 + G5/QS TOP30 海外教授指导的远程科研项目。',
+    pricing: 'TBD',
+    targetAudience: '冲刺英国 G5、需要海外科研背景的研究生申请人',
+  },
+  {
+    id: 'yueling-pro',
+    displayName: '英国跃领计划研究生 · Pro版',
+    groupName: '跃领计划',
+    variant: 'Pro版',
+    matchPatterns: ['跃领'],
+    tierMatch: 'Pro',
+    deliverables: [
+      yuelingKickoff('Pro版'),
+      yuelingCareerAssessment,
+      yuelingCsapInterview,
+      yuelingProCareerCourse,
+      yuelingMajorDeepDive,
+      yuelingBrainstormFeedback,
+      yuelingProDomesticResearch,
+      yuelingCsapSummary,
+      yuelingPSBrainstorm,
+      yuelingOverseasMentorBooking,
+    ],
+    description: '英国跃领计划进阶：标准版 + 职业发展课程（4 主题任选 2）+ C9 / 中科院导师指导的国内科研项目。',
+    pricing: 'TBD',
+    targetAudience: '目标英国 TOP10、希望强化职业方向 + 国内科研背景的研究生申请人',
+  },
+  {
+    id: 'yueling-standard',
+    displayName: '英国跃领计划研究生 · 标准版',
+    groupName: '跃领计划',
+    variant: '标准版',
+    matchPatterns: ['跃领'],
+    tierMatch: '标准',
     deliverables: [
       yuelingKickoff('标准版'),
       yuelingCareerAssessment,
@@ -471,7 +634,28 @@ export const SOPS: ContractSOP[] = [
       yuelingPSBrainstorm,
       yuelingOverseasMentorBooking,
     ],
-    description: '英国跃领计划研究生：LEAD 四大维度赋能（学术 / 职业 / 协同 / 文书）+ 海外学术导师课程，覆盖从规划到递交全流程。具体变体（Max / Pro / 标准）见学生 合同明细 字段的 主合同金额。',
+    description: '英国跃领计划基础版：LEAD 四大维度赋能（学术 / 职业 / 协同 / 文书）+ 海外学术导师课程，覆盖从规划到递交全流程。',
+    pricing: 'TBD',
+    targetAudience: '目标英国 TOP30 名校、希望系统化规划的研究生申请人',
+  },
+  {
+    id: 'yueling-default',
+    displayName: '英国跃领计划研究生',
+    groupName: '跃领计划',
+    matchPatterns: ['跃领'],
+    // catch-all：当学生 跃领分级 为空 / 跳过 / 未匹配（罕见）时使用，
+    // 也用于 kanban donut 聚合（findSOPByContract 跳过 tierMatch SOPs）。
+    deliverables: [
+      yuelingKickoff('标准版'),
+      yuelingCareerAssessment,
+      yuelingCsapInterview,
+      yuelingMajorDeepDive,
+      yuelingBrainstormFeedback,
+      yuelingCsapSummary,
+      yuelingPSBrainstorm,
+      yuelingOverseasMentorBooking,
+    ],
+    description: '英国跃领计划研究生（学生分级未指定）— 默认按标准版交付清单匹配。',
     pricing: 'TBD',
     targetAudience: '英国硕士留学申请人',
   },
@@ -679,6 +863,7 @@ export const SOPS: ContractSOP[] = [
 
 // Convenience: resolve the umbrella group label for a contract name.
 // Returns SOP.groupName when matched, the contract name otherwise.
+// 注意：聚合用，不传 tier — 跃领系任意 tier 都聚合到 '跃领计划' 一个 group。
 export function resolveContractGroup(contractName: string): string {
   const sop = findSOPByContract(contractName);
   return sop?.groupName ?? contractName;
@@ -690,9 +875,15 @@ export function variantsForGroup(groupName: string): ContractSOP[] {
 }
 
 // Find the SOP matching an arbitrary contract name (or null if none).
-// Same precedence rule as findSOPsForStudent — first match wins.
-export function findSOPByContract(contractName: string): ContractSOP | null {
+// 当 yuelingTier 传入时，匹配 tierMatch === yuelingTier 的 SOP；否则跳过所有
+// 有 tierMatch 的 SOP（落到 default catch-all）。这样 kanban 聚合 / 通用页
+// 调用不传 tier 时仍能拿到稳定结果，学生详情页传 tier 时能拿到精准 SOP。
+export function findSOPByContract(
+  contractName: string,
+  yuelingTier?: string | null,
+): ContractSOP | null {
   for (const sop of SOPS) {
+    if (sop.tierMatch && sop.tierMatch !== yuelingTier) continue;
     if (sop.matchPatterns.some(p => contractName.includes(p))) return sop;
   }
   return null;
@@ -705,15 +896,19 @@ export type MatchedSOP = {
   contractName: string;  // the original contract string from the YAML
 };
 
-export function findSOPsForStudent(contracts: string[] | null | undefined): MatchedSOP[] {
+export function findSOPsForStudent(
+  contracts: string[] | null | undefined,
+  yuelingTier?: string | null,
+): MatchedSOP[] {
   if (!contracts || contracts.length === 0) return [];
   const matched: MatchedSOP[] = [];
   const seenSopIds = new Set<string>();
   for (const c of contracts) {
     for (const sop of SOPS) {
+      // tierMatch 路由：只匹配 tierMatch === yuelingTier 的 SOP；
+      // 没 tierMatch 的 SOP 是 fallback / 跃领系外的常规 SOP，照常匹配。
+      if (sop.tierMatch && sop.tierMatch !== yuelingTier) continue;
       if (sop.matchPatterns.some(p => c.includes(p))) {
-        // Don't dedupe by SOP id — a student could legitimately have multiple
-        // contracts of the same type (rare). But keep it simple: dedupe.
         if (!seenSopIds.has(sop.id)) {
           matched.push({ sop, contractName: c });
           seenSopIds.add(sop.id);

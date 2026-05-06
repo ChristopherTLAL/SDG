@@ -63,7 +63,7 @@ const renderedNotes = (notes ?? []).map(n => ({
 
 // Match contracts to SOP definitions and pre-substitute placeholders so the
 // emails appear with the student's name + advisor already filled in.
-const matchedSOPs = findSOPsForStudent(student.contracts).map(m => ({
+const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier).map(m => ({
   contractName: m.contractName,
   sop: m.sop,
   deliverables: m.sop.deliverables.map(d => ({
