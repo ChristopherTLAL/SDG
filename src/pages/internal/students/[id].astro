@@ -545,7 +545,14 @@ const metaRows: Row[] = [
     margin: 0 0 6px;
     padding: 0;
     display: grid;
+    /* minmax(0, 1fr) 关键 — grid item 默认 min-width: auto (= min-content) 拒绝
+       缩到内容下，长合同名（30+ 中文字符）会撑爆 240px sidebar 内容区。
+       0 minimum 让 grid item 真的能缩到 0 触发 ellipsis 链。 */
+    grid-template-columns: minmax(0, 1fr);
     gap: 4px;
+  }
+  .contract-detail-list > li {
+    min-width: 0;  /* 双保险 — 即使 grid 模板变了也不会回归 min-content */
   }
   .contract-detail {
     border: 1px solid var(--border);
