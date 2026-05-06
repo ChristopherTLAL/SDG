@@ -11,7 +11,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../utils/contact-radar';
-import { resolveContractGroup } from '../../../data/contract-sops';
+import { findSOPByContract } from '../../../data/contract-sops';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -32,7 +32,18 @@ const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰'
 // these are historical and would skew the live business picture.
 const { data: rawStudents } = await supabase
   .from('students')
-  .select('id, name, stage, current_school, target_regions, mid_advisors, enroll_years, contracts');
+  .select('id, name, stage, current_school, target_regions, mid_advisors, enroll_years, contracts, contract_details, yueling_tier');
+
+type ContractDetail = {
+  名称?: string;
+  大类?: string;
+  签约日期?: string;
+  主合同金额?: number;
+  优惠减钱?: number;
+  优惠价值?: number;
+  已收?: number;
+  预收余额?: number;
+};
 
 const allStudents = (rawStudents ?? []) as Array<{
   id: number;
@@ -43,6 +54,8 @@ const allStudents = (rawStudents ?? []) as Array<{
   mid_advisors: string[] | null;
   enroll_years: string[] | null;
   contracts: string[] | null;
+  contract_details: ContractDetail[] | null;  // 财务 ERP 合同明细 (derived data)
+  yueling_tier: string | null;                // Max / Pro / 标准 / 博士 / 本科
 }>;
 
 const studentsBeforeAdvisor = allStudents.filter(s => {
@@ -282,22 +295,29 @@ advisors.forEach((a, ai) => {
   });
 });
 
-// ── Widget 3: 合同分布 ──
-// Aggregate by GROUP (跃领计划 / 格物计划) when the contract matches a SOP
-// with a groupName — so 跃领-Standard / Pro / Max all roll up to one
-// "跃领计划" slice in the donut. Contracts without a group fall back to
-// their raw vault name (e.g. 启航, 菁英, 私单).
-const contractCounts = new Map<string, number>();
+// ── Widget 3 & 3b: 合同分布（拆 留学 vs 产品 两个 donut） ──
+// 留学合同：vault 合同字段值能匹配到 SOP 的（跃领/格物/菁英/亚洲英语系高端 等留学
+// 产品大类）。产品合同：财务 ERP 同步进来的 add-on 类（就业力/学术指导/科研/英语/
+// 背景提升/签证/境外服务/英领），无 SOP 匹配，直接用合同名。
+const liuxueCounts = new Map<string, number>();
+const productCounts = new Map<string, number>();
 for (const s of students) {
   for (const c of s.contracts ?? []) {
     const v = c.trim();
     if (!v) continue;
     if (!canSeePrivate && PRIVATE_CONTRACTS.has(v)) continue;
-    const key = resolveContractGroup(v);
-    contractCounts.set(key, (contractCounts.get(key) ?? 0) + 1);
+    const sop = findSOPByContract(v);
+    if (sop && sop.groupName) {
+      liuxueCounts.set(sop.groupName, (liuxueCounts.get(sop.groupName) ?? 0) + 1);
+    } else {
+      productCounts.set(v, (productCounts.get(v) ?? 0) + 1);
+    }
   }
 }
-const contractData = Array.from(contractCounts.entries())
+const liuxueData = Array.from(liuxueCounts.entries())
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => b.count - a.count);
+const productData = Array.from(productCounts.entries())
   .map(([name, count]) => ({ name, count }))
   .sort((a, b) => b.count - a.count);
 
@@ -315,25 +335,93 @@ for (const s of studentsBeforeAdvisor) {
 }
 
 // Donut payload — top-N + 其他 bucket so the slices stay legible.
-const TOP_CONTRACTS = 10;
-const contractDonut = (() => {
-  const top = contractData.slice(0, TOP_CONTRACTS);
-  const rest = contractData.slice(TOP_CONTRACTS);
+function buildDonut(rows: { name: string; count: number }[], topN: number) {
+  const top = rows.slice(0, topN);
+  const rest = rows.slice(topN);
   const restSum = rest.reduce((s, x) => s + x.count, 0);
   const out = top.map(c => ({ name: c.name, value: c.count }));
   if (restSum > 0) out.push({ name: `其他 (${rest.length} 种)`, value: restSum });
   return out;
-})();
+}
+const liuxueDonut  = buildDonut(liuxueData, 10);
+const productDonut = buildDonut(productData, 12);
+
+// ── Widget: 跃领分级 donut ──
+// Max / Pro / 标准 / 博士 / 本科 — 跨跃领系学生的产品分布。
+// 跃领系定义：合同字段含任何"跃领"开头的项 → 应有 yueling_tier 字段。
+const TIER_ORDER = ['Max', 'Pro', '标准', '博士', '本科'];
+const tierCounts = new Map<string, number>();
+for (const s of students) {
+  if (s.yueling_tier) tierCounts.set(s.yueling_tier, (tierCounts.get(s.yueling_tier) ?? 0) + 1);
+}
+const tierDonut = TIER_ORDER
+  .map(t => ({ name: t, value: tierCounts.get(t) ?? 0 }))
+  .filter(d => d.value > 0);
+
+// ── Widget: KPI banner（总签约额 / 平均客单价 / 在签学生）──
+// 财务 ERP 同步进来的合同明细推算。学生数限定为"有合同明细"的学生（即财务表
+// 里能找到至少一份合同的人）。
+let totalSigning = 0;   // sum(主合同金额 - 优惠减钱) 跨所有学生所有合同
+let totalReceived = 0;  // sum(已收)
+let totalPrepay = 0;    // sum(预收余额)
+let signedStudentCount = 0;
+const advisorRevenueMap = new Map<string, { total: number; students: Set<number> }>();
+for (const s of students) {
+  const details = s.contract_details ?? [];
+  if (!details.length) continue;
+  signedStudentCount++;
+  const studentTotal = details.reduce((sum, d) => {
+    const main = Number(d['主合同金额']) || 0;
+    const cashDiscount = Number(d['优惠减钱']) || 0;
+    return sum + main - cashDiscount;
+  }, 0);
+  totalSigning += studentTotal;
+  for (const d of details) {
+    totalReceived += Number(d['已收']) || 0;
+    totalPrepay += Number(d['预收余额']) || 0;
+  }
+  // Advisor attribution: split equally across multi-advisor students.
+  const advisors = (s.mid_advisors ?? []).filter(Boolean);
+  const splitTo = advisors.length ? advisors : ['未填'];
+  const perAdvisor = studentTotal / splitTo.length;
+  for (const a of splitTo) {
+    if (!advisorRevenueMap.has(a)) advisorRevenueMap.set(a, { total: 0, students: new Set() });
+    const e = advisorRevenueMap.get(a)!;
+    e.total += perAdvisor;
+    e.students.add(s.id);
+  }
+}
+const avgPerStudent = signedStudentCount ? Math.round(totalSigning / signedStudentCount) : 0;
+
+const advisorRanking = Array.from(advisorRevenueMap.entries())
+  .map(([advisor, e]) => ({
+    advisor,
+    total: Math.round(e.total),
+    studentCount: e.students.size,
+    avg: Math.round(e.total / e.students.size),
+  }))
+  .sort((a, b) => b.total - a.total);
 
 // Hash-stable color maps for the treemap and donut. The 其他 bucket gets
 // the neutral grey so it never visually competes with named entries.
 const namedSchools = schoolChartData.filter(d => !d.name.startsWith('其他')).map(d => d.name);
 const schoolColorMap = buildStableColorMap(namedSchools);
-const namedContracts = contractDonut.filter(c => !c.name.startsWith('其他')).map(c => c.name);
-const contractColorMap = buildStableColorMap(namedContracts);
+const namedLiuxue = liuxueDonut.filter(c => !c.name.startsWith('其他')).map(c => c.name);
+const namedProducts = productDonut.filter(c => !c.name.startsWith('其他')).map(c => c.name);
+const liuxueColorMap = buildStableColorMap(namedLiuxue);
+const productColorMap = buildStableColorMap(namedProducts);
+// 跃领分级：5 个 tier 用固定色，避免随排序漂
+const TIER_COLORS: Record<string, string> = {
+  'Max':   '#7B5E7B',  // smoky purple — top tier
+  'Pro':   '#9D7BA0',  // light purple
+  '标准':  '#B8B5BC',  // neutral mauve
+  '博士':  '#7BA0A0',  // dusty teal — separate product line
+  '本科':  '#A0907B',  // dusty bronze
+};
 // Plain object for JSON-serialization into the client payload.
-const schoolColors: Record<string, string>   = Object.fromEntries(schoolColorMap);
-const contractColors: Record<string, string> = Object.fromEntries(contractColorMap);
+const schoolColors:  Record<string, string> = Object.fromEntries(schoolColorMap);
+const liuxueColors:  Record<string, string> = Object.fromEntries(liuxueColorMap);
+const productColors: Record<string, string> = Object.fromEntries(productColorMap);
 
 // Stage palette — pure purple progression (light → smoky purple). Pipeline
 // reads as a single hue deepening as students move through the funnel,
@@ -358,9 +446,18 @@ const chartPayload = {
   weeks: weeks.map(w => w.label),
   heatmapData,
   heatmapMax,
-  contractDonut,
-  contractColors,
+  liuxueDonut,
+  liuxueColors,
+  productDonut,
+  productColors,
+  tierDonut,
+  tierColors: TIER_COLORS,
 };
+
+// 千分位格式化：¥1,234,567
+function fmtMoney(n: number): string {
+  return '¥' + Math.round(n).toLocaleString('en-US');
+}
 ---
 
 <InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
@@ -372,6 +469,28 @@ const chartPayload = {
       ? <>{advisorFilter} 名下在管学生 <strong style="color: var(--text);">{students.length}</strong>。下方四个图按这位顾问筛选；顾问活动热力图始终显示团队全貌。</>
       : <>业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。</>}
   </p>
+
+  <!-- ── KPI banner — 财务 ERP 同步衍生 (头部速览) ── -->
+  {signedStudentCount > 0 && (
+    <div class="kpi-banner">
+      <div class="kpi-card">
+        <div class="kpi-card__value font-mono">{fmtMoney(totalSigning)}</div>
+        <div class="kpi-card__label">总签约额（主合同 − 优惠减钱）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__value font-mono">{fmtMoney(avgPerStudent)}</div>
+        <div class="kpi-card__label">平均客单价</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__value font-mono">{fmtMoney(totalReceived)}</div>
+        <div class="kpi-card__label">已收（含税）· 预收余额 {fmtMoney(totalPrepay)}</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-card__value font-mono">{signedStudentCount}<span class="kpi-card__value-unit"> / {students.length}</span></div>
+        <div class="kpi-card__label">在签学生 / 在管学生</div>
+      </div>
+    </div>
+  )}
 
   <!-- Advisor filter chip strip — toggles 4 widgets (school / region /
        stage-year / contract). Heatmap always team-wide. -->
@@ -395,7 +514,10 @@ const chartPayload = {
         <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
         <li><a href="#kanban-regions">申请地区</a></li>
         <li><a href="#kanban-schools">在读学校</a></li>
-        <li><a href="#kanban-contracts">合同</a></li>
+        <li><a href="#kanban-liuxue">留学合同</a></li>
+        <li><a href="#kanban-products">产品合同</a></li>
+        <li><a href="#kanban-tier">跃领分级</a></li>
+        <li><a href="#kanban-advisor-revenue">顾问营收</a></li>
       </ul>
     </aside>
 
@@ -491,17 +613,97 @@ const chartPayload = {
         )}
       </section>
 
-      <!-- ── 合同分布（donut；扇形可点进入合同 profile） ── -->
-      <section id="kanban-contracts" class="section-card">
+      <!-- ── 留学合同（donut；扇形可点进入合同 profile） ── -->
+      <section id="kanban-liuxue" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">{contractData.length} 种合同 · 点扇形进入合同详情</span>
+            留学合同 <span class="section-card__subtitle">{liuxueData.length} 个产品大类 · 点扇形进入合同详情</span>
           </h2>
         </div>
-        {contractData.length === 0 ? (
-          <p class="section-card__empty">暂无合同数据。</p>
+        {liuxueData.length === 0 ? (
+          <p class="section-card__empty">暂无留学合同数据。</p>
         ) : (
-          <div id="chart-contracts-donut" style="width: 100%; height: 480px;"></div>
+          <div id="chart-liuxue-donut" style="width: 100%; height: 480px;"></div>
+        )}
+      </section>
+
+      <!-- ── 产品合同（add-on / 搭售） ── -->
+      <section id="kanban-products" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            产品合同 <span class="section-card__subtitle">{productData.length} 个产品 · 来自财务 ERP 同步（add-on / 搭售）</span>
+          </h2>
+        </div>
+        {productData.length === 0 ? (
+          <p class="section-card__empty">暂无产品合同数据。</p>
+        ) : (
+          <div id="chart-products-donut" style="width: 100%; height: 480px;"></div>
+        )}
+      </section>
+
+      <!-- ── 跃领分级 donut ── -->
+      <section id="kanban-tier" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            跃领分级
+            <span class="section-card__subtitle">
+              Max（境外科研）/ Pro（境内科研）/ 标准 / 博士 / 本科 ·
+              {tierDonut.reduce((s, d) => s + d.value, 0)} 跃领系学生
+            </span>
+          </h2>
+        </div>
+        {tierDonut.length === 0 ? (
+          <p class="section-card__empty">暂无跃领分级数据。</p>
+        ) : (
+          <div id="chart-tier-donut" style="width: 100%; height: 380px;"></div>
+        )}
+      </section>
+
+      <!-- ── 顾问营收排行 ── -->
+      <section id="kanban-advisor-revenue" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            顾问营收 / 客单价
+            <span class="section-card__subtitle">
+              财务签约额（主合同金额 − 优惠减钱）按中期顾问归属 · 多顾问学生平摊
+            </span>
+          </h2>
+        </div>
+        {advisorRanking.length === 0 ? (
+          <p class="section-card__empty">暂无营收数据。</p>
+        ) : (
+          <div class="advisor-revenue-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>中期顾问</th>
+                  <th class="num">学生数</th>
+                  <th class="num">总签约额</th>
+                  <th class="num">客单价</th>
+                  <th>占比</th>
+                </tr>
+              </thead>
+              <tbody>
+                {advisorRanking.map(r => {
+                  const pct = totalSigning > 0 ? (r.total / totalSigning) * 100 : 0;
+                  return (
+                    <tr>
+                      <td><strong>{r.advisor}</strong></td>
+                      <td class="num font-mono">{r.studentCount}</td>
+                      <td class="num font-mono">{fmtMoney(r.total)}</td>
+                      <td class="num font-mono">{fmtMoney(r.avg)}</td>
+                      <td>
+                        <span class="bar-cell">
+                          <span class="bar-cell__fill" style={`width:${pct}%;`}></span>
+                          <span class="bar-cell__num font-mono">{pct.toFixed(1)}%</span>
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
     </div>
@@ -908,29 +1110,27 @@ const chartPayload = {
         });
       }
 
-      // ── Contracts: donut (Morandi palette, slices clickable) ──
-      // Top-N + 其他 bucket built server-side. Clicking a named slice
-      // navigates to /internal/kanban/contracts/[name]; the 其他 slice is
-      // intentionally inert.
-      const dnEl = document.getElementById('chart-contracts-donut');
-      if (dnEl && payload.contractDonut.length) {
-        const c = echarts.init(dnEl);
+      // ── Donut helper (Morandi palette, slices optionally clickable) ──
+      // Top-N + 其他 bucket built server-side. donut data is { name, value }[].
+      function renderDonut(elId, donutData, colorMap, options) {
+        const el = document.getElementById(elId);
+        if (!el || !donutData.length) return;
+        const c = echarts.init(el);
         charts.push(c);
-        const total = payload.contractDonut.reduce((s, x) => s + x.value, 0);
-        // Slice colors come from the hash-stable map computed server-side
-        // (so contract X always renders in the same Morandi tone, even if
-        // its rank shifts across syncs). 其他 always uses the neutral grey.
-        const slices = payload.contractDonut.map(d => ({
+        const total = donutData.reduce((s, x) => s + x.value, 0);
+        const unit = options.unit || '学生';
+        const centerLabel = options.centerLabel || `${total}\n${unit}`;
+        const slices = donutData.map(d => ({
           name: d.name,
           value: d.value,
           itemStyle: {
-            color: d.name.startsWith('其他') ? '#ADA39A' : (payload.contractColors[d.name] || '#ADA39A'),
+            color: d.name.startsWith('其他') ? '#ADA39A' : (colorMap[d.name] || '#ADA39A'),
           },
         }));
         c.setOption({
           tooltip: {
             trigger: 'item',
-            formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> 学生 · ${(p.data.value / total * 100).toFixed(1)}%`,
+            formatter: (p) => `${p.data.name}<br/><strong>${p.data.value}</strong> ${unit} · ${(p.data.value / total * 100).toFixed(1)}%`,
           },
           legend: { show: false },
           series: [{
@@ -962,7 +1162,7 @@ const chartPayload = {
             left: 'center',
             top: 'middle',
             style: {
-              text: `${total}\n合同份数`,
+              text: centerLabel,
               textAlign: 'center',
               fill: '#3a3835',
               fontSize: 22,
@@ -971,20 +1171,127 @@ const chartPayload = {
             },
           }],
         });
-        // Clicking a real-contract slice navigates to its profile page.
-        // The 其他 bucket is intentionally inert.
-        c.on('click', (params) => {
-          if (!params || !params.data || !params.data.name) return;
-          if (params.data.name.startsWith('其他')) return;
-          location.href = '/internal/kanban/contracts/' + encodeURIComponent(params.data.name);
-        });
-        // Hint that the slices are clickable.
-        dnEl.style.cursor = 'pointer';
+        if (options.onSliceClick) {
+          c.on('click', (params) => {
+            if (!params || !params.data || !params.data.name) return;
+            if (params.data.name.startsWith('其他')) return;
+            options.onSliceClick(params.data.name);
+          });
+          el.style.cursor = 'pointer';
+        }
       }
+
+      // ── 留学合同 donut (clickable → 合同详情 page) ──
+      renderDonut('chart-liuxue-donut', payload.liuxueDonut, payload.liuxueColors, {
+        unit: '合同',
+        onSliceClick: (name) => {
+          location.href = '/internal/kanban/contracts/' + encodeURIComponent(name);
+        },
+      });
+
+      // ── 产品合同 donut (add-on / 搭售; not clickable for now — 暂无 deliverable 流程) ──
+      renderDonut('chart-products-donut', payload.productDonut, payload.productColors, {
+        unit: '份',
+      });
+
+      // ── 跃领分级 donut (Max/Pro/标准/博士/本科) ──
+      renderDonut('chart-tier-donut', payload.tierDonut, payload.tierColors, {
+        unit: '学生',
+        centerLabel: payload.tierDonut.reduce((s, x) => s + x.value, 0) + '\n跃领系',
+      });
     })();
   </script>
 
   <style>
+    /* ── KPI banner ── */
+    .kpi-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .kpi-card__value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .kpi-card__value-unit {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .kpi-card__label {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Advisor revenue table ── */
+    .advisor-revenue-table {
+      width: 100%;
+    }
+    .advisor-revenue-table table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .advisor-revenue-table thead th {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-soft);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .advisor-revenue-table thead th.num,
+    .advisor-revenue-table tbody td.num {
+      text-align: right;
+    }
+    .advisor-revenue-table tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .advisor-revenue-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .bar-cell {
+      position: relative;
+      display: block;
+      width: 100%;
+      min-width: 120px;
+      height: 18px;
+      background: rgba(0,0,0,0.04);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-cell__fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      background: linear-gradient(90deg, #B5A0B5 0%, #7B5E7B 100%);
+      border-radius: 4px;
+    }
+    .bar-cell__num {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
     /* Sidebar TOC + main column */
     .kanban-grid {
       display: grid;

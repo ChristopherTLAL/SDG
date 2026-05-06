@@ -178,6 +178,12 @@ async function loadStudents() {
     const legacyContractType = pickString(fm, '合同类型');
     const finalContracts = contracts.length ? contracts : (legacyContractType ? [legacyContractType] : []);
 
+    // 财务 ERP 同步衍生字段（来自 sync-financial-to-vault.py）
+    // 合同明细: nested YAML list — gray-matter 已解析成 array of objects with Chinese keys
+    const contractDetails = Array.isArray(fm['合同明细']) ? fm['合同明细'] : [];
+    // 跃领分级: 'Max' | 'Pro' | '标准' | '博士' | '本科' | null
+    const yuelingTier = pickString(fm, '跃领分级');
+
     const attachments = await loadAttachmentNames(folder);
     const commNotes = await loadCommunicationNotes(folder, entry.name);
 
@@ -195,6 +201,8 @@ async function loadStudents() {
       stage: pickString(fm, '当前进度'),
       contracts: finalContracts,
       contract_type: legacyContractType ?? (finalContracts[0] ?? null),
+      contract_details: contractDetails,
+      yueling_tier: yuelingTier,
       major_intention: pickString(fm, '意向专业方向'),
       major_current: pickString(fm, '专业'),
       current_school: pickString(fm, '目前就读学校'),
