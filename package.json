@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sync-students": "node scripts/sync-students-to-supabase.mjs"
+    "sync-students": "node scripts/sync-students-to-supabase.mjs",
+    "reconcile-cf-access": "node scripts/reconcile-cf-access.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

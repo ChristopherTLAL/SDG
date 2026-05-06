@@ -21,7 +21,7 @@ if (!advisorName) return Astro.redirect('/internal/kanban');
 // Confirm advisor exists in advisors table (catches typo'd URLs early)
 const { data: advisorRow } = await supabase
   .from('advisors')
-  .select('name, email, roles, active, is_admin')
+  .select('name, emails, roles, active, is_admin')
   .eq('name', advisorName)
   .maybeSingle();
 
@@ -155,7 +155,9 @@ const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
       {Array.isArray(advisorRow.roles) && advisorRow.roles.map(r => (
         <span class="adv-tag">{r}</span>
       ))}
-      {advisorRow.email && <span class="adv-email font-mono">{advisorRow.email}</span>}
+      {Array.isArray(advisorRow.emails) && advisorRow.emails.map((em: string) => (
+        <span class="adv-email font-mono">{em}</span>
+      ))}
     </div>
   </div>
 

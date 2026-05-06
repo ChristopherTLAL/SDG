@@ -8,6 +8,11 @@
 //
 // We trust the email header as long as the request came through CF. Public dashboard
 // path is exempted in CF Access config, so requests there have no header → anonymous.
+//
+// Identity resolution: each advisor row in `advisors` has an `emails text[]` column
+// (synced from the vault YAML `邮箱` field, which accepts a single string or a list).
+// We match the CF email against any element of that array — so 王世杰 logging in via
+// his outlook fallback resolves to the same advisor row as his xdf email.
 
 import { supabase } from './supabase/client';
 
@@ -17,15 +22,6 @@ export type Viewer = {
   isAdmin: boolean;
   isAdvisor: boolean;  // true iff email matched a row in the advisors table
 };
-
-// Hardcoded admin emails. The xdf.cn one is 王世杰's work email; the outlook
-// one is his personal account, used as a permanent escape hatch when the
-// XDF email gateway prefetches CF OTP magic links and burns the PIN before
-// he can use it. Both resolve to the same admin identity (王世杰).
-const ADMIN_EMAILS = new Set<string>([
-  'wangshijie11@xdf.cn',
-  'christophertlal@outlook.com',
-]);
 
 // In-memory cache so we don't hit Supabase on every request.
 // 5-minute TTL is fine — if a name changes via vault sync, refresh kicks in soon.
@@ -46,41 +42,18 @@ export async function resolveViewer(request: Request): Promise<Viewer | null> {
   const now = Date.now();
   if (cached && cached.expiresAt > now) return cached.viewer;
 
-  const isHardcodedAdmin = ADMIN_EMAILS.has(email);
-
-  // Try direct email match first.
-  let advisorRow: { name: string; is_admin: boolean | null } | null = null;
-  {
-    const { data } = await supabase
-      .from('advisors')
-      .select('name, is_admin')
-      .ilike('email', email)
-      .maybeSingle();
-    advisorRow = data;
-  }
-
-  // Hardcoded admin with no email match (e.g. christophertlal@outlook.com,
-  // which isn't in the advisors table) → look up the admin-flagged advisor
-  // row so display name reads "王世杰" rather than "christophertlal".
-  if (!advisorRow && isHardcodedAdmin) {
-    const { data } = await supabase
-      .from('advisors')
-      .select('name, is_admin')
-      .eq('is_admin', true)
-      .limit(1)
-      .maybeSingle();
-    advisorRow = data;
-  }
+  const { data: advisorRow } = await supabase
+    .from('advisors')
+    .select('name, is_admin')
+    .contains('emails', [email])
+    .maybeSingle();
 
   let viewer: Viewer;
   if (advisorRow) {
     viewer = {
       email,
       name: advisorRow.name,
-      isAdmin: !!advisorRow.is_admin || isHardcodedAdmin,
-      // If we resolved an admin row via the hardcoded-admin fallback, the
-      // viewer is acting AS the admin advisor — give them advisor-tier
-      // access posture too (submit / inbox / daily reports all open).
+      isAdmin: !!advisorRow.is_admin,
       isAdvisor: true,
     };
   } else {
@@ -89,7 +62,7 @@ export async function resolveViewer(request: Request): Promise<Viewer | null> {
     viewer = {
       email,
       name: email.split('@')[0],
-      isAdmin: isHardcodedAdmin,
+      isAdmin: false,
       isAdvisor: false,
     };
   }

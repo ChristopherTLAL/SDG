@@ -303,14 +303,18 @@ async function syncAdvisors() {
     }
 
     const name = pickString(fm, '姓名') || e.name.slice(0, -3);
-    const email = pickString(fm, '邮箱');
+    // 邮箱 accepts scalar (legacy single email) or array (primary + aliases).
+    // Lowercase + dedupe; first element is the "primary" used for outbound mail.
+    const emails = Array.from(new Set(
+      pickArray(fm, '邮箱').map(s => s.toLowerCase()).filter(s => s.includes('@')),
+    ));
     const roles = pickArray(fm, '角色');
     const active = fm.active !== false;       // default true unless explicitly false
     const isAdmin = fm.admin === true;        // default false unless explicitly true
 
     records.push({
       name,
-      email,
+      emails,
       roles,
       active,
       is_admin: isAdmin,
@@ -350,7 +354,7 @@ async function syncAdvisors() {
   return {
     count: records.length,
     names: records.map(r => r.name),
-    emails: records.map(r => r.email).filter(Boolean),
+    emails: records.flatMap(r => r.emails ?? []),
   };
 }
 

@@ -130,7 +130,7 @@ After this, hitting the dashboard goes through with no auth; clicking any nav ta
 
 - `src/middleware.ts` reads `Cf-Access-Authenticated-User-Email` on every `/internal/*` request and resolves it to a `Viewer { email, name, isAdmin }` via the `advisors` table.
 - Pages access the viewer via `Astro.locals.viewer` (null = anonymous, non-null = authenticated).
-- `viewer.isAdmin` is true for `wangshijie11@xdf.cn` or any advisor row with `admin: true` in their YAML.
+- `viewer.isAdmin` is true for any advisor row with `admin: true` in their YAML. The CF email is matched against `advisors.emails text[]` (synced from the vault `邮箱` field, scalar or array), so an advisor with multiple addresses (xdf + personal alias) resolves to the same row regardless of which they log in with.
 - 私单 students appear only when the current viewer can see them (王世杰 / admin). For everyone else they're filtered out silently.
 
 ---

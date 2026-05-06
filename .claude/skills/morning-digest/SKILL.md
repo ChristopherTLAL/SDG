@@ -82,11 +82,14 @@ If unsure, stay in test mode. Re-confirm in the chat before sending in prod.
 Use `mcp__supabase__execute_sql`:
 
 ```sql
-select name, email, roles
+select name, emails[1] as email, roles
 from advisors
 where active = true and '中期' = any(roles)
 order by name;
 ```
+
+`emails` is a `text[]` (primary first, then any aliases like personal-account fallbacks).
+We send to the primary only — aliases are for login fallback, not outbound mail.
 
 If empty → abort.
 
