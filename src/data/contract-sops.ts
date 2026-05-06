@@ -657,89 +657,12 @@ export const SOPS: ContractSOP[] = [
     targetAudience: '初高中阶段需要英伦体系课程的学生',
   },
 
-  // ── Add-ons（搭售在主合同上的辅助产品） ──
-  // 注意：这些是 add-on，不是独立服务线，多数学生会有多个 add-on 叠加在主合同上。
-  // 学生详情页 / kanban 应理解为"主合同 + add-on"的复合视图。
-  {
-    id: 'jiuye-addon',
-    displayName: '就业力 add-on',
-    groupName: '就业力addon',
-    matchPatterns: ['就业力addon'],
-    deliverables: [],
-    description: '就业力系列搭售产品：职涯计划 / 顶锋计划 / 优选计划 / 优企实习 / 证书无忧等。多种子项目并存。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要补强职业实践 / 实习背景的学生',
-  },
-  {
-    id: 'academic-tutor-addon',
-    displayName: '学术指导 add-on',
-    groupName: '学术指导addon',
-    matchPatterns: ['学术指导addon'],
-    deliverables: [],
-    description: '学术指导 Club / 海外学术导师录播课程（3 / 6 课时）等。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要长线学术陪跑 / 录播补充的学生',
-  },
-  {
-    id: 'science-addon',
-    displayName: '科研 add-on（非跃领）',
-    groupName: '科研addon',
-    matchPatterns: ['科研addon'],
-    deliverables: [],
-    description: '科研 add-on（不在跃领框架内）：博睿计划 / 海外名校导师远程科研（普通版 / 高端版）等。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要独立科研项目的学生（未签跃领）',
-  },
-  {
-    id: 'english-addon',
-    displayName: '英语 add-on',
-    groupName: '英语addon',
-    matchPatterns: ['英语addon'],
-    deliverables: [],
-    description: '海外院校英文能力提升项目（一对一 50 小时等）。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要补强英语能力的学生',
-  },
-  {
-    id: 'bg-boost-addon',
-    displayName: '背景提升 add-on',
-    groupName: '背景提升addon',
-    matchPatterns: ['背景提升addon'],
-    deliverables: [],
-    description: 'EPQ / AST / 物理碗 / 起点学院冲刺 / 1 对 1 参赛指导等。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要补强学术 / 竞赛背景的学生',
-  },
-  {
-    id: 'visa-addon',
-    displayName: '签证 add-on',
-    groupName: '签证addon',
-    matchPatterns: ['签证addon'],
-    deliverables: [],
-    description: '澳大利亚 / 加拿大单独签证申请服务。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '需要单独签证服务的学生',
-  },
-  {
-    id: 'overseas-service-addon',
-    displayName: '境外服务 add-on',
-    groupName: '境外服务addon',
-    matchPatterns: ['境外服务addon'],
-    deliverables: [],
-    description: '英国境外学术监护服务基础版（分公司版）等抵达后服务。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '已抵达海外、需要监护 / 后续服务的学生',
-  },
-  {
-    id: 'ying-ling-course',
-    displayName: '英领课程',
-    groupName: '英领课程',
-    matchPatterns: ['英领课程'],
-    deliverables: [],
-    description: '英领课程（线上 / 线下一对一）+ 同步学术指导（学期版 / 学年版）。Deliverable 模板待补充。',
-    pricing: 'TBD',
-    targetAudience: '英国低龄方向学生',
-  },
+  // ── Add-ons / 单项产品 ──
+  // 财务 ERP 同步出来的 add-on 合同名直接作为 vault 大类（细粒度，~30 种），
+  // 不再聚合成 "就业力addon" / "学术指导addon" 这种粗 group。
+  // 学生详情页 SOP 区只显示主合同 SOP；add-on 在 合同明细 字段里能看完整名 / 金额 / 优惠。
+  // 后续做 "产品 donut" 时直接读 vault YAML 合同 list 项，不依赖 SOP groupName。
+  // 当某个 add-on 需要专门 deliverable 流程时，再在这里加对应 SOP（matchPatterns 用清理后的合同名）。
 
   // ── 私单（公司外部合同，不在 ERP 财务表中） ──
   {

@@ -73,12 +73,34 @@ def simplify(name):
     return s.strip()
 
 
+def cleanup_addon_name(s):
+    """清理 add-on 合同名：去年份前缀（"2023" / "23 财" / "23 财年"）+ 去服务合同尾巴。
+    保留括号 / 版本号 / 课时数等关键产品标识。
+
+    例：
+      "2023海外学术导师录播课程服务6课时" → "海外学术导师录播课程服务6课时"
+      "【就业力】顶锋计划-国内名校导师远程科研（独立一作）项目服务合同"
+        → "【就业力】顶锋计划-国内名校导师远程科研（独立一作）"
+      "2025海外名校导师远程科研项目合同（高端版）" → "海外名校导师远程科研（高端版）"
+    """
+    s = re.sub(r'^\d{4}\s*财?\s*', '', s)
+    s = re.sub(r'^\d{2}\s*财?\s*年?\s*', '', s)
+    # 去括号前的 noise：例 "...项目服务合同（36800）" → "...（36800）"
+    s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*(?=[（(])', '', s)
+    # 去末尾的同 noise（无括号场景）
+    s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*$', '', s)
+    return s.strip()
+
+
 def category(simplified_name):
-    """合同大类。最具体的判断在前 — findSOPByContract 的 substring match 也是这个顺序。"""
+    """合同大类。
+    主类（留学服务）：返回简化大类 — 跃领 / 格物-半年 / 格物-一年 / 菁英 / 亚洲英语系高端 等共 17 种。
+    Add-on（产品 / 搭售）：返回 cleanup 后的合同名（细粒度）— 用户后续做产品 donut 时直接用。
+    """
     if not simplified_name:
         return "unknown"
     s = simplified_name
-    # 跃领 系（最具体的 variant 先判）
+    # ── 主类：跃领 系（科研 add-on 留在跃领 group 内） ──
     if "跃领" in s and "博士" in s:
         return "跃领-博士版"
     if "跃领" in s and "本科" in s:
@@ -87,47 +109,36 @@ def category(simplified_name):
         return "跃领-科研addon"
     if "跃领" in s:
         return "跃领"
-    # 格物 系（半年 vs 一年期 — 财务名里明确）
+    # ── 主类：格物 半年 vs 一年期 ──
     if "格物" in s and ("半年" in s or "（半年）" in s):
         return "格物-半年"
     if "格物" in s and ("一年" in s or "（一年）" in s):
         return "格物-一年"
     if "格物" in s:
-        # 兜底：财务名没写明半年/一年的（罕见）— 默认按一年期处理
         return "格物-一年"
-    # 菁英 系（含历史"精英预备"错字）
+    # ── 主类：菁英 / 亚洲系列 ──
     if "菁英" in s or "精英预备" in s:
         return "菁英"
-    # 亚洲英语系高端 / 新港澳 系
-    if "亚洲英语系高端" in s or "欧亚" in s or "亚英高端" in s:
-        return "亚洲英语系高端"
     if "亚洲英文授课博士" in s or "亚洲英文授课硕士" in s:
         return "亚洲博士"
+    if "亚洲英语系高端" in s or "欧亚" in s or "亚英高端" in s:
+        return "亚洲英语系高端"
     if "亚洲英文授课" in s and ("研究生" in s or "本科" in s or "授课式" in s):
-        # 2023 财年旧版命名 — 现归亚洲英语系高端大类
         return "亚洲英语系高端"
     if "新港澳" in s or "新港" in s or "中国港澳" in s:
         return "新港澳联申"
-    # 境外学术监护
-    if "境外学术监护" in s or "学术监护" in s:
-        return "境外服务addon"
-    # 参赛指导（背提的一种）
-    if "参赛" in s and "指导" in s:
-        return "背景提升addon"
-    # 美研系列
+    # ── 主类：美研系列 ──
     if "美国研究生启航" in s:
         return "启航"
     if "美国研究生快捷当季" in s or "美国研究生快捷" in s:
         return "美国研究生快捷"
     if "美研尊享" in s or "美国研究生尊享" in s:
         return "尊享"
-    # 区域单申请
-    if "澳大利亚" in s and "签证" in s:
-        return "签证addon"
+    # ── 主类：区域单申请（签证类虽含国家名但属 add-on，走细粒度） ──
+    if ("澳大利亚" in s or "加拿大" in s) and "签证" in s:
+        return cleanup_addon_name(s)
     if "澳大利亚" in s or "澳新" in s:
         return "澳洲申请"
-    if "加拿大" in s and "签证" in s:
-        return "签证addon"
     if "加拿大" in s:
         return "加拿大申请"
     if "云中学" in s:
@@ -142,22 +153,8 @@ def category(simplified_name):
         return "美国本科预备"
     if "欧洲英语系博士" in s:
         return "欧洲博士"
-    if "亚洲英文授课博士" in s or "亚洲英文授课硕士" in s:
-        return "亚洲博士"
-    # 单项产品
-    if "就业力" in s or "美研职场起航" in s:
-        return "就业力addon"
-    if "CLUB" in s or "学术指导" in s or "学术导师" in s:
-        return "学术指导addon"
-    if ("英语" in s or "英文能力" in s) and ("提升" in s or "能力" in s):
-        return "英语addon"
-    if "EPQ" in s or "AST" in s or "Bowl" in s or "物理碗" in s or "起点学院" in s:
-        return "背景提升addon"
-    if "科研" in s or "博睿" in s:
-        return "科研addon"
-    if "英领" in s:
-        return "英领课程"
-    return "其他"
+    # ── Add-on（产品 / 搭售）：用 cleanup 后的合同名作大类（细粒度） ──
+    return cleanup_addon_name(s)
 
 
 # ============================================================
