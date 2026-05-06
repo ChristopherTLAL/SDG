@@ -43,6 +43,7 @@ type Stu = {
   target_regions: string[] | null;
   contracts: string[] | null;
   last_contact_at: string | null;
+  yueling_tier: string | null;
 };
 
 let allStudents: Stu[] = [];
@@ -52,7 +53,7 @@ if (isGroupView) {
   // variants under this group.
   const { data: rawAll } = await supabase
     .from('students')
-    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
+    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at, yueling_tier')
     .order('last_contact_at', { ascending: false, nullsFirst: false });
   allStudents = ((rawAll ?? []) as Stu[]).filter(s =>
     (s.contracts ?? []).some(c => findSOPByContract(c)?.groupName === contractName)
@@ -60,7 +61,7 @@ if (isGroupView) {
 } else {
   const { data: rawStudents } = await supabase
     .from('students')
-    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at')
+    .select('id, name, stage, mid_advisors, enroll_years, target_regions, contracts, last_contact_at, yueling_tier')
     .contains('contracts', [contractName])
     .order('last_contact_at', { ascending: false, nullsFirst: false });
   allStudents = (rawStudents ?? []) as Stu[];
@@ -95,6 +96,14 @@ const stageBreak = STAGE_ORDER.map(st => ({
 const advisorBreak = tally(active, s => (s.mid_advisors ?? []) as string[]);
 const regionBreak  = tally(active, s => (s.target_regions ?? []) as string[]);
 const yearBreak    = tally(active, s => (s.enroll_years ?? []) as string[]);
+
+// 跃领分级 breakdown — 仅 跃领计划 group view 显示。固定顺序 Max/Pro/标准/博士/本科
+// 让色条排得稳，0 计数也保留行（可视化"哪个 tier 没人"）。
+const TIER_ORDER = ['Max', 'Pro', '标准', '博士', '本科'];
+const isYuelingGroup = isGroupView && contractName === '跃领计划';
+const tierBreak = isYuelingGroup
+  ? TIER_ORDER.map(t => ({ name: t, count: active.filter(s => s.yueling_tier === t).length }))
+  : [];
 
 // Email template substitution: at the contract-profile level we don't have
 // a specific student, so use a placeholder. Same {{...}} syntax shown so it
@@ -241,6 +250,29 @@ const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期�
         </ul>
       )}
     </section>
+
+    {isYuelingGroup && (
+      <section class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            跃领分级
+            <span class="section-card__subtitle">Max 境外科研 / Pro 境内科研 / 标准 / 博士 / 本科</span>
+          </h2>
+        </div>
+        <ul class="con-bar-list">
+          {tierBreak.map(({ name, count }) => {
+            const pct = active.length ? (count / active.length) * 100 : 0;
+            return (
+              <li>
+                <span class="con-bar-list__label">{name}</span>
+                <span class="con-bar-list__bar"><span style={`width: ${pct}%;`}></span></span>
+                <span class="con-bar-list__count font-mono">{count}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
   </div>
 
   <!-- SOPs / email templates: one block per variant in group view, one

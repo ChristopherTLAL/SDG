@@ -346,18 +346,6 @@ function buildDonut(rows: { name: string; count: number }[], topN: number) {
 const liuxueDonut  = buildDonut(liuxueData, 10);
 const productDonut = buildDonut(productData, 12);
 
-// ── Widget: 跃领分级 donut ──
-// Max / Pro / 标准 / 博士 / 本科 — 跨跃领系学生的产品分布。
-// 跃领系定义：合同字段含任何"跃领"开头的项 → 应有 yueling_tier 字段。
-const TIER_ORDER = ['Max', 'Pro', '标准', '博士', '本科'];
-const tierCounts = new Map<string, number>();
-for (const s of students) {
-  if (s.yueling_tier) tierCounts.set(s.yueling_tier, (tierCounts.get(s.yueling_tier) ?? 0) + 1);
-}
-const tierDonut = TIER_ORDER
-  .map(t => ({ name: t, value: tierCounts.get(t) ?? 0 }))
-  .filter(d => d.value > 0);
-
 // ── Widget: KPI banner（总签约额 / 平均客单价 / 在签学生）──
 // 财务 ERP 同步进来的合同明细推算。学生数限定为"有合同明细"的学生（即财务表
 // 里能找到至少一份合同的人）。
@@ -402,6 +390,78 @@ const advisorRanking = Array.from(advisorRevenueMap.entries())
   }))
   .sort((a, b) => b.total - a.total);
 
+// ── Widget: 签约时间线（按月签约金额 + 合同份数 area chart） ──
+// 遍历所有学生的合同明细，按 签约日期 → YYYY-MM 聚合金额和件数。最近 24 个月。
+const signingByMonth = new Map<string, { amount: number; count: number }>();
+for (const s of students) {
+  for (const d of s.contract_details ?? []) {
+    const date = String(d['签约日期'] || '').slice(0, 7); // YYYY-MM
+    if (!date.match(/^\d{4}-\d{2}$/)) continue;
+    const amount = (Number(d['主合同金额']) || 0) - (Number(d['优惠减钱']) || 0);
+    if (!signingByMonth.has(date)) signingByMonth.set(date, { amount: 0, count: 0 });
+    const e = signingByMonth.get(date)!;
+    e.amount += amount;
+    e.count += 1;
+  }
+}
+// 排序 + 截最近 24 个月
+const signingMonths = Array.from(signingByMonth.entries())
+  .sort(([a], [b]) => a.localeCompare(b))
+  .slice(-24)
+  .map(([month, v]) => ({ month, amount: Math.round(v.amount), count: v.count }));
+
+// ── Widget: 优惠率分析（按中期顾问）──
+// 优惠率 = (优惠减钱 + 优惠价值) / 主合同金额。按中期顾问分桶，看谁折扣狠。
+// 多顾问学生用 mid_advisors[0] 归属（避免重复计入）— 跟营收表的"平摊到每位"
+// 不同：折扣是合同属性不是营收，按"主签约顾问"看更直观。
+type DiscountRow = { advisor: string; mainTotal: number; discountTotal: number; rate: number; studentCount: number };
+const discountByAdvisor = new Map<string, { mainTotal: number; discountTotal: number; students: Set<number> }>();
+for (const s of students) {
+  const details = s.contract_details ?? [];
+  if (!details.length) continue;
+  const mainTotal = details.reduce((sum, d) => sum + (Number(d['主合同金额']) || 0), 0);
+  const discountTotal = details.reduce((sum, d) =>
+    sum + (Number(d['优惠减钱']) || 0) + (Number(d['优惠价值']) || 0), 0);
+  const advisor = (s.mid_advisors ?? [])[0] ?? '未填';
+  if (!discountByAdvisor.has(advisor)) {
+    discountByAdvisor.set(advisor, { mainTotal: 0, discountTotal: 0, students: new Set() });
+  }
+  const e = discountByAdvisor.get(advisor)!;
+  e.mainTotal += mainTotal;
+  e.discountTotal += discountTotal;
+  e.students.add(s.id);
+}
+const discountRanking: DiscountRow[] = Array.from(discountByAdvisor.entries())
+  .map(([advisor, e]) => ({
+    advisor,
+    mainTotal: Math.round(e.mainTotal),
+    discountTotal: Math.round(e.discountTotal),
+    rate: e.mainTotal > 0 ? (e.discountTotal / e.mainTotal) * 100 : 0,
+    studentCount: e.students.size,
+  }))
+  .sort((a, b) => b.rate - a.rate);
+
+// ── Widget: 客单价分布 histogram (option B — per-student aggregate) ──
+// 每学生 sum(主合同金额 - 优惠减钱) 作为客单价 → bin 到 7 档区间。
+const PRICE_BINS = [
+  { label: '< 1万',     min: 0,      max: 10_000 },
+  { label: '1-2万',     min: 10_000, max: 20_000 },
+  { label: '2-3万',     min: 20_000, max: 30_000 },
+  { label: '3-5万',     min: 30_000, max: 50_000 },
+  { label: '5-8万',     min: 50_000, max: 80_000 },
+  { label: '8-15万',    min: 80_000, max: 150_000 },
+  { label: '15万+',     min: 150_000, max: Infinity },
+];
+const priceHistogram = PRICE_BINS.map(b => ({ label: b.label, count: 0 }));
+for (const s of students) {
+  const details = s.contract_details ?? [];
+  if (!details.length) continue;
+  const studentTotal = details.reduce((sum, d) =>
+    sum + (Number(d['主合同金额']) || 0) - (Number(d['优惠减钱']) || 0), 0);
+  const idx = PRICE_BINS.findIndex(b => studentTotal >= b.min && studentTotal < b.max);
+  if (idx >= 0) priceHistogram[idx].count += 1;
+}
+
 // Hash-stable color maps for the treemap and donut. The 其他 bucket gets
 // the neutral grey so it never visually competes with named entries.
 const namedSchools = schoolChartData.filter(d => !d.name.startsWith('其他')).map(d => d.name);
@@ -410,14 +470,6 @@ const namedLiuxue = liuxueDonut.filter(c => !c.name.startsWith('其他')).map(c 
 const namedProducts = productDonut.filter(c => !c.name.startsWith('其他')).map(c => c.name);
 const liuxueColorMap = buildStableColorMap(namedLiuxue);
 const productColorMap = buildStableColorMap(namedProducts);
-// 跃领分级：5 个 tier 用固定色，避免随排序漂
-const TIER_COLORS: Record<string, string> = {
-  'Max':   '#7B5E7B',  // smoky purple — top tier
-  'Pro':   '#9D7BA0',  // light purple
-  '标准':  '#B8B5BC',  // neutral mauve
-  '博士':  '#7BA0A0',  // dusty teal — separate product line
-  '本科':  '#A0907B',  // dusty bronze
-};
 // Plain object for JSON-serialization into the client payload.
 const schoolColors:  Record<string, string> = Object.fromEntries(schoolColorMap);
 const liuxueColors:  Record<string, string> = Object.fromEntries(liuxueColorMap);
@@ -450,8 +502,8 @@ const chartPayload = {
   liuxueColors,
   productDonut,
   productColors,
-  tierDonut,
-  tierColors: TIER_COLORS,
+  signingMonths,
+  priceHistogram,
 };
 
 // 千分位格式化：¥1,234,567
@@ -516,8 +568,10 @@ function fmtMoney(n: number): string {
         <li><a href="#kanban-schools">在读学校</a></li>
         <li><a href="#kanban-liuxue">留学合同</a></li>
         <li><a href="#kanban-products">产品合同</a></li>
-        <li><a href="#kanban-tier">跃领分级</a></li>
         <li><a href="#kanban-advisor-revenue">顾问营收</a></li>
+        <li><a href="#kanban-timeline">签约时间线</a></li>
+        <li><a href="#kanban-discount">优惠率</a></li>
+        <li><a href="#kanban-price-hist">客单价分布</a></li>
       </ul>
     </aside>
 
@@ -641,23 +695,8 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ── 跃领分级 donut ── -->
-      <section id="kanban-tier" class="section-card">
-        <div class="section-card__header">
-          <h2 class="font-headline section-card__title">
-            跃领分级
-            <span class="section-card__subtitle">
-              Max（境外科研）/ Pro（境内科研）/ 标准 / 博士 / 本科 ·
-              {tierDonut.reduce((s, d) => s + d.value, 0)} 跃领系学生
-            </span>
-          </h2>
-        </div>
-        {tierDonut.length === 0 ? (
-          <p class="section-card__empty">暂无跃领分级数据。</p>
-        ) : (
-          <div id="chart-tier-donut" style="width: 100%; height: 380px;"></div>
-        )}
-      </section>
+      <!-- 跃领分级 donut 已迁移到 /internal/kanban/contracts/跃领计划 — 在那里
+           作为该 group 的 5 个 distribution 之一显示。kanban index 不再放这个。 -->
 
       <!-- ── 顾问营收排行 ── -->
       <section id="kanban-advisor-revenue" class="section-card">
@@ -704,6 +743,84 @@ function fmtMoney(n: number): string {
               </tbody>
             </table>
           </div>
+        )}
+      </section>
+
+      <!-- ── 签约时间线（按月签约金额 + 合同份数 area + bar） ── -->
+      <section id="kanban-timeline" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            签约时间线
+            <span class="section-card__subtitle">最近 24 个月按签约月份聚合（金额 + 件数）</span>
+          </h2>
+        </div>
+        {signingMonths.length === 0 ? (
+          <p class="section-card__empty">暂无签约时间线数据。</p>
+        ) : (
+          <div id="chart-signing-timeline" style="width: 100%; height: 360px;"></div>
+        )}
+      </section>
+
+      <!-- ── 优惠率分析（按中期顾问） ── -->
+      <section id="kanban-discount" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            优惠率
+            <span class="section-card__subtitle">
+              (优惠减钱 + 优惠价值) / 主合同金额 · 按中期顾问（mid_advisors[0] 归属）
+            </span>
+          </h2>
+        </div>
+        {discountRanking.length === 0 ? (
+          <p class="section-card__empty">暂无优惠数据。</p>
+        ) : (
+          <div class="advisor-revenue-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>中期顾问</th>
+                  <th class="num">学生数</th>
+                  <th class="num">主合同总额</th>
+                  <th class="num">优惠总额</th>
+                  <th class="num">优惠率</th>
+                  <th>分布</th>
+                </tr>
+              </thead>
+              <tbody>
+                {discountRanking.map(r => (
+                  <tr>
+                    <td><strong>{r.advisor}</strong></td>
+                    <td class="num font-mono">{r.studentCount}</td>
+                    <td class="num font-mono">{fmtMoney(r.mainTotal)}</td>
+                    <td class="num font-mono">{fmtMoney(r.discountTotal)}</td>
+                    <td class="num font-mono">{r.rate.toFixed(1)}%</td>
+                    <td>
+                      <span class="bar-cell">
+                        <span class="bar-cell__fill" style={`width:${Math.min(r.rate * 4, 100)}%;background:linear-gradient(90deg,#D9C2A8 0%,#A87B5C 100%);`}></span>
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
+      <!-- ── 客单价分布 histogram（每学生 sum(主合同 − 优惠减钱)） ── -->
+      <section id="kanban-price-hist" class="section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            客单价分布
+            <span class="section-card__subtitle">
+              每学生总签约额（主合同金额 − 优惠减钱）分桶 · {signedStudentCount} 在签学生
+            </span>
+          </h2>
+        </div>
+        {signedStudentCount === 0 ? (
+          <p class="section-card__empty">暂无客单价数据。</p>
+        ) : (
+          <div id="chart-price-hist" style="width: 100%; height: 320px;"></div>
         )}
       </section>
     </div>
@@ -1194,11 +1311,151 @@ function fmtMoney(n: number): string {
         unit: '份',
       });
 
-      // ── 跃领分级 donut (Max/Pro/标准/博士/本科) ──
-      renderDonut('chart-tier-donut', payload.tierDonut, payload.tierColors, {
-        unit: '学生',
-        centerLabel: payload.tierDonut.reduce((s, x) => s + x.value, 0) + '\n跃领系',
-      });
+      // ── 签约时间线（按月签约金额 area + 件数 bar） ──
+      const tlEl = document.getElementById('chart-signing-timeline');
+      if (tlEl && payload.signingMonths.length) {
+        const c = echarts.init(tlEl);
+        charts.push(c);
+        const months = payload.signingMonths.map(m => m.month);
+        const amounts = payload.signingMonths.map(m => m.amount);
+        const counts = payload.signingMonths.map(m => m.count);
+        c.setOption({
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'cross' },
+            formatter: (params) => {
+              const m = params[0].axisValue;
+              const a = params.find(p => p.seriesName === '签约金额')?.value ?? 0;
+              const n = params.find(p => p.seriesName === '签约件数')?.value ?? 0;
+              return `<div style="font-weight:700">${m}</div>` +
+                `<div>签约金额 <strong>¥${Number(a).toLocaleString('en-US')}</strong></div>` +
+                `<div>签约件数 <strong>${n}</strong></div>`;
+            },
+          },
+          legend: {
+            data: ['签约金额', '签约件数'],
+            top: 0,
+            right: 0,
+            icon: 'roundRect',
+            itemWidth: 12,
+            itemHeight: 12,
+            textStyle: { color: '#475569', fontSize: 12 },
+          },
+          grid: { left: 60, right: 60, top: 36, bottom: 50 },
+          xAxis: {
+            type: 'category',
+            data: months,
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { color: '#64748b', fontSize: 11, rotate: -30 },
+          },
+          yAxis: [
+            {
+              type: 'value',
+              name: '金额 ¥',
+              nameTextStyle: { color: '#94a3b8', fontSize: 11 },
+              axisLine: { show: false },
+              axisTick: { show: false },
+              splitLine: { lineStyle: { color: '#eef0f3' } },
+              axisLabel: {
+                color: '#94a3b8',
+                fontSize: 11,
+                formatter: (v) => v >= 10000 ? (v / 10000).toFixed(0) + '万' : v,
+              },
+            },
+            {
+              type: 'value',
+              name: '件数',
+              nameTextStyle: { color: '#94a3b8', fontSize: 11 },
+              position: 'right',
+              axisLine: { show: false },
+              axisTick: { show: false },
+              splitLine: { show: false },
+              axisLabel: { color: '#94a3b8', fontSize: 11 },
+            },
+          ],
+          series: [
+            {
+              name: '签约金额',
+              type: 'line',
+              areaStyle: {
+                color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+                  { offset: 0, color: 'rgba(123,94,123,0.30)' },
+                  { offset: 1, color: 'rgba(123,94,123,0.04)' },
+                ]},
+              },
+              lineStyle: { color: '#7B5E7B', width: 2 },
+              itemStyle: { color: '#7B5E7B' },
+              smooth: true,
+              showSymbol: false,
+              data: amounts,
+            },
+            {
+              name: '签约件数',
+              type: 'bar',
+              yAxisIndex: 1,
+              itemStyle: { color: 'rgba(157,123,160,0.55)', borderRadius: [3, 3, 0, 0] },
+              barMaxWidth: 14,
+              data: counts,
+            },
+          ],
+        });
+      }
+
+      // ── 客单价分布 histogram ──
+      const phEl = document.getElementById('chart-price-hist');
+      if (phEl && payload.priceHistogram.length) {
+        const c = echarts.init(phEl);
+        charts.push(c);
+        const labels = payload.priceHistogram.map(b => b.label);
+        const counts = payload.priceHistogram.map(b => b.count);
+        const total = counts.reduce((a, b) => a + b, 0);
+        c.setOption({
+          tooltip: {
+            trigger: 'axis',
+            formatter: (params) => {
+              const p = params[0];
+              const pct = total > 0 ? (p.value / total * 100).toFixed(1) : '0.0';
+              return `${p.axisValue}<br/><strong>${p.value}</strong> 学生 · ${pct}%`;
+            },
+          },
+          grid: { left: 50, right: 24, top: 16, bottom: 36 },
+          xAxis: {
+            type: 'category',
+            data: labels,
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { color: '#475569', fontSize: 12, fontWeight: 600 },
+          },
+          yAxis: {
+            type: 'value',
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#eef0f3' } },
+            axisLabel: { color: '#94a3b8', fontSize: 11 },
+          },
+          series: [{
+            type: 'bar',
+            data: counts,
+            itemStyle: {
+              color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+                { offset: 0, color: '#9D7BA0' },
+                { offset: 1, color: '#7B5E7B' },
+              ]},
+              borderRadius: [4, 4, 0, 0],
+            },
+            label: {
+              show: true,
+              position: 'top',
+              color: '#3a3835',
+              fontSize: 12,
+              fontWeight: 600,
+              formatter: (p) => p.value > 0 ? p.value : '',
+            },
+            barMaxWidth: 36,
+          }],
+        });
+      }
     })();
   </script>
 

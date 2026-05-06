@@ -146,6 +146,56 @@ const metaRows: Row[] = [
         </>
       )}
 
+      {Array.isArray(student.contract_details) && student.contract_details.length > 0 && (() => {
+        type CD = {
+          名称?: string; 大类?: string; 签约日期?: string;
+          主合同金额?: number; 优惠减钱?: number; 优惠价值?: number;
+          已收?: number; 预收余额?: number;
+        };
+        const cds = student.contract_details as CD[];
+        const totalSign = cds.reduce((s, c) => s + (Number(c.主合同金额) || 0) - (Number(c.优惠减钱) || 0), 0);
+        const totalReceived = cds.reduce((s, c) => s + (Number(c.已收) || 0), 0);
+        const totalPrepay = cds.reduce((s, c) => s + (Number(c.预收余额) || 0), 0);
+        const fmt = (n: number) => '¥' + Math.round(n).toLocaleString('en-US');
+        const sortedCds = [...cds].sort((a, b) => (a.签约日期 ?? '').localeCompare(b.签约日期 ?? ''));
+        return (
+          <>
+            <div class="meta-divider"></div>
+            <div class="meta-eyebrow">
+              合同明细 ({cds.length}{student.yueling_tier ? ` · 跃领分级 ${student.yueling_tier}` : ''})
+            </div>
+            <div class="contract-summary">
+              <div><span class="contract-summary__label">总签约</span><span class="font-mono">{fmt(totalSign)}</span></div>
+              <div><span class="contract-summary__label">已收</span><span class="font-mono">{fmt(totalReceived)}</span></div>
+              <div><span class="contract-summary__label">预收余额</span><span class="font-mono">{fmt(totalPrepay)}</span></div>
+            </div>
+            <ul class="contract-detail-list">
+              {sortedCds.map((c) => (
+                <li>
+                  <details class="contract-detail">
+                    <summary class="contract-detail__summary">
+                      <span class="contract-detail__chevron">▸</span>
+                      <span class="contract-detail__name" title={c.名称}>{c.名称}</span>
+                      <span class="contract-detail__amount font-mono">{fmt(Number(c.主合同金额) || 0)}</span>
+                    </summary>
+                    <dl class="contract-detail__fields">
+                      <dt>大类</dt><dd>{c.大类 ?? '—'}</dd>
+                      <dt>签约日期</dt><dd class="font-mono">{c.签约日期 ?? '—'}</dd>
+                      <dt>主合同</dt><dd class="font-mono">{fmt(Number(c.主合同金额) || 0)}</dd>
+                      {(Number(c.优惠减钱) || 0) > 0 && <><dt>优惠减钱</dt><dd class="font-mono">−{fmt(Number(c.优惠减钱) || 0)}</dd></>}
+                      {(Number(c.优惠价值) || 0) > 0 && <><dt>优惠价值</dt><dd class="font-mono">送 {fmt(Number(c.优惠价值) || 0)}</dd></>}
+                      <dt>已收</dt><dd class="font-mono">{fmt(Number(c.已收) || 0)}</dd>
+                      <dt>预收余额</dt><dd class="font-mono">{fmt(Number(c.预收余额) || 0)}</dd>
+                    </dl>
+                  </details>
+                </li>
+              ))}
+            </ul>
+            <p class="meta-attachments__note">来源：财务 ERP（截至 2026-03 数据），下次新报表自动同步。</p>
+          </>
+        );
+      })()}
+
       {STUDENT_TOOLS.length > 0 && (
         <>
           <div class="meta-divider"></div>
@@ -473,6 +523,87 @@ const metaRows: Row[] = [
     color: var(--text-soft);
     margin: 0 0 12px;
     line-height: 1.5;
+  }
+
+  /* 合同明细 — sidebar collapsibles，财务 ERP 派生数据 */
+  .contract-summary {
+    display: grid;
+    gap: 4px;
+    margin: 6px 0 10px;
+    font-size: 12px;
+  }
+  .contract-summary > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .contract-summary__label {
+    color: var(--text-muted);
+  }
+  .contract-detail-list {
+    list-style: none;
+    margin: 0 0 6px;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .contract-detail {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface-raised);
+    overflow: hidden;
+  }
+  .contract-detail__summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 11px;
+  }
+  .contract-detail__summary::-webkit-details-marker { display: none; }
+  .contract-detail__summary:hover { background: #fafbfc; }
+  .contract-detail__chevron {
+    color: var(--text-soft);
+    font-size: 9px;
+    transition: transform 0.15s ease;
+    flex: 0 0 auto;
+  }
+  .contract-detail[open] > .contract-detail__summary > .contract-detail__chevron {
+    transform: rotate(90deg);
+  }
+  .contract-detail__name {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .contract-detail__amount {
+    flex: 0 0 auto;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .contract-detail__fields {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 2px 8px;
+    margin: 0;
+    padding: 8px 10px;
+    background: #fafbfc;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .contract-detail__fields dt {
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .contract-detail__fields dd {
+    margin: 0;
+    color: var(--text);
   }
 
   /* 推荐工具 — sidebar collapsibles, each with a copy-to-clipboard script */
