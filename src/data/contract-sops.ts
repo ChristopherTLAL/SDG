@@ -412,181 +412,55 @@ const yuelingOverseasMentorBooking: Deliverable = {
 跃领规划师`,
 };
 
-// Pro-only: 职业发展指导课程
-const yuelingProCareerCourse: Deliverable = {
-  key: 'yl-pro-career-course',
-  title: '职业发展指导课程预约（Pro 专属）',
-  emailSubject: '【新东方前途英国跃领计划研究生-Pro版】职业发展指导课程预约',
-  emailBody: `{{学生姓名}}同学：
-
-你好！
-
-我是你的规划导师{{中期顾问}}，结合前期职业测评反馈和 CSAP 深度访谈沟通，我对你的背景情况已经有了进一步了解。为了帮助你在留学申请准备过程中做好长期的职业发展规划，接下来我将为你匹配合适的职业导师并进行相关职业课程的安排。
-
-请查看下方的【职业发展课程表】，从课程中任选两个主题（建议：1. 行业定位 + 2. 岗位梳理）。
-
-▎课程主题
-1. 行业定位：导师将结合学员兴趣、专业背景和职业目标，分析当前行业发展趋势和就业机会，明确适合的行业方向
-2. 岗位梳理：结合学员的职业目标和个人优势，梳理优选岗位与次选岗位，明确能力提升方向
-3. 简历诊断：诊断学员简历不足点，并提供精修指导，产出可投递版本
-4. 实习/科研建议：根据职业目标和能力水平，提供方向建议，避免盲目投递
-
-▎职业导师课程安排（新东方云教室）
-- 反馈你计划参加的两个课程主题
-- 在你方便的时间段内打钩（请至少选 5 个时段）
-- 课程安排好后，请提前 10 分钟登录【新东方云教室】测试
-
-请使用报名时记录的手机号登录-选择自动登录。
-
-{{中期顾问}}
-跃领规划师`,
-};
-
-// Max-only: 生涯规划指导课程（录播）
-const yuelingMaxLifeCareerCourse: Deliverable = {
-  key: 'yl-max-life-career',
-  title: '生涯规划指导课程（Max 专属）',
-  emailSubject: '【新东方前途英国跃领计划研究生-Max版】生涯规划指导课程安排',
-  emailBody: `{{学生姓名}}同学：
-
-你好！
-
-我是你的规划导师{{中期顾问}}，结合前期职业测评反馈和 CSAP 四维访谈沟通，我对你的背景情况和未来发展计划已经有了进一步了解。为了帮助你做好长期的生涯发展规划，我们安排了以下四个主题的录播课程：
-
-第一讲：学习风格和从经验中学习
-第二讲：思维发展和构建发展主义
-第三讲：设计思维和生涯设计
-第四讲：主观能动性、成长思维和终身发展
-
-请查看附件【课程海报】，扫码完成课程。完成课程后，请通过附件进行相关课程的反馈总结，更好地通过本阶段的课程提升自己的软性实力，并在长期生涯规划中有更好的成长。
-
-{{中期顾问}}
-跃领规划师`,
-};
-
-// Pro-only: 国内教授科研项目
-const yuelingProDomesticResearch: Deliverable = {
-  key: 'yl-pro-domestic-research',
-  title: '国内教授科研项目预约（Pro 专属，需反馈）',
-  emailSubject: '【新东方前途英国跃领计划研究生-Pro版】国内教授科研项目预约（需反馈）',
-  emailBody: `{{学生姓名}}同学：
-
-你好！
-
-我是你的规划导师{{中期顾问}}，接下来为了更好的帮助你进行后续的申请规划提升，我们将会为你安排合适的国内教授科研项目。国内科研项目导师（来自 C9 / 中科院）将在线指导，通过项目制及研究性学习的方式，增进学生的研究能力、批判性思维、交流与合作、科研能力及陈述总结技能。
-
-结合前期的沟通反馈，我为你筛选了相关科研项目（详见附件项目海报）。请尽快反馈最终计划参加的项目，以便后续顺利开启。
-
-▎本项目特殊说明
-1. 若第一次投递后录用失败，本项目论文导师会协助申请人选择合适的 EI/CPCI/Scopus/ProQuest/Crossref/EBSCO 或同等级别国际会议进行重投，最多不超过 3 次
-2. 申请人需获得论文导师书面认可的投递确认书后方可投递，否则不再协助二次投递
-3. 如按要求投递但失败，项目方会在首次失败 1 周内免费指导学生根据编辑意见完善论文，申请人需在修改完成后 1 周内进行第二次投递
-4. 如因个人原因，在第一次论文指导后 8 周内不能完成（含全文写作、修改与投递），则项目服务终止
-5. 在导师指导下按时、按质、按量完成全部服务内容
-6. 严禁任何违背学术道德的行为（代写、数据造假、抄袭等）
-
-{{中期顾问}}
-跃领规划师`,
-};
-
-// Max-only: 海外教授科研项目
-const yuelingMaxOverseasResearch: Deliverable = {
-  key: 'yl-max-overseas-research',
-  title: '海外教授科研项目预约（Max 专属，需反馈）',
-  emailSubject: '【新东方前途英国跃领计划研究生-Max版】海外教授科研项目预约（需反馈）',
-  emailBody: `{{学生姓名}}同学：
-
-你好！
-
-我是你的规划导师{{中期顾问}}，接下来为了更好的帮助你进行后续的申请规划提升，我们将为你安排合适的海外教授科研项目。海外教授导师（来自 G5/QS TOP30）为学生提供灵活多元的项目参与模式，以满足不同领域学生的专业化学习需求。学生在 12 个月的时间内，通过在线项目制学习环境，围绕选题完成科学系统的学术项目，打磨实战经验、扩充科研经历，从而增进个人能力。
-
-结合前期的沟通反馈，我为你筛选了相关科研项目（详见附件项目介绍）。请尽快反馈最终计划参加的项目。
-
-▎本项目特殊说明
-1. 申请人选择项目课题后，可任选小组共同一作或唯一作者投递与发表指导，需要在正式开课前确认，确认后无法更改
-2. 学术指导老师会指导申请人选择合适的国际英文会议进行文章投递，最多不超过 3 次
-3. 申请人可以选择参与或不参与配套论文服务；若参与，前途公司不因此额外收取费用；若不参与，亦不退费
-4. 在导师指导下，按时、按质、按量完成导师布置的各项任务，完成科研项目的全部服务内容
-5. 严禁任何违背学术道德的行为（代写、数据造假、抄袭等），一旦发现将立即终止项目服务
-
-{{中期顾问}}
-跃领规划师`,
-};
-
 // ─── SOP definitions ───────────────────────────────────────
+//
+// matchPatterns are substring-tested against vault YAML 合同 list items.
+// Vault stores simplified category labels post-2026-05-06 financial sync (e.g.
+// '跃领', '跃领-博士版', '亚洲英语系高端', '就业力addon'). Specific variants
+// must come BEFORE their generic parent — '跃领-博士版' is substring of
+// itself but '跃领' alone is also substring of '跃领-博士版', so yueling-phd
+// must precede yueling.
 
 export const SOPS: ContractSOP[] = [
-  // ── 跃领（precedence: variant first, generic last) ──
+  // ── 跃领系（specific variants first, generic last） ──
   {
-    id: 'yueling-max',
-    displayName: '英国跃领计划研究生 · Max版',
+    id: 'yueling-research-addon',
+    displayName: '跃领海外名校导师远程科研',
     groupName: '跃领计划',
-    variant: 'Max版',
-    matchPatterns: ['跃领MAX', '跃领Max', '跃领-MAX', '跃领-Max', '研究生MAX', '研究生Max'],
-    deliverables: [
-      yuelingKickoff('Max版'),
-      yuelingCareerAssessment,
-      yuelingCsapInterview,
-      yuelingMaxLifeCareerCourse,
-      yuelingMajorDeepDive,
-      yuelingBrainstormFeedback,
-      yuelingMaxOverseasResearch,
-      yuelingCsapSummary,
-      yuelingPSBrainstorm,
-      yuelingOverseasMentorBooking,
-    ],
-    description: '英国跃领计划最高阶版本：在标准版基础上增加生涯规划指导课程（录播）+ 海外教授科研项目（G5/QS TOP30 教授指导）。',
+    variant: '科研addon',
+    matchPatterns: ['跃领-科研addon'],
+    deliverables: [],
+    description: '跃领搭售的科研 add-on：G5/QS TOP30 海外教授指导的远程科研项目，独立 / 共同一作产出论文。',
     pricing: 'TBD',
-    targetAudience: '冲刺英国 G5、需要海外科研背景的研究生申请人',
+    targetAudience: '已签跃领、需补强科研背景的研究生申请人',
   },
   {
-    id: 'yueling-pro',
-    displayName: '英国跃领计划研究生 · Pro版',
+    id: 'yueling-phd',
+    displayName: '英国跃领计划博士版',
     groupName: '跃领计划',
-    variant: 'Pro版',
-    matchPatterns: ['跃领PRO', '跃领Pro', '跃领-PRO', '跃领-Pro', '研究生PRO', '研究生Pro'],
-    deliverables: [
-      yuelingKickoff('Pro版'),
-      yuelingCareerAssessment,
-      yuelingCsapInterview,
-      yuelingProCareerCourse,
-      yuelingMajorDeepDive,
-      yuelingBrainstormFeedback,
-      yuelingProDomesticResearch,
-      yuelingCsapSummary,
-      yuelingPSBrainstorm,
-      yuelingOverseasMentorBooking,
-    ],
-    description: '英国跃领计划进阶版：在标准版基础上增加职业发展指导课程（4 个主题任选 2）+ 国内教授科研项目（C9/中科院导师指导）。',
+    variant: '博士版',
+    matchPatterns: ['跃领-博士版'],
+    deliverables: [],
+    description: '英国跃领计划博士版：聚焦 PhD 申请的全流程指导。Deliverable 模板待补充。',
     pricing: 'TBD',
-    targetAudience: '目标英国 TOP10、希望强化职业方向 + 国内科研背景的研究生申请人',
+    targetAudience: '英国博士申请人',
   },
   {
-    id: 'yueling-standard',
-    displayName: '英国跃领计划研究生 · 标准版',
+    id: 'yueling-bachelor',
+    displayName: '英国跃领计划本科版',
     groupName: '跃领计划',
-    variant: '标准版',
-    matchPatterns: ['跃领标准', '跃领-标准', '研究生标准'],
-    deliverables: [
-      yuelingKickoff('标准版'),
-      yuelingCareerAssessment,
-      yuelingCsapInterview,
-      yuelingMajorDeepDive,
-      yuelingBrainstormFeedback,
-      yuelingCsapSummary,
-      yuelingPSBrainstorm,
-      yuelingOverseasMentorBooking,
-    ],
-    description: '英国跃领计划基础版：LEAD 四大维度赋能（学术 / 职业 / 协同 / 文书）+ 海外学术导师课程，覆盖从规划到递交全流程。',
+    variant: '本科版',
+    matchPatterns: ['跃领-本科版'],
+    deliverables: [],
+    description: '英国跃领计划本科版：本科直读 / 转学的全流程指导。Deliverable 模板待补充。',
     pricing: 'TBD',
-    targetAudience: '目标英国 TOP30 名校、希望系统化规划的研究生申请人',
+    targetAudience: '英国本科申请人',
   },
   {
-    id: 'yueling-default',
+    id: 'yueling',
     displayName: '英国跃领计划研究生',
     groupName: '跃领计划',
     matchPatterns: ['跃领'],
-    // Catch-all for "英国跃领" 无 variant tag — sharing standard's deliverables.
     deliverables: [
       yuelingKickoff('标准版'),
       yuelingCareerAssessment,
@@ -597,37 +471,272 @@ export const SOPS: ContractSOP[] = [
       yuelingPSBrainstorm,
       yuelingOverseasMentorBooking,
     ],
-    description: '英国跃领计划研究生（变体未指定）— 默认按标准版交付清单匹配，待合同确认后切到对应变体。',
+    description: '英国跃领计划研究生：LEAD 四大维度赋能（学术 / 职业 / 协同 / 文书）+ 海外学术导师课程，覆盖从规划到递交全流程。具体变体（Max / Pro / 标准）见学生 合同明细 字段的 主合同金额。',
     pricing: 'TBD',
     targetAudience: '英国硕士留学申请人',
   },
 
   // ── 格物 ──
-
   {
-    id: 'gewu-half',
-    displayName: '格物计划（半年期）',
+    id: 'gewu',
+    displayName: '格物计划',
     groupName: '格物计划',
-    variant: '半年期',
-    matchPatterns: ['格物半年', '半年期'],
-    deliverables: [careerPlan, monthlyReport(5), resumeReport, gewuServiceCompletion],
-    // 占位文案 — 王世杰确认实际数值后替换
-    description: '半年期的中期规划服务，覆盖一份生涯规划方案 + 每月规划报告 + 阶段性简历梳理。适合短线方向不明、需要先做出框架的家庭。',
-    pricing: 'TBD',
-    durationMonths: 6,
-    targetAudience: '初一至高一阶段、需要快速建立留学规划框架的学生',
-  },
-  {
-    id: 'gewu-1y',
-    displayName: '格物计划（一年期）',
-    groupName: '格物计划',
-    variant: '一年期',
-    matchPatterns: ['格物一年', '格物计划', '格物'],
+    matchPatterns: ['格物'],
     deliverables: [careerPlan, monthlyReport(11), resumeReport, gewuServiceCompletion],
-    description: '一年期的中期规划服务，节奏与半年期相同但延续 11 个月，能覆盖一个完整学年的执行 + 调整。',
+    description: '中期规划服务：一份生涯规划方案 + 每月规划报告 + 阶段性简历梳理。半年 / 一年期变体见学生 合同明细 字段的 名称。',
     pricing: 'TBD',
     durationMonths: 12,
-    targetAudience: '需要全学年陪跑的学生 / 家长',
+    targetAudience: '初一至高二阶段、需要建立留学规划框架的学生',
+  },
+
+  // ── 主品类（按签约学生数降序） ──
+  {
+    id: 'jingying',
+    displayName: '美研菁英计划',
+    groupName: '菁英计划',
+    matchPatterns: ['菁英'],
+    deliverables: [],
+    description: '美国研究生菁英服务（含菁英+ 进阶版 / 精英预备课程历史命名）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '美国硕士留学申请人',
+  },
+  {
+    id: 'ouya-elite',
+    displayName: '亚洲英语系高端申请',
+    groupName: '亚洲英语系高端',
+    matchPatterns: ['亚洲英语系高端'],
+    deliverables: [],
+    description: '港 / 新 / 马 等亚洲英语系院校高端申请服务（含 23 财年"亚洲英文授课"系列 / 26 财年 A 计划）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '港新马等亚洲英语系院校申请人',
+  },
+  {
+    id: 'xingangao-coalition',
+    displayName: '新港澳联合申请',
+    groupName: '新港澳联申',
+    matchPatterns: ['新港澳联申'],
+    deliverables: [],
+    description: '新加坡 + 香港 + 澳门联合申请服务（授课式研究生 / 本科）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '同时申请新港澳的学生',
+  },
+  {
+    id: 'qihang',
+    displayName: '美国研究生启航',
+    groupName: '启航',
+    matchPatterns: ['启航'],
+    deliverables: [],
+    description: '美国研究生启航留学申请合同（硕士 / 长线版）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '美国研究生申请人（启航产品线）',
+  },
+  {
+    id: 'us-ms-quick',
+    displayName: '美国研究生快捷当季',
+    groupName: '美国研究生快捷',
+    matchPatterns: ['美国研究生快捷'],
+    deliverables: [],
+    description: '美国研究生当季快捷申请（定校 10 所、申请 5 所等组合）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '美国研究生申请人（快捷急案）',
+  },
+  {
+    id: 'zunxiang',
+    displayName: '美研尊享',
+    groupName: '尊享',
+    matchPatterns: ['尊享'],
+    deliverables: [],
+    description: '美国研究生尊享服务委托合同（高客单价、高定制）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '美研高端定制客户',
+  },
+
+  // ── 区域单申请 ──
+  {
+    id: 'au-app',
+    displayName: '澳洲申请',
+    groupName: '澳洲申请',
+    matchPatterns: ['澳洲申请'],
+    deliverables: [],
+    description: '澳大利亚院校申请服务（授课型硕士 / 本科 / 澳新联合等）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '澳大利亚 / 澳新留学申请人',
+  },
+  {
+    id: 'ca-app',
+    displayName: '加拿大申请',
+    groupName: '加拿大申请',
+    matchPatterns: ['加拿大申请'],
+    deliverables: [],
+    description: '加拿大院校申请服务（优跃 / 优享本科基础 / 同步指导）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '加拿大留学申请人',
+  },
+  {
+    id: 'hk-app',
+    displayName: '港申请',
+    groupName: '港申请',
+    matchPatterns: ['港申请'],
+    deliverables: [],
+    description: '香港单独申请服务（本科联申 / 授课式研究生 / DSE 等）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '香港留学申请人',
+  },
+  {
+    id: 'uk-bachelor',
+    displayName: '英国本科',
+    groupName: '英国本科',
+    matchPatterns: ['英国本科'],
+    deliverables: [],
+    description: '英国本科直读全程版 / 学术指导 Club（本科）等。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '英国本科申请人',
+  },
+  {
+    id: 'uk-msphd',
+    displayName: '英国硕博',
+    groupName: '英国硕博',
+    matchPatterns: ['英国硕博'],
+    deliverables: [],
+    description: '英国研究生 / 博士留学全程申请指导（含 LSE / IC 等高端院校）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '英国硕博留学申请人',
+  },
+  {
+    id: 'us-pre-college',
+    displayName: '美国本科预备',
+    groupName: '美国本科预备',
+    matchPatterns: ['美国本科预备'],
+    deliverables: [],
+    description: '美国线上中学高阶课程等本科预备类项目。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '美本前置准备阶段学生',
+  },
+  {
+    id: 'asia-phd',
+    displayName: '亚洲博士',
+    groupName: '亚洲博士',
+    matchPatterns: ['亚洲博士'],
+    deliverables: [],
+    description: '亚洲英文授课博士 + 硕士联合申请。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '港新等亚洲博士申请人',
+  },
+  {
+    id: 'eu-phd',
+    displayName: '欧洲博士',
+    groupName: '欧洲博士',
+    matchPatterns: ['欧洲博士'],
+    deliverables: [],
+    description: '欧洲英语系博士联合申请服务。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '欧洲博士申请人',
+  },
+  {
+    id: 'yunzhongxue',
+    displayName: '英伦云中学',
+    groupName: '云中学',
+    matchPatterns: ['云中学'],
+    deliverables: [],
+    description: '英伦云中学常规版 / 一年制（一门班课）— 苏州班当地签约。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '初高中阶段需要英伦体系课程的学生',
+  },
+
+  // ── Add-ons（搭售在主合同上的辅助产品） ──
+  // 注意：这些是 add-on，不是独立服务线，多数学生会有多个 add-on 叠加在主合同上。
+  // 学生详情页 / kanban 应理解为"主合同 + add-on"的复合视图。
+  {
+    id: 'jiuye-addon',
+    displayName: '就业力 add-on',
+    groupName: '就业力addon',
+    matchPatterns: ['就业力addon'],
+    deliverables: [],
+    description: '就业力系列搭售产品：职涯计划 / 顶锋计划 / 优选计划 / 优企实习 / 证书无忧等。多种子项目并存。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要补强职业实践 / 实习背景的学生',
+  },
+  {
+    id: 'academic-tutor-addon',
+    displayName: '学术指导 add-on',
+    groupName: '学术指导addon',
+    matchPatterns: ['学术指导addon'],
+    deliverables: [],
+    description: '学术指导 Club / 海外学术导师录播课程（3 / 6 课时）等。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要长线学术陪跑 / 录播补充的学生',
+  },
+  {
+    id: 'science-addon',
+    displayName: '科研 add-on（非跃领）',
+    groupName: '科研addon',
+    matchPatterns: ['科研addon'],
+    deliverables: [],
+    description: '科研 add-on（不在跃领框架内）：博睿计划 / 海外名校导师远程科研（普通版 / 高端版）等。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要独立科研项目的学生（未签跃领）',
+  },
+  {
+    id: 'english-addon',
+    displayName: '英语 add-on',
+    groupName: '英语addon',
+    matchPatterns: ['英语addon'],
+    deliverables: [],
+    description: '海外院校英文能力提升项目（一对一 50 小时等）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要补强英语能力的学生',
+  },
+  {
+    id: 'bg-boost-addon',
+    displayName: '背景提升 add-on',
+    groupName: '背景提升addon',
+    matchPatterns: ['背景提升addon'],
+    deliverables: [],
+    description: 'EPQ / AST / 物理碗 / 起点学院冲刺 / 1 对 1 参赛指导等。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要补强学术 / 竞赛背景的学生',
+  },
+  {
+    id: 'visa-addon',
+    displayName: '签证 add-on',
+    groupName: '签证addon',
+    matchPatterns: ['签证addon'],
+    deliverables: [],
+    description: '澳大利亚 / 加拿大单独签证申请服务。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '需要单独签证服务的学生',
+  },
+  {
+    id: 'overseas-service-addon',
+    displayName: '境外服务 add-on',
+    groupName: '境外服务addon',
+    matchPatterns: ['境外服务addon'],
+    deliverables: [],
+    description: '英国境外学术监护服务基础版（分公司版）等抵达后服务。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '已抵达海外、需要监护 / 后续服务的学生',
+  },
+  {
+    id: 'ying-ling-course',
+    displayName: '英领课程',
+    groupName: '英领课程',
+    matchPatterns: ['英领课程'],
+    deliverables: [],
+    description: '英领课程（线上 / 线下一对一）+ 同步学术指导（学期版 / 学年版）。Deliverable 模板待补充。',
+    pricing: 'TBD',
+    targetAudience: '英国低龄方向学生',
+  },
+
+  // ── 私单（公司外部合同，不在 ERP 财务表中） ──
+  {
+    id: 'sidan',
+    displayName: '私单',
+    groupName: '私单',
+    matchPatterns: ['私单'],
+    deliverables: [],
+    description: '私单（非公司合同）— 王世杰个人接触的体系外服务。具体 variant 待王世杰另行设计。',
+    pricing: 'TBD',
+    targetAudience: '非公司合同体系学生',
   },
 ];
 

@@ -1,11 +1,13 @@
 ---
 name: add-page
-description: Create a new bilingual Astro page for the Chinese SDGs Institute website following the Digital Curator design system. Use this skill when the user wants to add a new page, tool, or section to the website. Covers creating both English and Chinese versions, using the correct layout, design tokens, typography, and component patterns.
+description: Create a new Astro page for the Chinese SDGs Institute public website following the Digital Curator design system. Use this skill when the user wants to add a new page, tool, or section to the website. Covers correct layout, design tokens, typography, and component patterns. NOTE — this skill is for the **public site only**; internal dashboard pages live under `src/pages/internal/` and use a different layout (`InternalLayout.astro`) and palette. Pages are English-only — the project removed Chinese pages and now uses a Google Translate banner in `Header.astro` for zh; do NOT create `src/pages/zh/...` versions.
 ---
 
-# Add a New Bilingual Page
+# Add a New Page
 
-Create new pages for the Chinese SDGs Institute website following the Digital Curator design system.
+Create new pages for the Chinese SDGs Institute public website following the Digital Curator design system.
+
+> **English-only pages.** Earlier versions of this skill produced bilingual `src/pages/section/page.astro` + `src/pages/zh/section/page.astro` pairs. The Chinese pages have been removed; the site now uses a Google Translate banner in `Header.astro` to localize on demand. Sanity content keeps field-level `{en, zh}` shapes, but the Astro page tree is single-language.
 
 ## Design System Quick Reference
 
@@ -30,21 +32,21 @@ Material Symbols Outlined: `<span class="material-symbols-outlined">icon_name</s
 
 ## File Structure
 
-Every page needs two versions:
+A single Astro file per page, English copy:
 ```
-src/pages/section/page.astro        # English (lang='en')
-src/pages/zh/section/page.astro     # Chinese (lang='zh')
+src/pages/section/page.astro        # e.g. src/pages/tools/my-tool.astro
 ```
+
+Do NOT create a `src/pages/zh/...` mirror — Chinese pages were removed; Google Translate handles zh.
 
 ## Template
 
 ```astro
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-const lang = 'en'; // or 'zh'
 ---
 
-<MainLayout title="Page Title | Chinese SDGs Institute" description="..." lang={lang}>
+<MainLayout title="Page Title | Chinese SDGs Institute" description="..." lang="en">
   <main class="pt-40 pb-32">
     <!-- Hero -->
     <section class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
@@ -95,9 +97,8 @@ For tools with client-side JavaScript:
 - Use `client:load` directive only for React components (ContentView)
 
 ## Checklist
-1. Create English version at `src/pages/section/page.astro`
-2. Create Chinese version at `src/pages/zh/section/page.astro`
-3. Add navigation links in Header.astro if needed
-4. Add card/link on parent index page (e.g., tools/index.astro)
-5. Test with `npm run dev` -- verify both language versions render
-6. Build with `npm run build` -- verify no esbuild errors
+1. Create the page at `src/pages/section/page.astro` (English copy; lang="en")
+2. Add navigation links in `Header.astro` if the new page warrants top-nav placement
+3. Add a card/link on the parent index page (e.g. `tools/index.astro`) so the new route is discoverable
+4. Test with `npm run dev` — verify the page renders, mobile breakpoint OK, Google Translate banner toggles zh
+5. Build with `npm run build` — verify no esbuild errors (watch for straight `"..."` in inline `<script>` blocks; use `「...」`)
