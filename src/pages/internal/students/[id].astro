@@ -561,6 +561,9 @@ const metaRows: Row[] = [
     cursor: pointer;
     list-style: none;
     font-size: 11px;
+    /* min-width: 0 让 flex 子元素能 truncate；不加的话 flex item
+       默认 min-width: auto（= min-content）会拒绝缩到内容下，导致 ellipsis 失效。 */
+    min-width: 0;
   }
   .contract-detail__summary::-webkit-details-marker { display: none; }
   .contract-detail__summary:hover { background: #fafbfc; }
@@ -575,6 +578,7 @@ const metaRows: Row[] = [
   }
   .contract-detail__name {
     flex: 1 1 auto;
+    min-width: 0;  /* 同上原因 — 让 flex item 缩到 0 触发 ellipsis */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
