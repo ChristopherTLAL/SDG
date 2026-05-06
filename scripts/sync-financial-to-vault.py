@@ -87,9 +87,14 @@ def category(simplified_name):
         return "跃领-科研addon"
     if "跃领" in s:
         return "跃领"
-    # 格物 系
+    # 格物 系（半年 vs 一年期 — 财务名里明确）
+    if "格物" in s and ("半年" in s or "（半年）" in s):
+        return "格物-半年"
+    if "格物" in s and ("一年" in s or "（一年）" in s):
+        return "格物-一年"
     if "格物" in s:
-        return "格物"
+        # 兜底：财务名没写明半年/一年的（罕见）— 默认按一年期处理
+        return "格物-一年"
     # 菁英 系（含历史"精英预备"错字）
     if "菁英" in s or "精英预备" in s:
         return "菁英"

@@ -476,17 +476,31 @@ export const SOPS: ContractSOP[] = [
     targetAudience: '英国硕士留学申请人',
   },
 
-  // ── 格物 ──
+  // ── 格物（半年 / 一年期 — 财务名里明确，sync 脚本拆开后大类分别为 格物-半年 / 格物-一年） ──
   {
-    id: 'gewu',
-    displayName: '格物计划',
+    id: 'gewu-half',
+    displayName: '格物计划（半年期）',
     groupName: '格物计划',
-    matchPatterns: ['格物'],
+    variant: '半年期',
+    matchPatterns: ['格物-半年'],
+    deliverables: [careerPlan, monthlyReport(5), resumeReport, gewuServiceCompletion],
+    description: '中期规划服务半年期：一份生涯规划方案 + 5 期月度规划报告 + 阶段性简历梳理。适合短线方向不明、需要先做出框架的家庭。',
+    pricing: 'TBD',
+    durationMonths: 6,
+    targetAudience: '初一至高一阶段、需要快速建立留学规划框架的学生',
+  },
+  {
+    id: 'gewu-1y',
+    displayName: '格物计划（一年期）',
+    groupName: '格物计划',
+    variant: '一年期',
+    // '格物' 兜底：vault-only 学生历史 [格物计划] 写法保持工作（落到一年期变体）
+    matchPatterns: ['格物-一年', '格物'],
     deliverables: [careerPlan, monthlyReport(11), resumeReport, gewuServiceCompletion],
-    description: '中期规划服务：一份生涯规划方案 + 每月规划报告 + 阶段性简历梳理。半年 / 一年期变体见学生 合同明细 字段的 名称。',
+    description: '中期规划服务一年期：节奏与半年期相同但延续 11 个月，能覆盖一个完整学年的执行 + 调整。',
     pricing: 'TBD',
     durationMonths: 12,
-    targetAudience: '初一至高二阶段、需要建立留学规划框架的学生',
+    targetAudience: '需要全学年陪跑的学生 / 家长',
   },
 
   // ── 主品类（按签约学生数降序） ──
