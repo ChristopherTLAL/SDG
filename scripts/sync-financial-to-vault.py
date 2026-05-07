@@ -116,8 +116,14 @@ def category(simplified_name):
         return "格物-一年"
     if "格物" in s:
         return "格物-一年"
-    # ── 主类：菁英 / 亚洲系列 ──
-    if "菁英" in s or "精英预备" in s:
+    # ── 主类：菁英 / 精英预备 / 亚洲系列 ──
+    # 注意：精英预备课程（2-6 课时课程产品）≠ 美研菁英全程服务，是两个独立产品。
+    # "菁英博士合同" 也不是菁英大类，是博士大类（user direction 2026-05-07）。
+    if "精英预备" in s:
+        return "精英预备课程"
+    if "菁英" in s and "博士" in s:
+        return "博士"
+    if "菁英" in s:
         return "菁英"
     if "亚洲英文授课博士" in s or "亚洲英文授课硕士" in s:
         return "亚洲博士"
