@@ -1,1802 +1,379 @@
 ---
-// Daily English — split-view reader with multi-mode interactive panel.
+// Daily English — landing / level selector.
 import MainLayout from '../../../layouts/MainLayout.astro';
-import { article } from '../../../data/english/2026-05-07';
+import { articles, CEFR_LABELS } from '../../../data/english';
 
-const { meta, paragraphs, vocab, collocations, grammar, patterns, quiz } = article;
-
-// Render a sentence as HTML: wrap vocab words with <span class="vocab">,
-// then wrap the whole thing as a clickable sentence.
-function escapeHtml(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// Group articles by CEFR level so each level surfaces its newest piece + count.
+type LevelKey = keyof typeof CEFR_LABELS;
+const levelOrder: LevelKey[] = ['A2', 'B1', 'B2', 'C1', 'C2'];
+const byLevel = new Map<LevelKey, typeof articles>();
+for (const a of articles) {
+  const k = a.meta.cefr as LevelKey;
+  if (!byLevel.has(k)) byLevel.set(k, []);
+  byLevel.get(k)!.push(a);
 }
-function escapeRegex(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function renderSentence(sentEn: string, sentId: string): string {
-  let html = escapeHtml(sentEn);
-  const inThisSent = vocab.filter((v) => v.sentenceId === sentId);
-  // Sort longest first so multi-word matches win over substrings.
-  const sorted = [...inThisSent].sort((a, b) => b.word.length - a.word.length);
-  for (const v of sorted) {
-    const re = new RegExp(`\\b(${escapeRegex(v.word)})\\b`);
-    html = html.replace(
-      re,
-      `<span class="vocab" data-vid="${v.id}" data-level="${v.level}" tabindex="0">$1</span>`,
-    );
-  }
-  return `<span class="sent" data-sid="${sentId}" tabindex="0">${html}</span>`;
-}
-
-// Levels — used for filter chips and color tokens.
-const levels = ['CET4', 'CET6', 'IELTS', 'GRE'] as const;
-const levelCounts = Object.fromEntries(
-  levels.map((l) => [l, vocab.filter((v) => v.level === l).length]),
-) as Record<string, number>;
-
-// Modes shown in the right panel.
-const modes = [
-  { id: 'vocab', icon: 'abc', label: 'Vocabulary', desc: 'Hover any underlined word to see its meaning, examples, and level.' },
-  { id: 'translate', icon: 'translate', label: 'Translation', desc: 'Click a sentence — its Chinese translation appears here.' },
-  { id: 'grammar', icon: 'function', label: 'Grammar', desc: 'Grammar points used in this article. Click a card to highlight in the text.' },
-  { id: 'patterns', icon: 'edit_note', label: 'Patterns', desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
-  { id: 'quiz', icon: 'quiz', label: 'Comprehension', desc: '5 quick questions to check that you actually read it.' },
-  { id: 'review', icon: 'replay', label: 'Word review', desc: 'A flashcard pass over today’s vocabulary — current session only.' },
-  { id: 'about', icon: 'info', label: 'About', desc: 'Source, length, level, and the editor’s note.' },
-];
-
-// Pre-serialize data for client-side script.
-const articleJson = JSON.stringify({ meta, paragraphs, vocab, collocations, grammar, patterns, quiz });
+const presentLevels = levelOrder.filter((l) => byLevel.has(l));
 ---
 
-<MainLayout title={`${meta.title} | Daily English`} description="A daily 5-minute English news read with interactive vocabulary, sentence translations, grammar notes, and review." lang="en">
-  <main class="english-tool">
+<MainLayout
+  title="Daily English | Chinese SDGs Institute"
+  description="A short English news read every day, with hover-to-define vocabulary, sentence translations, grammar notes, and same-session word review. Pick your level."
+  lang="en"
+>
+  <main class="pt-24 md:pt-40 pb-32">
 
-    <!-- ====== Sticky tool bar ====== -->
-    <div class="el-toolbar">
-      <div class="el-toolbar-inner">
-        <a href="/tools" class="el-back" aria-label="Back to tools">
-          <span class="material-symbols-outlined">arrow_back</span>
-        </a>
-        <div class="el-toolbar-meta">
-          <div class="el-toolbar-eyebrow">
-            <span class="material-symbols-outlined text-[14px]">menu_book</span>
-            Daily English · {meta.date}
+    <!-- Hero -->
+    <section class="max-w-4xl mx-auto px-6 md:px-12 mb-16">
+      <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+        <span class="material-symbols-outlined text-[14px]">menu_book</span>
+        Daily English
+      </div>
+      <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter leading-[1.02] mb-8">
+        One short article. <span class="text-primary">Every day.</span>
+      </h1>
+      <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-2xl">
+        Read a five-minute English news piece. Hover any word for a full breakdown — meaning, examples, level. Click a sentence for the Chinese translation. End on a quick comprehension check or a flashcard pass over the day's vocabulary. No account needed.
+      </p>
+    </section>
+
+    <!-- Level selector -->
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
+      <div class="flex items-baseline justify-between mb-10">
+        <div>
+          <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+            <span class="material-symbols-outlined text-[14px] text-primary">tune</span>
+            Pick your level
           </div>
-          <div class="el-toolbar-title">{meta.title}</div>
+          <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight">
+            Today's reads
+          </h2>
         </div>
-        <div class="el-toolbar-stats">
-          <span class="el-stat"><strong>{meta.cefr}</strong><span>level</span></span>
-          <span class="el-stat-sep"></span>
-          <span class="el-stat"><strong>{meta.wordCount}</strong><span>words</span></span>
-          <span class="el-stat-sep"></span>
-          <span class="el-stat"><strong>{meta.readingMinutes}</strong><span>min</span></span>
-        </div>
-        <div class="el-tts">
-          <button id="tts-play" class="el-tts-btn" aria-label="Play / pause">
-            <span class="material-symbols-outlined" id="tts-play-icon">play_arrow</span>
-          </button>
-          <button id="tts-stop" class="el-tts-btn el-tts-btn-ghost" aria-label="Stop" title="Stop">
-            <span class="material-symbols-outlined">stop</span>
-          </button>
-          <select id="tts-rate" class="el-tts-rate" aria-label="Speech rate">
-            <option value="0.75">0.75×</option>
-            <option value="0.9">0.9×</option>
-            <option value="1" selected>1×</option>
-            <option value="1.15">1.15×</option>
-            <option value="1.3">1.3×</option>
-          </select>
+        <div class="text-sm text-on-surface-variant hidden md:block">
+          {articles.length} article{articles.length === 1 ? '' : 's'} · CEFR-tagged
         </div>
       </div>
-    </div>
 
-    <!-- ====== Main split layout ====== -->
-    <div class="el-shell">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {presentLevels.map((lvl) => {
+          const list = byLevel.get(lvl)!;
+          const top = list[0];
+          const tag = CEFR_LABELS[lvl];
+          return (
+            <a href={`/tools/english/${top.meta.date}`} class="level-card group">
+              <div class="level-card-head">
+                <span class="level-card-cefr">{lvl}</span>
+                <div class="level-card-tier">
+                  <div class="level-card-tier-name">{tag.tier}</div>
+                  <div class="level-card-tier-bridge">{tag.bridge}</div>
+                </div>
+              </div>
+              <h3 class="level-card-title">{top.meta.title}</h3>
+              {top.meta.editorsNote && (
+                <p class="level-card-note">{top.meta.editorsNote}</p>
+              )}
+              <div class="level-card-foot">
+                <span class="level-card-stat">
+                  <span class="material-symbols-outlined">schedule</span>
+                  {top.meta.readingMinutes} min
+                </span>
+                <span class="level-card-stat">
+                  <span class="material-symbols-outlined">notes</span>
+                  {top.meta.wordCount} words
+                </span>
+                <span class="level-card-stat">
+                  <span class="material-symbols-outlined">today</span>
+                  {top.meta.date}
+                </span>
+                {list.length > 1 && (
+                  <span class="level-card-stat level-card-stat-more">+ {list.length - 1} more</span>
+                )}
+                <span class="level-card-cta">
+                  Read <span class="material-symbols-outlined">arrow_forward</span>
+                </span>
+              </div>
+            </a>
+          );
+        })}
 
-      <!-- Article column -->
-      <article class="el-article" id="el-article">
-        <header class="el-article-head">
-          <h1>{meta.title}</h1>
-          <p class="el-article-source">
-            From {meta.source.name} · A {meta.readingMinutes}-minute read
-          </p>
-        </header>
+        {/* Placeholder cards for missing levels — make the ladder visible */}
+        {levelOrder.filter((l) => !byLevel.has(l)).map((lvl) => {
+          const tag = CEFR_LABELS[lvl];
+          return (
+            <div class="level-card level-card--empty">
+              <div class="level-card-head">
+                <span class="level-card-cefr level-card-cefr--muted">{lvl}</span>
+                <div class="level-card-tier">
+                  <div class="level-card-tier-name">{tag.tier}</div>
+                  <div class="level-card-tier-bridge">{tag.bridge}</div>
+                </div>
+              </div>
+              <p class="level-card-note">No article at this level yet. New pieces are added daily — check back soon.</p>
+            </div>
+          );
+        })}
+      </div>
+    </section>
 
-        <div class="el-article-body">
-          {paragraphs.map((p) => (
-            <p data-pid={p.id}>
-              {p.sentences.map((s, i) => (
-                <Fragment>
-                  <Fragment set:html={renderSentence(s.en, s.id)} />
-                  {i < p.sentences.length - 1 ? ' ' : ''}
-                </Fragment>
-              ))}
-            </p>
-          ))}
+    <!-- How it works -->
+    <section class="bg-surface-container-low py-24 border-y border-outline-variant/10">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+          <span class="material-symbols-outlined text-[14px] text-primary">help</span>
+          How it works
         </div>
+        <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-12 max-w-2xl">
+          One reading interface. Seven different ways to use it.
+        </h2>
 
-        <footer class="el-article-foot">
-          <div class="el-article-foot-row">
-            <span class="material-symbols-outlined">link</span>
-            <a href={meta.source.url} target="_blank" rel="noopener noreferrer">{meta.source.name}</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">abc</span>
+            <h3>Vocabulary</h3>
+            <p>Hover any underlined word to see meaning, IPA, level, and a fresh example. Click to pin. Filter by CET4 / CET6 / IELTS / GRE.</p>
           </div>
-          {meta.editorsNote && (
-            <p class="el-article-note">
-              <span class="el-article-note-label">Editor’s note</span>
-              {meta.editorsNote}
-            </p>
-          )}
-        </footer>
-      </article>
-
-      <!-- Right interactive panel -->
-      <aside class="el-panel" id="el-panel" aria-label="Interactive panel">
-
-        <!-- Mode tabs -->
-        <nav class="el-tabs" role="tablist" aria-label="Modes">
-          {modes.map((m, i) => (
-            <button
-              class="el-tab"
-              role="tab"
-              aria-selected={i === 0 ? 'true' : 'false'}
-              data-mode={m.id}
-              title={`${m.label}  (${i + 1})`}
-            >
-              <span class="material-symbols-outlined">{m.icon}</span>
-              <span class="el-tab-num">{i + 1}</span>
-            </button>
-          ))}
-        </nav>
-
-        <!-- Active mode header -->
-        <div class="el-mode-head">
-          <h2 id="el-mode-title">{modes[0].label}</h2>
-          <p id="el-mode-desc">{modes[0].desc}</p>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">translate</span>
+            <h3>Sentence translation</h3>
+            <p>Click any sentence to see its Chinese translation in the side panel. Walk forward and back with arrow keys. Toggle full bilingual at any time.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">function</span>
+            <h3>Grammar &amp; patterns</h3>
+            <p>Each article ships with grammar notes and reusable sentence templates pulled directly from the text. Hover a card to highlight where it appears.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">quiz</span>
+            <h3>Comprehension check</h3>
+            <p>Five quick multiple-choice questions to confirm you actually read it. See the evidence in-line on the article.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">replay</span>
+            <h3>Word review</h3>
+            <p>An Anki-style flashcard pass over the day's vocabulary, in your current session. Rate each word and the deck reorders.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">volume_up</span>
+            <h3>Read aloud</h3>
+            <p>Sentence-by-sentence text-to-speech with adjustable rate. Pick the best voice your browser offers — Microsoft Natural and Apple Premium are tagged in the dropdown.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Mode content area -->
-        <div class="el-mode-body" id="el-mode-body">
+    <!-- CEFR explainer -->
+    <section class="max-w-4xl mx-auto px-6 md:px-12 mt-24">
+      <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+        <span class="material-symbols-outlined text-[14px] text-primary">school</span>
+        Reference
+      </div>
+      <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-2">
+        Not sure of your level?
+      </h2>
+      <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl">
+        These are rough bridges between the Common European Framework (CEFR) and standardized tests Chinese students typically take.
+      </p>
 
-          <!-- VOCAB -->
-          <section class="el-mode" data-mode="vocab">
-            <div class="el-chips" id="el-level-chips">
-              {levels.map((l) => (
-                <button class="el-chip is-on" data-level={l}>
-                  <span class={`el-chip-dot el-chip-dot--${l.toLowerCase()}`}></span>
-                  {l}
-                  <span class="el-chip-num">{levelCounts[l] || 0}</span>
-                </button>
-              ))}
-            </div>
+      <dl class="cefr-table">
+        {levelOrder.map((lvl) => (
+          <div>
+            <dt>{lvl}</dt>
+            <dd>
+              <strong>{CEFR_LABELS[lvl].tier}</strong>
+              <span>{CEFR_LABELS[lvl].bridge}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
-            <div class="el-vocab-detail" id="el-vocab-detail">
-              <div class="el-empty">
-                <span class="material-symbols-outlined">touch_app</span>
-                <p>Hover any underlined word in the article. Click to pin a card.</p>
-              </div>
-            </div>
-
-            <div class="el-vocab-list" id="el-vocab-list">
-              <div class="el-section-title">All words in this article ({vocab.length})</div>
-              <ul>
-                {vocab.map((v) => (
-                  <li class="el-vocab-row" data-vid={v.id} data-level={v.level}>
-                    <button class="el-vocab-row-btn" data-vid={v.id}>
-                      <span class={`el-level-tag el-level-tag--${v.level.toLowerCase()}`}>{v.level}</span>
-                      <span class="el-vocab-word">{v.word}</span>
-                      <span class="el-vocab-pos">{v.pos}</span>
-                      <span class="el-vocab-def">{v.defZh}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <!-- TRANSLATE -->
-          <section class="el-mode" data-mode="translate" hidden>
-            <label class="el-toggle">
-              <input type="checkbox" id="el-show-all-zh" />
-              <span class="el-toggle-track"><span class="el-toggle-knob"></span></span>
-              <span class="el-toggle-label">Show all Chinese inline</span>
-            </label>
-
-            <div class="el-trans-detail" id="el-trans-detail">
-              <div class="el-empty">
-                <span class="material-symbols-outlined">ads_click</span>
-                <p>Click any sentence in the article to see its Chinese translation here.</p>
-                <p class="el-empty-sub">Use ↑ / ↓ to walk sentence by sentence.</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- GRAMMAR -->
-          <section class="el-mode" data-mode="grammar" hidden>
-            <ul class="el-card-list">
-              {grammar.map((g) => (
-                <li class="el-card el-card--grammar" data-gid={g.id} data-sids={g.sentenceIds.join(',')}>
-                  <div class="el-card-head">
-                    <h3>{g.title}</h3>
-                    <code class="el-card-pattern">{g.pattern}</code>
-                  </div>
-                  <p class="el-card-explain">{g.explanationZh}</p>
-                  <div class="el-card-examples">
-                    {g.examples.map((ex) => <p>· {ex}</p>)}
-                  </div>
-                  <button class="el-card-action" data-action="highlight" data-sids={g.sentenceIds.join(',')}>
-                    <span class="material-symbols-outlined">north_east</span>
-                    See it in the article
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <!-- PATTERNS -->
-          <section class="el-mode" data-mode="patterns" hidden>
-            <ul class="el-card-list">
-              {patterns.map((p) => (
-                <li class="el-card el-card--pattern" data-pid={p.id} data-sids={p.sentenceId}>
-                  <div class="el-card-head">
-                    <h3 class="el-card-skeleton">{p.skeleton}</h3>
-                  </div>
-                  <p class="el-card-original">"{p.original}"</p>
-                  <p class="el-card-hint">{p.hint}</p>
-                  <button class="el-card-action" data-action="highlight" data-sids={p.sentenceId}>
-                    <span class="material-symbols-outlined">north_east</span>
-                    See it in the article
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <!-- QUIZ -->
-          <section class="el-mode" data-mode="quiz" hidden>
-            <div id="el-quiz-root" class="el-quiz">
-              <div class="el-quiz-start">
-                <span class="material-symbols-outlined el-quiz-icon">quiz</span>
-                <h3>Comprehension check</h3>
-                <p>5 multiple-choice questions. Answers can be found in the article.</p>
-                <button class="el-btn el-btn-primary" id="el-quiz-begin">Start</button>
-              </div>
-            </div>
-          </section>
-
-          <!-- REVIEW -->
-          <section class="el-mode" data-mode="review" hidden>
-            <div id="el-review-root" class="el-review">
-              <div class="el-review-start">
-                <span class="material-symbols-outlined el-quiz-icon">replay</span>
-                <h3>Word review</h3>
-                <p>Flip through today’s {vocab.length} vocabulary words. Rate yourself; the deck reorders accordingly.</p>
-                <p class="el-empty-sub">Session-only — no account, no sync. Refresh resets the deck.</p>
-                <button class="el-btn el-btn-primary" id="el-review-begin">Start review</button>
-              </div>
-            </div>
-          </section>
-
-          <!-- ABOUT -->
-          <section class="el-mode" data-mode="about" hidden>
-            <dl class="el-meta">
-              <div><dt>Date</dt><dd>{meta.date}</dd></div>
-              <div><dt>Source</dt><dd><a href={meta.source.url} target="_blank" rel="noopener noreferrer">{meta.source.name}</a></dd></div>
-              <div><dt>Length</dt><dd>{meta.wordCount} words · {meta.readingMinutes} min</dd></div>
-              <div><dt>Level (CEFR)</dt><dd>{meta.cefr}</dd></div>
-              <div><dt>Vocabulary</dt><dd>{vocab.length} words tagged · {grammar.length} grammar points · {patterns.length} patterns</dd></div>
-            </dl>
-            {meta.editorsNote && (
-              <div class="el-meta-note">
-                <div class="el-section-title">Editor’s note</div>
-                <p>{meta.editorsNote}</p>
-              </div>
-            )}
-            <div class="el-shortcuts">
-              <div class="el-section-title">Keyboard shortcuts</div>
-              <ul>
-                <li><kbd>1</kbd>–<kbd>7</kbd>  Switch mode</li>
-                <li><kbd>Space</kbd>  Play / pause TTS</li>
-                <li><kbd>↑</kbd> <kbd>↓</kbd>  Previous / next sentence (in Translation mode)</li>
-                <li><kbd>Esc</kbd>  Clear pinned card / close overlay</li>
-              </ul>
-            </div>
-          </section>
-
-        </div>
-      </aside>
-
-    </div>
   </main>
-
-  <!-- Article data for client-side script -->
-  <script type="application/json" id="el-data" set:html={articleJson}></script>
 </MainLayout>
 
-<style is:global>
-  /* ============ Layout ============ */
-  .english-tool {
-    --el-cet4: #0284c7;
-    --el-cet6: #0d9488;
-    --el-ielts: #d97706;
-    --el-gre: #be185d;
-    --el-pin: #042f24;
-    --el-soft: rgba(4, 47, 36, 0.04);
-    --el-soft-2: rgba(4, 47, 36, 0.08);
-    --el-border: rgba(4, 47, 36, 0.1);
-    --el-border-2: rgba(4, 47, 36, 0.18);
-    padding-top: 5rem; /* fixed header */
-    background: #fbfaf7;
-    min-height: 100vh;
+<style>
+  /* Level cards */
+  .level-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: white;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    border-radius: 24px;
+    padding: 28px 28px 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 150ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+  .level-card:not(.level-card--empty):hover {
+    border-color: rgba(4, 47, 36, 0.30);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(4, 47, 36, 0.18);
+  }
+  .level-card--empty {
+    background: rgba(4, 47, 36, 0.02);
+    border-style: dashed;
   }
 
-  /* ===== Toolbar ===== */
-  .el-toolbar {
-    position: sticky;
-    top: 5rem; /* below header */
-    z-index: 30;
-    background: rgba(251, 250, 247, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--el-border);
+  .level-card-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(4, 47, 36, 0.08);
   }
-  .el-toolbar-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0.75rem 1.5rem;
+  .level-card-cefr {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #042f24;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: rgba(4, 47, 36, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px 8px;
+    flex-shrink: 0;
+  }
+  .level-card-cefr--muted {
+    color: rgba(4, 47, 36, 0.4);
+    background: transparent;
+    border: 1px dashed rgba(4, 47, 36, 0.15);
+  }
+  .level-card-tier-name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #042f24;
+    letter-spacing: -0.005em;
+  }
+  .level-card-tier-bridge {
+    font-size: 11.5px;
+    color: rgba(4, 47, 36, 0.55);
+    margin-top: 2px;
+  }
+
+  .level-card-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    color: #042f24;
+    letter-spacing: -0.015em;
+  }
+  .level-card-note {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(4, 47, 36, 0.62);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .level-card--empty .level-card-note {
+    -webkit-line-clamp: unset;
+  }
+  .level-card-foot {
+    margin-top: auto;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(4, 47, 36, 0.08);
   }
-  .el-back {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 36px; height: 36px;
-    border-radius: 999px;
-    color: var(--el-pin);
-    background: white;
-    border: 1px solid var(--el-border);
-    transition: all 150ms ease;
-    flex-shrink: 0;
-  }
-  .el-back:hover { background: var(--el-pin); color: white; }
-  .el-toolbar-meta { flex: 1; min-width: 0; }
-  .el-toolbar-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--el-pin); opacity: 0.7;
-    margin-bottom: 2px;
-  }
-  .el-toolbar-title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 1.05rem;
-    line-height: 1.1;
-    color: var(--el-pin);
-    letter-spacing: -0.01em;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .el-toolbar-stats {
-    display: flex; align-items: center; gap: 0.85rem;
-    color: rgba(4, 47, 36, 0.62);
+  .level-card-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     font-size: 12px;
-    flex-shrink: 0;
-  }
-  .el-stat { display: inline-flex; align-items: baseline; gap: 4px; }
-  .el-stat strong { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 14px; color: var(--el-pin); }
-  .el-stat-sep { width: 1px; height: 14px; background: var(--el-border-2); }
-  .el-tts { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .el-tts-btn {
-    width: 36px; height: 36px;
-    border-radius: 999px;
-    background: var(--el-pin);
-    color: white;
-    display: inline-flex; align-items: center; justify-content: center;
-    border: none;
-    transition: transform 120ms ease, background 120ms ease;
-  }
-  .el-tts-btn:hover { transform: scale(1.05); }
-  .el-tts-btn-ghost {
-    background: white;
-    color: var(--el-pin);
-    border: 1px solid var(--el-border);
-  }
-  .el-tts-rate {
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 8px;
-    padding: 4px 8px;
-    font-size: 12px;
-    color: var(--el-pin);
-    cursor: pointer;
-  }
-
-  /* ===== Shell ===== */
-  .el-shell {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 6rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 420px;
-    gap: 3rem;
-    align-items: start;
-  }
-  @media (max-width: 1023px) {
-    .el-shell { grid-template-columns: 1fr; gap: 2rem; }
-  }
-
-  /* ===== Article ===== */
-  .el-article {
-    max-width: 720px;
-    justify-self: center;
-    width: 100%;
-  }
-  .el-article-head h1 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 3.4vw, 2.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--el-pin);
-    margin-bottom: 0.6rem;
-  }
-  .el-article-source {
-    font-size: 13px;
     color: rgba(4, 47, 36, 0.55);
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--el-border);
   }
-  .el-article-body p {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.85;
-    color: rgba(4, 47, 36, 0.92);
-    margin-bottom: 1.5rem;
-  }
-
-  /* sentence */
-  .sent {
-    transition: background-color 150ms ease;
-    border-radius: 3px;
-    padding: 0 1px;
-    cursor: text;
-  }
-  .sent.is-clickable { cursor: pointer; }
-  .sent.is-clickable:hover { background: var(--el-soft); }
-  .sent.is-active { background: rgba(4, 47, 36, 0.08); }
-  .sent.is-tts { background: rgba(217, 119, 6, 0.14); }
-  .sent.is-grammar { background: rgba(13, 148, 136, 0.10); }
-
-  .sent-zh-inline {
-    display: block;
-    margin-top: 4px;
-    padding-left: 12px;
-    border-left: 2px solid var(--el-border-2);
-    color: rgba(4, 47, 36, 0.55);
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  /* vocab */
-  .vocab {
-    cursor: pointer;
-    border-bottom: 1.5px dotted transparent;
-    transition: all 120ms ease;
-    border-radius: 2px;
-    padding: 0 1px;
-  }
-  .vocab[data-level="CET4"] { border-bottom-color: var(--el-cet4); }
-  .vocab[data-level="CET6"] { border-bottom-color: var(--el-cet6); }
-  .vocab[data-level="IELTS"] { border-bottom-color: var(--el-ielts); }
-  .vocab[data-level="GRE"] { border-bottom-color: var(--el-gre); }
-  .vocab.is-hidden { border-bottom-color: transparent; cursor: text; }
-  .vocab:hover, .vocab:focus-visible {
-    background: rgba(4, 47, 36, 0.06);
-    border-bottom-style: solid;
-    outline: none;
-  }
-  .vocab.is-pinned {
-    background: rgba(4, 47, 36, 0.10);
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-  }
-
-  .el-article-foot {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--el-border);
-    font-size: 13px;
-  }
-  .el-article-foot-row {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: rgba(4, 47, 36, 0.62);
-  }
-  .el-article-foot-row a { color: var(--el-pin); text-decoration: underline; text-underline-offset: 3px; }
-  .el-article-foot-row .material-symbols-outlined { font-size: 16px; }
-  .el-article-note {
-    margin-top: 1rem;
-    padding: 1rem 1.25rem;
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 12px;
-    color: rgba(4, 47, 36, 0.78);
-    line-height: 1.7;
-  }
-  .el-article-note-label {
-    display: block;
-    font-size: 10px;
+  .level-card-stat .material-symbols-outlined { font-size: 14px; opacity: 0.75; }
+  .level-card-stat-more {
     font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--el-pin);
-    opacity: 0.65;
-    margin-bottom: 0.4rem;
+    color: #042f24;
   }
-
-  /* ===== Right panel ===== */
-  .el-panel {
-    position: sticky;
-    top: calc(5rem + 64px); /* header + toolbar */
-    max-height: calc(100vh - 5rem - 64px - 1rem);
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 16px;
-    box-shadow: 0 1px 2px rgba(4, 47, 36, 0.04);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  @media (max-width: 1023px) {
-    .el-panel { position: static; max-height: none; }
-  }
-
-  /* tabs */
-  .el-tabs {
-    display: flex;
-    padding: 8px;
+  .level-card-cta {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
     gap: 4px;
-    border-bottom: 1px solid var(--el-border);
-    background: #fafaf6;
-  }
-  .el-tab {
-    flex: 1;
-    height: 36px;
-    border-radius: 8px;
-    border: none;
-    background: transparent;
-    color: rgba(4, 47, 36, 0.5);
-    display: inline-flex; align-items: center; justify-content: center;
-    position: relative;
-    transition: all 120ms ease;
-    cursor: pointer;
-  }
-  .el-tab .material-symbols-outlined { font-size: 20px; }
-  .el-tab:hover { color: var(--el-pin); background: rgba(4, 47, 36, 0.04); }
-  .el-tab.is-active {
-    background: var(--el-pin);
-    color: white;
-  }
-  .el-tab-num {
-    position: absolute; top: 2px; right: 5px;
-    font-size: 9px;
+    font-size: 12.5px;
     font-weight: 700;
-    opacity: 0.4;
+    color: #042f24;
+    transition: transform 150ms ease;
   }
-  .el-tab.is-active .el-tab-num { color: white; opacity: 0.55; }
+  .level-card-cta .material-symbols-outlined { font-size: 16px; }
+  .level-card:hover .level-card-cta {
+    transform: translateX(2px);
+  }
 
-  /* mode head */
-  .el-mode-head {
-    padding: 14px 18px 12px;
-    border-bottom: 1px solid var(--el-border);
+  /* How-it-works cards */
+  .how-card {
+    background: white;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    border-radius: 18px;
+    padding: 22px 24px 24px;
+    transition: border-color 150ms ease;
   }
-  .el-mode-head h2 {
+  .how-card:hover {
+    border-color: rgba(4, 47, 36, 0.25);
+  }
+  .how-card-icon {
+    color: #042f24;
+    background: rgba(4, 47, 36, 0.06);
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 22px !important;
+    margin-bottom: 14px;
+  }
+  .how-card h3 {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
     font-size: 1.0625rem;
-    color: var(--el-pin);
-    letter-spacing: -0.01em;
-    margin-bottom: 2px;
-  }
-  .el-mode-head p {
-    font-size: 12px;
-    line-height: 1.55;
-    color: rgba(4, 47, 36, 0.6);
-  }
-
-  /* mode body */
-  .el-mode-body {
-    flex: 1;
-    overflow-y: auto;
-    padding: 14px 18px 18px;
-  }
-  .el-mode { display: flex; flex-direction: column; gap: 14px; }
-
-  /* ===== Vocab mode ===== */
-  .el-chips {
-    display: flex; flex-wrap: wrap; gap: 6px;
-  }
-  .el-chip {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--el-border);
-    background: white;
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(4, 47, 36, 0.6);
-    cursor: pointer;
-    transition: all 120ms ease;
-  }
-  .el-chip.is-on { background: var(--el-pin); color: white; border-color: var(--el-pin); }
-  .el-chip:hover:not(.is-on) { background: var(--el-soft); }
-  .el-chip-num { font-weight: 700; opacity: 0.65; font-size: 10px; }
-  .el-chip-dot {
-    display: inline-block;
-    width: 7px; height: 7px;
-    border-radius: 999px;
-  }
-  .el-chip-dot--cet4  { background: var(--el-cet4); }
-  .el-chip-dot--cet6  { background: var(--el-cet6); }
-  .el-chip-dot--ielts { background: var(--el-ielts); }
-  .el-chip-dot--gre   { background: var(--el-gre); }
-
-  .el-vocab-detail {
-    background: #fafaf6;
-    border: 1px solid var(--el-border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    min-height: 90px;
-  }
-  .el-empty {
-    display: flex; flex-direction: column; align-items: center;
-    text-align: center;
-    color: rgba(4, 47, 36, 0.5);
-    padding: 8px;
-  }
-  .el-empty .material-symbols-outlined {
-    font-size: 22px;
-    opacity: 0.55;
-    margin-bottom: 8px;
-  }
-  .el-empty p { font-size: 12.5px; line-height: 1.55; }
-  .el-empty-sub { font-size: 11.5px !important; margin-top: 4px; opacity: 0.85; }
-
-  .el-vocab-card {
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .el-vocab-card-head {
-    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
-  }
-  .el-vocab-card-head .word {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 1.4rem;
-    color: var(--el-pin);
-    letter-spacing: -0.01em;
-  }
-  .el-vocab-card-head .ipa { font-size: 13px; color: rgba(4, 47, 36, 0.5); }
-  .el-vocab-card-head .pos { font-size: 11px; color: rgba(4, 47, 36, 0.55); font-style: italic; }
-  .el-vocab-defs p { font-size: 13.5px; line-height: 1.55; color: rgba(4, 47, 36, 0.85); }
-  .el-vocab-defs p + p { margin-top: 4px; color: rgba(4, 47, 36, 0.55); font-size: 12.5px; }
-  .el-vocab-eg {
-    margin-top: 4px;
-    padding: 8px 10px;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid var(--el-border);
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: rgba(4, 47, 36, 0.78);
-  }
-  .el-vocab-eg em { font-style: normal; font-weight: 600; color: var(--el-pin); }
-  .el-vocab-eg .zh { display: block; margin-top: 2px; color: rgba(4, 47, 36, 0.5); }
-  .el-vocab-card-foot {
-    display: flex; align-items: center; gap: 10px; justify-content: space-between;
-    margin-top: 4px;
-  }
-  .el-vocab-card-foot a {
-    font-size: 11.5px;
-    color: var(--el-pin);
-    display: inline-flex; align-items: center; gap: 3px;
-    text-decoration: none;
-  }
-  .el-vocab-card-foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-  .el-level-tag {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: white;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-  }
-  .el-level-tag--cet4  { background: var(--el-cet4); }
-  .el-level-tag--cet6  { background: var(--el-cet6); }
-  .el-level-tag--ielts { background: var(--el-ielts); }
-  .el-level-tag--gre   { background: var(--el-gre); }
-
-  .el-section-title {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.55);
-    margin-bottom: 8px;
-  }
-  .el-vocab-list ul { display: flex; flex-direction: column; gap: 2px; }
-  .el-vocab-row { list-style: none; }
-  .el-vocab-row.is-hidden { display: none; }
-  .el-vocab-row-btn {
-    width: 100%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    padding: 7px 8px;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: auto auto auto 1fr;
-    gap: 8px;
-    align-items: baseline;
-    cursor: pointer;
-    transition: background 120ms ease;
-  }
-  .el-vocab-row-btn:hover { background: var(--el-soft); }
-  .el-vocab-row-btn.is-active { background: var(--el-soft-2); }
-  .el-vocab-word {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    color: var(--el-pin);
-  }
-  .el-vocab-pos { font-size: 10.5px; color: rgba(4, 47, 36, 0.5); font-style: italic; }
-  .el-vocab-def {
-    font-size: 12px;
-    color: rgba(4, 47, 36, 0.6);
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  /* ===== Translate mode ===== */
-  .el-toggle {
-    display: inline-flex; align-items: center; gap: 8px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .el-toggle input { display: none; }
-  .el-toggle-track {
-    width: 32px; height: 18px;
-    background: rgba(4, 47, 36, 0.18);
-    border-radius: 999px;
-    position: relative;
-    transition: background 120ms ease;
-  }
-  .el-toggle-knob {
-    position: absolute; top: 2px; left: 2px;
-    width: 14px; height: 14px;
-    background: white;
-    border-radius: 999px;
-    transition: transform 120ms ease;
-  }
-  .el-toggle input:checked + .el-toggle-track { background: var(--el-pin); }
-  .el-toggle input:checked + .el-toggle-track .el-toggle-knob { transform: translateX(14px); }
-  .el-toggle-label { font-size: 12.5px; color: rgba(4, 47, 36, 0.78); }
-
-  .el-trans-detail {
-    background: #fafaf6;
-    border: 1px solid var(--el-border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    min-height: 200px;
-  }
-  .el-trans-card-en {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: var(--el-pin);
+    color: #042f24;
     letter-spacing: -0.005em;
-    margin-bottom: 10px;
-  }
-  .el-trans-card-zh {
-    font-size: 14px;
-    line-height: 1.7;
-    color: rgba(4, 47, 36, 0.78);
-    padding-top: 10px;
-    border-top: 1px solid var(--el-border);
-  }
-  .el-trans-card-nav {
-    display: flex; gap: 6px; margin-top: 12px;
-  }
-  .el-trans-card-nav button {
-    flex: 1;
-    padding: 6px 10px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid var(--el-border);
-    color: var(--el-pin);
-    font-size: 11.5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 120ms ease;
-    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-  }
-  .el-trans-card-nav button:hover { background: var(--el-soft); }
-  .el-trans-card-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
-  .el-trans-card-nav .material-symbols-outlined { font-size: 14px; }
-
-  /* ===== Cards (grammar / patterns) ===== */
-  .el-card-list { display: flex; flex-direction: column; gap: 10px; }
-  .el-card {
-    list-style: none;
-    background: #fafaf6;
-    border: 1px solid var(--el-border);
-    border-radius: 12px;
-    padding: 12px 14px;
-    transition: background 120ms ease, border-color 120ms ease;
-  }
-  .el-card.is-active { background: white; border-color: var(--el-border-2); box-shadow: 0 2px 8px rgba(4, 47, 36, 0.06); }
-  .el-card-head { margin-bottom: 6px; }
-  .el-card-head h3 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 13.5px;
-    color: var(--el-pin);
-    letter-spacing: -0.005em;
-    line-height: 1.3;
-  }
-  .el-card-pattern {
-    display: inline-block;
-    margin-top: 4px;
-    padding: 2px 6px;
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 5px;
-    font-size: 11px;
-    color: rgba(4, 47, 36, 0.7);
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-  }
-  .el-card-skeleton {
-    font-family: 'JetBrains Mono', ui-monospace, monospace !important;
-    font-size: 12.5px !important;
-    line-height: 1.55 !important;
-    font-weight: 600 !important;
-    color: var(--el-pin);
-  }
-  .el-card-original {
-    font-style: italic;
-    font-size: 12px;
-    color: rgba(4, 47, 36, 0.6);
-    line-height: 1.55;
-    margin: 6px 0;
-    padding-left: 8px;
-    border-left: 2px solid var(--el-border-2);
-  }
-  .el-card-explain, .el-card-hint {
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: rgba(4, 47, 36, 0.8);
-  }
-  .el-card-examples p {
-    font-size: 12px;
-    line-height: 1.6;
-    color: rgba(4, 47, 36, 0.65);
-    margin-top: 4px;
-  }
-  .el-card-action {
-    margin-top: 10px;
-    background: transparent;
-    border: none;
-    color: var(--el-pin);
-    font-size: 11px;
-    font-weight: 600;
-    display: inline-flex; align-items: center; gap: 4px;
-    cursor: pointer;
-    padding: 0;
-  }
-  .el-card-action:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .el-card-action .material-symbols-outlined { font-size: 14px; }
-
-  /* ===== Quiz ===== */
-  .el-quiz-start, .el-review-start {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding: 24px 12px;
-    gap: 8px;
-  }
-  .el-quiz-icon {
-    color: var(--el-pin);
-    background: var(--el-soft);
-    width: 48px; height: 48px;
-    border-radius: 999px;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 24px !important;
-    margin-bottom: 4px;
-  }
-  .el-quiz-start h3, .el-review-start h3 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--el-pin);
-  }
-  .el-quiz-start p, .el-review-start p {
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: rgba(4, 47, 36, 0.6);
-    max-width: 240px;
-  }
-
-  .el-btn {
-    padding: 9px 18px;
-    border-radius: 999px;
-    font-size: 12.5px;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    transition: transform 100ms ease, background 120ms ease, color 120ms ease;
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: 6px;
-  }
-  .el-btn-primary { background: var(--el-pin); color: white; }
-  .el-btn-primary:hover { transform: translateY(-1px); }
-  .el-btn-ghost {
-    background: white;
-    border: 1px solid var(--el-border);
-    color: var(--el-pin);
-  }
-  .el-btn-ghost:hover { background: var(--el-soft); }
-
-  .el-quiz-progress {
-    height: 3px;
-    background: var(--el-border);
-    border-radius: 999px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-  .el-quiz-progress-fill {
-    height: 100%;
-    background: var(--el-pin);
-    transition: width 250ms ease;
-  }
-  .el-quiz-counter {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.55);
     margin-bottom: 6px;
   }
-  .el-quiz-q {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--el-pin);
-    margin-bottom: 12px;
-  }
-  .el-quiz-options { display: flex; flex-direction: column; gap: 6px; }
-  .el-quiz-option {
-    text-align: left;
-    padding: 10px 12px;
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 10px;
-    font-size: 13px;
-    line-height: 1.45;
-    color: rgba(4, 47, 36, 0.85);
-    cursor: pointer;
-    transition: all 120ms ease;
-    display: flex; align-items: flex-start; gap: 8px;
-  }
-  .el-quiz-option:hover { background: var(--el-soft); }
-  .el-quiz-option-letter {
-    flex-shrink: 0;
-    width: 18px; height: 18px;
-    border-radius: 999px;
-    background: var(--el-soft);
-    color: var(--el-pin);
-    font-size: 10px;
-    font-weight: 700;
-    display: inline-flex; align-items: center; justify-content: center;
-  }
-  .el-quiz-option.is-correct { border-color: #16a34a; background: rgba(22, 163, 74, 0.08); }
-  .el-quiz-option.is-correct .el-quiz-option-letter { background: #16a34a; color: white; }
-  .el-quiz-option.is-wrong { border-color: #dc2626; background: rgba(220, 38, 38, 0.07); }
-  .el-quiz-option.is-wrong .el-quiz-option-letter { background: #dc2626; color: white; }
-  .el-quiz-option:disabled { cursor: default; }
-  .el-quiz-explanation {
-    margin-top: 10px;
-    padding: 10px 12px;
-    background: var(--el-soft);
-    border-radius: 8px;
-    font-size: 12px;
-    line-height: 1.55;
-    color: rgba(4, 47, 36, 0.78);
-  }
-  .el-quiz-actions {
-    display: flex; gap: 6px; margin-top: 10px; justify-content: space-between;
-  }
-  .el-quiz-end {
-    text-align: center;
-    padding: 24px 8px;
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-  }
-  .el-quiz-score {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 2.25rem;
-    color: var(--el-pin);
-    line-height: 1;
-  }
-  .el-quiz-score-label {
-    font-size: 12px;
-    color: rgba(4, 47, 36, 0.6);
-    margin-bottom: 8px;
-  }
-
-  /* ===== Review ===== */
-  .el-review-card {
-    background: white;
-    border: 1px solid var(--el-border);
-    border-radius: 14px;
-    padding: 18px 18px 14px;
-    box-shadow: 0 2px 12px rgba(4, 47, 36, 0.04);
-    min-height: 220px;
-    display: flex; flex-direction: column;
-  }
-  .el-review-card-front {
-    flex: 1;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 16px 8px;
-    gap: 6px;
-  }
-  .el-review-word {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    color: var(--el-pin);
-    letter-spacing: -0.01em;
-    text-align: center;
-  }
-  .el-review-pos { font-size: 11.5px; color: rgba(4, 47, 36, 0.55); font-style: italic; }
-  .el-review-flip-hint {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.4);
-    margin-top: 8px;
-  }
-  .el-review-back {
-    border-top: 1px solid var(--el-border);
-    padding-top: 12px;
-    margin-top: 12px;
-    display: flex; flex-direction: column; gap: 6px;
-  }
-  .el-review-back .ipa { font-size: 12px; color: rgba(4, 47, 36, 0.55); }
-  .el-review-back .def { font-size: 13.5px; color: var(--el-pin); font-weight: 600; }
-  .el-review-back .eg {
-    font-size: 12.5px; line-height: 1.55;
-    color: rgba(4, 47, 36, 0.7);
-    background: var(--el-soft);
-    border-radius: 8px;
-    padding: 8px 10px;
-    margin-top: 4px;
-  }
-  .el-review-rating {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    margin-top: 12px;
-  }
-  .el-review-rating button {
-    padding: 8px 4px;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid var(--el-border);
-    cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; gap: 2px;
-    transition: all 120ms ease;
-  }
-  .el-review-rating button:hover { background: var(--el-soft); border-color: var(--el-border-2); }
-  .el-review-rating .label { font-size: 12px; font-weight: 700; color: var(--el-pin); }
-  .el-review-rating .key { font-size: 9px; color: rgba(4, 47, 36, 0.45); }
-
-  /* ===== About ===== */
-  .el-meta { display: flex; flex-direction: column; gap: 6px; }
-  .el-meta > div {
-    display: grid;
-    grid-template-columns: 88px 1fr;
-    gap: 12px;
-    padding: 7px 0;
-    border-bottom: 1px dashed var(--el-border);
-  }
-  .el-meta dt {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.5);
-    align-self: center;
-  }
-  .el-meta dd {
-    font-size: 13px;
-    color: var(--el-pin);
-  }
-  .el-meta a { color: var(--el-pin); text-decoration: underline; text-underline-offset: 3px; }
-  .el-meta-note {
-    margin-top: 14px;
-    padding: 12px 14px;
-    background: var(--el-soft);
-    border-radius: 10px;
-  }
-  .el-meta-note p {
-    font-size: 12.5px;
+  .how-card p {
+    font-size: 13.5px;
     line-height: 1.6;
-    color: rgba(4, 47, 36, 0.75);
+    color: rgba(4, 47, 36, 0.65);
   }
-  .el-shortcuts {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--el-border);
+
+  /* CEFR table */
+  .cefr-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(4, 47, 36, 0.10);
   }
-  .el-shortcuts ul { display: flex; flex-direction: column; gap: 6px; }
-  .el-shortcuts li {
-    font-size: 12px;
-    color: rgba(4, 47, 36, 0.7);
-    display: flex; align-items: center; gap: 8px;
+  .cefr-table > div {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(4, 47, 36, 0.10);
+    align-items: baseline;
   }
-  .el-shortcuts kbd {
-    display: inline-block;
-    background: white;
-    border: 1px solid var(--el-border);
-    border-bottom-width: 2px;
-    border-radius: 4px;
-    padding: 1px 5px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 10.5px;
-    color: var(--el-pin);
-    min-width: 18px;
-    text-align: center;
+  .cefr-table dt {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #042f24;
+    letter-spacing: -0.01em;
+  }
+  .cefr-table dd {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cefr-table dd strong {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #042f24;
+  }
+  .cefr-table dd span {
+    font-size: 13px;
+    color: rgba(4, 47, 36, 0.6);
   }
 </style>
-
-<script>
-  // ============== State ==============
-  type Mode = 'vocab' | 'translate' | 'grammar' | 'patterns' | 'quiz' | 'review' | 'about';
-
-  type Article = {
-    meta: { date: string; title: string; source: { name: string; url: string }; cefr: string; wordCount: number; readingMinutes: number; editorsNote?: string };
-    paragraphs: { id: string; sentences: { id: string; en: string; zh: string }[] }[];
-    vocab: { id: string; word: string; lemma: string; sentenceId: string; level: string; pos: string; ipa: string; defZh: string; defEn: string; example: string; exampleZh?: string }[];
-    collocations: { id: string; phrase: string; sentenceId: string; meaningZh: string; example: string; exampleZh?: string }[];
-    grammar: { id: string; title: string; pattern: string; explanationZh: string; sentenceIds: string[]; examples: string[] }[];
-    patterns: { id: string; skeleton: string; original: string; sentenceId: string; hint: string }[];
-    quiz: { id: string; q: string; options: string[]; answer: number; explanation: string; sentenceId?: string }[];
-  };
-
-  const dataEl = document.getElementById('el-data');
-  const ARTICLE: Article = JSON.parse(dataEl?.textContent || '{}');
-  const FLAT_SENTENCES = ARTICLE.paragraphs.flatMap((p) => p.sentences);
-  const SENT_BY_ID = Object.fromEntries(FLAT_SENTENCES.map((s) => [s.id, s]));
-  const VOCAB_BY_ID = Object.fromEntries(ARTICLE.vocab.map((v) => [v.id, v]));
-
-  let currentMode: Mode = 'vocab';
-  let activeLevels = new Set(['CET4', 'CET6', 'IELTS', 'GRE']);
-  let pinnedVocabId: string | null = null;
-  let activeSentId: string | null = null;
-  let showAllZh = false;
-
-  const modeDescs: Record<Mode, { label: string; desc: string }> = {
-    vocab:     { label: 'Vocabulary', desc: 'Hover any underlined word to see its meaning, examples, and level.' },
-    translate: { label: 'Translation', desc: 'Click a sentence — its Chinese translation appears here.' },
-    grammar:   { label: 'Grammar', desc: 'Grammar points used in this article. Click a card to highlight in the text.' },
-    patterns:  { label: 'Patterns', desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
-    quiz:      { label: 'Comprehension', desc: '5 quick questions to check that you actually read it.' },
-    review:    { label: 'Word review', desc: 'A flashcard pass over today’s vocabulary — current session only.' },
-    about:     { label: 'About', desc: 'Source, length, level, and the editor’s note.' },
-  };
-
-  // ============== Mode switching ==============
-  function setMode(mode: Mode) {
-    currentMode = mode;
-    document.querySelectorAll('.el-tab').forEach((el) => {
-      const isActive = el.getAttribute('data-mode') === mode;
-      el.classList.toggle('is-active', isActive);
-      el.setAttribute('aria-selected', String(isActive));
-    });
-    document.querySelectorAll('.el-mode').forEach((el) => {
-      const m = el.getAttribute('data-mode');
-      (el as HTMLElement).hidden = m !== mode;
-    });
-    const titleEl = document.getElementById('el-mode-title');
-    const descEl = document.getElementById('el-mode-desc');
-    if (titleEl) titleEl.textContent = modeDescs[mode].label;
-    if (descEl)  descEl.textContent  = modeDescs[mode].desc;
-
-    // Sentence clickability differs per mode.
-    const sentClickable = mode === 'translate';
-    document.querySelectorAll('.sent').forEach((el) => {
-      el.classList.toggle('is-clickable', sentClickable);
-    });
-
-    // Reset incidental highlights when switching away from grammar/patterns.
-    document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
-
-    if (mode === 'translate' && !activeSentId && !showAllZh) {
-      // gentle hint
-    }
-  }
-
-  document.querySelectorAll('.el-tab').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const m = btn.getAttribute('data-mode') as Mode;
-      if (m) setMode(m);
-    });
-  });
-
-  // ============== Vocab ==============
-  const vocabDetailEl = document.getElementById('el-vocab-detail')!;
-
-  function renderVocabCard(vid: string) {
-    const v = VOCAB_BY_ID[vid];
-    if (!v) return;
-    const level = v.level.toLowerCase();
-    vocabDetailEl.innerHTML = `
-      <div class="el-vocab-card">
-        <div class="el-vocab-card-head">
-          <span class="word">${v.word}</span>
-          <span class="ipa">${v.ipa}</span>
-          <span class="pos">${v.pos}</span>
-          <span class="el-level-tag el-level-tag--${level}">${v.level}</span>
-        </div>
-        <div class="el-vocab-defs">
-          <p>${v.defZh}</p>
-          <p>${v.defEn}</p>
-        </div>
-        <div class="el-vocab-eg">
-          <em>${v.example}</em>
-          ${v.exampleZh ? `<span class="zh">${v.exampleZh}</span>` : ''}
-        </div>
-        <div class="el-vocab-card-foot">
-          <a href="#" data-jump-sid="${v.sentenceId}">
-            <span class="material-symbols-outlined" style="font-size:14px">north_east</span>
-            See in article
-          </a>
-          <button class="el-btn el-btn-ghost" id="el-vocab-tts" style="margin:0; padding: 4px 10px; font-size: 11.5px;">
-            <span class="material-symbols-outlined" style="font-size:14px">volume_up</span>
-            Listen
-          </button>
-        </div>
-      </div>
-    `;
-    const jump = vocabDetailEl.querySelector('[data-jump-sid]');
-    jump?.addEventListener('click', (e) => {
-      e.preventDefault();
-      const sid = (e.currentTarget as HTMLElement).getAttribute('data-jump-sid')!;
-      jumpToSentence(sid);
-    });
-    const ttsBtn = vocabDetailEl.querySelector('#el-vocab-tts');
-    ttsBtn?.addEventListener('click', () => speakOne(v.word));
-  }
-
-  function clearVocabCard() {
-    vocabDetailEl.innerHTML = `
-      <div class="el-empty">
-        <span class="material-symbols-outlined">touch_app</span>
-        <p>Hover any underlined word in the article. Click to pin a card.</p>
-      </div>
-    `;
-  }
-
-  function pinVocab(vid: string | null) {
-    document.querySelectorAll('.vocab.is-pinned').forEach((el) => el.classList.remove('is-pinned'));
-    document.querySelectorAll('.el-vocab-row-btn.is-active').forEach((el) => el.classList.remove('is-active'));
-    pinnedVocabId = vid;
-    if (vid) {
-      document.querySelectorAll(`.vocab[data-vid="${vid}"]`).forEach((el) => el.classList.add('is-pinned'));
-      document.querySelector(`.el-vocab-row-btn[data-vid="${vid}"]`)?.classList.add('is-active');
-      renderVocabCard(vid);
-    } else {
-      clearVocabCard();
-    }
-  }
-
-  // Hover/click on inline vocab spans
-  document.querySelectorAll('.vocab').forEach((el) => {
-    el.addEventListener('mouseenter', () => {
-      if (pinnedVocabId) return;
-      const vid = el.getAttribute('data-vid');
-      if (vid) {
-        if (currentMode !== 'vocab') setMode('vocab');
-        renderVocabCard(vid);
-      }
-    });
-    el.addEventListener('mouseleave', () => {
-      if (pinnedVocabId) return;
-      clearVocabCard();
-    });
-    el.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const vid = el.getAttribute('data-vid');
-      if (!vid) return;
-      if (currentMode !== 'vocab') setMode('vocab');
-      pinVocab(pinnedVocabId === vid ? null : vid);
-    });
-  });
-
-  // Vocab list buttons
-  document.querySelectorAll('.el-vocab-row-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const vid = btn.getAttribute('data-vid');
-      if (!vid) return;
-      pinVocab(pinnedVocabId === vid ? null : vid);
-      jumpToSentence(VOCAB_BY_ID[vid].sentenceId);
-    });
-  });
-
-  // Level chips
-  function applyLevelFilter() {
-    document.querySelectorAll('.vocab').forEach((el) => {
-      const lvl = el.getAttribute('data-level') || '';
-      el.classList.toggle('is-hidden', !activeLevels.has(lvl));
-    });
-    document.querySelectorAll('.el-vocab-row').forEach((el) => {
-      const lvl = el.getAttribute('data-level') || '';
-      el.classList.toggle('is-hidden', !activeLevels.has(lvl));
-    });
-  }
-  document.querySelectorAll('.el-chip').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const lvl = chip.getAttribute('data-level');
-      if (!lvl) return;
-      if (activeLevels.has(lvl)) activeLevels.delete(lvl);
-      else activeLevels.add(lvl);
-      chip.classList.toggle('is-on', activeLevels.has(lvl));
-      applyLevelFilter();
-    });
-  });
-
-  // ============== Sentences (translate mode) ==============
-  const transDetailEl = document.getElementById('el-trans-detail')!;
-
-  function setActiveSentence(sid: string | null) {
-    document.querySelectorAll('.sent.is-active').forEach((el) => el.classList.remove('is-active'));
-    activeSentId = sid;
-    if (!sid) {
-      transDetailEl.innerHTML = `
-        <div class="el-empty">
-          <span class="material-symbols-outlined">ads_click</span>
-          <p>Click any sentence in the article to see its Chinese translation here.</p>
-          <p class="el-empty-sub">Use ↑ / ↓ to walk sentence by sentence.</p>
-        </div>
-      `;
-      return;
-    }
-    document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-active'));
-    const idx = FLAT_SENTENCES.findIndex((s) => s.id === sid);
-    const s = FLAT_SENTENCES[idx];
-    const prevId = idx > 0 ? FLAT_SENTENCES[idx - 1].id : '';
-    const nextId = idx < FLAT_SENTENCES.length - 1 ? FLAT_SENTENCES[idx + 1].id : '';
-    transDetailEl.innerHTML = `
-      <div class="el-trans-card-en">${s.en}</div>
-      <div class="el-trans-card-zh">${s.zh}</div>
-      <div class="el-trans-card-nav">
-        <button data-prev="${prevId}" ${!prevId ? 'disabled' : ''}>
-          <span class="material-symbols-outlined">arrow_upward</span> Prev
-        </button>
-        <button data-listen="${sid}">
-          <span class="material-symbols-outlined">volume_up</span> Listen
-        </button>
-        <button data-next="${nextId}" ${!nextId ? 'disabled' : ''}>
-          Next <span class="material-symbols-outlined">arrow_downward</span>
-        </button>
-      </div>
-    `;
-    transDetailEl.querySelector('[data-prev]')?.addEventListener('click', (e) => {
-      const t = (e.currentTarget as HTMLElement).getAttribute('data-prev');
-      if (t) { setActiveSentence(t); jumpToSentence(t); }
-    });
-    transDetailEl.querySelector('[data-next]')?.addEventListener('click', (e) => {
-      const t = (e.currentTarget as HTMLElement).getAttribute('data-next');
-      if (t) { setActiveSentence(t); jumpToSentence(t); }
-    });
-    transDetailEl.querySelector('[data-listen]')?.addEventListener('click', () => speakOne(s.en));
-  }
-
-  document.querySelectorAll('.sent').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      // ignore clicks that originated on a vocab span (they have their own handler)
-      const target = e.target as HTMLElement;
-      if (target.closest('.vocab')) return;
-      if (currentMode !== 'translate') return;
-      const sid = el.getAttribute('data-sid');
-      if (sid) setActiveSentence(sid);
-    });
-  });
-
-  // Show-all-zh toggle
-  const showAllToggle = document.getElementById('el-show-all-zh') as HTMLInputElement | null;
-  showAllToggle?.addEventListener('change', () => {
-    showAllZh = showAllToggle.checked;
-    document.querySelectorAll('.sent-zh-inline').forEach((el) => el.remove());
-    if (showAllZh) {
-      document.querySelectorAll('.sent').forEach((el) => {
-        const sid = el.getAttribute('data-sid');
-        if (!sid) return;
-        const s = SENT_BY_ID[sid];
-        const zhEl = document.createElement('span');
-        zhEl.className = 'sent-zh-inline';
-        zhEl.textContent = s.zh;
-        el.insertAdjacentElement('afterend', zhEl);
-      });
-    }
-  });
-
-  // ============== Jump to sentence ==============
-  function jumpToSentence(sid: string) {
-    const el = document.querySelector(`.sent[data-sid="${sid}"]`);
-    if (!el) return;
-    const rect = (el as HTMLElement).getBoundingClientRect();
-    const targetY = window.scrollY + rect.top - window.innerHeight / 2;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-    (el as HTMLElement).classList.add('is-active');
-    setTimeout(() => {
-      if (currentMode !== 'translate' && activeSentId !== sid) {
-        (el as HTMLElement).classList.remove('is-active');
-      }
-    }, 1500);
-  }
-
-  // ============== Grammar / Patterns ==============
-  function highlightSentences(sids: string[], cls = 'is-grammar') {
-    document.querySelectorAll(`.sent.${cls}`).forEach((el) => el.classList.remove(cls));
-    sids.forEach((sid) => {
-      document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add(cls));
-    });
-    if (sids[0]) jumpToSentence(sids[0]);
-  }
-  document.querySelectorAll('.el-card').forEach((card) => {
-    card.addEventListener('mouseenter', () => {
-      const sids = (card.getAttribute('data-sids') || '').split(',').filter(Boolean);
-      sids.forEach((sid) => {
-        document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-grammar'));
-      });
-    });
-    card.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
-    });
-  });
-  document.querySelectorAll('.el-card-action').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const sids = (btn.getAttribute('data-sids') || '').split(',').filter(Boolean);
-      highlightSentences(sids);
-      document.querySelectorAll('.el-card.is-active').forEach((el) => el.classList.remove('is-active'));
-      btn.closest('.el-card')?.classList.add('is-active');
-    });
-  });
-
-  // ============== Quiz ==============
-  const quizRoot = document.getElementById('el-quiz-root')!;
-  let quizIdx = 0;
-  let quizScore = 0;
-  let quizAnswered: (number | null)[] = [];
-
-  document.getElementById('el-quiz-begin')?.addEventListener('click', startQuiz);
-  function startQuiz() {
-    quizIdx = 0;
-    quizScore = 0;
-    quizAnswered = ARTICLE.quiz.map(() => null);
-    renderQuiz();
-  }
-  function renderQuiz() {
-    if (quizIdx >= ARTICLE.quiz.length) {
-      quizRoot.innerHTML = `
-        <div class="el-quiz-end">
-          <span class="material-symbols-outlined el-quiz-icon">military_tech</span>
-          <div class="el-quiz-score">${quizScore}/${ARTICLE.quiz.length}</div>
-          <div class="el-quiz-score-label">${
-            quizScore === ARTICLE.quiz.length
-              ? 'Perfect read.'
-              : quizScore >= ARTICLE.quiz.length - 1
-              ? 'Strong comprehension.'
-              : quizScore >= ARTICLE.quiz.length / 2
-              ? 'Worth a re-read of the trickier paragraphs.'
-              : 'Try the article again — slow down on the dashes.'
-          }</div>
-          <button class="el-btn el-btn-primary" id="el-quiz-restart">Try again</button>
-          <button class="el-btn el-btn-ghost" id="el-quiz-back-article" style="margin-top:0">
-            <span class="material-symbols-outlined" style="font-size:14px">menu_book</span>
-            Back to article
-          </button>
-        </div>
-      `;
-      document.getElementById('el-quiz-restart')?.addEventListener('click', startQuiz);
-      document.getElementById('el-quiz-back-article')?.addEventListener('click', () => setMode('vocab'));
-      return;
-    }
-    const q = ARTICLE.quiz[quizIdx];
-    const pct = (quizIdx / ARTICLE.quiz.length) * 100;
-    const letters = ['A', 'B', 'C', 'D'];
-    quizRoot.innerHTML = `
-      <div class="el-quiz-progress"><div class="el-quiz-progress-fill" style="width: ${pct}%"></div></div>
-      <div class="el-quiz-counter">Q ${quizIdx + 1} / ${ARTICLE.quiz.length}</div>
-      <div class="el-quiz-q">${q.q}</div>
-      <div class="el-quiz-options" id="el-quiz-options">
-        ${q.options.map((o, i) => `
-          <button class="el-quiz-option" data-i="${i}">
-            <span class="el-quiz-option-letter">${letters[i]}</span>
-            <span>${o}</span>
-          </button>
-        `).join('')}
-      </div>
-    `;
-    quizRoot.querySelectorAll('.el-quiz-option').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const i = Number(btn.getAttribute('data-i'));
-        if (quizAnswered[quizIdx] !== null) return;
-        quizAnswered[quizIdx] = i;
-        const correct = i === q.answer;
-        if (correct) quizScore++;
-        quizRoot.querySelectorAll('.el-quiz-option').forEach((b, bi) => {
-          (b as HTMLButtonElement).disabled = true;
-          if (bi === q.answer) b.classList.add('is-correct');
-          if (bi === i && !correct) b.classList.add('is-wrong');
-        });
-        const ex = document.createElement('div');
-        ex.className = 'el-quiz-explanation';
-        ex.innerHTML = `<strong style="color: var(--el-pin)">${correct ? 'Correct.' : 'Not quite.'}</strong> ${q.explanation}`;
-        quizRoot.appendChild(ex);
-        const actions = document.createElement('div');
-        actions.className = 'el-quiz-actions';
-        actions.innerHTML = `
-          ${q.sentenceId ? `<button class="el-btn el-btn-ghost" id="el-quiz-evidence">
-            <span class="material-symbols-outlined" style="font-size:14px">north_east</span>
-            See evidence
-          </button>` : '<span></span>'}
-          <button class="el-btn el-btn-primary" id="el-quiz-next">
-            ${quizIdx === ARTICLE.quiz.length - 1 ? 'See score' : 'Next'}
-            <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
-          </button>
-        `;
-        quizRoot.appendChild(actions);
-        document.getElementById('el-quiz-evidence')?.addEventListener('click', () => {
-          if (q.sentenceId) highlightSentences([q.sentenceId]);
-        });
-        document.getElementById('el-quiz-next')?.addEventListener('click', () => { quizIdx++; renderQuiz(); });
-      });
-    });
-  }
-
-  // ============== Review (Anki-lite) ==============
-  const reviewRoot = document.getElementById('el-review-root')!;
-  let reviewDeck: string[] = [];
-  let reviewIdx = 0;
-  let reviewFlipped = false;
-  let reviewDone = 0;
-
-  document.getElementById('el-review-begin')?.addEventListener('click', startReview);
-  function startReview() {
-    reviewDeck = ARTICLE.vocab.map((v) => v.id);
-    // shuffle
-    for (let i = reviewDeck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [reviewDeck[i], reviewDeck[j]] = [reviewDeck[j], reviewDeck[i]];
-    }
-    reviewIdx = 0;
-    reviewFlipped = false;
-    reviewDone = 0;
-    renderReview();
-  }
-  function renderReview() {
-    if (reviewIdx >= reviewDeck.length) {
-      reviewRoot.innerHTML = `
-        <div class="el-quiz-end">
-          <span class="material-symbols-outlined el-quiz-icon">verified</span>
-          <div class="el-quiz-score">${reviewDone}</div>
-          <div class="el-quiz-score-label">Words reviewed</div>
-          <button class="el-btn el-btn-primary" id="el-review-restart">Review again</button>
-          <button class="el-btn el-btn-ghost" id="el-review-back" style="margin-top:0">
-            <span class="material-symbols-outlined" style="font-size:14px">menu_book</span>
-            Back to article
-          </button>
-        </div>
-      `;
-      document.getElementById('el-review-restart')?.addEventListener('click', startReview);
-      document.getElementById('el-review-back')?.addEventListener('click', () => setMode('vocab'));
-      return;
-    }
-    const v = VOCAB_BY_ID[reviewDeck[reviewIdx]];
-    const pct = (reviewIdx / reviewDeck.length) * 100;
-    reviewRoot.innerHTML = `
-      <div class="el-quiz-progress"><div class="el-quiz-progress-fill" style="width: ${pct}%"></div></div>
-      <div class="el-quiz-counter">${reviewIdx + 1} / ${reviewDeck.length}</div>
-      <div class="el-review-card">
-        <div class="el-review-card-front">
-          <span class="el-level-tag el-level-tag--${v.level.toLowerCase()}">${v.level}</span>
-          <div class="el-review-word">${v.word}</div>
-          <div class="el-review-pos">${v.pos}</div>
-          ${reviewFlipped ? '' : '<div class="el-review-flip-hint">Click to reveal · Space</div>'}
-        </div>
-        ${reviewFlipped ? `
-          <div class="el-review-back">
-            <span class="ipa">${v.ipa}</span>
-            <span class="def">${v.defZh}</span>
-            <span class="def" style="font-weight: 400; color: rgba(4,47,36,0.6); font-size: 12.5px">${v.defEn}</span>
-            <div class="eg">${v.example}${v.exampleZh ? `<br><span style="color:rgba(4,47,36,0.5)">${v.exampleZh}</span>` : ''}</div>
-          </div>
-        ` : ''}
-      </div>
-      ${reviewFlipped ? `
-        <div class="el-review-rating">
-          <button data-rate="0"><span class="label" style="color:#dc2626">Again</span><span class="key">1</span></button>
-          <button data-rate="1"><span class="label" style="color:#d97706">Hard</span><span class="key">2</span></button>
-          <button data-rate="2"><span class="label" style="color:#0d9488">Good</span><span class="key">3</span></button>
-          <button data-rate="3"><span class="label" style="color:#16a34a">Easy</span><span class="key">4</span></button>
-        </div>
-      ` : `
-        <button class="el-btn el-btn-primary" id="el-review-flip" style="align-self:center">
-          <span class="material-symbols-outlined" style="font-size:14px">visibility</span>
-          Show meaning
-        </button>
-      `}
-    `;
-    document.getElementById('el-review-flip')?.addEventListener('click', () => { reviewFlipped = true; renderReview(); });
-    reviewRoot.querySelector('.el-review-card')?.addEventListener('click', () => {
-      if (!reviewFlipped) { reviewFlipped = true; renderReview(); }
-    });
-    reviewRoot.querySelectorAll('.el-review-rating button').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const r = Number(btn.getAttribute('data-rate'));
-        rateReview(r);
-      });
-    });
-  }
-  function rateReview(rating: number) {
-    // Again (0) → push back near the end of the queue.
-    // Hard (1) → push back ~5 cards later.
-    // Good/Easy → advance.
-    const currentId = reviewDeck[reviewIdx];
-    if (rating === 0) {
-      reviewDeck.splice(reviewIdx, 1);
-      const insertAt = Math.min(reviewDeck.length, reviewIdx + Math.max(3, Math.floor(reviewDeck.length / 3)));
-      reviewDeck.splice(insertAt, 0, currentId);
-    } else if (rating === 1) {
-      reviewDeck.splice(reviewIdx, 1);
-      const insertAt = Math.min(reviewDeck.length, reviewIdx + 5);
-      reviewDeck.splice(insertAt, 0, currentId);
-    } else {
-      reviewIdx++;
-      reviewDone++;
-    }
-    reviewFlipped = false;
-    renderReview();
-  }
-
-  // ============== TTS ==============
-  const synth = window.speechSynthesis;
-  let ttsQueue: { text: string; sid?: string }[] = [];
-  let ttsIdx = 0;
-  let ttsPlaying = false;
-
-  function speakOne(text: string) {
-    if (!synth) return;
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = Number((document.getElementById('tts-rate') as HTMLSelectElement)?.value || 1);
-    synth.speak(u);
-  }
-  function buildTtsQueue() {
-    ttsQueue = FLAT_SENTENCES.map((s) => ({ text: s.en, sid: s.id }));
-    ttsIdx = 0;
-  }
-  function startTtsFromIdx(i: number) {
-    if (!synth) return;
-    if (i >= ttsQueue.length) { stopTts(); return; }
-    ttsIdx = i;
-    ttsPlaying = true;
-    setPlayIcon('pause');
-    speakNext();
-  }
-  function speakNext() {
-    if (!ttsPlaying) return;
-    if (ttsIdx >= ttsQueue.length) { stopTts(); return; }
-    const item = ttsQueue[ttsIdx];
-    const u = new SpeechSynthesisUtterance(item.text);
-    u.lang = 'en-US';
-    u.rate = Number((document.getElementById('tts-rate') as HTMLSelectElement)?.value || 1);
-    document.querySelectorAll('.sent.is-tts').forEach((el) => el.classList.remove('is-tts'));
-    if (item.sid) {
-      const sentEl = document.querySelector(`.sent[data-sid="${item.sid}"]`);
-      sentEl?.classList.add('is-tts');
-      const rect = (sentEl as HTMLElement | null)?.getBoundingClientRect();
-      if (rect && (rect.top < 120 || rect.bottom > window.innerHeight - 60)) {
-        const targetY = window.scrollY + rect.top - 200;
-        window.scrollTo({ top: targetY, behavior: 'smooth' });
-      }
-    }
-    u.onend = () => {
-      if (!ttsPlaying) return;
-      ttsIdx++;
-      speakNext();
-    };
-    synth.speak(u);
-  }
-  function pauseTts() {
-    ttsPlaying = false;
-    synth.cancel();
-    setPlayIcon('play');
-    document.querySelectorAll('.sent.is-tts').forEach((el) => el.classList.remove('is-tts'));
-  }
-  function stopTts() {
-    ttsPlaying = false;
-    ttsIdx = 0;
-    synth.cancel();
-    setPlayIcon('play');
-    document.querySelectorAll('.sent.is-tts').forEach((el) => el.classList.remove('is-tts'));
-  }
-  function setPlayIcon(name: 'play' | 'pause') {
-    const el = document.getElementById('tts-play-icon');
-    if (el) el.textContent = name === 'play' ? 'play_arrow' : 'pause';
-  }
-
-  document.getElementById('tts-play')?.addEventListener('click', () => {
-    if (ttsPlaying) { pauseTts(); return; }
-    if (ttsQueue.length === 0) buildTtsQueue();
-    startTtsFromIdx(ttsIdx);
-  });
-  document.getElementById('tts-stop')?.addEventListener('click', stopTts);
-
-  // ============== Keyboard ==============
-  document.addEventListener('keydown', (e) => {
-    const target = e.target as HTMLElement;
-    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT')) return;
-
-    // 1-7 → modes
-    const numMap: Record<string, Mode> = { '1':'vocab','2':'translate','3':'grammar','4':'patterns','5':'quiz','6':'review','7':'about' };
-    if (numMap[e.key]) { e.preventDefault(); setMode(numMap[e.key]); return; }
-
-    // Space → play/pause TTS
-    if (e.code === 'Space') {
-      e.preventDefault();
-      if (ttsPlaying) { pauseTts(); }
-      else { if (ttsQueue.length === 0) buildTtsQueue(); startTtsFromIdx(ttsIdx); }
-      return;
-    }
-
-    // Esc → clear pin / clear active sent
-    if (e.key === 'Escape') {
-      pinVocab(null);
-      setActiveSentence(null);
-      return;
-    }
-
-    // Arrows → in translate mode, walk sentences
-    if (currentMode === 'translate' && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
-      e.preventDefault();
-      const idx = activeSentId ? FLAT_SENTENCES.findIndex((s) => s.id === activeSentId) : -1;
-      const newIdx = e.key === 'ArrowDown'
-        ? Math.min(FLAT_SENTENCES.length - 1, idx + 1)
-        : Math.max(0, idx - 1);
-      const sid = FLAT_SENTENCES[newIdx].id;
-      setActiveSentence(sid);
-      jumpToSentence(sid);
-      return;
-    }
-
-    // In review, 1-4 already used by mode switcher; use j/k for flip / next.
-    if (currentMode === 'review' && reviewFlipped) {
-      const rateMap: Record<string, number> = { 'q':0, 'w':1, 'e':2, 'r':3 };
-      if (rateMap[e.key.toLowerCase()] !== undefined) {
-        e.preventDefault();
-        rateReview(rateMap[e.key.toLowerCase()]);
-      }
-    }
-  });
-
-  // ============== Init ==============
-  setMode('vocab');
-</script>
