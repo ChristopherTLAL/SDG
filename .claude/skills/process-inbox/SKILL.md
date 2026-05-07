@@ -1,6 +1,6 @@
 ---
 name: process-inbox
-description: Process the unprocessed entries in the internal dashboard's submissions inbox by orchestrating a team of subagents that each spawn a headless Claude Code instance inside the Obsidian vault, so each student's submissions get archived using the vault's own skills (meeting-minutes for STT text, summarize for long content, etc.) — not just dumped as raw markdown. The vault subagents follow the vault's CLAUDE.md "two iron rules" (read SKILL.md before invoking, and write all required files: 学生档案 / 沟通记录 / 日报 / 任务看板). After all per-student writes are done, a reviewer subagent spot-checks the changes; only then does the main coordinator mark submissions processed in Supabase. Use whenever the user says "process inbox", "处理 inbox", "处理 submissions", "归档 submissions", "处理一下提交", or asks to clear out the internal dashboard's submission queue. Also use when the user references a specific submission id they want archived. Don't undertrigger — if the user vaguely says they want to clean up submissions, employee uploads, or the inbox, this is the right skill.
+description: Process the unprocessed entries in the internal dashboard's submissions inbox by orchestrating a team of subagents that each spawn a headless Claude Code instance inside the Obsidian vault, so each student's submissions get archived using the vault's own skills (meeting-minutes for STT text, summarize for long content, etc.) — not just dumped as raw markdown. The vault subagents follow the vault's CLAUDE.md "two iron rules" (read SKILL.md before invoking, and write all required files: 学生档案 / 沟通记录 / 日报 / 任务看板). After all per-student writes are done, a reviewer subagent spot-checks the changes; only then does the main coordinator mark submissions processed in Supabase. Use whenever the user says "process inbox", "处理 inbox", "处理 submissions", "归档 submissions", "处理一下提交", or asks to clear out the internal dashboard's submission queue. Also use when the user references a specific submission id they want archived. Don't undertrigger — if the user vaguely says they want to clean up submissions, employee uploads, or the inbox, this is the right skill. **Note**: a SEPARATE headless auto-archiver runs every 120s via launchd (`com.sdg.inbox-auto`, trigger `scripts/process-inbox-auto.sh`) for self-student happy-path submissions. That auto-archiver does NOT load this skill — it has its own restricted code path. Manual `/process-inbox` (this skill) is still the right tool for: cross-advisor submissions, new clients, oversized content, or whenever vault-skill intelligence (meeting-minutes / summarize) is wanted. See "## Auto-mode" section for the boundary between the two.
 ---
 
 # Process Inbox skill
@@ -342,3 +342,86 @@ Tell the user the inbox is now clean and the 30-min sync will pick up the new va
 - Doesn't auto-onboard new clients — always asks
 - Doesn't send notifications, emails
 - Doesn't delete the original Supabase Storage attachments (cheap to keep as backup)
+
+---
+
+## Auto-mode (headless launchd job — runs OUTSIDE this skill)
+
+There is a **separate** auto-archiver that polls the inbox queue every 120s
+via launchd. **The auto-archiver does NOT load this skill.** It runs an
+entirely separate code path with paranoid security restrictions.
+
+This section is documentation only — for runtime behavior, see the trigger
+script source.
+
+### Auto-archiver location
+- Trigger script: `scripts/process-inbox-auto.sh`
+- LaunchAgent plist: `~/Library/LaunchAgents/com.sdg.inbox-auto.plist`
+- Pause flag: `touch ~/Code/sdg-html/.inbox-auto-paused`
+- Status: `bash scripts/inbox-auto-status.sh`
+- Live log: `tail -f ~/Library/Logs/sdg-inbox-auto.log`
+
+### Why a separate code path
+
+This skill (`/process-inbox` manual) uses `claude -p --dangerously-skip-permissions`
+to invoke vault skills with full tool access. That's **safe for human-driven
+runs** (Shijie has just typed `/process-inbox`, knows context, can interrupt) but
+**unsafe for unattended automation** — a malicious submission could prompt-inject
+a vault claude into running `rm -rf` or curling the .env to attacker.com.
+
+Auto mode therefore:
+- Runs claude with **`--tools "Read,Edit,Write"` only** (no Bash, no MCP, no
+  WebFetch, no Skill tool)
+- Runs claude with **`--strict-mcp-config`** + no `--mcp-config` flag → zero
+  MCP servers loaded
+- Restricts file access to **vault root only** (`--add-dir VAULT_ROOT`, cwd at
+  neutral `/tmp/sdg-auto-cwd` so no `CLAUDE.md` auto-discovery)
+- Runs claude with **a custom paranoid system prompt** that flags submission
+  content as untrusted external data (prompt-injection-aware)
+- Trigger script (NOT claude) handles all Supabase IO via curl REST API
+- Trigger script (NOT claude) downloads attachments and `mv`s to vault path;
+  claude only edits text files
+- SQL `UPDATE processed=true` happens in the trigger script AFTER claude reports
+  ok via JSON output line
+
+Worst-case prompt injection in auto mode: vandalize vault files (revertible
+via `git -C VAULT reset --hard`). Cannot exfil `.env`, cannot push to git,
+cannot send emails, cannot publish Sanity, cannot run shell commands.
+
+### Self-student vs cross-advisor classification
+
+For each submission with `student_id IS NOT NULL`:
+
+- if `submissions.submitted_by ∈ students.mid_advisors[]` → **self_student**
+  (happy path: archive + mark `processed=true`)
+- else → **cross_advisor** (archive vault, **leave `processed=false`** for
+  Shijie to manually review via /process-inbox)
+- if `student_id IS NULL` → **new_client** (skip entirely, leave for manual)
+
+Multi-advisor (e.g. 田子辰 = `[王世杰, 徐祖韵]`): either advisor submitting
+counts as self-student.
+
+### Cost / model
+
+Trigger uses Opus (`--model opus`). Per-submission token estimate ~16K
+(13K input + 3K output) ≈ $0.40 at Opus 4.7 pricing. 5 submissions/day ≈
+$60/month ≈ ~3% of Max 20× plan equivalent. To downgrade for cost, edit
+`MODEL=` in `scripts/process-inbox-auto.sh`.
+
+### When manual /process-inbox is still needed
+
+- Cross-advisor submissions (auto leaves `processed=false`)
+- New clients (`student_id IS NULL`)
+- Oversized content (auto skips submissions where `len(content) > 20000`)
+- Anything where you want vault-skill intelligence (meeting-minutes for STT,
+  summarize for long content) — auto only does verbatim-style archive
+
+So manual `/process-inbox` and auto coexist. Auto handles the high-volume
+happy path silently; manual handles the cases auto won't touch.
+
+### When this skill (manual `/process-inbox`) gets used
+
+User invokes `/process-inbox` interactively. Then this skill's normal flow
+applies (sections above), with full `--dangerously-skip-permissions` access
+for the vault subagents — same as before. Auto-mode does not change manual
+behavior.

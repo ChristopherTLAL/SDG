@@ -30,11 +30,16 @@ Astro 5 SSR (`output: 'server'`) · React 19 (interactive bits via `client:load`
 - **Static data** — [src/data/contract-sops.ts](src/data/contract-sops.ts) (合同模板 + deliverable email bodies + `substitute()` helper for `{{学生姓名}}` / `{{中期顾问}}`), [src/data/student-tools.ts](src/data/student-tools.ts) (顾问对学生的话术), `guides-meta.ts`, `publications-meta.ts`, `budget-data.json`, `oxbridge-interview-questions.json`, plus [src/data/guides/](src/data/guides/) (~40 per-guide content `.ts` files).
 
 ## Cron / scheduling
-**There is no Vercel cron and no GitHub Actions in this repo.** Production scheduling lives in **Shijie's local `crontab -e`** on this Mac:
+**There is no Vercel cron and no GitHub Actions in this repo.** Production scheduling lives in **Shijie's local `crontab -e`** on this Mac, plus one **launchd LaunchAgent**:
+
+**crontab**:
 - `*/30 * * * * cd ~/Code/sdg-html && node scripts/sync-students-to-supabase.mjs` — vault → Supabase sync.
 - `*/20 * * * * pgrep -f "n8n" > /dev/null || open -a "/Applications/n8n Pro.app"` — keeps the local n8n (send-email backend) alive.
 
-If this Mac is asleep, both stall. The 30-min cadence is documented as a *suggestion* in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md); actual cadence = whatever the crontab says.
+**launchd LaunchAgent** (`~/Library/LaunchAgents/com.sdg.inbox-auto.plist`):
+- `com.sdg.inbox-auto`, every 120s — runs [scripts/process-inbox-auto.sh](scripts/process-inbox-auto.sh) which polls the Supabase `submissions` queue and auto-archives self-student happy-path submissions to the vault using a paranoid-restricted headless `claude -p` (only `Read,Edit,Write` tools, no MCP, no Bash, vault dir only). Cross-advisor / new-client / oversized rows stay `processed=false` for manual `/process-inbox`. Status: `bash scripts/inbox-auto-status.sh`. Pause: `touch ~/Code/sdg-html/.inbox-auto-paused`. Log: `~/Library/Logs/sdg-inbox-auto.log`. Full operational notes: see assistant memory `inbox_auto_operations.md`.
+
+If this Mac is asleep, all three stall. The 30-min sync cadence is documented as a *suggestion* in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md); actual cadence = whatever the crontab says.
 
 ## Auth (`/internal/*` only)
 - Cloudflare Access. **Two CF apps cover `sdg.undp.ac.cn`:** (a) "Internal Dashboard (Public)" — path `/internal` exact, Bypass policy, no allowlist (don't edit); (b) "SDG Internal Dashboard" — path `/internal/*` wildcard, OTP with editable "Allowed Employees" policy. Order matters; bypass evaluated first. The `.env` IDs (`CF_ACCESS_OTP_APP_ID` / `_POLICY_ID`) point at app (b). On success, app (b) injects `Cf-Access-Authenticated-User-Email`.
@@ -65,7 +70,7 @@ Two palettes — pick the right one for the page you're touching.
 ## Skills ([.claude/skills/](.claude/skills/))
 Skills handle multi-step workflows; user invokes them via slash command. Don't reimplement these inline — invoke the skill.
 - **deploy** — build + commit + push + watch Vercel logs
-- **process-inbox** — archive `/internal/submissions` queue into Obsidian vault (spawns headless `claude -p` inside the vault per student so vault `CLAUDE.md` + `_agents/skills/` apply; reviewer subagent gates Supabase mark-processed)
+- **process-inbox** — archive `/internal/submissions` queue into Obsidian vault (spawns headless `claude -p` inside the vault per student so vault `CLAUDE.md` + `_agents/skills/` apply; reviewer subagent gates Supabase mark-processed). **Coexists with the headless auto-archiver** at [scripts/process-inbox-auto.sh](scripts/process-inbox-auto.sh) (launchd `com.sdg.inbox-auto`, polls every 120s, auto-handles self-student happy path with paranoid tool restrictions). Manual `/process-inbox` is for: cross-advisor rows, new clients, oversized content, or whenever vault-skill smart treatment (meeting-minutes / summarize) is wanted.
 - **morning-digest** — daily per-advisor briefing emails (parallel subagents per advisor; defaults to test-mode that routes everything to 王世杰)
 - **send-email** — send via Shijie's local n8n webhook (xdf work address default; automation Gmail when explicitly asked)
 - **sanity-content** — CRUD on Sanity posts / projects / dialogues
