@@ -51,16 +51,19 @@ The `zh` field is for **comprehension**, not literary translation. It should:
 
 Grammar `title` and Pattern `useCase` are **headlines a student reads**, not labels a linguist would assign. They should answer "what does this help me do?" rather than "what is this called?".
 
-| Don't | Do |
-|---|---|
-| `What-cleft for emphasis` | `把焦点放在"东西"上，而不是"谁做的"` |
-| `Em-dash insertion` | (don't write this lesson at all — em-dashes are forbidden) |
-| `Reduced relative clause` | `把 "who/which is" 省掉，让句子更紧` |
-| `Concessive Yet at sentence start` | `用 Yet 起句，比 But 更克制，更书面` |
-| `Present perfect continuous` | `用现在完成进行时把"已经做了很久且还在做"说清楚` |
-| `Causative let + bare infinitive` | `用 "let" 让句子说"让人做某事"` |
+The shape of a good title:
+- A verb phrase that names a writing move (`把焦点放在 X 上` / `用 X 让句子 Y` / `先 X，再 Y`)
+- Anchored in a concrete decision the student would face (`什么时候用 X 比 Y 好`)
+- Free of grammar terminology unless the term is already familiar (no "cleft", "reduced relative", "concessive")
 
-The technical name still appears as the `pattern` field (the schematic). The `title` is the headline; `pattern` is the small code block below it.
+The shape of a bad title:
+- A linguistic label dropped in (`What-cleft for emphasis`, `Reduced relative clause`)
+- A vague aspiration (`Better sentence structure`)
+- A direct restatement of the pattern (`The "What X is Y" pattern`)
+
+Write the title that, when a student sees it in the grammar tab, makes them think "oh, that's a real thing I want to learn how to do." The `pattern` field still exists for the technical schema (`What [clause] is/was [emphasis]`); the `title` is the human-facing headline.
+
+**Important:** Do not use the same titles or formulations as appear in any other article in `src/data/english/`. Each article's grammar / pattern entries should be discovered from THAT article's actual writing — don't duplicate constructions that have already been taught at the same CEFR.
 
 ## When you're stuck
 

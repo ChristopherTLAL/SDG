@@ -103,32 +103,46 @@ Examples:
 - Pattern fails when used out of context: `这个句式情绪含量很高，不适合中间段落。它是收尾用的，用得太早，会让后续论证显得多余。`
 - Pattern fails grammatically: `even 后面接的动词要和 to 之后的动词形式对齐（保持光秃 infinitive 形式）。`
 
-## A complete example (B2 pattern entry)
+## Shape of a pattern entry (NOT the content)
+
+The structure your entry should follow. **Do not copy any of these placeholder texts or any examples from the reference docs — pick patterns from YOUR article's actual rhetoric and write fresh worked examples.**
 
 ```ts
 {
-  id: 'pt3',
-  useCase: '为整篇文章给出一个反讽式的情感落点',
-  skeleton: 'It is a strange irony of [domain] that [observation].',
-  original: 'It is a strange irony of modern life that what we once shared as common heritage, a sky full of stars, has become a destination.',
-  sentenceId: 's23',
+  id: 'pt<N>',
+  useCase: '<student-facing intent: "what helps me write" — derived from THIS pattern as it appears in YOUR article>',
+  skeleton: '<deployable template with [slot] placeholders>',
+  original: '<the verbatim sentence from YOUR article that exemplifies this pattern — must match byte-for-byte>',
+  sentenceId: '<the sentenceId that quote came from>',
   whyItWorks: [
-    '这个句式的关键不在描述事实，而在给事实"命名"。当你把矛盾命名为 irony，读者立刻被请进一个反思的角度，你不是在说"X 现在变成了 Y"，你是在说"X 居然变成了 Y，而且这件事本身值得品味"。',
-    '"a strange irony" 用 strange 作修饰，比单说 irony 更柔和、更具有人性，它不指控，只是邀请读者一起看这个矛盾。',
-    'of [domain] 把这个 irony 锚定在一个明确的语境里（modern life / our age / today\'s economy / contemporary politics），让读者知道讨论的范围。',
-    '[observation] 部分通常是一个对比性的陈述。本文里就是 "what we once shared ... has become a destination"，把"曾共有"与"现在是目的地"这个对比写出来。',
+    '<paragraph 1: the structural mechanic — what contrast or rhythm makes this work>',
+    '<paragraph 2: the implicit promise — what does the reader trust about the writer when they see this>',
+    '<paragraph 3: when this works best — genre / context / position in a piece>',
+    '<paragraph 4 (optional): a subtle constraint that makes the pattern break if violated>',
   ],
   examples: [
-    { context: '评论科技和孤独', text: 'It is a strange irony of digital life that the more connected we are, the lonelier we feel.', zh: '数字生活的一种奇妙讽刺是：我们连接得越紧密，反而越孤独。' },
-    { context: '讨论教育普及', text: 'It is a strange irony of mass education that students now have access to everything and patience for almost nothing.', zh: '大众教育的一种奇妙讽刺是：学生现在能接触到一切，却几乎对一切都没有耐心。' },
-    { context: '环境议题文章结尾', text: 'It is a strange irony of environmental thinking that we praise the wild while paving over the last of it.', zh: '环境思维的一种奇妙讽刺是：我们一边赞美原野，一边把最后剩下的也铺成水泥。' },
+    // 3-5 worked deployments. Each `text` MUST be a sentence YOU write fresh.
+    // Each `context` should be a real writing situation (op-ed,申请文书, news report
+    // opener, reflection piece, etc). Vary contexts so the student sees the pattern's
+    // range. Do not lift any sentence from these reference docs or from other articles
+    // in src/data/english/.
+    { context: '<situation 1>', text: '<your sentence 1>', zh: '<translation>' },
+    { context: '<situation 2>', text: '<your sentence 2>', zh: '<...>' },
+    // ...
   ],
-  adaptingTip: '这个句式适合点题 / 收尾，不适合开头（开头用它显得过早下结论）。建议留到全文 80% 以后用，让读者已经被你的论证带到一个能"看出 irony"的位置。',
-  commonMistake: '[observation] 部分要写成一个有内在矛盾的陈述。如果只是普通描述（如 "It is a strange irony of modern life that we have many cars"，这只是描述，没有 irony），整个句式就没有意义。',
+  adaptingTip: '<longer practical guidance: what kind of words go in each slot, what strength differential matters, where in the article to use it>',
+  commonMistake: '<optional: a specific way the pattern fails when adapted>',
 }
 ```
 
-This is the depth target. Match it.
+## Quality bar (objective)
+
+Your entry passes if a Chinese learner could:
+1. Tell what writing situation calls for this pattern
+2. Adapt the skeleton to a different topic without losing its rhetorical force
+3. Recognize the pattern in another writer's prose
+
+If the entry feels like a generic writing tip ("be specific!"), it's too thin. If it walks the student through *why this construction has the effect it has*, it's at the right depth.
 
 ## How patterns differ from grammar
 

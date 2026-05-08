@@ -99,30 +99,40 @@ Examples:
 - `However` vs `Yet` vs `Still` vs `Nevertheless` (all roughly synonyms, different registers)
 - `make` vs `have` vs `let` vs `allow X to V` (causative chain, different intensities)
 
-## A complete example (B2 grammar entry)
+## Shape of a grammar entry (NOT the content)
+
+The structure your entry should follow. **Do not copy any of the placeholder text or any specific examples — pick teaching points and examples grounded in YOUR assigned article.**
 
 ```ts
 {
-  id: 'g1',
-  title: '把焦点放在"东西"上，而不是"谁做的"',
-  pattern: 'What [clause] is/was [emphasis]',
-  sentenceIds: ['s5'],
+  id: 'g<N>',
+  title: '<learning-centered headline derived from this construction\'s use in YOUR article>',
+  pattern: '<technical schema: e.g. "What [clause] is/was [emphasis]">',
+  sentenceIds: ['<sentence ids in YOUR article that exemplify this construction>'],
   explanationZh: [
-    '正常英文语序习惯把动作的执行者（subject）放在最前面：The town lost its summer trade. 这种语序平稳，但当你真正想强调的是"失去了什么"，主词位置就被执行者占走了。',
-    '这个句式（What-cleft）把主词位置交给一个 what-clause，让句子的第一个停顿就把"事物"立住。文章里 "But what was lost is now becoming a luxury." 没有写 "The thing we lost is now a luxury"，因为前者书面、有节奏；what 这个词本身带一种"请你留意"的语气。',
-    '议论文 / 散文里非常顺手，段落开头用它，立刻把读者的注意力锁在你想强调的那个名词上，再去展开。',
-    '注意：what-clause 后面接单数 is/was（即便 clause 实际指多个事物），因为 what-clause 整体被视为 "the thing(s) which..."，语法上是单数主语。',
+    '<paragraph 1: contrast with the alternative — set up "why this construction over the default">',
+    '<paragraph 2: anchor in YOUR article — quote the relevant sentence and explain the writer\'s choice>',
+    '<paragraph 3: when to deploy — register, genre, position in a piece>',
+    '<paragraph 4 (optional): a subtle technical note — agreement, word order, restriction>',
   ],
   examples: [
-    { en: 'What surprised me most was how quiet the room had become.', zh: '最让我意外的，是房间变得多么安静。', note: '把"感到意外"这件事拉到主词位置，比 I was surprised by ... 更聚焦。' },
-    { en: 'What this generation has lost is the patience for slow reading.', zh: '这一代人失去的，是慢读的耐心。', note: '议论文段落开头标准用法。' },
-    { en: 'What the policy ignores is not the cost but the timing.', zh: '这项政策忽略的，不是成本，而是时机。', note: '搭配 not X but Y 形成对比修辞，力度翻倍。' },
-    { en: 'What I admire in her writing is the absence of pretense.', zh: '我欣赏她写作中的，是那份不做作。' },
-    { en: 'What changed everything was a single phone call.', zh: '改变一切的，是一通电话。', note: '叙事 / 报道里用来制造转折。' },
+    // 4-6 examples. Each MUST be a fresh sentence you create — not a sentence from
+    // YOUR article, not a sentence from these reference docs. Vary contexts:
+    // a personal narrative, an op-ed line, an academic register, a clever twist, etc.
+    { en: '<example 1>', zh: '<translation>', note: '<optional teaching note>' },
+    { en: '<example 2>', zh: '<...>' },
+    // ...
   ],
-  commonMistake: '不要写成 "What we lost are now luxuries"，即便意指多个事物，is/was 始终单数。要表达复数主语，换成 "The things we lost are now luxuries"。',
-  vsSimilar: 'It-cleft（"It is X that..."）也用于强调，但它强调的是具体名词 X；what-cleft 强调的是 整一个 clause 的内容（"我们失去的东西"）。前者锐利，后者更含蓄、更修辞化。',
+  commonMistake: '<optional: a Chinese-learner-specific trap with this construction>',
+  vsSimilar: '<optional: 2-3 line comparison with an adjacent construction>',
 }
 ```
 
-This is the depth target. Match it.
+## Quality bar (objective)
+
+Your entry passes if a Chinese learner reading it could:
+1. Recognize the construction in a fresh sentence
+2. Construct a correct example of their own
+3. Know one situation where it fits and one where it doesn't
+
+If your explanation reads like a textbook glossary entry, you've gone too thin. If it reads like a teacher walking the student through one specific instance, you're at the right depth.

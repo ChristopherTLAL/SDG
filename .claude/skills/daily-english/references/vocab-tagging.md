@@ -18,12 +18,12 @@ The level is **relative to this article**. Within a B2 piece, the easiest tagged
 
 This sounds confusing but it works in practice because each article shows its own level chips with its own counts. The student picks "Level 2 and harder" within the article they're reading.
 
-Rough internal difficulty heuristics:
+Rough internal difficulty heuristics (NO concrete examples here — pick words from YOUR article and judge their relative difficulty):
 
-- **Level 1**: a word the target-CEFR student probably knows but might want to confirm (`expensive`, `lending`, `community` in B1; `striking`, `preserves`, `inefficient` in B2)
-- **Level 2**: high-frequency for native speakers, mid-difficulty for the target CEFR (`workshops`, `household` in B1; `unchecked`, `emerged`, `coordinated` in B2)
-- **Level 3**: low-frequency, often Latinate or technical (`tricky`, `insurance` in B1; `designated`, `nocturnal`, `ecological` in B2)
-- **Level 4**: rare, GRE-tier, technical, or culturally loaded (`stewardship`, `celestial`, `hatchlings` in B2; `obfuscate`, `paradoxical` in C1)
+- **Level 1**: a word the target-CEFR student probably knows already but might want to confirm meaning, spelling, or a less-common sense
+- **Level 2**: high-frequency for native speakers, mid-difficulty for the target CEFR; often everyday Anglo-Saxon stems
+- **Level 3**: low-frequency, often Latinate, technical, or with a specific genre register
+- **Level 4**: rare, GRE-tier, technical, or culturally loaded; the words you'd flag in a careful read
 
 If you can't decide between two adjacent levels, lean lower (more accessible). The reader can always raise the floor.
 

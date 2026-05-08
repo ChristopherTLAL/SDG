@@ -26,10 +26,28 @@ Before writing anything, read these from the project root:
 4. `.claude/skills/daily-english/references/vocab-tagging.md` — Level 1-4
 5. `.claude/skills/daily-english/references/grammar-design.md` — deep grammar
 6. `.claude/skills/daily-english/references/pattern-design.md` — deep patterns
-7. `src/data/english/2026-05-07.ts` — B2 sample to model after
-8. `src/data/english/2026-05-08.ts` — B1 sample to model after
 
 If you skip these you will produce thin or off-style output. Read them.
+
+You MAY peek at one existing article in `src/data/english/` for **format and depth calibration** — pick one whose CEFR matches yours if available. Look at it for:
+- file structure (imports, the `export const article: Article = {...}` shape)
+- the rough size of `explanationZh` paragraphs
+- the rough size of `whyItWorks` paragraphs
+- how examples are laid out
+
+Do NOT read it for content. Specifically:
+- Do not reuse any article's grammar / pattern titles
+- Do not reuse any article's example sentences
+- Do not adapt an article's example by minor word swap (this is still copying)
+- Do not pick the same construction for grammar / pattern entries as another article at the same CEFR
+
+Every grammar entry, every pattern, every example sentence should come from YOUR article's own text and YOUR own writing.
+
+## The anti-copying rule
+
+The references above describe SHAPE, not CONTENT. The placeholder sentences inside the schema scaffolds and inside any "Don't / Do" tables are **descriptions of what good content looks like**, not content you should ship. If you find yourself writing a sentence you remember reading in a reference file, stop and rewrite it from scratch grounded in YOUR article's specific facts.
+
+The reviewer (final QA pass) will compare your output against the references and against other articles in `src/data/english/`. Anything that looks lifted will be sent back for rewrite.
 
 ## The 7-step pipeline
 
