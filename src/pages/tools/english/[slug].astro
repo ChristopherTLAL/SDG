@@ -217,11 +217,37 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
                     <span class="el-acc-chev material-symbols-outlined">expand_more</span>
                   </button>
                   <div class="el-acc-body" hidden>
-                    <p class="el-acc-explain">{g.explanationZh}</p>
+                    <div class="el-acc-eyebrow">详解</div>
+                    <div class="el-acc-paragraphs">
+                      {g.explanationZh.map((p) => <p>{p}</p>)}
+                    </div>
+
                     {g.examples.length > 0 && (
-                      <div class="el-acc-examples">
-                        <div class="el-acc-eyebrow">Examples</div>
-                        {g.examples.map((ex) => <p>· {ex}</p>)}
+                      <Fragment>
+                        <div class="el-acc-eyebrow">Examples ({g.examples.length})</div>
+                        <ul class="el-acc-examples">
+                          {g.examples.map((ex) => (
+                            <li>
+                              <p class="el-eg-en">{ex.en}</p>
+                              {ex.zh && <p class="el-eg-zh">{ex.zh}</p>}
+                              {ex.note && <p class="el-eg-note">{ex.note}</p>}
+                            </li>
+                          ))}
+                        </ul>
+                      </Fragment>
+                    )}
+
+                    {g.commonMistake && (
+                      <div class="el-acc-callout el-acc-callout--warn">
+                        <div class="el-acc-callout-label">易错点</div>
+                        <p>{g.commonMistake}</p>
+                      </div>
+                    )}
+
+                    {g.vsSimilar && (
+                      <div class="el-acc-callout">
+                        <div class="el-acc-callout-label">与相近结构对比</div>
+                        <p>{g.vsSimilar}</p>
                       </div>
                     )}
                   </div>
@@ -243,10 +269,40 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
                   <div class="el-acc-body" hidden>
                     <div class="el-acc-eyebrow">Skeleton</div>
                     <code class="el-acc-skeleton">{p.skeleton}</code>
+
                     <div class="el-acc-eyebrow">From the article</div>
                     <p class="el-acc-original">「{p.original}」</p>
-                    <div class="el-acc-eyebrow">How to use it</div>
-                    <p class="el-acc-hint">{p.hint}</p>
+
+                    <div class="el-acc-eyebrow">为什么这样写有效</div>
+                    <div class="el-acc-paragraphs">
+                      {p.whyItWorks.map((para) => <p>{para}</p>)}
+                    </div>
+
+                    {p.examples.length > 0 && (
+                      <Fragment>
+                        <div class="el-acc-eyebrow">实战例子 ({p.examples.length})</div>
+                        <ul class="el-acc-examples">
+                          {p.examples.map((ex) => (
+                            <li>
+                              <p class="el-eg-context">{ex.context}</p>
+                              <p class="el-eg-en">{ex.text}</p>
+                              {ex.zh && <p class="el-eg-zh">{ex.zh}</p>}
+                              {ex.note && <p class="el-eg-note">{ex.note}</p>}
+                            </li>
+                          ))}
+                        </ul>
+                      </Fragment>
+                    )}
+
+                    <div class="el-acc-eyebrow">怎么搬到自己的写作里</div>
+                    <p class="el-acc-hint">{p.adaptingTip}</p>
+
+                    {p.commonMistake && (
+                      <div class="el-acc-callout el-acc-callout--warn">
+                        <div class="el-acc-callout-label">易错点</div>
+                        <p>{p.commonMistake}</p>
+                      </div>
+                    )}
                   </div>
                 </li>
               ))}
@@ -1298,54 +1354,134 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     color: var(--el-pin);
   }
   .el-acc-body {
-    padding: 4px 16px 14px;
+    padding: 4px 16px 16px;
     border-top: 1px solid var(--el-border);
     background: white;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
+  /* Critical: same UA [hidden] override needed as for .el-mode. */
+  .el-acc-body[hidden] { display: none !important; }
+
   .el-acc-eyebrow {
     font-size: 9.5px;
     font-weight: 700;
     letter-spacing: 0.20em;
     text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.45);
-    margin-top: 8px;
+    color: rgba(4, 47, 36, 0.5);
+    margin-top: 12px;
+    margin-bottom: 2px;
   }
-  .el-acc-explain {
+  .el-acc-eyebrow:first-child { margin-top: 8px; }
+
+  .el-acc-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .el-acc-paragraphs p {
     font-size: 13px;
-    line-height: 1.65;
-    color: rgba(4, 47, 36, 0.82);
+    line-height: 1.7;
+    color: rgba(4, 47, 36, 0.85);
   }
-  .el-acc-examples p {
+
+  .el-acc-examples {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .el-acc-examples li {
+    list-style: none;
+    background: var(--el-soft);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .el-eg-context {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: rgba(4, 47, 36, 0.55);
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+  .el-eg-en {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--el-pin);
+  }
+  .el-eg-zh {
     font-size: 12px;
-    line-height: 1.6;
+    line-height: 1.55;
     color: rgba(4, 47, 36, 0.65);
-    margin-top: 3px;
   }
+  .el-eg-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: rgba(4, 47, 36, 0.55);
+    font-style: italic;
+    padding-left: 8px;
+    border-left: 2px solid var(--el-border-2);
+    margin-top: 2px;
+  }
+
   .el-acc-skeleton {
     display: block;
     padding: 8px 10px;
-    background: var(--el-soft);
+    background: var(--el-soft-2);
     border-radius: 6px;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 12px;
     line-height: 1.55;
     color: var(--el-pin);
     word-break: break-word;
+    font-weight: 600;
   }
   .el-acc-original {
     font-style: italic;
     font-size: 12.5px;
-    color: rgba(4, 47, 36, 0.65);
+    color: rgba(4, 47, 36, 0.7);
     line-height: 1.6;
-    padding-left: 10px;
+    padding: 6px 0 6px 12px;
     border-left: 2px solid var(--el-border-2);
   }
   .el-acc-hint {
-    font-size: 12.5px;
+    font-size: 13px;
     line-height: 1.7;
+    color: rgba(4, 47, 36, 0.82);
+  }
+
+  /* Callout boxes for commonMistake / vsSimilar */
+  .el-acc-callout {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: var(--el-soft);
+    border-left: 3px solid var(--el-border-2);
+    border-radius: 0 8px 8px 0;
+  }
+  .el-acc-callout--warn {
+    background: rgba(217, 119, 6, 0.06);
+    border-left-color: rgba(217, 119, 6, 0.55);
+  }
+  .el-acc-callout-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(4, 47, 36, 0.6);
+    margin-bottom: 4px;
+  }
+  .el-acc-callout--warn .el-acc-callout-label {
+    color: rgba(217, 119, 6, 0.95);
+  }
+  .el-acc-callout p {
+    font-size: 12.5px;
+    line-height: 1.65;
     color: rgba(4, 47, 36, 0.78);
   }
 

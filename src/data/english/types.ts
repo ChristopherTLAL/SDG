@@ -1,10 +1,5 @@
 // Schema for an article in the Daily English library.
 // The future content-generation skill produces JSON conforming to this shape.
-//
-// VocabLevel is a numeric tier scoped to each article: 1 = the easiest words
-// in this article, 4 = the hardest. The reader UI lets a user pick a level
-// floor and highlights all words at or above it (e.g. picking Level 2 keeps
-// shades on Level 2-4 words, hides Level 1).
 
 export type VocabLevel = 1 | 2 | 3 | 4;
 
@@ -42,22 +37,42 @@ export interface Collocation {
   exampleZh?: string;
 }
 
+// Grammar example with optional translation + a teaching note.
+export interface GrammarExample {
+  en: string;
+  zh?: string;
+  note?: string;
+}
+
 export interface GrammarPoint {
   id: string;
-  title: string;
-  pattern: string;
-  explanationZh: string;
+  title: string;              // student-facing learning headline (NOT a linguistic term)
+  pattern: string;            // technical schematic, shown alongside title in collapsed state
   sentenceIds: string[];
-  examples: string[];
+  explanationZh: string[];    // multi-paragraph deep explanation
+  examples: GrammarExample[]; // 4-6 worked examples
+  commonMistake?: string;     // typical errors a Chinese learner makes
+  vsSimilar?: string;         // comparison with similar constructions
+}
+
+// Pattern example, with brief context to anchor where it would deploy.
+export interface PatternExample {
+  context: string;            // brief setup ("写一篇申请文书时...")
+  text: string;
+  zh?: string;
+  note?: string;
 }
 
 export interface SentencePattern {
   id: string;
-  useCase: string;     // shown as the card title — "想要表达 X" / "在 X 时这么写"
-  skeleton: string;    // abstract template, shown when expanded
-  original: string;    // the article sentence
+  useCase: string;            // student-facing intent ("命名一个新现象，把它装进有节奏的开篇句")
+  skeleton: string;           // abstract template
+  original: string;           // the article sentence
   sentenceId: string;
-  hint: string;        // longer guidance about when / how to deploy this pattern
+  whyItWorks: string[];       // multi-paragraph rhetorical analysis
+  examples: PatternExample[]; // 3-5 worked examples
+  adaptingTip: string;        // longer guidance about adapting to your own writing
+  commonMistake?: string;
 }
 
 export interface QuizQuestion {
