@@ -1,31 +1,50 @@
-// English Test Cross-walk + Programme-fit + Strategy tool.
-// Three-tab single-page UI. Public-site design tokens.
+// English Test Cross-walk + Strategy tool — public-site design tokens.
+// Two tabs: 换算 + 策略. PNG export = separate beautiful card (1080×1440).
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CROSS_WALK, TEST_META, PROGRAMMES, CEFR_ORDER,
-  matchCefr, convertScore, programmeFit, findProgrammeFits, strategy,
+  CROSS_WALK, TEST_META, CEFR_ORDER,
+  matchCefr, strategy,
 } from '../data/english-tests/conversions';
-import { REGION_LABEL, TIER_LABEL } from '../data/english-tests/programmes';
+import { TIER_LABEL } from '../data/english-tests/programmes';
 import type {
-  TestKey, CEFRBand, Region, Tier, UserScores, FitResult,
+  TestKey, CEFRBand, Tier,
 } from '../data/english-tests/types';
 
-type Tab = 'convert' | 'fit' | 'strategy';
+type Tab = 'convert' | 'strategy';
 
-// CEFR color spectrum: A1 red → C2 indigo
-const CEFR_COLORS: Record<CEFRBand, { bg: string; text: string; border: string; bar: string }> = {
-  'A1':  { bg: 'bg-rose-50',     text: 'text-rose-900',     border: 'border-rose-200',   bar: 'bg-rose-400'    },
-  'A2':  { bg: 'bg-orange-50',   text: 'text-orange-900',   border: 'border-orange-200', bar: 'bg-orange-400'  },
-  'A2+': { bg: 'bg-amber-50',    text: 'text-amber-900',    border: 'border-amber-200',  bar: 'bg-amber-400'   },
-  'B1':  { bg: 'bg-yellow-50',   text: 'text-yellow-900',   border: 'border-yellow-200', bar: 'bg-yellow-500'  },
-  'B1+': { bg: 'bg-lime-50',     text: 'text-lime-900',     border: 'border-lime-200',   bar: 'bg-lime-500'    },
-  'B2-': { bg: 'bg-green-50',    text: 'text-green-900',    border: 'border-green-200',  bar: 'bg-green-500'   },
-  'B2':  { bg: 'bg-emerald-50',  text: 'text-emerald-900',  border: 'border-emerald-200',bar: 'bg-emerald-500' },
-  'B2+': { bg: 'bg-teal-50',     text: 'text-teal-900',     border: 'border-teal-200',   bar: 'bg-teal-500'    },
-  'C1':  { bg: 'bg-cyan-50',     text: 'text-cyan-900',     border: 'border-cyan-200',   bar: 'bg-cyan-600'    },
-  'C1+': { bg: 'bg-blue-50',     text: 'text-blue-900',     border: 'border-blue-200',   bar: 'bg-blue-600'    },
-  'C2':  { bg: 'bg-indigo-50',   text: 'text-indigo-900',   border: 'border-indigo-200', bar: 'bg-indigo-600'  },
+// CEFR color spectrum — used for badges + scale strips + export accent
+const CEFR_COLORS: Record<CEFRBand, {
+  bg: string; text: string; border: string; bar: string;
+  // export-card colors (hex for inline style + html-to-image fidelity)
+  exportBg: string;
+  exportFg: string;
+  exportAccent: string;
+  exportGradFrom: string;
+  exportGradTo: string;
+}> = {
+  'A1':  { bg: 'bg-rose-50',     text: 'text-rose-900',     border: 'border-rose-200',   bar: 'bg-rose-400',
+           exportBg: '#fff1f2', exportFg: '#881337', exportAccent: '#fb7185', exportGradFrom: '#ffe4e6', exportGradTo: '#fecdd3' },
+  'A2':  { bg: 'bg-orange-50',   text: 'text-orange-900',   border: 'border-orange-200', bar: 'bg-orange-400',
+           exportBg: '#fff7ed', exportFg: '#7c2d12', exportAccent: '#fb923c', exportGradFrom: '#ffedd5', exportGradTo: '#fed7aa' },
+  'A2+': { bg: 'bg-amber-50',    text: 'text-amber-900',    border: 'border-amber-200',  bar: 'bg-amber-400',
+           exportBg: '#fffbeb', exportFg: '#78350f', exportAccent: '#fbbf24', exportGradFrom: '#fef3c7', exportGradTo: '#fde68a' },
+  'B1':  { bg: 'bg-yellow-50',   text: 'text-yellow-900',   border: 'border-yellow-200', bar: 'bg-yellow-500',
+           exportBg: '#fefce8', exportFg: '#713f12', exportAccent: '#eab308', exportGradFrom: '#fef9c3', exportGradTo: '#fef08a' },
+  'B1+': { bg: 'bg-lime-50',     text: 'text-lime-900',     border: 'border-lime-200',   bar: 'bg-lime-500',
+           exportBg: '#f7fee7', exportFg: '#365314', exportAccent: '#84cc16', exportGradFrom: '#ecfccb', exportGradTo: '#d9f99d' },
+  'B2-': { bg: 'bg-green-50',    text: 'text-green-900',    border: 'border-green-200',  bar: 'bg-green-500',
+           exportBg: '#f0fdf4', exportFg: '#14532d', exportAccent: '#22c55e', exportGradFrom: '#dcfce7', exportGradTo: '#bbf7d0' },
+  'B2':  { bg: 'bg-emerald-50',  text: 'text-emerald-900',  border: 'border-emerald-200',bar: 'bg-emerald-500',
+           exportBg: '#ecfdf5', exportFg: '#064e3b', exportAccent: '#10b981', exportGradFrom: '#d1fae5', exportGradTo: '#a7f3d0' },
+  'B2+': { bg: 'bg-teal-50',     text: 'text-teal-900',     border: 'border-teal-200',   bar: 'bg-teal-500',
+           exportBg: '#f0fdfa', exportFg: '#134e4a', exportAccent: '#14b8a6', exportGradFrom: '#ccfbf1', exportGradTo: '#99f6e4' },
+  'C1':  { bg: 'bg-cyan-50',     text: 'text-cyan-900',     border: 'border-cyan-200',   bar: 'bg-cyan-600',
+           exportBg: '#ecfeff', exportFg: '#164e63', exportAccent: '#0891b2', exportGradFrom: '#cffafe', exportGradTo: '#a5f3fc' },
+  'C1+': { bg: 'bg-blue-50',     text: 'text-blue-900',     border: 'border-blue-200',   bar: 'bg-blue-600',
+           exportBg: '#eff6ff', exportFg: '#1e3a8a', exportAccent: '#2563eb', exportGradFrom: '#dbeafe', exportGradTo: '#bfdbfe' },
+  'C2':  { bg: 'bg-indigo-50',   text: 'text-indigo-900',   border: 'border-indigo-200', bar: 'bg-indigo-600',
+           exportBg: '#eef2ff', exportFg: '#312e81', exportAccent: '#4f46e5', exportGradFrom: '#e0e7ff', exportGradTo: '#c7d2fe' },
 };
 
 const SOURCE_BADGE: Record<string, string> = {
@@ -69,6 +88,16 @@ const SECONDARY_TESTS: TestKey[] = [
   'gmat-v',
 ];
 
+// Export card key tests (most-used 6 for sharing)
+const EXPORT_PRIMARY: TestKey[] = [
+  'ielts',
+  'toefl-ibt-new',
+  'toefl-ibt-legacy',
+  'pte',
+  'det',
+  'cambridge-scale',
+];
+
 export default function EnglishTestTool() {
   const [tab, setTab] = useState<Tab>('convert');
 
@@ -80,11 +109,7 @@ export default function EnglishTestTool() {
     L: '', R: '', W: '', S: '',
   });
 
-  // Tab 2 state
-  const [regions, setRegions] = useState<Region[]>(['UK']);
-  const [tiers, setTiers] = useState<Tier[]>(['TOP', 'STRONG']);
-
-  // Tab 3 state
+  // Tab 3 (Strategy) state
   const [targetTier, setTargetTier] = useState<Tier>('STRONG');
   const [examTaken, setExamTaken] = useState<string>('');
   const [unconditionalBy, setUnconditionalBy] = useState<string>('');
@@ -98,7 +123,6 @@ export default function EnglishTestTool() {
       <nav className="flex gap-1 mb-8 border-b border-slate-200 overflow-x-auto">
         {([
           { key: 'convert',  label: '换算',   sub: 'Convert',     icon: 'sync_alt' },
-          { key: 'fit',      label: '学校匹配', sub: 'Programme fit', icon: 'school' },
           { key: 'strategy', label: '策略',   sub: 'Strategy',    icon: 'bolt' },
         ] as const).map((t) => (
           <button
@@ -124,16 +148,6 @@ export default function EnglishTestTool() {
           showPerSkill={showPerSkill} setShowPerSkill={setShowPerSkill}
           perSkill={perSkill} setPerSkill={setPerSkill}
           showSecondary={showSecondary} setShowSecondary={setShowSecondary}
-        />
-      )}
-      {tab === 'fit' && (
-        <FitTab
-          test={test} setTest={setTest}
-          score={score} setScore={setScore}
-          showPerSkill={showPerSkill} setShowPerSkill={setShowPerSkill}
-          perSkill={perSkill} setPerSkill={setPerSkill}
-          regions={regions} setRegions={setRegions}
-          tiers={tiers} setTiers={setTiers}
         />
       )}
       {tab === 'strategy' && (
@@ -165,7 +179,7 @@ function Header() {
       </h1>
       <p className="font-body text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
         IELTS / TOEFL（含 2026 新制 1-6）/ PTE / DET / Cambridge / 等 21 种考试 ↔ CEFR 双向换算 +
-        UK / US / HK / SG / AU / CA 主流学校录取门槛匹配 + 备考策略建议。
+        备考策略建议。导出 PNG 直接转发。
       </p>
     </div>
   );
@@ -202,7 +216,7 @@ function ConvertTab(props: {
   showSecondary: boolean; setShowSecondary: (v: boolean) => void;
 }) {
   const { test, setTest, score, setScore, showPerSkill, setShowPerSkill, perSkill, setPerSkill, showSecondary, setShowSecondary } = props;
-  const exportRef = useRef<HTMLDivElement>(null);
+  const exportCardRef = useRef<HTMLDivElement>(null);
 
   const numericScore = parseFloat(score);
   const cellMatch = isNaN(numericScore)
@@ -253,7 +267,7 @@ function ConvertTab(props: {
                 className="text-[12px] text-primary font-semibold flex items-center gap-1 hover:underline"
               >
                 <span className="material-symbols-outlined text-[14px]">{showPerSkill ? 'expand_less' : 'expand_more'}</span>
-                {showPerSkill ? '收起' : '展开'} per-skill 小分（顾问铁律：从来不只看 overall）
+                {showPerSkill ? '收起' : '展开'} per-skill 小分
               </button>
               {showPerSkill && (
                 <div className="grid grid-cols-2 gap-2 mt-3">
@@ -287,12 +301,12 @@ function ConvertTab(props: {
               </span>
             ))}
           </div>
-          <p className="mt-2 text-[11px] leading-snug">官方 = test publisher 验证；约定 = 业界共识；近似 = 研究估算（GRE/SAT/CET 等）</p>
+          <p className="mt-2 text-[11px] leading-snug">官方 = test publisher 验证；约定 = 业界共识；近似 = 研究估算</p>
         </div>
       </aside>
 
       {/* Result column */}
-      <div className="md:col-span-8 space-y-6" ref={exportRef}>
+      <div className="md:col-span-8 space-y-6">
         {!cellMatch ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-amber-900">
             <strong>无法对齐</strong>：请检查分数是否在合理范围内（{TEST_META[test].inputMin}–{TEST_META[test].inputMax}）。
@@ -305,7 +319,11 @@ function ConvertTab(props: {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-headline font-extrabold text-lg">主要等价分</h3>
-                <ExportButton targetRef={exportRef} filename={`english-test-convert-${test}-${score}`} />
+                <ExportButton
+                  cardRef={exportCardRef}
+                  filename={`english-test-convert-${test}-${score}`}
+                  enabled={!!cellMatch}
+                />
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {PRIMARY_TESTS.filter((k) => k !== test).map((k) => (
@@ -333,6 +351,17 @@ function ConvertTab(props: {
           </>
         )}
       </div>
+
+      {/* Off-screen export card (rendered for html-to-image to capture) */}
+      {cellMatch && (
+        <OffscreenCard cardRef={exportCardRef}>
+          <ConvertExportCard
+            test={test}
+            score={score}
+            row={cellMatch}
+          />
+        </OffscreenCard>
+      )}
     </div>
   );
 }
@@ -418,225 +447,7 @@ function ScoreCard({ testKey, row, highlight }: { testKey: TestKey; row: typeof 
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// Tab 2: Programme Fit
-// ─────────────────────────────────────────────────────────────────────────
-
-function FitTab(props: {
-  test: TestKey; setTest: (t: TestKey) => void;
-  score: string; setScore: (s: string) => void;
-  showPerSkill: boolean; setShowPerSkill: (v: boolean) => void;
-  perSkill: { L: string; R: string; W: string; S: string };
-  setPerSkill: (p: { L: string; R: string; W: string; S: string }) => void;
-  regions: Region[]; setRegions: (r: Region[]) => void;
-  tiers: Tier[]; setTiers: (t: Tier[]) => void;
-}) {
-  const { test, setTest, score, setScore, showPerSkill, setShowPerSkill, perSkill, setPerSkill, regions, setRegions, tiers, setTiers } = props;
-  const exportRef = useRef<HTMLDivElement>(null);
-
-  const numScore = parseFloat(score);
-  const fits = useMemo(() => {
-    if (isNaN(numScore)) return null;
-    const ps = (showPerSkill && (perSkill.L || perSkill.R || perSkill.W || perSkill.S))
-      ? {
-        L: parseFloat(perSkill.L) || undefined,
-        R: parseFloat(perSkill.R) || undefined,
-        W: parseFloat(perSkill.W) || undefined,
-        S: parseFloat(perSkill.S) || undefined,
-      } : undefined;
-    return findProgrammeFits(
-      { test, overall: numScore, perSkill: ps },
-      { regions, tiers },
-    );
-  }, [test, numScore, perSkill.L, perSkill.R, perSkill.W, perSkill.S, showPerSkill, regions, tiers]);
-
-  const toggleRegion = (r: Region) => {
-    setRegions(regions.includes(r) ? regions.filter((x) => x !== r) : [...regions, r]);
-  };
-  const toggleTier = (t: Tier) => {
-    setTiers(tiers.includes(t) ? tiers.filter((x) => x !== t) : [...tiers, t]);
-  };
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-      <aside className="md:col-span-4 space-y-5">
-        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
-          <label className="block text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-2">你的考试 + 分数</label>
-          <select
-            value={test}
-            onChange={(e) => setTest(e.target.value as TestKey)}
-            className="w-full px-3 py-2.5 mb-2 rounded-lg border border-slate-300 text-sm bg-white"
-          >
-            <optgroup label="主流">
-              {PRIMARY_TESTS.map((k) => (
-                <option key={k} value={k}>{TEST_META[k].display}</option>
-              ))}
-            </optgroup>
-            <optgroup label="次要">
-              {SECONDARY_TESTS.map((k) => (
-                <option key={k} value={k}>{TEST_META[k].display}</option>
-              ))}
-            </optgroup>
-          </select>
-          <ScoreInput test={test} value={score} onChange={setScore} />
-
-          {TEST_META[test].perSkill && (
-            <div className="mt-3">
-              <button
-                onClick={() => setShowPerSkill(!showPerSkill)}
-                className="text-[12px] text-primary font-semibold flex items-center gap-1 hover:underline"
-              >
-                <span className="material-symbols-outlined text-[14px]">{showPerSkill ? 'expand_less' : 'expand_more'}</span>
-                {showPerSkill ? '收起' : '展开'} per-skill
-              </button>
-              {showPerSkill && (
-                <div className="grid grid-cols-2 gap-2 mt-2">
-                  {(['L', 'R', 'W', 'S'] as const).map((sk) => (
-                    <div key={sk}>
-                      <label className="block text-[10px] uppercase font-bold text-slate-500 mb-1">{sk}</label>
-                      <input
-                        type="number"
-                        step={TEST_META[test].inputStep}
-                        value={perSkill[sk]}
-                        onChange={(e) => setPerSkill({ ...perSkill, [sk]: e.target.value })}
-                        className="w-full px-2 py-1.5 rounded-md border border-slate-300 text-sm"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        <div className="bg-white rounded-2xl border border-slate-200 p-5">
-          <div className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-2">地区</div>
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {(['UK', 'US', 'HK', 'SG', 'AU', 'CA'] as Region[]).map((r) => (
-              <button
-                key={r}
-                onClick={() => toggleRegion(r)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
-                  regions.includes(r)
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-white text-slate-600 border-slate-300 hover:border-slate-500'
-                }`}
-              >
-                {REGION_LABEL[r].split(' ')[0]}
-              </button>
-            ))}
-          </div>
-
-          <div className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-2">档位</div>
-          <div className="flex flex-col gap-1.5">
-            {(['TOP', 'STRONG', 'MID', 'STANDARD'] as Tier[]).map((t) => (
-              <button
-                key={t}
-                onClick={() => toggleTier(t)}
-                className={`px-3 py-2 rounded-lg text-xs font-semibold border text-left transition-colors leading-tight ${
-                  tiers.includes(t)
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-white text-slate-600 border-slate-300 hover:border-slate-500'
-                }`}
-              >
-                {TIER_LABEL[t]}
-              </button>
-            ))}
-          </div>
-        </div>
-      </aside>
-
-      <div className="md:col-span-8 space-y-6" ref={exportRef}>
-        <div className="flex items-center justify-between">
-          <h3 className="font-headline font-extrabold text-lg">匹配结果</h3>
-          {fits && <ExportButton targetRef={exportRef} filename={`english-test-fit-${test}-${score}`} />}
-        </div>
-
-        {!fits && <div className="text-slate-500 text-sm">输入分数后查看</div>}
-        {fits && fits.qualified.length === 0 && fits.borderline.length === 0 && fits.below.length === 0 && (
-          <div className="text-slate-500 text-sm">所选地区/档位无匹配项目，请调整 filter</div>
-        )}
-
-        {fits && (
-          <>
-            <FitGroup title="稳过门槛" subtitle="overall ≥ 要求 + 0.5 缓冲" tone="qualified" fits={fits.qualified} />
-            <FitGroup title="擦线 / 风险" subtitle="overall = 要求；或 per-skill 缺口" tone="borderline" fits={fits.borderline} />
-            <FitGroup title="不够 / 暂不达标" subtitle="overall 未达 要求" tone="below" fits={fits.below} />
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function FitGroup({ title, subtitle, tone, fits }: { title: string; subtitle: string; tone: 'qualified' | 'borderline' | 'below'; fits: FitResult[] }) {
-  const styles = {
-    qualified:  { bg: 'bg-emerald-50',  border: 'border-emerald-200', icon: 'check_circle',     iconColor: 'text-emerald-600' },
-    borderline: { bg: 'bg-amber-50',    border: 'border-amber-200',   icon: 'warning_amber',    iconColor: 'text-amber-600' },
-    below:      { bg: 'bg-rose-50',     border: 'border-rose-200',    icon: 'cancel',           iconColor: 'text-rose-600' },
-  }[tone];
-
-  if (fits.length === 0) {
-    return (
-      <div className={`rounded-2xl border ${styles.border} ${styles.bg} p-4 opacity-50`}>
-        <div className="flex items-center gap-2">
-          <span className={`material-symbols-outlined ${styles.iconColor} text-[20px]`}>{styles.icon}</span>
-          <span className="font-bold text-sm">{title}</span>
-          <span className="text-xs text-slate-500">— 无</span>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className={`rounded-2xl border ${styles.border} ${styles.bg} p-4`}>
-      <div className="flex items-center gap-2 mb-3">
-        <span className={`material-symbols-outlined ${styles.iconColor} text-[22px]`}>{styles.icon}</span>
-        <span className="font-headline font-extrabold text-base">{title}</span>
-        <span className="ml-1 px-2 py-0.5 rounded-full bg-white text-xs font-bold border">{fits.length}</span>
-        <span className="text-xs text-slate-500 ml-2">{subtitle}</span>
-      </div>
-      <div className="space-y-2">
-        {fits.map((f) => (
-          <FitCard key={f.programme.id} fit={f} tone={tone} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function FitCard({ fit, tone }: { fit: FitResult; tone: 'qualified' | 'borderline' | 'below' }) {
-  const p = fit.programme;
-  return (
-    <div className="bg-white rounded-xl border border-slate-200 p-3 sm:p-4">
-      <div className="flex flex-wrap items-baseline gap-2 mb-1.5">
-        <h4 className="font-bold text-sm text-slate-900">{p.university}</h4>
-        <span className="text-xs text-slate-500">— {p.level}</span>
-        <span className="ml-auto text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
-          {REGION_LABEL[p.region].split(' ')[0]} · {p.tier}
-        </span>
-      </div>
-      <div className="text-xs text-slate-600 leading-relaxed mb-2">{fit.gapDescription}</div>
-      {fit.prepWeeksEstimate && (
-        <div className="text-[11px] text-slate-500 mb-1">
-          📚 备考估算：{fit.prepWeeksEstimate[0]}-{fit.prepWeeksEstimate[1]} 周
-        </div>
-      )}
-      <div className="text-[11px] text-slate-500 leading-tight mt-1">
-        <span className="font-semibold">接受测试：</span>{fit.acceptedTestsList.join(' · ')}
-      </div>
-      {fit.notAcceptedFlags.length > 0 && (
-        <div className="text-[11px] text-rose-600 mt-1.5 leading-tight">
-          ⚠ {fit.notAcceptedFlags.join(' / ')}
-        </div>
-      )}
-      {p.notes && (
-        <div className="text-[11px] text-slate-500 mt-1.5 italic leading-tight">注：{p.notes}</div>
-      )}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────
-// Tab 3: Strategy
+// Tab 2: Strategy
 // ─────────────────────────────────────────────────────────────────────────
 
 function StrategyTab(props: {
@@ -650,7 +461,7 @@ function StrategyTab(props: {
   unconditionalBy: string; setUnconditionalBy: (s: string) => void;
 }) {
   const { test, setTest, score, setScore, showPerSkill, setShowPerSkill, perSkill, setPerSkill, targetTier, setTargetTier, examTaken, setExamTaken, unconditionalBy, setUnconditionalBy } = props;
-  const exportRef = useRef<HTMLDivElement>(null);
+  const exportCardRef = useRef<HTMLDivElement>(null);
 
   const numScore = parseFloat(score);
   const result = useMemo(() => {
@@ -756,10 +567,10 @@ function StrategyTab(props: {
         </div>
       </aside>
 
-      <div className="md:col-span-8 space-y-5" ref={exportRef}>
+      <div className="md:col-span-8 space-y-5">
         <div className="flex items-center justify-between">
           <h3 className="font-headline font-extrabold text-lg">策略建议</h3>
-          {result && <ExportButton targetRef={exportRef} filename={`english-test-strategy-${test}-${score}`} />}
+          {result && <ExportButton cardRef={exportCardRef} filename={`english-test-strategy-${test}-${score}`} enabled={!!result} />}
         </div>
 
         {!result && <div className="text-slate-500 text-sm">输入分数后查看建议</div>}
@@ -844,22 +655,702 @@ function StrategyTab(props: {
           </>
         )}
       </div>
+
+      {/* Off-screen export card */}
+      {result && (
+        <OffscreenCard cardRef={exportCardRef}>
+          <StrategyExportCard
+            test={test}
+            score={score}
+            targetTier={targetTier}
+            result={result}
+          />
+        </OffscreenCard>
+      )}
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// Export PNG button
+// Off-screen export card container
 // ─────────────────────────────────────────────────────────────────────────
 
-function ExportButton({ targetRef, filename }: { targetRef: React.RefObject<HTMLDivElement | null>; filename: string }) {
+function OffscreenCard({ cardRef, children }: { cardRef: React.RefObject<HTMLDivElement | null>; children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: '-99999px',
+        pointerEvents: 'none',
+        zIndex: -1,
+      }}
+      aria-hidden
+    >
+      <div ref={cardRef} style={{ width: 1080 }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Convert Export Card — small-red-book aesthetic, 1080×variable height
+// ─────────────────────────────────────────────────────────────────────────
+
+function ConvertExportCard({ test, score, row }: {
+  test: TestKey;
+  score: string;
+  row: typeof CROSS_WALK[0];
+}) {
+  const c = CEFR_COLORS[row.cefr];
+  const meta = TEST_META[test];
+
+  // Pick the 5 most-used "other tests" (skip the one user took)
+  const showTests = EXPORT_PRIMARY.filter((k) => k !== test);
+
+  return (
+    <div
+      style={{
+        width: 1080,
+        background: `linear-gradient(180deg, ${c.exportGradFrom} 0%, #ffffff 50%, #ffffff 100%)`,
+        fontFamily: 'Manrope, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
+        padding: '60px 60px 50px 60px',
+        boxSizing: 'border-box',
+      }}
+    >
+      {/* Header: brand strip */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: 12,
+              background: '#042f24',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 800,
+              fontSize: 20,
+              letterSpacing: -0.5,
+            }}
+          >
+            S
+          </div>
+          <div style={{ lineHeight: 1.15 }}>
+            <div style={{ fontWeight: 800, fontSize: 18, color: '#042f24', letterSpacing: -0.3 }}>
+              Chinese SDGs Institute
+            </div>
+            <div style={{ fontSize: 13, color: '#64748b', fontWeight: 500 }}>
+              语言考试换算 · 工具集
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 11,
+            fontWeight: 800,
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+            color: c.exportFg,
+            background: c.exportBg,
+            padding: '6px 14px',
+            borderRadius: 999,
+            border: `1px solid ${c.exportAccent}30`,
+          }}
+        >
+          CEFR Cross-walk
+        </div>
+      </div>
+
+      {/* Input echo: which test, what score */}
+      <div style={{ marginBottom: 32 }}>
+        <div
+          style={{
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+            color: '#94a3b8',
+            marginBottom: 10,
+          }}
+        >
+          你的分数 · Your score
+        </div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 18 }}>
+          <div style={{ fontSize: 28, fontWeight: 600, color: '#475569' }}>
+            {meta.shortName}
+          </div>
+          <div
+            style={{
+              fontSize: 84,
+              fontWeight: 800,
+              color: '#042f24',
+              letterSpacing: -3,
+              fontFamily: 'Manrope, "SF Mono", monospace',
+              lineHeight: 1,
+            }}
+          >
+            {score}
+          </div>
+        </div>
+        <div style={{ fontSize: 14, color: '#94a3b8', marginTop: 4 }}>
+          {meta.display}
+        </div>
+      </div>
+
+      {/* Big CEFR badge */}
+      <div
+        style={{
+          background: c.exportBg,
+          border: `2px solid ${c.exportAccent}`,
+          borderRadius: 24,
+          padding: '40px 48px',
+          marginBottom: 36,
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: -40,
+            right: -40,
+            width: 180,
+            height: 180,
+            borderRadius: '50%',
+            background: c.exportAccent,
+            opacity: 0.08,
+          }}
+        />
+        <div
+          style={{
+            fontSize: 13,
+            fontWeight: 800,
+            letterSpacing: 3,
+            textTransform: 'uppercase',
+            color: c.exportFg,
+            marginBottom: 6,
+          }}
+        >
+          CEFR 等级
+        </div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 24 }}>
+          <div
+            style={{
+              fontSize: 130,
+              fontWeight: 800,
+              color: c.exportFg,
+              lineHeight: 0.9,
+              letterSpacing: -5,
+            }}
+          >
+            {row.cefr}
+          </div>
+          <div
+            style={{
+              fontSize: 22,
+              fontWeight: 700,
+              color: c.exportFg,
+              opacity: 0.85,
+            }}
+          >
+            {row.cefrLabel.replace(/^[A-Z][12]\+?[-]?\s*—\s*/, '')}
+          </div>
+        </div>
+      </div>
+
+      {/* CEFR scale strip */}
+      <div style={{ marginBottom: 40 }}>
+        <div
+          style={{
+            display: 'flex',
+            height: 12,
+            borderRadius: 999,
+            overflow: 'hidden',
+            marginBottom: 8,
+          }}
+        >
+          {CEFR_ORDER.map((band) => {
+            const cc = CEFR_COLORS[band];
+            const isActive = band === row.cefr;
+            return (
+              <div
+                key={band}
+                style={{
+                  flex: 1,
+                  background: cc.exportAccent,
+                  opacity: isActive ? 1 : 0.25,
+                  borderRight: '1px solid white',
+                  height: isActive ? 16 : 12,
+                  marginTop: isActive ? -2 : 0,
+                  borderRadius: isActive ? 6 : 0,
+                  boxShadow: isActive ? `0 4px 12px ${cc.exportAccent}40` : 'none',
+                }}
+              />
+            );
+          })}
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(11, 1fr)',
+            fontSize: 11,
+            color: '#94a3b8',
+            fontFamily: '"SF Mono", monospace',
+            textAlign: 'center',
+            fontWeight: 600,
+          }}
+        >
+          {CEFR_ORDER.map((band) => (
+            <div
+              key={band}
+              style={{
+                color: band === row.cefr ? c.exportAccent : '#cbd5e1',
+                fontWeight: band === row.cefr ? 800 : 500,
+              }}
+            >
+              {band}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Equivalent scores grid (5 cards: skip the one user took) */}
+      <div style={{ marginBottom: 36 }}>
+        <div
+          style={{
+            fontSize: 13,
+            fontWeight: 800,
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+            color: '#94a3b8',
+            marginBottom: 16,
+          }}
+        >
+          等价分 · Equivalent scores
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 14,
+          }}
+        >
+          {showTests.map((k) => {
+            const cell = row.scores[k];
+            const tm = TEST_META[k];
+            if (!cell) return null;
+            return (
+              <div
+                key={k}
+                style={{
+                  background: 'white',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 16,
+                  padding: '20px 22px',
+                  boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                  <div
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 800,
+                      letterSpacing: 1.5,
+                      textTransform: 'uppercase',
+                      color: '#475569',
+                    }}
+                  >
+                    {tm.shortName}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 9,
+                      fontWeight: 800,
+                      letterSpacing: 1,
+                      textTransform: 'uppercase',
+                      padding: '3px 8px',
+                      borderRadius: 999,
+                      background: cell.source === 'OFFICIAL' ? '#ecfdf5' : cell.source === 'CONVENTIONAL' ? '#fffbeb' : '#fafafa',
+                      color: cell.source === 'OFFICIAL' ? '#065f46' : cell.source === 'CONVENTIONAL' ? '#92400e' : '#52525b',
+                      border: `1px solid ${cell.source === 'OFFICIAL' ? '#a7f3d0' : cell.source === 'CONVENTIONAL' ? '#fde68a' : '#e4e4e7'}`,
+                    }}
+                  >
+                    {SOURCE_LABEL[cell.source]}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    fontSize: 32,
+                    fontWeight: 800,
+                    color: '#0f172a',
+                    fontFamily: 'Manrope, "SF Mono", monospace',
+                    letterSpacing: -1,
+                    lineHeight: 1,
+                  }}
+                >
+                  {cell.display}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          paddingTop: 28,
+          borderTop: '1px solid #e2e8f0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          fontSize: 12,
+          color: '#94a3b8',
+        }}
+      >
+        <div>
+          <div style={{ fontWeight: 700, color: '#475569' }}>校准日期 2026-05</div>
+          <div style={{ marginTop: 2 }}>
+            ETS · Cambridge · Pearson · Duolingo · IELTS Partners
+          </div>
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontWeight: 700, color: '#042f24' }}>sdg.undp.ac.cn</div>
+          <div style={{ marginTop: 2 }}>/tools/english-test</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Strategy Export Card
+// ─────────────────────────────────────────────────────────────────────────
+
+function StrategyExportCard({ test, score, targetTier, result }: {
+  test: TestKey;
+  score: string;
+  targetTier: Tier;
+  result: NonNullable<ReturnType<typeof strategy>>;
+}) {
+  const meta = TEST_META[test];
+  const targetC = result.targetCefr ? CEFR_COLORS[result.targetCefr] : CEFR_COLORS['B2'];
+  const currentC = result.currentCefr ? CEFR_COLORS[result.currentCefr] : null;
+
+  const gapStatus =
+    result.gapInBands <= 0 ? 'qualified'
+    : result.gapInBands <= 1 ? 'borderline'
+    : 'below';
+
+  const statusColor = {
+    qualified:  { bg: '#ecfdf5', fg: '#065f46', accent: '#10b981', label: '已达标' },
+    borderline: { bg: '#fffbeb', fg: '#78350f', accent: '#f59e0b', label: `差距 ${result.gapInBands} 个 CEFR` },
+    below:      { bg: '#fff1f2', fg: '#881337', accent: '#f43f5e', label: `差距 ${result.gapInBands} 个 CEFR` },
+  }[gapStatus];
+
+  return (
+    <div
+      style={{
+        width: 1080,
+        background: `linear-gradient(180deg, ${targetC.exportGradFrom} 0%, #ffffff 35%, #ffffff 100%)`,
+        fontFamily: 'Manrope, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
+        padding: '60px 60px 50px 60px',
+        boxSizing: 'border-box',
+      }}
+    >
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 40 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div
+            style={{
+              width: 44, height: 44, borderRadius: 12,
+              background: '#042f24', color: 'white',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 800, fontSize: 20, letterSpacing: -0.5,
+            }}
+          >
+            S
+          </div>
+          <div style={{ lineHeight: 1.15 }}>
+            <div style={{ fontWeight: 800, fontSize: 18, color: '#042f24', letterSpacing: -0.3 }}>
+              Chinese SDGs Institute
+            </div>
+            <div style={{ fontSize: 13, color: '#64748b', fontWeight: 500 }}>
+              语言考试备考策略 · 工具集
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+            color: targetC.exportFg, background: targetC.exportBg,
+            padding: '6px 14px', borderRadius: 999,
+            border: `1px solid ${targetC.exportAccent}30`,
+          }}
+        >
+          Study Strategy
+        </div>
+      </div>
+
+      {/* Current → Target hero */}
+      <div
+        style={{
+          background: 'white',
+          border: '2px solid #042f24',
+          borderRadius: 24,
+          padding: '36px 40px',
+          marginBottom: 28,
+        }}
+      >
+        <div
+          style={{
+            fontSize: 13, fontWeight: 800, letterSpacing: 3, textTransform: 'uppercase',
+            color: '#042f24', marginBottom: 14,
+          }}
+        >
+          当前 → 目标
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+          <div style={{ textAlign: 'center' }}>
+            <div
+              style={{
+                fontSize: 84, fontWeight: 800, lineHeight: 0.9,
+                color: currentC?.exportFg ?? '#94a3b8',
+                letterSpacing: -3,
+              }}
+            >
+              {result.currentCefr ?? '?'}
+            </div>
+            <div style={{ fontSize: 13, color: '#64748b', fontWeight: 600, marginTop: 8 }}>
+              {meta.shortName} {score}
+            </div>
+          </div>
+          <div style={{ fontSize: 64, color: '#cbd5e1', fontWeight: 300 }}>→</div>
+          <div style={{ textAlign: 'center' }}>
+            <div
+              style={{
+                fontSize: 84, fontWeight: 800, lineHeight: 0.9,
+                color: targetC.exportFg,
+                letterSpacing: -3,
+              }}
+            >
+              {result.targetCefr}
+            </div>
+            <div style={{ fontSize: 13, color: '#64748b', fontWeight: 600, marginTop: 8 }}>
+              {result.targetCefrLabel.split(' / ')[0]}
+            </div>
+          </div>
+          <div
+            style={{
+              marginLeft: 'auto', textAlign: 'center',
+              padding: '14px 24px', borderRadius: 16,
+              background: statusColor.bg, color: statusColor.fg,
+              border: `1px solid ${statusColor.accent}40`,
+              fontSize: 16, fontWeight: 800, letterSpacing: 0.5,
+            }}
+          >
+            {statusColor.label}
+          </div>
+        </div>
+      </div>
+
+      {/* Two-column: 备考估算 | 弱项 */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 28 }}>
+        <div
+          style={{
+            background: 'white', border: '1px solid #e2e8f0', borderRadius: 20,
+            padding: '24px 26px',
+          }}
+        >
+          <div
+            style={{
+              fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+              color: '#94a3b8', marginBottom: 10,
+            }}
+          >
+            备考估算
+          </div>
+          <div
+            style={{
+              fontSize: 48, fontWeight: 800, color: '#0f172a',
+              fontFamily: 'Manrope, "SF Mono", monospace', letterSpacing: -2, lineHeight: 1,
+            }}
+          >
+            {result.prepWeeks[0]}–{result.prepWeeks[1]}
+          </div>
+          <div style={{ fontSize: 16, color: '#475569', fontWeight: 600, marginTop: 4 }}>周</div>
+          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 8, lineHeight: 1.4 }}>
+            按 1 IELTS overall ≈ 8-12 周基线
+          </div>
+        </div>
+        <div
+          style={{
+            background: result.weakestSkill ? '#fffbeb' : 'white',
+            border: `1px solid ${result.weakestSkill ? '#fde68a' : '#e2e8f0'}`,
+            borderRadius: 20, padding: '24px 26px',
+          }}
+        >
+          <div
+            style={{
+              fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+              color: result.weakestSkill ? '#92400e' : '#94a3b8', marginBottom: 10,
+            }}
+          >
+            弱项检测
+          </div>
+          {result.weakestSkill ? (
+            <>
+              <div
+                style={{
+                  fontSize: 48, fontWeight: 800, color: '#78350f',
+                  fontFamily: 'Manrope, "SF Mono", monospace', letterSpacing: -2, lineHeight: 1,
+                }}
+              >
+                {result.weakestSkill}
+              </div>
+              <div style={{ fontSize: 16, color: '#92400e', fontWeight: 600, marginTop: 4 }}>需要单项专题</div>
+            </>
+          ) : (
+            <>
+              <div
+                style={{
+                  fontSize: 48, fontWeight: 800, color: '#10b981',
+                  fontFamily: 'Manrope, "SF Mono", monospace', letterSpacing: -2, lineHeight: 1,
+                }}
+              >
+                ——
+              </div>
+              <div style={{ fontSize: 16, color: '#475569', fontWeight: 600, marginTop: 4 }}>未填 per-skill</div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Diagnosis bullets */}
+      <div
+        style={{
+          background: 'white', border: '1px solid #e2e8f0', borderRadius: 20,
+          padding: '24px 28px', marginBottom: 24,
+        }}
+      >
+        <div
+          style={{
+            fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+            color: '#042f24', marginBottom: 12,
+          }}
+        >
+          诊断 · Diagnosis
+        </div>
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+          {result.reasoning.slice(0, 4).map((r, i) => (
+            <li
+              key={i}
+              style={{
+                display: 'flex', gap: 12, fontSize: 15, color: '#334155',
+                lineHeight: 1.55, marginBottom: 10,
+              }}
+            >
+              <span
+                style={{
+                  flexShrink: 0, marginTop: 8, width: 6, height: 6,
+                  borderRadius: '50%', background: targetC.exportAccent,
+                }}
+              />
+              <span>{r}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Test switch / validity warning if applicable */}
+      {result.recommendedTest !== test && (
+        <div
+          style={{
+            background: '#ecfeff', border: '1px solid #a5f3fc', borderRadius: 20,
+            padding: '20px 26px', marginBottom: 24,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+              color: '#155e75', marginBottom: 6,
+            }}
+          >
+            考虑切换测试
+          </div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: '#0e7490' }}>
+            {meta.shortName} → {TEST_META[result.recommendedTest].shortName}
+          </div>
+          <div style={{ fontSize: 12, color: '#155e75', marginTop: 4 }}>
+            注意：先确认目标校接受新测试
+          </div>
+        </div>
+      )}
+
+      {result.validityWarning && (
+        <div
+          style={{
+            background: '#fff1f2', border: '1px solid #fecdd3', borderRadius: 20,
+            padding: '20px 26px', marginBottom: 24,
+          }}
+        >
+          <div
+            style={{
+              fontSize: 11, fontWeight: 800, letterSpacing: 2, textTransform: 'uppercase',
+              color: '#9f1239', marginBottom: 6,
+            }}
+          >
+            有效期警报
+          </div>
+          <div style={{ fontSize: 14, color: '#881337', lineHeight: 1.5 }}>
+            {result.validityWarning}
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <div
+        style={{
+          paddingTop: 28, borderTop: '1px solid #e2e8f0',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          fontSize: 12, color: '#94a3b8',
+        }}
+      >
+        <div>
+          <div style={{ fontWeight: 700, color: '#475569' }}>校准日期 2026-05</div>
+          <div style={{ marginTop: 2 }}>
+            目标档：{TIER_LABEL[targetTier].split(' — ')[0]}
+          </div>
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontWeight: 700, color: '#042f24' }}>sdg.undp.ac.cn</div>
+          <div style={{ marginTop: 2 }}>/tools/english-test</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Export PNG button (captures the off-screen card)
+// ─────────────────────────────────────────────────────────────────────────
+
+function ExportButton({ cardRef, filename, enabled }: { cardRef: React.RefObject<HTMLDivElement | null>; filename: string; enabled: boolean }) {
   const [busy, setBusy] = useState(false);
   const handleExport = async () => {
-    if (!targetRef.current) return;
+    if (!cardRef.current || !enabled) return;
     setBusy(true);
     try {
       const { toPng } = await import('html-to-image');
-      const dataUrl = await toPng(targetRef.current, {
+      // Wait for fonts (Manrope) to be loaded before rendering.
+      if (typeof document !== 'undefined' && (document as any).fonts?.ready) {
+        await (document as any).fonts.ready;
+      }
+      const dataUrl = await toPng(cardRef.current, {
         backgroundColor: '#ffffff',
         pixelRatio: 2,
         cacheBust: true,
@@ -877,7 +1368,7 @@ function ExportButton({ targetRef, filename }: { targetRef: React.RefObject<HTML
   return (
     <button
       onClick={handleExport}
-      disabled={busy}
+      disabled={busy || !enabled}
       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-bold hover:opacity-90 disabled:opacity-50"
     >
       <span className="material-symbols-outlined text-[16px]">{busy ? 'hourglass_empty' : 'download'}</span>
