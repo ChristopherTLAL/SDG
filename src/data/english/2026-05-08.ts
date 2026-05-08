@@ -1,4 +1,4 @@
-// B1 sample — friendly, plain prose, mostly CET4 vocabulary.
+// B1 sample. Friendly, plain prose, mostly CET4 vocabulary.
 import type { Article } from './types';
 
 export const article: Article = {
@@ -10,7 +10,7 @@ export const article: Article = {
     wordCount: 287,
     readingMinutes: 4,
     editorsNote:
-      'A friendly B1-level piece on the spread of tool-lending libraries — short sentences, mostly CET4 vocabulary, a few CET6 phrasal verbs (wear out) and softly idiomatic adverbs (steadily). Watch the rhetorical move at the end where the writer turns the tool-as-metaphor.',
+      'A friendly B1-level piece on the spread of tool-lending libraries, short sentences, mostly CET4 vocabulary, a few CET6 phrasal verbs (wear out) and softly idiomatic adverbs (steadily). Watch the rhetorical move at the end where the writer turns the tool-as-metaphor.',
   },
   paragraphs: [
     {
@@ -62,7 +62,7 @@ export const article: Article = {
       sentences: [
         { id: 's20', en: 'It is a quiet idea, but a useful one.', zh: '这是一个安静的点子，但很有用。' },
         { id: 's21', en: 'A library, in the end, is a place that lends things people need.', zh: '说到底，图书馆就是一个把人们需要的东西借出去的地方。' },
-        { id: 's22', en: 'A book is a kind of tool — and a tool, in its own way, can teach.', zh: '书本身就是一种工具——而工具，也以自己的方式教人。' },
+        { id: 's22', en: 'A book is a kind of tool. And a tool, in its own way, can teach.', zh: '书本身就是一种工具。而工具，也以自己的方式教人。' },
       ],
     },
   ],
@@ -102,7 +102,7 @@ export const article: Article = {
       explanationZh: [
         '一般完成时（has done）告诉读者"某动作已发生过"，但不明说它是否还在持续。现在完成进行时（has been doing）多了一层意思：这个动作从过去开始一直延续到现在，甚至可能还会继续。',
         '本文 "For about ten years, the library has been lending tools to its members." 如果换成 "For about ten years, the library has lent tools..." 也对，但少了"仍然在借"的延续感。前者更适合报道开头，让人感受到"这件事一直在发生"。',
-        '适用场景：(1) 强调持续性（She has been writing for hours.）；(2) 解释当前状态的来源（His eyes are red — he has been crying.）；(3) 报道 / 介绍一个长期实践。',
+        '适用场景：(1) 强调持续性（She has been writing for hours.）；(2) 解释当前状态的来源（His eyes are red, he has been crying.）；(3) 报道 / 介绍一个长期实践。',
         '和现在进行时（is doing）的区别：现在进行时只关心"此刻正在"，不强调它从何时开始。完成进行时把过去和现在连成一线。',
       ],
       examples: [
@@ -110,7 +110,7 @@ export const article: Article = {
         { en: 'They have been building the bridge since last winter.', zh: '他们去年冬天起就开始建那座桥（还在建）。' },
         { en: 'She has been working from home since the office closed.', zh: '自从办公室关门，她一直在家办公。', note: 'since 引导起点，强调持续。' },
         { en: 'It has been raining all morning.', zh: '雨已经下了一上午（还在下）。' },
-        { en: 'How long have you been waiting?', zh: '你已经等了多久了？', note: '疑问句结构 — 关心持续时长。' },
+        { en: 'How long have you been waiting?', zh: '你已经等了多久了？', note: '疑问句结构，关心持续时长。' },
       ],
       commonMistake: '状态动词（state verbs）一般不用进行时：know / believe / understand / love 不能写 "I have been knowing him for ten years"，要写 "I have known him for ten years"。',
       vsSimilar: '一般完成时（has done）：强调动作已完成或当前结果；现在完成进行时（has been doing）：强调动作的延续 + 仍在继续。例：I have read three books this month（强调结果，三本读完了）vs. I have been reading this book for two weeks（强调还没读完，一直在读）。',
@@ -121,7 +121,7 @@ export const article: Article = {
       pattern: '[Subject] lets [object] + bare verb',
       sentenceIds: ['s8'],
       explanationZh: [
-        'let + 宾语 + 动词原形 是日常英语里最常用的使役结构之一。注意 let 后面的动词不带 to。本文 "A tool library lets people borrow what they need." 不能写成 "lets people to borrow" — 这是常见错误。',
+        'let + 宾语 + 动词原形 是日常英语里最常用的使役结构之一。注意 let 后面的动词不带 to。本文 "A tool library lets people borrow what they need." 不能写成 "lets people to borrow"，这是常见错误。',
         'let 表达的语气是"允许、不阻拦"，不像 make 那样有"强迫"之意。所以它常出现在描述功能、机会、自由度的句子里：This app lets you... / The system lets users... / The new policy lets students....',
         '在产品介绍 / 工具说明 / 政策描述场景里，let 句式比 "allows ... to V" 更口语化、更直接。"allows X to V" 更正式。',
       ],
@@ -141,8 +141,8 @@ export const article: Article = {
       pattern: 'X is a kind of Y',
       sentenceIds: ['s22'],
       explanationZh: [
-        '把一个事物归到另一个范畴里，是一种很轻巧的隐喻方式。本文 "A book is a kind of tool — and a tool, in its own way, can teach." 没有直说 "A book is a tool"，因为后者太硬；"a kind of tool" 留出"书也算工具的一种"的余地，更含蓄、更有余味。',
-        '这个结构比直接的 "X is Y"（X 就是 Y）更克制 — 它承认主词不完全等于 Y，但具有 Y 的本质。在议论文 / 散文结尾尤其好用：可以收束观点而不显得说教。',
+        '把一个事物归到另一个范畴里，是一种很轻巧的隐喻方式。本文 "A book is a kind of tool. And a tool, in its own way, can teach." 没有直说 "A book is a tool"，因为后者太硬；"a kind of tool" 留出"书也算工具的一种"的余地，更含蓄、更有余味。',
+        '这个结构比直接的 "X is Y"（X 就是 Y）更克制，它承认主词不完全等于 Y，但具有 Y 的本质。在议论文 / 散文结尾尤其好用：可以收束观点而不显得说教。',
         '用 a kind of 还能让作者把一个具体名词推向一种概念化的解读。比如 "Reading is a kind of conversation."（把阅读这个具体行为推向"对话"的概念。）',
         '中文里近似的表达是"某种意义上的"或"广义上算是"。',
       ],
@@ -152,7 +152,7 @@ export const article: Article = {
         { en: 'A library is a kind of public memory.', zh: '图书馆是一种公共记忆。', note: '把一个具体事物推向抽象概念。' },
         { en: 'Walking is a kind of thinking.', zh: '走路也是一种思考。' },
       ],
-      commonMistake: '不要写 "a kind of a" — 已包含冠词意味，不需要再加 a/an。错误："is a kind of a book"；正确："is a kind of book"。',
+      commonMistake: '不要写 "a kind of a"，已包含冠词意味，不需要再加 a/an。错误："is a kind of a book"；正确："is a kind of book"。',
       vsSimilar: 'X is Y：直接断言（A book is a tool）；X is just Y：贬抑式归类（A book is just a tool）；X functions as Y：偏功能描述（A book functions as a tool）。a kind of 的优势是含蓄、有诗意空间。',
     },
     {
@@ -161,9 +161,9 @@ export const article: Article = {
       pattern: 'Of course, [acknowledge]. Still, [counter-claim].',
       sentenceIds: ['s16', 's19'],
       explanationZh: [
-        '议论文里直接说 "But ..." 反驳容易显得急躁。Of course / Still 结构先把对方观点承认下来（"当然，X 是对的"），再用 Still 引出"但..."的反向论点，是一种成熟的让步—反驳结构。',
-        '本文 "Of course, there are challenges. ... Still, the model is spreading." 是这个结构的标准用法 — 作者承认工具图书馆有问题（磨损、保险、志愿者），然后用 Still 说"尽管如此还是在扩散"。',
-        '这种结构特别适合 op-ed、读后感、议论文 — 给读者"我看过另一边的意见，但我还是这么认为"的成熟感。',
+        '议论文里直接说 "But ..." 反驳容易显得急躁。Of course / Still 结构先把对方观点承认下来（"当然，X 是对的"），再用 Still 引出"但..."的反向论点，是一种成熟的让步反驳结构。',
+        '本文 "Of course, there are challenges. ... Still, the model is spreading." 是这个结构的标准用法，作者承认工具图书馆有问题（磨损、保险、志愿者），然后用 Still 说"尽管如此还是在扩散"。',
+        '这种结构特别适合 op-ed、读后感、议论文，给读者"我看过另一边的意见，但我还是这么认为"的成熟感。',
         'Still 的位置可以在句首（如本文），也可以在句中："The model is, still, spreading." 但句首更书面、更显眼。',
       ],
       examples: [
@@ -178,14 +178,14 @@ export const article: Article = {
   patterns: [
     {
       id: 'pt1',
-      useCase: '用时间把一个长期持续的现象沉下来 — 议论文 / 报道开篇',
+      useCase: '用时间把一个长期持续的现象沉下来，议论文 / 报道开篇',
       skeleton: 'For about [time], [subject] has been [verb-ing] X.',
       original: 'For about ten years, the library has been lending tools to its members.',
       sentenceId: 's3',
       whyItWorks: [
         '把时间状语放到句首，立刻给文章一种"这件事已经发生很久"的稳重感。读者还没读到主词，就先知道"这是个长期现象"，建立基调。',
-        '配合现在完成进行时（has been V-ing），强调动作还在持续，不只是一段历史。这区别于 "For ten years, the library lent tools" — 后者把这事推到过去，没有"还在做"的意思。',
-        '新闻报道里非常常见 — 它能让一篇报道的开头不显仓促，给读者一个安静的入场仪式。',
+        '配合现在完成进行时（has been V-ing），强调动作还在持续，不只是一段历史。这区别于 "For ten years, the library lent tools"，后者把这事推到过去，没有"还在做"的意思。',
+        '新闻报道里非常常见，它能让一篇报道的开头不显仓促，给读者一个安静的入场仪式。',
       ],
       examples: [
         { context: '写一篇关于社区园林的报道', text: 'For nearly a decade, residents have been turning empty lots into vegetable gardens.', zh: '近十年来，居民一直在把空地变成菜园。' },
@@ -197,41 +197,41 @@ export const article: Article = {
     },
     {
       id: 'pt2',
-      useCase: '从浅显的好处带到更深的论点 — 承上启下',
+      useCase: '从浅显的好处带到更深的论点，承上启下',
       skeleton: 'The benefits go beyond [obvious benefit].',
       original: 'The benefits go beyond saving money.',
       sentenceId: 's9',
       whyItWorks: [
         'go beyond X 是一种把读者从表面意义引到深层意义的桥梁句。前面已经讲过一个浅显好处（saving money），下一步要展开"还不止于此"的内容时，这个结构最干脆。',
-        '比 "The benefits are also..." 或 "There are other benefits, such as..." 都更有力 — 因为 go beyond 暗示作者不只是在罗列，而是在带读者超越眼前。',
-        '议论文段落之间的过渡好用 — 一个段落讲了好处 A，下一段开头用 "The benefits go beyond A." 就是非常顺的转折。',
+        '比 "The benefits are also..." 或 "There are other benefits, such as..." 都更有力，因为 go beyond 暗示作者不只是在罗列，而是在带读者超越眼前。',
+        '议论文段落之间的过渡好用，一个段落讲了好处 A，下一段开头用 "The benefits go beyond A." 就是非常顺的转折。',
       ],
       examples: [
-        { context: '讨论某政策的影响', text: 'The effects go beyond economics — they reshape how families plan their week.', zh: '其影响远不止经济层面——它重塑了家庭如何规划一周。' },
-        { context: '讲一个工具的用处', text: 'The applications go beyond classrooms; the same approach now appears in clinics and prisons.', zh: '其应用远不止课堂——同样的方法如今出现在诊所和监狱。' },
-        { context: '评论一个习惯的好处', text: 'The reasons go beyond health — there is something quietly social about a daily walk.', zh: '理由远不止于健康——每日散步本身有一种安静的社交意味。' },
+        { context: '讨论某政策的影响', text: 'The effects go beyond economics, they reshape how families plan their week.', zh: '其影响远不止经济层面，它重塑了家庭如何规划一周。' },
+        { context: '讲一个工具的用处', text: 'The applications go beyond classrooms; the same approach now appears in clinics and prisons.', zh: '其应用远不止课堂，同样的方法如今出现在诊所和监狱。' },
+        { context: '评论一个习惯的好处', text: 'The reasons go beyond health, there is something quietly social about a daily walk.', zh: '理由远不止于健康，每日散步本身有一种安静的社交意味。' },
       ],
       adaptingTip: 'X 的位置应该是读者已经认同的、显而易见的好处。如果 X 本身就需要解释，整个"超越 X"的修辞就站不住。所以这个句式适合放在段落之间，前面已经把 X 讲透了。',
-      commonMistake: '不要写 "The benefits go beyond of saving money" — go beyond 后面直接跟名词或动名词，不需要 of。',
+      commonMistake: '不要写 "The benefits go beyond of saving money", go beyond 后面直接跟名词或动名词，不需要 of。',
     },
     {
       id: 'pt3',
       useCase: '收尾金句：把主词归到一个范畴，再赋予新意义',
-      skeleton: 'X is a kind of Y — and Y, in its own way, can [verb].',
-      original: 'A book is a kind of tool — and a tool, in its own way, can teach.',
+      skeleton: 'X is a kind of Y. And Y, in its own way, can [verb].',
+      original: 'A book is a kind of tool. And a tool, in its own way, can teach.',
       sentenceId: 's22',
       whyItWorks: [
-        '前半句把主词归类（"X 是 Y 的一种"），后半句反身给那个类别赋予新能力（"Y 也能做 [verb]"）。这是一种回环式的修辞 — 主词进了一个新范畴，新范畴又被这个主词点亮。',
-        'in its own way 让句子保有一种谦逊的余地 — 它不强行说"Y 就能做 [verb]"，而是说"以自己的方式，Y 也能做"。读者感觉到作者没有夸张。',
-        '议论文 / 散文结尾的稳健选择，不说教、不卖弄、留余味。',
+        '前一句把主词归类（"X 是 Y 的一种"），后一句反身给那个类别赋予新能力（"Y 也能做 [verb]"）。两句之间用句号分开（不是 em-dash，不是连词），让"反身"那一步显得安静、不勉强。',
+        'in its own way 让句子保有一种谦逊的余地，它不强行说"Y 就能做 [verb]"，而是说"以自己的方式，Y 也能做"。读者感觉到作者没有夸张。',
+        '议论文 / 散文结尾的稳健选择，不说教、不卖弄、留余味。两句短句的节奏比一句长句更适合收尾，让读者读完之后还能停一下。',
       ],
       examples: [
-        { context: '讲怀旧的价值', text: 'Memory is a kind of map — and a map, in its own way, asks for return.', zh: '记忆是一种地图——而地图，以自己的方式，呼唤归来。' },
-        { context: '评论独居的哲学', text: 'Solitude is a kind of conversation — and conversation, in its own way, requires another voice, even if it is your own.', zh: '孤独是一种对话——而对话，以自己的方式，需要另一个声音，哪怕那是你自己的。' },
-        { context: '科普写作结尾', text: 'A question is a kind of compass — and a compass, in its own way, only works when you are willing to move.', zh: '一个问题是一种指南针——而指南针，以自己的方式，只在你愿意移动时才管用。' },
+        { context: '讲怀旧的价值', text: 'Memory is a kind of map. And a map, in its own way, asks for return.', zh: '记忆是一种地图。而地图，以自己的方式，呼唤归来。' },
+        { context: '评论独居的哲学', text: 'Solitude is a kind of conversation. And conversation, in its own way, requires another voice, even if it is your own.', zh: '孤独是一种对话。而对话，以自己的方式，需要另一个声音，哪怕那是你自己的。' },
+        { context: '科普写作结尾', text: 'A question is a kind of compass. And a compass, in its own way, only works when you are willing to move.', zh: '一个问题是一种指南针。而指南针，以自己的方式，只在你愿意移动时才管用。' },
       ],
       adaptingTip: 'X 和 Y 之间的"归类"要让读者觉得"有点意外但又对"。如果太近（An apple is a kind of fruit），句式没有意义；如果太远（A book is a kind of mountain），读者会困惑。最佳状态是"稍偏，但成立"。',
-      commonMistake: '不要简单堆叠隐喻。这个句式的力量来自"归类 → 反身赋能"的回路。如果两个分句都只是平行（X is a kind of Y, and Y is a kind of Z），没有回路，就只是修辞炫技。',
+      commonMistake: '不要简单堆叠隐喻。这个句式的力量来自"归类 → 反身赋能"的回路。如果两句都只是平行（X is a kind of Y. And Y is a kind of Z），没有回路，就只是修辞炫技。',
     },
   ],
   quiz: [
@@ -240,7 +240,7 @@ export const article: Article = {
       q: 'According to the article, what is the most popular item at the Berkeley library described?',
       options: ['A novel', 'A power drill', 'A laptop', 'A children\'s book'],
       answer: 1,
-      explanation: 'The opening lines tell us the most popular item is not a book — it is a power drill.',
+      explanation: 'The opening lines tell us the most popular item is not a book, it is a power drill.',
       sentenceId: 's2',
     },
     {
@@ -263,7 +263,7 @@ export const article: Article = {
       q: 'What is one challenge tool libraries face?',
       options: ['Books are too heavy to lend', 'Tools wear out faster than books', 'Members never return items', 'Cities ban them'],
       answer: 1,
-      explanation: 'Tools wear out faster than books, and someone has to repair them — this is one of the listed challenges.',
+      explanation: 'Tools wear out faster than books, and someone has to repair them, this is one of the listed challenges.',
       sentenceId: 's17',
     },
     {

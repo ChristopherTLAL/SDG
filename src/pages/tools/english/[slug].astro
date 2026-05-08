@@ -1,5 +1,5 @@
 ---
-// Article reader — fixed-height two-pane learning interface.
+// Article reader, fixed-height two-pane learning interface.
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { articlesBySlug, articles, CEFR_LABELS } from '../../../data/english';
 
@@ -44,11 +44,11 @@ const levelCounts = Object.fromEntries(
 
 const modes = [
   { id: 'vocab',     icon: 'abc',         label: 'Vocabulary',    desc: 'Hover any shaded word for its meaning. Click to pin.' },
-  { id: 'translate', icon: 'translate',   label: 'Translation',   desc: 'Click a sentence — its Chinese translation appears here.' },
+  { id: 'translate', icon: 'translate',   label: 'Translation',   desc: 'Click a sentence, its Chinese translation appears here.' },
   { id: 'grammar',   icon: 'function',    label: 'Grammar',       desc: 'Hover a card to see the construction in the article.' },
   { id: 'patterns',  icon: 'edit_note',   label: 'Patterns',      desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
   { id: 'quiz',      icon: 'quiz',        label: 'Comprehension', desc: 'A short multiple-choice check after the read.' },
-  { id: 'review',    icon: 'replay',      label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary — current session only.' },
+  { id: 'review',    icon: 'replay',      label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary, current session only.' },
   { id: 'about',     icon: 'info',        label: 'About',         desc: 'Source, length, level, editor\'s note.' },
 ];
 
@@ -338,7 +338,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
                   <span class="material-symbols-outlined el-quiz-icon">replay</span>
                   <h3>Word review</h3>
                   <p>Flip through the article's {vocab.length} vocabulary words. Rate yourself; the deck reorders accordingly.</p>
-                  <p class="el-empty-sub">Session-only — no account, no sync. Refresh resets the deck.</p>
+                  <p class="el-empty-sub">Session-only, no account, no sync. Refresh resets the deck.</p>
                   <button class="el-btn el-btn-primary" id="el-review-begin">Start review</button>
                 </div>
               </div>
@@ -413,7 +413,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 </MainLayout>
 
 <style is:global>
-  /* Page lock — this tool fills the viewport, no body scroll. */
+  /* Page lock, this tool fills the viewport, no body scroll. */
   body.english-reader-page { overflow: hidden; height: 100vh; }
   /* Footer renders at body y=0 since main is fixed-positioned (out of flow);
      it would peek through the semi-transparent fixed header without this. */
@@ -426,7 +426,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     --el-soft-3: rgba(4, 47, 36, 0.12);
     --el-border: rgba(4, 47, 36, 0.10);
     --el-border-2: rgba(4, 47, 36, 0.20);
-    /* shade ladder — cumulative shading, all readable with black text */
+    /* shade ladder, cumulative shading, all readable with black text */
     --el-shade-1: rgba(4, 47, 36, 0.08);
     --el-shade-2: rgba(4, 47, 36, 0.14);
     --el-shade-3: rgba(4, 47, 36, 0.22);
@@ -551,7 +551,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     text-overflow: ellipsis;
   }
 
-  /* ===== Shell — fixed-height grid, two equal columns ===== */
+  /* ===== Shell, fixed-height grid, two equal columns ===== */
   .el-shell {
     flex: 1;
     min-height: 0;
@@ -568,7 +568,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     .el-shell { grid-template-columns: 1fr; gap: 1rem; }
   }
 
-  /* ===== Article column — independently scrolls ===== */
+  /* ===== Article column, independently scrolls ===== */
   .el-article-col {
     overflow-y: auto;
     background: white;
@@ -635,7 +635,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     line-height: 1.7;
   }
 
-  /* ===== Vocab — shade-filled, level-encoded ===== */
+  /* ===== Vocab, shade-filled, level-encoded ===== */
   .vocab {
     cursor: pointer;
     padding: 1px 4px;
@@ -864,7 +864,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   }
   .el-vocab-card-foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  /* level tag — same shade ladder */
+  /* level tag, same shade ladder */
   .el-level-tag-shade {
     display: inline-block;
     font-size: 9px; font-weight: 700;
@@ -1558,11 +1558,11 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
   const modeDescs: Record<Mode, { label: string; desc: string }> = {
     vocab:     { label: 'Vocabulary',    desc: 'Hover any shaded word for its meaning. Click to pin.' },
-    translate: { label: 'Translation',   desc: 'Click a sentence — its Chinese translation appears here.' },
+    translate: { label: 'Translation',   desc: 'Click a sentence, its Chinese translation appears here.' },
     grammar:   { label: 'Grammar',       desc: 'Hover a card to see the construction in the article.' },
     patterns:  { label: 'Patterns',      desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
     quiz:      { label: 'Comprehension', desc: 'A short multiple-choice check after the read.' },
-    review:    { label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary — current session only.' },
+    review:    { label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary, current session only.' },
     about:     { label: 'About',         desc: 'Source, length, level, editor\'s note.' },
   };
 
@@ -1587,7 +1587,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     document.querySelectorAll('.sent').forEach((el) => {
       el.classList.toggle('is-clickable', sentClickable);
     });
-    // Reset grammar highlights on every mode switch — then re-apply if entering
+    // Reset grammar highlights on every mode switch, then re-apply if entering
     // grammar/patterns with an open accordion item.
     document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
     if (mode === 'grammar' || mode === 'patterns') {
@@ -1609,7 +1609,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     });
   });
 
-  // ============== Level filter — single select, cumulative ==============
+  // ============== Level filter, single select, cumulative ==============
   function applyLevelFilter() {
     document.querySelectorAll('.vocab').forEach((el) => {
       const lvl = Number(el.getAttribute('data-level'));
@@ -1702,7 +1702,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
   document.querySelectorAll('.vocab').forEach((el) => {
     el.addEventListener('mouseenter', () => {
-      // Only preview when already in vocab mode — never auto-switch on hover.
+      // Only preview when already in vocab mode, never auto-switch on hover.
       if (currentMode !== 'vocab') return;
       if (pinnedVocabId) return;
       const vid = el.getAttribute('data-vid');
@@ -1717,7 +1717,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
       e.stopPropagation();
       const vid = el.getAttribute('data-vid');
       if (!vid) return;
-      // Click is an explicit action — switch to vocab and pin.
+      // Click is an explicit action, switch to vocab and pin.
       if (currentMode !== 'vocab') setMode('vocab');
       pinVocab(pinnedVocabId === vid ? null : vid);
     });
@@ -1853,6 +1853,17 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
       document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-grammar'));
     });
     if (sids[0]) jumpToSentence(sids[0]);
+    // Scroll the panel body so the just-opened item's title sits at the top.
+    // Wait one frame so layout settles after sibling close + this expand.
+    const modeBody = item.closest('.el-mode-body') as HTMLElement | null;
+    if (modeBody) {
+      requestAnimationFrame(() => {
+        const itemRect = (item as HTMLElement).getBoundingClientRect();
+        const bodyRect = modeBody.getBoundingClientRect();
+        const target = modeBody.scrollTop + (itemRect.top - bodyRect.top) - 8;
+        modeBody.scrollTo({ top: target, behavior: 'smooth' });
+      });
+    }
   }
   document.querySelectorAll('.el-acc-trigger').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -1908,7 +1919,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
               ? 'Strong comprehension.'
               : quizScore >= ARTICLE.quiz.length / 2
               ? 'Worth a re-read of the trickier paragraphs.'
-              : 'Try the article again — slow down on the dashes.'
+              : 'Try the article again with more attention to detail.'
           }</div>
           <button class="el-btn el-btn-primary" id="el-quiz-restart">Try again</button>
           <button class="el-btn el-btn-ghost" id="el-quiz-back-article" style="margin-top:0">

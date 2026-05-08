@@ -1,4 +1,4 @@
-// Mock article — the future skill will produce JSON files of the same shape.
+// Mock article. The future skill will produce JSON files of the same shape.
 import type { Article } from './types';
 
 export const article: Article = {
@@ -10,7 +10,7 @@ export const article: Article = {
     wordCount: 412,
     readingMinutes: 5,
     editorsNote:
-      'A short feature on the rise of dark-sky tourism — chosen for its clean prose, vivid imagery, and a vocabulary range that crosses CET4 through GRE. Watch the way the writer uses dashes for parenthetical asides.',
+      'A short feature on the rise of dark-sky tourism, chosen for its clean prose, vivid imagery, and a vocabulary range that should challenge readers at this level. Watch the way the writer pivots between facts and reflection in the closing paragraphs.',
   },
   paragraphs: [
     {
@@ -19,7 +19,7 @@ export const article: Article = {
         { id: 's1', en: 'For most of human history, the night sky was free.', zh: '在人类历史的绝大部分时期里，夜空是免费的。' },
         { id: 's2', en: 'Anyone could step outside, look up, and see the Milky Way stretched across the dark like spilt salt.', zh: '任何人只要走到户外抬头，就能看见银河像撒落的盐粒一样横陈夜空。' },
         { id: 's3', en: "That experience has quietly disappeared for most of the world's population.", zh: '这种体验对世界上大多数人来说，已经悄无声息地消失了。' },
-        { id: 's4', en: 'According to recent studies, roughly 80 percent of people now live under skies bright enough to wash out the stars — a side effect of decades of unchecked urban growth and inefficient outdoor lighting.', zh: '近期研究显示，约 80% 的人如今生活在亮到足以"洗掉"星光的天空之下——这是数十年放任的城市扩张与低效户外照明造成的副作用。' },
+        { id: 's4', en: 'According to recent studies, roughly 80 percent of people now live under skies bright enough to wash out the stars, a side effect of decades of unchecked urban growth and inefficient outdoor lighting.', zh: '近期研究显示，约 80% 的人如今生活在亮到足以"洗掉"星光的天空之下，这是数十年放任的城市扩张与低效户外照明造成的副作用。' },
       ],
     },
     {
@@ -28,7 +28,7 @@ export const article: Article = {
         { id: 's5', en: 'But what was lost is now becoming a luxury.', zh: '然而，曾被丢失的东西，正在成为一种奢侈品。' },
         { id: 's6', en: 'A new tourism industry has emerged around the simple act of looking up.', zh: '一个全新的旅游产业，围绕"抬头看天"这件简单的事兴起了。' },
         { id: 's7', en: 'From the Atacama Desert in Chile to remote regions of New Zealand and northern Scotland, communities are converting their darkness into a renewable resource.', zh: '从智利的阿塔卡马沙漠，到新西兰和苏格兰北部的偏远地区，社区正在把它们的黑暗转化为一种可再生资源。' },
-        { id: 's8', en: 'The International Dark-Sky Association has certified more than 200 designated reserves worldwide, and visitors are willing to travel thousands of miles — and pay premium prices — to spend a single clear night beneath them.', zh: '国际暗夜协会已在全球认证了 200 多处指定保护区，游客愿意跋涉数千英里——并支付高额费用——只为在这样的天空下度过一个晴朗的夜晚。' },
+        { id: 's8', en: 'The International Dark-Sky Association has certified more than 200 designated reserves worldwide, and visitors are willing to travel thousands of miles, even pay premium prices, to spend a single clear night beneath them.', zh: '国际暗夜协会已在全球认证了 200 多处指定保护区，游客愿意跋涉数千英里，甚至支付高额费用，只为在这样的天空下度过一个晴朗的夜晚。' },
       ],
     },
     {
@@ -37,7 +37,7 @@ export const article: Article = {
         { id: 's9', en: 'The economics are striking.', zh: '其经济效益相当惊人。' },
         { id: 's10', en: 'A small village in the Scottish Highlands reported that astrotourism revenue now exceeds traditional summer trade.', zh: '苏格兰高地的一个小村庄报告称，星空旅游的收入如今已超过传统的夏季营收。' },
         { id: 's11', en: 'Hotels offer 「star concierges」 who track cloud cover and lunar phases the way ski resorts watch snow.', zh: '酒店配备了"观星管家"，他们追踪云量与月相的方式，就像滑雪度假村盯着积雪一样。' },
-        { id: 's12', en: 'Some lodges have begun installing only red-tinted lighting, which preserves both the night sky and human night vision.', zh: '一些山间旅馆开始只安装红色调的灯光——这种做法既保护夜空，也保护人眼的暗视觉。' },
+        { id: 's12', en: 'Some lodges have begun installing only red-tinted lighting, which preserves both the night sky and human night vision.', zh: '一些山间旅馆开始只安装红色调的灯光，这种做法既保护夜空，也保护人眼的暗视觉。' },
       ],
     },
     {
@@ -46,7 +46,7 @@ export const article: Article = {
         { id: 's13', en: 'The benefits, however, extend well beyond tourism.', zh: '不过，其好处远不止于旅游业。' },
         { id: 's14', en: 'Restoring darkness has measurable ecological consequences.', zh: '恢复黑暗会带来可测量的生态后果。' },
         { id: 's15', en: 'Migratory birds, which navigate by celestial cues, suffer disorientation under artificial glow.', zh: '依靠天体线索导航的候鸟，会在人造光晕下出现迷向。' },
-        { id: 's16', en: 'Sea turtle hatchlings instinctively crawl toward the brightest horizon — typically the sea, but increasingly, fatally, toward beachfront resorts.', zh: '小海龟出壳后会本能地朝最亮的地平线爬去——通常是海面，但越来越多地，致命地，爬向了海滨度假村。' },
+        { id: 's16', en: 'Sea turtle hatchlings instinctively crawl toward the brightest horizon, typically the sea, but increasingly, fatally, toward beachfront resorts.', zh: '小海龟出壳后会本能地朝最亮的地平线爬去，通常是海面，但越来越多地，致命地，爬向了海滨度假村。' },
         { id: 's17', en: 'Even nocturnal pollinators, often overlooked, contribute substantially to crop yields, and their populations decline sharply in light-polluted regions.', zh: '就连那些常被忽视的夜行性传粉昆虫，也对作物产量贡献巨大，而它们的种群在光污染地区急剧下降。' },
       ],
     },
@@ -63,11 +63,11 @@ export const article: Article = {
     {
       id: 'p6',
       sentences: [
-        { id: 's23', en: 'It is a strange irony of modern life that what we once shared as common heritage — a sky full of stars — has become a destination.', zh: '现代生活的一种奇妙讽刺是：我们曾共同拥有的遗产——一片满是星辰的天空——如今竟变成了一处目的地。' },
+        { id: 's23', en: 'It is a strange irony of modern life that what we once shared as common heritage, a sky full of stars, has become a destination.', zh: '现代生活的一种奇妙讽刺是：我们曾共同拥有的遗产，一片满是星辰的天空，如今竟变成了一处目的地。' },
         { id: 's24', en: 'But perhaps it is also a reminder.', zh: '但这或许也是一种提醒。' },
         { id: 's25', en: 'The Milky Way did not vanish.', zh: '银河并没有消失。' },
         { id: 's26', en: 'We covered it.', zh: '是我们把它盖住了。' },
-        { id: 's27', en: 'And what we covered, we can uncover again, one switch at a time.', zh: '我们盖住的东西，也可以重新揭开——一次关掉一盏灯，就够了。' },
+        { id: 's27', en: 'And what we covered, we can uncover again, one switch at a time.', zh: '我们盖住的东西，也可以重新揭开，一次关掉一盏灯，就够了。' },
       ],
     },
   ],
@@ -111,7 +111,7 @@ export const article: Article = {
       explanationZh: [
         '正常英文语序习惯把动作的执行者（subject）放在最前面：The town lost its summer trade. 这种语序平稳，但当你真正想强调的是"失去了什么"，主词位置就被执行者占走了。',
         '这个句式（What-cleft）把主词位置交给一个 what-clause，让句子的第一个停顿就把"事物"立住。文章里 "But what was lost is now becoming a luxury." 没有写 "The thing we lost is now a luxury"，因为前者书面、有节奏；what 这个词本身带一种"请你留意"的语气。',
-        '议论文 / 散文里非常顺手 — 段落开头用它，立刻把读者的注意力锁在你想强调的那个名词上，再去展开。',
+        '议论文 / 散文里非常顺手，段落开头用它，立刻把读者的注意力锁在你想强调的那个名词上，再去展开。',
         '注意：what-clause 后面接单数 is/was（即便 clause 实际指多个事物），因为 what-clause 整体被视为 "the thing(s) which..."，语法上是单数主语。',
       ],
       examples: [
@@ -121,29 +121,8 @@ export const article: Article = {
         { en: 'What I admire in her writing is the absence of pretense.', zh: '我欣赏她写作中的，是那份不做作。' },
         { en: 'What changed everything was a single phone call.', zh: '改变一切的，是一通电话。', note: '叙事 / 报道里用来制造转折。' },
       ],
-      commonMistake: '不要写成 "What we lost are now luxuries" — 即便意指多个事物，is/was 始终单数。要表达复数主语，换成 "The things we lost are now luxuries"。',
+      commonMistake: '不要写成 "What we lost are now luxuries"，即便意指多个事物，is/was 始终单数。要表达复数主语，换成 "The things we lost are now luxuries"。',
       vsSimilar: 'It-cleft（"It is X that..."）也用于强调，但它强调的是具体名词 X；what-cleft 强调的是 整一个 clause 的内容（"我们失去的东西"）。前者锐利，后者更含蓄、更修辞化。',
-    },
-    {
-      id: 'g2',
-      title: '用破折号插入补充 — 比逗号有力，比括号自然',
-      pattern: '... main clause — inserted detail — continuation',
-      sentenceIds: ['s4', 's8', 's16', 's23'],
-      explanationZh: [
-        '一对 em-dash（—）夹起来的内容，在阅读节奏上等同于一次"小停顿 + 插入说明 + 继续主线"。它比逗号更显著（逗号会让插入语融进主句，没有"切断"的感觉），又比括号更口语化（括号有"次要信息"的暗示）。',
-        '这是现代英文新闻特写、长文报道、散文里最常见的结构之一 — 让句子保持一个稳定的主线，同时补充必要的细节、转折、情感色彩。',
-        '本文里至少 4 处用了破折号：补充因果（s4）、追加并列动作（s8）、加注释 + 反转（s16）、插入同位语展开（s23）。每一次都不是为了节省字数，而是为了营造一次小"呼吸"。',
-        '判断要不要用：这段插入语值得"打断"主句吗？只是普通修饰，逗号就够；如果是一个"啊原来如此"的扩展、一个反讽、或一个情感转折，破折号最合适。',
-      ],
-      examples: [
-        { en: 'The plan — ambitious, expensive, and untested — was approved overnight.', zh: '这个方案——雄心勃勃、代价高昂、毫无验证——一夜之间获批。', note: '插入三个并列形容词，破折号比逗号更让读者停下来感受讽刺。' },
-        { en: 'She moved to Berlin — for love, then for work — and never came back.', zh: '她搬去柏林——先是为爱，后是为工作——再也没有回来。' },
-        { en: 'Three speakers — including the keynote — withdrew the day before.', zh: '三位讲者——包括主讲——在前一天退出。', note: '用破折号强调"连主讲都退出了"这个反转。' },
-        { en: 'The translation is faithful — almost too faithful — to the rhythm of the original.', zh: '译文忠实——甚至过于忠实——于原文的节奏。', note: '破折号让作者得以"反悔"式地修正自己的判断。' },
-        { en: 'He wrote the book in six months — by hand — while recovering from surgery.', zh: '他用六个月写完那本书——手写的——同时还在术后恢复。' },
-      ],
-      commonMistake: '破折号必须成对。前面用了破折号、后面用逗号收尾是错的（除非插入内容延伸到句末）。还要注意：英文 em-dash（—）与 hyphen（-）形态不同，正式排版里别用 hyphen 凑数。',
-      vsSimilar: '括号 (...)：内容更明显被归为"次要"；逗号 ,...,：让插入融入主句，没有强调；冒号 X: ...：通常用于引出列举或正式解释，比破折号结构化。',
     },
     {
       id: 'g3',
@@ -168,7 +147,7 @@ export const article: Article = {
     },
     {
       id: 'g4',
-      title: '用 Yet 起句 — 比 But 更克制，更书面',
+      title: '用 Yet 起句，比 But 更克制，更书面',
       pattern: 'Yet [clause showing contrast]',
       sentenceIds: ['s21'],
       explanationZh: [
@@ -184,7 +163,7 @@ export const article: Article = {
         { en: 'Yet what struck observers most was the silence.', zh: '然而最让旁观者印象深刻的，是那份寂静。', note: 'Yet 叠加 what-cleft，开篇张力更强。' },
         { en: 'Yet, as the new study shows, the trend may be slowing.', zh: '然而，如新研究所示，这一趋势可能正在放缓。' },
       ],
-      commonMistake: 'Yet 作转折时不要写 "yet but" — 已经包含 but 的意思，加 but 是冗余。还要注意：yet 与 still 都可表"仍然"，但 yet 多用于否定句和疑问句（has not yet finished / has she finished yet?），still 多用于肯定句（she still works there）。',
+      commonMistake: 'Yet 作转折时不要写 "yet but"，已经包含 but 的意思，加 but 是冗余。还要注意：yet 与 still 都可表"仍然"，但 yet 多用于否定句和疑问句（has not yet finished / has she finished yet?），still 多用于肯定句（she still works there）。',
       vsSimilar: 'However：与 yet 类似但更正式，常带逗号断句（However, the data...）；Still：稍随意，常用于对话或段落内部继续；Nevertheless：最正式，学术写作中常见。',
     },
   ],
@@ -197,7 +176,7 @@ export const article: Article = {
       sentenceId: 's6',
       whyItWorks: [
         '句式力量来自一种刻意的反差：[X] 是个有规模、有重量的名词（行业、运动、文化、产业），而 [verb-ing] 是个看似微不足道的动作（抬头看天、走路、问问题）。读者立刻被"宏大现象起源于平凡动作"的反差吸引。',
-        '结构上，has emerged around 比 has formed / has appeared 都更精确 — 它暗示新现象是"围绕"一个核心动作发展出来的，不是凭空出现。这种因果链感让句子显得有思考。',
+        '结构上，has emerged around 比 has formed / has appeared 都更精确，它暗示新现象是"围绕"一个核心动作发展出来的，不是凭空出现。这种因果链感让句子显得有思考。',
         'the simple act of [verb-ing] 这种"X-of-Y"结构把动作命名化，把它从一个偶然行为升级成一个值得分析的对象。这是议论性写作里非常成熟的一招。',
       ],
       examples: [
@@ -210,34 +189,34 @@ export const article: Article = {
     },
     {
       id: 'pt2',
-      useCase: '强调对方愿意付出多重代价',
-      skeleton: '[Subject] is willing to [action A] — and [action B] — to [purpose].',
-      original: 'Visitors are willing to travel thousands of miles — and pay premium prices — to spend a single clear night beneath them.',
+      useCase: '用 even 把第二个代价"升级"上去',
+      skeleton: '[Subject] is willing to [action A], even [action B], to [purpose].',
+      original: 'Visitors are willing to travel thousands of miles, even pay premium prices, to spend a single clear night beneath them.',
       sentenceId: 's8',
       whyItWorks: [
-        '两个动作用一对破折号串起来，比简单的 and 连接更有节奏。读者会自然停顿一次（破折号引导），让 [action B] 不只是和 [action A] 并列，而是一种"升级"。',
-        '第二个 action 通常比第一个更"不舒服" — 比如先是体力代价（远行）、再叠加经济代价（高价）。读者会自动感受到：这件事真的让人愿意 go far。',
+        '"even" 这个词在两个动作之间起到放大器的作用。读者读到 [action A] 心里已经觉得"这挺远了"，再读到 even [action B]，会自然产生"还不止于此"的反应。',
+        '第二个 action 通常比第一个更"不舒服"，比如先是体力代价（远行），再叠加经济代价（高价）。配合 even 这个词，读者会自动感受到：这件事真的让人愿意 go far。',
         'to [purpose] 部分要简短、具体、有画面感（不是模糊的 to enjoy themselves，而是 to spend a single clear night beneath them）。具体的"目的"让前面所有代价都显得值。',
       ],
       examples: [
-        { context: '写一篇关于硬科幻发烧友的报道', text: "Fans are willing to wait in line for hours — and pay collector's prices — to hold a first-edition copy.", zh: '粉丝愿意排队几个小时——并支付收藏家级别的价格——只为捧一捧首版。' },
-        { context: '申请文书里写为什么愿意做某事', text: 'I am willing to leave a stable job — and start over in a new city — to pursue research that I actually believe in.', zh: '我愿意离开稳定的工作——并到一座新城市从头开始——只为去做我真正相信的研究。' },
-        { context: '评论健康趋势', text: 'Patients are willing to undergo months of testing — and rearrange their lives entirely — to join an experimental trial.', zh: '病人们愿意接受几个月的测试——并完全调整自己的生活——只为加入一个实验性试验。' },
+        { context: '写一篇关于硬科幻发烧友的报道', text: "Fans are willing to wait in line for hours, even pay collector's prices, to hold a first-edition copy.", zh: '粉丝愿意排队几个小时，甚至支付收藏家级别的价格，只为捧一捧首版。' },
+        { context: '申请文书里写为什么愿意做某事', text: 'I am willing to leave a stable job, even start over in a new city, to pursue research that I actually believe in.', zh: '我愿意离开稳定的工作，甚至到一座新城市从头开始，只为去做我真正相信的研究。' },
+        { context: '评论健康趋势', text: 'Patients are willing to undergo months of testing, even rearrange their lives entirely, to join an experimental trial.', zh: '病人们愿意接受几个月的测试，甚至完全调整自己的生活，只为加入一个实验性试验。' },
       ],
-      adaptingTip: '插入的两个 action 要有强度差。第二个比第一个更显得"非分"，整个句子的张力才出来。如果你只想列举两个并列动作，没有强度差，就别用破折号 — 用普通的 and 就够。',
-      commonMistake: '破折号不是普通逗号，不要用它来表达"然后"或"另外"。它只在两个动作之间存在"让步—升级"关系时才合适。',
+      adaptingTip: '插入的两个 action 必须有强度差。第二个要明显比第一个更"非分"、更出乎意料，才能撑住 even 这个词。如果两个动作平级（都是普通付出），用 and 就够，别硬套 even。',
+      commonMistake: 'even 后面接的动词要和 to 之后的动词形式对齐（保持光秃 infinitive 形式）。错误："is willing to travel, even to pay premium prices"（多了 to）；正确："is willing to travel, even pay premium prices"（与前一个动词共享开头的 to）。',
     },
     {
       id: 'pt3',
       useCase: '为整篇文章给出一个反讽式的情感落点',
       skeleton: 'It is a strange irony of [domain] that [observation].',
-      original: 'It is a strange irony of modern life that what we once shared as common heritage — a sky full of stars — has become a destination.',
+      original: 'It is a strange irony of modern life that what we once shared as common heritage, a sky full of stars, has become a destination.',
       sentenceId: 's23',
       whyItWorks: [
-        '这个句式的关键不在描述事实，而在给事实"命名"。当你把矛盾命名为 irony，读者立刻被请进一个反思的角度 — 你不是在说"X 现在变成了 Y"，你是在说"X 居然变成了 Y，而且这件事本身值得品味"。',
-        '"a strange irony" 用 strange 作修饰，比单说 irony 更柔和、更具有人性 — 它不指控，只是邀请读者一起看这个矛盾。',
+        '这个句式的关键不在描述事实，而在给事实"命名"。当你把矛盾命名为 irony，读者立刻被请进一个反思的角度，你不是在说"X 现在变成了 Y"，你是在说"X 居然变成了 Y，而且这件事本身值得品味"。',
+        '"a strange irony" 用 strange 作修饰，比单说 irony 更柔和、更具有人性，它不指控，只是邀请读者一起看这个矛盾。',
         'of [domain] 把这个 irony 锚定在一个明确的语境里（modern life / our age / today\'s economy / contemporary politics），让读者知道讨论的范围。',
-        '[observation] 部分通常是一个对比性的陈述。本文里就是 "what we once shared ... has become a destination" — 把"曾共有"与"现在是目的地"这个对比写出来。',
+        '[observation] 部分通常是一个对比性的陈述。本文里就是 "what we once shared ... has become a destination"，把"曾共有"与"现在是目的地"这个对比写出来。',
       ],
       examples: [
         { context: '评论科技和孤独', text: 'It is a strange irony of digital life that the more connected we are, the lonelier we feel.', zh: '数字生活的一种奇妙讽刺是：我们连接得越紧密，反而越孤独。' },
@@ -245,7 +224,7 @@ export const article: Article = {
         { context: '环境议题文章结尾', text: 'It is a strange irony of environmental thinking that we praise the wild while paving over the last of it.', zh: '环境思维的一种奇妙讽刺是：我们一边赞美原野，一边把最后剩下的也铺成水泥。' },
       ],
       adaptingTip: '这个句式适合点题 / 收尾，不适合开头（开头用它显得过早下结论）。建议留到全文 80% 以后用，让读者已经被你的论证带到一个能"看出 irony"的位置。',
-      commonMistake: '[observation] 部分要写成一个有内在矛盾的陈述。如果只是普通描述（如 "It is a strange irony of modern life that we have many cars" — 这只是描述，没有 irony），整个句式就没有意义。',
+      commonMistake: '[observation] 部分要写成一个有内在矛盾的陈述。如果只是普通描述（如 "It is a strange irony of modern life that we have many cars"，这只是描述，没有 irony），整个句式就没有意义。',
     },
     {
       id: 'pt4',
@@ -254,17 +233,17 @@ export const article: Article = {
       original: 'And what we covered, we can uncover again, one switch at a time.',
       sentenceId: 's27',
       whyItWorks: [
-        '前半句的对偶（covered / uncover）让句子有重量 — 主词被否定，再被肯定。读者感受到一种"闭环"：之前我们做错了什么，现在可以反向修正。',
-        '后半句的"one X at a time"是非常稳的修辞收束 — 把宏大议题缩成可执行的最小动作。它让读者从感动转向行动，而不是停留在情绪里。',
+        '前半句的对偶（covered / uncover）让句子有重量，主词被否定，再被肯定。读者感受到一种"闭环"：之前我们做错了什么，现在可以反向修正。',
+        '后半句的"one X at a time"是非常稳的修辞收束，把宏大议题缩成可执行的最小动作。它让读者从感动转向行动，而不是停留在情绪里。',
         '整句的力量来自"承认 → 倒置 → 行动"的三段式。承认（covered）让句子有重量，倒置（uncover）给希望，最小动作（one switch at a time）让希望可信。',
       ],
       examples: [
-        { context: '写一篇关于阅读习惯的评论', text: 'And what we forgot, we can relearn, one quiet evening at a time.', zh: '我们遗忘的东西，也可以重新学回来——一次安静的傍晚，就够了。' },
-        { context: '公益倡议结尾', text: 'And what we wasted, we can recover, one habit at a time.', zh: '我们浪费的东西，也可以一点点找回来——一次一个习惯。' },
-        { context: '气候议题结尾', text: 'And what we burned, we cannot return, but we can plant — one tree at a time.', zh: '我们烧掉的，无法归还，但我们可以种回去——一次一棵树。', note: '把对偶变成不对偶（cannot return），有更深的诚实感。' },
+        { context: '写一篇关于阅读习惯的评论', text: 'And what we forgot, we can relearn, one quiet evening at a time.', zh: '我们遗忘的东西，也可以重新学回来，一次安静的傍晚，就够了。' },
+        { context: '公益倡议结尾', text: 'And what we wasted, we can recover, one habit at a time.', zh: '我们浪费的东西，也可以一点点找回来，一次一个习惯。' },
+        { context: '气候议题结尾', text: 'And what we burned, we cannot return, but we can plant, one tree at a time.', zh: '我们烧掉的，无法归还，但我们可以种回去，一次一棵树。', note: '把对偶变成不对偶（cannot return），有更深的诚实感。' },
       ],
       adaptingTip: '这是评论文 / 倡议性文章的结尾模板。注意"one X at a time"的 X 一定要是一个具体、可执行的小单位（switch / habit / tree / page / conversation）。如果 X 太抽象（one effort），句子就空。',
-      commonMistake: '这个句式情绪含量很高，不适合中间段落。它是收尾用的 — 用得太早，会让后续论证显得多余。',
+      commonMistake: '这个句式情绪含量很高，不适合中间段落。它是收尾用的，用得太早，会让后续论证显得多余。',
     },
   ],
   quiz: [
