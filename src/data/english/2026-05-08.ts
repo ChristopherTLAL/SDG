@@ -142,24 +142,27 @@ export const article: Article = {
   patterns: [
     {
       id: 'pt1',
+      useCase: '用时间把一个长期持续的现象沉下来 — 议论文 / 报道开篇',
       skeleton: 'For about [time], [subject] has been [verb-ing] X.',
       original: 'For about ten years, the library has been lending tools to its members.',
       sentenceId: 's3',
-      hint: '描述一个长期持续的现象，开头放时间，让句子节奏立刻沉下来。议论文 / 报道开篇好用。',
+      hint: '把时间状语放到句首，立刻给文章一种"这件事已经发生很久"的稳重感。配合现在完成进行时（has been V-ing），强调动作还在持续，不只是一段历史。新闻报道里非常常用。',
     },
     {
       id: 'pt2',
+      useCase: '从浅显的好处带到更深的论点 — 承上启下',
       skeleton: 'The benefits go beyond [obvious benefit].',
       original: 'The benefits go beyond saving money.',
       sentenceId: 's9',
-      hint: '"go beyond X" 这个结构能把读者从最浅显的好处带到更深层的论点。承上启下，写作里非常顺手。',
+      hint: '"go beyond X" 是一种把读者从表面意义引到深层意义的桥梁句。前面已经讲了一个浅显好处，下一步要展开"还不止于此"的内容时，这个结构最干脆。议论文段落之间的过渡好用。',
     },
     {
       id: 'pt3',
+      useCase: '收尾金句：把主词归到一个范畴，再赋予新意义',
       skeleton: 'X is a kind of Y — and Y, in its own way, can [verb].',
       original: 'A book is a kind of tool — and a tool, in its own way, can teach.',
       sentenceId: 's22',
-      hint: '收尾的金句模板：先把主词归到一个范畴，再回身赋予那个范畴新的能力。轻巧又有回响。',
+      hint: '前半句把主词归类（"X 是 Y 的一种"），后半句反身给那个类别赋予新能力。轻巧、有回响、不说教 — 是议论文 / 散文结尾的稳健选择。"in its own way" 的存在让句子保有一种谦逊的余地。',
     },
   ],
   quiz: [

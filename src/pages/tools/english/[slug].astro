@@ -184,23 +184,8 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
               <div class="el-empty">
                 <span class="material-symbols-outlined">touch_app</span>
                 <p>Hover any shaded word in the article. Click to pin.</p>
+                <p class="el-empty-sub">Looking for the full word list? Open <strong>Word review → List</strong>.</p>
               </div>
-            </div>
-
-            <div class="el-vocab-list" id="el-vocab-list">
-              <div class="el-section-title">All words ({vocab.length})</div>
-              <ul>
-                {vocab.map((v) => (
-                  <li class="el-vocab-row" data-vid={v.id} data-level={v.level}>
-                    <button class="el-vocab-row-btn" data-vid={v.id}>
-                      <span class="el-level-tag-shade" data-level={v.level}>L{v.level}</span>
-                      <span class="el-vocab-word">{v.word}</span>
-                      <span class="el-vocab-pos">{v.pos}</span>
-                      <span class="el-vocab-def">{v.defZh}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
             </div>
           </section>
 
@@ -221,39 +206,48 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
           </section>
 
           <section class="el-mode" data-mode="grammar" hidden>
-            <ul class="el-card-list">
+            <ul class="el-accordion" data-accordion="grammar">
               {grammar.map((g) => (
-                <li class="el-card el-card--grammar" data-gid={g.id} data-sids={g.sentenceIds.join(',')}>
-                  <div class="el-card-head">
-                    <h3>{g.title}</h3>
-                    <code class="el-card-pattern">{g.pattern}</code>
-                  </div>
-                  <p class="el-card-explain">{g.explanationZh}</p>
-                  <div class="el-card-examples">
-                    {g.examples.map((ex) => <p>· {ex}</p>)}
-                  </div>
-                  <button class="el-card-action" data-action="highlight" data-sids={g.sentenceIds.join(',')}>
-                    <span class="material-symbols-outlined">north_east</span>
-                    See it in the article
+                <li class="el-acc-item" data-sids={g.sentenceIds.join(',')}>
+                  <button class="el-acc-trigger" type="button" aria-expanded="false">
+                    <span class="el-acc-title">
+                      <span class="el-acc-name">{g.title}</span>
+                      <code class="el-acc-pattern">{g.pattern}</code>
+                    </span>
+                    <span class="el-acc-chev material-symbols-outlined">expand_more</span>
                   </button>
+                  <div class="el-acc-body" hidden>
+                    <p class="el-acc-explain">{g.explanationZh}</p>
+                    {g.examples.length > 0 && (
+                      <div class="el-acc-examples">
+                        <div class="el-acc-eyebrow">Examples</div>
+                        {g.examples.map((ex) => <p>· {ex}</p>)}
+                      </div>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
           </section>
 
           <section class="el-mode" data-mode="patterns" hidden>
-            <ul class="el-card-list">
+            <ul class="el-accordion" data-accordion="patterns">
               {patterns.map((p) => (
-                <li class="el-card el-card--pattern" data-pid={p.id} data-sids={p.sentenceId}>
-                  <div class="el-card-head">
-                    <h3 class="el-card-skeleton">{p.skeleton}</h3>
-                  </div>
-                  <p class="el-card-original">「{p.original}」</p>
-                  <p class="el-card-hint">{p.hint}</p>
-                  <button class="el-card-action" data-action="highlight" data-sids={p.sentenceId}>
-                    <span class="material-symbols-outlined">north_east</span>
-                    See it in the article
+                <li class="el-acc-item" data-sids={p.sentenceId}>
+                  <button class="el-acc-trigger" type="button" aria-expanded="false">
+                    <span class="el-acc-title">
+                      <span class="el-acc-name">{p.useCase}</span>
+                    </span>
+                    <span class="el-acc-chev material-symbols-outlined">expand_more</span>
                   </button>
+                  <div class="el-acc-body" hidden>
+                    <div class="el-acc-eyebrow">Skeleton</div>
+                    <code class="el-acc-skeleton">{p.skeleton}</code>
+                    <div class="el-acc-eyebrow">From the article</div>
+                    <p class="el-acc-original">「{p.original}」</p>
+                    <div class="el-acc-eyebrow">How to use it</div>
+                    <p class="el-acc-hint">{p.hint}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -271,13 +265,59 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
           </section>
 
           <section class="el-mode" data-mode="review" hidden>
-            <div id="el-review-root" class="el-review">
-              <div class="el-review-start">
-                <span class="material-symbols-outlined el-quiz-icon">replay</span>
-                <h3>Word review</h3>
-                <p>Flip through the article's {vocab.length} vocabulary words. Rate yourself; the deck reorders accordingly.</p>
-                <p class="el-empty-sub">Session-only — no account, no sync. Refresh resets the deck.</p>
-                <button class="el-btn el-btn-primary" id="el-review-begin">Start review</button>
+            <div class="el-review-toggle" role="tablist" aria-label="Review view">
+              <button class="el-review-toggle-btn is-on" data-view="cards" aria-pressed="true">
+                <span class="material-symbols-outlined">style</span>
+                Flashcards
+              </button>
+              <button class="el-review-toggle-btn" data-view="list" aria-pressed="false">
+                <span class="material-symbols-outlined">list</span>
+                Word list
+              </button>
+            </div>
+
+            <div class="el-review-cards" data-view-pane="cards">
+              <div id="el-review-root" class="el-review">
+                <div class="el-review-start">
+                  <span class="material-symbols-outlined el-quiz-icon">replay</span>
+                  <h3>Word review</h3>
+                  <p>Flip through the article's {vocab.length} vocabulary words. Rate yourself; the deck reorders accordingly.</p>
+                  <p class="el-empty-sub">Session-only — no account, no sync. Refresh resets the deck.</p>
+                  <button class="el-btn el-btn-primary" id="el-review-begin">Start review</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="el-review-list-pane" data-view-pane="list" hidden>
+              <div class="el-levels el-levels--compact">
+                <div class="el-levels-row">
+                  {levels.map((l) => (
+                    <button
+                      class={`el-level-chip${l === 1 ? ' is-on' : ''}`}
+                      data-level={l}
+                      aria-pressed={l === 1 ? 'true' : 'false'}
+                    >
+                      <span class="el-level-chip-swatch" data-level={l}></span>
+                      <span class="el-level-chip-label">L{l}</span>
+                      <span class="el-level-chip-num">{levelCounts[l] || 0}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div class="el-vocab-list" id="el-vocab-list">
+                <div class="el-section-title">All words ({vocab.length})</div>
+                <ul>
+                  {vocab.map((v) => (
+                    <li class="el-vocab-row" data-vid={v.id} data-level={v.level}>
+                      <button class="el-vocab-row-btn" data-vid={v.id}>
+                        <span class="el-level-tag-shade" data-level={v.level}>L{v.level}</span>
+                        <span class="el-vocab-word">{v.word}</span>
+                        <span class="el-vocab-pos">{v.pos}</span>
+                        <span class="el-vocab-def">{v.defZh}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </section>
@@ -319,6 +359,9 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 <style is:global>
   /* Page lock — this tool fills the viewport, no body scroll. */
   body.english-reader-page { overflow: hidden; height: 100vh; }
+  /* Footer renders at body y=0 since main is fixed-positioned (out of flow);
+     it would peek through the semi-transparent fixed header without this. */
+  body.english-reader-page footer { display: none; }
 
   :root {
     --el-pin: #042f24;
@@ -1190,6 +1233,160 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     color: var(--el-pin);
     min-width: 18px; text-align: center;
   }
+
+  /* ===== Accordion (grammar / patterns) ===== */
+  .el-accordion {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .el-acc-item {
+    list-style: none;
+    background: white;
+    border: 1px solid var(--el-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 120ms ease;
+  }
+  .el-acc-item:hover { border-color: var(--el-border-2); }
+  .el-acc-item.is-open { border-color: var(--el-pin); }
+  .el-acc-trigger {
+    width: 100%;
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 120ms ease;
+  }
+  .el-acc-trigger:hover { background: var(--el-soft); }
+  .el-acc-item.is-open .el-acc-trigger { background: var(--el-soft); }
+  .el-acc-title {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .el-acc-name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: var(--el-pin);
+    letter-spacing: -0.005em;
+  }
+  .el-acc-pattern {
+    align-self: flex-start;
+    padding: 2px 6px;
+    background: var(--el-soft);
+    border-radius: 5px;
+    font-size: 10.5px;
+    color: rgba(4, 47, 36, 0.7);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  .el-acc-chev {
+    flex-shrink: 0;
+    color: rgba(4, 47, 36, 0.4);
+    font-size: 20px !important;
+    transition: transform 180ms ease, color 120ms ease;
+  }
+  .el-acc-item.is-open .el-acc-chev {
+    transform: rotate(180deg);
+    color: var(--el-pin);
+  }
+  .el-acc-body {
+    padding: 4px 16px 14px;
+    border-top: 1px solid var(--el-border);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .el-acc-eyebrow {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(4, 47, 36, 0.45);
+    margin-top: 8px;
+  }
+  .el-acc-explain {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(4, 47, 36, 0.82);
+  }
+  .el-acc-examples p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(4, 47, 36, 0.65);
+    margin-top: 3px;
+  }
+  .el-acc-skeleton {
+    display: block;
+    padding: 8px 10px;
+    background: var(--el-soft);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--el-pin);
+    word-break: break-word;
+  }
+  .el-acc-original {
+    font-style: italic;
+    font-size: 12.5px;
+    color: rgba(4, 47, 36, 0.65);
+    line-height: 1.6;
+    padding-left: 10px;
+    border-left: 2px solid var(--el-border-2);
+  }
+  .el-acc-hint {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(4, 47, 36, 0.78);
+  }
+
+  /* ===== Review view toggle ===== */
+  .el-review-toggle {
+    display: flex;
+    background: var(--el-soft);
+    border-radius: 10px;
+    padding: 3px;
+    gap: 3px;
+  }
+  .el-review-toggle-btn {
+    flex: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    color: rgba(4, 47, 36, 0.55);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 120ms ease;
+  }
+  .el-review-toggle-btn:hover { color: var(--el-pin); }
+  .el-review-toggle-btn.is-on {
+    background: white;
+    color: var(--el-pin);
+    box-shadow: 0 1px 3px rgba(4, 47, 36, 0.10);
+  }
+  .el-review-toggle-btn .material-symbols-outlined { font-size: 16px; }
+
+  /* Compact level chips for the review > list pane */
+  .el-levels--compact .el-level-chip {
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+  .el-levels--compact .el-level-chip-label { font-size: 11px; }
 </style>
 
 <script>
@@ -1254,7 +1451,19 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     document.querySelectorAll('.sent').forEach((el) => {
       el.classList.toggle('is-clickable', sentClickable);
     });
+    // Reset grammar highlights on every mode switch — then re-apply if entering
+    // grammar/patterns with an open accordion item.
     document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
+    if (mode === 'grammar' || mode === 'patterns') {
+      const sectionEl = document.querySelector(`.el-mode[data-mode="${mode}"]`);
+      const openItem = sectionEl?.querySelector('.el-acc-item.is-open');
+      if (openItem) {
+        const sids = (openItem.getAttribute('data-sids') || '').split(',').filter(Boolean);
+        sids.forEach((sid) => {
+          document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-grammar'));
+        });
+      }
+    }
   }
 
   document.querySelectorAll('.el-tab').forEach((btn) => {
@@ -1357,14 +1566,14 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
   document.querySelectorAll('.vocab').forEach((el) => {
     el.addEventListener('mouseenter', () => {
+      // Only preview when already in vocab mode — never auto-switch on hover.
+      if (currentMode !== 'vocab') return;
       if (pinnedVocabId) return;
       const vid = el.getAttribute('data-vid');
-      if (vid) {
-        if (currentMode !== 'vocab') setMode('vocab');
-        renderVocabCard(vid);
-      }
+      if (vid) renderVocabCard(vid);
     });
     el.addEventListener('mouseleave', () => {
+      if (currentMode !== 'vocab') return;
       if (pinnedVocabId) return;
       clearVocabCard();
     });
@@ -1372,6 +1581,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
       e.stopPropagation();
       const vid = el.getAttribute('data-vid');
       if (!vid) return;
+      // Click is an explicit action — switch to vocab and pin.
       if (currentMode !== 'vocab') setMode('vocab');
       pinVocab(pinnedVocabId === vid ? null : vid);
     });
@@ -1485,23 +1695,54 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     });
     if (sids[0]) jumpToSentence(sids[0]);
   }
-  document.querySelectorAll('.el-card').forEach((card) => {
-    card.addEventListener('mouseenter', () => {
-      const sids = (card.getAttribute('data-sids') || '').split(',').filter(Boolean);
-      sids.forEach((sid) => {
-        document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-grammar'));
-      });
+  // ============== Accordion (grammar + patterns) ==============
+  function closeAccItem(item: Element) {
+    item.classList.remove('is-open');
+    item.querySelector('.el-acc-body')?.setAttribute('hidden', '');
+    item.querySelector('.el-acc-trigger')?.setAttribute('aria-expanded', 'false');
+  }
+  function openAccItem(item: Element) {
+    // Close siblings within the same accordion (only one open at a time).
+    const accordion = item.closest('.el-accordion');
+    accordion?.querySelectorAll('.el-acc-item.is-open').forEach((other) => {
+      if (other !== item) closeAccItem(other);
     });
-    card.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
+    item.classList.add('is-open');
+    item.querySelector('.el-acc-body')?.removeAttribute('hidden');
+    item.querySelector('.el-acc-trigger')?.setAttribute('aria-expanded', 'true');
+    // Highlight the matching sentence(s) in the article and scroll to them.
+    document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
+    const sids = (item.getAttribute('data-sids') || '').split(',').filter(Boolean);
+    sids.forEach((sid) => {
+      document.querySelectorAll(`.sent[data-sid="${sid}"]`).forEach((el) => el.classList.add('is-grammar'));
+    });
+    if (sids[0]) jumpToSentence(sids[0]);
+  }
+  document.querySelectorAll('.el-acc-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.el-acc-item');
+      if (!item) return;
+      if (item.classList.contains('is-open')) {
+        closeAccItem(item);
+        document.querySelectorAll('.sent.is-grammar').forEach((el) => el.classList.remove('is-grammar'));
+      } else {
+        openAccItem(item);
+      }
     });
   });
-  document.querySelectorAll('.el-card-action').forEach((btn) => {
+
+  // ============== Review view toggle (Cards / List) ==============
+  document.querySelectorAll('.el-review-toggle-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const sids = (btn.getAttribute('data-sids') || '').split(',').filter(Boolean);
-      highlightSentences(sids);
-      document.querySelectorAll('.el-card.is-active').forEach((el) => el.classList.remove('is-active'));
-      btn.closest('.el-card')?.classList.add('is-active');
+      const view = btn.getAttribute('data-view');
+      document.querySelectorAll('.el-review-toggle-btn').forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      document.querySelectorAll('[data-view-pane]').forEach((pane) => {
+        (pane as HTMLElement).hidden = pane.getAttribute('data-view-pane') !== view;
+      });
     });
   });
 

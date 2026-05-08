@@ -53,10 +53,11 @@ export interface GrammarPoint {
 
 export interface SentencePattern {
   id: string;
-  skeleton: string;
-  original: string;
+  useCase: string;     // shown as the card title — "想要表达 X" / "在 X 时这么写"
+  skeleton: string;    // abstract template, shown when expanded
+  original: string;    // the article sentence
   sentenceId: string;
-  hint: string;
+  hint: string;        // longer guidance about when / how to deploy this pattern
 }
 
 export interface QuizQuestion {
