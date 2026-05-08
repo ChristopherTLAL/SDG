@@ -1,0 +1,20 @@
+---
+// src/pages/tools/english-test.astro — English Test Cross-walk + Programme Fit + Strategy
+import MainLayout from '../../layouts/MainLayout.astro';
+import EnglishTestTool from '../../components/EnglishTestTool';
+const lang = 'en';
+---
+
+<MainLayout
+  title="English Test Cross-walk | 语言考试换算 + 学校匹配 | Chinese SDGs Institute"
+  description="IELTS / TOEFL (incl. 2026 new 1-6 scale) / PTE / DET / Cambridge cross-walk to CEFR + UK/US/HK/SG/AU/CA admissions matching + study strategy. Built for education consultants."
+  lang={lang}
+>
+  <main class="bg-slate-50 min-h-screen">
+    <a href="/tools" class="absolute top-24 left-4 sm:left-6 md:left-12 inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors z-10">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      Back to Tools
+    </a>
+    <EnglishTestTool client:load />
+  </main>
+</MainLayout>
