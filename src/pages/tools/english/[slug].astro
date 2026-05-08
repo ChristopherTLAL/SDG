@@ -1,5 +1,5 @@
 ---
-// Daily English — split-view reader. One article per slug (= date).
+// Article reader — fixed-height two-pane learning interface.
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { articlesBySlug, articles, CEFR_LABELS } from '../../../data/english';
 
@@ -12,7 +12,6 @@ if (!article) {
 
 const { meta, paragraphs, vocab, collocations, grammar, patterns, quiz } = article;
 
-// Adjacent articles (for footer next/prev).
 const idx = articles.findIndex((a) => a.meta.date === meta.date);
 const prevArticle = idx >= 0 && idx + 1 < articles.length ? articles[idx + 1] : null;
 const nextArticle = idx > 0 ? articles[idx - 1] : null;
@@ -38,47 +37,54 @@ function renderSentence(sentEn: string, sentId: string): string {
   return `<span class="sent" data-sid="${sentId}" tabindex="0">${html}</span>`;
 }
 
-const levels = ['CET4', 'CET6', 'IELTS', 'GRE'] as const;
+const levels = [1, 2, 3, 4] as const;
 const levelCounts = Object.fromEntries(
   levels.map((l) => [l, vocab.filter((v) => v.level === l).length]),
-) as Record<string, number>;
+) as Record<number, number>;
 
 const modes = [
-  { id: 'vocab',     icon: 'abc',         label: 'Vocabulary',    desc: 'Hover any underlined word for its meaning. Click to pin.' },
+  { id: 'vocab',     icon: 'abc',         label: 'Vocabulary',    desc: 'Hover any shaded word for its meaning. Click to pin.' },
   { id: 'translate', icon: 'translate',   label: 'Translation',   desc: 'Click a sentence — its Chinese translation appears here.' },
-  { id: 'grammar',   icon: 'function',    label: 'Grammar',       desc: 'Grammar points used in this article. Hover a card to highlight in the text.' },
+  { id: 'grammar',   icon: 'function',    label: 'Grammar',       desc: 'Hover a card to see the construction in the article.' },
   { id: 'patterns',  icon: 'edit_note',   label: 'Patterns',      desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
-  { id: 'quiz',      icon: 'quiz',        label: 'Comprehension', desc: '5 quick questions to check that you actually read it.' },
+  { id: 'quiz',      icon: 'quiz',        label: 'Comprehension', desc: 'A short multiple-choice check after the read.' },
   { id: 'review',    icon: 'replay',      label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary — current session only.' },
-  { id: 'about',     icon: 'info',        label: 'About',         desc: 'Source, length, level, and the editor\'s note.' },
+  { id: 'about',     icon: 'info',        label: 'About',         desc: 'Source, length, level, editor\'s note.' },
 ];
 
 const articleJson = JSON.stringify({ meta, paragraphs, vocab, collocations, grammar, patterns, quiz });
 const cefrLabel = CEFR_LABELS[meta.cefr];
 ---
 
-<MainLayout title={`${meta.title} | Daily English`} description="A daily 5-minute English news read with interactive vocabulary, sentence translations, grammar notes, and review." lang="en">
+<MainLayout title={`${meta.title} | English`} description="An English article with hover-to-define vocabulary, sentence translations, grammar notes, and review." lang="en">
   <main class="english-tool">
 
     <div class="el-toolbar">
       <div class="el-toolbar-inner">
-        <a href="/tools/english/" class="el-back" aria-label="Back to all reads">
+        <a href="/tools/english/" class="el-back" aria-label="Back to library">
           <span class="material-symbols-outlined">arrow_back</span>
+          <span class="el-back-label">Library</span>
         </a>
         <div class="el-toolbar-meta">
           <div class="el-toolbar-eyebrow">
-            <span>Daily English</span>
+            <span class="el-cefr-pill">{meta.cefr}</span>
+            <span>{cefrLabel?.tier}</span>
             <span class="el-toolbar-dot"></span>
-            <span>{meta.date}</span>
-            <span class="el-toolbar-dot"></span>
-            <span class="el-cefr-pill el-cefr-pill--inline">{meta.cefr} · {cefrLabel?.tier}</span>
+            <span>{meta.wordCount} words · {meta.readingMinutes} min</span>
           </div>
           <div class="el-toolbar-title">{meta.title}</div>
         </div>
-        <div class="el-toolbar-stats">
-          <span class="el-stat"><strong>{meta.wordCount}</strong><span>words</span></span>
-          <span class="el-stat-sep"></span>
-          <span class="el-stat"><strong>{meta.readingMinutes}</strong><span>min</span></span>
+        <div class="el-toolbar-nav">
+          {prevArticle ? (
+            <a href={`/tools/english/${prevArticle.meta.date}`} class="el-toolbar-nav-link" title={prevArticle.meta.title}>
+              <span class="material-symbols-outlined">arrow_back_ios</span>
+            </a>
+          ) : <span class="el-toolbar-nav-link is-disabled"><span class="material-symbols-outlined">arrow_back_ios</span></span>}
+          {nextArticle ? (
+            <a href={`/tools/english/${nextArticle.meta.date}`} class="el-toolbar-nav-link" title={nextArticle.meta.title}>
+              <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </a>
+          ) : <span class="el-toolbar-nav-link is-disabled"><span class="material-symbols-outlined">arrow_forward_ios</span></span>}
         </div>
         <div class="el-tts">
           <button id="tts-play" class="el-tts-btn" aria-label="Play / pause">
@@ -101,64 +107,38 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
     <div class="el-shell">
 
-      <article class="el-article" id="el-article">
-        <header class="el-article-head">
-          <h1>{meta.title}</h1>
-          <p class="el-article-source">
-            From {meta.source.name} · A {meta.readingMinutes}-minute read
-          </p>
-        </header>
+      <div class="el-article-col" id="el-article-col">
+        <article class="el-article">
+          <header class="el-article-head">
+            <h1>{meta.title}</h1>
+            <p class="el-article-source">From {meta.source.name}</p>
+          </header>
 
-        <div class="el-article-body">
-          {paragraphs.map((p) => (
-            <p data-pid={p.id}>
-              {p.sentences.map((s, i) => (
-                <Fragment>
-                  <Fragment set:html={renderSentence(s.en, s.id)} />
-                  {i < p.sentences.length - 1 ? ' ' : ''}
-                </Fragment>
-              ))}
-            </p>
-          ))}
-        </div>
-
-        <footer class="el-article-foot">
-          <div class="el-article-foot-row">
-            <span class="material-symbols-outlined">link</span>
-            <a href={meta.source.url} target="_blank" rel="noopener noreferrer">{meta.source.name}</a>
+          <div class="el-article-body">
+            {paragraphs.map((p) => (
+              <p data-pid={p.id}>
+                {p.sentences.map((s, i) => (
+                  <Fragment>
+                    <Fragment set:html={renderSentence(s.en, s.id)} />
+                    {i < p.sentences.length - 1 ? ' ' : ''}
+                  </Fragment>
+                ))}
+              </p>
+            ))}
           </div>
-          {meta.editorsNote && (
-            <p class="el-article-note">
-              <span class="el-article-note-label">Editor's note</span>
-              {meta.editorsNote}
-            </p>
-          )}
-          {(prevArticle || nextArticle) && (
-            <div class="el-article-nav">
-              {prevArticle ? (
-                <a href={`/tools/english/${prevArticle.meta.date}`} class="el-article-nav-link">
-                  <span class="material-symbols-outlined">arrow_back</span>
-                  <span>
-                    <span class="el-article-nav-label">Previous</span>
-                    <span class="el-article-nav-title">{prevArticle.meta.cefr} · {prevArticle.meta.title}</span>
-                  </span>
-                </a>
-              ) : <span></span>}
-              {nextArticle ? (
-                <a href={`/tools/english/${nextArticle.meta.date}`} class="el-article-nav-link el-article-nav-link--right">
-                  <span>
-                    <span class="el-article-nav-label">Next</span>
-                    <span class="el-article-nav-title">{nextArticle.meta.cefr} · {nextArticle.meta.title}</span>
-                  </span>
-                  <span class="material-symbols-outlined">arrow_forward</span>
-                </a>
-              ) : <span></span>}
-            </div>
-          )}
-        </footer>
-      </article>
 
-      <aside class="el-panel" id="el-panel" aria-label="Interactive panel">
+          {meta.editorsNote && (
+            <footer class="el-article-foot">
+              <p class="el-article-note">
+                <span class="el-article-note-label">Editor's note</span>
+                {meta.editorsNote}
+              </p>
+            </footer>
+          )}
+        </article>
+      </div>
+
+      <aside class="el-panel" aria-label="Interactive panel">
 
         <nav class="el-tabs" role="tablist" aria-label="Modes">
           {modes.map((m, i) => (
@@ -183,20 +163,27 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
         <div class="el-mode-body" id="el-mode-body">
 
           <section class="el-mode" data-mode="vocab">
-            <div class="el-chips" id="el-level-chips">
-              {levels.map((l) => (
-                <button class="el-chip is-on" data-level={l}>
-                  <span class={`el-chip-dot el-chip-dot--${l.toLowerCase()}`}></span>
-                  {l}
-                  <span class="el-chip-num">{levelCounts[l] || 0}</span>
-                </button>
-              ))}
+            <div class="el-levels">
+              <div class="el-levels-row">
+                {levels.map((l) => (
+                  <button
+                    class={`el-level-chip${l === 1 ? ' is-on' : ''}`}
+                    data-level={l}
+                    aria-pressed={l === 1 ? 'true' : 'false'}
+                  >
+                    <span class="el-level-chip-swatch" data-level={l}></span>
+                    <span class="el-level-chip-label">L{l}</span>
+                    <span class="el-level-chip-num">{levelCounts[l] || 0}</span>
+                  </button>
+                ))}
+              </div>
+              <p class="el-levels-hint">Pick the easiest level you want to see. Words at that level <em>and harder</em> stay shaded.</p>
             </div>
 
             <div class="el-vocab-detail" id="el-vocab-detail">
               <div class="el-empty">
                 <span class="material-symbols-outlined">touch_app</span>
-                <p>Hover any underlined word in the article. Click to pin.</p>
+                <p>Hover any shaded word in the article. Click to pin.</p>
               </div>
             </div>
 
@@ -206,7 +193,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
                 {vocab.map((v) => (
                   <li class="el-vocab-row" data-vid={v.id} data-level={v.level}>
                     <button class="el-vocab-row-btn" data-vid={v.id}>
-                      <span class={`el-level-tag el-level-tag--${v.level.toLowerCase()}`}>{v.level}</span>
+                      <span class="el-level-tag-shade" data-level={v.level}>L{v.level}</span>
                       <span class="el-vocab-word">{v.word}</span>
                       <span class="el-vocab-pos">{v.pos}</span>
                       <span class="el-vocab-def">{v.defZh}</span>
@@ -297,11 +284,11 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
           <section class="el-mode" data-mode="about" hidden>
             <dl class="el-meta">
-              <div><dt>Date</dt><dd>{meta.date}</dd></div>
               <div><dt>Source</dt><dd><a href={meta.source.url} target="_blank" rel="noopener noreferrer">{meta.source.name}</a></dd></div>
+              <div><dt>Date</dt><dd>{meta.date}</dd></div>
               <div><dt>Length</dt><dd>{meta.wordCount} words · {meta.readingMinutes} min</dd></div>
-              <div><dt>Level</dt><dd>{meta.cefr} · {cefrLabel?.tier} ({cefrLabel?.bridge})</dd></div>
-              <div><dt>Tagged</dt><dd>{vocab.length} words · {grammar.length} grammar points · {patterns.length} patterns</dd></div>
+              <div><dt>Level</dt><dd>{meta.cefr} · {cefrLabel?.tier}</dd></div>
+              <div><dt>Tagged</dt><dd>{vocab.length} words · {grammar.length} grammar · {patterns.length} patterns</dd></div>
             </dl>
             {meta.editorsNote && (
               <div class="el-meta-note">
@@ -330,6 +317,9 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 </MainLayout>
 
 <style is:global>
+  /* Page lock — this tool fills the viewport, no body scroll. */
+  body.english-reader-page { overflow: hidden; height: 100vh; }
+
   :root {
     --el-pin: #042f24;
     --el-soft: rgba(4, 47, 36, 0.04);
@@ -337,57 +327,60 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     --el-soft-3: rgba(4, 47, 36, 0.12);
     --el-border: rgba(4, 47, 36, 0.10);
     --el-border-2: rgba(4, 47, 36, 0.20);
-    /* opacity ladder for level encoding — same primary, varying intensity */
-    --el-lvl-cet4: rgba(4, 47, 36, 0.30);
-    --el-lvl-cet6: rgba(4, 47, 36, 0.55);
-    --el-lvl-ielts: rgba(4, 47, 36, 0.78);
-    --el-lvl-gre:  rgba(4, 47, 36, 1);
+    /* shade ladder — cumulative shading, all readable with black text */
+    --el-shade-1: rgba(4, 47, 36, 0.08);
+    --el-shade-2: rgba(4, 47, 36, 0.14);
+    --el-shade-3: rgba(4, 47, 36, 0.22);
+    --el-shade-4: rgba(4, 47, 36, 0.32);
+    --el-shade-pin: rgba(4, 47, 36, 0.42);
   }
 
+  /* ===== Tool shell ===== */
   .english-tool {
-    padding-top: 5rem;
+    position: fixed;
+    top: 5rem;
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
     background: white;
-    min-height: 100vh;
   }
 
-  /* Critical: the [hidden] attribute must beat the .el-mode display rule below. */
   .el-mode[hidden] { display: none !important; }
 
   /* ===== Toolbar ===== */
   .el-toolbar {
-    position: sticky;
-    top: 5rem;
-    z-index: 30;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    flex-shrink: 0;
+    background: white;
     border-bottom: 1px solid var(--el-border);
   }
   .el-toolbar-inner {
-    max-width: 1280px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0.75rem 1.5rem;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .el-back {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 36px; height: 36px;
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 32px; padding: 0 12px 0 10px;
     border-radius: 999px;
     color: var(--el-pin);
     background: white;
     border: 1px solid var(--el-border);
     transition: all 150ms ease;
     flex-shrink: 0;
+    font-size: 12px; font-weight: 600;
   }
   .el-back:hover { background: var(--el-pin); color: white; border-color: var(--el-pin); }
+  .el-back .material-symbols-outlined { font-size: 16px; }
+
   .el-toolbar-meta { flex: 1; min-width: 0; }
   .el-toolbar-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--el-pin); opacity: 0.65;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--el-pin); opacity: 0.75;
     margin-bottom: 3px;
   }
   .el-toolbar-dot {
@@ -397,30 +390,47 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   .el-toolbar-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 1.0625rem;
-    line-height: 1.1;
+    font-size: 1rem;
+    line-height: 1.15;
     color: var(--el-pin);
     letter-spacing: -0.01em;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .el-toolbar-stats {
-    display: flex; align-items: center; gap: 0.85rem;
-    color: rgba(4, 47, 36, 0.62);
-    font-size: 12px;
-    flex-shrink: 0;
+  .el-cefr-pill {
+    display: inline-flex; align-items: center;
+    padding: 1px 7px;
+    border-radius: 4px;
+    background: var(--el-pin);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-size: 9.5px;
   }
-  .el-stat { display: inline-flex; align-items: baseline; gap: 4px; }
-  .el-stat strong { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 14px; color: var(--el-pin); }
-  .el-stat-sep { width: 1px; height: 14px; background: var(--el-border-2); }
+
+  .el-toolbar-nav { display: flex; gap: 4px; flex-shrink: 0; }
+  .el-toolbar-nav-link {
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--el-border);
+    background: white;
+    color: var(--el-pin);
+    transition: all 120ms ease;
+  }
+  .el-toolbar-nav-link:hover:not(.is-disabled) { background: var(--el-pin); color: white; }
+  .el-toolbar-nav-link.is-disabled { opacity: 0.3; cursor: not-allowed; }
+  .el-toolbar-nav-link .material-symbols-outlined { font-size: 14px; }
+
   .el-tts { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
   .el-tts-btn {
-    width: 36px; height: 36px;
+    width: 32px; height: 32px;
     border-radius: 999px;
     background: var(--el-pin);
     color: white;
     display: inline-flex; align-items: center; justify-content: center;
     border: none;
-    transition: transform 120ms ease, background 120ms ease;
+    transition: transform 120ms ease;
     cursor: pointer;
   }
   .el-tts-btn:hover { transform: scale(1.05); }
@@ -429,6 +439,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     color: var(--el-pin);
     border: 1px solid var(--el-border);
   }
+  .el-tts-btn .material-symbols-outlined { font-size: 18px; }
   .el-tts-select {
     background: white;
     border: 1px solid var(--el-border);
@@ -440,55 +451,51 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     max-width: 130px;
     text-overflow: ellipsis;
   }
-  .el-tts-select:focus { outline: 2px solid var(--el-soft-3); outline-offset: 1px; }
 
-  /* ===== CEFR pill ===== */
-  .el-cefr-pill {
-    display: inline-flex; align-items: center;
-    padding: 1px 7px;
-    border-radius: 4px;
-    background: var(--el-soft-2);
-    color: var(--el-pin);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    font-size: 9.5px;
-  }
-
-  /* ===== Shell ===== */
+  /* ===== Shell — fixed-height grid, two equal columns ===== */
   .el-shell {
-    max-width: 1280px;
+    flex: 1;
+    min-height: 0;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
-    padding: 2rem 1.5rem 6rem;
+    padding: 1.25rem 1.5rem 1.25rem;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 420px;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) 440px;
+    gap: 1.5rem;
+    align-items: stretch;
   }
   @media (max-width: 1023px) {
-    .el-shell { grid-template-columns: 1fr; gap: 2rem; }
+    .el-shell { grid-template-columns: 1fr; gap: 1rem; }
   }
 
-  /* ===== Article ===== */
+  /* ===== Article column — independently scrolls ===== */
+  .el-article-col {
+    overflow-y: auto;
+    background: white;
+    border: 1px solid var(--el-border);
+    border-radius: 16px;
+    padding: 32px 8% 56px;
+    height: 100%;
+  }
   .el-article {
-    max-width: 720px;
-    justify-self: center;
-    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
   }
   .el-article-head h1 {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: clamp(2rem, 3.4vw, 2.75rem);
-    line-height: 1.05;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--el-pin);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
   .el-article-source {
-    font-size: 13px;
+    font-size: 12.5px;
     color: rgba(4, 47, 36, 0.55);
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--el-border);
   }
   .el-article-body p {
@@ -499,6 +506,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     margin-bottom: 1.5rem;
   }
 
+  /* sentence */
   .sent {
     transition: background-color 150ms ease, box-shadow 150ms ease;
     border-radius: 3px;
@@ -507,10 +515,17 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   }
   .sent.is-clickable { cursor: pointer; }
   .sent.is-clickable:hover { background: var(--el-soft); }
-  .sent.is-active { background: var(--el-soft-3); box-shadow: inset 2px 0 0 var(--el-pin); padding-left: 6px; }
-  .sent.is-tts { background: var(--el-soft-2); box-shadow: inset 2px 0 0 var(--el-lvl-ielts); padding-left: 6px; }
+  .sent.is-active {
+    background: var(--el-soft-3);
+    box-shadow: inset 2px 0 0 var(--el-pin);
+    padding-left: 6px;
+  }
+  .sent.is-tts {
+    background: var(--el-soft-2);
+    box-shadow: inset 2px 0 0 var(--el-pin);
+    padding-left: 6px;
+  }
   .sent.is-grammar { background: var(--el-soft-2); }
-
   .sent-zh-inline {
     display: block;
     margin-top: 4px;
@@ -521,51 +536,44 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     line-height: 1.7;
   }
 
-  /* Vocab inline — single emerald hue, intensity encodes level */
+  /* ===== Vocab — shade-filled, level-encoded ===== */
   .vocab {
     cursor: pointer;
-    border-bottom: 1.5px dotted transparent;
-    transition: all 120ms ease;
-    border-radius: 2px;
-    padding: 0 1px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    transition: background-color 120ms ease, box-shadow 120ms ease;
   }
-  .vocab[data-level="CET4"]  { border-bottom-color: var(--el-lvl-cet4); }
-  .vocab[data-level="CET6"]  { border-bottom-color: var(--el-lvl-cet6); }
-  .vocab[data-level="IELTS"] { border-bottom-color: var(--el-lvl-ielts); }
-  .vocab[data-level="GRE"]   { border-bottom-color: var(--el-lvl-gre); border-bottom-style: dashed; border-bottom-width: 2px; }
-  .vocab.is-hidden { border-bottom-color: transparent; cursor: text; }
+  .vocab[data-level="1"] { background: var(--el-shade-1); }
+  .vocab[data-level="2"] { background: var(--el-shade-2); }
+  .vocab[data-level="3"] { background: var(--el-shade-3); }
+  .vocab[data-level="4"] { background: var(--el-shade-4); }
+  .vocab.is-hidden {
+    background: transparent !important;
+    cursor: text;
+    padding: 0;
+  }
   .vocab:hover, .vocab:focus-visible {
-    background: var(--el-soft-2);
-    border-bottom-style: solid;
+    box-shadow: inset 0 0 0 1px var(--el-pin);
     outline: none;
   }
   .vocab.is-pinned {
-    background: var(--el-soft-3);
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: var(--el-pin);
+    background: var(--el-shade-pin) !important;
+    box-shadow: inset 0 0 0 1.5px var(--el-pin);
   }
 
+  /* article footer note */
   .el-article-foot {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
     border-top: 1px solid var(--el-border);
-    font-size: 13px;
   }
-  .el-article-foot-row {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: rgba(4, 47, 36, 0.62);
-  }
-  .el-article-foot-row a { color: var(--el-pin); text-decoration: underline; text-underline-offset: 3px; }
-  .el-article-foot-row .material-symbols-outlined { font-size: 16px; }
   .el-article-note {
-    margin-top: 1rem;
     padding: 1rem 1.25rem;
-    background: white;
-    border: 1px solid var(--el-border);
+    background: var(--el-soft);
     border-radius: 12px;
     color: rgba(4, 47, 36, 0.78);
     line-height: 1.7;
+    font-size: 13.5px;
   }
   .el-article-note-label {
     display: block;
@@ -574,57 +582,19 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     color: var(--el-pin); opacity: 0.65;
     margin-bottom: 0.4rem;
   }
-  .el-article-nav {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .el-article-nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--el-border);
-    border-radius: 12px;
-    color: var(--el-pin);
-    text-decoration: none;
-    transition: background 120ms ease, border-color 120ms ease;
-  }
-  .el-article-nav-link:hover { background: var(--el-soft); border-color: var(--el-border-2); }
-  .el-article-nav-link--right { text-align: right; justify-content: flex-end; }
-  .el-article-nav-link .material-symbols-outlined { font-size: 18px; opacity: 0.6; }
-  .el-article-nav-label {
-    display: block;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    opacity: 0.55;
-    margin-bottom: 2px;
-  }
-  .el-article-nav-title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.3;
-    display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
-  }
 
   /* ===== Right panel ===== */
   .el-panel {
-    position: sticky;
-    top: calc(5rem + 64px);
-    max-height: calc(100vh - 5rem - 64px - 1rem);
+    height: 100%;
     background: white;
     border: 1px solid var(--el-border);
     border-radius: 16px;
     display: flex; flex-direction: column;
     overflow: hidden;
   }
-  @media (max-width: 1023px) {
-    .el-panel { position: static; max-height: none; }
-  }
 
   .el-tabs {
+    flex-shrink: 0;
     display: flex;
     padding: 8px;
     gap: 4px;
@@ -653,6 +623,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   .el-tab.is-active .el-tab-num { color: white; opacity: 0.55; }
 
   .el-mode-head {
+    flex-shrink: 0;
     padding: 14px 18px 12px;
     border-bottom: 1px solid var(--el-border);
   }
@@ -671,39 +642,73 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
   .el-mode-body {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding: 14px 18px 18px;
   }
   .el-mode { display: flex; flex-direction: column; gap: 14px; }
 
-  /* ===== Vocab ===== */
-  .el-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .el-chip {
+  /* ===== Level chips (single-select, cumulative) ===== */
+  .el-levels {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .el-levels-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .el-level-chip {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 10px;
-    border-radius: 999px;
+    padding: 8px 10px;
+    border-radius: 10px;
     border: 1px solid var(--el-border);
     background: white;
-    font-size: 11px; font-weight: 600;
-    color: rgba(4, 47, 36, 0.6);
     cursor: pointer;
     transition: all 120ms ease;
+    text-align: left;
   }
-  .el-chip.is-on { background: var(--el-pin); color: white; border-color: var(--el-pin); }
-  .el-chip:hover:not(.is-on) { background: var(--el-soft); }
-  .el-chip-num { font-weight: 700; opacity: 0.65; font-size: 10px; }
-  .el-chip-dot {
-    display: inline-block;
-    width: 7px; height: 7px;
-    border-radius: 999px;
+  .el-level-chip:hover { border-color: var(--el-border-2); }
+  .el-level-chip.is-on {
     background: var(--el-pin);
+    border-color: var(--el-pin);
   }
-  .el-chip-dot--cet4  { opacity: 0.30; }
-  .el-chip-dot--cet6  { opacity: 0.55; }
-  .el-chip-dot--ielts { opacity: 0.78; }
-  .el-chip-dot--gre   { opacity: 1; }
-  .el-chip.is-on .el-chip-dot { background: white; }
+  .el-level-chip-swatch {
+    flex-shrink: 0;
+    width: 12px; height: 12px;
+    border-radius: 3px;
+  }
+  .el-level-chip-swatch[data-level="1"] { background: var(--el-shade-1); }
+  .el-level-chip-swatch[data-level="2"] { background: var(--el-shade-2); }
+  .el-level-chip-swatch[data-level="3"] { background: var(--el-shade-3); }
+  .el-level-chip-swatch[data-level="4"] { background: var(--el-shade-4); }
+  .el-level-chip.is-on .el-level-chip-swatch {
+    box-shadow: inset 0 0 0 1px white;
+  }
+  .el-level-chip-label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--el-pin);
+  }
+  .el-level-chip.is-on .el-level-chip-label { color: white; }
+  .el-level-chip-num {
+    margin-left: auto;
+    font-size: 10.5px; font-weight: 700;
+    color: rgba(4, 47, 36, 0.5);
+  }
+  .el-level-chip.is-on .el-level-chip-num { color: rgba(255, 255, 255, 0.7); }
+  .el-levels-hint {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: rgba(4, 47, 36, 0.55);
+  }
+  .el-levels-hint em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--el-pin);
+  }
 
+  /* ===== Vocab card ===== */
   .el-vocab-detail {
     background: white;
     border: 1px solid var(--el-border);
@@ -760,21 +765,20 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   }
   .el-vocab-card-foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  /* Level tags — opacity ladder, single hue */
-  .el-level-tag {
+  /* level tag — same shade ladder */
+  .el-level-tag-shade {
     display: inline-block;
     font-size: 9px; font-weight: 700;
     padding: 2px 6px;
     border-radius: 4px;
-    color: white;
-    background: var(--el-pin);
+    color: var(--el-pin);
     letter-spacing: 0.04em;
     flex-shrink: 0;
   }
-  .el-level-tag--cet4  { background: var(--el-lvl-cet4); color: var(--el-pin); }
-  .el-level-tag--cet6  { background: var(--el-lvl-cet6); }
-  .el-level-tag--ielts { background: var(--el-lvl-ielts); }
-  .el-level-tag--gre   { background: var(--el-lvl-gre); }
+  .el-level-tag-shade[data-level="1"] { background: var(--el-shade-1); }
+  .el-level-tag-shade[data-level="2"] { background: var(--el-shade-2); }
+  .el-level-tag-shade[data-level="3"] { background: var(--el-shade-3); }
+  .el-level-tag-shade[data-level="4"] { background: var(--el-shade-4); }
 
   .el-section-title {
     font-size: 10px; font-weight: 700;
@@ -876,7 +880,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   .el-trans-card-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
   .el-trans-card-nav .material-symbols-outlined { font-size: 14px; }
 
-  /* ===== Cards (grammar / patterns) ===== */
+  /* ===== Cards ===== */
   .el-card-list { display: flex; flex-direction: column; gap: 10px; }
   .el-card {
     list-style: none;
@@ -943,7 +947,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   .el-card-action:hover { text-decoration: underline; text-underline-offset: 3px; }
   .el-card-action .material-symbols-outlined { font-size: 14px; }
 
-  /* ===== Quiz ===== */
+  /* ===== Quiz / Review ===== */
   .el-quiz-start, .el-review-start {
     display: flex; flex-direction: column; align-items: center; text-align: center;
     padding: 24px 12px; gap: 8px;
@@ -1034,10 +1038,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     font-size: 10px; font-weight: 700;
     display: inline-flex; align-items: center; justify-content: center;
   }
-  .el-quiz-option.is-correct {
-    border-color: var(--el-pin);
-    background: var(--el-soft-2);
-  }
+  .el-quiz-option.is-correct { border-color: var(--el-pin); background: var(--el-soft-2); }
   .el-quiz-option.is-correct .el-quiz-option-letter { background: var(--el-pin); color: white; }
   .el-quiz-option.is-wrong {
     border-color: rgba(4, 47, 36, 0.45);
@@ -1077,7 +1078,6 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     margin-bottom: 8px;
   }
 
-  /* ===== Review ===== */
   .el-review-card {
     background: white;
     border: 1px solid var(--el-border);
@@ -1193,12 +1193,18 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 </style>
 
 <script>
+  // Lock body scroll for this page; restore on unload (in case of soft-nav).
+  document.body.classList.add('english-reader-page');
+  window.addEventListener('beforeunload', () => {
+    document.body.classList.remove('english-reader-page');
+  });
+
   type Mode = 'vocab' | 'translate' | 'grammar' | 'patterns' | 'quiz' | 'review' | 'about';
 
   type Article = {
     meta: { date: string; title: string; source: { name: string; url: string }; cefr: string; wordCount: number; readingMinutes: number; editorsNote?: string };
     paragraphs: { id: string; sentences: { id: string; en: string; zh: string }[] }[];
-    vocab: { id: string; word: string; lemma: string; sentenceId: string; level: string; pos: string; ipa: string; defZh: string; defEn: string; example: string; exampleZh?: string }[];
+    vocab: { id: string; word: string; lemma: string; sentenceId: string; level: number; pos: string; ipa: string; defZh: string; defEn: string; example: string; exampleZh?: string }[];
     collocations: { id: string; phrase: string; sentenceId: string; meaningZh: string; example: string; exampleZh?: string }[];
     grammar: { id: string; title: string; pattern: string; explanationZh: string; sentenceIds: string[]; examples: string[] }[];
     patterns: { id: string; skeleton: string; original: string; sentenceId: string; hint: string }[];
@@ -1212,19 +1218,19 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   const VOCAB_BY_ID = Object.fromEntries(ARTICLE.vocab.map((v) => [v.id, v]));
 
   let currentMode: Mode = 'vocab';
-  let activeLevels = new Set(['CET4', 'CET6', 'IELTS', 'GRE']);
+  let levelFloor = 1;
   let pinnedVocabId: string | null = null;
   let activeSentId: string | null = null;
   let showAllZh = false;
 
   const modeDescs: Record<Mode, { label: string; desc: string }> = {
-    vocab:     { label: 'Vocabulary',    desc: 'Hover any underlined word for its meaning. Click to pin.' },
+    vocab:     { label: 'Vocabulary',    desc: 'Hover any shaded word for its meaning. Click to pin.' },
     translate: { label: 'Translation',   desc: 'Click a sentence — its Chinese translation appears here.' },
-    grammar:   { label: 'Grammar',       desc: 'Grammar points used in this article. Hover a card to highlight in the text.' },
+    grammar:   { label: 'Grammar',       desc: 'Hover a card to see the construction in the article.' },
     patterns:  { label: 'Patterns',      desc: 'Reusable sentence skeletons you can borrow for your own writing.' },
-    quiz:      { label: 'Comprehension', desc: 'Quick questions to check that you actually read it.' },
+    quiz:      { label: 'Comprehension', desc: 'A short multiple-choice check after the read.' },
     review:    { label: 'Word review',   desc: 'A flashcard pass over the article\'s vocabulary — current session only.' },
-    about:     { label: 'About',         desc: 'Source, length, level, and the editor\'s note.' },
+    about:     { label: 'About',         desc: 'Source, length, level, editor\'s note.' },
   };
 
   function setMode(mode: Mode) {
@@ -1258,20 +1264,44 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     });
   });
 
+  // ============== Level filter — single select, cumulative ==============
+  function applyLevelFilter() {
+    document.querySelectorAll('.vocab').forEach((el) => {
+      const lvl = Number(el.getAttribute('data-level'));
+      el.classList.toggle('is-hidden', lvl < levelFloor);
+    });
+    document.querySelectorAll('.el-vocab-row').forEach((el) => {
+      const lvl = Number(el.getAttribute('data-level'));
+      el.classList.toggle('is-hidden', lvl < levelFloor);
+    });
+  }
+  document.querySelectorAll('.el-level-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const lvl = Number(chip.getAttribute('data-level'));
+      if (!lvl) return;
+      levelFloor = lvl;
+      document.querySelectorAll('.el-level-chip').forEach((c) => {
+        const isOn = Number(c.getAttribute('data-level')) === lvl;
+        c.classList.toggle('is-on', isOn);
+        c.setAttribute('aria-pressed', String(isOn));
+      });
+      applyLevelFilter();
+    });
+  });
+
   // ============== Vocab ==============
   const vocabDetailEl = document.getElementById('el-vocab-detail')!;
 
   function renderVocabCard(vid: string) {
     const v = VOCAB_BY_ID[vid];
     if (!v) return;
-    const level = v.level.toLowerCase();
     vocabDetailEl.innerHTML = `
       <div class="el-vocab-card">
         <div class="el-vocab-card-head">
           <span class="word">${v.word}</span>
           <span class="ipa">${v.ipa}</span>
           <span class="pos">${v.pos}</span>
-          <span class="el-level-tag el-level-tag--${level}">${v.level}</span>
+          <span class="el-level-tag-shade" data-level="${v.level}">L${v.level}</span>
         </div>
         <div class="el-vocab-defs">
           <p>${v.defZh}</p>
@@ -1307,7 +1337,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     vocabDetailEl.innerHTML = `
       <div class="el-empty">
         <span class="material-symbols-outlined">touch_app</span>
-        <p>Hover any underlined word in the article. Click to pin.</p>
+        <p>Hover any shaded word in the article. Click to pin.</p>
       </div>
     `;
   }
@@ -1356,29 +1386,9 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     });
   });
 
-  function applyLevelFilter() {
-    document.querySelectorAll('.vocab').forEach((el) => {
-      const lvl = el.getAttribute('data-level') || '';
-      el.classList.toggle('is-hidden', !activeLevels.has(lvl));
-    });
-    document.querySelectorAll('.el-vocab-row').forEach((el) => {
-      const lvl = el.getAttribute('data-level') || '';
-      el.classList.toggle('is-hidden', !activeLevels.has(lvl));
-    });
-  }
-  document.querySelectorAll('.el-chip').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const lvl = chip.getAttribute('data-level');
-      if (!lvl) return;
-      if (activeLevels.has(lvl)) activeLevels.delete(lvl);
-      else activeLevels.add(lvl);
-      chip.classList.toggle('is-on', activeLevels.has(lvl));
-      applyLevelFilter();
-    });
-  });
-
   // ============== Translate ==============
   const transDetailEl = document.getElementById('el-trans-detail')!;
+  const articleColEl = document.getElementById('el-article-col')!;
 
   function setActiveSentence(sid: string | null) {
     document.querySelectorAll('.sent.is-active').forEach((el) => el.classList.remove('is-active'));
@@ -1451,16 +1461,18 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     }
   });
 
+  // Scroll within the article column (not the page).
   function jumpToSentence(sid: string) {
-    const el = document.querySelector(`.sent[data-sid="${sid}"]`);
+    const el = document.querySelector(`.sent[data-sid="${sid}"]`) as HTMLElement | null;
     if (!el) return;
-    const rect = (el as HTMLElement).getBoundingClientRect();
-    const targetY = window.scrollY + rect.top - window.innerHeight / 2;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-    (el as HTMLElement).classList.add('is-active');
+    const colRect = articleColEl.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const targetY = articleColEl.scrollTop + (elRect.top - colRect.top) - colRect.height / 2 + elRect.height / 2;
+    articleColEl.scrollTo({ top: targetY, behavior: 'smooth' });
+    el.classList.add('is-active');
     setTimeout(() => {
       if (currentMode !== 'translate' && activeSentId !== sid) {
-        (el as HTMLElement).classList.remove('is-active');
+        el.classList.remove('is-active');
       }
     }, 1500);
   }
@@ -1585,7 +1597,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     });
   }
 
-  // ============== Review (Anki-lite) ==============
+  // ============== Review ==============
   const reviewRoot = document.getElementById('el-review-root')!;
   let reviewDeck: string[] = [];
   let reviewIdx = 0;
@@ -1629,7 +1641,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
       <div class="el-quiz-counter">${reviewIdx + 1} / ${reviewDeck.length}</div>
       <div class="el-review-card">
         <div class="el-review-card-front">
-          <span class="el-level-tag el-level-tag--${v.level.toLowerCase()}">${v.level}</span>
+          <span class="el-level-tag-shade" data-level="${v.level}">L${v.level}</span>
           <div class="el-review-word">${v.word}</div>
           <div class="el-review-pos">${v.pos}</div>
           ${reviewFlipped ? '' : '<div class="el-review-flip-hint">Click to reveal · Space</div>'}
@@ -1686,34 +1698,26 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     renderReview();
   }
 
-  // ============== TTS — voice picker + better defaults ==============
+  // ============== TTS ==============
   const synth = window.speechSynthesis;
   let ttsQueue: { text: string; sid?: string }[] = [];
   let ttsIdx = 0;
   let ttsPlaying = false;
   let selectedVoice: SpeechSynthesisVoice | null = null;
 
-  // Heuristic ranking — higher score = better-sounding voice on most platforms.
   function scoreVoice(v: SpeechSynthesisVoice): number {
     const n = v.name.toLowerCase();
     let s = 0;
     if (!v.lang.toLowerCase().startsWith('en')) return -1;
-    // Microsoft Edge premium "Natural" / "Online (Natural)" voices
     if (n.includes('natural')) s += 100;
     if (n.includes('online')) s += 30;
-    // Apple high-quality / premium voices
     if (n.includes('(premium)') || n.includes('premium')) s += 90;
     if (n.includes('(enhanced)') || n.includes('enhanced')) s += 60;
-    // Known good macOS / iOS voices
     const goodApple = ['samantha', 'ava', 'evan', 'allison', 'tom', 'daniel', 'karen', 'moira', 'serena'];
     if (goodApple.some(name => n.includes(name))) s += 40;
-    // Google's Chrome built-in (usually decent)
     if (n.includes('google')) s += 25;
-    if (n.includes('google us english')) s += 5;
-    // Avoid Android / poorer compact voices
     if (n.includes('compact')) s -= 20;
     if (n.includes('novelty')) s -= 30;
-    // Mild preference for en-US / en-GB
     if (v.lang.toLowerCase() === 'en-us') s += 8;
     if (v.lang.toLowerCase() === 'en-gb') s += 6;
     if (v.localService) s += 2;
@@ -1730,19 +1734,17 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
       return;
     }
     enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
-    const top = enVoices[0];
-    selectedVoice = top;
+    selectedVoice = enVoices[0];
     select.innerHTML = enVoices.map((v) => {
       const lang = v.lang.toUpperCase();
       const tag = scoreVoice(v) >= 60 ? ' ★' : '';
-      return `<option value="${v.name}" ${v === top ? 'selected' : ''}>${v.name} · ${lang}${tag}</option>`;
+      return `<option value="${v.name}" ${v === enVoices[0] ? 'selected' : ''}>${v.name} · ${lang}${tag}</option>`;
     }).join('');
     select.addEventListener('change', () => {
       const v = enVoices.find((x) => x.name === select.value);
       if (v) selectedVoice = v;
     });
   }
-
   if (synth) {
     populateVoiceSelect();
     if (typeof synth.onvoiceschanged !== 'undefined') {
@@ -1788,12 +1790,15 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     applyVoice(u);
     document.querySelectorAll('.sent.is-tts').forEach((el) => el.classList.remove('is-tts'));
     if (item.sid) {
-      const sentEl = document.querySelector(`.sent[data-sid="${item.sid}"]`);
+      const sentEl = document.querySelector(`.sent[data-sid="${item.sid}"]`) as HTMLElement | null;
       sentEl?.classList.add('is-tts');
-      const rect = (sentEl as HTMLElement | null)?.getBoundingClientRect();
-      if (rect && (rect.top < 120 || rect.bottom > window.innerHeight - 60)) {
-        const targetY = window.scrollY + rect.top - 200;
-        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      if (sentEl) {
+        const colRect = articleColEl.getBoundingClientRect();
+        const elRect = sentEl.getBoundingClientRect();
+        if (elRect.top < colRect.top + 40 || elRect.bottom > colRect.bottom - 40) {
+          const targetY = articleColEl.scrollTop + (elRect.top - colRect.top) - colRect.height * 0.4;
+          articleColEl.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
       }
     }
     u.onend = () => {

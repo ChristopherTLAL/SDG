@@ -1,36 +1,41 @@
-// Schema for a daily English-learning article.
+// Schema for an article in the Daily English library.
 // The future content-generation skill produces JSON conforming to this shape.
+//
+// VocabLevel is a numeric tier scoped to each article: 1 = the easiest words
+// in this article, 4 = the hardest. The reader UI lets a user pick a level
+// floor and highlights all words at or above it (e.g. picking Level 2 keeps
+// shades on Level 2-4 words, hides Level 1).
 
-export type VocabLevel = 'CET4' | 'CET6' | 'IELTS' | 'GRE';
+export type VocabLevel = 1 | 2 | 3 | 4;
 
 export interface Sentence {
-  id: string;          // stable per-article ID, e.g. "s7"
+  id: string;
   en: string;
   zh: string;
 }
 
 export interface Paragraph {
-  id: string;          // e.g. "p1"
+  id: string;
   sentences: Sentence[];
 }
 
 export interface VocabEntry {
-  id: string;          // unique per-article ID, e.g. "v3"
-  word: string;        // surface form as it appears in the article (case-preserved)
-  lemma: string;       // dictionary form, lowercase
-  sentenceId: string;  // sentence the word appears in
+  id: string;
+  word: string;
+  lemma: string;
+  sentenceId: string;
   level: VocabLevel;
-  pos: string;         // "n." / "v." / "adj." etc.
-  ipa: string;         // "/ˈwɜːrd/"
+  pos: string;
+  ipa: string;
   defZh: string;
   defEn: string;
-  example: string;     // a fresh example sentence (NOT the article sentence)
+  example: string;
   exampleZh?: string;
 }
 
 export interface Collocation {
   id: string;
-  phrase: string;       // "take into account"
+  phrase: string;
   sentenceId: string;
   meaningZh: string;
   example: string;
@@ -39,32 +44,32 @@ export interface Collocation {
 
 export interface GrammarPoint {
   id: string;
-  title: string;        // short label, e.g. "What-cleft for emphasis"
-  pattern: string;      // schematic, e.g. "What [clause] is/was [emphasis]"
+  title: string;
+  pattern: string;
   explanationZh: string;
-  sentenceIds: string[]; // sentences in the article that exemplify this point
-  examples: string[];    // 1-2 extra examples outside the article
+  sentenceIds: string[];
+  examples: string[];
 }
 
 export interface SentencePattern {
   id: string;
-  skeleton: string;     // "X has emerged around the simple act of [verb-ing]"
-  original: string;     // the article sentence
+  skeleton: string;
+  original: string;
   sentenceId: string;
-  hint: string;         // when/how to deploy this in your own writing
+  hint: string;
 }
 
 export interface QuizQuestion {
   id: string;
   q: string;
-  options: string[];          // length 4
-  answer: number;             // 0-indexed
+  options: string[];
+  answer: number;
   explanation: string;
-  sentenceId?: string;        // sentence to highlight as evidence
+  sentenceId?: string;
 }
 
 export interface ArticleMeta {
-  date: string;        // "2026-05-07"
+  date: string;
   title: string;
   source: { name: string; url: string };
   cefr: 'A2' | 'B1' | 'B2' | 'C1' | 'C2';

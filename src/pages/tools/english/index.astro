@@ -1,120 +1,99 @@
 ---
-// Daily English — landing / level selector.
+// English library — filterable list of articles by CEFR level.
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { articles, CEFR_LABELS } from '../../../data/english';
 
-// Group articles by CEFR level so each level surfaces its newest piece + count.
 type LevelKey = keyof typeof CEFR_LABELS;
 const levelOrder: LevelKey[] = ['A2', 'B1', 'B2', 'C1', 'C2'];
-const byLevel = new Map<LevelKey, typeof articles>();
-for (const a of articles) {
-  const k = a.meta.cefr as LevelKey;
-  if (!byLevel.has(k)) byLevel.set(k, []);
-  byLevel.get(k)!.push(a);
-}
-const presentLevels = levelOrder.filter((l) => byLevel.has(l));
+const presentLevels = new Set(articles.map((a) => a.meta.cefr as LevelKey));
+const filterableLevels = levelOrder.filter((l) => presentLevels.has(l));
+const counts: Record<LevelKey, number> = Object.fromEntries(
+  levelOrder.map((l) => [l, articles.filter((a) => a.meta.cefr === l).length]),
+) as Record<LevelKey, number>;
 ---
 
 <MainLayout
-  title="Daily English | Chinese SDGs Institute"
-  description="A short English news read every day, with hover-to-define vocabulary, sentence translations, grammar notes, and same-session word review. Pick your level."
+  title="English | Chinese SDGs Institute"
+  description="A small library of short English articles, each with click-to-define vocabulary, sentence translations, grammar notes, and same-session word review. Filter by level."
   lang="en"
 >
   <main class="pt-24 md:pt-40 pb-32">
 
-    <!-- Hero -->
-    <section class="max-w-4xl mx-auto px-6 md:px-12 mb-16">
+    <section class="max-w-4xl mx-auto px-6 md:px-12 mb-14">
       <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
         <span class="material-symbols-outlined text-[14px]">menu_book</span>
-        Daily English
+        English
       </div>
       <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter leading-[1.02] mb-8">
-        One short article. <span class="text-primary">Every day.</span>
+        Short articles. <span class="text-primary">Read closely.</span>
       </h1>
       <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-2xl">
-        Read a five-minute English news piece. Hover any word for a full breakdown — meaning, examples, level. Click a sentence for the Chinese translation. End on a quick comprehension check or a flashcard pass over the day's vocabulary. No account needed.
+        A small library of English news pieces. Hover any word for a full breakdown. Click a sentence for its Chinese translation. Finish on a quick comprehension check or flip through the article's vocabulary as flashcards. No account needed.
       </p>
     </section>
 
-    <!-- Level selector -->
     <section class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
-      <div class="flex items-baseline justify-between mb-10">
+      <div class="library-head">
         <div>
-          <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
-            <span class="material-symbols-outlined text-[14px] text-primary">tune</span>
-            Pick your level
+          <div class="library-eyebrow">
+            <span class="material-symbols-outlined">filter_list</span>
+            Filter by level
           </div>
-          <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight">
-            Today's reads
-          </h2>
+          <h2 class="library-title">{articles.length} article{articles.length === 1 ? '' : 's'}</h2>
         </div>
-        <div class="text-sm text-on-surface-variant hidden md:block">
-          {articles.length} article{articles.length === 1 ? '' : 's'} · CEFR-tagged
+        <div class="cefr-filter" role="group" aria-label="Filter by CEFR level">
+          <button class="cefr-chip is-on" data-level="all">
+            All
+            <span class="cefr-chip-num">{articles.length}</span>
+          </button>
+          {filterableLevels.map((lvl) => (
+            <button class="cefr-chip" data-level={lvl}>
+              {lvl}
+              <span class="cefr-chip-num">{counts[lvl]}</span>
+            </button>
+          ))}
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {presentLevels.map((lvl) => {
-          const list = byLevel.get(lvl)!;
-          const top = list[0];
-          const tag = CEFR_LABELS[lvl];
+      <ul class="article-grid" id="article-grid">
+        {articles.map((a) => {
+          const tag = CEFR_LABELS[a.meta.cefr as LevelKey];
           return (
-            <a href={`/tools/english/${top.meta.date}`} class="level-card group">
-              <div class="level-card-head">
-                <span class="level-card-cefr">{lvl}</span>
-                <div class="level-card-tier">
-                  <div class="level-card-tier-name">{tag.tier}</div>
-                  <div class="level-card-tier-bridge">{tag.bridge}</div>
+            <li class="article-card-wrap" data-level={a.meta.cefr}>
+              <a href={`/tools/english/${a.meta.date}`} class="article-card">
+                <div class="article-card-head">
+                  <span class="article-card-cefr">{a.meta.cefr}</span>
+                  <span class="article-card-tier">{tag.tier}</span>
                 </div>
-              </div>
-              <h3 class="level-card-title">{top.meta.title}</h3>
-              {top.meta.editorsNote && (
-                <p class="level-card-note">{top.meta.editorsNote}</p>
-              )}
-              <div class="level-card-foot">
-                <span class="level-card-stat">
-                  <span class="material-symbols-outlined">schedule</span>
-                  {top.meta.readingMinutes} min
-                </span>
-                <span class="level-card-stat">
-                  <span class="material-symbols-outlined">notes</span>
-                  {top.meta.wordCount} words
-                </span>
-                <span class="level-card-stat">
-                  <span class="material-symbols-outlined">today</span>
-                  {top.meta.date}
-                </span>
-                {list.length > 1 && (
-                  <span class="level-card-stat level-card-stat-more">+ {list.length - 1} more</span>
+                <h3 class="article-card-title">{a.meta.title}</h3>
+                {a.meta.editorsNote && (
+                  <p class="article-card-note">{a.meta.editorsNote}</p>
                 )}
-                <span class="level-card-cta">
-                  Read <span class="material-symbols-outlined">arrow_forward</span>
-                </span>
-              </div>
-            </a>
-          );
-        })}
-
-        {/* Placeholder cards for missing levels — make the ladder visible */}
-        {levelOrder.filter((l) => !byLevel.has(l)).map((lvl) => {
-          const tag = CEFR_LABELS[lvl];
-          return (
-            <div class="level-card level-card--empty">
-              <div class="level-card-head">
-                <span class="level-card-cefr level-card-cefr--muted">{lvl}</span>
-                <div class="level-card-tier">
-                  <div class="level-card-tier-name">{tag.tier}</div>
-                  <div class="level-card-tier-bridge">{tag.bridge}</div>
+                <div class="article-card-foot">
+                  <span class="article-card-stat">
+                    <span class="material-symbols-outlined">schedule</span>
+                    {a.meta.readingMinutes} min
+                  </span>
+                  <span class="article-card-stat">
+                    <span class="material-symbols-outlined">notes</span>
+                    {a.meta.wordCount} words
+                  </span>
+                  <span class="article-card-cta">
+                    Read <span class="material-symbols-outlined">arrow_forward</span>
+                  </span>
                 </div>
-              </div>
-              <p class="level-card-note">No article at this level yet. New pieces are added daily — check back soon.</p>
-            </div>
+              </a>
+            </li>
           );
         })}
+      </ul>
+
+      <div class="library-empty" id="library-empty" hidden>
+        <span class="material-symbols-outlined">inbox</span>
+        <p>No articles at this level yet.</p>
       </div>
     </section>
 
-    <!-- How it works -->
     <section class="bg-surface-container-low py-24 border-y border-outline-variant/10">
       <div class="max-w-6xl mx-auto px-6 md:px-12">
         <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
@@ -129,7 +108,7 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
           <div class="how-card">
             <span class="material-symbols-outlined how-card-icon">abc</span>
             <h3>Vocabulary</h3>
-            <p>Hover any underlined word to see meaning, IPA, level, and a fresh example. Click to pin. Filter by CET4 / CET6 / IELTS / GRE.</p>
+            <p>Each article tags its words by difficulty (Level 1 to Level 4). Pick the easiest level you care about; words at that level and harder stay shaded. Hover for the full card.</p>
           </div>
           <div class="how-card">
             <span class="material-symbols-outlined how-card-icon">translate</span>
@@ -144,33 +123,32 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
           <div class="how-card">
             <span class="material-symbols-outlined how-card-icon">quiz</span>
             <h3>Comprehension check</h3>
-            <p>Five quick multiple-choice questions to confirm you actually read it. See the evidence in-line on the article.</p>
+            <p>A short multiple-choice check at the end of the read. See the evidence in-line on the article when an answer is wrong.</p>
           </div>
           <div class="how-card">
             <span class="material-symbols-outlined how-card-icon">replay</span>
             <h3>Word review</h3>
-            <p>An Anki-style flashcard pass over the day's vocabulary, in your current session. Rate each word and the deck reorders.</p>
+            <p>An Anki-style flashcard pass over the article's vocabulary, in your current session. Rate each word and the deck reorders.</p>
           </div>
           <div class="how-card">
             <span class="material-symbols-outlined how-card-icon">volume_up</span>
             <h3>Read aloud</h3>
-            <p>Sentence-by-sentence text-to-speech with adjustable rate. Pick the best voice your browser offers — Microsoft Natural and Apple Premium are tagged in the dropdown.</p>
+            <p>Sentence-by-sentence text-to-speech with adjustable rate. The voice picker promotes Microsoft Natural and Apple Premium voices when available.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CEFR explainer -->
     <section class="max-w-4xl mx-auto px-6 md:px-12 mt-24">
       <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
         <span class="material-symbols-outlined text-[14px] text-primary">school</span>
         Reference
       </div>
       <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-2">
-        Not sure of your level?
+        CEFR levels
       </h2>
       <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl">
-        These are rough bridges between the Common European Framework (CEFR) and standardized tests Chinese students typically take.
+        The Common European Framework of Reference. Rough bridges to the standardized tests Chinese students typically take.
       </p>
 
       <dl class="cefr-table">
@@ -190,123 +168,175 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
 </MainLayout>
 
 <style>
-  /* Level cards */
-  .level-card {
+  .library-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .library-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: rgba(4, 47, 36, 0.65);
+    margin-bottom: 6px;
+  }
+  .library-eyebrow .material-symbols-outlined {
+    font-size: 14px;
+    color: #042f24;
+  }
+  .library-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.875rem;
+    color: #042f24;
+    letter-spacing: -0.015em;
+  }
+
+  .cefr-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .cefr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    background: white;
+    font-size: 13px;
+    font-weight: 700;
+    color: #042f24;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 120ms ease;
+  }
+  .cefr-chip:hover { border-color: rgba(4, 47, 36, 0.30); }
+  .cefr-chip.is-on {
+    background: #042f24;
+    color: white;
+    border-color: #042f24;
+  }
+  .cefr-chip-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(4, 47, 36, 0.5);
+  }
+  .cefr-chip.is-on .cefr-chip-num { color: rgba(255, 255, 255, 0.65); }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    list-style: none;
+  }
+  .article-card-wrap.is-hidden { display: none; }
+  .article-card {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    height: 100%;
     background: white;
     border: 1px solid rgba(4, 47, 36, 0.10);
-    border-radius: 24px;
-    padding: 28px 28px 22px;
+    border-radius: 20px;
+    padding: 22px 24px 20px;
     text-decoration: none;
     color: inherit;
     transition: border-color 150ms ease, transform 200ms ease, box-shadow 200ms ease;
   }
-  .level-card:not(.level-card--empty):hover {
+  .article-card:hover {
     border-color: rgba(4, 47, 36, 0.30);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px -16px rgba(4, 47, 36, 0.18);
   }
-  .level-card--empty {
-    background: rgba(4, 47, 36, 0.02);
-    border-style: dashed;
-  }
-
-  .level-card-head {
+  .article-card-head {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding-bottom: 14px;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(4, 47, 36, 0.08);
   }
-  .level-card-cefr {
+  .article-card-cefr {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 1.5rem;
-    color: #042f24;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    background: rgba(4, 47, 36, 0.06);
-    border-radius: 10px;
-    padding: 10px 12px 8px;
-    flex-shrink: 0;
+    font-size: 11px;
+    color: white;
+    background: #042f24;
+    padding: 3px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
   }
-  .level-card-cefr--muted {
-    color: rgba(4, 47, 36, 0.4);
-    background: transparent;
-    border: 1px dashed rgba(4, 47, 36, 0.15);
+  .article-card-tier {
+    font-size: 12px;
+    color: rgba(4, 47, 36, 0.62);
   }
-  .level-card-tier-name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    color: #042f24;
-    letter-spacing: -0.005em;
-  }
-  .level-card-tier-bridge {
-    font-size: 11.5px;
-    color: rgba(4, 47, 36, 0.55);
-    margin-top: 2px;
-  }
-
-  .level-card-title {
+  .article-card-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 1.5rem;
-    line-height: 1.15;
+    font-size: 1.25rem;
+    line-height: 1.2;
     color: #042f24;
     letter-spacing: -0.015em;
   }
-  .level-card-note {
-    font-size: 14px;
-    line-height: 1.65;
-    color: rgba(4, 47, 36, 0.62);
+  .article-card-note {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(4, 47, 36, 0.6);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .level-card--empty .level-card-note {
-    -webkit-line-clamp: unset;
-  }
-  .level-card-foot {
+  .article-card-foot {
     margin-top: auto;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 14px 18px;
-    padding-top: 14px;
+    gap: 12px;
+    padding-top: 12px;
     border-top: 1px solid rgba(4, 47, 36, 0.08);
   }
-  .level-card-stat {
+  .article-card-stat {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 12px;
+    gap: 4px;
+    font-size: 11.5px;
     color: rgba(4, 47, 36, 0.55);
   }
-  .level-card-stat .material-symbols-outlined { font-size: 14px; opacity: 0.75; }
-  .level-card-stat-more {
-    font-weight: 700;
-    color: #042f24;
-  }
-  .level-card-cta {
+  .article-card-stat .material-symbols-outlined { font-size: 13px; opacity: 0.75; }
+  .article-card-cta {
     margin-left: auto;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     color: #042f24;
     transition: transform 150ms ease;
   }
-  .level-card-cta .material-symbols-outlined { font-size: 16px; }
-  .level-card:hover .level-card-cta {
-    transform: translateX(2px);
-  }
+  .article-card-cta .material-symbols-outlined { font-size: 14px; }
+  .article-card:hover .article-card-cta { transform: translateX(2px); }
 
-  /* How-it-works cards */
+  .library-empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: rgba(4, 47, 36, 0.5);
+  }
+  .library-empty .material-symbols-outlined {
+    font-size: 28px;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+  .library-empty p { font-size: 14px; }
+
   .how-card {
     background: white;
     border: 1px solid rgba(4, 47, 36, 0.10);
@@ -314,9 +344,7 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
     padding: 22px 24px 24px;
     transition: border-color 150ms ease;
   }
-  .how-card:hover {
-    border-color: rgba(4, 47, 36, 0.25);
-  }
+  .how-card:hover { border-color: rgba(4, 47, 36, 0.25); }
   .how-card-icon {
     color: #042f24;
     background: rgba(4, 47, 36, 0.06);
@@ -340,7 +368,6 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
     color: rgba(4, 47, 36, 0.65);
   }
 
-  /* CEFR table */
   .cefr-table {
     display: flex;
     flex-direction: column;
@@ -361,11 +388,7 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
     color: #042f24;
     letter-spacing: -0.01em;
   }
-  .cefr-table dd {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
+  .cefr-table dd { display: flex; flex-direction: column; gap: 2px; }
   .cefr-table dd strong {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
@@ -377,3 +400,27 @@ const presentLevels = levelOrder.filter((l) => byLevel.has(l));
     color: rgba(4, 47, 36, 0.6);
   }
 </style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.cefr-chip');
+  const cards = document.querySelectorAll<HTMLLIElement>('.article-card-wrap');
+  const empty = document.getElementById('library-empty');
+
+  function applyFilter(level: string) {
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = level === 'all' || card.getAttribute('data-level') === level;
+      card.classList.toggle('is-hidden', !matches);
+      if (matches) visible++;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const lvl = chip.getAttribute('data-level') || 'all';
+      chips.forEach((c) => c.classList.toggle('is-on', c === chip));
+      applyFilter(lvl);
+    });
+  });
+</script>
