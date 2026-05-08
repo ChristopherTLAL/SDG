@@ -5,7 +5,6 @@ export const article: Article = {
   meta: {
     date: '2026-05-19',
     title: 'How Paris Rebuilt Notre-Dame Using 13th-Century Tools',
-    source: { name: 'BBC News (sample)', url: 'https://www.bbc.com/news' },
     cefr: 'B1',
     wordCount: 300,
     readingMinutes: 4,

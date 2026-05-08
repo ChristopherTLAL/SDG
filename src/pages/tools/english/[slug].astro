@@ -111,7 +111,6 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
         <article class="el-article">
           <header class="el-article-head">
             <h1>{meta.title}</h1>
-            <p class="el-article-source">From {meta.source.name}</p>
           </header>
 
           <div class="el-article-body">
@@ -380,7 +379,6 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
           <section class="el-mode" data-mode="about" hidden>
             <dl class="el-meta">
-              <div><dt>Source</dt><dd><a href={meta.source.url} target="_blank" rel="noopener noreferrer">{meta.source.name}</a></dd></div>
               <div><dt>Date</dt><dd>{meta.date}</dd></div>
               <div><dt>Length</dt><dd>{meta.wordCount} words · {meta.readingMinutes} min</dd></div>
               <div><dt>Level</dt><dd>{meta.cefr} · {cefrLabel?.tier}</dd></div>
@@ -588,12 +586,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--el-pin);
-    margin-bottom: 0.5rem;
-  }
-  .el-article-source {
-    font-size: 12.5px;
-    color: rgba(4, 47, 36, 0.55);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--el-border);
   }
@@ -1535,7 +1528,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   type Mode = 'vocab' | 'translate' | 'grammar' | 'patterns' | 'quiz' | 'review' | 'about';
 
   type Article = {
-    meta: { date: string; title: string; source: { name: string; url: string }; cefr: string; wordCount: number; readingMinutes: number; editorsNote?: string };
+    meta: { date: string; title: string; cefr: string; wordCount: number; readingMinutes: number; editorsNote?: string };
     paragraphs: { id: string; sentences: { id: string; en: string; zh: string }[] }[];
     vocab: { id: string; word: string; lemma: string; sentenceId: string; level: number; pos: string; ipa: string; defZh: string; defEn: string; example: string; exampleZh?: string }[];
     collocations: { id: string; phrase: string; sentenceId: string; meaningZh: string; example: string; exampleZh?: string }[];

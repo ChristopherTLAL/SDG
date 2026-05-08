@@ -87,7 +87,6 @@ export interface QuizQuestion {
 export interface ArticleMeta {
   date: string;
   title: string;
-  source: { name: string; url: string };
   cefr: 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
   wordCount: number;
   readingMinutes: number;

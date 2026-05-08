@@ -5,7 +5,6 @@ export const article: Article = {
   meta: {
     date: '2026-05-18',
     title: 'India Voted for Six Weeks. The Answer Was Quieter Than Anyone Predicted.',
-    source: { name: 'Reuters (sample)', url: 'https://www.reuters.com/' },
     cefr: 'B2',
     wordCount: 413,
     readingMinutes: 5,
