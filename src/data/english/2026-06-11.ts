@@ -6,7 +6,7 @@ export const article: Article = {
     date: '2026-06-11',
     title: 'The Gavel Fell Before the Number Could Be Argued With',
     cefr: 'C1',
-    wordCount: 462,
+    wordCount: 519,
     readingMinutes: 6,
     editorsNote:
       'A C1 analytical read on the COP29 outcome in Baku. The piece treats the deal less as a finance story and more as a procedural moment: a presidency moved on a draft most rooms had not finished objecting to, and the number that survived the room is now the arithmetic of the next decade.',
@@ -15,7 +15,7 @@ export const article: Article = {
     {
       id: 'p1',
       sentences: [
-        { id: 's1', en: 'A little before three on a Sunday morning in late November 2024, the COP29 president lifted a wooden gavel in a half-empty hall in Baku, glanced across a row of microphones whose lights were already raised, and brought the gavel down anyway.', zh: '2024 年 11 月底的一个周日凌晨快到三点时，COP29 主席在巴库一座半空的会场里抬起了那柄木槌，向已经亮着指示灯的一排麦克风扫了一眼，然后还是把槌敲了下去。' },
+        { id: 's1', en: 'A little before three on a Sunday morning in November 2024, the COP29 president lifted a wooden gavel in a half-empty hall in Baku, glanced across a row of microphones whose lights were already raised, and brought the gavel down anyway.', zh: '2024 年 11 月一个周日凌晨快到三点时，COP29 主席在巴库一座半空的会场里抬起了那柄木槌，向已经亮着指示灯的一排麦克风扫了一眼，然后还是把槌敲了下去。' },
         { id: 's2', en: 'India\'s lead negotiator, who had formally registered her wish to speak before the adoption, was still standing.', zh: '印度首席谈判代表此时还站着，她在通过决议之前就已经按程序登记过发言意愿。' },
         { id: 's3', en: 'In the gap between her raised placard and the sound of the gavel, the next decade of climate finance was decided.', zh: '在她举起的牌子与那一槌之声之间的那道缝隙里，未来十年气候资金的命运被定了下来。' },
       ],
@@ -23,9 +23,9 @@ export const article: Article = {
     {
       id: 'p2',
       sentences: [
-        { id: 's4', en: 'The number that survived the room is by now familiar: 300 billion dollars per year by 2035, channelled from rich countries to the developing world through public budgets, multilateral banks and what the text politely calls mobilised private finance.', zh: '从那个房间里活下来的那个数字现在已经被反复引用：到 2035 年每年 3000 亿美元，由富国通过公共预算、多边银行以及文本里被礼貌地称为"动员而来的私人资金"，输向发展中国家。' },
+        { id: 's4', en: 'The number that survived the room is by now familiar: 300 billion dollars per year by 2035, channelled from rich countries through public budgets, multilateral banks and what the text politely calls mobilised private finance.', zh: '从那个房间里活下来的那个数字现在已经被反复引用：到 2035 年每年 3000 亿美元，由富国通过公共预算、多边银行以及文本里被礼貌地称为"动员而来的私人资金"输出。' },
         { id: 's5', en: 'A larger figure of 1.3 trillion drifts through the same paragraph as an aspirational ceiling, attached to no specific signatory.', zh: '一个更大的数字，1.3 万亿，作为没有具体签字方背书的"努力上限"，飘浮在同一段落里。' },
-        { id: 's6', en: 'For two years, the developing world had argued that the floor needed to start near a trillion of public, grant-based money; the floor it received is closer to a third of that, with no binding promise on whether any of it will arrive as grants or as more debt.', zh: '过去两年里，发展中国家一直主张这条线最起码也得从接近一万亿、且以公共拨款为主的资金开始；它最终拿到的这条线，差不多只有那个数字的三分之一，对于这笔钱究竟以拨款形式还是以新一轮债务的形式到账，文本里没有任何约束性承诺。' },
+        { id: 's6', en: 'The developing world had argued for a floor near a trillion in public, grant-based money; what it received is closer to a third, with no binding promise on whether any of it arrives as grants or as more debt.', zh: '发展中国家一直主张这条线最起码也得接近一万亿、且以公共拨款为主；它最终拿到的差不多只有那个数字的三分之一，对于这笔钱究竟以拨款形式还是以新一轮债务的形式到账，文本里没有任何约束性承诺。' },
       ],
     },
     {
@@ -41,7 +41,7 @@ export const article: Article = {
     {
       id: 'p4',
       sentences: [
-        { id: 's12', en: 'For a second consecutive year the convention was hosted by a state whose president had described his country\'s hydrocarbon reserves as "a gift from God," and chaired by a former senior executive of that state\'s oil company.', zh: '气候公约连续第二年由这样一个国家主办：它的总统曾把本国油气储量形容为"上帝赐予的礼物"，而大会主席本人正是该国国家石油公司的前任高管。' },
+        { id: 's12', en: 'For a second consecutive year the convention was hosted by a state whose president had described his hydrocarbon reserves as "a gift from God," and chaired by a former senior executive of that state\'s oil company.', zh: '气候公约连续第二年由这样一个国家主办：它的总统曾把本国油气储量形容为"上帝赐予的礼物"，而大会主席本人正是该国国家石油公司的前任高管。' },
         { id: 's13', en: 'None of which would matter, in principle, if procedural fairness inside the room compensated for the political fact of the host.', zh: '原则上，这一切本来不必构成问题，只要会场内部的程序公正能够抵消举办国本身这桩政治事实带来的偏差。' },
         { id: 's14', en: 'The gavel made clear that this year it did not.', zh: '今年这一槌已经把话说清楚了：它没有。' },
       ],
@@ -56,14 +56,14 @@ export const article: Article = {
     {
       id: 'p6',
       sentences: [
-        { id: 's17', en: 'In the days after Baku, the official communiqués naturally chose the kinder verbs: tripled, scaled up, set on a path. The countries that had walked out, however, kept choosing different words: insulting, paltry, stage-managed.', zh: '巴库会议之后那几天，官方通讯文本自然挑了那些更温和的动词：翻了三倍、规模扩大、走上了一条路径。而那些曾经退场的国家则一直在挑另外一组词：侮辱性的、寒酸的、被预先安排好的。' },
-        { id: 's18', en: 'Both vocabularies cannot simultaneously be correct, but both can simultaneously be instructive: one tells you what the rooms in Bonn and Brussels are now willing to pay, the other tells you what the people who will most plausibly drown or migrate think that price actually buys.', zh: '这两套词汇不可能同时正确，却可以同时都富有教益：前一套告诉你，波恩和布鲁塞尔的会议室目前愿意拿出多少钱；后一套告诉你，那些最有可能被淹没或被迫迁徙的人，认为这笔钱真正买到的是什么。' },
+        { id: 's17', en: 'In the days after Baku, the official communiqués chose the kinder verbs: tripled, scaled up, set on a path. The countries that had walked out, however, kept choosing different words: insulting, paltry, stage-managed.', zh: '巴库会议之后那几天，官方通讯文本挑了那些更温和的动词：翻了三倍、规模扩大、走上了一条路径。而那些曾经退场的国家则一直在挑另外一组词：侮辱性的、寒酸的、被预先安排好的。' },
+        { id: 's18', en: 'Both sets cannot simultaneously be correct, but both can simultaneously be instructive: one names what the wealthy capitals will pay, the other names what the people who will most plausibly drown or migrate think that price actually buys.', zh: '这两套词汇不可能同时正确，却可以同时都富有教益：前一套说出富国首都愿意拿出多少钱；后一套说出那些最有可能被淹没或被迫迁徙的人，认为这笔钱真正买到的是什么。' },
       ],
     },
     {
       id: 'p7',
       sentences: [
-        { id: 's19', en: 'Yet the question Baku handed to the next host, before the room had even emptied, is harder than the headline number suggests. It is whether a finance regime that asks the climate-vulnerable to borrow against a future that is already shrinking can keep being called finance at all, or whether the word, used this way for one more decade, simply names something else.', zh: '然而在那间会场尚未完全散去之前，巴库已经把一个问题留给了下一任主办方，这个问题比头条数字所提示的要更难回答。它是：一种要求气候脆弱国家用一个本就在缩小的未来去做抵押融资的资金体制，是否还配被称作"资金"；又或者，这个词以这种方式再被使用十年之后，它指的其实早已是另一样东西。' },
+        { id: 's19', en: 'Yet the question Baku handed to its successor, before the room had emptied, is harder than the headline number suggests. It is whether a regime that asks the climate-vulnerable to borrow against a future that is already shrinking can keep being called finance, or whether the word, used this way for another decade, simply names something else.', zh: '然而在会场尚未散去之前，巴库已经把一个问题留给了下一届主办方，这个问题比头条数字所提示的要更难回答。它是：一种要求气候脆弱国家用一个本就在缩小的未来去做抵押融资的体制，是否还配被称作"资金"；又或者，这个词以这种方式再被使用十年之后，它指的其实早已是另一样东西。' },
       ],
     },
   ],
@@ -73,24 +73,24 @@ export const article: Article = {
     { id: 'v3', word: 'mobilised', lemma: 'mobilise', sentenceId: 's4', level: 3, pos: 'v.', ipa: '/ˈmoʊbəlaɪzd/', defZh: '动员（资金、力量）；调动起来', defEn: 'gathered and put into action, often used of capital, troops or political support', example: 'The fund claims to have mobilised three private dollars for every public dollar it spent.', exampleZh: '该基金宣称自己每动用一美元公共资金，就能撬动三美元私人资金。' },
     { id: 'v4', word: 'aspirational', lemma: 'aspirational', sentenceId: 's5', level: 4, pos: 'adj.', ipa: '/ˌæspəˈreɪʃənəl/', defZh: '志在远方的；只表达期望的', defEn: 'expressing a hoped-for goal rather than a binding commitment', example: 'The clause was kept in the text as an aspirational target, with no penalty for missing it.', exampleZh: '这条条款作为一种期望性目标被保留在文本里，没有对未达成情况设任何罚则。' },
     { id: 'v5', word: 'signatory', lemma: 'signatory', sentenceId: 's5', level: 4, pos: 'n.', ipa: '/ˈsɪɡnətɔːri/', defZh: '签字方；缔约方', defEn: 'a party that has formally signed an agreement and is bound by its terms', example: 'Every signatory to the protocol must report its emissions on the same five-year cycle.', exampleZh: '该议定书的每一个签字方都要按同样的五年周期报告自己的排放数据。' },
-    { id: 'v6', word: 'binding', lemma: 'binding', sentenceId: 's6', level: 3, pos: 'adj.', ipa: '/ˈbaɪndɪŋ/', defZh: '具有约束力的；强制性的', defEn: 'legally or formally requiring the parties to comply', example: 'A handshake at the conference is rarely binding once the lawyers reread the draft on Monday.', exampleZh: '会上一次握手，等到周一律师重新读过草稿之后，往往就不再具有约束力了。' },
+    { id: 'v6', word: 'binding', lemma: 'binding', sentenceId: 's6', level: 2, pos: 'adj.', ipa: '/ˈbaɪndɪŋ/', defZh: '具有约束力的；强制性的', defEn: 'legally or formally requiring the parties to comply', example: 'A handshake at the conference is rarely binding once the lawyers reread the draft on Monday.', exampleZh: '会上一次握手，等到周一律师重新读过草稿之后，往往就不再具有约束力了。' },
     { id: 'v7', word: 'arithmetic', lemma: 'arithmetic', sentenceId: 's7', level: 3, pos: 'n.', ipa: '/əˈrɪθmətɪk/', defZh: '算术；数字层面的计算', defEn: 'the bare numerical side of a question, treated apart from its meaning', example: 'The chief executive insisted the dispute was simple arithmetic; the staff knew otherwise.', exampleZh: '首席执行官坚持说这场争端只是一道简单的算术题；员工心里明白并非如此。' },
     { id: 'v8', word: 'solvent', lemma: 'solvent', sentenceId: 's9', level: 4, pos: 'adj.', ipa: '/ˈsɒlvənt/', defZh: '有偿付能力的；不会破产的', defEn: 'able to pay one\'s debts as they fall due', example: 'The auditors concluded that the firm was solvent on paper but only just.', exampleZh: '审计师的结论是这家公司账面上勉强还算有偿付能力，但也仅仅是勉强。' },
-    { id: 'v9', word: 'exposed', lemma: 'exposed', sentenceId: 's10', level: 3, pos: 'adj.', ipa: '/ɪkˈspoʊzd/', defZh: '暴露在风险下的；最容易受到冲击的', defEn: 'most vulnerable to damage, loss or external pressure', example: 'Coastal districts have always been the most exposed to a single bad storm season.', exampleZh: '沿海地区在一个糟糕的风暴季面前向来是最暴露的。' },
+    { id: 'v9', word: 'exposed', lemma: 'exposed', sentenceId: 's10', level: 2, pos: 'adj.', ipa: '/ɪkˈspoʊzd/', defZh: '暴露在风险下的；最容易受到冲击的', defEn: 'most vulnerable to damage, loss or external pressure', example: 'Coastal districts have always been the most exposed to a single bad storm season.', exampleZh: '沿海地区在一个糟糕的风暴季面前向来是最暴露的。' },
     { id: 'v10', word: 'regime', lemma: 'regime', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/reɪˈʒiːm/', defZh: '体制；运行机制', defEn: 'a coordinated set of rules, habits and institutions that govern an area of life', example: 'The new tax regime treats remote workers more leniently than the old one did.', exampleZh: '新的税务体制对远程办公者的处理比旧体制要宽松得多。' },
     { id: 'v11', word: 'rescheduled', lemma: 'reschedule', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/riːˈʃedjuːld/', defZh: '重新安排；展期（债务还款）', defEn: 'arranged to happen at a later time, often used of pushed-back debt repayments', example: 'The country has rescheduled its sovereign repayments three times in the past decade.', exampleZh: '该国在过去十年里已经三次对自己的主权债务做过展期。' },
-    { id: 'v12', word: 'consecutive', lemma: 'consecutive', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/kənˈsekjətɪv/', defZh: '连续的；接连的', defEn: 'following one after another without a break', example: 'It was the third consecutive winter the river had failed to freeze before January.', exampleZh: '这是连续第三个冬天，那条河在一月之前都没结冰。' },
-    { id: 'v13', word: 'hydrocarbon', lemma: 'hydrocarbon', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ˈhaɪdroʊˌkɑːrbən/', defZh: '碳氢化合物（油气类燃料的统称）', defEn: 'a compound of hydrogen and carbon, used as a general term for oil and gas', example: 'Half of the country\'s export receipts still come from a single hydrocarbon basin.', exampleZh: '该国出口收入的一半，至今仍然来自同一片油气盆地。' },
-    { id: 'v14', word: 'compensated', lemma: 'compensate', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/ˈkɒmpənseɪtɪd/', defZh: '补偿；抵消', defEn: 'made up for an imbalance, loss or shortcoming', example: 'A clearer set of voting rules might have compensated for the speed at which the chair worked.', exampleZh: '一套更清晰的表决规则也许本来能够弥补主席推进议程的速度过快。' },
-    { id: 'v15', word: 'objectors', lemma: 'objector', sentenceId: 's16', level: 4, pos: 'n.', ipa: '/əbˈdʒektərz/', defZh: '提出反对意见的人；异议方', defEn: 'parties who formally raise opposition to a proposed decision', example: 'A short letter from twenty objectors was enough to delay the rezoning vote by a month.', exampleZh: '二十位异议人士联署的一封短信，就足以把改变区划用途的表决推迟一个月。' },
-    { id: 'v16', word: 'implicit', lemma: 'implicit', sentenceId: 's16', level: 3, pos: 'adj.', ipa: '/ɪmˈplɪsɪt/', defZh: '隐含的；未明说的', defEn: 'understood without being directly stated', example: 'There is an implicit understanding that drafts shared in the room do not leave the room.', exampleZh: '会场里有一条不言自明的默契：在这间屋子里分享的草稿，不会被带出去。' },
-    { id: 'v17', word: 'settlement', lemma: 'settlement', sentenceId: 's17', level: 3, pos: 'n.', ipa: '/ˈsetlmənt/', defZh: '和解；结案安排', defEn: 'a final agreement that closes a dispute, especially one both sides can live with', example: 'A negotiated settlement leaves both sides slightly unhappy, which is often a sign that it is real.', exampleZh: '一份谈判出来的和解通常让双方都略带不满，而这一点本身往往说明它是真的。' },
-    { id: 'v18', word: 'communiqués', lemma: 'communiqué', sentenceId: 's18', level: 4, pos: 'n.', ipa: '/kəˈmjuːnɪkeɪz/', defZh: '官方公报；正式声明', defEn: 'official statements issued by governments or international bodies', example: 'The two foreign ministries released near-identical communiqués within an hour of each other.', exampleZh: '两国外交部在一小时之内发布了几乎一字不差的官方公报。' },
-    { id: 'v19', word: 'paltry', lemma: 'paltry', sentenceId: 's18', level: 4, pos: 'adj.', ipa: '/ˈpɔːltri/', defZh: '寒酸的；少得可怜的', defEn: 'so small in amount as to feel almost insulting', example: 'He called the redundancy package paltry, given how many years she had been at the firm.', exampleZh: '考虑到她在公司待了那么多年，他把那份遣散方案形容为寒酸得过分。' },
-    { id: 'v20', word: 'simultaneously', lemma: 'simultaneously', sentenceId: 's19', level: 3, pos: 'adv.', ipa: '/ˌsɪməlˈteɪniəsli/', defZh: '同时地；并行地', defEn: 'happening or being true at the same time as something else', example: 'Two contradictory rumours were running simultaneously through the trading floor.', exampleZh: '两条互相矛盾的传闻，正在交易大厅里同时流动。' },
-    { id: 'v21', word: 'plausibly', lemma: 'plausibly', sentenceId: 's19', level: 4, pos: 'adv.', ipa: '/ˈplɔːzəbli/', defZh: '有说服力地；按合理推断', defEn: 'in a way that can reasonably be expected or believed', example: 'No one in the room could plausibly claim to have read the appendix in full.', exampleZh: '会场里没有人可以煞有介事地声称自己已经读完了那份附录。' },
-    { id: 'v22', word: 'shrinking', lemma: 'shrink', sentenceId: 's20', level: 2, pos: 'adj.', ipa: '/ˈʃrɪŋkɪŋ/', defZh: '正在缩小的；不断收窄的', defEn: 'becoming smaller in size, scope or available time', example: 'A shrinking municipal budget eventually forces the kind of choice no one wants to make publicly.', exampleZh: '一份不断缩水的市政预算，最终会逼出那种没有人愿意当众做出的选择。' },
-    { id: 'v23', word: 'imposed', lemma: 'impose', sentenceId: 's17', level: 3, pos: 'adj.', ipa: '/ɪmˈpoʊzd/', defZh: '强加的；被单方面施加的', defEn: 'placed on someone without their full consent', example: 'A schedule imposed from above tends to be ignored by everyone below the second floor.', exampleZh: '一份自上而下被强加下来的日程，往往会被二楼以下的所有人无视掉。' },
+    { id: 'v12', word: 'consecutive', lemma: 'consecutive', sentenceId: 's12', level: 2, pos: 'adj.', ipa: '/kənˈsekjətɪv/', defZh: '连续的；接连的', defEn: 'following one after another without a break', example: 'It was the third consecutive winter the river had failed to freeze before January.', exampleZh: '这是连续第三个冬天，那条河在一月之前都没结冰。' },
+    { id: 'v13', word: 'hydrocarbon', lemma: 'hydrocarbon', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/ˈhaɪdroʊˌkɑːrbən/', defZh: '碳氢化合物（油气类燃料的统称）', defEn: 'a compound of hydrogen and carbon, used as a general term for oil and gas', example: 'Half of the country\'s export receipts still come from a single hydrocarbon basin.', exampleZh: '该国出口收入的一半，至今仍然来自同一片油气盆地。' },
+    { id: 'v14', word: 'compensated', lemma: 'compensate', sentenceId: 's13', level: 3, pos: 'v.', ipa: '/ˈkɒmpənseɪtɪd/', defZh: '补偿；抵消', defEn: 'made up for an imbalance, loss or shortcoming', example: 'A clearer set of voting rules might have compensated for the speed at which the chair worked.', exampleZh: '一套更清晰的表决规则也许本来能够弥补主席推进议程的速度过快。' },
+    { id: 'v15', word: 'objectors', lemma: 'objector', sentenceId: 's15', level: 4, pos: 'n.', ipa: '/əbˈdʒektərz/', defZh: '提出反对意见的人；异议方', defEn: 'parties who formally raise opposition to a proposed decision', example: 'A short letter from twenty objectors was enough to delay the rezoning vote by a month.', exampleZh: '二十位异议人士联署的一封短信，就足以把改变区划用途的表决推迟一个月。' },
+    { id: 'v16', word: 'implicit', lemma: 'implicit', sentenceId: 's15', level: 3, pos: 'adj.', ipa: '/ɪmˈplɪsɪt/', defZh: '隐含的；未明说的', defEn: 'understood without being directly stated', example: 'There is an implicit understanding that drafts shared in the room do not leave the room.', exampleZh: '会场里有一条不言自明的默契：在这间屋子里分享的草稿，不会被带出去。' },
+    { id: 'v17', word: 'settlement', lemma: 'settlement', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/ˈsetlmənt/', defZh: '和解；结案安排', defEn: 'a final agreement that closes a dispute, especially one both sides can live with', example: 'A negotiated settlement leaves both sides slightly unhappy, which is often a sign that it is real.', exampleZh: '一份谈判出来的和解通常让双方都略带不满，而这一点本身往往说明它是真的。' },
+    { id: 'v18', word: 'communiqués', lemma: 'communiqué', sentenceId: 's17', level: 4, pos: 'n.', ipa: '/kəˈmjuːnɪkeɪz/', defZh: '官方公报；正式声明', defEn: 'official statements issued by governments or international bodies', example: 'The two foreign ministries released near-identical communiqués within an hour of each other.', exampleZh: '两国外交部在一小时之内发布了几乎一字不差的官方公报。' },
+    { id: 'v19', word: 'paltry', lemma: 'paltry', sentenceId: 's17', level: 4, pos: 'adj.', ipa: '/ˈpɔːltri/', defZh: '寒酸的；少得可怜的', defEn: 'so small in amount as to feel almost insulting', example: 'He called the redundancy package paltry, given how many years she had been at the firm.', exampleZh: '考虑到她在公司待了那么多年，他把那份遣散方案形容为寒酸得过分。' },
+    { id: 'v20', word: 'simultaneously', lemma: 'simultaneously', sentenceId: 's18', level: 3, pos: 'adv.', ipa: '/ˌsɪməlˈteɪniəsli/', defZh: '同时地；并行地', defEn: 'happening or being true at the same time as something else', example: 'Two contradictory rumours were running simultaneously through the trading floor.', exampleZh: '两条互相矛盾的传闻，正在交易大厅里同时流动。' },
+    { id: 'v21', word: 'plausibly', lemma: 'plausibly', sentenceId: 's18', level: 4, pos: 'adv.', ipa: '/ˈplɔːzəbli/', defZh: '有说服力地；按合理推断', defEn: 'in a way that can reasonably be expected or believed', example: 'No one in the room could plausibly claim to have read the appendix in full.', exampleZh: '会场里没有人可以煞有介事地声称自己已经读完了那份附录。' },
+    { id: 'v22', word: 'shrinking', lemma: 'shrink', sentenceId: 's19', level: 2, pos: 'adj.', ipa: '/ˈʃrɪŋkɪŋ/', defZh: '正在缩小的；不断收窄的', defEn: 'becoming smaller in size, scope or available time', example: 'A shrinking municipal budget eventually forces the kind of choice no one wants to make publicly.', exampleZh: '一份不断缩水的市政预算，最终会逼出那种没有人愿意当众做出的选择。' },
+    { id: 'v23', word: 'imposed', lemma: 'impose', sentenceId: 's16', level: 2, pos: 'adj.', ipa: '/ɪmˈpoʊzd/', defZh: '强加的；被单方面施加的', defEn: 'placed on someone without their full consent', example: 'A schedule imposed from above tends to be ignored by everyone below the second floor.', exampleZh: '一份自上而下被强加下来的日程，往往会被二楼以下的所有人无视掉。' },
   ],
   collocations: [],
   grammar: [
@@ -98,7 +98,7 @@ export const article: Article = {
       id: 'g1',
       title: '在主句中间塞一个非限定性从句，让作者借机加一句潜台词',
       pattern: 'NOUN, who/which/whose [non-restrictive clause], MAIN VERB ...',
-      sentenceIds: ['s2', 's13'],
+      sentenceIds: ['s2', 's12'],
       explanationZh: [
         '英文里的非限定性从句（前后都带逗号的那种）和限定性从句字形上很像，但在评论文里的用途完全不同：限定性从句在帮你"挑出哪一个"，非限定性从句则是给一个已经唯一确定的对象再贴一层"顺便交代"。它的真实功能是修辞性的，而不是指代性的。',
         '本文 "India\'s lead negotiator, who had formally registered her wish to speak before the adoption, was still standing." 主句的事实是"她还站着"。但夹在中间的非限定性从句把一个关键事实贴了进去：她事先按程序登记过发言。这一句话不需要为这个事实另开一段，但读者会立刻明白：她没站着只是因为腿没坐下，她是在等一个被剥夺了的发言权。',
@@ -139,7 +139,7 @@ export const article: Article = {
       id: 'g3',
       title: '用 "What gets X is not only A. It is B." 把读者引向更深的损失',
       pattern: 'What gets [verb-ed/lost/missed] when [clause] is not only [A]. It is [B].',
-      sentenceIds: ['s16'],
+      sentenceIds: ['s15'],
       explanationZh: [
         'What 引导的名词性从句在英文里有一种独特的用途：把一个抽象的"被影响的东西"提到主语位置上，让句子从一开始就承诺要回答"那到底是什么东西"。当这个 what 短语后面再跟一对 "not only A. It is B." 的递进结构时，整句就变成了一记慢动作的递进：作者先承认读者已经看到的那一层（A），再把读者推到他们没看到的更深一层（B）。',
         '本文里 "What gets lost when a draft is adopted faster than its objectors can speak is not only the objections themselves. It is the implicit promise that the room is the place where the size of the bill gets argued." 主语是一个抽象的"被丢掉的东西"，第一句承认大家都看得见的那层（异议本身被丢掉了），第二句揭示更深的那层（会场承担的隐含承诺被丢掉了）。',
@@ -182,7 +182,7 @@ export const article: Article = {
       id: 'pt1',
       useCase: '开篇用一组慢动作的具体动作，把读者直接放进事发现场',
       skeleton: 'A little before [time] on [day] in [place], [someone] [verb-1], [verb-2], and [verb-3 anyway / regardless].',
-      original: 'A little before three on a Sunday morning in late November 2024, the COP29 president lifted a wooden gavel in a half-empty hall in Baku, glanced across a row of microphones whose lights were already raised, and brought the gavel down anyway.',
+      original: 'A little before three on a Sunday morning in November 2024, the COP29 president lifted a wooden gavel in a half-empty hall in Baku, glanced across a row of microphones whose lights were already raised, and brought the gavel down anyway.',
       sentenceId: 's1',
       whyItWorks: [
         '一篇政策评论文最难写的就是开头第一句：你既不能从抽象判断切入（读者还没建立对场景的信任），也不能从一个干燥的事实切入（读者会觉得自己又在读简报）。这个句式的解法是把读者直接放进现场，用一连串具体的、带有时间感的动作把"那个决定是怎么发生的"演给读者看。读者看完这一句，就已经在那间会场里了。',
@@ -204,7 +204,7 @@ export const article: Article = {
       useCase: '在评论文中段，把读者已经看见的浅层问题升格成更深的隐含损失',
       skeleton: 'What gets [verb-ed] when [clause] is not only [the obvious thing]. It is [the deeper thing the reader had not yet thought to count].',
       original: 'What gets lost when a draft is adopted faster than its objectors can speak is not only the objections themselves. It is the implicit promise that the room is the place where the size of the bill gets argued.',
-      sentenceId: 's16',
+      sentenceId: 's15',
       whyItWorks: [
         '这个句式分两步走。第一步先承认读者已经看见的那层损失（异议本身被丢掉了，所有人都看得到），让读者点头同意；第二步把整件事拉到读者本来不会自己想到的那一层（连"会场是议价的地方"这件事的隐含承诺也一并被丢掉了）。读者在两次"哦，原来是这样"之间被作者悄悄推到了更深的位置。',
         '它向读者隐含承诺三件事：（1）作者不打算停在表面；（2）作者会把读者一起带到更深的层面，而不是单方面下判断；（3）这一层升格是有依据的，不是空中楼阁。读者跟着两步节奏走完之后，会自然信任作者后续的论证，因为作者已经在这一对句子里证明了自己愿意走得比读者远一步。',
@@ -224,8 +224,8 @@ export const article: Article = {
       id: 'pt3',
       useCase: '在评论文里用"两套词汇"代表两边的立场，让读者听见双方在用不同的语言谈同一件事',
       skeleton: '[Side A]\'s [communications] chose the [softer] verbs: [verb-list-A]. [Side B], however, kept choosing [different] words: [adjective-list-B].',
-      original: 'In the days after Baku, the official communiqués naturally chose the kinder verbs: tripled, scaled up, set on a path. The countries that had walked out, however, kept choosing different words: insulting, paltry, stage-managed.',
-      sentenceId: 's18',
+      original: 'In the days after Baku, the official communiqués chose the kinder verbs: tripled, scaled up, set on a path. The countries that had walked out, however, kept choosing different words: insulting, paltry, stage-managed.',
+      sentenceId: 's17',
       whyItWorks: [
         '这个句式真正在做的事，是把"立场对立"重写成"词汇对立"。两边没有在直接吵架，他们只是各自在挑自己愿意用的那一类词。读者读完这一对句子，会不自觉地发现：双方对这件事的认知差距，已经写在他们各自挑的动词和形容词的语义层里了。这是一种比"A 觉得这是好事，B 觉得这是坏事"高明得多的写法。',
         '它向读者隐含承诺：作者掌握两边的语言，并且不会偷偷站到任何一边。读者于是会愿意继续读下去，因为他们觉得自己拿到了一份"双语词典"，可以自己判断哪一组词更接近真相。这一份判断权交给读者本身，是这个句式最大的礼物。',
@@ -245,8 +245,8 @@ export const article: Article = {
       id: 'pt4',
       useCase: '收尾时抛出一个长难问句，把"这件事是否还配叫这个名字"留给读者',
       skeleton: 'Yet the question [setup] is harder than [the headline] suggests. It is whether [a system that does X] can keep being called [its current name] at all, or whether [the word], used in this way for one more decade, simply names something else.',
-      original: 'Yet the question Baku handed to the next host, before the room had even emptied, is harder than the headline number suggests. It is whether a finance regime that asks the climate-vulnerable to borrow against a future that is already shrinking can keep being called finance at all, or whether the word, used this way for one more decade, simply names something else.',
-      sentenceId: 's20',
+      original: 'Yet the question Baku handed to its successor, before the room had emptied, is harder than the headline number suggests. It is whether a regime that asks the climate-vulnerable to borrow against a future that is already shrinking can keep being called finance, or whether the word, used this way for another decade, simply names something else.',
+      sentenceId: 's19',
       whyItWorks: [
         '这个句式的真正力度在于"重新命名"这件事被悄悄提了出来。表面上它是一个 whether...or whether 的双选问句，但仔细看，两个分支问的不是"这件事会不会发生"，而是"这件事是不是已经不该再用这个名字"。读者读完会发现，作者并没有回答自己的问题，但已经把读者推到了不得不重新考虑那个名词含义的位置。',
         '它向读者承诺的是：作者不会在文章最后告诉你结论；作者要把整篇文章升格成一个还在台面上的、未解决的问题，让读者带着它走出去。这种"未完成"本身就是修辞资源，它假定读者愿意在合上文章之后继续替作者想下去。',
@@ -313,7 +313,7 @@ export const article: Article = {
       ],
       answer: 1,
       explanation: 'The piece argues that what gets lost is not only the objections but also the implicit promise that the room itself is where the size of the bill gets argued.',
-      sentenceId: 's16',
+      sentenceId: 's15',
     },
     {
       id: 'q5',
@@ -326,7 +326,7 @@ export const article: Article = {
       ],
       answer: 2,
       explanation: 'The closing sentence asks whether a finance regime that lets the climate-vulnerable borrow against a shrinking future can keep being called finance at all, or whether the word, used this way for another decade, simply names something else.',
-      sentenceId: 's20',
+      sentenceId: 's19',
     },
   ],
 };

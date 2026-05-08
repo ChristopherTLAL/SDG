@@ -6,7 +6,7 @@ export const article: Article = {
     date: '2026-06-16',
     title: 'A Big Majority on a Small Vote: The Curious Shape of Labour\'s 2024 Win',
     cefr: 'C2',
-    wordCount: 478,
+    wordCount: 566,
     readingMinutes: 7,
     editorsNote:
       'A C2 essay on the July 2024 UK general election, in which Labour returned to office with the largest seat majority since 2001 and, at the same time, the smallest winning vote share recorded under any modern British government. The piece sits with that contradiction at length, asks what kind of mandate it actually constitutes, and reaches back, with some scepticism, to 1906 rather than to 1997 for a usable parallel.',
@@ -16,13 +16,13 @@ export const article: Article = {
       id: 'p1',
       sentences: [
         { id: 's1', en: 'A landslide is supposed to be an avalanche of consent, a moment in which a country, or what passes for one, leans heavily and unmistakably in a single direction.', zh: '所谓压倒性胜利，照理应当是一场民意的雪崩，是一个国家，或者说被简称为「国家」的那个东西，明确无误地、整个身子斜向某一边的瞬间。' },
-        { id: 's2', en: 'On July 5, 2024, Britain handed Labour 411 of 650 seats in the House of Commons, and yet, on the same ballots, only one voter in three had bothered to write the word Labour, with barely half of the electorate troubling to turn out at all.', zh: '2024 年 7 月 5 日，英国把下议院 650 个席位中的 411 个交给了工党；然而，在同一批选票上，每三位选民里只有一位真的写下了「工党」这个名字，而出来投票的选民总数，也不过比一半多出一点点。' },
+        { id: 's2', en: 'On July 5, 2024, Britain handed Labour 411 of 650 seats in the Commons, and yet, on the same ballots, only one voter in three had written the word Labour, with barely half the electorate troubling to turn out at all.', zh: '2024 年 7 月 5 日，英国把下议院 650 个席位中的 411 个交给了工党；然而，在同一批选票上，每三位选民里只有一位真的写下了「工党」这个名字，而出来投票的选民总数，也不过比一半多出一点点。' },
       ],
     },
     {
       id: 'p2',
       sentences: [
-        { id: 's3', en: 'Thirty-three point seven per cent is a number that keeps slipping out of the official accounts of that night, partly because it interrupts the story, and partly because, in the long ledger of British elections, it has no precedent for a winning party.', zh: '33.7% 这个数字总在那一夜的官方叙述里被悄悄滑过去，一方面因为它打断了那个故事，另一方面，是因为在英国选举那本长长的账册里，没有哪一届的获胜方拿过这么低的份额。' },
+        { id: 's3', en: 'Thirty-three point seven per cent is a figure that keeps slipping out of the accounts of that night, partly because it interrupts the story, and partly because, in the long ledger of British elections, it has no precedent for a winning party.', zh: '33.7% 这个数字总在那一夜的叙述里被悄悄滑过去，一方面因为它打断了那个故事，另一方面，是因为在英国选举那本长长的账册里，没有哪一届的获胜方拿过这么低的份额。' },
         { id: 's4', en: 'It is, by record-keeping that begins in 1830, the smallest share ever returned by a majority government, lower than the share with which Labour lost in 2017, lower than any post-war minority the country has nervously survived.', zh: '按 1830 年起的官方记录来看，这是一个多数党政府拿到过的最小份额，比工党 2017 年败选时的得票还低，也低于战后任何一届让英国惴惴不安地撑过来的少数派政府。' },
       ],
     },
@@ -30,22 +30,22 @@ export const article: Article = {
       id: 'p3',
       sentences: [
         { id: 's5', en: 'The arithmetic of how it happened is not, in the end, mysterious; it is simply unusually frank.', zh: '这件事是怎么算出来的，其实并不神秘，只是诚实得不太寻常。' },
-        { id: 's6', en: 'Britain\'s first-past-the-post constituencies reward the careful spreading of a vote, and Labour spread its 9.7 million votes so efficiently that one MP was returned for every 23,000 ballots; Reform UK gathered its four million votes too thickly in a few corners and walked away with five seats.', zh: '英国「领先即得」的单选区制度，奖赏的是一份被薄薄铺开的选票；工党把自己那 970 万张票分得极为高效，每两万三千张票就换回一位议员；改革英国党的四百万张票则在少数几个角落里堆得太厚，最后只换回了五个席位。' },
-        { id: 's7', en: 'The Gallagher index of disproportionality returned a score of 23.7, the worst, by a clear margin, in any British election since the metric was invented, and beyond which only one Western democracy since 1945 has ever been measured.', zh: '加拉格尔不成比例指数给出的分数是 23.7，是这项指标问世以来历届英国大选里最糟的、差距明显的一次；二战以来，西方民主国家里只有一个先例曾被测出更高的分数。' },
+        { id: 's6', en: 'First-past-the-post rewards the careful spreading of a vote, and Labour spread its 9.7 million ballots so efficiently that one MP was returned for every 23,000 votes; Reform UK gathered four million ballots too thickly in a few corners and took five seats.', zh: '「领先即得」的制度，奖赏的是一份被薄薄铺开的选票；工党把自己那 970 万张票分得极为高效，每两万三千张票就换回一位议员；改革英国党的四百万张票则在少数几个角落里堆得太厚，最后只拿到五个席位。' },
+        { id: 's7', en: 'The Gallagher index returned a score of 23.7, the worst, by a clear margin, in any British election since the metric was invented, and beyond which only one Western democracy since 1945 has ever been measured.', zh: '加拉格尔不成比例指数给出的分数是 23.7，是这项指标问世以来历届英国大选里最糟的、差距明显的一次；二战以来，西方民主国家里只有一个先例曾被测出更高的分数。' },
       ],
     },
     {
       id: 'p4',
       sentences: [
         { id: 's8', en: 'What makes the figure unsettling, rather than merely technical, is the gap it opens between the seat count and any plausible story of consent.', zh: '让这个数字真正令人不安、而不仅仅是个技术指标的，是它在席位数和任何一种说得过去的「同意叙事」之间撕开的那道缝。' },
-        { id: 's9', en: 'Fifty-eight per cent of voters woke up represented by an MP they had not chosen, the highest such figure ever recorded; in some seats, the winner took office with under thirty per cent of the local vote, on a turnout that would have shamed a school council ballot.', zh: '58% 的选民醒来时，代表自己的议员是他们没有投过的那一位，是这一比例有史以来最高的一次；在一些选区里，胜选者拿到的票数还不到本地选民的 30%，所凭借的投票率，连一场学生会选举都会觉得难堪。' },
+        { id: 's9', en: 'Fifty-eight per cent of voters woke up represented by an MP they had not chosen, a record; in some seats, the winner took office with under thirty per cent of the local vote, on a turnout that would have shamed a school council ballot.', zh: '58% 的选民醒来时，代表自己的议员是他们没有投过的那一位，创下纪录；在一些选区里，胜选者拿到的票数还不到本地选民的 30%，所凭借的投票率，连一场学生会选举都会觉得难堪。' },
       ],
     },
     {
       id: 'p5',
       sentences: [
         { id: 's10', en: 'The instinctive comparison, on the night, was to 1997, that other Labour landslide, when Blair and a country in good humour walked into Downing Street together; the comparison does not really hold.', zh: '那一夜大家本能地拿来对照的，是 1997 年那场工党大胜，是布莱尔和一个心情愉快的国家一起走进唐宁街的那一幕；可这个类比，其实并不真的成立。' },
-        { id: 's11', en: 'Blair won 43 per cent on a turnout above 70, from an electorate that wanted what he was offering; Starmer won 33.7 on a turnout of 59.9, from an electorate that had decided, with quiet exhaustion, it could no longer abide what the Conservatives were offering.', zh: '布莱尔拿到的是 43% 的得票率和七成以上的投票率，背后是一个想要他所提供的那种东西的选民群体；斯塔默拿到的是 33.7% 和 59.9% 的投票率，背后是一个带着安静的疲惫、判定自己已经再也无法忍受保守党所提供的那种东西的选民群体。' },
+        { id: 's11', en: 'Blair won 43 per cent on a turnout above 70, from an electorate that wanted what he offered; Starmer won 33.7 on a turnout of 59.9, from one that had decided, with quiet exhaustion, it could no longer abide what the Conservatives offered.', zh: '布莱尔拿到的是 43% 的得票率和七成以上的投票率，背后是一个想要他所提供的那种东西的选民群体；斯塔默拿到的是 33.7% 和 59.9% 的投票率，背后则是一个带着安静的疲惫、判定自己已经再也无法忍受保守党所提供的那种东西的选民群体。' },
         { id: 's12', en: 'The closer rhyme, if rhyme is wanted, is with 1906, when a Liberal landslide masked, as Labour\'s would mask, a country whose old two-party axis was already coming quietly apart underneath.', zh: '如果非要找一个押韵的类比，更近一些的，是 1906 年；正如工党此次的胜利所掩盖的那样，那一年的自由党压倒性胜利底下也藏着一个国家，它原本那条两党共构的政治轴线，已经在悄悄裂开。' },
       ],
     },
@@ -53,7 +53,7 @@ export const article: Article = {
       id: 'p6',
       sentences: [
         { id: 's13', en: 'A mandate, honestly defined, is something a country gives a government to do; it is harder to say what has been given when the largest gift is essentially the absence of an opponent.', zh: '执政授权，按诚实的定义来说，是一个国家交给一届政府去做某件事的东西；可当送出去的最大那份礼物，本质上只是「对手缺席」时，就很难说清它真正交出去的，到底是什么。' },
-        { id: 's14', en: 'The Commons margin is real, in the sense that bills will pass and the government will function; the wider permission, the kind that lets a country be reshaped, is a thinner and more provisional thing, held together less by enthusiasm than by the fact that the alternative had run out of road.', zh: '下议院的多数是真实的，意思是法案会过关，政府会运转；但那种更宽的「许可」，能让一个国家可以被重塑的那种，是一件更薄、也更暂定的东西，它被维持着，靠的与其说是民众的热情，不如说是「另一边已经走不下去」这件事。' },
+        { id: 's14', en: 'The Commons margin is real, in the sense that bills will pass and the government will function; the wider permission, the kind that lets a country be reshaped, is thinner and more provisional, held together less by enthusiasm than by the alternative having run out of road.', zh: '下议院的多数是真实的，法案会过关，政府会运转；但那种更宽的「许可」，能让一个国家被重塑的那种，更薄、也更暂定，它被维持着，靠的与其说是民众的热情，不如说是「另一边已经走不下去」这件事。' },
       ],
     },
     {
@@ -67,21 +67,21 @@ export const article: Article = {
   vocab: [
     { id: 'v1', word: 'avalanche', lemma: 'avalanche', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈævəlɑːntʃ/', defZh: '雪崩；（喻）大量涌至', defEn: 'a sudden rush or large quantity of something arriving at once', example: 'The publisher faced an avalanche of submissions in the week the prize was announced.', exampleZh: '奖项公布的那一周，出版商面对的是潮水般涌来的投稿。' },
     { id: 'v2', word: 'consent', lemma: 'consent', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/kənˈsent/', defZh: '同意；许可（尤指政治上的认可）', defEn: 'agreement or permission, especially of the public to be governed', example: 'Any reform that bypasses the consent of the affected community will eventually be undone.', exampleZh: '任何绕过受影响社区的同意去推进的改革，最终都会被推翻。' },
-    { id: 'v3', word: 'unmistakably', lemma: 'unmistakably', sentenceId: 's1', level: 3, pos: 'adv.', ipa: '/ˌʌnmɪˈsteɪkəbli/', defZh: '明确无误地；不容混淆地', defEn: 'in a way that cannot be confused with anything else', example: 'Her handwriting was unmistakably the same as the one on the older letters.', exampleZh: '她的笔迹与那些更早的信件上的，明确无误地是同一个人的。' },
+    { id: 'v3', word: 'unmistakably', lemma: 'unmistakably', sentenceId: 's1', level: 4, pos: 'adv.', ipa: '/ˌʌnmɪˈsteɪkəbli/', defZh: '明确无误地；不容混淆地', defEn: 'in a way that cannot be confused with anything else', example: 'Her handwriting was unmistakably the same as the one on the older letters.', exampleZh: '她的笔迹与那些更早的信件上的，明确无误地是同一个人的。' },
     { id: 'v4', word: 'troubling', lemma: 'trouble', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/ˈtrʌblɪŋ/', defZh: '费心；劳神（去做某事）', defEn: 'taking the effort or care to do something', example: 'Few of the readers troubling to send letters bothered to leave a return address.', exampleZh: '愿意费心给报社写信的读者里，几乎没人留下回信地址。' },
     { id: 'v5', word: 'precedent', lemma: 'precedent', sentenceId: 's3', level: 4, pos: 'n.', ipa: '/ˈpresɪdənt/', defZh: '先例；前例', defEn: 'an earlier instance that may be looked to as a guide or example', example: 'The court was reluctant to set a precedent the next decade of judges would have to live with.', exampleZh: '法院并不情愿立下一个未来十年的法官都得跟着走的先例。' },
     { id: 'v6', word: 'ledger', lemma: 'ledger', sentenceId: 's3', level: 4, pos: 'n.', ipa: '/ˈledʒər/', defZh: '账册；总账（此处为隐喻）', defEn: 'a book or record in which entries are kept, often used metaphorically for a long historical record', example: 'In the long ledger of postwar agreements, this clause is among the quietest and the most consequential.', exampleZh: '在战后协议那本长长的账册里，这一条款是最安静、也最举足轻重的几条之一。' },
     { id: 'v7', word: 'frank', lemma: 'frank', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/fræŋk/', defZh: '坦白的；不加掩饰的', defEn: 'open and honest, without disguise or concealment', example: 'It was a frank conversation, the kind you only have when both sides have stopped pretending.', exampleZh: '那是一场坦白的对话，是只有当双方都停止装样子之后，才会有的那种对话。' },
     { id: 'v8', word: 'spreading', lemma: 'spread', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈspredɪŋ/', defZh: '铺开；分布（动名词）', defEn: 'the act of distributing something across an area', example: 'The careful spreading of the seed beds across three valleys gave the farm a buffer against any single bad year.', exampleZh: '把苗圃小心地分布到三个山谷里，给这家农场提供了一道抵御任意一个坏年份的缓冲。' },
-    { id: 'v9', word: 'efficiency', lemma: 'efficiency', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/ɪˈfɪʃnsi/', defZh: '高效；效率（产出与投入之比）', defEn: 'the ratio of useful output to total input', example: 'The campaign\'s efficiency lay less in advertising than in the unglamorous work of phone banks.', exampleZh: '这场竞选的高效，与其说在广告上，不如说在那些不显眼的电话拨打小组的工作上。' },
+    { id: 'v9', word: 'efficiently', lemma: 'efficiently', sentenceId: 's6', level: 3, pos: 'adv.', ipa: '/ɪˈfɪʃntli/', defZh: '高效地；不浪费地', defEn: 'in a way that produces results without waste of effort or resource', example: 'The committee, working efficiently for once, cleared the agenda before lunch.', exampleZh: '这一次委员会工作得十分高效，午饭之前就把议程过完了。' },
     { id: 'v10', word: 'thickly', lemma: 'thickly', sentenceId: 's6', level: 3, pos: 'adv.', ipa: '/ˈθɪkli/', defZh: '稠密地；浓厚地', defEn: 'in a dense or concentrated way', example: 'The new arrivals settled thickly in the eastern boroughs and barely at all elsewhere.', exampleZh: '新来的人稠密地聚在东边几个行政区，别处几乎没有。' },
-    { id: 'v11', word: 'unsettling', lemma: 'unsettling', sentenceId: 's8', level: 3, pos: 'adj.', ipa: '/ʌnˈsetlɪŋ/', defZh: '令人不安的；扰动人心的', defEn: 'causing anxiety or a feeling that something is wrong', example: 'There was something unsettling about how cheerful the office had become in his absence.', exampleZh: '他不在的这段时间里，办公室变得那么愉快，让人有种说不上来的不安。' },
+    { id: 'v11', word: 'unsettling', lemma: 'unsettling', sentenceId: 's8', level: 4, pos: 'adj.', ipa: '/ʌnˈsetlɪŋ/', defZh: '令人不安的；扰动人心的', defEn: 'causing anxiety or a feeling that something is wrong', example: 'There was something unsettling about how cheerful the office had become in his absence.', exampleZh: '他不在的这段时间里，办公室变得那么愉快，让人有种说不上来的不安。' },
     { id: 'v12', word: 'plausible', lemma: 'plausible', sentenceId: 's8', level: 3, pos: 'adj.', ipa: '/ˈplɔːzəbl/', defZh: '说得过去的；合情理的', defEn: 'reasonable enough to be believed', example: 'The most plausible explanation is also, unfortunately, the most boring one.', exampleZh: '最说得过去的解释，遗憾的是，也是最无聊的那个。' },
     { id: 'v13', word: 'shamed', lemma: 'shame', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ʃeɪmd/', defZh: '使蒙羞；让……自惭形秽', defEn: 'caused to feel embarrassed or fall below an expected standard', example: 'The neighbouring school\'s graduation rate quietly shamed every administrator on the district board.', exampleZh: '邻校的毕业率，悄悄地让学区董事会上每一位行政官都感到自惭。' },
     { id: 'v14', word: 'instinctive', lemma: 'instinctive', sentenceId: 's10', level: 3, pos: 'adj.', ipa: '/ɪnˈstɪŋktɪv/', defZh: '本能的；不假思索的', defEn: 'arising from natural impulse rather than reasoning', example: 'Her instinctive answer turned out, on a second reading, to be the correct one.', exampleZh: '她不假思索给出的回答，再读一遍，证明竟是对的。' },
-    { id: 'v15', word: 'humour', lemma: 'humour', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈhjuːmər/', defZh: '心情；情绪状态（古义，多用 in good humour）', defEn: 'a temporary mood or state of mind', example: 'The committee, in unusually good humour that afternoon, approved every minor request on the agenda.', exampleZh: '那天下午委员会的心情罕见地不错，议程上每一项小请求都顺利通过。' },
+    { id: 'v15', word: 'humour', lemma: 'humour', sentenceId: 's10', level: 4, pos: 'n.', ipa: '/ˈhjuːmər/', defZh: '心情；情绪状态（古义，多用 in good humour）', defEn: 'a temporary mood or state of mind', example: 'The committee, in unusually good humour that afternoon, approved every minor request on the agenda.', exampleZh: '那天下午委员会的心情罕见地不错，议程上每一项小请求都顺利通过。' },
     { id: 'v16', word: 'abide', lemma: 'abide', sentenceId: 's11', level: 4, pos: 'v.', ipa: '/əˈbaɪd/', defZh: '忍受；容忍（多用否定）', defEn: 'to tolerate or put up with', example: 'He could abide the long meetings, but not the way they always overran their stated end.', exampleZh: '他能忍受那些冗长的会议，唯独受不了它们总是开过预定结束时间。' },
-    { id: 'v17', word: 'rhyme', lemma: 'rhyme', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/raɪm/', defZh: '押韵；（喻）相似性、回响', defEn: 'a similarity or echo, used metaphorically of historical parallels', example: 'There is a rhyme, perhaps not a precise one, between the present crisis and the autumn of 1973.', exampleZh: '当下这场危机和 1973 年秋天之间，有一种相似，未必精确，但能听见回响。' },
+    { id: 'v17', word: 'rhyme', lemma: 'rhyme', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/raɪm/', defZh: '押韵；（喻）相似性、回响', defEn: 'a similarity or echo, used metaphorically of historical parallels', example: 'There is a rhyme, perhaps not a precise one, between the present crisis and the autumn of 1973.', exampleZh: '当下这场危机和 1973 年秋天之间，有一种相似，未必精确，但能听见回响。' },
     { id: 'v18', word: 'masked', lemma: 'mask', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/mɑːskt/', defZh: '掩盖；遮蔽（事实或本质）', defEn: 'concealed the true nature or extent of something', example: 'The strong headline figure masked a quietly accumulating problem in the smaller divisions.', exampleZh: '亮眼的总数字，掩盖了几个小部门里悄悄积起来的麻烦。' },
     { id: 'v19', word: 'axis', lemma: 'axis', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈæksɪs/', defZh: '轴线；（政治）格局的中心结构', defEn: 'a central line around which something is organised', example: 'The old left-right axis no longer tells you very much about how any given household will vote.', exampleZh: '那条老的左右轴线，已经几乎不能告诉你一个家庭具体会怎么投票了。' },
     { id: 'v20', word: 'mandate', lemma: 'mandate', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ˈmændeɪt/', defZh: '授权；执政委任', defEn: 'the authority granted by an electorate to a government to act on its behalf', example: 'A narrow win is still a mandate of sorts, but the kind a careful prime minister carries gently.', exampleZh: '险胜也算一种授权，只是谨慎的首相会捧得很轻的那一种。' },
