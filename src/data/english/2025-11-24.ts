@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-24',
     title: 'After Two Years of ChatGPT, Professors Stopped Trying to Catch Their Students',
+    titleZh: '教授们停止了追查，转而妥协',
     cefr: 'C1',
     wordCount: 478,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-16',
     title: 'When the Last Line of Defense Goes Public',
+    titleZh: '勒索软件时代的数据安全上市',
     cefr: 'C1',
     wordCount: 451,
     readingMinutes: 6,

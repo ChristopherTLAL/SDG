@@ -87,6 +87,7 @@ export interface QuizQuestion {
 export interface ArticleMeta {
   date: string;
   title: string;
+  titleZh?: string;             // short Chinese subtitle, shown on the card and at the top of the article page
   cefr: 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
   wordCount: number;
   readingMinutes: number;

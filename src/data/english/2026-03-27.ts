@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-27',
     title: 'The Singer Who Broke the Code, and the Trophy',
+    titleZh: '瑞士歌手打破规则，拿走奖杯',
     cefr: 'B1',
     wordCount: 261,
     readingMinutes: 4,

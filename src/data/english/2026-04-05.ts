@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-05',
     title: 'A Handful of the Other Side: What Chang\'e 6 Actually Brought Back',
+    titleZh: '嫦娥六号带回了月背土壤',
     cefr: 'C2',
     wordCount: 539,
     readingMinutes: 7,

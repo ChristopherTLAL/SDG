@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-15',
     title: 'The Cosmonaut Who Counted His Days From Above and Below',
+    titleZh: '在太空数日子的宇航员',
     cefr: 'C1',
     wordCount: 431,
     readingMinutes: 6,

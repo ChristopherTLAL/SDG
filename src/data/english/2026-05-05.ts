@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-05',
     title: 'A Wet, Bouncy Calf and the Strange Economics of Going Viral',
+    titleZh: '小河马与病毒传播的经济学',
     cefr: 'B2',
     wordCount: 408,
     readingMinutes: 5,

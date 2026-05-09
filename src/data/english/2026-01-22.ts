@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-22',
     title: 'A Planet Begins to Read Its Own Handwriting',
+    titleZh: '一颗星球开始读懂自己的笔迹',
     cefr: 'C2',
     wordCount: 546,
     readingMinutes: 7,

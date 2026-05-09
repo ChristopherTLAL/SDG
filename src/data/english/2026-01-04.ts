@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-04',
     title: 'Private Orbit: What a Flag Means When the Seat Has an Invoice',
+    titleZh: '国旗与发票：私人轨道的象征',
     cefr: 'C2',
     wordCount: 503,
     readingMinutes: 7,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-19',
     title: 'A Vote Few Took as Final, and the President Who Did',
+    titleZh: '极右翼的票与把它当结论的人',
     cefr: 'C2',
     wordCount: 464,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-08',
     title: 'How a Word That Used to Mean "Plain to See" Came to Mean "Pull It Toward You"',
+    titleZh: '一个动词是怎么换了工作的',
     cefr: 'B2',
     wordCount: 372,
     readingMinutes: 5,

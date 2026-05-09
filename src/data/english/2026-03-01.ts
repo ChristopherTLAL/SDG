@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-01',
     title: 'The Bench, the Trees, and the Two-Minute Video That Ended a Very Modern Rumour',
+    titleZh: '两分钟视频跑赢了三个月的沉默',
     cefr: 'B2',
     wordCount: 420,
     readingMinutes: 5,

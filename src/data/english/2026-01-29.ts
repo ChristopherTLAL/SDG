@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-29',
     title: 'The Widow Who Inherited a Movement She Had Not Asked For',
+    titleZh: '她继承了一场她从未索取的运动',
     cefr: 'C1',
     wordCount: 482,
     readingMinutes: 6,

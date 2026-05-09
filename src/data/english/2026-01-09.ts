@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-09',
     title: 'The Voice That Was Too Small for Long Notes, and Just Right for One Song',
+    titleZh: '声音不够大，写出了那首歌',
     cefr: 'B1',
     wordCount: 287,
     readingMinutes: 4,

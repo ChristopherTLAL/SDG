@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-01',
     title: 'The Mandate That Refused to Be Coronated',
+    titleZh: '那个拒绝被加冕的选举结果',
     cefr: 'C2',
     wordCount: 643,
     readingMinutes: 7,

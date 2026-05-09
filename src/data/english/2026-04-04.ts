@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-04',
     title: 'The Quiet Hemisphere Finally Speaks',
+    titleZh: '月球背面第一批土样',
     cefr: 'C1',
     wordCount: 407,
     readingMinutes: 6,

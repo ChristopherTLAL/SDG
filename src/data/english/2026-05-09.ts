@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-09',
     title: 'The Throne Changes Hands: What Alcaraz\'s Wimbledon Repeat Means for Men\'s Tennis',
+    titleZh: '王座易主：男子网球的新时代',
     cefr: 'B2',
     wordCount: 393,
     readingMinutes: 5,

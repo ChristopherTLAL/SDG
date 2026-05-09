@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-11',
     title: 'A Verdict That Disqualifies Nobody: The Constitutional Novelty of a Felonious Candidate',
+    titleZh: '定罪了他，却无法取消资格',
     cefr: 'C2',
     wordCount: 539,
     readingMinutes: 7,

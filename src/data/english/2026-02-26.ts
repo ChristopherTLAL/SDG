@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-26',
     title: 'A Bridge Built for Smaller Ships: What the Patapsco Asked of Engineers Who Designed for a Lighter World',
+    titleZh: '为旧船建的桥遇上了新时代',
     cefr: 'C1',
     wordCount: 571,
     readingMinutes: 6,

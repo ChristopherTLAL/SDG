@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-03',
     title: 'A Big Majority on a Small Vote: The Curious Shape of Labour\'s 2024 Win',
+    titleZh: '工党的大胜建立在小票仓之上',
     cefr: 'C2',
     wordCount: 566,
     readingMinutes: 7,

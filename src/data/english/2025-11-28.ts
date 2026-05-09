@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-28',
     title: 'The Gavel Fell Before the Number Could Be Argued With',
+    titleZh: '槌声落下时，数字还没谈完',
     cefr: 'C1',
     wordCount: 519,
     readingMinutes: 6,

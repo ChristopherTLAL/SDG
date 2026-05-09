@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-06',
     title: 'The Moon Sniper That Landed on Its Nose',
+    titleZh: '「月球狙击手」落地后倒了',
     cefr: 'C1',
     wordCount: 478,
     readingMinutes: 6,

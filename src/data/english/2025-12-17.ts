@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-17',
     title: 'The Cathedral That Refused to Become Anyone\'s Statement',
+    titleZh: '法国选择原样重建的政治含义',
     cefr: 'C1',
     wordCount: 535,
     readingMinutes: 6,

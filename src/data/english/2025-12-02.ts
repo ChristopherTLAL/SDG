@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-02',
     title: 'A Country That Voted Tired',
+    titleZh: '一个投票投到疲倦的国家',
     cefr: 'C1',
     wordCount: 468,
     readingMinutes: 6,

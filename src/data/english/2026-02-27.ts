@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-27',
     title: 'The Company That Sells the Wires Behind the Boom',
+    titleZh: '卖数据中心连接线的公司上市',
     cefr: 'C1',
     wordCount: 452,
     readingMinutes: 6,

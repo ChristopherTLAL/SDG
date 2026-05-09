@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-06',
     title: 'When the Justification Becomes the Evidence',
+    titleZh: '当辩护词变成了证据',
     cefr: 'C1',
     wordCount: 432,
     readingMinutes: 6,

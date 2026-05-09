@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-26',
     title: 'What Failed Above the Pacific Was Not Quite the Mission',
+    titleZh: '那次「失败」登月并不算失败',
     cefr: 'C1',
     wordCount: 556,
     readingMinutes: 6,

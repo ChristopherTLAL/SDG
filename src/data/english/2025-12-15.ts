@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-15',
     title: 'The Ladder That Keeps Crowning Finland',
+    titleZh: '那把一直把芬兰排第一的梯子',
     cefr: 'C1',
     wordCount: 480,
     readingMinutes: 6,

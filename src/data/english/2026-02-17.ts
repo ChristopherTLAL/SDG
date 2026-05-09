@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-17',
     title: 'The Hour Starship Reached Space and Then Quietly Came Apart',
+    titleZh: '星舰飞到太空，然后悄悄解体了',
     cefr: 'C1',
     wordCount: 489,
     readingMinutes: 6,

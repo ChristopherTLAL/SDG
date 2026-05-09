@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-10',
     title: 'A Paperwork Crime That Quietly Rewrote a Sentence in the Constitution',
+    titleZh: '一桩账册罪写进了宪法先例',
     cefr: 'C1',
     wordCount: 432,
     readingMinutes: 6,

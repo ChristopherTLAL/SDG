@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-23',
     title: 'A Horse, the Rail, and a Nose: How Mystik Dan Won the 150th Derby',
+    titleZh: '鼻尖之差与第150届肯塔基赛',
     cefr: 'B1',
     wordCount: 319,
     readingMinutes: 4,

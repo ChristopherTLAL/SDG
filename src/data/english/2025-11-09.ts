@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-09',
     title: 'When a Country Treats Its Opening Ceremony Like a Manifesto',
+    titleZh: '开幕式作为一份国家宣言',
     cefr: 'B2',
     wordCount: 369,
     readingMinutes: 5,

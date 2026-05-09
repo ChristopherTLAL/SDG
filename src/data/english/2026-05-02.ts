@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-02',
     title: 'A Quieter Number, the Same Long Queue: China\'s Graduates and the Office Jobs That Did Not Wait',
+    titleZh: '毕业生与等不来的白领职位',
     cefr: 'C1',
     wordCount: 458,
     readingMinutes: 6,

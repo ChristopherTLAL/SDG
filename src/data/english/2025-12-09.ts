@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-09',
     title: 'A Cruelty We Are Not Sure How to Recognize',
+    titleZh: '一道无法被确认的伤害',
     cefr: 'C2',
     wordCount: 539,
     readingMinutes: 7,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-25',
     title: 'The Arithmetic of a Cleaner Ocean',
+    titleZh: '清塑料的账本缺了一半成本',
     cefr: 'C1',
     wordCount: 499,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-27',
     title: 'A Statute for a Moving Target: The EU AI Act and the Old Question of How Law Catches Up',
+    titleZh: '一部追赶移动靶的法律赌注',
     cefr: 'C2',
     wordCount: 593,
     readingMinutes: 7,

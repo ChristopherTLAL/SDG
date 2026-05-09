@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-10',
     title: 'The Weights, Not the Source: What Meta Gave Away When It Released Llama',
+    titleZh: 'Meta发布的是权重，不是源码',
     cefr: 'C2',
     wordCount: 511,
     readingMinutes: 7,

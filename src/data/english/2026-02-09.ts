@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-09',
     title: 'A Country Edits the One Adjective It Had Lived By',
+    titleZh: '瑞典删掉了那个两百年的词',
     cefr: 'C1',
     wordCount: 471,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-08',
     title: 'The Case Against Farming an Animal We Are Still Trying to Understand',
+    titleZh: '饲养一种我们尚未读懂的动物',
     cefr: 'C1',
     wordCount: 432,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-27',
     title: 'The Quiet Day a Model Was First Asked to Read a Whole Novel at Once',
+    titleZh: '第一次被要求一口气读完长篇',
     cefr: 'C1',
     wordCount: 446,
     readingMinutes: 6,

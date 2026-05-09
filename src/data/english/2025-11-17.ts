@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-17',
     title: 'The Cap That Was Not About Students',
+    titleZh: '留学名额上限不是为学生',
     cefr: 'C1',
     wordCount: 479,
     readingMinutes: 6,

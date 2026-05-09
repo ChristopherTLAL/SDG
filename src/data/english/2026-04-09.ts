@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-09',
     title: 'Why a Brooklyn Comedy Outflanked the Auteurs at Cannes',
+    titleZh: '小成本喜剧如何击败大导演',
     cefr: 'B2',
     wordCount: 417,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-31',
     title: 'Sideways on the Moon: How a Tipped-Over Lander Opened a New Lunar Ledger',
+    titleZh: '侧躺在月球上的商业登月新账本',
     cefr: 'C1',
     wordCount: 500,
     readingMinutes: 6,

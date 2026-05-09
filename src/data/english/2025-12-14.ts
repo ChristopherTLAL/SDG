@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-14',
     title: 'Why the Happiest Country Is Quietly Embarrassed by the Title',
+    titleZh: '芬兰为快乐第一感到尴尬',
     cefr: 'B2',
     wordCount: 391,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-01',
     title: 'The Deal That Settled Nothing',
+    titleZh: '那桩和解什么也没有解决',
     cefr: 'C2',
     wordCount: 528,
     readingMinutes: 7,

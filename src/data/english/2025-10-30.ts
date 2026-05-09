@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-10-30',
     title: 'The Night the Olympics Left the Stadium and Sailed Down a River',
+    titleZh: '奥运会漂浮在塞纳河上的那夜',
     cefr: 'B1',
     wordCount: 349,
     readingMinutes: 4,

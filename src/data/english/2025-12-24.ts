@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-24',
     title: 'A Good Year for the Plastic Catchers, and the Old Question They Cannot Answer',
+    titleZh: '捞了十年，问题还是那个问题',
     cefr: 'B2',
     wordCount: 418,
     readingMinutes: 5,

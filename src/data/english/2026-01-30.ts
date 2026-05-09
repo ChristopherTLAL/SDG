@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-30',
     title: 'A Man Who Knew the Price: Reading Navalny Two Years On',
+    titleZh: '他知道代价，还是回去了',
     cefr: 'C2',
     wordCount: 630,
     readingMinutes: 7,

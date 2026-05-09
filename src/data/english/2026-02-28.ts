@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-28',
     title: 'The Quiet Wager: What Astera Labs\' Listing Said About Where AI\'s Real Shortage Lies',
+    titleZh: 'AI真正的短缺在连接层',
     cefr: 'C2',
     wordCount: 626,
     readingMinutes: 7,

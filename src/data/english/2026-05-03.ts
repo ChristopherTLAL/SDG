@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-03',
     title: 'The Broken Compact: What China\'s Graduates Inherit When the Diploma\'s Promise Fails',
+    titleZh: '文凭的承诺失效之后',
     cefr: 'C2',
     wordCount: 524,
     readingMinutes: 7,

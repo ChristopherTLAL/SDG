@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-03',
     title: "What 'Soft Landing' Buys: A Sideways Lander and the Grammar of Public Contract",
+    titleZh: '「软着陆」在商业航天的新义',
     cefr: 'C2',
     wordCount: 467,
     readingMinutes: 7,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-10-28',
     title: 'How a Truckload of KitKats Disappeared, and What That Says About the Snack Aisle',
+    titleZh: '当零食成为货运犯罪的目标',
     cefr: 'B2',
     wordCount: 396,
     readingMinutes: 5,

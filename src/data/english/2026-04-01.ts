@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-01',
     title: 'A Bridge in the Weights: What Golden Gate Claude Was Actually Showing Us',
+    titleZh: '金门大桥嵌在模型权重里',
     cefr: 'C2',
     wordCount: 510,
     readingMinutes: 7,

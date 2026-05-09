@@ -73,6 +73,20 @@ Following `article-writing.md`:
 
 Aim for one quotable closing sentence.
 
+### Step 2.5: Write a short Chinese subtitle
+
+Set `meta.titleZh` to a 6-12 character Chinese subtitle that captures the heart of the piece. This shows on the library card under the English title and at the top of the article page. It is NOT a translation of the English title — it is a *companion* line that gives a Chinese reader the article's premise in one breath.
+
+Good `titleZh`:
+- 一篇博士辞职背后的实验室伦理 (institutional integrity under pressure — for the Stanford piece)
+- 当一座城市开始下沉 (Mexico City sinking)
+- 火山旁边的日常生活 (Iceland Reykjanes eruptions)
+
+Avoid:
+- Direct word-for-word translations of the English headline
+- Generic 4-character idioms with no specifics
+- Anything longer than ~14 characters (the card has limited width)
+
 ### Step 3: Tag vocabulary
 
 Following `vocab-tagging.md`, pick 18-22 words (adjust by CEFR per the table). For each:

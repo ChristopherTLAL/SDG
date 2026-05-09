@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-15',
     title: 'A Physicist, a Supermajority, and the Country She Inherits',
+    titleZh: '一位物理学家赢得超级多数席',
     cefr: 'C2',
     wordCount: 439,
     readingMinutes: 7,

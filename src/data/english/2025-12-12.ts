@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-12',
     title: 'A New Price Tag on the Top of the World',
+    titleZh: '珠穆朗玛峰许可证涨价之后',
     cefr: 'B2',
     wordCount: 417,
     readingMinutes: 5,

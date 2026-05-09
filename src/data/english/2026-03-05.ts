@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-05',
     title: 'The Day a Boy Genius Was Given Twenty-Five Years',
+    titleZh: '那个昔日天才被判了二十五年',
     cefr: 'B2',
     wordCount: 378,
     readingMinutes: 5,

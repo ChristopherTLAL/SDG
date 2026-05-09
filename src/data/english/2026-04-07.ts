@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-07',
     title: 'Cannes Opens, and the Air Is Heavier Than the Carpet',
+    titleZh: '戛纳开幕了，空气比红毯更沉',
     cefr: 'B2',
     wordCount: 405,
     readingMinutes: 5,

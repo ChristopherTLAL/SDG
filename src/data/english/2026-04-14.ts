@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-14',
     title: 'A Climate Scientist Inherits a Country, and the Sentence That Came With It',
+    titleZh: '一位气候科学家当选了总统',
     cefr: 'C1',
     wordCount: 454,
     readingMinutes: 6,

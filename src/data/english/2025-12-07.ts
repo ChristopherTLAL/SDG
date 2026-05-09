@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-07',
     title: 'The Long Whitening: A Reef That Is Going, Not Gone',
+    titleZh: '珊瑚礁的漫长白化：正在消失中',
     cefr: 'C2',
     wordCount: 588,
     readingMinutes: 7,

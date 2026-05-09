@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-24',
     title: 'The Algorithm as Sovereign Territory: What the Order to Sell TikTok Has Already Decided',
+    titleZh: '算法作为主权领土',
     cefr: 'C2',
     wordCount: 686,
     readingMinutes: 8,

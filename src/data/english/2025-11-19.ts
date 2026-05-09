@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-19',
     title: 'What Canada\'s Student Cap Revealed About a Funding Model Nobody Wanted to Name',
+    titleZh: '加拿大学签上限揭开了一种默契',
     cefr: 'C1',
     wordCount: 456,
     readingMinutes: 6,

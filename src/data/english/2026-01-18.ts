@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-18',
     title: 'The Two Songs Country Music Played for Toby Keith',
+    titleZh: '乡村音乐给他放了两首歌',
     cefr: 'B2',
     wordCount: 358,
     readingMinutes: 5,

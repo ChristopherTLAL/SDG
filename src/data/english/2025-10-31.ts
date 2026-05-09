@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-10-31',
     title: 'Soup, Glass, and the Mona Lisa: A Protest the Painting Could Not Feel',
+    titleZh: '泼向蒙娜丽莎的那碗南瓜汤',
     cefr: 'B2',
     wordCount: 388,
     readingMinutes: 5,

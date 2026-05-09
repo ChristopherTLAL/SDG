@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-15',
     title: 'The Quiet Machinery That Failed at Stanford',
+    titleZh: '大实验室自我监管的失败',
     cefr: 'C1',
     wordCount: 451,
     readingMinutes: 6,

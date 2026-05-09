@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-12',
     title: 'A Calendar Built Out of Code, and the Industry It Has Quietly Reshaped',
+    titleZh: '嵌在代码里的四年时钟',
     cefr: 'C1',
     wordCount: 577,
     readingMinutes: 6,

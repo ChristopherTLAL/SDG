@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-01',
     title: 'When a University President Could No Longer Stand by His Own Papers',
+    titleZh: '斯坦福校长的论文危机',
     cefr: 'B2',
     wordCount: 403,
     readingMinutes: 5,

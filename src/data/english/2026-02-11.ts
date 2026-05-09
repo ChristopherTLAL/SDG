@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-11',
     title: 'How a Three-Hour Movie About a Physicist Swept the Oscars',
+    titleZh: '三小时物理学家电影横扫奥斯卡',
     cefr: 'B1',
     wordCount: 260,
     readingMinutes: 4,

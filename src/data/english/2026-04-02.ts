@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-02',
     title: 'A Helicopter, a Fog Bank, and the Office That Kept Functioning',
+    titleZh: '直升机坠雾，政府运转如常',
     cefr: 'C1',
     wordCount: 472,
     readingMinutes: 6,

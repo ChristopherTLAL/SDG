@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-04',
     title: 'The Quarter a Forum\'s Posts Showed Up on a Balance Sheet',
+    titleZh: '帖子变成营收的那个季度',
     cefr: 'C1',
     wordCount: 476,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-21',
     title: 'The Visa That Quietly Pays the British University',
+    titleZh: '毕业签证悄悄撑着大学财务',
     cefr: 'C1',
     wordCount: 479,
     readingMinutes: 6,

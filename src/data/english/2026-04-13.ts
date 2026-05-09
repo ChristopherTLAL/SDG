@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-13',
     title: 'A Few Hours at the Top: When a Chip Designer Briefly Out-Weighed Apple',
+    titleZh: '一家芯片公司短暂超越了苹果',
     cefr: 'C2',
     wordCount: 438,
     readingMinutes: 7,

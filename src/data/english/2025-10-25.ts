@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-10-25',
     title: 'A Library That Survived Because It Burned',
+    titleZh: '被火焰保存的图书馆',
     cefr: 'C1',
     wordCount: 463,
     readingMinutes: 6,

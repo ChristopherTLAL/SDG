@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-04',
     title: 'India Voted for Six Weeks. The Answer Was Quieter Than Anyone Predicted.',
+    titleZh: '莫迪赢了，但赢得比预期更安静',
     cefr: 'B2',
     wordCount: 413,
     readingMinutes: 5,

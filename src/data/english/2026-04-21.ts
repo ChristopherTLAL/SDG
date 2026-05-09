@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-21',
     title: 'A Liturgy on the Limestone: What the Apulia G7 Was Really For',
+    titleZh: '阿普利亚峰会是在演什么',
     cefr: 'C2',
     wordCount: 529,
     readingMinutes: 7,

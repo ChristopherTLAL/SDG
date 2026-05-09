@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-20',
     title: 'A Quieter Working Week Is Already Reshaping European Offices',
+    titleZh: '四天工作制悄悄进入欧洲',
     cefr: 'B2',
     wordCount: 405,
     readingMinutes: 5,

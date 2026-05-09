@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-08',
     title: 'Haiku, Sonnet, Opus: What a Safety-First Lab Names Its Own Frontier',
+    titleZh: '俳句、十四行诗与史诗的命名',
     cefr: 'C2',
     wordCount: 542,
     readingMinutes: 7,

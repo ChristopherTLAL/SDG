@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-08',
     title: 'A Brooklyn Stripper Story Just Won Cannes\' Top Prize',
+    titleZh: '布鲁克林喜剧拿走了金棕榈',
     cefr: 'B1',
     wordCount: 313,
     readingMinutes: 4,

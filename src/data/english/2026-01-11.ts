@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-11',
     title: 'The Day a Magical Chocolate World Turned Out to Be a Bouncy Castle',
+    titleZh: '巧克力奇境其实是充气城堡',
     cefr: 'B1',
     wordCount: 298,
     readingMinutes: 4,

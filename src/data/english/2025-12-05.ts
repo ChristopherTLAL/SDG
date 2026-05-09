@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-05',
     title: 'Borrowed Customers: What Japan\'s Tourism Record Is Really Counting',
+    titleZh: '用人口萎缩换旅游繁荣的代价',
     cefr: 'C1',
     wordCount: 496,
     readingMinutes: 6,

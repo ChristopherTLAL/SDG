@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-08',
     title: 'A 21-Year-Old From Murcia and the Lawn He Refused to Give Back',
+    titleZh: '阿尔卡拉斯再次守住了温网草地',
     cefr: 'B1',
     wordCount: 273,
     readingMinutes: 4,

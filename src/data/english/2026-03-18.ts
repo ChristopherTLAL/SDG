@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-18',
     title: 'How a Bag Charm Pulled an Entire Supply Chain Out of Beijing',
+    titleZh: '一个挂件拉动了整条供应链',
     cefr: 'B2',
     wordCount: 392,
     readingMinutes: 5,

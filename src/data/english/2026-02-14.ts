@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-14',
     title: 'The Long Way to the Front Row: How Cillian Murphy Got to Best Actor',
+    titleZh: '墨菲与诺兰之间的长期信任',
     cefr: 'B2',
     wordCount: 334,
     readingMinutes: 5,

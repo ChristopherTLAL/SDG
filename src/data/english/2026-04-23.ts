@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-23',
     title: 'Banner Eighteen, and a League That Will Not Let Anyone Hold It Twice',
+    titleZh: '第18面旗帜与六年六支冠军',
     cefr: 'B2',
     wordCount: 405,
     readingMinutes: 5,

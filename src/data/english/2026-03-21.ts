@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-21',
     title: 'The Telescope That Refused to Hand Over the Sky',
+    titleZh: '哈勃拒绝把天空让给继任者',
     cefr: 'C1',
     wordCount: 438,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-07',
     title: 'The Night Iran Sent 300 Projectiles Toward Israel and Telephoned Ahead',
+    titleZh: '伊朗通知过后，发射了300枚',
     cefr: 'C1',
     wordCount: 541,
     readingMinutes: 7,

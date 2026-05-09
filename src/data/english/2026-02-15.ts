@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-15',
     title: 'A Director Wins an Oscar from His Drawing Desk',
+    titleZh: '宫崎骏在画桌前缺席领奖',
     cefr: 'B1',
     wordCount: 319,
     readingMinutes: 4,

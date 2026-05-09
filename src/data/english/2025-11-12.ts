@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-12',
     title: 'The Painting That Was Never the Point: What the Soup Was Really Aimed At',
+    titleZh: '那碗汤的真正目标不是那幅画',
     cefr: 'C1',
     wordCount: 483,
     readingMinutes: 6,

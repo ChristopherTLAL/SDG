@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-29',
     title: 'What a Number Owes: The Baku Climate Deal and the Arithmetic of an Older Debt',
+    titleZh: '巴库气候债：三千亿与那笔旧账',
     cefr: 'C2',
     wordCount: 543,
     readingMinutes: 7,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-10',
     title: 'The Long Boat Comes In: Sweden, Two Centuries of Neutrality, and the Day the Map Was Redrawn',
+    titleZh: '北欧老船驶入北约港口的那一天',
     cefr: 'C2',
     wordCount: 567,
     readingMinutes: 7,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-19',
     title: 'How a Drake Diss Track Turned Into a Crowd Anthem in Six Weeks',
+    titleZh: '一首diss如何在六周变成合唱',
     cefr: 'B1',
     wordCount: 277,
     readingMinutes: 4,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-18',
     title: 'The Town That Learned to Read Its Volcano',
+    titleZh: '与火山为邻的格林达维克',
     cefr: 'B2',
     wordCount: 392,
     readingMinutes: 5,

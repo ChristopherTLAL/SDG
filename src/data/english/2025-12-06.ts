@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-06',
     title: 'When the Warning Scale Itself Had to Be Rebuilt',
+    titleZh: '当预警量表走到了刻度尽头',
     cefr: 'C1',
     wordCount: 451,
     readingMinutes: 6,

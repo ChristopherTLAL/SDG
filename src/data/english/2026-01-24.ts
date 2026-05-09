@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-24',
     title: 'A Three-Yard Pass, a Pop Star, and a Word Football Forgot: Reading Super Bowl LVIII',
+    titleZh: '传球、明星与超级碗的王朝',
     cefr: 'B2',
     wordCount: 430,
     readingMinutes: 5,

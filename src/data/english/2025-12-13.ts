@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-13',
     title: 'What Nepal Is Really Selling When It Raises the Price of Everest',
+    titleZh: '尼泊尔卖的究竟是什么',
     cefr: 'C1',
     wordCount: 451,
     readingMinutes: 6,

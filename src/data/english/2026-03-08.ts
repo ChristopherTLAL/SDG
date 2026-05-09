@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-08',
     title: 'The Audience That Made the Salvo Legible',
+    titleZh: '那场进攻的真正受众是谁',
     cefr: 'C2',
     wordCount: 678,
     readingMinutes: 7,

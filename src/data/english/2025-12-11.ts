@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-11',
     title: 'One Receptor, Several Specialities, and a Quiet Argument About What Counts as a Cure',
+    titleZh: '一个受体，横跨五个医学专科',
     cefr: 'C2',
     wordCount: 487,
     readingMinutes: 7,

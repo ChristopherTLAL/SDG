@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-25',
     title: 'The Minute of Footage That Made a Studio Mogul Pause Construction',
+    titleZh: '一段视频让制片厂暂停施工',
     cefr: 'C1',
     wordCount: 484,
     readingMinutes: 6,

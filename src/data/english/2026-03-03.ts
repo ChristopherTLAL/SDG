@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-03',
     title: 'Four Minutes of Darkness, and the Three Economies It Produced',
+    titleZh: '四分钟黑暗的三种经济效应',
     cefr: 'C1',
     wordCount: 480,
     readingMinutes: 6,

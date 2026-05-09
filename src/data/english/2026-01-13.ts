@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-13',
     title: 'The Headset That Tim Cook Wanted Us to Love',
+    titleZh: '苹果头显与现实相遇的那一刻',
     cefr: 'B2',
     wordCount: 391,
     readingMinutes: 5,

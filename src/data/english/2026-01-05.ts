@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-05',
     title: 'The Lander That Nailed Its Mark and Then Fell Over',
+    titleZh: '降落精准，然后侧翻在月球上',
     cefr: 'C1',
     wordCount: 480,
     readingMinutes: 6,

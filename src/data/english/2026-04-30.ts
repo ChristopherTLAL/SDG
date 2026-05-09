@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-30',
     title: 'Free, but at What Cost: The Assange Plea and Its Unfinished Questions',
+    titleZh: '阿桑奇自由了，新闻自由呢',
     cefr: 'C1',
     wordCount: 456,
     readingMinutes: 6,

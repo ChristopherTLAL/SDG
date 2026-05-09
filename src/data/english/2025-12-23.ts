@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-23',
     title: 'The Drained Lake That Refuses to Stay Buried',
+    titleZh: '五百年后，湖底的缓慢复仇',
     cefr: 'C1',
     wordCount: 499,
     readingMinutes: 6,

@@ -111,6 +111,7 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
         <article class="el-article">
           <header class="el-article-head">
             <h1>{meta.title}</h1>
+            {meta.titleZh && <p class="el-article-title-zh">{meta.titleZh}</p>}
           </header>
 
           <div class="el-article-body">
@@ -586,6 +587,19 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--el-pin);
+    margin-bottom: 0.5rem;
+  }
+  .el-article-title-zh {
+    font-family: 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(4, 47, 36, 0.58);
+    letter-spacing: 0.04em;
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--el-border);
+  }
+  .el-article-head h1:last-child {
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--el-border);

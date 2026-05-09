@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-20',
     title: 'How a Rap Feud Compressed Itself into a Single Weekend',
+    titleZh: '说唱对决压缩进了一个周末',
     cefr: 'B2',
     wordCount: 372,
     readingMinutes: 5,

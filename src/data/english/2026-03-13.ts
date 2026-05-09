@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-13',
     title: 'The Twenty-Four Days Between a Debate and a Tweet',
+    titleZh: '辩论与退选推文之间的24天',
     cefr: 'C1',
     wordCount: 501,
     readingMinutes: 6,

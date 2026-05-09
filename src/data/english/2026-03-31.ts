@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-31',
     title: 'The Day a Chatbot Could Not Stop Talking About a Bridge',
+    titleZh: '那天聊天机器人只谈一座桥',
     cefr: 'C1',
     wordCount: 418,
     readingMinutes: 6,

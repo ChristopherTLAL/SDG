@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-17',
     title: 'The Cowboy Who Sang for Soldiers',
+    titleZh: '从油田唱到军营的乡村歌手',
     cefr: 'B1',
     wordCount: 290,
     readingMinutes: 4,

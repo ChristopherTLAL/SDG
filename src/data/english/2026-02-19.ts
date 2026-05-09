@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-19',
     title: 'A Number Was Required: Reading Putin\'s 88 Percent',
+    titleZh: '克里姆林宫需要那个数字',
     cefr: 'C1',
     wordCount: 513,
     readingMinutes: 6,

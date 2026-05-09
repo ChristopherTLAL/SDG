@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-28',
     title: 'A Third Term, a Hung Parliament, and the Hour After the Vote',
+    titleZh: '赖清德的悬空授权',
     cefr: 'C1',
     wordCount: 461,
     readingMinutes: 6,

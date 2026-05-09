@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-18',
     title: 'The Night the Map Tilted: How One European Vote Pushed a President to Gamble',
+    titleZh: '欧选结果把法国总统逼上赌桌',
     cefr: 'C1',
     wordCount: 462,
     readingMinutes: 6,

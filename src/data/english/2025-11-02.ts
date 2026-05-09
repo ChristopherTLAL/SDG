@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-02',
     title: 'Australia Picks a Number, and a Generation of Students Waits to Hear Theirs',
+    titleZh: '澳大利亚限额之后的漫长等待',
     cefr: 'B2',
     wordCount: 416,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-16',
     title: 'The Actress Who Got Famous for What She Could Not Do',
+    titleZh: '因为做不到某件事而成名的演员',
     cefr: 'B2',
     wordCount: 473,
     readingMinutes: 5,

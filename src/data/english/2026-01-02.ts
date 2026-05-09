@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-02',
     title: 'The Caucus as Liturgy: Subzero Iowa and a Party Already Closed',
+    titleZh: '党团会议作为一场确认仪式',
     cefr: 'C2',
     wordCount: 735,
     readingMinutes: 8,

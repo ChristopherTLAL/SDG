@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-30',
     title: 'What the World\'s Largest Vote Actually Said',
+    titleZh: '六亿张选票实际说了什么',
     cefr: 'C1',
     wordCount: 441,
     readingMinutes: 6,

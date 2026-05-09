@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-06',
     title: 'The Frame That Survived: Butler, the Roof, and the Image That Followed',
+    titleZh: '宾州屋顶、那张照片与那个空位',
     cefr: 'C1',
     wordCount: 477,
     readingMinutes: 6,

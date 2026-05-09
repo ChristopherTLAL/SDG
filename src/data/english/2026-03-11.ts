@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-11',
     title: 'The Night Bitcoin Halved Its Own Paycheck',
+    titleZh: '比特币把自己的工资砍了一半',
     cefr: 'B2',
     wordCount: 411,
     readingMinutes: 5,

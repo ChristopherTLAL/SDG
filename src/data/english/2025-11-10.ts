@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-10',
     title: 'How a Hashtag on TikTok Started Choosing What Bookshops Sell',
+    titleZh: 'TikTok书单重塑了书店货架',
     cefr: 'B2',
     wordCount: 378,
     readingMinutes: 5,

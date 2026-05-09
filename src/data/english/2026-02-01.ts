@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-01',
     title: 'After the Trace: What a Moving Image Owes the World',
+    titleZh: '当影像不再证明任何事曾发生过',
     cefr: 'C2',
     wordCount: 487,
     readingMinutes: 7,

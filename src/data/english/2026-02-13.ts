@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-13',
     title: 'A Cork Boy Steps Up: Cillian Murphy Wins Best Actor',
+    titleZh: '科克男孩走到了台前',
     cefr: 'B1',
     wordCount: 286,
     readingMinutes: 4,

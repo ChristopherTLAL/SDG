@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-24',
     title: 'The Quiet Way Spain Won Euro 2024',
+    titleZh: '西班牙安静地赢得了欧洲杯',
     cefr: 'B1',
     wordCount: 255,
     readingMinutes: 4,

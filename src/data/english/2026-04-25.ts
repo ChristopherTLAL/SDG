@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-25',
     title: 'A Month of Football Germany Was Quietly Ready For',
+    titleZh: '德国举办了一届有秩序的欧洲杯',
     cefr: 'B2',
     wordCount: 401,
     readingMinutes: 5,

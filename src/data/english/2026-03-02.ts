@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-02',
     title: 'The Two Minutes of Footage That Outran Three Months of Silence',
+    titleZh: '王妃消失期间，互联网在做什么',
     cefr: 'C1',
     wordCount: 531,
     readingMinutes: 7,

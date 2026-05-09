@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-23',
     title: 'The Strange Physics of Ordering an Algorithm to Change Owners',
+    titleZh: '给一个算法下令换国籍',
     cefr: 'C1',
     wordCount: 478,
     readingMinutes: 6,

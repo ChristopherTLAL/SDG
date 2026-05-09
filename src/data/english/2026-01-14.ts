@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-14',
     title: 'What the Vision Pro Was Actually Selling: A Quiet Lesson in Two-Sided Markets',
+    titleZh: 'Vision Pro与双边市场的冷账',
     cefr: 'C1',
     wordCount: 462,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-29',
     title: 'A Voice From the Edge: How a Forty-Seven-Year-Old Machine Came Back On Speaking Terms',
+    titleZh: '旅行者1号从宇宙边缘回话了',
     cefr: 'C2',
     wordCount: 528,
     readingMinutes: 7,

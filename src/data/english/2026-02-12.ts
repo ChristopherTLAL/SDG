@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-12',
     title: 'The Long Wait, and What the Academy Was Really Voting For',
+    titleZh: '诺兰等了多久才拿到导演奖',
     cefr: 'B2',
     wordCount: 392,
     readingMinutes: 5,

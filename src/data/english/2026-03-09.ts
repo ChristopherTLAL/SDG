@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-09',
     title: 'The Day Meta Gave Away a Model and Asked for Nothing Back',
+    titleZh: 'Meta免费送出了一个模型',
     cefr: 'C1',
     wordCount: 451,
     readingMinutes: 6,

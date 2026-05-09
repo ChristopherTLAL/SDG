@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-25',
     title: 'A Loose Wire, a Drifting Ship, and the Bridge That Held a City Together',
+    titleZh: '一根电线与垮塌的那座桥',
     cefr: 'B2',
     wordCount: 412,
     readingMinutes: 5,

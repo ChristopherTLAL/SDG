@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-16',
     title: 'How a Cathedral Came Back on Schedule',
+    titleZh: '圣母院按时重开了',
     cefr: 'B2',
     wordCount: 418,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-20',
     title: 'The Ritual of the Foregone Conclusion: Reading 88 Percent and the Noon Hour',
+    titleZh: '正午排队者与87%的数字',
     cefr: 'C2',
     wordCount: 705,
     readingMinutes: 7,

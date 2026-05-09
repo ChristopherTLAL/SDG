@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-03',
     title: 'A Landslide Built on a Thin Slice of the Electorate',
+    titleZh: '工党以最小票仓赢得最大多数席',
     cefr: 'B2',
     wordCount: 341,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-26',
     title: 'The World\'s First AI Law Is Already Being Bent Out of Shape',
+    titleZh: '世界上第一部AI法已在被弯曲',
     cefr: 'C1',
     wordCount: 469,
     readingMinutes: 6,

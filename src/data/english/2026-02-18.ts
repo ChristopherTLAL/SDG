@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-18',
     title: 'The Rocket That Means to Be Watched Failing',
+    titleZh: '那枚设计为公开失败的火箭',
     cefr: 'C2',
     wordCount: 574,
     readingMinutes: 7,

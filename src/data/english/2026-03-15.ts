@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-15',
     title: 'A Backup Company Walks Into Wall Street, and the Lights Come Back On',
+    titleZh: '备份公司上市，科技IPO重启',
     cefr: 'B2',
     wordCount: 420,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-22',
     title: 'When the Bill Says Six Figures: What a $100,000 College Sticker Actually Measures',
+    titleZh: '十万美元学费牌价衡量了什么',
     cefr: 'C1',
     wordCount: 433,
     readingMinutes: 6,

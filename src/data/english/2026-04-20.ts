@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-20',
     title: 'A Loan Backed by Frozen Money, and a Pope Talking About Machines',
+    titleZh: '冻结资产的贷款与教皇谈AI',
     cefr: 'C1',
     wordCount: 423,
     readingMinutes: 6,

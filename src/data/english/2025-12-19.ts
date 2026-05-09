@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-19',
     title: 'A Town the State Bought: What "Routine" Means When the Earth Sets the Calendar',
+    titleZh: '政府买下了那座小镇',
     cefr: 'C1',
     wordCount: 524,
     readingMinutes: 7,

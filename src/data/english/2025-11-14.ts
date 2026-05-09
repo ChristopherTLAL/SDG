@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-14',
     title: 'The Pyrrhic Picket: What Hollywood Won, and What It Has Lost',
+    titleZh: '历史性合同与消失的编剧室',
     cefr: 'C2',
     wordCount: 529,
     readingMinutes: 7,

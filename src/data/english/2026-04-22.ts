@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-22',
     title: 'How Boston Lifted Banner Eighteen and Sent the Lakers Home',
+    titleZh: '凯尔特人挂上了第18面冠军旗',
     cefr: 'B1',
     wordCount: 318,
     readingMinutes: 4,

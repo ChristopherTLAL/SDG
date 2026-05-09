@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-03-17',
     title: 'How a Pop Star Made a Tiny Monster Famous',
+    titleZh: '一位歌手让玩具怪兽出名了',
     cefr: 'B1',
     wordCount: 310,
     readingMinutes: 4,

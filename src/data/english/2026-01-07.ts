@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-07',
     title: 'The Year a Self-Help Verb Climbed Out of TikTok',
+    titleZh: '「显现」这个词爬出了TikTok',
     cefr: 'B1',
     wordCount: 297,
     readingMinutes: 4,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-20',
     title: 'What Apple Could Not Buy with Three Billion Dollars',
+    titleZh: '苹果用三十亿美元买不到的东西',
     cefr: 'C1',
     wordCount: 478,
     readingMinutes: 6,

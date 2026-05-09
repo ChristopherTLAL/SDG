@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-12',
     title: 'For an Afternoon, the World\'s Biggest Company Made Graphics Chips',
+    titleZh: '那个下午，英伟达短暂登顶',
     cefr: 'C1',
     wordCount: 478,
     readingMinutes: 6,

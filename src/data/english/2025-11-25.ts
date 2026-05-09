@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-11-25',
     title: 'The Quiet Question Every Essay Now Carries',
+    titleZh: '每篇文章背后那个沉默的问题',
     cefr: 'C2',
     wordCount: 554,
     readingMinutes: 7,

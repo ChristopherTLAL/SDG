@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-22',
     title: 'A Capital That Drinks the Ground It Stands On',
+    titleZh: '一座城市正在喝干它脚下的地层',
     cefr: 'B2',
     wordCount: 419,
     readingMinutes: 5,

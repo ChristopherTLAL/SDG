@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2025-12-30',
     title: 'When a Public University Decided to Hand a Chatbot the Keys to Freshman Comp',
+    titleZh: '亚利桑那把写作课交给了AI',
     cefr: 'C1',
     wordCount: 510,
     readingMinutes: 6,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-04-27',
     title: 'On-Device, On-Brand: What Apple Intelligence Actually Sells',
+    titleZh: '端侧处理与苹果的平台层主张',
     cefr: 'C2',
     wordCount: 404,
     readingMinutes: 6,

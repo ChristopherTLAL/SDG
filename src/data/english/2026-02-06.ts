@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-06',
     title: 'The Small Case That Quietly Refused to Let an Airline Disown Its Own Chatbot',
+    titleZh: '航空公司拒绝认领自己的机器人',
     cefr: 'C2',
     wordCount: 558,
     readingMinutes: 7,

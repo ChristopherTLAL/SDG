@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-03',
     title: 'When a Country Buys a Seat to Orbit: Reading the Ax-3 Mission',
+    titleZh: '一个国家租了一个轨道座位',
     cefr: 'C1',
     wordCount: 521,
     readingMinutes: 6,

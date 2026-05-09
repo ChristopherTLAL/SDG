@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-01-28',
     title: 'A Million Tokens of Memory, and the Quiet Argument Underneath',
+    titleZh: '百万token与记忆的哲学追问',
     cefr: 'C2',
     wordCount: 547,
     readingMinutes: 7,

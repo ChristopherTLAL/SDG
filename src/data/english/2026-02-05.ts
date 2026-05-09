@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-02-05',
     title: 'When the Help Window Becomes a Defendant',
+    titleZh: '当聊天机器人成为被告',
     cefr: 'C1',
     wordCount: 485,
     readingMinutes: 6,
