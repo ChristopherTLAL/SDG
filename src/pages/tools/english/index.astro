@@ -342,102 +342,168 @@ const rowsJson = JSON.stringify(rows);
     min-height: 0;
     overflow-y: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 14px;
-    padding: 2px 2px 12px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+    padding: 4px 4px 20px;
     align-content: start;
   }
   .lib-list-body:empty { display: none; }
 
-  /* CEFR shade ladder — A2 lightest, C2 deepest */
-  .lib-card[data-cefr="A2"] { background: #f3faf5; --pill-bg: #c4dfcc; --pill-fg: #224a30; --accent: #6fa982; }
-  .lib-card[data-cefr="B1"] { background: #e8f3ec; --pill-bg: #9ec7ab; --pill-fg: #19402a; --accent: #4f9069; }
-  .lib-card[data-cefr="B2"] { background: #d6e9dc; --pill-bg: #6fa982; --pill-fg: #ffffff; --accent: #2f7252; }
-  .lib-card[data-cefr="C1"] { background: #b9d8c2; --pill-bg: #2f7252; --pill-fg: #ffffff; --accent: #1a4a36; }
-  .lib-card[data-cefr="C2"] { background: #94c0a3; --pill-bg: #042f24; --pill-fg: #ffffff; --accent: #042f24; }
+  /* CEFR shade ladder — A2 lightest, C2 deepest. Each card carries its own
+     paint via CSS variables, so the watermark, pill, accent bar, and divider
+     stay color-coordinated. */
+  .lib-card[data-cefr="A2"] {
+    --bg: #ecf6ee; --bg-deep: #d8ebde; --pill: #5b9b73; --accent: #5b9b73; --watermark: rgba(91, 155, 115, 0.16);
+  }
+  .lib-card[data-cefr="B1"] {
+    --bg: #d8ebde; --bg-deep: #b9d8c2; --pill: #3f8260; --accent: #3f8260; --watermark: rgba(63, 130, 96, 0.18);
+  }
+  .lib-card[data-cefr="B2"] {
+    --bg: #b9d8c2; --bg-deep: #92bea1; --pill: #25664a; --accent: #25664a; --watermark: rgba(37, 102, 74, 0.20);
+  }
+  .lib-card[data-cefr="C1"] {
+    --bg: #88b89a; --bg-deep: #60997b; --pill: #0f4a35; --accent: #0f4a35; --watermark: rgba(15, 74, 53, 0.22);
+  }
+  .lib-card[data-cefr="C2"] {
+    --bg: #4d8268; --bg-deep: #325f4a; --pill: #042f24; --accent: #042f24; --watermark: rgba(4, 47, 36, 0.30);
+  }
+  /* C1 / C2 are dark — flip text to light for readability. */
+  .lib-card[data-cefr="C1"], .lib-card[data-cefr="C2"] { color: #f7faf8; }
+  .lib-card[data-cefr="C1"] .lib-card-title,
+  .lib-card[data-cefr="C2"] .lib-card-title { color: #ffffff; }
+  .lib-card[data-cefr="C1"] .lib-card-date,
+  .lib-card[data-cefr="C2"] .lib-card-date,
+  .lib-card[data-cefr="C1"] .lib-card-meta,
+  .lib-card[data-cefr="C2"] .lib-card-meta { color: rgba(255, 255, 255, 0.72); }
+  .lib-card[data-cefr="C1"] .lib-card-divider,
+  .lib-card[data-cefr="C2"] .lib-card-divider { background: rgba(255, 255, 255, 0.2); }
+  .lib-card[data-cefr="C1"] .lib-card-tag,
+  .lib-card[data-cefr="C2"] .lib-card-tag {
+    background: rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.92);
+  }
 
   .lib-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 16px 16px 14px;
-    border-radius: 14px;
+    height: 240px;
+    padding: 22px 22px 18px;
+    border-radius: 16px;
     text-decoration: none;
-    color: #042f24;
-    transition: transform 140ms ease, box-shadow 140ms ease;
-    border: 1px solid rgba(4, 47, 36, 0.08);
+    color: #0d2820;
+    background:
+      linear-gradient(135deg, var(--bg) 0%, var(--bg-deep) 100%);
+    transition: transform 160ms ease, box-shadow 160ms ease;
     overflow: hidden;
+    isolation: isolate;
   }
+  /* Big translucent CEFR letter watermark in bottom-right */
+  .lib-card::after {
+    content: attr(data-cefr);
+    position: absolute;
+    right: -14px;
+    bottom: -34px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 900;
+    font-size: 160px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--watermark);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Left accent bar */
   .lib-card::before {
     content: '';
     position: absolute;
     inset: 0 auto 0 0;
-    width: 4px;
+    width: 5px;
     background: var(--accent);
+    z-index: 1;
   }
   .lib-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px -10px rgba(4, 47, 36, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px -14px rgba(4, 47, 36, 0.40);
   }
+  .lib-card > * { position: relative; z-index: 2; }
+
   .lib-card-top {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    margin-bottom: 14px;
   }
   .lib-card-cefr {
-    display: inline-block;
-    padding: 3px 8px;
-    background: var(--pill-bg);
-    color: var(--pill-fg);
-    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--pill);
+    color: white;
+    border-radius: 6px;
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    font-size: 10px;
-    letter-spacing: 0.06em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
   }
   .lib-card-date {
     font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: rgba(4, 47, 36, 0.55);
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    color: rgba(4, 47, 36, 0.62);
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
   }
   .lib-card-meta {
     margin-left: auto;
-    font-size: 10.5px;
-    color: rgba(4, 47, 36, 0.55);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(4, 47, 36, 0.62);
     font-variant-numeric: tabular-nums;
+  }
+  .lib-card-meta .material-symbols-outlined {
+    font-size: 13px;
+    opacity: 0.8;
   }
   .lib-card-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
-    font-size: 14.5px;
+    font-size: 17px;
     color: #042f24;
-    line-height: 1.32;
+    line-height: 1.30;
+    letter-spacing: -0.01em;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    min-height: calc(1.32em * 3);
+    flex: 1;
   }
-  .lib-card:hover .lib-card-title { text-decoration: underline; text-underline-offset: 3px; }
+  .lib-card:hover .lib-card-title { text-decoration: underline; text-underline-offset: 4px; }
+  .lib-card-divider {
+    height: 1px;
+    background: rgba(4, 47, 36, 0.12);
+    margin: 14px 0 12px;
+  }
   .lib-card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
-    margin-top: auto;
+    gap: 5px;
+    align-items: center;
   }
   .lib-card-tag {
     display: inline-block;
-    padding: 2px 7px;
-    background: rgba(4, 47, 36, 0.08);
-    color: rgba(4, 47, 36, 0.72);
+    padding: 3px 9px;
+    background: rgba(4, 47, 36, 0.10);
+    color: rgba(4, 47, 36, 0.78);
     border-radius: 999px;
-    font-size: 10px;
+    font-size: 10.5px;
+    font-weight: 600;
     text-transform: capitalize;
     white-space: nowrap;
+    letter-spacing: 0.01em;
   }
 
   .lib-list-empty {
@@ -509,17 +575,11 @@ const rowsJson = JSON.stringify(rows);
     }
     (empty as HTMLElement).hidden = true;
 
-    // Compute backwards-counted display dates from today.
-    // ROWS is already sorted newest-first by slug, but `filtered` may be a subset.
-    // To keep dates stable across filters, anchor every article to its position in the FULL ROWS list.
-    const slugRank = new Map<string, number>();
-    ROWS.forEach((r, i) => slugRank.set(r.slug, i));
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     const html = filtered.map((r) => {
-      const idx = slugRank.get(r.slug) ?? 0;
-      const dateLabel = formatBackDate(today, idx);
+      const dateLabel = formatRelativeDate(r.date, today);
       const visibleTags = r.tags.slice(0, 3);
       const moreCount = r.tags.length - visibleTags.length;
       const tagsHtml = visibleTags.map((t) => `<span class="lib-card-tag">${escapeHtml(t)}</span>`).join('');
@@ -529,9 +589,10 @@ const rowsJson = JSON.stringify(rows);
           <div class="lib-card-top">
             <span class="lib-card-cefr">${r.cefr}</span>
             <span class="lib-card-date">${dateLabel}</span>
-            <span class="lib-card-meta">${r.minutes} min</span>
+            <span class="lib-card-meta"><span class="material-symbols-outlined">schedule</span>${r.minutes}m</span>
           </div>
           <div class="lib-card-title">${escapeHtml(r.title)}</div>
+          <div class="lib-card-divider"></div>
           <div class="lib-card-tags">${tagsHtml}${moreHtml}</div>
         </a>
       `;
@@ -539,16 +600,19 @@ const rowsJson = JSON.stringify(rows);
     listBody.innerHTML = html;
   }
 
-  function formatBackDate(today: Date, daysAgo: number): string {
+  function formatRelativeDate(iso: string, today: Date): string {
+    // iso is YYYY-MM-DD (the article's meta.date)
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, d);
+    dt.setHours(0, 0, 0, 0);
+    const daysAgo = Math.round((today.getTime() - dt.getTime()) / (1000 * 60 * 60 * 24));
     if (daysAgo === 0) return 'Today';
     if (daysAgo === 1) return 'Yesterday';
-    const d = new Date(today);
-    d.setDate(d.getDate() - daysAgo);
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    if (daysAgo < 365) {
-      return `${months[d.getMonth()]} ${d.getDate()}`;
-    }
-    return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    const sameYear = dt.getFullYear() === today.getFullYear();
+    return sameYear
+      ? `${months[dt.getMonth()]} ${dt.getDate()}`
+      : `${months[dt.getMonth()]} ${dt.getDate()}, ${dt.getFullYear()}`;
   }
 
   function escapeHtml(s: string): string {

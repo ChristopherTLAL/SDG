@@ -11,7 +11,6 @@ export const article: Article = {
   meta: {
     date: '2026-05-09',                       // YYYY-MM-DD; matches the slug + filename
     title: 'Why Tourists Are Now Paying to See the Stars',  // English headline
-    source: { name: 'BBC Future (sample)', url: 'https://www.bbc.com/future' },
     cefr: 'B2',                               // 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
     wordCount: 412,                           // count the article body, not headline
     readingMinutes: 5,                        // ~85 words per minute B1, ~120 B2, ~150 C1
