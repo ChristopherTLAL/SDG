@@ -82,7 +82,7 @@ PRIVATE_NO_SIGNING = {
 }
 
 # Onboard new vault folders for these advisors' uncovered students:
-ONBOARD_ADVISORS = ['钟婷婷', '古淑婷']
+ONBOARD_ADVISORS = ['钟婷婷', '古淑婷', '高幸玲', '王姝琰']
 
 TODAY = datetime.now().strftime('%Y-%m-%d')
 
