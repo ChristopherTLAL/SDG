@@ -349,39 +349,12 @@ const rowsJson = JSON.stringify(rows);
   }
   .lib-list-body:empty { display: none; }
 
-  /* CEFR shade ladder — A2 lightest, C2 deepest. Each card carries its own
-     paint via CSS variables, so the watermark, pill, accent bar, and divider
-     stay color-coordinated. */
-  .lib-card[data-cefr="A2"] {
-    --bg: #ecf6ee; --bg-deep: #d8ebde; --pill: #5b9b73; --accent: #5b9b73; --watermark: rgba(91, 155, 115, 0.16);
-  }
-  .lib-card[data-cefr="B1"] {
-    --bg: #d8ebde; --bg-deep: #b9d8c2; --pill: #3f8260; --accent: #3f8260; --watermark: rgba(63, 130, 96, 0.18);
-  }
-  .lib-card[data-cefr="B2"] {
-    --bg: #b9d8c2; --bg-deep: #92bea1; --pill: #25664a; --accent: #25664a; --watermark: rgba(37, 102, 74, 0.20);
-  }
-  .lib-card[data-cefr="C1"] {
-    --bg: #88b89a; --bg-deep: #60997b; --pill: #0f4a35; --accent: #0f4a35; --watermark: rgba(15, 74, 53, 0.22);
-  }
-  .lib-card[data-cefr="C2"] {
-    --bg: #4d8268; --bg-deep: #325f4a; --pill: #042f24; --accent: #042f24; --watermark: rgba(4, 47, 36, 0.30);
-  }
-  /* C1 / C2 are dark — flip text to light for readability. */
-  .lib-card[data-cefr="C1"], .lib-card[data-cefr="C2"] { color: #f7faf8; }
-  .lib-card[data-cefr="C1"] .lib-card-title,
-  .lib-card[data-cefr="C2"] .lib-card-title { color: #ffffff; }
-  .lib-card[data-cefr="C1"] .lib-card-date,
-  .lib-card[data-cefr="C2"] .lib-card-date,
-  .lib-card[data-cefr="C1"] .lib-card-meta,
-  .lib-card[data-cefr="C2"] .lib-card-meta { color: rgba(255, 255, 255, 0.72); }
-  .lib-card[data-cefr="C1"] .lib-card-divider,
-  .lib-card[data-cefr="C2"] .lib-card-divider { background: rgba(255, 255, 255, 0.2); }
-  .lib-card[data-cefr="C1"] .lib-card-tag,
-  .lib-card[data-cefr="C2"] .lib-card-tag {
-    background: rgba(255, 255, 255, 0.14);
-    color: rgba(255, 255, 255, 0.92);
-  }
+  /* CEFR pill shade ladder — only the pill carries color. Card stays white. */
+  .lib-card[data-cefr="A2"] { --pill-bg: #e6f1ea; --pill-fg: #2c6244; --accent: #cfe3d6; }
+  .lib-card[data-cefr="B1"] { --pill-bg: #c5dfcf; --pill-fg: #1f5236; --accent: #a8cfb6; }
+  .lib-card[data-cefr="B2"] { --pill-bg: #6fa982; --pill-fg: #ffffff; --accent: #6fa982; }
+  .lib-card[data-cefr="C1"] { --pill-bg: #2e6b50; --pill-fg: #ffffff; --accent: #2e6b50; }
+  .lib-card[data-cefr="C2"] { --pill-bg: #042f24; --pill-fg: #ffffff; --accent: #042f24; }
 
   .lib-card {
     position: relative;
@@ -391,42 +364,25 @@ const rowsJson = JSON.stringify(rows);
     padding: 22px 22px 18px;
     border-radius: 16px;
     text-decoration: none;
-    color: #0d2820;
-    background:
-      linear-gradient(135deg, var(--bg) 0%, var(--bg-deep) 100%);
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    color: #042f24;
+    background: white;
+    border: 1px solid rgba(4, 47, 36, 0.08);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     overflow: hidden;
-    isolation: isolate;
   }
-  /* Big translucent CEFR letter watermark in bottom-right */
-  .lib-card::after {
-    content: attr(data-cefr);
-    position: absolute;
-    right: -14px;
-    bottom: -34px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 900;
-    font-size: 160px;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: var(--watermark);
-    pointer-events: none;
-    z-index: 0;
-  }
-  /* Left accent bar */
+  /* Slim accent bar on the left, color from the CEFR ladder. */
   .lib-card::before {
     content: '';
     position: absolute;
     inset: 0 auto 0 0;
-    width: 5px;
+    width: 3px;
     background: var(--accent);
-    z-index: 1;
   }
   .lib-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px -14px rgba(4, 47, 36, 0.40);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -16px rgba(4, 47, 36, 0.22);
+    border-color: rgba(4, 47, 36, 0.18);
   }
-  .lib-card > * { position: relative; z-index: 2; }
 
   .lib-card-top {
     display: flex;
