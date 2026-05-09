@@ -77,26 +77,27 @@ const ACTIVE_ADVISORS_SET = new Set(ACTIVE_ADVISORS);
 // ── Contracts (留学 + 产品) by student → mid_advisor breakdown ──
 // Pulls every contract whose vault student is managed by an active 中期顾问.
 // Splits 留学申请 vs 非留学申请, with product-family bucketing for the 产品 widget.
-// KEEP student_id NOT NULL filter — every advisor-side widget (合同分布 / 周度
-// 签约 / Top30 / portfolio / 退费分析) only cares about vault-linked rows.
-// 月度产品节奏 widget needs company-wide rows → separate query below.
-// INCLUDE 已终止 — 退费分析 widget needs them; activeContracts filters them out.
-// .range(0, 9999) bypasses Supabase REST default 1000-row cap (vault-linked
-// rows currently ≈1500; cap was silently truncating to 1000 → 客单价 drift).
+// FILTER: status IN ('已归档', '已终止') — drop 已完成 (已交付学生, 不在带).
+// activeContracts filter (= '已归档') drives 合同分布 / 客单价 / Top30 / portfolio /
+// 周度签约. 退费分析 picks 已终止 from this same set with a 2-yr window.
+// .range(0, 9999) bypasses Supabase REST default 1000-row cap.
 const { data: rawContracts } = await supabase
   .from('contracts')
   .select('contract_id, customer_id, student_id, signed_at, signed_amount, template_name, category, status, is_application, mid_advisor, intake_year')
   .not('student_id', 'is', null)
+  .in('status', ['已归档', '已终止'])
   .order('signed_at', { ascending: false })
   .range(0, 9999);
 
 // Separate query for 月度产品节奏 widget — company-wide (incl. non-vault
-// students), 非留学 only, 排除已终止. ~2800 rows currently.
+// students), 非留学 only, status='已归档' (在带). User directive: 同样筛掉
+// 已完成/已终止. 老月份会偏少 (老合同已转 已完成) — 这是预期行为, 反映"当前
+// 在带学生 product 节奏". 想看历史签约高峰需另起 widget.
 const { data: rawMonthlyContracts } = await supabase
   .from('contracts')
   .select('signed_at, signed_amount, template_name, category')
   .eq('is_application', false)
-  .neq('status', '已终止')
+  .eq('status', '已归档')
   .not('signed_at', 'is', null)
   .range(0, 9999);
 
@@ -115,10 +116,14 @@ type ContractRow = {
 };
 
 const allContracts = (rawContracts ?? []) as ContractRow[];
-// Active contracts only (used by 合同分布 / 周度签约 / 顾问 portfolio /
-// Top 30 学生). 退费分析 widget queries the full set including 已终止.
+// "在带" contracts only — status='已归档' (signed but not yet 完成/终止).
+// 已完成 = 已交付学生（不在带）. 已终止 = 退费. Per user directive 2026-05-09:
+// 所有看板 widget 默认仅看在带学生，除非 widget explicitly says otherwise.
+// 这样后续清理老合同 (24F/25F 走完) 不会让客单价等指标飘动。
+// Used by 合同分布 / 客单价 / 周度签约 / 顾问 portfolio / Top 30 学生.
+// 退费分析 widget filters on status='已终止' separately.
 const activeContracts = allContracts.filter(c =>
-  c.status !== '已终止' && c.student_id != null
+  c.status === '已归档' && c.student_id != null
 );
 
 // Map student_id → primary 中期顾问 (first of mid_advisors[]). Multi-advisor
@@ -767,15 +772,19 @@ for (const w of PORTFOLIO_WINDOWS) {
 }
 
 // ──────────────────────────────────────────────────────
-// NEW Widget data: 退费分析 (已终止 contracts)
-// By 中期顾问: count, ¥, 退费率 = terminated / (terminated + active for advisor).
+// NEW Widget data: 退费分析 (已终止 contracts, 近 2 年)
+// 2-year window by signed_at — user directive 2026-05-09: 即使后续删除老合同
+// (e.g. 24F 走完后清理), 此 widget 数值不变 (cleanup 只删 ≥2yr 老合同).
+// By 中期顾问: count, ¥, 退费率 = terminated / (terminated + 在带) within 2yr.
 // By product family: count, ¥.
 // ──────────────────────────────────────────────────────
+const TERMINATED_WINDOW_DAYS = 365 * 2;
+const terminatedCutoff = isoDate(new Date(Date.now() - TERMINATED_WINDOW_DAYS * 86400000));
 type TerminatedAdvisorRow = {
   advisor: string;
   termCount: number;
   termRevenue: number;
-  totalCount: number;       // term + active for this advisor (via student_id link)
+  totalCount: number;       // term + 在带 within 2yr for this advisor
   termRate: number;
 };
 const terminatedByAdvisor = new Map<string, { term: number; termRev: number }>();
@@ -788,6 +797,9 @@ const terminatedByFamily = new Map<string, { count: number; revenue: number; isA
 
 for (const c of allContracts) {
   if (!c.student_id) continue;
+  if (!c.signed_at || c.signed_at < terminatedCutoff) continue;  // 2-year window
+  // Only count 已归档 (在带) and 已终止 (退费) — exclude 已完成 from denominator.
+  if (c.status !== '已归档' && c.status !== '已终止') continue;
   const adv = studentPrimaryAdvisor.get(c.student_id);
   if (!adv) continue;
   advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
@@ -1174,7 +1186,7 @@ function fmtMoney(n: number): string {
       <section data-panel="contracts" class="kanban-panel section-card is-active">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 排除已终止 · hover 任一行联动其他两列</span>
+            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 仅在带（status=已归档，排除已完成/已终止）· hover 任一行联动其他两列</span>
           </h2>
         </div>
 
@@ -1332,7 +1344,7 @@ function fmtMoney(n: number): string {
       <section data-panel="weekly" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            周度签约 ¥ <span class="section-card__subtitle">最近 12 周（周一锚定）· 色阶 = 当周顾问签约金额 · 排除已终止</span>
+            周度签约 ¥ <span class="section-card__subtitle">最近 12 周（周一锚定）· 色阶 = 当周顾问签约金额 · 仅在带（已归档）</span>
           </h2>
         </div>
         {weeklyRanked.length === 0 ? (
@@ -1387,7 +1399,7 @@ function fmtMoney(n: number): string {
       <section data-panel="monthly-products" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            产品节奏 <span class="section-card__subtitle">非留学合同（就业力/学术力/科研/竞赛/等）按产品族月度分布 · 排除已终止 · 全公司口径（不只 vault 学生）</span>
+            产品节奏 <span class="section-card__subtitle">非留学合同（就业力/学术力/科研/竞赛/等）按产品族月度分布 · 仅在带（已归档）· 全公司口径（不只 vault 学生）· 老月份偏少属正常（老合同已转 已完成）</span>
           </h2>
         </div>
         <div id="chart-monthly-products" style="width: 100%; height: 460px;"></div>
@@ -1399,7 +1411,7 @@ function fmtMoney(n: number): string {
       <section data-panel="top-students" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            Top 学生 <span class="section-card__subtitle">总签约 ¥ Top {topStudents.length} · 留学/产品 mix · 排除已终止 · 仅 vault 在管</span>
+            Top 学生 <span class="section-card__subtitle">总签约 ¥ Top {topStudents.length} · 留学/产品 mix · 仅在带（已归档）· 仅 vault 在管</span>
           </h2>
         </div>
         <ul class="ts-rows">
@@ -1435,7 +1447,7 @@ function fmtMoney(n: number): string {
       <section data-panel="portfolio" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            顾问 portfolio <span class="section-card__subtitle">x = 学生数 · y = 签约 ¥ · 气泡大小 = 沟通频次（合记笔记 + inbox 提交）· 排除已终止</span>
+            顾问 portfolio <span class="section-card__subtitle">x = 学生数 · y = 签约 ¥ · 气泡大小 = 沟通频次（合记笔记 + inbox 提交）· 仅在带（已归档）</span>
           </h2>
         </div>
         <div class="pf-controls">
@@ -1454,7 +1466,7 @@ function fmtMoney(n: number): string {
       <section data-panel="terminated" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            退费分析 <span class="section-card__subtitle">合同状态 = 已终止 · 退费率 = 终止数 / (终止+在执行) · 仅 vault 在管学生</span>
+            退费分析 <span class="section-card__subtitle">近 2 年（按签约日）· 合同状态 = 已终止 · 退费率 = 终止数 / (终止+在带) · 仅 vault 在管学生</span>
           </h2>
         </div>
 
