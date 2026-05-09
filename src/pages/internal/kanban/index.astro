@@ -1007,6 +1007,122 @@ const STAGE_COLORS: Record<string, string> = {
   '后期在途': SMOKY_PURPLE,
 };
 
+// ──────────────────────────────────────────────────────
+// 周报 (weekly report) 数据集 — 替代图表 clone
+// 三张表：在管学生 enroll × advisor cross-tab / 本周签约 / 本周沟通
+// ──────────────────────────────────────────────────────
+const ENROLL_COLS = ['24F', '25F', '26F', '27F', '28F', '29F', '待定'];
+
+function normalizeEnroll(raw: string | null | undefined): string {
+  if (!raw) return '待定';
+  const s = String(raw).trim();
+  if (!s || s === '待定' || s === '5000 fall' || s.startsWith('5000')) return '待定';
+  // "2026 fall" → "26F", "2026" → "26F" (defensive)
+  const m = s.match(/^(\d{4})/);
+  if (m) {
+    const yy = m[1].slice(2);
+    return ENROLL_COLS.includes(yy + 'F') ? yy + 'F' : '待定';
+  }
+  return '待定';
+}
+
+// Build enroll × advisor matrix. Only ACTIVE_ADVISORS, only vault students
+// (`students` is post 私单 + INACTIVE_STAGES filter).
+// 一个学生可能 enroll 多届 (e.g. 美本 transfer 申 2026F + 2027F) → 同时计入两列;
+// 与 stage × year heatmap 同口径.
+type EnrollRow = { advisor: string; counts: number[]; total: number };
+const enrollMatrix = new Map<string, number[]>();
+for (const adv of ACTIVE_ADVISORS) {
+  enrollMatrix.set(adv, new Array(ENROLL_COLS.length).fill(0));
+}
+for (const s of students) {
+  const adv = (s.mid_advisors || [])[0];
+  if (!adv || !ACTIVE_ADVISORS_SET.has(adv)) continue;
+  const years = (s.enroll_years && s.enroll_years.length > 0)
+    ? s.enroll_years
+    : [null];  // 没填 → "待定" 一行
+  const seen = new Set<number>();
+  for (const y of years) {
+    const yr = normalizeEnroll(y);
+    const colIdx = ENROLL_COLS.indexOf(yr);
+    if (colIdx < 0 || seen.has(colIdx)) continue;
+    seen.add(colIdx);
+    enrollMatrix.get(adv)![colIdx] += 1;
+  }
+}
+const enrollByAdvisor: EnrollRow[] = ACTIVE_ADVISORS.map(adv => {
+  const counts = enrollMatrix.get(adv)!;
+  return { advisor: adv, counts: [...counts], total: counts.reduce((a, b) => a + b, 0) };
+}).sort((a, b) => b.total - a.total);
+const enrollColTotals = ENROLL_COLS.map((_, i) =>
+  enrollByAdvisor.reduce((s, r) => s + r.counts[i], 0)
+);
+const enrollGrandTotal = enrollColTotals.reduce((a, b) => a + b, 0);
+
+// Past 7 days signings, by advisor (rows = each signed contract, sorted by amount DESC)
+const SEVEN_DAYS_AGO = isoDate(new Date(Date.now() - 7 * 86400000));
+type SigningRow = {
+  advisor: string;
+  studentName: string;
+  contractName: string;
+  amount: number;
+  isApplication: boolean;
+};
+const weekSigningRows: SigningRow[] = [];
+for (const c of activeContracts) {
+  if (!c.signed_at || c.signed_at < SEVEN_DAYS_AGO) continue;
+  const adv = studentPrimaryAdvisor.get(c.student_id);
+  if (!adv) continue;
+  const meta = studentMeta.get(c.student_id);
+  if (!meta) continue;  // 私单 student → skipped
+  weekSigningRows.push({
+    advisor: adv,
+    studentName: meta.name,
+    contractName: c.template_name || c.category || '—',
+    amount: Number(c.signed_amount) || 0,
+    isApplication: !!c.is_application,
+  });
+}
+weekSigningRows.sort((a, b) => b.amount - a.amount);
+const weekSigningTotalAmount = weekSigningRows.reduce((s, r) => s + r.amount, 0);
+
+// Past 7 days student communication, by advisor
+type CommRow = { advisor: string; count: number; students: number; perDay: string };
+const weekCommMap = new Map<string, { count: number; students: Set<number> }>();
+for (const adv of ACTIVE_ADVISORS) {
+  weekCommMap.set(adv, { count: 0, students: new Set() });
+}
+for (const n of (notes ?? [])) {
+  const day = (n.note_date as string).slice(0, 10);
+  if (day < SEVEN_DAYS_AGO) continue;
+  const sid = n.student_id as number;
+  const advisorList = studentAdvisors.get(sid) || [];
+  for (const a of advisorList) {
+    const e = weekCommMap.get(a);
+    if (e) { e.count += 1; e.students.add(sid); }
+  }
+}
+for (const sub of (subs ?? [])) {
+  const day = (sub.submitted_at as string).slice(0, 10);
+  if (day < SEVEN_DAYS_AGO) continue;
+  const sid = sub.student_id as number;
+  const advisorList = studentAdvisors.get(sid) || [];
+  for (const a of advisorList) {
+    const e = weekCommMap.get(a);
+    if (e) { e.count += 1; e.students.add(sid); }
+  }
+}
+const weekComms: CommRow[] = ACTIVE_ADVISORS.map(adv => {
+  const e = weekCommMap.get(adv)!;
+  return {
+    advisor: adv,
+    count: e.count,
+    students: e.students.size,
+    perDay: (e.count / 7).toFixed(1),
+  };
+}).sort((a, b) => b.count - a.count);
+const weekCommTotal = weekComms.reduce((s, r) => s + r.count, 0);
+
 // Pass everything client-side via JSON for the chart inits.
 const chartPayload = {
   schoolChartData,
@@ -1042,6 +1158,17 @@ const chartPayload = {
     signedStudentCount,
     avgPerStudent: signedStudentCount ? Math.round(totalSigning / signedStudentCount) : 0,
     activeContractCount: activeContracts.length,
+  },
+  // 周报: 3 数据表 (替代图表 clone)
+  weekly: {
+    enrollCols: ENROLL_COLS,
+    enrollRows: enrollByAdvisor,
+    enrollColTotals,
+    enrollGrandTotal,
+    signings: weekSigningRows,
+    signingTotal: weekSigningTotalAmount,
+    comms: weekComms,
+    commTotal: weekCommTotal,
   },
 };
 
@@ -1618,21 +1745,47 @@ function fmtMoney(n: number): string {
       </header>
 
       <div class="report-drawer__body">
-        <p class="report-drawer__hint">
-          勾选要进长图的板块 · 拖动调整顺序 · 「+ 添加文字」可在头尾或中间插入手写说明
-        </p>
 
-        <button type="button" class="report-add-btn report-add-btn--top" data-add-text="top">
-          <span class="material-symbols-outlined">add</span>
-          在最前面添加文字
-        </button>
+        <!-- 顶部固定文字段 (本周开篇) -->
+        <div class="report-fixed-section">
+          <div class="report-fixed-section__head">
+            <span class="report-fixed-section__num">01</span>
+            <span class="report-fixed-section__label">本周开篇</span>
+          </div>
+          <textarea id="report-top-note" class="report-fixed-section__ta" rows="8" spellcheck="false"></textarea>
+        </div>
 
-        <ul id="report-items" class="report-items" role="list"><!-- JS populates --></ul>
+        <!-- 数据板块 (3 fixed) -->
+        <div class="report-fixed-section">
+          <div class="report-fixed-section__head">
+            <span class="report-fixed-section__label">数据板块</span>
+            <span class="report-fixed-section__hint">勾选 · 加批注</span>
+          </div>
+          <ul id="report-items" class="report-items" role="list"><!-- JS populates 3 fixed items --></ul>
+        </div>
 
-        <button type="button" class="report-add-btn report-add-btn--bottom" data-add-text="bottom">
-          <span class="material-symbols-outlined">add</span>
-          在最后面添加文字
-        </button>
+        <!-- 中间手写文字段 (可选 + 可拖拽) -->
+        <div class="report-fixed-section">
+          <div class="report-fixed-section__head">
+            <span class="report-fixed-section__label">中间手写段（可选）</span>
+            <span class="report-fixed-section__hint">数据板块之间穿插</span>
+          </div>
+          <ul id="report-middle-texts" class="report-items" role="list"></ul>
+          <button type="button" id="add-middle-text" class="report-add-btn">
+            <span class="material-symbols-outlined">add</span>
+            添加文字段
+          </button>
+        </div>
+
+        <!-- 底部固定文字段 (下周与展望) -->
+        <div class="report-fixed-section">
+          <div class="report-fixed-section__head">
+            <span class="report-fixed-section__num">99</span>
+            <span class="report-fixed-section__label">下周与展望</span>
+          </div>
+          <textarea id="report-bottom-note" class="report-fixed-section__ta" rows="8" spellcheck="false"></textarea>
+        </div>
+
       </div>
 
       <footer class="report-drawer__foot">
@@ -2331,31 +2484,49 @@ function fmtMoney(n: number): string {
       });
 
       // ─────────────────────────────────────────────────────
-      // 周报导出 drawer + 长图 渲染
+      // 周报导出 drawer + 长图 渲染 (data-table edition)
       // ─────────────────────────────────────────────────────
-      const REPORT_WIDTH = 1080;  // matches /tools/english export-card aesthetic
-      const WIDGET_CATALOG = [
-        // [id, label, default-checked]
-        ['kpi',         'KPI 总览',          true],
-        ['contracts',   '合同分布',          true],
-        ['weekly',      '周度签约',          true],
-        ['activity',    '学生沟通',          true],
-        ['portfolio',   '顾问 portfolio',    false],
-        ['terminated',  '退费分析',          false],
-        ['top-students','Top 学生',          false],
-        ['monthly-products','月度产品节奏',  false],
-        ['stage-year',  '阶段 × 入学届',     false],
-        ['schools',     '在读学校分布',      false],
+      const REPORT_WIDTH = 1080;
+
+      // 3 fixed data widgets — clean HTML tables, no chart cloning
+      const DATA_WIDGETS = [
+        { id: 'enroll',   label: '在管学生分布（入学届 × 中期）' },
+        { id: 'signings', label: '本周新签约（按顾问）' },
+        { id: 'comms',    label: '本周学生沟通（按顾问）' },
       ];
 
-      // Items state — array of { type:'widget'|'text', id, checked, note?, title?, body? }
-      let reportItems = WIDGET_CATALOG.map(([id, label, checked]) => ({
-        type: 'widget', id, label, checked, note: '',
-      }));
+      // Default templates for top + bottom fixed text sections
+      const DEFAULT_TOP_TEMPLATE =
+`本周关键观察
 
-      const itemsEl = document.getElementById('report-items');
+1.
+2.
+3.
 
-      // Build via DOM API — robust against template-literal edge cases.
+风险或机会
+
+· `;
+      const DEFAULT_BOTTOM_TEMPLATE =
+`下周重点
+
+1.
+2.
+
+需要支持
+
+· `;
+
+      // State
+      let dataItems = DATA_WIDGETS.map(w => ({ ...w, checked: true, note: '' }));
+      let middleTexts = [];  // [{ title, body }]
+
+      // Init fixed textareas with template
+      const topNoteEl = document.getElementById('report-top-note');
+      const bottomNoteEl = document.getElementById('report-bottom-note');
+      topNoteEl.value = DEFAULT_TOP_TEMPLATE;
+      bottomNoteEl.value = DEFAULT_BOTTOM_TEMPLATE;
+
+      // Build helpers (DOM API — bulletproof)
       function makeIcon(name) {
         const span = document.createElement('span');
         span.className = 'material-symbols-outlined';
@@ -2374,200 +2545,215 @@ function fmtMoney(n: number): string {
         return b;
       }
 
-      function buildItemEl(item, idx, total) {
-        const li = document.createElement('li');
-        li.className = 'report-item' + (item.type === 'text' ? ' report-item--text' : '');
-        li.dataset.idx = String(idx);
+      // ── List 1: data items (3 fixed widgets, checkbox + note, NO drag) ──
+      const dataItemsEl = document.getElementById('report-items');
+      function renderDataItems() {
+        dataItemsEl.innerHTML = '';
+        dataItems.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.className = 'report-item';
+          li.dataset.idx = String(idx);
 
-        const row = document.createElement('div');
-        row.className = 'report-item__row';
+          const row = document.createElement('div');
+          row.className = 'report-item__row';
 
-        // Handle (drag SOURCE — only this is draggable)
-        const handle = document.createElement('div');
-        handle.className = 'report-item__handle';
-        handle.title = '按住拖动调整顺序';
-        handle.draggable = true;
-        handle.appendChild(makeIcon('drag_indicator'));
-        row.appendChild(handle);
-
-        if (item.type === 'widget') {
           const main = document.createElement('label');
           main.className = 'report-item__main';
           const cb = document.createElement('input');
           cb.type = 'checkbox';
           cb.checked = !!item.checked;
-          cb.dataset.act = 'check';
+          cb.dataset.act = 'di-check';
           main.appendChild(cb);
           const lbl = document.createElement('span');
           lbl.className = 'report-item__label';
           lbl.textContent = item.label;
           main.appendChild(lbl);
           row.appendChild(main);
-        } else {
-          const pill = document.createElement('span');
-          pill.className = 'report-item__pill';
-          pill.textContent = '文字';
-          row.appendChild(pill);
-          const ti = document.createElement('input');
-          ti.type = 'text';
-          ti.className = 'report-item__title';
-          ti.placeholder = '小标题（可留空）';
-          ti.value = item.title || '';
-          ti.dataset.act = 'title-input';
-          row.appendChild(ti);
-        }
 
-        const actions = document.createElement('div');
-        actions.className = 'report-item__actions';
-        actions.appendChild(makeBtn({ act: 'up',   icon: 'keyboard_arrow_up',   title: '上移', disabled: idx === 0 }));
-        actions.appendChild(makeBtn({ act: 'down', icon: 'keyboard_arrow_down', title: '下移', disabled: idx === total - 1 }));
-        if (item.type === 'widget') {
+          const actions = document.createElement('div');
+          actions.className = 'report-item__actions';
           actions.appendChild(makeBtn({
-            act: 'note',
+            act: 'di-note',
             icon: item.note ? 'edit_note' : 'add_comment',
             title: item.note ? '编辑批注' : '加批注',
           }));
-        } else {
-          actions.appendChild(makeBtn({ act: 'remove', icon: 'close', title: '删除', danger: true }));
-        }
-        row.appendChild(actions);
-        li.appendChild(row);
+          row.appendChild(actions);
+          li.appendChild(row);
 
-        // Note section — show by default ONLY for text-type items (body) or
-        // widget items with non-empty existing note.
-        const noteWrap = document.createElement('div');
-        noteWrap.className = 'report-item__note';
-        if (item.type === 'text' || item.note) noteWrap.classList.add('is-open');
-        const ta = document.createElement('textarea');
-        if (item.type === 'text') {
-          ta.dataset.act = 'body-input';
-          ta.placeholder = '正文 — 这段文字会出现在长图里';
-          ta.value = item.body || '';
-        } else {
-          ta.dataset.act = 'note-input';
-          ta.placeholder = '可选 · 给这个板块加一句话注解';
+          const noteWrap = document.createElement('div');
+          noteWrap.className = 'report-item__note';
+          if (item.note) noteWrap.classList.add('is-open');
+          const ta = document.createElement('textarea');
+          ta.dataset.act = 'di-note-input';
+          ta.placeholder = '可选 · 给这个数据板块加一句话注解';
           ta.value = item.note || '';
-        }
-        noteWrap.appendChild(ta);
-        li.appendChild(noteWrap);
+          noteWrap.appendChild(ta);
+          li.appendChild(noteWrap);
 
-        return li;
+          dataItemsEl.appendChild(li);
+        });
       }
-
-      function renderItems() {
-        itemsEl.innerHTML = '';
-        const total = reportItems.length;
-        reportItems.forEach((item, idx) => itemsEl.appendChild(buildItemEl(item, idx, total)));
-      }
-      renderItems();
-
-      itemsEl.addEventListener('click', (e) => {
+      renderDataItems();
+      dataItemsEl.addEventListener('click', (e) => {
         const btn = e.target.closest('button[data-act], input[data-act]');
         if (!btn) return;
         const li = btn.closest('.report-item');
         if (!li) return;
         const idx = Number(li.dataset.idx);
         const act = btn.dataset.act;
-        if (act === 'up' && idx > 0) {
-          [reportItems[idx - 1], reportItems[idx]] = [reportItems[idx], reportItems[idx - 1]];
-          renderItems();
-        } else if (act === 'down' && idx < reportItems.length - 1) {
-          [reportItems[idx + 1], reportItems[idx]] = [reportItems[idx], reportItems[idx + 1]];
-          renderItems();
-        } else if (act === 'remove') {
-          reportItems.splice(idx, 1);
-          renderItems();
-        } else if (act === 'note') {
-          const note = li.querySelector('.report-item__note');
-          note.classList.toggle('is-open');
-        } else if (act === 'check') {
-          reportItems[idx].checked = btn.checked;
+        if (act === 'di-check') {
+          dataItems[idx].checked = btn.checked;
+        } else if (act === 'di-note') {
+          li.querySelector('.report-item__note').classList.toggle('is-open');
         }
       });
-      itemsEl.addEventListener('input', (e) => {
+      dataItemsEl.addEventListener('input', (e) => {
+        const t = e.target;
+        if (t.dataset.act !== 'di-note-input') return;
+        const idx = Number(t.closest('.report-item').dataset.idx);
+        dataItems[idx].note = t.value;
+      });
+
+      // ── List 2: middle text sections (reorderable via drag) ──
+      const midEl = document.getElementById('report-middle-texts');
+      function renderMiddleTexts() {
+        midEl.innerHTML = '';
+        const total = middleTexts.length;
+        middleTexts.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.className = 'report-item report-item--text';
+          li.dataset.idx = String(idx);
+
+          const row = document.createElement('div');
+          row.className = 'report-item__row';
+
+          const handle = document.createElement('div');
+          handle.className = 'report-item__handle';
+          handle.title = '按住拖动调整顺序';
+          handle.draggable = true;
+          handle.appendChild(makeIcon('drag_indicator'));
+          row.appendChild(handle);
+
+          const pill = document.createElement('span');
+          pill.className = 'report-item__pill';
+          pill.textContent = '文字';
+          row.appendChild(pill);
+
+          const ti = document.createElement('input');
+          ti.type = 'text';
+          ti.className = 'report-item__title';
+          ti.placeholder = '小标题（可留空）';
+          ti.value = item.title || '';
+          ti.dataset.act = 'mt-title';
+          row.appendChild(ti);
+
+          const actions = document.createElement('div');
+          actions.className = 'report-item__actions';
+          actions.appendChild(makeBtn({ act: 'mt-up', icon: 'keyboard_arrow_up', title: '上移', disabled: idx === 0 }));
+          actions.appendChild(makeBtn({ act: 'mt-down', icon: 'keyboard_arrow_down', title: '下移', disabled: idx === total - 1 }));
+          actions.appendChild(makeBtn({ act: 'mt-remove', icon: 'close', title: '删除', danger: true }));
+          row.appendChild(actions);
+          li.appendChild(row);
+
+          const noteWrap = document.createElement('div');
+          noteWrap.className = 'report-item__note is-open';
+          const ta = document.createElement('textarea');
+          ta.dataset.act = 'mt-body';
+          ta.placeholder = '正文 — 这段文字会出现在长图里';
+          ta.value = item.body || '';
+          noteWrap.appendChild(ta);
+          li.appendChild(noteWrap);
+
+          midEl.appendChild(li);
+        });
+      }
+      renderMiddleTexts();
+      midEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-act], input[data-act]');
+        if (!btn) return;
+        const li = btn.closest('.report-item');
+        if (!li) return;
+        const idx = Number(li.dataset.idx);
+        const act = btn.dataset.act;
+        if (act === 'mt-up' && idx > 0) {
+          [middleTexts[idx-1], middleTexts[idx]] = [middleTexts[idx], middleTexts[idx-1]];
+          renderMiddleTexts();
+        } else if (act === 'mt-down' && idx < middleTexts.length - 1) {
+          [middleTexts[idx+1], middleTexts[idx]] = [middleTexts[idx], middleTexts[idx+1]];
+          renderMiddleTexts();
+        } else if (act === 'mt-remove') {
+          middleTexts.splice(idx, 1);
+          renderMiddleTexts();
+        }
+      });
+      midEl.addEventListener('input', (e) => {
         const t = e.target;
         const li = t.closest('.report-item');
         if (!li) return;
         const idx = Number(li.dataset.idx);
-        const act = t.dataset.act;
-        if (act === 'note-input') reportItems[idx].note = t.value;
-        else if (act === 'title-input') reportItems[idx].title = t.value;
-        else if (act === 'body-input') reportItems[idx].body = t.value;
+        if (t.dataset.act === 'mt-title') middleTexts[idx].title = t.value;
+        else if (t.dataset.act === 'mt-body') middleTexts[idx].body = t.value;
       });
-
-      // ── HTML5 drag-and-drop — drag SOURCE is the handle only ──
-      // (LI itself is not draggable; drag fires on the handle, we then
-      //  treat its parent LI as the moved item.)
-      let dragSrcIdx = null;
-      itemsEl.addEventListener('dragstart', (e) => {
-        const handle = e.target.closest('.report-item__handle');
-        if (!handle) { e.preventDefault(); return; }
-        const li = handle.closest('.report-item');
+      // Drag-and-drop only on middle list
+      let mtDragSrc = null;
+      midEl.addEventListener('dragstart', (e) => {
+        const h = e.target.closest('.report-item__handle');
+        if (!h) { e.preventDefault(); return; }
+        const li = h.closest('.report-item');
         if (!li) { e.preventDefault(); return; }
-        dragSrcIdx = Number(li.dataset.idx);
-        // Use the LI as the drag image (browser default = handle only)
+        mtDragSrc = Number(li.dataset.idx);
         try {
-          const rect = li.getBoundingClientRect();
-          e.dataTransfer.setDragImage(li, e.clientX - rect.left, e.clientY - rect.top);
-        } catch (_) { /* setDragImage unsupported in some browsers */ }
+          const r = li.getBoundingClientRect();
+          e.dataTransfer.setDragImage(li, e.clientX - r.left, e.clientY - r.top);
+        } catch (_) {}
         e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/plain', String(dragSrcIdx));
-        // Add dragging class on next frame so it doesn't capture the drag image
+        e.dataTransfer.setData('text/plain', String(mtDragSrc));
         requestAnimationFrame(() => li.classList.add('is-dragging'));
       });
-      itemsEl.addEventListener('dragover', (e) => {
-        if (dragSrcIdx === null) return;
+      midEl.addEventListener('dragover', (e) => {
+        if (mtDragSrc === null) return;
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
         const li = e.target.closest('.report-item');
         if (!li) return;
-        // Clear all indicators, then set on hovered
-        itemsEl.querySelectorAll('.is-drop-target').forEach(el => {
+        midEl.querySelectorAll('.is-drop-target').forEach(el => {
           el.classList.remove('is-drop-target', 'drop-above', 'drop-below');
         });
-        const rect = li.getBoundingClientRect();
-        const above = e.clientY < rect.top + rect.height / 2;
+        const r = li.getBoundingClientRect();
+        const above = e.clientY < r.top + r.height / 2;
         li.classList.add('is-drop-target', above ? 'drop-above' : 'drop-below');
       });
-      itemsEl.addEventListener('drop', (e) => {
-        if (dragSrcIdx === null) return;
+      midEl.addEventListener('drop', (e) => {
+        if (mtDragSrc === null) return;
         e.preventDefault();
         const li = e.target.closest('.report-item');
-        if (!li) { dragSrcIdx = null; return; }
-        let dstIdx = Number(li.dataset.idx);
-        const rect = li.getBoundingClientRect();
-        const above = e.clientY < rect.top + rect.height / 2;
-        if (!above) dstIdx += 1;
-        if (dragSrcIdx < dstIdx) dstIdx -= 1;
-        if (dragSrcIdx !== dstIdx) {
-          const [moved] = reportItems.splice(dragSrcIdx, 1);
-          reportItems.splice(dstIdx, 0, moved);
-          renderItems();
+        if (!li) { mtDragSrc = null; return; }
+        let dst = Number(li.dataset.idx);
+        const r = li.getBoundingClientRect();
+        const above = e.clientY < r.top + r.height / 2;
+        if (!above) dst += 1;
+        if (mtDragSrc < dst) dst -= 1;
+        if (mtDragSrc !== dst) {
+          const [m] = middleTexts.splice(mtDragSrc, 1);
+          middleTexts.splice(dst, 0, m);
+          renderMiddleTexts();
         }
-        dragSrcIdx = null;
+        mtDragSrc = null;
       });
-      itemsEl.addEventListener('dragend', () => {
-        itemsEl.querySelectorAll('.is-dragging, .is-drop-target').forEach(el => {
+      midEl.addEventListener('dragend', () => {
+        midEl.querySelectorAll('.is-dragging, .is-drop-target').forEach(el => {
           el.classList.remove('is-dragging', 'is-drop-target', 'drop-above', 'drop-below');
         });
-        dragSrcIdx = null;
+        mtDragSrc = null;
       });
 
-      // Top/bottom add-text buttons
-      document.querySelectorAll('[data-add-text]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const where = btn.dataset.addText;
-          const newItem = { type: 'text', title: '', body: '', checked: true };
-          if (where === 'top') reportItems.unshift(newItem);
-          else reportItems.push(newItem);
-          renderItems();
-          // Focus the new title input
-          requestAnimationFrame(() => {
-            const idx = where === 'top' ? 0 : reportItems.length - 1;
-            const newLi = itemsEl.querySelector(`[data-idx="${idx}"]`);
-            const input = newLi && newLi.querySelector('input[data-act="title-input"]');
-            if (input) input.focus();
-          });
+      document.getElementById('add-middle-text').addEventListener('click', () => {
+        middleTexts.push({ title: '', body: '' });
+        renderMiddleTexts();
+        requestAnimationFrame(() => {
+          const last = midEl.querySelector('.report-item:last-child');
+          const ti = last && last.querySelector('input[data-act="mt-title"]');
+          if (ti) ti.focus();
         });
       });
 
@@ -2688,178 +2874,254 @@ function fmtMoney(n: number): string {
         canvas.appendChild(foot);
       }
 
-      // KPI block — clean publication-style table (numbers right-aligned, dotted leaders)
-      function renderKPIBlock(canvas, note) {
-        const k = payload.kpi || {};
+      // ── Helpers for table cells ──
+      function fmtMoneyShortClient(v) {
+        if (v >= 100000000) return '¥' + (v / 100000000).toFixed(2) + ' 亿';
+        if (v >= 10000) return '¥' + (v / 10000).toFixed(1) + '万';
+        if (v > 0) return '¥' + Math.round(v).toLocaleString();
+        return '¥0';
+      }
+
+      // ── 数据表 1: 在管学生 enroll × advisor cross-tab ──
+      function renderEnrollTable(canvas, note) {
+        const w = (payload.weekly && payload.weekly) || {};
+        const cols = w.enrollCols || [];
+        const rows = w.enrollRows || [];
+        const colTotals = w.enrollColTotals || [];
+        const grand = w.enrollGrandTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('Key Numbers', '本周关键数字'));
+        block.appendChild(makeSectionHead('Active Book by Intake', '在管学生分布'));
 
-        const grid = document.createElement('div');
-        grid.className = 'rep-kpi-grid';
-
-        const rows = [
-          { label: '签约总额',  value: fmtMoneyLong(k.totalSigning   || 0), accent: true },
-          { label: '已收',     value: fmtMoneyLong(k.totalReceived  || 0) },
-          { label: '已交付',   value: fmtMoneyLong(k.totalDelivered || 0) },
-          { label: '预收余额', value: fmtMoneyLong(k.totalPrepay    || 0) },
-          { label: '在管学生', value: String(k.activeStudents      || 0) + ' 人' },
-          { label: '在带合同', value: String(k.activeContractCount || 0) + ' 单' },
-          { label: '已签学生', value: String(k.signedStudentCount  || 0) + ' 人' },
-          { label: '客单价',   value: fmtMoneyLong(k.avgPerStudent  || 0) },
-        ];
-        rows.forEach(r => {
-          const card = document.createElement('div');
-          card.className = 'rep-kpi' + (r.accent ? ' rep-kpi--accent' : '');
-          const label = document.createElement('div');
-          label.className = 'rep-kpi__label';
-          label.textContent = r.label;
-          const num = document.createElement('div');
-          num.className = 'rep-kpi__num';
-          num.textContent = r.value;
-          card.appendChild(label);
-          card.appendChild(num);
-          grid.appendChild(card);
+        const t = document.createElement('table');
+        t.className = 'rep-table rep-table--matrix';
+        // Head
+        const thead = document.createElement('thead');
+        const trh = document.createElement('tr');
+        const th0 = document.createElement('th');
+        th0.textContent = '中期顾问';
+        th0.className = 'rep-table__th-row';
+        trh.appendChild(th0);
+        cols.forEach(c => {
+          const th = document.createElement('th');
+          th.textContent = c;
+          trh.appendChild(th);
         });
-        block.appendChild(grid);
+        const thT = document.createElement('th');
+        thT.textContent = '合计';
+        thT.className = 'rep-table__th-total';
+        trh.appendChild(thT);
+        thead.appendChild(trh);
+        t.appendChild(thead);
+        // Body
+        const tbody = document.createElement('tbody');
+        rows.forEach(r => {
+          const tr = document.createElement('tr');
+          const td0 = document.createElement('td');
+          td0.textContent = r.advisor;
+          td0.className = 'rep-table__advisor';
+          tr.appendChild(td0);
+          r.counts.forEach(n => {
+            const td = document.createElement('td');
+            td.textContent = n > 0 ? String(n) : '·';
+            td.className = n > 0 ? '' : 'rep-table__zero';
+            tr.appendChild(td);
+          });
+          const tdT = document.createElement('td');
+          tdT.textContent = String(r.total);
+          tdT.className = 'rep-table__total';
+          tr.appendChild(tdT);
+          tbody.appendChild(tr);
+        });
+        t.appendChild(tbody);
+        // Footer (column totals)
+        const tfoot = document.createElement('tfoot');
+        const trf = document.createElement('tr');
+        const tdf0 = document.createElement('td');
+        tdf0.textContent = '合计';
+        tdf0.className = 'rep-table__advisor';
+        trf.appendChild(tdf0);
+        colTotals.forEach(n => {
+          const td = document.createElement('td');
+          td.textContent = String(n);
+          trf.appendChild(td);
+        });
+        const tdfT = document.createElement('td');
+        tdfT.textContent = String(grand);
+        tdfT.className = 'rep-table__total';
+        trf.appendChild(tdfT);
+        tfoot.appendChild(trf);
+        t.appendChild(tfoot);
 
-        const noteEl = makeNote(note);
-        if (noteEl) block.appendChild(noteEl);
+        block.appendChild(t);
+        const ne = makeNote(note); if (ne) block.appendChild(ne);
         canvas.appendChild(block);
       }
 
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-      }
-
-      // Clone a panel from the live page into the report.
-      // ECharts panels (portfolio / activity / monthly / schools / stage-year):
-      //   only embed the canvas as <img> — drop kanban chrome entirely.
-      // HTML panels (contracts / weekly / terminated / top-students):
-      //   clone the inner content, drop section-card header, strip controls.
-      const ECHARTS_PANELS = new Set(['portfolio', 'activity', 'monthly-products', 'schools', 'stage-year']);
-
-      async function renderWidgetBlock(canvas, item) {
+      // ── 数据表 2: 本周新签约 (按顾问) ──
+      function renderSigningsTable(canvas, note) {
+        const w = (payload.weekly && payload.weekly) || {};
+        const rows = w.signings || [];
+        const total = w.signingTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        const titleMap = {
-          'contracts': ['合同分布', 'Advisor Contract Mix'],
-          'weekly': ['周度签约', 'Weekly Signings'],
-          'activity': ['学生沟通热力', 'Communication Activity'],
-          'portfolio': ['顾问 portfolio', 'Advisor Portfolio'],
-          'terminated': ['退费分析', 'Refunds'],
-          'top-students': ['Top 学生', 'Top Students by Revenue'],
-          'monthly-products': ['月度产品节奏', 'Monthly Product Rhythm'],
-          'stage-year': ['阶段 × 入学届', 'Stage by Intake'],
-          'schools': ['在读学校分布', 'Schools'],
-        };
-        const [zh, en] = titleMap[item.id] || [item.label, ''];
-        block.appendChild(makeSectionHead(en || '—', zh));
-        canvas.appendChild(block);
+        block.appendChild(makeSectionHead('This Week · New Contracts', '本周新签约'));
 
-        const livePanel = document.querySelector(`[data-panel="${item.id}"]`);
-        if (!livePanel) {
-          const empty = document.createElement('p');
-          empty.className = 'rep-block__empty';
-          empty.textContent = '[panel 不存在]';
-          block.appendChild(empty);
+        if (rows.length === 0) {
+          const p = document.createElement('p');
+          p.className = 'rep-block__empty';
+          p.textContent = '本周暂无新签约。';
+          block.appendChild(p);
+          const ne = makeNote(note); if (ne) block.appendChild(ne);
+          canvas.appendChild(block);
           return;
         }
 
-        // Activate the live panel briefly (charts are 0×0 inside display:none)
-        const wasActive = livePanel.classList.contains('is-active');
-        if (!wasActive) livePanel.classList.add('is-active');
+        const t = document.createElement('table');
+        t.className = 'rep-table rep-table--list';
+        const thead = document.createElement('thead');
+        thead.innerHTML = '<tr>'
+          + '<th class="rep-table__th-row">中期</th>'
+          + '<th>学生</th>'
+          + '<th>合同</th>'
+          + '<th class="rep-table__th-cat">类型</th>'
+          + '<th class="rep-table__th-amount">金额</th>'
+          + '</tr>';
+        t.appendChild(thead);
+        const tbody = document.createElement('tbody');
+        rows.forEach(r => {
+          const tr = document.createElement('tr');
+          const tdAdv = document.createElement('td');
+          tdAdv.textContent = r.advisor;
+          tdAdv.className = 'rep-table__advisor';
+          tr.appendChild(tdAdv);
+          const tdStu = document.createElement('td');
+          tdStu.textContent = r.studentName;
+          tr.appendChild(tdStu);
+          const tdCon = document.createElement('td');
+          tdCon.textContent = r.contractName;
+          tdCon.className = 'rep-table__contract';
+          tr.appendChild(tdCon);
+          const tdCat = document.createElement('td');
+          tdCat.className = 'rep-table__cat';
+          const catTag = document.createElement('span');
+          catTag.className = 'rep-tag ' + (r.isApplication ? 'rep-tag--app' : 'rep-tag--prod');
+          catTag.textContent = r.isApplication ? '留学' : '产品';
+          tdCat.appendChild(catTag);
+          tr.appendChild(tdCat);
+          const tdAmt = document.createElement('td');
+          tdAmt.textContent = fmtMoneyShortClient(r.amount);
+          tdAmt.className = 'rep-table__amount';
+          tr.appendChild(tdAmt);
+          tbody.appendChild(tr);
+        });
+        t.appendChild(tbody);
+        const tfoot = document.createElement('tfoot');
+        const trf = document.createElement('tr');
+        const td1 = document.createElement('td');
+        td1.colSpan = 4;
+        td1.textContent = `合计 ${rows.length} 单`;
+        td1.className = 'rep-table__advisor';
+        trf.appendChild(td1);
+        const td2 = document.createElement('td');
+        td2.className = 'rep-table__amount rep-table__total';
+        td2.textContent = fmtMoneyShortClient(total);
+        trf.appendChild(td2);
+        tfoot.appendChild(trf);
+        t.appendChild(tfoot);
 
-        // Double-rAF to wait for paint to commit, then resize all charts,
-        // then wait long enough for any animation to settle.
-        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-        charts.forEach(c => c && c.resize());
-        await new Promise(r => setTimeout(r, 350));
-
-        if (ECHARTS_PANELS.has(item.id)) {
-          // ── Canvas-based widget: embed the canvas image directly ──
-          const liveCanvas = livePanel.querySelector('canvas');
-          if (liveCanvas) {
-            try {
-              const img = document.createElement('img');
-              img.src = liveCanvas.toDataURL('image/png');
-              img.className = 'rep-canvas-img';
-              block.appendChild(img);
-            } catch (e) {
-              console.warn('toDataURL failed for', item.id, e);
-              const fail = document.createElement('p');
-              fail.className = 'rep-block__empty';
-              fail.textContent = '[chart snapshot failed]';
-              block.appendChild(fail);
-            }
-          }
-        } else {
-          // ── HTML-based widget: clone inner content (skip section-card header) ──
-          const wrap = document.createElement('div');
-          wrap.className = 'rep-clone';
-          // Clone everything inside the panel EXCEPT section-card__header
-          Array.from(livePanel.children).forEach(child => {
-            if (child.classList && child.classList.contains('section-card__header')) return;
-            wrap.appendChild(child.cloneNode(true));
-          });
-          // Strip interactive controls + anchors → spans
-          wrap.querySelectorAll('button, [role="tab"], .pf-controls').forEach(el => el.remove());
-          wrap.querySelectorAll('a').forEach(el => {
-            const span = document.createElement('span');
-            span.textContent = el.textContent;
-            span.className = el.className;
-            el.replaceWith(span);
-          });
-          // For weekly: only keep the active wk-pane
-          wrap.querySelectorAll('.wk-pane').forEach(p => {
-            if (!p.classList.contains('is-active')) p.remove();
-          });
-          // Replace any nested ECharts canvas with image
-          const liveCanvases = livePanel.querySelectorAll('canvas');
-          const clonedCanvases = wrap.querySelectorAll('canvas');
-          liveCanvases.forEach((src, i) => {
-            const tgt = clonedCanvases[i];
-            if (!tgt) return;
-            try {
-              const img = document.createElement('img');
-              img.src = src.toDataURL('image/png');
-              img.style.width = '100%';
-              img.style.display = 'block';
-              tgt.replaceWith(img);
-            } catch (e) { console.warn('nested canvas snapshot failed', e); }
-          });
-          block.appendChild(wrap);
-        }
-
-        if (item.note) {
-          const noteEl = document.createElement('p');
-          noteEl.className = 'rep-block__note';
-          noteEl.textContent = item.note;
-          block.appendChild(noteEl);
-        }
-
-        if (!wasActive) livePanel.classList.remove('is-active');
+        block.appendChild(t);
+        const ne = makeNote(note); if (ne) block.appendChild(ne);
+        canvas.appendChild(block);
       }
 
-      function renderTextBlock(canvas, item) {
-        if (!item.title && !item.body) return;
+      // ── 数据表 3: 本周学生沟通 (按顾问) ──
+      function renderCommsTable(canvas, note) {
+        const w = (payload.weekly && payload.weekly) || {};
+        const rows = w.comms || [];
+        const total = w.commTotal || 0;
+        const block = document.createElement('section');
+        block.className = 'rep-block';
+        block.appendChild(makeSectionHead('This Week · Communications', '本周学生沟通'));
+
+        const t = document.createElement('table');
+        t.className = 'rep-table rep-table--list';
+        const thead = document.createElement('thead');
+        thead.innerHTML = '<tr>'
+          + '<th class="rep-table__th-row">中期</th>'
+          + '<th class="rep-table__th-num">沟通次数</th>'
+          + '<th class="rep-table__th-num">涉及学生</th>'
+          + '<th class="rep-table__th-num">日均</th>'
+          + '</tr>';
+        t.appendChild(thead);
+        const tbody = document.createElement('tbody');
+        rows.forEach(r => {
+          const tr = document.createElement('tr');
+          if (r.count === 0) tr.className = 'rep-table__row--zero';
+          const td0 = document.createElement('td');
+          td0.textContent = r.advisor;
+          td0.className = 'rep-table__advisor';
+          tr.appendChild(td0);
+          const td1 = document.createElement('td');
+          td1.textContent = r.count > 0 ? String(r.count) : '·';
+          td1.className = 'rep-table__num';
+          tr.appendChild(td1);
+          const td2 = document.createElement('td');
+          td2.textContent = r.students > 0 ? String(r.students) : '·';
+          td2.className = 'rep-table__num';
+          tr.appendChild(td2);
+          const td3 = document.createElement('td');
+          td3.textContent = r.count > 0 ? r.perDay : '·';
+          td3.className = 'rep-table__num';
+          tr.appendChild(td3);
+          tbody.appendChild(tr);
+        });
+        t.appendChild(tbody);
+        const tfoot = document.createElement('tfoot');
+        const trf = document.createElement('tr');
+        const tdf0 = document.createElement('td');
+        tdf0.textContent = '合计';
+        tdf0.className = 'rep-table__advisor';
+        trf.appendChild(tdf0);
+        const tdfT = document.createElement('td');
+        tdfT.textContent = String(total);
+        tdfT.className = 'rep-table__num rep-table__total';
+        trf.appendChild(tdfT);
+        const tdfE1 = document.createElement('td');
+        tdfE1.textContent = '';
+        trf.appendChild(tdfE1);
+        const tdfE2 = document.createElement('td');
+        tdfE2.textContent = (total / 7).toFixed(1);
+        tdfE2.className = 'rep-table__num rep-table__total';
+        trf.appendChild(tdfE2);
+        tfoot.appendChild(trf);
+        t.appendChild(tfoot);
+
+        block.appendChild(t);
+        const ne = makeNote(note); if (ne) block.appendChild(ne);
+        canvas.appendChild(block);
+      }
+
+      // ── Free-text section (used by top, bottom, and middle texts) ──
+      function renderTextSection(canvas, en, zh, body) {
+        const trimmed = (body || '').trim();
+        if (!trimmed) return;
         const block = document.createElement('section');
         block.className = 'rep-block rep-block--text';
-        if (item.title) {
-          block.appendChild(makeSectionHead('Note', item.title));
-        }
-        if (item.body) {
-          const para = document.createElement('div');
-          para.className = 'rep-text-body';
-          item.body.split(/\n+/).forEach(line => {
-            if (line.trim()) {
-              const p = document.createElement('p');
-              p.textContent = line;
-              para.appendChild(p);
-            }
-          });
-          block.appendChild(para);
-        }
+        block.appendChild(makeSectionHead(en, zh));
+        const para = document.createElement('div');
+        para.className = 'rep-text-body';
+        trimmed.split(/\n/).forEach(line => {
+          const p = document.createElement('p');
+          if (line.trim() === '') {
+            p.className = 'rep-text-body__spacer';
+            p.innerHTML = '&nbsp;';
+          } else {
+            p.textContent = line;
+          }
+          para.appendChild(p);
+        });
+        block.appendChild(para);
         canvas.appendChild(block);
       }
 
@@ -2911,16 +3173,30 @@ function fmtMoney(n: number): string {
           sectionCounter = 0;
 
           buildHeader(canvas);
-          for (const item of reportItems) {
-            if (!item.checked) continue;
-            if (item.type === 'text') {
-              renderTextBlock(canvas, item);
-            } else if (item.id === 'kpi') {
-              renderKPIBlock(canvas, item.note);
-            } else {
-              await renderWidgetBlock(canvas, item);
-            }
-          }
+
+          // Top fixed text section
+          renderTextSection(canvas, 'Opening', '本周开篇', topNoteEl.value);
+
+          // 3 data tables (in fixed order)
+          const renderers = {
+            'enroll':   renderEnrollTable,
+            'signings': renderSigningsTable,
+            'comms':    renderCommsTable,
+          };
+          dataItems.forEach(item => {
+            if (!item.checked) return;
+            const fn = renderers[item.id];
+            if (fn) fn(canvas, item.note);
+          });
+
+          // Middle text sections (in their drag-ordered order)
+          middleTexts.forEach(mt => {
+            renderTextSection(canvas, 'Note', mt.title || '说明', mt.body);
+          });
+
+          // Bottom fixed text section
+          renderTextSection(canvas, 'Outlook', '下周与展望', bottomNoteEl.value);
+
           buildFooter(canvas);
 
           // 3. Double-rAF + 200ms wait so paint is committed and any
@@ -4320,9 +4596,63 @@ function fmtMoney(n: number): string {
       transition: all 0.15s;
       letter-spacing: -0.005em;
       font-family: inherit;
+      margin-top: 8px;
     }
     .report-add-btn:hover { color: var(--primary); border-color: var(--primary); background: #f0fdf9; }
     .report-add-btn .material-symbols-outlined { font-size: 16px; }
+
+    /* ── Fixed sections in drawer (top note / data list / middle / bottom note) ── */
+    .report-fixed-section {
+      margin-bottom: 24px;
+    }
+    .report-fixed-section:last-child { margin-bottom: 0; }
+    .report-fixed-section__head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f3;
+    }
+    .report-fixed-section__num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Manrope', 'SF Mono', monospace;
+      letter-spacing: 1px;
+    }
+    .report-fixed-section__label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.005em;
+    }
+    .report-fixed-section__hint {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+    .report-fixed-section__ta {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      line-height: 1.65;
+      border: 1px solid #ebebef;
+      border-radius: 10px;
+      resize: vertical;
+      background: #fafafa;
+      color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+      tab-size: 2;
+    }
+    .report-fixed-section__ta:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.08);
+    }
 
     /* ─────────────────────────────────────────────────────── */
     /* Hidden report canvas — publication / article aesthetic   */
@@ -4530,6 +4860,94 @@ function fmtMoney(n: number): string {
     .rep-clone .wk-pane:not(.is-active) { display: none; }
     .rep-clone .wk-pane { display: block; }
     .rep-clone img { display: block; max-width: 100%; }
+
+    /* ── Data tables (the new core content) ── */
+    .rep-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+      font-size: 14px;
+      color: #1e293b;
+    }
+    .rep-table th {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      text-align: right;
+      padding: 10px 12px;
+      border-bottom: 2px solid #042f24;
+      background: white;
+    }
+    .rep-table th.rep-table__th-row { text-align: left; }
+    .rep-table td {
+      padding: 12px 12px;
+      text-align: right;
+      border-bottom: 1px solid #f1f5f9;
+      font-family: 'Manrope', 'SF Mono', monospace;
+      letter-spacing: -0.2px;
+    }
+    .rep-table tbody tr:hover { background: #fafafa; }
+    .rep-table__advisor {
+      font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', sans-serif !important;
+      text-align: left !important;
+      font-weight: 700;
+      color: #042f24;
+      letter-spacing: -0.2px;
+    }
+    .rep-table__zero { color: #cbd5e1; font-weight: 400; }
+    .rep-table__row--zero { opacity: 0.55; }
+    .rep-table__total {
+      font-weight: 800;
+      color: #042f24;
+    }
+    .rep-table tfoot td {
+      border-bottom: none;
+      border-top: 2px solid #042f24;
+      padding-top: 14px;
+      background: #f8fafc;
+    }
+    .rep-table__amount, .rep-table__num { font-weight: 700; }
+
+    /* Cross-tab table specifics: tighter cells */
+    .rep-table--matrix th { font-size: 10px; padding: 10px 8px; text-align: center; }
+    .rep-table--matrix th.rep-table__th-row { text-align: left; padding-left: 12px; }
+    .rep-table--matrix td { padding: 11px 8px; text-align: center; }
+    .rep-table--matrix .rep-table__advisor { padding-left: 12px; }
+
+    /* List table specifics: contract name truncates */
+    .rep-table--list .rep-table__th-cat { width: 60px; text-align: center; }
+    .rep-table--list .rep-table__th-amount { width: 110px; }
+    .rep-table--list .rep-table__th-num { width: 110px; }
+    .rep-table--list .rep-table__contract {
+      text-align: left;
+      color: #475569;
+      font-family: 'Manrope', 'PingFang SC', sans-serif !important;
+      font-weight: 500;
+      font-size: 13.5px;
+    }
+    .rep-table--list .rep-table__cat { text-align: center; }
+
+    /* Tag pills (contract type) */
+    .rep-tag {
+      display: inline-block;
+      padding: 2px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      border-radius: 999px;
+      font-family: 'Manrope', 'PingFang SC', sans-serif !important;
+    }
+    .rep-tag--app { background: #f0fdf9; color: #042f24; border: 1px solid #bce3d4; }
+    .rep-tag--prod { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+
+    /* Plain-text body — preserve line breaks from textarea */
+    .rep-text-body__spacer {
+      height: 8px;
+      margin: 0 !important;
+      line-height: 8px;
+    }
 
     /* ── Footer ── */
     .rep-footer {
