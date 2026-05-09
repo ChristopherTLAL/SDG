@@ -1011,7 +1011,8 @@ const STAGE_COLORS: Record<string, string> = {
 // 周报 (weekly report) 数据集 — 替代图表 clone
 // 三张表：在管学生 enroll × advisor cross-tab / 本周签约 / 本周沟通
 // ──────────────────────────────────────────────────────
-const ENROLL_COLS = ['24F', '25F', '26F', '27F', '28F', '29F', '待定'];
+// 24F/25F 列已删 (大部分顾问几乎为空 → 视觉留白; 那两届的学生也不进表)
+const ENROLL_COLS = ['26F', '27F', '28F', '29F', '待定'];
 
 function normalizeEnroll(raw: string | null | undefined): string {
   if (!raw) return '待定';
@@ -1021,7 +1022,11 @@ function normalizeEnroll(raw: string | null | undefined): string {
   const m = s.match(/^(\d{4})/);
   if (m) {
     const yy = m[1].slice(2);
-    return ENROLL_COLS.includes(yy + 'F') ? yy + 'F' : '待定';
+    const code = yy + 'F';
+    if (ENROLL_COLS.includes(code)) return code;
+    // 24F/25F 学生: 直接 drop (不进矩阵, 不并入待定)
+    if (code === '24F' || code === '25F') return '__SKIP__';
+    return '待定';
   }
   return '待定';
 }
@@ -1044,6 +1049,7 @@ for (const s of students) {
   const seen = new Set<number>();
   for (const y of years) {
     const yr = normalizeEnroll(y);
+    if (yr === '__SKIP__') continue;
     const colIdx = ENROLL_COLS.indexOf(yr);
     if (colIdx < 0 || seen.has(colIdx)) continue;
     seen.add(colIdx);
@@ -1746,11 +1752,11 @@ function fmtMoney(n: number): string {
 
       <div class="report-drawer__body">
 
-        <!-- 顶部固定文字段 (本周开篇) -->
+        <!-- 顶部固定文字段 (本周特殊工作) -->
         <div class="report-fixed-section">
           <div class="report-fixed-section__head">
             <span class="report-fixed-section__num">01</span>
-            <span class="report-fixed-section__label">本周开篇</span>
+            <span class="report-fixed-section__label">本周特殊工作</span>
           </div>
           <textarea id="report-top-note" class="report-fixed-section__ta" rows="8" spellcheck="false"></textarea>
         </div>
@@ -1777,11 +1783,11 @@ function fmtMoney(n: number): string {
           </button>
         </div>
 
-        <!-- 底部固定文字段 (下周与展望) -->
+        <!-- 底部固定文字段 (下周安排) -->
         <div class="report-fixed-section">
           <div class="report-fixed-section__head">
             <span class="report-fixed-section__num">99</span>
-            <span class="report-fixed-section__label">下周与展望</span>
+            <span class="report-fixed-section__label">下周安排</span>
           </div>
           <textarea id="report-bottom-note" class="report-fixed-section__ta" rows="8" spellcheck="false"></textarea>
         </div>
@@ -2824,7 +2830,7 @@ function fmtMoney(n: number): string {
         return p;
       }
 
-      // Build a header block — publication-style masthead
+      // Build a header block — magazine-cover masthead
       function buildHeader(canvas) {
         const head = document.createElement('header');
         head.className = 'rep-header';
@@ -2837,24 +2843,18 @@ function fmtMoney(n: number): string {
         strip.appendChild(brand);
         const pill = document.createElement('div');
         pill.className = 'rep-header__pill';
-        pill.textContent = '管理周报 · ' + dateRangeLabel();
+        pill.textContent = dateRangeLabel();
         strip.appendChild(pill);
         head.appendChild(strip);
 
         const title = document.createElement('h1');
         title.className = 'rep-header__title';
-        title.textContent = '本周大盘';
+        title.textContent = '中期管理数据看板（周报）';
         head.appendChild(title);
-
-        const sub = document.createElement('div');
-        sub.className = 'rep-header__sub';
-        sub.textContent = 'Weekly Management Brief · 中期管理数据看板';
-        head.appendChild(sub);
 
         const byline = document.createElement('div');
         byline.className = 'rep-header__byline';
-        const dateStr = new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-        byline.innerHTML = '<strong>王世杰</strong>　/　' + dateStr;
+        byline.textContent = '王世杰';
         head.appendChild(byline);
 
         canvas.appendChild(head);
@@ -3203,7 +3203,7 @@ function fmtMoney(n: number): string {
           buildHeader(canvas);
 
           // Top fixed text section
-          renderTextSection(canvas, 'Opening', '本周开篇', topNoteEl.value);
+          renderTextSection(canvas, 'Special Work', '本周特殊工作', topNoteEl.value);
 
           // 3 data tables (in fixed order)
           const renderers = {
@@ -3223,9 +3223,8 @@ function fmtMoney(n: number): string {
           });
 
           // Bottom fixed text section
-          renderTextSection(canvas, 'Outlook', '下周与展望', bottomNoteEl.value);
-
-          buildFooter(canvas);
+          renderTextSection(canvas, 'Next Week', '下周安排', bottomNoteEl.value);
+          // Footer removed per user directive — clean ending
 
           // 3. Double-rAF + 200ms wait so paint is committed and any
           //    pending image decodes are done.
@@ -4697,10 +4696,9 @@ function fmtMoney(n: number): string {
     }
     #report-canvas {
       width: 1080px;
-      /* Single solid background — multiple gradients can flake in
-         html-to-image's foreignObject SVG context. Use one subtle linear. */
-      background: linear-gradient(180deg, #f7faf9 0%, #ffffff 360px, #ffffff 100%);
-      padding: 88px 80px 60px;
+      /* Single subtle linear at top, white below — clean magazine cover */
+      background: linear-gradient(180deg, #f5f9f7 0%, #ffffff 480px, #ffffff 100%);
+      padding: 64px 60px 80px;
       font-family:
         'Manrope',
         -apple-system, BlinkMacSystemFont,
@@ -4714,132 +4712,120 @@ function fmtMoney(n: number): string {
     }
 
     /* ─────────────────────────────────────────────────────── */
-    /* Masthead                                                  */
+    /* Masthead — magazine cover style                           */
     /* ─────────────────────────────────────────────────────── */
-    .rep-header { margin-bottom: 72px; }
+    .rep-header {
+      margin-bottom: 84px;
+      padding-bottom: 36px;
+      border-bottom: 2px solid #042f24;
+    }
     .rep-header__strip {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 36px;
+      margin-bottom: 60px;
     }
     .rep-header__brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      font-size: 14px;
+      gap: 12px;
+      font-size: 16px;
       font-weight: 700;
       color: #042f24;
       letter-spacing: -0.2px;
+      white-space: nowrap;
     }
     .rep-header__brand::before {
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
-      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.08);
-      display: inline-block;
+      background: #042f24;
+      flex-shrink: 0;
     }
     .rep-header__pill {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #042f24;
-      background: white;
+      color: white;
+      background: #042f24;
       padding: 9px 18px;
-      border-radius: 999px;
-      border: 1.5px solid #042f24;
+      border-radius: 4px;
       font-family: 'Manrope', 'SF Mono', monospace;
+      white-space: nowrap;
     }
     .rep-header__title {
-      font-size: 88px;
+      font-size: 64px;
       font-weight: 800;
-      margin: 0 0 12px;
-      letter-spacing: -4px;
+      margin: 0 0 16px;
+      letter-spacing: -2.4px;
       color: #042f24;
-      line-height: 0.92;
-    }
-    .rep-header__sub {
-      font-size: 15px;
-      color: #475569;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 24px;
+      line-height: 0.98;
     }
     .rep-header__byline {
-      font-size: 13px;
-      color: #94a3b8;
-      letter-spacing: 0.5px;
-      padding-top: 18px;
-      border-top: 1px solid #e6e9ed;
-    }
-    .rep-header__byline strong {
-      color: #042f24;
-      font-weight: 700;
-      font-size: 14px;
+      font-size: 18px;
+      color: #475569;
+      font-weight: 600;
+      letter-spacing: -0.3px;
     }
 
     /* ─────────────────────────────────────────────────────── */
-    /* Section heads — numbered badge + title block             */
+    /* Section heads — bold badge + full-width hairline rule     */
+    /* IG-post / editorial-magazine vibe: each section is a      */
+    /* clear "page break" with strong typographic moment.        */
     /* ─────────────────────────────────────────────────────── */
     .rep-section-head {
       display: flex;
       align-items: center;
-      gap: 22px;
-      margin-bottom: 24px;
+      gap: 24px;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e6e9ed;
     }
     .rep-section-badge {
-      flex: 0 0 64px;
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
+      flex: 0 0 76px;
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      background: #042f24;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 800;
       font-family: 'Manrope', 'SF Mono', monospace;
-      letter-spacing: -1px;
-      box-shadow: 0 8px 24px rgba(4, 47, 36, 0.22);
+      letter-spacing: -1.2px;
     }
-    .rep-section-head[data-accent="amber"] .rep-section-badge {
-      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
-      box-shadow: 0 8px 24px rgba(180, 83, 9, 0.22);
-    }
-    .rep-section-head[data-accent="rose"] .rep-section-badge {
-      background: linear-gradient(135deg, #881337 0%, #9d174d 100%);
-      box-shadow: 0 8px 24px rgba(157, 23, 77, 0.22);
-    }
+    .rep-section-head[data-accent="amber"] .rep-section-badge { background: #b45309; }
+    .rep-section-head[data-accent="rose"] .rep-section-badge { background: #9d174d; }
     .rep-section-text { flex: 1; min-width: 0; }
     .rep-section-en {
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 2.5px;
+      letter-spacing: 2.8px;
       text-transform: uppercase;
       color: #94a3b8;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .rep-section-zh {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 800;
       margin: 0;
-      letter-spacing: -1.2px;
+      letter-spacing: -1.4px;
       color: #042f24;
-      line-height: 1.1;
+      line-height: 1.05;
     }
 
     /* ─────────────────────────────────────────────────────── */
-    /* Blocks                                                    */
+    /* Blocks — generous IG-carousel-ish breathing room          */
     /* ─────────────────────────────────────────────────────── */
     .rep-block {
-      margin-bottom: 56px;
+      margin-bottom: 80px;
       page-break-inside: avoid;
     }
-    .rep-block:last-of-type { margin-bottom: 32px; }
+    .rep-block:last-of-type { margin-bottom: 16px; }
     .rep-block__note {
       margin: 20px 0 0;
       padding: 16px 22px;
