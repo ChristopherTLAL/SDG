@@ -77,13 +77,28 @@ const ACTIVE_ADVISORS_SET = new Set(ACTIVE_ADVISORS);
 // ── Contracts (留学 + 产品) by student → mid_advisor breakdown ──
 // Pulls every contract whose vault student is managed by an active 中期顾问.
 // Splits 留学申请 vs 非留学申请, with product-family bucketing for the 产品 widget.
-// Pull ALL contracts (incl. 已终止 — needed by 退费分析 widget; also drop
-// student_id NOT NULL filter — 月度产品节奏 widget shows team-wide signing,
-// not just vault-linked). Per-widget filtering done in JS.
+// KEEP student_id NOT NULL filter — every advisor-side widget (合同分布 / 周度
+// 签约 / Top30 / portfolio / 退费分析) only cares about vault-linked rows.
+// 月度产品节奏 widget needs company-wide rows → separate query below.
+// INCLUDE 已终止 — 退费分析 widget needs them; activeContracts filters them out.
+// .range(0, 9999) bypasses Supabase REST default 1000-row cap (vault-linked
+// rows currently ≈1500; cap was silently truncating to 1000 → 客单价 drift).
 const { data: rawContracts } = await supabase
   .from('contracts')
   .select('contract_id, customer_id, student_id, signed_at, signed_amount, template_name, category, status, is_application, mid_advisor, intake_year')
-  .order('signed_at', { ascending: false });
+  .not('student_id', 'is', null)
+  .order('signed_at', { ascending: false })
+  .range(0, 9999);
+
+// Separate query for 月度产品节奏 widget — company-wide (incl. non-vault
+// students), 非留学 only, 排除已终止. ~2800 rows currently.
+const { data: rawMonthlyContracts } = await supabase
+  .from('contracts')
+  .select('signed_at, signed_amount, template_name, category')
+  .eq('is_application', false)
+  .neq('status', '已终止')
+  .not('signed_at', 'is', null)
+  .range(0, 9999);
 
 type ContractRow = {
   contract_id: string;
@@ -601,13 +616,13 @@ for (let i = MONTHS_BACK - 1; i >= 0; i--) {
 const earliestMonth = monthLabels[0];
 const monthlyFamilyMatrix = new Map<string, Map<string, number>>();
 const monthlyFamilies = new Set<string>();
-for (const c of allContracts) {
-  if (c.is_application) continue;            // only 非留学
-  if (c.status === '已终止') continue;
+// Use the dedicated company-wide query (rawMonthlyContracts) — already
+// pre-filtered to 非留学 + 排除已终止 server-side.
+for (const c of (rawMonthlyContracts ?? [])) {
   if (!c.signed_at) continue;
-  const mo = c.signed_at.slice(0, 7);
+  const mo = (c.signed_at as string).slice(0, 7);
   if (mo < earliestMonth) continue;
-  const family = productFamily(c.category, c.template_name);
+  const family = productFamily(c.category as string | null, c.template_name as string | null);
   monthlyFamilies.add(family);
   if (!monthlyFamilyMatrix.has(mo)) monthlyFamilyMatrix.set(mo, new Map());
   const m = monthlyFamilyMatrix.get(mo)!;
