@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-21',
+    date: '2024-04-24',
     title: 'The Telescope That Refused to Hand Over the Sky',
     titleZh: '哈勃拒绝把天空让给继任者',
     cefr: 'C1',

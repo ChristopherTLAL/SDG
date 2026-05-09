@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-26',
+    date: '2024-06-10',
     title: 'The Privacy Pitch Apple Built Before It Had a Product to Match It',
     titleZh: '苹果先建好隐私叙事再补产品',
     cefr: 'C1',

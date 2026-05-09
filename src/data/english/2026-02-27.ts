@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-27',
+    date: '2024-03-20',
     title: 'The Company That Sells the Wires Behind the Boom',
     titleZh: '卖数据中心连接线的公司上市',
     cefr: 'C1',

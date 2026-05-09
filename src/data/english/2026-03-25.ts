@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-25',
+    date: '2024-05-15',
     title: 'How a Retired Poet Came to Believe Disagreement No Longer Travelled: The Fico Shooting in Context',
     titleZh: '那位诗人相信正常异议已失效',
     cefr: 'C1',

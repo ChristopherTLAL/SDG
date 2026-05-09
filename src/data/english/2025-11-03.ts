@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-03',
+    date: '2024-07-05',
     title: 'A Landslide Built on a Thin Slice of the Electorate',
     titleZh: '工党以最小票仓赢得最大多数席',
     cefr: 'B2',

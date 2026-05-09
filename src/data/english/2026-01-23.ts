@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-23',
+    date: '2024-02-11',
     title: 'The Football Final That Became a Love Story',
     titleZh: '超级碗变成了一段爱情故事',
     cefr: 'B1',

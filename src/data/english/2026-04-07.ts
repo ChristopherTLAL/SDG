@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-07',
+    date: '2024-05-14',
     title: 'Cannes Opens, and the Air Is Heavier Than the Carpet',
     titleZh: '戛纳开幕了，空气比红毯更沉',
     cefr: 'B2',

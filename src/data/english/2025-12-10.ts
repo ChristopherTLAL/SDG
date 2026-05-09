@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-10',
+    date: '2024-06-15',
     title: 'A Drug Class That Keeps Discovering New Things About Itself',
     titleZh: '一类药物不断发现新用途',
     cefr: 'C1',

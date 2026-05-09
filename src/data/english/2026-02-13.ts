@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-13',
+    date: '2024-03-10',
     title: 'A Cork Boy Steps Up: Cillian Murphy Wins Best Actor',
     titleZh: '科克男孩走到了台前',
     cefr: 'B1',

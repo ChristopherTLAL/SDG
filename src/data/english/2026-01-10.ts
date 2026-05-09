@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-10',
+    date: '2024-01-04',
     title: 'The Voice Sondheim Wrote Around, and the Song That Outlived the Career',
     titleZh: '桑德海姆为限制而作的歌',
     cefr: 'B2',

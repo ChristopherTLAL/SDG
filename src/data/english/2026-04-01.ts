@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-01',
+    date: '2024-05-23',
     title: 'A Bridge in the Weights: What Golden Gate Claude Was Actually Showing Us',
     titleZh: '金门大桥嵌在模型权重里',
     cefr: 'C2',

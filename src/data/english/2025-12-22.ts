@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-22',
+    date: '2024-06-15',
     title: 'A Capital That Drinks the Ground It Stands On',
     titleZh: '一座城市正在喝干它脚下的地层',
     cefr: 'B2',

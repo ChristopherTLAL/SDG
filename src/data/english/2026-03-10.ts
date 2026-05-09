@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-10',
+    date: '2024-04-18',
     title: 'The Weights, Not the Source: What Meta Gave Away When It Released Llama',
     titleZh: 'Meta发布的是权重，不是源码',
     cefr: 'C2',

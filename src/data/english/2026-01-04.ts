@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-04',
+    date: '2024-01-18',
     title: 'Private Orbit: What a Flag Means When the Seat Has an Invoice',
     titleZh: '国旗与发票：私人轨道的象征',
     cefr: 'C2',

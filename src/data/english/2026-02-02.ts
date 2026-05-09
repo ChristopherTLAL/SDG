@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-02',
+    date: '2024-02-22',
     title: 'When a Forum Sold Its Conversations to a Search Engine',
     titleZh: '论坛把用户对话卖给搜索引擎',
     cefr: 'B2',

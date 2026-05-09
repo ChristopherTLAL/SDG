@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-23',
+    date: '2024-05-04',
     title: 'A Horse, the Rail, and a Nose: How Mystik Dan Won the 150th Derby',
     titleZh: '鼻尖之差与第150届肯塔基赛',
     cefr: 'B1',

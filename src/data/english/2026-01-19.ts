@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-19',
+    date: '2024-02-08',
     title: 'The Satellite That Reads the Ocean by the Color It Refuses to Show',
     titleZh: '通过颜色拒绝来读海洋的卫星',
     cefr: 'C1',

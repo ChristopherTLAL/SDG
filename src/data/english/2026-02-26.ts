@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-26',
+    date: '2024-03-26',
     title: 'A Bridge Built for Smaller Ships: What the Patapsco Asked of Engineers Who Designed for a Lighter World',
     titleZh: '为旧船建的桥遇上了新时代',
     cefr: 'C1',

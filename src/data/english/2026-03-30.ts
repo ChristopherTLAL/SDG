@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-30',
+    date: '2024-05-13',
     title: 'The Voice Was the Whole Argument',
     titleZh: '声音是整个争议的核心',
     cefr: 'C2',

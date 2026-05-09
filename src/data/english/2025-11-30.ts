@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-30',
+    date: '2024-06-04',
     title: 'What the World\'s Largest Vote Actually Said',
     titleZh: '六亿张选票实际说了什么',
     cefr: 'C1',

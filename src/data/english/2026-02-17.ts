@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-17',
+    date: '2024-03-14',
     title: 'The Hour Starship Reached Space and Then Quietly Came Apart',
     titleZh: '星舰飞到太空，然后悄悄解体了',
     cefr: 'C1',

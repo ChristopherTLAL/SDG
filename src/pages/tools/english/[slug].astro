@@ -1,7 +1,7 @@
 ---
 // Article reader, fixed-height two-pane learning interface.
 import MainLayout from '../../../layouts/MainLayout.astro';
-import { articlesBySlug, articles, CEFR_LABELS } from '../../../data/english';
+import { articlesBySlug, articleEntries, CEFR_LABELS } from '../../../data/english';
 
 const { slug } = Astro.params;
 const article = slug ? articlesBySlug[slug] : undefined;
@@ -12,9 +12,13 @@ if (!article) {
 
 const { meta, paragraphs, vocab, collocations, grammar, patterns, quiz } = article;
 
-const idx = articles.findIndex((a) => a.meta.date === meta.date);
-const prevArticle = idx >= 0 && idx + 1 < articles.length ? articles[idx + 1] : null;
-const nextArticle = idx > 0 ? articles[idx - 1] : null;
+const idx = articleEntries.findIndex((e) => e.slug === slug);
+const prevEntry = idx >= 0 && idx + 1 < articleEntries.length ? articleEntries[idx + 1] : null;
+const nextEntry = idx > 0 ? articleEntries[idx - 1] : null;
+const prevArticle = prevEntry?.article ?? null;
+const nextArticle = nextEntry?.article ?? null;
+const prevSlug = prevEntry?.slug ?? '';
+const nextSlug = nextEntry?.slug ?? '';
 
 function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -76,12 +80,12 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
         </div>
         <div class="el-toolbar-nav">
           {prevArticle ? (
-            <a href={`/tools/english/${prevArticle.meta.date}`} class="el-toolbar-nav-link" title={prevArticle.meta.title}>
+            <a href={`/tools/english/${prevSlug}`} class="el-toolbar-nav-link" title={prevArticle.meta.title}>
               <span class="material-symbols-outlined">arrow_back_ios</span>
             </a>
           ) : <span class="el-toolbar-nav-link is-disabled"><span class="material-symbols-outlined">arrow_back_ios</span></span>}
           {nextArticle ? (
-            <a href={`/tools/english/${nextArticle.meta.date}`} class="el-toolbar-nav-link" title={nextArticle.meta.title}>
+            <a href={`/tools/english/${nextSlug}`} class="el-toolbar-nav-link" title={nextArticle.meta.title}>
               <span class="material-symbols-outlined">arrow_forward_ios</span>
             </a>
           ) : <span class="el-toolbar-nav-link is-disabled"><span class="material-symbols-outlined">arrow_forward_ios</span></span>}

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-16',
+    date: '2024-03-10',
     title: 'A Second Oscar at 83, and the Question of When a Director Stops',
     titleZh: '83岁，第二座奥斯卡，仍未停',
     cefr: 'B2',

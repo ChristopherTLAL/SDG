@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-31',
+    date: '2024-05-24',
     title: 'The Day a Chatbot Could Not Stop Talking About a Bridge',
     titleZh: '那天聊天机器人只谈一座桥',
     cefr: 'C1',

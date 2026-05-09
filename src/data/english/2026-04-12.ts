@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-12',
+    date: '2024-06-18',
     title: 'For an Afternoon, the World\'s Biggest Company Made Graphics Chips',
     titleZh: '那个下午，英伟达短暂登顶',
     cefr: 'C1',

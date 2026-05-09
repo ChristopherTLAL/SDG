@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-22',
+    date: '2024-03-21',
     title: 'A Forum Goes Public, and Its Volunteers Quietly Become a Footnote',
     titleZh: 'Reddit上市，版主变成脚注',
     cefr: 'C1',

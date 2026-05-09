@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-23',
+    date: '2024-04-15',
     title: 'A Number That Reads Like a Verdict: Six Figures and the Soul of the American Degree',
     titleZh: '十万美元学费衡量了什么',
     cefr: 'C2',

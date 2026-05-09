@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-04',
+    date: '2024-12-31',
     title: 'A Cheap Yen, a Crowded Country: How 36.9 Million Visitors Found Japan',
     titleZh: '日元弱，近4000万人涌日本',
     cefr: 'B2',

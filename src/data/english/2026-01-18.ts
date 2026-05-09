@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-18',
+    date: '2024-02-05',
     title: 'The Two Songs Country Music Played for Toby Keith',
     titleZh: '乡村音乐给他放了两首歌',
     cefr: 'B2',

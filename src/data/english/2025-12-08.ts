@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-08',
+    date: '2024-06-15',
     title: 'The Case Against Farming an Animal We Are Still Trying to Understand',
     titleZh: '饲养一种我们尚未读懂的动物',
     cefr: 'C1',

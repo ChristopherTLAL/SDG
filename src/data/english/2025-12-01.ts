@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-01',
+    date: '2024-06-04',
     title: 'The Mandate That Refused to Be Coronated',
     titleZh: '那个拒绝被加冕的选举结果',
     cefr: 'C2',

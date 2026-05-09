@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-30',
+    date: '2024-02-16',
     title: 'A Man Who Knew the Price: Reading Navalny Two Years On',
     titleZh: '他知道代价，还是回去了',
     cefr: 'C2',

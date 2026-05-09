@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-02',
+    date: '2024-07-05',
     title: 'A Country That Voted Tired',
     titleZh: '一个投票投到疲倦的国家',
     cefr: 'C1',

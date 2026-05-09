@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-01',
+    date: '2024-01-15',
     title: 'How a Subzero Night in Iowa Settled a Race That Was Already Settling',
     titleZh: '爱荷华寒夜再次确认了胜局',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-13',
+    date: '2024-06-18',
     title: 'A Few Hours at the Top: When a Chip Designer Briefly Out-Weighed Apple',
     titleZh: '一家芯片公司短暂超越了苹果',
     cefr: 'C2',

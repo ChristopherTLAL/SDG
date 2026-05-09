@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-23',
+    date: '2024-06-17',
     title: 'Banner Eighteen, and a League That Will Not Let Anyone Hold It Twice',
     titleZh: '第18面旗帜与六年六支冠军',
     cefr: 'B2',

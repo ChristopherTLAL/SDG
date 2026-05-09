@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-07',
+    date: '2024-03-04',
     title: 'Three Names for One Bet: How Anthropic Sold Safety as Speed in March 2024',
     titleZh: 'Anthropic把安全包装成速度',
     cefr: 'C1',

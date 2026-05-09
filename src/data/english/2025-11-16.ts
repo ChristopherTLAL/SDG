@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-16',
+    date: '2023-07-15',
     title: 'On the Slow Moral Weather of a Laboratory',
     titleZh: '一所大实验室的慢速道德气候',
     cefr: 'C2',

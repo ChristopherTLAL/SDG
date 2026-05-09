@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-30',
+    date: '2024-07-26',
     title: 'The Night the Olympics Left the Stadium and Sailed Down a River',
     titleZh: '奥运会漂浮在塞纳河上的那夜',
     cefr: 'B1',

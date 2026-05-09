@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-31',
+    date: '2024-01-18',
     title: 'On Borrowed Voices: The Public University in the Age of Licensed Cognition',
     titleZh: '公立大学租用语言的那纸合同',
     cefr: 'C2',

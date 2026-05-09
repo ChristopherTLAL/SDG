@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-20',
+    date: '2024-03-15',
     title: 'Why Britain Decided Not to Close a Door It Had Just Opened',
     titleZh: '英国为何决定不关这扇刚开的门',
     cefr: 'B2',

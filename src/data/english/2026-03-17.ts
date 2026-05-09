@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-17',
+    date: '2024-04-15',
     title: 'How a Pop Star Made a Tiny Monster Famous',
     titleZh: '一位歌手让玩具怪兽出名了',
     cefr: 'B1',

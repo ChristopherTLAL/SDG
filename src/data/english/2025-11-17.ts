@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-17',
+    date: '2024-08-15',
     title: 'The Cap That Was Not About Students',
     titleZh: '留学名额上限不是为学生',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-23',
+    date: '2024-06-15',
     title: 'The Drained Lake That Refuses to Stay Buried',
     titleZh: '五百年后，湖底的缓慢复仇',
     cefr: 'C1',

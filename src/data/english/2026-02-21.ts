@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-21',
+    date: '2024-03-21',
     title: 'The Day a Forum Was Handed Its Own Ticker Symbol',
     titleZh: '论坛拿到了自己的股票代码',
     cefr: 'B2',

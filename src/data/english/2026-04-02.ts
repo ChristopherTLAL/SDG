@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-02',
+    date: '2024-05-19',
     title: 'A Helicopter, a Fog Bank, and the Office That Kept Functioning',
     titleZh: '直升机坠雾，政府运转如常',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-18',
+    date: '2024-03-14',
     title: 'The Rocket That Means to Be Watched Failing',
     titleZh: '那枚设计为公开失败的火箭',
     cefr: 'C2',

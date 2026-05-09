@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-19',
+    date: '2024-02-15',
     title: 'A Town the State Bought: What "Routine" Means When the Earth Sets the Calendar',
     titleZh: '政府买下了那座小镇',
     cefr: 'C1',

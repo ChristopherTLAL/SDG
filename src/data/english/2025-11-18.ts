@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-18',
+    date: '2024-01-22',
     title: 'When Ottawa Cut the Number, Small Towns Felt It First',
     titleZh: '渥太华削配额，小镇先感受',
     cefr: 'B2',

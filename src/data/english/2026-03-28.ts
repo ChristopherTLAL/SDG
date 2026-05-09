@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-28',
+    date: '2024-05-11',
     title: 'A Eurovision Won by the Juries While the Streets Argued Outside',
     titleZh: '评审团赢了，街道上还在争论',
     cefr: 'B2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-27',
+    date: '2026-03-26',
     title: 'How a Truck Full of KitKats Vanished on Its Way to Easter',
     titleZh: '复活节前夕消失的巧克力车',
     cefr: 'B1',

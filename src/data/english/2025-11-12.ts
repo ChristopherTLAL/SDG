@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-12',
+    date: '2024-01-28',
     title: 'The Painting That Was Never the Point: What the Soup Was Really Aimed At',
     titleZh: '那碗汤的真正目标不是那幅画',
     cefr: 'C1',

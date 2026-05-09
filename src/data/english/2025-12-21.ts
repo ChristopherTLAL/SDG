@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-21',
+    date: '2024-11-01',
     title: 'Whose Friday? Reading the Four-Day Week Through Its Footnotes',
     titleZh: '谁的周五：工时改革的漏洞',
     cefr: 'C1',

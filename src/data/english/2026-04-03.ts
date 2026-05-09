@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-03',
+    date: '2024-05-19',
     title: 'A Helicopter, a Hidden Question, and What Iran\'s Snap Election Was Quietly Asking',
     titleZh: '一架直升机与伊朗的静悄悄大选',
     cefr: 'C2',

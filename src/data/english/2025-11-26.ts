@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-26',
+    date: '2024-08-01',
     title: 'The World\'s First AI Law Is Already Being Bent Out of Shape',
     titleZh: '世界上第一部AI法已在被弯曲',
     cefr: 'C1',

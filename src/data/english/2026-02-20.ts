@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-20',
+    date: '2024-03-17',
     title: 'The Ritual of the Foregone Conclusion: Reading 88 Percent and the Noon Hour',
     titleZh: '正午排队者与87%的数字',
     cefr: 'C2',

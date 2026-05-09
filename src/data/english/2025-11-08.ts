@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-08',
+    date: '2024-12-08',
     title: 'What a Two-Billion-Dollar Concert Tour Can and Cannot Do',
     titleZh: '两百亿美元巡演能与不能做的事',
     cefr: 'B2',

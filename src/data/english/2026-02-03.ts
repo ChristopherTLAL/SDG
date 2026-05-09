@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-03',
+    date: '2024-02-22',
     title: "What 'Soft Landing' Buys: A Sideways Lander and the Grammar of Public Contract",
     titleZh: '「软着陆」在商业航天的新义',
     cefr: 'C2',

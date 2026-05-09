@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-31',
+    date: '2024-01-28',
     title: 'Soup, Glass, and the Mona Lisa: A Protest the Painting Could Not Feel',
     titleZh: '泼向蒙娜丽莎的那碗南瓜汤',
     cefr: 'B2',

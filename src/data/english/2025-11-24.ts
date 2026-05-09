@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-24',
+    date: '2024-01-15',
     title: 'After Two Years of ChatGPT, Professors Stopped Trying to Catch Their Students',
     titleZh: '教授们停止了追查，转而妥协',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-11',
+    date: '2024-06-15',
     title: 'One Receptor, Several Specialities, and a Quiet Argument About What Counts as a Cure',
     titleZh: '一个受体，横跨五个医学专科',
     cefr: 'C2',

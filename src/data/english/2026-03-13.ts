@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-13',
+    date: '2024-07-21',
     title: 'The Twenty-Four Days Between a Debate and a Tweet',
     titleZh: '辩论与退选推文之间的24天',
     cefr: 'C1',

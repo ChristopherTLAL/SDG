@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-26',
+    date: '2024-05-15',
     title: 'A Word the Continent Had Stopped Using: The Fico Shooting and the Floor of Polarized Politics',
     titleZh: '欧洲已经很久没用过那个词了',
     cefr: 'C2',

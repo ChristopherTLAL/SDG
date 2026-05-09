@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-18',
+    date: '2024-06-09',
     title: 'The Night the Map Tilted: How One European Vote Pushed a President to Gamble',
     titleZh: '欧选结果把法国总统逼上赌桌',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-30',
+    date: '2024-01-18',
     title: 'When a Public University Decided to Hand a Chatbot the Keys to Freshman Comp',
     titleZh: '亚利桑那把写作课交给了AI',
     cefr: 'C1',

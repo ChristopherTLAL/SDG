@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-16',
+    date: '2024-04-25',
     title: 'When the Last Line of Defense Goes Public',
     titleZh: '勒索软件时代的数据安全上市',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-06',
+    date: '2024-05-14',
     title: 'How a Four-Part Comedy and Greta Gerwig Opened the 77th Cannes',
     titleZh: '葛韦格主持了戛纳77的开幕',
     cefr: 'B1',

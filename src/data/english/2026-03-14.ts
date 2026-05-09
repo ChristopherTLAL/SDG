@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-14',
+    date: '2024-07-21',
     title: 'The Twenty-Six Days, and What They Showed About a Borrowed Office',
     titleZh: '二十六天与「借来的职位」',
     cefr: 'C2',

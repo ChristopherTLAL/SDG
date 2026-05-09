@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-05',
+    date: '2024-12-31',
     title: 'Borrowed Customers: What Japan\'s Tourism Record Is Really Counting',
     titleZh: '用人口萎缩换旅游繁荣的代价',
     cefr: 'C1',

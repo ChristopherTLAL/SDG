@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-29',
+    date: '2024-01-13',
     title: 'A Mandate to Stay Where You Are: Taiwan, the Status Quo, and the Question Nobody Wants Settled',
     titleZh: '选了一位维持现状的总统',
     cefr: 'C2',

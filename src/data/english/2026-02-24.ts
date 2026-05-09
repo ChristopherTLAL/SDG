@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-24',
+    date: '2024-04-24',
     title: 'The Algorithm as Sovereign Territory: What the Order to Sell TikTok Has Already Decided',
     titleZh: '算法作为主权领土',
     cefr: 'C2',

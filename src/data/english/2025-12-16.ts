@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-16',
+    date: '2024-12-07',
     title: 'How a Cathedral Came Back on Schedule',
     titleZh: '圣母院按时重开了',
     cefr: 'B2',

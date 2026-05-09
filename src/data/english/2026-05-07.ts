@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-05-07',
+    date: '2024-07-13',
     title: 'A Frame, a Myth, a Memo: What Butler Left Behind',
     titleZh: 'Butler留下的三件遗物',
     cefr: 'C2',

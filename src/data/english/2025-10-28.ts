@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-28',
+    date: '2026-03-26',
     title: 'How a Truckload of KitKats Disappeared, and What That Says About the Snack Aisle',
     titleZh: '当零食成为货运犯罪的目标',
     cefr: 'B2',

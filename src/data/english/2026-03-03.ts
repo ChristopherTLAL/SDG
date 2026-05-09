@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-03',
+    date: '2024-04-08',
     title: 'Four Minutes of Darkness, and the Three Economies It Produced',
     titleZh: '四分钟黑暗的三种经济效应',
     cefr: 'C1',

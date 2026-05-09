@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-28',
+    date: '2023-11-14',
     title: 'A Dying Chip, a 45-Year-Old Computer, and the Longest Repair Call in History',
     titleZh: '一颗坏芯片与45年后的维修',
     cefr: 'C1',

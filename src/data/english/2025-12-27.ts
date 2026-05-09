@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-27',
+    date: '2024-01-08',
     title: 'The First Commercial Failure on the Way to the Moon: Peregrine and the Privatization of an Old Frontier',
     titleZh: '商业登月首败与月球经济',
     cefr: 'C2',

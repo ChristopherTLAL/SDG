@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-24',
+    date: '2024-02-11',
     title: 'A Three-Yard Pass, a Pop Star, and a Word Football Forgot: Reading Super Bowl LVIII',
     titleZh: '传球、明星与超级碗的王朝',
     cefr: 'B2',

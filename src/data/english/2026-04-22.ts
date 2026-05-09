@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-22',
+    date: '2024-06-17',
     title: 'How Boston Lifted Banner Eighteen and Sent the Lakers Home',
     titleZh: '凯尔特人挂上了第18面冠军旗',
     cefr: 'B1',

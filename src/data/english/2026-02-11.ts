@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-11',
+    date: '2024-03-10',
     title: 'How a Three-Hour Movie About a Physicist Swept the Oscars',
     titleZh: '三小时物理学家电影横扫奥斯卡',
     cefr: 'B1',

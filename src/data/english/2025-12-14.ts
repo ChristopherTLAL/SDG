@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-14',
+    date: '2024-03-20',
     title: 'Why the Happiest Country Is Quietly Embarrassed by the Title',
     titleZh: '芬兰为快乐第一感到尴尬',
     cefr: 'B2',

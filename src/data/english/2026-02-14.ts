@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-14',
+    date: '2024-03-10',
     title: 'The Long Way to the Front Row: How Cillian Murphy Got to Best Actor',
     titleZh: '墨菲与诺兰之间的长期信任',
     cefr: 'B2',

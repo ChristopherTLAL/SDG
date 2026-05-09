@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-10',
+    date: '2024-05-30',
     title: 'A Paperwork Crime That Quietly Rewrote a Sentence in the Constitution',
     titleZh: '一桩账册罪写进了宪法先例',
     cefr: 'C1',

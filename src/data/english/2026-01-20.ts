@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-20',
+    date: '2024-02-02',
     title: 'What Apple Could Not Buy with Three Billion Dollars',
     titleZh: '苹果用三十亿美元买不到的东西',
     cefr: 'C1',

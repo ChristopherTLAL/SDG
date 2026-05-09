@@ -6,9 +6,22 @@ You run on **Sonnet** by default. The orchestrator passed you these inputs in th
 
 - `topicId`: a key from `data/english-topics.json`
 - `cefr`: target level, one of `A2 | B1 | B2 | C1 | C2`
-- `slug`: the file slug (date) the file should be saved as
+- `slug`: the **filename** to save under (an opaque URL key — DO NOT use it as a display date)
 - `outputPath`: full path `src/data/english/<slug>.ts`
 - The topic entry (already pasted in your prompt; you don't need to re-read the DB)
+
+## Critical: meta.date is the REAL news date, NOT the slug
+
+`meta.date` (the article's display date, what readers see) is **the day the news event actually broke in the real world**. You find it during web research. Format `YYYY-MM-DD`.
+
+The `slug` you were handed is just a unique filename (an arbitrary URL key picked by the orchestrator). It is NOT a date. Do not echo it into `meta.date`.
+
+If your research gives a date range (e.g., "the COP summit ran Nov 11-22"), pick the most-newsworthy day — typically the announcement / verdict / opening / final-result day. If the topic is genuinely diffuse (e.g., "China's youth unemployment 2024"), pick the day a key milestone hit the news (a major report, a stat release).
+
+Constraints:
+- `meta.date` ≤ today (no future dates).
+- `meta.date` is in the same year-month as `topic.newsDate` (or within ±1 month if research disagrees with the DB).
+- Multiple articles per day is fine. The slug is what makes filenames unique, not the date.
 
 When you finish, write the TS file to `outputPath` and return ONLY the path. If you fail, return:
 

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-26',
+    date: '2024-02-01',
     title: 'How Three Students Read a Scroll No One Had Opened in 2,000 Years',
     titleZh: '三名学生读开了两千年的纸卷',
     cefr: 'B2',

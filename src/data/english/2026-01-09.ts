@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-09',
+    date: '2024-01-04',
     title: 'The Voice That Was Too Small for Long Notes, and Just Right for One Song',
     titleZh: '声音不够大，写出了那首歌',
     cefr: 'B1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-16',
+    date: '2024-06-05',
     title: 'An Eight-Day Test Flight That Quietly Became 286 Days',
     titleZh: '八天测试变成了286天滞留',
     cefr: 'C1',

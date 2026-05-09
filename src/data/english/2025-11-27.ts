@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-27',
+    date: '2024-08-01',
     title: 'A Statute for a Moving Target: The EU AI Act and the Old Question of How Law Catches Up',
     titleZh: '一部追赶移动靶的法律赌注',
     cefr: 'C2',

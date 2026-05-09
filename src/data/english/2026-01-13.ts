@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-13',
+    date: '2024-02-02',
     title: 'The Headset That Tim Cook Wanted Us to Love',
     titleZh: '苹果头显与现实相遇的那一刻',
     cefr: 'B2',

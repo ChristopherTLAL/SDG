@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-29',
+    date: '2024-05-13',
     title: 'A Voice That Sounded Like Hers, and the Week That Followed',
     titleZh: '那个声音引发了一周争议',
     cefr: 'C1',

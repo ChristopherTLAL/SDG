@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-15',
+    date: '2024-06-02',
     title: 'A Physicist, a Supermajority, and the Country She Inherits',
     titleZh: '一位物理学家赢得超级多数席',
     cefr: 'C2',

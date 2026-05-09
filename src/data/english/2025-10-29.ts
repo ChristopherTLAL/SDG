@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-10-29',
+    date: '2024-12-08',
     title: 'When One Singer Becomes a Small Economy',
     titleZh: '一位歌手变成了一套经济体',
     cefr: 'B1',

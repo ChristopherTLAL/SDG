@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-20',
+    date: '2024-11-01',
     title: 'A Quieter Working Week Is Already Reshaping European Offices',
     titleZh: '四天工作制悄悄进入欧洲',
     cefr: 'B2',

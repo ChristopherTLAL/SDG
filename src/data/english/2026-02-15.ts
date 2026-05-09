@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-15',
+    date: '2024-03-10',
     title: 'A Director Wins an Oscar from His Drawing Desk',
     titleZh: '宫崎骏在画桌前缺席领奖',
     cefr: 'B1',

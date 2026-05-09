@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-05',
+    date: '2024-03-28',
     title: 'The Day a Boy Genius Was Given Twenty-Five Years',
     titleZh: '那个昔日天才被判了二十五年',
     cefr: 'B2',

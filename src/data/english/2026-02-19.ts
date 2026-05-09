@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-19',
+    date: '2024-03-17',
     title: 'A Number Was Required: Reading Putin\'s 88 Percent',
     titleZh: '克里姆林宫需要那个数字',
     cefr: 'C1',

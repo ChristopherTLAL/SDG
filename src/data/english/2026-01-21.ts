@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-21',
+    date: '2024-09-23',
     title: 'A Slow Subtraction: What 1,111 Days Above the Earth Make of a Body',
     titleZh: '在太空1111天后的身体',
     cefr: 'C2',

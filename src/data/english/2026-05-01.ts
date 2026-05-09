@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-05-01',
+    date: '2024-06-26',
     title: 'The Deal That Settled Nothing',
     titleZh: '那桩和解什么也没有解决',
     cefr: 'C2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-08',
+    date: '2024-05-25',
     title: 'A Brooklyn Stripper Story Just Won Cannes\' Top Prize',
     titleZh: '布鲁克林喜剧拿走了金棕榈',
     cefr: 'B1',

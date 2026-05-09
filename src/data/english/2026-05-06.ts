@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-05-06',
+    date: '2024-07-13',
     title: 'The Frame That Survived: Butler, the Roof, and the Image That Followed',
     titleZh: '宾州屋顶、那张照片与那个空位',
     cefr: 'C1',

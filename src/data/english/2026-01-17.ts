@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-17',
+    date: '2024-02-05',
     title: 'The Cowboy Who Sang for Soldiers',
     titleZh: '从油田唱到军营的乡村歌手',
     cefr: 'B1',

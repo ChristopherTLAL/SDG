@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-04',
+    date: '2024-04-08',
     title: 'The Last Hour Difficult to Photograph',
     titleZh: '最后一种难以上传的体验',
     cefr: 'C2',

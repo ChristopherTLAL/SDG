@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-09',
+    date: '2024-07-26',
     title: 'When a Country Treats Its Opening Ceremony Like a Manifesto',
     titleZh: '开幕式作为一份国家宣言',
     cefr: 'B2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-22',
+    date: '2024-04-24',
     title: 'A Long Argument Conducted in Photons',
     titleZh: '用光子进行的漫长争论',
     cefr: 'C2',

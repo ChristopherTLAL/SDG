@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-01',
+    date: '2024-03-22',
     title: 'The Bench, the Trees, and the Two-Minute Video That Ended a Very Modern Rumour',
     titleZh: '两分钟视频跑赢了三个月的沉默',
     cefr: 'B2',

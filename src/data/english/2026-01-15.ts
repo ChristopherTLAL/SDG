@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-15',
+    date: '2024-02-04',
     title: 'The Cosmonaut Who Counted His Days From Above and Below',
     titleZh: '在太空数日子的宇航员',
     cefr: 'C1',

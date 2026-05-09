@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-17',
+    date: '2024-12-07',
     title: 'The Cathedral That Refused to Become Anyone\'s Statement',
     titleZh: '法国选择原样重建的政治含义',
     cefr: 'C1',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-14',
+    date: '2024-02-02',
     title: 'What the Vision Pro Was Actually Selling: A Quiet Lesson in Two-Sided Markets',
     titleZh: 'Vision Pro与双边市场的冷账',
     cefr: 'C1',

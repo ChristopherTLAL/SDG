@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-02',
+    date: '2024-01-15',
     title: 'The Caucus as Liturgy: Subzero Iowa and a Party Already Closed',
     titleZh: '党团会议作为一场确认仪式',
     cefr: 'C2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-05-03',
+    date: '2024-07-15',
     title: 'The Broken Compact: What China\'s Graduates Inherit When the Diploma\'s Promise Fails',
     titleZh: '文凭的承诺失效之后',
     cefr: 'C2',

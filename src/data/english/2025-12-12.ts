@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-12',
+    date: '2025-09-15',
     title: 'A New Price Tag on the Top of the World',
     titleZh: '珠穆朗玛峰许可证涨价之后',
     cefr: 'B2',

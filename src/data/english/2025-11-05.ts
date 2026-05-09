@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-05',
+    date: '2024-12-07',
     title: 'How Paris Rebuilt Notre-Dame Using 13th-Century Tools',
     titleZh: '巴黎用古法修好了圣母院',
     cefr: 'B1',

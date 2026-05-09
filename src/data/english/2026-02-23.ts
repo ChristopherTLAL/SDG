@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-23',
+    date: '2024-04-24',
     title: 'The Strange Physics of Ordering an Algorithm to Change Owners',
     titleZh: '给一个算法下令换国籍',
     cefr: 'C1',

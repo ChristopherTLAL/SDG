@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-06',
+    date: '2024-04-15',
     title: 'When the Warning Scale Itself Had to Be Rebuilt',
     titleZh: '当预警量表走到了刻度尽头',
     cefr: 'C1',

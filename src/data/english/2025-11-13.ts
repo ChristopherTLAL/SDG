@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-11-13',
+    date: '2023-11-09',
     title: 'Hollywood Won Its Strike. Then the Jobs Disappeared.',
     titleZh: '好莱坞赢了罢工，失去了工作',
     cefr: 'C1',

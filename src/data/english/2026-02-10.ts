@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-10',
+    date: '2024-03-07',
     title: 'The Long Boat Comes In: Sweden, Two Centuries of Neutrality, and the Day the Map Was Redrawn',
     titleZh: '北欧老船驶入北约港口的那一天',
     cefr: 'C2',

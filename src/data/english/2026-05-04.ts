@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-05-04',
+    date: '2024-09-01',
     title: 'The Baby Hippo Who Outran Her Own Zoo',
     titleZh: '那只小河马超越了她的动物园',
     cefr: 'B1',

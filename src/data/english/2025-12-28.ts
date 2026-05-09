@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-28',
+    date: '2024-01-13',
     title: 'A Third Term, a Hung Parliament, and the Hour After the Vote',
     titleZh: '赖清德的悬空授权',
     cefr: 'C1',

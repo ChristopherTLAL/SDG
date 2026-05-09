@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-04',
+    date: '2024-06-25',
     title: 'The Quiet Hemisphere Finally Speaks',
     titleZh: '月球背面第一批土样',
     cefr: 'C1',

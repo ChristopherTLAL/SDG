@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-02-08',
+    date: '2024-03-04',
     title: 'Haiku, Sonnet, Opus: What a Safety-First Lab Names Its Own Frontier',
     titleZh: '俳句、十四行诗与史诗的命名',
     cefr: 'C2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2025-12-03',
+    date: '2024-07-05',
     title: 'A Big Majority on a Small Vote: The Curious Shape of Labour\'s 2024 Win',
     titleZh: '工党的大胜建立在小票仓之上',
     cefr: 'C2',

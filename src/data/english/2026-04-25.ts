@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-25',
+    date: '2024-07-14',
     title: 'A Month of Football Germany Was Quietly Ready For',
     titleZh: '德国举办了一届有秩序的欧洲杯',
     cefr: 'B2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-01-25',
+    date: '2024-02-15',
     title: 'The Minute of Footage That Made a Studio Mogul Pause Construction',
     titleZh: '一段视频让制片厂暂停施工',
     cefr: 'C1',

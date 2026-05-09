@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-03-06',
+    date: '2024-03-28',
     title: 'When the Justification Becomes the Evidence',
     titleZh: '当辩护词变成了证据',
     cefr: 'C1',

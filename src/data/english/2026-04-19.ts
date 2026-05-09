@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2026-04-19',
+    date: '2024-06-09',
     title: 'A Vote Few Took as Final, and the President Who Did',
     titleZh: '极右翼的票与把它当结论的人',
     cefr: 'C2',
