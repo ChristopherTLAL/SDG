@@ -3265,7 +3265,10 @@ function fmtMoney(n: number): string {
     })();
   </script>
 
-  <style>
+  <!-- is:global is REQUIRED — JS-rendered elements (drawer items, report
+       canvas children) don't have Astro's scoped data-astro-cid-XXX attribute,
+       so scoped CSS would not match them. -->
+  <style is:global>
     /* ── KPI banner ── */
     .kpi-banner {
       display: grid;
