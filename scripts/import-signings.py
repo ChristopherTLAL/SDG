@@ -90,8 +90,22 @@ TODAY = datetime.now().strftime('%Y-%m-%d')
 # ── Helpers ──────────────────────────────────────────────────────────────
 
 def cleanup_addon_name(s):
+    """Clean up contract template name → stable 大类 string.
+
+    Strips:
+      - year prefix (2023 / 23财 / 23 财年)
+      - 项目/服务合同 etc. suffix words
+      - **OA codes** (TY-OAxxxxxxxx#NN-MM, US-OAxxxxx, UK-OAxxxxx#N etc.)
+        — these were leaking into 大类 and creating false granularity
+        (e.g. 'AST学术指导（线下一对一40小时）TY-OA17890191#7' should be
+        just 'AST学术指导（线下一对一40小时）').
+    """
     s = re.sub(r'^\d{4}\s*财?\s*', '', s)
     s = re.sub(r'^\d{2}\s*财?\s*年?\s*', '', s)
+    # Strip ERP OA codes FIRST (they sit at the tail; doing this before the
+    # 服务合同 cleanup catches names like "...服务合同TY-OA17491816#3-21").
+    # Pattern: [LETTERS]-OA<digits>(  -<digits> OR #<digits>(-<digits>)? )*
+    s = re.sub(r'\s*[A-Z]{2}-OA\d+(?:[#-]\d+(?:-\d+)?)*\s*$', '', s)
     s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*(?=[（(])', '', s)
     s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*$', '', s)
     return s.strip()

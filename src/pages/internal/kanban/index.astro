@@ -66,6 +66,167 @@ const allStudents = (rawStudents ?? []) as Array<{
   yueling_tier: string | null;                // Max / Pro / 标准 / 博士 / 本科
 }>;
 
+// ── Active 中期顾问 list — only those in advisors table drive the contracts
+//    widgets. New 顾问 onboarding = adding to advisors table. ──
+const { data: rawAdvisorsRows } = await supabase.from('advisors').select('name');
+const ACTIVE_ADVISORS = (rawAdvisorsRows ?? []).map((r: any) => r.name as string);
+const ACTIVE_ADVISORS_SET = new Set(ACTIVE_ADVISORS);
+
+// ── Contracts (留学 + 产品) by student → mid_advisor breakdown ──
+// Pulls every contract whose vault student is managed by an active 中期顾问.
+// Splits 留学申请 vs 非留学申请, with product-family bucketing for the 产品 widget.
+const { data: rawContracts } = await supabase
+  .from('contracts')
+  .select('contract_id, customer_id, student_id, signed_at, signed_amount, template_name, category, status, is_application, mid_advisor, intake_year')
+  .not('student_id', 'is', null)
+  .neq('status', '已终止');
+
+type ContractRow = {
+  contract_id: string;
+  customer_id: string;
+  student_id: number;
+  signed_at: string;
+  signed_amount: number;
+  template_name: string | null;
+  category: string | null;
+  status: string | null;
+  is_application: boolean;
+  mid_advisor: string | null;
+  intake_year: number | null;
+};
+
+const allContracts = (rawContracts ?? []) as ContractRow[];
+
+// Map student_id → primary 中期顾问 (first of mid_advisors[]). Multi-advisor
+// students get attributed to first advisor for revenue counting; we don't
+// double-count.
+const studentPrimaryAdvisor = new Map<number, string>();
+for (const s of allStudents) {
+  const advisors = s.mid_advisors || [];
+  if (advisors.length === 0) continue;
+  const primary = advisors[0];
+  if (ACTIVE_ADVISORS_SET.has(primary)) {
+    studentPrimaryAdvisor.set(s.id, primary);
+  }
+}
+
+// Product family bucketing — coalesce noisy template-with-OA-code categories
+// into ~12 stable family labels so the stacked bar reads clean.
+function productFamily(category: string | null, templateName: string | null): string {
+  const cn = (templateName || category || '');
+  if (!cn) return '其他';
+  if (cn.includes('跃领')) return '跃领规划';
+  if (cn.includes('格物')) return '格物';
+  if (cn.includes('精英预备')) return '菁英课程';
+  if (cn.includes('菁英') && !cn.includes('博士')) return '菁英课程';
+  if (cn.includes('就业力') || cn.includes('顶锋') || cn.includes('优选') || cn.includes('人事实习') || cn.includes('美研职场起航') || cn.includes('美研高端实训')) return '就业力';
+  if (cn.includes('美国本科志领') || cn.includes('志领学堂')) return '美本规划';
+  if (cn.includes('美国本科')) return '美本规划';
+  if (cn.includes('海外学术导师') || cn.includes('AST') || cn.includes('艾思特') || cn.includes('英领')) return '学术力';
+  if (cn.includes('海外名校导师') || cn.includes('科研')) return '科研项目';
+  if (cn.includes('1对1定制参赛') || cn.includes('AMC') || cn.includes('BPHO') || cn.includes('物理碗') || cn.includes('竞赛')) return '竞赛';
+  if (cn.includes('云中学') || cn.includes('OSSD') || cn.includes('NCUK')) return '中学项目';
+  if (cn.includes('日本前途塾')) return '日本规划';
+  if (cn.includes('起点') || cn.includes('启程') || cn.includes('英文能力提升') || cn.includes('面授一对一')) return '语培班课';
+  if (cn.includes('签证')) return '签证服务';
+  return '其他';
+}
+
+// Aggregate per advisor
+type AdvisorContractStats = {
+  advisor: string;
+  // 留学
+  liuxueStudents: Set<number>;
+  liuxueContracts: number;
+  liuxueRevenue: number;
+  liuxueRecent12wk: number;
+  // 产品
+  productStudents: Set<number>;
+  productContracts: number;
+  productRevenue: number;
+  productRecent12wk: number;
+  productByFamily: Map<string, { count: number; revenue: number }>;
+};
+
+const advisorStats = new Map<string, AdvisorContractStats>();
+for (const adv of ACTIVE_ADVISORS) {
+  advisorStats.set(adv, {
+    advisor: adv,
+    liuxueStudents: new Set(),
+    liuxueContracts: 0,
+    liuxueRevenue: 0,
+    liuxueRecent12wk: 0,
+    productStudents: new Set(),
+    productContracts: 0,
+    productRevenue: 0,
+    productRecent12wk: 0,
+    productByFamily: new Map(),
+  });
+}
+
+const twelveWeeksAgo = new Date(Date.now() - 12 * 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+for (const c of allContracts) {
+  const adv = studentPrimaryAdvisor.get(c.student_id);
+  if (!adv) continue;
+  const stats = advisorStats.get(adv);
+  if (!stats) continue;
+  const amt = Number(c.signed_amount) || 0;
+  const recent = c.signed_at && c.signed_at >= twelveWeeksAgo;
+
+  if (c.is_application) {
+    stats.liuxueStudents.add(c.student_id);
+    stats.liuxueContracts += 1;
+    stats.liuxueRevenue += amt;
+    if (recent) stats.liuxueRecent12wk += 1;
+  } else {
+    stats.productStudents.add(c.student_id);
+    stats.productContracts += 1;
+    stats.productRevenue += amt;
+    if (recent) stats.productRecent12wk += 1;
+    const family = productFamily(c.category, c.template_name);
+    if (!stats.productByFamily.has(family)) {
+      stats.productByFamily.set(family, { count: 0, revenue: 0 });
+    }
+    const fam = stats.productByFamily.get(family)!;
+    fam.count += 1;
+    fam.revenue += amt;
+  }
+}
+
+// Rank arrays (sorted by respective revenue DESC), keeping ALL active advisors
+// even if 0 — visual presence reveals the gap.
+const liuxueRanked = Array.from(advisorStats.values())
+  .sort((a, b) => b.liuxueRevenue - a.liuxueRevenue);
+const productRanked = Array.from(advisorStats.values())
+  .sort((a, b) => b.productRevenue - a.productRevenue);
+
+const maxLiuxue = Math.max(1, ...liuxueRanked.map(s => s.liuxueRevenue));
+const maxProduct = Math.max(1, ...productRanked.map(s => s.productRevenue));
+
+// Product family color palette (morandi)
+const FAMILY_COLORS: Record<string, string> = {
+  '跃领规划': '#7c8da6',
+  '格物':    '#b39686',
+  '菁英课程': '#a89989',
+  '就业力':   '#8eaa9b',
+  '美本规划': '#b69dc1',
+  '英本规划': '#94a8b3',
+  '学术力':   '#c8a87a',
+  '科研项目': '#8e8f99',
+  '竞赛':     '#bd8c7e',
+  '中学项目': '#9bb097',
+  '日本规划': '#a89888',
+  '语培班课': '#a0acb8',
+  '签证服务': '#7c8a8a',
+  '其他':     '#c4c4c4',
+};
+
+function fmtMoneyShort(n: number): string {
+  if (n >= 10000) return (n / 10000).toFixed(n >= 100000 ? 0 : 1) + '万';
+  return Math.round(n).toString();
+}
+
 const studentsBeforeAdvisor = allStudents.filter(s => {
   if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
   if (isPrivate(s.contracts)) return false;  // 私单 全局藏
@@ -489,14 +650,9 @@ function fmtMoney(n: number): string {
 ---
 
 <InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
-  <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-    <h1 class="font-headline page-title">
-      Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
-    </h1>
-    <a href="/internal/kanban/analytics" style="font-size: 13px; font-weight: 700; color: var(--primary); text-decoration: none; padding: 6px 12px; border: 1px solid var(--primary); border-radius: 6px;">
-      合同分析（复购率 / 周度收入）→
-    </a>
-  </div>
+  <h1 class="font-headline page-title">
+    Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
+  </h1>
   <p class="page-subtitle" style="margin-bottom: 16px;">
     {advisorFilter
       ? <>{advisorFilter} 名下在管学生 <strong style="color: var(--text);">{students.length}</strong>。下方四个图按这位顾问筛选；顾问活动热力图始终显示团队全貌。</>
@@ -553,8 +709,7 @@ function fmtMoney(n: number): string {
         <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
         <li><a href="#kanban-regions">申请地区</a></li>
         <li><a href="#kanban-schools">在读学校</a></li>
-        <li><a href="#kanban-liuxue">留学合同</a></li>
-        <li><a href="#kanban-products">产品合同</a></li>
+        <li><a href="#kanban-liuxue">合同分布</a></li>
         <li><a href="#kanban-advisor-perf">顾问业绩</a></li>
       </ul>
     </aside>
@@ -651,33 +806,160 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ── 留学合同（donut；扇形可点进入合同 profile） ── -->
+      <!-- ────────────────────────────────────────────────────── -->
+      <!-- 留学合同 + 产品合同 by 中期顾问                           -->
+      <!--                                                        -->
+      <!-- Two paired widgets — same vertical advisor ordering      -->
+      <!-- (sorted by 留学 revenue DESC) so a horizontal scan       -->
+      <!-- reveals the 留学/产品 portfolio shape per advisor.       -->
+      <!-- Source: Supabase contracts JOIN students.mid_advisors[0] -->
+      <!-- Filter: status != '已终止', students assigned to active  -->
+      <!-- advisor (in advisors table). Reroll-safe via             -->
+      <!-- scripts/import-signings.py.                              -->
+      <!-- ────────────────────────────────────────────────────── -->
       <section id="kanban-liuxue" class="section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            留学合同 <span class="section-card__subtitle">{liuxueData.length} 个产品大类 · 点扇形进入合同详情</span>
+            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期顾问 · 学生归属 mid_advisors[0] · 排除已终止 · 横向扫一眼可看顾问 portfolio shape</span>
           </h2>
         </div>
-        {liuxueData.length === 0 ? (
-          <p class="section-card__empty">暂无留学合同数据。</p>
-        ) : (
-          <div id="chart-liuxue-donut" style="width: 100%; height: 480px;"></div>
-        )}
+
+        <div class="contracts-pair">
+          <!-- ── Widget A: 留学合同 ── -->
+          <div class="contracts-pair__col">
+            <div class="contracts-pair__col-head">
+              <h3 class="contracts-pair__col-title">留学合同</h3>
+              <span class="contracts-pair__col-meta">是否包含留学申请 = 是</span>
+            </div>
+            {liuxueRanked.length === 0 ? (
+              <p class="section-card__empty">暂无数据</p>
+            ) : (
+              <ul class="advisor-rows">
+                {liuxueRanked.map((s, idx) => {
+                  const barWidth = maxLiuxue > 0 ? (s.liuxueRevenue / maxLiuxue) * 100 : 0;
+                  const isTop3 = idx < 3 && s.liuxueRevenue > 0;
+                  return (
+                    <li class={`advisor-row ${s.liuxueRevenue === 0 ? 'is-empty' : ''}`}>
+                      <div class="advisor-row__head">
+                        <a href={buildHref(s.advisor)} class={`advisor-row__rank ${isTop3 ? 'is-top' : ''}`}>
+                          {idx + 1}
+                        </a>
+                        <a href={buildHref(s.advisor)} class="advisor-row__name">{s.advisor}</a>
+                        <span class="advisor-row__money font-mono">{fmtMoney(s.liuxueRevenue)}</span>
+                      </div>
+                      <div class="advisor-row__bar">
+                        <span class="advisor-row__bar-fill" style={`width: ${barWidth}%; background: var(--primary);`}></span>
+                      </div>
+                      <div class="advisor-row__meta">
+                        <span class="advisor-row__meta-item">
+                          <span class="advisor-row__meta-num font-mono">{s.liuxueStudents.size}</span> 学生
+                        </span>
+                        <span class="advisor-row__meta-item">
+                          <span class="advisor-row__meta-num font-mono">{s.liuxueContracts}</span> 合同
+                        </span>
+                        <span class="advisor-row__meta-item">
+                          客单 <span class="advisor-row__meta-num font-mono">{s.liuxueStudents.size > 0 ? fmtMoneyShort(s.liuxueRevenue / s.liuxueStudents.size) : '—'}</span>
+                        </span>
+                        {s.liuxueRecent12wk > 0 && (
+                          <span class={`advisor-row__pulse ${s.liuxueRecent12wk >= 3 ? 'is-hot' : ''}`}>
+                            最近 12wk · {s.liuxueRecent12wk}
+                          </span>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+
+          <!-- ── Widget B: 产品合同 ── -->
+          <div class="contracts-pair__col">
+            <div class="contracts-pair__col-head">
+              <h3 class="contracts-pair__col-title">产品合同</h3>
+              <span class="contracts-pair__col-meta">非留学申请 · 跃领/培训/竞赛/班课 等</span>
+            </div>
+            {productRanked.length === 0 ? (
+              <p class="section-card__empty">暂无数据</p>
+            ) : (
+              <ul class="advisor-rows">
+                {/* Sort by liuxue (same order as left col) so horizontal scan ↔ aligns */}
+                {liuxueRanked.map(s => {
+                  const barWidth = maxProduct > 0 ? (s.productRevenue / maxProduct) * 100 : 0;
+                  // Build family stack segments (sorted by revenue DESC, top 4 + 其他)
+                  const families = Array.from(s.productByFamily.entries())
+                    .sort((a, b) => b[1].revenue - a[1].revenue);
+                  const topFams = families.slice(0, 4);
+                  const otherRev = families.slice(4).reduce((sum, [, v]) => sum + v.revenue, 0);
+                  const otherCount = families.slice(4).reduce((sum, [, v]) => sum + v.count, 0);
+                  const segments = [...topFams.map(([k, v]) => ({ name: k, revenue: v.revenue, count: v.count }))];
+                  if (otherRev > 0) segments.push({ name: '其他', revenue: otherRev, count: otherCount });
+                  return (
+                    <li class={`advisor-row ${s.productRevenue === 0 ? 'is-empty' : ''}`}>
+                      <div class="advisor-row__head">
+                        <a href={buildHref(s.advisor)} class="advisor-row__rank">·</a>
+                        <a href={buildHref(s.advisor)} class="advisor-row__name">{s.advisor}</a>
+                        <span class="advisor-row__money font-mono">{fmtMoney(s.productRevenue)}</span>
+                      </div>
+                      <div class="advisor-row__bar advisor-row__bar--stacked" title={
+                        segments.map(seg => `${seg.name}: ${fmtMoneyShort(seg.revenue)} (${seg.count})`).join(' · ')
+                      }>
+                        {segments.map(seg => {
+                          const segWidthPct = s.productRevenue > 0 ? (seg.revenue / s.productRevenue) * barWidth : 0;
+                          const color = FAMILY_COLORS[seg.name] || '#c4c4c4';
+                          return (
+                            <span
+                              class="advisor-row__bar-seg"
+                              style={`width: ${segWidthPct}%; background: ${color};`}
+                              title={`${seg.name}: ${fmtMoneyShort(seg.revenue)} · ${seg.count} 单`}
+                            ></span>
+                          );
+                        })}
+                      </div>
+                      <div class="advisor-row__meta">
+                        <span class="advisor-row__meta-item">
+                          <span class="advisor-row__meta-num font-mono">{s.productStudents.size}</span> 学生
+                        </span>
+                        <span class="advisor-row__meta-item">
+                          <span class="advisor-row__meta-num font-mono">{s.productContracts}</span> 合同
+                        </span>
+                        {topFams.length > 0 && (
+                          <span class="advisor-row__meta-item advisor-row__meta-item--family">
+                            主打 <strong>{topFams[0][0]}</strong> ({Math.round((topFams[0][1].revenue / s.productRevenue) * 100)}%)
+                          </span>
+                        )}
+                        {s.productRecent12wk > 0 && (
+                          <span class={`advisor-row__pulse ${s.productRecent12wk >= 3 ? 'is-hot' : ''}`}>
+                            最近 12wk · {s.productRecent12wk}
+                          </span>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+
+            {/* Family color legend */}
+            <div class="family-legend">
+              {Object.entries(FAMILY_COLORS).map(([name, color]) => {
+                const used = productRanked.some(r => r.productByFamily.has(name));
+                if (!used) return null;
+                return (
+                  <span class="family-legend__item">
+                    <span class="family-legend__swatch" style={`background: ${color};`}></span>
+                    <span class="family-legend__name">{name}</span>
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- ── 产品合同（add-on / 搭售） ── -->
-      <section id="kanban-products" class="section-card">
-        <div class="section-card__header">
-          <h2 class="font-headline section-card__title">
-            产品合同 <span class="section-card__subtitle">{productData.length} 个产品 · 来自财务 ERP 同步（add-on / 搭售）</span>
-          </h2>
-        </div>
-        {productData.length === 0 ? (
-          <p class="section-card__empty">暂无产品合同数据。</p>
-        ) : (
-          <div id="chart-products-donut" style="width: 100%; height: 480px;"></div>
-        )}
-      </section>
+      <!-- (placeholder kept so TOC anchor #kanban-products still resolves; the
+           old standalone 产品合同 donut has been merged into the section above.) -->
+      <span id="kanban-products" style="display:block; height:0;"></span>
 
       <!-- 跃领分级 donut 已迁移到 /internal/kanban/contracts/跃领计划 — 在那里
            作为该 group 的 5 个 distribution 之一显示。kanban index 不再放这个。 -->
@@ -1214,18 +1496,9 @@ function fmtMoney(n: number): string {
         }
       }
 
-      // ── 留学合同 donut (clickable → 合同详情 page) ──
-      renderDonut('chart-liuxue-donut', payload.liuxueDonut, payload.liuxueColors, {
-        unit: '合同',
-        onSliceClick: (name) => {
-          location.href = '/internal/kanban/contracts/' + encodeURIComponent(name);
-        },
-      });
-
-      // ── 产品合同 donut (add-on / 搭售; not clickable for now — 暂无 deliverable 流程) ──
-      renderDonut('chart-products-donut', payload.productDonut, payload.productColors, {
-        unit: '份',
-      });
+      // (留学/产品 donut charts replaced 2026-05-09 by per-advisor paired
+      // widgets above — see #kanban-liuxue. Donut chart-id divs no longer
+      // exist; renderDonut calls were removed to avoid orphan errors.)
 
     })();
   </script>
@@ -1556,6 +1829,191 @@ function fmtMoney(n: number): string {
       margin-top: 16px;
       padding-top: 14px;
       border-top: 1px solid #eef0f3;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       合同分布 widget — 留学 + 产品 by 中期顾问 (paired layout)
+       Designed for visual side-by-side scanning per advisor row.
+       ───────────────────────────────────────────────────────── */
+    .contracts-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 1100px) {
+      .contracts-pair { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .contracts-pair__col-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f1f4;
+      margin-bottom: 16px;
+    }
+    .contracts-pair__col-title {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .contracts-pair__col-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .advisor-rows {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .advisor-row {
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f7;
+    }
+    .advisor-row:last-child { border-bottom: none; }
+    .advisor-row.is-empty { opacity: 0.45; }
+
+    .advisor-row__head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .advisor-row__rank {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #d4d4d8;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'SF Mono', monospace;
+    }
+    .advisor-row__rank.is-top {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .advisor-row__rank:hover {
+      transform: scale(1.08);
+    }
+    .advisor-row__name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .advisor-row__name:hover { color: var(--primary); }
+    .advisor-row__money {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .advisor-row__bar {
+      width: 100%;
+      height: 8px;
+      background: #f3f4f6;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 6px;
+      display: flex;
+    }
+    .advisor-row__bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 240ms ease-out;
+    }
+    .advisor-row__bar--stacked {
+      gap: 1px;
+    }
+    .advisor-row__bar-seg {
+      height: 100%;
+      transition: width 240ms ease-out;
+    }
+    .advisor-row__bar-seg:first-child {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .advisor-row__bar-seg:last-child {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .advisor-row__meta {
+      display: flex;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-soft);
+      flex-wrap: wrap;
+      align-items: center;
+      padding-left: 32px;  /* align with name (after rank) */
+    }
+    .advisor-row__meta-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+    .advisor-row__meta-item--family {
+      color: var(--text-muted);
+    }
+    .advisor-row__meta-item--family strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .advisor-row__meta-num {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 12px;
+    }
+    .advisor-row__pulse {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    .advisor-row__pulse.is-hot {
+      background: var(--primary);
+      color: white;
+    }
+
+    .family-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #f1f1f4;
+      font-size: 10px;
+    }
+    .family-legend__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-muted);
+    }
+    .family-legend__swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+    .family-legend__name {
+      font-weight: 600;
     }
 
     html { scroll-behavior: smooth; }
