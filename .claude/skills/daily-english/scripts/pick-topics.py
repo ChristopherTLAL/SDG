@@ -66,19 +66,62 @@ def main():
                 continue
             pending.append({"topicId": topic["id"], "cefr": cefr})
 
+    # Build topicId → newsDate (lower bound for that topic's article dates)
+    news_date_by_id: dict[str, date] = {}
+    for topic in db.get("topics", []):
+        news = topic.get("newsDate", "")
+        if not news:
+            continue
+        try:
+            if len(news) == 7:  # YYYY-MM
+                news_date_by_id[topic["id"]] = date.fromisoformat(news + "-01")
+            elif len(news) == 10:
+                news_date_by_id[topic["id"]] = date.fromisoformat(news)
+        except ValueError:
+            pass
+
     # Take only count requested (unless topic-id was specified, then take all matching)
     if not args.topic_id and args.count:
         pending = pending[: args.count]
 
-    # Assign slugs (next available date starting from today)
+    # Date assignment policy:
+    # 1. Articles fill the timeline going BACKWARD from today (newest first).
+    # 2. The newest existing slug acts as the floor — every new slug must be older than it.
+    # 3. Each article's date must be >= its topic's newsDate (an article cannot predate its event).
+    # 4. If the natural backward cursor lands before newsDate, snap forward to newsDate
+    #    and keep walking back from there for subsequent topics.
     today = date.today()
-    cursor = today
+    existing_dates = sorted(
+        (date.fromisoformat(s) for s in used_slugs if len(s) == 10),
+        reverse=True,
+    )
+    if existing_dates:
+        # Start one day older than the oldest existing article.
+        cursor = existing_dates[-1] - timedelta(days=1)
+    else:
+        cursor = today
+
+    # Never go forward in time, and never overlap an existing slug.
     for p in pending:
-        while cursor.isoformat() in used_slugs:
-            cursor += timedelta(days=1)
+        floor = news_date_by_id.get(p["topicId"])
+        # If cursor would predate the event, raise it back up to event date.
+        if floor and cursor < floor:
+            cursor = floor
+        # Pick the first free day at-or-before cursor.
+        while cursor.isoformat() in used_slugs or cursor > today:
+            if cursor > today:
+                cursor -= timedelta(days=1)
+                continue
+            cursor -= timedelta(days=1)
+            # If we walked below the floor, snap up.
+            if floor and cursor < floor:
+                cursor = floor
+                while cursor.isoformat() in used_slugs:
+                    cursor += timedelta(days=1)
+                break
         p["slug"] = cursor.isoformat()
         used_slugs.add(p["slug"])
-        cursor += timedelta(days=1)
+        cursor -= timedelta(days=1)
 
     print(json.dumps(pending, indent=2, ensure_ascii=False))
 
