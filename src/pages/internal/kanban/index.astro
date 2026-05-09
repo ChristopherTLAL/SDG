@@ -19,7 +19,9 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
 }
 
 const url = new URL(Astro.request.url);
-const advisorFilter = url.searchParams.get('advisor') || '';
+// Note: advisor filter removed — kanban is team-wide, drill-down lives at
+// /internal/kanban/advisors/[name]. URL param `?advisor=` is now ignored.
+const _ignored = url.searchParams.get('advisor');
 
 // 私单 是王世杰的个人 tag，不属于任何看板聚合 — 任何 viewer 在 kanban 都看不到。
 // 学生详情页 / roster 不受此影响（管理员仍然可访问）。
@@ -204,6 +206,29 @@ const productRanked = Array.from(advisorStats.values())
 const maxLiuxue = Math.max(1, ...liuxueRanked.map(s => s.liuxueRevenue));
 const maxProduct = Math.max(1, ...productRanked.map(s => s.productRevenue));
 
+// 客单价 = 总收入 / 总学生数 (across ALL contracts of advisor's students;
+// no filter for 留学/产品). Denominator = unique students with any contract.
+type CustomerValueRow = {
+  advisor: string;
+  totalRevenue: number;
+  totalStudents: number;
+  totalContracts: number;
+  avgPrice: number;
+};
+const customerValueRanked: CustomerValueRow[] = Array.from(advisorStats.values()).map(s => {
+  const allStuds = new Set([...s.liuxueStudents, ...s.productStudents]);
+  const totalRevenue = s.liuxueRevenue + s.productRevenue;
+  const total = allStuds.size;
+  return {
+    advisor: s.advisor,
+    totalRevenue,
+    totalStudents: total,
+    totalContracts: s.liuxueContracts + s.productContracts,
+    avgPrice: total > 0 ? totalRevenue / total : 0,
+  };
+}).sort((a, b) => b.avgPrice - a.avgPrice);
+const maxAvgPrice = Math.max(1, ...customerValueRanked.map(r => r.avgPrice));
+
 // Product family color palette (morandi)
 const FAMILY_COLORS: Record<string, string> = {
   '跃领规划': '#7c8da6',
@@ -252,8 +277,8 @@ for (const [studentId, adv] of studentPrimaryAdvisor.entries()) {
 }
 const advisorMixObj = (adv: string): StudentMix => advisorMix.get(adv) || { onlyLiuxue: 0, both: 0, onlyProduct: 0, total: 0 };
 
-// ── 6-week signing heatmap data ──
-// Per (advisor × ISO-week-start) → total signed amount. Replaces 复购 widget.
+// ── Weekly signing heatmap data ──
+// Per (advisor × ISO-week-start) → total signed amount.
 function weekStart(dateStr: string): string {
   const d = new Date(dateStr + 'T00:00:00Z');
   const day = d.getUTCDay();
@@ -262,7 +287,7 @@ function weekStart(dateStr: string): string {
   return d.toISOString().slice(0, 10);
 }
 
-const SIX_WEEKS = 6;
+const WEEKS_BACK = 12;
 const today = new Date();
 const todayMonday = new Date(today);
 {
@@ -271,12 +296,12 @@ const todayMonday = new Date(today);
   todayMonday.setUTCDate(todayMonday.getUTCDate() + offset);
 }
 const weekLabels: string[] = [];
-for (let i = SIX_WEEKS - 1; i >= 0; i--) {
+for (let i = WEEKS_BACK - 1; i >= 0; i--) {
   const d = new Date(todayMonday);
   d.setUTCDate(d.getUTCDate() - i * 7);
   weekLabels.push(d.toISOString().slice(0, 10));
 }
-const sixWeeksAgo = weekLabels[0];
+const earliestWeek = weekLabels[0];
 
 type WeekBucket = { revenue: number; count: number };
 const weeklyByAdvisor = new Map<string, Map<string, WeekBucket>>();
@@ -290,7 +315,7 @@ for (const c of allContracts) {
   const adv = studentPrimaryAdvisor.get(c.student_id);
   if (!adv) continue;
   const wk = weekStart(c.signed_at.slice(0, 10));
-  if (wk < sixWeeksAgo) continue;
+  if (wk < earliestWeek) continue;
   const advMap = weeklyByAdvisor.get(adv);
   if (!advMap || !advMap.has(wk)) continue;
   const b = advMap.get(wk)!;
@@ -325,18 +350,12 @@ const studentsBeforeAdvisor = allStudents.filter(s => {
   return true;
 });
 
-// Apply the advisor filter to the four widgets that should respect it
-// (school / region / stage-year / contract). The advisor activity heatmap
-// always shows ALL advisors — it IS the team-comparison view, so filtering
-// to one advisor would defeat its purpose.
-const students = advisorFilter
-  ? studentsBeforeAdvisor.filter(s =>
-      Array.isArray(s.mid_advisors) && s.mid_advisors.includes(advisorFilter)
-    )
-  : studentsBeforeAdvisor;
+// Kanban is the team-comparison dashboard; no per-advisor filtering here.
+// (Per-advisor drill-down lives at /internal/kanban/advisors/[name].)
+const students = studentsBeforeAdvisor;
 
 function buildHref(advisor: string): string {
-  return advisor ? `/internal/kanban?advisor=${encodeURIComponent(advisor)}` : '/internal/kanban';
+  return `/internal/kanban/advisors/${encodeURIComponent(advisor)}`;
 }
 
 // ── Widget 1: 在读学校分布 ──
@@ -587,13 +606,7 @@ function slug(s: string): string {
   return encodeURIComponent(s);
 }
 
-// Chip strip — same per-advisor counts the dashboard uses.
-const advisorChipCounts = new Map<string, number>();
-for (const s of studentsBeforeAdvisor) {
-  for (const a of s.mid_advisors ?? []) {
-    advisorChipCounts.set(a, (advisorChipCounts.get(a) ?? 0) + 1);
-  }
-}
+// (chip strip removed — kanban no longer filters by advisor)
 
 // Donut payload — top-N + 其他 bucket so the slices stay legible.
 function buildDonut(rows: { name: string; count: number }[], topN: number) {
@@ -741,29 +754,15 @@ function fmtMoney(n: number): string {
 }
 ---
 
-<InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
+<InternalLayout title="Kanban" active="kanban">
   <!-- Fixed-shell layout: header strip + sidebar tabs + panel area.
        No page scroll; each panel scrolls internally if needed. -->
   <div class="kanban-shell">
-    <!-- ── Top strip: title + advisor chips (always visible) ── -->
+    <!-- ── Top strip: title only (no filter — kanban is team-wide) ── -->
     <div class="kanban-top">
       <div class="kanban-top__title">
-        <h1 class="font-headline kanban-top__h1">
-          Kanban{advisorFilter && <span class="kanban-top__filter">· {advisorFilter}</span>}
-        </h1>
-        <span class="kanban-top__count">
-          {advisorFilter ? `${advisorFilter} 名下 ${students.length} 在管` : `在管学生 ${students.length}`}
-        </span>
-      </div>
-      <div class="kanban-top__chips">
-        <a href={buildHref('')} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
-        {Array.from(advisorChipCounts.entries())
-          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .map(([name, count]) => (
-            <a href={buildHref(name)} class={`pill ${advisorFilter === name ? 'pill--active' : ''}`}>
-              {name} <span style="opacity: 0.6; margin-left: 2px;" class="font-mono">{count}</span>
-            </a>
-          ))}
+        <h1 class="font-headline kanban-top__h1">Kanban</h1>
+        <span class="kanban-top__count">在管学生 {students.length}</span>
       </div>
     </div>
 
@@ -894,36 +893,33 @@ function fmtMoney(n: number): string {
       </section>
 
       <!-- ─────────────────────────────────────────────────── -->
-      <!-- PANEL: 合同分布 — 留学 + 产品 by advisor (DEFAULT)   -->
+      <!-- PANEL: 合同分布 — 留学 / 客单价 / 产品 by advisor   -->
       <!--                                                     -->
-      <!-- Each column independently sorted by its own metric. -->
-      <!-- SVG center column draws Bezier between same-advisor -->
-      <!-- rows on left/right (different rank → diagonal line, -->
-      <!-- same rank → straight). Hover any row to highlight   -->
-      <!-- the paired row + line on the other side.            -->
+      <!-- Three columns each sorted by its own metric.        -->
+      <!-- Hover any row → all columns highlight that advisor. -->
       <!--                                                     -->
-      <!-- Per-row meta includes student-mix breakdown:        -->
-      <!--   总N = 单留X + 双Y + 单产Z (consistent both sides) -->
+      <!-- 客单价 = 总收入 / 学生数 (across all contracts;     -->
+      <!-- not filtered by 留学/产品). 学生数 = unique students -->
+      <!-- this advisor has across both buckets.               -->
       <!-- ─────────────────────────────────────────────────── -->
       <section data-panel="contracts" class="kanban-panel section-card is-active">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 排除已终止 · hover 行可联动另一侧</span>
+            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 排除已终止 · hover 任一行联动其他两列</span>
           </h2>
         </div>
 
         <div class="cp-grid">
-          <!-- LEFT: 留学合同 (sorted by 留学 revenue DESC) -->
-          <div class="cp-col" data-side="left">
+          <!-- COL 1: 留学合同 (sorted by 留学 ¥ DESC) -->
+          <div class="cp-col">
             <div class="cp-col-head">
               <h3 class="cp-col-title">留学合同</h3>
-              <span class="cp-col-meta">按 ¥ 降序 · 是否含留学申请 = 是</span>
+              <span class="cp-col-meta">按 ¥ 降序</span>
             </div>
             <ul class="cp-rows">
               {liuxueRanked.map((s, idx) => {
                 const barWidth = maxLiuxue > 0 ? (s.liuxueRevenue / maxLiuxue) * 100 : 0;
                 const isTop3 = idx < 3 && s.liuxueRevenue > 0;
-                const mix = advisorMixObj(s.advisor);
                 return (
                   <li class={`cp-row ${s.liuxueRevenue === 0 ? 'is-empty' : ''}`} data-advisor={s.advisor}>
                     <div class="cp-row__head">
@@ -937,7 +933,37 @@ function fmtMoney(n: number): string {
                     <div class="cp-meta">
                       <span class="cp-meta__tag"><strong class="font-mono">{s.liuxueStudents.size}</strong>学生</span>
                       <span class="cp-meta__tag"><strong class="font-mono">{s.liuxueContracts}</strong>合同</span>
-                      <span class="cp-meta__tag">客单<strong class="font-mono">{s.liuxueStudents.size > 0 ? fmtMoneyShort(s.liuxueRevenue / s.liuxueStudents.size) : '—'}</strong></span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <!-- COL 2: 客单价 (sorted by 客单价 DESC; all-students denominator) -->
+          <div class="cp-col cp-col--customer">
+            <div class="cp-col-head">
+              <h3 class="cp-col-title">客单价</h3>
+              <span class="cp-col-meta">总 ¥ ÷ 总学生</span>
+            </div>
+            <ul class="cp-rows">
+              {customerValueRanked.map((r, idx) => {
+                const barWidth = maxAvgPrice > 0 ? (r.avgPrice / maxAvgPrice) * 100 : 0;
+                const isTop3 = idx < 3 && r.avgPrice > 0;
+                const mix = advisorMixObj(r.advisor);
+                return (
+                  <li class={`cp-row ${r.avgPrice === 0 ? 'is-empty' : ''}`} data-advisor={r.advisor}>
+                    <div class="cp-row__head">
+                      <span class={`cp-rank ${isTop3 ? 'is-top' : ''}`}>{idx + 1}</span>
+                      <a href={buildHref(r.advisor)} class="cp-name">{r.advisor}</a>
+                      <span class="cp-money font-mono">¥{fmtMoneyShort(r.avgPrice)}</span>
+                    </div>
+                    <div class="cp-bar">
+                      <span class="cp-bar__fill" style={`width: ${barWidth}%; background: #b69d7e;`}></span>
+                    </div>
+                    <div class="cp-meta">
+                      <span class="cp-meta__tag"><strong class="font-mono">{r.totalStudents}</strong>学生</span>
+                      <span class="cp-meta__tag font-mono" style="color:var(--text-muted)">合计 {fmtMoneyShort(r.totalRevenue)}</span>
                       <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
                         <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
                         <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
@@ -950,29 +976,30 @@ function fmtMoney(n: number): string {
             </ul>
           </div>
 
-          <!-- CENTER: SVG connecting lines (drawn client-side after layout) -->
-          <div class="cp-svg-wrap" aria-hidden>
-            <svg class="cp-svg" preserveAspectRatio="none"></svg>
-          </div>
-
-          <!-- RIGHT: 产品合同 (sorted by 产品 revenue DESC) -->
-          <div class="cp-col" data-side="right">
+          <!-- COL 3: 产品合同 (sorted by 产品 ¥ DESC) -->
+          <div class="cp-col">
             <div class="cp-col-head">
               <h3 class="cp-col-title">产品合同</h3>
-              <span class="cp-col-meta">按 ¥ 降序 · 跃领/培训/竞赛/班课 等</span>
+              <span class="cp-col-meta">按 ¥ 降序</span>
             </div>
             <ul class="cp-rows">
               {productRanked.map((s, idx) => {
                 const barWidth = maxProduct > 0 ? (s.productRevenue / maxProduct) * 100 : 0;
                 const isTop3 = idx < 3 && s.productRevenue > 0;
-                const families = Array.from(s.productByFamily.entries())
+                // Build family stack — pull "其他" out FIRST so it doesn't
+                // duplicate when slice(4)+ tail also accumulates into "其他".
+                const allFams = Array.from(s.productByFamily.entries());
+                const explicitOther = allFams.find(([k]) => k === '其他');
+                const namedFams = allFams
+                  .filter(([k]) => k !== '其他')
                   .sort((a, b) => b[1].revenue - a[1].revenue);
-                const topFams = families.slice(0, 4);
-                const otherRev = families.slice(4).reduce((sum, [, v]) => sum + v.revenue, 0);
-                const otherCount = families.slice(4).reduce((sum, [, v]) => sum + v.count, 0);
-                const segments = [...topFams.map(([k, v]) => ({ name: k, revenue: v.revenue, count: v.count }))];
-                if (otherRev > 0) segments.push({ name: '其他', revenue: otherRev, count: otherCount });
-                const mix = advisorMixObj(s.advisor);
+                const topFams = namedFams.slice(0, 4);
+                const tailRev = namedFams.slice(4).reduce((sum, [, v]) => sum + v.revenue, 0)
+                              + (explicitOther ? explicitOther[1].revenue : 0);
+                const tailCount = namedFams.slice(4).reduce((sum, [, v]) => sum + v.count, 0)
+                              + (explicitOther ? explicitOther[1].count : 0);
+                const segments = topFams.map(([k, v]) => ({ name: k, revenue: v.revenue, count: v.count }));
+                if (tailRev > 0) segments.push({ name: '其他', revenue: tailRev, count: tailCount });
                 return (
                   <li class={`cp-row ${s.productRevenue === 0 ? 'is-empty' : ''}`} data-advisor={s.advisor}>
                     <div class="cp-row__head">
@@ -995,11 +1022,6 @@ function fmtMoney(n: number): string {
                       {topFams.length > 0 && (
                         <span class="cp-meta__tag cp-meta__tag--family">主打<strong>{topFams[0][0]}</strong>{Math.round((topFams[0][1].revenue / s.productRevenue) * 100)}%</span>
                       )}
-                      <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
-                        <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
-                        <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
-                        <span class="cp-mix__seg cp-mix__seg--product" style={`flex: ${mix.onlyProduct};`}></span>
-                      </span>
                     </div>
                   </li>
                 );
@@ -1011,7 +1033,7 @@ function fmtMoney(n: number): string {
         <!-- Legends row -->
         <div class="cp-legends">
           <div class="cp-legend">
-            <span class="cp-legend__title">学生分布</span>
+            <span class="cp-legend__title">客单价 学生构成</span>
             <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--liuxue" style="width:14px;height:8px;"></span>单留学</span>
             <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--both" style="width:14px;height:8px;"></span>都有</span>
             <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--product" style="width:14px;height:8px;"></span>单产品</span>
@@ -1032,16 +1054,16 @@ function fmtMoney(n: number): string {
       </section>
 
       <!-- ─────────────────────────────────────────────────── -->
-      <!-- PANEL: 周度签约 ¥ — 6 周 heatmap                    -->
+      <!-- PANEL: 周度签约 ¥ — 12 周 heatmap                   -->
       <!--                                                     -->
-      <!-- Per-advisor row × 6 weeks. Cell = signed amount,    -->
+      <!-- Per-advisor row × 12 weeks. Cell = signed amount,   -->
       <!-- color shaded by amount (0 → white, max → primary).  -->
-      <!-- Rows sorted by 6-week total DESC.                   -->
+      <!-- Rows sorted by 12-week total DESC.                  -->
       <!-- ─────────────────────────────────────────────────── -->
       <section data-panel="weekly" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            周度签约 ¥ <span class="section-card__subtitle">最近 6 周（周一锚定）· 色阶 = 当周顾问签约金额 · 排除已终止</span>
+            周度签约 ¥ <span class="section-card__subtitle">最近 12 周（周一锚定）· 色阶 = 当周顾问签约金额 · 排除已终止</span>
           </h2>
         </div>
         {weeklyRanked.length === 0 ? (
@@ -1053,7 +1075,7 @@ function fmtMoney(n: number): string {
                 <tr>
                   <th class="wk-th-advisor">中期</th>
                   {weekLabels.map(w => <th class="wk-th-week font-mono">{fmtWk(w)}</th>)}
-                  <th class="wk-th-total">6 周合计</th>
+                  <th class="wk-th-total">12 周合计</th>
                 </tr>
               </thead>
               <tbody>
@@ -1104,68 +1126,28 @@ function fmtMoney(n: number): string {
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
 
-      // ── Tab switching: hide non-active panels; resize charts when tab activated ──
+      // ── Tab switching: hide non-active panels; resize charts on activate ──
       const tabButtons = document.querySelectorAll('.kanban-tab');
       const panels = document.querySelectorAll('.kanban-panel');
       function activateTab(name) {
         tabButtons.forEach(b => b.classList.toggle('is-active', b.dataset.tab === name));
         panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === name));
-        // After display change, charts inside the now-visible panel may have
-        // grown from 0×0 → real size. Force resize so they paint correctly.
-        requestAnimationFrame(() => {
-          charts.forEach(c => c && c.resize());
-          if (name === 'contracts') drawCpLines();
-        });
+        // Charts inside hidden panels render at 0×0; force resize on activate.
+        requestAnimationFrame(() => charts.forEach(c => c && c.resize()));
       }
       tabButtons.forEach(b => {
         b.addEventListener('click', () => activateTab(b.dataset.tab));
       });
 
-      // ── 合同分布 widget: SVG connecting Bezier lines + hover pairing ──
-      const cpSvg = document.querySelector('.cp-svg');
-      const cpLeftRows  = document.querySelectorAll('.cp-col[data-side="left"] .cp-row');
-      const cpRightRows = document.querySelectorAll('.cp-col[data-side="right"] .cp-row');
-
-      function drawCpLines() {
-        if (!cpSvg) return;
-        const wrap = cpSvg.parentElement;
-        const wrapRect = wrap.getBoundingClientRect();
-        if (wrapRect.width === 0) return;
-        cpSvg.setAttribute('viewBox', `0 0 ${wrapRect.width} ${wrapRect.height}`);
-        cpSvg.innerHTML = '';
-        const rightByAdvisor = new Map();
-        cpRightRows.forEach(r => rightByAdvisor.set(r.dataset.advisor, r));
-        cpLeftRows.forEach(leftRow => {
-          const advisor = leftRow.dataset.advisor;
-          const rightRow = rightByAdvisor.get(advisor);
-          if (!rightRow) return;
-          const lr = leftRow.getBoundingClientRect();
-          const rr = rightRow.getBoundingClientRect();
-          const y1 = lr.top + lr.height / 2 - wrapRect.top;
-          const y2 = rr.top + rr.height / 2 - wrapRect.top;
-          const x1 = 0;
-          const x2 = wrapRect.width;
-          const c1 = wrapRect.width * 0.5;
-          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          path.setAttribute('d', `M ${x1} ${y1} C ${c1} ${y1}, ${c1} ${y2}, ${x2} ${y2}`);
-          path.setAttribute('class', 'cp-svg-line');
-          path.setAttribute('data-advisor', advisor);
-          cpSvg.appendChild(path);
-        });
-      }
-
+      // ── 合同分布: hover any row → highlight same advisor in all 3 columns ──
       function highlightAdvisor(name, on) {
-        document.querySelectorAll(`.cp-row[data-advisor="${CSS.escape(name)}"], .cp-svg-line[data-advisor="${CSS.escape(name)}"]`)
+        document.querySelectorAll(`.cp-row[data-advisor="${CSS.escape(name)}"]`)
           .forEach(el => el.classList.toggle('is-paired', on));
       }
-      [...cpLeftRows, ...cpRightRows].forEach(row => {
+      document.querySelectorAll('.cp-row').forEach(row => {
         row.addEventListener('mouseenter', () => highlightAdvisor(row.dataset.advisor, true));
         row.addEventListener('mouseleave', () => highlightAdvisor(row.dataset.advisor, false));
       });
-
-      // Initial line draw + redraw on viewport resize
-      requestAnimationFrame(drawCpLines);
-      window.addEventListener('resize', drawCpLines);
 
       // Mark body for fixed-shell CSS (no page scroll)
       document.body.classList.add('kanban-page');
@@ -1910,17 +1892,19 @@ function fmtMoney(n: number): string {
       .kanban-tab__sub { display: none; }
     }
 
-    /* ── 合同分布 cp-* (revamped widget) ── */
+    /* ── 合同分布 cp-* (3-column widget) ── */
     .cp-grid {
       display: grid;
-      grid-template-columns: 1fr 90px 1fr;
-      gap: 0;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
       align-items: start;
       margin-bottom: 16px;
     }
     @media (max-width: 1100px) {
-      .cp-grid { grid-template-columns: 1fr; }
-      .cp-svg-wrap { display: none; }
+      .cp-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .cp-col--customer .cp-col-head {
+      border-bottom-color: #b69d7e;
     }
     .cp-col-head {
       display: flex;
@@ -2050,29 +2034,6 @@ function fmtMoney(n: number): string {
     .cp-mix__seg--liuxue  { background: #7c8da6; }
     .cp-mix__seg--both    { background: #042f24; }
     .cp-mix__seg--product { background: #b6948c; }
-
-    /* SVG center column with connecting Bezier curves */
-    .cp-svg-wrap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    .cp-svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-    .cp-svg-line {
-      fill: none;
-      stroke: rgba(4, 47, 36, 0.18);
-      stroke-width: 1;
-      transition: stroke 120ms, stroke-width 120ms;
-    }
-    .cp-svg-line.is-paired {
-      stroke: var(--primary);
-      stroke-width: 2;
-    }
 
     .cp-legends {
       display: flex;
