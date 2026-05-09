@@ -1608,7 +1608,10 @@ function fmtMoney(n: number): string {
     <div class="report-drawer__backdrop" data-close></div>
     <aside class="report-drawer__panel" role="dialog" aria-label="周报组装">
       <header class="report-drawer__head">
-        <h2 class="font-headline">周报组装</h2>
+        <div>
+          <div class="report-drawer__eyebrow">导出</div>
+          <h2 class="font-headline report-drawer__title">中期管理周报</h2>
+        </div>
         <button type="button" class="report-drawer__close" data-close aria-label="关闭">
           <span class="material-symbols-outlined">close</span>
         </button>
@@ -1616,14 +1619,19 @@ function fmtMoney(n: number): string {
 
       <div class="report-drawer__body">
         <p class="report-drawer__hint">
-          上下排序 · 拖动 ▲ ▼ 调位置 · 勾选包含到长图 · 「+ 添加文字段」可在任意位置插入手写说明
+          勾选要进长图的板块 · 拖动调整顺序 · 「+ 添加文字」可在头尾或中间插入手写说明
         </p>
+
+        <button type="button" class="report-add-btn report-add-btn--top" data-add-text="top">
+          <span class="material-symbols-outlined">add</span>
+          在最前面添加文字
+        </button>
 
         <ul id="report-items" class="report-items" role="list"><!-- JS populates --></ul>
 
-        <button type="button" id="add-text-section" class="report-add-btn">
+        <button type="button" class="report-add-btn report-add-btn--bottom" data-add-text="bottom">
           <span class="material-symbols-outlined">add</span>
-          添加文字段
+          在最后面添加文字
         </button>
       </div>
 
@@ -2325,7 +2333,7 @@ function fmtMoney(n: number): string {
       // ─────────────────────────────────────────────────────
       // 周报导出 drawer + 长图 渲染
       // ─────────────────────────────────────────────────────
-      const REPORT_WIDTH = 900;
+      const REPORT_WIDTH = 1080;  // matches /tools/english export-card aesthetic
       const WIDGET_CATALOG = [
         // [id, label, default-checked]
         ['kpi',         'KPI 总览',          true],
@@ -2352,39 +2360,56 @@ function fmtMoney(n: number): string {
           const li = document.createElement('li');
           li.className = 'report-item';
           li.dataset.idx = String(idx);
+          li.draggable = true;
           if (item.type === 'widget') {
             li.innerHTML = `
               <div class="report-item__row">
-                <div class="report-item__order">
-                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移">▲</button>
-                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移">▼</button>
+                <div class="report-item__handle" aria-hidden="true" title="拖动调序">
+                  <span class="material-symbols-outlined">drag_indicator</span>
                 </div>
                 <label class="report-item__main">
                   <input type="checkbox" data-act="check" ${item.checked ? 'checked' : ''}>
                   <span class="report-item__label">${item.label}</span>
                 </label>
-                <button type="button" class="report-item__note-toggle" data-act="note" aria-expanded="${item.note ? 'true' : 'false'}">
-                  ${item.note ? '编辑批注' : '+ 加批注'}
-                </button>
+                <div class="report-item__actions">
+                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移" title="上移">
+                    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+                  </button>
+                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移" title="下移">
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                  </button>
+                  <button type="button" class="report-item__btn report-item__btn--ghost" data-act="note" title="${item.note ? '编辑批注' : '加批注'}">
+                    <span class="material-symbols-outlined">${item.note ? 'edit_note' : 'add_comment'}</span>
+                  </button>
+                </div>
               </div>
               <div class="report-item__note ${item.note ? 'is-open' : ''}">
-                <textarea data-act="note-input" placeholder="可选: 这个 widget 想强调什么...">${item.note || ''}</textarea>
+                <textarea data-act="note-input" placeholder="可选 · 给这个板块加一句话注解">${item.note || ''}</textarea>
               </div>
             `;
           } else {
             li.classList.add('report-item--text');
             li.innerHTML = `
               <div class="report-item__row">
-                <div class="report-item__order">
-                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移">▲</button>
-                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移">▼</button>
+                <div class="report-item__handle" aria-hidden="true" title="拖动调序">
+                  <span class="material-symbols-outlined">drag_indicator</span>
                 </div>
-                <span class="report-item__pill">文字段</span>
+                <span class="report-item__pill">文字</span>
                 <input type="text" data-act="title-input" class="report-item__title" placeholder="小标题（可空）" value="${(item.title || '').replace(/"/g,'&quot;')}">
-                <button type="button" class="report-item__btn report-item__btn--danger" data-act="remove" aria-label="删除">×</button>
+                <div class="report-item__actions">
+                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移" title="上移">
+                    <span class="material-symbols-outlined">keyboard_arrow_up</span>
+                  </button>
+                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移" title="下移">
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                  </button>
+                  <button type="button" class="report-item__btn report-item__btn--danger" data-act="remove" aria-label="删除" title="删除">
+                    <span class="material-symbols-outlined">close</span>
+                  </button>
+                </div>
               </div>
               <div class="report-item__note is-open">
-                <textarea data-act="body-input" placeholder="正文 — 出现在长图上">${item.body || ''}</textarea>
+                <textarea data-act="body-input" placeholder="正文 — 这段文字会出现在长图里">${item.body || ''}</textarea>
               </div>
             `;
           }
@@ -2427,9 +2452,76 @@ function fmtMoney(n: number): string {
         else if (act === 'body-input') reportItems[idx].body = t.value;
       });
 
-      document.getElementById('add-text-section').addEventListener('click', () => {
-        reportItems.push({ type: 'text', title: '', body: '', checked: true });
-        renderItems();
+      // ── HTML5 drag-and-drop reorder ──
+      let dragSrcIdx = null;
+      itemsEl.addEventListener('dragstart', (e) => {
+        const li = e.target.closest('.report-item');
+        if (!li) return;
+        // Don't initiate drag from textareas/inputs (they should be focusable)
+        if (e.target.matches('textarea, input, button')) {
+          e.preventDefault();
+          return;
+        }
+        dragSrcIdx = Number(li.dataset.idx);
+        li.classList.add('is-dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', String(dragSrcIdx));
+      });
+      itemsEl.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const li = e.target.closest('.report-item');
+        if (!li) return;
+        // Clear all then set on hovered
+        itemsEl.querySelectorAll('.is-drop-target').forEach(el => el.classList.remove('is-drop-target', 'drop-above', 'drop-below'));
+        const rect = li.getBoundingClientRect();
+        const above = e.clientY < rect.top + rect.height / 2;
+        li.classList.add('is-drop-target', above ? 'drop-above' : 'drop-below');
+      });
+      itemsEl.addEventListener('dragleave', (e) => {
+        const li = e.target.closest('.report-item');
+        if (li && !li.contains(e.relatedTarget)) {
+          li.classList.remove('is-drop-target', 'drop-above', 'drop-below');
+        }
+      });
+      itemsEl.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const li = e.target.closest('.report-item');
+        if (!li || dragSrcIdx === null) return;
+        let dstIdx = Number(li.dataset.idx);
+        const rect = li.getBoundingClientRect();
+        const above = e.clientY < rect.top + rect.height / 2;
+        if (!above) dstIdx += 1;
+        if (dragSrcIdx < dstIdx) dstIdx -= 1;
+        if (dragSrcIdx !== dstIdx) {
+          const [moved] = reportItems.splice(dragSrcIdx, 1);
+          reportItems.splice(dstIdx, 0, moved);
+          renderItems();
+        }
+        dragSrcIdx = null;
+      });
+      itemsEl.addEventListener('dragend', () => {
+        itemsEl.querySelectorAll('.is-dragging, .is-drop-target')
+          .forEach(el => el.classList.remove('is-dragging', 'is-drop-target', 'drop-above', 'drop-below'));
+        dragSrcIdx = null;
+      });
+
+      // Top/bottom add-text buttons
+      document.querySelectorAll('[data-add-text]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const where = btn.dataset.addText;
+          const newItem = { type: 'text', title: '', body: '', checked: true };
+          if (where === 'top') reportItems.unshift(newItem);
+          else reportItems.push(newItem);
+          renderItems();
+          // Focus the new title input
+          requestAnimationFrame(() => {
+            const idx = where === 'top' ? 0 : reportItems.length - 1;
+            const newLi = itemsEl.querySelector(`[data-idx="${idx}"]`);
+            const input = newLi && newLi.querySelector('input[data-act="title-input"]');
+            if (input) input.focus();
+          });
+        });
       });
 
       // Drawer open/close
@@ -2461,25 +2553,44 @@ function fmtMoney(n: number): string {
         return `${fmt(monday)} – ${fmt(today)}`;
       }
 
-      // Build a header block (always at top of report)
+      // Build a header block (always at top of report) — small-red-book aesthetic
       function buildHeader(canvas) {
         const head = document.createElement('div');
         head.className = 'rep-header';
         head.innerHTML = `
-          <div class="rep-header__top">
-            <div class="rep-header__brand">新东方前途出国 · 苏州分公司</div>
-            <div class="rep-header__date">${dateRangeLabel()}</div>
+          <div class="rep-header__strip">
+            <div class="rep-header__brand">
+              <div class="rep-header__logo">新</div>
+              <div>
+                <div class="rep-header__co">新东方前途出国</div>
+                <div class="rep-header__sub">苏州分公司 · 中期管理数据看板</div>
+              </div>
+            </div>
+            <div class="rep-header__pill">管理周报 · ${dateRangeLabel()}</div>
           </div>
-          <h1 class="rep-header__title">中期管理数据看板</h1>
-          <div class="rep-header__author">王世杰 · 周报</div>
+          <h1 class="rep-header__title">本周大盘</h1>
+          <div class="rep-header__byline">
+            <span>王世杰</span>
+            <span class="rep-header__dot">·</span>
+            <span>${new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          </div>
         `;
         canvas.appendChild(head);
       }
       function buildFooter(canvas) {
         const foot = document.createElement('div');
         foot.className = 'rep-footer';
-        const ts = new Date().toISOString().replace('T',' ').slice(0,16);
-        foot.textContent = `生成于 ${ts}`;
+        const ts = new Date().toISOString().slice(0,10);
+        foot.innerHTML = `
+          <div>
+            <div class="rep-footer__title">中期管理数据看板</div>
+            <div class="rep-footer__sub">生成于 ${ts} · 仅限内部传阅</div>
+          </div>
+          <div class="rep-footer__right">
+            <div class="rep-footer__url">sdg.undp.ac.cn</div>
+            <div class="rep-footer__sub">/internal/kanban</div>
+          </div>
+        `;
         canvas.appendChild(foot);
       }
 
@@ -2488,17 +2599,28 @@ function fmtMoney(n: number): string {
         const k = payload.kpi || {};
         const block = document.createElement('section');
         block.className = 'rep-block rep-block--kpi';
+        const card = (num, label, accent) => `
+          <div class="rep-kpi" ${accent ? `style="background:${accent.bg};border-color:${accent.border};"` : ''}>
+            <div class="rep-kpi__num" ${accent ? `style="color:${accent.fg};"` : ''}>${num}</div>
+            <div class="rep-kpi__label">${label}</div>
+          </div>`;
+        const accent = { bg: '#f0fdf9', fg: '#042f24', border: '#bce3d4' };
         block.innerHTML = `
-          <h2 class="rep-block__title">KPI 总览</h2>
-          <div class="rep-kpi-grid">
-            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalSigning || 0)}</div><div class="rep-kpi__label">签约总额</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalReceived || 0)}</div><div class="rep-kpi__label">已收</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalDelivered || 0)}</div><div class="rep-kpi__label">已交付</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalPrepay || 0)}</div><div class="rep-kpi__label">预收余额</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${k.activeStudents || 0}</div><div class="rep-kpi__label">在管学生</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${k.activeContractCount || 0}</div><div class="rep-kpi__label">在带合同</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${k.signedStudentCount || 0}</div><div class="rep-kpi__label">已签学生</div></div>
-            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.avgPerStudent || 0)}</div><div class="rep-kpi__label">客单价（中期口径）</div></div>
+          <div class="rep-section-head">
+            <span class="rep-section-eyebrow">KPI · This week</span>
+            <h2 class="rep-section-title">本周关键数字</h2>
+          </div>
+          <div class="rep-kpi-grid rep-kpi-grid--money">
+            ${card(fmtMoneyLong(k.totalSigning || 0), '签约总额', accent)}
+            ${card(fmtMoneyLong(k.totalReceived || 0), '已收')}
+            ${card(fmtMoneyLong(k.totalDelivered || 0), '已交付')}
+            ${card(fmtMoneyLong(k.totalPrepay || 0), '预收余额')}
+          </div>
+          <div class="rep-kpi-grid rep-kpi-grid--count">
+            ${card(k.activeStudents || 0, '在管学生')}
+            ${card(k.activeContractCount || 0, '在带合同')}
+            ${card(k.signedStudentCount || 0, '已签学生')}
+            ${card(fmtMoneyLong(k.avgPerStudent || 0), '客单价')}
           </div>
           ${note ? `<p class="rep-block__note">${escapeHtml(note)}</p>` : ''}
         `;
@@ -2515,17 +2637,23 @@ function fmtMoney(n: number): string {
         const block = document.createElement('section');
         block.className = 'rep-block';
         const titleMap = {
-          'contracts': '合同分布',
-          'weekly': '周度签约',
-          'activity': '学生沟通热力',
-          'portfolio': '顾问 portfolio',
-          'terminated': '退费分析',
-          'top-students': 'Top 学生',
-          'monthly-products': '月度产品节奏',
-          'stage-year': '阶段 × 入学届',
-          'schools': '在读学校分布',
+          'contracts': ['合同分布', 'Advisor contract mix'],
+          'weekly': ['周度签约', 'Weekly signings'],
+          'activity': ['学生沟通热力', 'Communication activity'],
+          'portfolio': ['顾问 portfolio', 'Advisor portfolio'],
+          'terminated': ['退费分析', 'Refunds'],
+          'top-students': ['Top 学生', 'Top students by ¥'],
+          'monthly-products': ['月度产品节奏', 'Monthly product rhythm'],
+          'stage-year': ['阶段 × 入学届', 'Stage × intake'],
+          'schools': ['在读学校分布', 'Schools'],
         };
-        block.innerHTML = `<h2 class="rep-block__title">${titleMap[item.id] || item.label}</h2>`;
+        const [zh, en] = titleMap[item.id] || [item.label, ''];
+        block.innerHTML = `
+          <div class="rep-section-head">
+            ${en ? `<span class="rep-section-eyebrow">${en}</span>` : ''}
+            <h2 class="rep-section-title">${zh}</h2>
+          </div>
+        `;
         canvas.appendChild(block);
 
         const livePanel = document.querySelector(`[data-panel="${item.id}"]`);
@@ -2597,10 +2725,14 @@ function fmtMoney(n: number): string {
         const block = document.createElement('section');
         block.className = 'rep-block rep-block--text';
         if (item.title) {
-          block.innerHTML += `<h2 class="rep-block__title">${escapeHtml(item.title)}</h2>`;
+          block.innerHTML += `
+            <div class="rep-section-head">
+              <span class="rep-section-eyebrow">Note</span>
+              <h2 class="rep-section-title">${escapeHtml(item.title)}</h2>
+            </div>
+          `;
         }
         if (item.body) {
-          // Plain text — preserve line breaks
           const para = document.createElement('div');
           para.className = 'rep-text-body';
           item.body.split(/\n+/).forEach(line => {
@@ -3717,12 +3849,15 @@ function fmtMoney(n: number): string {
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.15s;
+      transition: background 0.15s, transform 0.15s;
     }
-    .kanban-top__action:hover { background: var(--primary-dim); }
+    .kanban-top__action:hover { background: var(--primary-dim); transform: translateY(-1px); }
+    .kanban-top__action:active { transform: translateY(0); }
     .kanban-top__action .material-symbols-outlined { font-size: 18px; }
 
-    /* ── Drawer ── */
+    /* ─────────────────────────────────────────────────────── */
+    /* Drawer — refined, matches InternalLayout aesthetic       */
+    /* ─────────────────────────────────────────────────────── */
     .report-drawer[hidden] { display: none !important; }
     .report-drawer {
       position: fixed;
@@ -3734,69 +3869,88 @@ function fmtMoney(n: number): string {
     .report-drawer__backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(2px);
       opacity: 0;
-      transition: opacity 0.2s;
+      transition: opacity 0.25s ease;
     }
     .report-drawer.is-open .report-drawer__backdrop { opacity: 1; }
     .report-drawer__panel {
       position: relative;
       z-index: 1;
-      width: min(560px, 100%);
+      width: min(580px, 100%);
       height: 100%;
-      background: var(--surface-raised);
-      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+      background: #ffffff;
+      box-shadow: -16px 0 48px rgba(15, 23, 42, 0.12);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
-      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .report-drawer.is-open .report-drawer__panel { transform: translateX(0); }
     .report-drawer__head {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid #f0f0f3;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
     }
-    .report-drawer__head h2 { font-size: 18px; margin: 0; }
+    .report-drawer__eyebrow {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-soft, #94a3b8);
+      margin-bottom: 4px;
+    }
+    .report-drawer__title {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.02em;
+      color: var(--text, #1a1a1a);
+    }
     .report-drawer__close {
       background: none;
       border: none;
       cursor: pointer;
-      padding: 4px;
+      padding: 6px;
       color: var(--text-muted);
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
     }
-    .report-drawer__close:hover { color: var(--text); }
+    .report-drawer__close:hover { background: #f1f5f9; color: var(--text); }
     .report-drawer__body {
       flex: 1;
       overflow-y: auto;
-      padding: 18px 24px;
+      padding: 20px 28px;
     }
     .report-drawer__hint {
       font-size: 12px;
       color: var(--text-muted);
-      margin: 0 0 16px;
-      line-height: 1.6;
+      margin: 0 0 18px;
+      line-height: 1.7;
     }
     .report-drawer__foot {
-      padding: 14px 24px;
-      border-top: 1px solid var(--border);
+      padding: 16px 28px;
+      border-top: 1px solid #f0f0f3;
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 10px;
+      background: #fafafa;
     }
     .report-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 16px;
+      padding: 9px 18px;
       font-size: 13px;
       font-weight: 600;
       border-radius: 8px;
       border: 1px solid var(--border);
       cursor: pointer;
       transition: all 0.15s;
+      letter-spacing: -0.005em;
     }
     .report-btn--ghost { background: white; color: var(--text); }
     .report-btn--ghost:hover { background: #f5f5f7; }
@@ -3812,218 +3966,384 @@ function fmtMoney(n: number): string {
     /* ── Drawer items ── */
     .report-items {
       list-style: none;
-      margin: 0;
+      margin: 12px 0;
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     .report-item {
-      background: var(--surface, #fafafa);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 10px;
+      background: #ffffff;
+      border: 1px solid #ebebef;
+      border-radius: 10px;
+      padding: 10px 12px;
+      transition: all 0.15s;
+      position: relative;
     }
-    .report-item--text { background: #fffbef; border-color: #f1e3a4; }
+    .report-item:hover { border-color: #d8d8df; }
+    .report-item.is-dragging { opacity: 0.4; }
+    .report-item.is-drop-target.drop-above::before,
+    .report-item.is-drop-target.drop-below::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 1px;
+    }
+    .report-item.is-drop-target.drop-above::before { top: -5px; }
+    .report-item.is-drop-target.drop-below::after { bottom: -5px; }
+    .report-item--text {
+      background: #fefce8;
+      border-color: #fde68a;
+    }
+    .report-item--text:hover { border-color: #fcd34d; }
     .report-item__row {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .report-item__order {
+    .report-item__handle {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      color: #cbd5e1;
+      cursor: grab;
+      padding: 0 2px;
     }
-    .report-item__btn {
-      width: 22px;
-      height: 18px;
-      font-size: 9px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-    .report-item__btn:hover:not(:disabled) { color: var(--text); border-color: var(--text-muted); }
-    .report-item__btn:disabled { opacity: 0.3; cursor: not-allowed; }
-    .report-item__btn--danger { width: 26px; height: 26px; font-size: 14px; color: var(--danger); }
+    .report-item__handle:active { cursor: grabbing; }
+    .report-item__handle .material-symbols-outlined { font-size: 18px; }
+    .report-item:hover .report-item__handle { color: var(--text-muted); }
     .report-item__main {
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       cursor: pointer;
     }
-    .report-item__label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .report-item__main input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .report-item__label { font-size: 13.5px; font-weight: 600; color: var(--text); letter-spacing: -0.005em; }
     .report-item__pill {
-      padding: 2px 8px;
+      padding: 3px 10px;
       font-size: 10px;
-      font-weight: 600;
-      background: #f1e3a4;
-      color: #6b5e1c;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: #fde68a;
+      color: #78350f;
       border-radius: 999px;
     }
     .report-item__title {
       flex: 1;
-      padding: 4px 8px;
+      padding: 6px 10px;
       font-size: 13px;
+      font-family: inherit;
       border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .report-item__title:focus { border-color: #fcd34d; background: white; outline: none; }
+    .report-item__title::placeholder { color: #b48a3f; }
+    .report-item__actions {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+    }
+    .report-item__btn {
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: transparent;
-      border-radius: 4px;
-    }
-    .report-item__title:focus { border-color: var(--border); background: white; outline: none; }
-    .report-item__note-toggle {
-      font-size: 11px;
-      color: var(--text-muted);
-      background: none;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
-      padding: 4px 8px;
+      color: var(--text-muted);
+      transition: all 0.15s;
     }
-    .report-item__note-toggle:hover { color: var(--text); }
-    .report-item__note { display: none; margin-top: 6px; }
+    .report-item__btn .material-symbols-outlined { font-size: 18px; }
+    .report-item__btn:hover:not(:disabled) { background: #f1f5f9; color: var(--text); }
+    .report-item__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .report-item__btn--ghost:hover { background: #ecfdf5; color: var(--primary); }
+    .report-item__btn--danger { color: var(--danger, #dc2626); }
+    .report-item__btn--danger:hover:not(:disabled) { background: #fef2f2; }
+    .report-item__note {
+      display: none;
+      margin-top: 8px;
+      padding-left: 26px;
+    }
     .report-item__note.is-open { display: block; }
     .report-item__note textarea {
       width: 100%;
       min-height: 56px;
-      padding: 6px 8px;
-      font-size: 12px;
+      padding: 8px 10px;
+      font-size: 12.5px;
       font-family: inherit;
-      border: 1px solid var(--border);
-      border-radius: 4px;
+      line-height: 1.6;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
       resize: vertical;
       background: white;
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+    .report-item--text .report-item__note textarea {
+      border-color: #fde68a;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .report-item__note textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.06);
+    }
+    .report-item--text .report-item__note textarea:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
     }
     .report-add-btn {
-      margin-top: 12px;
-      padding: 8px 14px;
-      font-size: 12px;
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--text-muted);
-      background: white;
-      border: 1px dashed var(--border);
-      border-radius: 8px;
+      background: transparent;
+      border: 1px dashed #d8d8df;
+      border-radius: 10px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s;
+      letter-spacing: -0.005em;
     }
-    .report-add-btn:hover { color: var(--text); border-color: var(--text-muted); }
+    .report-add-btn:hover { color: var(--primary); border-color: var(--primary); background: #f0fdf9; }
+    .report-add-btn .material-symbols-outlined { font-size: 16px; }
+    .report-add-btn--top { margin-bottom: 4px; }
+    .report-add-btn--bottom { margin-top: 4px; }
 
-    /* ── Hidden report canvas (rendered to PNG) ── */
+    /* ─────────────────────────────────────────────────────── */
+    /* Hidden report canvas — small-red-book aesthetic, 1080px  */
+    /* ─────────────────────────────────────────────────────── */
     #report-canvas-wrap {
       position: fixed;
-      left: -10000px;
+      left: -20000px;
       top: 0;
       pointer-events: none;
       z-index: -1;
     }
     #report-canvas {
-      width: 900px;
-      background: white;
-      padding: 40px 36px 28px;
-      font-family: 'Manrope', 'Inter', sans-serif;
-      color: #1a1a1a;
+      width: 1080px;
+      background:
+        radial-gradient(ellipse at top right, #f0fdf9 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, #fefce8 0%, transparent 60%),
+        #ffffff;
+      padding: 64px 60px 48px;
+      font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      color: #0f172a;
+      box-sizing: border-box;
     }
-    #report-canvas .rep-header {
-      border-bottom: 2px solid #042f24;
-      padding-bottom: 18px;
-      margin-bottom: 24px;
+
+    /* Header */
+    .rep-header {
+      margin-bottom: 48px;
     }
-    .rep-header__top {
+    .rep-header__strip {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
-      color: #6b6b6b;
+      margin-bottom: 28px;
     }
-    .rep-header__brand { font-weight: 600; }
-    .rep-header__date { font-family: 'SF Mono', monospace; }
-    .rep-header__title {
-      font-size: 28px;
+    .rep-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .rep-header__logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 800;
-      margin: 8px 0 4px;
-      letter-spacing: -0.01em;
-      color: #042f24;
+      font-size: 22px;
+      letter-spacing: -1px;
+      box-shadow: 0 8px 24px rgba(4, 47, 36, 0.22);
     }
-    .rep-header__author {
-      font-size: 13px;
-      color: #5b5b5b;
-    }
-    .rep-block {
-      margin-bottom: 32px;
-      page-break-inside: avoid;
-    }
-    .rep-block__title {
-      font-size: 17px;
-      font-weight: 800;
-      color: #1a1a1a;
-      margin: 0 0 12px;
-      padding-left: 10px;
-      border-left: 4px solid #042f24;
-      line-height: 1.3;
-    }
-    .rep-block__note {
-      margin: 12px 0 0;
-      padding: 10px 14px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #3a3a3a;
-      background: #f5f7f6;
-      border-left: 3px solid #b6c6c0;
-      border-radius: 4px;
-    }
-    .rep-block__empty { color: #999; font-size: 12px; }
-    .rep-block--text { margin-bottom: 24px; }
-    .rep-text-body p {
-      margin: 0 0 8px;
-      font-size: 14px;
-      line-height: 1.7;
-      color: #2a2a2a;
-    }
-    .rep-block--kpi .rep-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    .rep-kpi {
-      padding: 14px;
-      background: #f8faf9;
-      border: 1px solid #e6ece9;
-      border-radius: 8px;
-    }
-    .rep-kpi__num {
-      font-size: 18px;
+    .rep-header__co {
+      font-size: 19px;
       font-weight: 800;
       color: #042f24;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.4px;
       line-height: 1.2;
     }
-    .rep-kpi__label {
-      font-size: 11px;
-      color: #6b6b6b;
-      margin-top: 4px;
+    .rep-header__sub {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 2px;
     }
+    .rep-header__pill {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #042f24;
+      background: rgba(4, 47, 36, 0.06);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(4, 47, 36, 0.15);
+      font-family: 'Manrope', 'SF Mono', monospace;
+    }
+    .rep-header__title {
+      font-size: 56px;
+      font-weight: 800;
+      margin: 0 0 12px;
+      letter-spacing: -2.5px;
+      color: #042f24;
+      line-height: 1;
+    }
+    .rep-header__byline {
+      font-size: 14px;
+      color: #475569;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rep-header__dot { color: #cbd5e1; }
+
+    /* Section heads (used by every block) */
+    .rep-section-head { margin-bottom: 18px; }
+    .rep-section-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+    .rep-section-title {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -1px;
+      color: #0f172a;
+      line-height: 1.15;
+    }
+
+    /* Blocks */
+    .rep-block {
+      margin-bottom: 44px;
+      page-break-inside: avoid;
+    }
+    .rep-block__note {
+      margin: 16px 0 0;
+      padding: 14px 18px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #334155;
+      background: rgba(4, 47, 36, 0.04);
+      border-left: 3px solid #042f24;
+      border-radius: 6px;
+    }
+    .rep-block__empty { color: #94a3b8; font-size: 13px; }
+
+    /* Text body section */
+    .rep-block--text { margin-bottom: 36px; }
+    .rep-text-body p {
+      margin: 0 0 12px;
+      font-size: 16px;
+      line-height: 1.85;
+      color: #334155;
+    }
+    .rep-text-body p:last-child { margin-bottom: 0; }
+
+    /* KPI grid — two rows, 4 cards each */
+    .rep-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .rep-kpi-grid:last-child { margin-bottom: 0; }
+    .rep-kpi {
+      padding: 22px 20px;
+      background: white;
+      border: 1px solid #e6e9ed;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    .rep-kpi__num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      font-family: 'Manrope', 'SF Mono', monospace;
+    }
+    .rep-kpi__label {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Cloned widget chrome */
     .rep-clone {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 14px;
+      background: white;
+      border: 1px solid #e6e9ed;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     }
     .rep-clone .section-card__header { display: none; }
     .rep-clone .pf-controls,
     .rep-clone .wk-pill,
     .rep-clone .wk-pane:not(.is-active) { display: none; }
     .rep-clone .wk-pane { display: block; }
+
+    /* Footer */
     .rep-footer {
-      margin-top: 24px;
-      padding-top: 14px;
-      border-top: 1px solid #eee;
-      font-size: 10px;
-      color: #888;
-      text-align: center;
-      font-family: 'SF Mono', monospace;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #e6e9ed;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .rep-footer__title {
+      font-weight: 700;
+      color: #042f24;
+      font-size: 13px;
+      letter-spacing: -0.2px;
+    }
+    .rep-footer__sub {
+      margin-top: 2px;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .rep-footer__right { text-align: right; }
+    .rep-footer__url {
+      font-weight: 700;
+      color: #042f24;
+      font-size: 13px;
+      font-family: 'Manrope', 'SF Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
