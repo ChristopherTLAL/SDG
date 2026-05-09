@@ -2732,8 +2732,13 @@ function fmtMoney(n: number): string {
         return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
       }
 
-      // Clone a panel from the live page. Strip 私单 mentions for Top 学生.
-      // For ECharts panels, re-init a fresh instance with same data into report.
+      // Clone a panel from the live page into the report.
+      // ECharts panels (portfolio / activity / monthly / schools / stage-year):
+      //   only embed the canvas as <img> — drop kanban chrome entirely.
+      // HTML panels (contracts / weekly / terminated / top-students):
+      //   clone the inner content, drop section-card header, strip controls.
+      const ECHARTS_PANELS = new Set(['portfolio', 'activity', 'monthly-products', 'schools', 'stage-year']);
+
       async function renderWidgetBlock(canvas, item) {
         const block = document.createElement('section');
         block.className = 'rep-block';
@@ -2754,58 +2759,78 @@ function fmtMoney(n: number): string {
 
         const livePanel = document.querySelector(`[data-panel="${item.id}"]`);
         if (!livePanel) {
-          block.innerHTML += `<p class="rep-block__empty">[panel 不存在]</p>`;
+          const empty = document.createElement('p');
+          empty.className = 'rep-block__empty';
+          empty.textContent = '[panel 不存在]';
+          block.appendChild(empty);
           return;
         }
 
-        // For ECharts-only panels: re-init at REPORT_WIDTH using same series.
-        // We do this by activating the panel briefly, then cloning its DOM —
-        // simpler than rewriting all chart-init code.
+        // Activate the live panel briefly (charts are 0×0 inside display:none)
         const wasActive = livePanel.classList.contains('is-active');
         if (!wasActive) livePanel.classList.add('is-active');
 
-        // Force chart resize so canvases have correct pixel data
-        await new Promise(r => requestAnimationFrame(r));
+        // Double-rAF to wait for paint to commit, then resize all charts,
+        // then wait long enough for any animation to settle.
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
         charts.forEach(c => c && c.resize());
-        await new Promise(r => setTimeout(r, 60));
+        await new Promise(r => setTimeout(r, 350));
 
-        const clone = livePanel.cloneNode(true);
-        clone.classList.remove('is-active');
-        clone.style.display = 'block';
-        clone.removeAttribute('data-panel');
-        clone.classList.add('rep-clone');
-
-        // Strip 私单 hints / private-only buttons / interactive controls
-        clone.querySelectorAll('button, [role="tab"], .pf-controls, a').forEach(el => {
-          if (el.tagName === 'A') {
+        if (ECHARTS_PANELS.has(item.id)) {
+          // ── Canvas-based widget: embed the canvas image directly ──
+          const liveCanvas = livePanel.querySelector('canvas');
+          if (liveCanvas) {
+            try {
+              const img = document.createElement('img');
+              img.src = liveCanvas.toDataURL('image/png');
+              img.className = 'rep-canvas-img';
+              block.appendChild(img);
+            } catch (e) {
+              console.warn('toDataURL failed for', item.id, e);
+              const fail = document.createElement('p');
+              fail.className = 'rep-block__empty';
+              fail.textContent = '[chart snapshot failed]';
+              block.appendChild(fail);
+            }
+          }
+        } else {
+          // ── HTML-based widget: clone inner content (skip section-card header) ──
+          const wrap = document.createElement('div');
+          wrap.className = 'rep-clone';
+          // Clone everything inside the panel EXCEPT section-card__header
+          Array.from(livePanel.children).forEach(child => {
+            if (child.classList && child.classList.contains('section-card__header')) return;
+            wrap.appendChild(child.cloneNode(true));
+          });
+          // Strip interactive controls + anchors → spans
+          wrap.querySelectorAll('button, [role="tab"], .pf-controls').forEach(el => el.remove());
+          wrap.querySelectorAll('a').forEach(el => {
             const span = document.createElement('span');
             span.textContent = el.textContent;
             span.className = el.className;
             el.replaceWith(span);
-          } else {
-            el.remove();
-          }
-        });
+          });
+          // For weekly: only keep the active wk-pane
+          wrap.querySelectorAll('.wk-pane').forEach(p => {
+            if (!p.classList.contains('is-active')) p.remove();
+          });
+          // Replace any nested ECharts canvas with image
+          const liveCanvases = livePanel.querySelectorAll('canvas');
+          const clonedCanvases = wrap.querySelectorAll('canvas');
+          liveCanvases.forEach((src, i) => {
+            const tgt = clonedCanvases[i];
+            if (!tgt) return;
+            try {
+              const img = document.createElement('img');
+              img.src = src.toDataURL('image/png');
+              img.style.width = '100%';
+              img.style.display = 'block';
+              tgt.replaceWith(img);
+            } catch (e) { console.warn('nested canvas snapshot failed', e); }
+          });
+          block.appendChild(wrap);
+        }
 
-        // Replace the live ECharts canvas with a static image (toDataURL)
-        const liveCanvases = livePanel.querySelectorAll('canvas');
-        const clonedCanvases = clone.querySelectorAll('canvas');
-        liveCanvases.forEach((srcCanvas, i) => {
-          const tgtCanvas = clonedCanvases[i];
-          if (!tgtCanvas) return;
-          try {
-            const img = document.createElement('img');
-            img.src = srcCanvas.toDataURL('image/png');
-            img.style.width = srcCanvas.style.width || (srcCanvas.width + 'px');
-            img.style.height = srcCanvas.style.height || (srcCanvas.height + 'px');
-            img.style.maxWidth = '100%';
-            tgtCanvas.replaceWith(img);
-          } catch (e) {
-            console.warn('canvas snapshot failed', e);
-          }
-        });
-
-        block.appendChild(clone);
         if (item.note) {
           const noteEl = document.createElement('p');
           noteEl.className = 'rep-block__note';
@@ -2845,6 +2870,12 @@ function fmtMoney(n: number): string {
         btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span>渲染中...';
 
         try {
+          // 1. Make sure fonts are fully loaded — html-to-image needs this to
+          //    embed Manrope correctly (otherwise PNG falls back to Times).
+          if (document.fonts && document.fonts.ready) {
+            await document.fonts.ready;
+          }
+
           const canvas = document.getElementById('report-canvas');
           canvas.innerHTML = '';
           sectionCounter = 0;
@@ -2862,14 +2893,18 @@ function fmtMoney(n: number): string {
           }
           buildFooter(canvas);
 
-          // Wait one frame for layout settle
-          await new Promise(r => requestAnimationFrame(r));
-          await new Promise(r => setTimeout(r, 100));
+          // 2. Double-rAF to wait for paint commit; extra 200ms for safety
+          //    (font metrics + image decoding).
+          await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+          await new Promise(r => setTimeout(r, 200));
 
+          // 3. Render
           const dataUrl = await window.htmlToImage.toPng(canvas, {
             backgroundColor: '#ffffff',
             pixelRatio: 2,
             cacheBust: true,
+            // Skip auto-scale — we want exact 1080px → 2160px output
+            skipAutoScale: true,
           });
           const a = document.createElement('a');
           const dateTag = new Date().toISOString().slice(0, 10);
@@ -2877,8 +2912,8 @@ function fmtMoney(n: number): string {
           a.href = dataUrl;
           a.click();
         } catch (e) {
-          console.error(e);
-          alert('生成失败: ' + (e.message || e));
+          console.error('[周报] 生成失败', e);
+          alert('生成失败: ' + (e.message || e) + '\n\n（按 F12 看 console 详细）');
         } finally {
           btn.disabled = false;
           btn.innerHTML = origLabel;
@@ -4266,10 +4301,26 @@ function fmtMoney(n: number): string {
       width: 1080px;
       background: #ffffff;
       padding: 80px 80px 60px;
-      font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      /* Strong system-font fallback: if Manrope fails to embed in the PNG,
+         we still get San Francisco / Segoe UI / PingFang SC — never Times. */
+      font-family:
+        'Manrope',
+        -apple-system, BlinkMacSystemFont,
+        'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+        Arial, sans-serif;
       color: #0f172a;
       box-sizing: border-box;
       font-feature-settings: 'kern', 'liga';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Embed-safe canvas image (replaces ECharts canvas in cloned widgets) */
+    .rep-canvas-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: white;
     }
 
     /* ── Masthead ── */
