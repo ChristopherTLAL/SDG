@@ -2788,29 +2788,31 @@ function fmtMoney(n: number): string {
 
       // ── Section index counter (resets each generate) ──
       let sectionCounter = 0;
-      function makeSectionHead(en, zh) {
+      // Make a section head with a numbered teal badge on the left + title block.
+      // Inspired by /tools/english export-card brand strip aesthetic.
+      function makeSectionHead(en, zh, accent) {
         sectionCounter += 1;
         const num = String(sectionCounter).padStart(2, '0');
         const head = document.createElement('div');
         head.className = 'rep-section-head';
-        const meta = document.createElement('div');
-        meta.className = 'rep-section-meta';
-        const numEl = document.createElement('span');
-        numEl.className = 'rep-section-num';
-        numEl.textContent = num;
-        meta.appendChild(numEl);
-        const dash = document.createElement('span');
-        dash.className = 'rep-section-rule';
-        meta.appendChild(dash);
-        const enEl = document.createElement('span');
+        if (accent) head.dataset.accent = accent;  // 'teal' | 'amber' | 'rose'
+
+        const badge = document.createElement('div');
+        badge.className = 'rep-section-badge';
+        badge.textContent = num;
+        head.appendChild(badge);
+
+        const text = document.createElement('div');
+        text.className = 'rep-section-text';
+        const enEl = document.createElement('div');
         enEl.className = 'rep-section-en';
         enEl.textContent = en;
-        meta.appendChild(enEl);
-        head.appendChild(meta);
+        text.appendChild(enEl);
         const zhEl = document.createElement('h2');
         zhEl.className = 'rep-section-zh';
         zhEl.textContent = zh;
-        head.appendChild(zhEl);
+        text.appendChild(zhEl);
+        head.appendChild(text);
         return head;
       }
 
@@ -2882,16 +2884,29 @@ function fmtMoney(n: number): string {
         return '¥0';
       }
 
-      // ── 数据表 1: 在管学生 enroll × advisor cross-tab ──
+      // Helper: wrap a table in a white card div for rounded-corner clipping
+      function wrapTableInCard(table) {
+        const card = document.createElement('div');
+        card.className = 'rep-card';
+        card.appendChild(table);
+        return card;
+      }
+
+      // ── 数据表 1: 在管学生 enroll × advisor cross-tab (with heatmap cells) ──
       function renderEnrollTable(canvas, note) {
         const w = (payload.weekly && payload.weekly) || {};
         const cols = w.enrollCols || [];
         const rows = w.enrollRows || [];
         const colTotals = w.enrollColTotals || [];
         const grand = w.enrollGrandTotal || 0;
+
+        // Heatmap intensity reference (max non-total cell value)
+        let maxCell = 1;
+        rows.forEach(r => r.counts.forEach(c => { if (c > maxCell) maxCell = c; }));
+
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('Active Book by Intake', '在管学生分布'));
+        block.appendChild(makeSectionHead('Active Book by Intake', '在管学生分布', 'teal'));
 
         const t = document.createElement('table');
         t.className = 'rep-table rep-table--matrix';
@@ -2899,7 +2914,7 @@ function fmtMoney(n: number): string {
         const thead = document.createElement('thead');
         const trh = document.createElement('tr');
         const th0 = document.createElement('th');
-        th0.textContent = '中期顾问';
+        th0.textContent = '中期';
         th0.className = 'rep-table__th-row';
         trh.appendChild(th0);
         cols.forEach(c => {
@@ -2913,7 +2928,7 @@ function fmtMoney(n: number): string {
         trh.appendChild(thT);
         thead.appendChild(trh);
         t.appendChild(thead);
-        // Body
+        // Body — heatmap cells
         const tbody = document.createElement('tbody');
         rows.forEach(r => {
           const tr = document.createElement('tr');
@@ -2923,18 +2938,31 @@ function fmtMoney(n: number): string {
           tr.appendChild(td0);
           r.counts.forEach(n => {
             const td = document.createElement('td');
-            td.textContent = n > 0 ? String(n) : '·';
-            td.className = n > 0 ? '' : 'rep-table__zero';
+            if (n > 0) {
+              td.textContent = String(n);
+              // sqrt makes mid-range values more visible
+              const intensity = Math.sqrt(n / maxCell);
+              const alpha = 0.05 + intensity * 0.50;
+              td.style.background = `rgba(4, 47, 36, ${alpha.toFixed(3)})`;
+              if (intensity > 0.55) {
+                td.style.color = 'white';
+                td.style.fontWeight = '800';
+              }
+              td.className = 'rep-table__cell';
+            } else {
+              td.textContent = '·';
+              td.className = 'rep-table__zero';
+            }
             tr.appendChild(td);
           });
           const tdT = document.createElement('td');
           tdT.textContent = String(r.total);
-          tdT.className = 'rep-table__total';
+          tdT.className = 'rep-table__row-total';
           tr.appendChild(tdT);
           tbody.appendChild(tr);
         });
         t.appendChild(tbody);
-        // Footer (column totals)
+        // Footer
         const tfoot = document.createElement('tfoot');
         const trf = document.createElement('tr');
         const tdf0 = document.createElement('td');
@@ -2943,17 +2971,17 @@ function fmtMoney(n: number): string {
         trf.appendChild(tdf0);
         colTotals.forEach(n => {
           const td = document.createElement('td');
-          td.textContent = String(n);
+          td.textContent = n > 0 ? String(n) : '—';
           trf.appendChild(td);
         });
         const tdfT = document.createElement('td');
         tdfT.textContent = String(grand);
-        tdfT.className = 'rep-table__total';
+        tdfT.className = 'rep-table__row-total';
         trf.appendChild(tdfT);
         tfoot.appendChild(trf);
         t.appendChild(tfoot);
 
-        block.appendChild(t);
+        block.appendChild(wrapTableInCard(t));
         const ne = makeNote(note); if (ne) block.appendChild(ne);
         canvas.appendChild(block);
       }
@@ -2965,7 +2993,7 @@ function fmtMoney(n: number): string {
         const total = w.signingTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('This Week · New Contracts', '本周新签约'));
+        block.appendChild(makeSectionHead('This Week · New Contracts', '本周新签约', 'amber'));
 
         if (rows.length === 0) {
           const p = document.createElement('p');
@@ -3030,7 +3058,7 @@ function fmtMoney(n: number): string {
         tfoot.appendChild(trf);
         t.appendChild(tfoot);
 
-        block.appendChild(t);
+        block.appendChild(wrapTableInCard(t));
         const ne = makeNote(note); if (ne) block.appendChild(ne);
         canvas.appendChild(block);
       }
@@ -3042,7 +3070,7 @@ function fmtMoney(n: number): string {
         const total = w.commTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('This Week · Communications', '本周学生沟通'));
+        block.appendChild(makeSectionHead('This Week · Communications', '本周学生沟通', 'rose'));
 
         const t = document.createElement('table');
         t.className = 'rep-table rep-table--list';
@@ -3097,7 +3125,7 @@ function fmtMoney(n: number): string {
         tfoot.appendChild(trf);
         t.appendChild(tfoot);
 
-        block.appendChild(t);
+        block.appendChild(wrapTableInCard(t));
         const ne = makeNote(note); if (ne) block.appendChild(ne);
         canvas.appendChild(block);
       }
@@ -4666,10 +4694,11 @@ function fmtMoney(n: number): string {
     }
     #report-canvas {
       width: 1080px;
-      background: #ffffff;
-      padding: 80px 80px 60px;
-      /* Strong system-font fallback: if Manrope fails to embed in the PNG,
-         we still get San Francisco / Segoe UI / PingFang SC — never Times. */
+      /* Subtle gradient — warm cream to white. Adds depth without being "designed-y". */
+      background:
+        radial-gradient(ellipse 1200px 600px at 50% -200px, #f0fdf9 0%, transparent 70%),
+        linear-gradient(180deg, #fafafa 0%, #ffffff 320px);
+      padding: 88px 80px 60px;
       font-family:
         'Manrope',
         -apple-system, BlinkMacSystemFont,
@@ -4681,30 +4710,34 @@ function fmtMoney(n: number): string {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    /* Embed-safe canvas image (replaces ECharts canvas in cloned widgets) */
-    .rep-canvas-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      background: white;
-    }
 
-    /* ── Masthead ── */
-    .rep-header { margin-bottom: 64px; }
+    /* ─────────────────────────────────────────────────────── */
+    /* Masthead                                                  */
+    /* ─────────────────────────────────────────────────────── */
+    .rep-header { margin-bottom: 72px; }
     .rep-header__strip {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e6e9ed;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
     .rep-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
       font-size: 14px;
       font-weight: 700;
       color: #042f24;
       letter-spacing: -0.2px;
+    }
+    .rep-header__brand::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
+      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.08);
+      display: inline-block;
     }
     .rep-header__pill {
       font-size: 11px;
@@ -4712,156 +4745,157 @@ function fmtMoney(n: number): string {
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #042f24;
-      background: #f0fdf9;
-      padding: 7px 14px;
+      background: white;
+      padding: 9px 18px;
       border-radius: 999px;
-      border: 1px solid #bce3d4;
+      border: 1.5px solid #042f24;
       font-family: 'Manrope', 'SF Mono', monospace;
     }
     .rep-header__title {
-      font-size: 76px;
+      font-size: 88px;
       font-weight: 800;
-      margin: 0 0 8px;
-      letter-spacing: -3px;
+      margin: 0 0 12px;
+      letter-spacing: -4px;
       color: #042f24;
-      line-height: 0.95;
+      line-height: 0.92;
     }
     .rep-header__sub {
-      font-size: 14px;
-      color: #64748b;
-      font-weight: 500;
+      font-size: 15px;
+      color: #475569;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
     .rep-header__byline {
       font-size: 13px;
       color: #94a3b8;
       letter-spacing: 0.5px;
+      padding-top: 18px;
+      border-top: 1px solid #e6e9ed;
     }
     .rep-header__byline strong {
       color: #042f24;
       font-weight: 700;
+      font-size: 14px;
     }
 
-    /* ── Section heads (numbered, article-style) ── */
-    .rep-section-head { margin-bottom: 22px; }
-    .rep-section-meta {
+    /* ─────────────────────────────────────────────────────── */
+    /* Section heads — numbered badge + title block             */
+    /* ─────────────────────────────────────────────────────── */
+    .rep-section-head {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
+      gap: 22px;
+      margin-bottom: 24px;
     }
-    .rep-section-num {
-      font-size: 13px;
+    .rep-section-badge {
+      flex: 0 0 64px;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
       font-weight: 800;
-      color: #042f24;
       font-family: 'Manrope', 'SF Mono', monospace;
-      letter-spacing: 1px;
+      letter-spacing: -1px;
+      box-shadow: 0 8px 24px rgba(4, 47, 36, 0.22);
     }
-    .rep-section-rule {
-      flex: 0 0 36px;
-      height: 1px;
-      background: #042f24;
+    .rep-section-head[data-accent="amber"] .rep-section-badge {
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+      box-shadow: 0 8px 24px rgba(180, 83, 9, 0.22);
     }
+    .rep-section-head[data-accent="rose"] .rep-section-badge {
+      background: linear-gradient(135deg, #881337 0%, #9d174d 100%);
+      box-shadow: 0 8px 24px rgba(157, 23, 77, 0.22);
+    }
+    .rep-section-text { flex: 1; min-width: 0; }
     .rep-section-en {
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: #94a3b8;
+      margin-bottom: 6px;
     }
     .rep-section-zh {
       font-size: 32px;
       font-weight: 800;
       margin: 0;
       letter-spacing: -1.2px;
-      color: #0f172a;
-      line-height: 1.15;
+      color: #042f24;
+      line-height: 1.1;
     }
 
-    /* ── Blocks ── */
+    /* ─────────────────────────────────────────────────────── */
+    /* Blocks                                                    */
+    /* ─────────────────────────────────────────────────────── */
     .rep-block {
       margin-bottom: 56px;
       page-break-inside: avoid;
     }
     .rep-block:last-of-type { margin-bottom: 32px; }
     .rep-block__note {
-      margin: 18px 0 0;
-      padding: 14px 18px;
-      font-size: 14px;
+      margin: 20px 0 0;
+      padding: 16px 22px;
+      font-size: 14.5px;
       line-height: 1.75;
       color: #334155;
       background: #f8fafc;
       border-left: 3px solid #042f24;
       border-radius: 4px;
+      letter-spacing: 0.2px;
     }
-    .rep-block__empty { color: #94a3b8; font-size: 13px; }
-
-    /* Text body section */
-    .rep-block--text { margin-bottom: 44px; }
-    .rep-text-body {
-      max-width: 820px;
-    }
-    .rep-text-body p {
-      margin: 0 0 14px;
-      font-size: 17px;
-      line-height: 1.85;
-      color: #1e293b;
-      letter-spacing: 0.1px;
-    }
-    .rep-text-body p:last-child { margin-bottom: 0; }
-
-    /* ── KPI grid: 2×4 publication-style data cards ── */
-    .rep-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid #e6e9ed;
-      border-left: 1px solid #e6e9ed;
-    }
-    .rep-kpi {
-      padding: 24px 22px;
-      background: white;
-      border-right: 1px solid #e6e9ed;
-      border-bottom: 1px solid #e6e9ed;
-    }
-    .rep-kpi--accent {
-      background: #f0fdf9;
-    }
-    .rep-kpi__label {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .rep-kpi__num {
-      font-size: 30px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -1.2px;
-      line-height: 1.05;
-      font-family: 'Manrope', 'SF Mono', monospace;
-      font-variant-numeric: tabular-nums;
-    }
-    .rep-kpi--accent .rep-kpi__num { color: #042f24; }
-
-    /* Cloned widget (live panel snapshot) */
-    .rep-clone {
+    .rep-block__empty {
+      color: #94a3b8;
+      font-size: 14px;
+      padding: 28px;
+      text-align: center;
       background: white;
       border: 1px solid #e6e9ed;
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 16px;
     }
-    .rep-clone .section-card__header { display: none; }
-    .rep-clone .pf-controls,
-    .rep-clone .wk-pill,
-    .rep-clone .wk-pane:not(.is-active) { display: none; }
-    .rep-clone .wk-pane { display: block; }
-    .rep-clone img { display: block; max-width: 100%; }
 
-    /* ── Data tables (the new core content) ── */
+    /* Text body section — editorial pull-quote feel */
+    .rep-block--text { margin-bottom: 48px; }
+    .rep-text-body {
+      max-width: 880px;
+      padding-left: 28px;
+      border-left: 3px solid rgba(4, 47, 36, 0.18);
+    }
+    .rep-text-body p {
+      margin: 0 0 12px;
+      font-size: 16.5px;
+      line-height: 1.85;
+      color: #1e293b;
+      letter-spacing: 0.15px;
+    }
+    .rep-text-body p:last-child { margin-bottom: 0; }
+    .rep-text-body__spacer {
+      height: 6px;
+      margin: 0 !important;
+      line-height: 6px;
+    }
+
+    /* ─────────────────────────────────────────────────────── */
+    /* Card chrome (wraps each table)                            */
+    /* ─────────────────────────────────────────────────────── */
+    .rep-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 4px 16px rgba(15, 23, 42, 0.06);
+      border: 1px solid #ebeef0;
+      overflow: hidden;
+    }
+
+    /* ─────────────────────────────────────────────────────── */
+    /* Data tables — restrained, magazine-grade                  */
+    /* ─────────────────────────────────────────────────────── */
     .rep-table {
       width: 100%;
       border-collapse: collapse;
@@ -4869,85 +4903,109 @@ function fmtMoney(n: number): string {
       font-size: 14px;
       color: #1e293b;
     }
-    .rep-table th {
-      font-size: 11px;
+    /* Header row: subtle teal tint, dark teal uppercase text */
+    .rep-table thead th {
+      background: #f0fdf9;
+      color: #042f24;
+      font-size: 10.5px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      color: #94a3b8;
       text-align: right;
-      padding: 10px 12px;
+      padding: 16px 14px;
+      border: none;
       border-bottom: 2px solid #042f24;
-      background: white;
     }
-    .rep-table th.rep-table__th-row { text-align: left; }
-    .rep-table td {
-      padding: 12px 12px;
+    .rep-table thead th.rep-table__th-row { text-align: left; }
+    /* Body cells: numbers in mono, restrained padding */
+    .rep-table tbody td {
+      padding: 14px 14px;
       text-align: right;
       border-bottom: 1px solid #f1f5f9;
       font-family: 'Manrope', 'SF Mono', monospace;
       letter-spacing: -0.2px;
+      font-size: 14.5px;
     }
-    .rep-table tbody tr:hover { background: #fafafa; }
+    /* Zebra row tint */
+    .rep-table tbody tr:nth-child(even) td { background: #fcfcfc; }
+    /* Advisor (first col) — dark teal sans-serif weight */
     .rep-table__advisor {
       font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', sans-serif !important;
       text-align: left !important;
       font-weight: 700;
       color: #042f24;
+      font-size: 14.5px;
       letter-spacing: -0.2px;
     }
-    .rep-table__zero { color: #cbd5e1; font-weight: 400; }
-    .rep-table__row--zero { opacity: 0.55; }
-    .rep-table__total {
+    .rep-table tbody tr:nth-child(even) .rep-table__advisor { background: #fcfcfc; }
+    /* Zero / sparse cells */
+    .rep-table__zero { color: #cbd5e1; font-weight: 400; font-size: 16px; }
+    .rep-table__row--zero { opacity: 0.6; }
+    .rep-table__row-total {
+      font-weight: 800 !important;
+      color: #042f24 !important;
+      font-size: 15px !important;
+      background: #f8fafc !important;
+    }
+    /* Footer row: bold totals on tinted bg */
+    .rep-table tfoot td {
+      border: none;
+      border-top: 2px solid #042f24;
+      padding: 16px 14px;
+      background: #f0fdf9;
       font-weight: 800;
       color: #042f24;
+      font-size: 14.5px;
     }
-    .rep-table tfoot td {
-      border-bottom: none;
-      border-top: 2px solid #042f24;
-      padding-top: 14px;
-      background: #f8fafc;
-    }
-    .rep-table__amount, .rep-table__num { font-weight: 700; }
+    .rep-table tfoot .rep-table__advisor { background: #f0fdf9 !important; }
+    .rep-table__amount, .rep-table__num { font-weight: 700; font-size: 14.5px; }
 
-    /* Cross-tab table specifics: tighter cells */
-    .rep-table--matrix th { font-size: 10px; padding: 10px 8px; text-align: center; }
-    .rep-table--matrix th.rep-table__th-row { text-align: left; padding-left: 12px; }
-    .rep-table--matrix td { padding: 11px 8px; text-align: center; }
-    .rep-table--matrix .rep-table__advisor { padding-left: 12px; }
+    /* ── Cross-tab matrix specifics ── */
+    .rep-table--matrix thead th { padding: 14px 10px; text-align: center; font-size: 11px; }
+    .rep-table--matrix thead th.rep-table__th-row { text-align: left; padding-left: 18px; }
+    .rep-table--matrix tbody td { padding: 14px 10px; text-align: center; }
+    .rep-table--matrix tfoot td { padding: 16px 10px; text-align: center; }
+    .rep-table--matrix .rep-table__advisor { padding-left: 18px; }
+    /* Heatmap cell: bg set inline; fixed font weight */
+    .rep-table__cell { font-weight: 600; transition: none; }
 
-    /* List table specifics: contract name truncates */
-    .rep-table--list .rep-table__th-cat { width: 60px; text-align: center; }
-    .rep-table--list .rep-table__th-amount { width: 110px; }
+    /* ── List table (signings / comms) specifics ── */
+    .rep-table--list thead th { padding: 16px 14px; }
+    .rep-table--list .rep-table__th-cat { width: 80px; text-align: center; }
+    .rep-table--list .rep-table__th-amount { width: 130px; }
     .rep-table--list .rep-table__th-num { width: 110px; }
     .rep-table--list .rep-table__contract {
       text-align: left;
       color: #475569;
-      font-family: 'Manrope', 'PingFang SC', sans-serif !important;
+      font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', sans-serif !important;
       font-weight: 500;
       font-size: 13.5px;
     }
     .rep-table--list .rep-table__cat { text-align: center; }
+    .rep-table--list tbody tr:nth-child(even) .rep-table__contract { background: #fcfcfc; }
+    .rep-table--list .rep-table__advisor { padding-left: 18px; }
+    .rep-table--list tfoot tr td:first-child {
+      text-align: right !important;
+      padding-right: 14px;
+      font-weight: 700;
+    }
 
-    /* Tag pills (contract type) */
+    /* Type tags (留学 / 产品) */
     .rep-tag {
       display: inline-block;
-      padding: 2px 9px;
+      padding: 4px 10px;
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
       border-radius: 999px;
       font-family: 'Manrope', 'PingFang SC', sans-serif !important;
     }
-    .rep-tag--app { background: #f0fdf9; color: #042f24; border: 1px solid #bce3d4; }
+    .rep-tag--app { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
     .rep-tag--prod { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
 
-    /* Plain-text body — preserve line breaks from textarea */
-    .rep-text-body__spacer {
-      height: 8px;
-      margin: 0 !important;
-      line-height: 8px;
-    }
+    /* Embed-safe canvas image (legacy, unused after rewrite) */
+    .rep-canvas-img { display: block; width: 100%; height: auto; border-radius: 12px; }
 
     /* ── Footer ── */
     .rep-footer {
