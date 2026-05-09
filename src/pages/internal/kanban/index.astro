@@ -90,14 +90,14 @@ const { data: rawContracts } = await supabase
   .range(0, 9999);
 
 // Separate query for 月度产品节奏 widget — company-wide (incl. non-vault
-// students), 非留学 only, status='已归档' (在带). User directive: 同样筛掉
-// 已完成/已终止. 老月份会偏少 (老合同已转 已完成) — 这是预期行为, 反映"当前
-// 在带学生 product 节奏". 想看历史签约高峰需另起 widget.
+// students), 非留学 only. EXEMPT from "在带 only" rule (user directive
+// 2026-05-09): 此 widget 看历史签约 rhythm, 包含 已完成 + 已归档, 仅排除
+// 已终止 (退费的不算真实签约). 是看板上唯一例外的 widget.
 const { data: rawMonthlyContracts } = await supabase
   .from('contracts')
   .select('signed_at, signed_amount, template_name, category')
   .eq('is_application', false)
-  .eq('status', '已归档')
+  .neq('status', '已终止')
   .not('signed_at', 'is', null)
   .range(0, 9999);
 
@@ -314,7 +314,7 @@ function weekStart(dateStr: string): string {
   return d.toISOString().slice(0, 10);
 }
 
-const WEEKS_BACK = 12;
+const WEEKLY_WINDOWS: (6 | 12 | 24 | 48)[] = [6, 12, 24, 48];
 const today = new Date();
 const todayMonday = new Date(today);
 {
@@ -322,51 +322,65 @@ const todayMonday = new Date(today);
   const offset = d === 0 ? -6 : 1 - d;
   todayMonday.setUTCDate(todayMonday.getUTCDate() + offset);
 }
-const weekLabels: string[] = [];
-for (let i = WEEKS_BACK - 1; i >= 0; i--) {
-  const d = new Date(todayMonday);
-  d.setUTCDate(d.getUTCDate() - i * 7);
-  weekLabels.push(d.toISOString().slice(0, 10));
-}
-const earliestWeek = weekLabels[0];
 
 type WeekBucket = { revenue: number; count: number };
-const weeklyByAdvisor = new Map<string, Map<string, WeekBucket>>();
-const weeklyTotals = new Map<string, number>();
-for (const adv of ACTIVE_ADVISORS) {
-  weeklyByAdvisor.set(adv, new Map(weekLabels.map(w => [w, { revenue: 0, count: 0 }])));
-  weeklyTotals.set(adv, 0);
+type WeeklyRow = { advisor: string; cells: WeekBucket[]; total: number };
+type WeeklyView = { weekLabels: string[]; rows: WeeklyRow[]; maxCell: number };
+
+function buildWeeklyView(weeksBack: number): WeeklyView {
+  const labels: string[] = [];
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const d = new Date(todayMonday);
+    d.setUTCDate(d.getUTCDate() - i * 7);
+    labels.push(d.toISOString().slice(0, 10));
+  }
+  const earliest = labels[0];
+  const byAdvisor = new Map<string, Map<string, WeekBucket>>();
+  const totals = new Map<string, number>();
+  for (const adv of ACTIVE_ADVISORS) {
+    byAdvisor.set(adv, new Map(labels.map(w => [w, { revenue: 0, count: 0 }])));
+    totals.set(adv, 0);
+  }
+  for (const c of activeContracts) {
+    if (!c.signed_at) continue;
+    const adv = studentPrimaryAdvisor.get(c.student_id);
+    if (!adv) continue;
+    const wk = weekStart(c.signed_at.slice(0, 10));
+    if (wk < earliest) continue;
+    const advMap = byAdvisor.get(adv);
+    if (!advMap || !advMap.has(wk)) continue;
+    const b = advMap.get(wk)!;
+    const amt = Number(c.signed_amount) || 0;
+    b.revenue += amt;
+    b.count += 1;
+    totals.set(adv, (totals.get(adv) || 0) + amt);
+  }
+  const rows = Array.from(totals.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([adv]) => ({
+      advisor: adv,
+      cells: labels.map(w => byAdvisor.get(adv)!.get(w)!),
+      total: totals.get(adv) || 0,
+    }));
+  const maxCell = Math.max(1, ...rows.flatMap(r => r.cells.map(c => c.revenue)));
+  return { weekLabels: labels, rows, maxCell };
 }
-for (const c of activeContracts) {
-  if (!c.signed_at) continue;
-  const adv = studentPrimaryAdvisor.get(c.student_id);
-  if (!adv) continue;
-  const wk = weekStart(c.signed_at.slice(0, 10));
-  if (wk < earliestWeek) continue;
-  const advMap = weeklyByAdvisor.get(adv);
-  if (!advMap || !advMap.has(wk)) continue;
-  const b = advMap.get(wk)!;
-  const amt = Number(c.signed_amount) || 0;
-  b.revenue += amt;
-  b.count += 1;
-  weeklyTotals.set(adv, (weeklyTotals.get(adv) || 0) + amt);
-}
-const weeklyRanked = Array.from(weeklyTotals.entries())
-  .sort((a, b) => b[1] - a[1])
-  .map(([adv]) => ({
-    advisor: adv,
-    cells: weekLabels.map(w => weeklyByAdvisor.get(adv)!.get(w)!),
-    total: weeklyTotals.get(adv) || 0,
-  }));
-const weeklyMaxCell = Math.max(1, ...weeklyRanked.flatMap(r => r.cells.map(c => c.revenue)));
+
+const weeklyViews: Record<string, WeeklyView> = {
+  '6': buildWeeklyView(6),
+  '12': buildWeeklyView(12),
+  '24': buildWeeklyView(24),
+  '48': buildWeeklyView(48),
+};
+const DEFAULT_WEEKLY_WINDOW = '12';
 
 function fmtWk(w: string): string {
   const [, m, d] = w.split('-');
   return `${parseInt(m)}/${parseInt(d)}`;
 }
-function weeklyHeatColor(value: number): string {
+function weeklyHeatColor(value: number, maxCell: number): string {
   if (value <= 0) return '#fafafa';
-  const ratio = Math.min(1, value / weeklyMaxCell);
+  const ratio = Math.min(1, value / maxCell);
   const alpha = 0.18 + ratio * 0.78;
   return `rgba(4, 47, 36, ${alpha.toFixed(3)})`;
 }
@@ -386,10 +400,12 @@ function buildHref(advisor: string): string {
 }
 
 // ── Widget 1: 在读学校分布 ──
+// 跳过 待补 (canonical placeholder for 待确认/未知/已本科毕业/empty 等; 见
+// scripts/normalize-schools.py SCHOOL_NORMALIZE map)
 const schoolCounts = new Map<string, number>();
 for (const s of students) {
   const v = (s.current_school ?? '').trim();
-  if (!v) continue;
+  if (!v || v === '待补') continue;
   schoolCounts.set(v, (schoolCounts.get(v) ?? 0) + 1);
 }
 const schoolData = Array.from(schoolCounts.entries())
@@ -1344,52 +1360,69 @@ function fmtMoney(n: number): string {
       <section data-panel="weekly" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            周度签约 ¥ <span class="section-card__subtitle">最近 12 周（周一锚定）· 色阶 = 当周顾问签约金额 · 仅在带（已归档）</span>
+            周度签约 ¥ <span class="section-card__subtitle">周一锚定 · 色阶 = 当周顾问签约金额 · 仅在带（已归档）</span>
           </h2>
         </div>
-        {weeklyRanked.length === 0 ? (
-          <p class="section-card__empty">暂无数据。</p>
-        ) : (
-          <div class="wk-wrap">
-            <table class="wk-table">
-              <thead>
-                <tr>
-                  <th class="wk-th-advisor">中期</th>
-                  {weekLabels.map(w => <th class="wk-th-week font-mono">{fmtWk(w)}</th>)}
-                  <th class="wk-th-total">12 周合计</th>
-                </tr>
-              </thead>
-              <tbody>
-                {weeklyRanked.map(r => (
-                  <tr data-advisor={r.advisor}>
-                    <td class="wk-td-advisor">
-                      <a href={buildHref(r.advisor)}>{r.advisor}</a>
-                    </td>
-                    {r.cells.map((c, i) => (
-                      <td
-                        class={`wk-cell ${c.revenue > 0 ? 'has-value' : ''}`}
-                        style={`background:${weeklyHeatColor(c.revenue)}; color:${c.revenue / weeklyMaxCell > 0.45 ? 'white' : '#475569'};`}
-                        title={c.revenue > 0 ? `${weekLabels[i]} 起 · ${c.count} 单 · ¥${fmtMoneyShort(c.revenue)}` : `${weekLabels[i]} 起 · 0`}
-                      >
-                        {c.revenue > 0 ? <span class="font-mono">{fmtMoneyShort(c.revenue)}</span> : ''}
-                      </td>
-                    ))}
-                    <td class="wk-td-total font-mono">{fmtMoney(r.total)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div class="wk-legend">
-              <span>0</span>
-              <span class="wk-legend__bar">
-                {[0.1, 0.25, 0.5, 0.75, 0.96].map(a => (
-                  <span style={`background: rgba(4,47,36,${a});`}></span>
-                ))}
-              </span>
-              <span>¥{fmtMoneyShort(weeklyMaxCell)} max</span>
+        <div class="pf-controls">
+          <span class="pf-controls__label">时间窗：</span>
+          {WEEKLY_WINDOWS.map(w => (
+            <button class={`pf-pill wk-pill ${String(w) === DEFAULT_WEEKLY_WINDOW ? 'is-active' : ''}`} data-window={w}>{w} 周</button>
+          ))}
+        </div>
+        {WEEKLY_WINDOWS.map(w => {
+          const view = weeklyViews[String(w)];
+          const isCompact = w >= 24;  // 24/48wk: hide ¥ inside cells, only color
+          return (
+            <div
+              class={`wk-pane ${String(w) === DEFAULT_WEEKLY_WINDOW ? 'is-active' : ''} ${isCompact ? 'wk-pane--compact' : ''}`}
+              data-window={w}
+            >
+              {view.rows.length === 0 ? (
+                <p class="section-card__empty">暂无数据。</p>
+              ) : (
+                <div class="wk-wrap">
+                  <table class="wk-table">
+                    <thead>
+                      <tr>
+                        <th class="wk-th-advisor">中期</th>
+                        {view.weekLabels.map(wl => <th class="wk-th-week font-mono">{fmtWk(wl)}</th>)}
+                        <th class="wk-th-total">{w} 周合计</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {view.rows.map(r => (
+                        <tr data-advisor={r.advisor}>
+                          <td class="wk-td-advisor">
+                            <a href={buildHref(r.advisor)}>{r.advisor}</a>
+                          </td>
+                          {r.cells.map((c, i) => (
+                            <td
+                              class={`wk-cell ${c.revenue > 0 ? 'has-value' : ''}`}
+                              style={`background:${weeklyHeatColor(c.revenue, view.maxCell)}; color:${c.revenue / view.maxCell > 0.45 ? 'white' : '#475569'};`}
+                              title={c.revenue > 0 ? `${view.weekLabels[i]} 起 · ${c.count} 单 · ¥${fmtMoneyShort(c.revenue)}` : `${view.weekLabels[i]} 起 · 0`}
+                            >
+                              {c.revenue > 0 && !isCompact ? <span class="font-mono">{fmtMoneyShort(c.revenue)}</span> : ''}
+                            </td>
+                          ))}
+                          <td class="wk-td-total font-mono">{fmtMoney(r.total)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div class="wk-legend">
+                    <span>0</span>
+                    <span class="wk-legend__bar">
+                      {[0.1, 0.25, 0.5, 0.75, 0.96].map(a => (
+                        <span style={`background: rgba(4,47,36,${a});`}></span>
+                      ))}
+                    </span>
+                    <span>¥{fmtMoneyShort(view.maxCell)} max</span>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-        )}
+          );
+        })}
       </section>
 
       <!-- ─────────────────────────────────────────────────── -->
@@ -1454,8 +1487,8 @@ function fmtMoney(n: number): string {
           <span class="pf-controls__label">时间窗：</span>
           <button class="pf-pill" data-window="6">6 周</button>
           <button class="pf-pill" data-window="12">12 周</button>
-          <button class="pf-pill is-active" data-window="24">24 周</button>
-          <button class="pf-pill" data-window="48">48 周</button>
+          <button class="pf-pill" data-window="24">24 周</button>
+          <button class="pf-pill is-active" data-window="48">48 周</button>
         </div>
         <div id="chart-portfolio" style="width: 100%; height: 480px;"></div>
       </section>
@@ -2110,7 +2143,7 @@ function fmtMoney(n: number): string {
         });
       }
 
-      // ── 顾问 portfolio scatter (4 windows, pill-switchable) ──
+      // ── 顾问 portfolio scatter (4 windows, pill-switchable, quadrants) ──
       const pfEl = document.getElementById('chart-portfolio');
       let pfChart = null;
       if (pfEl && payload.portfolioData) {
@@ -2118,17 +2151,27 @@ function fmtMoney(n: number): string {
         charts.push(pfChart);
         const advisorColors = {};
         const palette = ['#a8b5c9', '#b8a98a', '#9eb89e', '#c5a3a3', '#a89bb5', '#bfb38a', '#9bb5b5', '#c8a78a', '#a8a8b8', '#b89e9e'];
-        const allAdvisors = (payload.portfolioData['24'] || []).map(p => p.advisor);
+        const allAdvisors = (payload.portfolioData['48'] || []).map(p => p.advisor);
         allAdvisors.forEach((a, i) => { advisorColors[a] = palette[i % palette.length]; });
 
         const fmtMoney = (v) => {
           if (v >= 10000) return (v / 10000).toFixed(1) + '万';
           return v.toLocaleString();
         };
+        function median(arr) {
+          if (!arr.length) return 0;
+          const s = [...arr].sort((a, b) => a - b);
+          const m = Math.floor(s.length / 2);
+          return s.length % 2 === 0 ? (s[m - 1] + s[m]) / 2 : s[m];
+        }
 
         function renderPortfolio(windowKey) {
-          const points = payload.portfolioData[windowKey] || [];
+          const pointsAll = payload.portfolioData[windowKey] || [];
+          // Drop totally-inactive advisors (0 students, 0 revenue) for cleaner viz
+          const points = pointsAll.filter(p => p.students > 0 || p.revenue > 0);
           const maxComms = Math.max(1, ...points.map(p => p.comms));
+          const medX = median(points.map(p => p.students));
+          const medY = median(points.map(p => p.revenue));
           const data = points.map(p => ({
             name: p.advisor,
             value: [p.students, p.revenue, p.comms],
@@ -2140,25 +2183,32 @@ function fmtMoney(n: number): string {
               trigger: 'item',
               formatter: (p) => `<strong>${p.data.name}</strong><br/>学生: ${p.value[0]}<br/>签约: ¥${fmtMoney(p.value[1])}<br/>沟通频次: ${p.value[2]}`,
             },
-            grid: { left: 60, right: 30, top: 24, bottom: 50 },
+            grid: { left: 70, right: 40, top: 30, bottom: 55 },
             xAxis: {
               type: 'value',
-              name: '学生数',
+              name: '学生数 →',
               nameLocation: 'middle',
-              nameGap: 28,
+              nameGap: 32,
               nameTextStyle: { fontSize: 11, color: '#888' },
               axisLabel: { fontSize: 10, color: '#888' },
               splitLine: { lineStyle: { color: '#f1f1f4' } },
             },
             yAxis: {
               type: 'value',
-              name: '签约 ¥',
+              name: '签约 ¥ →',
               nameLocation: 'middle',
-              nameGap: 50,
+              nameGap: 56,
               nameTextStyle: { fontSize: 11, color: '#888' },
               axisLabel: { fontSize: 10, color: '#888', formatter: fmtMoney },
               splitLine: { lineStyle: { color: '#f1f1f4' } },
             },
+            graphic: [
+              // Quadrant labels — anchored to corners of grid area
+              { type: 'text', right: 50, top: 38, style: { text: '明星\n量大 · 单大', fontSize: 10, fill: '#94a3b8', textAlign: 'right', lineHeight: 13 } },
+              { type: 'text', left: 80, top: 38, style: { text: '高客单\n人少 · 单大', fontSize: 10, fill: '#94a3b8', textAlign: 'left', lineHeight: 13 } },
+              { type: 'text', left: 80, bottom: 65, style: { text: '起步\n人少 · 单小', fontSize: 10, fill: '#94a3b8', textAlign: 'left', lineHeight: 13 } },
+              { type: 'text', right: 50, bottom: 65, style: { text: '走量\n人多 · 单小', fontSize: 10, fill: '#94a3b8', textAlign: 'right', lineHeight: 13 } },
+            ],
             series: [{
               type: 'scatter',
               data,
@@ -2174,19 +2224,46 @@ function fmtMoney(n: number): string {
                 scale: 1.2,
                 label: { fontWeight: 700 },
               },
+              markLine: {
+                silent: true,
+                symbol: 'none',
+                label: {
+                  show: true,
+                  formatter: (p) => p.data.xAxis !== undefined ? `中位 ${p.data.xAxis}` : `中位 ${fmtMoney(p.data.yAxis)}`,
+                  fontSize: 9,
+                  color: '#94a3b8',
+                  position: 'end',
+                },
+                lineStyle: { color: '#cbd5e1', type: 'dashed', width: 1 },
+                data: [
+                  { xAxis: medX },
+                  { yAxis: medY },
+                ],
+              },
             }],
           }, true);
         }
-        renderPortfolio('24');
+        renderPortfolio('48');  // default
 
-        document.querySelectorAll('.pf-pill').forEach(btn => {
+        document.querySelectorAll('[data-panel="portfolio"] .pf-pill').forEach(btn => {
           btn.addEventListener('click', () => {
-            document.querySelectorAll('.pf-pill').forEach(b => b.classList.remove('is-active'));
+            document.querySelectorAll('[data-panel="portfolio"] .pf-pill').forEach(b => b.classList.remove('is-active'));
             btn.classList.add('is-active');
             renderPortfolio(btn.dataset.window);
           });
         });
       }
+
+      // ── 周度签约: 4-window pill switcher (HTML table panes) ──
+      const wkPills = document.querySelectorAll('[data-panel="weekly"] .wk-pill');
+      const wkPanes = document.querySelectorAll('[data-panel="weekly"] .wk-pane');
+      wkPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          wkPills.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          wkPanes.forEach(p => p.classList.toggle('is-active', p.dataset.window === btn.dataset.window));
+        });
+      });
 
     })();
   </script>
@@ -2643,7 +2720,12 @@ function fmtMoney(n: number): string {
     }
 
     /* ── 周度签约 wk-* ── */
-    .wk-wrap { width: 100%; }
+    .wk-pane { display: none; }
+    .wk-pane.is-active { display: block; }
+    .wk-pane--compact .wk-table { table-layout: fixed; }
+    .wk-pane--compact .wk-cell { padding: 6px 2px; min-width: 14px; }
+    .wk-pane--compact .wk-th-week { padding: 2px 0; font-size: 9px; }
+    .wk-wrap { width: 100%; overflow-x: auto; }
     .wk-table {
       width: 100%;
       border-collapse: separate;
