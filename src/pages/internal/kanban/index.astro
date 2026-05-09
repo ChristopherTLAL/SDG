@@ -2863,6 +2863,33 @@ function fmtMoney(n: number): string {
         canvas.appendChild(block);
       }
 
+      // Pre-fetch Google Fonts CSS so html-to-image can embed @font-face
+      // without hitting the CORS block on CSSStyleSheet.cssRules.
+      //
+      // Why this matters: html-to-image renders via SVG <foreignObject>. To
+      // get correct fonts in the rendered PNG, it embeds @font-face rules
+      // inline in a <style> tag inside the SVG. By default the lib reads
+      // those rules from document.styleSheets[*].cssRules — but for cross-
+      // origin sheets (Google Fonts), CSSOM access throws SecurityError.
+      // Fetching the CSS as text via fetch() is allowed; we hand the text
+      // to the lib via the `fontEmbedCSS` option so it skips CSSOM entirely.
+      let _cachedFontCSS = null;
+      async function getFontEmbedCSS() {
+        if (_cachedFontCSS !== null) return _cachedFontCSS;
+        const url = 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap';
+        try {
+          const r = await fetch(url, { credentials: 'omit' });
+          if (r.ok) {
+            _cachedFontCSS = await r.text();
+            return _cachedFontCSS;
+          }
+        } catch (e) {
+          console.warn('[周报] Manrope CSS fetch failed; will use system fonts', e);
+        }
+        _cachedFontCSS = '';
+        return _cachedFontCSS;
+      }
+
       async function generateReport() {
         const btn = document.getElementById('generate-report');
         const origLabel = btn.innerHTML;
@@ -2870,11 +2897,14 @@ function fmtMoney(n: number): string {
         btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span>渲染中...';
 
         try {
-          // 1. Make sure fonts are fully loaded — html-to-image needs this to
-          //    embed Manrope correctly (otherwise PNG falls back to Times).
+          // 1. Wait for fonts to load in the host page (so any prior font
+          //    rendering has the right metrics).
           if (document.fonts && document.fonts.ready) {
             await document.fonts.ready;
           }
+
+          // 2. Pre-fetch Manrope CSS as text (bypasses CORS on cssRules).
+          const fontCSS = await getFontEmbedCSS();
 
           const canvas = document.getElementById('report-canvas');
           canvas.innerHTML = '';
@@ -2893,19 +2923,26 @@ function fmtMoney(n: number): string {
           }
           buildFooter(canvas);
 
-          // 2. Double-rAF to wait for paint commit; extra 200ms for safety
-          //    (font metrics + image decoding).
+          // 3. Double-rAF + 200ms wait so paint is committed and any
+          //    pending image decodes are done.
           await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
           await new Promise(r => setTimeout(r, 200));
 
-          // 3. Render
-          const dataUrl = await window.htmlToImage.toPng(canvas, {
+          // 4. Render. If we got Manrope CSS, embed it; else skip font
+          //    processing entirely (relies on system-font fallback stack).
+          const opts = {
             backgroundColor: '#ffffff',
             pixelRatio: 2,
             cacheBust: true,
-            // Skip auto-scale — we want exact 1080px → 2160px output
             skipAutoScale: true,
-          });
+          };
+          if (fontCSS) {
+            opts.fontEmbedCSS = fontCSS;
+          } else {
+            opts.skipFonts = true;
+          }
+          const dataUrl = await window.htmlToImage.toPng(canvas, opts);
+
           const a = document.createElement('a');
           const dateTag = new Date().toISOString().slice(0, 10);
           a.download = `中期管理周报-${dateTag}.png`;
