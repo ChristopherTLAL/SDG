@@ -811,14 +811,7 @@ function fmtMoney(n: number): string {
         {advisors.length === 0 ? (
           <p class="section-card__empty">暂无顾问数据。</p>
         ) : (
-          <>
-            <div id="chart-advisor-heatmap" style="width: 100%; height: 360px;"></div>
-            <div class="advisor-jump-row">
-              {advisors.map(a => (
-                <a href={`/internal/kanban/advisors/${slug(a)}`} class="pill">{a}</a>
-              ))}
-            </div>
-          </>
+          <div id="chart-advisor-heatmap" style="width: 100%; height: 360px;"></div>
         )}
       </section>
 
@@ -940,43 +933,7 @@ function fmtMoney(n: number): string {
             </ul>
           </div>
 
-          <!-- COL 2: 客单价 (sorted by 客单价 DESC; all-students denominator) -->
-          <div class="cp-col cp-col--customer">
-            <div class="cp-col-head">
-              <h3 class="cp-col-title">客单价</h3>
-              <span class="cp-col-meta">总 ¥ ÷ 总学生</span>
-            </div>
-            <ul class="cp-rows">
-              {customerValueRanked.map((r, idx) => {
-                const barWidth = maxAvgPrice > 0 ? (r.avgPrice / maxAvgPrice) * 100 : 0;
-                const isTop3 = idx < 3 && r.avgPrice > 0;
-                const mix = advisorMixObj(r.advisor);
-                return (
-                  <li class={`cp-row ${r.avgPrice === 0 ? 'is-empty' : ''}`} data-advisor={r.advisor}>
-                    <div class="cp-row__head">
-                      <span class={`cp-rank ${isTop3 ? 'is-top' : ''}`}>{idx + 1}</span>
-                      <a href={buildHref(r.advisor)} class="cp-name">{r.advisor}</a>
-                      <span class="cp-money font-mono">¥{fmtMoneyShort(r.avgPrice)}</span>
-                    </div>
-                    <div class="cp-bar">
-                      <span class="cp-bar__fill" style={`width: ${barWidth}%; background: #b69d7e;`}></span>
-                    </div>
-                    <div class="cp-meta">
-                      <span class="cp-meta__tag"><strong class="font-mono">{r.totalStudents}</strong>学生</span>
-                      <span class="cp-meta__tag font-mono" style="color:var(--text-muted)">合计 {fmtMoneyShort(r.totalRevenue)}</span>
-                      <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
-                        <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
-                        <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
-                        <span class="cp-mix__seg cp-mix__seg--product" style={`flex: ${mix.onlyProduct};`}></span>
-                      </span>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <!-- COL 3: 产品合同 (sorted by 产品 ¥ DESC) -->
+          <!-- COL 2: 产品合同 (sorted by 产品 ¥ DESC) -->
           <div class="cp-col">
             <div class="cp-col-head">
               <h3 class="cp-col-title">产品合同</h3>
@@ -1022,6 +979,42 @@ function fmtMoney(n: number): string {
                       {topFams.length > 0 && (
                         <span class="cp-meta__tag cp-meta__tag--family">主打<strong>{topFams[0][0]}</strong>{Math.round((topFams[0][1].revenue / s.productRevenue) * 100)}%</span>
                       )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <!-- COL 3: 客单价 (sorted by 客单价 DESC; all-students denominator) -->
+          <div class="cp-col cp-col--customer">
+            <div class="cp-col-head">
+              <h3 class="cp-col-title">客单价</h3>
+              <span class="cp-col-meta">总 ¥ ÷ 总学生</span>
+            </div>
+            <ul class="cp-rows">
+              {customerValueRanked.map((r, idx) => {
+                const barWidth = maxAvgPrice > 0 ? (r.avgPrice / maxAvgPrice) * 100 : 0;
+                const isTop3 = idx < 3 && r.avgPrice > 0;
+                const mix = advisorMixObj(r.advisor);
+                return (
+                  <li class={`cp-row ${r.avgPrice === 0 ? 'is-empty' : ''}`} data-advisor={r.advisor}>
+                    <div class="cp-row__head">
+                      <span class={`cp-rank ${isTop3 ? 'is-top' : ''}`}>{idx + 1}</span>
+                      <a href={buildHref(r.advisor)} class="cp-name">{r.advisor}</a>
+                      <span class="cp-money font-mono">¥{fmtMoneyShort(r.avgPrice)}</span>
+                    </div>
+                    <div class="cp-bar">
+                      <span class="cp-bar__fill" style={`width: ${barWidth}%; background: #b69d7e;`}></span>
+                    </div>
+                    <div class="cp-meta">
+                      <span class="cp-meta__tag"><strong class="font-mono">{r.totalStudents}</strong>学生</span>
+                      <span class="cp-meta__tag font-mono" style="color:var(--text-muted)">合计 {fmtMoneyShort(r.totalRevenue)}</span>
+                      <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
+                        <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--product" style={`flex: ${mix.onlyProduct};`}></span>
+                      </span>
                     </div>
                   </li>
                 );
