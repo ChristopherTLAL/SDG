@@ -5,7 +5,6 @@ export const article: Article = {
   meta: {
     date: '2026-05-17',
     title: 'A Landslide Built on a Thin Slice of the Electorate',
-    source: { name: 'The Economist (sample)', url: 'https://www.economist.com/' },
     cefr: 'B2',
     wordCount: 341,
     readingMinutes: 5,

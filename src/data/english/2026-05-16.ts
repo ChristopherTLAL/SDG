@@ -5,7 +5,6 @@ export const article: Article = {
   meta: {
     date: '2026-05-16',
     title: 'Australia Picks a Number, and a Generation of Students Waits to Hear Theirs',
-    source: { name: 'Al Jazeera (sample)', url: 'https://www.aljazeera.com/' },
     cefr: 'B2',
     wordCount: 416,
     readingMinutes: 5,
