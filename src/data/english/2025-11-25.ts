@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-01-15',
+    date: '2024-12-01',
     title: 'The Quiet Question Every Essay Now Carries',
     titleZh: '每篇文章背后那个沉默的问题',
     cefr: 'C2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-04-13',
+    date: '2024-04-14',
     title: 'The Audience That Made the Salvo Legible',
     titleZh: '那场进攻的真正受众是谁',
     cefr: 'C2',

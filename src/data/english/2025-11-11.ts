@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-01-15',
+    date: '2024-06-01',
     title: 'How a Vertical Video Feed Became Publishing\'s New Acquisitions Desk',
     titleZh: '竖屏视频成了出版业的选题编辑',
     cefr: 'C1',

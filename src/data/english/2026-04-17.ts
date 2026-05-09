@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-06-05',
+    date: '2025-03-18',
     title: 'The Word That Did Not Quite Fit: Starliner, Two Astronauts, and a Company in Slow Retreat',
     titleZh: '「被困」这个词并不完全准确',
     cefr: 'C2',

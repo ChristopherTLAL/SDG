@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-01-08',
+    date: '2024-01-18',
     title: 'What Failed Above the Pacific Was Not Quite the Mission',
     titleZh: '那次「失败」登月并不算失败',
     cefr: 'C1',

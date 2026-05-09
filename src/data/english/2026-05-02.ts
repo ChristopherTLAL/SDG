@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-01-15',
+    date: '2024-07-15',
     title: 'A Quieter Number, the Same Long Queue: China\'s Graduates and the Office Jobs That Did Not Wait',
     titleZh: '毕业生与等不来的白领职位',
     cefr: 'C1',

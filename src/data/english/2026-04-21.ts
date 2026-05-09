@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-06-13',
+    date: '2024-06-15',
     title: 'A Liturgy on the Limestone: What the Apulia G7 Was Really For',
     titleZh: '阿普利亚峰会是在演什么',
     cefr: 'C2',

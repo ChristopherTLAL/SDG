@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-04-13',
+    date: '2024-04-14',
     title: 'The Night Iran Sent 300 Projectiles Toward Israel and Telephoned Ahead',
     titleZh: '伊朗通知过后，发射了300枚',
     cefr: 'C1',

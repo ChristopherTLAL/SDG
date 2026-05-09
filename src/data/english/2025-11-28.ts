@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-11-24',
+    date: '2024-11-22',
     title: 'The Gavel Fell Before the Number Could Be Argued With',
     titleZh: '槌声落下时，数字还没谈完',
     cefr: 'C1',

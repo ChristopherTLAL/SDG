@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-02-15',
+    date: '2024-02-14',
     title: 'When the Help Window Becomes a Defendant',
     titleZh: '当聊天机器人成为被告',
     cefr: 'C1',

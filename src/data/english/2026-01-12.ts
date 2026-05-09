@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-02-24',
+    date: '2024-02-26',
     title: 'When the Render Did Not Match the Room',
     titleZh: '渲染图与现场之间的那道缝',
     cefr: 'B2',

@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-11-15',
+    date: '2024-11-14',
     title: 'How a Word That Used to Mean "Plain to See" Came to Mean "Pull It Toward You"',
     titleZh: '一个动词是怎么换了工作的',
     cefr: 'B2',

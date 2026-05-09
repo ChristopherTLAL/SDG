@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-02-01',
+    date: '2024-02-05',
     title: 'A Voice Returned: How Machine Learning Read a Scroll Buried by Vesuvius',
     titleZh: '机器学习读出烧焦的卷轴',
     cefr: 'C2',

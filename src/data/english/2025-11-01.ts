@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2023-07-15',
+    date: '2023-07-19',
     title: 'When a University President Could No Longer Stand by His Own Papers',
     titleZh: '斯坦福校长的论文危机',
     cefr: 'B2',

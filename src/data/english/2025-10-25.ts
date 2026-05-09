@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-02-01',
+    date: '2024-02-05',
     title: 'A Library That Survived Because It Burned',
     titleZh: '被火焰保存的图书馆',
     cefr: 'C1',

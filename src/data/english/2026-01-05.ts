@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-01-19',
+    date: '2024-01-20',
     title: 'The Lander That Nailed Its Mark and Then Fell Over',
     titleZh: '降落精准，然后侧翻在月球上',
     cefr: 'C1',

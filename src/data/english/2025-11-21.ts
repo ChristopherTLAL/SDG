@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-05-15',
+    date: '2024-05-14',
     title: 'The Visa That Quietly Pays the British University',
     titleZh: '毕业签证悄悄撑着大学财务',
     cefr: 'C1',

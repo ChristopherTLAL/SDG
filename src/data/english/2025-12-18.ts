@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-12-15',
+    date: '2024-12-31',
     title: 'The Town That Learned to Read Its Volcano',
     titleZh: '与火山为邻的格林达维克',
     cefr: 'B2',

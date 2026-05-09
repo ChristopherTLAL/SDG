@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-12-15',
+    date: '2024-12-01',
     title: 'What Nepal Is Really Selling When It Raises the Price of Everest',
     titleZh: '尼泊尔卖的究竟是什么',
     cefr: 'C1',

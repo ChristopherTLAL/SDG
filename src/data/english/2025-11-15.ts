@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2023-07-15',
+    date: '2023-07-19',
     title: 'The Quiet Machinery That Failed at Stanford',
     titleZh: '大实验室自我监管的失败',
     cefr: 'C1',

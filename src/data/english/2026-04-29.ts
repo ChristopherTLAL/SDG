@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2023-11-14',
+    date: '2024-04-22',
     title: 'A Voice From the Edge: How a Forty-Seven-Year-Old Machine Came Back On Speaking Terms',
     titleZh: '旅行者1号从宇宙边缘回话了',
     cefr: 'C2',

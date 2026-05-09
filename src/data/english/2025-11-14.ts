@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2023-11-09',
+    date: '2025-03-01',
     title: 'The Pyrrhic Picket: What Hollywood Won, and What It Has Lost',
     titleZh: '历史性合同与消失的编剧室',
     cefr: 'C2',

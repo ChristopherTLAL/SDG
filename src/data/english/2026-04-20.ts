@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-06-13',
+    date: '2024-06-15',
     title: 'A Loan Backed by Frozen Money, and a Pope Talking About Machines',
     titleZh: '冻结资产的贷款与教皇谈AI',
     cefr: 'C1',

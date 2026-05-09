@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-11-24',
+    date: '2024-11-22',
     title: 'What a Number Owes: The Baku Climate Deal and the Arithmetic of an Older Debt',
     titleZh: '巴库气候债：三千亿与那笔旧账',
     cefr: 'C2',

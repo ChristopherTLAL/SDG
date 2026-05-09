@@ -3,7 +3,7 @@ import type { Article } from './types';
 
 export const article: Article = {
   meta: {
-    date: '2024-02-15',
+    date: '2024-02-14',
     title: 'The Small Case That Quietly Refused to Let an Airline Disown Its Own Chatbot',
     titleZh: '航空公司拒绝认领自己的机器人',
     cefr: 'C2',
