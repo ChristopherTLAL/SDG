@@ -489,9 +489,14 @@ function fmtMoney(n: number): string {
 ---
 
 <InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
-  <h1 class="font-headline page-title">
-    Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
-  </h1>
+  <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <h1 class="font-headline page-title">
+      Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
+    </h1>
+    <a href="/internal/kanban/analytics" style="font-size: 13px; font-weight: 700; color: var(--primary); text-decoration: none; padding: 6px 12px; border: 1px solid var(--primary); border-radius: 6px;">
+      合同分析（复购率 / 周度收入）→
+    </a>
+  </div>
   <p class="page-subtitle" style="margin-bottom: 16px;">
     {advisorFilter
       ? <>{advisorFilter} 名下在管学生 <strong style="color: var(--text);">{students.length}</strong>。下方四个图按这位顾问筛选；顾问活动热力图始终显示团队全貌。</>
