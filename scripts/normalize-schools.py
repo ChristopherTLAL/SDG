@@ -80,6 +80,9 @@ SCHOOL_NORMALIZE = {
     '东北大学': '东北大学',  # explicit no-op
     '华盛顿大学': '华盛顿大学',  # explicit no-op (could be StL or Seattle, leave alone)
 
+    # ── 领科 (苏州工业园区) — ULink 是 brand 名，与园区领科同校 ──
+    '苏州ULink领科': '苏州工业园区领科海外教育学校',
+
     # ── Placeholders → 待补 (canonical empty) ──
     '已本科毕业': '待补',
     '待确认': '待补',

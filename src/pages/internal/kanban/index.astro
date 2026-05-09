@@ -77,11 +77,13 @@ const ACTIVE_ADVISORS_SET = new Set(ACTIVE_ADVISORS);
 // ── Contracts (留学 + 产品) by student → mid_advisor breakdown ──
 // Pulls every contract whose vault student is managed by an active 中期顾问.
 // Splits 留学申请 vs 非留学申请, with product-family bucketing for the 产品 widget.
+// Pull ALL contracts (incl. 已终止 — needed by 退费分析 widget; also drop
+// student_id NOT NULL filter — 月度产品节奏 widget shows team-wide signing,
+// not just vault-linked). Per-widget filtering done in JS.
 const { data: rawContracts } = await supabase
   .from('contracts')
   .select('contract_id, customer_id, student_id, signed_at, signed_amount, template_name, category, status, is_application, mid_advisor, intake_year')
-  .not('student_id', 'is', null)
-  .neq('status', '已终止');
+  .order('signed_at', { ascending: false });
 
 type ContractRow = {
   contract_id: string;
@@ -98,6 +100,11 @@ type ContractRow = {
 };
 
 const allContracts = (rawContracts ?? []) as ContractRow[];
+// Active contracts only (used by 合同分布 / 周度签约 / 顾问 portfolio /
+// Top 30 学生). 退费分析 widget queries the full set including 已终止.
+const activeContracts = allContracts.filter(c =>
+  c.status !== '已终止' && c.student_id != null
+);
 
 // Map student_id → primary 中期顾问 (first of mid_advisors[]). Multi-advisor
 // students get attributed to first advisor for revenue counting; we don't
@@ -168,7 +175,7 @@ for (const adv of ACTIVE_ADVISORS) {
 
 const twelveWeeksAgo = new Date(Date.now() - 12 * 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
-for (const c of allContracts) {
+for (const c of activeContracts) {
   const adv = studentPrimaryAdvisor.get(c.student_id);
   if (!adv) continue;
   const stats = advisorStats.get(adv);
@@ -310,7 +317,7 @@ for (const adv of ACTIVE_ADVISORS) {
   weeklyByAdvisor.set(adv, new Map(weekLabels.map(w => [w, { revenue: 0, count: 0 }])));
   weeklyTotals.set(adv, 0);
 }
-for (const c of allContracts) {
+for (const c of activeContracts) {
   if (!c.signed_at) continue;
   const adv = studentPrimaryAdvisor.get(c.student_id);
   if (!adv) continue;
@@ -524,17 +531,20 @@ for (const s of allStudents) {  // use allStudents so historical activity attrib
   studentAdvisors.set(s.id, s.mid_advisors ?? []);
 }
 
-const sinceCutoff = weeks[0].start;  // 12 weeks ago, Monday
+// Pull 48 weeks of communication data — used by both 顾问活动 heatmap (12wk
+// subset) AND 顾问 portfolio scatter (4 windows: 6/12/24/48wk).
+const FORTYEIGHT_WEEKS_AGO = isoDate(new Date(weekStartToday.getTime() - 47 * 7 * 86400000));
+const sinceCutoff = weeks[0].start;  // 12 weeks ago, Monday — for activity heatmap
 const [{ data: notes }, { data: subs }] = await Promise.all([
   supabase
     .from('student_notes')
     .select('student_id, note_date')
-    .gte('note_date', sinceCutoff)
+    .gte('note_date', FORTYEIGHT_WEEKS_AGO)
     .not('note_date', 'is', null),
   supabase
     .from('submissions')
     .select('student_id, submitted_at')
-    .gte('submitted_at', sinceCutoff)
+    .gte('submitted_at', FORTYEIGHT_WEEKS_AGO)
     .not('student_id', 'is', null),
 ]);
 
@@ -574,6 +584,230 @@ advisors.forEach((a, ai) => {
     if (cnt > heatmapMax) heatmapMax = cnt;
   });
 });
+
+// ──────────────────────────────────────────────────────
+// NEW Widget data: 月度产品节奏 (last 24 months)
+// 非留学合同 by product family by month — sees seasonal sales rhythm.
+// Includes ALL contracts (vault-linked or not) since this is company-wide.
+// Excludes 已终止.
+// ──────────────────────────────────────────────────────
+const MONTHS_BACK = 24;
+const monthLabels: string[] = [];
+const today2 = new Date();
+for (let i = MONTHS_BACK - 1; i >= 0; i--) {
+  const d = new Date(today2.getFullYear(), today2.getMonth() - i, 1);
+  monthLabels.push(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`);
+}
+const earliestMonth = monthLabels[0];
+const monthlyFamilyMatrix = new Map<string, Map<string, number>>();
+const monthlyFamilies = new Set<string>();
+for (const c of allContracts) {
+  if (c.is_application) continue;            // only 非留学
+  if (c.status === '已终止') continue;
+  if (!c.signed_at) continue;
+  const mo = c.signed_at.slice(0, 7);
+  if (mo < earliestMonth) continue;
+  const family = productFamily(c.category, c.template_name);
+  monthlyFamilies.add(family);
+  if (!monthlyFamilyMatrix.has(mo)) monthlyFamilyMatrix.set(mo, new Map());
+  const m = monthlyFamilyMatrix.get(mo)!;
+  m.set(family, (m.get(family) || 0) + (Number(c.signed_amount) || 0));
+}
+// Order families by total revenue DESC (top 8 + 其他 bucket)
+const familyTotals = new Map<string, number>();
+for (const m of monthlyFamilyMatrix.values()) {
+  for (const [k, v] of m) familyTotals.set(k, (familyTotals.get(k) || 0) + v);
+}
+const monthlyFamiliesOrdered = Array.from(familyTotals.entries())
+  .sort((a, b) => b[1] - a[1])
+  .map(([k]) => k);
+const TOP_FAMS_FOR_MONTHLY = 8;
+const topFamiliesMonthly = monthlyFamiliesOrdered.slice(0, TOP_FAMS_FOR_MONTHLY);
+const tailFamiliesMonthly = new Set(monthlyFamiliesOrdered.slice(TOP_FAMS_FOR_MONTHLY));
+// Build echarts series per family
+const monthlySeries: { name: string; data: number[] }[] = [];
+for (const fam of topFamiliesMonthly) {
+  monthlySeries.push({
+    name: fam,
+    data: monthLabels.map(mo => Math.round(monthlyFamilyMatrix.get(mo)?.get(fam) || 0)),
+  });
+}
+if (tailFamiliesMonthly.size > 0) {
+  monthlySeries.push({
+    name: '其他',
+    data: monthLabels.map(mo => {
+      const m = monthlyFamilyMatrix.get(mo);
+      if (!m) return 0;
+      let sum = 0;
+      for (const [k, v] of m) if (tailFamiliesMonthly.has(k)) sum += v;
+      return Math.round(sum);
+    }),
+  });
+}
+
+// ──────────────────────────────────────────────────────
+// NEW Widget data: Top 30 学生 (Pareto)
+// Per vault student: total signing ¥ (留学+产品), 留学/产品 split, advisor.
+// Sorted by total DESC. Excludes 已终止.
+// ──────────────────────────────────────────────────────
+const studentMeta = new Map<number, { name: string; advisor: string }>();
+for (const s of allStudents) {
+  studentMeta.set(s.id, {
+    name: s.name,
+    advisor: (s.mid_advisors && s.mid_advisors[0]) || '—',
+  });
+}
+type StudentTotal = {
+  studentId: number;
+  name: string;
+  advisor: string;
+  liuxueRev: number;
+  productRev: number;
+  totalRev: number;
+  contractCount: number;
+};
+const studentTotalsMap = new Map<number, StudentTotal>();
+for (const c of activeContracts) {
+  if (!c.student_id) continue;
+  const meta = studentMeta.get(c.student_id);
+  if (!meta) continue;
+  if (!studentTotalsMap.has(c.student_id)) {
+    studentTotalsMap.set(c.student_id, {
+      studentId: c.student_id,
+      name: meta.name,
+      advisor: meta.advisor,
+      liuxueRev: 0,
+      productRev: 0,
+      totalRev: 0,
+      contractCount: 0,
+    });
+  }
+  const e = studentTotalsMap.get(c.student_id)!;
+  const amt = Number(c.signed_amount) || 0;
+  if (c.is_application) e.liuxueRev += amt;
+  else e.productRev += amt;
+  e.totalRev += amt;
+  e.contractCount += 1;
+}
+const topStudents = Array.from(studentTotalsMap.values())
+  .sort((a, b) => b.totalRev - a.totalRev)
+  .slice(0, 30);
+const maxStudentRev = Math.max(1, ...topStudents.map(s => s.totalRev));
+
+// ──────────────────────────────────────────────────────
+// NEW Widget data: 顾问 portfolio scatter
+// Per advisor × time-window: students count, signing revenue, comm count.
+// Pre-compute 4 windows (6/12/24/48 weeks) so client can switch.
+// ──────────────────────────────────────────────────────
+type PortfolioPoint = {
+  advisor: string;
+  students: number;
+  revenue: number;
+  comms: number;
+};
+type PortfolioData = Record<'6' | '12' | '24' | '48', PortfolioPoint[]>;
+const PORTFOLIO_WINDOWS: (6 | 12 | 24 | 48)[] = [6, 12, 24, 48];
+const portfolioData: PortfolioData = { '6': [], '12': [], '24': [], '48': [] };
+
+for (const w of PORTFOLIO_WINDOWS) {
+  const cutoff = isoDate(new Date(weekStartToday.getTime() - (w - 1) * 7 * 86400000));
+  const perAdvisor = new Map<string, { students: Set<number>; revenue: number; comms: number }>();
+  for (const adv of ACTIVE_ADVISORS) {
+    perAdvisor.set(adv, { students: new Set(), revenue: 0, comms: 0 });
+  }
+  // contracts within window
+  for (const c of activeContracts) {
+    if (!c.signed_at || c.signed_at < cutoff) continue;
+    const adv = studentPrimaryAdvisor.get(c.student_id);
+    if (!adv) continue;
+    const e = perAdvisor.get(adv);
+    if (!e) continue;
+    e.students.add(c.student_id);
+    e.revenue += Number(c.signed_amount) || 0;
+  }
+  // notes + subs within window
+  for (const n of (notes ?? [])) {
+    const day = (n.note_date as string).slice(0, 10);
+    if (day < cutoff) continue;
+    const advisorList = studentAdvisors.get(n.student_id as number) ?? [];
+    for (const a of advisorList) {
+      const e = perAdvisor.get(a);
+      if (e) e.comms += 1;
+    }
+  }
+  for (const sub of (subs ?? [])) {
+    const day = (sub.submitted_at as string).slice(0, 10);
+    if (day < cutoff) continue;
+    const advisorList = studentAdvisors.get(sub.student_id as number) ?? [];
+    for (const a of advisorList) {
+      const e = perAdvisor.get(a);
+      if (e) e.comms += 1;
+    }
+  }
+  for (const [advisor, e] of perAdvisor) {
+    portfolioData[String(w) as '6' | '12' | '24' | '48'].push({
+      advisor, students: e.students.size, revenue: e.revenue, comms: e.comms,
+    });
+  }
+}
+
+// ──────────────────────────────────────────────────────
+// NEW Widget data: 退费分析 (已终止 contracts)
+// By 中期顾问: count, ¥, 退费率 = terminated / (terminated + active for advisor).
+// By product family: count, ¥.
+// ──────────────────────────────────────────────────────
+type TerminatedAdvisorRow = {
+  advisor: string;
+  termCount: number;
+  termRevenue: number;
+  totalCount: number;       // term + active for this advisor (via student_id link)
+  termRate: number;
+};
+const terminatedByAdvisor = new Map<string, { term: number; termRev: number }>();
+const advisorTotalCount = new Map<string, number>();
+for (const adv of ACTIVE_ADVISORS) {
+  terminatedByAdvisor.set(adv, { term: 0, termRev: 0 });
+  advisorTotalCount.set(adv, 0);
+}
+const terminatedByFamily = new Map<string, { count: number; revenue: number; isApp: boolean }>();
+
+for (const c of allContracts) {
+  if (!c.student_id) continue;
+  const adv = studentPrimaryAdvisor.get(c.student_id);
+  if (!adv) continue;
+  advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
+  if (c.status === '已终止') {
+    const e = terminatedByAdvisor.get(adv);
+    if (e) {
+      e.term += 1;
+      e.termRev += Number(c.signed_amount) || 0;
+    }
+    const fam = c.is_application ? '留学申请' : productFamily(c.category, c.template_name);
+    if (!terminatedByFamily.has(fam)) {
+      terminatedByFamily.set(fam, { count: 0, revenue: 0, isApp: c.is_application });
+    }
+    const fe = terminatedByFamily.get(fam)!;
+    fe.count += 1;
+    fe.revenue += Number(c.signed_amount) || 0;
+  }
+}
+const terminatedAdvisorRanked: TerminatedAdvisorRow[] = ACTIVE_ADVISORS.map(adv => {
+  const e = terminatedByAdvisor.get(adv) || { term: 0, termRev: 0 };
+  const total = advisorTotalCount.get(adv) || 0;
+  return {
+    advisor: adv,
+    termCount: e.term,
+    termRevenue: e.termRev,
+    totalCount: total,
+    termRate: total > 0 ? e.term / total : 0,
+  };
+}).sort((a, b) => b.termRate - a.termRate);
+
+const terminatedFamilyRanked = Array.from(terminatedByFamily.entries())
+  .map(([family, v]) => ({ family, ...v }))
+  .sort((a, b) => b.revenue - a.revenue);
+const totalTerminatedCount = terminatedFamilyRanked.reduce((s, r) => s + r.count, 0);
+const totalTerminatedRevenue = terminatedFamilyRanked.reduce((s, r) => s + r.revenue, 0);
 
 // ── Widget 3 & 3b: 合同分布（拆 留学 vs 产品 两个 donut） ──
 // 留学合同：vault 合同字段值能匹配到 SOP 的（跃领/格物/菁英/亚洲英语系高端 等留学
@@ -746,6 +980,13 @@ const chartPayload = {
   liuxueColors,
   productDonut,
   productColors,
+  // NEW widgets
+  monthlyMonths: monthLabels,
+  monthlySeries,
+  monthlyFamilyColors: Object.fromEntries(
+    [...topFamiliesMonthly, '其他'].map(f => [f, FAMILY_COLORS[f] || '#c4c4c4'])
+  ),
+  portfolioData,
 };
 
 // 千分位格式化：¥1,234,567
@@ -776,12 +1017,32 @@ function fmtMoney(n: number): string {
       <button class="kanban-tab" data-tab="weekly" role="tab">
         <span class="material-symbols-outlined kanban-tab__icon">calendar_view_week</span>
         <span class="kanban-tab__label">周度签约</span>
-        <span class="kanban-tab__sub">最近 6 周 ¥ 热力</span>
+        <span class="kanban-tab__sub">12 周 ¥ × 顾问</span>
+      </button>
+      <button class="kanban-tab" data-tab="monthly-products" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">trending_up</span>
+        <span class="kanban-tab__label">产品节奏</span>
+        <span class="kanban-tab__sub">24 月非留学产品分布</span>
+      </button>
+      <button class="kanban-tab" data-tab="top-students" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">star</span>
+        <span class="kanban-tab__label">Top 学生</span>
+        <span class="kanban-tab__sub">总签约 ¥ 排行 Top 30</span>
+      </button>
+      <button class="kanban-tab" data-tab="portfolio" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">scatter_plot</span>
+        <span class="kanban-tab__label">顾问 portfolio</span>
+        <span class="kanban-tab__sub">学生 × ¥ × 沟通</span>
       </button>
       <button class="kanban-tab" data-tab="activity" role="tab">
         <span class="material-symbols-outlined kanban-tab__icon">forum</span>
         <span class="kanban-tab__label">顾问活动</span>
         <span class="kanban-tab__sub">12 周沟通 + 提交</span>
+      </button>
+      <button class="kanban-tab" data-tab="terminated" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">cancel</span>
+        <span class="kanban-tab__label">退费分析</span>
+        <span class="kanban-tab__sub">已终止合同分布</span>
       </button>
       <button class="kanban-tab" data-tab="stage-year" role="tab">
         <span class="material-symbols-outlined kanban-tab__icon">timeline</span>
@@ -1102,6 +1363,165 @@ function fmtMoney(n: number): string {
             </div>
           </div>
         )}
+      </section>
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: 月度产品节奏 — 24 月 stacked bar               -->
+      <!-- 非留学合同 by product family by month — 看季节高峰      -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="monthly-products" class="kanban-panel section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            产品节奏 <span class="section-card__subtitle">非留学合同（就业力/学术力/科研/竞赛/等）按产品族月度分布 · 排除已终止 · 全公司口径（不只 vault 学生）</span>
+          </h2>
+        </div>
+        <div id="chart-monthly-products" style="width: 100%; height: 460px;"></div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: Top 30 学生 (Pareto)                          -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="top-students" class="kanban-panel section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            Top 学生 <span class="section-card__subtitle">总签约 ¥ Top {topStudents.length} · 留学/产品 mix · 排除已终止 · 仅 vault 在管</span>
+          </h2>
+        </div>
+        <ul class="ts-rows">
+          {topStudents.map((s, idx) => {
+            const liuxueWidth = maxStudentRev > 0 ? (s.liuxueRev / maxStudentRev) * 100 : 0;
+            const productWidth = maxStudentRev > 0 ? (s.productRev / maxStudentRev) * 100 : 0;
+            return (
+              <li class="ts-row">
+                <div class="ts-row__head">
+                  <span class="ts-rank font-mono">{idx + 1}</span>
+                  <a href={`/internal/students/${s.studentId}`} class="ts-name">{s.name}</a>
+                  <span class="ts-advisor">{s.advisor}</span>
+                  <span class="ts-money font-mono">{fmtMoney(s.totalRev)}</span>
+                </div>
+                <div class="ts-bar" title={`留学 ${fmtMoneyShort(s.liuxueRev)} · 产品 ${fmtMoneyShort(s.productRev)} · 共 ${s.contractCount} 单`}>
+                  <span class="ts-bar__seg ts-bar__seg--liuxue" style={`width: ${liuxueWidth}%;`}></span>
+                  <span class="ts-bar__seg ts-bar__seg--product" style={`width: ${productWidth}%;`}></span>
+                </div>
+                <div class="ts-meta">
+                  <span class="ts-meta__tag">留学 <strong class="font-mono">{fmtMoneyShort(s.liuxueRev)}</strong></span>
+                  <span class="ts-meta__tag">产品 <strong class="font-mono">{fmtMoneyShort(s.productRev)}</strong></span>
+                  <span class="ts-meta__tag"><strong class="font-mono">{s.contractCount}</strong>合同</span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: 顾问 portfolio scatter                        -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="portfolio" class="kanban-panel section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            顾问 portfolio <span class="section-card__subtitle">x = 学生数 · y = 签约 ¥ · 气泡大小 = 沟通频次（合记笔记 + inbox 提交）· 排除已终止</span>
+          </h2>
+        </div>
+        <div class="pf-controls">
+          <span class="pf-controls__label">时间窗：</span>
+          <button class="pf-pill" data-window="6">6 周</button>
+          <button class="pf-pill" data-window="12">12 周</button>
+          <button class="pf-pill is-active" data-window="24">24 周</button>
+          <button class="pf-pill" data-window="48">48 周</button>
+        </div>
+        <div id="chart-portfolio" style="width: 100%; height: 480px;"></div>
+      </section>
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: 退费分析                                       -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="terminated" class="kanban-panel section-card">
+        <div class="section-card__header">
+          <h2 class="font-headline section-card__title">
+            退费分析 <span class="section-card__subtitle">合同状态 = 已终止 · 退费率 = 终止数 / (终止+在执行) · 仅 vault 在管学生</span>
+          </h2>
+        </div>
+
+        <div class="tm-kpi">
+          <div class="tm-kpi__card">
+            <div class="tm-kpi__num font-mono">{totalTerminatedCount}</div>
+            <div class="tm-kpi__label">终止合同总数</div>
+          </div>
+          <div class="tm-kpi__card">
+            <div class="tm-kpi__num font-mono">{fmtMoney(totalTerminatedRevenue)}</div>
+            <div class="tm-kpi__label">终止合同总金额</div>
+          </div>
+          <div class="tm-kpi__card">
+            <div class="tm-kpi__num font-mono">
+              {totalTerminatedCount > 0 ? fmtMoney(Math.round(totalTerminatedRevenue / totalTerminatedCount)) : '—'}
+            </div>
+            <div class="tm-kpi__label">平均单笔退费 ¥</div>
+          </div>
+        </div>
+
+        <div class="tm-grid">
+          <!-- By advisor -->
+          <div class="tm-block">
+            <h3 class="tm-block__title">按顾问</h3>
+            <table class="tm-table">
+              <thead>
+                <tr>
+                  <th>中期</th>
+                  <th class="num">终止数</th>
+                  <th class="num">总合同</th>
+                  <th class="num">退费率</th>
+                  <th class="num">退费 ¥</th>
+                </tr>
+              </thead>
+              <tbody>
+                {terminatedAdvisorRanked.map(r => (
+                  <tr>
+                    <td><strong>{r.advisor}</strong></td>
+                    <td class="num font-mono">{r.termCount}</td>
+                    <td class="num font-mono">{r.totalCount}</td>
+                    <td class="num font-mono">
+                      <span class="tm-rate" style={`background: linear-gradient(90deg, rgba(220, 53, 69, ${Math.min(0.7, r.termRate * 2)}) ${r.termRate * 100}%, transparent ${r.termRate * 100}%);`}>
+                        {(r.termRate * 100).toFixed(1)}%
+                      </span>
+                    </td>
+                    <td class="num font-mono">{fmtMoneyShort(r.termRevenue)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- By family -->
+          <div class="tm-block">
+            <h3 class="tm-block__title">按产品类目</h3>
+            <table class="tm-table">
+              <thead>
+                <tr>
+                  <th>类目</th>
+                  <th class="num">终止数</th>
+                  <th class="num">退费 ¥</th>
+                </tr>
+              </thead>
+              <tbody>
+                {terminatedFamilyRanked.map(r => {
+                  const color = r.isApp ? '#7c8da6' : (FAMILY_COLORS[r.family] || '#c4c4c4');
+                  return (
+                    <tr>
+                      <td>
+                        <span class="tm-fam-dot" style={`background: ${color};`}></span>
+                        <strong>{r.family}</strong>
+                        {r.isApp && <span class="tm-fam-tag">留学</span>}
+                      </td>
+                      <td class="num font-mono">{r.count}</td>
+                      <td class="num font-mono">{fmtMoneyShort(r.revenue)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -1607,6 +2027,139 @@ function fmtMoney(n: number): string {
       // (留学/产品 donut charts replaced 2026-05-09 by per-advisor paired
       // widgets above — see #kanban-liuxue. Donut chart-id divs no longer
       // exist; renderDonut calls were removed to avoid orphan errors.)
+
+      // ── 月度产品节奏: stacked bar (12+ families × 24 months) ──
+      const mpEl = document.getElementById('chart-monthly-products');
+      if (mpEl && payload.monthlyMonths && payload.monthlyMonths.length) {
+        const c = echarts.init(mpEl);
+        charts.push(c);
+        const fmtY = (v) => {
+          if (v >= 10000) return (v / 10000).toFixed(1) + '万';
+          return v.toLocaleString();
+        };
+        c.setOption({
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'shadow' },
+            formatter: (params) => {
+              const month = params[0].axisValue;
+              const lines = params
+                .filter(p => p.value > 0)
+                .sort((a, b) => b.value - a.value)
+                .map(p => `${p.marker} ${p.seriesName}: <strong>¥${fmtY(p.value)}</strong>`);
+              const total = params.reduce((s, p) => s + p.value, 0);
+              return `<div style="font-weight:600;margin-bottom:4px;">${month}</div>${lines.join('<br/>')}<div style="margin-top:4px;padding-top:4px;border-top:1px solid #eee;color:#666;">合计 ¥${fmtY(total)}</div>`;
+            },
+          },
+          legend: {
+            top: 0,
+            type: 'scroll',
+            textStyle: { fontSize: 11, color: '#555' },
+          },
+          grid: { left: 60, right: 24, top: 40, bottom: 40 },
+          xAxis: {
+            type: 'category',
+            data: payload.monthlyMonths,
+            axisLabel: { fontSize: 10, color: '#888', rotate: 45 },
+            axisTick: { show: false },
+            axisLine: { lineStyle: { color: '#ddd' } },
+          },
+          yAxis: {
+            type: 'value',
+            axisLabel: { fontSize: 10, color: '#888', formatter: fmtY },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#f1f1f4' } },
+          },
+          series: payload.monthlySeries.map(s => ({
+            name: s.name,
+            type: 'bar',
+            stack: 'total',
+            data: s.data,
+            itemStyle: { color: payload.monthlyFamilyColors[s.name] || '#c4c4c4' },
+            emphasis: { focus: 'series' },
+            barWidth: '70%',
+          })),
+        });
+      }
+
+      // ── 顾问 portfolio scatter (4 windows, pill-switchable) ──
+      const pfEl = document.getElementById('chart-portfolio');
+      let pfChart = null;
+      if (pfEl && payload.portfolioData) {
+        pfChart = echarts.init(pfEl);
+        charts.push(pfChart);
+        const advisorColors = {};
+        const palette = ['#a8b5c9', '#b8a98a', '#9eb89e', '#c5a3a3', '#a89bb5', '#bfb38a', '#9bb5b5', '#c8a78a', '#a8a8b8', '#b89e9e'];
+        const allAdvisors = (payload.portfolioData['24'] || []).map(p => p.advisor);
+        allAdvisors.forEach((a, i) => { advisorColors[a] = palette[i % palette.length]; });
+
+        const fmtMoney = (v) => {
+          if (v >= 10000) return (v / 10000).toFixed(1) + '万';
+          return v.toLocaleString();
+        };
+
+        function renderPortfolio(windowKey) {
+          const points = payload.portfolioData[windowKey] || [];
+          const maxComms = Math.max(1, ...points.map(p => p.comms));
+          const data = points.map(p => ({
+            name: p.advisor,
+            value: [p.students, p.revenue, p.comms],
+            itemStyle: { color: advisorColors[p.advisor] || '#c4c4c4' },
+            symbolSize: 14 + (p.comms / maxComms) * 36,
+          }));
+          pfChart.setOption({
+            tooltip: {
+              trigger: 'item',
+              formatter: (p) => `<strong>${p.data.name}</strong><br/>学生: ${p.value[0]}<br/>签约: ¥${fmtMoney(p.value[1])}<br/>沟通频次: ${p.value[2]}`,
+            },
+            grid: { left: 60, right: 30, top: 24, bottom: 50 },
+            xAxis: {
+              type: 'value',
+              name: '学生数',
+              nameLocation: 'middle',
+              nameGap: 28,
+              nameTextStyle: { fontSize: 11, color: '#888' },
+              axisLabel: { fontSize: 10, color: '#888' },
+              splitLine: { lineStyle: { color: '#f1f1f4' } },
+            },
+            yAxis: {
+              type: 'value',
+              name: '签约 ¥',
+              nameLocation: 'middle',
+              nameGap: 50,
+              nameTextStyle: { fontSize: 11, color: '#888' },
+              axisLabel: { fontSize: 10, color: '#888', formatter: fmtMoney },
+              splitLine: { lineStyle: { color: '#f1f1f4' } },
+            },
+            series: [{
+              type: 'scatter',
+              data,
+              label: {
+                show: true,
+                position: 'right',
+                formatter: (p) => p.data.name,
+                fontSize: 11,
+                color: '#333',
+                fontWeight: 600,
+              },
+              emphasis: {
+                scale: 1.2,
+                label: { fontWeight: 700 },
+              },
+            }],
+          }, true);
+        }
+        renderPortfolio('24');
+
+        document.querySelectorAll('.pf-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.pf-pill').forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            renderPortfolio(btn.dataset.window);
+          });
+        });
+      }
 
     })();
   </script>
@@ -2458,6 +3011,190 @@ function fmtMoney(n: number): string {
     }
     .family-legend__name {
       font-weight: 600;
+    }
+
+    /* ── Top 学生 Pareto rows ── */
+    .ts-rows { list-style: none; margin: 0; padding: 0; }
+    .ts-row {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f1f4;
+    }
+    .ts-row:last-child { border-bottom: none; }
+    .ts-row__head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .ts-rank {
+      width: 24px;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .ts-name {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .ts-name:hover { text-decoration: underline; }
+    .ts-advisor {
+      color: var(--text-muted);
+      font-size: 11px;
+      padding: 1px 8px;
+      background: #f5f5f7;
+      border-radius: 999px;
+    }
+    .ts-money {
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .ts-bar {
+      display: flex;
+      width: 100%;
+      height: 8px;
+      background: #f5f5f7;
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 4px 0 6px;
+    }
+    .ts-bar__seg { display: block; height: 100%; }
+    .ts-bar__seg--liuxue { background: #7c8da6; }
+    .ts-bar__seg--product { background: #b8a98a; }
+    .ts-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .ts-meta__tag {
+      padding: 1px 8px;
+      background: #fafafa;
+      border-radius: 999px;
+      border: 1px solid #f1f1f4;
+    }
+    .ts-meta__tag strong { color: var(--text); }
+
+    /* ── Portfolio scatter pill controls ── */
+    .pf-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .pf-controls__label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+    .pf-pill {
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface, #fafafa);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pf-pill:hover {
+      color: var(--text);
+      background: white;
+    }
+    .pf-pill.is-active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ── 退费分析 ── */
+    .tm-kpi {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .tm-kpi__card {
+      padding: 14px 16px;
+      background: var(--surface, #fafafa);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .tm-kpi__num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .tm-kpi__label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .tm-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 1100px) {
+      .tm-grid { grid-template-columns: 1fr; }
+    }
+    .tm-block__title {
+      font-family: var(--font-headline, 'Manrope'), sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+    .tm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .tm-table th {
+      text-align: left;
+      padding: 6px 8px;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .tm-table th.num,
+    .tm-table td.num { text-align: right; }
+    .tm-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #f1f1f4;
+      color: var(--text);
+    }
+    .tm-table tbody tr:last-child td { border-bottom: none; }
+    .tm-rate {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .tm-fam-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tm-fam-tag {
+      margin-left: 6px;
+      font-size: 10px;
+      color: var(--text-muted);
+      padding: 1px 6px;
+      background: #f1f1f4;
+      border-radius: 999px;
     }
 
     html { scroll-behavior: smooth; }
