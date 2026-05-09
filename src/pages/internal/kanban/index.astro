@@ -227,6 +227,98 @@ function fmtMoneyShort(n: number): string {
   return Math.round(n).toString();
 }
 
+// ── Student-mix per advisor: 单留 / 双 / 单产 ──
+// Each vault student belongs to one advisor (mid_advisors[0]). We split that
+// advisor's students into 3 buckets based on what kinds of contracts they
+// have. Sum of buckets = total students. Shows whether advisor's clients are
+// shallow (single-product) vs deep (multi-purchase).
+type StudentMix = { onlyLiuxue: number; both: number; onlyProduct: number; total: number };
+const advisorMix = new Map<string, StudentMix>();
+for (const adv of ACTIVE_ADVISORS) {
+  advisorMix.set(adv, { onlyLiuxue: 0, both: 0, onlyProduct: 0, total: 0 });
+}
+for (const [studentId, adv] of studentPrimaryAdvisor.entries()) {
+  if (!ACTIVE_ADVISORS_SET.has(adv)) continue;
+  const stats = advisorStats.get(adv);
+  if (!stats) continue;
+  const hasLiuxue = stats.liuxueStudents.has(studentId);
+  const hasProduct = stats.productStudents.has(studentId);
+  const m = advisorMix.get(adv)!;
+  if (hasLiuxue && hasProduct) m.both += 1;
+  else if (hasLiuxue) m.onlyLiuxue += 1;
+  else if (hasProduct) m.onlyProduct += 1;
+  // students with NO contracts at all — count in total but not in mix buckets
+  m.total += 1;
+}
+const advisorMixObj = (adv: string): StudentMix => advisorMix.get(adv) || { onlyLiuxue: 0, both: 0, onlyProduct: 0, total: 0 };
+
+// ── 6-week signing heatmap data ──
+// Per (advisor × ISO-week-start) → total signed amount. Replaces 复购 widget.
+function weekStart(dateStr: string): string {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  const day = d.getUTCDay();
+  const offset = day === 0 ? -6 : 1 - day;
+  d.setUTCDate(d.getUTCDate() + offset);
+  return d.toISOString().slice(0, 10);
+}
+
+const SIX_WEEKS = 6;
+const today = new Date();
+const todayMonday = new Date(today);
+{
+  const d = todayMonday.getUTCDay();
+  const offset = d === 0 ? -6 : 1 - d;
+  todayMonday.setUTCDate(todayMonday.getUTCDate() + offset);
+}
+const weekLabels: string[] = [];
+for (let i = SIX_WEEKS - 1; i >= 0; i--) {
+  const d = new Date(todayMonday);
+  d.setUTCDate(d.getUTCDate() - i * 7);
+  weekLabels.push(d.toISOString().slice(0, 10));
+}
+const sixWeeksAgo = weekLabels[0];
+
+type WeekBucket = { revenue: number; count: number };
+const weeklyByAdvisor = new Map<string, Map<string, WeekBucket>>();
+const weeklyTotals = new Map<string, number>();
+for (const adv of ACTIVE_ADVISORS) {
+  weeklyByAdvisor.set(adv, new Map(weekLabels.map(w => [w, { revenue: 0, count: 0 }])));
+  weeklyTotals.set(adv, 0);
+}
+for (const c of allContracts) {
+  if (!c.signed_at) continue;
+  const adv = studentPrimaryAdvisor.get(c.student_id);
+  if (!adv) continue;
+  const wk = weekStart(c.signed_at.slice(0, 10));
+  if (wk < sixWeeksAgo) continue;
+  const advMap = weeklyByAdvisor.get(adv);
+  if (!advMap || !advMap.has(wk)) continue;
+  const b = advMap.get(wk)!;
+  const amt = Number(c.signed_amount) || 0;
+  b.revenue += amt;
+  b.count += 1;
+  weeklyTotals.set(adv, (weeklyTotals.get(adv) || 0) + amt);
+}
+const weeklyRanked = Array.from(weeklyTotals.entries())
+  .sort((a, b) => b[1] - a[1])
+  .map(([adv]) => ({
+    advisor: adv,
+    cells: weekLabels.map(w => weeklyByAdvisor.get(adv)!.get(w)!),
+    total: weeklyTotals.get(adv) || 0,
+  }));
+const weeklyMaxCell = Math.max(1, ...weeklyRanked.flatMap(r => r.cells.map(c => c.revenue)));
+
+function fmtWk(w: string): string {
+  const [, m, d] = w.split('-');
+  return `${parseInt(m)}/${parseInt(d)}`;
+}
+function weeklyHeatColor(value: number): string {
+  if (value <= 0) return '#fafafa';
+  const ratio = Math.min(1, value / weeklyMaxCell);
+  const alpha = 0.18 + ratio * 0.78;
+  return `rgba(4, 47, 36, ${alpha.toFixed(3)})`;
+}
+
 const studentsBeforeAdvisor = allStudents.filter(s => {
   if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
   if (isPrivate(s.contracts)) return false;  // 私单 全局藏
@@ -650,73 +742,68 @@ function fmtMoney(n: number): string {
 ---
 
 <InternalLayout title={advisorFilter ? `Kanban · ${advisorFilter}` : 'Kanban'} active="kanban">
-  <h1 class="font-headline page-title">
-    Kanban {advisorFilter && <span style="font-weight: 600; font-size: 22px; color: var(--primary);">· {advisorFilter}</span>}
-  </h1>
-  <p class="page-subtitle" style="margin-bottom: 16px;">
-    {advisorFilter
-      ? <>{advisorFilter} 名下在管学生 <strong style="color: var(--text);">{students.length}</strong>。下方四个图按这位顾问筛选；顾问活动热力图始终显示团队全貌。</>
-      : <>业务分布与团队节奏。在管学生（不含已结案 / 已完成 / 退费）共 <strong style="color: var(--text);">{students.length}</strong>。</>}
-  </p>
-
-  <!-- ── KPI banner — 财务 ERP 同步衍生 (头部速览) ──
-       钱链：签约 → 已收 → 已交付 + 预收（已交付 + 预收 = 已收）。
-       注意：预收余额 是 已收 的子集（unearned portion），不是独立账户。 -->
-  {signedStudentCount > 0 && (
-    <div class="kpi-banner">
-      <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{fmtMoney(totalSigning)}</div>
-        <div class="kpi-card__label">总签约额</div>
+  <!-- Fixed-shell layout: header strip + sidebar tabs + panel area.
+       No page scroll; each panel scrolls internally if needed. -->
+  <div class="kanban-shell">
+    <!-- ── Top strip: title + advisor chips (always visible) ── -->
+    <div class="kanban-top">
+      <div class="kanban-top__title">
+        <h1 class="font-headline kanban-top__h1">
+          Kanban{advisorFilter && <span class="kanban-top__filter">· {advisorFilter}</span>}
+        </h1>
+        <span class="kanban-top__count">
+          {advisorFilter ? `${advisorFilter} 名下 ${students.length} 在管` : `在管学生 ${students.length}`}
+        </span>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{fmtMoney(avgPerStudent)}</div>
-        <div class="kpi-card__label">平均客单价</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{fmtMoney(totalDelivered)}</div>
-        <div class="kpi-card__label">已交付收入（已确认）</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{fmtMoney(totalPrepay)}</div>
-        <div class="kpi-card__label">预收余额（待交付）</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-card__value font-mono">{signedStudentCount}<span class="kpi-card__value-unit"> / {students.length}</span></div>
-        <div class="kpi-card__label">在签学生 / 在管学生</div>
+      <div class="kanban-top__chips">
+        <a href={buildHref('')} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
+        {Array.from(advisorChipCounts.entries())
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .map(([name, count]) => (
+            <a href={buildHref(name)} class={`pill ${advisorFilter === name ? 'pill--active' : ''}`}>
+              {name} <span style="opacity: 0.6; margin-left: 2px;" class="font-mono">{count}</span>
+            </a>
+          ))}
       </div>
     </div>
-  )}
 
-  <!-- Advisor filter chip strip — toggles 4 widgets (school / region /
-       stage-year / contract). Heatmap always team-wide. -->
-  <div class="filter-row" style="margin-bottom: 24px;">
-    <span class="filter-row__label">中期</span>
-    <a href={buildHref('')} class={`pill ${!advisorFilter ? 'pill--active' : ''}`}>All</a>
-    {Array.from(advisorChipCounts.entries())
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .map(([name, count]) => (
-        <a href={buildHref(name)} class={`pill ${advisorFilter === name ? 'pill--active' : ''}`}>
-          {name} <span style="opacity: 0.6; margin-left: 2px;" class="font-mono">{count}</span>
-        </a>
-      ))}
-  </div>
-
-  <div class="kanban-grid">
-    <aside class="kanban-toc">
-      <div class="kanban-toc__label">章节</div>
-      <ul>
-        <li><a href="#kanban-advisors">顾问活动</a></li>
-        <li><a href="#kanban-stage-year">阶段 × 入学届</a></li>
-        <li><a href="#kanban-regions">申请地区</a></li>
-        <li><a href="#kanban-schools">在读学校</a></li>
-        <li><a href="#kanban-liuxue">合同分布</a></li>
-        <li><a href="#kanban-advisor-perf">顾问业绩</a></li>
-      </ul>
+    <div class="kanban-grid">
+    <aside class="kanban-tabs" role="tablist">
+      <button class="kanban-tab is-active" data-tab="contracts" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">monitoring</span>
+        <span class="kanban-tab__label">合同分布</span>
+        <span class="kanban-tab__sub">留学 + 产品 by 顾问</span>
+      </button>
+      <button class="kanban-tab" data-tab="weekly" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">calendar_view_week</span>
+        <span class="kanban-tab__label">周度签约</span>
+        <span class="kanban-tab__sub">最近 6 周 ¥ 热力</span>
+      </button>
+      <button class="kanban-tab" data-tab="activity" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">forum</span>
+        <span class="kanban-tab__label">顾问活动</span>
+        <span class="kanban-tab__sub">12 周沟通 + 提交</span>
+      </button>
+      <button class="kanban-tab" data-tab="stage-year" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">timeline</span>
+        <span class="kanban-tab__label">阶段 × 入学届</span>
+        <span class="kanban-tab__sub">每届 funnel 分布</span>
+      </button>
+      <button class="kanban-tab" data-tab="regions" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">hub</span>
+        <span class="kanban-tab__label">申请地区</span>
+        <span class="kanban-tab__sub">共申网络</span>
+      </button>
+      <button class="kanban-tab" data-tab="schools" role="tab">
+        <span class="material-symbols-outlined kanban-tab__icon">school</span>
+        <span class="kanban-tab__label">在读学校</span>
+        <span class="kanban-tab__sub">treemap</span>
+      </button>
     </aside>
 
     <div class="kanban-main">
-      <!-- ── 顾问活动热力图 ── -->
-      <section id="kanban-advisors" class="section-card">
+      <!-- ── PANEL: 顾问活动热力图 (沟通 + 提交) ── -->
+      <section data-panel="activity" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
             顾问活动热力 <span class="section-card__subtitle">最近 12 周沟通记录 + 提交（按学生 mid_advisor 多人归属）· 点行查看顾问详情</span>
@@ -736,8 +823,8 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ── 阶段 × 入学年份（stacked horizontal bar） ── -->
-      <section id="kanban-stage-year" class="section-card">
+      <!-- ── PANEL: 阶段 × 入学年份 ── -->
+      <section data-panel="stage-year" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
             阶段 × 入学年份 <span class="section-card__subtitle">每届学生在阶段间的进度分布</span>
@@ -750,8 +837,8 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ── 申请地区共申网络 ── -->
-      <section id="kanban-regions" class="section-card">
+      <!-- ── PANEL: 申请地区共申网络 ── -->
+      <section data-panel="regions" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
             申请地区 <span class="section-card__subtitle">节点 = 地区 · 连线 = 共申学生 · 拖动滑块调整布局</span>
@@ -792,8 +879,8 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ── 在读学校分布（treemap） ── -->
-      <section id="kanban-schools" class="section-card">
+      <!-- ── PANEL: 在读学校分布 (treemap) ── -->
+      <section data-panel="schools" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
             在读学校分布 <span class="section-card__subtitle">方块面积 = 学生数 · {schoolData.length} 所学校 · 长尾合并</span>
@@ -806,218 +893,198 @@ function fmtMoney(n: number): string {
         )}
       </section>
 
-      <!-- ────────────────────────────────────────────────────── -->
-      <!-- 留学合同 + 产品合同 by 中期顾问                           -->
-      <!--                                                        -->
-      <!-- Two paired widgets — same vertical advisor ordering      -->
-      <!-- (sorted by 留学 revenue DESC) so a horizontal scan       -->
-      <!-- reveals the 留学/产品 portfolio shape per advisor.       -->
-      <!-- Source: Supabase contracts JOIN students.mid_advisors[0] -->
-      <!-- Filter: status != '已终止', students assigned to active  -->
-      <!-- advisor (in advisors table). Reroll-safe via             -->
-      <!-- scripts/import-signings.py.                              -->
-      <!-- ────────────────────────────────────────────────────── -->
-      <section id="kanban-liuxue" class="section-card">
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: 合同分布 — 留学 + 产品 by advisor (DEFAULT)   -->
+      <!--                                                     -->
+      <!-- Each column independently sorted by its own metric. -->
+      <!-- SVG center column draws Bezier between same-advisor -->
+      <!-- rows on left/right (different rank → diagonal line, -->
+      <!-- same rank → straight). Hover any row to highlight   -->
+      <!-- the paired row + line on the other side.            -->
+      <!--                                                     -->
+      <!-- Per-row meta includes student-mix breakdown:        -->
+      <!--   总N = 单留X + 双Y + 单产Z (consistent both sides) -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="contracts" class="kanban-panel section-card is-active">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期顾问 · 学生归属 mid_advisors[0] · 排除已终止 · 横向扫一眼可看顾问 portfolio shape</span>
+            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 排除已终止 · hover 行可联动另一侧</span>
           </h2>
         </div>
 
-        <div class="contracts-pair">
-          <!-- ── Widget A: 留学合同 ── -->
-          <div class="contracts-pair__col">
-            <div class="contracts-pair__col-head">
-              <h3 class="contracts-pair__col-title">留学合同</h3>
-              <span class="contracts-pair__col-meta">是否包含留学申请 = 是</span>
+        <div class="cp-grid">
+          <!-- LEFT: 留学合同 (sorted by 留学 revenue DESC) -->
+          <div class="cp-col" data-side="left">
+            <div class="cp-col-head">
+              <h3 class="cp-col-title">留学合同</h3>
+              <span class="cp-col-meta">按 ¥ 降序 · 是否含留学申请 = 是</span>
             </div>
-            {liuxueRanked.length === 0 ? (
-              <p class="section-card__empty">暂无数据</p>
-            ) : (
-              <ul class="advisor-rows">
-                {liuxueRanked.map((s, idx) => {
-                  const barWidth = maxLiuxue > 0 ? (s.liuxueRevenue / maxLiuxue) * 100 : 0;
-                  const isTop3 = idx < 3 && s.liuxueRevenue > 0;
-                  return (
-                    <li class={`advisor-row ${s.liuxueRevenue === 0 ? 'is-empty' : ''}`}>
-                      <div class="advisor-row__head">
-                        <a href={buildHref(s.advisor)} class={`advisor-row__rank ${isTop3 ? 'is-top' : ''}`}>
-                          {idx + 1}
-                        </a>
-                        <a href={buildHref(s.advisor)} class="advisor-row__name">{s.advisor}</a>
-                        <span class="advisor-row__money font-mono">{fmtMoney(s.liuxueRevenue)}</span>
-                      </div>
-                      <div class="advisor-row__bar">
-                        <span class="advisor-row__bar-fill" style={`width: ${barWidth}%; background: var(--primary);`}></span>
-                      </div>
-                      <div class="advisor-row__meta">
-                        <span class="advisor-row__meta-item">
-                          <span class="advisor-row__meta-num font-mono">{s.liuxueStudents.size}</span> 学生
-                        </span>
-                        <span class="advisor-row__meta-item">
-                          <span class="advisor-row__meta-num font-mono">{s.liuxueContracts}</span> 合同
-                        </span>
-                        <span class="advisor-row__meta-item">
-                          客单 <span class="advisor-row__meta-num font-mono">{s.liuxueStudents.size > 0 ? fmtMoneyShort(s.liuxueRevenue / s.liuxueStudents.size) : '—'}</span>
-                        </span>
-                        {s.liuxueRecent12wk > 0 && (
-                          <span class={`advisor-row__pulse ${s.liuxueRecent12wk >= 3 ? 'is-hot' : ''}`}>
-                            最近 12wk · {s.liuxueRecent12wk}
-                          </span>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </div>
-
-          <!-- ── Widget B: 产品合同 ── -->
-          <div class="contracts-pair__col">
-            <div class="contracts-pair__col-head">
-              <h3 class="contracts-pair__col-title">产品合同</h3>
-              <span class="contracts-pair__col-meta">非留学申请 · 跃领/培训/竞赛/班课 等</span>
-            </div>
-            {productRanked.length === 0 ? (
-              <p class="section-card__empty">暂无数据</p>
-            ) : (
-              <ul class="advisor-rows">
-                {/* Sort by liuxue (same order as left col) so horizontal scan ↔ aligns */}
-                {liuxueRanked.map(s => {
-                  const barWidth = maxProduct > 0 ? (s.productRevenue / maxProduct) * 100 : 0;
-                  // Build family stack segments (sorted by revenue DESC, top 4 + 其他)
-                  const families = Array.from(s.productByFamily.entries())
-                    .sort((a, b) => b[1].revenue - a[1].revenue);
-                  const topFams = families.slice(0, 4);
-                  const otherRev = families.slice(4).reduce((sum, [, v]) => sum + v.revenue, 0);
-                  const otherCount = families.slice(4).reduce((sum, [, v]) => sum + v.count, 0);
-                  const segments = [...topFams.map(([k, v]) => ({ name: k, revenue: v.revenue, count: v.count }))];
-                  if (otherRev > 0) segments.push({ name: '其他', revenue: otherRev, count: otherCount });
-                  return (
-                    <li class={`advisor-row ${s.productRevenue === 0 ? 'is-empty' : ''}`}>
-                      <div class="advisor-row__head">
-                        <a href={buildHref(s.advisor)} class="advisor-row__rank">·</a>
-                        <a href={buildHref(s.advisor)} class="advisor-row__name">{s.advisor}</a>
-                        <span class="advisor-row__money font-mono">{fmtMoney(s.productRevenue)}</span>
-                      </div>
-                      <div class="advisor-row__bar advisor-row__bar--stacked" title={
-                        segments.map(seg => `${seg.name}: ${fmtMoneyShort(seg.revenue)} (${seg.count})`).join(' · ')
-                      }>
-                        {segments.map(seg => {
-                          const segWidthPct = s.productRevenue > 0 ? (seg.revenue / s.productRevenue) * barWidth : 0;
-                          const color = FAMILY_COLORS[seg.name] || '#c4c4c4';
-                          return (
-                            <span
-                              class="advisor-row__bar-seg"
-                              style={`width: ${segWidthPct}%; background: ${color};`}
-                              title={`${seg.name}: ${fmtMoneyShort(seg.revenue)} · ${seg.count} 单`}
-                            ></span>
-                          );
-                        })}
-                      </div>
-                      <div class="advisor-row__meta">
-                        <span class="advisor-row__meta-item">
-                          <span class="advisor-row__meta-num font-mono">{s.productStudents.size}</span> 学生
-                        </span>
-                        <span class="advisor-row__meta-item">
-                          <span class="advisor-row__meta-num font-mono">{s.productContracts}</span> 合同
-                        </span>
-                        {topFams.length > 0 && (
-                          <span class="advisor-row__meta-item advisor-row__meta-item--family">
-                            主打 <strong>{topFams[0][0]}</strong> ({Math.round((topFams[0][1].revenue / s.productRevenue) * 100)}%)
-                          </span>
-                        )}
-                        {s.productRecent12wk > 0 && (
-                          <span class={`advisor-row__pulse ${s.productRecent12wk >= 3 ? 'is-hot' : ''}`}>
-                            最近 12wk · {s.productRecent12wk}
-                          </span>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-
-            {/* Family color legend */}
-            <div class="family-legend">
-              {Object.entries(FAMILY_COLORS).map(([name, color]) => {
-                const used = productRanked.some(r => r.productByFamily.has(name));
-                if (!used) return null;
+            <ul class="cp-rows">
+              {liuxueRanked.map((s, idx) => {
+                const barWidth = maxLiuxue > 0 ? (s.liuxueRevenue / maxLiuxue) * 100 : 0;
+                const isTop3 = idx < 3 && s.liuxueRevenue > 0;
+                const mix = advisorMixObj(s.advisor);
                 return (
-                  <span class="family-legend__item">
-                    <span class="family-legend__swatch" style={`background: ${color};`}></span>
-                    <span class="family-legend__name">{name}</span>
-                  </span>
+                  <li class={`cp-row ${s.liuxueRevenue === 0 ? 'is-empty' : ''}`} data-advisor={s.advisor}>
+                    <div class="cp-row__head">
+                      <span class={`cp-rank ${isTop3 ? 'is-top' : ''}`}>{idx + 1}</span>
+                      <a href={buildHref(s.advisor)} class="cp-name">{s.advisor}</a>
+                      <span class="cp-money font-mono">{fmtMoney(s.liuxueRevenue)}</span>
+                    </div>
+                    <div class="cp-bar">
+                      <span class="cp-bar__fill" style={`width: ${barWidth}%; background: var(--primary);`}></span>
+                    </div>
+                    <div class="cp-meta">
+                      <span class="cp-meta__tag"><strong class="font-mono">{s.liuxueStudents.size}</strong>学生</span>
+                      <span class="cp-meta__tag"><strong class="font-mono">{s.liuxueContracts}</strong>合同</span>
+                      <span class="cp-meta__tag">客单<strong class="font-mono">{s.liuxueStudents.size > 0 ? fmtMoneyShort(s.liuxueRevenue / s.liuxueStudents.size) : '—'}</strong></span>
+                      <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
+                        <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--product" style={`flex: ${mix.onlyProduct};`}></span>
+                      </span>
+                    </div>
+                  </li>
                 );
               })}
+            </ul>
+          </div>
+
+          <!-- CENTER: SVG connecting lines (drawn client-side after layout) -->
+          <div class="cp-svg-wrap" aria-hidden>
+            <svg class="cp-svg" preserveAspectRatio="none"></svg>
+          </div>
+
+          <!-- RIGHT: 产品合同 (sorted by 产品 revenue DESC) -->
+          <div class="cp-col" data-side="right">
+            <div class="cp-col-head">
+              <h3 class="cp-col-title">产品合同</h3>
+              <span class="cp-col-meta">按 ¥ 降序 · 跃领/培训/竞赛/班课 等</span>
             </div>
+            <ul class="cp-rows">
+              {productRanked.map((s, idx) => {
+                const barWidth = maxProduct > 0 ? (s.productRevenue / maxProduct) * 100 : 0;
+                const isTop3 = idx < 3 && s.productRevenue > 0;
+                const families = Array.from(s.productByFamily.entries())
+                  .sort((a, b) => b[1].revenue - a[1].revenue);
+                const topFams = families.slice(0, 4);
+                const otherRev = families.slice(4).reduce((sum, [, v]) => sum + v.revenue, 0);
+                const otherCount = families.slice(4).reduce((sum, [, v]) => sum + v.count, 0);
+                const segments = [...topFams.map(([k, v]) => ({ name: k, revenue: v.revenue, count: v.count }))];
+                if (otherRev > 0) segments.push({ name: '其他', revenue: otherRev, count: otherCount });
+                const mix = advisorMixObj(s.advisor);
+                return (
+                  <li class={`cp-row ${s.productRevenue === 0 ? 'is-empty' : ''}`} data-advisor={s.advisor}>
+                    <div class="cp-row__head">
+                      <span class={`cp-rank ${isTop3 ? 'is-top' : ''}`}>{idx + 1}</span>
+                      <a href={buildHref(s.advisor)} class="cp-name">{s.advisor}</a>
+                      <span class="cp-money font-mono">{fmtMoney(s.productRevenue)}</span>
+                    </div>
+                    <div class="cp-bar cp-bar--stacked" title={segments.map(seg => `${seg.name}: ${fmtMoneyShort(seg.revenue)} (${seg.count})`).join(' · ')}>
+                      {segments.map(seg => {
+                        const segWidthPct = s.productRevenue > 0 ? (seg.revenue / s.productRevenue) * barWidth : 0;
+                        const color = FAMILY_COLORS[seg.name] || '#c4c4c4';
+                        return (
+                          <span class="cp-bar__seg" style={`width: ${segWidthPct}%; background: ${color};`} title={`${seg.name}: ${fmtMoneyShort(seg.revenue)} · ${seg.count} 单`}></span>
+                        );
+                      })}
+                    </div>
+                    <div class="cp-meta">
+                      <span class="cp-meta__tag"><strong class="font-mono">{s.productStudents.size}</strong>学生</span>
+                      <span class="cp-meta__tag"><strong class="font-mono">{s.productContracts}</strong>合同</span>
+                      {topFams.length > 0 && (
+                        <span class="cp-meta__tag cp-meta__tag--family">主打<strong>{topFams[0][0]}</strong>{Math.round((topFams[0][1].revenue / s.productRevenue) * 100)}%</span>
+                      )}
+                      <span class="cp-mix" title={`总 ${mix.total} 学生 = 单留学 ${mix.onlyLiuxue} + 都有 ${mix.both} + 单产品 ${mix.onlyProduct}`}>
+                        <span class="cp-mix__seg cp-mix__seg--liuxue" style={`flex: ${mix.onlyLiuxue};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--both" style={`flex: ${mix.both};`}></span>
+                        <span class="cp-mix__seg cp-mix__seg--product" style={`flex: ${mix.onlyProduct};`}></span>
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Legends row -->
+        <div class="cp-legends">
+          <div class="cp-legend">
+            <span class="cp-legend__title">学生分布</span>
+            <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--liuxue" style="width:14px;height:8px;"></span>单留学</span>
+            <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--both" style="width:14px;height:8px;"></span>都有</span>
+            <span class="cp-legend__item"><span class="cp-mix__seg cp-mix__seg--product" style="width:14px;height:8px;"></span>单产品</span>
+          </div>
+          <div class="cp-legend">
+            <span class="cp-legend__title">产品族色</span>
+            {Object.entries(FAMILY_COLORS).map(([name, color]) => {
+              const used = productRanked.some(r => r.productByFamily.has(name));
+              if (!used) return null;
+              return (
+                <span class="cp-legend__item">
+                  <span class="cp-legend__swatch" style={`background: ${color};`}></span>{name}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <!-- (placeholder kept so TOC anchor #kanban-products still resolves; the
-           old standalone 产品合同 donut has been merged into the section above.) -->
-      <span id="kanban-products" style="display:block; height:0;"></span>
-
-      <!-- 跃领分级 donut 已迁移到 /internal/kanban/contracts/跃领计划 — 在那里
-           作为该 group 的 5 个 distribution 之一显示。kanban index 不再放这个。 -->
-
-      <!-- ── 顾问业绩（合并 营收 + 客单价 + 优惠 一表） ── -->
-      <section id="kanban-advisor-perf" class="section-card">
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- PANEL: 周度签约 ¥ — 6 周 heatmap                    -->
+      <!--                                                     -->
+      <!-- Per-advisor row × 6 weeks. Cell = signed amount,    -->
+      <!-- color shaded by amount (0 → white, max → primary).  -->
+      <!-- Rows sorted by 6-week total DESC.                   -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <section data-panel="weekly" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            顾问业绩
-            <span class="section-card__subtitle">
-              客单价 = 学生 sum(主合同 − 优惠减钱) · 优惠率 = (减钱 + 价值) / 主合同 · 归 mid_advisors[0]
-            </span>
+            周度签约 ¥ <span class="section-card__subtitle">最近 6 周（周一锚定）· 色阶 = 当周顾问签约金额 · 排除已终止</span>
           </h2>
         </div>
-        {advisorPerf.length === 0 ? (
-          <p class="section-card__empty">暂无业绩数据。</p>
+        {weeklyRanked.length === 0 ? (
+          <p class="section-card__empty">暂无数据。</p>
         ) : (
-          <div class="advisor-revenue-table">
-            <table class="perf-table">
+          <div class="wk-wrap">
+            <table class="wk-table">
               <thead>
                 <tr>
-                  <th>中期顾问</th>
-                  <th class="num">学生</th>
-                  <th class="num">客单价 / P50</th>
-                  <th class="num">总签约额 (占比)</th>
-                  <th class="num">优惠 (减钱 / 率)</th>
+                  <th class="wk-th-advisor">中期</th>
+                  {weekLabels.map(w => <th class="wk-th-week font-mono">{fmtWk(w)}</th>)}
+                  <th class="wk-th-total">6 周合计</th>
                 </tr>
               </thead>
               <tbody>
-                {advisorPerf.map(r => (
-                  <tr>
-                    <td><strong>{r.advisor}</strong></td>
-                    <td class="num font-mono">{r.studentCount}</td>
-                    <td class="num">
-                      <div class="cell-stack">
-                        <div class="cell-stack__primary font-mono">{fmtMoney(r.avgPrice)}</div>
-                        <div class="cell-stack__secondary font-mono">P50 {fmtMoney(r.medianPrice)}</div>
-                      </div>
+                {weeklyRanked.map(r => (
+                  <tr data-advisor={r.advisor}>
+                    <td class="wk-td-advisor">
+                      <a href={buildHref(r.advisor)}>{r.advisor}</a>
                     </td>
-                    <td class="num">
-                      <div class="cell-stack">
-                        <div class="cell-stack__primary font-mono">{fmtMoney(r.totalSigning)}</div>
-                        <span class="bar-cell">
-                          <span class="bar-cell__fill" style={`width:${r.pct}%;`}></span>
-                          <span class="bar-cell__num font-mono">{r.pct.toFixed(1)}%</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="num">
-                      <div class="cell-stack">
-                        <div class="cell-stack__primary font-mono">{r.discountRate.toFixed(1)}%</div>
-                        <div class="cell-stack__secondary font-mono">−{fmtMoney(r.discountCash)}</div>
-                      </div>
-                    </td>
+                    {r.cells.map((c, i) => (
+                      <td
+                        class={`wk-cell ${c.revenue > 0 ? 'has-value' : ''}`}
+                        style={`background:${weeklyHeatColor(c.revenue)}; color:${c.revenue / weeklyMaxCell > 0.45 ? 'white' : '#475569'};`}
+                        title={c.revenue > 0 ? `${weekLabels[i]} 起 · ${c.count} 单 · ¥${fmtMoneyShort(c.revenue)}` : `${weekLabels[i]} 起 · 0`}
+                      >
+                        {c.revenue > 0 ? <span class="font-mono">{fmtMoneyShort(c.revenue)}</span> : ''}
+                      </td>
+                    ))}
+                    <td class="wk-td-total font-mono">{fmtMoney(r.total)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            <div class="wk-legend">
+              <span>0</span>
+              <span class="wk-legend__bar">
+                {[0.1, 0.25, 0.5, 0.75, 0.96].map(a => (
+                  <span style={`background: rgba(4,47,36,${a});`}></span>
+                ))}
+              </span>
+              <span>¥{fmtMoneyShort(weeklyMaxCell)} max</span>
+            </div>
           </div>
         )}
       </section>
@@ -1036,6 +1103,72 @@ function fmtMoney(n: number): string {
       // Resize all chart instances on viewport change.
       const charts = [];
       window.addEventListener('resize', () => charts.forEach(c => c && c.resize()));
+
+      // ── Tab switching: hide non-active panels; resize charts when tab activated ──
+      const tabButtons = document.querySelectorAll('.kanban-tab');
+      const panels = document.querySelectorAll('.kanban-panel');
+      function activateTab(name) {
+        tabButtons.forEach(b => b.classList.toggle('is-active', b.dataset.tab === name));
+        panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === name));
+        // After display change, charts inside the now-visible panel may have
+        // grown from 0×0 → real size. Force resize so they paint correctly.
+        requestAnimationFrame(() => {
+          charts.forEach(c => c && c.resize());
+          if (name === 'contracts') drawCpLines();
+        });
+      }
+      tabButtons.forEach(b => {
+        b.addEventListener('click', () => activateTab(b.dataset.tab));
+      });
+
+      // ── 合同分布 widget: SVG connecting Bezier lines + hover pairing ──
+      const cpSvg = document.querySelector('.cp-svg');
+      const cpLeftRows  = document.querySelectorAll('.cp-col[data-side="left"] .cp-row');
+      const cpRightRows = document.querySelectorAll('.cp-col[data-side="right"] .cp-row');
+
+      function drawCpLines() {
+        if (!cpSvg) return;
+        const wrap = cpSvg.parentElement;
+        const wrapRect = wrap.getBoundingClientRect();
+        if (wrapRect.width === 0) return;
+        cpSvg.setAttribute('viewBox', `0 0 ${wrapRect.width} ${wrapRect.height}`);
+        cpSvg.innerHTML = '';
+        const rightByAdvisor = new Map();
+        cpRightRows.forEach(r => rightByAdvisor.set(r.dataset.advisor, r));
+        cpLeftRows.forEach(leftRow => {
+          const advisor = leftRow.dataset.advisor;
+          const rightRow = rightByAdvisor.get(advisor);
+          if (!rightRow) return;
+          const lr = leftRow.getBoundingClientRect();
+          const rr = rightRow.getBoundingClientRect();
+          const y1 = lr.top + lr.height / 2 - wrapRect.top;
+          const y2 = rr.top + rr.height / 2 - wrapRect.top;
+          const x1 = 0;
+          const x2 = wrapRect.width;
+          const c1 = wrapRect.width * 0.5;
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', `M ${x1} ${y1} C ${c1} ${y1}, ${c1} ${y2}, ${x2} ${y2}`);
+          path.setAttribute('class', 'cp-svg-line');
+          path.setAttribute('data-advisor', advisor);
+          cpSvg.appendChild(path);
+        });
+      }
+
+      function highlightAdvisor(name, on) {
+        document.querySelectorAll(`.cp-row[data-advisor="${CSS.escape(name)}"], .cp-svg-line[data-advisor="${CSS.escape(name)}"]`)
+          .forEach(el => el.classList.toggle('is-paired', on));
+      }
+      [...cpLeftRows, ...cpRightRows].forEach(row => {
+        row.addEventListener('mouseenter', () => highlightAdvisor(row.dataset.advisor, true));
+        row.addEventListener('mouseleave', () => highlightAdvisor(row.dataset.advisor, false));
+      });
+
+      // Initial line draw + redraw on viewport resize
+      requestAnimationFrame(drawCpLines);
+      window.addEventListener('resize', drawCpLines);
+
+      // Mark body for fixed-shell CSS (no page scroll)
+      document.body.classList.add('kanban-page');
 
       // ── Schools: treemap (Morandi, per-tile explicit color) ──
       // ECharts treemap was applying its own color treatment on top of my
@@ -1616,66 +1749,423 @@ function fmtMoney(n: number): string {
       font-weight: 600;
     }
 
-    /* Sidebar TOC + main column */
-    .kanban-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 32px;
-      align-items: start;
+    /* ── Fixed-shell layout: viewport-bound; no page scroll ── */
+    :global(body.kanban-page) { overflow: hidden; height: 100vh; }
+    :global(body.kanban-page footer) { display: none; }
+
+    .kanban-shell {
+      position: fixed;
+      top: 64px;       /* InternalLayout header height */
+      left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface, #fafafa);
+      padding: 14px 24px 18px;
+      gap: 12px;
+      box-sizing: border-box;
     }
-    .kanban-toc {
-      position: sticky;
-      top: 80px;
-      font-size: 13px;
+
+    .kanban-top {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .kanban-toc__label {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 8px;
-      padding: 0 10px;
+    .kanban-top__title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
     }
-    .kanban-toc ul {
-      list-style: none;
-      padding: 0;
+    .kanban-top__h1 {
+      font-size: 22px;
       margin: 0;
-      display: grid;
-      gap: 2px;
+      letter-spacing: -0.02em;
+      font-weight: 800;
     }
-    .kanban-toc li a {
-      display: block;
-      padding: 7px 10px;
-      border-radius: 6px;
+    .kanban-top__filter {
+      font-weight: 600;
+      color: var(--primary);
+      margin-left: 6px;
+    }
+    .kanban-top__count {
+      font-size: 12px;
       color: var(--text-muted);
-      font-weight: 500;
-      transition: background 120ms, color 120ms;
     }
-    .kanban-toc li a:hover {
-      background: #f1f5f9;
+    .kanban-top__chips {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+
+    .kanban-grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    /* ── Tab sidebar ── */
+    .kanban-tabs {
+      background: white;
+      border: 1px solid var(--border, #eef0f3);
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow-y: auto;
+    }
+    .kanban-tab {
+      background: transparent;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 10px;
+      align-items: center;
+      transition: background 120ms, color 120ms;
+      color: var(--text-muted);
+      font-family: inherit;
+    }
+    .kanban-tab__icon {
+      grid-row: 1 / 3;
+      font-size: 20px !important;
+      color: inherit;
+    }
+    .kanban-tab__label {
+      font-size: 13px;
+      font-weight: 700;
       color: var(--text);
     }
-    /* Smooth scroll + offset so anchored sections don't tuck under the
-       site header. Each section also gets scroll-margin-top below. */
-    .kanban-main { display: grid; gap: 0; }
-    .kanban-main > section { scroll-margin-top: 24px; }
+    .kanban-tab__sub {
+      font-size: 10.5px;
+      color: var(--text-soft);
+      grid-column: 2;
+    }
+    .kanban-tab:hover {
+      background: #f5f5f7;
+    }
+    .kanban-tab.is-active {
+      background: var(--primary);
+      color: white;
+    }
+    .kanban-tab.is-active .kanban-tab__label { color: white; }
+    .kanban-tab.is-active .kanban-tab__sub { color: rgba(255, 255, 255, 0.7); }
+
+    /* ── Panel area ── */
+    .kanban-main {
+      min-width: 0;
+      min-height: 0;
+      overflow: auto;
+      background: white;
+      border: 1px solid var(--border, #eef0f3);
+      border-radius: 12px;
+      padding: 18px 22px;
+    }
+    .kanban-panel {
+      display: none;
+      animation: panelFade 180ms ease-out;
+    }
+    .kanban-panel.is-active {
+      display: block;
+    }
+    @keyframes panelFade {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .kanban-panel.section-card {
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    /* ── Mobile collapse ── */
     @media (max-width: 800px) {
-      .kanban-grid { grid-template-columns: 1fr; }
-      .kanban-toc {
-        position: static;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
-        padding: 8px 0;
-        border-bottom: 1px solid #eef0f3;
+      .kanban-shell { padding: 10px 14px; }
+      .kanban-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
       }
-      .kanban-toc__label { display: none; }
-      .kanban-toc ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2px;
+      .kanban-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 4px;
       }
+      .kanban-tab {
+        flex-shrink: 0;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+      }
+      .kanban-tab__sub { display: none; }
+    }
+
+    /* ── 合同分布 cp-* (revamped widget) ── */
+    .cp-grid {
+      display: grid;
+      grid-template-columns: 1fr 90px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 1100px) {
+      .cp-grid { grid-template-columns: 1fr; }
+      .cp-svg-wrap { display: none; }
+    }
+    .cp-col-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 0 0 8px;
+      border-bottom: 2px solid #f1f1f4;
+      margin-bottom: 12px;
+    }
+    .cp-col-title {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--text);
+      margin: 0;
+    }
+    .cp-col-meta { font-size: 11px; color: var(--text-soft); }
+
+    .cp-rows { list-style: none; margin: 0; padding: 0; }
+    .cp-row {
+      padding: 8px 6px;
+      border-radius: 6px;
+      transition: background 120ms;
+      border-bottom: 1px solid #f5f5f7;
+    }
+    .cp-row:last-child { border-bottom: none; }
+    .cp-row.is-empty { opacity: 0.4; }
+    .cp-row.is-paired {
+      background: rgba(4, 47, 36, 0.06);
+    }
+
+    .cp-row__head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .cp-rank {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #d4d4d8;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-family: 'SF Mono', monospace;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cp-rank.is-top {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .cp-name {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .cp-name:hover { color: var(--primary); }
+    .cp-money {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cp-bar {
+      width: 100%;
+      height: 7px;
+      background: #f3f4f6;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      display: flex;
+    }
+    .cp-bar__fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 220ms ease-out;
+    }
+    .cp-bar--stacked { gap: 1px; }
+    .cp-bar__seg {
+      height: 100%;
+      transition: width 220ms ease-out;
+    }
+    .cp-bar__seg:first-child { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+    .cp-bar__seg:last-child { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+
+    .cp-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 10.5px;
+      color: var(--text-soft);
+      flex-wrap: wrap;
+      align-items: center;
+      padding-left: 26px;
+    }
+    .cp-meta__tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .cp-meta__tag strong {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 11px;
+      margin: 0 2px;
+    }
+    .cp-meta__tag--family strong {
+      color: var(--primary);
+    }
+    .cp-mix {
+      display: inline-flex;
+      width: 60px;
+      height: 8px;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-left: auto;
+      background: #f3f4f6;
+    }
+    .cp-mix__seg { height: 100%; }
+    .cp-mix__seg--liuxue  { background: #7c8da6; }
+    .cp-mix__seg--both    { background: #042f24; }
+    .cp-mix__seg--product { background: #b6948c; }
+
+    /* SVG center column with connecting Bezier curves */
+    .cp-svg-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .cp-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .cp-svg-line {
+      fill: none;
+      stroke: rgba(4, 47, 36, 0.18);
+      stroke-width: 1;
+      transition: stroke 120ms, stroke-width 120ms;
+    }
+    .cp-svg-line.is-paired {
+      stroke: var(--primary);
+      stroke-width: 2;
+    }
+
+    .cp-legends {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      border-top: 1px solid #f1f1f4;
+      font-size: 10.5px;
+      color: var(--text-muted);
+    }
+    .cp-legend {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .cp-legend__title {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cp-legend__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cp-legend__swatch {
+      display: inline-block;
+      width: 10px;
+      height: 8px;
+      border-radius: 2px;
+    }
+
+    /* ── 周度签约 wk-* ── */
+    .wk-wrap { width: 100%; }
+    .wk-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 2px;
+      font-size: 12px;
+    }
+    .wk-table th {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      padding: 4px 8px;
+      text-align: center;
+    }
+    .wk-th-advisor { text-align: left !important; min-width: 80px; }
+    .wk-th-week { font-family: 'SF Mono', monospace; }
+    .wk-th-total { text-align: right !important; min-width: 90px; }
+    .wk-table td { padding: 8px; border-radius: 5px; }
+    .wk-td-advisor {
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .wk-td-advisor a { color: var(--text); text-decoration: none; }
+    .wk-td-advisor a:hover { color: var(--primary); }
+    .wk-cell {
+      text-align: center;
+      font-size: 11px;
+      transition: transform 80ms;
+    }
+    .wk-cell.has-value { font-weight: 700; cursor: help; }
+    .wk-cell.has-value:hover { transform: scale(1.05); }
+    .wk-td-total {
+      text-align: right;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+      padding: 8px 10px !important;
+    }
+    .wk-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .wk-legend__bar {
+      display: inline-flex;
+      gap: 2px;
+    }
+    .wk-legend__bar > span {
+      display: inline-block;
+      width: 22px;
+      height: 12px;
+      border-radius: 2px;
     }
 
     /* ── Network row: graph on the left, live panel on the right ── */
