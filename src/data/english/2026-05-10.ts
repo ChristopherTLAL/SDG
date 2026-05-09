@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-10',
     title: 'How a Truck Full of KitKats Vanished on Its Way to Easter',
+    source: { name: 'CNN (sample)', url: 'https://www.cnn.com/' },
     cefr: 'B1',
     wordCount: 290,
     readingMinutes: 4,

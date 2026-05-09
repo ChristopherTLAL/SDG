@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-14',
     title: 'Soup, Glass, and the Mona Lisa: A Protest the Painting Could Not Feel',
+    source: { name: 'France 24 (sample)', url: 'https://www.france24.com/' },
     cefr: 'B2',
     wordCount: 388,
     readingMinutes: 5,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-13',
     title: 'The Night the Olympics Left the Stadium and Sailed Down a River',
+    source: { name: 'NPR (sample)', url: 'https://www.npr.org/' },
     cefr: 'B1',
     wordCount: 349,
     readingMinutes: 4,

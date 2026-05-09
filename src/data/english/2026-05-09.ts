@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-09',
     title: 'How Three Students Read a Scroll No One Had Opened in 2,000 Years',
+    source: { name: 'Scientific American (sample)', url: 'https://www.scientificamerican.com/' },
     cefr: 'B2',
     wordCount: 386,
     readingMinutes: 5,

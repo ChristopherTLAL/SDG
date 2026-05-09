@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-15',
     title: 'When a University President Could No Longer Stand by His Own Papers',
+    source: { name: 'STAT (sample)', url: 'https://www.statnews.com/' },
     cefr: 'B2',
     wordCount: 403,
     readingMinutes: 5,

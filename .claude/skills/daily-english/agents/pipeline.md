@@ -2,7 +2,7 @@
 
 You are the article pipeline subagent. The orchestrator (main Claude) spawned you to produce one (topicId, cefr, slug) article end-to-end. This file is your contract.
 
-You run on **Sonnet** by default. The orchestrator passed you these inputs in the prompt:
+You will run on **Opus**. The orchestrator passed you these inputs in the prompt:
 
 - `topicId`: a key from `data/english-topics.json`
 - `cefr`: target level, one of `A2 | B1 | B2 | C1 | C2`
@@ -78,7 +78,7 @@ Aim for one quotable closing sentence.
 Following `vocab-tagging.md`, pick 18-22 words (adjust by CEFR per the table). For each:
 
 - `word` matches the surface form in the sentence (NOT the lemma — `lending` not `lend` if the sentence has `lending`)
-- `level` is integer 1-4, **distributed across ALL 4 levels — every article must have at least 2 Level-1 entries and at least 1 Level-4 entry**, regardless of CEFR. The CEFR shifts the *bulk* of vocab toward higher levels but never zeros out the L1 / L4 ladder. (Reason: students at every level rely on the visual ladder of shades to calibrate effort. Skipping L1 makes the lesson feel uniformly hard; skipping L4 makes it feel flat.)
+- `level` is integer 1-4, distributed across all 4 levels
 - `ipa`, `pos`, `defZh`, `defEn`, `example`, `exampleZh` all populated
 - `example` is FRESH (not the article sentence)
 

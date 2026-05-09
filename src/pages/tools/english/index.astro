@@ -1,568 +1,426 @@
 ---
-// English library — fixed-height database view with sidebar filter, search, and internal scrolling.
+// English library, filterable list of articles by CEFR level.
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { articles, CEFR_LABELS } from '../../../data/english';
-import topicsRaw from '../../../../data/english-topics.json';
 
 type LevelKey = keyof typeof CEFR_LABELS;
 const levelOrder: LevelKey[] = ['A2', 'B1', 'B2', 'C1', 'C2'];
-
-// Build slug -> tags lookup from topics DB.
-const slugToTags = new Map<string, string[]>();
-for (const t of (topicsRaw.topics as { articles?: { slug?: string }[]; tags?: string[] }[])) {
-  for (const a of t.articles ?? []) {
-    if (a.slug) slugToTags.set(a.slug, t.tags ?? []);
-  }
-}
-
-// Compact list rows for client-side filtering.
-const rows = articles.map((a) => ({
-  slug: a.meta.date,
-  date: a.meta.date,
-  title: a.meta.title,
-  cefr: a.meta.cefr,
-  minutes: a.meta.readingMinutes,
-  words: a.meta.wordCount,
-  tags: slugToTags.get(a.meta.date) ?? [],
-}));
-
-// Counts for sidebar
-const cefrCounts: Record<string, number> = {};
-for (const r of rows) cefrCounts[r.cefr] = (cefrCounts[r.cefr] ?? 0) + 1;
-
-const tagCounts: Record<string, number> = {};
-for (const r of rows) for (const t of r.tags) tagCounts[t] = (tagCounts[t] ?? 0) + 1;
-const sortedTags = Object.entries(tagCounts)
-  .sort(([, a], [, b]) => b - a)
-  .slice(0, 20)
-  .map(([t, c]) => ({ tag: t, count: c }));
-
-const totalCount = rows.length;
-const rowsJson = JSON.stringify(rows);
+const presentLevels = new Set(articles.map((a) => a.meta.cefr as LevelKey));
+const filterableLevels = levelOrder.filter((l) => presentLevels.has(l));
+const counts: Record<LevelKey, number> = Object.fromEntries(
+  levelOrder.map((l) => [l, articles.filter((a) => a.meta.cefr === l).length]),
+) as Record<LevelKey, number>;
 ---
 
 <MainLayout
   title="English | Chinese SDGs Institute"
-  description="A library of short English news articles with hover-to-define vocabulary, sentence translations, grammar notes, and same-session word review. Filter by CEFR level and topic."
+  description="A small library of short English articles, each with click-to-define vocabulary, sentence translations, grammar notes, and same-session word review. Filter by level."
   lang="en"
 >
-  <main class="english-lib">
+  <main class="pt-24 md:pt-40 pb-32">
 
-    <!-- Compact header -->
-    <div class="lib-header">
-      <div class="lib-header-inner">
-        <div class="lib-title-block">
-          <div class="lib-eyebrow">
-            <span class="material-symbols-outlined">menu_book</span>
-            English Library
-          </div>
-          <h1 class="lib-title">
-            <span class="lib-count" id="lib-count">{totalCount}</span>
-            <span class="lib-of-total"> of {totalCount}</span>
-            articles
-          </h1>
-        </div>
-        <div class="lib-search">
-          <span class="material-symbols-outlined lib-search-icon">search</span>
-          <input
-            type="text"
-            id="lib-search-input"
-            placeholder="Search title or tag..."
-            autocomplete="off"
-          />
-        </div>
+    <section class="max-w-4xl mx-auto px-6 md:px-12 mb-14">
+      <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+        <span class="material-symbols-outlined text-[14px]">menu_book</span>
+        English
       </div>
-    </div>
+      <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-on-surface tracking-tighter leading-[1.02] mb-8">
+        Short articles. <span class="text-primary">Read closely.</span>
+      </h1>
+      <p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-2xl">
+        A small library of English news pieces. Hover any word for a full breakdown. Click a sentence for its Chinese translation. Finish on a quick comprehension check or flip through the article's vocabulary as flashcards. No account needed.
+      </p>
+    </section>
 
-    <!-- Fixed-height filter + list shell -->
-    <div class="lib-shell">
-      <aside class="lib-sidebar">
-        <div class="lib-filter-group">
-          <div class="lib-filter-head">Level</div>
-          <button class="lib-filter-row is-on" data-filter="cefr" data-value="">
-            <span>All</span>
-            <span class="lib-filter-num">{totalCount}</span>
+    <section class="max-w-6xl mx-auto px-6 md:px-12 mb-32">
+      <div class="library-head">
+        <div>
+          <div class="library-eyebrow">
+            <span class="material-symbols-outlined">filter_list</span>
+            Filter by level
+          </div>
+          <h2 class="library-title">{articles.length} article{articles.length === 1 ? '' : 's'}</h2>
+        </div>
+        <div class="cefr-filter" role="group" aria-label="Filter by CEFR level">
+          <button class="cefr-chip is-on" data-level="all">
+            All
+            <span class="cefr-chip-num">{articles.length}</span>
           </button>
-          {levelOrder.filter((l) => cefrCounts[l]).map((l) => (
-            <button class="lib-filter-row" data-filter="cefr" data-value={l}>
-              <span class="lib-cefr-pill">{l}</span>
-              <span class="lib-filter-name">{CEFR_LABELS[l].tier}</span>
-              <span class="lib-filter-num">{cefrCounts[l] ?? 0}</span>
+          {filterableLevels.map((lvl) => (
+            <button class="cefr-chip" data-level={lvl}>
+              {lvl}
+              <span class="cefr-chip-num">{counts[lvl]}</span>
             </button>
           ))}
         </div>
+      </div>
 
-        {sortedTags.length > 0 && (
-          <div class="lib-filter-group">
-            <div class="lib-filter-head">Topic</div>
-            {sortedTags.map(({ tag, count }) => (
-              <button class="lib-filter-row" data-filter="tag" data-value={tag}>
-                <span class="lib-filter-name">{tag}</span>
-                <span class="lib-filter-num">{count}</span>
-              </button>
-            ))}
+      <ul class="article-grid" id="article-grid">
+        {articles.map((a) => {
+          const tag = CEFR_LABELS[a.meta.cefr as LevelKey];
+          return (
+            <li class="article-card-wrap" data-level={a.meta.cefr}>
+              <a href={`/tools/english/${a.meta.date}`} class="article-card">
+                <div class="article-card-head">
+                  <span class="article-card-cefr">{a.meta.cefr}</span>
+                  <span class="article-card-tier">{tag.tier}</span>
+                </div>
+                <h3 class="article-card-title">{a.meta.title}</h3>
+                {a.meta.editorsNote && (
+                  <p class="article-card-note">{a.meta.editorsNote}</p>
+                )}
+                <div class="article-card-foot">
+                  <span class="article-card-stat">
+                    <span class="material-symbols-outlined">schedule</span>
+                    {a.meta.readingMinutes} min
+                  </span>
+                  <span class="article-card-stat">
+                    <span class="material-symbols-outlined">notes</span>
+                    {a.meta.wordCount} words
+                  </span>
+                  <span class="article-card-cta">
+                    Read <span class="material-symbols-outlined">arrow_forward</span>
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div class="library-empty" id="library-empty" hidden>
+        <span class="material-symbols-outlined">inbox</span>
+        <p>No articles at this level yet.</p>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-24 border-y border-outline-variant/10">
+      <div class="max-w-6xl mx-auto px-6 md:px-12">
+        <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+          <span class="material-symbols-outlined text-[14px] text-primary">help</span>
+          How it works
+        </div>
+        <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-12 max-w-2xl">
+          One reading interface. Seven different ways to use it.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">abc</span>
+            <h3>Vocabulary</h3>
+            <p>Each article tags its words by difficulty (Level 1 to Level 4). Pick the easiest level you care about; words at that level and harder stay shaded. Hover for the full card.</p>
           </div>
-        )}
-
-        <div class="lib-filter-group lib-filter-clear-group">
-          <button id="lib-clear" class="lib-clear-btn">
-            <span class="material-symbols-outlined">refresh</span>
-            Clear filters
-          </button>
-        </div>
-      </aside>
-
-      <div class="lib-main">
-        <div class="lib-list-head">
-          <span class="lib-col-date">Date</span>
-          <span class="lib-col-cefr">Level</span>
-          <span class="lib-col-title">Title</span>
-          <span class="lib-col-tags">Topics</span>
-          <span class="lib-col-meta">Length</span>
-        </div>
-        <div class="lib-list-body" id="lib-list-body">
-          <!-- Rows are rendered client-side from JSON -->
-        </div>
-        <div class="lib-list-empty" id="lib-list-empty" hidden>
-          <span class="material-symbols-outlined">inbox</span>
-          <p>No articles match these filters.</p>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">translate</span>
+            <h3>Sentence translation</h3>
+            <p>Click any sentence to see its Chinese translation in the side panel. Walk forward and back with arrow keys. Toggle full bilingual at any time.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">function</span>
+            <h3>Grammar &amp; patterns</h3>
+            <p>Each article ships with grammar notes and reusable sentence templates pulled directly from the text. Hover a card to highlight where it appears.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">quiz</span>
+            <h3>Comprehension check</h3>
+            <p>A short multiple-choice check at the end of the read. See the evidence in-line on the article when an answer is wrong.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">replay</span>
+            <h3>Word review</h3>
+            <p>An Anki-style flashcard pass over the article's vocabulary, in your current session. Rate each word and the deck reorders.</p>
+          </div>
+          <div class="how-card">
+            <span class="material-symbols-outlined how-card-icon">volume_up</span>
+            <h3>Read aloud</h3>
+            <p>Sentence-by-sentence text-to-speech with adjustable rate. The voice picker promotes Microsoft Natural and Apple Premium voices when available.</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 md:px-12 mt-24">
+      <div class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+        <span class="material-symbols-outlined text-[14px] text-primary">school</span>
+        Reference
+      </div>
+      <h2 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-2">
+        CEFR levels
+      </h2>
+      <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-10 max-w-2xl">
+        The Common European Framework of Reference. Rough bridges to the standardized tests Chinese students typically take.
+      </p>
+
+      <dl class="cefr-table">
+        {levelOrder.map((lvl) => (
+          <div>
+            <dt>{lvl}</dt>
+            <dd>
+              <strong>{CEFR_LABELS[lvl].tier}</strong>
+              <span>{CEFR_LABELS[lvl].bridge}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
   </main>
-
-  <script type="application/json" id="lib-data" set:html={rowsJson}></script>
 </MainLayout>
 
-<style is:global>
-  body.english-library-page { overflow: hidden; height: 100vh; }
-  body.english-library-page footer { display: none; }
-
-  .english-lib {
-    position: fixed;
-    top: 5rem;
-    left: 0; right: 0; bottom: 0;
+<style>
+  .library-head {
     display: flex;
-    flex-direction: column;
-    background: white;
-  }
-
-  /* ===== Header ===== */
-  .lib-header {
-    flex-shrink: 0;
-    background: white;
-    border-bottom: 1px solid rgba(4, 47, 36, 0.10);
-  }
-  .lib-header-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 16px 1.5rem;
-    display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
-  .lib-eyebrow {
+  .library-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.20em;
     text-transform: uppercase;
     color: rgba(4, 47, 36, 0.65);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
-  .lib-eyebrow .material-symbols-outlined {
+  .library-eyebrow .material-symbols-outlined {
     font-size: 14px;
     color: #042f24;
   }
-  .lib-title {
+  .library-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.875rem;
+    color: #042f24;
+    letter-spacing: -0.015em;
+  }
+
+  .cefr-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .cefr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    background: white;
+    font-size: 13px;
+    font-weight: 700;
+    color: #042f24;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 120ms ease;
+  }
+  .cefr-chip:hover { border-color: rgba(4, 47, 36, 0.30); }
+  .cefr-chip.is-on {
+    background: #042f24;
+    color: white;
+    border-color: #042f24;
+  }
+  .cefr-chip-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(4, 47, 36, 0.5);
+  }
+  .cefr-chip.is-on .cefr-chip-num { color: rgba(255, 255, 255, 0.65); }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    list-style: none;
+  }
+  .article-card-wrap.is-hidden { display: none; }
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+    background: white;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    border-radius: 20px;
+    padding: 22px 24px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 150ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+  .article-card:hover {
+    border-color: rgba(4, 47, 36, 0.30);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(4, 47, 36, 0.18);
+  }
+  .article-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(4, 47, 36, 0.08);
+  }
+  .article-card-cefr {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    color: white;
+    background: #042f24;
+    padding: 3px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+  .article-card-tier {
+    font-size: 12px;
+    color: rgba(4, 47, 36, 0.62);
+  }
+  .article-card-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    color: #042f24;
+    letter-spacing: -0.015em;
+  }
+  .article-card-note {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(4, 47, 36, 0.6);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-card-foot {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(4, 47, 36, 0.08);
+  }
+  .article-card-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    color: rgba(4, 47, 36, 0.55);
+  }
+  .article-card-stat .material-symbols-outlined { font-size: 13px; opacity: 0.75; }
+  .article-card-cta {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #042f24;
+    transition: transform 150ms ease;
+  }
+  .article-card-cta .material-symbols-outlined { font-size: 14px; }
+  .article-card:hover .article-card-cta { transform: translateX(2px); }
+
+  .library-empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: rgba(4, 47, 36, 0.5);
+  }
+  .library-empty .material-symbols-outlined {
+    font-size: 28px;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+  .library-empty p { font-size: 14px; }
+
+  .how-card {
+    background: white;
+    border: 1px solid rgba(4, 47, 36, 0.10);
+    border-radius: 18px;
+    padding: 22px 24px 24px;
+    transition: border-color 150ms ease;
+  }
+  .how-card:hover { border-color: rgba(4, 47, 36, 0.25); }
+  .how-card-icon {
+    color: #042f24;
+    background: rgba(4, 47, 36, 0.06);
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 22px !important;
+    margin-bottom: 14px;
+  }
+  .how-card h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.0625rem;
+    color: #042f24;
+    letter-spacing: -0.005em;
+    margin-bottom: 6px;
+  }
+  .how-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(4, 47, 36, 0.65);
+  }
+
+  .cefr-table {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(4, 47, 36, 0.10);
+  }
+  .cefr-table > div {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(4, 47, 36, 0.10);
+    align-items: baseline;
+  }
+  .cefr-table dt {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
     font-size: 1.5rem;
     color: #042f24;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
-  .lib-count {
-    font-variant-numeric: tabular-nums;
+  .cefr-table dd { display: flex; flex-direction: column; gap: 2px; }
+  .cefr-table dd strong {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #042f24;
   }
-  .lib-of-total {
-    font-weight: 500;
-    color: rgba(4, 47, 36, 0.5);
-    font-size: 1rem;
-  }
-  .lib-search {
-    position: relative;
-    flex: 0 0 320px;
-    max-width: 320px;
-  }
-  .lib-search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px !important;
-    color: rgba(4, 47, 36, 0.45);
-    pointer-events: none;
-  }
-  .lib-search input {
-    width: 100%;
-    height: 38px;
-    padding: 0 12px 0 38px;
-    background: white;
-    border: 1px solid rgba(4, 47, 36, 0.15);
-    border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+  .cefr-table dd span {
     font-size: 13px;
-    color: #042f24;
-    transition: border-color 120ms ease;
+    color: rgba(4, 47, 36, 0.6);
   }
-  .lib-search input:focus {
-    outline: none;
-    border-color: #042f24;
-  }
-
-  /* ===== Shell ===== */
-  .lib-shell {
-    flex: 1;
-    min-height: 0;
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem 1.5rem 1.25rem;
-    display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 1rem;
-    align-items: stretch;
-  }
-  @media (max-width: 1023px) {
-    .lib-shell { grid-template-columns: 1fr; }
-    .lib-sidebar { display: none; }
-  }
-
-  /* ===== Sidebar ===== */
-  .lib-sidebar {
-    background: white;
-    border: 1px solid rgba(4, 47, 36, 0.10);
-    border-radius: 12px;
-    overflow-y: auto;
-    padding: 14px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .lib-filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .lib-filter-head {
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.20em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.55);
-    padding: 0 8px 6px;
-  }
-  .lib-filter-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    background: transparent;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    color: rgba(4, 47, 36, 0.78);
-    transition: background 100ms ease;
-  }
-  .lib-filter-row:hover { background: rgba(4, 47, 36, 0.04); }
-  .lib-filter-row.is-on {
-    background: rgba(4, 47, 36, 0.08);
-    color: #042f24;
-    font-weight: 600;
-  }
-  .lib-filter-name {
-    flex: 1;
-    min-width: 0;
-    text-transform: capitalize;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .lib-filter-num {
-    flex-shrink: 0;
-    font-size: 10.5px;
-    font-weight: 700;
-    color: rgba(4, 47, 36, 0.45);
-    font-variant-numeric: tabular-nums;
-  }
-  .lib-filter-row.is-on .lib-filter-num { color: rgba(4, 47, 36, 0.6); }
-
-  .lib-cefr-pill {
-    display: inline-block;
-    flex-shrink: 0;
-    width: 26px;
-    text-align: center;
-    padding: 2px 0;
-    background: #042f24;
-    color: white;
-    border-radius: 4px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 10px;
-    letter-spacing: 0.04em;
-  }
-
-  .lib-clear-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;
-    background: transparent;
-    border: 1px solid rgba(4, 47, 36, 0.15);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 11.5px;
-    font-weight: 600;
-    color: rgba(4, 47, 36, 0.65);
-  }
-  .lib-clear-btn:hover { background: rgba(4, 47, 36, 0.04); color: #042f24; }
-  .lib-clear-btn .material-symbols-outlined { font-size: 14px; }
-
-  /* ===== Main list ===== */
-  .lib-main {
-    background: white;
-    border: 1px solid rgba(4, 47, 36, 0.10);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .lib-list-head {
-    flex-shrink: 0;
-    display: grid;
-    grid-template-columns: 90px 60px 1fr 200px 80px;
-    gap: 14px;
-    padding: 10px 18px;
-    border-bottom: 1px solid rgba(4, 47, 36, 0.10);
-    background: rgba(4, 47, 36, 0.02);
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(4, 47, 36, 0.55);
-  }
-  .lib-list-body {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-  }
-  .lib-row {
-    display: grid;
-    grid-template-columns: 90px 60px 1fr 200px 80px;
-    gap: 14px;
-    padding: 10px 18px;
-    align-items: center;
-    border-bottom: 1px solid rgba(4, 47, 36, 0.06);
-    text-decoration: none;
-    color: inherit;
-    transition: background 100ms ease;
-    cursor: pointer;
-  }
-  .lib-row:hover { background: rgba(4, 47, 36, 0.03); }
-  .lib-row-date {
-    font-size: 11.5px;
-    color: rgba(4, 47, 36, 0.5);
-    font-variant-numeric: tabular-nums;
-  }
-  .lib-row-cefr {
-    display: inline-block;
-    width: 32px;
-    text-align: center;
-    padding: 2px 0;
-    background: #042f24;
-    color: white;
-    border-radius: 4px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 10.5px;
-    letter-spacing: 0.04em;
-  }
-  .lib-row-title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 13.5px;
-    color: #042f24;
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .lib-row:hover .lib-row-title { color: #042f24; text-decoration: underline; text-underline-offset: 3px; }
-  .lib-row-tags {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 4px;
-    overflow: hidden;
-  }
-  .lib-row-tag {
-    display: inline-block;
-    padding: 1px 6px;
-    background: rgba(4, 47, 36, 0.06);
-    color: rgba(4, 47, 36, 0.7);
-    border-radius: 4px;
-    font-size: 10.5px;
-    text-transform: capitalize;
-    white-space: nowrap;
-  }
-  .lib-row-meta {
-    font-size: 11.5px;
-    color: rgba(4, 47, 36, 0.5);
-    font-variant-numeric: tabular-nums;
-    text-align: right;
-  }
-
-  .lib-list-empty {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: rgba(4, 47, 36, 0.45);
-    padding: 48px 16px;
-  }
-  .lib-list-empty .material-symbols-outlined {
-    font-size: 32px;
-    margin-bottom: 8px;
-    opacity: 0.55;
-  }
-  .lib-list-empty p { font-size: 13.5px; }
 </style>
 
 <script>
-  document.body.classList.add('english-library-page');
+  const chips = document.querySelectorAll<HTMLButtonElement>('.cefr-chip');
+  const cards = document.querySelectorAll<HTMLLIElement>('.article-card-wrap');
+  const empty = document.getElementById('library-empty');
 
-  type Row = {
-    slug: string;
-    date: string;
-    title: string;
-    cefr: string;
-    minutes: number;
-    words: number;
-    tags: string[];
-  };
-
-  const dataEl = document.getElementById('lib-data');
-  const ROWS: Row[] = JSON.parse(dataEl?.textContent || '[]');
-
-  // Sort newest first
-  ROWS.sort((a, b) => b.date.localeCompare(a.date));
-
-  const state = {
-    cefr: '',
-    tags: new Set<string>(),
-    search: '',
-  };
-
-  const listBody = document.getElementById('lib-list-body')!;
-  const empty = document.getElementById('lib-list-empty')!;
-  const countEl = document.getElementById('lib-count')!;
-  const searchInput = document.getElementById('lib-search-input') as HTMLInputElement;
-
-  function applyAndRender() {
-    const q = state.search.trim().toLowerCase();
-    const filtered = ROWS.filter((r) => {
-      if (state.cefr && r.cefr !== state.cefr) return false;
-      if (state.tags.size > 0 && !r.tags.some((t) => state.tags.has(t))) return false;
-      if (q) {
-        const hay = (r.title + ' ' + r.tags.join(' ')).toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
+  function applyFilter(level: string) {
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = level === 'all' || card.getAttribute('data-level') === level;
+      card.classList.toggle('is-hidden', !matches);
+      if (matches) visible++;
     });
-
-    countEl.textContent = String(filtered.length);
-
-    if (filtered.length === 0) {
-      listBody.innerHTML = '';
-      (empty as HTMLElement).hidden = false;
-      return;
-    }
-    (empty as HTMLElement).hidden = true;
-
-    // Show top 5 tags per row, rest hidden as "+N"
-    const html = filtered.map((r) => {
-      const visibleTags = r.tags.slice(0, 4);
-      const moreCount = r.tags.length - visibleTags.length;
-      const tagsHtml = visibleTags.map((t) => `<span class="lib-row-tag">${t}</span>`).join('');
-      const moreHtml = moreCount > 0 ? `<span class="lib-row-tag" style="opacity:0.55">+${moreCount}</span>` : '';
-      return `
-        <a class="lib-row" href="/tools/english/${r.slug}">
-          <span class="lib-row-date">${r.date}</span>
-          <span><span class="lib-row-cefr">${r.cefr}</span></span>
-          <span class="lib-row-title">${escapeHtml(r.title)}</span>
-          <span class="lib-row-tags">${tagsHtml}${moreHtml}</span>
-          <span class="lib-row-meta">${r.minutes} min</span>
-        </a>
-      `;
-    }).join('');
-    listBody.innerHTML = html;
+    if (empty) empty.hidden = visible > 0;
   }
 
-  function escapeHtml(s: string): string {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  // CEFR filter buttons (single-select; empty data-value = All)
-  document.querySelectorAll<HTMLButtonElement>('[data-filter="cefr"]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const v = btn.getAttribute('data-value') || '';
-      state.cefr = v;
-      document.querySelectorAll<HTMLButtonElement>('[data-filter="cefr"]').forEach((b) => {
-        b.classList.toggle('is-on', (b.getAttribute('data-value') || '') === v);
-      });
-      applyAndRender();
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const lvl = chip.getAttribute('data-level') || 'all';
+      chips.forEach((c) => c.classList.toggle('is-on', c === chip));
+      applyFilter(lvl);
     });
   });
-
-  // Tag filter buttons (multi-select)
-  document.querySelectorAll<HTMLButtonElement>('[data-filter="tag"]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const v = btn.getAttribute('data-value') || '';
-      if (state.tags.has(v)) state.tags.delete(v);
-      else state.tags.add(v);
-      btn.classList.toggle('is-on', state.tags.has(v));
-      applyAndRender();
-    });
-  });
-
-  // Search
-  searchInput?.addEventListener('input', () => {
-    state.search = searchInput.value;
-    applyAndRender();
-  });
-
-  // Clear all filters
-  document.getElementById('lib-clear')?.addEventListener('click', () => {
-    state.cefr = '';
-    state.tags.clear();
-    state.search = '';
-    searchInput.value = '';
-    document.querySelectorAll<HTMLButtonElement>('[data-filter="cefr"]').forEach((b) => {
-      b.classList.toggle('is-on', !b.getAttribute('data-value'));
-    });
-    document.querySelectorAll<HTMLButtonElement>('[data-filter="tag"]').forEach((b) => {
-      b.classList.remove('is-on');
-    });
-    applyAndRender();
-  });
-
-  applyAndRender();
 </script>

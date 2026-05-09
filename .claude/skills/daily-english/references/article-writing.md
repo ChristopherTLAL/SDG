@@ -28,7 +28,7 @@ Read all of them. Take notes on:
 - Why this is interesting (the human angle, the surprise, the irony)
 - Disagreements between sources (these often make for the most interesting paragraph)
 
-Then write **your own piece**. Do not paraphrase any single article. The output should read like a thoughtful editor wrote it after reading all the sources.
+Then write **your own piece**. Do not paraphrase any single article. The output should read like a thoughtful editor wrote it after reading all the sources. Source attribution goes in `meta.source` as a single representative outlet — pick whichever you'd say most informed your version.
 
 ## Structure (CEFR-independent)
 

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-12',
     title: 'When One Singer Becomes a Small Economy',
+    source: { name: 'CNN Business (sample)', url: 'https://www.cnn.com/business' },
     cefr: 'B1',
     wordCount: 294,
     readingMinutes: 4,

@@ -5,6 +5,7 @@ export const article: Article = {
   meta: {
     date: '2026-05-11',
     title: 'How a Truckload of KitKats Disappeared, and What That Says About the Snack Aisle',
+    source: { name: 'Confectionery News (sample)', url: 'https://www.confectionerynews.com/' },
     cefr: 'B2',
     wordCount: 396,
     readingMinutes: 5,
