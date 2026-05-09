@@ -195,6 +195,10 @@ async function loadStudents() {
     const lateAdvisors   = pickArray(fm, '后期顾问');
     const enrollYears    = pickArray(fm, '入学年份');
     const targetRegions  = pickArray(fm, '目标地区');
+    // 客户ID — ERP 客户ID 数组 (vault YAML written by scripts/import-signings.py).
+    // Used to JOIN contracts.customer_id ↔ students. Sibling-combined folders
+    // (Kimi+Byran etc.) carry multi.
+    const customerIds    = pickArray(fm, '客户ID');
 
     const record = {
       name: studentName,
@@ -216,6 +220,7 @@ async function loadStudents() {
 
       // ── Multi-select arrays (canonical going forward) ──
       mid_advisors:   midAdvisors,
+      customer_ids:   customerIds,
       early_advisors: earlyAdvisors,
       late_advisors:  lateAdvisors,
       enroll_years:   enrollYears,
