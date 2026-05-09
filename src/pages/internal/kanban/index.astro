@@ -2354,67 +2354,110 @@ function fmtMoney(n: number): string {
       }));
 
       const itemsEl = document.getElementById('report-items');
+
+      // Build via DOM API — robust against template-literal edge cases.
+      function makeIcon(name) {
+        const span = document.createElement('span');
+        span.className = 'material-symbols-outlined';
+        span.textContent = name;
+        return span;
+      }
+      function makeBtn({ act, icon, title, disabled, danger }) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'report-item__btn' + (danger ? ' report-item__btn--danger' : '');
+        b.dataset.act = act;
+        b.title = title;
+        b.setAttribute('aria-label', title);
+        if (disabled) b.disabled = true;
+        b.appendChild(makeIcon(icon));
+        return b;
+      }
+
+      function buildItemEl(item, idx, total) {
+        const li = document.createElement('li');
+        li.className = 'report-item' + (item.type === 'text' ? ' report-item--text' : '');
+        li.dataset.idx = String(idx);
+
+        const row = document.createElement('div');
+        row.className = 'report-item__row';
+
+        // Handle (drag SOURCE — only this is draggable)
+        const handle = document.createElement('div');
+        handle.className = 'report-item__handle';
+        handle.title = '按住拖动调整顺序';
+        handle.draggable = true;
+        handle.appendChild(makeIcon('drag_indicator'));
+        row.appendChild(handle);
+
+        if (item.type === 'widget') {
+          const main = document.createElement('label');
+          main.className = 'report-item__main';
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.checked = !!item.checked;
+          cb.dataset.act = 'check';
+          main.appendChild(cb);
+          const lbl = document.createElement('span');
+          lbl.className = 'report-item__label';
+          lbl.textContent = item.label;
+          main.appendChild(lbl);
+          row.appendChild(main);
+        } else {
+          const pill = document.createElement('span');
+          pill.className = 'report-item__pill';
+          pill.textContent = '文字';
+          row.appendChild(pill);
+          const ti = document.createElement('input');
+          ti.type = 'text';
+          ti.className = 'report-item__title';
+          ti.placeholder = '小标题（可留空）';
+          ti.value = item.title || '';
+          ti.dataset.act = 'title-input';
+          row.appendChild(ti);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'report-item__actions';
+        actions.appendChild(makeBtn({ act: 'up',   icon: 'keyboard_arrow_up',   title: '上移', disabled: idx === 0 }));
+        actions.appendChild(makeBtn({ act: 'down', icon: 'keyboard_arrow_down', title: '下移', disabled: idx === total - 1 }));
+        if (item.type === 'widget') {
+          actions.appendChild(makeBtn({
+            act: 'note',
+            icon: item.note ? 'edit_note' : 'add_comment',
+            title: item.note ? '编辑批注' : '加批注',
+          }));
+        } else {
+          actions.appendChild(makeBtn({ act: 'remove', icon: 'close', title: '删除', danger: true }));
+        }
+        row.appendChild(actions);
+        li.appendChild(row);
+
+        // Note section — show by default ONLY for text-type items (body) or
+        // widget items with non-empty existing note.
+        const noteWrap = document.createElement('div');
+        noteWrap.className = 'report-item__note';
+        if (item.type === 'text' || item.note) noteWrap.classList.add('is-open');
+        const ta = document.createElement('textarea');
+        if (item.type === 'text') {
+          ta.dataset.act = 'body-input';
+          ta.placeholder = '正文 — 这段文字会出现在长图里';
+          ta.value = item.body || '';
+        } else {
+          ta.dataset.act = 'note-input';
+          ta.placeholder = '可选 · 给这个板块加一句话注解';
+          ta.value = item.note || '';
+        }
+        noteWrap.appendChild(ta);
+        li.appendChild(noteWrap);
+
+        return li;
+      }
+
       function renderItems() {
         itemsEl.innerHTML = '';
-        reportItems.forEach((item, idx) => {
-          const li = document.createElement('li');
-          li.className = 'report-item';
-          li.dataset.idx = String(idx);
-          li.draggable = true;
-          if (item.type === 'widget') {
-            li.innerHTML = `
-              <div class="report-item__row">
-                <div class="report-item__handle" aria-hidden="true" title="拖动调序">
-                  <span class="material-symbols-outlined">drag_indicator</span>
-                </div>
-                <label class="report-item__main">
-                  <input type="checkbox" data-act="check" ${item.checked ? 'checked' : ''}>
-                  <span class="report-item__label">${item.label}</span>
-                </label>
-                <div class="report-item__actions">
-                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移" title="上移">
-                    <span class="material-symbols-outlined">keyboard_arrow_up</span>
-                  </button>
-                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移" title="下移">
-                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                  </button>
-                  <button type="button" class="report-item__btn report-item__btn--ghost" data-act="note" title="${item.note ? '编辑批注' : '加批注'}">
-                    <span class="material-symbols-outlined">${item.note ? 'edit_note' : 'add_comment'}</span>
-                  </button>
-                </div>
-              </div>
-              <div class="report-item__note ${item.note ? 'is-open' : ''}">
-                <textarea data-act="note-input" placeholder="可选 · 给这个板块加一句话注解">${item.note || ''}</textarea>
-              </div>
-            `;
-          } else {
-            li.classList.add('report-item--text');
-            li.innerHTML = `
-              <div class="report-item__row">
-                <div class="report-item__handle" aria-hidden="true" title="拖动调序">
-                  <span class="material-symbols-outlined">drag_indicator</span>
-                </div>
-                <span class="report-item__pill">文字</span>
-                <input type="text" data-act="title-input" class="report-item__title" placeholder="小标题（可空）" value="${(item.title || '').replace(/"/g,'&quot;')}">
-                <div class="report-item__actions">
-                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移" title="上移">
-                    <span class="material-symbols-outlined">keyboard_arrow_up</span>
-                  </button>
-                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移" title="下移">
-                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                  </button>
-                  <button type="button" class="report-item__btn report-item__btn--danger" data-act="remove" aria-label="删除" title="删除">
-                    <span class="material-symbols-outlined">close</span>
-                  </button>
-                </div>
-              </div>
-              <div class="report-item__note is-open">
-                <textarea data-act="body-input" placeholder="正文 — 这段文字会出现在长图里">${item.body || ''}</textarea>
-              </div>
-            `;
-          }
-          itemsEl.appendChild(li);
-        });
+        const total = reportItems.length;
+        reportItems.forEach((item, idx) => itemsEl.appendChild(buildItemEl(item, idx, total)));
       }
       renderItems();
 
@@ -2452,42 +2495,45 @@ function fmtMoney(n: number): string {
         else if (act === 'body-input') reportItems[idx].body = t.value;
       });
 
-      // ── HTML5 drag-and-drop reorder ──
+      // ── HTML5 drag-and-drop — drag SOURCE is the handle only ──
+      // (LI itself is not draggable; drag fires on the handle, we then
+      //  treat its parent LI as the moved item.)
       let dragSrcIdx = null;
       itemsEl.addEventListener('dragstart', (e) => {
-        const li = e.target.closest('.report-item');
-        if (!li) return;
-        // Don't initiate drag from textareas/inputs (they should be focusable)
-        if (e.target.matches('textarea, input, button')) {
-          e.preventDefault();
-          return;
-        }
+        const handle = e.target.closest('.report-item__handle');
+        if (!handle) { e.preventDefault(); return; }
+        const li = handle.closest('.report-item');
+        if (!li) { e.preventDefault(); return; }
         dragSrcIdx = Number(li.dataset.idx);
-        li.classList.add('is-dragging');
+        // Use the LI as the drag image (browser default = handle only)
+        try {
+          const rect = li.getBoundingClientRect();
+          e.dataTransfer.setDragImage(li, e.clientX - rect.left, e.clientY - rect.top);
+        } catch (_) { /* setDragImage unsupported in some browsers */ }
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/plain', String(dragSrcIdx));
+        // Add dragging class on next frame so it doesn't capture the drag image
+        requestAnimationFrame(() => li.classList.add('is-dragging'));
       });
       itemsEl.addEventListener('dragover', (e) => {
+        if (dragSrcIdx === null) return;
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
         const li = e.target.closest('.report-item');
         if (!li) return;
-        // Clear all then set on hovered
-        itemsEl.querySelectorAll('.is-drop-target').forEach(el => el.classList.remove('is-drop-target', 'drop-above', 'drop-below'));
+        // Clear all indicators, then set on hovered
+        itemsEl.querySelectorAll('.is-drop-target').forEach(el => {
+          el.classList.remove('is-drop-target', 'drop-above', 'drop-below');
+        });
         const rect = li.getBoundingClientRect();
         const above = e.clientY < rect.top + rect.height / 2;
         li.classList.add('is-drop-target', above ? 'drop-above' : 'drop-below');
       });
-      itemsEl.addEventListener('dragleave', (e) => {
-        const li = e.target.closest('.report-item');
-        if (li && !li.contains(e.relatedTarget)) {
-          li.classList.remove('is-drop-target', 'drop-above', 'drop-below');
-        }
-      });
       itemsEl.addEventListener('drop', (e) => {
+        if (dragSrcIdx === null) return;
         e.preventDefault();
         const li = e.target.closest('.report-item');
-        if (!li || dragSrcIdx === null) return;
+        if (!li) { dragSrcIdx = null; return; }
         let dstIdx = Number(li.dataset.idx);
         const rect = li.getBoundingClientRect();
         const above = e.clientY < rect.top + rect.height / 2;
@@ -2501,8 +2547,9 @@ function fmtMoney(n: number): string {
         dragSrcIdx = null;
       });
       itemsEl.addEventListener('dragend', () => {
-        itemsEl.querySelectorAll('.is-dragging, .is-drop-target')
-          .forEach(el => el.classList.remove('is-dragging', 'is-drop-target', 'drop-above', 'drop-below'));
+        itemsEl.querySelectorAll('.is-dragging, .is-drop-target').forEach(el => {
+          el.classList.remove('is-dragging', 'is-drop-target', 'drop-above', 'drop-below');
+        });
         dragSrcIdx = null;
       });
 
@@ -2553,77 +2600,131 @@ function fmtMoney(n: number): string {
         return `${fmt(monday)} – ${fmt(today)}`;
       }
 
-      // Build a header block (always at top of report) — small-red-book aesthetic
-      function buildHeader(canvas) {
+      // ── Section index counter (resets each generate) ──
+      let sectionCounter = 0;
+      function makeSectionHead(en, zh) {
+        sectionCounter += 1;
+        const num = String(sectionCounter).padStart(2, '0');
         const head = document.createElement('div');
+        head.className = 'rep-section-head';
+        const meta = document.createElement('div');
+        meta.className = 'rep-section-meta';
+        const numEl = document.createElement('span');
+        numEl.className = 'rep-section-num';
+        numEl.textContent = num;
+        meta.appendChild(numEl);
+        const dash = document.createElement('span');
+        dash.className = 'rep-section-rule';
+        meta.appendChild(dash);
+        const enEl = document.createElement('span');
+        enEl.className = 'rep-section-en';
+        enEl.textContent = en;
+        meta.appendChild(enEl);
+        head.appendChild(meta);
+        const zhEl = document.createElement('h2');
+        zhEl.className = 'rep-section-zh';
+        zhEl.textContent = zh;
+        head.appendChild(zhEl);
+        return head;
+      }
+
+      function makeNote(text) {
+        if (!text) return null;
+        const p = document.createElement('p');
+        p.className = 'rep-block__note';
+        p.textContent = text;
+        return p;
+      }
+
+      // Build a header block — publication-style masthead
+      function buildHeader(canvas) {
+        const head = document.createElement('header');
         head.className = 'rep-header';
-        head.innerHTML = `
-          <div class="rep-header__strip">
-            <div class="rep-header__brand">
-              <div class="rep-header__logo">新</div>
-              <div>
-                <div class="rep-header__co">新东方前途出国</div>
-                <div class="rep-header__sub">苏州分公司 · 中期管理数据看板</div>
-              </div>
-            </div>
-            <div class="rep-header__pill">管理周报 · ${dateRangeLabel()}</div>
-          </div>
-          <h1 class="rep-header__title">本周大盘</h1>
-          <div class="rep-header__byline">
-            <span>王世杰</span>
-            <span class="rep-header__dot">·</span>
-            <span>${new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-          </div>
-        `;
+
+        const strip = document.createElement('div');
+        strip.className = 'rep-header__strip';
+        const brand = document.createElement('div');
+        brand.className = 'rep-header__brand';
+        brand.textContent = '新东方前途出国 · 苏州分公司';
+        strip.appendChild(brand);
+        const pill = document.createElement('div');
+        pill.className = 'rep-header__pill';
+        pill.textContent = '管理周报 · ' + dateRangeLabel();
+        strip.appendChild(pill);
+        head.appendChild(strip);
+
+        const title = document.createElement('h1');
+        title.className = 'rep-header__title';
+        title.textContent = '本周大盘';
+        head.appendChild(title);
+
+        const sub = document.createElement('div');
+        sub.className = 'rep-header__sub';
+        sub.textContent = 'Weekly Management Brief · 中期管理数据看板';
+        head.appendChild(sub);
+
+        const byline = document.createElement('div');
+        byline.className = 'rep-header__byline';
+        const dateStr = new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+        byline.innerHTML = '<strong>王世杰</strong>　/　' + dateStr;
+        head.appendChild(byline);
+
         canvas.appendChild(head);
       }
+
       function buildFooter(canvas) {
-        const foot = document.createElement('div');
+        const foot = document.createElement('footer');
         foot.className = 'rep-footer';
-        const ts = new Date().toISOString().slice(0,10);
-        foot.innerHTML = `
-          <div>
-            <div class="rep-footer__title">中期管理数据看板</div>
-            <div class="rep-footer__sub">生成于 ${ts} · 仅限内部传阅</div>
-          </div>
-          <div class="rep-footer__right">
-            <div class="rep-footer__url">sdg.undp.ac.cn</div>
-            <div class="rep-footer__sub">/internal/kanban</div>
-          </div>
-        `;
+        const left = document.createElement('div');
+        left.innerHTML = '<div class="rep-footer__title">中期管理数据看板</div>'
+          + '<div class="rep-footer__sub">生成于 ' + new Date().toISOString().slice(0,10)
+          + ' · 仅限内部传阅</div>';
+        foot.appendChild(left);
+        const right = document.createElement('div');
+        right.className = 'rep-footer__right';
+        right.innerHTML = '<div class="rep-footer__url">sdg.undp.ac.cn</div>'
+          + '<div class="rep-footer__sub">/internal/kanban</div>';
+        foot.appendChild(right);
         canvas.appendChild(foot);
       }
 
-      // KPI banner — synthesized for the report (page itself doesn't render it)
+      // KPI block — clean publication-style table (numbers right-aligned, dotted leaders)
       function renderKPIBlock(canvas, note) {
         const k = payload.kpi || {};
         const block = document.createElement('section');
-        block.className = 'rep-block rep-block--kpi';
-        const card = (num, label, accent) => `
-          <div class="rep-kpi" ${accent ? `style="background:${accent.bg};border-color:${accent.border};"` : ''}>
-            <div class="rep-kpi__num" ${accent ? `style="color:${accent.fg};"` : ''}>${num}</div>
-            <div class="rep-kpi__label">${label}</div>
-          </div>`;
-        const accent = { bg: '#f0fdf9', fg: '#042f24', border: '#bce3d4' };
-        block.innerHTML = `
-          <div class="rep-section-head">
-            <span class="rep-section-eyebrow">KPI · This week</span>
-            <h2 class="rep-section-title">本周关键数字</h2>
-          </div>
-          <div class="rep-kpi-grid rep-kpi-grid--money">
-            ${card(fmtMoneyLong(k.totalSigning || 0), '签约总额', accent)}
-            ${card(fmtMoneyLong(k.totalReceived || 0), '已收')}
-            ${card(fmtMoneyLong(k.totalDelivered || 0), '已交付')}
-            ${card(fmtMoneyLong(k.totalPrepay || 0), '预收余额')}
-          </div>
-          <div class="rep-kpi-grid rep-kpi-grid--count">
-            ${card(k.activeStudents || 0, '在管学生')}
-            ${card(k.activeContractCount || 0, '在带合同')}
-            ${card(k.signedStudentCount || 0, '已签学生')}
-            ${card(fmtMoneyLong(k.avgPerStudent || 0), '客单价')}
-          </div>
-          ${note ? `<p class="rep-block__note">${escapeHtml(note)}</p>` : ''}
-        `;
+        block.className = 'rep-block';
+        block.appendChild(makeSectionHead('Key Numbers', '本周关键数字'));
+
+        const grid = document.createElement('div');
+        grid.className = 'rep-kpi-grid';
+
+        const rows = [
+          { label: '签约总额',  value: fmtMoneyLong(k.totalSigning   || 0), accent: true },
+          { label: '已收',     value: fmtMoneyLong(k.totalReceived  || 0) },
+          { label: '已交付',   value: fmtMoneyLong(k.totalDelivered || 0) },
+          { label: '预收余额', value: fmtMoneyLong(k.totalPrepay    || 0) },
+          { label: '在管学生', value: String(k.activeStudents      || 0) + ' 人' },
+          { label: '在带合同', value: String(k.activeContractCount || 0) + ' 单' },
+          { label: '已签学生', value: String(k.signedStudentCount  || 0) + ' 人' },
+          { label: '客单价',   value: fmtMoneyLong(k.avgPerStudent  || 0) },
+        ];
+        rows.forEach(r => {
+          const card = document.createElement('div');
+          card.className = 'rep-kpi' + (r.accent ? ' rep-kpi--accent' : '');
+          const label = document.createElement('div');
+          label.className = 'rep-kpi__label';
+          label.textContent = r.label;
+          const num = document.createElement('div');
+          num.className = 'rep-kpi__num';
+          num.textContent = r.value;
+          card.appendChild(label);
+          card.appendChild(num);
+          grid.appendChild(card);
+        });
+        block.appendChild(grid);
+
+        const noteEl = makeNote(note);
+        if (noteEl) block.appendChild(noteEl);
         canvas.appendChild(block);
       }
 
@@ -2637,23 +2738,18 @@ function fmtMoney(n: number): string {
         const block = document.createElement('section');
         block.className = 'rep-block';
         const titleMap = {
-          'contracts': ['合同分布', 'Advisor contract mix'],
-          'weekly': ['周度签约', 'Weekly signings'],
-          'activity': ['学生沟通热力', 'Communication activity'],
-          'portfolio': ['顾问 portfolio', 'Advisor portfolio'],
+          'contracts': ['合同分布', 'Advisor Contract Mix'],
+          'weekly': ['周度签约', 'Weekly Signings'],
+          'activity': ['学生沟通热力', 'Communication Activity'],
+          'portfolio': ['顾问 portfolio', 'Advisor Portfolio'],
           'terminated': ['退费分析', 'Refunds'],
-          'top-students': ['Top 学生', 'Top students by ¥'],
-          'monthly-products': ['月度产品节奏', 'Monthly product rhythm'],
-          'stage-year': ['阶段 × 入学届', 'Stage × intake'],
+          'top-students': ['Top 学生', 'Top Students by Revenue'],
+          'monthly-products': ['月度产品节奏', 'Monthly Product Rhythm'],
+          'stage-year': ['阶段 × 入学届', 'Stage by Intake'],
           'schools': ['在读学校分布', 'Schools'],
         };
         const [zh, en] = titleMap[item.id] || [item.label, ''];
-        block.innerHTML = `
-          <div class="rep-section-head">
-            ${en ? `<span class="rep-section-eyebrow">${en}</span>` : ''}
-            <h2 class="rep-section-title">${zh}</h2>
-          </div>
-        `;
+        block.appendChild(makeSectionHead(en || '—', zh));
         canvas.appendChild(block);
 
         const livePanel = document.querySelector(`[data-panel="${item.id}"]`);
@@ -2725,12 +2821,7 @@ function fmtMoney(n: number): string {
         const block = document.createElement('section');
         block.className = 'rep-block rep-block--text';
         if (item.title) {
-          block.innerHTML += `
-            <div class="rep-section-head">
-              <span class="rep-section-eyebrow">Note</span>
-              <h2 class="rep-section-title">${escapeHtml(item.title)}</h2>
-            </div>
-          `;
+          block.appendChild(makeSectionHead('Note', item.title));
         }
         if (item.body) {
           const para = document.createElement('div');
@@ -2756,6 +2847,7 @@ function fmtMoney(n: number): string {
         try {
           const canvas = document.getElementById('report-canvas');
           canvas.innerHTML = '';
+          sectionCounter = 0;
 
           buildHeader(canvas);
           for (const item of reportItems) {
@@ -3856,7 +3948,7 @@ function fmtMoney(n: number): string {
     .kanban-top__action .material-symbols-outlined { font-size: 18px; }
 
     /* ─────────────────────────────────────────────────────── */
-    /* Drawer — refined, matches InternalLayout aesthetic       */
+    /* Drawer — defensive CSS, single-row items                 */
     /* ─────────────────────────────────────────────────────── */
     .report-drawer[hidden] { display: none !important; }
     .report-drawer {
@@ -3878,7 +3970,7 @@ function fmtMoney(n: number): string {
     .report-drawer__panel {
       position: relative;
       z-index: 1;
-      width: min(580px, 100%);
+      width: min(600px, 100%);
       height: 100%;
       background: #ffffff;
       box-shadow: -16px 0 48px rgba(15, 23, 42, 0.12);
@@ -3900,7 +3992,7 @@ function fmtMoney(n: number): string {
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--text-soft, #94a3b8);
+      color: #94a3b8;
       margin-bottom: 4px;
     }
     .report-drawer__title {
@@ -3963,31 +4055,33 @@ function fmtMoney(n: number): string {
     .report-btn--primary:disabled { opacity: 0.6; cursor: wait; }
     .report-btn .material-symbols-outlined { font-size: 16px; }
 
-    /* ── Drawer items ── */
+    /* ── Drawer items: defensive layout ── */
     .report-items {
-      list-style: none;
-      margin: 12px 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      list-style: none !important;
+      margin: 12px 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
     }
     .report-item {
+      box-sizing: border-box;
       background: #ffffff;
       border: 1px solid #ebebef;
       border-radius: 10px;
-      padding: 10px 12px;
-      transition: all 0.15s;
+      padding: 8px 10px;
+      transition: border-color 0.15s, box-shadow 0.15s;
       position: relative;
+      list-style: none;
     }
-    .report-item:hover { border-color: #d8d8df; }
-    .report-item.is-dragging { opacity: 0.4; }
+    .report-item:hover { border-color: #cfd1d5; }
+    .report-item.is-dragging { opacity: 0.35; }
     .report-item.is-drop-target.drop-above::before,
     .report-item.is-drop-target.drop-below::after {
       content: '';
       position: absolute;
-      left: 0;
-      right: 0;
+      left: 8px;
+      right: 8px;
       height: 2px;
       background: var(--primary);
       border-radius: 1px;
@@ -3995,41 +4089,66 @@ function fmtMoney(n: number): string {
     .report-item.is-drop-target.drop-above::before { top: -5px; }
     .report-item.is-drop-target.drop-below::after { bottom: -5px; }
     .report-item--text {
-      background: #fefce8;
+      background: #fffbeb;
       border-color: #fde68a;
     }
     .report-item--text:hover { border-color: #fcd34d; }
+
+    /* The horizontal row — locked layout to prevent wrapping/stacking */
     .report-item__row {
-      display: flex;
-      align-items: center;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
       gap: 8px;
+      width: 100%;
     }
+
     .report-item__handle {
-      display: flex;
+      flex: 0 0 auto;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 28px;
       color: #cbd5e1;
       cursor: grab;
-      padding: 0 2px;
+      border-radius: 4px;
+      user-select: none;
     }
+    .report-item__handle:hover { color: #64748b; background: #f8fafc; }
     .report-item__handle:active { cursor: grabbing; }
     .report-item__handle .material-symbols-outlined { font-size: 18px; }
-    .report-item:hover .report-item__handle { color: var(--text-muted); }
+
     .report-item__main {
-      flex: 1;
+      flex: 1 1 auto;
+      min-width: 0;
       display: flex;
       align-items: center;
       gap: 10px;
       cursor: pointer;
     }
     .report-item__main input[type="checkbox"] {
+      flex: 0 0 auto;
       width: 16px;
       height: 16px;
       accent-color: var(--primary);
       cursor: pointer;
+      margin: 0;
     }
-    .report-item__label { font-size: 13.5px; font-weight: 600; color: var(--text); letter-spacing: -0.005em; }
+    .report-item__label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.005em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .report-item__pill {
-      padding: 3px 10px;
+      flex: 0 0 auto;
+      padding: 3px 9px;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -4039,7 +4158,8 @@ function fmtMoney(n: number): string {
       border-radius: 999px;
     }
     .report-item__title {
-      flex: 1;
+      flex: 1 1 auto;
+      min-width: 0;
       padding: 6px 10px;
       font-size: 13px;
       font-family: inherit;
@@ -4047,18 +4167,20 @@ function fmtMoney(n: number): string {
       background: rgba(255, 255, 255, 0.5);
       border-radius: 6px;
       color: var(--text);
-      transition: all 0.15s;
     }
     .report-item__title:focus { border-color: #fcd34d; background: white; outline: none; }
     .report-item__title::placeholder { color: #b48a3f; }
+
     .report-item__actions {
+      flex: 0 0 auto;
       display: flex;
       gap: 2px;
       align-items: center;
     }
     .report-item__btn {
-      width: 26px;
-      height: 26px;
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -4067,25 +4189,24 @@ function fmtMoney(n: number): string {
       border-radius: 6px;
       cursor: pointer;
       color: var(--text-muted);
-      transition: all 0.15s;
+      transition: background 0.15s, color 0.15s;
+      padding: 0;
     }
     .report-item__btn .material-symbols-outlined { font-size: 18px; }
     .report-item__btn:hover:not(:disabled) { background: #f1f5f9; color: var(--text); }
     .report-item__btn:disabled { opacity: 0.3; cursor: not-allowed; }
-    .report-item__btn--ghost:hover { background: #ecfdf5; color: var(--primary); }
     .report-item__btn--danger { color: var(--danger, #dc2626); }
     .report-item__btn--danger:hover:not(:disabled) { background: #fef2f2; }
-    .report-item__note {
-      display: none;
-      margin-top: 8px;
-      padding-left: 26px;
-    }
-    .report-item__note.is-open { display: block; }
+
+    /* Note section — must be hidden by default unless .is-open */
+    .report-item__note { display: none !important; margin-top: 8px; padding-left: 30px; }
+    .report-item__note.is-open { display: block !important; }
     .report-item__note textarea {
       width: 100%;
-      min-height: 56px;
+      box-sizing: border-box;
+      min-height: 60px;
       padding: 8px 10px;
-      font-size: 12.5px;
+      font-size: 13px;
       font-family: inherit;
       line-height: 1.6;
       border: 1px solid #e5e7eb;
@@ -4093,7 +4214,7 @@ function fmtMoney(n: number): string {
       resize: vertical;
       background: white;
       color: var(--text);
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
     .report-item--text .report-item__note textarea {
       border-color: #fde68a;
@@ -4102,15 +4223,17 @@ function fmtMoney(n: number): string {
     .report-item__note textarea:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.06);
+      box-shadow: 0 0 0 3px rgba(4, 47, 36, 0.08);
     }
     .report-item--text .report-item__note textarea:focus {
       border-color: #f59e0b;
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
     }
+
     .report-add-btn {
+      box-sizing: border-box;
       width: 100%;
-      padding: 10px 14px;
+      padding: 11px 14px;
       font-size: 12.5px;
       font-weight: 600;
       color: var(--text-muted);
@@ -4124,14 +4247,13 @@ function fmtMoney(n: number): string {
       gap: 6px;
       transition: all 0.15s;
       letter-spacing: -0.005em;
+      font-family: inherit;
     }
     .report-add-btn:hover { color: var(--primary); border-color: var(--primary); background: #f0fdf9; }
     .report-add-btn .material-symbols-outlined { font-size: 16px; }
-    .report-add-btn--top { margin-bottom: 4px; }
-    .report-add-btn--bottom { margin-top: 4px; }
 
     /* ─────────────────────────────────────────────────────── */
-    /* Hidden report canvas — small-red-book aesthetic, 1080px  */
+    /* Hidden report canvas — publication / article aesthetic   */
     /* ─────────────────────────────────────────────────────── */
     #report-canvas-wrap {
       position: fixed;
@@ -4142,184 +4264,189 @@ function fmtMoney(n: number): string {
     }
     #report-canvas {
       width: 1080px;
-      background:
-        radial-gradient(ellipse at top right, #f0fdf9 0%, transparent 50%),
-        radial-gradient(ellipse at bottom left, #fefce8 0%, transparent 60%),
-        #ffffff;
-      padding: 64px 60px 48px;
+      background: #ffffff;
+      padding: 80px 80px 60px;
       font-family: 'Manrope', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
       color: #0f172a;
       box-sizing: border-box;
+      font-feature-settings: 'kern', 'liga';
     }
 
-    /* Header */
-    .rep-header {
-      margin-bottom: 48px;
-    }
+    /* ── Masthead ── */
+    .rep-header { margin-bottom: 64px; }
     .rep-header__strip {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e6e9ed;
+      margin-bottom: 32px;
     }
     .rep-header__brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .rep-header__logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #042f24 0%, #0a4d3a 100%);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -1px;
-      box-shadow: 0 8px 24px rgba(4, 47, 36, 0.22);
-    }
-    .rep-header__co {
-      font-size: 19px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
       color: #042f24;
-      letter-spacing: -0.4px;
-      line-height: 1.2;
-    }
-    .rep-header__sub {
-      font-size: 13px;
-      color: #64748b;
-      font-weight: 500;
-      margin-top: 2px;
+      letter-spacing: -0.2px;
     }
     .rep-header__pill {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #042f24;
-      background: rgba(4, 47, 36, 0.06);
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(4, 47, 36, 0.15);
-      font-family: 'Manrope', 'SF Mono', monospace;
-    }
-    .rep-header__title {
-      font-size: 56px;
-      font-weight: 800;
-      margin: 0 0 12px;
-      letter-spacing: -2.5px;
-      color: #042f24;
-      line-height: 1;
-    }
-    .rep-header__byline {
-      font-size: 14px;
-      color: #475569;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .rep-header__dot { color: #cbd5e1; }
-
-    /* Section heads (used by every block) */
-    .rep-section-head { margin-bottom: 18px; }
-    .rep-section-eyebrow {
-      display: inline-block;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #94a3b8;
-      margin-bottom: 4px;
+      color: #042f24;
+      background: #f0fdf9;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid #bce3d4;
+      font-family: 'Manrope', 'SF Mono', monospace;
     }
-    .rep-section-title {
-      font-size: 26px;
+    .rep-header__title {
+      font-size: 76px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      letter-spacing: -3px;
+      color: #042f24;
+      line-height: 0.95;
+    }
+    .rep-header__sub {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .rep-header__byline {
+      font-size: 13px;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+    .rep-header__byline strong {
+      color: #042f24;
+      font-weight: 700;
+    }
+
+    /* ── Section heads (numbered, article-style) ── */
+    .rep-section-head { margin-bottom: 22px; }
+    .rep-section-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .rep-section-num {
+      font-size: 13px;
+      font-weight: 800;
+      color: #042f24;
+      font-family: 'Manrope', 'SF Mono', monospace;
+      letter-spacing: 1px;
+    }
+    .rep-section-rule {
+      flex: 0 0 36px;
+      height: 1px;
+      background: #042f24;
+    }
+    .rep-section-en {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+    .rep-section-zh {
+      font-size: 32px;
       font-weight: 800;
       margin: 0;
-      letter-spacing: -1px;
+      letter-spacing: -1.2px;
       color: #0f172a;
       line-height: 1.15;
     }
 
-    /* Blocks */
+    /* ── Blocks ── */
     .rep-block {
-      margin-bottom: 44px;
+      margin-bottom: 56px;
       page-break-inside: avoid;
     }
+    .rep-block:last-of-type { margin-bottom: 32px; }
     .rep-block__note {
-      margin: 16px 0 0;
+      margin: 18px 0 0;
       padding: 14px 18px;
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: #334155;
-      background: rgba(4, 47, 36, 0.04);
+      background: #f8fafc;
       border-left: 3px solid #042f24;
-      border-radius: 6px;
+      border-radius: 4px;
     }
     .rep-block__empty { color: #94a3b8; font-size: 13px; }
 
     /* Text body section */
-    .rep-block--text { margin-bottom: 36px; }
+    .rep-block--text { margin-bottom: 44px; }
+    .rep-text-body {
+      max-width: 820px;
+    }
     .rep-text-body p {
-      margin: 0 0 12px;
-      font-size: 16px;
+      margin: 0 0 14px;
+      font-size: 17px;
       line-height: 1.85;
-      color: #334155;
+      color: #1e293b;
+      letter-spacing: 0.1px;
     }
     .rep-text-body p:last-child { margin-bottom: 0; }
 
-    /* KPI grid — two rows, 4 cards each */
+    /* ── KPI grid: 2×4 publication-style data cards ── */
     .rep-kpi-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 14px;
+      gap: 0;
+      border-top: 1px solid #e6e9ed;
+      border-left: 1px solid #e6e9ed;
     }
-    .rep-kpi-grid:last-child { margin-bottom: 0; }
     .rep-kpi {
-      padding: 22px 20px;
+      padding: 24px 22px;
       background: white;
-      border: 1px solid #e6e9ed;
-      border-radius: 16px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+      border-right: 1px solid #e6e9ed;
+      border-bottom: 1px solid #e6e9ed;
     }
-    .rep-kpi__num {
-      font-size: 28px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -1px;
-      line-height: 1.05;
-      font-family: 'Manrope', 'SF Mono', monospace;
+    .rep-kpi--accent {
+      background: #f0fdf9;
     }
     .rep-kpi__label {
-      font-size: 12px;
+      font-size: 11px;
       color: #64748b;
-      margin-top: 8px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
+    .rep-kpi__num {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -1.2px;
+      line-height: 1.05;
+      font-family: 'Manrope', 'SF Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    .rep-kpi--accent .rep-kpi__num { color: #042f24; }
 
-    /* Cloned widget chrome */
+    /* Cloned widget (live panel snapshot) */
     .rep-clone {
       background: white;
       border: 1px solid #e6e9ed;
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     }
     .rep-clone .section-card__header { display: none; }
     .rep-clone .pf-controls,
     .rep-clone .wk-pill,
     .rep-clone .wk-pane:not(.is-active) { display: none; }
     .rep-clone .wk-pane { display: block; }
+    .rep-clone img { display: block; max-width: 100%; }
 
-    /* Footer */
+    /* ── Footer ── */
     .rep-footer {
-      margin-top: 32px;
-      padding-top: 20px;
+      margin-top: 48px;
+      padding-top: 24px;
       border-top: 1px solid #e6e9ed;
       display: flex;
       justify-content: space-between;
@@ -4334,9 +4461,10 @@ function fmtMoney(n: number): string {
       letter-spacing: -0.2px;
     }
     .rep-footer__sub {
-      margin-top: 2px;
+      margin-top: 3px;
       font-size: 11px;
       color: #94a3b8;
+      letter-spacing: 0.3px;
     }
     .rep-footer__right { text-align: right; }
     .rep-footer__url {
