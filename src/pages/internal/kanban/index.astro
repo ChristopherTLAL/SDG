@@ -685,9 +685,11 @@ if (tailFamiliesMonthly.size > 0) {
 // NEW Widget data: Top 30 学生 (Pareto)
 // Per vault student: total signing ¥ (留学+产品), 留学/产品 split, advisor.
 // Sorted by total DESC. Excludes 已终止.
+// 私单 explicitly filtered (use `students` not `allStudents`) — 周报 export
+// 不能含私单，Top 学生 widget 也保持 一致.
 // ──────────────────────────────────────────────────────
 const studentMeta = new Map<number, { name: string; advisor: string }>();
-for (const s of allStudents) {
+for (const s of students) {
   studentMeta.set(s.id, {
     name: s.name,
     advisor: (s.mid_advisors && s.mid_advisors[0]) || '—',
@@ -1030,6 +1032,17 @@ const chartPayload = {
     [...topFamiliesMonthly, '其他'].map(f => [f, FAMILY_COLORS[f] || '#c4c4c4'])
   ),
   portfolioData,
+  // KPI banner (used by 周报 export)
+  kpi: {
+    totalSigning: Math.round(totalSigning),
+    totalReceived: Math.round(totalReceived),
+    totalDelivered: Math.round(totalDelivered),
+    totalPrepay: Math.round(totalPrepay),
+    activeStudents: students.length,
+    signedStudentCount,
+    avgPerStudent: signedStudentCount ? Math.round(totalSigning / signedStudentCount) : 0,
+    activeContractCount: activeContracts.length,
+  },
 };
 
 // 千分位格式化：¥1,234,567
@@ -1042,12 +1055,16 @@ function fmtMoney(n: number): string {
   <!-- Fixed-shell layout: header strip + sidebar tabs + panel area.
        No page scroll; each panel scrolls internally if needed. -->
   <div class="kanban-shell">
-    <!-- ── Top strip: title only (no filter — kanban is team-wide) ── -->
+    <!-- ── Top strip: title + 导出周报 button ── -->
     <div class="kanban-top">
       <div class="kanban-top__title">
         <h1 class="font-headline kanban-top__h1">Kanban</h1>
         <span class="kanban-top__count">在管学生 {students.length}</span>
       </div>
+      <button id="open-report-drawer" class="kanban-top__action" type="button">
+        <span class="material-symbols-outlined">image</span>
+        导出周报
+      </button>
     </div>
 
     <div class="kanban-grid">
@@ -1079,7 +1096,7 @@ function fmtMoney(n: number): string {
       </button>
       <button class="kanban-tab" data-tab="activity" role="tab">
         <span class="material-symbols-outlined kanban-tab__icon">forum</span>
-        <span class="kanban-tab__label">顾问活动</span>
+        <span class="kanban-tab__label">学生沟通</span>
         <span class="kanban-tab__sub">12 周沟通 + 提交</span>
       </button>
       <button class="kanban-tab" data-tab="terminated" role="tab">
@@ -1109,7 +1126,7 @@ function fmtMoney(n: number): string {
       <section data-panel="activity" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            顾问活动热力 <span class="section-card__subtitle">最近 12 周沟通记录 + 提交（按学生 mid_advisor 多人归属）· 点行查看顾问详情</span>
+            学生沟通热力 <span class="section-card__subtitle">最近 12 周沟通记录 + 提交（按学生 mid_advisor 多人归属）· 点行查看顾问详情</span>
           </h2>
         </div>
         {advisors.length === 0 ? (
@@ -1586,10 +1603,50 @@ function fmtMoney(n: number): string {
     </div>
   </div>
 
+  <!-- ── 周报导出 drawer ────────────────────────────────────── -->
+  <div id="report-drawer" class="report-drawer" hidden>
+    <div class="report-drawer__backdrop" data-close></div>
+    <aside class="report-drawer__panel" role="dialog" aria-label="周报组装">
+      <header class="report-drawer__head">
+        <h2 class="font-headline">周报组装</h2>
+        <button type="button" class="report-drawer__close" data-close aria-label="关闭">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </header>
+
+      <div class="report-drawer__body">
+        <p class="report-drawer__hint">
+          上下排序 · 拖动 ▲ ▼ 调位置 · 勾选包含到长图 · 「+ 添加文字段」可在任意位置插入手写说明
+        </p>
+
+        <ul id="report-items" class="report-items" role="list"><!-- JS populates --></ul>
+
+        <button type="button" id="add-text-section" class="report-add-btn">
+          <span class="material-symbols-outlined">add</span>
+          添加文字段
+        </button>
+      </div>
+
+      <footer class="report-drawer__foot">
+        <button type="button" class="report-btn report-btn--ghost" data-close>取消</button>
+        <button type="button" id="generate-report" class="report-btn report-btn--primary">
+          <span class="material-symbols-outlined">image</span>
+          生成长图
+        </button>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- Hidden render canvas: report image gets composed here at fixed 900px -->
+  <div id="report-canvas-wrap" aria-hidden="true">
+    <div id="report-canvas"></div>
+  </div>
+
   <script type="application/json" id="chart-payload" set:html={JSON.stringify(chartPayload)}></script>
 
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" is:inline></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.4/dist/cytoscape.min.js" is:inline></script>
+  <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js" is:inline></script>
 
   <script is:inline>
     (function () {
@@ -2264,6 +2321,346 @@ function fmtMoney(n: number): string {
           wkPanes.forEach(p => p.classList.toggle('is-active', p.dataset.window === btn.dataset.window));
         });
       });
+
+      // ─────────────────────────────────────────────────────
+      // 周报导出 drawer + 长图 渲染
+      // ─────────────────────────────────────────────────────
+      const REPORT_WIDTH = 900;
+      const WIDGET_CATALOG = [
+        // [id, label, default-checked]
+        ['kpi',         'KPI 总览',          true],
+        ['contracts',   '合同分布',          true],
+        ['weekly',      '周度签约',          true],
+        ['activity',    '学生沟通',          true],
+        ['portfolio',   '顾问 portfolio',    false],
+        ['terminated',  '退费分析',          false],
+        ['top-students','Top 学生',          false],
+        ['monthly-products','月度产品节奏',  false],
+        ['stage-year',  '阶段 × 入学届',     false],
+        ['schools',     '在读学校分布',      false],
+      ];
+
+      // Items state — array of { type:'widget'|'text', id, checked, note?, title?, body? }
+      let reportItems = WIDGET_CATALOG.map(([id, label, checked]) => ({
+        type: 'widget', id, label, checked, note: '',
+      }));
+
+      const itemsEl = document.getElementById('report-items');
+      function renderItems() {
+        itemsEl.innerHTML = '';
+        reportItems.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.className = 'report-item';
+          li.dataset.idx = String(idx);
+          if (item.type === 'widget') {
+            li.innerHTML = `
+              <div class="report-item__row">
+                <div class="report-item__order">
+                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移">▲</button>
+                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移">▼</button>
+                </div>
+                <label class="report-item__main">
+                  <input type="checkbox" data-act="check" ${item.checked ? 'checked' : ''}>
+                  <span class="report-item__label">${item.label}</span>
+                </label>
+                <button type="button" class="report-item__note-toggle" data-act="note" aria-expanded="${item.note ? 'true' : 'false'}">
+                  ${item.note ? '编辑批注' : '+ 加批注'}
+                </button>
+              </div>
+              <div class="report-item__note ${item.note ? 'is-open' : ''}">
+                <textarea data-act="note-input" placeholder="可选: 这个 widget 想强调什么...">${item.note || ''}</textarea>
+              </div>
+            `;
+          } else {
+            li.classList.add('report-item--text');
+            li.innerHTML = `
+              <div class="report-item__row">
+                <div class="report-item__order">
+                  <button type="button" class="report-item__btn" data-act="up" ${idx === 0 ? 'disabled' : ''} aria-label="上移">▲</button>
+                  <button type="button" class="report-item__btn" data-act="down" ${idx === reportItems.length - 1 ? 'disabled' : ''} aria-label="下移">▼</button>
+                </div>
+                <span class="report-item__pill">文字段</span>
+                <input type="text" data-act="title-input" class="report-item__title" placeholder="小标题（可空）" value="${(item.title || '').replace(/"/g,'&quot;')}">
+                <button type="button" class="report-item__btn report-item__btn--danger" data-act="remove" aria-label="删除">×</button>
+              </div>
+              <div class="report-item__note is-open">
+                <textarea data-act="body-input" placeholder="正文 — 出现在长图上">${item.body || ''}</textarea>
+              </div>
+            `;
+          }
+          itemsEl.appendChild(li);
+        });
+      }
+      renderItems();
+
+      itemsEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-act], input[data-act]');
+        if (!btn) return;
+        const li = btn.closest('.report-item');
+        if (!li) return;
+        const idx = Number(li.dataset.idx);
+        const act = btn.dataset.act;
+        if (act === 'up' && idx > 0) {
+          [reportItems[idx - 1], reportItems[idx]] = [reportItems[idx], reportItems[idx - 1]];
+          renderItems();
+        } else if (act === 'down' && idx < reportItems.length - 1) {
+          [reportItems[idx + 1], reportItems[idx]] = [reportItems[idx], reportItems[idx + 1]];
+          renderItems();
+        } else if (act === 'remove') {
+          reportItems.splice(idx, 1);
+          renderItems();
+        } else if (act === 'note') {
+          const note = li.querySelector('.report-item__note');
+          note.classList.toggle('is-open');
+        } else if (act === 'check') {
+          reportItems[idx].checked = btn.checked;
+        }
+      });
+      itemsEl.addEventListener('input', (e) => {
+        const t = e.target;
+        const li = t.closest('.report-item');
+        if (!li) return;
+        const idx = Number(li.dataset.idx);
+        const act = t.dataset.act;
+        if (act === 'note-input') reportItems[idx].note = t.value;
+        else if (act === 'title-input') reportItems[idx].title = t.value;
+        else if (act === 'body-input') reportItems[idx].body = t.value;
+      });
+
+      document.getElementById('add-text-section').addEventListener('click', () => {
+        reportItems.push({ type: 'text', title: '', body: '', checked: true });
+        renderItems();
+      });
+
+      // Drawer open/close
+      const drawer = document.getElementById('report-drawer');
+      document.getElementById('open-report-drawer').addEventListener('click', () => {
+        drawer.hidden = false;
+        requestAnimationFrame(() => drawer.classList.add('is-open'));
+      });
+      drawer.addEventListener('click', (e) => {
+        if (e.target.matches('[data-close]')) {
+          drawer.classList.remove('is-open');
+          setTimeout(() => { drawer.hidden = true; }, 200);
+        }
+      });
+
+      // ── 长图 渲染 ──────────────────────────────────────────
+      function fmtMoneyLong(v) {
+        if (v >= 100000000) return '¥' + (v / 100000000).toFixed(2) + ' 亿';
+        if (v >= 10000) return '¥' + (v / 10000).toFixed(1) + ' 万';
+        return '¥' + Math.round(v).toLocaleString();
+      }
+      function dateRangeLabel() {
+        const today = new Date();
+        const day = today.getDay();
+        const offset = day === 0 ? -6 : 1 - day;
+        const monday = new Date(today);
+        monday.setDate(today.getDate() + offset);
+        const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
+        return `${fmt(monday)} – ${fmt(today)}`;
+      }
+
+      // Build a header block (always at top of report)
+      function buildHeader(canvas) {
+        const head = document.createElement('div');
+        head.className = 'rep-header';
+        head.innerHTML = `
+          <div class="rep-header__top">
+            <div class="rep-header__brand">新东方前途出国 · 苏州分公司</div>
+            <div class="rep-header__date">${dateRangeLabel()}</div>
+          </div>
+          <h1 class="rep-header__title">中期管理数据看板</h1>
+          <div class="rep-header__author">王世杰 · 周报</div>
+        `;
+        canvas.appendChild(head);
+      }
+      function buildFooter(canvas) {
+        const foot = document.createElement('div');
+        foot.className = 'rep-footer';
+        const ts = new Date().toISOString().replace('T',' ').slice(0,16);
+        foot.textContent = `生成于 ${ts}`;
+        canvas.appendChild(foot);
+      }
+
+      // KPI banner — synthesized for the report (page itself doesn't render it)
+      function renderKPIBlock(canvas, note) {
+        const k = payload.kpi || {};
+        const block = document.createElement('section');
+        block.className = 'rep-block rep-block--kpi';
+        block.innerHTML = `
+          <h2 class="rep-block__title">KPI 总览</h2>
+          <div class="rep-kpi-grid">
+            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalSigning || 0)}</div><div class="rep-kpi__label">签约总额</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalReceived || 0)}</div><div class="rep-kpi__label">已收</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalDelivered || 0)}</div><div class="rep-kpi__label">已交付</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.totalPrepay || 0)}</div><div class="rep-kpi__label">预收余额</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${k.activeStudents || 0}</div><div class="rep-kpi__label">在管学生</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${k.activeContractCount || 0}</div><div class="rep-kpi__label">在带合同</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${k.signedStudentCount || 0}</div><div class="rep-kpi__label">已签学生</div></div>
+            <div class="rep-kpi"><div class="rep-kpi__num">${fmtMoneyLong(k.avgPerStudent || 0)}</div><div class="rep-kpi__label">客单价（中期口径）</div></div>
+          </div>
+          ${note ? `<p class="rep-block__note">${escapeHtml(note)}</p>` : ''}
+        `;
+        canvas.appendChild(block);
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      }
+
+      // Clone a panel from the live page. Strip 私单 mentions for Top 学生.
+      // For ECharts panels, re-init a fresh instance with same data into report.
+      async function renderWidgetBlock(canvas, item) {
+        const block = document.createElement('section');
+        block.className = 'rep-block';
+        const titleMap = {
+          'contracts': '合同分布',
+          'weekly': '周度签约',
+          'activity': '学生沟通热力',
+          'portfolio': '顾问 portfolio',
+          'terminated': '退费分析',
+          'top-students': 'Top 学生',
+          'monthly-products': '月度产品节奏',
+          'stage-year': '阶段 × 入学届',
+          'schools': '在读学校分布',
+        };
+        block.innerHTML = `<h2 class="rep-block__title">${titleMap[item.id] || item.label}</h2>`;
+        canvas.appendChild(block);
+
+        const livePanel = document.querySelector(`[data-panel="${item.id}"]`);
+        if (!livePanel) {
+          block.innerHTML += `<p class="rep-block__empty">[panel 不存在]</p>`;
+          return;
+        }
+
+        // For ECharts-only panels: re-init at REPORT_WIDTH using same series.
+        // We do this by activating the panel briefly, then cloning its DOM —
+        // simpler than rewriting all chart-init code.
+        const wasActive = livePanel.classList.contains('is-active');
+        if (!wasActive) livePanel.classList.add('is-active');
+
+        // Force chart resize so canvases have correct pixel data
+        await new Promise(r => requestAnimationFrame(r));
+        charts.forEach(c => c && c.resize());
+        await new Promise(r => setTimeout(r, 60));
+
+        const clone = livePanel.cloneNode(true);
+        clone.classList.remove('is-active');
+        clone.style.display = 'block';
+        clone.removeAttribute('data-panel');
+        clone.classList.add('rep-clone');
+
+        // Strip 私单 hints / private-only buttons / interactive controls
+        clone.querySelectorAll('button, [role="tab"], .pf-controls, a').forEach(el => {
+          if (el.tagName === 'A') {
+            const span = document.createElement('span');
+            span.textContent = el.textContent;
+            span.className = el.className;
+            el.replaceWith(span);
+          } else {
+            el.remove();
+          }
+        });
+
+        // Replace the live ECharts canvas with a static image (toDataURL)
+        const liveCanvases = livePanel.querySelectorAll('canvas');
+        const clonedCanvases = clone.querySelectorAll('canvas');
+        liveCanvases.forEach((srcCanvas, i) => {
+          const tgtCanvas = clonedCanvases[i];
+          if (!tgtCanvas) return;
+          try {
+            const img = document.createElement('img');
+            img.src = srcCanvas.toDataURL('image/png');
+            img.style.width = srcCanvas.style.width || (srcCanvas.width + 'px');
+            img.style.height = srcCanvas.style.height || (srcCanvas.height + 'px');
+            img.style.maxWidth = '100%';
+            tgtCanvas.replaceWith(img);
+          } catch (e) {
+            console.warn('canvas snapshot failed', e);
+          }
+        });
+
+        block.appendChild(clone);
+        if (item.note) {
+          const noteEl = document.createElement('p');
+          noteEl.className = 'rep-block__note';
+          noteEl.textContent = item.note;
+          block.appendChild(noteEl);
+        }
+
+        if (!wasActive) livePanel.classList.remove('is-active');
+      }
+
+      function renderTextBlock(canvas, item) {
+        if (!item.title && !item.body) return;
+        const block = document.createElement('section');
+        block.className = 'rep-block rep-block--text';
+        if (item.title) {
+          block.innerHTML += `<h2 class="rep-block__title">${escapeHtml(item.title)}</h2>`;
+        }
+        if (item.body) {
+          // Plain text — preserve line breaks
+          const para = document.createElement('div');
+          para.className = 'rep-text-body';
+          item.body.split(/\n+/).forEach(line => {
+            if (line.trim()) {
+              const p = document.createElement('p');
+              p.textContent = line;
+              para.appendChild(p);
+            }
+          });
+          block.appendChild(para);
+        }
+        canvas.appendChild(block);
+      }
+
+      async function generateReport() {
+        const btn = document.getElementById('generate-report');
+        const origLabel = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span>渲染中...';
+
+        try {
+          const canvas = document.getElementById('report-canvas');
+          canvas.innerHTML = '';
+
+          buildHeader(canvas);
+          for (const item of reportItems) {
+            if (!item.checked) continue;
+            if (item.type === 'text') {
+              renderTextBlock(canvas, item);
+            } else if (item.id === 'kpi') {
+              renderKPIBlock(canvas, item.note);
+            } else {
+              await renderWidgetBlock(canvas, item);
+            }
+          }
+          buildFooter(canvas);
+
+          // Wait one frame for layout settle
+          await new Promise(r => requestAnimationFrame(r));
+          await new Promise(r => setTimeout(r, 100));
+
+          const dataUrl = await window.htmlToImage.toPng(canvas, {
+            backgroundColor: '#ffffff',
+            pixelRatio: 2,
+            cacheBust: true,
+          });
+          const a = document.createElement('a');
+          const dateTag = new Date().toISOString().slice(0, 10);
+          a.download = `中期管理周报-${dateTag}.png`;
+          a.href = dataUrl;
+          a.click();
+        } catch (e) {
+          console.error(e);
+          alert('生成失败: ' + (e.message || e));
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = origLabel;
+        }
+      }
+      document.getElementById('generate-report').addEventListener('click', generateReport);
 
     })();
   </script>
@@ -3304,6 +3701,328 @@ function fmtMoney(n: number): string {
       padding: 1px 6px;
       background: #f1f1f4;
       border-radius: 999px;
+    }
+
+    /* ── 导出周报 button (top strip) ── */
+    .kanban-top__action {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .kanban-top__action:hover { background: var(--primary-dim); }
+    .kanban-top__action .material-symbols-outlined { font-size: 18px; }
+
+    /* ── Drawer ── */
+    .report-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .report-drawer__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .report-drawer.is-open .report-drawer__backdrop { opacity: 1; }
+    .report-drawer__panel {
+      position: relative;
+      z-index: 1;
+      width: min(560px, 100%);
+      height: 100%;
+      background: var(--surface-raised);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .report-drawer.is-open .report-drawer__panel { transform: translateX(0); }
+    .report-drawer__head {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .report-drawer__head h2 { font-size: 18px; margin: 0; }
+    .report-drawer__close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--text-muted);
+    }
+    .report-drawer__close:hover { color: var(--text); }
+    .report-drawer__body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 24px;
+    }
+    .report-drawer__hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0 0 16px;
+      line-height: 1.6;
+    }
+    .report-drawer__foot {
+      padding: 14px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .report-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .report-btn--ghost { background: white; color: var(--text); }
+    .report-btn--ghost:hover { background: #f5f5f7; }
+    .report-btn--primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .report-btn--primary:hover { background: var(--primary-dim); }
+    .report-btn--primary:disabled { opacity: 0.6; cursor: wait; }
+    .report-btn .material-symbols-outlined { font-size: 16px; }
+
+    /* ── Drawer items ── */
+    .report-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .report-item {
+      background: var(--surface, #fafafa);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .report-item--text { background: #fffbef; border-color: #f1e3a4; }
+    .report-item__row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .report-item__order {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .report-item__btn {
+      width: 22px;
+      height: 18px;
+      font-size: 9px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    .report-item__btn:hover:not(:disabled) { color: var(--text); border-color: var(--text-muted); }
+    .report-item__btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .report-item__btn--danger { width: 26px; height: 26px; font-size: 14px; color: var(--danger); }
+    .report-item__main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .report-item__label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .report-item__pill {
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 600;
+      background: #f1e3a4;
+      color: #6b5e1c;
+      border-radius: 999px;
+    }
+    .report-item__title {
+      flex: 1;
+      padding: 4px 8px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 4px;
+    }
+    .report-item__title:focus { border-color: var(--border); background: white; outline: none; }
+    .report-item__note-toggle {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+    .report-item__note-toggle:hover { color: var(--text); }
+    .report-item__note { display: none; margin-top: 6px; }
+    .report-item__note.is-open { display: block; }
+    .report-item__note textarea {
+      width: 100%;
+      min-height: 56px;
+      padding: 6px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      resize: vertical;
+      background: white;
+    }
+    .report-add-btn {
+      margin-top: 12px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: white;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .report-add-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+    /* ── Hidden report canvas (rendered to PNG) ── */
+    #report-canvas-wrap {
+      position: fixed;
+      left: -10000px;
+      top: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    #report-canvas {
+      width: 900px;
+      background: white;
+      padding: 40px 36px 28px;
+      font-family: 'Manrope', 'Inter', sans-serif;
+      color: #1a1a1a;
+    }
+    #report-canvas .rep-header {
+      border-bottom: 2px solid #042f24;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    .rep-header__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #6b6b6b;
+    }
+    .rep-header__brand { font-weight: 600; }
+    .rep-header__date { font-family: 'SF Mono', monospace; }
+    .rep-header__title {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 8px 0 4px;
+      letter-spacing: -0.01em;
+      color: #042f24;
+    }
+    .rep-header__author {
+      font-size: 13px;
+      color: #5b5b5b;
+    }
+    .rep-block {
+      margin-bottom: 32px;
+      page-break-inside: avoid;
+    }
+    .rep-block__title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin: 0 0 12px;
+      padding-left: 10px;
+      border-left: 4px solid #042f24;
+      line-height: 1.3;
+    }
+    .rep-block__note {
+      margin: 12px 0 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #3a3a3a;
+      background: #f5f7f6;
+      border-left: 3px solid #b6c6c0;
+      border-radius: 4px;
+    }
+    .rep-block__empty { color: #999; font-size: 12px; }
+    .rep-block--text { margin-bottom: 24px; }
+    .rep-text-body p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+    .rep-block--kpi .rep-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .rep-kpi {
+      padding: 14px;
+      background: #f8faf9;
+      border: 1px solid #e6ece9;
+      border-radius: 8px;
+    }
+    .rep-kpi__num {
+      font-size: 18px;
+      font-weight: 800;
+      color: #042f24;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .rep-kpi__label {
+      font-size: 11px;
+      color: #6b6b6b;
+      margin-top: 4px;
+    }
+    .rep-clone {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .rep-clone .section-card__header { display: none; }
+    .rep-clone .pf-controls,
+    .rep-clone .wk-pill,
+    .rep-clone .wk-pane:not(.is-active) { display: none; }
+    .rep-clone .wk-pane { display: block; }
+    .rep-footer {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid #eee;
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      font-family: 'SF Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
