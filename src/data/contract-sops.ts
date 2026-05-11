@@ -6,6 +6,8 @@
 // Placeholders inside emailSubject / emailBody:
 //   {{学生姓名}}   — student's name
 //   {{中期顾问}}   — mid_advisor name (falls back to "顾问")
+//   {{合同编号}}   — ERP contract number (e.g. JSSZYZ202501028) for this specific
+//                    contract; used in 结案 / 交付凭证类邮件以便客户留档
 // Add more placeholders by extending the substitute() function below.
 
 export type Deliverable = {
@@ -168,37 +170,30 @@ function monthlyReport(repeats: number): Deliverable {
 
 // 服务结案 · 一次性补交所有材料。在服务期内某些材料未能逐项发送时使用，
 // 用一封邮件汇总所有交付物（附件 1-N），用于报完成留档。
-const gewuServiceCompletion: Deliverable = {
-  key: 'service-completion',
-  title: '特殊·服务后补交所有材料（结案邮件）',
-  emailSubject: '【苏州前途·格物计划】{{学生姓名}} 服务结案 · 全部材料汇总',
-  emailBody: `{{学生姓名}} 与 {{学生姓名}} 家长，
+// 半年/一年期 SOP 月报件数不同 → 参数化 monthlyCount。
+function gewuServiceCompletion(monthlyCount: number): Deliverable {
+  return {
+    key: 'service-completion',
+    title: '特殊·服务后补交所有材料（结案邮件）',
+    emailSubject: '【苏州前途·格物计划】{{学生姓名}} 服务结案 · 全部材料汇总',
+    emailBody: `{{学生姓名}} 与 {{学生姓名}} 家长，
 
 您好！
 
-{{学生姓名}} 的格物计划服务期已圆满结束。本邮件一次性汇总本期所有交付材料，便于你们留档，也作为本次服务的正式结案。
+{{学生姓名}} 的格物计划服务期已圆满结束（合同编号 {{合同编号}}）。本邮件一次性汇总本期所有交付材料，便于你们留档，也作为本次服务的正式结案。
 
 ▎附件清单
-1. 《生涯规划方案》（详见附件 1）
-2. 《简历梳理报告》（详见附件 2）
-3. 《月度规划报告 ×N》（详见附件 3 起）
-4. ……（如有补充材料请在此列出）
-
-▎服务总结
-- 本期主要规划主线：……
-- 关键调整与里程碑：……
-- 已完成的核心动作：……
-
-▎下一阶段建议
-- 后续学业 / 申请准备的衔接思路
-- 是否进入下一阶段服务（中期 / 后期）
+1. 《生涯规划方案》（详见附件）
+2. 《简历梳理报告》（详见附件）
+3. 《月度规划报告 ×${monthlyCount}》（详见附件）
 
 感谢你们一直以来的信任与配合。如有任何疑问，欢迎随时联系。
 
 祝好
 {{中期顾问}}
 苏州前途中期规划团队`,
-};
+  };
+}
 
 // ─── 跃领计划 deliverable templates ────────────────────────
 //
@@ -667,7 +662,7 @@ export const SOPS: ContractSOP[] = [
     groupName: '格物计划',
     variant: '半年期',
     matchPatterns: ['格物-半年'],
-    deliverables: [careerPlan, monthlyReport(5), resumeReport, gewuServiceCompletion],
+    deliverables: [careerPlan, monthlyReport(5), resumeReport, gewuServiceCompletion(5)],
     description: '中期规划服务半年期：一份生涯规划方案 + 5 期月度规划报告 + 阶段性简历梳理。适合短线方向不明、需要先做出框架的家庭。',
     pricing: 'TBD',
     durationMonths: 6,
@@ -680,7 +675,7 @@ export const SOPS: ContractSOP[] = [
     variant: '一年期',
     // '格物' 兜底：vault-only 学生历史 [格物计划] 写法保持工作（落到一年期变体）
     matchPatterns: ['格物-一年', '格物'],
-    deliverables: [careerPlan, monthlyReport(11), resumeReport, gewuServiceCompletion],
+    deliverables: [careerPlan, monthlyReport(11), resumeReport, gewuServiceCompletion(11)],
     description: '中期规划服务一年期：节奏与半年期相同但延续 11 个月，能覆盖一个完整学年的执行 + 调整。',
     pricing: 'TBD',
     durationMonths: 12,
@@ -922,8 +917,12 @@ export function findSOPsForStudent(
 
 // ─── Substitution ───────────────────────────────────────────
 
-export function substitute(template: string, vars: { studentName: string; midAdvisor: string | null }): string {
+export function substitute(
+  template: string,
+  vars: { studentName: string; midAdvisor: string | null; contractNumber?: string | null },
+): string {
   return template
     .replaceAll('{{学生姓名}}', vars.studentName)
-    .replaceAll('{{中期顾问}}', vars.midAdvisor ?? '顾问');
+    .replaceAll('{{中期顾问}}', vars.midAdvisor ?? '顾问')
+    .replaceAll('{{合同编号}}', vars.contractNumber || '—');
 }

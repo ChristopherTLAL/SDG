@@ -108,7 +108,7 @@ const tierBreak = isYuelingGroup
 // Email template substitution: at the contract-profile level we don't have
 // a specific student, so use a placeholder. Same {{...}} syntax shown so it
 // reads as a template you can drop into a real send context.
-const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期顾问}}' };
+const TEMPLATE_VARS = { studentName: '{{学生姓名}}', midAdvisor: '{{中期顾问}}', contractNumber: '{{合同编号}}' };
 ---
 
 <InternalLayout title={`${contractName} · 合同`} active="kanban">

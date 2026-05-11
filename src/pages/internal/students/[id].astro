@@ -62,18 +62,26 @@ const renderedNotes = (notes ?? []).map(n => ({
 }));
 
 // Match contracts to SOP definitions and pre-substitute placeholders so the
-// emails appear with the student's name + advisor already filled in.
-const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier).map(m => ({
-  contractName: m.contractName,
-  sop: m.sop,
-  deliverables: m.sop.deliverables.map(d => ({
-    key: d.key,
-    title: d.title,
-    repeats: d.repeats ?? 1,
-    emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: student.mid_advisor }),
-    emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: student.mid_advisor }),
-  })),
-}));
+// emails appear with the student's name + advisor + 合同编号 already filled in.
+// m.contractName here is the short label from student.contracts (e.g. 格物-半年);
+// contract_details[].大类 uses the same short label, so we match on that to pull
+// the ERP 合同编号 (e.g. JSSZYZ202501028) for the 结案邮件 placeholder.
+const contractDetailsArr = (student.contract_details ?? []) as Array<{ 大类?: string; 合同编号?: string }>;
+const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier).map(m => {
+  const contractNumber = contractDetailsArr.find(cd => cd.大类 === m.contractName)?.合同编号 ?? null;
+  return {
+    contractName: m.contractName,
+    contractNumber,
+    sop: m.sop,
+    deliverables: m.sop.deliverables.map(d => ({
+      key: d.key,
+      title: d.title,
+      repeats: d.repeats ?? 1,
+      emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: student.mid_advisor, contractNumber }),
+      emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: student.mid_advisor, contractNumber }),
+    })),
+  };
+});
 
 // Days since last contact (for the badge)
 const today = new Date();
@@ -147,21 +155,12 @@ const metaRows: Row[] = [
       )}
 
       {Array.isArray(student.contract_details) && student.contract_details.length > 0 && (() => {
-        // 钱链：签约 → 已收 → 已交付 + 预收余额（已交付 + 预收 = 已收）
-        // 预收余额 是已收的子集（unearned），不是独立账户。
         type CD = {
           名称?: string; 大类?: string; 签约日期?: string;
-          主合同金额?: number; 签约金额?: number;
-          优惠减钱?: number; 优惠价值?: number;
-          选校金额?: number; 补充金额?: number; 退费?: number;
-          已收?: number; 已交付?: number; 预收余额?: number;
+          签约金额?: number; 合同状态?: string; 合同编号?: string;
         };
         const cds = student.contract_details as CD[];
-        const sumOf = (k: keyof CD) => cds.reduce((s, c) => s + (Number(c[k]) || 0), 0);
-        const totalSigning  = sumOf('签约金额');
-        const totalReceived = sumOf('已收');
-        const totalDelivered = sumOf('已交付');
-        const totalPrepay   = sumOf('预收余额');
+        const totalSigning = cds.reduce((s, c) => s + (Number(c.签约金额) || 0), 0);
         const fmt = (n: number) => '¥' + Math.round(n).toLocaleString('en-US');
         const sortedCds = [...cds].sort((a, b) => (a.签约日期 ?? '').localeCompare(b.签约日期 ?? ''));
         return (
@@ -172,9 +171,6 @@ const metaRows: Row[] = [
             </div>
             <div class="contract-summary">
               <div><span class="contract-summary__label">总签约</span><span class="font-mono">{fmt(totalSigning)}</span></div>
-              <div><span class="contract-summary__label">已收</span><span class="font-mono">{fmt(totalReceived)}</span></div>
-              <div><span class="contract-summary__label">└ 已交付</span><span class="font-mono">{fmt(totalDelivered)}</span></div>
-              <div><span class="contract-summary__label">└ 预收余额</span><span class="font-mono">{fmt(totalPrepay)}</span></div>
             </div>
             <ul class="contract-detail-list">
               {sortedCds.map((c) => (
@@ -188,22 +184,15 @@ const metaRows: Row[] = [
                     <dl class="contract-detail__fields">
                       <dt>大类</dt><dd>{c.大类 ?? '—'}</dd>
                       <dt>签约日期</dt><dd class="font-mono">{c.签约日期 ?? '—'}</dd>
-                      <dt>主合同</dt><dd class="font-mono">{fmt(Number(c.主合同金额) || 0)}</dd>
                       <dt>签约金额</dt><dd class="font-mono">{fmt(Number(c.签约金额) || 0)}</dd>
-                      {(Number(c.优惠减钱) || 0) > 0 && <><dt>优惠减钱</dt><dd class="font-mono">−{fmt(Number(c.优惠减钱) || 0)}</dd></>}
-                      {(Number(c.优惠价值) || 0) > 0 && <><dt>优惠价值</dt><dd class="font-mono">送 {fmt(Number(c.优惠价值) || 0)}</dd></>}
-                      {(Number(c.选校金额) || 0) > 0 && <><dt>选校金额</dt><dd class="font-mono">+{fmt(Number(c.选校金额) || 0)}</dd></>}
-                      {(Number(c.补充金额) || 0) > 0 && <><dt>补充金额</dt><dd class="font-mono">+{fmt(Number(c.补充金额) || 0)}</dd></>}
-                      {(Number(c.退费) || 0) > 0 && <><dt>退费</dt><dd class="font-mono">−{fmt(Number(c.退费) || 0)}</dd></>}
-                      <dt>已收</dt><dd class="font-mono">{fmt(Number(c.已收) || 0)}</dd>
-                      <dt>└ 已交付</dt><dd class="font-mono">{fmt(Number(c.已交付) || 0)}</dd>
-                      <dt>└ 预收余额</dt><dd class="font-mono">{fmt(Number(c.预收余额) || 0)}</dd>
+                      <dt>合同状态</dt><dd>{c.合同状态 ?? '—'}</dd>
+                      <dt>合同编号</dt><dd class="font-mono contract-detail__cid">{c.合同编号 ?? '—'}</dd>
                     </dl>
                   </details>
                 </li>
               ))}
             </ul>
-            <p class="meta-attachments__note">来源：财务 ERP（截至 2026-03 数据）。已交付 + 预收 = 已收。</p>
+            <p class="meta-attachments__note">来源：ERP 客户签约明细。</p>
           </>
         );
       })()}
@@ -549,7 +538,7 @@ const metaRows: Row[] = [
     line-height: 1.5;
   }
 
-  /* 合同明细 — sidebar collapsibles，财务 ERP 派生数据 */
+  /* 合同明细 — sidebar collapsibles，ERP 客户签约明细派生 */
   .contract-summary {
     display: grid;
     gap: 4px;
@@ -639,6 +628,11 @@ const metaRows: Row[] = [
   .contract-detail__fields dd {
     margin: 0;
     color: var(--text);
+  }
+  /* 合同编号 没有自然断点（P25AAB...）— allow break anywhere so it stays inside the 240px sidebar */
+  .contract-detail__cid {
+    word-break: break-all;
+    font-size: 10px;
   }
 
   /* 推荐工具 — sidebar collapsibles, each with a copy-to-clipboard script */
