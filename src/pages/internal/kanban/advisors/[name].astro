@@ -8,6 +8,7 @@
 import InternalLayout from '../../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../../lib/supabase/client';
 import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES, type RadarTier } from '../../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../../utils/cohort-filter';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -45,7 +46,8 @@ type Stu = {
   enroll_years: string[] | null;
   target_regions: string[] | null;
 };
-const allStudents = (rawStudents ?? []) as Stu[];
+// 全局入学届地板 — 早于 EARLIEST_TRACKED_COHORT 的学生不算（同 kanban / overview）
+const allStudents = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
 
 const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));

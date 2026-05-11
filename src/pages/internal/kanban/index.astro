@@ -11,6 +11,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
 import { findSOPByContract } from '../../../data/contract-sops';
 
 const viewer = Astro.locals?.viewer ?? null;
@@ -126,17 +127,27 @@ const activeContracts = allContracts.filter(c =>
   c.status === '已归档' && c.student_id != null
 );
 
-// Map student_id → primary 中期顾问 (first of mid_advisors[]). Multi-advisor
-// students get attributed to first advisor for revenue counting; we don't
-// double-count.
-const studentPrimaryAdvisor = new Map<number, string>();
-for (const s of allStudents) {
-  const advisors = s.mid_advisors || [];
-  if (advisors.length === 0) continue;
-  const primary = advisors[0];
-  if (ACTIVE_ADVISORS_SET.has(primary)) {
-    studentPrimaryAdvisor.set(s.id, primary);
-  }
+// ── 全局口径单一来源（2026-05-11 起统一）──
+//
+// students = 在管的"in-scope"学生集合。Inactive stage / 私单 / 入学届早于
+// EARLIEST_TRACKED_COHORT（见 src/utils/cohort-filter.ts）的学生统统不进
+// kanban 任何 widget。同一份过滤也在 /internal/ overview + advisor 钻取页应用。
+// 每年王世杰说升地板就改 utils/cohort-filter.ts 那一处。
+const students = allStudents.filter(s => {
+  if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
+  if (isPrivate(s.contracts)) return false;
+  if (!studentHasInScopeCohort(s.enroll_years)) return false;
+  return true;
+});
+
+// 单一归属图：student.id → 该学生所有在册的中期顾问。多顾问学生在每个顾问头上
+// 都重复计数（学生数 / ¥ / 合同数 / 沟通 都按这套口径，与 /internal/ chip 一致）。
+// 历史活动 heatmap 另有一份 allStudents-based 的 studentAdvisors map（行 569+），
+// 因为已结案学生的历史沟通仍需归属到当时的顾问。
+const studentAdvisorsInScope = new Map<number, string[]>();
+for (const s of students) {
+  const advs = (s.mid_advisors ?? []).filter(a => ACTIVE_ADVISORS_SET.has(a));
+  if (advs.length) studentAdvisorsInScope.set(s.id, advs);
 }
 
 // Product family bucketing — coalesce noisy template-with-OA-code categories
@@ -196,30 +207,32 @@ for (const adv of ACTIVE_ADVISORS) {
 const twelveWeeksAgo = new Date(Date.now() - 12 * 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
 for (const c of activeContracts) {
-  const adv = studentPrimaryAdvisor.get(c.student_id);
-  if (!adv) continue;
-  const stats = advisorStats.get(adv);
-  if (!stats) continue;
+  const advs = studentAdvisorsInScope.get(c.student_id);
+  if (!advs) continue;
   const amt = Number(c.signed_amount) || 0;
   const recent = c.signed_at && c.signed_at >= twelveWeeksAgo;
-
-  if (c.is_application) {
-    stats.liuxueStudents.add(c.student_id);
-    stats.liuxueContracts += 1;
-    stats.liuxueRevenue += amt;
-    if (recent) stats.liuxueRecent12wk += 1;
-  } else {
-    stats.productStudents.add(c.student_id);
-    stats.productContracts += 1;
-    stats.productRevenue += amt;
-    if (recent) stats.productRecent12wk += 1;
-    const family = productFamily(c.category, c.template_name);
-    if (!stats.productByFamily.has(family)) {
-      stats.productByFamily.set(family, { count: 0, revenue: 0 });
+  // 多顾问学生：每个顾问头上都加一次（¥ 双倍记，学生 Set 也都各收一份）
+  for (const adv of advs) {
+    const stats = advisorStats.get(adv);
+    if (!stats) continue;
+    if (c.is_application) {
+      stats.liuxueStudents.add(c.student_id);
+      stats.liuxueContracts += 1;
+      stats.liuxueRevenue += amt;
+      if (recent) stats.liuxueRecent12wk += 1;
+    } else {
+      stats.productStudents.add(c.student_id);
+      stats.productContracts += 1;
+      stats.productRevenue += amt;
+      if (recent) stats.productRecent12wk += 1;
+      const family = productFamily(c.category, c.template_name);
+      if (!stats.productByFamily.has(family)) {
+        stats.productByFamily.set(family, { count: 0, revenue: 0 });
+      }
+      const fam = stats.productByFamily.get(family)!;
+      fam.count += 1;
+      fam.revenue += amt;
     }
-    const fam = stats.productByFamily.get(family)!;
-    fam.count += 1;
-    fam.revenue += amt;
   }
 }
 
@@ -280,27 +293,27 @@ function fmtMoneyShort(n: number): string {
 }
 
 // ── Student-mix per advisor: 单留 / 双 / 单产 ──
-// Each vault student belongs to one advisor (mid_advisors[0]). We split that
-// advisor's students into 3 buckets based on what kinds of contracts they
-// have. Sum of buckets = total students. Shows whether advisor's clients are
-// shallow (single-product) vs deep (multi-purchase).
+// 多顾问学生在每个顾问名下都分一份 mix bucket（同 advisorStats 的双倍口径）。
+// Sum of buckets = 该顾问名下学生数 (= advisorStats[adv].liuxueStudents ∪ productStudents
+// 的 size，含无合同学生)。
 type StudentMix = { onlyLiuxue: number; both: number; onlyProduct: number; total: number };
 const advisorMix = new Map<string, StudentMix>();
 for (const adv of ACTIVE_ADVISORS) {
   advisorMix.set(adv, { onlyLiuxue: 0, both: 0, onlyProduct: 0, total: 0 });
 }
-for (const [studentId, adv] of studentPrimaryAdvisor.entries()) {
-  if (!ACTIVE_ADVISORS_SET.has(adv)) continue;
-  const stats = advisorStats.get(adv);
-  if (!stats) continue;
-  const hasLiuxue = stats.liuxueStudents.has(studentId);
-  const hasProduct = stats.productStudents.has(studentId);
-  const m = advisorMix.get(adv)!;
-  if (hasLiuxue && hasProduct) m.both += 1;
-  else if (hasLiuxue) m.onlyLiuxue += 1;
-  else if (hasProduct) m.onlyProduct += 1;
-  // students with NO contracts at all — count in total but not in mix buckets
-  m.total += 1;
+for (const [studentId, advs] of studentAdvisorsInScope.entries()) {
+  for (const adv of advs) {
+    const stats = advisorStats.get(adv);
+    if (!stats) continue;
+    const hasLiuxue = stats.liuxueStudents.has(studentId);
+    const hasProduct = stats.productStudents.has(studentId);
+    const m = advisorMix.get(adv)!;
+    if (hasLiuxue && hasProduct) m.both += 1;
+    else if (hasLiuxue) m.onlyLiuxue += 1;
+    else if (hasProduct) m.onlyProduct += 1;
+    // students with NO contracts at all — count in total but not in mix buckets
+    m.total += 1;
+  }
 }
 const advisorMixObj = (adv: string): StudentMix => advisorMix.get(adv) || { onlyLiuxue: 0, both: 0, onlyProduct: 0, total: 0 };
 
@@ -345,17 +358,19 @@ function buildWeeklyView(weeksBack: number): WeeklyView {
   }
   for (const c of activeContracts) {
     if (!c.signed_at) continue;
-    const adv = studentPrimaryAdvisor.get(c.student_id);
-    if (!adv) continue;
+    const advs = studentAdvisorsInScope.get(c.student_id);
+    if (!advs) continue;
     const wk = weekStart(c.signed_at.slice(0, 10));
     if (wk < earliest) continue;
-    const advMap = byAdvisor.get(adv);
-    if (!advMap || !advMap.has(wk)) continue;
-    const b = advMap.get(wk)!;
     const amt = Number(c.signed_amount) || 0;
-    b.revenue += amt;
-    b.count += 1;
-    totals.set(adv, (totals.get(adv) || 0) + amt);
+    for (const adv of advs) {
+      const advMap = byAdvisor.get(adv);
+      if (!advMap || !advMap.has(wk)) continue;
+      const b = advMap.get(wk)!;
+      b.revenue += amt;
+      b.count += 1;
+      totals.set(adv, (totals.get(adv) || 0) + amt);
+    }
   }
   const rows = Array.from(totals.entries())
     .sort((a, b) => b[1] - a[1])
@@ -387,15 +402,9 @@ function weeklyHeatColor(value: number, maxCell: number): string {
   return `rgba(4, 47, 36, ${alpha.toFixed(3)})`;
 }
 
-const studentsBeforeAdvisor = allStudents.filter(s => {
-  if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
-  if (isPrivate(s.contracts)) return false;  // 私单 全局藏
-  return true;
-});
-
-// Kanban is the team-comparison dashboard; no per-advisor filtering here.
-// (Per-advisor drill-down lives at /internal/kanban/advisors/[name].)
-const students = studentsBeforeAdvisor;
+// `students` + `studentAdvisorsInScope` 已在顶部定义（统一口径 单一来源）。
+// Kanban 是 team-comparison 看板，没有 per-advisor 过滤；个人钻取在
+// /internal/kanban/advisors/[name].
 
 function buildHref(advisor: string): string {
   return `/internal/kanban/advisors/${encodeURIComponent(advisor)}`;
@@ -694,9 +703,10 @@ if (tailFamiliesMonthly.size > 0) {
 // ──────────────────────────────────────────────────────
 const studentMeta = new Map<number, { name: string; advisor: string }>();
 for (const s of students) {
+  const advs = (s.mid_advisors ?? []).filter(a => ACTIVE_ADVISORS_SET.has(a));
   studentMeta.set(s.id, {
     name: s.name,
-    advisor: (s.mid_advisors && s.mid_advisors[0]) || '—',
+    advisor: advs.length ? advs.join(' / ') : '—',  // 多顾问全展示
   });
 }
 type StudentTotal = {
@@ -757,15 +767,18 @@ for (const w of PORTFOLIO_WINDOWS) {
   for (const adv of ACTIVE_ADVISORS) {
     perAdvisor.set(adv, { students: new Set(), revenue: 0, comms: 0 });
   }
-  // contracts within window
+  // contracts within window — 多顾问学生在每个顾问名下都计一次
   for (const c of activeContracts) {
     if (!c.signed_at || c.signed_at < cutoff) continue;
-    const adv = studentPrimaryAdvisor.get(c.student_id);
-    if (!adv) continue;
-    const e = perAdvisor.get(adv);
-    if (!e) continue;
-    e.students.add(c.student_id);
-    e.revenue += Number(c.signed_amount) || 0;
+    const advs = studentAdvisorsInScope.get(c.student_id);
+    if (!advs) continue;
+    const amt = Number(c.signed_amount) || 0;
+    for (const adv of advs) {
+      const e = perAdvisor.get(adv);
+      if (!e) continue;
+      e.students.add(c.student_id);
+      e.revenue += amt;
+    }
   }
   // notes + subs within window
   for (const n of (notes ?? [])) {
@@ -822,22 +835,29 @@ for (const c of allContracts) {
   if (!c.signed_at || c.signed_at < terminatedCutoff) continue;  // 2-year window
   // Only count 已归档 (在带) and 已终止 (退费) — exclude 已完成 from denominator.
   if (c.status !== '已归档' && c.status !== '已终止') continue;
-  const adv = studentPrimaryAdvisor.get(c.student_id);
-  if (!adv) continue;
-  advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
+  const advs = studentAdvisorsInScope.get(c.student_id);
+  if (!advs) continue;
+  const famKey = c.is_application ? '留学申请' : productFamily(c.category, c.template_name);
+  const amt = Number(c.signed_amount) || 0;
+  // 多顾问学生 → 每个顾问的分母都加 1（与该顾问的 advisorStats 合同数对齐）
+  for (const adv of advs) {
+    advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
+    if (c.status === '已终止') {
+      const e = terminatedByAdvisor.get(adv);
+      if (e) {
+        e.term += 1;
+        e.termRev += amt;
+      }
+    }
+  }
+  // by-family 桶只随合同算一次（这是产品维度，与顾问无关）
   if (c.status === '已终止') {
-    const e = terminatedByAdvisor.get(adv);
-    if (e) {
-      e.term += 1;
-      e.termRev += Number(c.signed_amount) || 0;
+    if (!terminatedByFamily.has(famKey)) {
+      terminatedByFamily.set(famKey, { count: 0, revenue: 0, isApp: c.is_application });
     }
-    const fam = c.is_application ? '留学申请' : productFamily(c.category, c.template_name);
-    if (!terminatedByFamily.has(fam)) {
-      terminatedByFamily.set(fam, { count: 0, revenue: 0, isApp: c.is_application });
-    }
-    const fe = terminatedByFamily.get(fam)!;
+    const fe = terminatedByFamily.get(famKey)!;
     fe.count += 1;
-    fe.revenue += Number(c.signed_amount) || 0;
+    fe.revenue += amt;
   }
 }
 const terminatedAdvisorRanked: TerminatedAdvisorRow[] = ACTIVE_ADVISORS.map(adv => {
@@ -911,9 +931,11 @@ const productDonut = buildDonut(productData, 12);
 // 关键：预收余额 是已收的子集，不是独立账户。已收 = 已交付 + 预收余额。
 // 总营收口径用 签约金额（ERP 权威值，已含选校/补充/扣减优惠）— 不再用 主合同-减钱 推算。
 //
-// 归属规则统一 mid_advisors[0] 主签约者，1 学生 1 行 metric 自洽。
-// 客单价 = 学生 sum(签约金额)
-// 优惠率 = sum(优惠减钱 + 优惠价值) / sum(主合同金额)
+// 归属规则与全局一致：多顾问学生在每位顾问名下都计一次（双倍口径，与
+// advisorStats / advisorMix / 周度签约 / portfolio / 退费 / 周报 enroll 统一）。
+// 客单价 = 学生 sum(签约金额)；优惠率 = sum(优惠减钱+优惠价值) / sum(主合同金额)
+// 注：已收 / 已交付 / 预收 / 优惠 字段从新版 ERP 客户签约明细 schema 起已不存在，
+//     下面相关 sum 都恒为 0；chartPayload 也已无消费方，留存仅作历史 schema 参考。
 type AdvisorPerf = {
   advisor: string;
   studentCount: number;
@@ -948,20 +970,23 @@ for (const s of students) {
     totalPrepay += Number(d['预收余额']) || 0;
   }
 
-  const primary = (s.mid_advisors ?? [])[0] ?? '未填';
-  if (!advisorPerfMap.has(primary)) {
-    advisorPerfMap.set(primary, {
-      advisor: primary, studentCount: 0, totalSigning: 0,
-      mainTotal: 0, discountCash: 0, discountTotal: 0, perStudentAmounts: [],
-    });
+  const advs = studentAdvisorsInScope.get(s.id);
+  if (!advs) continue;  // 学生不在 in-scope（无 active 顾问 / 私单 / 早于地板）
+  for (const adv of advs) {
+    if (!advisorPerfMap.has(adv)) {
+      advisorPerfMap.set(adv, {
+        advisor: adv, studentCount: 0, totalSigning: 0,
+        mainTotal: 0, discountCash: 0, discountTotal: 0, perStudentAmounts: [],
+      });
+    }
+    const e = advisorPerfMap.get(adv)!;
+    e.studentCount++;
+    e.totalSigning += studentSigning;
+    e.mainTotal += mainTotal;
+    e.discountCash += discountCash;
+    e.discountTotal += discountTotal;
+    e.perStudentAmounts.push(studentSigning);
   }
-  const e = advisorPerfMap.get(primary)!;
-  e.studentCount++;
-  e.totalSigning += studentSigning;
-  e.mainTotal += mainTotal;
-  e.discountCash += discountCash;
-  e.discountTotal += discountTotal;
-  e.perStudentAmounts.push(studentSigning);
 }
 
 const avgPerStudent = signedStudentCount ? Math.round(totalSigning / signedStudentCount) : 0;
@@ -1015,49 +1040,45 @@ const STAGE_COLORS: Record<string, string> = {
 // 周报 (weekly report) 数据集 — 替代图表 clone
 // 三张表：在管学生 enroll × advisor cross-tab / 上周签约 / 上周沟通
 // ──────────────────────────────────────────────────────
-// 24F/25F 列已删 (大部分顾问几乎为空 → 视觉留白; 那两届的学生也不进表)
+// 列与全局 cohort 地板对齐（见 EARLIEST_TRACKED_COHORT）。早于地板的学生在
+// `students` 过滤时已剔除，不会进到这里，所以不需要 __SKIP__ 特殊分支了。
 const ENROLL_COLS = ['26F', '27F', '28F', '29F', '待定'];
 
 function normalizeEnroll(raw: string | null | undefined): string {
   if (!raw) return '待定';
   const s = String(raw).trim();
   if (!s || s === '待定' || s === '5000 fall' || s.startsWith('5000')) return '待定';
-  // "2026 fall" → "26F", "2026" → "26F" (defensive)
   const m = s.match(/^(\d{4})/);
   if (m) {
-    const yy = m[1].slice(2);
-    const code = yy + 'F';
+    const code = m[1].slice(2) + 'F';
     if (ENROLL_COLS.includes(code)) return code;
-    // 24F/25F 学生: 直接 drop (不进矩阵, 不并入待定)
-    if (code === '24F' || code === '25F') return '__SKIP__';
-    return '待定';
+    return '待定';  // 兜底（理论不会触发，因为 students 已按 cohort 过滤过）
   }
   return '待定';
 }
 
-// Build enroll × advisor matrix. Only ACTIVE_ADVISORS, only vault students
-// (`students` is post 私单 + INACTIVE_STAGES filter).
-// 一个学生可能 enroll 多届 (e.g. 美本 transfer 申 2026F + 2027F) → 同时计入两列;
-// 与 stage × year heatmap 同口径.
+// Build enroll × advisor matrix.
+// 多顾问学生 → 每个顾问名下都计一次（与全局口径一致）。
+// 一个学生 multi-enroll（e.g. 美本 transfer 26F + 28F）→ 同时计入两列。
 type EnrollRow = { advisor: string; counts: number[]; total: number };
 const enrollMatrix = new Map<string, number[]>();
 for (const adv of ACTIVE_ADVISORS) {
   enrollMatrix.set(adv, new Array(ENROLL_COLS.length).fill(0));
 }
 for (const s of students) {
-  const adv = (s.mid_advisors || [])[0];
-  if (!adv || !ACTIVE_ADVISORS_SET.has(adv)) continue;
-  const years = (s.enroll_years && s.enroll_years.length > 0)
-    ? s.enroll_years
-    : [null];  // 没填 → "待定" 一行
-  const seen = new Set<number>();
+  const advs = studentAdvisorsInScope.get(s.id);
+  if (!advs) continue;
+  const years = (s.enroll_years && s.enroll_years.length > 0) ? s.enroll_years : [null];
+  // 该学生当前 enroll_years 落在哪些列（多届学生进多列；同列去重一次）
+  const cols = new Set<number>();
   for (const y of years) {
-    const yr = normalizeEnroll(y);
-    if (yr === '__SKIP__') continue;
-    const colIdx = ENROLL_COLS.indexOf(yr);
-    if (colIdx < 0 || seen.has(colIdx)) continue;
-    seen.add(colIdx);
-    enrollMatrix.get(adv)![colIdx] += 1;
+    const colIdx = ENROLL_COLS.indexOf(normalizeEnroll(y));
+    if (colIdx >= 0) cols.add(colIdx);
+  }
+  for (const adv of advs) {
+    const row = enrollMatrix.get(adv);
+    if (!row) continue;
+    for (const colIdx of cols) row[colIdx] += 1;
   }
 }
 const enrollByAdvisor: EnrollRow[] = ACTIVE_ADVISORS.map(adv => {
@@ -1096,17 +1117,21 @@ for (const c of activeContracts) {
   if (!c.signed_at) continue;
   const day = c.signed_at.slice(0, 10);
   if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
-  const adv = studentPrimaryAdvisor.get(c.student_id);
-  if (!adv) continue;
+  const advs = studentAdvisorsInScope.get(c.student_id);
+  if (!advs) continue;  // 学生不在 in-scope（私单 / inactive / 早于地板）→ 跳过
   const meta = studentMeta.get(c.student_id);
-  if (!meta) continue;  // 私单 student → skipped
-  weekSigningRows.push({
-    advisor: adv,
-    studentName: meta.name,
-    contractName: c.template_name || c.category || '—',
-    amount: Number(c.signed_amount) || 0,
-    isApplication: !!c.is_application,
-  });
+  if (!meta) continue;
+  // 多顾问学生 → 每个顾问名下都出一行（金额合计与 advisorStats 口径一致；
+  // 表头 "合计" 会比公司实际签约多算）
+  for (const adv of advs) {
+    weekSigningRows.push({
+      advisor: adv,
+      studentName: meta.name,
+      contractName: c.template_name || c.category || '—',
+      amount: Number(c.signed_amount) || 0,
+      isApplication: !!c.is_application,
+    });
+  }
 }
 weekSigningRows.sort((a, b) => b.amount - a.amount);
 const weekSigningTotalAmount = weekSigningRows.reduce((s, r) => s + r.amount, 0);
@@ -1117,11 +1142,15 @@ const weekCommMap = new Map<string, { count: number; students: Set<number> }>();
 for (const adv of ACTIVE_ADVISORS) {
   weekCommMap.set(adv, { count: 0, students: new Set() });
 }
+// 用 studentAdvisorsInScope（in-scope 学生）而不是 studentAdvisors（全员含已结案），
+// 保持与所有其他 widget 同一份口径。已结案 / 私单 / 早于地板的学生即使有上周
+// 沟通记录也不算（与 advisorStats 一致）。
 for (const n of (notes ?? [])) {
   const day = (n.note_date as string).slice(0, 10);
   if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
   const sid = n.student_id as number;
-  const advisorList = studentAdvisors.get(sid) || [];
+  const advisorList = studentAdvisorsInScope.get(sid);
+  if (!advisorList) continue;
   for (const a of advisorList) {
     const e = weekCommMap.get(a);
     if (e) { e.count += 1; e.students.add(sid); }
@@ -1131,7 +1160,8 @@ for (const sub of (subs ?? [])) {
   const day = (sub.submitted_at as string).slice(0, 10);
   if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
   const sid = sub.student_id as number;
-  const advisorList = studentAdvisors.get(sid) || [];
+  const advisorList = studentAdvisorsInScope.get(sid);
+  if (!advisorList) continue;
   for (const a of advisorList) {
     const e = weekCommMap.get(a);
     if (e) { e.count += 1; e.students.add(sid); }
@@ -1371,7 +1401,7 @@ function fmtMoney(n: number): string {
       <section data-panel="contracts" class="kanban-panel section-card is-active">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 学生归属 mid_advisors[0] · 仅在带（status=已归档，排除已完成/已终止）· hover 任一行联动其他两列</span>
+            合同分布 <span class="section-card__subtitle">在册 {ACTIVE_ADVISORS.length} 位中期 · 多顾问学生在每位顾问名下都计一次（¥ 同步双倍）· 仅在带（status=已归档，排除已完成/已终止）· hover 任一行联动其他两列</span>
           </h2>
         </div>
 

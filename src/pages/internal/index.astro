@@ -12,6 +12,7 @@ import {
   tierFor, tierStyle, tierLabel, daysSinceToday,
   inTriage, tierRank, isInactive, type RadarTier,
 } from '../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../utils/cohort-filter';
 
 const url = new URL(Astro.request.url);
 const includeInactive = url.searchParams.get('include_inactive') === '1';
@@ -96,6 +97,10 @@ let students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s 
 if (!canSeePrivate) {
   students = students.filter(s => !isPrivate(s.contracts));
 }
+
+// 全局入学届地板 — 早于 EARLIEST_TRACKED_COHORT 的学生不算（同 kanban / 周报）。
+// 单一来源在 src/utils/cohort-filter.ts，每年王世杰说升地板时改那一处。
+students = students.filter(s => studentHasInScopeCohort(s.enroll_years));
 
 // Per-focus filter (for stat strip + triage). When advisorFilter is set, narrow to
 // students who have that advisor in their mid_advisors array (multi-counted).
