@@ -2783,13 +2783,18 @@ function fmtMoney(n: number): string {
         return '¥' + Math.round(v).toLocaleString();
       }
       function dateRangeLabel() {
+        // 周报覆盖「最近一次完整周一→周日」。
+        // 周一导出 (e.g. 5/11) → 上周一 5/4 至 上周日 5/10
+        // 周日导出 (e.g. 5/17) → 还是 5/4 至 5/10（当前这周还没完）
         const today = new Date();
-        const day = today.getDay();
-        const offset = day === 0 ? -6 : 1 - day;
-        const monday = new Date(today);
-        monday.setDate(today.getDate() + offset);
+        const day = today.getDay();  // 0=Sun, 1=Mon, ..., 6=Sat
+        const daysToLastSunday = day === 0 ? 7 : day;
+        const lastSunday = new Date(today);
+        lastSunday.setDate(today.getDate() - daysToLastSunday);
+        const lastMonday = new Date(lastSunday);
+        lastMonday.setDate(lastSunday.getDate() - 6);
         const fmt = (d) => `${d.getMonth() + 1}/${d.getDate()}`;
-        return `${fmt(monday)} – ${fmt(today)}`;
+        return `${fmt(lastMonday)} – ${fmt(lastSunday)}`;
       }
 
       // ── Section index counter (resets each generate) ──
@@ -4746,11 +4751,14 @@ function fmtMoney(n: number): string {
     .rep-header__pill {
       font-size: 13px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       color: white;
       background: #042f24;
-      padding: 9px 18px;
+      /* padding-right > padding-left — letter-spacing 给最后一个字符也加 trailing gap,
+         html-to-image foreignObject 渲染时容易把右边切掉一截。多留 8px 右内边距 + 微缩
+         letter-spacing 给字两侧留呼吸感。 */
+      padding: 11px 24px 11px 18px;
       border-radius: 4px;
       font-family: 'Manrope', 'SF Mono', monospace;
       white-space: nowrap;
