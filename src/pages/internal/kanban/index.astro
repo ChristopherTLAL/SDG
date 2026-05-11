@@ -328,8 +328,10 @@ type WeeklyRow = { advisor: string; cells: WeekBucket[]; total: number };
 type WeeklyView = { weekLabels: string[]; rows: WeeklyRow[]; maxCell: number };
 
 function buildWeeklyView(weeksBack: number): WeeklyView {
+  // i ∈ [weeksBack ... 1]：latest cell = todayMonday - 7d（上周一）。
+  // 跳过 i = 0（本周 Mon），因为本周数据还在累计中，画出来是空 / 偏低柱子，误导。
   const labels: string[] = [];
-  for (let i = weeksBack - 1; i >= 0; i--) {
+  for (let i = weeksBack; i >= 1; i--) {
     const d = new Date(todayMonday);
     d.setUTCDate(d.getUTCDate() - i * 7);
     labels.push(d.toISOString().slice(0, 10));
@@ -543,8 +545,10 @@ function fmtWeekLabel(d: Date): string {
   return `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`;
 }
 const weekStartToday = startOfWeek(TODAY);
+// 同 buildWeeklyView：i 从 12 到 1，跳过 0（本周 Mon），latest cell = 上周 Mon。
+// 本周还在累计，画出来是空 / 偏低柱子，误导。
 const weeks: { start: string; label: string }[] = [];
-for (let i = 11; i >= 0; i--) {
+for (let i = 12; i >= 1; i--) {
   const d = new Date(weekStartToday);
   d.setDate(weekStartToday.getDate() - i * 7);
   weeks.push({ start: isoDate(d), label: fmtWeekLabel(d) });
@@ -1009,7 +1013,7 @@ const STAGE_COLORS: Record<string, string> = {
 
 // ──────────────────────────────────────────────────────
 // 周报 (weekly report) 数据集 — 替代图表 clone
-// 三张表：在管学生 enroll × advisor cross-tab / 本周签约 / 本周沟通
+// 三张表：在管学生 enroll × advisor cross-tab / 上周签约 / 上周沟通
 // ──────────────────────────────────────────────────────
 // 24F/25F 列已删 (大部分顾问几乎为空 → 视觉留白; 那两届的学生也不进表)
 const ENROLL_COLS = ['26F', '27F', '28F', '29F', '待定'];
@@ -1065,8 +1069,21 @@ const enrollColTotals = ENROLL_COLS.map((_, i) =>
 );
 const enrollGrandTotal = enrollColTotals.reduce((a, b) => a + b, 0);
 
-// Past 7 days signings, by advisor (rows = each signed contract, sorted by amount DESC)
-const SEVEN_DAYS_AGO = isoDate(new Date(Date.now() - 7 * 86400000));
+// 上周 (last complete Mon→Sun) signings, by advisor.
+// 用「上次完整周一→周日」而非「过去 7 天滚动窗口」：本周 Mon 早上数据
+// 通常还没录入，rolling window 会把这周 0 行算进 ¥/天，误导;同时周报
+// 描述的就是上完整周，用精确边界更自洽。
+const lastSundayDate = new Date(TODAY);
+{
+  const day = TODAY.getDay();  // 0=Sun, 1=Mon, ..., 6=Sat
+  const daysBackToLastSunday = day === 0 ? 7 : day;
+  lastSundayDate.setDate(TODAY.getDate() - daysBackToLastSunday);
+}
+const lastMondayDate = new Date(lastSundayDate);
+lastMondayDate.setDate(lastSundayDate.getDate() - 6);
+const LAST_WEEK_START = isoDate(lastMondayDate);
+const LAST_WEEK_END = isoDate(lastSundayDate);
+
 type SigningRow = {
   advisor: string;
   studentName: string;
@@ -1076,7 +1093,9 @@ type SigningRow = {
 };
 const weekSigningRows: SigningRow[] = [];
 for (const c of activeContracts) {
-  if (!c.signed_at || c.signed_at < SEVEN_DAYS_AGO) continue;
+  if (!c.signed_at) continue;
+  const day = c.signed_at.slice(0, 10);
+  if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
   const adv = studentPrimaryAdvisor.get(c.student_id);
   if (!adv) continue;
   const meta = studentMeta.get(c.student_id);
@@ -1092,7 +1111,7 @@ for (const c of activeContracts) {
 weekSigningRows.sort((a, b) => b.amount - a.amount);
 const weekSigningTotalAmount = weekSigningRows.reduce((s, r) => s + r.amount, 0);
 
-// Past 7 days student communication, by advisor
+// 上周 (last complete Mon→Sun) student communication, by advisor.
 type CommRow = { advisor: string; count: number; students: number; perDay: string };
 const weekCommMap = new Map<string, { count: number; students: Set<number> }>();
 for (const adv of ACTIVE_ADVISORS) {
@@ -1100,7 +1119,7 @@ for (const adv of ACTIVE_ADVISORS) {
 }
 for (const n of (notes ?? [])) {
   const day = (n.note_date as string).slice(0, 10);
-  if (day < SEVEN_DAYS_AGO) continue;
+  if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
   const sid = n.student_id as number;
   const advisorList = studentAdvisors.get(sid) || [];
   for (const a of advisorList) {
@@ -1110,7 +1129,7 @@ for (const n of (notes ?? [])) {
 }
 for (const sub of (subs ?? [])) {
   const day = (sub.submitted_at as string).slice(0, 10);
-  if (day < SEVEN_DAYS_AGO) continue;
+  if (day < LAST_WEEK_START || day > LAST_WEEK_END) continue;
   const sid = sub.student_id as number;
   const advisorList = studentAdvisors.get(sid) || [];
   for (const a of advisorList) {
@@ -2497,8 +2516,8 @@ function fmtMoney(n: number): string {
       // 3 fixed data widgets — clean HTML tables, no chart cloning
       const DATA_WIDGETS = [
         { id: 'enroll',   label: '在管学生分布（入学届 × 中期）' },
-        { id: 'signings', label: '本周新签约（按顾问）' },
-        { id: 'comms',    label: '本周学生沟通（按顾问）' },
+        { id: 'signings', label: '上周新签约（按顾问）' },
+        { id: 'comms',    label: '上周学生沟通（按顾问）' },
       ];
 
       // Default templates for top + bottom fixed text sections
@@ -2991,19 +3010,19 @@ function fmtMoney(n: number): string {
         canvas.appendChild(block);
       }
 
-      // ── 数据表 2: 本周新签约 (按顾问) ──
+      // ── 数据表 2: 上周新签约 (按顾问) ──
       function renderSigningsTable(canvas, note) {
         const w = (payload.weekly && payload.weekly) || {};
         const rows = w.signings || [];
         const total = w.signingTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('This Week · New Contracts', '本周新签约', 'amber'));
+        block.appendChild(makeSectionHead('Last Week · New Contracts', '上周新签约', 'amber'));
 
         if (rows.length === 0) {
           const p = document.createElement('p');
           p.className = 'rep-block__empty';
-          p.textContent = '本周暂无新签约。';
+          p.textContent = '上周暂无新签约。';
           block.appendChild(p);
           const ne = makeNote(note); if (ne) block.appendChild(ne);
           canvas.appendChild(block);
@@ -3068,14 +3087,14 @@ function fmtMoney(n: number): string {
         canvas.appendChild(block);
       }
 
-      // ── 数据表 3: 本周学生沟通 (按顾问) ──
+      // ── 数据表 3: 上周学生沟通 (按顾问) ──
       function renderCommsTable(canvas, note) {
         const w = (payload.weekly && payload.weekly) || {};
         const rows = w.comms || [];
         const total = w.commTotal || 0;
         const block = document.createElement('section');
         block.className = 'rep-block';
-        block.appendChild(makeSectionHead('This Week · Communications', '本周学生沟通', 'rose'));
+        block.appendChild(makeSectionHead('Last Week · Communications', '上周学生沟通', 'rose'));
 
         const t = document.createElement('table');
         t.className = 'rep-table rep-table--list';
