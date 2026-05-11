@@ -830,28 +830,49 @@ for (const adv of ACTIVE_ADVISORS) {
 }
 const terminatedByFamily = new Map<string, { count: number; revenue: number; isApp: boolean }>();
 
+// 退费分析专用归属：不走全局 studentAdvisorsInScope，原因有二
+//
+// 1. 数据完整性：退费 case 的学生大多已转 stage='退费' / '已结案'，被 INACTIVE_STAGES
+//    过滤掉，studentAdvisorsInScope 里查不到 → 历史退费会大面积消失。
+// 2. 业务正确性：退费是一个 contract-level 失败事件，应该归到「签约那一刻的中期」，
+//    而不是双倍记给当前所有 mid_advisors。
+//
+// 归属链：
+//   ① c.mid_advisor（ERP 签约时的中期）   ← 首选，64% 已归档合同有此字段
+//   ② allStudents 里 mid_advisors[0]（当前主顾问）  ← fallback，覆盖 ERP 没填的老合同
+//   ③ 都查不到 → skip（无可归属，比错归好）
+const allStudentPrimaryAdvisor = new Map<number, string>();
+for (const s of allStudents) {  // allStudents：含已结案 / 退费 / 已完成
+  const primary = (s.mid_advisors ?? [])[0];
+  if (primary && ACTIVE_ADVISORS_SET.has(primary)) {
+    allStudentPrimaryAdvisor.set(s.id, primary);
+  }
+}
+function resolveTerminationAdvisor(c: ContractRow): string | null {
+  if (c.mid_advisor && ACTIVE_ADVISORS_SET.has(c.mid_advisor)) return c.mid_advisor;
+  if (c.student_id != null) {
+    return allStudentPrimaryAdvisor.get(c.student_id) ?? null;
+  }
+  return null;
+}
+
 for (const c of allContracts) {
-  if (!c.student_id) continue;
   if (!c.signed_at || c.signed_at < terminatedCutoff) continue;  // 2-year window
   // Only count 已归档 (在带) and 已终止 (退费) — exclude 已完成 from denominator.
   if (c.status !== '已归档' && c.status !== '已终止') continue;
-  const advs = studentAdvisorsInScope.get(c.student_id);
-  if (!advs) continue;
+  const adv = resolveTerminationAdvisor(c);
+  if (!adv) continue;
   const famKey = c.is_application ? '留学申请' : productFamily(c.category, c.template_name);
   const amt = Number(c.signed_amount) || 0;
-  // 多顾问学生 → 每个顾问的分母都加 1（与该顾问的 advisorStats 合同数对齐）
-  for (const adv of advs) {
-    advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
-    if (c.status === '已终止') {
-      const e = terminatedByAdvisor.get(adv);
-      if (e) {
-        e.term += 1;
-        e.termRev += amt;
-      }
-    }
-  }
-  // by-family 桶只随合同算一次（这是产品维度，与顾问无关）
+  // 单一归属：每合同只算一次（分子分母对齐，退费率不被多顾问稀释 / 放大）
+  advisorTotalCount.set(adv, (advisorTotalCount.get(adv) || 0) + 1);
   if (c.status === '已终止') {
+    const e = terminatedByAdvisor.get(adv);
+    if (e) {
+      e.term += 1;
+      e.termRev += amt;
+    }
+    // by-family 桶也只随合同算一次（产品维度，与顾问无关）
     if (!terminatedByFamily.has(famKey)) {
       terminatedByFamily.set(famKey, { count: 0, revenue: 0, isApp: c.is_application });
     }
@@ -1698,7 +1719,7 @@ function fmtMoney(n: number): string {
       <section data-panel="terminated" class="kanban-panel section-card">
         <div class="section-card__header">
           <h2 class="font-headline section-card__title">
-            退费分析 <span class="section-card__subtitle">近 2 年（按签约日）· 合同状态 = 已终止 · 退费率 = 终止数 / (终止+在带) · 仅 vault 在管学生</span>
+            退费分析 <span class="section-card__subtitle">近 2 年（按签约日）· 合同状态 = 已终止 · 退费率 = 终止数 / (终止+在带) · 归属 = 合同签约中期（ERP），fallback 当前主顾问 · 每合同单一归属（不双倍）· 含历史已结案学生</span>
           </h2>
         </div>
 
