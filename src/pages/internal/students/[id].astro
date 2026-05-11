@@ -115,6 +115,7 @@ const metaRows: Row[] = [
 ---
 
 <InternalLayout title={student.name} active="students">
+  <link rel="stylesheet" href="/styles/tufte-notes.css" />
   <a href="/internal/students" class="back-link">← Students</a>
 
   <div class="sd-header">
@@ -410,6 +411,39 @@ const metaRows: Row[] = [
         });
       </script>
 
+      <script is:inline>
+        // Tufte 视图 toggle：状态持久化到 localStorage，全局应用到所有 .sd-note .md-body
+        (function () {
+          const KEY = 'sdg.tufte-notes-mode';
+          function apply(on) {
+            document.querySelectorAll('.sd-note .md-body').forEach((el) => {
+              el.classList.toggle('tufte-body', on);
+            });
+            const btn = document.getElementById('tufte-toggle');
+            if (btn) {
+              btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+              btn.classList.toggle('is-active', on);
+            }
+          }
+          function init() {
+            const saved = localStorage.getItem(KEY) === 'on';
+            apply(saved);
+            const btn = document.getElementById('tufte-toggle');
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+              const next = btn.getAttribute('aria-pressed') !== 'true';
+              localStorage.setItem(KEY, next ? 'on' : 'off');
+              apply(next);
+            });
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+          } else {
+            init();
+          }
+        })();
+      </script>
+
       <section class="sd-main">
         <div class="meta-eyebrow" style="margin-bottom: 12px;">主档案</div>
         {mainHtml ? (
@@ -420,13 +454,28 @@ const metaRows: Row[] = [
       </section>
 
       {renderedNotes.length > 0 && (
-        <section>
-          <div class="meta-eyebrow" style="margin-bottom: 12px;">沟通记录 ({renderedNotes.length})</div>
+        <section id="notes-section">
+          <div class="notes-section__head">
+            <div class="meta-eyebrow">沟通记录 ({renderedNotes.length})</div>
+            <button type="button" id="tufte-toggle" class="tufte-toggle" aria-pressed="false" title="切换 Tufte 风格视图（斜体标题 / 淡蓝高亮 / 旁注）">
+              <span class="material-symbols-outlined">format_color_text</span>
+              <span class="tufte-toggle__label">Tufte 视图</span>
+            </button>
+          </div>
           {renderedNotes.map(n => (
             <article id={n.anchor} class="sd-note">
               <header class="sd-note__header">
                 <h3 class="font-headline sd-note__title">{n.note_name}</h3>
-                {n.note_date && <span class="font-mono sd-note__date">{n.note_date}</span>}
+                <div class="sd-note__meta">
+                  {n.note_date && <span class="font-mono sd-note__date">{n.note_date}</span>}
+                  <a class="sd-note__export"
+                     href={`/internal/students/${student.id}/notes/${n.anchor}`}
+                     target="_blank" rel="noopener"
+                     title="导出 Tufte 风格 PDF（新页打开后 Cmd+P 保存）">
+                    <span class="material-symbols-outlined">picture_as_pdf</span>
+                    导出
+                  </a>
+                </div>
               </header>
               <div class="md-body" set:html={n.html} />
             </article>
@@ -998,6 +1047,65 @@ const metaRows: Row[] = [
     font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.01em;
+  }
+  .sd-note__meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .sd-note__export {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: white;
+    transition: all 0.15s ease;
+  }
+  .sd-note__export:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.02);
+  }
+  .sd-note__export .material-symbols-outlined {
+    font-size: 14px;
+  }
+  .notes-section__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .tufte-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .tufte-toggle:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+  .tufte-toggle.is-active {
+    color: white;
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  .tufte-toggle .material-symbols-outlined {
+    font-size: 14px;
   }
   .sd-note__date {
     font-size: 11px;

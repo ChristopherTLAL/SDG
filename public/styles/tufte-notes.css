@@ -1,0 +1,219 @@
+/* Tufte-style 沟通记录 渲染样式
+ *
+ * 端到端移植自 王世杰 Obsidian vault 的 tufte-style.css。改动：
+ *  - 选择器 .markdown-preview-view → .tufte-body（用 toggle 或导出页加这个 class）
+ *  - Obsidian 变量 var(--text-normal) → 项目的 var(--text)（InternalLayout 已定义）
+ *  - 屏幕端：保留原始 0.7rem 字号；旁注右侧 absolute 定位
+ *  - 打印端：A4 排版 + 旁注移到 padding 区，导出 PDF 用
+ *
+ * 用法：
+ *   <div class="md-body tufte-body" set:html={...} />
+ * 切回默认：去掉 tufte-body class。
+ */
+
+/* =======================================================
+   核心 Tufte 布局：缩字号 + 留右 padding 给旁注
+   ======================================================= */
+.tufte-body {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-left: 16px;
+  padding-right: 240px;  /* 给右侧旁注留 240px 轨道（学生页主区约 720px 可用） */
+  padding-top: 16px;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+/* > 引用块 → 自动浮到右侧 sidebar，作为 Tufte 旁注 */
+.tufte-body blockquote {
+  border-left: none;
+  color: inherit;
+  margin-top: -3.3em;
+  margin-bottom: 0;
+  position: absolute;
+  right: 8px;
+  width: 210px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding: 0;
+  background: none;
+}
+.tufte-body blockquote p {
+  margin: 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* 标题：斜体、不加粗（Tufte 招牌） */
+.tufte-body h1,
+.tufte-body h2,
+.tufte-body h3,
+.tufte-body h4,
+.tufte-body h5,
+.tufte-body h6 {
+  font-style: italic;
+  font-weight: normal;
+  font-family: inherit;
+  border: none;
+  padding: 0;
+  margin: 1.2em 0 0.4em;
+}
+.tufte-body h1 { font-size: 1.7em; }
+.tufte-body h2 { font-size: 1.4em; }
+.tufte-body h3 { font-size: 1.2em; }
+.tufte-body h4 { font-size: 1.1em; }
+.tufte-body h5 { font-size: 1em; }
+.tufte-body h6 { font-size: 0.9em; }
+
+/* **加粗** → 淡蓝荧光高亮（不加粗） */
+.tufte-body strong,
+.tufte-body b {
+  font-weight: inherit;
+  background-image: linear-gradient(transparent 0%, rgba(228, 235, 242, 1) 0);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.1em;
+  border-radius: 20px;
+}
+
+/* 三线表：粗顶粗底、细分隔；斜体表头；紧凑 padding */
+.tufte-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1em 0;
+  width: 100%;
+  font-size: 0.85em;
+  border-top: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+}
+.tufte-body table th {
+  text-align: left;
+  padding: 0.3em 0.6em;
+  font-weight: normal;
+  font-style: italic;
+  border: none;
+  border-bottom: 1px solid var(--text);
+}
+.tufte-body table td {
+  padding: 0.3em 0.6em;
+  text-align: left;
+  vertical-align: middle;
+  border: none;
+  line-height: 1.4;
+}
+.tufte-body table tr {
+  border: none;
+  background: none;
+}
+
+/* 列表 / 代码块：温和处理 */
+.tufte-body ul,
+.tufte-body ol {
+  padding-left: 1.2em;
+  margin: 0.6em 0;
+}
+.tufte-body code {
+  font-size: 0.85em;
+  padding: 0.1em 0.3em;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+}
+.tufte-body pre {
+  font-size: 0.8em;
+  padding: 0.8em 1em;
+  background: rgba(0, 0, 0, 0.03);
+  border-left: 2px solid var(--text-muted);
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+/* =======================================================
+   打印端：A4 PDF 排版（导出页 Cmd+P 用这个）
+   ======================================================= */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 18mm 14mm 18mm;
+  }
+
+  :root {
+    --sidebar: 50mm;
+    --note-width: 40mm;
+    --gutter: -50mm;
+  }
+
+  /* 打印时隐藏非内容元素（导航 / toggle / 链接按钮等） */
+  body > *:not(.tufte-export-root),
+  .tufte-export-root > *:not(.tufte-export-paper) {
+    display: none !important;
+  }
+
+  .tufte-export-paper {
+    box-shadow: none !important;
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    max-width: none !important;
+  }
+
+  /* 关键定位上下文 */
+  .tufte-body,
+  .tufte-body * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .tufte-body {
+    position: relative !important;
+    font-size: 10pt !important;
+    line-height: 1.4 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: var(--sidebar) !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tufte-body blockquote {
+    position: absolute !important;
+    right: var(--gutter) !important;
+    width: var(--note-width) !important;
+    margin: -3em 0 0 0 !important;
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+    padding: 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    z-index: 2;
+  }
+
+  .tufte-body > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tufte-body table {
+    border-top: 1.5pt solid black !important;
+    border-bottom: 1.5pt solid black !important;
+    font-size: 8.5pt !important;
+  }
+  .tufte-body table th {
+    border-bottom: 1pt solid black !important;
+    color: black !important;
+    padding: 1mm 1.5mm !important;
+  }
+  .tufte-body table td {
+    color: black !important;
+    padding: 1mm 1.5mm !important;
+  }
+  .tufte-body table tr {
+    page-break-inside: avoid;
+  }
+}

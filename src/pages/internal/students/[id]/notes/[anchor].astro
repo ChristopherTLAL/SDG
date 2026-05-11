@@ -1,0 +1,204 @@
+---
+// 单条沟通记录的独立导出页 — Tufte 风格、A4 print 友好。
+// URL: /internal/students/:id/notes/:anchor
+// Cmd+P 即可保存为 PDF。
+import { supabase } from '../../../../../lib/supabase/client';
+import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../../../utils/wikilinks';
+import { preprocessCallouts } from '../../../../../utils/callouts';
+import { marked } from 'marked';
+
+const { id, anchor } = Astro.params;
+const studentId = Number(id);
+if (!Number.isFinite(studentId) || !anchor) {
+  return new Response('Bad URL', { status: 400 });
+}
+
+const { data: student, error: studentErr } = await supabase
+  .from('students')
+  .select('id, name, mid_advisors')
+  .eq('id', studentId)
+  .single();
+
+if (studentErr || !student) {
+  return new Response(`Student ${studentId} not found`, { status: 404 });
+}
+
+const { data: notes } = await supabase
+  .from('student_notes')
+  .select('note_name, body_md, note_date, obsidian_path')
+  .eq('student_id', studentId);
+
+const targetNote = (notes ?? []).find(n => noteAnchor(n.note_name) === anchor);
+if (!targetNote) {
+  return new Response('Note not found', { status: 404 });
+}
+
+// Wikilink index (scoped to all students + all notes) so `[[...]]` 内部交叉 still resolves.
+const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
+const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
+const wikiIndex = buildWikilinkIndex({
+  students: allStudents ?? [],
+  notes: allNotes ?? [],
+});
+
+marked.setOptions({ gfm: true, breaks: true });
+const html = (() => {
+  const md = targetNote.body_md ?? '';
+  if (!md.trim()) return '';
+  const w = resolveWikilinks(md, wikiIndex);
+  const c = preprocessCallouts(w);
+  return marked.parse(c) as string;
+})();
+
+const advisor = (student.mid_advisors ?? [])[0] ?? '—';
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{student.name} · {targetNote.note_name}</title>
+    <link rel="stylesheet" href="/styles/tufte-notes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" />
+    <style is:global>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #f5f5f3;
+        font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
+        color: #1a1a1a;
+      }
+      .tufte-export-root {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+      }
+      .tufte-export-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 12px;
+        color: #555;
+      }
+      .tufte-export-toolbar a {
+        color: #555;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .tufte-export-toolbar a:hover { color: #000; }
+      .tufte-export-toolbar button {
+        font-size: 12px;
+        padding: 6px 14px;
+        background: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .tufte-export-toolbar button:hover { background: #1a1a1a; }
+      .tufte-export-paper {
+        background: white;
+        max-width: 794px;  /* A4 width @ 96dpi */
+        margin: 0 auto;
+        padding: 32px 48px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+      }
+      .tufte-export-meta {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tufte-export-meta__line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        font-size: 11px;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .tufte-export-meta__title {
+        font-family: 'Manrope', sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 1.9em;
+        margin: 8px 0 4px;
+        line-height: 1.1;
+      }
+      .tufte-export-meta__sub {
+        font-size: 12px;
+        color: #555;
+      }
+      .tufte-export-empty {
+        color: #999;
+        font-style: italic;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      @media print {
+        html, body { background: white; }
+        .tufte-export-root {
+          max-width: none;
+          margin: 0;
+          padding: 0;
+        }
+        .tufte-export-toolbar { display: none !important; }
+        .tufte-export-paper {
+          box-shadow: none;
+          border-radius: 0;
+          max-width: none;
+          padding: 0;
+        }
+        .tufte-export-meta {
+          border-bottom: 1.5pt solid black;
+          margin-bottom: 6mm;
+          padding-bottom: 4mm;
+        }
+        .tufte-export-meta__line { font-size: 8pt; }
+        .tufte-export-meta__title { font-size: 18pt; }
+        .tufte-export-meta__sub { font-size: 9pt; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tufte-export-root">
+      <div class="tufte-export-toolbar">
+        <a href={`/internal/students/${student.id}`}>
+          <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
+          返回 {student.name} 主页
+        </a>
+        <button type="button" onclick="window.print()">
+          <span class="material-symbols-outlined" style="font-size:14px;vertical-align:-2px;">print</span>
+          打印 / 保存 PDF
+        </button>
+      </div>
+      <div class="tufte-export-paper">
+        <header class="tufte-export-meta">
+          <div class="tufte-export-meta__line">
+            <span>{student.name} · 沟通记录</span>
+            <span>{advisor}</span>
+          </div>
+          <h1 class="tufte-export-meta__title">{targetNote.note_name}</h1>
+          {targetNote.note_date && (
+            <div class="tufte-export-meta__sub font-mono">{targetNote.note_date}</div>
+          )}
+        </header>
+        {html ? (
+          <div class="tufte-body" set:html={html} />
+        ) : (
+          <div class="tufte-export-empty">这条 note 正文是空的。</div>
+        )}
+      </div>
+    </div>
+  </body>
+</html>
