@@ -34,6 +34,10 @@ CLAUDE.md
 # Write-article skill workspace (eval outputs, grading, benchmarks)
 write-article-workspace/
 
+# MDPA result raw JSONs at repo root (fetched via scripts/fetch_mdpa.mjs)
+# Contain studentName / studentEmail / studentBackground / full scoring — PII.
+mdpa_result_*.json
+
 # MDPA report outputs (contain student PII — do NOT push)
 scripts/mdpa_processed/
 
