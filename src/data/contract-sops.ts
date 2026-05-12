@@ -46,6 +46,16 @@ export type ContractSOP = {
   // 跳过有 tierMatch 的 SOP，落到 yueling-default catch-all。
   tierMatch?: string;
 
+  // ── 严格 名称 校验（for 亚英系） ──
+  // 用于一个 短名 (e.g. '亚洲英语系高端') 在同 大类 下混了多种产品的场景：
+  //   - "亚洲英文授课申请服务合同（港-A-3...）"  便宜版，无中期，不该走此 SOP
+  //   - "亚洲英语系高端申请A计划项目..."         中期版，应走此 SOP
+  //   - "欧亚学术指导CLUB..."                    addon，不该走此 SOP
+  // 这个字段让 findSOPsForStudent 拿到 student.contract_details 时，多一步
+  // 「检查这个学生在该 大类 下至少有一条合同的 名称 匹配此正则」。不匹配
+  // 就 skip 这个 SOP（视为该学生其实没买中期版）。
+  requiresContractNamePattern?: RegExp;
+
   // ── Hero fields (rendered on /internal/kanban/contracts/[name]) ──
   // All optional — placeholder shown if missing. Fill in as you confirm
   // the values; safe to ship with these blank.
@@ -1023,6 +1033,12 @@ export const SOPS: ContractSOP[] = [
     displayName: '亚洲英语系高端硕士申请',
     groupName: '亚洲英语系高端',
     matchPatterns: ['亚洲英语系高端'],
+    // 大类 '亚洲英语系高端' 同时套了 3 种产品：
+    //   ✓ A/B/C 计划项目（含中期）         — 名称含 'A计划'/'B计划'/'C计划'
+    //   ✗ 亚洲英文授课系列（便宜版，无中期）— 名称如 '港-A-3'/'新-A-5'，靠其他合同的中期
+    //   ✗ 欧亚学术指导 CLUB（addon）       — 名称含 'CLUB'
+    // 这个正则把后两种过滤掉，只对真正含中期的 A/B/C 学生显示 11 个 deliverable。
+    requiresContractNamePattern: /[ABC]计划/,
     deliverables: [
       yayingKickoff,
       yayingBrainstormFeedback,
@@ -1232,6 +1248,7 @@ export type MatchedSOP = {
 export function findSOPsForStudent(
   contracts: string[] | null | undefined,
   yuelingTier?: string | null,
+  contractDetails?: Array<{ 大类?: string | null; 名称?: string | null }> | null,
 ): MatchedSOP[] {
   if (!contracts || contracts.length === 0) return [];
   const matched: MatchedSOP[] = [];
@@ -1242,6 +1259,15 @@ export function findSOPsForStudent(
       // 没 tierMatch 的 SOP 是 fallback / 跃领系外的常规 SOP，照常匹配。
       if (sop.tierMatch && sop.tierMatch !== yuelingTier) continue;
       if (sop.matchPatterns.some(p => c.includes(p))) {
+        // requiresContractNamePattern 严格 名称 校验：同 大类 下混了不同产品
+        // 时，要求至少有一条合同的 名称 匹配这个正则才让 SOP 上线。
+        // 没传 contractDetails 时跳过这步（保持向后兼容）。
+        if (sop.requiresContractNamePattern && contractDetails && contractDetails.length) {
+          const matchesPattern = contractDetails.some(d =>
+            d.大类 === c && d.名称 && sop.requiresContractNamePattern!.test(d.名称),
+          );
+          if (!matchesPattern) break;
+        }
         if (!seenSopIds.has(sop.id)) {
           matched.push({ sop, contractName: c });
           seenSopIds.add(sop.id);

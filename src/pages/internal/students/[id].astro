@@ -67,8 +67,8 @@ const renderedNotes = (notes ?? []).map(n => ({
 // m.contractName here is the short label from student.contracts (e.g. 格物-半年);
 // contract_details[].大类 uses the same short label, so we match on that to pull
 // the ERP 合同编号 (e.g. JSSZYZ202501028) for the 结案邮件 placeholder.
-const contractDetailsArr = (student.contract_details ?? []) as Array<{ 大类?: string; 合同编号?: string }>;
-const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier).map(m => {
+const contractDetailsArr = (student.contract_details ?? []) as Array<{ 大类?: string; 名称?: string; 合同编号?: string }>;
+const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier, contractDetailsArr).map(m => {
   const contractNumber = contractDetailsArr.find(cd => cd.大类 === m.contractName)?.合同编号 ?? null;
   return {
     contractName: m.contractName,
