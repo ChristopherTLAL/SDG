@@ -12,6 +12,8 @@ import InternalLayout from '../../../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../../../lib/supabase/client';
 import { daysSinceToday, INACTIVE_STAGES } from '../../../../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../../../../utils/cohort-filter';
+import { marked } from 'marked';
+marked.setOptions({ gfm: true, breaks: true });
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -30,6 +32,19 @@ const { data: advisorRow } = await supabase
 if (!advisorRow) {
   return new Response(`No advisor found with name "${advisorName}"`, { status: 404 });
 }
+
+// AI 本周建议 — 由 /advisor-weekly skill 写入 advisor_weekly_advice
+// 取最新一行（按 week_start desc），可能 null（尚未跑过）
+const { data: latestAdvice } = await supabase
+  .from('advisor_weekly_advice')
+  .select('advice_md, week_start, generated_at')
+  .eq('advisor_name', advisorName)
+  .order('week_start', { ascending: false })
+  .limit(1)
+  .maybeSingle();
+const adviceHtml = latestAdvice?.advice_md
+  ? (marked.parse(latestAdvice.advice_md) as string)
+  : '';
 
 const { data: rawStudents } = await supabase
   .from('students')
@@ -189,6 +204,31 @@ const mailtoHref = advisorEmail
       </a>
     )}
   </nav>
+
+  {/* 🤖 AI 本周建议 — 来自 /advisor-weekly skill */}
+  <section class="ai-advice">
+    <header class="ai-advice__head">
+      <h2 class="ai-advice__title">
+        <span class="ai-advice__icon">🤖</span>
+        AI 本周建议
+        {latestAdvice?.week_start && (
+          <span class="ai-advice__weekstart font-mono">{latestAdvice.week_start}</span>
+        )}
+      </h2>
+      {latestAdvice?.generated_at && (
+        <span class="ai-advice__stamp font-mono">
+          生成于 {new Date(latestAdvice.generated_at).toLocaleString('zh-CN', { hour12: false })}
+        </span>
+      )}
+    </header>
+    {adviceHtml ? (
+      <div class="ai-advice__body md-body" set:html={adviceHtml} />
+    ) : (
+      <p class="ai-advice__empty">
+        尚未生成本周 AI 建议 · 运行 <code>/advisor-weekly</code> 后会出现在这里
+      </p>
+    )}
+  </section>
 
   {/* 🔴 紧急联系 */}
   <section class="reminder-section reminder-section--urgent">
@@ -364,6 +404,45 @@ const mailtoHref = advisorEmail
   }
   .adv-tab--cta:hover { background: var(--primary-dim); color: white; }
   .adv-tab .material-symbols-outlined { font-size: 16px; }
+
+  /* AI 本周建议 — 顶部 spotlight card，区分于下方"原始数据"reminder sections */
+  .ai-advice {
+    background: linear-gradient(180deg, #fdfaf3 0%, #faf7ed 100%);
+    border: 1px solid #ebe1c7;
+    border-radius: 12px;
+    padding: 16px 20px 18px;
+    margin-bottom: 18px;
+  }
+  .ai-advice__head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 12px; margin-bottom: 10px;
+  }
+  .ai-advice__title {
+    margin: 0; font-size: 15px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #6a5400;
+  }
+  .ai-advice__icon { font-size: 16px; line-height: 1; }
+  .ai-advice__weekstart {
+    font-size: 12px; color: #8a7000; padding: 1px 8px;
+    border-radius: 10px; background: rgba(160, 130, 30, 0.12);
+  }
+  .ai-advice__stamp { font-size: 11px; color: var(--text-soft); }
+  .ai-advice__body { font-size: 13px; line-height: 1.6; color: var(--text); }
+  .ai-advice__body h2:first-child { margin-top: 0; }
+  .ai-advice__body h2 { font-size: 14px; font-weight: 700; margin: 14px 0 8px; }
+  .ai-advice__body p { margin: 0 0 8px; }
+  .ai-advice__body ul { padding-left: 22px; margin: 0 0 12px; }
+  .ai-advice__body li { margin: 4px 0; }
+  .ai-advice__body strong { font-weight: 700; }
+  .ai-advice__empty {
+    margin: 6px 0 0; font-size: 12px; color: var(--text-soft); font-style: italic;
+  }
+  .ai-advice__empty code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.06); padding: 1px 6px; border-radius: 4px;
+    font-style: normal;
+  }
 
   .reminder-section {
     background: var(--surface-raised);
