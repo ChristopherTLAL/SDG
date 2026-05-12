@@ -508,16 +508,24 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
          ───────────────────────────────────────────────────────────── */
       @media print {
         html, body { background: white; height: auto; overflow: visible; display: block; }
-        .controls, .preview-toolbar { display: none !important; }
+        .controls, .preview-toolbar, .paper-shadow { display: none !important; }
         .preview-stage { padding: 0; overflow: visible; display: block; }
+        /* paper 在屏幕上是固定 210x297mm 一页（overflow:hidden 裁切）。
+           print 模式下必须完全解锁所有尺寸约束 + overflow，让 @page 自由分页。
+           不然浏览器会把 297mm 固定块缩放进 @page margin 留出的空间 → 每页字数变多。 */
         .paper {
           box-shadow: none !important;
           background: white !important;
           background-image: none !important;
           padding: 0 !important;
           margin: 0 !important;
-          width: 100% !important;
+          width: auto !important;
+          height: auto !important;
+          min-width: 0 !important;
           min-height: 0 !important;
+          max-width: none !important;
+          max-height: none !important;
+          overflow: visible !important;
         }
       }
     </style>
