@@ -33,3 +33,9 @@ CLAUDE.md
 
 # Write-article skill workspace (eval outputs, grading, benchmarks)
 write-article-workspace/
+
+# MDPA report outputs (contain student PII — do NOT push)
+scripts/mdpa_processed/
+
+# Python bytecode cache
+__pycache__/
