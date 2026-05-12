@@ -21,16 +21,45 @@ The hard part: the vault's skills (`_agents/skills/meeting-minutes/`, `summarize
 
 2. **Inline handling (no subagent, no vault `claude -p`)** — when the user asks informally ("看一下 submission" / "处理一下") and you handle it directly in the current Desktop session without invoking the skill via `/process-inbox`. **This is the fallback that gets used most often in practice.** When you go this route, **you MUST manually do all 4 vault writes per the vault's iron rule二**, because there is no vault claude to enforce them.
 
-### Inline fallback checklist — 4 NON-NEGOTIABLE vault writes per submission
+### Inline fallback checklist — 4 NON-NEGOTIABLE vault writes + 1 conditional update
 
-When archiving a submission inline (without spawning a subagent), every submission MUST result in updates to ALL FOUR files:
+When archiving a submission inline (without spawning a subagent), every submission MUST result in updates to ALL FOUR files + a conditional 5th step:
 
 1. **`01_Student/<student_name>/沟通记录/{YYYY-MM-DD} {type} - {summary前30字}.md`** — the archive note itself (full content + YAML frontmatter)
-2. **`01_Student/<student_name>/<student_name>.md`** — update `最后沟通时间` YAML field to the 沟通 date (use date IN the content for historical backfills; submission date for current)
+2. **`01_Student/<student_name>/<student_name>.md`** — **both** of the following:
+   - update `最后沟通时间` YAML field to the 沟通 date (use date IN the content for historical backfills; submission date for current)
+   - **append a line under `## 沟通与纪要汇总`**: `- [[<filename>]] — <1-line essence>` (e.g. `2026-04-27 沟通：定 USABO 排课 + 上海 wet lab 联系`). For historical backfills, suffix with `（历史回补 by <提交人> <yyyy-mm-dd>）`.
 3. **`02_Project Manager/日报-{mid_advisor}.md`** — **insert AT TOP** (just after the `# 日报-<advisor>` heading), reverse-chronological. Each entry ≤4 bullets, with `→ [[沟通记录文件名]]` link at end. Multi-advisor students (`mid_advisors = [A, B]`) → write to BOTH advisors' 日报. If 日报-{advisor}.md doesn't exist, create it with `# 日报-{advisor}` as first line.
 4. **`02_Project Manager/待办任务看板.md`** — if the submission contains actionable TODOs, add them under the date section. Use the existing format: `- [ ] **[[学生]]** — context → [[沟通记录链接]]` with nested `[ ] 学生侧 / 顾问侧` items. **Also update the "📆 看板最后更新" line at top to today's date.**
+5. **Conditional: 内容侧 YAML auto-update (Policy B, 半自动, 2026-05-12 onwards)** — if the submission content reveals an EXPLICIT student/advisor decision about region / major / stage, update the corresponding YAML field on `<student>.md`. See policy below.
 
-**Most common gap (per 2026-05-12 user feedback)**: files 1 and 2 done, files 3 and 4 forgotten. The user noticed because submissions weren't surfacing in 日报-袁辰飞. Don't repeat this — checklist all 4 before marking processed.
+### Policy B — Conditional 内容侧 YAML auto-update
+
+| Field | Update WHEN | Examples of decisive keywords | NEVER update on |
+|---|---|---|---|
+| `目标地区` | 决定 / 定调 / 锁定 / 主攻 / 弃 / 放弃 某地区 | "决定主攻澳洲" / "弃港新" → `目标地区: 澳洲` | "考虑澳洲" / "可能往港新" / "倾向英美" — 探索阶段 |
+| `意向专业方向` | 决定 / 定 / 锁定 申某专业 | "决定申金融数学" → `意向专业方向: 金融数学（首选）/ 金融 / 统计类` | "下次 CSAP 访谈深入探索" / "在 AI vs 数学间纠结" — 未决定 |
+| `当前进度` | stage transition 明示 | "已结案" / "退费" / "进入后期" → 改 stage | (一般 stage 由 mid_advisor 转交 / 财务驱动，content 推断慎用) |
+
+**Fields NEVER auto-updated from sub content**:
+- `合同` / `合同明细` / `客户ID` — 只走 `scripts/import-signings.py` ERP 同步
+- `中期顾问` / `前期顾问` / `后期顾问` — 是 onboarding/转交决定，不该看 sub content 推断
+- `客户邮箱` — 只在用户 explicit 让你改时改
+
+**当 content 含糊**（同时混 decisive + tentative 信号）→ **显式问用户** before updating，不要自己拍板。
+
+**Required output at end of inline processing**: print a YAML-change summary so user can verify:
+
+```
+✅ 学生 YAML 更新：
+  - 刘申珅: 目标地区 (待补 → 澳洲), 意向专业方向 ("" → "金融数学（首选）/...")
+  - 王昱涵: 未改 — #12 + #13 content 是探索期 (CSAP 访谈待定 / AI vs 数学纠结)
+```
+
+**Most common past mistakes**:
+- **2026-05-12 user feedback #1**: files 1 + 2 (only 最后沟通时间) done, files 3 + 4 forgotten. Don't repeat — full 4-file write before marking processed.
+- **2026-05-12 user feedback #2**: 双向链接 (item 2 sub-step) forgot. Only YAML 时间 was touched, `## 沟通与纪要汇总` section never appended. Don't repeat.
+- **2026-05-12 user feedback #3**: content-side YAML (目标地区/意向方向) never updated even when sub explicitly decided. Policy B (above) is the fix — auto-update on decisive keywords, ask on ambiguity.
 
 ### When to use which path
 
