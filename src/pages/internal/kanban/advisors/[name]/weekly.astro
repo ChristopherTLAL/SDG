@@ -157,10 +157,19 @@ function kickoffBlock(label: string, rows: typeof kickoff): string {
 }
 
 const emailSubject = `【中期看板】${advisorName} 本周提醒 · ${dateStr}`;
+
+// AI 建议放最前面（最有价值的内容），原始数据列表放下面作为参照
+const aiBlock = latestAdvice?.advice_md
+  ? `─── AI 本周建议 (生成于 ${new Date(latestAdvice.generated_at ?? '').toLocaleString('zh-CN', { hour12: false }).slice(0, 16)}) ───\n\n${latestAdvice.advice_md}\n\n─────────\n`
+  : '';
+
 const emailBody = [
   `${advisorName} 你好,`,
   ``,
-  `本周需要你处理的事项汇总（自动生成自 sdg.undp.ac.cn）:`,
+  `本周提醒（自动生成自 sdg.undp.ac.cn）:`,
+  ``,
+  aiBlock,
+  `📋 原始数据列表`,
   ``,
   listBlock('🔴 紧急联系', urgent),
   listBlock('🟠 待联系',   todo),
@@ -205,11 +214,11 @@ const mailtoHref = advisorEmail
     )}
   </nav>
 
-  {/* 🤖 AI 本周建议 — 来自 /advisor-weekly skill */}
+  {/* AI 本周建议 — 来自 /advisor-weekly skill */}
   <section class="ai-advice">
     <header class="ai-advice__head">
       <h2 class="ai-advice__title">
-        <span class="ai-advice__icon">🤖</span>
+        <span class="material-symbols-outlined ai-advice__icon">auto_awesome</span>
         AI 本周建议
         {latestAdvice?.week_start && (
           <span class="ai-advice__weekstart font-mono">{latestAdvice.week_start}</span>
@@ -405,36 +414,38 @@ const mailtoHref = advisorEmail
   .adv-tab--cta:hover { background: var(--primary-dim); color: white; }
   .adv-tab .material-symbols-outlined { font-size: 16px; }
 
-  /* AI 本周建议 — 顶部 spotlight card，区分于下方"原始数据"reminder sections */
+  /* AI 本周建议 — 中性灰 card，与下方 reminder section 一致风格 */
   .ai-advice {
-    background: linear-gradient(180deg, #fdfaf3 0%, #faf7ed 100%);
-    border: 1px solid #ebe1c7;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 16px 20px 18px;
-    margin-bottom: 18px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
   }
   .ai-advice__head {
     display: flex; justify-content: space-between; align-items: baseline;
     gap: 12px; margin-bottom: 10px;
   }
   .ai-advice__title {
-    margin: 0; font-size: 15px; font-weight: 700;
-    display: inline-flex; align-items: center; gap: 8px;
-    color: #6a5400;
+    margin: 0; font-size: 14px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text);
   }
-  .ai-advice__icon { font-size: 16px; line-height: 1; }
+  .ai-advice__icon {
+    font-size: 16px; line-height: 1; color: var(--text-soft);
+  }
   .ai-advice__weekstart {
-    font-size: 12px; color: #8a7000; padding: 1px 8px;
-    border-radius: 10px; background: rgba(160, 130, 30, 0.12);
+    font-size: 11px; color: var(--text-muted); padding: 1px 7px;
+    border-radius: 9px; background: rgba(0, 0, 0, 0.04);
   }
   .ai-advice__stamp { font-size: 11px; color: var(--text-soft); }
   .ai-advice__body { font-size: 13px; line-height: 1.6; color: var(--text); }
   .ai-advice__body h2:first-child { margin-top: 0; }
-  .ai-advice__body h2 { font-size: 14px; font-weight: 700; margin: 14px 0 8px; }
-  .ai-advice__body p { margin: 0 0 8px; }
-  .ai-advice__body ul { padding-left: 22px; margin: 0 0 12px; }
+  .ai-advice__body h2 { font-size: 13px; font-weight: 600; margin: 14px 0 6px; color: var(--text-muted); text-transform: none; letter-spacing: 0; }
+  .ai-advice__body p { margin: 0 0 6px; }
+  .ai-advice__body ul { padding-left: 20px; margin: 0 0 10px; }
   .ai-advice__body li { margin: 4px 0; }
-  .ai-advice__body strong { font-weight: 700; }
+  .ai-advice__body strong { font-weight: 600; color: var(--text); }
   .ai-advice__empty {
     margin: 6px 0 0; font-size: 12px; color: var(--text-soft); font-style: italic;
   }
