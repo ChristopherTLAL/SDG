@@ -288,7 +288,8 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
       }
 
       /* A4 纸张本体 — 严格一页 A4 (210mm × 297mm)，固定，不受窗口大小影响。
-         超出第一页的内容 overflow:hidden 藏起来。
+         padding = 4 个 margin，bottom margin 区域始终留白；
+         真正裁切发生在 inner .paper-content（height 100% of content-box）。
          多页流动由 @page + window.print() 处理，preview 只展示第一页样子。
 
          关键：min/max + flex-shrink:0 三重锁。flex 容器默认 flex-shrink:1
@@ -309,6 +310,15 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
         box-sizing: border-box;
         position: relative;
+        overflow: hidden;
+      }
+      /* paper 的真正"打印可用区"。height: 100% 拿到 paper 减去上下 padding 之后
+         的内容盒高度（即 297mm − m-top − m-bottom），overflow:hidden 把内容严格
+         裁在 bottom-margin 之上 —— 这样预览里 bottom margin 区始终是空白，
+         跟真实印刷的页面边距行为一致。 */
+      .paper-content {
+        position: relative;
+        height: 100%;
         overflow: hidden;
       }
       /* 「mirror」 — 不显示，仅用来量真实总高度算页数（不受 overflow:hidden 影响） */
@@ -527,6 +537,12 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           max-height: none !important;
           overflow: visible !important;
         }
+        /* paper-content 屏幕上是"裁到 bottom margin 的可视区"，打印必须解锁，
+           不然内容超过一页可视区就被吃掉，PDF 只剩一页。 */
+        .paper-content {
+          height: auto !important;
+          overflow: visible !important;
+        }
       }
     </style>
   </head>
@@ -673,23 +689,25 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         <span class="page-count" id="page-count">页数计算中…</span>
       </div>
       <div class="paper" id="paper">
-        <header class="paper-meta">
-          <div class="paper-meta__topline">
-            <span>{student.name} · 沟通记录</span>
-            <span>{advisor}</span>
-          </div>
-          <h1 class="paper-meta__title">{targetNote.note_name}</h1>
-          {targetNote.note_date && (
-            <div class="paper-meta__date">{targetNote.note_date}</div>
+        <div class="paper-content">
+          <header class="paper-meta">
+            <div class="paper-meta__topline">
+              <span>{student.name} · 沟通记录</span>
+              <span>{advisor}</span>
+            </div>
+            <h1 class="paper-meta__title">{targetNote.note_name}</h1>
+            {targetNote.note_date && (
+              <div class="paper-meta__date">{targetNote.note_date}</div>
+            )}
+          </header>
+          {html ? (
+            <div class="note-body" set:html={html} />
+          ) : (
+            <p style="color:#888;font-style:italic;text-align:center;padding:40px 0;">
+              这条 note 正文是空的。
+            </p>
           )}
-        </header>
-        {html ? (
-          <div class="note-body" set:html={html} />
-        ) : (
-          <p style="color:#888;font-style:italic;text-align:center;padding:40px 0;">
-            这条 note 正文是空的。
-          </p>
-        )}
+        </div>
       </div>
       <!-- shadow mirror: 用真实总高度算页数，不受 .paper 的 overflow:hidden 影响 -->
       <div class="paper-shadow" id="paper-shadow" aria-hidden="true">
