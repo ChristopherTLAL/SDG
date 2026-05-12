@@ -158,9 +158,20 @@ function kickoffBlock(label: string, rows: typeof kickoff): string {
 
 const emailSubject = `【中期看板】${advisorName} 本周提醒 · ${dateStr}`;
 
+// mailto: 是 text/plain — markdown 不会渲染。剥掉常见 markdown 标记，让粘进邮件 app 时看着像人写的。
+function mdToPlain(md: string): string {
+  return md
+    .replace(/^#+\s+/gm, '')           // strip heading `## ` markers (emoji + text already self-标志)
+    .replace(/\*\*(.+?)\*\*/g, '$1')   // strip `**bold**` markers
+    .replace(/__(.+?)__/g, '$1')       // strip `__bold__` markers
+    .replace(/\[(.+?)\]\(.+?\)/g, '$1')// strip `[label](url)`, keep label
+    .replace(/`([^`]+?)`/g, '$1')      // strip inline ``code`` markers
+    .replace(/\n{3,}/g, '\n\n');       // collapse 3+ blank lines to 2
+}
+
 // AI 建议放最前面（最有价值的内容），原始数据列表放下面作为参照
 const aiBlock = latestAdvice?.advice_md
-  ? `─── AI 本周建议 (生成于 ${new Date(latestAdvice.generated_at ?? '').toLocaleString('zh-CN', { hour12: false }).slice(0, 16)}) ───\n\n${latestAdvice.advice_md}\n\n─────────\n`
+  ? `─── AI 本周建议 (生成于 ${new Date(latestAdvice.generated_at ?? '').toLocaleString('zh-CN', { hour12: false }).slice(0, 16)}) ───\n\n${mdToPlain(latestAdvice.advice_md)}\n\n─────────\n`
   : '';
 
 const emailBody = [
