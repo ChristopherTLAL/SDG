@@ -28,7 +28,9 @@ export const STUDENT_TOOLS: StudentTool[] = [
     dynamic: 'english-article',
     scriptBody: `{{学生姓名}}，今天给你推荐一篇英文阅读，《{{articleTitle}}》，是关于「{{articleTitleZh}}」的。一共 {{articleWords}} 词，难度是 {{articleCefr}} 级，差不多 {{articleMinutes}} 分钟能读完（但是学习完所有的知识点还是要蛮多时间的）。
 
-文章链接是 https://sdg.undp.ac.cn/tools/english/{{articleSlug}}`,
+文章链接是 https://sdg.undp.ac.cn/tools/english/{{articleSlug}}
+
+记得用电脑打开哦，手机上功能不完整。里面有自动查词、整句翻译、语法解析、写作句型、阅读理解题、单词卡复习 等功能，你可以探索一下。`,
   },
 
   {
