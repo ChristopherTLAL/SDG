@@ -1,7 +1,7 @@
 ---
-// 单条沟通记录的独立导出页 — Tufte 风格、A4 print 友好。
-// URL: /internal/students/:id/notes/:anchor
-// Cmd+P 即可保存为 PDF。
+// 单条沟通记录的「参数化 PDF 预览 + 导出」页 — 类似 /verify 的导出工作台
+// 左侧 panel 调参，中间 A4 预览，「导出 PDF」按 当前参数 走 window.print()
+// 多页自动 flow（@page 控制每页 margin，内容超过单页自动断页）
 import { supabase } from '../../../../../lib/supabase/client';
 import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../../../utils/wikilinks';
 import { preprocessCallouts } from '../../../../../utils/callouts';
@@ -18,38 +18,29 @@ const { data: student, error: studentErr } = await supabase
   .select('id, name, mid_advisors')
   .eq('id', studentId)
   .single();
-
 if (studentErr || !student) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
 const { data: notes } = await supabase
   .from('student_notes')
-  .select('note_name, body_md, note_date, obsidian_path')
+  .select('note_name, body_md, note_date')
   .eq('student_id', studentId);
-
 const targetNote = (notes ?? []).find(n => noteAnchor(n.note_name) === anchor);
 if (!targetNote) {
   return new Response('Note not found', { status: 404 });
 }
 
-// Wikilink index (scoped to all students + all notes) so `[[...]]` 内部交叉 still resolves.
 const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
 const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
-const wikiIndex = buildWikilinkIndex({
-  students: allStudents ?? [],
-  notes: allNotes ?? [],
-});
+const wikiIndex = buildWikilinkIndex({ students: allStudents ?? [], notes: allNotes ?? [] });
 
 marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const md = targetNote.body_md ?? '';
   if (!md.trim()) return '';
-  const w = resolveWikilinks(md, wikiIndex);
-  const c = preprocessCallouts(w);
-  return marked.parse(c) as string;
+  return marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex))) as string;
 })();
-
 const advisor = (student.mid_advisors ?? [])[0] ?? '—';
 ---
 
@@ -58,147 +49,644 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{student.name} · {targetNote.note_name}</title>
-    <link rel="stylesheet" href="/styles/tufte-notes.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+    />
     <style is:global>
+      /* ─────────────────────────────────────────────────────────────
+         参数 root vars — 所有可调样式都从这里走
+         JS 改这些 var 时，预览和打印同步生效
+         ───────────────────────────────────────────────────────────── */
+      :root {
+        --m-top: 18mm;
+        --m-right: 18mm;
+        --m-bottom: 14mm;
+        --m-left: 18mm;
+        --sidebar-w: 40mm;
+        --sidebar-gap: 6mm;
+        --body-fontsize: 10pt;
+        --body-lineheight: 1.5;
+        --h1-size: 16pt;
+        --h2-size: 13pt;
+        --h3-size: 11pt;
+        --sidebar-fontsize: 8.5pt;
+        --callout-bg: #eef6f9;
+        --callout-border: #c8dde5;
+        --callout-text-color: #2a4d5e;
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         屏幕 UI shell — 左侧 panel + 中间 preview stage
+         ───────────────────────────────────────────────────────────── */
       html, body {
         margin: 0;
         padding: 0;
-        background: #f5f5f3;
+        height: 100vh;
+        background: #ecedef;
         font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
         color: #1a1a1a;
       }
-      .tufte-export-root {
-        max-width: 920px;
-        margin: 0 auto;
-        padding: 24px 16px 64px;
-      }
-      .tufte-export-toolbar {
+      body {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        font-size: 12px;
-        color: #555;
       }
-      .tufte-export-toolbar a {
-        color: #555;
+
+      /* 左侧参数 panel */
+      .controls {
+        width: 280px;
+        flex-shrink: 0;
+        background: white;
+        border-right: 1px solid #d8d8d8;
+        padding: 0;
+        overflow-y: auto;
+        font-size: 12px;
+        box-shadow: 1px 0 4px rgba(0, 0, 0, 0.04);
+      }
+      .controls header {
+        position: sticky;
+        top: 0;
+        background: white;
+        border-bottom: 1px solid #ececec;
+        padding: 14px 18px 12px;
+        z-index: 5;
+      }
+      .controls header a {
+        font-size: 11px;
+        color: #666;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 4px;
       }
-      .tufte-export-toolbar a:hover { color: #000; }
-      .tufte-export-toolbar button {
-        font-size: 12px;
-        padding: 6px 14px;
+      .controls header a:hover { color: #000; }
+      .controls header h1 {
+        font-family: 'Manrope', sans-serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 15px;
+        margin: 8px 0 2px;
+        color: #1a1a1a;
+        line-height: 1.2;
+      }
+      .controls header .sub {
+        font-size: 10.5px;
+        color: #777;
+        line-height: 1.35;
+      }
+
+      .controls .export-btn {
+        display: block;
+        width: calc(100% - 32px);
+        margin: 14px 16px 4px;
+        padding: 10px 14px;
         background: #000;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 600;
         cursor: pointer;
         font-family: inherit;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        box-sizing: border-box;
       }
-      .tufte-export-toolbar button:hover { background: #1a1a1a; }
-      .tufte-export-paper {
-        background: white;
-        max-width: 794px;  /* A4 width @ 96dpi */
-        margin: 0 auto;
-        padding: 32px 48px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      .controls .export-btn:hover { background: #1a1a1a; }
+      .controls .export-btn .material-symbols-outlined { font-size: 16px; }
+
+      .controls .group {
+        padding: 14px 18px;
+        border-bottom: 1px solid #f1f1f1;
+      }
+      .controls .group-title {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin: 0 0 10px;
+      }
+      .controls .field {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin: 8px 0;
+      }
+      .controls .field label {
+        font-size: 11.5px;
+        color: #444;
+        flex: 1;
+      }
+      .controls .field input[type="number"] {
+        width: 64px;
+        padding: 4px 8px;
+        font-size: 11.5px;
+        font-family: inherit;
+        border: 1px solid #d4d4d4;
         border-radius: 4px;
+        background: white;
+        text-align: right;
       }
-      .tufte-export-meta {
-        margin-bottom: 20px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid #ddd;
+      .controls .field input[type="number"]:focus {
+        outline: none;
+        border-color: #888;
       }
-      .tufte-export-meta__line {
+      .controls .field input[type="color"] {
+        width: 32px;
+        height: 24px;
+        padding: 0;
+        border: 1px solid #d4d4d4;
+        border-radius: 4px;
+        background: white;
+        cursor: pointer;
+      }
+      .controls .field .unit {
+        font-size: 10.5px;
+        color: #999;
+        min-width: 18px;
+      }
+
+      .controls .preset-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .controls .preset-row button {
+        padding: 6px 10px;
+        font-size: 11px;
+        border: 1px solid #d4d4d4;
+        background: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        color: #444;
+      }
+      .controls .preset-row button:hover { border-color: #888; }
+
+      /* 中间预览舞台 */
+      .preview-stage {
+        flex: 1;
+        overflow: auto;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .preview-toolbar {
+        font-size: 11.5px;
+        color: #666;
+        align-self: stretch;
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
-        gap: 16px;
+        align-items: center;
+        max-width: 210mm;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .preview-toolbar .page-count {
+        font-family: 'SF Mono', 'Menlo', monospace;
         font-size: 11px;
+        color: #888;
+      }
+
+      /* A4 纸张本体 — 视觉上就是一张 A4，padding 是 margin */
+      .paper {
+        width: 210mm;
+        background: white;
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.08),
+          0 8px 24px rgba(0, 0, 0, 0.12);
+        padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+        box-sizing: border-box;
+        min-height: 297mm;
+        position: relative;
+        /* repeat-page-line：在 297mm 倍数处画一条虚线，提示"这里会断页" */
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent calc(297mm - 1px),
+          rgba(0, 0, 0, 0.18) calc(297mm - 1px),
+          rgba(0, 0, 0, 0.18) 297mm
+        );
+        background-attachment: local;
+      }
+
+      .paper-meta {
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1pt solid #333;
+      }
+      .paper-meta__topline {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8.5pt;
         color: #777;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.2px;
+        margin-bottom: 2mm;
       }
-      .tufte-export-meta__title {
+      .paper-meta__title {
         font-family: 'Manrope', sans-serif;
         font-style: italic;
         font-weight: normal;
-        font-size: 1.9em;
-        margin: 8px 0 4px;
-        line-height: 1.1;
+        font-size: var(--h1-size);
+        margin: 0;
+        line-height: 1.15;
+        color: #111;
       }
-      .tufte-export-meta__sub {
-        font-size: 12px;
+      .paper-meta__date {
+        font-size: 9pt;
         color: #555;
-      }
-      .tufte-export-empty {
-        color: #999;
-        font-style: italic;
-        padding: 40px 0;
-        text-align: center;
+        margin-top: 1mm;
+        font-family: 'SF Mono', monospace;
       }
 
+      /* ─────────────────────────────────────────────────────────────
+         内容渲染区 (.note-body) — 这是 markdown.parse(...) 注入的
+         ───────────────────────────────────────────────────────────── */
+      .note-body {
+        position: relative;
+        font-size: var(--body-fontsize);
+        line-height: var(--body-lineheight);
+        color: #1a1a1a;
+        /* 给右侧留 sidebar 空间 */
+        padding-right: calc(var(--sidebar-w) + var(--sidebar-gap));
+      }
+
+      .note-body h1,
+      .note-body h2,
+      .note-body h3,
+      .note-body h4 {
+        font-family: 'Manrope', sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        margin: 1.4em 0 0.5em;
+        color: #111;
+      }
+      .note-body h1 { font-size: var(--h1-size); }
+      .note-body h2 { font-size: var(--h2-size); }
+      .note-body h3 { font-size: var(--h3-size); }
+      .note-body h4 { font-size: calc(var(--body-fontsize) * 1.1); }
+
+      .note-body p { margin: 0.6em 0; }
+      .note-body ul, .note-body ol { padding-left: 1.4em; margin: 0.5em 0; }
+      .note-body li { margin: 0.3em 0; }
+
+      /* 加粗 → 淡蓝荧光高亮 */
+      .note-body strong, .note-body b {
+        font-weight: inherit;
+        background-image: linear-gradient(transparent 0%, rgba(228, 235, 242, 1) 0);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 0 0.12em;
+        border-radius: 18px;
+      }
+
+      /* 三线表 */
+      .note-body table {
+        border-collapse: collapse;
+        margin: 1em 0;
+        width: 100%;
+        font-size: 0.92em;
+        border-top: 1.5pt solid #1a1a1a;
+        border-bottom: 1.5pt solid #1a1a1a;
+      }
+      .note-body table th {
+        text-align: left;
+        padding: 3px 8px;
+        font-weight: normal;
+        font-style: italic;
+        border: none;
+        border-bottom: 0.75pt solid #1a1a1a;
+        color: #555;
+      }
+      .note-body table td {
+        padding: 3px 8px;
+        border: none;
+        line-height: 1.4;
+        vertical-align: middle;
+      }
+
+      /* (1) plain blockquote → Tufte 右侧栏旁注 */
+      .note-body blockquote {
+        position: absolute;
+        right: 0;
+        width: var(--sidebar-w);
+        margin-top: -2.8em;
+        padding: 0;
+        border: none;
+        background: none;
+        color: #555;
+        font-style: italic;
+        font-size: var(--sidebar-fontsize);
+        line-height: 1.4;
+        break-inside: avoid;
+      }
+      .note-body blockquote p { margin: 0; font-style: inherit; }
+      .note-body blockquote strong {
+        background: none !important;
+        font-weight: 500;
+        color: inherit;
+      }
+
+      /* (2) Obsidian callout → 主体内嵌卡片 */
+      .note-body aside.callout {
+        position: relative;
+        margin: 1em 0;
+        padding: 9pt 11pt 9pt 26pt;
+        background: var(--callout-bg);
+        border: 0.5pt solid var(--callout-border);
+        border-radius: 2mm;
+        color: #1a1a1a;
+        font-size: var(--body-fontsize);
+        line-height: 1.5;
+        break-inside: avoid;
+      }
+      .note-body aside.callout::before {
+        content: '\270F\FE0F';
+        position: absolute;
+        left: 9pt;
+        top: 10pt;
+        font-size: 11pt;
+        line-height: 1;
+      }
+      .note-body aside.callout .callout__header {
+        display: block;
+        margin: 0 0 4pt;
+        padding: 0;
+        border: none;
+      }
+      .note-body aside.callout .callout__type {
+        display: inline;
+        font-size: var(--body-fontsize);
+        font-style: italic;
+        font-weight: 600;
+        color: var(--callout-text-color);
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        letter-spacing: 0;
+        white-space: normal;
+      }
+      .note-body aside.callout .callout__title {
+        display: inline;
+        margin-left: 4pt;
+        font-size: var(--body-fontsize);
+        font-style: italic;
+        font-weight: 600;
+        color: var(--callout-text-color);
+      }
+      .note-body aside.callout .callout__body { margin: 0; }
+      .note-body aside.callout .callout__body p { margin: 0.3em 0; }
+      .note-body aside.callout .callout__body p:first-child { margin-top: 0; }
+      .note-body aside.callout .callout__body p:last-child  { margin-bottom: 0; }
+      .note-body aside.callout .callout__body strong {
+        background: none !important;
+        font-weight: 600;
+        color: inherit;
+      }
+
+      /* 链接 / wikilink */
+      .note-body a { color: #1a1a1a; text-decoration: underline; text-decoration-color: rgba(0,0,0,0.3); }
+
+      /* ─────────────────────────────────────────────────────────────
+         打印 — @page 由 JS 在导出时动态注入（用当前 vars 的最新值）
+         ───────────────────────────────────────────────────────────── */
       @media print {
-        html, body { background: white; }
-        .tufte-export-root {
-          max-width: none;
-          margin: 0;
-          padding: 0;
+        html, body { background: white; height: auto; overflow: visible; display: block; }
+        .controls, .preview-toolbar { display: none !important; }
+        .preview-stage { padding: 0; overflow: visible; display: block; }
+        .paper {
+          box-shadow: none !important;
+          background: white !important;
+          background-image: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100% !important;
+          min-height: 0 !important;
         }
-        .tufte-export-toolbar { display: none !important; }
-        .tufte-export-paper {
-          box-shadow: none;
-          border-radius: 0;
-          max-width: none;
-          padding: 0;
-        }
-        .tufte-export-meta {
-          border-bottom: 1.5pt solid black;
-          margin-bottom: 6mm;
-          padding-bottom: 4mm;
-        }
-        .tufte-export-meta__line { font-size: 8pt; }
-        .tufte-export-meta__title { font-size: 18pt; }
-        .tufte-export-meta__sub { font-size: 9pt; }
       }
     </style>
   </head>
   <body>
-    <div class="tufte-export-root">
-      <div class="tufte-export-toolbar">
+    <!-- ─────────── 左侧参数 panel ─────────── -->
+    <aside class="controls">
+      <header>
         <a href={`/internal/students/${student.id}`}>
-          <span class="material-symbols-outlined" style="font-size:14px;">arrow_back</span>
-          返回 {student.name} 主页
+          <span class="material-symbols-outlined" style="font-size:13px;">arrow_back</span>
+          返回 {student.name}
         </a>
-        <button type="button" onclick="window.print()">
-          <span class="material-symbols-outlined" style="font-size:14px;vertical-align:-2px;">print</span>
-          打印 / 保存 PDF
-        </button>
+        <h1>导出 · 沟通记录</h1>
+        <div class="sub">参数实时预览右侧 A4；导出 PDF 用当前设置。</div>
+      </header>
+
+      <button type="button" class="export-btn" id="export-btn">
+        <span class="material-symbols-outlined">picture_as_pdf</span>
+        导出 PDF（A4，自动分页）
+      </button>
+
+      <div class="group">
+        <div class="group-title">页面边距 (mm)</div>
+        <div class="field">
+          <label>上</label>
+          <input type="number" data-var="m-top" data-unit="mm" value="18" min="0" max="50" step="1" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="field">
+          <label>右</label>
+          <input type="number" data-var="m-right" data-unit="mm" value="18" min="0" max="50" step="1" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="field">
+          <label>下</label>
+          <input type="number" data-var="m-bottom" data-unit="mm" value="14" min="0" max="50" step="1" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="field">
+          <label>左</label>
+          <input type="number" data-var="m-left" data-unit="mm" value="18" min="0" max="50" step="1" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="preset-row">
+          <button type="button" data-preset="tight">紧凑</button>
+          <button type="button" data-preset="loose">宽松</button>
+        </div>
       </div>
-      <div class="tufte-export-paper">
-        <header class="tufte-export-meta">
-          <div class="tufte-export-meta__line">
+
+      <div class="group">
+        <div class="group-title">侧栏旁注</div>
+        <div class="field">
+          <label>宽度</label>
+          <input type="number" data-var="sidebar-w" data-unit="mm" value="40" min="20" max="80" step="2" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="field">
+          <label>与正文间距</label>
+          <input type="number" data-var="sidebar-gap" data-unit="mm" value="6" min="0" max="20" step="1" />
+          <span class="unit">mm</span>
+        </div>
+        <div class="field">
+          <label>字号</label>
+          <input type="number" data-var="sidebar-fontsize" data-unit="pt" value="8.5" min="6" max="12" step="0.5" />
+          <span class="unit">pt</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">正文排版</div>
+        <div class="field">
+          <label>字号</label>
+          <input type="number" data-var="body-fontsize" data-unit="pt" value="10" min="7" max="14" step="0.5" />
+          <span class="unit">pt</span>
+        </div>
+        <div class="field">
+          <label>行距</label>
+          <input type="number" data-var="body-lineheight" data-unit="" value="1.5" min="1" max="2.5" step="0.05" />
+          <span class="unit"></span>
+        </div>
+        <div class="field">
+          <label>H1 字号</label>
+          <input type="number" data-var="h1-size" data-unit="pt" value="16" min="10" max="28" step="0.5" />
+          <span class="unit">pt</span>
+        </div>
+        <div class="field">
+          <label>H2 字号</label>
+          <input type="number" data-var="h2-size" data-unit="pt" value="13" min="9" max="22" step="0.5" />
+          <span class="unit">pt</span>
+        </div>
+        <div class="field">
+          <label>H3 字号</label>
+          <input type="number" data-var="h3-size" data-unit="pt" value="11" min="8" max="18" step="0.5" />
+          <span class="unit">pt</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Callout 卡片</div>
+        <div class="field">
+          <label>背景色</label>
+          <input type="color" data-var="callout-bg" data-unit="" value="#eef6f9" />
+        </div>
+        <div class="field">
+          <label>边框色</label>
+          <input type="color" data-var="callout-border" data-unit="" value="#c8dde5" />
+        </div>
+        <div class="field">
+          <label>标题色</label>
+          <input type="color" data-var="callout-text-color" data-unit="" value="#2a4d5e" />
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─────────── 中间预览舞台 ─────────── -->
+    <main class="preview-stage">
+      <div class="preview-toolbar">
+        <span>实时预览（虚线 = 每页 297mm 断页处）</span>
+        <span class="page-count" id="page-count">页数计算中…</span>
+      </div>
+      <div class="paper" id="paper">
+        <header class="paper-meta">
+          <div class="paper-meta__topline">
             <span>{student.name} · 沟通记录</span>
             <span>{advisor}</span>
           </div>
-          <h1 class="tufte-export-meta__title">{targetNote.note_name}</h1>
+          <h1 class="paper-meta__title">{targetNote.note_name}</h1>
           {targetNote.note_date && (
-            <div class="tufte-export-meta__sub font-mono">{targetNote.note_date}</div>
+            <div class="paper-meta__date">{targetNote.note_date}</div>
           )}
         </header>
         {html ? (
-          <div class="tufte-body" set:html={html} />
+          <div class="note-body" set:html={html} />
         ) : (
-          <div class="tufte-export-empty">这条 note 正文是空的。</div>
+          <p style="color:#888;font-style:italic;text-align:center;padding:40px 0;">
+            这条 note 正文是空的。
+          </p>
         )}
       </div>
-    </div>
+    </main>
+
+    <script is:inline>
+      // ──────────────────────────────────────────────────────────────
+      // 1) input → CSS var binding（实时预览）
+      // ──────────────────────────────────────────────────────────────
+      const inputs = document.querySelectorAll('.controls input[data-var]');
+      const root = document.documentElement;
+      function applyVar(input) {
+        const name  = '--' + input.dataset.var;
+        const value = input.value + (input.dataset.unit || '');
+        root.style.setProperty(name, value);
+      }
+      inputs.forEach((input) => {
+        input.addEventListener('input', () => { applyVar(input); recountPages(); });
+        applyVar(input);  // 初始化
+      });
+
+      // ──────────────────────────────────────────────────────────────
+      // 2) 预设
+      // ──────────────────────────────────────────────────────────────
+      const PRESETS = {
+        tight: { 'm-top': 12, 'm-right': 12, 'm-bottom': 10, 'm-left': 12 },
+        loose: { 'm-top': 25, 'm-right': 25, 'm-bottom': 20, 'm-left': 25 },
+      };
+      document.querySelectorAll('.preset-row button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const preset = PRESETS[btn.dataset.preset];
+          if (!preset) return;
+          for (const [varName, val] of Object.entries(preset)) {
+            const input = document.querySelector('[data-var="' + varName + '"]');
+            if (input) { input.value = val; applyVar(input); }
+          }
+          recountPages();
+        });
+      });
+
+      // ──────────────────────────────────────────────────────────────
+      // 3) 页数估算（A4 = 297mm；纸高 = 297mm 整除即页数）
+      // ──────────────────────────────────────────────────────────────
+      const paper = document.getElementById('paper');
+      const pageCountEl = document.getElementById('page-count');
+      function recountPages() {
+        requestAnimationFrame(() => {
+          const heightMm = paper.getBoundingClientRect().height / 3.7795275591;  // px → mm
+          const pages = Math.max(1, Math.ceil(heightMm / 297));
+          pageCountEl.textContent = '约 ' + pages + ' 页';
+        });
+      }
+      window.addEventListener('load', recountPages);
+      window.addEventListener('resize', recountPages);
+
+      // ──────────────────────────────────────────────────────────────
+      // 4) 导出 PDF：注入 @page margin（当前参数），调 window.print()
+      // ──────────────────────────────────────────────────────────────
+      document.getElementById('export-btn').addEventListener('click', () => {
+        const get = (v) => document.querySelector('[data-var="' + v + '"]').value;
+        const css = [
+          '@page {',
+          '  size: A4;',
+          '  margin: ' + get('m-top') + 'mm ' + get('m-right') + 'mm ' + get('m-bottom') + 'mm ' + get('m-left') + 'mm;',
+          '}',
+        ].join('\n');
+        const existing = document.getElementById('print-page-style');
+        if (existing) existing.remove();
+        const style = document.createElement('style');
+        style.id = 'print-page-style';
+        style.textContent = css;
+        document.head.appendChild(style);
+        window.print();
+      });
+    </script>
   </body>
 </html>
