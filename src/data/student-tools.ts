@@ -13,9 +13,24 @@ export type StudentTool = {
   title: string;          // 折叠项的标题（短）
   description?: string;   // 一句话说明，渲染在展开后的话术上方
   scriptBody: string;     // 实际话术文本，支持 {{学生姓名}} / {{中期顾问}}
+  // 标记内容动态生成 — 渲染层会 special-case 这类工具：
+  //   - SSR 先随机选一份素材填进 scriptBody
+  //   - 折叠项加「换一篇」按钮，client-side 再抽
+  // 目前只有 'english-article' 一种；新增类型时把字符串扩成 union。
+  dynamic?: 'english-article';
 };
 
 export const STUDENT_TOOLS: StudentTool[] = [
+  {
+    id: 'english-article',
+    title: '英文阅读推荐（每次随机）',
+    description: '从 200+ 篇分级英文文章里随机抽一篇推给学生。点「换一篇」再抽。',
+    dynamic: 'english-article',
+    scriptBody: `{{学生姓名}}，今天给你推荐一篇英文阅读，《{{articleTitle}}》，是关于「{{articleTitleZh}}」的。一共 {{articleWords}} 词，难度是 {{articleCefr}} 级，差不多 {{articleMinutes}} 分钟能读完（但是学习完所有的知识点还是要蛮多时间的）。
+
+文章链接是 https://sdg.undp.ac.cn/tools/english/{{articleSlug}}`,
+  },
+
   {
     id: 'mdpa-invite',
     title: 'MDPA 人格测试邀请',

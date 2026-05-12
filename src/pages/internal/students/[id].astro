@@ -8,6 +8,7 @@ import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils
 import { preprocessCallouts } from '../../../utils/callouts';
 import { findSOPsForStudent, substitute } from '../../../data/contract-sops';
 import { STUDENT_TOOLS } from '../../../data/student-tools';
+import { articleEntries } from '../../../data/english';
 import { marked } from 'marked';
 
 const { id } = Astro.params;
@@ -82,6 +83,41 @@ const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier).
     })),
   };
 });
+
+// ── 英文阅读推荐工具：动态素材 ──
+// 217 篇 article 的瘦身 meta (slug/title/cefr/words/minutes/titleZh) 序列化进
+// 页面 JSON，给"换一篇"按钮 client-side 再抽用。SSR 先抽一篇当初始展示。
+const articleMeta = articleEntries.map(({ slug, article }) => ({
+  slug,
+  title: article.meta.title,
+  titleZh: article.meta.titleZh ?? '',
+  cefr: article.meta.cefr,
+  words: article.meta.wordCount,
+  minutes: article.meta.readingMinutes,
+}));
+const initialArticle = articleMeta.length
+  ? articleMeta[Math.floor(Math.random() * articleMeta.length)]
+  : null;
+
+type ArticleMeta = (typeof articleMeta)[number];
+// substitute() 的扩展版：在 学生姓名 / 中期顾问 / 合同编号 基础上再吃 article 字段
+function substituteWithArticle(
+  template: string,
+  vars: { studentName: string; midAdvisor: string | null; article?: ArticleMeta | null },
+): string {
+  let s = substitute(template, { studentName: vars.studentName, midAdvisor: vars.midAdvisor });
+  if (vars.article) {
+    const a = vars.article;
+    s = s
+      .replaceAll('{{articleTitle}}',   a.title)
+      .replaceAll('{{articleTitleZh}}', a.titleZh)
+      .replaceAll('{{articleCefr}}',    a.cefr)
+      .replaceAll('{{articleWords}}',   String(a.words))
+      .replaceAll('{{articleMinutes}}', String(a.minutes))
+      .replaceAll('{{articleSlug}}',    a.slug);
+  }
+  return s;
+}
 
 // Days since last contact (for the badge)
 const today = new Date();
@@ -205,13 +241,20 @@ const metaRows: Row[] = [
           <ul class="tool-list">
             {STUDENT_TOOLS.map(t => {
               const bodyId = `tool-body-${t.id}`;
-              const renderedBody = substitute(t.scriptBody, {
+              const article = t.dynamic === 'english-article' ? initialArticle : null;
+              const renderedBody = substituteWithArticle(t.scriptBody, {
                 studentName: student.name,
                 midAdvisor: student.mid_advisor,
+                article,
               });
               return (
                 <li>
-                  <details class="tool-item">
+                  <details
+                    class="tool-item"
+                    data-dynamic={t.dynamic ?? null}
+                    data-student-name={t.dynamic ? student.name : null}
+                    data-advisor-name={t.dynamic ? (student.mid_advisor ?? '顾问') : null}
+                  >
                     <summary class="tool-item__summary">
                       <span class="tool-item__chevron">▸</span>
                       <span class="tool-item__title">{t.title}</span>
@@ -222,8 +265,19 @@ const metaRows: Row[] = [
                       )}
                       <div class="tool-item__copy-row">
                         <span class="tool-item__copy-label">话术</span>
-                        <button type="button" class="sop-copy tool-item__copy" data-target={bodyId}>复制</button>
+                        <span class="tool-item__copy-actions">
+                          {t.dynamic === 'english-article' && (
+                            <button type="button" class="tool-item__copy tool-item__reroll" data-target={bodyId} data-action="reroll-english">
+                              <span class="material-symbols-outlined">refresh</span>
+                              换一篇
+                            </button>
+                          )}
+                          <button type="button" class="sop-copy tool-item__copy" data-target={bodyId}>复制</button>
+                        </span>
                       </div>
+                      {t.dynamic && (
+                        <script is:inline type="text/plain" data-tool-template>{t.scriptBody}</script>
+                      )}
                       <pre id={bodyId} class="tool-item__pre">{renderedBody}</pre>
                     </div>
                   </details>
@@ -231,6 +285,38 @@ const metaRows: Row[] = [
               );
             })}
           </ul>
+          <script is:inline type="application/json" id="english-articles-data" set:html={JSON.stringify(articleMeta)} />
+          <script is:inline>
+            // 「换一篇」 — client-side 再抽一篇英文文章 + 重新 substitute 模板
+            (function () {
+              document.addEventListener('click', (e) => {
+                const btn = e.target.closest && e.target.closest('[data-action="reroll-english"]');
+                if (!btn) return;
+                const details = btn.closest('[data-dynamic="english-article"]');
+                if (!details) return;
+                const pre = document.getElementById(btn.dataset.target);
+                const tpl = details.querySelector('script[data-tool-template]');
+                const data = document.getElementById('english-articles-data');
+                if (!pre || !tpl || !data) return;
+                let list;
+                try { list = JSON.parse(data.textContent || '[]'); }
+                catch { return; }
+                if (!Array.isArray(list) || list.length === 0) return;
+                const a = list[Math.floor(Math.random() * list.length)];
+                const studentName = details.dataset.studentName || '';
+                const advisor     = details.dataset.advisorName || '顾问';
+                pre.textContent = (tpl.textContent || '')
+                  .replaceAll('{{学生姓名}}',      studentName)
+                  .replaceAll('{{中期顾问}}',      advisor)
+                  .replaceAll('{{articleTitle}}',   a.title)
+                  .replaceAll('{{articleTitleZh}}', a.titleZh)
+                  .replaceAll('{{articleCefr}}',    a.cefr)
+                  .replaceAll('{{articleWords}}',   String(a.words))
+                  .replaceAll('{{articleMinutes}}', String(a.minutes))
+                  .replaceAll('{{articleSlug}}',    a.slug);
+              });
+            })();
+          </script>
         </>
       )}
     </aside>
@@ -744,6 +830,25 @@ const metaRows: Row[] = [
     color: var(--text-soft);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+  }
+  .tool-item__copy-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tool-item__reroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: var(--text-muted) !important;
+  }
+  .tool-item__reroll:hover {
+    color: var(--text) !important;
+    border-color: var(--text-soft) !important;
+  }
+  .tool-item__reroll .material-symbols-outlined {
+    font-size: 12px;
+    line-height: 1;
   }
   .tool-item__copy {
     font-size: 11px;
