@@ -217,12 +217,14 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
 
       .controls .preset-row {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: 6px;
-        margin-top: 4px;
+        margin-top: 8px;
       }
+      .controls .preset-row.cols-2 { grid-template-columns: 1fr 1fr; }
+      .controls .preset-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+      .controls .preset-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
       .controls .preset-row button {
-        padding: 6px 10px;
+        padding: 6px 8px;
         font-size: 11px;
         border: 1px solid #d4d4d4;
         background: white;
@@ -230,8 +232,33 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         cursor: pointer;
         font-family: inherit;
         color: #444;
+        transition: all 0.12s ease;
       }
-      .controls .preset-row button:hover { border-color: #888; }
+      .controls .preset-row button:hover {
+        border-color: #888;
+        background: #fafafa;
+      }
+      .controls .preset-row button.is-active {
+        color: white;
+        background: #1a1a1a;
+        border-color: #1a1a1a;
+      }
+      /* swatch buttons (callout 色板) */
+      .controls .preset-row button.swatch {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px;
+      }
+      .controls .preset-row button.swatch::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        flex-shrink: 0;
+        background: var(--swatch-color, #eee);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
 
       /* 中间预览舞台 */
       .preview-stage {
@@ -260,26 +287,30 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         color: #888;
       }
 
-      /* A4 纸张本体 — 视觉上就是一张 A4，padding 是 margin */
+      /* A4 纸张本体 — 严格一页 A4，超出第一页的内容 overflow:hidden 藏起来。
+         多页流动由 @page + window.print() 处理，preview 只展示第一页样子。 */
       .paper {
         width: 210mm;
+        height: 297mm;
         background: white;
         box-shadow:
           0 1px 3px rgba(0, 0, 0, 0.08),
           0 8px 24px rgba(0, 0, 0, 0.12);
         padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
         box-sizing: border-box;
-        min-height: 297mm;
         position: relative;
-        /* repeat-page-line：在 297mm 倍数处画一条虚线，提示"这里会断页" */
-        background-image: repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent calc(297mm - 1px),
-          rgba(0, 0, 0, 0.18) calc(297mm - 1px),
-          rgba(0, 0, 0, 0.18) 297mm
-        );
-        background-attachment: local;
+        overflow: hidden;
+      }
+      /* 「mirror」 — 不显示，仅用来量真实总高度算页数（不受 overflow:hidden 影响） */
+      .paper-shadow {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+        top: -99999px;
+        left: 0;
+        width: 210mm;
+        padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+        box-sizing: border-box;
       }
 
       .paper-meta {
@@ -499,6 +530,16 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
       </button>
 
       <div class="group">
+        <div class="group-title">整体风格</div>
+        <div class="preset-row cols-4">
+          <button type="button" data-global="standard">标准</button>
+          <button type="button" data-global="tight">紧凑</button>
+          <button type="button" data-global="loose">宽松</button>
+          <button type="button" data-global="parent">家长版</button>
+        </div>
+      </div>
+
+      <div class="group">
         <div class="group-title">页面边距 (mm)</div>
         <div class="field">
           <label>上</label>
@@ -520,9 +561,9 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           <input type="number" data-var="m-left" data-unit="mm" value="18" min="0" max="50" step="1" />
           <span class="unit">mm</span>
         </div>
-        <div class="preset-row">
-          <button type="button" data-preset="tight">紧凑</button>
-          <button type="button" data-preset="loose">宽松</button>
+        <div class="preset-row cols-2">
+          <button type="button" data-preset-group="margin" data-preset="tight">紧凑</button>
+          <button type="button" data-preset-group="margin" data-preset="loose">宽松</button>
         </div>
       </div>
 
@@ -530,7 +571,7 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         <div class="group-title">侧栏旁注</div>
         <div class="field">
           <label>宽度</label>
-          <input type="number" data-var="sidebar-w" data-unit="mm" value="40" min="20" max="80" step="2" />
+          <input type="number" data-var="sidebar-w" data-unit="mm" value="40" min="0" max="80" step="2" />
           <span class="unit">mm</span>
         </div>
         <div class="field">
@@ -542,6 +583,11 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           <label>字号</label>
           <input type="number" data-var="sidebar-fontsize" data-unit="pt" value="8.5" min="6" max="12" step="0.5" />
           <span class="unit">pt</span>
+        </div>
+        <div class="preset-row cols-3">
+          <button type="button" data-preset-group="sidebar" data-preset="narrow">窄</button>
+          <button type="button" data-preset-group="sidebar" data-preset="standard">标准</button>
+          <button type="button" data-preset-group="sidebar" data-preset="wide">宽</button>
         </div>
       </div>
 
@@ -572,6 +618,11 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           <input type="number" data-var="h3-size" data-unit="pt" value="11" min="8" max="18" step="0.5" />
           <span class="unit">pt</span>
         </div>
+        <div class="preset-row cols-3">
+          <button type="button" data-preset-group="body" data-preset="dense">紧凑</button>
+          <button type="button" data-preset-group="body" data-preset="standard">标准</button>
+          <button type="button" data-preset-group="body" data-preset="reader">阅读</button>
+        </div>
       </div>
 
       <div class="group">
@@ -588,13 +639,19 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           <label>标题色</label>
           <input type="color" data-var="callout-text-color" data-unit="" value="#2a4d5e" />
         </div>
+        <div class="preset-row cols-4">
+          <button type="button" class="swatch" style="--swatch-color:#eef6f9;" data-preset-group="callout" data-preset="info">蓝</button>
+          <button type="button" class="swatch" style="--swatch-color:#fff8e1;" data-preset-group="callout" data-preset="warning">黄</button>
+          <button type="button" class="swatch" style="--swatch-color:#fdf2f4;" data-preset-group="callout" data-preset="alert">红</button>
+          <button type="button" class="swatch" style="--swatch-color:#f4f4f4;" data-preset-group="callout" data-preset="neutral">灰</button>
+        </div>
       </div>
     </aside>
 
     <!-- ─────────── 中间预览舞台 ─────────── -->
     <main class="preview-stage">
       <div class="preview-toolbar">
-        <span>实时预览（虚线 = 每页 297mm 断页处）</span>
+        <span>第 1 页预览（超过 A4 第一页的内容已隐藏，导出 PDF 会按 margin 自动分页）</span>
         <span class="page-count" id="page-count">页数计算中…</span>
       </div>
       <div class="paper" id="paper">
@@ -616,14 +673,28 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
           </p>
         )}
       </div>
+      <!-- shadow mirror: 用真实总高度算页数，不受 .paper 的 overflow:hidden 影响 -->
+      <div class="paper-shadow" id="paper-shadow" aria-hidden="true">
+        <header class="paper-meta">
+          <div class="paper-meta__topline">
+            <span>{student.name} · 沟通记录</span>
+            <span>{advisor}</span>
+          </div>
+          <h1 class="paper-meta__title">{targetNote.note_name}</h1>
+          {targetNote.note_date && (
+            <div class="paper-meta__date">{targetNote.note_date}</div>
+          )}
+        </header>
+        {html && <div class="note-body" set:html={html} />}
+      </div>
     </main>
 
     <script is:inline>
       // ──────────────────────────────────────────────────────────────
       // 1) input → CSS var binding（实时预览）
       // ──────────────────────────────────────────────────────────────
-      const inputs = document.querySelectorAll('.controls input[data-var]');
       const root = document.documentElement;
+      const inputs = document.querySelectorAll('.controls input[data-var]');
       function applyVar(input) {
         const name  = '--' + input.dataset.var;
         const value = input.value + (input.dataset.unit || '');
@@ -631,41 +702,107 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
       }
       inputs.forEach((input) => {
         input.addEventListener('input', () => { applyVar(input); recountPages(); });
-        applyVar(input);  // 初始化
+        applyVar(input);
       });
 
       // ──────────────────────────────────────────────────────────────
-      // 2) 预设
+      // 2) 预设值集合（per-group + global）
       // ──────────────────────────────────────────────────────────────
-      const PRESETS = {
-        tight: { 'm-top': 12, 'm-right': 12, 'm-bottom': 10, 'm-left': 12 },
-        loose: { 'm-top': 25, 'm-right': 25, 'm-bottom': 20, 'm-left': 25 },
+      const GROUP_PRESETS = {
+        margin: {
+          tight:    { 'm-top': 12, 'm-right': 12, 'm-bottom': 10, 'm-left': 12 },
+          loose:    { 'm-top': 25, 'm-right': 25, 'm-bottom': 20, 'm-left': 25 },
+        },
+        sidebar: {
+          narrow:   { 'sidebar-w': 28, 'sidebar-gap': 4, 'sidebar-fontsize': 7.5 },
+          standard: { 'sidebar-w': 40, 'sidebar-gap': 6, 'sidebar-fontsize': 8.5 },
+          wide:     { 'sidebar-w': 55, 'sidebar-gap': 8, 'sidebar-fontsize': 9.5 },
+        },
+        body: {
+          dense:    { 'body-fontsize':  9, 'body-lineheight': 1.4, 'h1-size': 14, 'h2-size': 11.5, 'h3-size': 10 },
+          standard: { 'body-fontsize': 10, 'body-lineheight': 1.5, 'h1-size': 16, 'h2-size': 13,   'h3-size': 11 },
+          reader:   { 'body-fontsize': 11, 'body-lineheight': 1.7, 'h1-size': 18, 'h2-size': 14.5, 'h3-size': 12 },
+        },
+        callout: {
+          info:     { 'callout-bg': '#eef6f9', 'callout-border': '#c8dde5', 'callout-text-color': '#2a4d5e' },
+          warning:  { 'callout-bg': '#fff8e1', 'callout-border': '#ffe8a8', 'callout-text-color': '#6a5400' },
+          alert:    { 'callout-bg': '#fdf2f4', 'callout-border': '#f1c5cc', 'callout-text-color': '#842a3c' },
+          neutral:  { 'callout-bg': '#f4f4f4', 'callout-border': '#d4d4d4', 'callout-text-color': '#3a3a3a' },
+        },
       };
-      document.querySelectorAll('.preset-row button').forEach((btn) => {
+      // 全局风格 = 多组 preset 组合应用
+      const GLOBAL_PRESETS = {
+        standard: { margin: 'loose',   sidebar: 'standard', body: 'standard', callout: 'info' },
+        tight:    { margin: 'tight',   sidebar: 'narrow',   body: 'dense',    callout: 'info' },
+        loose:    { margin: 'loose',   sidebar: 'wide',     body: 'standard', callout: 'info' },
+        parent:   { margin: 'loose',   sidebar: 'standard', body: 'reader',   callout: 'warning' },
+      };
+
+      function applyGroupPreset(group, presetKey) {
+        const preset = GROUP_PRESETS[group] && GROUP_PRESETS[group][presetKey];
+        if (!preset) return;
+        for (const [varName, val] of Object.entries(preset)) {
+          const input = document.querySelector('[data-var="' + varName + '"]');
+          if (!input) continue;
+          input.value = val;
+          applyVar(input);
+        }
+        // mark active
+        document.querySelectorAll('[data-preset-group="' + group + '"]').forEach((b) => {
+          b.classList.toggle('is-active', b.dataset.preset === presetKey);
+        });
+      }
+      function applyGlobalPreset(globalKey) {
+        const cfg = GLOBAL_PRESETS[globalKey];
+        if (!cfg) return;
+        for (const [group, presetKey] of Object.entries(cfg)) {
+          applyGroupPreset(group, presetKey);
+        }
+        document.querySelectorAll('[data-global]').forEach((b) => {
+          b.classList.toggle('is-active', b.dataset.global === globalKey);
+        });
+      }
+
+      document.querySelectorAll('[data-preset-group]').forEach((btn) => {
         btn.addEventListener('click', () => {
-          const preset = PRESETS[btn.dataset.preset];
-          if (!preset) return;
-          for (const [varName, val] of Object.entries(preset)) {
-            const input = document.querySelector('[data-var="' + varName + '"]');
-            if (input) { input.value = val; applyVar(input); }
-          }
+          applyGroupPreset(btn.dataset.presetGroup, btn.dataset.preset);
+          // 手动切某组 preset → 取消 global active
+          document.querySelectorAll('[data-global]').forEach((b) => b.classList.remove('is-active'));
+          recountPages();
+        });
+      });
+      document.querySelectorAll('[data-global]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          applyGlobalPreset(btn.dataset.global);
           recountPages();
         });
       });
 
       // ──────────────────────────────────────────────────────────────
-      // 3) 页数估算（A4 = 297mm；纸高 = 297mm 整除即页数）
+      // 3) 页数估算 — 用 paper-shadow（不裁剪版）量真实总高度，除以可用页高
+      //    每页可用高 = 297mm - m-top - m-bottom（mm）
       // ──────────────────────────────────────────────────────────────
-      const paper = document.getElementById('paper');
+      const PX_PER_MM = 3.7795275591;
+      const shadow = document.getElementById('paper-shadow');
       const pageCountEl = document.getElementById('page-count');
       function recountPages() {
         requestAnimationFrame(() => {
-          const heightMm = paper.getBoundingClientRect().height / 3.7795275591;  // px → mm
-          const pages = Math.max(1, Math.ceil(heightMm / 297));
-          pageCountEl.textContent = '约 ' + pages + ' 页';
+          const totalPx     = shadow.scrollHeight;            // 含 padding，因为 box-sizing: border-box
+          const totalMm     = totalPx / PX_PER_MM;             // 整张 paper 在不被裁的高度
+          const pages = Math.max(1, Math.ceil(totalMm / 297));
+          pageCountEl.textContent = '约 ' + pages + ' 页 · 当前预览第 1 页';
         });
       }
-      window.addEventListener('load', recountPages);
+      window.addEventListener('load', () => {
+        // 默认选中「整体风格 = 标准」
+        applyGlobalPreset('standard');
+        // 再 mark margin/sidebar/body/callout 的 standard active
+        ['sidebar','body','callout'].forEach((g) => {
+          const btn = document.querySelector('[data-preset-group="' + g + '"][data-preset="standard"], [data-preset-group="' + g + '"][data-preset="info"]');
+          if (btn) btn.classList.add('is-active');
+        });
+        recountPages();
+      });
       window.addEventListener('resize', recountPages);
 
       // ──────────────────────────────────────────────────────────────
