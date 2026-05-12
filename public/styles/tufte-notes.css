@@ -138,29 +138,10 @@
     margin: 18mm 18mm 14mm 18mm;
   }
 
-  :root {
-    --sidebar: 50mm;
-    --note-width: 40mm;
-    --gutter: -50mm;
-  }
+  /* A4 portrait = 210mm，左右各 18mm 边距 → 可用 174mm
+     拆成：内容 124mm  +  内容/旁注 间隙 6mm  +  旁注 40mm  +  纸右内边距 4mm */
 
-  /* 打印时隐藏非内容元素（导航 / toggle / 链接按钮等） */
-  body > *:not(.tufte-export-root),
-  .tufte-export-root > *:not(.tufte-export-paper) {
-    display: none !important;
-  }
-
-  .tufte-export-paper {
-    box-shadow: none !important;
-    background: white !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    max-width: none !important;
-  }
-
-  /* 关键定位上下文 */
+  /* 颜色保留（默认浏览器打印会把背景洗成白色） */
   .tufte-body,
   .tufte-body * {
     -webkit-print-color-adjust: exact !important;
@@ -174,24 +155,35 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     padding-left: 0 !important;
-    padding-right: var(--sidebar) !important;
+    /* 给右侧 50mm 留给旁注 (40mm 旁注 + 6mm gap + 4mm 纸右边距) */
+    padding-right: 50mm !important;
     margin: 0 !important;
     box-sizing: border-box;
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
+  /* > blockquote 浮到右侧旁注栏。关键：right 用正数（在父 padding 区域内），
+     不要用负数（Obsidian 渲染器能 handle 但浏览器打印会 clip 出页）。 */
   .tufte-body blockquote {
     position: absolute !important;
-    right: var(--gutter) !important;
-    width: var(--note-width) !important;
+    right: 4mm !important;
+    width: 40mm !important;
     margin: -3em 0 0 0 !important;
     font-size: 9pt !important;
-    line-height: 1.4 !important;
+    line-height: 1.35 !important;
     padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    color: #555 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     z-index: 2;
+  }
+  .tufte-body blockquote p {
+    margin: 0 !important;
+    color: #555 !important;
+    font-style: italic !important;
   }
 
   .tufte-body > * {
