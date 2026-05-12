@@ -276,7 +276,7 @@ const metaRows: Row[] = [
                         </span>
                       </div>
                       {t.dynamic && (
-                        <script is:inline type="text/plain" data-tool-template>{t.scriptBody}</script>
+                        <span hidden data-tool-template>{t.scriptBody}</span>
                       )}
                       <pre id={bodyId} class="tool-item__pre">{renderedBody}</pre>
                     </div>
@@ -295,7 +295,7 @@ const metaRows: Row[] = [
                 const details = btn.closest('[data-dynamic="english-article"]');
                 if (!details) return;
                 const pre = document.getElementById(btn.dataset.target);
-                const tpl = details.querySelector('script[data-tool-template]');
+                const tpl = details.querySelector('[data-tool-template]');
                 const data = document.getElementById('english-articles-data');
                 if (!pre || !tpl || !data) return;
                 let list;
