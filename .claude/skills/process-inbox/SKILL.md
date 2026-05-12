@@ -11,6 +11,36 @@ The internal dashboard at `/internal/submissions` collects entries from employee
 
 The hard part: the vault's skills (`_agents/skills/meeting-minutes/`, `summarize/`, `onboarding/`, `planning-roadmap/`, `lor_writer/`, etc.) and the vault's `CLAUDE.md` (with the "two iron rules" and trigger table) only load when Claude Code starts inside the vault directory. So this skill spawns headless `claude -p` instances inside the vault, one per student.
 
+## ⚠️ Reality (2026-04-04 onwards): vault `claude -p` is OAuth-banned
+
+**The subagent → vault `claude -p` path described below is currently BROKEN** due to Anthropic's 2026-04-04 OpenClaw ban (see memory `headless_claude_oauth_broken.md`). Headless `claude -p` spawned from launchd / stripped-env contexts returns `403 Request not allowed`.
+
+**Two paths still work**:
+
+1. **`claude -p` from THIS Desktop session's Bash tool** — inherits `CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST=1` etc. from the running Claude Desktop process, which makes the backend treat it as first-party. So the orchestration design (per-student subagents → vault claude) **does still work IF the user types `/process-inbox` and you actually invoke the skill**. The skill's normal flow below applies.
+
+2. **Inline handling (no subagent, no vault `claude -p`)** — when the user asks informally ("看一下 submission" / "处理一下") and you handle it directly in the current Desktop session without invoking the skill via `/process-inbox`. **This is the fallback that gets used most often in practice.** When you go this route, **you MUST manually do all 4 vault writes per the vault's iron rule二**, because there is no vault claude to enforce them.
+
+### Inline fallback checklist — 4 NON-NEGOTIABLE vault writes per submission
+
+When archiving a submission inline (without spawning a subagent), every submission MUST result in updates to ALL FOUR files:
+
+1. **`01_Student/<student_name>/沟通记录/{YYYY-MM-DD} {type} - {summary前30字}.md`** — the archive note itself (full content + YAML frontmatter)
+2. **`01_Student/<student_name>/<student_name>.md`** — update `最后沟通时间` YAML field to the 沟通 date (use date IN the content for historical backfills; submission date for current)
+3. **`02_Project Manager/日报-{mid_advisor}.md`** — **insert AT TOP** (just after the `# 日报-<advisor>` heading), reverse-chronological. Each entry ≤4 bullets, with `→ [[沟通记录文件名]]` link at end. Multi-advisor students (`mid_advisors = [A, B]`) → write to BOTH advisors' 日报. If 日报-{advisor}.md doesn't exist, create it with `# 日报-{advisor}` as first line.
+4. **`02_Project Manager/待办任务看板.md`** — if the submission contains actionable TODOs, add them under the date section. Use the existing format: `- [ ] **[[学生]]** — context → [[沟通记录链接]]` with nested `[ ] 学生侧 / 顾问侧` items. **Also update the "📆 看板最后更新" line at top to today's date.**
+
+**Most common gap (per 2026-05-12 user feedback)**: files 1 and 2 done, files 3 and 4 forgotten. The user noticed because submissions weren't surfacing in 日报-袁辰飞. Don't repeat this — checklist all 4 before marking processed.
+
+### When to use which path
+
+- User types `/process-inbox` explicitly → run the skill via subagents (Step 1-9 below). Subagents spawn vault claude which writes all 4 files via iron rules.
+- User asks informally ("看一下 submission" / "处理 inbox" / references a specific submission id) → handle inline in THIS session. **Apply the 4-file checklist above manually.** Don't invoke the skill via subagents — too heavy for 1-3 submissions.
+
+The "Step-by-step workflow" below describes the subagent orchestration (path 1). The inline path (path 2) is: just walk through the 4-file checklist for each submission, then run `sync-students-to-supabase.mjs` once at the end, then SQL UPDATE `processed=true`.
+
+---
+
 ## NON-NEGOTIABLE: every submission must produce a 沟通记录 .md
 
 **Every submission, no matter how short, MUST result in a real markdown file written to `01_Student/<student_name>/沟通记录/`.** No exceptions.
