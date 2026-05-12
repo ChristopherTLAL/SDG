@@ -21,7 +21,7 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
 
 const url = new URL(Astro.request.url);
 // Note: advisor filter removed — kanban is team-wide, drill-down lives at
-// /internal/kanban/advisors/[name]. URL param `?advisor=` is now ignored.
+// /internal/advisors/[name]. URL param `?advisor=` is now ignored.
 const _ignored = url.searchParams.get('advisor');
 
 // 私单 是王世杰的个人 tag，不属于任何看板聚合 — 任何 viewer 在 kanban 都看不到。
@@ -404,10 +404,10 @@ function weeklyHeatColor(value: number, maxCell: number): string {
 
 // `students` + `studentAdvisorsInScope` 已在顶部定义（统一口径 单一来源）。
 // Kanban 是 team-comparison 看板，没有 per-advisor 过滤；个人钻取在
-// /internal/kanban/advisors/[name].
+// /internal/advisors/[name].
 
 function buildHref(advisor: string): string {
-  return `/internal/kanban/advisors/${encodeURIComponent(advisor)}`;
+  return `/internal/advisors/${encodeURIComponent(advisor)}`;
 }
 
 // ── Widget 1: 在读学校分布 ──
@@ -1265,7 +1265,7 @@ function fmtMoney(n: number): string {
         <span class="kanban-top__count">在管学生 {students.length}</span>
       </div>
       <div class="kanban-top__actions">
-        <a href="/internal/kanban/advisors" class="kanban-top__action kanban-top__action--secondary">
+        <a href="/internal/advisors" class="kanban-top__action kanban-top__action--secondary">
           <span class="material-symbols-outlined">groups</span>
           Advisors
         </a>
@@ -2308,7 +2308,7 @@ function fmtMoney(n: number): string {
         c.on('click', (params) => {
           if (params.value && typeof params.value[1] === 'number') {
             const advisor = payload.advisors[params.value[1]];
-            if (advisor) location.href = '/internal/kanban/advisors/' + encodeURIComponent(advisor);
+            if (advisor) location.href = '/internal/advisors/' + encodeURIComponent(advisor);
           }
         });
       }

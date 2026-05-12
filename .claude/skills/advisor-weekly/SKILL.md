@@ -1,6 +1,6 @@
 ---
 name: advisor-weekly
-description: Generate AI-written "this-week follow-up suggestions" for every active 中期 advisor, then persist to Supabase so the website (/internal/kanban/advisors/[name]/weekly) shows the suggestions at the top of each advisor's weekly reminder page. Uses agent-teams architecture — Opus orchestrates, one Sonnet subagent per advisor reads that advisor's students (recent comm notes + pending submissions + contracts + days-since-contact) in parallel and writes 「本周建议跟进」 markdown, Opus then UPSERTs each into `advisor_weekly_advice`. Trigger whenever the user says "/advisor-weekly", "本周顾问建议", "顾问周报建议", "每周顾问 AI 建议", "advisor weekly advice", "跑一下顾问 AI 周报", "更新顾问本周提醒", "刷新本周 AI 建议", or any phrasing implying "let AI generate this week's advisor action list and push it to the site". Don't undertrigger.
+description: Generate AI-written "this-week follow-up suggestions" for every active 中期 advisor, then persist to Supabase so the website (/internal/advisors/[name]/weekly) shows the suggestions at the top of each advisor's weekly reminder page. Uses agent-teams architecture — Opus orchestrates, one Sonnet subagent per advisor reads that advisor's students (recent comm notes + pending submissions + contracts + days-since-contact) in parallel and writes 「本周建议跟进」 markdown, Opus then UPSERTs each into `advisor_weekly_advice`. Trigger whenever the user says "/advisor-weekly", "本周顾问建议", "顾问周报建议", "每周顾问 AI 建议", "advisor weekly advice", "跑一下顾问 AI 周报", "更新顾问本周提醒", "刷新本周 AI 建议", or any phrasing implying "let AI generate this week's advisor action list and push it to the site". Don't undertrigger.
 ---
 
 # advisor-weekly
@@ -9,7 +9,7 @@ description: Generate AI-written "this-week follow-up suggestions" for every act
 
 Walks every active 中期 advisor, reads each one's in-管 students (近 3 条沟通记录全文 + 待处理 submissions + 合同状态 + 距上次沟通天数 + stage / 入学届 / 意向 / 在读学校), and asks a per-advisor Sonnet subagent to write a **specific** 「本周建议跟进」markdown — "why → do-this" format, no empty phrases.
 
-The output is persisted to Supabase table `advisor_weekly_advice` (key = `advisor_name, week_start`). The website's per-advisor weekly reminder page (`/internal/kanban/advisors/[name]/weekly`) reads this row and shows it at the top.
+The output is persisted to Supabase table `advisor_weekly_advice` (key = `advisor_name, week_start`). The website's per-advisor weekly reminder page (`/internal/advisors/[name]/weekly`) reads this row and shows it at the top.
 
 **Cadence:** the user runs this manually once per week (typically Monday morning). UPSERT means re-running within the same week overwrites; older weeks stay in the table as history.
 
@@ -44,7 +44,7 @@ WHERE active = true
 ORDER BY name;
 ```
 
-Compute `week_start` = the Monday of the week the skill is being run for. Use the existing system clock: if today is Mon → today; otherwise → previous Monday. Same convention as `/internal/kanban/advisors/[name]/weekly` page.
+Compute `week_start` = the Monday of the week the skill is being run for. Use the existing system clock: if today is Mon → today; otherwise → previous Monday. Same convention as `/internal/advisors/[name]/weekly` page.
 
 ### Step 3: spawn N Sonnet subagents in PARALLEL — one per advisor
 
@@ -166,8 +166,8 @@ Tell the user:
 | ... | ... | ... | ... |
 
 Inspect on the site:
-  /internal/kanban/advisors/王世杰/weekly
-  /internal/kanban/advisors/陆梦婕/weekly
+  /internal/advisors/王世杰/weekly
+  /internal/advisors/陆梦婕/weekly
   ...
 ```
 
@@ -190,6 +190,6 @@ Pull the bucket counts by parsing each subagent's markdown (regex `\((\d+)\)` ag
 ## See also
 
 - `scripts/bootstrap.sql` — the `create table if not exists` DDL for `advisor_weekly_advice`. Single source of truth.
-- `src/pages/internal/kanban/advisors/[name]/weekly.astro` — the page that consumes this table.
+- `src/pages/internal/advisors/[name]/weekly.astro` — the page that consumes this table.
 - `src/utils/cohort-filter.ts` — defines the 26F+ cohort floor used in the SQL `enroll_years` predicate above.
 - `.claude/skills/morning-digest/SKILL.md` — sibling skill using the same parallel-subagents architecture (different cadence + output).

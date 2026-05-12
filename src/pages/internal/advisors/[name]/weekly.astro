@@ -1,5 +1,5 @@
 ---
-// /internal/kanban/advisors/[name]/weekly — 顾问本周提醒
+// /internal/advisors/[name]/weekly — 顾问本周提醒
 // 4 个分段:
 //   🔴 紧急联系  — 中期/需对接 28d+, 后期 31d+
 //   🟠 待联系   — 中期/需对接 21-27d, 后期 21-30d
@@ -8,10 +8,10 @@
 //   🆕 待对接学生 — stage='待对接' 且学生归该顾问
 //
 // 一键发邮件给顾问邮箱 (mailto:)。
-import InternalLayout from '../../../../../layouts/InternalLayout.astro';
-import { supabase } from '../../../../../lib/supabase/client';
-import { daysSinceToday, INACTIVE_STAGES } from '../../../../../utils/contact-radar';
-import { studentHasInScopeCohort } from '../../../../../utils/cohort-filter';
+import InternalLayout from '../../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../../lib/supabase/client';
+import { daysSinceToday, INACTIVE_STAGES } from '../../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../../utils/cohort-filter';
 import { marked } from 'marked';
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -22,7 +22,7 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
 
 const { name } = Astro.params;
 const advisorName = decodeURIComponent(name ?? '');
-if (!advisorName) return Astro.redirect('/internal/kanban/advisors');
+if (!advisorName) return Astro.redirect('/internal/advisors');
 
 const { data: advisorRow } = await supabase
   .from('advisors')
@@ -188,7 +188,7 @@ const emailBody = [
   subsBlock('📥 待处理提交', pendingSubs),
   kickoffBlock('🆕 待对接学生', kickoff),
   ``,
-  `详情可在 sdg.undp.ac.cn/internal/kanban/advisors/${encodeURIComponent(advisorName)}/weekly 查看`,
+  `详情可在 sdg.undp.ac.cn/internal/advisors/${encodeURIComponent(advisorName)}/weekly 查看`,
 ].filter(Boolean).join('\n');
 
 const mailtoHref = advisorEmail
@@ -197,7 +197,7 @@ const mailtoHref = advisorEmail
 ---
 
 <InternalLayout title={`${advisorName} · 本周提醒`} active="advisors">
-  <a href="/internal/kanban/advisors" class="back-link">← Advisors</a>
+  <a href="/internal/advisors" class="back-link">← Advisors</a>
 
   <div class="adv-header">
     <h1 class="font-headline adv-title">{advisorName}</h1>
@@ -209,11 +209,11 @@ const mailtoHref = advisorEmail
   </div>
 
   <nav class="adv-tabs">
-    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}`} class="adv-tab">
+    <a href={`/internal/advisors/${encodeURIComponent(advisorName)}`} class="adv-tab">
       <span class="material-symbols-outlined">dashboard</span>
       看板
     </a>
-    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}/weekly`} class="adv-tab adv-tab--active">
+    <a href={`/internal/advisors/${encodeURIComponent(advisorName)}/weekly`} class="adv-tab adv-tab--active">
       <span class="material-symbols-outlined">notifications_active</span>
       本周提醒
     </a>

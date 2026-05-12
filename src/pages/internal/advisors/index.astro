@@ -1,13 +1,13 @@
 ---
-// /internal/kanban/advisors — 全公司中期顾问索引页
+// /internal/advisors — 全公司中期顾问索引页
 // 所有顾问 + admin: 每张 card 可点击进个人看板 / 本周提醒
 // 普通员工 (非 advisor, 非 admin): 只看列表，所有 card 不可点
-import InternalLayout from '../../../../layouts/InternalLayout.astro';
-import { supabase } from '../../../../lib/supabase/client';
+import InternalLayout from '../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../lib/supabase/client';
 import {
   tierFor, tierStyle, daysSinceToday, INACTIVE_STAGES, type RadarTier,
-} from '../../../../utils/contact-radar';
-import { studentHasInScopeCohort } from '../../../../utils/cohort-filter';
+} from '../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
 
 const viewer = Astro.locals?.viewer ?? null;
 const canClickAny = !!viewer && (viewer.isAdmin || viewer.isAdvisor);
@@ -139,11 +139,11 @@ function canClickAdvisor(advName: string): boolean {
           <div class="advisor-card__cta">
             {canClick ? (
               <>
-                <a href={`/internal/kanban/advisors/${encodeURIComponent(name)}`} class="advisor-card__link">
+                <a href={`/internal/advisors/${encodeURIComponent(name)}`} class="advisor-card__link">
                   <span class="material-symbols-outlined">dashboard</span>
                   看板
                 </a>
-                <a href={`/internal/kanban/advisors/${encodeURIComponent(name)}/weekly`} class="advisor-card__link">
+                <a href={`/internal/advisors/${encodeURIComponent(name)}/weekly`} class="advisor-card__link">
                   <span class="material-symbols-outlined">notifications_active</span>
                   本周提醒
                 </a>
