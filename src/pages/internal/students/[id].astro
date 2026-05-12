@@ -1151,6 +1151,12 @@ const metaRows: Row[] = [
     border-radius: 8px;
     padding: 12px 14px;
     overflow-x: auto;
+    /* 关键：long 单行（如英文 email 一整段无换行）必须 wrap，
+       否则 pre 默认 nowrap，撑出横向滚动条，整页排版乱。
+       pre-wrap 保留 \n 和缩进，但允许 word boundary 自动换行。 */
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .md-body pre code { background: transparent; padding: 0; }
   .md-body blockquote {
@@ -1159,6 +1165,9 @@ const metaRows: Row[] = [
     border-left: 3px solid var(--border);
     color: var(--text-muted);
   }
+  .md-body blockquote p { margin: 8px 0; }
+  .md-body blockquote p:first-child { margin-top: 0; }
+  .md-body blockquote p:last-child { margin-bottom: 0; }
   .md-body a { color: var(--primary); text-decoration: underline; text-decoration-color: rgba(0, 0, 0, 0.3); text-underline-offset: 2px; }
   .md-body a:hover { text-decoration-color: var(--primary); }
   .md-body hr { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
@@ -1166,11 +1175,19 @@ const metaRows: Row[] = [
     border-collapse: collapse;
     margin: 0 0 12px;
     font-size: 13px;
+    /* 宽表（如建议表，单格几百字）必须 width:100% + 单元格 break-word，
+       否则 table 默认按内容撑宽，溢出 .sd-note card 横向。 */
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
   }
   .md-body th, .md-body td {
     border: 1px solid var(--border);
     padding: 6px 10px;
     text-align: left;
+    /* 长单格内容 wrap，不撑表 */
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .md-body th { background: #f8fafc; font-weight: 600; }
 
