@@ -287,11 +287,21 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         color: #888;
       }
 
-      /* A4 纸张本体 — 严格一页 A4，超出第一页的内容 overflow:hidden 藏起来。
-         多页流动由 @page + window.print() 处理，preview 只展示第一页样子。 */
+      /* A4 纸张本体 — 严格一页 A4 (210mm × 297mm)，固定，不受窗口大小影响。
+         超出第一页的内容 overflow:hidden 藏起来。
+         多页流动由 @page + window.print() 处理，preview 只展示第一页样子。
+
+         关键：min/max + flex-shrink:0 三重锁。flex 容器默认 flex-shrink:1
+         会在主轴（竖向）压缩 paper 高度，导致用户感觉"A4 被窗口压扁"。 */
       .paper {
         width: 210mm;
         height: 297mm;
+        min-width: 210mm;
+        min-height: 297mm;
+        max-width: 210mm;
+        max-height: 297mm;
+        flex-shrink: 0;
+        flex-grow: 0;
         background: white;
         box-shadow:
           0 1px 3px rgba(0, 0, 0, 0.08),
