@@ -148,7 +148,7 @@ const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
 ---
 
 <InternalLayout title={`${advisorName} · 顾问`} active="kanban">
-  <a href="/internal/kanban" class="back-link">← Kanban</a>
+  <a href="/internal/kanban/advisors" class="back-link">← Advisors</a>
 
   <div class="adv-header">
     <h1 class="font-headline adv-title">{advisorName}</h1>
@@ -162,6 +162,17 @@ const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
       ))}
     </div>
   </div>
+
+  <nav class="adv-tabs">
+    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}`} class="adv-tab adv-tab--active">
+      <span class="material-symbols-outlined">dashboard</span>
+      看板
+    </a>
+    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}/weekly`} class="adv-tab">
+      <span class="material-symbols-outlined">notifications_active</span>
+      本周提醒
+    </a>
+  </nav>
 
   <div class="stat-strip">
     <div class="stat-card">
@@ -309,6 +320,36 @@ const sparkPayload = { labels: weeks.map(w => w.label), data: weekActivity };
   </script>
 
   <style>
+    .adv-tabs {
+      display: flex;
+      gap: 4px;
+      margin: 0 0 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .adv-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      transition: color 0.12s ease, background 0.12s ease;
+      margin-bottom: -1px;
+    }
+    .adv-tab:hover { color: var(--text); background: rgba(0, 0, 0, 0.025); }
+    .adv-tab--active {
+      color: var(--primary);
+      background: white;
+      border-color: var(--border);
+      border-bottom: 1px solid white;
+      font-weight: 600;
+    }
+    .adv-tab .material-symbols-outlined { font-size: 16px; }
+
     .adv-header {
       display: flex;
       align-items: baseline;

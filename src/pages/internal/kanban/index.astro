@@ -1264,10 +1264,16 @@ function fmtMoney(n: number): string {
         <h1 class="font-headline kanban-top__h1">Kanban</h1>
         <span class="kanban-top__count">在管学生 {students.length}</span>
       </div>
-      <button id="open-report-drawer" class="kanban-top__action" type="button">
-        <span class="material-symbols-outlined">image</span>
-        导出周报
-      </button>
+      <div class="kanban-top__actions">
+        <a href="/internal/kanban/advisors" class="kanban-top__action kanban-top__action--secondary">
+          <span class="material-symbols-outlined">groups</span>
+          Advisors
+        </a>
+        <button id="open-report-drawer" class="kanban-top__action" type="button">
+          <span class="material-symbols-outlined">image</span>
+          导出周报
+        </button>
+      </div>
     </div>
 
     <div class="kanban-grid">
@@ -4380,9 +4386,14 @@ function fmtMoney(n: number): string {
       border-radius: 999px;
     }
 
-    /* ── 导出周报 button (top strip) ── */
-    .kanban-top__action {
+    /* ── top strip actions ── */
+    .kanban-top__actions {
       margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .kanban-top__action {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -4394,11 +4405,22 @@ function fmtMoney(n: number): string {
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      text-decoration: none;
       transition: background 0.15s, transform 0.15s;
     }
     .kanban-top__action:hover { background: var(--primary-dim); transform: translateY(-1px); }
     .kanban-top__action:active { transform: translateY(0); }
     .kanban-top__action .material-symbols-outlined { font-size: 18px; }
+    .kanban-top__action--secondary {
+      color: var(--text);
+      background: white;
+      border: 1px solid var(--border);
+    }
+    .kanban-top__action--secondary:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: white;
+    }
 
     /* ─────────────────────────────────────────────────────── */
     /* Drawer — defensive CSS, single-row items                 */

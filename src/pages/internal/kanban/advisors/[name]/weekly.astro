@@ -1,0 +1,421 @@
+---
+// /internal/kanban/advisors/[name]/weekly — 顾问本周提醒
+// 4 个分段:
+//   🔴 紧急联系  — 中期/需对接 28d+, 后期 31d+
+//   🟠 待联系   — 中期/需对接 21-27d, 后期 21-30d
+//   🟡 建议跟进 — 中期/需对接/后期 14-20d
+//   📥 待处理提交 — submissions.processed=false 且学生归该顾问
+//   🆕 待对接学生 — stage='待对接' 且学生归该顾问
+//
+// 一键发邮件给顾问邮箱 (mailto:)。
+import InternalLayout from '../../../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../../../lib/supabase/client';
+import { daysSinceToday, INACTIVE_STAGES } from '../../../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../../../utils/cohort-filter';
+
+const viewer = Astro.locals?.viewer ?? null;
+if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
+  return Astro.redirect('/internal');
+}
+
+const { name } = Astro.params;
+const advisorName = decodeURIComponent(name ?? '');
+if (!advisorName) return Astro.redirect('/internal/kanban/advisors');
+
+const { data: advisorRow } = await supabase
+  .from('advisors')
+  .select('name, emails, roles, is_admin')
+  .eq('name', advisorName)
+  .maybeSingle();
+if (!advisorRow) {
+  return new Response(`No advisor found with name "${advisorName}"`, { status: 404 });
+}
+
+const { data: rawStudents } = await supabase
+  .from('students')
+  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years')
+  .contains('mid_advisors', [advisorName]);
+
+type Stu = {
+  id: number;
+  name: string;
+  stage: string | null;
+  last_contact_at: string | null;
+  mid_advisors: string[] | null;
+  enroll_years: string[] | null;
+};
+const allStudents = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
+const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
+
+// ── Weekly-cadence tier (stage-aware) ──
+//   后期在途 比 中期在途 / 需对接 宽限一周 (31d 才紧急)
+type WeeklyBucket = 'urgent' | 'todo' | 'soft' | 'ok' | 'unknown';
+function weeklyBucket(stage: string | null, days: number | null): WeeklyBucket {
+  if (days == null) return 'unknown';
+  const lenient = stage === '后期在途';
+  if (lenient) {
+    if (days >= 31) return 'urgent';
+    if (days >= 21) return 'todo';
+    if (days >= 14) return 'soft';
+  } else {
+    if (days >= 28) return 'urgent';
+    if (days >= 21) return 'todo';
+    if (days >= 14) return 'soft';
+  }
+  return 'ok';
+}
+
+type Row = {
+  id: number; name: string; stage: string | null; daysSince: number | null;
+  enroll: string;
+};
+const tagged: (Row & { bucket: WeeklyBucket })[] = active
+  .filter(s => s.stage !== '待对接')  // 待对接 单独一段
+  .map(s => ({
+    id: s.id,
+    name: s.name,
+    stage: s.stage,
+    daysSince: daysSinceToday(s.last_contact_at),
+    enroll: (s.enroll_years ?? []).join(' / ') || '—',
+    bucket: weeklyBucket(s.stage, daysSinceToday(s.last_contact_at)),
+  }));
+
+const urgent = tagged.filter(r => r.bucket === 'urgent').sort((a, b) => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+const todo   = tagged.filter(r => r.bucket === 'todo').sort((a, b)   => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+const soft   = tagged.filter(r => r.bucket === 'soft').sort((a, b)   => (b.daysSince ?? 0) - (a.daysSince ?? 0));
+
+const kickoff = active
+  .filter(s => s.stage === '待对接')
+  .map(s => ({
+    id: s.id,
+    name: s.name,
+    daysSince: daysSinceToday(s.last_contact_at),
+    enroll: (s.enroll_years ?? []).join(' / ') || '—',
+  }))
+  .sort((a, b) => (b.daysSince ?? -1) - (a.daysSince ?? -1));
+
+// ── 待处理 submissions ──
+const studentIds = active.map(s => s.id);
+const studentNameById = new Map(active.map(s => [s.id, s.name]));
+const { data: pendingSubsRaw } = studentIds.length
+  ? await supabase
+      .from('submissions')
+      .select('id, type, summary, submitted_at, student_id, student_name_raw')
+      .eq('processed', false)
+      .in('student_id', studentIds)
+      .order('submitted_at', { ascending: false })
+  : { data: [] as any[] };
+const pendingSubs = (pendingSubsRaw ?? []).map((s: any) => ({
+  id: s.id as number,
+  type: s.type as string,
+  summary: (s.summary as string | null) ?? '',
+  submittedAt: (s.submitted_at as string | null) ?? '',
+  studentName: studentNameById.get(s.student_id as number) ?? (s.student_name_raw as string | null) ?? '—',
+  studentId: s.student_id as number | null,
+}));
+
+// ── Email payload (for the 一键发邮件 button) ──
+const today = new Date();
+const dateStr = today.toISOString().slice(0, 10);
+const advisorEmail = Array.isArray(advisorRow.emails) && advisorRow.emails.length > 0
+  ? (advisorRow.emails[0] as string)
+  : '';
+
+function listBlock(label: string, rows: { name: string; stage?: string | null; daysSince: number | null; enroll?: string }[]): string {
+  if (rows.length === 0) return '';
+  const lines = rows.map(r => {
+    const ds = r.daysSince == null ? '从未联系' : `${r.daysSince}d 未联系`;
+    const stage = r.stage ? ` (${r.stage}` + (r.enroll && r.enroll !== '—' ? ` · ${r.enroll}` : '') + ')' : '';
+    return `- ${r.name}${stage} · ${ds}`;
+  });
+  return `${label} (${rows.length})\n${lines.join('\n')}\n`;
+}
+function subsBlock(label: string, subs: typeof pendingSubs): string {
+  if (subs.length === 0) return '';
+  const lines = subs.map(s => `- ${s.studentName} - ${s.type}${s.summary ? ': ' + s.summary.slice(0, 40) : ''} (${s.submittedAt.slice(0, 10)})`);
+  return `${label} (${subs.length})\n${lines.join('\n')}\n`;
+}
+function kickoffBlock(label: string, rows: typeof kickoff): string {
+  if (rows.length === 0) return '';
+  const lines = rows.map(r => `- ${r.name} · 入学届 ${r.enroll}`);
+  return `${label} (${rows.length})\n${lines.join('\n')}\n`;
+}
+
+const emailSubject = `【中期看板】${advisorName} 本周提醒 · ${dateStr}`;
+const emailBody = [
+  `${advisorName} 你好,`,
+  ``,
+  `本周需要你处理的事项汇总（自动生成自 sdg.undp.ac.cn）:`,
+  ``,
+  listBlock('🔴 紧急联系', urgent),
+  listBlock('🟠 待联系',   todo),
+  listBlock('🟡 建议跟进', soft),
+  subsBlock('📥 待处理提交', pendingSubs),
+  kickoffBlock('🆕 待对接学生', kickoff),
+  ``,
+  `详情可在 sdg.undp.ac.cn/internal/kanban/advisors/${encodeURIComponent(advisorName)}/weekly 查看`,
+].filter(Boolean).join('\n');
+
+const mailtoHref = advisorEmail
+  ? `mailto:${advisorEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+  : '';
+---
+
+<InternalLayout title={`${advisorName} · 本周提醒`} active="kanban">
+  <a href="/internal/kanban/advisors" class="back-link">← Advisors</a>
+
+  <div class="adv-header">
+    <h1 class="font-headline adv-title">{advisorName}</h1>
+    <div class="adv-meta">
+      {advisorRow.is_admin && <span class="adv-tag adv-tag--admin">admin</span>}
+      <span class="adv-meta__date font-mono">{dateStr}</span>
+      {advisorEmail && <span class="adv-email font-mono">{advisorEmail}</span>}
+    </div>
+  </div>
+
+  <nav class="adv-tabs">
+    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}`} class="adv-tab">
+      <span class="material-symbols-outlined">dashboard</span>
+      看板
+    </a>
+    <a href={`/internal/kanban/advisors/${encodeURIComponent(advisorName)}/weekly`} class="adv-tab adv-tab--active">
+      <span class="material-symbols-outlined">notifications_active</span>
+      本周提醒
+    </a>
+    {mailtoHref && (
+      <a href={mailtoHref} class="adv-tab adv-tab--cta">
+        <span class="material-symbols-outlined">mail</span>
+        一键发邮件
+      </a>
+    )}
+  </nav>
+
+  {/* 🔴 紧急联系 */}
+  <section class="reminder-section reminder-section--urgent">
+    <header class="reminder-section__head">
+      <h2 class="reminder-section__title">
+        <span class="reminder-section__icon">🔴</span>
+        紧急联系
+        <span class="reminder-section__count">{urgent.length}</span>
+      </h2>
+      <span class="reminder-section__rule">中期/需对接 ≥ 28d · 后期 ≥ 31d</span>
+    </header>
+    {urgent.length === 0 ? (
+      <p class="reminder-section__empty">无紧急联系学生。</p>
+    ) : (
+      <ul class="reminder-list">
+        {urgent.map(r => (
+          <li>
+            <a href={`/internal/students/${r.id}`} class="reminder-row">
+              <span class="reminder-row__name">{r.name}</span>
+              <span class="reminder-row__stage">{r.stage ?? '—'} · {r.enroll}</span>
+              <span class="reminder-row__days reminder-row__days--urgent font-mono">{r.daysSince}d 未联系</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {/* 🟠 待联系 */}
+  <section class="reminder-section reminder-section--todo">
+    <header class="reminder-section__head">
+      <h2 class="reminder-section__title">
+        <span class="reminder-section__icon">🟠</span>
+        待联系
+        <span class="reminder-section__count">{todo.length}</span>
+      </h2>
+      <span class="reminder-section__rule">中期/需对接 21-27d · 后期 21-30d</span>
+    </header>
+    {todo.length === 0 ? (
+      <p class="reminder-section__empty">无待联系学生。</p>
+    ) : (
+      <ul class="reminder-list">
+        {todo.map(r => (
+          <li>
+            <a href={`/internal/students/${r.id}`} class="reminder-row">
+              <span class="reminder-row__name">{r.name}</span>
+              <span class="reminder-row__stage">{r.stage ?? '—'} · {r.enroll}</span>
+              <span class="reminder-row__days reminder-row__days--todo font-mono">{r.daysSince}d 未联系</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {/* 🟡 建议跟进 */}
+  <section class="reminder-section reminder-section--soft">
+    <header class="reminder-section__head">
+      <h2 class="reminder-section__title">
+        <span class="reminder-section__icon">🟡</span>
+        建议跟进
+        <span class="reminder-section__count">{soft.length}</span>
+      </h2>
+      <span class="reminder-section__rule">所有 stage 14-20d</span>
+    </header>
+    {soft.length === 0 ? (
+      <p class="reminder-section__empty">无建议跟进学生。</p>
+    ) : (
+      <ul class="reminder-list">
+        {soft.map(r => (
+          <li>
+            <a href={`/internal/students/${r.id}`} class="reminder-row">
+              <span class="reminder-row__name">{r.name}</span>
+              <span class="reminder-row__stage">{r.stage ?? '—'} · {r.enroll}</span>
+              <span class="reminder-row__days reminder-row__days--soft font-mono">{r.daysSince}d 未联系</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {/* 📥 待处理提交 */}
+  <section class="reminder-section">
+    <header class="reminder-section__head">
+      <h2 class="reminder-section__title">
+        <span class="reminder-section__icon">📥</span>
+        待处理提交
+        <span class="reminder-section__count">{pendingSubs.length}</span>
+      </h2>
+      <span class="reminder-section__rule">submissions.processed = false</span>
+    </header>
+    {pendingSubs.length === 0 ? (
+      <p class="reminder-section__empty">没有待处理的提交。</p>
+    ) : (
+      <ul class="reminder-list">
+        {pendingSubs.map(s => (
+          <li>
+            <a href={s.studentId ? `/internal/students/${s.studentId}` : '/internal/submissions'} class="reminder-row">
+              <span class="reminder-row__name">{s.studentName}</span>
+              <span class="reminder-row__stage">{s.type}{s.summary ? ' · ' + s.summary.slice(0, 50) + (s.summary.length > 50 ? '…' : '') : ''}</span>
+              <span class="reminder-row__days font-mono">{s.submittedAt.slice(0, 10)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {/* 🆕 待对接学生 */}
+  <section class="reminder-section">
+    <header class="reminder-section__head">
+      <h2 class="reminder-section__title">
+        <span class="reminder-section__icon">🆕</span>
+        待对接学生
+        <span class="reminder-section__count">{kickoff.length}</span>
+      </h2>
+      <span class="reminder-section__rule">stage = 待对接 (需首次 kickoff)</span>
+    </header>
+    {kickoff.length === 0 ? (
+      <p class="reminder-section__empty">没有待对接学生。</p>
+    ) : (
+      <ul class="reminder-list">
+        {kickoff.map(r => (
+          <li>
+            <a href={`/internal/students/${r.id}`} class="reminder-row">
+              <span class="reminder-row__name">{r.name}</span>
+              <span class="reminder-row__stage">入学届 {r.enroll}</span>
+              <span class="reminder-row__days font-mono">{r.daysSince == null ? '从未联系' : `${r.daysSince}d 未联系`}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</InternalLayout>
+
+<style>
+  .adv-header { margin: 8px 0 14px; }
+  .adv-title { font-size: 24px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 4px; }
+  .adv-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .adv-meta__date { font-size: 12px; color: var(--text-muted); }
+  .adv-tag {
+    font-size: 10px; padding: 2px 7px; border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05); color: var(--text-muted);
+    text-transform: lowercase; letter-spacing: 0.04em;
+  }
+  .adv-tag--admin { background: var(--primary); color: white; }
+  .adv-email { font-size: 11px; color: var(--text-muted); }
+
+  .adv-tabs {
+    display: flex; gap: 4px; margin: 0 0 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .adv-tab {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 16px; font-size: 13px; color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid transparent; border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    transition: color 0.12s ease, background 0.12s ease;
+    margin-bottom: -1px;
+  }
+  .adv-tab:hover { color: var(--text); background: rgba(0, 0, 0, 0.025); }
+  .adv-tab--active {
+    color: var(--primary); background: white;
+    border-color: var(--border); border-bottom: 1px solid white;
+    font-weight: 600;
+  }
+  .adv-tab--cta {
+    margin-left: auto; color: white; background: var(--primary);
+    border-color: var(--primary);
+  }
+  .adv-tab--cta:hover { background: var(--primary-dim); color: white; }
+  .adv-tab .material-symbols-outlined { font-size: 16px; }
+
+  .reminder-section {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .reminder-section--urgent { border-left: 3px solid var(--danger); }
+  .reminder-section--todo   { border-left: 3px solid var(--warning); }
+  .reminder-section--soft   { border-left: 3px solid #e0c54a; }
+
+  .reminder-section__head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 10px; gap: 12px;
+  }
+  .reminder-section__title {
+    margin: 0; font-size: 15px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .reminder-section__icon { font-size: 16px; line-height: 1; }
+  .reminder-section__count {
+    font-family: 'SF Mono', monospace;
+    font-size: 12px; color: var(--text-muted);
+    padding: 1px 8px; border-radius: 10px; background: rgba(0, 0, 0, 0.06);
+  }
+  .reminder-section__rule {
+    font-size: 11px; color: var(--text-soft);
+  }
+  .reminder-section__empty {
+    margin: 8px 0 0; font-size: 12px; color: var(--text-soft); font-style: italic;
+  }
+
+  .reminder-list { list-style: none; margin: 0; padding: 0; }
+  .reminder-list > li + li {
+    border-top: 1px dashed var(--border);
+  }
+  .reminder-row {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 0;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .reminder-row:hover { background: rgba(0, 0, 0, 0.02); border-radius: 4px; }
+  .reminder-row__name { font-weight: 600; }
+  .reminder-row__stage { color: var(--text-muted); font-size: 12px; }
+  .reminder-row__days { font-size: 11.5px; color: var(--text-muted); text-align: right; }
+  .reminder-row__days--urgent { color: var(--danger); font-weight: 600; }
+  .reminder-row__days--todo   { color: var(--warning); font-weight: 600; }
+  .reminder-row__days--soft   { color: #b58e1d; }
+</style>

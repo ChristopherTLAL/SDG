@@ -1,0 +1,331 @@
+---
+// /internal/kanban/advisors — 全公司中期顾问索引页
+// 所有顾问 + admin: 每张 card 可点击进个人看板 / 本周提醒
+// 普通员工 (非 advisor, 非 admin): 只看列表，所有 card 不可点
+import InternalLayout from '../../../../layouts/InternalLayout.astro';
+import { supabase } from '../../../../lib/supabase/client';
+import {
+  tierFor, tierStyle, daysSinceToday, INACTIVE_STAGES, type RadarTier,
+} from '../../../../utils/contact-radar';
+import { studentHasInScopeCohort } from '../../../../utils/cohort-filter';
+
+const viewer = Astro.locals?.viewer ?? null;
+const canClickAny = !!viewer && (viewer.isAdmin || viewer.isAdvisor);
+const viewerName = viewer?.name ?? '';
+
+// 中期顾问 = advisors.roles 含 '中期' 且 active=true
+const { data: advisorRows } = await supabase
+  .from('advisors')
+  .select('name, emails, roles, is_admin, active')
+  .eq('active', true);
+const advisors = (advisorRows ?? [])
+  .filter((a: any) => Array.isArray(a.roles) && a.roles.includes('中期'))
+  .sort((a: any, b: any) => (a.name as string).localeCompare(b.name as string, 'zh-Hans-CN'));
+
+const advisorNames = advisors.map((a: any) => a.name as string);
+
+// 所有 in-scope 学生（含已结案，用于"已结案 / 退费"列；inactive 之外的入 active 集合）
+const { data: rawStudents } = await supabase
+  .from('students')
+  .select('id, stage, last_contact_at, mid_advisors, enroll_years');
+type Stu = {
+  id: number;
+  stage: string | null;
+  last_contact_at: string | null;
+  mid_advisors: string[] | null;
+  enroll_years: string[] | null;
+};
+const students = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
+
+// 每位顾问的统计：active count + tier 分布
+type AdvisorStat = {
+  active: number;
+  inactive: number;
+  tiers: Record<RadarTier, number>;
+};
+const stats = new Map<string, AdvisorStat>();
+for (const adv of advisorNames) {
+  stats.set(adv, {
+    active: 0,
+    inactive: 0,
+    tiers: { critical: 0, red: 0, pink: 0, yellow: 0, green: 0, unknown: 0, inactive: 0 },
+  });
+}
+for (const s of students) {
+  const inactiveStage = s.stage && INACTIVE_STAGES.has(s.stage);
+  const ds = daysSinceToday(s.last_contact_at);
+  const t = tierFor(ds, s.stage);
+  for (const adv of (s.mid_advisors ?? [])) {
+    const e = stats.get(adv);
+    if (!e) continue;
+    if (inactiveStage) e.inactive += 1;
+    else {
+      e.active += 1;
+      e.tiers[t] += 1;
+    }
+  }
+}
+
+function emailOf(a: any): string {
+  if (!Array.isArray(a.emails) || a.emails.length === 0) return '';
+  return a.emails[0] as string;
+}
+function canClickAdvisor(advName: string): boolean {
+  if (!viewer) return false;
+  if (viewer.isAdmin) return true;
+  if (viewer.isAdvisor && viewer.name === advName) return true;
+  if (viewer.isAdvisor) return true;  // 所有顾问之间互看 (用户语义"所有顾问+管理")
+  return false;
+}
+---
+
+<InternalLayout title="Advisors" active="kanban">
+  <a href="/internal/kanban" class="back-link">← Kanban</a>
+
+  <header class="advisors-head">
+    <h1 class="font-headline advisors-title">Advisors</h1>
+    <p class="advisors-sub">
+      全公司在册中期顾问 {advisors.length} 位 · 学生归属采多顾问口径
+      ({canClickAny ? '点 「看板」 / 「本周提醒」 进个人页' : '当前用户无个人页访问权限'})
+    </p>
+  </header>
+
+  <ul class="advisor-grid">
+    {advisors.map((a: any) => {
+      const name = a.name as string;
+      const st = stats.get(name) ?? { active: 0, inactive: 0, tiers: { critical: 0, red: 0, pink: 0, yellow: 0, green: 0, unknown: 0, inactive: 0 } };
+      const canClick = canClickAdvisor(name);
+      const email = emailOf(a);
+      const isSelf = viewerName === name;
+      return (
+        <li class={`advisor-card ${canClick ? '' : 'advisor-card--locked'} ${isSelf ? 'advisor-card--self' : ''}`}>
+          <header class="advisor-card__head">
+            <h2 class="font-headline advisor-card__name">{name}</h2>
+            <div class="advisor-card__tags">
+              {a.is_admin && <span class="advisor-tag advisor-tag--admin">admin</span>}
+              {Array.isArray(a.roles) && a.roles.map((r: string) => (
+                <span class="advisor-tag">{r}</span>
+              ))}
+              {isSelf && <span class="advisor-tag advisor-tag--self">YOU</span>}
+            </div>
+          </header>
+
+          <div class="advisor-card__stats">
+            <div class="advisor-card__stat">
+              <div class="advisor-card__stat-label">在管</div>
+              <div class="advisor-card__stat-value font-mono">{st.active}</div>
+            </div>
+            <div class="advisor-card__stat">
+              <div class="advisor-card__stat-label">已结案</div>
+              <div class="advisor-card__stat-value advisor-card__stat-value--muted font-mono">{st.inactive}</div>
+            </div>
+          </div>
+
+          <div class="tier-strip">
+            {(['critical','red','pink','yellow','green'] as RadarTier[]).map(t => {
+              const ts = tierStyle(t);
+              const n = st.tiers[t];
+              return (
+                <div class="tier-strip__cell" title={`${t}: ${n}`}>
+                  <span class="tier-strip__dot" style={`background: ${ts.border};`}></span>
+                  <span class="tier-strip__num font-mono">{n}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {email && <div class="advisor-card__email font-mono">{email}</div>}
+
+          <div class="advisor-card__cta">
+            {canClick ? (
+              <>
+                <a href={`/internal/kanban/advisors/${encodeURIComponent(name)}`} class="advisor-card__link">
+                  <span class="material-symbols-outlined">dashboard</span>
+                  看板
+                </a>
+                <a href={`/internal/kanban/advisors/${encodeURIComponent(name)}/weekly`} class="advisor-card__link">
+                  <span class="material-symbols-outlined">notifications_active</span>
+                  本周提醒
+                </a>
+              </>
+            ) : (
+              <span class="advisor-card__locked">
+                <span class="material-symbols-outlined">lock</span>
+                仅顾问 / 管理可查看
+              </span>
+            )}
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+</InternalLayout>
+
+<style>
+  .advisors-head {
+    margin: 8px 0 24px;
+  }
+  .advisors-title {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .advisors-sub {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .advisor-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  @media (max-width: 980px) {
+    .advisor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .advisor-grid { grid-template-columns: 1fr; }
+  }
+
+  .advisor-card {
+    background: var(--surface-raised);
+    border: 1px solid #eef0f3;
+    border-radius: 14px;
+    padding: 18px 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .advisor-card:hover { border-color: var(--text-soft); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); }
+  .advisor-card--locked { opacity: 0.78; }
+  .advisor-card--locked:hover { box-shadow: none; border-color: #eef0f3; }
+  .advisor-card--self {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary) inset;
+  }
+
+  .advisor-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .advisor-card__name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .advisor-card__tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .advisor-tag {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-muted);
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+  }
+  .advisor-tag--admin { background: var(--primary); color: white; }
+  .advisor-tag--self  { background: var(--primary); color: white; text-transform: uppercase; }
+
+  .advisor-card__stats {
+    display: flex;
+    gap: 18px;
+  }
+  .advisor-card__stat-label {
+    font-size: 10.5px;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .advisor-card__stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .advisor-card__stat-value--muted { color: var(--text-muted); font-size: 18px; }
+
+  .tier-strip {
+    display: flex;
+    gap: 14px;
+    padding-top: 4px;
+    border-top: 1px dashed var(--border);
+  }
+  .tier-strip__cell {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .tier-strip__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tier-strip__num { color: var(--text); }
+
+  .advisor-card__email {
+    font-size: 11px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .advisor-card__cta {
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+  .advisor-card__link {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 10px;
+    font-size: 12px;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    transition: all 0.12s ease;
+  }
+  .advisor-card__link:hover {
+    color: white;
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  .advisor-card__link .material-symbols-outlined { font-size: 14px; }
+
+  .advisor-card__locked {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    color: var(--text-soft);
+    font-style: italic;
+  }
+  .advisor-card__locked .material-symbols-outlined { font-size: 13px; }
+</style>
