@@ -70,12 +70,12 @@ function emailOf(a: any): string {
   if (!Array.isArray(a.emails) || a.emails.length === 0) return '';
   return a.emails[0] as string;
 }
-function canClickAdvisor(advName: string): boolean {
+function canClickAdvisor(_advName: string): boolean {
   if (!viewer) return false;
-  if (viewer.isAdmin) return true;
-  if (viewer.isAdvisor && viewer.name === advName) return true;
-  if (viewer.isAdvisor) return true;  // 所有顾问之间互看 (用户语义"所有顾问+管理")
-  return false;
+  // 用户语义: "所有顾问+管理可点，普通员工不能"。Admin 已隐含在 isAdvisor
+  // (vault YAML 里管理员账号同样是中期顾问)。advName 参数留着是为未来如果
+  // 要做"普通顾问只能看自己"切换时不改签名。
+  return !!(viewer.isAdmin || viewer.isAdvisor);
 }
 ---
 

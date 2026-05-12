@@ -1,9 +1,10 @@
 ---
 // /internal/advisors/[name] — single-advisor profile.
 //
-// Reached by clicking a row in the Kanban heatmap or a chip below it.
-// Shows: caseload, stage breakdown, tier breakdown, recent 12-week
-// activity sparkline, list of students with link to detail.
+// Reached from /internal/advisors (advisor index card), the kanban
+// heatmap row, or a chip below it. Shows: caseload, stage breakdown,
+// tier breakdown, recent 12-week activity sparkline, list of students
+// with link to detail.
 
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
@@ -17,7 +18,7 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
 
 const { name } = Astro.params;
 const advisorName = decodeURIComponent(name ?? '');
-if (!advisorName) return Astro.redirect('/internal/kanban');
+if (!advisorName) return Astro.redirect('/internal/advisors');
 
 // Confirm advisor exists in advisors table (catches typo'd URLs early)
 const { data: advisorRow } = await supabase
