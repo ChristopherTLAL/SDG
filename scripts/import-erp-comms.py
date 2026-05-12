@@ -134,8 +134,8 @@ def build_note(row_dict, dedupe_id):
 
     body = ['', f'# [ERP] {sname} {ctype} {sdate}', '']
     body.append(
-        f'> ⚠️ 此记录从公司 ERP 系统批量导入({TODAY})。'
-        f'创建人:**{creator}** | 类型:**{ctype}** | 方式:{method}'
+        f'> ⚠️ 此记录从公司 ERP 系统批量导入（{TODAY}）。'
+        f'创建人：**{creator}** | 类型：**{ctype}** | 方式：{method}'
     )
     body.append('')
 
@@ -157,28 +157,28 @@ def build_note(row_dict, dedupe_id):
     # Standardized info block (only show if any data).
     info_bits = []
     if school1:
-        info_bits.append(f'- 毕业/就读院校一:{school1}{f"  专业:{major1}" if major1 else ""}')
+        info_bits.append(f'- 毕业/就读院校一：{school1}{f"  专业：{major1}" if major1 else ""}')
     if school2:
-        info_bits.append(f'- 毕业/就读院校二:{school2}{f"  专业:{major2}" if major2 else ""}')
+        info_bits.append(f'- 毕业/就读院校二：{school2}{f"  专业：{major2}" if major2 else ""}')
     if gpa4 is not None:
-        info_bits.append(f'- GPA4:{gpa4}')
+        info_bits.append(f'- GPA4：{gpa4}')
     if gpa100 is not None:
-        info_bits.append(f'- GPA100:{gpa100}')
+        info_bits.append(f'- GPA100：{gpa100}')
     if toefl is not None:
-        info_bits.append(f'- TOEFL:{toefl}')
+        info_bits.append(f'- TOEFL：{toefl}')
     if ielts is not None:
-        info_bits.append(f'- IELTS:{ielts}')
+        info_bits.append(f'- IELTS：{ielts}')
     if gre is not None:
-        info_bits.append(f'- GRE:{gre}')
+        info_bits.append(f'- GRE：{gre}')
     if gmat is not None:
-        info_bits.append(f'- GMAT:{gmat}')
+        info_bits.append(f'- GMAT：{gmat}')
     if other_test:
-        info_bits.append(f'- 其他考试:{other_test}')
+        info_bits.append(f'- 其他考试：{other_test}')
     if test_remark:
-        info_bits.append(f'- 考试备注:{test_remark}')
+        info_bits.append(f'- 考试备注：{test_remark}')
 
     if info_bits:
-        body.append('## ERP 标化与背景快照(沟通时点)')
+        body.append('## ERP 标化与背景快照（沟通时点）')
         body.append('')
         body.extend(info_bits)
         body.append('')
