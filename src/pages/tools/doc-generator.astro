@@ -3,6 +3,101 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 
 const lang = 'en';
+
+// Industry × position presets — auto-fill 部门/岗位/工作内容 fields so the
+// generated certificate reads like industry-realistic copy rather than
+// generic「工作认真负责」boilerplate. Injected into the inline script via
+// define:vars so plain Chinese stays readable here.
+const industries = [
+  { cn: '金融 Finance', positions: [
+    { cn: '投行分析师助理', en: 'Investment Banking Analyst Intern', deptCN: '投资银行部', deptEN: 'Investment Banking Department', respCN: '行业研究、财务建模与尽职调查，参与项目尽调报告与投资备忘录撰写', respEN: 'industry research, financial modeling, and due diligence; contributing to due diligence reports and investment memoranda' },
+    { cn: '研究员助理', en: 'Equity Research Intern', deptCN: '研究部', deptEN: 'Research Department', respCN: '行业与上市公司研究、估值建模，撰写研究报告与公司点评', respEN: 'industry and listed-company research, valuation modeling, and drafting research reports and company notes' },
+    { cn: '资产管理实习生', en: 'Asset Management Intern', deptCN: '资产管理部', deptEN: 'Asset Management Department', respCN: '投资组合监控、产品业绩归因分析及客户报告整理', respEN: 'portfolio monitoring, performance attribution analysis, and client reporting' },
+    { cn: '风险管理实习生', en: 'Risk Management Intern', deptCN: '风险管理部', deptEN: 'Risk Management Department', respCN: '市场与信用风险数据收集、压力测试模型构建及合规报告整理', respEN: 'market and credit risk data collection, stress testing model construction, and compliance reporting' },
+    { cn: '财务分析助理', en: 'Financial Analysis Intern', deptCN: '财务部', deptEN: 'Finance Department', respCN: '月度财务报表编制、预算执行跟踪与成本分析', respEN: 'monthly financial statement preparation, budget execution tracking, and cost analysis' },
+    { cn: '客户经理助理', en: 'Client Relationship Intern', deptCN: '财富管理部', deptEN: 'Wealth Management', respCN: '客户资料整理、产品方案制作、客户回访记录及账户运营支持', respEN: 'client onboarding documentation, product proposal preparation, follow-up records, and account operations support' },
+  ]},
+  { cn: '互联网 / 科技 Internet & Tech', positions: [
+    { cn: '软件开发实习生', en: 'Software Development Intern', deptCN: '研发部', deptEN: 'R&D Department', respCN: '需求分析、参与代码开发与测试，并支持产品上线后的运维工作', respEN: 'requirements analysis, participating in code development and testing, and supporting post-release maintenance' },
+    { cn: '产品经理助理', en: 'Product Management Intern', deptCN: '产品部', deptEN: 'Product Department', respCN: '用户调研、需求拆解、PRD 撰写以及与研发/设计团队的协同推进', respEN: 'user research, requirements analysis, PRD drafting, and cross-team coordination with engineering and design' },
+    { cn: '数据分析实习生', en: 'Data Analysis Intern', deptCN: '数据部', deptEN: 'Data Analytics Department', respCN: '业务数据提取、可视化报表搭建及关键指标的归因分析', respEN: 'business data extraction, dashboard development, and root-cause analysis of key metrics' },
+    { cn: '用户增长实习生', en: 'Growth Marketing Intern', deptCN: '增长运营部', deptEN: 'Growth Operations', respCN: '渠道投放数据复盘、用户分层运营策略制定及增长活动执行', respEN: 'channel performance review, user segmentation strategy, and execution of growth campaigns' },
+    { cn: 'UI / UX 设计实习生', en: 'UI / UX Design Intern', deptCN: '设计部', deptEN: 'Design Department', respCN: '界面视觉设计、交互原型搭建与设计规范维护', respEN: 'UI visual design, interaction prototyping, and design system maintenance' },
+    { cn: '运营实习生', en: 'Operations Intern', deptCN: '运营部', deptEN: 'Operations Department', respCN: '日常活动策划、用户社群运营、内容上架及运营数据复盘', respEN: 'daily campaign planning, user community operations, content publishing, and operational data review' },
+    { cn: '算法工程师实习生', en: 'Algorithm Engineering Intern', deptCN: '算法部', deptEN: 'Algorithm Department', respCN: '算法模型训练与评估、特征工程优化以及离线/在线指标分析', respEN: 'algorithm model training and evaluation, feature engineering optimization, and offline/online metric analysis' },
+  ]},
+  { cn: '咨询 Consulting', positions: [
+    { cn: '战略咨询实习生', en: 'Strategy Consulting Intern', deptCN: '战略咨询部', deptEN: 'Strategy Consulting', respCN: '案头调研、客户访谈整理、行业建模及最终交付材料的撰写', respEN: 'desk research, client interview synthesis, industry modeling, and preparation of final client deliverables' },
+    { cn: '商业分析实习生', en: 'Business Analyst Intern', deptCN: '商业分析部', deptEN: 'Business Analytics', respCN: '数据搜集与清洗、业务模型搭建、可视化报表及战略建议输出', respEN: 'data collection and cleaning, business modeling, dashboard development, and strategic recommendations' },
+    { cn: '行业研究实习生', en: 'Industry Research Intern', deptCN: '研究中心', deptEN: 'Industry Research Center', respCN: '行业产业链梳理、专家访谈纪要整理及白皮书研究素材搜集', respEN: 'value-chain mapping, expert interview minutes, and white paper research' },
+    { cn: '人力资源咨询助理', en: 'HR Consulting Intern', deptCN: '组织与人才咨询部', deptEN: 'Organization & Talent Consulting', respCN: '岗位胜任力模型、薪酬调研、组织诊断及培训方案设计', respEN: 'competency modeling, compensation benchmarking, organizational diagnosis, and training program design' },
+  ]},
+  { cn: '媒体 / 传播 Media & Communications', positions: [
+    { cn: '记者编辑实习生', en: 'Reporter / Editor Intern', deptCN: '内容编辑部', deptEN: 'Editorial Department', respCN: '新闻线索收集、采访整理、稿件编辑及多媒体素材整理', respEN: 'news lead gathering, interview synthesis, copy editing, and multimedia material coordination' },
+    { cn: '新媒体运营实习生', en: 'New Media Operations Intern', deptCN: '新媒体部', deptEN: 'New Media Department', respCN: '公众号/视频号内容选题、文案撰写、排版发布及数据复盘', respEN: 'content planning, copywriting, publishing, and performance analytics across social media platforms' },
+    { cn: '公共关系实习生', en: 'Public Relations Intern', deptCN: '公关传播部', deptEN: 'PR & Communications', respCN: '媒体清单维护、新闻稿撰写、活动现场支持及舆情监测', respEN: 'media list management, press release drafting, event support, and media monitoring' },
+    { cn: '内容策划实习生', en: 'Content Strategy Intern', deptCN: '品牌内容部', deptEN: 'Brand Content', respCN: '内容选题、栏目策划、品牌叙事框架搭建及跨平台内容分发', respEN: 'content topic planning, editorial calendars, brand narrative frameworks, and cross-platform distribution' },
+    { cn: '活动策划助理', en: 'Event Planning Intern', deptCN: '活动策划部', deptEN: 'Event Planning', respCN: '活动方案撰写、嘉宾对接、现场执行流程及活动复盘报告', respEN: 'event proposals, speaker coordination, on-site execution, and post-event recap reports' },
+  ]},
+  { cn: '教育 Education', positions: [
+    { cn: '教学实习生', en: 'Teaching Intern', deptCN: '教学部', deptEN: 'Teaching Department', respCN: '主讲教师备课、课堂组织、学生作业批改及阶段性教学反馈整理', respEN: 'lesson preparation, classroom management, homework grading, and stage-based teaching feedback' },
+    { cn: '教研助理', en: 'Curriculum Research Assistant', deptCN: '教研中心', deptEN: 'Curriculum Research Center', respCN: '课程大纲调研、题库整理、教材二次开发及教学效果数据分析', respEN: 'curriculum research, question bank maintenance, supplementary material development, and teaching outcome analysis' },
+    { cn: '招生宣传助理', en: 'Admissions Outreach Intern', deptCN: '招生办', deptEN: 'Admissions Office', respCN: '招生材料制作、咨询家长答疑、宣讲会执行及生源数据统计', respEN: 'admissions material production, parent consultation, info sessions, and applicant data tracking' },
+    { cn: '课程助教', en: 'Teaching Assistant', deptCN: '教学支持部', deptEN: 'Teaching Support', respCN: '主讲老师课堂答疑、课后辅导、家校沟通及作业批改', respEN: 'supporting the lead teacher in classroom Q&A, after-class tutoring, parent communication, and homework grading' },
+    { cn: '学生事务助理', en: 'Student Affairs Intern', deptCN: '学生事务办公室', deptEN: 'Student Affairs Office', respCN: '学生活动组织、学生数据维护、心理咨询预约协调及行政事务支持', respEN: 'student activity coordination, student data maintenance, counseling appointment scheduling, and administrative support' },
+  ]},
+  { cn: '法律 Legal', positions: [
+    { cn: '律师助理', en: 'Paralegal Intern', deptCN: '诉讼业务部', deptEN: 'Litigation Practice', respCN: '案件资料整理、法律检索、文书初稿撰写及庭审准备工作', respEN: 'case file organization, legal research, drafting initial documents, and trial preparation' },
+    { cn: '法务专员助理', en: 'Legal Affairs Intern', deptCN: '法务部', deptEN: 'Legal Affairs', respCN: '合同审阅、合规风险点梳理、法律意见出具及内部培训准备', respEN: 'contract review, compliance risk identification, legal opinion drafting, and internal training preparation' },
+    { cn: '合规专员助理', en: 'Compliance Intern', deptCN: '合规部', deptEN: 'Compliance Department', respCN: '内部合规检查、监管动态跟踪、培训材料整理及合规台账维护', respEN: 'internal compliance checks, regulatory updates, training material preparation, and compliance log maintenance' },
+    { cn: '知识产权助理', en: 'Intellectual Property Intern', deptCN: '知识产权部', deptEN: 'Intellectual Property', respCN: '商标专利申报材料整理、IP 数据库维护及侵权监测线索梳理', respEN: 'trademark and patent filing documentation, IP database maintenance, and infringement monitoring' },
+  ]},
+  { cn: '设计 / 创意 Design & Creative', positions: [
+    { cn: '平面设计实习生', en: 'Graphic Design Intern', deptCN: '视觉设计部', deptEN: 'Visual Design', respCN: '海报、宣传物料、社交媒体视觉的设计提案与终稿输出', respEN: 'poster design, marketing collateral, and social media visuals from concept to final deliverable' },
+    { cn: '品牌设计实习生', en: 'Brand Design Intern', deptCN: '品牌设计部', deptEN: 'Brand Design', respCN: '品牌 VI 系统延展、Logo 应用规范及关键传播物料设计', respEN: 'brand VI system extension, logo application guidelines, and key marketing material design' },
+    { cn: '视频制作实习生', en: 'Video Production Intern', deptCN: '视频内容部', deptEN: 'Video Content', respCN: '视频内容策划、脚本撰写、拍摄现场执行及后期剪辑', respEN: 'video content planning, scriptwriting, on-set execution, and post-production editing' },
+    { cn: '插画师助理', en: 'Illustration Intern', deptCN: '插画工作室', deptEN: 'Illustration Studio', respCN: '商业插画的概念草图、上色制作及风格统一性把控', respEN: 'commercial illustration sketches, coloring, and style consistency control' },
+    { cn: '时尚设计助理', en: 'Fashion Design Intern', deptCN: '时尚设计部', deptEN: 'Fashion Design', respCN: '面料调研、款式打版协助、Tech Pack 整理及订货会样衣协调', respEN: 'fabric research, pattern-making support, tech pack preparation, and sample coordination for showroom events' },
+  ]},
+  { cn: '市场 / 营销 Marketing', positions: [
+    { cn: '市场营销实习生', en: 'Marketing Intern', deptCN: '市场部', deptEN: 'Marketing Department', respCN: '市场调研、营销活动策划与执行、营销物料制作及效果复盘', respEN: 'market research, campaign planning and execution, marketing collateral production, and post-campaign review' },
+    { cn: '品牌推广实习生', en: 'Brand Promotion Intern', deptCN: '品牌部', deptEN: 'Brand Department', respCN: '品牌活动策划、KOL 合作对接、社媒矩阵运营及品牌资产维护', respEN: 'brand activation planning, KOL partnerships, social media matrix operations, and brand asset maintenance' },
+    { cn: '电商运营实习生', en: 'E-commerce Operations Intern', deptCN: '电商运营部', deptEN: 'E-commerce Operations', respCN: '店铺日常运营、活动节点策划、商品详情页优化及销售数据分析', respEN: 'daily store operations, campaign planning around key shopping moments, product page optimization, and sales data analysis' },
+    { cn: '海外市场实习生', en: 'International Marketing Intern', deptCN: '海外市场部', deptEN: 'International Marketing', respCN: '海外社媒运营、英文营销内容本地化及海外活动落地支持', respEN: 'overseas social media operations, localization of English marketing content, and overseas event support' },
+  ]},
+  { cn: '制造 / 工程 Manufacturing & Engineering', positions: [
+    { cn: '工艺工程师实习生', en: 'Process Engineering Intern', deptCN: '工艺工程部', deptEN: 'Process Engineering', respCN: '生产工艺参数采集、SOP 文件维护、工艺问题分析与改进方案验证', respEN: 'production parameter collection, SOP documentation, process issue analysis, and improvement validation' },
+    { cn: '质量管理实习生', en: 'Quality Management Intern', deptCN: '质量部', deptEN: 'Quality Assurance', respCN: '来料 / 在制品 / 成品的质量检验记录、不合格品分析及质量改善追踪', respEN: 'incoming, in-process, and finished goods inspection records, non-conformance analysis, and quality improvement tracking' },
+    { cn: '供应链实习生', en: 'Supply Chain Intern', deptCN: '供应链管理部', deptEN: 'Supply Chain Management', respCN: '采购订单跟踪、库存数据分析、供应商绩效评估及物流协调', respEN: 'purchase order tracking, inventory analytics, supplier performance evaluation, and logistics coordination' },
+    { cn: '机械设计实习生', en: 'Mechanical Design Intern', deptCN: '机械设计部', deptEN: 'Mechanical Design', respCN: '结构件 CAD 建模、装配图绘制、设计变更跟踪及部件测试支持', respEN: 'structural CAD modeling, assembly drawings, design change tracking, and component testing support' },
+  ]},
+  { cn: '医疗 / 健康 Healthcare & Pharma', positions: [
+    { cn: '临床见习实习生', en: 'Clinical Observation Intern', deptCN: '临床科室', deptEN: 'Clinical Department', respCN: '在带教医师指导下参与病房查房、病例讨论及临床资料整理', respEN: 'ward rounds, case discussions, and clinical record organization under the guidance of supervising physicians' },
+    { cn: '医药市场实习生', en: 'Pharmaceutical Marketing Intern', deptCN: '医药市场部', deptEN: 'Pharma Marketing', respCN: '医药代表市场调研、学术会议执行、产品资料整理及客户回访记录', respEN: 'market research, academic conference execution, product material organization, and client follow-ups for medical representatives' },
+    { cn: '医疗器械实习生', en: 'Medical Device Intern', deptCN: '医疗器械事业部', deptEN: 'Medical Device Division', respCN: '产品演示、临床培训支持、设备售后档案整理及客户使用反馈收集', respEN: 'product demonstrations, clinical training support, after-sales documentation, and customer feedback collection' },
+    { cn: '医学研究助理', en: 'Medical Research Assistant', deptCN: '医学研究中心', deptEN: 'Medical Research Center', respCN: '文献检索、数据录入、统计分析以及科研论文图表整理', respEN: 'literature search, data entry, statistical analysis, and figure/table preparation for research papers' },
+  ]},
+  { cn: '公益 / NGO Non-profit', positions: [
+    { cn: '项目助理', en: 'Program Assistant', deptCN: '项目部', deptEN: 'Programs', respCN: '公益项目调研、活动执行、志愿者协调及阶段性项目报告整理', respEN: 'program research, event execution, volunteer coordination, and periodic project reporting' },
+    { cn: '筹款助理', en: 'Fundraising Intern', deptCN: '资源发展部', deptEN: 'Development Office', respCN: '筹款方案撰写、捐赠人沟通跟进、活动执行及捐赠数据管理', respEN: 'fundraising proposals, donor communications, event execution, and donation data management' },
+    { cn: '传播实习生', en: 'Advocacy & Communications Intern', deptCN: '品牌传播部', deptEN: 'Communications', respCN: '公益议题倡导内容制作、媒体合作对接及社群运营', respEN: 'advocacy content production, media partnership outreach, and community management' },
+  ]},
+  { cn: '政府 / 事业单位 Government & Public Sector', positions: [
+    { cn: '综合办公室实习生', en: 'General Office Intern', deptCN: '综合办公室', deptEN: 'General Office', respCN: '公文处理、会议会务、内部资料整理及部门间事务协调', respEN: 'document processing, meeting logistics, internal record organization, and inter-departmental coordination' },
+    { cn: '政策研究助理', en: 'Policy Research Assistant', deptCN: '政策研究室', deptEN: 'Policy Research Office', respCN: '专题调研、政策资料汇编、调研报告撰写及参考资料翻译', respEN: 'thematic research, policy material compilation, research report drafting, and reference translation' },
+    { cn: '外事接待助理', en: 'Foreign Affairs Assistant', deptCN: '外事办', deptEN: 'Foreign Affairs Office', respCN: '外宾接待安排、双语会议纪要整理、礼仪流程协调及外文资料翻译', respEN: 'foreign guest reception, bilingual meeting minutes, protocol coordination, and translation of foreign-language materials' },
+  ]},
+  { cn: '零售 / 消费 Retail & Consumer', positions: [
+    { cn: '采购助理', en: 'Purchasing Intern', deptCN: '采购部', deptEN: 'Purchasing Department', respCN: '供应商资料整理、报价比对、采购订单跟进及到货验收', respEN: 'supplier records, quotation comparison, purchase order tracking, and goods receipt inspection' },
+    { cn: '品牌助理', en: 'Brand Assistant', deptCN: '品牌管理部', deptEN: 'Brand Management', respCN: '品牌内容生产、零售场景物料制作、活动节点执行及消费者反馈收集', respEN: 'brand content production, retail collateral, seasonal campaign execution, and consumer feedback collection' },
+    { cn: '销售运营实习生', en: 'Sales Operations Intern', deptCN: '销售运营部', deptEN: 'Sales Operations', respCN: '销售数据分析、渠道库存监控、销售激励政策跟踪及报表整理', respEN: 'sales data analysis, channel inventory monitoring, sales incentive tracking, and reporting' },
+  ]},
+  { cn: '文旅 / 会展 Tourism & Events', positions: [
+    { cn: '活动执行助理', en: 'Event Operations Intern', deptCN: '活动执行部', deptEN: 'Event Operations', respCN: '会议会展现场布置、嘉宾接待、议程执行及活动复盘整理', respEN: 'on-site setup, guest reception, agenda execution, and post-event recap for conferences and exhibitions' },
+    { cn: '翻译陪同实习生', en: 'Interpreter Intern', deptCN: '外事接待部', deptEN: 'International Affairs', respCN: '外宾接待陪同口译、参观讲解、文化交流支持及行程协调', respEN: 'consecutive interpreting for foreign guests, tour explanation, cultural exchange support, and itinerary coordination' },
+    { cn: '讲解员实习生', en: 'Docent Intern', deptCN: '讲解服务部', deptEN: 'Docent Services', respCN: '展览导览讲解、讲解词整理、观众咨询解答及导览效果反馈', respEN: 'exhibition tours, script preparation, visitor Q&A, and feedback collection' },
+  ]},
+];
 ---
 
 <MainLayout title="Document Generator | Chinese SDGs Institute" description="Generate professional internship certificates, transcripts, and enrollment certificates with customizable bilingual templates." lang={lang}>
@@ -71,12 +166,34 @@ const lang = 'en';
                         </div>
                         <div class="dg-form-section">
                             <h3 class="text-base font-semibold mb-3 border-b border-outline-variant/10 pb-2">实习单位信息</h3>
+                             <div class="dg-form-group">
+                                 <label for="industryPreset" class="dg-form-label">⚡ 行业预设 <span class="text-on-surface-variant/70 font-normal">（选填，让岗位描述更贴合行业）</span></label>
+                                 <select id="industryPreset" class="dg-form-select">
+                                     <option value="">— 自定义 / 不使用预设 —</option>
+                                     {industries.map((ind, i) => <option value={i}>{ind.cn}</option>)}
+                                 </select>
+                             </div>
+                             <div class="dg-form-group">
+                                 <label for="positionPreset" class="dg-form-label">⚡ 岗位预设</label>
+                                 <select id="positionPreset" class="dg-form-select" disabled>
+                                     <option value="">— 请先选择行业 —</option>
+                                 </select>
+                                 <p class="text-[10.5px] text-on-surface-variant/70 mt-1 leading-snug">选择后会自动填写下方的部门、岗位、工作内容（仍可手动修改）</p>
+                             </div>
                              <div class="dg-form-group"><label for="company-name-cn" class="dg-form-label">公司名称 (中文)</label><input type="text" id="company-name-cn" class="dg-form-input" value="无限创新科技有限公司"></div>
                              <div class="dg-form-group"><label for="company-name-en" class="dg-form-label">Company Name (English)</label><input type="text" id="company-name-en" class="dg-form-input" value="Infinity Innovation Tech Co., Ltd."></div>
                              <div class="dg-form-group"><label for="department-cn" class="dg-form-label">实习部门 (中文)</label><input type="text" id="department-cn" class="dg-form-input" value="研发部"></div>
                              <div class="dg-form-group"><label for="department-en" class="dg-form-label">Department (English)</label><input type="text" id="department-en" class="dg-form-input" value="R&D Department"></div>
                              <div class="dg-form-group"><label for="position-cn" class="dg-form-label">实习岗位 (中文)</label><input type="text" id="position-cn" class="dg-form-input" value="软件开发实习生"></div>
                              <div class="dg-form-group"><label for="position-en" class="dg-form-label">Position (English)</label><input type="text" id="position-en" class="dg-form-input" value="Software Development Intern"></div>
+                             <div class="dg-form-group">
+                                 <label for="responsibilities-cn" class="dg-form-label">工作内容 / 职责 (中文)</label>
+                                 <textarea id="responsibilities-cn" class="dg-form-textarea" rows="2" placeholder="留空则不在正文中加入此句">需求分析、参与代码开发与测试，并支持产品上线后的运维工作</textarea>
+                             </div>
+                             <div class="dg-form-group">
+                                 <label for="responsibilities-en" class="dg-form-label">Responsibilities (English)</label>
+                                 <textarea id="responsibilities-en" class="dg-form-textarea" rows="2" placeholder="Leave empty to skip this sentence in the certificate body">requirements analysis, participating in code development and testing, and supporting post-release maintenance</textarea>
+                             </div>
                              <div class="dg-form-group"><label for="start-date" class="dg-form-label">开始日期</label><input type="date" id="start-date" class="dg-form-input" value="2025-07-01"></div>
                              <div class="dg-form-group"><label for="end-date" class="dg-form-label">结束日期</label><input type="date" id="end-date" class="dg-form-input" value="2025-09-30"></div>
                              <div class="dg-form-group"><label for="issue-date" class="dg-form-label">证明开具日期</label><input type="date" id="issue-date" class="dg-form-input"></div>
@@ -322,7 +439,7 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
     }
   </style>
 
-  <script is:inline>
+  <script is:inline define:vars={{ industries }}>
     // --- UTILITY FUNCTIONS ---
     function formatDate(dateString, lang) {
         if (!dateString) return '';
@@ -368,9 +485,9 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
     var internshipGenerator = {
         elements: {},
         templates: {
-            activity: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002\u6D3B\u52A8\u671F\u95F4\u8868\u73B0\u826F\u597D\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student performed well during the activity.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002\u6D3B\u52A8\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u6001\u5EA6\u79EF\u6781\uFF0C\u8BA4\u771F\u5B66\u4E60\uFF0C\u5BF9\u884C\u4E1A\u6709\u4E86\u521D\u6B65\u4E86\u89E3\uFF0C\u5C55\u73B0\u4E86\u826F\u597D\u7684\u7EFC\u5408\u7D20\u8D28\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the activity, the student showed a positive attitude, studied diligently, gained a preliminary understanding of the industry, and demonstrated good comprehensive qualities.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8\u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002", en: "This certifies that {nameEN} participated in the {positionEN} activity at our company from {startDateEN} to {endDateEN}." } },
-            partTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u8BE5\u540C\u5B66\u5DF2\u5B8C\u6210\u4EA4\u4ED8\u7684\u5DE5\u4F5C\u4EFB\u52A1\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student has completed the assigned work tasks.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u80FD\u591F\u9075\u5B88\u516C\u53F8\u89C4\u7AE0\u5236\u5EA6\uFF0C\u5DE5\u4F5C\u6001\u5EA6\u7AEF\u6B63\uFF0C\u534F\u52A9\u5B8C\u6210\u4E86\u90E8\u95E8\u7684\u76F8\u5173\u5DE5\u4F5C\uFF0C\u5177\u5907\u4E86\u4E00\u5B9A\u7684\u5B9E\u8DF5\u80FD\u529B\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the internship, the student complied with company regulations, had a proper work attitude, assisted in completing relevant departmental tasks, and has acquired certain practical skills.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u517C\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} had a part-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } },
-            fullTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002\u8BE5\u540C\u5B66\u5DF2\u987A\u5229\u5B8C\u6210\u5B9E\u4E60\u671F\u7684\u5404\u9879\u5DE5\u4F5C\u5185\u5BB9\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} completed a full-time internship as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. The student has successfully completed all work content of the internship period.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u5DE5\u4F5C\u8BA4\u771F\u8D1F\u8D23\uFF0C\u865A\u5FC3\u597D\u5B66\uFF0C\u79EF\u6781\u53C2\u4E0E\u56E2\u961F\u9879\u76EE\uFF0C\u8868\u73B0\u51FA\u8F83\u5F3A\u7684\u4E13\u4E1A\u80FD\u529B\u548C\u56E2\u961F\u534F\u4F5C\u7CBE\u795E\uFF0C\u5F97\u5230\u4E86\u90E8\u95E8\u540C\u4E8B\u7684\u4E00\u81F4\u597D\u8BC4\u3002\u6211\u4EEC\u76F8\u4FE1\u8FD9\u6BB5\u7ECF\u5386\u5C06\u4E3A{pronounCN}\u672A\u6765\u7684\u804C\u4E1A\u53D1\u5C55\u5960\u5B9A\u826F\u597D\u57FA\u7840\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. During the internship, the student was diligent, responsible, and eager to learn. {pronounEN_He_She} actively participated in team projects, demonstrating strong professional skills and a spirit of teamwork, and was unanimously praised by colleagues. We believe this experience will lay a good foundation for {pronounEN_his_her} future career development.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} completed a full-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } }
+            activity: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002{responsibilitiesSentenceCN}\u6D3B\u52A8\u671F\u95F4\u8868\u73B0\u826F\u597D\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}The student performed well during the activity.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002{responsibilitiesSentenceCN}\u6D3B\u52A8\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u6001\u5EA6\u79EF\u6781\uFF0C\u8BA4\u771F\u5B66\u4E60\uFF0C\u5BF9\u884C\u4E1A\u6709\u4E86\u521D\u6B65\u4E86\u89E3\uFF0C\u5C55\u73B0\u4E86\u826F\u597D\u7684\u7EFC\u5408\u7D20\u8D28\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} participated in the {positionEN} activity in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}During the activity, the student showed a positive attitude, studied diligently, gained a preliminary understanding of the industry, and demonstrated good comprehensive qualities.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8\u53C2\u4E0E\u4E86{positionCN}\u6D3B\u52A8\u3002", en: "This certifies that {nameEN} participated in the {positionEN} activity at our company from {startDateEN} to {endDateEN}." } },
+            partTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002{responsibilitiesSentenceCN}\u8BE5\u540C\u5B66\u5DF2\u5B8C\u6210\u4EA4\u4ED8\u7684\u5DE5\u4F5C\u4EFB\u52A1\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}The student has completed the assigned work tasks.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002{responsibilitiesSentenceCN}\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u80FD\u591F\u9075\u5B88\u516C\u53F8\u89C4\u7AE0\u5236\u5EA6\uFF0C\u5DE5\u4F5C\u6001\u5EA6\u7AEF\u6B63\uFF0C\u534F\u52A9\u5B8C\u6210\u4E86\u90E8\u95E8\u7684\u76F8\u5173\u5DE5\u4F5C\uFF0C\u5177\u5907\u4E86\u4E00\u5B9A\u7684\u5B9E\u8DF5\u80FD\u529B\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}During the internship, the student complied with company regulations, had a proper work attitude, assisted in completing relevant departmental tasks, and has acquired certain practical skills.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u517C\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} had a part-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } },
+            fullTime: { formal: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002{responsibilitiesSentenceCN}\u8BE5\u540C\u5B66\u5DF2\u987A\u5229\u5B8C\u6210\u5B9E\u4E60\u671F\u7684\u5404\u9879\u5DE5\u4F5C\u5185\u5BB9\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} completed a full-time internship as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}The student has successfully completed all work content of the internship period.\n\nHereby certified." }, evaluation: { cn: "\u5179\u8BC1\u660E {studentInfo} \u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {companyNameCN} {departmentCN} \u62C5\u4EFB {positionCN}\u3002{responsibilitiesSentenceCN}\u5B9E\u4E60\u671F\u95F4\uFF0C\u8BE5\u540C\u5B66\u5DE5\u4F5C\u8BA4\u771F\u8D1F\u8D23\uFF0C\u865A\u5FC3\u597D\u5B66\uFF0C\u79EF\u6781\u53C2\u4E0E\u56E2\u961F\u9879\u76EE\uFF0C\u8868\u73B0\u51FA\u8F83\u5F3A\u7684\u4E13\u4E1A\u80FD\u529B\u548C\u56E2\u961F\u534F\u4F5C\u7CBE\u795E\uFF0C\u5F97\u5230\u4E86\u90E8\u95E8\u540C\u4E8B\u7684\u4E00\u81F4\u597D\u8BC4\u3002\u6211\u4EEC\u76F8\u4FE1\u8FD9\u6BB5\u7ECF\u5386\u5C06\u4E3A{pronounCN}\u672A\u6765\u7684\u804C\u4E1A\u53D1\u5C55\u5960\u5B9A\u826F\u597D\u57FA\u7840\u3002\n\n\u7279\u6B64\u8BC1\u660E\u3002", en: "This is to certify that {studentInfoEN} served as a {positionEN} in the {departmentEN} at {companyNameEN} from {startDateEN} to {endDateEN}. {responsibilitiesSentenceEN}During the internship, the student was diligent, responsible, and eager to learn. {pronounEN_He_She} actively participated in team projects, demonstrating strong professional skills and a spirit of teamwork, and was unanimously praised by colleagues. We believe this experience will lay a good foundation for {pronounEN_his_her} future career development.\n\nHereby certified." }, concise: { cn: "\u5179\u8BC1\u660E {nameCN} \u540C\u5B66\u4E8E {startDate} \u81F3 {endDate} \u5728\u6211\u53F8 {departmentCN} \u5168\u804C\u5B9E\u4E60\uFF0C\u5C97\u4F4D\u4E3A {positionCN}\u3002", en: "This certifies that {nameEN} completed a full-time internship at our company in the {departmentEN} as a {positionEN} from {startDateEN} to {endDateEN}." } }
         },
         init: function() {
             var page = document.getElementById('page-internship');
@@ -381,6 +498,10 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
                 experienceLevel: page.querySelector('#experienceLevel'),
                 languageStyle: page.querySelector('#languageStyle'),
                 languageOutput: page.querySelector('#languageOutput'),
+                industryPreset: page.querySelector('#industryPreset'),
+                positionPreset: page.querySelector('#positionPreset'),
+                responsibilitiesCn: page.querySelector('#responsibilities-cn'),
+                responsibilitiesEn: page.querySelector('#responsibilities-en'),
                 nameCn: page.querySelector('#name-cn'), nameEn: page.querySelector('#name-en'),
                 genderCn: page.querySelector('#gender-cn'), genderEn: page.querySelector('#gender-en'), showGender: page.querySelector('#show-gender'),
                 schoolNameCn: page.querySelector('#school-name-cn'), schoolNameEn: page.querySelector('#school-name-en'), showSchool: page.querySelector('#show-school'),
@@ -398,6 +519,39 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
             this.generateCertificateText();
             this.render();
         },
+        populatePositionPreset: function() {
+            var idx = this.elements.industryPreset.value;
+            var select = this.elements.positionPreset;
+            select.innerHTML = '';
+            if (idx === '' || !industries[idx]) {
+                var opt = document.createElement('option');
+                opt.value = ''; opt.textContent = '— 请先选择行业 —';
+                select.appendChild(opt);
+                select.disabled = true;
+                return;
+            }
+            var placeholder = document.createElement('option');
+            placeholder.value = ''; placeholder.textContent = '— 选择岗位预设 —';
+            select.appendChild(placeholder);
+            industries[idx].positions.forEach(function(pos, i) {
+                var opt = document.createElement('option');
+                opt.value = i; opt.textContent = pos.cn + '  /  ' + pos.en;
+                select.appendChild(opt);
+            });
+            select.disabled = false;
+        },
+        applyPositionPreset: function() {
+            var indIdx = this.elements.industryPreset.value;
+            var posIdx = this.elements.positionPreset.value;
+            if (indIdx === '' || posIdx === '' || !industries[indIdx] || !industries[indIdx].positions[posIdx]) return;
+            var p = industries[indIdx].positions[posIdx];
+            this.elements.departmentCn.value = p.deptCN;
+            this.elements.departmentEn.value = p.deptEN;
+            this.elements.positionCn.value = p.cn;
+            this.elements.positionEn.value = p.en;
+            this.elements.responsibilitiesCn.value = p.respCN;
+            this.elements.responsibilitiesEn.value = p.respEN;
+        },
         bindEvents: function() {
             var self = this;
             this.elements.allInputs.forEach(function(input) {
@@ -406,6 +560,16 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
                     if (!input.id.startsWith('cert-body')) self.generateCertificateText();
                     self.render();
                 });
+            });
+            this.elements.industryPreset.addEventListener('change', function() {
+                self.populatePositionPreset();
+                self.generateCertificateText();
+                self.render();
+            });
+            this.elements.positionPreset.addEventListener('change', function() {
+                self.applyPositionPreset();
+                self.generateCertificateText();
+                self.render();
             });
             this.elements.regenerateBtn.addEventListener('click', function() { self.generateCertificateText(); self.render(); });
             this.elements.printBtn.addEventListener('click', function() { window.print(); });
@@ -425,7 +589,14 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
         generateCertificateText: function() {
             var gender = this.getVal('genderCn');
             var pronoun = { cn: gender === '\u5973' ? '\u5979' : '\u4ED6', en_he_she: gender === '\u5973' ? 'She' : 'He', en_his_her: gender === '\u5973' ? 'her' : 'his' };
-            var template = this.templates[this.getVal('experienceLevel')][this.getVal('languageStyle')];
+            var level = this.getVal('experienceLevel');
+            var template = this.templates[level][this.getVal('languageStyle')];
+            var respCN = (this.getVal('responsibilitiesCn') || '').trim();
+            var respEN = (this.getVal('responsibilitiesEn') || '').trim();
+            var verbCN = level === 'activity' ? '\u53C2\u4E0E' : '\u8D1F\u8D23';
+            var verbEN = level === 'activity' ? 'engaged in' : 'was primarily responsible for';
+            var respSentenceCN = respCN ? (level === 'activity' ? '\u6D3B\u52A8\u671F\u95F4\uFF0C' + pronoun.cn + '\u4E3B\u8981' : '\u5B9E\u4E60\u671F\u95F4\uFF0C' + pronoun.cn + '\u4E3B\u8981') + verbCN + respCN + '\u3002' : '';
+            var respSentenceEN = respEN ? (level === 'activity' ? 'During the activity, ' : 'During the internship, ') + pronoun.en_he_she.toLowerCase() + ' ' + verbEN + ' ' + respEN + '. ' : '';
             var values = {
                 studentInfo: this.getStudentInfo('cn'), studentInfoEN: this.getStudentInfo('en'),
                 nameCN: this.getVal('nameCn'), nameEN: this.getVal('nameEn'),
@@ -434,6 +605,7 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
                 companyNameCN: this.getVal('companyNameCn'), companyNameEN: this.getVal('companyNameEn'),
                 departmentCN: this.getVal('departmentCn'), departmentEN: this.getVal('departmentEn'),
                 positionCN: this.getVal('positionCn'), positionEN: this.getVal('positionEn'),
+                responsibilitiesSentenceCN: respSentenceCN, responsibilitiesSentenceEN: respSentenceEN,
                 pronounCN: pronoun.cn, pronounEN_He_She: pronoun.en_he_she, pronounEN_his_her: pronoun.en_his_her
             };
             this.elements.certBodyCn.value = template.cn.replace(/\{(\w+)\}/g, function(_, key) { return values[key] || ''; });
