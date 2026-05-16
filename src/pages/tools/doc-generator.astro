@@ -326,6 +326,15 @@ Note: The full mark is 100. Excellent (90-100), Good (80-89), Pass (60-79), Fail
         display: flex;
         flex-direction: column;
         border-radius: 4px;
+        /* 显式声明中文 fallback —— 不加这一行，Chrome「另存为 PDF」时屏幕用的
+           PingFang SC / 微软雅黑 系统 fallback 不会被 embed，中文字符会变空白。 */
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'SimSun', sans-serif;
+    }
+    .dg-a4-preview h1,
+    .dg-a4-preview h2,
+    .dg-a4-preview h3,
+    .dg-a4-preview h4 {
+        font-family: 'Manrope', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'SimHei', sans-serif;
     }
 
     #transcript-table th, #transcript-table td {
