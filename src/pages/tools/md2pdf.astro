@@ -358,7 +358,8 @@ const DEFAULT_MD = `# 文档标题
       font-size: var(--body-fontsize);
       line-height: var(--body-lineheight);
       color: #1a1a1a;
-      font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
+      /* 完整 CJK 兜底栈 —— 否则 Windows 用户保存 PDF 时中文正文会变空白 */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif;
     }
     /* 强制保留背景色到 PDF — 浏览器默认 print 不渲染 background。
        不加这个 → bold 蓝高亮 / callout 卡片 / 经典表头灰 / 隔行表 stripe 在 PDF 里全消失。 */

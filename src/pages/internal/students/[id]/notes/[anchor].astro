@@ -90,7 +90,8 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         padding: 0;
         height: 100vh;
         background: #ecedef;
-        font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
+        /* 完整 CJK 兜底栈 —— Windows 用户保存 PDF 时正文中文不能依赖 PingFang SC */
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif;
         color: #1a1a1a;
       }
       body {
