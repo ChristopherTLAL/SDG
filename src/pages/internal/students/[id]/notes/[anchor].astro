@@ -374,6 +374,13 @@ const advisor = (student.mid_advisors ?? [])[0] ?? '—';
         /* 给右侧留 sidebar 空间 */
         padding-right: calc(var(--sidebar-w) + var(--sidebar-gap));
       }
+      /* 强制保留背景色到 PDF — 浏览器默认 print 不渲染 background-color/image。
+         不加这个 → bold 蓝高亮 / callout 卡片 在 PDF 里会消失。 */
+      .note-body,
+      .note-body * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
       .note-body h1,
       .note-body h2,
