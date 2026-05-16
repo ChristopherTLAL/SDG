@@ -1,0 +1,978 @@
+---
+// src/pages/tools/md2pdf.astro — public Markdown → PDF renderer
+// 灵感来自 /internal/students/[id]/notes/[anchor]：左侧参数 panel + 中间 A4 实时预览。
+// 公开版差异：
+//   1. Markdown 由用户在左侧 textarea 输入（不读 DB）
+//   2. 默认关闭"侧栏旁注"模式（blockquote 走标准缩进），用户可开
+//   3. 增加 表格样式 切换（三线表 / 经典 / 隔行）
+//   4. 客户端 marked 渲染 + Obsidian callout 预处理
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const DEFAULT_MD = `# 文档标题
+
+这是 Markdown → A4 PDF 渲染器。左侧粘贴 / 输入 Markdown，右侧实时预览。改任意参数（边距、字号、Callout 颜色、表格样式）都立即生效，最后点「导出 PDF」用浏览器打印对话框保存。
+
+## 二级标题示例
+
+- 列表项一
+- 列表项二
+  - 嵌套子项
+  - 普通正文里的 **加粗** 会被渲染成淡蓝色荧光高亮
+
+> [!info] 这是 Obsidian 风格的 Callout
+> 用 \`> [!type] 标题\` 开头，下面接正文。可调背景色 / 边框色 / 标题色，也可选择不同色板（蓝 / 黄 / 红 / 灰）。
+
+### 三线表示例
+
+| 学校 | 专业 | QS 排名 |
+|------|------|---------|
+| 牛津大学 | PPE | 3 |
+| 剑桥大学 | Natural Sciences | 5 |
+| Imperial | EEE | 8 |
+| UCL | Biomedical Sciences | 9 |
+
+> 这是一个普通的引用块（blockquote）。默认侧栏旁注关闭时，它会按标准缩进引用样式渲染；开启侧栏旁注模式后，会变成 Tufte 风格的右侧栏旁注。
+`;
+---
+
+<MainLayout
+  title="Markdown → PDF Renderer | Chinese SDGs Institute"
+  description="Paste Markdown, tune typography and callout colors, export a print-ready A4 PDF. Supports Obsidian-style callouts and three table styles."
+  lang="en"
+>
+  <style is:global>
+    /* ─────────────────────────────────────────────────────────────
+       CSS 变量 — JS 改这些 var，预览和打印同步生效
+       ───────────────────────────────────────────────────────────── */
+    :root {
+      --m-top: 18mm;
+      --m-right: 18mm;
+      --m-bottom: 14mm;
+      --m-left: 18mm;
+      --sidebar-w: 40mm;
+      --sidebar-gap: 6mm;
+      --body-fontsize: 10pt;
+      --body-lineheight: 1.5;
+      --h1-size: 16pt;
+      --h2-size: 13pt;
+      --h3-size: 11pt;
+      --sidebar-fontsize: 8.5pt;
+      --callout-bg: #eef6f9;
+      --callout-border: #c8dde5;
+      --callout-text-color: #2a4d5e;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       Workspace shell — 左侧 panel + 中间 preview
+       ───────────────────────────────────────────────────────────── */
+    .md2pdf-workspace {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      min-height: calc(100vh - 80px);
+      background: #ecedef;
+    }
+
+    .md2pdf-controls {
+      width: 340px;
+      flex-shrink: 0;
+      background: white;
+      border-right: 1px solid #d8d8d8;
+      overflow-y: auto;
+      font-size: 12px;
+      box-shadow: 1px 0 4px rgba(0, 0, 0, 0.04);
+      max-height: calc(100vh - 80px);
+    }
+    .md2pdf-controls header {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #ececec;
+      padding: 14px 18px 12px;
+      z-index: 5;
+    }
+    .md2pdf-controls header h1 {
+      font-family: 'Manrope', sans-serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 15px;
+      margin: 0 0 2px;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .md2pdf-controls header .sub {
+      font-size: 10.5px;
+      color: #777;
+      line-height: 1.35;
+    }
+
+    .md2pdf-controls .export-btn {
+      display: flex;
+      width: calc(100% - 32px);
+      margin: 14px 16px 4px;
+      padding: 10px 14px;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-sizing: border-box;
+    }
+    .md2pdf-controls .export-btn:hover { background: #1a1a1a; }
+    .md2pdf-controls .export-btn .material-symbols-outlined { font-size: 16px; }
+
+    .md2pdf-controls .group {
+      padding: 14px 18px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+    .md2pdf-controls .group-title {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 10px;
+    }
+    .md2pdf-controls .field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .md2pdf-controls .field label {
+      font-size: 11.5px;
+      color: #444;
+      flex: 1;
+    }
+    .md2pdf-controls .field input[type="number"] {
+      width: 64px;
+      padding: 4px 8px;
+      font-size: 11.5px;
+      font-family: inherit;
+      border: 1px solid #d4d4d4;
+      border-radius: 4px;
+      background: white;
+      text-align: right;
+    }
+    .md2pdf-controls .field input[type="number"]:focus {
+      outline: none;
+      border-color: #888;
+    }
+    .md2pdf-controls .field input[type="color"] {
+      width: 32px;
+      height: 24px;
+      padding: 0;
+      border: 1px solid #d4d4d4;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+    }
+    .md2pdf-controls .field .unit {
+      font-size: 10.5px;
+      color: #999;
+      min-width: 18px;
+    }
+
+    .md2pdf-controls .preset-row {
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .md2pdf-controls .preset-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .md2pdf-controls .preset-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .md2pdf-controls .preset-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    .md2pdf-controls .preset-row button {
+      padding: 6px 8px;
+      font-size: 11px;
+      border: 1px solid #d4d4d4;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      color: #444;
+      transition: all 0.12s ease;
+    }
+    .md2pdf-controls .preset-row button:hover {
+      border-color: #888;
+      background: #fafafa;
+    }
+    .md2pdf-controls .preset-row button.is-active {
+      color: white;
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    .md2pdf-controls .preset-row button.swatch {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px;
+    }
+    .md2pdf-controls .preset-row button.swatch::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      background: var(--swatch-color, #eee);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .md2pdf-controls .md-input {
+      width: 100%;
+      min-height: 180px;
+      max-height: 360px;
+      padding: 10px 12px;
+      border: 1px solid #d4d4d4;
+      border-radius: 6px;
+      font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+      font-size: 11.5px;
+      line-height: 1.55;
+      background: #fafafa;
+      color: #1a1a1a;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .md2pdf-controls .md-input:focus {
+      outline: none;
+      border-color: #888;
+      background: white;
+    }
+    .md2pdf-controls .md-input-toolbar {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 11px;
+    }
+    .md2pdf-controls .md-input-toolbar button {
+      flex: 1;
+      padding: 6px 8px;
+      font-size: 10.5px;
+      border: 1px solid #d4d4d4;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      color: #444;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .md2pdf-controls .md-input-toolbar button:hover {
+      border-color: #888;
+      background: #fafafa;
+    }
+    .md2pdf-controls .md-input-toolbar .material-symbols-outlined { font-size: 14px; }
+
+    /* 中间预览舞台 */
+    .md2pdf-preview-stage {
+      flex: 1;
+      overflow: auto;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      max-height: calc(100vh - 80px);
+    }
+    .md2pdf-preview-toolbar {
+      font-size: 11.5px;
+      color: #666;
+      align-self: stretch;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 210mm;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .md2pdf-preview-toolbar .page-count {
+      font-family: 'SF Mono', 'Menlo', monospace;
+      font-size: 11px;
+      color: #888;
+    }
+
+    /* A4 纸张 — 一页 210×297mm 固定 */
+    .md2pdf-paper {
+      width: 210mm;
+      height: 297mm;
+      min-width: 210mm;
+      min-height: 297mm;
+      max-width: 210mm;
+      max-height: 297mm;
+      flex-shrink: 0;
+      flex-grow: 0;
+      background: white;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+      padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    .md2pdf-paper-content {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+    /* 镜像影子用来量真实总高 → 算页数 */
+    .md2pdf-paper-shadow {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+      top: -99999px;
+      left: 0;
+      width: 210mm;
+      padding: var(--m-top) var(--m-right) var(--m-bottom) var(--m-left);
+      box-sizing: border-box;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       渲染区 .note-body — marked 输出注入到这里
+       ───────────────────────────────────────────────────────────── */
+    .note-body {
+      position: relative;
+      font-size: var(--body-fontsize);
+      line-height: var(--body-lineheight);
+      color: #1a1a1a;
+      font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
+    }
+    /* 开了侧栏才给右边留空间 */
+    .note-body[data-sidebar="on"] {
+      padding-right: calc(var(--sidebar-w) + var(--sidebar-gap));
+    }
+
+    .note-body h1,
+    .note-body h2,
+    .note-body h3,
+    .note-body h4 {
+      font-family: 'Manrope', sans-serif;
+      font-style: italic;
+      font-weight: normal;
+      margin: 1.4em 0 0.5em;
+      color: #111;
+    }
+    .note-body h1 { font-size: var(--h1-size); }
+    .note-body h2 { font-size: var(--h2-size); }
+    .note-body h3 { font-size: var(--h3-size); }
+    .note-body h4 { font-size: calc(var(--body-fontsize) * 1.1); }
+
+    .note-body p { margin: 0.6em 0; }
+    .note-body ul, .note-body ol { padding-left: 1.4em; margin: 0.5em 0; }
+    .note-body li { margin: 0.3em 0; }
+
+    /* 行内代码 + 代码块 */
+    .note-body code {
+      font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+      font-size: 0.88em;
+      background: #f3f3f3;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    .note-body pre {
+      background: #f7f7f7;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      padding: 8pt 10pt;
+      overflow-x: auto;
+      font-size: 0.88em;
+      line-height: 1.5;
+    }
+    .note-body pre code {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    /* 加粗 → 淡蓝荧光高亮 */
+    .note-body strong, .note-body b {
+      font-weight: inherit;
+      background-image: linear-gradient(transparent 0%, rgba(228, 235, 242, 1) 0);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      padding: 0 0.12em;
+      border-radius: 18px;
+    }
+
+    /* 表格 — 默认三线表，data-table-style 可切 */
+    .note-body table {
+      border-collapse: collapse;
+      margin: 1em 0;
+      width: 100%;
+      font-size: 0.92em;
+    }
+    .note-body[data-table-style="tufte"] table {
+      border-top: 1.5pt solid #1a1a1a;
+      border-bottom: 1.5pt solid #1a1a1a;
+    }
+    .note-body[data-table-style="tufte"] table th {
+      text-align: left;
+      padding: 3px 8px;
+      font-weight: normal;
+      font-style: italic;
+      border: none;
+      border-bottom: 0.75pt solid #1a1a1a;
+      color: #555;
+    }
+    .note-body[data-table-style="tufte"] table td {
+      padding: 3px 8px;
+      border: none;
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    .note-body[data-table-style="classic"] table {
+      border: 1pt solid #333;
+    }
+    .note-body[data-table-style="classic"] table th,
+    .note-body[data-table-style="classic"] table td {
+      border: 0.5pt solid #999;
+      padding: 4px 8px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .note-body[data-table-style="classic"] table th {
+      background: #f3f3f3;
+      font-weight: 600;
+    }
+    .note-body[data-table-style="striped"] table th,
+    .note-body[data-table-style="striped"] table td {
+      padding: 4px 8px;
+      border: none;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .note-body[data-table-style="striped"] table th {
+      border-bottom: 1pt solid #1a1a1a;
+      font-weight: 600;
+    }
+    .note-body[data-table-style="striped"] table tr:nth-child(even) td {
+      background: #f7f7f7;
+    }
+
+    /* blockquote — 默认普通引用样式；开启侧栏后变 Tufte 旁注 */
+    .note-body blockquote {
+      margin: 1em 0;
+      padding: 0.3em 0 0.3em 1em;
+      border-left: 2pt solid #c8c8c8;
+      color: #555;
+      font-style: italic;
+    }
+    .note-body blockquote p { margin: 0.3em 0; }
+    .note-body[data-sidebar="on"] blockquote {
+      position: absolute;
+      right: 0;
+      width: var(--sidebar-w);
+      margin-top: -2.8em;
+      padding: 0;
+      border: none;
+      background: none;
+      color: #555;
+      font-style: italic;
+      font-size: var(--sidebar-fontsize);
+      line-height: 1.4;
+      break-inside: avoid;
+    }
+    .note-body[data-sidebar="on"] blockquote p { margin: 0; font-style: inherit; }
+    .note-body[data-sidebar="on"] blockquote strong {
+      background: none !important;
+      font-weight: 500;
+      color: inherit;
+    }
+
+    /* Obsidian callout (永远是卡片样式，跟侧栏无关) */
+    .note-body aside.callout {
+      position: relative;
+      margin: 1em 0;
+      padding: 9pt 11pt 9pt 26pt;
+      background: var(--callout-bg);
+      border: 0.5pt solid var(--callout-border);
+      border-radius: 2mm;
+      color: #1a1a1a;
+      font-size: var(--body-fontsize);
+      line-height: 1.5;
+      break-inside: avoid;
+    }
+    .note-body aside.callout::before {
+      content: '\270F\FE0F';
+      position: absolute;
+      left: 9pt;
+      top: 10pt;
+      font-size: 11pt;
+      line-height: 1;
+    }
+    .note-body aside.callout .callout__header {
+      display: block;
+      margin: 0 0 4pt;
+      padding: 0;
+      border: none;
+    }
+    .note-body aside.callout .callout__type {
+      display: inline;
+      font-size: var(--body-fontsize);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--callout-text-color);
+    }
+    .note-body aside.callout .callout__title {
+      display: inline;
+      margin-left: 4pt;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--callout-text-color);
+    }
+    .note-body aside.callout .callout__body { margin: 0; }
+    .note-body aside.callout .callout__body p { margin: 0.3em 0; }
+    .note-body aside.callout .callout__body p:first-child { margin-top: 0; }
+    .note-body aside.callout .callout__body p:last-child  { margin-bottom: 0; }
+    .note-body aside.callout .callout__body strong {
+      background: none !important;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .note-body a {
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-decoration-color: rgba(0,0,0,0.3);
+    }
+
+    .note-body hr {
+      border: none;
+      border-top: 0.5pt solid #999;
+      margin: 1.5em 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       打印 — 隐藏所有 chrome，让 @page 控制
+       ───────────────────────────────────────────────────────────── */
+    @media print {
+      html, body { background: white; height: auto; overflow: visible; display: block; }
+      header[role="banner"], nav, footer { display: none !important; }
+      .md2pdf-controls, .md2pdf-preview-toolbar, .md2pdf-paper-shadow { display: none !important; }
+      .md2pdf-workspace { display: block; min-height: 0; background: white; }
+      .md2pdf-preview-stage { padding: 0; overflow: visible; display: block; max-height: none; }
+      main { padding: 0 !important; }
+      .md2pdf-paper {
+        box-shadow: none !important;
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .md2pdf-paper-content {
+        height: auto !important;
+        overflow: visible !important;
+      }
+    }
+  </style>
+
+  <main class="!pt-20 !pb-0">
+    <div class="md2pdf-workspace">
+      <!-- ─────── 左侧 控件 + 输入 ─────── -->
+      <aside class="md2pdf-controls">
+        <header>
+          <a href="/tools" class="inline-flex items-center gap-1 text-[11px] text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined" style="font-size:13px;">arrow_back</span>
+            Back to Tools
+          </a>
+          <h1 class="mt-2">Markdown → PDF Renderer</h1>
+          <div class="sub">粘贴 Markdown，调样式，导出 A4 PDF</div>
+        </header>
+
+        <button type="button" class="export-btn" id="md2pdf-export">
+          <span class="material-symbols-outlined">picture_as_pdf</span>
+          导出 PDF（A4，自动分页）
+        </button>
+
+        <div class="group">
+          <div class="group-title">📝 Markdown 输入</div>
+          <textarea class="md-input" id="md2pdf-input" spellcheck="false">{DEFAULT_MD}</textarea>
+          <div class="md-input-toolbar">
+            <button type="button" id="md2pdf-upload">
+              <span class="material-symbols-outlined">upload_file</span>
+              上传 .md
+            </button>
+            <button type="button" id="md2pdf-paste">
+              <span class="material-symbols-outlined">content_paste</span>
+              从剪贴板
+            </button>
+            <button type="button" id="md2pdf-clear">
+              <span class="material-symbols-outlined">delete_sweep</span>
+              清空
+            </button>
+          </div>
+          <input type="file" id="md2pdf-file" accept=".md,.markdown,.txt" hidden />
+        </div>
+
+        <div class="group">
+          <div class="group-title">整体风格</div>
+          <div class="preset-row cols-4">
+            <button type="button" data-global="standard">标准</button>
+            <button type="button" data-global="tight">紧凑</button>
+            <button type="button" data-global="loose">宽松</button>
+            <button type="button" data-global="reader">阅读</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">页面边距 (mm)</div>
+          <div class="field">
+            <label>上</label>
+            <input type="number" data-var="m-top" data-unit="mm" value="18" min="0" max="50" step="1" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="field">
+            <label>右</label>
+            <input type="number" data-var="m-right" data-unit="mm" value="18" min="0" max="50" step="1" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="field">
+            <label>下</label>
+            <input type="number" data-var="m-bottom" data-unit="mm" value="14" min="0" max="50" step="1" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="field">
+            <label>左</label>
+            <input type="number" data-var="m-left" data-unit="mm" value="18" min="0" max="50" step="1" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="preset-row cols-2">
+            <button type="button" data-preset-group="margin" data-preset="tight">紧凑</button>
+            <button type="button" data-preset-group="margin" data-preset="loose">宽松</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">侧栏旁注 (Tufte 风格)</div>
+          <div class="preset-row cols-2">
+            <button type="button" data-preset-group="sidebar-mode" data-preset="off" class="is-active">关闭</button>
+            <button type="button" data-preset-group="sidebar-mode" data-preset="on">开启</button>
+          </div>
+          <p class="text-[10.5px] text-on-surface-variant/70 mt-2 leading-snug">关闭时，<code style="font-size:10px;background:#f3f3f3;padding:0 3px;border-radius:2px;">&gt; 引用</code> 按标准缩进渲染；开启后变成右侧栏旁注（Tufte 风格）。Callout (<code style="font-size:10px;background:#f3f3f3;padding:0 3px;border-radius:2px;">&gt; [!type]</code>) 与此无关，始终是卡片。</p>
+          <div class="field" style="margin-top:10px;">
+            <label>宽度</label>
+            <input type="number" data-var="sidebar-w" data-unit="mm" value="40" min="0" max="80" step="2" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="field">
+            <label>与正文间距</label>
+            <input type="number" data-var="sidebar-gap" data-unit="mm" value="6" min="0" max="20" step="1" />
+            <span class="unit">mm</span>
+          </div>
+          <div class="field">
+            <label>字号</label>
+            <input type="number" data-var="sidebar-fontsize" data-unit="pt" value="8.5" min="6" max="12" step="0.5" />
+            <span class="unit">pt</span>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">正文排版</div>
+          <div class="field">
+            <label>字号</label>
+            <input type="number" data-var="body-fontsize" data-unit="pt" value="10" min="7" max="14" step="0.5" />
+            <span class="unit">pt</span>
+          </div>
+          <div class="field">
+            <label>行距</label>
+            <input type="number" data-var="body-lineheight" data-unit="" value="1.5" min="1" max="2.5" step="0.05" />
+            <span class="unit"></span>
+          </div>
+          <div class="field">
+            <label>H1 字号</label>
+            <input type="number" data-var="h1-size" data-unit="pt" value="16" min="10" max="28" step="0.5" />
+            <span class="unit">pt</span>
+          </div>
+          <div class="field">
+            <label>H2 字号</label>
+            <input type="number" data-var="h2-size" data-unit="pt" value="13" min="9" max="22" step="0.5" />
+            <span class="unit">pt</span>
+          </div>
+          <div class="field">
+            <label>H3 字号</label>
+            <input type="number" data-var="h3-size" data-unit="pt" value="11" min="8" max="18" step="0.5" />
+            <span class="unit">pt</span>
+          </div>
+          <div class="preset-row cols-3">
+            <button type="button" data-preset-group="body" data-preset="dense">紧凑</button>
+            <button type="button" data-preset-group="body" data-preset="standard">标准</button>
+            <button type="button" data-preset-group="body" data-preset="reader">阅读</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">表格样式</div>
+          <div class="preset-row cols-3">
+            <button type="button" data-preset-group="table-style" data-preset="tufte" class="is-active">三线表</button>
+            <button type="button" data-preset-group="table-style" data-preset="classic">经典</button>
+            <button type="button" data-preset-group="table-style" data-preset="striped">隔行</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="group-title">Callout 卡片</div>
+          <div class="field">
+            <label>背景色</label>
+            <input type="color" data-var="callout-bg" data-unit="" value="#eef6f9" />
+          </div>
+          <div class="field">
+            <label>边框色</label>
+            <input type="color" data-var="callout-border" data-unit="" value="#c8dde5" />
+          </div>
+          <div class="field">
+            <label>标题色</label>
+            <input type="color" data-var="callout-text-color" data-unit="" value="#2a4d5e" />
+          </div>
+          <div class="preset-row cols-4">
+            <button type="button" class="swatch" style="--swatch-color:#eef6f9;" data-preset-group="callout" data-preset="info">蓝</button>
+            <button type="button" class="swatch" style="--swatch-color:#fff8e1;" data-preset-group="callout" data-preset="warning">黄</button>
+            <button type="button" class="swatch" style="--swatch-color:#fdf2f4;" data-preset-group="callout" data-preset="alert">红</button>
+            <button type="button" class="swatch" style="--swatch-color:#f4f4f4;" data-preset-group="callout" data-preset="neutral">灰</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ─────── 中间预览舞台 ─────── -->
+      <section class="md2pdf-preview-stage">
+        <div class="md2pdf-preview-toolbar">
+          <span>第 1 页预览（超出 A4 第一页的内容已隐藏，导出 PDF 按 margin 自动分页）</span>
+          <span class="page-count" id="md2pdf-page-count">页数计算中…</span>
+        </div>
+        <div class="md2pdf-paper" id="md2pdf-paper">
+          <div class="md2pdf-paper-content">
+            <div class="note-body" id="md2pdf-body" data-sidebar="off" data-table-style="tufte"></div>
+          </div>
+        </div>
+        <div class="md2pdf-paper-shadow" id="md2pdf-shadow" aria-hidden="true">
+          <div class="note-body" id="md2pdf-shadow-body" data-sidebar="off" data-table-style="tufte"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    import { marked } from 'marked';
+
+    marked.setOptions({ gfm: true, breaks: true });
+
+    // ── Obsidian callout 预处理（client-side 端口）─────────────────
+    // 支持 `> [!type] 标题\n> body...` 语法，输出 <aside class="callout">
+    const CALLOUT_RE = /^([ \t]*)>[ \t]*\[![ \t]*([^\]｜|]+?)(?:[ \t]*[｜|][ \t]*([^\]]+?))?[ \t]*\](?:[ \t]+([^\n]*))?\n((?:[ \t]*>.*(?:\n|$))*)/gm;
+    function escapeHtml(s: string): string {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function escapeAttr(s: string): string {
+      return escapeHtml(s).replace(/"/g, '&quot;');
+    }
+    function preprocessCallouts(md: string): string {
+      return md.replace(CALLOUT_RE, (_match: string, indent: string, type: string, titleIn: string | undefined, titleAfter: string | undefined, body: string) => {
+        const cleanBody = (body || '')
+          .split('\n')
+          .map((l) => l.replace(/^[ \t]*>\s?/, ''))
+          .join('\n')
+          .trim();
+        const innerHtml = cleanBody ? (marked.parse(cleanBody) as string).trim() : '';
+        const title = ((titleIn ?? titleAfter) ?? '').trim();
+        const cleanType = type.trim();
+        const headerInner =
+          `<span class="callout__type">${escapeHtml(cleanType)}</span>` +
+          (title ? `<span class="callout__title">${escapeHtml(title)}</span>` : '');
+        const bodyHtml = innerHtml ? `<div class="callout__body">${innerHtml}</div>` : '';
+        return `${indent}<aside class="callout" data-type="${escapeAttr(cleanType)}"><header class="callout__header">${headerInner}</header>${bodyHtml}</aside>\n`;
+      });
+    }
+
+    function renderMd(md: string): string {
+      if (!md.trim()) return '';
+      return marked.parse(preprocessCallouts(md)) as string;
+    }
+
+    // ── DOM refs ─────────────────────────────────────────────────
+    const root = document.documentElement;
+    const inputEl = document.getElementById('md2pdf-input') as HTMLTextAreaElement;
+    const bodyEl = document.getElementById('md2pdf-body') as HTMLElement;
+    const shadowBodyEl = document.getElementById('md2pdf-shadow-body') as HTMLElement;
+    const pageCountEl = document.getElementById('md2pdf-page-count') as HTMLElement;
+    const exportBtn = document.getElementById('md2pdf-export') as HTMLButtonElement;
+    const fileInput = document.getElementById('md2pdf-file') as HTMLInputElement;
+
+    // ── 1) Markdown 输入 → 渲染 ────────────────────────────────────
+    let renderTimer: number | undefined;
+    function renderFromInput() {
+      const md = inputEl.value;
+      const html = renderMd(md);
+      bodyEl.innerHTML = html;
+      shadowBodyEl.innerHTML = html;
+      recountPages();
+    }
+    inputEl.addEventListener('input', () => {
+      if (renderTimer) window.clearTimeout(renderTimer);
+      renderTimer = window.setTimeout(renderFromInput, 80);
+    });
+
+    document.getElementById('md2pdf-upload')!.addEventListener('click', () => {
+      fileInput.click();
+    });
+    fileInput.addEventListener('change', () => {
+      const f = fileInput.files?.[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        inputEl.value = String(reader.result || '');
+        renderFromInput();
+      };
+      reader.readAsText(f);
+    });
+    document.getElementById('md2pdf-paste')!.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) { inputEl.value = text; renderFromInput(); }
+      } catch (_e) {
+        alert('剪贴板访问被拒，请手动粘贴到 Markdown 输入框（Cmd/Ctrl + V）。');
+      }
+    });
+    document.getElementById('md2pdf-clear')!.addEventListener('click', () => {
+      if (inputEl.value && !confirm('确定清空当前 Markdown？')) return;
+      inputEl.value = '';
+      renderFromInput();
+    });
+
+    // ── 2) input → CSS var binding（实时预览）─────────────────────
+    const inputs = document.querySelectorAll<HTMLInputElement>('.md2pdf-controls input[data-var]');
+    function applyVar(input: HTMLInputElement) {
+      const name = '--' + input.dataset.var;
+      const value = input.value + (input.dataset.unit || '');
+      root.style.setProperty(name, value);
+    }
+    inputs.forEach((input) => {
+      input.addEventListener('input', () => { applyVar(input); recountPages(); });
+      applyVar(input);
+    });
+
+    // ── 3) 预设 ────────────────────────────────────────────────────
+    const GROUP_PRESETS: Record<string, Record<string, Record<string, number | string>>> = {
+      margin: {
+        tight: { 'm-top': 12, 'm-right': 12, 'm-bottom': 10, 'm-left': 12 },
+        loose: { 'm-top': 25, 'm-right': 25, 'm-bottom': 20, 'm-left': 25 },
+      },
+      body: {
+        dense:    { 'body-fontsize':  9, 'body-lineheight': 1.4, 'h1-size': 14, 'h2-size': 11.5, 'h3-size': 10 },
+        standard: { 'body-fontsize': 10, 'body-lineheight': 1.5, 'h1-size': 16, 'h2-size': 13,   'h3-size': 11 },
+        reader:   { 'body-fontsize': 11, 'body-lineheight': 1.7, 'h1-size': 18, 'h2-size': 14.5, 'h3-size': 12 },
+      },
+      callout: {
+        info:    { 'callout-bg': '#eef6f9', 'callout-border': '#c8dde5', 'callout-text-color': '#2a4d5e' },
+        warning: { 'callout-bg': '#fff8e1', 'callout-border': '#ffe8a8', 'callout-text-color': '#6a5400' },
+        alert:   { 'callout-bg': '#fdf2f4', 'callout-border': '#f1c5cc', 'callout-text-color': '#842a3c' },
+        neutral: { 'callout-bg': '#f4f4f4', 'callout-border': '#d4d4d4', 'callout-text-color': '#3a3a3a' },
+      },
+    };
+    // 全局风格 = 多组 preset 组合
+    const GLOBAL_PRESETS: Record<string, Record<string, string>> = {
+      standard: { margin: 'loose', body: 'standard', callout: 'info' },
+      tight:    { margin: 'tight', body: 'dense',    callout: 'info' },
+      loose:    { margin: 'loose', body: 'standard', callout: 'info' },
+      reader:   { margin: 'loose', body: 'reader',   callout: 'warning' },
+    };
+
+    function applyGroupPreset(group: string, presetKey: string) {
+      // 特殊：sidebar-mode / table-style 不是 input 调参，是 data-attr 切换
+      if (group === 'sidebar-mode') {
+        bodyEl.dataset.sidebar = presetKey;
+        shadowBodyEl.dataset.sidebar = presetKey;
+      } else if (group === 'table-style') {
+        bodyEl.dataset.tableStyle = presetKey;
+        shadowBodyEl.dataset.tableStyle = presetKey;
+      } else {
+        const preset = GROUP_PRESETS[group]?.[presetKey];
+        if (!preset) return;
+        for (const [varName, val] of Object.entries(preset)) {
+          const input = document.querySelector<HTMLInputElement>('[data-var="' + varName + '"]');
+          if (!input) continue;
+          input.value = String(val);
+          applyVar(input);
+        }
+      }
+      document.querySelectorAll<HTMLButtonElement>('[data-preset-group="' + group + '"]').forEach((b) => {
+        b.classList.toggle('is-active', b.dataset.preset === presetKey);
+      });
+    }
+    function applyGlobalPreset(globalKey: string) {
+      const cfg = GLOBAL_PRESETS[globalKey];
+      if (!cfg) return;
+      for (const [group, presetKey] of Object.entries(cfg)) {
+        applyGroupPreset(group, presetKey);
+      }
+      document.querySelectorAll<HTMLButtonElement>('[data-global]').forEach((b) => {
+        b.classList.toggle('is-active', b.dataset.global === globalKey);
+      });
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('[data-preset-group]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        applyGroupPreset(btn.dataset.presetGroup!, btn.dataset.preset!);
+        document.querySelectorAll<HTMLButtonElement>('[data-global]').forEach((b) => b.classList.remove('is-active'));
+        recountPages();
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-global]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        applyGlobalPreset(btn.dataset.global!);
+        recountPages();
+      });
+    });
+
+    // ── 4) 页数估算（用 shadow 的真实 scrollHeight）────────────────
+    const PX_PER_MM = 3.7795275591;
+    const shadow = document.getElementById('md2pdf-shadow') as HTMLElement;
+    function recountPages() {
+      requestAnimationFrame(() => {
+        const totalPx = shadow.scrollHeight;
+        const totalMm = totalPx / PX_PER_MM;
+        const pages = Math.max(1, Math.ceil(totalMm / 297));
+        pageCountEl.textContent = '约 ' + pages + ' 页 · 当前预览第 1 页';
+      });
+    }
+
+    // ── 5) 导出 PDF：注入 @page margin，调 window.print() ──────────
+    exportBtn.addEventListener('click', () => {
+      const get = (v: string) => (document.querySelector<HTMLInputElement>('[data-var="' + v + '"]')?.value || '0');
+      const css = [
+        '@page {',
+        '  size: A4;',
+        '  margin: ' + get('m-top') + 'mm ' + get('m-right') + 'mm ' + get('m-bottom') + 'mm ' + get('m-left') + 'mm;',
+        '}',
+      ].join('\n');
+      const existing = document.getElementById('md2pdf-print-style');
+      if (existing) existing.remove();
+      const style = document.createElement('style');
+      style.id = 'md2pdf-print-style';
+      style.textContent = css;
+      document.head.appendChild(style);
+      window.print();
+    });
+
+    // ── 启动 ─────────────────────────────────────────────────────
+    applyGlobalPreset('standard');
+    document.querySelector('[data-preset-group="sidebar-mode"][data-preset="off"]')?.classList.add('is-active');
+    document.querySelector('[data-preset-group="table-style"][data-preset="tufte"]')?.classList.add('is-active');
+    renderFromInput();
+    window.addEventListener('resize', recountPages);
+  </script>
+</MainLayout>
