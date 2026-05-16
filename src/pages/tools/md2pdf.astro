@@ -65,6 +65,13 @@ const DEFAULT_MD = `# 文档标题
     /* ─────────────────────────────────────────────────────────────
        Workspace shell — 左侧 panel + 中间 preview
        ───────────────────────────────────────────────────────────── */
+    /* 这个工具只为桌面端设计 — 隐藏 MainLayout 默认的 mobile warning overlay/badge */
+    #mobile-warning-overlay,
+    #mobile-warning-badge { display: none !important; }
+
+    .md2pdf-page-wrap {
+      padding-top: 80px;  /* 让出 MainLayout 顶部 fixed Header 空间 */
+    }
     .md2pdf-workspace {
       display: flex;
       gap: 0;
@@ -78,18 +85,27 @@ const DEFAULT_MD = `# 文档标题
       flex-shrink: 0;
       background: white;
       border-right: 1px solid #d8d8d8;
-      overflow-y: auto;
       font-size: 12px;
       box-shadow: 1px 0 4px rgba(0, 0, 0, 0.04);
       max-height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
     }
-    .md2pdf-controls header {
-      position: sticky;
-      top: 0;
+    .md2pdf-controls > header {
+      flex-shrink: 0;
       background: white;
       border-bottom: 1px solid #ececec;
       padding: 14px 18px 12px;
-      z-index: 5;
+    }
+    .md2pdf-controls .controls-scroll {
+      flex: 1;
+      overflow-y: auto;
+    }
+    .md2pdf-controls > .export-footer {
+      flex-shrink: 0;
+      background: white;
+      border-top: 1px solid #ececec;
+      padding: 10px 16px;
     }
     .md2pdf-controls header h1 {
       font-family: 'Manrope', sans-serif;
@@ -108,8 +124,7 @@ const DEFAULT_MD = `# 文档标题
 
     .md2pdf-controls .export-btn {
       display: flex;
-      width: calc(100% - 32px);
-      margin: 14px 16px 4px;
+      width: 100%;
       padding: 10px 14px;
       background: #000;
       color: white;
@@ -557,8 +572,8 @@ const DEFAULT_MD = `# 文档标题
        ───────────────────────────────────────────────────────────── */
     @media print {
       html, body { background: white; height: auto; overflow: visible; display: block; }
-      header[role="banner"], nav, footer { display: none !important; }
-      .md2pdf-controls, .md2pdf-preview-toolbar, .md2pdf-paper-shadow { display: none !important; }
+      header[role="banner"], nav, footer, .md2pdf-controls, .md2pdf-preview-toolbar, .md2pdf-paper-shadow { display: none !important; }
+      .md2pdf-page-wrap { padding: 0 !important; }
       .md2pdf-workspace { display: block; min-height: 0; background: white; }
       .md2pdf-preview-stage { padding: 0; overflow: visible; display: block; max-height: none; }
       main { padding: 0 !important; }
@@ -582,7 +597,7 @@ const DEFAULT_MD = `# 文档标题
     }
   </style>
 
-  <main class="!pt-20 !pb-0">
+  <div class="md2pdf-page-wrap">
     <div class="md2pdf-workspace">
       <!-- ─────── 左侧 控件 + 输入 ─────── -->
       <aside class="md2pdf-controls">
@@ -595,11 +610,7 @@ const DEFAULT_MD = `# 文档标题
           <div class="sub">粘贴 Markdown，调样式，导出 A4 PDF</div>
         </header>
 
-        <button type="button" class="export-btn" id="md2pdf-export">
-          <span class="material-symbols-outlined">picture_as_pdf</span>
-          导出 PDF（A4，自动分页）
-        </button>
-
+        <div class="controls-scroll">
         <div class="group">
           <div class="group-title">📝 Markdown 输入</div>
           <textarea class="md-input" id="md2pdf-input" spellcheck="false">{DEFAULT_MD}</textarea>
@@ -746,6 +757,14 @@ const DEFAULT_MD = `# 文档标题
             <button type="button" class="swatch" style="--swatch-color:#f4f4f4;" data-preset-group="callout" data-preset="neutral">灰</button>
           </div>
         </div>
+        </div>
+
+        <footer class="export-footer">
+          <button type="button" class="export-btn" id="md2pdf-export">
+            <span class="material-symbols-outlined">picture_as_pdf</span>
+            导出 PDF（A4，自动分页）
+          </button>
+        </footer>
       </aside>
 
       <!-- ─────── 中间预览舞台 ─────── -->
@@ -764,7 +783,7 @@ const DEFAULT_MD = `# 文档标题
         </div>
       </section>
     </div>
-  </main>
+  </div>
 
   <script>
     import { marked } from 'marked';
