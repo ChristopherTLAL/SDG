@@ -360,6 +360,13 @@ const DEFAULT_MD = `# 文档标题
       color: #1a1a1a;
       font-family: 'Inter', -apple-system, 'PingFang SC', sans-serif;
     }
+    /* 强制保留背景色到 PDF — 浏览器默认 print 不渲染 background。
+       不加这个 → bold 蓝高亮 / callout 卡片 / 经典表头灰 / 隔行表 stripe 在 PDF 里全消失。 */
+    .note-body,
+    .note-body * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
     /* 开了侧栏才给右边留空间 */
     .note-body[data-sidebar="on"] {
       padding-right: calc(var(--sidebar-w) + var(--sidebar-gap));
