@@ -113,6 +113,13 @@ PRIVATE_CONTRACT_LABELS = ('私单', '私单（非公司合同）')
 # Onboard new vault folders for these advisors' uncovered students:
 ONBOARD_ADVISORS = ['钟婷婷', '古淑婷', '高幸玲', '王姝琰']
 
+# Auto-onboard filter — only build folder if cid is still in-scope:
+#   - intake_year ≥ ONBOARD_MIN_INTAKE (skip already-closed cohorts)
+#   - at least one contract is NOT 已终止/退费 (skip refund-only cids)
+# Pre-filter saves us from /tmp/onboard_X.py one-shot scripts to avoid脏 onboards.
+# Bump ONBOARD_MIN_INTAKE每年 (e.g. 2027 in fall 2026).
+ONBOARD_MIN_INTAKE = 2026
+
 TODAY = datetime.now().strftime('%Y-%m-%d')
 
 
@@ -385,8 +392,17 @@ def build_customer_to_folder_map(rows, COL, vault_students):
 # ── Identify new students to onboard ────────────────────────────────────
 
 def identify_onboard_candidates(rows, COL, cid_to_folder, vault_folder_names):
-    """For each ONBOARD_ADVISORS, find customers (留学申请=是) not covered by vault."""
-    candidates = {}  # cid -> {name, advisor, intake, count, total}
+    """For each ONBOARD_ADVISORS, find customers (留学申请=是) not covered by vault.
+
+    Pre-filter (since 2026-05-17):
+    - intake_year ≥ ONBOARD_MIN_INTAKE (skip closed cohorts e.g. 25F 已结案)
+    - has_active = 至少一条合同非 终止/退费 (skip 全退费 cids)
+    Without these, the script would silently onboard历史死案，produces stale
+    vault folders that need to be hand-cleaned. 这个过滤等价于之前 /tmp/onboard_X.py
+    的"26F+ active 留学" 筛选规则，现在内置。
+    """
+    # Track per-cid: latest intake + has_active across all this cid's contracts
+    per_cid = {}  # cid → {first_advisor_row, intake_pref, has_active, names, count, total}
     for r in rows:
         adv = r[COL['中期顾问']]
         if adv not in ONBOARD_ADVISORS:
@@ -397,20 +413,38 @@ def identify_onboard_candidates(rows, COL, cid_to_folder, vault_folder_names):
         if cid in cid_to_folder:
             continue  # already covered
         nm = r[COL['客户姓名']]
-        if cid not in candidates:
-            candidates[cid] = {
-                'cid': cid,
-                'name': nm,
-                'advisor': adv,
-                'intake': r[COL['入学年']],
-                'count': 0,
-                'total': 0.0,
-            }
-        candidates[cid]['count'] += 1
-        candidates[cid]['total'] += r[COL['签约金额（实时）']] or 0
-        # Prefer earliest non-null intake_year
-        if r[COL['入学年']] and not candidates[cid]['intake']:
-            candidates[cid]['intake'] = r[COL['入学年']]
+        intake = r[COL['入学年']]
+        status = str(r[COL['合同状态']] or '')
+        is_active = bool(status) and '终止' not in status and '退' not in status
+
+        d = per_cid.setdefault(cid, {
+            'cid': cid, 'name': nm, 'advisor': adv,
+            'intake': intake, 'has_active': False,
+            'count': 0, 'total': 0.0,
+        })
+        d['count'] += 1
+        d['total'] += r[COL['签约金额（实时）']] or 0
+        if intake and (not d['intake']):
+            d['intake'] = intake
+        d['has_active'] = d['has_active'] or is_active
+
+    # Apply onboard filter — drop 已结案 cohorts + all-refunded cids
+    candidates = {}
+    skipped_old, skipped_dead = 0, 0
+    for cid, c in per_cid.items():
+        try:
+            y = int(c['intake'])
+        except (TypeError, ValueError):
+            y = 0
+        if y < ONBOARD_MIN_INTAKE:
+            skipped_old += 1
+            continue
+        if not c['has_active']:
+            skipped_dead += 1
+            continue
+        candidates[cid] = c
+    if skipped_old or skipped_dead:
+        print(f'   📥 onboard filter: dropped {skipped_old} (<{ONBOARD_MIN_INTAKE}F) + {skipped_dead} (全退费)')
 
     # Detect collisions with existing vault folders + within candidate list
     final = []
