@@ -76,10 +76,11 @@ DISAMBIG = {
     '胡斌':   'P24AABpPeLNxmUc92018',
 }
 
-# Vault folders that are 私单 / no-signing-data (don't try to match):
-PRIVATE_NO_SIGNING = {
-    '李想',  # 王世杰 私单 / 朋友（neither signing 客户ID belongs to vault 李想）
-}
+# 私单 detection is now YAML-driven (2026-05-17 onward).
+# vault .md frontmatter `合同` 字段含 `私单` 或 `私单（非公司合同）` 的学生会
+# 被识别为私单并跳过 ERP 匹配 / 不被 import-signings.py 改写 YAML。
+# 不要再 hardcode 名字 list — 在 vault YAML 改 `合同: [私单]` 即可。
+PRIVATE_CONTRACT_LABELS = ('私单', '私单（非公司合同）')
 
 # Onboard new vault folders for these advisors' uncovered students:
 ONBOARD_ADVISORS = ['钟婷婷', '古淑婷', '高幸玲', '王姝琰']
@@ -220,6 +221,19 @@ def read_signings():
 
 # ── Read existing vault ─────────────────────────────────────────────────
 
+def _yaml_is_private(text):
+    """True iff frontmatter `合同` 字段含 PRIVATE_CONTRACT_LABELS 中的任一标签.
+    驱动私单识别 — 取代之前 hardcode 的 PRIVATE_NO_SIGNING name list。"""
+    m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
+    if not m:
+        return False
+    contract = re.search(r'^合同:\s*(.*?)$', m.group(1), re.MULTILINE)
+    if not contract:
+        return False
+    v = contract.group(1).strip()
+    return any(label in v for label in PRIVATE_CONTRACT_LABELS)
+
+
 def read_vault_students():
     students = []
     for p in sorted(VAULT.iterdir()):
@@ -228,10 +242,12 @@ def read_vault_students():
         md = p / f'{p.name}.md'
         if not md.exists():
             continue
+        text = md.read_text(encoding='utf-8', errors='ignore')
         students.append({
             'folder': p,
             'name': p.name,
             'md_path': md,
+            'is_private': _yaml_is_private(text),
         })
     return students
 
@@ -248,10 +264,33 @@ def build_customer_to_folder_map(rows, COL, vault_students):
     folder_to_cids = defaultdict(set)
     folder_signers = defaultdict(set)  # folder → set of 客户姓名 used in signing
 
+    private_folders = sorted(vs['name'] for vs in vault_students if vs['is_private'])
+    if private_folders:
+        print(f'🔒 私单 folders 跳过 ERP 匹配 ({len(private_folders)}): {private_folders}')
+
+    # 重名保护: ERP 中 客户姓名 X → >1 个不同 cid, 且 vault 有同名非私单 folder,
+    # 但没有 DISAMBIG entry 显式选 cid → 不自动绑定（防止把两个真实不同客户的
+    # 合同合并写进同一个 vault 文件夹）。这种情况要么加 DISAMBIG，要么走 onboard
+    # 自动建 "X (中期顾问名)" suffix folder。
+    aliased_signers = {s for signers in ALIASES.values() for s in signers}
+    ambiguous_names = set()
+    for name, ids in name_to_ids.items():
+        if len(ids) <= 1:
+            continue
+        if name in DISAMBIG or name in aliased_signers:
+            continue
+        vault_match = [vs for vs in vault_students
+                       if vs['name'] == name and not vs['is_private']]
+        if vault_match:
+            ambiguous_names.add(name)
+            print(f'⚠ 重名: ERP 有 {len(ids)} 个 cid 客户姓名 == "{name}"  '
+                  f'→ vault folder 不自动绑定。要绑定请加 DISAMBIG: {sorted(ids)}')
+
     for vs in vault_students:
         name = vs['name']
-        if name in PRIVATE_NO_SIGNING:
-            continue
+
+        if vs['is_private']:
+            continue  # 私单 — 跟 ERP 完全隔离
 
         # ALIASES first (sibling-combined / English-name signed)
         if name in ALIASES:
@@ -269,6 +308,9 @@ def build_customer_to_folder_map(rows, COL, vault_students):
             folder_to_cids[name].add(cid)
             folder_signers[name].add(name)
             continue
+
+        if name in ambiguous_names:
+            continue  # 重名未消歧 — 跳过自动绑定
 
         # Normal direct name match
         ids = name_to_ids.get(name, set())
@@ -378,6 +420,13 @@ def replace_yaml_field(text, field, new_value_block):
 def update_existing_student_yaml(md_path, customer_ids, signers, contracts):
     """Rewrite YAML frontmatter for an existing student."""
     text = md_path.read_text(encoding='utf-8')
+
+    # Defensive: never overwrite 私单 — even if upstream logic misroutes here.
+    # 2026-05-17 bug: hardcoded PRIVATE_NO_SIGNING + accidental name collision
+    # caused legacy sync-financial-to-vault.py to overwrite 王世杰's 私单 李想 with
+    # 钟婷婷的 ERP 李想 数据. Belt-and-suspenders check.
+    if _yaml_is_private(text):
+        return False
 
     # Build new value blocks
     cid_block = '客户ID: [' + ', '.join(customer_ids) + ']'
