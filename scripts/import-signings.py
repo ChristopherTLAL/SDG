@@ -71,16 +71,22 @@ def _largest_signing_xlsx():
     # Largest = full history; tie-break by mtime (newer)
     return max(cands, key=lambda p: (p.stat().st_size, p.stat().st_mtime))
 
-if len(sys.argv) > 1 and sys.argv[1] not in ('-h', '--help'):
-    XLSX = Path(sys.argv[1]).expanduser()
+# --dry-run: read everything, compute changes, print summary, NO writes.
+# Useful before a full sync to preview what will change. Strip flag from argv
+# so it doesn't break the positional-arg parsing.
+DRY_RUN = '--dry-run' in sys.argv
+_pos_args = [a for a in sys.argv[1:] if a != '--dry-run']
+
+if _pos_args and _pos_args[0] not in ('-h', '--help'):
+    XLSX = Path(_pos_args[0]).expanduser()
     if not XLSX.exists():
         print(f'ERROR: {XLSX} not found', file=sys.stderr)
         sys.exit(1)
-elif len(sys.argv) > 1:
+elif _pos_args:
     print(__doc__)
-    print(f'\nUsage: {sys.argv[0]} [path/to/*客户签约明细*.xlsx]')
+    print(f'\nUsage: {sys.argv[0]} [--dry-run] [path/to/*客户签约明细*.xlsx]')
     print(f'\nNo arg → auto-pick LARGEST file across ~/Downloads/ + _工作运营/')
-    print(f'Override → pass explicit path (e.g. for testing weekly slice)')
+    print(f'--dry-run → preview changes without writing to vault or Supabase')
     sys.exit(0)
 else:
     XLSX = _largest_signing_xlsx()
@@ -550,6 +556,8 @@ def update_existing_student_yaml(md_path, customer_ids, signers, contracts):
     new_text = replace_yaml_field(new_text, '合同明细', detail_block)
 
     if new_text != text:
+        if DRY_RUN:
+            return True  # pretend changed, caller counts
         md_path.write_text(new_text, encoding='utf-8')
         return True
     return False
@@ -560,6 +568,8 @@ def create_new_student_folder(target_folder, advisor, intake_year, customer_id, 
     folder = VAULT / target_folder
     if folder.exists():
         return False  # idempotent
+    if DRY_RUN:
+        return True  # pretend created
     folder.mkdir()
     (folder / '沟通记录').mkdir()
     (folder / '个性化材料').mkdir()
@@ -616,6 +626,9 @@ def create_new_student_folder(target_folder, advisor, intake_year, customer_id, 
 def supabase_upsert_contracts(env, contract_rows):
     """Bulk UPSERT contract rows to Supabase. Uses PostgREST UPSERT
     (POST + Prefer: resolution=merge-duplicates)."""
+    if DRY_RUN:
+        print(f'   [DRY-RUN] would upsert {len(contract_rows)} contract rows to Supabase')
+        return len(contract_rows)
     url = env.get('SUPABASE_URL')
     key = env.get('SUPABASE_SERVICE_ROLE_KEY')
     if not url or not key:
@@ -657,6 +670,10 @@ def supabase_upsert_contracts(env, contract_rows):
 
 def supabase_link_students(env, cid_to_folder, name_to_student_id):
     """For each customer_id with a folder, set students.customer_ids[] += that cid."""
+    if DRY_RUN:
+        n = sum(1 for f in {fld for fld in cid_to_folder.values()} if f in name_to_student_id)
+        print(f'   [DRY-RUN] would PATCH {n} students.customer_ids')
+        return n
     url = env.get('SUPABASE_URL')
     key = env.get('SUPABASE_SERVICE_ROLE_KEY')
     if not url or not key:
@@ -699,6 +716,9 @@ def supabase_backfill_contracts_student_id(env):
     susceptible to SSL EOF disconnects) to single RPC backfill_contracts_student_id()
     (1 call, <1 sec, transactional). See migration `backfill_contracts_student_id_rpc`.
     """
+    if DRY_RUN:
+        print(f'   [DRY-RUN] would call backfill_contracts_student_id() RPC')
+        return 0
     url = env.get('SUPABASE_URL')
     key = env.get('SUPABASE_SERVICE_ROLE_KEY')
     if not url or not key:
@@ -741,6 +761,8 @@ def supabase_get_student_id_map(env):
 # ── Main ────────────────────────────────────────────────────────────────
 
 def main():
+    if DRY_RUN:
+        print('🔍 DRY-RUN MODE — no vault or Supabase writes will be performed\n')
     env = load_env()
 
     rows, COL = read_signings()
@@ -877,9 +899,13 @@ def main():
     print(f'  New folders onboarded:       {onboarded}')
     print(f'  Contracts pushed Supabase:   {n_pushed}')
     print(f'  Students linked customer_ids:{n_linked}')
-    print(f'\n📋 Next steps (if you want to fully refresh):')
-    print(f'   /usr/local/bin/python3 scripts/import-erp-comms.py')
-    print(f'   /opt/homebrew/bin/node scripts/sync-students-to-supabase.mjs')
+    if DRY_RUN:
+        print(f'\n🔍 DRY-RUN COMPLETE — no vault or Supabase writes were performed.')
+        print(f'   Re-run without --dry-run to apply.')
+    else:
+        print(f'\n📋 Next steps (if you want to fully refresh):')
+        print(f'   /usr/local/bin/python3 scripts/import-erp-comms.py')
+        print(f'   /opt/homebrew/bin/node scripts/sync-students-to-supabase.mjs')
 
 
 if __name__ == '__main__':
