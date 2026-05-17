@@ -27,7 +27,13 @@ let q = supabase
 if (stageFilter.length)   q = q.in('stage', stageFilter);
 // Array-column filters: overlaps = OR semantics (ANY match), good for multi-select.
 if (advisorFilter.length) q = q.overlaps('mid_advisors', advisorFilter);
-if (cohortFilter.length)  q = q.overlaps('enroll_years', cohortFilter);
+// 待定 chip 合并了真'待定' + '5000 fall' 脏数据 (同 overview), 所以查询时把两个都送
+if (cohortFilter.length) {
+  const expanded = cohortFilter.includes('待定')
+    ? Array.from(new Set([...cohortFilter, '5000 fall']))
+    : cohortFilter;
+  q = q.overlaps('enroll_years', expanded);
+}
 
 // Hide inactive unless either:
 //   - user toggled "+ 已结案" (includeInactive=1), or
@@ -62,7 +68,15 @@ if (!canSeePrivate) {
 const { data: chipRows } = await chipQ.limit(2000);
 const chipPool = chipRows ?? [];
 const stages   = Array.from(new Set(chipPool.map((s: any) => s.stage).filter(Boolean))).sort() as string[];
-const cohorts  = Array.from(new Set(chipPool.flatMap((s: any) => (s.enroll_years ?? [])).filter(Boolean))).sort() as string[];
+// Normalize raw enroll_years: '5000 fall' (脏数据占位) → '待定'. Match overview behavior.
+const normalizeCohort = (c: string) => String(c ?? '').startsWith('5000') ? '待定' : c;
+const cohorts = Array.from(new Set(chipPool.flatMap((s: any) => (s.enroll_years ?? []))
+  .map(normalizeCohort).filter(Boolean))).sort((a: string, b: string) => {
+  // 待定/未填 排到尾巴
+  if (a === '待定') return 1;
+  if (b === '待定') return -1;
+  return a.localeCompare(b);
+}) as string[];
 const advisors = Array.from(new Set(chipPool.flatMap((s: any) => (s.mid_advisors ?? [])).filter(Boolean))).sort() as string[];
 
 const withRadar = students.map((s: any) => {
@@ -230,7 +244,7 @@ function stageBadge(stage: string | null | undefined) {
                 <td>
                   <div class="badges-stack">
                     {(s.enroll_years && s.enroll_years.length)
-                      ? s.enroll_years.map((y: string) => <span class="badge badge-neutral">{y}</span>)
+                      ? s.enroll_years.map((y: string) => <span class="badge badge-neutral">{normalizeCohort(y)}</span>)
                       : <span class="badge badge-empty">—</span>}
                   </div>
                 </td>
