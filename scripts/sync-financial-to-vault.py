@@ -40,6 +40,18 @@ from datetime import date, datetime
 import openpyxl
 
 # ============================================================
+# ⚠ DEPRECATED 2026-05-09 — DO NOT RUN.
+# 这个脚本基于「预收账款余额表」, 那个 ERP 视图已不再准, 而且按"客户姓名"
+# 匹配会误覆盖 vault (历史事故: 把 27F 钟婷婷 李想 的合同写到王世杰的私单
+# 李想 folder). 现在 vault YAML 合同/合同明细 由 scripts/import-signings.py
+# (基于"客户签约明细") 维护, 走 cid 匹配 + 私单/重名保护.
+# 留这个文件只是给历史 git blame 用. 想运行请删掉下面的 sys.exit.
+# ============================================================
+print('⚠ scripts/sync-financial-to-vault.py is DEPRECATED. '
+      'Use scripts/import-signings.py instead.', file=sys.stderr)
+sys.exit(2)
+
+# ============================================================
 # 配置
 # ============================================================
 
