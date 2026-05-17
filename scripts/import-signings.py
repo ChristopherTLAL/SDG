@@ -693,42 +693,34 @@ def supabase_link_students(env, cid_to_folder, name_to_student_id):
 
 
 def supabase_backfill_contracts_student_id(env):
-    """UPDATE contracts SET student_id = matching students.id (via customer_ids[] array contains)."""
+    """UPDATE contracts SET student_id via single Supabase RPC call.
+
+    Migrated 2026-05-17 from per-cid PATCH loop (5000+ HTTP calls, ~20 min,
+    susceptible to SSL EOF disconnects) to single RPC backfill_contracts_student_id()
+    (1 call, <1 sec, transactional). See migration `backfill_contracts_student_id_rpc`.
+    """
     url = env.get('SUPABASE_URL')
     key = env.get('SUPABASE_SERVICE_ROLE_KEY')
     if not url or not key:
         return 0
-    # Use Supabase RPC pattern via raw SQL through pg_meta endpoint? PostgREST doesn't allow
-    # cross-table UPDATE FROM directly. Easiest: fetch students with customer_ids, then PATCH
-    # contracts per customer_id. For 253 students that's 253 fast PATCHes.
     req = urllib.request.Request(
-        f'{url}/rest/v1/students?select=id,customer_ids&customer_ids=not.is.null',
-        headers={'apikey': key, 'Authorization': f'Bearer {key}'},
+        f'{url}/rest/v1/rpc/backfill_contracts_student_id',
+        data=b'{}',
+        method='POST',
+        headers={
+            'apikey': key,
+            'Authorization': f'Bearer {key}',
+            'Content-Type': 'application/json',
+        },
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        rows = json.loads(resp.read())
-    n = 0
-    for s in rows:
-        sid = s['id']
-        for cid in (s['customer_ids'] or []):
-            body = json.dumps({'student_id': sid}).encode('utf-8')
-            req = urllib.request.Request(
-                f'{url}/rest/v1/contracts?customer_id=eq.{cid}',
-                data=body,
-                method='PATCH',
-                headers={
-                    'apikey': key,
-                    'Authorization': f'Bearer {key}',
-                    'Content-Type': 'application/json',
-                    'Prefer': 'return=minimal',
-                },
-            )
-            try:
-                urllib.request.urlopen(req, timeout=15)
-                n += 1
-            except Exception as e:
-                print(f'   ⚠ backfill cid={cid}: {e}')
-    return n
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            body = resp.read().decode('utf-8').strip()
+            # PostgREST returns the scalar as a bare number
+            return int(body) if body else 0
+    except Exception as e:
+        print(f'   ⚠ backfill RPC failed: {e}')
+        return 0
 
 
 def supabase_get_student_id_map(env):
