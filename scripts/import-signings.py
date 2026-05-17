@@ -221,17 +221,48 @@ def read_signings():
 
 # ── Read existing vault ─────────────────────────────────────────────────
 
+def _yaml_scalar(yaml_text, key):
+    """读 YAML frontmatter 里 `key: value` 的标量值. 空值返回 ''.
+    用 `[ \\t]*` 不用 `\\s*` 以避免吃下一行的换行 + 字段名."""
+    m = re.search(rf'^{re.escape(key)}:[ \t]*(.*?)$', yaml_text, re.MULTILINE)
+    if not m:
+        return None
+    return m.group(1).strip()
+
+
 def _yaml_is_private(text):
     """True iff frontmatter `合同` 字段含 PRIVATE_CONTRACT_LABELS 中的任一标签.
     驱动私单识别 — 取代之前 hardcode 的 PRIVATE_NO_SIGNING name list。"""
     m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
     if not m:
         return False
-    contract = re.search(r'^合同:\s*(.*?)$', m.group(1), re.MULTILINE)
-    if not contract:
+    val = _yaml_scalar(m.group(1), '合同')
+    if not val:
         return False
-    v = contract.group(1).strip()
-    return any(label in v for label in PRIVATE_CONTRACT_LABELS)
+    return any(label in val for label in PRIVATE_CONTRACT_LABELS)
+
+
+def _yaml_advisor_fields(text):
+    """从 vault .md frontmatter 抽取 中期/前期/后期 顾问 (primary, 多顾问取第一个).
+    返回 dict {'mid': ..., 'early': ..., 'late': ...}, 找不到的 key 缺失.
+    用于 Phase A: contracts 表 mid/early/late_advisor 用 vault 值覆盖 ERP 值."""
+    m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
+    if not m:
+        return {}
+    yaml = m.group(1)
+    out = {}
+    for yaml_key, out_key in [('中期顾问', 'mid'), ('前期顾问', 'early'), ('后期顾问', 'late')]:
+        val = _yaml_scalar(yaml, yaml_key)
+        if not val:
+            continue
+        if val.startswith('['):
+            items = [s.strip().strip('"').strip("'") for s in val.strip('[]').split(',')]
+            items = [i for i in items if i]
+            if items:
+                out[out_key] = items[0]
+        else:
+            out[out_key] = val.strip('"').strip("'")
+    return out
 
 
 def read_vault_students():
@@ -748,6 +779,29 @@ def main():
         for c in contracts:
             db_rows.append(c)
     print(f'   {len(db_rows)} total contract rows to upsert')
+
+    # Phase A (2026-05-17): vault YAML 是 advisor 归属的 source of truth.
+    # 同一 cid 下所有 contract row 的 mid/early/late_advisor 一律按 vault YAML
+    # 该 folder 的当前 中期/前期/后期顾问 写入 (多顾问取第一个 = primary).
+    # vault 字段为空 → 保留 ERP 值 (避免无意删数据). vault 没有对应 folder → 不变.
+    folder_to_advisors = {}
+    for vs in vault_students:
+        text = vs['md_path'].read_text(encoding='utf-8')
+        folder_to_advisors[vs['name']] = _yaml_advisor_fields(text)
+
+    override_n = 0
+    for row in db_rows:
+        folder = cid_to_folder.get(row['customer_id'])
+        if not folder:
+            continue
+        adv = folder_to_advisors.get(folder, {})
+        if adv.get('mid')   and row.get('mid_advisor')   != adv['mid']:
+            row['mid_advisor']   = adv['mid'];   override_n += 1
+        if adv.get('early') and row.get('early_advisor') != adv['early']:
+            row['early_advisor'] = adv['early']
+        if adv.get('late')  and row.get('late_advisor')  != adv['late']:
+            row['late_advisor']  = adv['late']
+    print(f'   🔁 vault override: {override_n} 行 mid_advisor 改写 (前期/后期 同步覆盖)')
 
     n_pushed = supabase_upsert_contracts(env, db_rows)
     print(f'   ✓ pushed {n_pushed} contracts')
