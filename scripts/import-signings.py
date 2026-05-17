@@ -46,20 +46,30 @@ SDG_HTML = Path('/Users/shijie/Code/sdg-html')
 ENV_FILE = SDG_HTML / '.env'
 
 # Resolve signing xlsx source:
-#   1. CLI arg (highest priority) — for full-history sync from _工作运营/ subfolder
-#   2. Latest *客户签约明细*.xlsx in ~/Downloads/ root (default — weekly export)
-# Subfolders are NOT auto-discovered to avoid surprise (user may have stale copies);
-# pass the full path explicitly when wanting full history.
-def _latest_signing_xlsx():
-    cands = sorted(
-        (p for p in (Path.home() / 'Downloads').glob('*客户签约明细*.xlsx')
-         if not p.name.startswith('~$')),
-        key=lambda p: p.stat().st_mtime,
-        reverse=True,
-    )
+#   1. CLI arg (highest priority) — explicit override
+#   2. Default: pick LARGEST *客户签约明细*.xlsx across ~/Downloads/ AND
+#      ~/Downloads/_工作运营/ (full-history file is always >1MB, weekly slices <50KB).
+#      We choose by size, not mtime, because the weekly file is sometimes newer
+#      than the most recent full export — and we always prefer full-history for
+#      Phase A vault override + contracts table refresh to be effective.
+def _largest_signing_xlsx():
+    search_dirs = [
+        Path.home() / 'Downloads',
+        Path.home() / 'Downloads' / '_工作运营',
+    ]
+    cands = []
+    for d in search_dirs:
+        if not d.exists():
+            continue
+        for p in d.glob('*客户签约明细*.xlsx'):
+            if p.name.startswith('~$'):
+                continue
+            cands.append(p)
     if not cands:
-        raise FileNotFoundError('No *客户签约明细*.xlsx found in ~/Downloads')
-    return cands[0]
+        raise FileNotFoundError(
+            'No *客户签约明细*.xlsx found in ~/Downloads or ~/Downloads/_工作运营')
+    # Largest = full history; tie-break by mtime (newer)
+    return max(cands, key=lambda p: (p.stat().st_size, p.stat().st_mtime))
 
 if len(sys.argv) > 1 and sys.argv[1] not in ('-h', '--help'):
     XLSX = Path(sys.argv[1]).expanduser()
@@ -69,11 +79,11 @@ if len(sys.argv) > 1 and sys.argv[1] not in ('-h', '--help'):
 elif len(sys.argv) > 1:
     print(__doc__)
     print(f'\nUsage: {sys.argv[0]} [path/to/*客户签约明细*.xlsx]')
-    print(f'\nNo arg → auto-pick latest in ~/Downloads/ (weekly export).')
-    print(f'Full history sync → pass ~/Downloads/_工作运营/客户签约明细-YYYY-至-YYYY.xlsx')
+    print(f'\nNo arg → auto-pick LARGEST file across ~/Downloads/ + _工作运营/')
+    print(f'Override → pass explicit path (e.g. for testing weekly slice)')
     sys.exit(0)
 else:
-    XLSX = _latest_signing_xlsx()
+    XLSX = _largest_signing_xlsx()
 
 
 # Aliases — vault folder name → list of contract signer 客户姓名
