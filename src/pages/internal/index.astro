@@ -150,6 +150,14 @@ const advisorChips = Array.from(advisorChipCounts.entries())
 type Cell = { count: number; worstRank: number; worstTier: RadarTier };
 const COHORT_FALLBACK = '未填';
 const ADVISOR_FALLBACK = '未分配';
+const COHORT_TBD = '待定';
+
+// 5000 fall (ERP / vault 的脏 intake 占位) → 待定 列
+function normalizeCohort(c: string): string {
+  const s = String(c ?? '').trim();
+  if (s.startsWith('5000')) return COHORT_TBD;
+  return s;
+}
 
 function bumpCell(c: Cell, tier: RadarTier) {
   c.count += 1;
@@ -166,7 +174,9 @@ const cohortSet = new Set<string>();
 const advisorOrder = new Map<string, number>();
 
 for (const s of students) {
-  const cohorts = (s.enroll_years && s.enroll_years.length) ? s.enroll_years : [COHORT_FALLBACK];
+  const cohorts = (s.enroll_years && s.enroll_years.length)
+    ? s.enroll_years.map(normalizeCohort)
+    : [COHORT_FALLBACK];
   const advisors = (s.mid_advisors && s.mid_advisors.length) ? s.mid_advisors : [ADVISOR_FALLBACK];
 
   for (const cohort of cohorts) {
@@ -187,9 +197,13 @@ for (const s of students) {
   }
 }
 
+const COHORT_TAIL = new Set([COHORT_FALLBACK, COHORT_TBD]);
 const cohortKeys = Array.from(cohortSet).sort((a, b) => {
-  if (a === COHORT_FALLBACK) return 1;
-  if (b === COHORT_FALLBACK) return -1;
+  const aTail = COHORT_TAIL.has(a);
+  const bTail = COHORT_TAIL.has(b);
+  if (aTail && bTail) return a.localeCompare(b);
+  if (aTail) return 1;
+  if (bTail) return -1;
   return a.localeCompare(b);
 });
 
@@ -210,7 +224,12 @@ const advisorKeys = Array.from(advisorOrder.entries())
 
 function cellLink(cohort: string, advisor: string): string {
   const params = new URLSearchParams();
-  if (cohort !== COHORT_FALLBACK) params.set('cohort', cohort);
+  if (cohort !== COHORT_FALLBACK) {
+    // 待定 列在 overview 里聚合了"待定"字面值 + "5000 fall" 脏数据 —
+    // click-through 时把两个值都传到 students.astro 才能命中两类
+    const cohortParam = cohort === COHORT_TBD ? '待定,5000 fall' : cohort;
+    params.set('cohort', cohortParam);
+  }
   if (advisor !== ADVISOR_FALLBACK) params.set('advisor', advisor);
   return params.toString() ? `/internal/students?${params}` : '/internal/students';
 }
