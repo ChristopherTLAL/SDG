@@ -32,8 +32,8 @@ export default function OverviewCard({
             <h2 className="font-headline font-extrabold text-2xl text-on-surface">{studentName}</h2>
             <p className="text-sm text-on-surface-variant mt-1">
               {completedAt && new Date(completedAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}
-              {totalQuestions && ` · ${totalQuestions} 道题`}
-              {durationSeconds && ` · ${Math.round(durationSeconds / 60)} 分钟`}
+              {totalQuestions ? ` · ${totalQuestions} 道题` : null}
+              {durationSeconds ? ` · ${Math.round(durationSeconds / 60)} 分钟` : null}
             </p>
           </div>
           <div className="bg-primary/5 px-6 py-3 rounded-xl text-center">
@@ -77,7 +77,7 @@ export default function OverviewCard({
               const score = ocean[dim] ?? 0
               const colors = DIMENSION_COLORS[dim]
               const labels = DIMENSION_LABELS[dim]
-              const height = Math.max(8, Math.round(score * 100))
+              const height = Math.min(100, Math.max(8, Math.round(score * 100)))
               return (
                 <div key={dim} className="text-center">
                   <div className="h-24 flex items-end justify-center mb-2">

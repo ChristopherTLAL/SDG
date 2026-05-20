@@ -49,7 +49,7 @@ If this Mac is asleep, all of these stall. The 30-min sync cadence is documented
 - **Identity match:** CF email looked up against `advisors.emails text[]` via Postgres array-contains. The vault YAML `邮箱` field accepts a scalar (legacy) or an array (primary + aliases); sync normalizes both into `emails[]` so an advisor can log in via any address and resolve to the same row.
 - **Admin status** comes from the `advisors.is_admin` column. There's no hardcoded admin allowlist — set `admin: true` in the vault YAML to grant.
 - **Three viewer states:** `null` (no CF header — only the exempted bare `/internal`); guest (CF-authenticated XDF colleague with no advisor row, sees dashboard + roster but no submit, 私单 hidden); full advisor (matched a row).
-- **Private contracts (私单)** filtered unless `viewer.isAdmin || viewer.name === '王世杰'`. The 王世杰 name check is hardcoded inline in 4 pages (`internal/index.astro`, `students.astro`, `kanban/index.astro`, `kanban/contracts/[name].astro`) — if 王世杰's name changes in the vault, update those 4 lines.
+- **Private contracts (私单)** filtered unless `viewer.isAdmin || viewer.name === '王世杰'`. The 王世杰 name check is hardcoded inline in 8 pages (the roster/overview/kanban/contracts set plus `students/[id].astro`, `students/[id]/notes/[anchor].astro`, `advisors/[name].astro`, `advisors/[name]/weekly.astro`) — if 王世杰's name changes in the vault, `grep -rl "viewer.name === '王世杰'" src/pages/internal/` and update all of them.
 
 ## Design tokens
 Two palettes — pick the right one for the page you're touching.
@@ -158,7 +158,7 @@ This is exactly how `onboarding` was run for 李若涵 on 2026-05-20. The altern
 When you change either side, remember the other:
 - **vault YAML field renames** → check `scripts/sync-students-to-supabase.mjs` doesn't break
 - **sdg-html `src/data/contract-sops.ts` matchPatterns** ↔ vault `合同` YAML values — financial ERP is source of truth for contract names; see audit reports under `02_Project Manager/审计/` in vault
-- **王世杰 hardcoded** in 4 sdg-html files (private-contracts visibility) ↔ vault advisor name; rename → grep `viewer.name === '王世杰'` and update both
+- **王世杰 hardcoded** in 8 sdg-html files (private-contracts visibility) ↔ vault advisor name; rename → grep `viewer.name === '王世杰'` and update all
 - **`合同明细`** YAML field is **derived from financial Excel**, not user-edited; sync script regenerates it
 - **vault `客户邮箱` field** ↔ Supabase `students.client_email`; field name is stable
 
@@ -184,8 +184,9 @@ Local `git` is fine for `status` / `diff` reads; only fall back to local `git pu
 - **Supabase** (`@supabase/mcp-server-supabase`) — SQL execution, migrations, edge functions, logs
 
 ## Gotchas
-- **`CLAUDE.md` and `.mcp.json` are gitignored but already tracked.** Local `git add` silently ignores them. Use `git add -f` or push via GitHub MCP (`create_or_update_file`), which bypasses local `.gitignore`. Same applies to `.claude/settings.json` and `write-article-workspace/`.
-- **`PRIVATE_CONTRACTS` (`['私单', '私单（非公司合同）']`) is duplicated inline in 4 files** (`internal/index.astro`, `students.astro`, `kanban/index.astro`, `kanban/contracts/[name].astro`). Adding a new private label = editing all four — consider extracting to `src/utils/` first.
+- **`CLAUDE.md` is gitignored locally but tracked in the repo.** Local `git add` silently ignores it; use `git add -f` or push via GitHub MCP (`create_or_update_file`), which bypasses local `.gitignore`.
+- **⚠️ `.mcp.json` is NOT tracked and holds live secrets** (a GitHub PAT `ghp_…` + a Supabase token `sbp_…`). NEVER push it — `create_or_update_file` bypasses `.gitignore` and would publish the tokens. If it ever lands in a commit, rotate both tokens immediately. `.claude/settings.json` and `write-article-workspace/` are also untracked local-only files.
+- **`PRIVATE_CONTRACTS` (`['私单', '私单（非公司合同）']`) is duplicated inline in 8 files** (`internal/index.astro`, `students.astro`, `students/[id].astro`, `students/[id]/notes/[anchor].astro`, `kanban/index.astro`, `kanban/contracts/[name].astro`, `advisors/[name].astro`, `advisors/[name]/weekly.astro`). Adding a new private label = editing all eight (`grep -rl PRIVATE_CONTRACTS src/pages/internal/`). Now spread across 8 files — extracting to `src/utils/` is increasingly worth it.
 - **esbuild + Chinese punctuation:** straight `"..."` inside inline `<script>` blocks breaks esbuild. Use `「...」` instead.
 - **Sanity drafts:** every `patch_document_from_json` creates a draft. Always call `publish_documents` after — patch + publish is a two-step.
 - **Verify page** ([src/pages/verify/index.astro](src/pages/verify/index.astro)): uses `MainLayout` but loads jsPDF via CDN `<script is:inline>` and certificate fonts (Crimson Pro, Meddon, Mrs Saint Delafield) via `/verify/embedded_fonts.css`. Classes `.certificate-font` / `.font-recipient` / `.font-body-cert`. Canvas / PDF rendering is brittle — preserve when editing.

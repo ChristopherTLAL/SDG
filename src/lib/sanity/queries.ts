@@ -287,7 +287,7 @@ export async function searchPosts(term: string, lang: string = 'en') {
   const query = /* groq */ `
     *[_type == "post" && (title.en match $term || title.zh match $term || pt::text(body.en) match $term || pt::text(body.zh) match $term)]
     | score(title.en match $term, title.zh match $term)
-    | order(_score desc) {
+    | order(_score desc) [0...50] {
       "slug": slug.current,
       "title": title,
       "excerpt": excerpt,

@@ -13,6 +13,9 @@ export function isInactive(stage: string | null | undefined): boolean {
 export function tierFor(daysSince: number | null, stage?: string | null): RadarTier {
   if (isInactive(stage)) return 'inactive';
   if (daysSince === null || daysSince === undefined) return 'unknown';
+  // A negative value means last_contact_at is in the future — a data-entry / sync
+  // error. Flag it as unknown rather than letting it slip through as "green".
+  if (daysSince < 0) return 'unknown';
   if (daysSince < 7) return 'green';
   if (daysSince < 14) return 'yellow';
   if (daysSince < 21) return 'pink';

@@ -29,4 +29,11 @@ async function deleteAllPosts() {
   console.log('All posts have been successfully deleted.');
 }
 
+const CONFIRM = process.argv.includes('--confirm') || process.argv.includes('--yes');
+if (!CONFIRM) {
+  console.error(`⛔ Refusing to run: this permanently deletes ALL posts from the "${client.config().dataset}" Sanity dataset.`);
+  console.error('   Re-run with --confirm if you are sure:  node scripts/delete-all-posts.mjs --confirm');
+  process.exit(1);
+}
+
 deleteAllPosts().catch(console.error);

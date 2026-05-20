@@ -44,10 +44,23 @@ const lang = 'en';
     if (e.key === 'Enter') performSearch();
   });
 
+  function escapeHtml(s: string) {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function highlightText(text: string, query: string) {
     if (!text) return '';
-    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return text.replace(regex, '<mark class="bg-primary-container/40 text-on-surface px-0.5 rounded">$1</mark>');
+    const safe = escapeHtml(text);
+    if (!query) return safe;
+    // Escape both sides so matching happens on the same (escaped) representation.
+    const safeQuery = escapeHtml(query);
+    const regex = new RegExp(`(${safeQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return safe.replace(regex, '<mark class="bg-primary-container/40 text-on-surface px-0.5 rounded">$1</mark>');
   }
 
   function getSnippet(text: any, query: string) {
@@ -69,7 +82,7 @@ const lang = 'en';
     searchResultsContainer.innerHTML = `
       <div class="text-center py-12">
         <span class="material-symbols-outlined text-4xl text-on-surface-variant/40 animate-spin block mb-4">progress_activity</span>
-        <p class="text-on-surface-variant">Searching for "${query}"...</p>
+        <p class="text-on-surface-variant">Searching for "${escapeHtml(query)}"...</p>
       </div>`;
     try {
       const response = await fetch(`/api/search-posts.json`, {
@@ -85,7 +98,7 @@ const lang = 'en';
         searchResultsContainer.innerHTML = `
           <div class="text-center py-12">
             <span class="material-symbols-outlined text-5xl text-on-surface-variant/30 block mb-4">search_off</span>
-            <p class="text-on-surface-variant">No results found for "${query}".</p>
+            <p class="text-on-surface-variant">No results found for "${escapeHtml(query)}".</p>
           </div>`;
         return;
       }

@@ -23,10 +23,12 @@ export type Viewer = {
   isAdvisor: boolean;  // true iff email matched a row in the advisors table
 };
 
-// In-memory cache so we don't hit Supabase on every request.
-// 5-minute TTL is fine — if a name changes via vault sync, refresh kicks in soon.
+// In-memory cache so we don't hit Supabase on every request (per warm Vercel
+// instance). TTL is deliberately short: it bounds how long a *demoted* admin —
+// or a removed advisor — keeps stale privileges after the change lands in
+// Supabase. 60s is a negligible query load at this scale.
 const CACHE = new Map<string, { viewer: Viewer | null; expiresAt: number }>();
-const CACHE_TTL_MS = 5 * 60 * 1000;
+const CACHE_TTL_MS = 60 * 1000;
 
 function cleanEmail(raw: string | null | undefined): string | null {
   if (!raw) return null;

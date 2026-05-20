@@ -3,8 +3,10 @@
 // 左侧 panel 调参，中间 A4 预览，「导出 PDF」按 当前参数 走 window.print()
 // 多页自动 flow（@page 控制每页 margin，内容超过单页自动断页）
 import { supabase } from '../../../../../lib/supabase/client';
-import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../../../utils/wikilinks';
+import { resolveWikilinks, noteAnchor } from '../../../../../utils/wikilinks';
+import { getWikilinkIndex } from '../../../../../lib/wikilink-index';
 import { preprocessCallouts } from '../../../../../utils/callouts';
+import { sanitizeHtml } from '../../../../../lib/sanitize';
 import { marked } from 'marked';
 
 const { id, anchor } = Astro.params;
@@ -13,12 +15,23 @@ if (!Number.isFinite(studentId) || !anchor) {
   return new Response('Bad URL', { status: 400 });
 }
 
+const viewer = Astro.locals?.viewer ?? null;
+const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+
 const { data: student, error: studentErr } = await supabase
   .from('students')
-  .select('id, name, mid_advisors')
+  .select('id, name, mid_advisors, contracts')
   .eq('id', studentId)
   .single();
 if (studentErr || !student) {
+  return new Response(`Student ${studentId} not found`, { status: 404 });
+}
+
+// 私单 students' notes are exportable only by admin / 王世杰. 404 to avoid leaking existence.
+const studentIsPrivate = Array.isArray(student.contracts)
+  && student.contracts.some((c: string) => PRIVATE_CONTRACTS.includes(c));
+if (studentIsPrivate && !canSeePrivate) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
@@ -31,15 +44,13 @@ if (!targetNote) {
   return new Response('Note not found', { status: 404 });
 }
 
-const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
-const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
-const wikiIndex = buildWikilinkIndex({ students: allStudents ?? [], notes: allNotes ?? [] });
+const wikiIndex = await getWikilinkIndex();
 
 marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const md = targetNote.body_md ?? '';
   if (!md.trim()) return '';
-  return marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex))) as string;
+  return sanitizeHtml(marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex))) as string);
 })();
 const advisor = (student.mid_advisors ?? [])[0] ?? '—';
 ---

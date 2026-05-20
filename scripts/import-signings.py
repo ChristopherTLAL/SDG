@@ -2,7 +2,9 @@
 """
 import-signings.py — single source of truth for contract data.
 
-Reads the latest *客户签约明细*.xlsx from ~/Downloads (auto-pick by mtime).
+Reads the *客户签约明细*.xlsx from ~/Downloads, auto-picking the LARGEST file by
+size (the full-history export) — NOT the most recent, so a partial weekly slice
+never wins. Pass an explicit path to override.
 
 Three things it does, all idempotent:
 
@@ -497,24 +499,32 @@ def render_main_categories(contracts):
 # ── YAML field replace helpers ──────────────────────────────────────────
 
 def replace_yaml_field(text, field, new_value_block):
-    """Replace `field: ...` (single-line OR multi-line list) with new_value_block.
-    If field doesn't exist, append before the closing `---`.
+    """Replace `field: ...` (single-line OR multi-line list) with new_value_block,
+    operating ONLY inside the YAML frontmatter block (between the leading `---`
+    fences). If the field is absent from frontmatter, insert it before the closing
+    `---`. The markdown body is never touched — a body line that happens to begin
+    with `field:` must not be mistaken for the frontmatter field (that bug silently
+    corrupted notes and lost contract data).
     """
-    # Match: "field: <value>\n" OR "field:\n  - ...\n  - ...\n"
+    fm = re.match(r'(?s)^(---\s*\n)(.*?)(\r?\n---)', text)
+    if not fm:
+        # No frontmatter block at the top — nothing safe to rewrite.
+        return text
+    head, fm_body, tail = fm.group(1), fm.group(2), fm.group(3)
+    rest = text[fm.end():]
+
+    # Match: "field: <value>" OR "field:\n  - ...\n  - ..." within the frontmatter.
     pattern = re.compile(
         rf'^{re.escape(field)}:.*?(?=^\S|\Z)',
         re.MULTILINE | re.DOTALL,
     )
-    if pattern.search(text):
-        # Replace
-        return pattern.sub(new_value_block.rstrip() + '\n', text, count=1)
+    if pattern.search(fm_body):
+        fm_body = pattern.sub(new_value_block.rstrip() + '\n', fm_body, count=1).rstrip('\n')
     else:
-        # Insert before closing ---
-        m = re.search(r'^---\s*\n(.*?)\n---', text, re.DOTALL | re.MULTILINE)
-        if m:
-            insertion = new_value_block.rstrip() + '\n'
-            return text[:m.end(1) + 1] + insertion + text[m.end(1) + 1:]
-        return text
+        # Insert at the end of the frontmatter body (the closing `\n---` follows).
+        fm_body = fm_body.rstrip('\n') + '\n' + new_value_block.rstrip()
+
+    return head + fm_body + tail + rest
 
 
 def update_existing_student_yaml(md_path, customer_ids, signers, contracts):

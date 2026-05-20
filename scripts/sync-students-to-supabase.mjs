@@ -453,10 +453,32 @@ async function main() {
     return;
   }
 
+  // De-dup by `name` BEFORE upserting. Postgres ON CONFLICT rejects a single
+  // upsert that touches the same conflict key twice ("cannot affect row a second
+  // time"), which aborts the ENTIRE sync — not just the offending row. This happens
+  // when two vault folders resolve to the same 姓名 (e.g. a 重名 folder suffixed
+  // "李想 (钟婷婷)" whose YAML 姓名 still says "李想"). Skip the duplicate and warn
+  // loudly so the collision gets fixed in the vault.
+  const byName = new Map();
+  const collisions = [];
+  for (const r of records) {
+    const prev = byName.get(r.name);
+    if (prev) {
+      collisions.push(r.name);
+      console.warn(`⚠️  Duplicate student name "${r.name}" — keeping ${prev.obsidian_path}, skipping ${r.obsidian_path}. Fix the 姓名 collision in the vault.`);
+      continue;
+    }
+    byName.set(r.name, r);
+  }
+  const dedupedRecords = Array.from(byName.values());
+  if (collisions.length) {
+    console.warn(`⚠️  ${collisions.length} duplicate name(s) skipped: ${[...new Set(collisions)].join(', ')}`);
+  }
+
   // Upsert by `name` (the unique key).
   const { data, error } = await supabase
     .from('students')
-    .upsert(records, { onConflict: 'name', ignoreDuplicates: false })
+    .upsert(dedupedRecords, { onConflict: 'name', ignoreDuplicates: false })
     .select('id, name');
 
   if (error) {

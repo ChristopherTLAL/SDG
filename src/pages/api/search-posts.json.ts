@@ -4,15 +4,18 @@ import { searchPosts } from '../../lib/sanity/queries';
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const term = body.q;
+    const rawTerm = body.q;
 
-    if (!term) {
+    if (!rawTerm || typeof rawTerm !== 'string') {
       return new Response(JSON.stringify({ error: 'Search term is required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
+    // Cap term length — search terms are short; long input only amplifies the
+    // full-corpus pt::text scan.
+    const term = rawTerm.slice(0, 100);
     const lang = body.lang || 'en';
     const posts = await searchPosts(term, lang);
     return new Response(JSON.stringify(posts), {

@@ -4,16 +4,22 @@
 // attachments list. Wikilinks `[[xxx]]` are resolved against the student-scope index.
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
-import { buildWikilinkIndex, resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
+import { resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
+import { getWikilinkIndex } from '../../../lib/wikilink-index';
+import { daysSinceToday, tierFor, tierStyle } from '../../../utils/contact-radar';
 import { preprocessCallouts } from '../../../utils/callouts';
+import { sanitizeHtml } from '../../../lib/sanitize';
 import { findSOPsForStudent, substitute } from '../../../data/contract-sops';
 import { STUDENT_TOOLS } from '../../../data/student-tools';
-import { articleEntries } from '../../../data/english';
+import { englishArticleMeta } from '../../../data/english/_meta.generated';
 import { marked } from 'marked';
 
 const { id } = Astro.params;
 const studentId = Number(id);
 const viewer = Astro.locals?.viewer ?? null;
+
+const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 if (!Number.isFinite(studentId)) {
   return Astro.redirect('/internal/students');
@@ -29,6 +35,14 @@ if (studentErr || !student) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
+// 私单 students are visible only to admin / 王世杰. Return 404 (not 403) so a
+// non-privileged viewer can't use the response to confirm the student exists.
+const studentIsPrivate = Array.isArray(student.contracts)
+  && student.contracts.some((c: string) => PRIVATE_CONTRACTS.includes(c));
+if (studentIsPrivate && !canSeePrivate) {
+  return new Response(`Student ${studentId} not found`, { status: 404 });
+}
+
 // Fetch this student's communication notes
 const { data: notes } = await supabase
   .from('student_notes')
@@ -36,15 +50,8 @@ const { data: notes } = await supabase
   .eq('student_id', studentId)
   .order('note_date', { ascending: false, nullsFirst: false });
 
-// Fetch all students + all notes for the wikilink index
-// Scoped to student notes only per current product decision.
-const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
-const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
-
-const wikiIndex = buildWikilinkIndex({
-  students: allStudents ?? [],
-  notes: allNotes ?? [],
-});
+// Wikilink [[link]] resolution index (all students + notes), cached per instance.
+const wikiIndex = await getWikilinkIndex();
 
 marked.setOptions({ gfm: true, breaks: true });
 
@@ -52,7 +59,7 @@ function renderMarkdown(md: string | null | undefined): string {
   if (!md || !md.trim()) return '';
   const withWikilinks = resolveWikilinks(md, wikiIndex);
   const withCallouts = preprocessCallouts(withWikilinks);
-  return marked.parse(withCallouts) as string;
+  return sanitizeHtml(marked.parse(withCallouts) as string);
 }
 
 const mainHtml = renderMarkdown(student.body_md);
@@ -68,6 +75,9 @@ const renderedNotes = (notes ?? []).map(n => ({
 // contract_details[].大类 uses the same short label, so we match on that to pull
 // the ERP 合同编号 (e.g. JSSZYZ202501028) for the 结案邮件 placeholder.
 const contractDetailsArr = (student.contract_details ?? []) as Array<{ 大类?: string; 名称?: string; 合同编号?: string }>;
+// Co-advised students: render BOTH mid-advisors (e.g. "张三 / 李四") into the
+// deliverable emails / 话术, not just the first. joinOrSingular is hoisted below.
+const midAdvisorName = joinOrSingular(student.mid_advisors, student.mid_advisor) ?? null;
 const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier, contractDetailsArr).map(m => {
   const contractNumber = contractDetailsArr.find(cd => cd.大类 === m.contractName)?.合同编号 ?? null;
   return {
@@ -78,8 +88,8 @@ const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier, 
       key: d.key,
       title: d.title,
       repeats: d.repeats ?? 1,
-      emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: student.mid_advisor, contractNumber }),
-      emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: student.mid_advisor, contractNumber }),
+      emailSubject: substitute(d.emailSubject, { studentName: student.name, midAdvisor: midAdvisorName, contractNumber }),
+      emailBody: substitute(d.emailBody, { studentName: student.name, midAdvisor: midAdvisorName, contractNumber }),
     })),
   };
 });
@@ -87,14 +97,8 @@ const matchedSOPs = findSOPsForStudent(student.contracts, student.yueling_tier, 
 // ── 英文阅读推荐工具：动态素材 ──
 // 217 篇 article 的瘦身 meta (slug/title/cefr/words/minutes/titleZh) 序列化进
 // 页面 JSON，给"换一篇"按钮 client-side 再抽用。SSR 先抽一篇当初始展示。
-const articleMeta = articleEntries.map(({ slug, article }) => ({
-  slug,
-  title: article.meta.title,
-  titleZh: article.meta.titleZh ?? '',
-  cefr: article.meta.cefr,
-  words: article.meta.wordCount,
-  minutes: article.meta.readingMinutes,
-}));
+// Slim meta only (no article bodies) — see scripts/gen-english-meta.mjs.
+const articleMeta = englishArticleMeta;
 const initialArticle = articleMeta.length
   ? articleMeta[Math.floor(Math.random() * articleMeta.length)]
   : null;
@@ -119,12 +123,9 @@ function substituteWithArticle(
   return s;
 }
 
-// Days since last contact (for the badge)
-const today = new Date();
-let daysSince: number | null = null;
-if (student.last_contact_at) {
-  daysSince = Math.floor((today.getTime() - new Date(student.last_contact_at).getTime()) / (24 * 60 * 60 * 1000));
-}
+// Days since last contact — same tiering as the roster / kanban (contact-radar).
+const daysSince = daysSinceToday(student.last_contact_at);
+const daysTierStyle = tierStyle(tierFor(daysSince, student.stage));
 
 // Build the metadata panel rows. Prefer the multi-select arrays; fall back to
 // singular columns (for any legacy row that hasn't been re-synced yet).
@@ -157,7 +158,7 @@ const metaRows: Row[] = [
   <div class="sd-header">
     <h1 class="font-headline sd-title">{student.name}</h1>
     {daysSince !== null && (
-      <span class={`font-mono sd-days ${daysSince >= 14 ? 'sd-days--red' : daysSince >= 12 ? 'sd-days--yellow' : 'sd-days--green'}`}>
+      <span class="font-mono sd-days" style={`background:${daysTierStyle.bg};color:${daysTierStyle.fg}`}>
         {daysSince}d 未联系
       </span>
     )}
@@ -244,7 +245,7 @@ const metaRows: Row[] = [
               const article = t.dynamic === 'english-article' ? initialArticle : null;
               const renderedBody = substituteWithArticle(t.scriptBody, {
                 studentName: student.name,
-                midAdvisor: student.mid_advisor,
+                midAdvisor: midAdvisorName,
                 article,
               });
               return (
@@ -253,7 +254,7 @@ const metaRows: Row[] = [
                     class="tool-item"
                     data-dynamic={t.dynamic ?? null}
                     data-student-name={t.dynamic ? student.name : null}
-                    data-advisor-name={t.dynamic ? (student.mid_advisor ?? '顾问') : null}
+                    data-advisor-name={t.dynamic ? (midAdvisorName ?? '顾问') : null}
                   >
                     <summary class="tool-item__summary">
                       <span class="tool-item__chevron">▸</span>
@@ -599,9 +600,6 @@ const metaRows: Row[] = [
     border-radius: 999px;
     font-weight: 700;
   }
-  .sd-days--green { background: #d1fae5; color: #065f46; }
-  .sd-days--yellow { background: #fef3c7; color: #92400e; }
-  .sd-days--red { background: #fee2e2; color: #991b1b; }
   .sd-path {
     color: var(--text-soft);
     font-size: 12px;

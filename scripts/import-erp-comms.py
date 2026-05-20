@@ -293,10 +293,15 @@ for r in data_rows:
         continue
 
     creator = row_dict.get('创建人') or ''
-    content = (row_dict.get('沟通内容') or '')[:200]
-    dedupe_id = sha1_short([sname, sdate, creator, content])
+    content_full = row_dict.get('沟通内容') or ''
+    # Hash the FULL 沟通内容. The old key truncated to 200 chars, so two distinct
+    # same-day/same-creator notes differing only after char 200 collided and the
+    # second was silently dropped. `dedupe_id_legacy` (the old 200-char hash) is
+    # still matched so previously-imported long notes aren't re-imported as dupes.
+    dedupe_id = sha1_short([sname, sdate, creator, content_full])
+    dedupe_id_legacy = sha1_short([sname, sdate, creator, content_full[:200]])
 
-    if dedupe_id in student_existing_ids[sname]:
+    if dedupe_id in student_existing_ids[sname] or dedupe_id_legacy in student_existing_ids[sname]:
         stats['already_imported'] += 1
         continue
 
@@ -315,7 +320,7 @@ for r in data_rows:
         # Check if it's already-our-import (would have been caught by dedupe scan).
         # Otherwise, append suffix.
         existing_text = target.read_text(encoding='utf-8', errors='ignore')[:500]
-        if dedupe_id in existing_text:
+        if dedupe_id in existing_text or dedupe_id_legacy in existing_text:
             stats['already_imported'] += 1
             continue
         target = notes_dir / f'[ERP] {sdate} {ctype} - {summary}_{dedupe_id[:6]}.md'

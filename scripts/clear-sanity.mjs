@@ -40,6 +40,14 @@ async function clearAll() {
   console.log('\nDone! All old content cleared.');
 }
 
+const CONFIRM = process.argv.includes('--confirm') || process.argv.includes('--yes');
+const TARGET_DATASET = process.env.SANITY_DATASET || 'production';
+if (!CONFIRM) {
+  console.error(`⛔ Refusing to run: this permanently deletes ALL post/category/author docs (and their drafts) from the "${TARGET_DATASET}" Sanity dataset.`);
+  console.error('   Re-run with --confirm if you are sure:  node scripts/clear-sanity.mjs --confirm');
+  process.exit(1);
+}
+
 clearAll().catch(err => {
   console.error('Error:', err.message);
   process.exit(1);

@@ -4,7 +4,8 @@
 // redirected to their own report (helpful) rather than 403'd.
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
-import { buildWikilinkIndex, resolveWikilinks } from '../../../utils/wikilinks';
+import { resolveWikilinks } from '../../../utils/wikilinks';
+import { getWikilinkIndex } from '../../../lib/wikilink-index';
 import { preprocessCallouts } from '../../../utils/callouts';
 import { marked } from 'marked';
 
@@ -39,13 +40,8 @@ if (error || !report) {
   return new Response(`No daily report found for ${advisorName}`, { status: 404 });
 }
 
-// Wikilink resolver (scope: students + their notes — same as detail page)
-const { data: allStudents } = await supabase.from('students').select('id, name, attachments');
-const { data: allNotes } = await supabase.from('student_notes').select('student_id, note_name');
-const wikiIndex = buildWikilinkIndex({
-  students: allStudents ?? [],
-  notes: allNotes ?? [],
-});
+// Wikilink resolver (scope: students + their notes — same as detail page); cached.
+const wikiIndex = await getWikilinkIndex();
 
 marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {

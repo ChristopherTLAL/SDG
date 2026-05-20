@@ -1,9 +1,14 @@
-export function formatDate(iso: string) {
+export function formatDate(iso: string, lang: string = 'en') {
   const d = new Date(iso);
-  return d.toLocaleDateString('en-US', {
+  const locale = lang === 'zh' ? 'zh-CN' : 'en-US';
+  // Force UTC: a date-only ISO ("2026-05-20") parses as UTC midnight, so rendering
+  // in a local tz west of UTC would show the previous day. Pinning to UTC keeps the
+  // displayed calendar date deterministic and consistent with the (UTC) server.
+  return d.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'short',
     day: '2-digit',
+    timeZone: 'UTC',
   });
 }
 

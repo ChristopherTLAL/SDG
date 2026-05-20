@@ -8,6 +8,9 @@ import type { APIRoute } from 'astro';
 import { supabase } from '../../../lib/supabase/client';
 
 const BUCKET = 'submissions';
+// Mirror the <select> options in submit.astro. '录音' is intentionally excluded
+// (handled separately below — uploads disabled).
+const ALLOWED_TYPES = new Set(['沟通记录', '重要comment', '状态更新', '会议', '其他']);
 
 async function uploadFile(file: File, subdir: string): Promise<string | null> {
   if (!file || file.size === 0) return null;
@@ -61,6 +64,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
     if (type === '录音') {
       return new Response(JSON.stringify({ error: '录音上传已停用' }), {
+        status: 400,
+        headers: { 'content-type': 'application/json' },
+      });
+    }
+    if (!ALLOWED_TYPES.has(type)) {
+      return new Response(JSON.stringify({ error: 'invalid type' }), {
         status: 400,
         headers: { 'content-type': 'application/json' },
       });

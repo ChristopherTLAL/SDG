@@ -1,5 +1,6 @@
 import { Marked, Renderer } from 'marked'
 import { DETAIL_HEADING_PATTERNS } from './constants'
+import { sanitizeHtml } from '../sanitize'
 
 export interface TocEntry {
   id: string
@@ -54,5 +55,5 @@ export function parseMarkdown(md: string): { html: string; toc: TocEntry[] } {
     html += '</div>'
   }
 
-  return { html, toc }
+  return { html: sanitizeHtml(html), toc }
 }

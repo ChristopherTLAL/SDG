@@ -21,7 +21,9 @@ export const GET: APIRoute = async ({ locals }) => {
       headers: { 'content-type': 'application/json' },
     });
   }
-  return new Response(JSON.stringify({ ok: true, viewer }), {
+  // Only expose what the client UI needs — not the email.
+  const { name, isAdmin, isAdvisor } = viewer;
+  return new Response(JSON.stringify({ ok: true, viewer: { name, isAdmin, isAdvisor } }), {
     status: 200,
     headers: {
       'content-type': 'application/json',

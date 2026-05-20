@@ -52,7 +52,7 @@ const formId = `newsletter-${variant}-${Math.random().toString(36).slice(2, 8)}`
       >
         {t.button}
       </button>
-      <span class="newsletter-status text-xs font-medium hidden"></span>
+      <span class="newsletter-status text-xs font-medium hidden" data-form-id={formId}></span>
     </form>
   </div>
 ) : (
@@ -74,7 +74,7 @@ const formId = `newsletter-${variant}-${Math.random().toString(36).slice(2, 8)}`
         {t.bannerButton}
       </button>
     </form>
-    <span class="newsletter-status text-xs font-medium hidden mt-3"></span>
+    <span class="newsletter-status text-xs font-medium hidden mt-3" data-form-id={formId}></span>
   </div>
 )}
 
@@ -90,7 +90,7 @@ const formId = `newsletter-${variant}-${Math.random().toString(36).slice(2, 8)}`
         e.preventDefault();
         var email = form.querySelector('input[name="email"]').value;
         var btn = form.querySelector('button[type="submit"]');
-        var status = form.closest('div').querySelector('.newsletter-status') || form.parentElement.querySelector('.newsletter-status');
+        var status = document.querySelector('.newsletter-status[data-form-id="' + form.dataset.formId + '"]');
         var origText = btn.textContent;
 
         btn.disabled = true;

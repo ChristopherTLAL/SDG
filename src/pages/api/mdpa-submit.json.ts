@@ -1,13 +1,35 @@
 import type { APIRoute } from 'astro';
 import { writeClient } from '../../lib/sanity/writeClient';
 
-// Simple in-memory rate limiter: max 5 submissions per IP per hour
+// Simple in-memory rate limiter: max 5 submissions per IP per hour.
+// NOTE: per-instance only (serverless), so the effective limit scales with the
+// number of warm instances — treat as basic abuse friction, not a hard cap.
 const rateMap = new Map<string, number[]>();
 const RATE_LIMIT = 5;
 const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+let lastSweep = Date.now();
+
+// Bound the request body and the arrays we persist, so an unauthenticated client
+// can't amplify a single POST into a huge Sanity document.
+const MAX_BODY_BYTES = 256 * 1024;
+const MAX_RESPONSES = 500;
+const MAX_QC = 100;
+
+// Drop IPs whose timestamps have all aged out so the map can't grow unbounded over
+// a long-lived instance. Bounded to at most once per window (O(n) hourly).
+function sweepRateMap(now: number): void {
+  if (now - lastSweep < RATE_WINDOW_MS) return;
+  for (const [ip, ts] of rateMap) {
+    const recent = ts.filter(t => now - t < RATE_WINDOW_MS);
+    if (recent.length === 0) rateMap.delete(ip);
+    else rateMap.set(ip, recent);
+  }
+  lastSweep = now;
+}
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+  sweepRateMap(now);
   const timestamps = (rateMap.get(ip) || []).filter(t => now - t < RATE_WINDOW_MS);
   if (timestamps.length >= RATE_LIMIT) return true;
   timestamps.push(now);
@@ -36,6 +58,15 @@ export const POST: APIRoute = async ({ request }) => {
     if (isRateLimited(ip)) {
       return new Response(JSON.stringify({ error: 'Too many submissions. Please try again later.' }), {
         status: 429,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Reject oversized payloads early — the result is computed scores plus a
+    // bounded responses array; anything large is abuse.
+    if (Number(request.headers.get('content-length') || 0) > MAX_BODY_BYTES) {
+      return new Response(JSON.stringify({ error: 'Payload too large' }), {
+        status: 413,
         headers: { 'Content-Type': 'application/json' },
       });
     }
@@ -95,10 +126,10 @@ export const POST: APIRoute = async ({ request }) => {
         sv: round(cls.sv?.r),
         er: round(cls.er?.r),
       },
-      avAdjustments: a.av_adjustments || {},
-      qualityChecks: body.qc || [],
-      rawResponses: JSON.stringify(body.responses || []),
-      totalQuestions: Array.isArray(body.responses) ? body.responses.length : 0,
+      avAdjustments: (a.av_adjustments && typeof a.av_adjustments === 'object') ? a.av_adjustments : {},
+      qualityChecks: Array.isArray(body.qc) ? body.qc.slice(0, MAX_QC) : [],
+      rawResponses: JSON.stringify(Array.isArray(body.responses) ? body.responses.slice(0, MAX_RESPONSES) : []),
+      totalQuestions: Array.isArray(body.responses) ? Math.min(body.responses.length, MAX_RESPONSES) : 0,
       durationSeconds: typeof body.durationSeconds === 'number' ? body.durationSeconds : null,
     };
 

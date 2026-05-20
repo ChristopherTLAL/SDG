@@ -115,8 +115,10 @@ const putRes = await fetch(POLICY_URL, {
     name: current.name || 'Allowed Employees',
     decision: 'allow',
     include: newInclude,
-    require: [],
-    exclude: [],
+    // Preserve any existing require/exclude rules (e.g. MFA) — hardcoding []
+    // silently wiped them on every --apply.
+    require: current.require ?? [],
+    exclude: current.exclude ?? [],
   }),
 });
 const putJson = await putRes.json();

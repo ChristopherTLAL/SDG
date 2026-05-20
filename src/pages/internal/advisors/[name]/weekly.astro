@@ -13,12 +13,18 @@ import { supabase } from '../../../../lib/supabase/client';
 import { daysSinceToday, INACTIVE_STAGES } from '../../../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../../../utils/cohort-filter';
 import { marked } from 'marked';
+import { sanitizeHtml } from '../../../../lib/sanitize';
 marked.setOptions({ gfm: true, breaks: true });
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
   return Astro.redirect('/internal');
 }
+
+const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+const isPrivate = (contracts: string[] | null | undefined) =>
+  Array.isArray(contracts) && contracts.some(c => PRIVATE_CONTRACTS.includes(c));
 
 const { name } = Astro.params;
 const advisorName = decodeURIComponent(name ?? '');
@@ -43,12 +49,12 @@ const { data: latestAdvice } = await supabase
   .limit(1)
   .maybeSingle();
 const adviceHtml = latestAdvice?.advice_md
-  ? (marked.parse(latestAdvice.advice_md) as string)
+  ? sanitizeHtml(marked.parse(latestAdvice.advice_md) as string)
   : '';
 
 const { data: rawStudents } = await supabase
   .from('students')
-  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years')
+  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years, contracts')
   .contains('mid_advisors', [advisorName]);
 
 type Stu = {
@@ -58,8 +64,13 @@ type Stu = {
   last_contact_at: string | null;
   mid_advisors: string[] | null;
   enroll_years: string[] | null;
+  contracts: string[] | null;
 };
-const allStudents = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
+// 私单 students are hidden from advisors who aren't admin / 王世杰 (propagates to
+// active / buckets / kickoff / pendingSubs, all derived from allStudents).
+const allStudents = ((rawStudents ?? []) as Stu[])
+  .filter(s => studentHasInScopeCohort(s.enroll_years))
+  .filter(s => canSeePrivate || !isPrivate(s.contracts));
 const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 
 // ── Weekly-cadence tier (stage-aware) ──

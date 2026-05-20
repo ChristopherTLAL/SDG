@@ -16,6 +16,11 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
   return Astro.redirect('/internal');
 }
 
+const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+const isPrivate = (contracts: string[] | null | undefined) =>
+  Array.isArray(contracts) && contracts.some(c => PRIVATE_CONTRACTS.includes(c));
+
 const { name } = Astro.params;
 const advisorName = decodeURIComponent(name ?? '');
 if (!advisorName) return Astro.redirect('/internal/advisors');
@@ -34,7 +39,7 @@ if (!advisorRow) {
 // Pull every student where this advisor is in mid_advisors
 const { data: rawStudents } = await supabase
   .from('students')
-  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years, target_regions')
+  .select('id, name, stage, last_contact_at, mid_advisors, enroll_years, target_regions, contracts')
   .contains('mid_advisors', [advisorName])
   .order('last_contact_at', { ascending: false, nullsFirst: false });
 
@@ -46,9 +51,13 @@ type Stu = {
   mid_advisors: string[] | null;
   enroll_years: string[] | null;
   target_regions: string[] | null;
+  contracts: string[] | null;
 };
 // 全局入学届地板 — 早于 EARLIEST_TRACKED_COHORT 的学生不算（同 kanban / overview）
-const allStudents = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
+// 私单 students are hidden from advisors who aren't admin / 王世杰.
+const allStudents = ((rawStudents ?? []) as Stu[])
+  .filter(s => studentHasInScopeCohort(s.enroll_years))
+  .filter(s => canSeePrivate || !isPrivate(s.contracts));
 
 const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));
