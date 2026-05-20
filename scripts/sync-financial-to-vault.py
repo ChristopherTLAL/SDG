@@ -55,7 +55,7 @@ sys.exit(2)
 # 配置
 # ============================================================
 
-VAULT_ROOT = Path("/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板")
+VAULT_ROOT = Path("/Users/shijie/Obsidian/规划看板")
 STUDENT_DIR = VAULT_ROOT / "01_Student"
 
 

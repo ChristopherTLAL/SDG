@@ -12,7 +12,7 @@ After running, also rerun:
 import re
 from pathlib import Path
 
-VAULT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student')
+VAULT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 
 # Map: as-recorded → canonical name
 # Conservative — only normalize when CONFIDENT. Ambiguous (DS/UCD/西华

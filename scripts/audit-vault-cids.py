@@ -22,7 +22,7 @@ from pathlib import Path
 from collections import defaultdict, Counter
 import openpyxl
 
-VAULT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student')
+VAULT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 DEFAULT_XLSX = Path.home() / 'Downloads' / '_工作运营' / '客户签约明细-2023-06至2026-05.xlsx'
 
 if len(sys.argv) > 1:

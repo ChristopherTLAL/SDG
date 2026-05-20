@@ -20,7 +20,7 @@ The output is persisted to Supabase table `advisor_weekly_advice` (key = `adviso
   - `SUPABASE_URL` — REST API base
   - `SUPABASE_SERVICE_ROLE_KEY` — service-role key (bypasses RLS)
 - **MCP**: the `supabase` MCP server is configured in `.mcp.json` and exposes `mcp__supabase__execute_sql`. If the MCP tool isn't loaded yet, fetch it via ToolSearch first.
-- **Vault for context augmentation** (optional, only if a student's last sync is stale): `/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student/<name>/沟通记录/*.md`. Default to reading `student_notes` rows from Supabase since the sync runs every 30 min.
+- **Vault for context augmentation** (optional, only if a student's last sync is stale): `/Users/shijie/Obsidian/规划看板/01_Student/<name>/沟通记录/*.md`. Default to reading `student_notes` rows from Supabase since the sync runs every 30 min.
 - **Cohort floor**: only students with at least one `enroll_years` element ≥ 2026F count. (Logic lives in `src/utils/cohort-filter.ts`; replicate in SQL with the predicate below.)
 - **Active advisor**: `advisors.active = true AND '中期' = ANY(roles)`.
 

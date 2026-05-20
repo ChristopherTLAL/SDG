@@ -6,7 +6,7 @@
 // Requires env vars:
 //   SUPABASE_URL
 //   SUPABASE_SERVICE_ROLE_KEY
-//   OBSIDIAN_VAULT_ROOT   (default: /Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板)
+//   OBSIDIAN_VAULT_ROOT   (default: /Users/shijie/Obsidian/规划看板)
 //
 // Reads every `01_Student/<name>/<name>.md`, parses the YAML frontmatter,
 // and upserts into `students` keyed by `name`.
@@ -18,7 +18,7 @@ import matter from 'gray-matter';
 import 'dotenv/config';
 
 const VAULT = process.env.OBSIDIAN_VAULT_ROOT ||
-  '/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板';
+  '/Users/shijie/Obsidian/规划看板';
 const STUDENT_DIR = join(VAULT, '01_Student');
 const REPORTS_DIR = join(VAULT, '02_Project Manager');
 const ADVISORS_DIR = join(REPORTS_DIR, '顾问');

@@ -36,7 +36,7 @@ from datetime import datetime
 from collections import defaultdict
 import openpyxl
 
-VAULT_STUDENT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student')
+VAULT_STUDENT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 SDG_HTML = Path('/Users/shijie/Code/sdg-html')
 
 # Import helpers from import-signings.py — must clear our argv first or its CLI

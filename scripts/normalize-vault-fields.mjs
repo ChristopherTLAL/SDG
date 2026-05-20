@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const VAULT = process.env.OBSIDIAN_VAULT_ROOT ||
-  '/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板';
+  '/Users/shijie/Obsidian/规划看板';
 const STUDENT_DIR = join(VAULT, '01_Student');
 
 // Per-student exact-value rewrites. Keyed by folder name.

@@ -118,7 +118,7 @@ process-inbox (sdg-html context)
 
 ## Critical paths and config
 
-- **Vault root**: `/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板`
+- **Vault root**: `/Users/shijie/Obsidian/规划看板`
 - **Vault `CLAUDE.md`**: lives at vault root; defines iron rules + skill triggers
 - **Vault skills root**: `_agents/skills/` (NOT `.claude/skills/` — important, the trigger table in vault CLAUDE.md uses `_agents/skills/` paths)
 - **Supabase project ref**: `sdcubejyamnghhhxzvco`
@@ -224,7 +224,7 @@ Run a fresh Claude Code instance inside the Obsidian vault to archive this
 student's submissions, then report back what was written. You do NOT touch
 Supabase — the main coordinator handles that.
 
-VAULT PATH: /Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板
+VAULT PATH: /Users/shijie/Obsidian/规划看板
 PAYLOAD FILE: /tmp/inbox-batch-<ts>/<student_name>-payload.md
 RESULT FILE:  /tmp/inbox-batch-<ts>/<student_name>-result.txt
 
@@ -291,7 +291,7 @@ Use Write to put this content at <PAYLOAD FILE>:
 STEP 2 — Run the vault claude
 Run this Bash command (don't add any flags I haven't listed):
 
-  cd "/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板" && \
+  cd "/Users/shijie/Obsidian/规划看板" && \
     claude -p --dangerously-skip-permissions --add-dir "$(pwd)" \
     < "/tmp/inbox-batch-<ts>/<student_name>-payload.md" \
     > "/tmp/inbox-batch-<ts>/<student_name>-result.txt" 2>&1
@@ -336,7 +336,7 @@ N per-student subagents have written to the vault. Each one's report is
 included below. Your job is to spot-check the writes (NOT redo work) and
 flag anything off.
 
-VAULT PATH: /Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板
+VAULT PATH: /Users/shijie/Obsidian/规划看板
 
 PER-STUDENT REPORTS:
 <inject each subagent's report here>

@@ -28,7 +28,7 @@ def _find_latest_signing_xlsx():
     return candidates[0]
 
 XLSX = _find_latest_signing_xlsx()
-VAULT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student')
+VAULT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 OUT = Path('/tmp/signing-match-report.md')
 
 # Known aliases user has confirmed:

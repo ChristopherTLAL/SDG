@@ -49,7 +49,7 @@ Create `.env` in repo root (already gitignored):
 ```bash
 SUPABASE_URL=https://xxxxxx.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=eyJh...
-OBSIDIAN_VAULT_ROOT=/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板
+OBSIDIAN_VAULT_ROOT=/Users/shijie/Obsidian/规划看板
 ```
 
 ## 6. Install deps + run first sync

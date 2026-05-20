@@ -29,7 +29,7 @@ from datetime import datetime
 from pathlib import Path
 from collections import defaultdict, Counter
 
-VAULT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板')
+VAULT = Path('/Users/shijie/Obsidian/规划看板')
 STUDENT_ROOT = VAULT / '01_Student'
 DEFAULT_XLSX = Path.home() / 'Downloads' / 'goutongmingxibumen.xlsx'
 TODAY = datetime.now().strftime('%Y-%m-%d')

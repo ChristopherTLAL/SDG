@@ -30,7 +30,7 @@ set -uo pipefail
 
 # ── Paths / config ──
 REPO_ROOT="/Users/shijie/Code/sdg-html"
-VAULT_ROOT="/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板"
+VAULT_ROOT="/Users/shijie/Obsidian/规划看板"
 LOG_FILE="$HOME/Library/Logs/sdg-inbox-auto.log"
 LOCK_FILE="/tmp/sdg-inbox-auto.lock"
 PAUSE_FILE="$REPO_ROOT/.inbox-auto-paused"

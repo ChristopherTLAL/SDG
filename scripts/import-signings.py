@@ -41,7 +41,7 @@ import openpyxl
 
 # ── Config ───────────────────────────────────────────────────────────────
 
-VAULT = Path('/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板/01_Student')
+VAULT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 SDG_HTML = Path('/Users/shijie/Code/sdg-html')
 ENV_FILE = SDG_HTML / '.env'
 
