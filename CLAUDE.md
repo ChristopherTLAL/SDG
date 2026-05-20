@@ -26,7 +26,7 @@ Astro 5 SSR (`output: 'server'`) · React 19 (interactive bits via `client:load`
 ## Data layers
 - **Sanity** (public site): types `post`, `project`, `dialogue`, `author`. Schemas live in cloud-hosted Studio (no local `sanity-studio/`); the website consumes already-shaped `{ en, zh }` objects — the `localizedString` / `localizedText` / `localizedBlockContent` types are Studio-side, not in this repo. Reads via [src/lib/sanity/client.ts](src/lib/sanity/client.ts); the **one website→Sanity write path** is [src/pages/api/mdpa-submit.json.ts](src/pages/api/mdpa-submit.json.ts) using `writeClient` for MDPA result persistence.
 - **Supabase** (internal): tables `students`, `student_notes`, `submissions`, `advisors`, `daily_reports`. [db/supabase-schema.sql](db/supabase-schema.sql) is partial — `advisors` and `daily_reports` were added live via Supabase MCP and never backported, so recreating the DB from that file alone leaves auth broken. End-to-end setup in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md).
-- **Obsidian vault** at `/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板` is the source of truth. YAML + main `<name>.md` body + `沟通记录/*.md` + `02_Project Manager/顾问/<name>.md` get synced to Supabase. Web pages are read-only views; never write back to vault from web — write through `claude -p` inside the vault (see process-inbox skill).
+- **Obsidian vault** at `/Users/shijie/Obsidian/规划看板` is the source of truth. YAML + main `<name>.md` body + `沟通记录/*.md` + `02_Project Manager/顾问/<name>.md` get synced to Supabase. Web pages are read-only views; never write back to vault from web — vault writes are done from a foreground Claude session on this Mac (inline, see Pattern B below), not from the web app.
 - **Static data** — [src/data/contract-sops.ts](src/data/contract-sops.ts) (合同模板 + deliverable email bodies + `substitute()` helper for `{{学生姓名}}` / `{{中期顾问}}`), [src/data/student-tools.ts](src/data/student-tools.ts) (顾问对学生的话术), `guides-meta.ts`, `publications-meta.ts`, `budget-data.json`, `oxbridge-interview-questions.json`, plus [src/data/guides/](src/data/guides/) (~40 per-guide content `.ts` files).
 
 ## Cron / scheduling
@@ -36,10 +36,11 @@ Astro 5 SSR (`output: 'server'`) · React 19 (interactive bits via `client:load`
 - `*/30 * * * * cd ~/Code/sdg-html && node scripts/sync-students-to-supabase.mjs` — vault → Supabase sync.
 - `*/20 * * * * pgrep -f "n8n" > /dev/null || open -a "/Applications/n8n Pro.app"` — keeps the local n8n (send-email backend) alive.
 
-**launchd LaunchAgent** (`~/Library/LaunchAgents/com.sdg.inbox-auto.plist`):
-- `com.sdg.inbox-auto`, every 120s — runs [scripts/process-inbox-auto.sh](scripts/process-inbox-auto.sh) which polls the Supabase `submissions` queue and auto-archives self-student happy-path submissions to the vault using a paranoid-restricted headless `claude -p` (only `Read,Edit,Write` tools, no MCP, no Bash, vault dir only). Cross-advisor / new-client / oversized rows stay `processed=false` for manual `/process-inbox`. Status: `bash scripts/inbox-auto-status.sh`. Pause: `touch ~/Code/sdg-html/.inbox-auto-paused`. Log: `~/Library/Logs/sdg-inbox-auto.log`. Full operational notes: see assistant memory `inbox_auto_operations.md`.
+**launchd LaunchAgents** (two are loaded; both `StartInterval` 120s, both poll the Supabase `submissions` queue):
+- `com.sdg.inbox-sentinel` (`~/Library/LaunchAgents/com.sdg.inbox-sentinel.plist`) — **the live one.** Runs [scripts/inbox-sentinel.sh](scripts/inbox-sentinel.sh): a no-LLM poller (two curls) that Bark-pushes Shijie's iPhone when a *new* unprocessed submission ID appears; you then clear it with manual `/process-inbox`. Log: `~/Library/Logs/sdg-inbox-sentinel.log`. This is the post-OAuth-ban replacement for inbox-auto.
+- `com.sdg.inbox-auto` (`~/Library/LaunchAgents/com.sdg.inbox-auto.plist`) — **superseded, but still loaded & unpaused.** Runs [scripts/process-inbox-auto.sh](scripts/process-inbox-auto.sh): would auto-archive self-student happy-path submissions via a paranoid-restricted headless `claude -p` (`Read,Edit,Write` only, no MCP/Bash, `--add-dir` vault only, neutral cwd). ⚠️ **Its `claude -p` will fail on the next real submission** (headless OAuth banned 2026-04-04 — see memory `headless_claude_oauth_broken.md`); it's only seen an empty queue lately so hasn't errored yet. Recommend pausing (`touch ~/Code/sdg-html/.inbox-auto-paused`) so it stops double-polling the sentinel. Status: `bash scripts/inbox-auto-status.sh`. Log: `~/Library/Logs/sdg-inbox-auto.log`. Full notes: memory `inbox_auto_operations.md`.
 
-If this Mac is asleep, all three stall. The 30-min sync cadence is documented as a *suggestion* in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md); actual cadence = whatever the crontab says.
+If this Mac is asleep, all of these stall. The 30-min sync cadence is documented as a *suggestion* in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md); actual cadence = whatever the crontab says.
 
 ## Auth (`/internal/*` only)
 - Cloudflare Access. **Two CF apps cover `sdg.undp.ac.cn`:** (a) "Internal Dashboard (Public)" — path `/internal` exact, Bypass policy, no allowlist (don't edit); (b) "SDG Internal Dashboard" — path `/internal/*` wildcard, OTP with editable "Allowed Employees" policy. Order matters; bypass evaluated first. The `.env` IDs (`CF_ACCESS_OTP_APP_ID` / `_POLICY_ID`) point at app (b). On success, app (b) injects `Cf-Access-Authenticated-User-Email`.
@@ -70,7 +71,7 @@ Two palettes — pick the right one for the page you're touching.
 ## Skills ([.claude/skills/](.claude/skills/))
 Skills handle multi-step workflows; user invokes them via slash command. Don't reimplement these inline — invoke the skill.
 - **deploy** — build + commit + push + watch Vercel logs
-- **process-inbox** — archive `/internal/submissions` queue into Obsidian vault (spawns headless `claude -p` inside the vault per student so vault `CLAUDE.md` + `_agents/skills/` apply; reviewer subagent gates Supabase mark-processed). **Coexists with the headless auto-archiver** at [scripts/process-inbox-auto.sh](scripts/process-inbox-auto.sh) (launchd `com.sdg.inbox-auto`, polls every 120s, auto-handles self-student happy path with paranoid tool restrictions). Manual `/process-inbox` is for: cross-advisor rows, new clients, oversized content, or whenever vault-skill smart treatment (meeting-minutes / summarize) is wanted.
+- **process-inbox** — archive `/internal/submissions` queue into Obsidian vault. ⚠️ Its `SKILL.md` still describes *spawning headless `claude -p` per student* — that path is **broken post-OAuth-ban**; in practice run it **inline** (Pattern B: read vault `CLAUDE.md` + the relevant `_agents/skills/`, then write 沟通记录/档案/日报 yourself; mark Supabase `processed=true` only after a review pass). Now triggered by the `com.sdg.inbox-sentinel` Bark push (see Cron above), not the dead auto-archiver. Use it for: cross-advisor rows, new clients, oversized content, or whenever vault-skill smart treatment (meeting-minutes / summarize) is wanted.
 - **morning-digest** — daily per-advisor briefing emails (parallel subagents per advisor; defaults to test-mode that routes everything to 王世杰)
 - **send-email** — send via Shijie's local n8n webhook (xdf work address default; automation Gmail when explicitly asked)
 - **sanity-content** — CRUD on Sanity posts / projects / dialogues
@@ -86,35 +87,36 @@ Each skill has its own `SKILL.md` with full triggers and behavior.
 
 The Obsidian vault is on the same Mac and the same filesystem — there's no separate "vault Claude Code" window anymore. This sdg-html context is the single point of contact for both sides. Use this section as the dispatch table.
 
-- **Vault path**: `/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板`
-- **Vault `CLAUDE.md`** (two iron rules + 22-skill trigger table) — Read once at the start of any vault-touching session; it's not auto-loaded here.
+- **Vault path**: `/Users/shijie/Obsidian/规划看板` — moved off OneDrive ~2026-05; the old `~/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板` is **dead**. `OBSIDIAN_VAULT_ROOT` in `.env` is the source of truth.
+- **Vault `CLAUDE.md`** (two iron rules + ~25-skill trigger table) — Read once at the start of any vault-touching session; it's not auto-loaded here.
 - **Vault skills root**: `_agents/skills/` (NOT `.claude/skills/` — vault uses its own convention)
-- **Vault git**: vault is `git init`'d as of 2026-05-06 (main branch). Commit liberally; OneDrive is for sync, git is for revert.
+- **Vault git**: vault is `git init`'d as of 2026-05-06 (main branch). Commit liberally; git is the version-control / revert mechanism (vault no longer lives in OneDrive).
 
 ### Pattern A — light vault ops (do directly, no subagent)
 
 For YAML edits, audit scripts, batch renames, `.md` content tweaks, file moves, git operations, Python scripts that read/write vault files — just use Bash/Read/Edit/Write directly on vault paths. **80% of vault work goes here.**
 
-### Pattern B — vault skill invocation (spawn `claude -p` subagent)
+### Pattern B — vault skill invocation (run INLINE; headless `claude -p` is BROKEN)
 
-When you need to trigger a vault skill that requires the vault's `CLAUDE.md` iron rules + `_agents/skills/` trigger table (meeting-minutes / summarize / kpi-tracker / planning-roadmap / lor_writer / etc.), spawn a headless `claude -p` inside the vault — same architecture as process-inbox skill:
+⚠️ **The old mechanism — spawning a headless `claude -p` into the vault — no longer works.** Claude Code headless OAuth was blocked in the 2026-04-04 ban (assistant memory `headless_claude_oauth_broken.md`); both launchd `claude -p` jobs and `/schedule` remote routines are dead. Do **not** write new flows that shell out to `claude -p`.
 
-```bash
-cd "/Users/shijie/Library/CloudStorage/OneDrive-Personal/Obsidian/规划看板" && \
-  /opt/homebrew/bin/claude -p --dangerously-skip-permissions --add-dir "$(pwd)" \
-  < /tmp/payload.md > /tmp/result.txt 2>&1
-```
+When you need a vault skill that depends on the vault's `CLAUDE.md` iron rules + `_agents/skills/` trigger table (meeting-minutes / summarize / planning-roadmap / lor_writer / onboarding / etc.), **execute it inline in this foreground session**:
 
-The headless instance starts in vault root → auto-loads vault `CLAUDE.md` → can invoke any vault skill correctly. Wrap in an `Agent()` tool call when the work is substantial (multiple skills / multiple students); inline the bash for one-shots.
+1. `Read` the vault `CLAUDE.md` (two iron rules — not auto-loaded here).
+2. `Read` the skill's `SKILL.md` under `_agents/skills/<skill>/` (iron rule one: always read before executing).
+3. Follow its steps yourself with Bash/Read/Edit/Write on vault paths, honouring iron rule two: write all required files (档案 / 沟通记录 / 待办看板 / 日报). **Verify field values against `.claude/rules/student_sop.md` + live Supabase — SKILL.md templates have drifted (e.g. onboarding's `当前进度` enum).**
 
-### Vault skills inventory (when to spawn Pattern B subagent)
+This is exactly how `onboarding` was run for 李若涵 on 2026-05-20. The alternative is opening a real interactive Claude Code session **inside** the vault directory, where vault `CLAUDE.md` + `_agents/skills/` auto-load.
 
-22 skills under `_agents/skills/` in vault. Use a Pattern B subagent when the trigger condition fires:
+### Vault skills inventory (run inline per Pattern B when the trigger fires)
+
+~25 skills under `_agents/skills/` in vault. When a trigger below fires, run the skill **inline** (read its `SKILL.md`, then execute the steps yourself):
 
 **学生档案 / 沟通**
 - `meeting-minutes` — STT 转写 / 录音文本 → 留学规划会议纪要 (触发: "整理沟通记录" / "整理纪要" / 粘贴大段 STT)
 - `onboarding` — 转案 / 新签学生建档（标准文件夹 + YAML + 首次纪要模板 + 待办 + 日报联动）
 - `summarize` — 长 URL / PDF / 视频 / 音频内容浓缩
+- `exam-prep` — 学生课程考前复习包（触发: "做复习资料" / "期末冲刺包" / "给 XX 课做复习"）
 
 **文书写作（必走 vault 铁律）**
 - `appeal-writer` — Appeal Letter / Love Letter（被拒 / waitlist / continued interest）
@@ -136,6 +138,8 @@ The headless instance starts in vault root → auto-loads vault `CLAUDE.md` → 
 - `word-editor` — 程式化 .docx 编辑 / track changes / 注释（带作者归属）
 - `md2pdf` — Markdown → 高级排版 PDF（含 Obsidian CSS 注入）
 - `deai-batch` — 多段文本批量降 AI（n8n 单段 workflow，50 改写 → GPTZero 选最优）
+- `visa-funds-audit` — 银行流水 / 担保金 / 签证资金来源审查（触发: "审一下流水" / "担保金" / "GIC" / 丢一摞银行 PDF）
+- `ppt-prompt-gen` — 原始素材 → 下游生图 AI 的结构化 PPT prompt 集（触发: "做 PPT" / "扔给 nano-banana"；注: sdg-html 侧也有同名 skill）
 
 **外部工具桥**
 - `agent-browser` — Rust headless browser CLI（导航 / 点击 / 截屏）
@@ -162,7 +166,7 @@ When you change either side, remember the other:
 Local `.env` (gitignored) — keep in sync on Vercel where applicable.
 - **Sanity:** `SANITY_PROJECT_ID` (`waxbya4l`), `SANITY_DATASET` (`production`). **Three different token names** referenced by different files — set the same value to all three: `SANITY_TOKEN` (in scripts), `SANITY_API_TOKEN` ([src/lib/sanity/client.ts](src/lib/sanity/client.ts)), `SANITY_WRITE_TOKEN` ([src/lib/sanity/writeClient.ts](src/lib/sanity/writeClient.ts)).
 - **Supabase:** `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (server-only — bypasses RLS).
-- **Vault:** `OBSIDIAN_VAULT_ROOT` (defaults to the iCloud path above).
+- **Vault:** `OBSIDIAN_VAULT_ROOT` (defaults to `/Users/shijie/Obsidian/规划看板`).
 - **Cloudflare:** `CF_API_TOKEN` (scope: Access Apps + Policies Edit), `CF_ACCOUNT_ID`, `CF_ACCESS_OTP_APP_ID`, `CF_ACCESS_OTP_POLICY_ID`.
 
 ## Git: use GitHub MCP, not local git
