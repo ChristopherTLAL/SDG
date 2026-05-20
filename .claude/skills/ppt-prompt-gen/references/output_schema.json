@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ppt-prompt-gen Output Schema",
+  "description": "JSON schema for the deck prompt set produced by ppt-prompt-gen. Designed to be consumed either by n8n workflows that feed prompts to image-gen APIs, or by humans copy-pasting individual prompts.",
+  "type": "object",
+  "required": ["deck_meta", "deck_invariants", "pages"],
+  "properties": {
+    "deck_meta": {
+      "type": "object",
+      "required": ["title_zh", "audience", "scenario", "duration_min", "style", "narrative_arc", "language", "total_pages", "generated_at"],
+      "properties": {
+        "title_zh": { "type": "string", "description": "PPT 主标题（中文，可含必要英文 jargon）" },
+        "title_en": { "type": ["string", "null"], "description": "可选英文标题；若整套 deck 是英文则与 title_zh 二选一" },
+        "subtitle": { "type": ["string", "null"] },
+        "tagline": { "type": ["string", "null"], "description": "封面 tagline / 副线" },
+        "audience": { "type": "string", "description": "受众，如 '客户家长'、'投资人'、'公司高管'、'学术同行'" },
+        "scenario": { "type": "string", "description": "场景，如 '15 分钟客户汇报'、'30 分钟内训'、'路演 Demo Day'" },
+        "duration_min": { "type": "integer", "description": "演讲时长（分钟）" },
+        "style": { "type": "string", "enum": ["soft-dusty-purple", "swiss-international", "editorial-magazine", "dark-techno"], "description": "使用的风格 pack 名（对应 references/styles/<name>.md）" },
+        "narrative_arc": { "type": "string", "description": "叙事弧，如 'SCQA'、'问题-分析-方案-收益'、'Pyramid'、'AIDA'、'自定义'" },
+        "language": { "type": "string", "enum": ["zh", "en", "zh-en-mix"], "default": "zh" },
+        "total_pages": { "type": "integer" },
+        "sensitive_data_handled": { "type": "boolean", "description": "是否对敏感数据做了脱敏；默认 false（信任下游）" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "source_materials": { "type": "array", "items": { "type": "string" }, "description": "本 deck 基于的原始材料文件 / 学生档案 / 数据来源" }
+      }
+    },
+    "deck_invariants": {
+      "type": "object",
+      "description": "deck 全局视觉锚点，每页 prompt 都必须 embed 这些。",
+      "properties": {
+        "logo_position": { "type": ["string", "null"], "description": "如 'top-right corner, small'、'bottom-left, faint watermark'；null 表示无 logo" },
+        "logo_description": { "type": ["string", "null"], "description": "logo 的视觉描述（避免引用图片文件）" },
+        "page_number_style": { "type": ["string", "null"], "description": "如 'small grey numerals bottom-right'、'no page numbers'" },
+        "footer_text": { "type": ["string", "null"] },
+        "header_text": { "type": ["string", "null"] },
+        "primary_font_zh": { "type": "string", "description": "中文主字体，如 '思源黑体 Source Han Sans'" },
+        "primary_font_en": { "type": "string", "description": "英文主字体（中英混排时的 fallback），如 'Inter'、'Helvetica Neue'" }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["page_no", "page_type", "title_zh", "core_message", "narrative_position", "chart_types", "prompt_en", "qa_passed"],
+        "properties": {
+          "page_no": { "type": "integer", "minimum": 1 },
+          "page_type": { "type": "string", "enum": ["cover", "toc", "section_divider", "content", "data", "comparison", "process", "quote", "summary", "appendix", "qa", "thanks"] },
+          "narrative_position": { "type": "string", "description": "本页在 narrative arc 上的位置，如 'situation'、'complication'、'analysis-1/3'、'solution'、'closing'" },
+          "title_zh": { "type": "string" },
+          "title_en": { "type": ["string", "null"] },
+          "core_message": { "type": "string", "description": "本页一句话核心信息，受众离开这页应该记住的事" },
+          "data_points": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "本页用到的关键数据点 / 论据 / 引用，逐条列出（已是最终文本，不含占位符）"
+          },
+          "chart_types": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "本页用到的图表类型，名字对应 visualization_library.md（如 'Waterfall Chart'、'Harvey Balls'）"
+          },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "本页要用 accent 色高亮的具体数据点 / 文本（不是泛指的 'key data'，而是具体哪个数字 / 哪句话）"
+          },
+          "prompt_en": { "type": "string", "description": "完整英文 prompt，可直接喂给下游生图 AI。已 embed deck_invariants + 风格规则 + anti_leakage negative prompt" },
+          "qa_passed": { "type": "boolean", "description": "page-level QA 是否全过；false 时 qa_warnings 必须非空" },
+          "qa_warnings": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "QA 发现的问题，如 '占位符未替换'、'核心数据缺失'、'图表类型 fallback 至 X'"
+          }
+        }
+      }
+    },
+    "downstream_hints": {
+      "type": "object",
+      "description": "给下游消费者的提示，可选",
+      "properties": {
+        "recommended_model": { "type": "string", "description": "如 'nano-banana-pro'、'imagen-3'、'flux-1.1-pro'" },
+        "recommended_resolution": { "type": "string", "description": "如 '2048x1152'（16:9 2K）" },
+        "recommended_aspect_ratio": { "type": "string", "default": "16:9" },
+        "batch_strategy": { "type": "string", "description": "如 'parallel'、'sequential'、'one-shot multi-image'" }
+      }
+    }
+  }
+}
