@@ -1,13 +1,19 @@
 ---
 // Print / PDF view for a flat daily-library article.
-//   /tools/english/print?slug=<slug>
+//   /tools/english/print/<slug>
 // Flat articles are the same Article type as book chapters (just without
 // audio / Listen·Fill·Write), so ChapterPrint renders them as-is.
-import EnglishPrintLayout from '../../../layouts/EnglishPrintLayout.astro';
-import ChapterPrint from '../../../components/english/ChapterPrint.astro';
-import { articlesBySlug } from '../../../data/english';
+import EnglishPrintLayout from '../../../../layouts/EnglishPrintLayout.astro';
+import ChapterPrint from '../../../../components/english/ChapterPrint.astro';
+import { articlesBySlug, articleEntries } from '../../../../data/english';
 
-const slug = Astro.url.searchParams.get('slug');
+// Static reading content — prerender to static HTML (off the serverless function).
+export const prerender = true;
+export function getStaticPaths() {
+  return articleEntries.map((e) => ({ params: { slug: e.slug } }));
+}
+
+const { slug } = Astro.params;
 const article = slug ? articlesBySlug[slug] : undefined;
 if (!article) return Astro.redirect('/tools/english/');
 

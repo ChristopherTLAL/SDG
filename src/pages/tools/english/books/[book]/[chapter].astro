@@ -5,6 +5,15 @@ import MainLayout from '../../../../../layouts/MainLayout.astro';
 import ArticleReader from '../../../../../components/english/ArticleReader.astro';
 import { booksById } from '../../../../../data/english/books';
 
+export const prerender = true;
+export function getStaticPaths() {
+  const paths = [];
+  for (const [book, entry] of Object.entries(booksById)) {
+    for (const c of entry.chapters) paths.push({ params: { book, chapter: c.slug } });
+  }
+  return paths;
+}
+
 const { book: bookId, chapter: chapterSlug } = Astro.params;
 const book = bookId ? booksById[bookId] : undefined;
 const idx = book ? book.chapters.findIndex((c) => c.slug === chapterSlug) : -1;
@@ -32,6 +41,6 @@ const base = `/tools/english/books/${book.meta.id}`;
     prevTitle={prev?.article.meta.title ?? null}
     nextHref={next ? `${base}/${next.slug}` : null}
     nextTitle={next?.article.meta.title ?? null}
-    printHref={`${base}/print?chapter=${chapter.slug}`}
+    printHref={`${base}/print/${chapter.slug}`}
   />
 </MainLayout>

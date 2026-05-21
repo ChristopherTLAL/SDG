@@ -4,6 +4,11 @@ import MainLayout from '../../../layouts/MainLayout.astro';
 import ArticleReader from '../../../components/english/ArticleReader.astro';
 import { articlesBySlug, articleEntries } from '../../../data/english';
 
+export const prerender = true;
+export function getStaticPaths() {
+  return articleEntries.map((e) => ({ params: { slug: e.slug } }));
+}
+
 const { slug } = Astro.params;
 const article = slug ? articlesBySlug[slug] : undefined;
 
@@ -30,6 +35,6 @@ const nextEntry = idx > 0 ? articleEntries[idx - 1] : null;
     prevTitle={prevEntry?.article.meta.title ?? null}
     nextHref={nextEntry ? `/tools/english/${nextEntry.slug}` : null}
     nextTitle={nextEntry?.article.meta.title ?? null}
-    printHref={`/tools/english/print?slug=${slug}`}
+    printHref={`/tools/english/print/${slug}`}
   />
 </MainLayout>

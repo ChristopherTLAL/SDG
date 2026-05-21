@@ -1,25 +1,27 @@
 ---
-// Print / PDF view for a book.
-//   /tools/english/books/<id>/print               → whole book (cover + TOC + all chapters)
-//   /tools/english/books/<id>/print?chapter=<slug> → a single chapter
+// Print / PDF view for a whole book (cover + TOC + all chapters).
+//   /tools/english/books/<id>/print
+// Single-chapter print lives at ./print/[chapter].astro
 import EnglishPrintLayout from '../../../../../layouts/EnglishPrintLayout.astro';
 import ChapterPrint from '../../../../../components/english/ChapterPrint.astro';
 import { booksById } from '../../../../../data/english/books';
+
+// Static reading content — prerender to static HTML (off the serverless function).
+export const prerender = true;
+export function getStaticPaths() {
+  return Object.keys(booksById).map((book) => ({ params: { book } }));
+}
 
 const { book: bookId } = Astro.params;
 const book = bookId ? booksById[bookId] : undefined;
 if (!book) return Astro.redirect('/tools/english/books/');
 
-const slug = Astro.url.searchParams.get('chapter');
-const single = slug ? book.chapters.find((c) => c.slug === slug) : null;
-if (slug && !single) return Astro.redirect(`/tools/english/books/${book.meta.id}`);
-
-const chapters = single ? [single] : book.chapters;
-const isWhole = !single;
+const chapters = book.chapters;
+const isWhole = true;
 const { meta } = book;
 const SITE = 'https://sdg.undp.ac.cn';
-const backHref = `/tools/english/books/${meta.id}${single ? '/' + single.slug : ''}`;
-const docTitle = single ? `${single.article.meta.title} — ${meta.title}` : meta.title;
+const backHref = `/tools/english/books/${meta.id}`;
+const docTitle = meta.title;
 ---
 <EnglishPrintLayout docTitle={docTitle} accent={meta.accent ?? '#042f24'} backHref={backHref}>
   {isWhole && (

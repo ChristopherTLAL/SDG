@@ -1,0 +1,37 @@
+---
+// Print / PDF view for a single book chapter.
+//   /tools/english/books/<id>/print/<chapter-slug>
+// Whole-book print lives at ../print.astro
+import EnglishPrintLayout from '../../../../../../layouts/EnglishPrintLayout.astro';
+import ChapterPrint from '../../../../../../components/english/ChapterPrint.astro';
+import { booksById } from '../../../../../../data/english/books';
+
+// Static reading content — prerender to static HTML (off the serverless function).
+export const prerender = true;
+export function getStaticPaths() {
+  const paths = [];
+  for (const [book, entry] of Object.entries(booksById)) {
+    for (const c of entry.chapters) paths.push({ params: { book, chapter: c.slug } });
+  }
+  return paths;
+}
+
+const { book: bookId, chapter: chapterSlug } = Astro.params;
+const book = bookId ? booksById[bookId] : undefined;
+const ch = book ? book.chapters.find((c) => c.slug === chapterSlug) : undefined;
+if (!book || !ch) {
+  return Astro.redirect(bookId ? `/tools/english/books/${bookId}` : '/tools/english/books/');
+}
+
+const { meta } = book;
+const SITE = 'https://sdg.undp.ac.cn';
+const backHref = `/tools/english/books/${meta.id}/${ch.slug}`;
+const docTitle = `${ch.article.meta.title} — ${meta.title}`;
+---
+<EnglishPrintLayout docTitle={docTitle} accent={meta.accent ?? '#042f24'} backHref={backHref}>
+  <ChapterPrint
+    article={ch.article}
+    eyebrow={`${meta.title} · Chapter ${String(ch.order).padStart(2, '0')}`}
+    chapterUrl={`${SITE}/tools/english/books/${meta.id}/${ch.slug}`}
+  />
+</EnglishPrintLayout>

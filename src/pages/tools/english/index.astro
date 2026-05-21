@@ -4,6 +4,9 @@ import MainLayout from '../../../layouts/MainLayout.astro';
 import { articleEntries, CEFR_LABELS } from '../../../data/english';
 import topicsRaw from '../../../../data/english-topics.json';
 
+// Static reading content — prerender to static HTML (off the serverless function).
+export const prerender = true;
+
 type LevelKey = keyof typeof CEFR_LABELS;
 const levelOrder: LevelKey[] = ['A2', 'B1', 'B2', 'C1', 'C2'];
 
