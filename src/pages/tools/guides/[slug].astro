@@ -3,6 +3,12 @@
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { getGuideBySlug, getCategoryById, guides } from '../../../data/guides-meta';
 
+// Static guide content — prerender to static HTML (off the serverless function).
+export const prerender = true;
+export function getStaticPaths() {
+  return guides.map((g) => ({ params: { slug: g.slug } }));
+}
+
 const { slug } = Astro.params;
 const guide = getGuideBySlug(slug!);
 
