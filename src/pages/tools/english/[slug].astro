@@ -30,5 +30,6 @@ const nextEntry = idx > 0 ? articleEntries[idx - 1] : null;
     prevTitle={prevEntry?.article.meta.title ?? null}
     nextHref={nextEntry ? `/tools/english/${nextEntry.slug}` : null}
     nextTitle={nextEntry?.article.meta.title ?? null}
+    printHref={`/tools/english/print?slug=${slug}`}
   />
 </MainLayout>

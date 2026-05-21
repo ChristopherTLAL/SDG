@@ -1,0 +1,22 @@
+---
+// Print / PDF view for a flat daily-library article.
+//   /tools/english/print?slug=<slug>
+// Flat articles are the same Article type as book chapters (just without
+// audio / Listen·Fill·Write), so ChapterPrint renders them as-is.
+import EnglishPrintLayout from '../../../layouts/EnglishPrintLayout.astro';
+import ChapterPrint from '../../../components/english/ChapterPrint.astro';
+import { articlesBySlug } from '../../../data/english';
+
+const slug = Astro.url.searchParams.get('slug');
+const article = slug ? articlesBySlug[slug] : undefined;
+if (!article) return Astro.redirect('/tools/english/');
+
+const SITE = 'https://sdg.undp.ac.cn';
+---
+<EnglishPrintLayout docTitle={article.meta.title} accent="#042f24" backHref={`/tools/english/${slug}`}>
+  <ChapterPrint
+    article={article}
+    eyebrow={`Daily English · ${article.meta.date}`}
+    chapterUrl={`${SITE}/tools/english/${slug}`}
+  />
+</EnglishPrintLayout>

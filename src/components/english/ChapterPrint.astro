@@ -7,17 +7,12 @@ import type { Article } from '../../data/english/types';
 
 interface Props {
   article: Article;
-  order: number;
-  bookTitle: string;
-  bookId: string;
-  slug: string;
-  siteOrigin: string;
+  eyebrow: string;     // e.g. "Giselle: Inside aespa · Chapter 01" or "Daily English · 2025-10-07"
+  chapterUrl: string;  // online version (for the audio / read-online link)
 }
-const { article, order, bookTitle, bookId, slug, siteOrigin } = Astro.props;
+const { article, eyebrow, chapterUrl } = Astro.props;
 const { meta, paragraphs, vocab, grammar, patterns, quiz, listeningWriting: lw } = article;
 
-const num = String(order).padStart(2, '0');
-const chapterUrl = `${siteOrigin}/tools/english/books/${bookId}/${slug}`;
 const OPT = ['A', 'B', 'C', 'D', 'E', 'F'];
 
 function escapeHtml(s: string): string {
@@ -53,7 +48,7 @@ const patternById: Record<string, (typeof patterns)[number]> = Object.fromEntrie
 ---
 <section class="rp-chapter">
   <header class="rp-head">
-    <div class="rp-eyebrow">{bookTitle} · Chapter {num}</div>
+    <div class="rp-eyebrow">{eyebrow}</div>
     <h1 class="rp-title">{meta.title}</h1>
     {meta.titleZh && <p class="rp-title-zh">{meta.titleZh}</p>}
     <div class="rp-headmeta">
