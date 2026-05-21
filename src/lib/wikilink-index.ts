@@ -11,7 +11,11 @@ const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
 // cache per warm instance for a short window; newly-synced rows become linkable
 // within TTL_MS. The two independent fetches run in parallel.
 let cache: { index: WikilinkIndex; expiresAt: number } | null = null;
-const TTL_MS = 30 * 1000;
+// 5 min. The vault→Supabase sync only runs every 30 min, so newly-synced rows
+// being linkable a few minutes late is invisible — and a warm instance serving
+// an advisor's browsing session now reuses one index instead of re-fetching
+// ~2,300 rows (505 students + 1,764 notes) every 30s.
+const TTL_MS = 5 * 60 * 1000;
 
 export async function getWikilinkIndex(): Promise<WikilinkIndex> {
   const now = Date.now();
