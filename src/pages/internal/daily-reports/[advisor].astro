@@ -42,12 +42,14 @@ if (error || !report) {
 
 // Wikilink resolver (scope: students + their notes — same as detail page); cached.
 const wikiIndex = await getWikilinkIndex();
+// 私单 wikilinks resolve only for admin / 王世杰; others see them as unresolved.
+const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const body = report.body_md ?? '';
   if (!body.trim()) return '';
-  const withWikilinks = resolveWikilinks(body, wikiIndex);
+  const withWikilinks = resolveWikilinks(body, wikiIndex, canSeePrivate);
   const withCallouts = preprocessCallouts(withWikilinks);
   return marked.parse(withCallouts) as string;
 })();

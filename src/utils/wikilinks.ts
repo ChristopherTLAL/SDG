@@ -6,43 +6,46 @@
 // links or inline HTML), then hand the result to a markdown renderer.
 
 export type WikilinkTarget =
-  | { kind: 'student'; studentId: number; studentName: string }
-  | { kind: 'note'; studentId: number; studentName: string; noteName: string }
-  | { kind: 'attachment'; studentId: number; studentName: string; filename: string };
+  | { kind: 'student'; studentId: number; studentName: string; isPrivate: boolean }
+  | { kind: 'note'; studentId: number; studentName: string; noteName: string; isPrivate: boolean }
+  | { kind: 'attachment'; studentId: number; studentName: string; filename: string; isPrivate: boolean };
 
 export type WikilinkIndex = Map<string, WikilinkTarget>;
 
 export function buildWikilinkIndex(input: {
-  students: { id: number; name: string; attachments: string[] | null }[];
+  students: { id: number; name: string; attachments: string[] | null; isPrivate?: boolean }[];
   notes: { student_id: number; note_name: string; student_name?: string }[];
 }): WikilinkIndex {
   const index: WikilinkIndex = new Map();
 
   // Notes win over students if names happen to collide (they shouldn't, but be safe).
   for (const s of input.students) {
-    index.set(s.name, { kind: 'student', studentId: s.id, studentName: s.name });
+    const isPrivate = !!s.isPrivate;
+    index.set(s.name, { kind: 'student', studentId: s.id, studentName: s.name, isPrivate });
 
     for (const att of s.attachments ?? []) {
       // Index by full filename and by basename without extension.
-      index.set(att, { kind: 'attachment', studentId: s.id, studentName: s.name, filename: att });
+      index.set(att, { kind: 'attachment', studentId: s.id, studentName: s.name, filename: att, isPrivate });
       const dot = att.lastIndexOf('.');
       if (dot > 0) {
         const stem = att.slice(0, dot);
         if (!index.has(stem)) {
-          index.set(stem, { kind: 'attachment', studentId: s.id, studentName: s.name, filename: att });
+          index.set(stem, { kind: 'attachment', studentId: s.id, studentName: s.name, filename: att, isPrivate });
         }
       }
     }
   }
 
-  const studentNameById = new Map(input.students.map(s => [s.id, s.name]));
+  const studentById = new Map(input.students.map(s => [s.id, s]));
   for (const n of input.notes) {
-    const studentName = n.student_name ?? studentNameById.get(n.student_id) ?? '';
+    const owner = studentById.get(n.student_id);
+    const studentName = n.student_name ?? owner?.name ?? '';
     index.set(n.note_name, {
       kind: 'note',
       studentId: n.student_id,
       studentName,
       noteName: n.note_name,
+      isPrivate: !!owner?.isPrivate,
     });
   }
 
@@ -68,15 +71,19 @@ function escapeHtml(s: string): string {
 // Stops at `]]` so it doesn't span lines or tables. Non-greedy on inner content.
 const WIKILINK_RE = /(!?)\[\[([^\[\]\n|]+?)(?:\|([^\[\]\n]+?))?\]\]/g;
 
-export function resolveWikilinks(markdown: string, index: WikilinkIndex): string {
+export function resolveWikilinks(markdown: string, index: WikilinkIndex, canSeePrivate = true): string {
   return markdown.replace(WIKILINK_RE, (_full, embed: string, target: string, alias: string | undefined) => {
     const display = (alias ?? target).trim();
     const targetTrim = target.trim();
     const hit = index.get(targetTrim);
     const isEmbed = embed === '!';
 
-    if (!hit) {
-      // Unresolved: greyed-out pill, no link. Keep brackets visible so it's clearly an Obsidian link.
+    // Unresolved, OR a 私单 target the viewer may not see: render a greyed pill with no
+    // link / no "tracked student" styling, so it can't confirm the name is a real student
+    // or navigate to the (404-guarded) detail page. The display text is the advisor's own
+    // note text, already visible — so this leaks nothing new.
+    if (!hit || (hit.isPrivate && !canSeePrivate)) {
+      // Keep brackets visible so it's clearly an Obsidian link.
       return `<span class="wikilink wikilink-unresolved" title="未在站内同步范围内找到「${escapeHtml(targetTrim)}」">[[${escapeHtml(display)}]]</span>`;
     }
 

@@ -57,7 +57,7 @@ marked.setOptions({ gfm: true, breaks: true });
 
 function renderMarkdown(md: string | null | undefined): string {
   if (!md || !md.trim()) return '';
-  const withWikilinks = resolveWikilinks(md, wikiIndex);
+  const withWikilinks = resolveWikilinks(md, wikiIndex, canSeePrivate);
   const withCallouts = preprocessCallouts(withWikilinks);
   return sanitizeHtml(marked.parse(withCallouts) as string);
 }

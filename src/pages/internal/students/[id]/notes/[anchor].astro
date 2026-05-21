@@ -50,7 +50,7 @@ marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const md = targetNote.body_md ?? '';
   if (!md.trim()) return '';
-  return sanitizeHtml(marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex))) as string);
+  return sanitizeHtml(marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex, canSeePrivate))) as string);
 })();
 const advisor = (student.mid_advisors ?? [])[0] ?? '—';
 ---
