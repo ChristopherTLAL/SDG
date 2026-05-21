@@ -1,0 +1,243 @@
+// Giselle book, Ch.9: aespa wins Billboard's Group of the Year (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-29',
+    title: 'aespa Wins Group of the Year',
+    titleZh: '世界舞台上的第一次',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/giselle/09-billboard.mp3',
+    wordCount: 314,
+    readingMinutes: 4,
+    editorsNote:
+      'A big award is more than a trophy. This chapter follows the night aespa was named Billboard Group of the Year, and explains why being the first K-pop girl group to win it says something about how far the group has come.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On a Saturday night in March 2025, aespa walked onto a stage near Los Angeles.', zh: '2025 年 3 月的一个周六夜晚，aespa 走上了洛杉矶附近的一个舞台。' },
+        { id: 's2', en: 'The event was Billboard Women in Music, one of the biggest music nights of the year in the United States.', zh: '这场活动是 Billboard「乐坛女性」典礼，美国一年中最盛大的音乐之夜之一。' },
+        { id: 's3', en: 'There, aespa was named Group of the Year.', zh: '在那里，aespa 被评为「年度组合」。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Billboard is an American company that has tracked music charts for more than a hundred years.', zh: 'Billboard 是一家美国公司，追踪音乐排行榜已有一百多年。' },
+        { id: 's5', en: 'When it picks a Group of the Year, the choice is read all over the world.', zh: '当它选出「年度组合」时，这个结果会被全世界看到。' },
+        { id: 's6', en: 'aespa became the first K-pop girl group ever to win this honor.', zh: 'aespa 成为有史以来第一个赢得这一荣誉的 K-pop 女团。' },
+        { id: 's7', en: 'For a group from South Korea, that was a clear sign of how global their music had become.', zh: '对一个来自韩国的组合来说，这清楚地表明她们的音乐已经变得多么国际化。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'The award came after aespa\'s biggest year yet.', zh: '这个奖项是在 aespa 迄今为止最辉煌的一年之后到来的。' },
+        { id: 's9', en: 'In 2024, the group released its first full album, "Armageddon", and its lead song "Supernova" climbed the charts and won prizes back home.', zh: '2024 年，组合发行了她们的首张正规专辑《Armageddon》，主打歌《Supernova》一路冲上排行榜，并在国内拿下奖项。' },
+        { id: 's10', en: 'aespa also became the first K-pop girl group to land six projects in the top 50 of the Billboard 200, the main American album chart.', zh: 'aespa 还成为第一个有六个作品进入 Billboard 200（美国主要专辑榜）前 50 名的 K-pop 女团。' },
+        { id: 's11', en: 'On top of that, they grew their world tour, playing for fans in more and more cities.', zh: '不仅如此，她们还扩大了世界巡演，在越来越多的城市为歌迷演出。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'On the night of the award, the actress Suki Waterhouse handed aespa the trophy.', zh: '颁奖当晚，演员 Suki Waterhouse 把奖杯递给了 aespa。' },
+        { id: 's13', en: 'She praised the group for its creativity and its rise up the charts.', zh: '她称赞这个组合的创意和在排行榜上的攀升。' },
+        { id: 's14', en: 'Giselle spoke for the group when she accepted the award.', zh: 'Giselle 在领奖时代表组合发言。' },
+        { id: 's15', en: 'She said the members wanted to cheer on every woman who is chasing a dream.', zh: '她说，成员们想为每一个正在追梦的女性加油。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: 'Winter added a short line that fans repeated for days.', zh: 'Winter 补了一句话，歌迷传诵了好几天。' },
+        { id: 's17', en: '"This is just the beginning," she said. "We\'re just getting warmed up."', zh: '「这只是开始，」她说。「我们才刚刚热身。」' },
+        { id: 's18', en: 'Later that night, the four members closed the show with an English version of their song "Whiplash".', zh: '当晚稍后，四位成员用她们歌曲《Whiplash》的英文版为整场演出收尾。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'Awards do not make the music, and aespa knows that.', zh: '奖项并不能创造音乐，aespa 明白这一点。' },
+        { id: 's20', en: 'Still, this one mattered.', zh: '不过，这一个意义重大。' },
+        { id: 's21', en: 'It was not just a prize for one good year. It was proof that a girl group singing mostly in Korean could stand at the very top of a global stage.', zh: '它不只是对某一个好年头的奖励。它证明了一个主要用韩语演唱的女团，可以站上全球舞台的最高处。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'stage', lemma: 'stage', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/steɪdʒ/', defZh: '舞台', defEn: 'a raised area where people perform', example: 'The band ran onto the stage as the lights came up.', exampleZh: '灯光亮起时，乐队跑上了舞台。' },
+    { id: 'v2', word: 'event', lemma: 'event', sentenceId: 's2', level: 1, pos: 'n.', ipa: '/ɪˈvent/', defZh: '活动；盛事', defEn: 'a planned public occasion', example: 'The opening event drew thousands of people.', exampleZh: '开幕活动吸引了成千上万的人。' },
+    { id: 'v3', word: 'named', lemma: 'name', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/neɪmd/', defZh: '被评为；被选定为', defEn: 'chosen and officially called something', example: 'She was named player of the season by the league.', exampleZh: '她被联赛评为本赛季最佳球员。' },
+    { id: 'v4', word: 'tracked', lemma: 'track', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/trækt/', defZh: '追踪；记录', defEn: 'followed and recorded over time', example: 'The app has tracked my runs for two years.', exampleZh: '这个应用追踪我的跑步已经两年了。' },
+    { id: 'v5', word: 'honor', lemma: 'honor', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈɒnə(r)/', defZh: '荣誉；殊荣', defEn: 'a special award or mark of respect', example: 'Being asked to give the speech was a real honor.', exampleZh: '被邀请发表演讲是莫大的荣誉。' },
+    { id: 'v6', word: 'global', lemma: 'global', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ˈɡləʊbl/', defZh: '全球的；世界范围的', defEn: 'relating to the whole world', example: 'The brand built a global fan base in just five years.', exampleZh: '这个品牌仅用五年就建立了全球粉丝群。' },
+    { id: 'v7', word: 'released', lemma: 'release', sentenceId: 's9', level: 2, pos: 'v.', ipa: '/rɪˈliːst/', defZh: '发行；发布', defEn: 'made a record available to the public', example: 'They released the single a week before the tour.', exampleZh: '他们在巡演前一周发行了这首单曲。' },
+    { id: 'v8', word: 'climbed', lemma: 'climb', sentenceId: 's9', level: 2, pos: 'v.', ipa: '/klaɪmd/', defZh: '攀升；上升', defEn: 'rose steadily to a higher position', example: 'The song climbed from number ten to number one.', exampleZh: '这首歌从第十名一路升到第一名。' },
+    { id: 'v9', word: 'charts', lemma: 'chart', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/tʃɑːts/', defZh: '排行榜', defEn: 'weekly lists ranking the most popular songs', example: 'Their album topped the charts in three countries.', exampleZh: '他们的专辑在三个国家登上排行榜榜首。' },
+    { id: 'v10', word: 'prizes', lemma: 'prize', sentenceId: 's9', level: 1, pos: 'n.', ipa: '/ˈpraɪzɪz/', defZh: '奖项；奖品', defEn: 'awards given for success', example: 'The film won several prizes at the festival.', exampleZh: '这部电影在电影节上赢得了多个奖项。' },
+    { id: 'v11', word: 'land', lemma: 'land', sentenceId: 's10', level: 3, pos: 'v.', ipa: '/lænd/', defZh: '成功获得；拿下（非"着陆"）', defEn: 'to succeed in getting something difficult', example: 'She worked hard to land her first job in the city.', exampleZh: '她努力争取，才在这座城市找到第一份工作。' },
+    { id: 'v12', word: 'tour', lemma: 'tour', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/tʊə(r)/', defZh: '巡演；巡回演出', defEn: 'a series of concerts in different places', example: 'The world tour will visit twenty cities.', exampleZh: '这场世界巡演将到访二十座城市。' },
+    { id: 'v13', word: 'handed', lemma: 'hand', sentenceId: 's12', level: 1, pos: 'v.', ipa: '/ˈhændɪd/', defZh: '递给；交给', defEn: 'gave something by hand', example: 'The teacher handed each student a small flag.', exampleZh: '老师递给每个学生一面小旗。' },
+    { id: 'v14', word: 'praised', lemma: 'praise', sentenceId: 's13', level: 2, pos: 'v.', ipa: '/preɪzd/', defZh: '称赞；表扬', defEn: 'said good things about someone', example: 'Critics praised the young director for his bold style.', exampleZh: '评论家称赞这位年轻导演大胆的风格。' },
+    { id: 'v15', word: 'creativity', lemma: 'creativity', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ˌkriːeɪˈtɪvəti/', defZh: '创造力；创意', defEn: 'the ability to make new and original things', example: 'The job rewards creativity more than speed.', exampleZh: '这份工作看重创意胜过速度。' },
+    { id: 'v16', word: 'chasing', lemma: 'chase', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/ˈtʃeɪsɪŋ/', defZh: '追逐；追寻', defEn: 'trying hard to reach or get something', example: 'He spent his twenties chasing one big idea.', exampleZh: '他二十多岁时一直在追寻一个大想法。' },
+    { id: 'v17', word: 'repeated', lemma: 'repeat', sentenceId: 's16', level: 2, pos: 'v.', ipa: '/rɪˈpiːtɪd/', defZh: '反复说；重复', defEn: 'said again and again', example: 'The crowd repeated the chant until the team scored.', exampleZh: '人群反复喊着口号，直到球队进球。' },
+    { id: 'v18', word: 'warmed up', lemma: 'warm up', sentenceId: 's17', level: 3, pos: 'phr. v.', ipa: '/wɔːmd ʌp/', defZh: '热身；预热（这里指"才刚开始使力"）', defEn: 'prepared by starting gently before the main effort', example: 'We have barely warmed up, so the best is still ahead.', exampleZh: '我们还几乎没热身，最精彩的还在后头。' },
+    { id: 'v19', word: 'proof', lemma: 'proof', sentenceId: 's21', level: 3, pos: 'n.', ipa: '/pruːf/', defZh: '证据；证明', defEn: 'something that shows a thing is true', example: 'The full stadium was proof of how popular she had become.', exampleZh: '满座的体育场证明了她有多受欢迎。' },
+    { id: 'v20', word: 'top', lemma: 'top', sentenceId: 's21', level: 1, pos: 'n.', ipa: '/tɒp/', defZh: '顶端；最高处', defEn: 'the highest point or position', example: 'After years of hard work, she reached the top of her field.', exampleZh: '经过多年努力，她登上了所在领域的顶峰。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '说"第一个做某事的人"：序数词后面接 to do',
+      pattern: 'the first / second / only + 名词 + to + 动词原形',
+      sentenceIds: ['s6', 's10'],
+      explanationZh: [
+        '中文常说"她们是第一个赢得这个奖的女团"，里面"赢得这个奖"是用来限定"第一个"的。英文表达这层意思时，最干净的写法是：the first 加名词，再接一个 to 加动词原形，让这个不定式直接说明"第一在哪件事上"。',
+        '看第 6 句：aespa became the first K-pop girl group ever to win this honor。to win this honor 紧跟在 group 后面，说明她们"第一"在哪：是在"赢得这个荣誉"这件事上。第 10 句 the first K-pop girl group to land six projects 完全同一个结构，只是把动作换成了 land。注意中间那个 ever 是用来加强"有史以来"的语气，可加可不加。',
+        '什么时候用：当你要强调某人或某事"率先、唯一、第二个"做了某件事时最顺，新闻标题、个人陈述、产品介绍里到处都是。它比写成两句（She was the first woman. She climbed it.）紧凑得多。',
+        '一个固定细节：to 后面永远是动词原形（win / land / reach），不能用过去式，也不能加 ing。哪怕整句讲的是过去发生的事，这个不定式本身也不变形。',
+      ],
+      examples: [
+        { en: 'She was the first person in her family to finish university.', zh: '她是家里第一个读完大学的人。', note: 'to finish 用原形，即使这件事发生在过去也不变。' },
+        { en: 'This is the only café in town to open before six.', zh: '这是镇上唯一一家六点前开门的咖啡馆。' },
+        { en: 'He became the second player ever to score in four finals.', zh: '他成为有史以来第二个在四场决赛中都进球的球员。' },
+        { en: 'They were the first team to reach the summit without oxygen.', zh: '他们是第一支不带氧气登顶的队伍。' },
+        { en: 'Our school is the first in the region to teach the new course.', zh: '我们学校是本地区第一个开设这门新课程的学校。' },
+      ],
+      commonMistake: '不要写成 the first group winning this honor 或 the first group won this honor。"第一个做某事"要用 to win 这个不定式，不能用 winning，也不能直接接一个完整的过去式句子。',
+    },
+    {
+      id: 'g2',
+      title: '用 said (that) 把别人的话转述出来',
+      pattern: '主语 + said (that) + 一个完整句子',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '想把别人说过的话写进文章，有两种办法。一种是原话照搬，加引号（直接引语）；另一种是用自己的话复述，不加引号，这叫"间接引语"，最常见的引导词就是 said。',
+        '看第 15 句：She said the members wanted to cheer on every woman who is chasing a dream。这里没有引号，作者把 Giselle 的话"翻译"成了第三人称的叙述：主语 the members、动词 wanted。said 后面其实省略了一个 that（She said that the members…），口语和新闻里这个 that 经常省掉。',
+        '什么时候用：当你不需要逐字还原、只想把信息交代清楚时，间接引语更顺，也更适合融进段落。报道里"某人表示……""某人说……"几乎都用它。如果那句话本身很有力、想原汁原味保留，才用直接引语加引号（像第 17 句 Winter 那句）。',
+        '一个常被忽略的细节：用 said 转述时，从句里的动词常常要往过去"退一格"（want 变 wanted），因为说话这个动作已经发生在过去。这叫时态后移，是间接引语最容易出错的地方。',
+      ],
+      examples: [
+        { en: 'The coach said the team was ready for the final.', zh: '教练说球队已经为决赛做好了准备。', note: 'said 后省略了 that；is 退格成 was。' },
+        { en: 'She said she had never seen a crowd that large.', zh: '她说她从没见过那么大的人群。' },
+        { en: 'They said the new album would arrive in the spring.', zh: '他们说新专辑将在春天问世。' },
+        { en: 'He said that he was proud of how far the group had come.', zh: '他说他为这个组合走到今天感到骄傲。' },
+        { en: 'The company said it planned to add shows in two more cities.', zh: '公司表示，计划在另外两座城市加场。' },
+      ],
+      vsSimilar: '直接引语保留原话和引号（She said, "We are warmed up."），力度强、有现场感；间接引语用自己的话复述、动词常退格（She said they were warmed up.），更适合顺进叙述。原话精彩就直接引，只需信息就间接转述。',
+    },
+    {
+      id: 'g3',
+      title: '用 still 让步：先承认，再轻轻一转',
+      pattern: '(让步的事实). Still, (你真正想说的).',
+      sentenceIds: ['s19', 's20'],
+      explanationZh: [
+        '写文章时，我们常常想先退一步承认对方有理，再说出自己的重点。中文是"奖项确实不能创造音乐……不过，这个奖意义重大"。英文里把这个"不过"单独拎出来、放在句首并加逗号的小词，就是 Still。',
+        '看第 19 到 20 句：Awards do not make the music, and aespa knows that. Still, this one mattered。前一句先大方承认"奖不等于音乐本身"，Still 起头的短句立刻把话锋拉回作者真正想强调的点。Still 单独成句、后面加逗号，读起来有一个明显的停顿和转折。',
+        '什么时候用：议论文里先让步再反驳的段落最爱用它。先承认一个看似不利于自己的事实，会让你接下来的观点显得更公允、更可信，而不是一味自说自话。',
+        '一个语气上的细节：Still 比 But 更书面、更克制，也比 However 更简短利落。它的意思接近"尽管如此"，常用在你已经点头同意了一半、却仍要坚持立场的时候。',
+      ],
+      examples: [
+        { en: 'The tickets were expensive. Still, the hall sold out in an hour.', zh: '票价很贵。不过，大厅还是在一小时内售罄。', note: 'Still 单独起句、后加逗号，先承认"贵"，再转到"仍然售罄"。' },
+        { en: 'We lost the first game. Still, the season was far from over.', zh: '我们输了首场比赛。尽管如此，赛季还远未结束。' },
+        { en: 'The plan had real risks. Still, doing nothing felt worse.', zh: '这个计划确有风险。不过，什么都不做感觉更糟。' },
+        { en: 'She knew the odds were low. Still, she sent the application.', zh: '她知道希望渺茫。尽管如此，她还是递交了申请。' },
+      ],
+      commonMistake: '不要把 Still 当成"仍然不动"的副词塞进句中（如 The hall still sold out 意思就变了）。这里的让步用法要让 Still 独立放在句首、后面加逗号，才表示"尽管如此"。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇定场：用"在某时某地，某人做了一件要紧事"把读者带进现场',
+      skeleton: 'On a [时间] in [时间], [主语] [一个具体、有分量的动作] [地点].',
+      original: 'On a Saturday night in March 2025, aespa walked onto a stage near Los Angeles.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头不急着抛观点，而是先把"时间 + 地点 + 一个具体动作"摆出来，像电影的第一个镜头。读者一上来就站在了现场：一个周六晚上，洛杉矶附近，有人正走上舞台。具体的画面比抽象的总结更容易让人读下去。',
+        '它对读者的隐性承诺是：这件事值得当成一个"场面"来讲。把时间地点写得这么细，等于告诉读者"接下来会有事发生"，于是读者愿意继续读，想知道这个夜晚到底发生了什么。',
+        '它最适合做新闻特写、人物故事、回忆性文章的第一句。先用一句定场，再在第二、三句揭示这件事的分量（文中紧接着就点出这是 Billboard 大典、aespa 拿了年度组合），节奏稳，不突兀。',
+        '一个隐藏要点：句尾那个动作要尽量"可见"，walked onto a stage 能看见，is important 看不见。动词越具体、越有画面感，定场的效果越好。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'On a cold morning in January, a young teacher unlocked an empty classroom for the first time.', zh: '一月一个寒冷的清晨，一位年轻教师第一次打开了一间空教室的门。' },
+        { context: '新闻特写开头', text: 'On a quiet Sunday in spring, hundreds of readers lined up outside a small bookshop.', zh: '春天一个安静的周日，数百名读者在一家小书店外排起了长队。', note: '先给出时间地点和一个可见的动作，悬念自然产生。' },
+        { context: '回忆性随笔开头', text: 'On a summer evening in 2019, my grandfather taught me how to read a map by the light of the porch.', zh: '2019 年夏天的一个傍晚，我祖父借着门廊的灯光教我怎么看地图。' },
+      ],
+      adaptingTip: '时间和地点要具体到能让人想象（a Saturday night、near Los Angeles），别写成 one day、somewhere 这种空话。句尾的动作选一个"看得见"的动词（walked / unlocked / lined up），避免用 was important、felt special 这类抽象状态。这是开篇用的，别放在中间段落。',
+      commonMistake: '不要把定场句写成抽象总结：On a day in March, aespa had a very important moment.（had a moment 看不见，画面感全无）。要换成一个具体可见的动作，定场才立得住。',
+    },
+    {
+      id: 'pt2',
+      useCase: '点亮一个里程碑：用"第一个做某事的 X"把成就说得有分量',
+      skeleton: '[主语] became the first [类别] ever to [动作].',
+      original: 'aespa became the first K-pop girl group ever to win this honor.',
+      sentenceId: 's6',
+      whyItWorks: [
+        '这个句式的力量全在 the first…ever to… 这几个字上。它把一个普通的成就（赢了个奖）放进了"历史第一"的框里，瞬间抬高了分量。读者读到 first ever，会自动意识到"这事以前没人做到过"，于是更愿意记住它。',
+        '它对读者的隐性承诺是客观可查："第一个"是一个事实陈述，不是作者在夸张。正因为它听起来像可以核实的纪录，而不是空洞的赞美，读者反而更信。比起 aespa is amazing，the first…ever to win 有重量得多。',
+        '它适合放在文章开头不久、或一个段落的主句位置，用来立住"为什么这件事值得写"。文中第 6 句正是用它把"拿奖"升级成"破纪录"，为后文罗列其他成就定了调。',
+        '一个隐藏要点：横线后面接的 [类别] 要够具体（K-pop girl group，而不是 group），范围越精确，"第一"才越真实可信；范围太大，读者会怀疑你在偷换概念。',
+      ],
+      examples: [
+        { context: '体育报道', text: 'She became the first woman ever to win the race three years running.', zh: '她成为有史以来第一个连续三年赢得这场比赛的女性。' },
+        { context: '科技新闻开头', text: 'The startup became the first company in the country to run entirely on solar power.', zh: '这家初创公司成为全国第一家完全依靠太阳能运转的企业。', note: '把类别限定到 in the country，"第一"才站得住脚。' },
+        { context: '个人陈述', text: 'I became the first student in my school ever to enter the national debate final.', zh: '我成为我们学校有史以来第一个闯入全国辩论决赛的学生。' },
+      ],
+      adaptingTip: '[类别] 一定要划得足够窄、足够明确（the first K-pop girl group、the first student in my school），范围越具体，"第一"越可信。动作用 to 加原形（to win / to run / to enter），不要写成 winning。ever 可加可不加，加了语气更重，但别滥用到每句都有。',
+    },
+    {
+      id: 'pt3',
+      useCase: '结尾留声：把当事人一句简短有力的话直接当作收束',
+      skeleton: '"[一句短话]," [主语] said. "[再一句短话]."',
+      original: '"This is just the beginning," she said. "We\'re just getting warmed up."',
+      sentenceId: 's17',
+      whyItWorks: [
+        '到了段落或文章接近收尾的地方，与其作者自己总结，不如直接放当事人的一句原话。引号里的话有现场感和体温，读者像是亲耳听到，比转述更有力。文中 Winter 这两句短话，就是用人物自己的声音收住了这一段。',
+        '它的节奏感来自"短"。两句都很短，中间用 she said 隔开，读起来一停一顿，像真的有人在讲。如果原话很长很绕，这个效果就没了；越短、越口语，越像金句。',
+        '它最适合放在人物故事、采访稿、特写的段落结尾，用一句掷地有声的原话替作者把情绪顶上去。作者退到幕后，把舞台交给当事人，反而显得克制而有分量。',
+        '一个隐藏要点：选来收尾的那句话本身要能"立住"，最好有点态度或前瞻性（just the beginning、getting warmed up 都指向未来）。如果原话平淡无奇，直接引出来反而泄气，不如不引。',
+      ],
+      examples: [
+        { context: '采访稿段落收尾', text: '"We did not come here to be safe," the director said. "We came here to try something new."', zh: '「我们来这儿不是为了求稳，」导演说。「我们是来尝试新东西的。」' },
+        { context: '人物特写结尾', text: '"I still get nervous," she said. "That is how I know I still care."', zh: '「我现在还是会紧张，」她说。「正因如此，我才知道自己依然在乎。」', note: '两句都短，态度鲜明，用人物自己的声音收尾比作者总结更有力。' },
+        { context: '赛后报道', text: '"This is one game," the captain said. "The real test starts next week."', zh: '「这只是一场比赛，」队长说。「真正的考验下周才开始。」' },
+      ],
+      adaptingTip: '挑来收尾的原话要短、要有态度或指向未来，别引一句平淡的事实陈述。标点要稳：引号内的话以逗号收尾再接 she said（"…," she said），第二句单独成句。两句都控制在十来个词内，金句感才出得来。',
+      commonMistake: '不要引一句又长又平的话来收尾（"I think we worked very hard this year and everyone did their best," she said.）。这种话没有锋芒，直接引出来会让结尾松垮；要么删到很短，要么干脆改成间接转述。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What award did aespa receive at Billboard Women in Music 2025?', options: ['Song of the Year', 'Group of the Year', 'Best New Artist', 'Woman of the Year'], answer: 1, explanation: 'The article says aespa was named Group of the Year at the event.', sentenceId: 's3' },
+    { id: 'q2', q: 'Why was aespa\'s win described as a milestone?', options: ['They were the youngest group to win', 'They were the first K-pop girl group ever to win this honor', 'They won it twice in a row', 'They were the only group nominated'], answer: 1, explanation: 'The article states aespa became the first K-pop girl group ever to win this honor.', sentenceId: 's6' },
+    { id: 'q3', q: 'According to the article, the award mainly recognized aespa for', options: ['a single viral video', 'their work as actors', 'their biggest year yet, including the album and a growing world tour', 'a charity project'], answer: 2, explanation: 'The article links the award to aespa\'s biggest year yet: the album "Armageddon", chart success, and a growing world tour.', sentenceId: 's8' },
+    { id: 'q4', q: 'What did Winter mean by "We\'re just getting warmed up"?', options: ['The group was tired and wanted to rest', 'The group felt their best work was still ahead', 'The stage was too cold', 'The group planned to stop touring'], answer: 1, explanation: 'Saying it was "just the beginning" and they were "getting warmed up" suggests they believe more is still to come.', sentenceId: 's17' },
+    { id: 'q5', q: 'How does the writer view the award in the final paragraph?', options: ['As meaningless because awards do not make music', 'As proof that a mostly Korean-singing girl group could reach the top of a global stage', 'As a sign that aespa would soon break up', 'As less important than the world tour'], answer: 1, explanation: 'The writer admits awards do not make the music, yet calls this one proof that the group could stand at the very top of a global stage.', sentenceId: 's21' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '颁奖活动的名称', answer: 'Billboard Women in Music', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: 'aespa 获得的奖项', answer: 'Group of the Year', sentenceId: 's3' },
+      { id: 'ig3', cueZh: 'aespa 2024 年首张正规专辑的名字', answer: 'Armageddon', sentenceId: 's9' },
+      { id: 'ig4', cueZh: '那张专辑的主打歌', answer: 'Supernova', sentenceId: 's9' },
+      { id: 'ig5', cueZh: '把奖杯递给 aespa 的演员', answer: 'Suki Waterhouse', sentenceId: 's12' },
+      { id: 'ig6', cueZh: '代表组合领奖发言的成员', answer: 'Giselle', sentenceId: 's14' },
+      { id: 'ig7', cueZh: '当晚收尾表演的歌曲（英文版）', answer: 'Whiplash', sentenceId: 's18' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，介绍 aespa 这次拿下 Billboard「年度组合」为什么是一座里程碑：是什么奖、为什么特别、她们说了什么。',
+      promptEn: 'Using the facts in your table, write about 70 words on why aespa\'s Billboard Group of the Year win was a milestone: what the award was, why it was special, and what they said.',
+      targetWords: 70,
+      starters: ['On a Saturday night in March 2025, ...', 'aespa became the first ...'],
+      usePatternIds: ['pt1', 'pt2', 'pt3'],
+      modelAnswer:
+        'On a Saturday night in March 2025, aespa was named Group of the Year at Billboard Women in Music. The group became the first K-pop girl group ever to win this honor, after a huge year built on the album "Armageddon" and its lead song "Supernova". "This is just the beginning," Winter said. "We\'re just getting warmed up." For a group singing mostly in Korean, it was proof they could reach the top.',
+      modelAnswerZh:
+        '2025 年 3 月的一个周六夜晚，aespa 在 Billboard「乐坛女性」典礼上被评为「年度组合」。这个组合成为有史以来第一个赢得这一荣誉的 K-pop 女团，此前她们刚经历了以专辑《Armageddon》和主打歌《Supernova》撑起的辉煌一年。「这只是开始，」Winter 说。「我们才刚刚热身。」对一个主要用韩语演唱的组合来说，这证明了她们能够登上顶峰。',
+    },
+  },
+};

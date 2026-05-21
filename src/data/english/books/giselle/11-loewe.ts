@@ -1,0 +1,253 @@
+// Giselle book, Ch.11: Giselle becomes a global ambassador for the luxury house LOEWE (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-03-01',
+    title: 'Giselle Becomes the Face of LOEWE',
+    titleZh: '一个偶像，怎样成了奢侈品的脸',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/giselle/11-loewe.mp3',
+    wordCount: 353,
+    readingMinutes: 4,
+    editorsNote:
+      'On the same day she sat front row in Paris, Giselle was named a global ambassador for a 178-year-old Spanish house. This chapter follows how a K-pop rapper becomes the face of a luxury brand, and what that win belongs to her alone.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On March 1, 2024, Giselle sat in the front row at a fashion show in Paris.', zh: '2024 年 3 月 1 日，Giselle 坐在巴黎一场时装秀的前排。' },
+        { id: 's2', en: 'Around her were famous actors and designers from many countries.', zh: '她周围坐着来自许多国家的著名演员和设计师。' },
+        { id: 's3', en: 'That same day, she was named a global ambassador for LOEWE, a Spanish luxury fashion house.', zh: '同一天，她被任命为西班牙奢侈时装品牌 LOEWE 的全球代言人。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'LOEWE is not a new name.', zh: 'LOEWE 并不是一个新名字。' },
+        { id: 's5', en: 'It was founded in 1846 as a small group of leather workers in Madrid.', zh: '它于 1846 年作为马德里一小群皮革工匠的作坊创立。' },
+        { id: 's6', en: 'For more than 170 years, the house has been known for bags and shoes made by hand.', zh: '一百七十多年来，这个品牌一直以手工制作的包袋和鞋履而闻名。' },
+        { id: 's7', en: 'To become its face is a real honor, and the brand does not give that title to just anyone.', zh: '成为它的形象代言是一份真正的荣誉，而这个品牌不会把这个头衔随便给任何人。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'Giselle was born in Seoul and grew up in Tokyo, with a Korean mother and a Japanese father.', zh: 'Giselle 在首尔出生，在东京长大，母亲是韩国人，父亲是日本人。' },
+        { id: 's9', en: 'In aespa she is the main rapper, but in fashion she has built a name of her own.', zh: '在 aespa 里她是主 rapper，但在时尚界她为自己闯出了一片天。' },
+        { id: 's10', en: 'An ambassador is someone a brand chooses to represent it in public.', zh: '代言人是品牌选来在公开场合代表它的人。' },
+        { id: 's11', en: 'Since 2024 she has worn LOEWE on red carpets and appeared in its photo campaigns.', zh: '从 2024 年起，她在红毯上身穿 LOEWE，并出现在它的广告大片里。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'One of those campaigns was shot in Seoul for the Spring/Summer 2026 collection.', zh: '其中一组大片是在首尔为 2026 春夏系列拍摄的。' },
+        { id: 's13', en: 'The photos followed her through quiet rooms and busy streets, a bag always close to her hand.', zh: '照片跟随她穿过安静的房间和热闹的街道，手边总有一只包。' },
+        { id: 's14', en: 'The idea was simple: this is a young woman who is always on the move.', zh: '想法很简单：这是一个总是在路上的年轻女性。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's15', en: 'Why would an old European house choose a K-pop idol?', zh: '一个古老的欧洲品牌为什么会选择一位 K-pop 偶像？' },
+        { id: 's16', en: 'The answer is reach.', zh: '答案是影响力的覆盖面。' },
+        { id: 's17', en: 'Idols like Giselle have millions of fans around the world, and those fans pay close attention to what they wear.', zh: '像 Giselle 这样的偶像在全世界拥有数百万粉丝，而这些粉丝会密切关注他们穿什么。' },
+        { id: 's18', en: 'A single photo can send young buyers to a brand that once felt far away.', zh: '一张照片就能把年轻的消费者带向一个曾经感觉遥不可及的品牌。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'It is one thing to wear nice clothes for a photo. It is another to stand for a house built on craft.', zh: '为一张照片穿上漂亮衣服是一回事，代表一个建立在手艺之上的品牌则是另一回事。' },
+        { id: 's20', en: 'In May 2026, Giselle traveled to Singapore for the LOEWE craft prize, an award that honors artists who work with their hands.', zh: '2026 年 5 月，Giselle 前往新加坡出席 LOEWE 工艺大奖，这是一个表彰用双手创作的艺术家的奖项。' },
+        { id: 's21', en: 'Outside the gallery, hundreds of fans waited just to see her.', zh: '在美术馆外，数百名粉丝只为见她一面而等候。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's22', en: 'Fashion deals like this one are not given to a group. They are given to a single person.', zh: '像这样的时尚合作不是给一个团体的。它们是给某一个人的。' },
+        { id: 's23', en: 'aespa made Giselle known, but the LOEWE title is hers, not the four of theirs.', zh: 'aespa 让 Giselle 为人所知，但 LOEWE 这个头衔是她个人的，而不是四个人共同的。' },
+        { id: 's24', en: 'When a brand this old picks one young face, it is saying that face will last.', zh: '当一个如此古老的品牌挑中一张年轻的脸，它其实是在说，这张脸会长久。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'famous', lemma: 'famous', sentenceId: 's2', level: 1, pos: 'adj.', ipa: '/ˈfeɪməs/', defZh: '著名的；出名的', defEn: 'known by very many people', example: 'The street is famous for its old bookshops.', exampleZh: '这条街以它的老书店而闻名。' },
+    { id: 'v2', word: 'ambassador', lemma: 'ambassador', sentenceId: 's3', level: 4, pos: 'n.', ipa: '/æmˈbæsədə(r)/', defZh: '代言人；形象大使', defEn: 'a person chosen to represent a brand or country', example: 'The runner became an ambassador for a sportswear label.', exampleZh: '这位跑者成了一个运动服品牌的代言人。' },
+    { id: 'v3', word: 'luxury', lemma: 'luxury', sentenceId: 's3', level: 3, pos: 'adj.', ipa: '/ˈlʌkʃəri/', defZh: '奢侈的；高档的', defEn: 'very expensive and of high quality', example: 'They saved for a year to buy one luxury watch.', exampleZh: '他们存了一年钱才买了一块高档手表。' },
+    { id: 'v4', word: 'founded', lemma: 'found', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/ˈfaʊndɪd/', defZh: '创立；建立', defEn: 'started, said of a company or group', example: 'The school was founded by two local teachers.', exampleZh: '这所学校是由两位本地教师创立的。' },
+    { id: 'v5', word: 'leather', lemma: 'leather', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ˈleðə(r)/', defZh: '皮革', defEn: 'material made from animal skin', example: 'The jacket is made of soft brown leather.', exampleZh: '这件夹克是用柔软的棕色皮革制成的。' },
+    { id: 'v6', word: 'honor', lemma: 'honor', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/ˈɒnə(r)/', defZh: '荣誉；光荣', defEn: 'something that makes you proud', example: 'It was an honor to speak at the ceremony.', exampleZh: '能在典礼上发言是一种荣誉。' },
+    { id: 'v7', word: 'title', lemma: 'title', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/ˈtaɪtl/', defZh: '头衔；称号', defEn: 'a name given to mark a role or honor', example: 'She earned the title of team captain this season.', exampleZh: '这个赛季她赢得了队长的头衔。' },
+    { id: 'v8', word: 'represent', lemma: 'represent', sentenceId: 's10', level: 3, pos: 'v.', ipa: '/ˌreprɪˈzent/', defZh: '代表；代理', defEn: 'to act or speak for someone or something', example: 'Two students were chosen to represent the school.', exampleZh: '两名学生被选出代表学校。' },
+    { id: 'v9', word: 'campaigns', lemma: 'campaign', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/kæmˈpeɪnz/', defZh: '（广告）宣传活动；大片', defEn: 'planned sets of advertisements', example: 'The brand ran two ad campaigns before the holidays.', exampleZh: '这个品牌在假期前推出了两轮广告大片。' },
+    { id: 'v10', word: 'collection', lemma: 'collection', sentenceId: 's12', level: 2, pos: 'n.', ipa: '/kəˈlekʃn/', defZh: '（时装）系列', defEn: 'a set of clothes released together by a brand', example: 'The designer showed her summer collection in June.', exampleZh: '这位设计师在六月发布了她的夏季系列。' },
+    { id: 'v11', word: 'on the move', lemma: 'on the move', sentenceId: 's14', level: 3, pos: 'phr.', ipa: '/ɒn ðə muːv/', defZh: '在路上；忙个不停', defEn: 'busy and moving from place to place', example: 'A news reporter is always on the move.', exampleZh: '新闻记者总是在四处奔忙。' },
+    { id: 'v12', word: 'idol', lemma: 'idol', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/ˈaɪdl/', defZh: '偶像（艺人）', defEn: 'a famous singer or performer fans admire', example: 'The young idol thanked her fans on stage.', exampleZh: '这位年轻偶像在台上感谢了她的粉丝。' },
+    { id: 'v13', word: 'reach', lemma: 'reach', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/riːtʃ/', defZh: '影响范围；触达面', defEn: 'how many people something can affect', example: 'A short video can have a huge reach online.', exampleZh: '一段短视频在网上能有巨大的触达面。' },
+    { id: 'v14', word: 'attention', lemma: 'attention', sentenceId: 's17', level: 2, pos: 'n.', ipa: '/əˈtenʃn/', defZh: '注意；关注', defEn: 'careful watching or thinking about something', example: 'The story drew a lot of attention online.', exampleZh: '这个故事在网上引起了很多关注。' },
+    { id: 'v15', word: 'buyers', lemma: 'buyer', sentenceId: 's18', level: 2, pos: 'n.', ipa: '/ˈbaɪəz/', defZh: '买家；消费者', defEn: 'people who buy things', example: 'Young buyers prefer to shop on their phones.', exampleZh: '年轻消费者更喜欢用手机购物。' },
+    { id: 'v16', word: 'craft', lemma: 'craft', sentenceId: 's19', level: 3, pos: 'n.', ipa: '/krɑːft/', defZh: '手艺；工艺', defEn: 'skilled work made by hand', example: 'Making a violin is a slow and careful craft.', exampleZh: '制作小提琴是一门缓慢而细致的手艺。' },
+    { id: 'v17', word: 'honors', lemma: 'honor', sentenceId: 's20', level: 2, pos: 'v.', ipa: '/ˈɒnəz/', defZh: '表彰；致敬', defEn: 'to show public respect for someone', example: 'The city honors a local hero every spring.', exampleZh: '这座城市每年春天都会表彰一位本地英雄。' },
+    { id: 'v18', word: 'gallery', lemma: 'gallery', sentenceId: 's21', level: 3, pos: 'n.', ipa: '/ˈɡæləri/', defZh: '美术馆；画廊', defEn: 'a building where art is shown', example: 'We spent the afternoon in a small art gallery.', exampleZh: '我们在一家小美术馆里度过了一个下午。' },
+    { id: 'v19', word: 'last', lemma: 'last', sentenceId: 's24', level: 1, pos: 'v.', ipa: '/lɑːst/', defZh: '持续；长久存在', defEn: 'to continue over a long time', example: 'Good shoes should last for many years.', exampleZh: '好鞋子应该能穿很多年。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '把"谁做的"藏起来，让"被怎样了"站到前面',
+      pattern: 'be 动词 + 过去分词（被动语态）',
+      sentenceIds: ['s3', 's5', 's12'],
+      explanationZh: [
+        '中文常说"品牌任命她当代言人"，主语是"品牌"。但有时我们更想突出的是"她"，而不是"谁做了这件事"。英文里这时常用被动语态：be 动词加过去分词。它把原来的宾语提到句首，让动作的承受者成为焦点。',
+        '看第 3 句：she was named a global ambassador。作者没有写 LOEWE named her，因为这一段的主角是 Giselle，不是公司。把她放在句首，读者的注意力就一直停在她身上。第 5 句 It was founded in 1846、第 12 句 One of those campaigns was shot in Seoul 也是同理：谁创立、谁拍摄并不重要，重要的是"这件事被做了"。',
+        '什么时候用它：当动作的执行者不重要、不知道、或者你想刻意淡化时最好用。新闻报道里尤其常见，因为读者更关心"发生了什么"，而不是"具体哪家公司做的"。',
+        '一个容易出错的细节：be 动词要和主语、时态对上。过去用 was / were，现在用 is / are，完成时用 has / have been。第 6 句 has been known 就是现在完成时的被动，表示"一直以来被认作"。',
+      ],
+      examples: [
+        { en: 'The bridge was built more than a hundred years ago.', zh: '这座桥建于一百多年前。', note: '谁建的不重要，重点是"桥被建起来了"，所以用被动。' },
+        { en: 'She was chosen from over two hundred singers.', zh: '她是从两百多名歌手中被选出来的。' },
+        { en: 'The award is given to one artist each year.', zh: '这个奖每年颁给一位艺术家。' },
+        { en: 'My phone was repaired in less than an hour.', zh: '我的手机不到一个小时就修好了。' },
+        { en: 'These shoes are still made by hand in a small town.', zh: '这些鞋至今仍在一个小镇里手工制作。', note: 'are made 是现在时被动，说明"如今仍然这样被制作"。' },
+      ],
+      commonMistake: '不要写成 She was name an ambassador 或 It was found in 1846。被动语态里动词必须用过去分词：named（不是 name）、founded（不是 found，注意 found 在这里是 found-founded-founded，不是"发现"那个 find）。',
+      vsSimilar: '主动句 LOEWE named her 强调"谁做的"；被动句 She was named 强调"她被怎样了"。先想清楚这一句你要让读者盯着谁，再决定用哪种。',
+    },
+    {
+      id: 'g2',
+      title: '用 who / that / where 给名词补一段"它是什么样的"',
+      pattern: '名词 + who / that / where + 一整句说明',
+      sentenceIds: ['s10', 's18', 's20'],
+      explanationZh: [
+        '想给一个名词加一段说明，而这段说明本身又是一个完整的小句子时，可以用关系代词把它接上去。指人用 who，指物用 that 或 which，指地点用 where。这样一来，名词和它的说明就连成一句，不必拆成两句。',
+        '看第 10 句：someone a brand chooses to represent it。someone 后面跟着一整句 a brand chooses to represent it，告诉你"代言人"到底是什么样的人。第 18 句 a brand that once felt far away、第 20 句 an award that honors artists 也是一样：that 引导的部分专门用来界定前面那个名词。',
+        '什么时候用它：当你引入一个读者可能不熟的人、物或地点，又想顺手解释清楚时最好用。它能让一句话既给出名字、又给出定义，信息密度很高。',
+        '一个细节：如果关系代词在从句里做宾语，常常可以省略。第 10 句完整写法是 someone whom a brand chooses，但口语和新闻里通常把 whom / that 省掉，直接写 someone a brand chooses，读起来更自然。',
+      ],
+      examples: [
+        { en: 'A coach is someone who helps a team play better.', zh: '教练是帮助一支队伍打得更好的人。' },
+        { en: 'This is the café where we first met.', zh: '这就是我们第一次见面的那家咖啡馆。', note: '指地点用 where，后面接一整句说明"在这里发生了什么"。' },
+        { en: 'They sell a tool that fixes a flat tire in seconds.', zh: '他们卖一种几秒钟就能补好爆胎的工具。' },
+        { en: 'The book I lent you is on the table.', zh: '我借给你的那本书在桌上。', note: '从句宾语位置的关系代词被省略了：完整说法是 the book that I lent you。' },
+        { en: 'She works for a company that ships food to schools.', zh: '她在一家给学校配送食物的公司工作。' },
+      ],
+      commonMistake: '不要把人和物的关系词搞混：写 a person which... 是错的，指人要用 who；也不要写 an award honors artists（漏了 that），引入说明从句时关系词不能凭空丢掉，除非它在从句里做宾语。',
+    },
+    {
+      id: 'g3',
+      title: '用 not X, but Y 把对比一句说尽',
+      pattern: 'not [A], but [B]',
+      sentenceIds: ['s9', 's23'],
+      explanationZh: [
+        '想在一句话里同时说"不是这个，而是那个"，英文最利落的写法是 not 加上前一项，再用 but 接上后一项。两项放在同一个句子里，读者一眼就能看到你要否定什么、要肯定什么，对比非常清楚。',
+        '看第 9 句：in aespa she is the main rapper, but in fashion she has built a name of her own。这里用 but 把"团体里的角色"和"个人的成就"对照起来，强调后者。第 23 句更直接：the LOEWE title is hers, not the four of theirs。先给出肯定项 hers，再用 not 排除掉对立项，把"这是她个人的"说得斩钉截铁。',
+        '什么时候用它：当你想纠正一个常见误解，或想把读者的注意力从 A 拉到 B 时最好用。议论文里立论、个人陈述里强调"我真正在乎的是什么"，都很合适。',
+        '一个小提醒：not 和 but 后面接的两项，词性和结构最好对齐。两个都是名词（not a group, but a person）、两个都是形容词、或两个都是从句，对比才整齐；一个名词配一个完整句子会显得别扭。',
+      ],
+      examples: [
+        { en: 'The problem is not the cost, but the time it takes.', zh: '问题不在于花费，而在于它要花的时间。' },
+        { en: 'I came to listen, not to argue.', zh: '我是来倾听的，不是来争论的。', note: '两边都是不定式 to listen / to argue，结构对齐，对比才干净。' },
+        { en: 'She is remembered not for one big win, but for years of quiet work.', zh: '人们记住她，不是因为某一次大胜，而是因为多年来默默的付出。' },
+        { en: 'This is a guide for beginners, not for experts.', zh: '这是一本写给初学者的指南，不是给专家的。' },
+        { en: 'What matters is not how fast you start, but whether you finish.', zh: '重要的不是你起步多快，而是你是否能完成。' },
+      ],
+      commonMistake: '不要把两项写成不同结构，比如 not a group, but it is for a person。but 后面应当和 not 后面对齐，写成 not a group, but a person，两边都是名词短语才整齐。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '说明一个人或物已经"升级"：在团体里是 A，单独看又是 B',
+      skeleton: 'In [群体/场合] she is [角色 A], but in [另一场合] she has [个人成就 B].',
+      original: 'In aespa she is the main rapper, but in fashion she has built a name of her own.',
+      sentenceId: 's9',
+      whyItWorks: [
+        '这个句式的力量来自两个场合的并排。前半句把人放回她"已知的身份"（团体里的角色），后半句把镜头切到另一个场合，露出一个读者也许没注意到的"新身份"。一个 but 把两者钉在一起，落差就出来了。',
+        '对读者来说，前半句先给了一个安全、熟悉的锚点："对，她是那个 rapper"。正因为有这个锚点，后半句的"她还自己闯出了一片天"才显得有分量，而不是空夸。读者是被前半句带着走进后半句的。',
+        '它最适合用在人物介绍或人物特写的开头几句，尤其当你想说"别只用 A 来定义她，她还有 B"时。申请文书里写"我不只是某个身份"也很好用。',
+        '一个隐藏要点：两个场合要真的不同（团体 vs 个人、课堂 vs 球场、白天 vs 夜晚），对比才立得住。如果两个场合其实是一回事，这个 but 就没有支点。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'At school he is a quiet student, but online he has built a channel with thousands of viewers.', zh: '在学校里他是个安静的学生，但在网上他做出了一个拥有数千观众的频道。' },
+        { context: '申请文书', text: 'On the team I am the youngest player, but off the field I have led a study group for two years.', zh: '在队里我是最年轻的球员，但在场下我已经带了两年的学习小组。', note: '前半句给团体角色，后半句亮出个人成就，落差让"我"立体起来。' },
+        { context: '社区报道', text: 'In the kitchen she is one of many cooks, but in the neighborhood she has become the person everyone trusts.', zh: '在厨房里她只是众多厨师之一，但在这个社区里她成了大家都信赖的人。' },
+      ],
+      adaptingTip: '前半句的角色要选读者第一眼就会贴上的那个标签（团体里的、年纪上的、职位上的），后半句的成就要明显是"她自己挣来的、和那个标签无关的"。两个场合用 in / on / off 等地点或情境词点明，对比才清楚。这是开篇立人物用的，别放在结尾。',
+      commonMistake: '不要让后半句还停在同一身份里：In aespa she is the rapper, but in aespa she also sings.（还是团体内部，没有升级）。后半句必须跳到另一个场合、另一种身份。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把"看起来差不多的两件事"分出高下：一件容易，另一件难得多',
+      skeleton: 'It is one thing to [较易的事]. It is another to [更难的事].',
+      original: 'It is one thing to wear nice clothes for a photo. It is another to stand for a house built on craft.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个句式靠两句对称发力。两句开头几乎一模一样（It is one thing… / It is another…），唯一变的是后面那件事。结构越像，读者越会去比那点不同，于是"难度的台阶"被悄悄抬了出来。',
+        '对读者来说，第一句故意举一件听起来不难的事，让人点头："对，这没什么。"正因为先放低了，第二句把真正难的那件事端出来时，读者立刻感到了重量。这是一种先抑后扬的说服。',
+        '它最适合用在你想区分"表面功夫"和"真本事"的段落，议论文里反驳"这有什么难"时尤其有力。也可以用在个人陈述里，说明某段经历真正考验你的是什么。',
+        '一个细节：两件事的难度要拉开，第二件必须明显比第一件更需要功力、更需要承担。如果两件事其实一样容易，这个对照就成了废话。',
+      ],
+      examples: [
+        { context: '议论文反驳', text: 'It is one thing to start a club. It is another to keep it alive for three years.', zh: '创办一个社团是一回事，让它存活三年则是另一回事。' },
+        { context: '个人陈述', text: 'It is one thing to memorize the rules. It is another to use them when you are nervous.', zh: '记住规则是一回事，在你紧张的时候真正用上它们则是另一回事。', note: '第二件事明显更难，台阶一抬，前一件就显得轻了。' },
+        { context: '产品评论', text: 'It is one thing to make an app people download. It is another to make one they open every day.', zh: '做一个让人下载的应用是一回事，做一个让人每天都打开的应用则是另一回事。' },
+      ],
+      adaptingTip: '两句开头尽量保持完全一样（It is one thing to… / It is another to…），只换后面的动作，对称感才是力量来源。第一件事要选读者本能觉得"也就那样"的，第二件必须是真正的硬功夫，难度差越大越有说服力。中段或转折处用最佳。',
+      commonMistake: '不要让两件事难度相当：It is one thing to sing. It is another to perform.（两者差不多，读者看不出台阶）。第二件必须明显更重、更难。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾解读：当某个条件成立时，它其实"在说"一件更大的事',
+      skeleton: 'When [一个具体动作/条件], it is saying that [更大的含义].',
+      original: 'When a brand this old picks one young face, it is saying that face will last.',
+      sentenceId: 's24',
+      whyItWorks: [
+        '这个句式把"一个动作"翻译成"一句潜台词"。前半句用 When 给出一个具体、可观察的事实，后半句用 it is saying that 把这个事实背后的意思讲出来。读者跟着从"看到了什么"走到"这意味着什么"。',
+        '对读者来说，it is saying 这几个字像是替沉默的一方说话：品牌没明说，但它的选择本身就是一种表态。把动作拟人化成"在说话"，解读就有了底气，也更耐读。',
+        '它最适合放在文章或段落结尾，当你已经把事实摆完，想给读者一个"所以这到底说明了什么"的收束时用。评论、影评、人物特写的尾句都很合适。',
+        '一个隐藏要点：前半句的事实要够具体、够小（一个动作、一个选择、一个数字），后半句的含义才好往大里翻。如果前半句本身就很抽象，这个翻译就失去了支点。',
+      ],
+      examples: [
+        { context: '评论收尾', text: 'When a company keeps its smallest store open, it is saying that the neighborhood still matters.', zh: '当一家公司坚持开着它最小的那间门店，它其实是在说，这个社区依然重要。' },
+        { context: '人物特写结尾', text: 'When a teacher learns every student\'s name in a week, she is saying that each one is worth the effort.', zh: '当一位老师一周内记住每个学生的名字，她其实是在说，每一个人都值得用心。', note: '把一个小动作翻成一句态度，结尾就有了余味。' },
+        { context: '体育评论', text: 'When a veteran passes the ball instead of shooting, he is saying that the win matters more than his name.', zh: '当一位老将选择传球而不是投篮，他其实是在说，胜利比他的名气更重要。' },
+      ],
+      adaptingTip: 'When 后面一定要放一个具体、读者能想象出画面的动作或选择，别放空泛的状态。it is saying that 后面则要给一个更大、更有态度的解读，和全文呼应。这是收尾句，前文得先把事实铺好，这一句才接得住。',
+      commonMistake: '不要让后半句只是复述前半句：When a brand picks one face, it is saying it picked one face.（等于没解读）。it is saying 之后必须跳到一个更大的含义。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What happened to Giselle on March 1, 2024?', options: ['She left aespa', 'She was named a global ambassador for LOEWE', 'She opened her own fashion brand', 'She won a music award in Paris'], answer: 1, explanation: 'The article says that on the day of the Paris show, she was named a global ambassador for LOEWE.', sentenceId: 's3' },
+    { id: 'q2', q: 'What is LOEWE best known for, according to the article?', options: ['New technology', 'Bags and shoes made by hand', 'Pop music', 'Cars'], answer: 1, explanation: 'The article says the house has long been known for bags and shoes made by hand.', sentenceId: 's6' },
+    { id: 'q3', q: 'Why does the article say old fashion houses choose K-pop idols?', options: ['Because idols work for free', 'Because idols design the clothes', 'Because of their reach to millions of fans', 'Because idols live in Europe'], answer: 2, explanation: 'The article gives one answer, reach, and explains that idols have millions of fans who watch what they wear.', sentenceId: 's17' },
+    { id: 'q4', q: 'What does the trip to Singapore in May 2026 show about Giselle?', options: ['That she has stopped working with LOEWE', 'That she still represents the brand and its link to craft', 'That she now lives in Singapore', 'That she has joined a new group'], answer: 1, explanation: 'The article uses the craft prize trip to show she stands for a house built on craft, not just photos.', sentenceId: 's20' },
+    { id: 'q5', q: 'What is the main point of the last paragraph?', options: ['The LOEWE deal belongs to aespa as a group', 'The deal is personal to Giselle, and the brand expects her to last', 'aespa will soon break up', 'Giselle wants to leave fashion'], answer: 1, explanation: 'The closing lines stress that the title is hers alone and that the old brand is betting her face will last.', sentenceId: 's23' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'Giselle 被任命为代言人的日期', answer: 'March 1, 2024', sentenceId: 's3', prefilled: true },
+      { id: 'ig2', cueZh: '她代言的奢侈品牌名称', answer: 'LOEWE', sentenceId: 's3' },
+      { id: 'ig3', cueZh: 'LOEWE 创立的年份', answer: '1846', sentenceId: 's5' },
+      { id: 'ig4', cueZh: 'LOEWE 起家的城市', answer: 'Madrid', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '2026 春夏大片的拍摄城市', answer: 'Seoul', sentenceId: 's12' },
+      { id: 'ig6', cueZh: '老品牌选择偶像的原因（一个词）', answer: 'reach', sentenceId: 's16' },
+      { id: 'ig7', cueZh: '2026 年 5 月她出席工艺大奖的国家', answer: 'Singapore', sentenceId: 's20' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向朋友解释 Giselle 和 LOEWE 的合作：这是什么品牌、她做了什么、为什么这件事属于她个人。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining the Giselle and LOEWE partnership to a friend: what kind of brand it is, what she does, and why this win is hers alone.',
+      targetWords: 70,
+      starters: ['In aespa Giselle is the main rapper, but ...', 'When such an old brand picks one young face, ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'In aespa Giselle is the main rapper, but in fashion she has built a name of her own. On March 1, 2024, she was named a global ambassador for LOEWE, a Spanish house founded in 1846. She now wears LOEWE in campaigns shot in Seoul. When such an old brand picks one young face, it is saying that face will last, and this title is hers, not the group\'s.',
+      modelAnswerZh:
+        '在 aespa 里 Giselle 是主 rapper，但在时尚界她为自己闯出了一片天。2024 年 3 月 1 日，她被任命为 LOEWE 的全球代言人，这是一个创立于 1846 年的西班牙品牌。如今她在首尔拍摄的大片里身穿 LOEWE。当一个如此古老的品牌挑中一张年轻的脸，它其实是在说这张脸会长久，而这个头衔是她个人的，不是团体的。',
+    },
+  },
+};

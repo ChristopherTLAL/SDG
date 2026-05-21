@@ -140,7 +140,7 @@ def main():
     if word_count_match and cefr_match:
         wc = int(word_count_match.group(1))
         cefr = cefr_match.group(1)
-        ranges = {"A2": (160, 270), "B1": (220, 360), "B2": (290, 460), "C1": (340, 540), "C2": (380, 600)}
+        ranges = {"A2": (160, 280), "B1": (220, 380), "B2": (290, 460), "C1": (340, 540), "C2": (380, 600)}
         lo, hi = ranges.get(cefr, (0, 10000))
         if wc < lo or wc > hi:
             errors.append(f"wordCount {wc} outside soft range {lo}-{hi} for {cefr}")

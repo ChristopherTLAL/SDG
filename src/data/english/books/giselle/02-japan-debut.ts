@@ -1,0 +1,240 @@
+// Giselle book, Ch.2: aespa prepares its first Japanese mini album (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2026-05-06',
+    title: 'aespa Prepares Its First Japanese Album',
+    titleZh: '回到 Giselle 长大的地方',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/giselle/02-japan-debut.mp3',
+    wordCount: 290,
+    readingMinutes: 4,
+    editorsNote:
+      'A Japanese album is more than a translation. This chapter looks at why the move matters, and how Giselle, who grew up in Tokyo, helps the group feel at home there.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In May 2026, aespa shared exciting news for their fans in Japan.', zh: '2026 年 5 月，aespa 为日本的歌迷带来了一个令人兴奋的消息。' },
+        { id: 's2', en: 'The group will release their first Japanese mini album later in the year.', zh: '这个组合将在今年晚些时候发行她们的首张日文迷你专辑。' },
+        { id: 's3', en: 'SM Entertainment said the new music will arrive in the third quarter of 2026.', zh: 'SM 娱乐表示，这些新歌将在 2026 年第三季度问世。' },
+        { id: 's4', en: 'For many Japanese fans, this album has been a long time coming.', zh: '对许多日本歌迷来说，这张专辑等了很久。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's5', en: 'aespa is already very popular in Japan.', zh: 'aespa 在日本已经非常受欢迎。' },
+        { id: 's6', en: 'The group has performed there many times, and their songs often appear on Japanese charts.', zh: '这个组合在日本演出过很多次，她们的歌也常出现在日本排行榜上。' },
+        { id: 's7', en: 'A full Japanese album, however, is something new.', zh: '不过，一张完整的日文专辑还是头一回。' },
+        { id: 's8', en: 'It shows that the group wants to build a closer bond with its Japanese fans.', zh: '这说明组合想和日本歌迷建立更紧密的纽带。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's9', en: 'One member has a special connection to the country.', zh: '有一位成员与这个国家有着特别的联系。' },
+        { id: 's10', en: 'Giselle, the main rapper, was born to a Japanese father and a Korean mother.', zh: '主 rapper Giselle 的父亲是日本人，母亲是韩国人。' },
+        { id: 's11', en: 'She grew up in Tokyo and speaks Japanese as easily as she speaks Korean.', zh: '她在东京长大，说日语和说韩语一样轻松。' },
+        { id: 's12', en: 'In interviews, she often switches between the two languages without any trouble.', zh: '在采访中，她常常在两种语言之间毫不费力地切换。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's13', en: 'Because of this background, Giselle works as a natural bridge between aespa and Japan.', zh: '正因为这样的背景，Giselle 成了 aespa 与日本之间天然的桥梁。' },
+        { id: 's14', en: 'When she speaks Japanese on stage, the crowd answers with warm cheers.', zh: '当她在台上说日语时，观众会用热情的欢呼回应。' },
+        { id: 's15', en: 'Her roots help the whole group feel closer to local fans.', zh: '她的根脉让整个组合与当地歌迷感觉更亲近。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: "A Japanese album is also a smart step for the group's career.", zh: '对组合的事业来说，一张日文专辑也是明智的一步。' },
+        { id: 's17', en: 'Japan has one of the largest music markets in the world.', zh: '日本拥有世界上最大的音乐市场之一。' },
+        { id: 's18', en: 'Singing in Japanese lets aespa reach listeners who prefer songs in their own language.', zh: '用日语演唱让 aespa 能触及那些更喜欢听本国语言歌曲的听众。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'Fans are now guessing what the album will sound like.', zh: '歌迷们现在都在猜这张专辑会是什么样的声音。' },
+        { id: 's20', en: 'Will it bring brand new songs, or Japanese versions of old favorites?', zh: '它会带来全新的歌曲，还是旧爱曲目的日文版本？' },
+        { id: 's21', en: 'For now, the details remain a happy secret.', zh: '目前，这些细节仍是一个让人开心的秘密。' },
+        { id: 's22', en: 'What is clear is that aespa is not only visiting Japan. The group is making it a second home.', zh: '可以确定的是，aespa 不只是到访日本。这个组合正把它变成第二个家。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'shared', lemma: 'share', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/ʃeəd/', defZh: '分享；透露', defEn: 'told something to other people', example: 'She shared the good news with her whole family.', exampleZh: '她把好消息告诉了全家人。' },
+    { id: 'v2', word: 'release', lemma: 'release', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/rɪˈliːs/', defZh: '发行；发布', defEn: 'to make music or a film available to the public', example: 'The band will release a new song next month.', exampleZh: '乐队下个月将发行一首新歌。' },
+    { id: 'v3', word: 'arrive', lemma: 'arrive', sentenceId: 's3', level: 1, pos: 'v.', ipa: '/əˈraɪv/', defZh: '到来；问世', defEn: 'to come or appear', example: 'The package will arrive on Friday.', exampleZh: '包裹周五会到。' },
+    { id: 'v4', word: 'charts', lemma: 'chart', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/tʃɑːts/', defZh: '排行榜', defEn: 'lists ranking the most popular songs', example: 'Her song climbed the charts in just one week.', exampleZh: '她的歌一周内就冲上了排行榜。' },
+    { id: 'v5', word: 'bond', lemma: 'bond', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/bɒnd/', defZh: '纽带；情感联系', defEn: 'a close connection between people', example: 'Music can create a bond between strangers.', exampleZh: '音乐能在陌生人之间建立纽带。' },
+    { id: 'v6', word: 'connection', lemma: 'connection', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/kəˈnekʃn/', defZh: '联系；关联', defEn: 'a link or relationship', example: 'He has a strong connection to his hometown.', exampleZh: '他和家乡有很深的联系。' },
+    { id: 'v7', word: 'switches', lemma: 'switch', sentenceId: 's12', level: 2, pos: 'v.', ipa: '/ˈswɪtʃɪz/', defZh: '切换；转换', defEn: 'changes from one thing to another', example: 'She easily switches between work and study.', exampleZh: '她能轻松地在工作和学习之间切换。' },
+    { id: 'v8', word: 'trouble', lemma: 'trouble', sentenceId: 's12', level: 1, pos: 'n.', ipa: '/ˈtrʌbl/', defZh: '困难；麻烦', defEn: 'difficulty', example: 'He fixed the bike without any trouble.', exampleZh: '他毫不费力地修好了自行车。' },
+    { id: 'v9', word: 'bridge', lemma: 'bridge', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/brɪdʒ/', defZh: '桥梁（比喻）', defEn: 'something that connects two groups', example: 'A good teacher is a bridge between students and new ideas.', exampleZh: '好老师是学生与新观念之间的桥梁。' },
+    { id: 'v10', word: 'crowd', lemma: 'crowd', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/kraʊd/', defZh: '人群；观众', defEn: 'a large group of people together', example: 'The crowd cheered when the lights came on.', exampleZh: '灯亮起时观众欢呼起来。' },
+    { id: 'v11', word: 'cheers', lemma: 'cheer', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/tʃɪəz/', defZh: '欢呼声', defEn: 'loud shouts of support and joy', example: 'Loud cheers filled the stadium.', exampleZh: '响亮的欢呼声充满了体育场。' },
+    { id: 'v12', word: 'roots', lemma: 'root', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ruːts/', defZh: '根；出身根脉', defEn: "a person's family origins", example: 'She is proud of her family roots.', exampleZh: '她为自己的家族根脉感到自豪。' },
+    { id: 'v13', word: 'smart', lemma: 'smart', sentenceId: 's16', level: 1, pos: 'adj.', ipa: '/smɑːt/', defZh: '明智的；聪明的', defEn: 'showing good judgment', example: 'Saving money early is a smart choice.', exampleZh: '早点存钱是明智的选择。' },
+    { id: 'v14', word: 'markets', lemma: 'market', sentenceId: 's17', level: 2, pos: 'n.', ipa: '/ˈmɑːkɪts/', defZh: '市场', defEn: 'places or systems where things are bought and sold', example: 'China is one of the biggest markets for electric cars.', exampleZh: '中国是电动车最大的市场之一。' },
+    { id: 'v15', word: 'reach', lemma: 'reach', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/riːtʃ/', defZh: '触及；接触到', defEn: 'to get to or affect a group of people', example: 'The radio show reaches thousands of listeners.', exampleZh: '这档广播节目能触及成千上万的听众。' },
+    { id: 'v16', word: 'prefer', lemma: 'prefer', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/prɪˈfɜː(r)/', defZh: '更喜欢', defEn: 'to like one thing more than another', example: 'I prefer tea to coffee in the morning.', exampleZh: '早上我更喜欢喝茶而不是咖啡。' },
+    { id: 'v17', word: 'guessing', lemma: 'guess', sentenceId: 's19', level: 2, pos: 'v.', ipa: '/ˈɡesɪŋ/', defZh: '猜测', defEn: 'trying to give an answer without being sure', example: 'Stop guessing and read the instructions.', exampleZh: '别猜了，看看说明书。' },
+    { id: 'v18', word: 'remain', lemma: 'remain', sentenceId: 's21', level: 4, pos: 'v.', ipa: '/rɪˈmeɪn/', defZh: '仍然是；保持', defEn: 'to continue to be in the same state', example: 'After all these years, the rule remains the same.', exampleZh: '这么多年过去，规则依然没变。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 will 谈未来：计划、预测和承诺',
+      pattern: 'will + 动词原形',
+      sentenceIds: ['s2', 's3', 's20'],
+      explanationZh: [
+        '中文说"将要发行""会问世"时，时间还没到、事情还没发生。英文里表达这种"未来要发生的事"，最常用的就是 will 加动词原形。它既能说计划，也能说预测。',
+        '看第 2 句 The group will release their first Japanese mini album，这是一个已经定下来的计划；第 3 句 the new music will arrive 是对未来的陈述。两句都用 will，因为说话时这些事都还在前方。',
+        '什么时候用：宣布消息、做预测、给承诺时都好用，新闻里交代"接下来会怎样"几乎离不开它。注意 will 后面永远跟动词原形，不加 to，也不随主语变化。',
+        '想提问时，把 will 提到主语前面：第 20 句 Will it bring brand new songs...? 就是把 will 前置构成的疑问句。',
+      ],
+      examples: [
+        { en: 'The museum will open a new hall next spring.', zh: '这座博物馆明年春天将开放一个新展厅。' },
+        { en: 'I think prices will rise again this year.', zh: '我认为今年物价会再次上涨。', note: 'will 也可以表示"预测"，不一定是定好的计划。' },
+        { en: 'Do not worry, I will call you the moment I land.', zh: '别担心，我一落地就给你打电话。' },
+        { en: 'Will the team announce the date today?', zh: '球队今天会公布日期吗？' },
+        { en: 'She will study abroad after she finishes high school.', zh: '她高中毕业后将出国留学。' },
+      ],
+      commonMistake: '不要写成 The group will releases 或 will to release。will 后面只能跟光秃秃的动词原形：will release。',
+      vsSimilar: 'be going to 也表示未来。计划早已定好、有迹象时常用 be going to；当场决定、做预测或给承诺时更常用 will。',
+    },
+    {
+      id: 'g2',
+      title: '用 as ... as 说"和……一样"',
+      pattern: 'as + 形容词/副词 + as',
+      sentenceIds: ['s11'],
+      explanationZh: [
+        '想表达两件事"程度一样"，中文是"和……一样轻松"。英文用 as ... as 把形容词或副词夹在中间，例如 as easily as。',
+        '看第 11 句 She speaks Japanese as easily as she speaks Korean。中间夹的是副词 easily（多轻松），两个 as 之间放被比较的"程度"，后面再接被比较的对象。',
+        '什么时候用：强调"势均力敌""不相上下"时最自然，写人物、产品、能力对比都好用。中间放形容词还是副词，取决于你修饰的是名词还是动作。',
+        '否定形式 not as ... as 表示"不如……那么……"，比 less 更口语自然，例如 not as cold as yesterday。',
+      ],
+      examples: [
+        { en: 'This phone is almost as fast as a laptop.', zh: '这部手机几乎和笔记本电脑一样快。' },
+        { en: 'He can sing as well as he can dance.', zh: '他唱歌和跳舞一样在行。' },
+        { en: 'The test was not as hard as we expected.', zh: '这次考试没有我们想象的那么难。', note: 'not as...as 表示"不如……那么……"。' },
+        { en: 'She finished the work as quickly as her teacher had hoped.', zh: '她像老师期望的那样迅速地完成了工作。' },
+      ],
+      commonMistake: '中间要放形容词或副词的原级，不是比较级。写 as easily as，不要写 as more easily as。',
+    },
+    {
+      id: 'g3',
+      title: 'Because of + 名词：把原因浓缩成一个短语',
+      pattern: 'Because of + 名词（短语）',
+      sentenceIds: ['s13'],
+      explanationZh: [
+        '表达原因时，新手习惯用 Because 加一整句。但有时原因可以浓缩成一个名词短语，这时要用 Because of，后面接名词，不接句子。',
+        '看第 13 句 Because of this background, Giselle works as a natural bridge...。because of 后面是名词短语 this background，不是完整的句子。这样开头更紧凑，重点更快落到主句上。',
+        '什么时候用：原因已在前文说清、可以用一个名词概括时最好用（because of this, because of the rain）。如果原因需要一个带主谓的句子才能讲明白，就还用 because。',
+        '小心区分：because 后面跟句子（主语加动词），because of 后面跟名词。最常见的错误就是 because of 后面接了一整句。',
+      ],
+      examples: [
+        { en: 'Because of the storm, all flights were delayed.', zh: '由于这场风暴，所有航班都延误了。' },
+        { en: 'She succeeded because of her hard work, not luck.', zh: '她的成功靠的是努力，而不是运气。' },
+        { en: 'The match was stopped because of heavy rain.', zh: '比赛因大雨而中止。' },
+        { en: 'Because of you, I never gave up.', zh: '因为有你，我从未放弃。' },
+      ],
+      commonMistake: '不要写 Because of she has this background。because of 后面只能接名词；要接句子就把 of 去掉，用 Because she has...',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '表达"期待已久、终于要来了"的心情',
+      skeleton: 'For many [people], [this thing] has been a long time coming.',
+      original: 'For many Japanese fans, this album has been a long time coming.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式把"谁在等"和"等的是什么"一句话交代清楚，再用 a long time coming 这个固定说法点出"盼了好久"。它不直接喊"大家很激动"，而用"等了很久"侧面写出期待，反而更有分量。',
+        '对读者来说，has been ... coming 带着现在完成的味道，暗示这种等待一直延续到现在，情绪是积累起来的，不是突然冒出来的。读者会自然代入"终于等到了"的释然。',
+        '它适合放在新闻或文章靠前的位置，用来交代"为什么这件事值得关注"。先点明一群人长久的期待，后文再展开细节，读者就有了情感的入口。',
+        'a long time coming 是固定短语，重音在"盼了很久"。注意主语放被等待的事件（this album / this moment），不是人。',
+      ],
+      examples: [
+        { context: '写一项政策终于落地', text: 'For many small shop owners, this tax cut has been a long time coming.', zh: '对许多小店主来说，这次减税盼了很久。' },
+        { context: '体育报道开头', text: "For fans of the city's team, this championship has been a long time coming.", zh: '对这座城市球队的球迷来说，这个冠军等了太久。', note: '把"球迷"和"冠军"一句话连起来，情绪直接拉满。' },
+        { context: '个人随笔', text: 'For me, this apology has been a long time coming.', zh: '对我来说，这句道歉我等了很久。' },
+      ],
+      adaptingTip: '主语一定要放"被等待的那件事"（专辑、冠军、道歉），不要放人。前面的 For many... 用来圈定"谁在等"，群体越具体，画面感越强。这是开篇句，用来给全文定情绪基调。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用一个选择疑问句把读者的好奇心调动起来',
+      skeleton: 'Will it [option A], or [option B]?',
+      original: 'Will it bring brand new songs, or Japanese versions of old favorites?',
+      sentenceId: 's20',
+      whyItWorks: [
+        '在一段陈述里突然插入一个问句，节奏立刻变了：读者从"被告知"切换成"一起猜"。给出 A 还是 B 两个选项，又把这种好奇收束在一个具体范围里，不至于空泛。',
+        '对读者来说，这个问句其实替他们把心里的疑问说了出来。你没有给答案，于是悬念留在读者心里，他们更想读下去或自己去找答案。',
+        '它适合用在文章中后段，尤其当事情还没定论、留有悬念时。新闻特写、产品前瞻、影评预测都常用。一段里一个就够，多了会显得啰嗦。',
+        '两个选项最好是读者真的会纠结、势均力敌的可能，落差太大就失去了"猜"的乐趣。',
+      ],
+      examples: [
+        { context: '科技产品前瞻', text: 'Will the new phone keep the headphone jack, or follow the others and drop it?', zh: '新手机会保留耳机孔，还是像其他品牌一样取消它？' },
+        { context: '影评预测', text: 'Will the hero forgive her, or walk away for good?', zh: '主角会原谅她，还是就此彻底离开？' },
+        { context: '赛事前瞻', text: 'Will the veteran defend his title, or will a newcomer finally take it?', zh: '老将会卫冕，还是新人终于将其拿下？' },
+      ],
+      adaptingTip: '两个选项要是读者心里真会权衡的对立可能。问句尽量短，紧跟在相关陈述之后。别滥用，一篇里一两处即可，它的力量来自"稀缺"。',
+    },
+    {
+      id: 'pt3',
+      useCase: '下结论时强调"有一点是明确的"',
+      skeleton: 'What is clear is that [conclusion].',
+      original: 'What is clear is that aespa is not only visiting Japan.',
+      sentenceId: 's22',
+      whyItWorks: [
+        '前文如果列了不少不确定的东西（细节是秘密、众说纷纭），这个句式就像把镜头一收，告诉读者：别的先不管，有一件事是确定的。What is clear is that... 把"确定的那一点"郑重地推到台前。',
+        '对读者来说，What is clear 这几个字本身就是一种自信的姿态：作者在乱象里替你拎出了重点。读者会信任这句之后的判断。',
+        '它适合放在结尾或转折处，尤其前文充满"未知、猜测"时，用它来收束、给一个稳的落点。议论文、新闻评论、随笔结尾都好用。',
+        'is that 后面要接一个完整的句子（主语加动词）。What is clear is 之后通常跟 that 引导的从句，that 偶尔可省，但保留更清楚。',
+      ],
+      examples: [
+        { context: '评论文章收尾', text: 'What is clear is that this problem will not fix itself.', zh: '可以确定的是，这个问题不会自己解决。' },
+        { context: '科技评论', text: 'What is clear is that users care about privacy more than ever.', zh: '可以确定的是，用户比以往任何时候都更在意隐私。', note: '前文铺陈不确定后，用它给一个稳的判断。' },
+        { context: '赛后评论', text: 'What is clear is that the young team is no longer easy to beat.', zh: '可以确定的是，这支年轻的队伍已经不再好对付。' },
+      ],
+      adaptingTip: '用它之前，前文最好先有一些"不确定"的内容做铺垫，这样"有一点很清楚"的转折才有力。is that 后面接完整句子，放在段落或文章的收束位置最稳。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What did aespa announce in May 2026?', options: ['A world tour of Japan', 'Their first Japanese mini album', 'That Giselle was leaving', 'A new Korean album'], answer: 1, explanation: 'The article says the group will release their first Japanese mini album later in the year.', sentenceId: 's2' },
+    { id: 'q2', q: 'Why does Giselle have a special connection to Japan?', options: ['She studied music there', 'Her father is Japanese and she grew up in Tokyo', 'She was the first member to debut', 'She only speaks Japanese'], answer: 1, explanation: 'Giselle was born to a Japanese father and grew up in Tokyo.', sentenceId: 's10' },
+    { id: 'q3', q: "Why is a Japanese album a smart step for aespa?", options: ['Japanese is easier to sing', 'Japan has one of the largest music markets in the world', 'Korean fans asked for it', 'It costs less to make'], answer: 1, explanation: 'The article says Japan has one of the largest music markets, so singing in Japanese reaches more listeners.', sentenceId: 's17' },
+    { id: 'q4', q: 'What is still unknown about the album?', options: ['Whether it will be released', 'Its exact songs and details', 'Which company makes it', 'Whether Giselle is on it'], answer: 1, explanation: 'The article says the details remain a happy secret.', sentenceId: 's21' },
+    { id: 'q5', q: 'What is the writer saying in the final lines?', options: ['aespa is too busy', 'aespa is only a Korean group', 'aespa is building a deep, lasting place in Japan', 'aespa may stop touring'], answer: 2, explanation: 'The closing says aespa is not only visiting Japan but making it a second home.', sentenceId: 's22' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '新专辑的类型（迷你专辑等）', answer: 'mini album', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '新歌将问世的时间（季度）', answer: 'third quarter', sentenceId: 's3' },
+      { id: 'ig3', cueZh: 'Giselle 在组合里的角色', answer: 'main rapper', sentenceId: 's10' },
+      { id: 'ig4', cueZh: 'Giselle 成长的城市', answer: 'Tokyo', sentenceId: 's11' },
+      { id: 'ig5', cueZh: 'aespa 想和日本歌迷建立的东西', answer: 'a closer bond', sentenceId: 's8' },
+      { id: 'ig6', cueZh: '日本音乐市场的规模', answer: 'one of the largest', sentenceId: 's17' },
+      { id: 'ig7', cueZh: '目前专辑细节的状态', answer: 'a happy secret', sentenceId: 's21' },
+    ],
+    writing: {
+      promptZh: '用表格里的信息，写一段约 60 词的短文，向朋友介绍 aespa 的日本新专辑：要发什么、Giselle 和日本的渊源、为什么这是明智的一步。',
+      promptEn: "Using the facts in your table, write about 60 words telling a friend about aespa's new Japanese album: what is coming, Giselle's link to Japan, and why it is a smart move.",
+      targetWords: 60,
+      starters: ['For many Japanese fans, ...', 'What is clear is that ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        "For many Japanese fans, aespa's first Japanese mini album has been a long time coming. SM Entertainment says it will arrive in the third quarter of 2026. Giselle, the main rapper, grew up in Tokyo and speaks Japanese easily, so she is a natural bridge to Japan. What is clear is that aespa wants to build a closer bond with its Japanese fans.",
+      modelAnswerZh:
+        '对许多日本歌迷来说，aespa 的首张日文迷你专辑等了很久。SM 娱乐表示它将在 2026 年第三季度问世。主 rapper Giselle 在东京长大，日语说得很轻松，因此她是通往日本的天然桥梁。可以确定的是，aespa 想和日本歌迷建立更紧密的纽带。',
+    },
+  },
+};
