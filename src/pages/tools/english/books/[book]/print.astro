@@ -1,0 +1,260 @@
+---
+// Print / PDF view for a book.
+//   /tools/english/books/<id>/print               → whole book (cover + TOC + all chapters)
+//   /tools/english/books/<id>/print?chapter=<slug> → a single chapter
+// Standalone document (no MainLayout chrome). Reuses the md2pdf print recipe:
+// @page A4 + @media print + forced background colors. Vocab sits in a
+// paragraph-anchored right margin (see ChapterPrint.astro).
+import ChapterPrint from '../../../../../components/english/ChapterPrint.astro';
+import { booksById } from '../../../../../data/english/books';
+
+const { book: bookId } = Astro.params;
+const book = bookId ? booksById[bookId] : undefined;
+if (!book) return Astro.redirect('/tools/english/books/');
+
+const slug = Astro.url.searchParams.get('chapter');
+const single = slug ? book.chapters.find((c) => c.slug === slug) : null;
+if (slug && !single) return Astro.redirect(`/tools/english/books/${book.meta.id}`);
+
+const chapters = single ? [single] : book.chapters;
+const isWhole = !single;
+const { meta } = book;
+const SITE = 'https://sdg.undp.ac.cn';
+const accent = meta.accent ?? '#042f24';
+const backHref = `/tools/english/books/${meta.id}${single ? '/' + single.slug : ''}`;
+const docTitle = single ? `${single.article.meta.title} — ${meta.title}` : meta.title;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{docTitle} · Print</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style={`--accent:${accent}`}>
+    <div class="rp-actions no-print">
+      <a href={backHref} class="rp-btn rp-btn-ghost">← Back</a>
+      <button id="rp-print" class="rp-btn" type="button">Save as PDF / Print</button>
+      <span class="rp-hint">
+        In the print dialog: choose “Save as PDF”, set Margins to Default, and turn on “Background graphics”.
+      </span>
+    </div>
+
+    <main class="rp-doc">
+      {isWhole && (
+        <section class="rp-cover">
+          <div class="rp-cover-eyebrow">English Reading Book · {meta.cefr}</div>
+          <h1 class="rp-cover-title">{meta.title}</h1>
+          {meta.titleZh && <p class="rp-cover-zh">{meta.titleZh}</p>}
+          <p class="rp-cover-blurb">{meta.blurb}</p>
+          {meta.blurbZh && <p class="rp-cover-blurb-zh">{meta.blurbZh}</p>}
+          <p class="rp-cover-meta">{chapters.length} chapters · Vocabulary · Grammar · Listening · Writing</p>
+        </section>
+      )}
+
+      {isWhole && (
+        <section class="rp-toc">
+          <h2 class="rp-toc-title">Contents</h2>
+          <ol class="rp-toc-list">
+            {chapters.map((ch) => (
+              <li class="rp-toc-row">
+                <span class="rp-toc-num">{String(ch.order).padStart(2, '0')}</span>
+                <span class="rp-toc-rt">
+                  {ch.article.meta.title}
+                  {ch.article.meta.titleZh && <span class="rp-toc-rt-zh">{ch.article.meta.titleZh}</span>}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {chapters.map((ch) => (
+        <ChapterPrint
+          article={ch.article}
+          order={ch.order}
+          bookTitle={meta.title}
+          bookId={meta.id}
+          slug={ch.slug}
+          siteOrigin={SITE}
+        />
+      ))}
+    </main>
+
+    <script>
+      document.getElementById('rp-print')?.addEventListener('click', () => window.print());
+    </script>
+
+    <style is:global>
+      @page { size: A4; margin: 15mm 14mm; }
+
+      :root {
+        --ink: #1a1a1a;
+        --muted: #64748b;
+        --soft: #94a3b8;
+        --line: #e2e8f0;
+        --gloss-w: 44mm;
+        --cjk: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: #eef0f3;
+        color: var(--ink);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+      /* Force background colors into the PDF (browsers drop them by default). */
+      body, body * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      /* ── action bar (screen only) ── */
+      .rp-actions {
+        position: sticky; top: 0; z-index: 50;
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        padding: 11px 18px; background: #0f172a; color: #fff;
+      }
+      .rp-btn {
+        font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+        padding: 8px 16px; border-radius: 8px; border: none;
+        background: var(--accent); color: #fff; text-decoration: none;
+      }
+      .rp-btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); }
+      .rp-hint { font-size: 12px; color: rgba(255,255,255,0.7); }
+
+      /* ── document shell ── */
+      .rp-doc { background: #fff; max-width: 210mm; margin: 22px auto; padding: 15mm 14mm; box-shadow: 0 10px 40px -12px rgba(0,0,0,0.3); }
+
+      /* ── section headings ── */
+      .rp-h2 {
+        display: flex; align-items: center; gap: 10px;
+        font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 15pt;
+        margin: 22px 0 12px; padding-bottom: 6px;
+        border-bottom: 2px solid var(--accent); color: #0f172a;
+      }
+      .rp-h2-num {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 22px; height: 22px; flex: 0 0 auto;
+        background: var(--accent); color: #fff; border-radius: 5px; font-size: 11pt;
+      }
+      .rp-h3 { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 12pt; margin: 16px 0 7px; color: #0f172a; }
+
+      /* ── chapter header ── */
+      .rp-chapter { position: relative; }
+      .rp-eyebrow { font-size: 9.5pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+      .rp-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 22pt; line-height: 1.1; margin: 4px 0 0; color: #0f172a; }
+      .rp-title-zh { font-family: var(--cjk); font-size: 12pt; color: var(--muted); margin: 4px 0 0; }
+      .rp-headmeta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 10pt; color: var(--muted); }
+      .rp-pill { background: #0f172a; color: #fff; font-weight: 800; font-size: 9pt; padding: 2px 8px; border-radius: 4px; }
+      .rp-audio {
+        margin-top: 10px; font-size: 9.5pt; color: #334155; line-height: 1.5;
+        background: color-mix(in srgb, var(--accent) 8%, white);
+        border: 1px solid color-mix(in srgb, var(--accent) 25%, white);
+        border-radius: 8px; padding: 8px 10px;
+      }
+      .rp-audio-tag { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; font-size: 8pt; padding: 1px 6px; border-radius: 3px; margin-right: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+      .rp-audio a { color: var(--accent); word-break: break-all; }
+      .rp-ednote { margin-top: 10px; font-size: 10pt; color: #475569; font-style: italic; border-left: 3px solid var(--line); padding-left: 10px; line-height: 1.55; }
+
+      /* ── reading: paragraph-anchored two-column ── */
+      .rp-reading { margin-top: 4px; }
+      .rp-row { display: grid; grid-template-columns: 1fr var(--gloss-w); gap: 8mm; align-items: start; break-inside: avoid; margin-bottom: 9px; }
+      .rp-para { margin: 0; font-size: 11.5pt; line-height: 1.78; }
+      .rp-voc { font-weight: 700; border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 45%, white); }
+      .rp-gloss { border-left: 2px solid color-mix(in srgb, var(--accent) 30%, white); padding-left: 7px; display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+      .rp-gloss-item { font-size: 8.5pt; line-height: 1.35; }
+      .rp-gloss-word { font-weight: 700; color: #0f172a; }
+      .rp-gloss-ipa { color: var(--soft); margin-left: 4px; font-size: 8pt; }
+      .rp-gloss-def { display: block; color: var(--muted); font-family: var(--cjk); }
+
+      /* ── study cards ── */
+      .rp-card { break-inside: avoid; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 9px; background: #fafbfc; }
+      .rp-card-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+      .rp-card-title { font-family: var(--cjk); font-size: 10.5pt; color: #0f172a; }
+      .rp-skel { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 8.5pt; background: #eef2f7; color: #334155; padding: 1px 6px; border-radius: 4px; }
+      .rp-skel-block { display: inline-block; margin: 5px 0; }
+      .rp-card-zh { font-family: var(--cjk); font-size: 9.5pt; color: #475569; margin: 6px 0; line-height: 1.62; }
+      .rp-eg { margin: 4px 0 0; padding-left: 18px; }
+      .rp-eg li { font-size: 9.5pt; margin-bottom: 2px; line-height: 1.45; }
+      .rp-eg-zh { color: var(--muted); font-family: var(--cjk); }
+      .rp-card-orig { font-size: 10pt; color: #0f172a; margin: 4px 0; }
+      .rp-eg-one { font-size: 9.5pt; color: #334155; margin: 2px 0 0; line-height: 1.45; }
+      .rp-eg-ctx { color: var(--muted); }
+      .rp-warn { font-size: 9pt; color: #9a3412; font-family: var(--cjk); margin: 6px 0 0; line-height: 1.5; }
+      .rp-warn strong { color: #c2410c; }
+
+      /* ── comprehension quiz (blank) ── */
+      .rp-q-list { padding-left: 20px; margin: 4px 0 0; }
+      .rp-q { break-inside: avoid; margin-bottom: 8px; }
+      .rp-q-stem { font-weight: 600; font-size: 10.5pt; margin: 0 0 4px; }
+      .rp-q-opts { list-style: none; padding: 0; margin: 0; }
+      .rp-q-opts li { font-size: 10pt; margin-bottom: 3px; }
+      .rp-box { display: inline-block; width: 11px; height: 11px; border: 1px solid #94a3b8; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+      .rp-opt-label { font-weight: 700; color: #475569; }
+
+      /* ── listen · fill · write worksheet ── */
+      .rp-lw { break-inside: avoid; margin-top: 12px; }
+      .rp-lw-note { font-size: 9.5pt; color: var(--muted); font-family: var(--cjk); margin: 0 0 6px; }
+      .rp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+      .rp-table th { background: color-mix(in srgb, var(--accent) 12%, white); border: 1px solid var(--line); padding: 6px 9px; text-align: left; font-size: 9.5pt; font-family: var(--cjk); }
+      .rp-table td { border: 1px solid var(--line); padding: 9px; font-size: 10pt; height: 30px; vertical-align: top; word-break: break-word; }
+      .rp-th-cue { width: 45%; }
+      .rp-td-ans { color: #0f172a; font-weight: 600; }
+      .rp-write { margin-top: 11px; }
+      .rp-write-prompt { font-size: 10pt; margin: 0; }
+      .rp-write-zh { font-family: var(--cjk); font-size: 9.5pt; color: var(--muted); margin: 3px 0 0; }
+      .rp-write-aux { font-size: 9pt; color: #475569; margin: 5px 0 0; line-height: 1.5; }
+      .rp-lines { margin-top: 8px; }
+      .rp-line { border-bottom: 1px solid #cbd5e1; height: 8mm; }
+
+      /* ── answer key ── */
+      .rp-ak { break-inside: avoid; background: #f8fafc; border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px 12px; }
+      .rp-ak-q { padding-left: 20px; margin: 4px 0; }
+      .rp-ak-q li { font-size: 9.5pt; margin-bottom: 4px; line-height: 1.5; }
+      .rp-ak-exp { color: var(--muted); }
+      .rp-ak-ig { padding-left: 20px; margin: 4px 0; }
+      .rp-ak-ig li { font-size: 9.5pt; margin-bottom: 2px; }
+      .rp-ak-model { font-size: 9.5pt; color: #0f172a; margin: 4px 0; line-height: 1.62; }
+      .rp-ak-model-zh { font-family: var(--cjk); font-size: 9pt; color: var(--muted); margin: 2px 0 0; line-height: 1.62; }
+      .rp-trans p { font-family: var(--cjk); font-size: 9pt; color: #475569; margin: 0 0 4px; line-height: 1.55; }
+
+      /* ── cover + TOC (whole-book only) ── */
+      .rp-cover { background: var(--accent); color: #fff; padding: 36mm 16mm; min-height: 232mm; display: flex; flex-direction: column; justify-content: center; }
+      .rp-cover-eyebrow { font-size: 11pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.82; }
+      .rp-cover-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34pt; line-height: 1.05; margin: 12px 0 0; }
+      .rp-cover-zh { font-family: var(--cjk); font-size: 16pt; opacity: 0.92; margin: 10px 0 0; }
+      .rp-cover-blurb { font-size: 11pt; line-height: 1.6; opacity: 0.94; margin: 22px 0 0; max-width: 150mm; }
+      .rp-cover-blurb-zh { font-family: var(--cjk); font-size: 10pt; line-height: 1.6; opacity: 0.82; margin: 8px 0 0; max-width: 150mm; }
+      .rp-cover-meta { margin-top: 24px; font-size: 10pt; font-weight: 700; opacity: 0.9; }
+      .rp-toc { padding-top: 4mm; }
+      .rp-toc-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18pt; margin: 0 0 12px; color: #0f172a; }
+      .rp-toc-list { list-style: none; padding: 0; margin: 0; }
+      .rp-toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+      .rp-toc-num { font-family: 'Manrope', sans-serif; font-weight: 800; color: var(--soft); width: 2ch; flex: 0 0 auto; }
+      .rp-toc-rt { font-weight: 600; font-size: 11pt; }
+      .rp-toc-rt-zh { font-family: var(--cjk); color: var(--muted); font-size: 9pt; margin-left: 8px; font-weight: 400; }
+
+      /* ── screen preview vs print ── */
+      @media screen {
+        .rp-chapter { padding-bottom: 9mm; margin-bottom: 9mm; border-bottom: 1px dashed var(--line); }
+        .rp-chapter:last-child { border-bottom: none; }
+      }
+      @media print {
+        .no-print { display: none !important; }
+        body { background: #fff; }
+        .rp-doc { margin: 0; max-width: none; padding: 0; box-shadow: none; }
+        .rp-chapter { break-before: page; }
+        .rp-chapter:first-child { break-before: avoid; }
+        .rp-cover { break-after: page; min-height: 240mm; }
+        .rp-toc { break-after: page; }
+        a { color: inherit; text-decoration: none; }
+      }
+    </style>
+  </body>
+</html>

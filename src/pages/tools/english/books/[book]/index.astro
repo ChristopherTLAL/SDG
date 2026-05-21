@@ -42,6 +42,14 @@ const { meta, chapters } = book;
         {meta.titleZh && <p class="toc-title-zh">{meta.titleZh}</p>}
         <p class="toc-blurb">{meta.blurb}</p>
         {meta.blurbZh && <p class="toc-blurb-zh">{meta.blurbZh}</p>}
+        {chapters.length > 0 && (
+          <div class="toc-actions">
+            <a href={`/tools/english/books/${meta.id}/print`} class="toc-pdf-btn" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined">picture_as_pdf</span>
+              Download book PDF
+            </a>
+          </div>
+        )}
       </div>
     </header>
 
@@ -158,4 +166,15 @@ const { meta, chapters } = book;
 
   .toc-empty { margin-top: 3rem; text-align: center; color: rgba(4, 47, 36, 0.45); }
   .toc-empty .material-symbols-outlined { font-size: 36px; }
+
+  .toc-actions { margin-top: 1.25rem; }
+  .toc-pdf-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 16px; border-radius: 9px;
+    background: #042f24; color: white; text-decoration: none;
+    font-size: 13px; font-weight: 700;
+    transition: opacity 120ms ease;
+  }
+  .toc-pdf-btn:hover { opacity: 0.88; }
+  .toc-pdf-btn .material-symbols-outlined { font-size: 18px; }
 </style>

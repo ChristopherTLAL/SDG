@@ -13,6 +13,7 @@ interface Props {
   prevTitle?: string | null;
   nextHref?: string | null;
   nextTitle?: string | null;
+  printHref?: string | null;
 }
 const {
   article,
@@ -22,6 +23,7 @@ const {
   prevTitle = null,
   nextHref = null,
   nextTitle = null,
+  printHref = null,
 } = Astro.props;
 
 const { meta, paragraphs, vocab, collocations, grammar, patterns, quiz } = article;
@@ -108,6 +110,11 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
             </a>
           ) : <span class="el-toolbar-nav-link is-disabled"><span class="material-symbols-outlined">arrow_forward_ios</span></span>}
         </div>
+        {printHref && (
+          <a href={printHref} class="el-toolbar-nav-link" title="Print / Save as PDF" target="_blank" rel="noopener">
+            <span class="material-symbols-outlined">print</span>
+          </a>
+        )}
         <div class="el-tts">
           <button id="tts-play" class="el-tts-btn" aria-label="Play / pause">
             <span class="material-symbols-outlined" id="tts-play-icon">play_arrow</span>

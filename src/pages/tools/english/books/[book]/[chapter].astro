@@ -32,5 +32,6 @@ const base = `/tools/english/books/${book.meta.id}`;
     prevTitle={prev?.article.meta.title ?? null}
     nextHref={next ? `${base}/${next.slug}` : null}
     nextTitle={next?.article.meta.title ?? null}
+    printHref={`${base}/print?chapter=${chapter.slug}`}
   />
 </MainLayout>

@@ -1,0 +1,201 @@
+---
+// Renders ONE book chapter as a print-optimized workbook section.
+// Reused by [book]/print.astro for both single-chapter and whole-book PDFs.
+// Emits semantic markup + classes only; all styling lives (global) in the
+// print route so screen-preview and print stay in one place.
+import type { Article } from '../../data/english/types';
+
+interface Props {
+  article: Article;
+  order: number;
+  bookTitle: string;
+  bookId: string;
+  slug: string;
+  siteOrigin: string;
+}
+const { article, order, bookTitle, bookId, slug, siteOrigin } = Astro.props;
+const { meta, paragraphs, vocab, grammar, patterns, quiz, listeningWriting: lw } = article;
+
+const num = String(order).padStart(2, '0');
+const chapterUrl = `${siteOrigin}/tools/english/books/${bookId}/${slug}`;
+const OPT = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+// Bold the chapter's vocab inside its own sentence (same matching the reader uses).
+function renderSentence(en: string, sid: string): string {
+  let html = escapeHtml(en);
+  const here = vocab
+    .filter((v) => v.sentenceId === sid)
+    .sort((a, b) => b.word.length - a.word.length);
+  for (const v of here) {
+    const re = new RegExp(`\\b(${escapeRegex(v.word)})\\b`);
+    html = html.replace(re, '<b class="rp-voc">$1</b>');
+  }
+  return html;
+}
+
+// Group vocab by paragraph so each paragraph's words sit in its own margin —
+// paragraph-anchored (not per-word absolute), so margins never collide.
+const sentToPara = new Map<string, string>();
+for (const p of paragraphs) for (const s of p.sentences) sentToPara.set(s.id, p.id);
+function glossFor(pid: string) {
+  return vocab.filter((v) => sentToPara.get(v.sentenceId) === pid);
+}
+
+const patternById: Record<string, (typeof patterns)[number]> = Object.fromEntries(
+  patterns.map((p) => [p.id, p]),
+);
+---
+<section class="rp-chapter">
+  <header class="rp-head">
+    <div class="rp-eyebrow">{bookTitle} · Chapter {num}</div>
+    <h1 class="rp-title">{meta.title}</h1>
+    {meta.titleZh && <p class="rp-title-zh">{meta.titleZh}</p>}
+    <div class="rp-headmeta">
+      <span class="rp-pill">{meta.cefr}</span>
+      <span>{meta.wordCount} words · {meta.readingMinutes} min read</span>
+    </div>
+    {meta.audioUrl && (
+      <p class="rp-audio">
+        <span class="rp-audio-tag">Audio</span>
+        Listen and do the Listen·Fill·Write task online:
+        <a href={chapterUrl}>{chapterUrl}</a>
+      </p>
+    )}
+    {meta.editorsNote && <p class="rp-ednote">{meta.editorsNote}</p>}
+  </header>
+
+  <h2 class="rp-h2"><span class="rp-h2-num">I</span>Reading</h2>
+  <div class="rp-reading">
+    {paragraphs.map((p) => (
+      <div class="rp-row">
+        <p class="rp-para" set:html={p.sentences.map((s) => renderSentence(s.en, s.id)).join(' ')} />
+        <aside class="rp-gloss">
+          {glossFor(p.id).map((v) => (
+            <div class="rp-gloss-item">
+              <span class="rp-gloss-word">{v.word}</span>
+              <span class="rp-gloss-ipa">{v.ipa}</span>
+              <span class="rp-gloss-def">{v.pos} {v.defZh}</span>
+            </div>
+          ))}
+        </aside>
+      </div>
+    ))}
+  </div>
+
+  {(grammar.length > 0 || patterns.length > 0) && (
+    <>
+      <h2 class="rp-h2"><span class="rp-h2-num">II</span>Study notes</h2>
+      {grammar.map((g) => (
+        <div class="rp-card">
+          <div class="rp-card-head">
+            <strong class="rp-card-title">{g.title}</strong>
+            <code class="rp-skel">{g.pattern}</code>
+          </div>
+          {g.explanationZh[0] && <p class="rp-card-zh">{g.explanationZh[0]}</p>}
+          <ul class="rp-eg">
+            {g.examples.slice(0, 2).map((e) => (
+              <li><span class="rp-eg-en">{e.en}</span>{e.zh && <span class="rp-eg-zh"> — {e.zh}</span>}</li>
+            ))}
+          </ul>
+          {g.commonMistake && <p class="rp-warn"><strong>易错</strong> {g.commonMistake}</p>}
+        </div>
+      ))}
+      {patterns.map((pt) => (
+        <div class="rp-card">
+          <div class="rp-card-head"><strong class="rp-card-title">{pt.useCase}</strong></div>
+          <code class="rp-skel rp-skel-block">{pt.skeleton}</code>
+          <p class="rp-card-orig"><em>{pt.original}</em></p>
+          {pt.examples[0] && (
+            <p class="rp-eg-one">
+              <span class="rp-eg-ctx">{pt.examples[0].context}:</span> {pt.examples[0].text}
+              {pt.examples[0].zh && <span class="rp-eg-zh"> — {pt.examples[0].zh}</span>}
+            </p>
+          )}
+        </div>
+      ))}
+    </>
+  )}
+
+  <h2 class="rp-h2"><span class="rp-h2-num">III</span>Workout</h2>
+  <h3 class="rp-h3">Comprehension</h3>
+  <ol class="rp-q-list">
+    {quiz.map((q) => (
+      <li class="rp-q">
+        <p class="rp-q-stem">{q.q}</p>
+        <ul class="rp-q-opts">
+          {q.options.map((o, i) => (
+            <li><span class="rp-box"></span> <span class="rp-opt-label">{OPT[i]}.</span> {o}</li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ol>
+
+  {lw && (
+    <div class="rp-lw">
+      <h3 class="rp-h3">Listen · Fill · Write</h3>
+      <p class="rp-lw-note">Play the chapter audio, then fill in the table from what you hear.</p>
+      <table class="rp-table">
+        <thead><tr><th class="rp-th-cue">线索 Clue</th><th>答案 Answer (English)</th></tr></thead>
+        <tbody>
+          {lw.infoGap.map((r) => (
+            <tr>
+              <td>{r.cueZh}</td>
+              <td class="rp-td-ans">{r.prefilled ? r.answer : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div class="rp-write">
+        <p class="rp-write-prompt"><strong>Writing.</strong> {lw.writing.promptEn}</p>
+        <p class="rp-write-zh">{lw.writing.promptZh}（约 {lw.writing.targetWords} 词）</p>
+        {lw.writing.starters && lw.writing.starters.length > 0 && (
+          <p class="rp-write-aux"><strong>Starters:</strong> {lw.writing.starters.join('   /   ')}</p>
+        )}
+        {lw.writing.usePatternIds && lw.writing.usePatternIds.length > 0 && (
+          <p class="rp-write-aux">
+            <strong>Use these patterns:</strong>{' '}
+            {lw.writing.usePatternIds.map((id) => patternById[id]?.skeleton).filter(Boolean).join('   ·   ')}
+          </p>
+        )}
+        <div class="rp-lines">
+          {Array.from({ length: 7 }).map(() => <div class="rp-line"></div>)}
+        </div>
+      </div>
+    </div>
+  )}
+
+  <h2 class="rp-h2"><span class="rp-h2-num">IV</span>Answer key</h2>
+  <div class="rp-ak">
+    <h3 class="rp-h3">Comprehension</h3>
+    <ol class="rp-ak-q">
+      {quiz.map((q) => (
+        <li>
+          <strong>{OPT[q.answer]}. {q.options[q.answer]}</strong>
+          <span class="rp-ak-exp"> — {q.explanation}</span>
+        </li>
+      ))}
+    </ol>
+    {lw && (
+      <>
+        <h3 class="rp-h3">Info-gap answers</h3>
+        <ul class="rp-ak-ig">
+          {lw.infoGap.map((r) => <li>{r.cueZh} → <strong>{r.answer}</strong></li>)}
+        </ul>
+        <h3 class="rp-h3">Model writing</h3>
+        <p class="rp-ak-model">{lw.writing.modelAnswer}</p>
+        {lw.writing.modelAnswerZh && <p class="rp-ak-model-zh">{lw.writing.modelAnswerZh}</p>}
+      </>
+    )}
+    <h3 class="rp-h3">Chinese translation</h3>
+    <div class="rp-trans">
+      {paragraphs.map((p) => <p>{p.sentences.map((s) => s.zh).join('')}</p>)}
+    </div>
+  </div>
+</section>
