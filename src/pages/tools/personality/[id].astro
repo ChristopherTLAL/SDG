@@ -3,7 +3,7 @@
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { client } from '../../../lib/sanity/client';
 import { parseMarkdown } from '../../../lib/mdpa/parseMarkdown';
-import ReportShell from '../../../components/mdpa-report/ReportShell';
+import ReportShell, { type ReportShellProps } from '../../../components/mdpa-report/ReportShell';
 
 const { id } = Astro.params;
 
@@ -31,7 +31,7 @@ const ocean = result.ocean || {};
 const hasReport = !!(result.reportO && result.reportInteractions && result.reportPersonal);
 
 // Parse markdown reports if available
-let reportProps: Record<string, any> | null = null;
+let reportProps: ReportShellProps | null = null;
 if (hasReport) {
   const dims = {
     O: parseMarkdown(result.reportO || ''),

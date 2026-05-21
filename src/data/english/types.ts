@@ -53,6 +53,7 @@ export interface GrammarPoint {
   examples: GrammarExample[]; // 4-6 worked examples
   commonMistake?: string;     // typical errors a Chinese learner makes
   vsSimilar?: string;         // comparison with similar constructions
+  adaptingTip?: string;       // optional guidance on adapting the construction
 }
 
 // Pattern example, with brief context to anchor where it would deploy.
@@ -73,6 +74,7 @@ export interface SentencePattern {
   examples: PatternExample[]; // 3-5 worked examples
   adaptingTip: string;        // longer guidance about adapting to your own writing
   commonMistake?: string;
+  vsSimilar?: string;         // optional comparison with a similar pattern
 }
 
 export interface QuizQuestion {
