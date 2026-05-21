@@ -77,6 +77,10 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
 
 <main class="english-tool">
 
+    <div class="el-loading" id="el-loading" aria-hidden="true">
+      <div class="el-loading-spinner"></div>
+    </div>
+
     <div class="el-toolbar">
       <div class="el-toolbar-inner">
         <a href={backHref} class="el-back" aria-label="Back to library">
@@ -562,6 +566,30 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     flex-direction: column;
     background: white;
   }
+
+  /* Loading veil: covers the tool until the interaction script finishes wiring,
+     so nothing looks clickable-but-dead on first paint. Cleared by adding
+     .is-ready at the end of the script. */
+  .el-loading {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 220ms ease;
+  }
+  .el-loading-spinner {
+    width: 30px; height: 30px;
+    border: 3px solid rgba(4, 47, 36, 0.15);
+    border-top-color: #042f24;
+    border-radius: 999px;
+    animation: el-spin 0.7s linear infinite;
+  }
+  @keyframes el-spin { to { transform: rotate(360deg); } }
+  .english-tool.is-ready .el-loading { opacity: 0; pointer-events: none; }
+  .english-tool.is-ready .el-loading-spinner { animation: none; }
 
   .el-mode[hidden] { display: none !important; }
 
@@ -1757,6 +1785,10 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
     document.body.classList.remove('english-reader-page');
   });
 
+  // Fallback: reveal the tool after a moment even if something below throws,
+  // so the loading veil can never get permanently stuck.
+  setTimeout(() => document.querySelector('.english-tool')?.classList.add('is-ready'), 4000);
+
   type Mode = 'vocab' | 'translate' | 'grammar' | 'patterns' | 'quiz' | 'review' | 'listening' | 'about';
 
   type Article = {
@@ -2581,4 +2613,8 @@ const cefrLabel = CEFR_LABELS[meta.cefr];
   })();
 
   setMode('vocab');
+
+  // All handlers are wired now: drop the loading veil so the UI is only shown
+  // once it is actually interactive.
+  document.querySelector('.english-tool')?.classList.add('is-ready');
 </script>

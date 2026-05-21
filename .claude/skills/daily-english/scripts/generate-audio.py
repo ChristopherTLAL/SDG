@@ -20,6 +20,7 @@ import argparse
 import json
 import re
 import sys
+import time
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -27,6 +28,20 @@ from pathlib import Path
 OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
 MODEL = "gpt-4o-mini-tts"
 MAX_CHARS = 4000  # endpoint hard cap is 4096; leave headroom
+
+
+def _open(req, timeout=180, tries=3):
+    """urlopen with retry on transient connection drops (RemoteDisconnected etc.).
+    HTTPError (real API errors like 400/401) is not retried."""
+    for i in range(tries):
+        try:
+            return urllib.request.urlopen(req, timeout=timeout)
+        except urllib.error.HTTPError:
+            raise
+        except Exception:
+            if i == tries - 1:
+                raise
+            time.sleep(1.5 * (i + 1))
 
 
 def load_env(root: Path) -> dict:
@@ -96,7 +111,7 @@ def synth(api_key: str, text: str, voice: str, instructions):
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=180) as r:
+        with _open(req, timeout=180) as r:
             return r.read()
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "replace")
@@ -118,13 +133,14 @@ def supabase_upload(env: dict, book_id: str, stem: str, audio: bytes):
             data=json.dumps({"id": bucket, "name": bucket, "public": True}).encode(),
             headers={**hdr, "Content-Type": "application/json"}, method="POST",
         ), timeout=30)
-    except urllib.error.HTTPError:
-        pass  # already exists
+    except Exception:
+        pass  # bucket already exists, or a transient drop; the upload below is what matters
     object_path = f"{book_id}/{stem}.mp3"
-    urllib.request.urlopen(urllib.request.Request(
+    _open(urllib.request.Request(
         f"{base}/storage/v1/object/{bucket}/{object_path}",
         data=audio,
-        headers={**hdr, "Content-Type": "audio/mpeg", "x-upsert": "true"}, method="POST",
+        headers={**hdr, "Content-Type": "audio/mpeg", "x-upsert": "true", "Cache-Control": "max-age=300"},
+        method="POST",
     ), timeout=180)
     return f"{base}/storage/v1/object/public/{bucket}/{object_path}"
 
@@ -140,6 +156,8 @@ def main():
     ap.add_argument("chapter", help="path to the chapter .ts file")
     ap.add_argument("--voice", default=None, help="override the book's voice")
     ap.add_argument("--instructions", default=None, help="override the book's TTS instructions")
+    ap.add_argument("--variant", action="store_true",
+                    help="A/B mode: upload to _variants/<stem>-<voice>.mp3 and do NOT patch the chapter")
     args = ap.parse_args()
 
     root = Path.cwd()
@@ -165,22 +183,26 @@ def main():
 
     book_id = chapter.parent.name
     stem = chapter.stem
-    out_dir = root / "public" / "audio" / "english" / book_id
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{stem}.mp3"
+    object_stem = f"_variants/{stem}-{voice}" if args.variant else stem
+    out_path = root / "public" / "audio" / "english" / book_id / f"{object_stem}.mp3"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
 
     chunks = chunk_text(passage)
-    print(f"voice={voice}  chars={len(passage)}  chunks={len(chunks)}  -> {out_path}")
+    print(f"voice={voice}  chars={len(passage)}  chunks={len(chunks)}  variant={args.variant}  -> {out_path}")
     audio = b"".join(synth(api_key, c, voice, instructions) for c in chunks)
     out_path.write_bytes(audio)  # local cache (public/audio is gitignored)
 
     # Host on Supabase Storage so the same URL works in dev, on Vercel, and in PDFs.
     # Re-running upserts the same object, so tuning the voice updates the live audio
     # without a redeploy. Falls back to the local /audio path if Supabase is unset.
-    sb_url = supabase_upload(env, book_id, stem, audio)
+    sb_url = supabase_upload(env, book_id, object_stem, audio)
+
+    if args.variant:
+        print(json.dumps({"ok": True, "variant": True, "audioUrl": sb_url, "voice": voice}, indent=2))
+        return
+
     url = sb_url or f"/audio/english/{book_id}/{stem}.mp3"
     chapter.write_text(patch_audio_url(ts_text, url), encoding="utf-8")
-
     print(json.dumps({
         "ok": True,
         "mp3": str(out_path),

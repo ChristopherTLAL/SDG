@@ -11,8 +11,8 @@ export const meta: BookMeta = {
   cefr: 'B1',
   accent: '#7c3aed', // placeholder violet; tune with the cover later
   tts: {
-    voice: 'nova',
+    voice: 'coral',
     instructions:
-      'Read as a warm, friendly English teacher for a B1 (intermediate) learner. Speak at a clear, measured pace, slightly slower than natural conversation but never robotic. Use natural intonation and brief pauses at sentence boundaries. Clean, neutral accent. Encouraging tone.',
+      'Read this like a warm, encouraging English teacher telling an interesting story to a curious teenage student. Speak at a relaxed, unhurried pace, a little slower than normal conversation, with clear articulation. Vary your intonation naturally: lift your tone on the exciting parts, soften it on the reflective ones, and pause briefly at commas and between sentences. Sound genuinely interested and friendly, never flat or monotone. Use a clean, neutral accent.',
   },
 };
