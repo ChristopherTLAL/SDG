@@ -54,8 +54,14 @@ def main():
     # 2. Schema integrity (regex-level checks; we can't run TS without tsc)
     if "export const article: Article" not in content:
         errors.append("missing 'export const article: Article' export")
-    if "import type { Article } from './types'" not in content:
-        errors.append("missing import: \"import type { Article } from './types'\"")
+    # Flat articles import from './types'; book chapters live two levels deeper
+    # (books/<id>/<chapter>.ts) and import from '../../types'.
+    if ("import type { Article } from './types'" not in content
+            and "import type { Article } from '../../types'" not in content):
+        errors.append(
+            "missing import: \"import type { Article } from './types'\" (flat) "
+            "or \"'../../types'\" (book chapter)"
+        )
 
     # 3. CEFR value
     cefr_match = re.search(r"cefr:\s*['\"]([^'\"]+)['\"]", content)

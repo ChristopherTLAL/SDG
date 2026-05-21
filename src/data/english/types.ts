@@ -86,6 +86,34 @@ export interface QuizQuestion {
   sentenceId?: string;
 }
 
+// ── Listening + Writing (book chapters only) ──────────────────────────────
+// The 听·填·写 flow: listen to the chapter audio, fill an info-gap table by
+// extracting facts (cue in Chinese, answer in English), then use the completed
+// table as a scaffold to write, reusing the chapter's own sentence patterns.
+
+export interface InfoGapRow {
+  id: string;
+  cueZh: string;        // 中文提示 — what fact to find
+  answer: string;       // the English value to extract from the audio/text
+  sentenceId: string;   // where it is in the passage (self-check + reveal-in-text)
+  prefilled?: boolean;  // given as a worked example
+}
+
+export interface WritingTask {
+  promptZh: string;
+  promptEn: string;
+  targetWords: number;
+  starters?: string[];        // sentence openers to scaffold the response
+  usePatternIds?: string[];   // patterns from THIS article the student should reuse
+  modelAnswer: string;        // revealed after the student attempts
+  modelAnswerZh?: string;
+}
+
+export interface ListeningWriting {
+  infoGap: InfoGapRow[];
+  writing: WritingTask;
+}
+
 export interface ArticleMeta {
   date: string;
   title: string;
@@ -94,6 +122,7 @@ export interface ArticleMeta {
   wordCount: number;
   readingMinutes: number;
   editorsNote?: string;
+  audioUrl?: string;            // hosted MP3 narration (book chapters); flat articles omit it
 }
 
 export interface Article {
@@ -104,4 +133,5 @@ export interface Article {
   grammar: GrammarPoint[];
   patterns: SentencePattern[];
   quiz: QuizQuestion[];
+  listeningWriting?: ListeningWriting;   // book chapters only
 }

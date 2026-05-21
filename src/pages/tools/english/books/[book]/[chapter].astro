@@ -1,0 +1,36 @@
+---
+// Book chapter reader: thin wrapper that feeds the chapter into the shared
+// ArticleReader engine, with in-book chapter navigation.
+import MainLayout from '../../../../../layouts/MainLayout.astro';
+import ArticleReader from '../../../../../components/english/ArticleReader.astro';
+import { booksById } from '../../../../../data/english/books';
+
+const { book: bookId, chapter: chapterSlug } = Astro.params;
+const book = bookId ? booksById[bookId] : undefined;
+const idx = book ? book.chapters.findIndex((c) => c.slug === chapterSlug) : -1;
+if (!book || idx < 0) {
+  return Astro.redirect(bookId ? `/tools/english/books/${bookId}` : '/tools/english/books/');
+}
+
+const chapter = book.chapters[idx];
+// In a book, Prev = earlier chapter, Next = later chapter (natural order).
+const prev = idx > 0 ? book.chapters[idx - 1] : null;
+const next = idx + 1 < book.chapters.length ? book.chapters[idx + 1] : null;
+const base = `/tools/english/books/${book.meta.id}`;
+---
+
+<MainLayout
+  title={`${chapter.article.meta.title} | ${book.meta.title}`}
+  description={book.meta.blurb}
+  lang="en"
+>
+  <ArticleReader
+    article={chapter.article}
+    backHref={base}
+    backLabel={book.meta.title}
+    prevHref={prev ? `${base}/${prev.slug}` : null}
+    prevTitle={prev?.article.meta.title ?? null}
+    nextHref={next ? `${base}/${next.slug}` : null}
+    nextTitle={next?.article.meta.title ?? null}
+  />
+</MainLayout>

@@ -57,6 +57,7 @@ const rowsJson = JSON.stringify(rows);
           <div class="lib-eyebrow">
             <span class="material-symbols-outlined">menu_book</span>
             English Library
+            <a href="/tools/english/books" class="lib-books-link">Books <span class="material-symbols-outlined">arrow_forward</span></a>
           </div>
           <h1 class="lib-title">
             <span class="lib-count" id="lib-count">{totalCount}</span>
@@ -173,6 +174,14 @@ const rowsJson = JSON.stringify(rows);
     font-size: 14px;
     color: #042f24;
   }
+  .lib-books-link {
+    display: inline-flex; align-items: center; gap: 2px;
+    margin-left: 10px; padding: 1px 8px;
+    border: 1px solid rgba(4, 47, 36, 0.2); border-radius: 999px;
+    color: #042f24; text-decoration: none;
+  }
+  .lib-books-link:hover { background: #042f24; color: white; }
+  .lib-books-link .material-symbols-outlined { font-size: 12px !important; color: inherit; }
   .lib-title {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
