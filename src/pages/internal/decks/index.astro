@@ -1,0 +1,69 @@
+---
+// src/pages/internal/decks/index.astro — Deck knowledge-base CATALOG (gated by
+// Cloudflare Access via the /internal/* path). Lists what decks exist, grouped
+// stage → theme (like the english tool). Cards open the PUBLIC viewer /decks/<id>
+// in a new tab (decks are public-by-unguessable-link; see decks-meta.ts).
+import InternalLayout from '../../../layouts/InternalLayout.astro';
+import { STAGE_ORDER, DECK_THEMES, decksByStageTheme, decks } from '../../../data/decks-meta';
+
+const grouped = decksByStageTheme();
+const total = decks.length;
+---
+<InternalLayout title="Deck 知识库">
+  <div class="dk-head">
+    <h1 class="dk-title font-headline">Deck 知识库</h1>
+    <p class="dk-sub">{total} 份 · 按阶段 / 主题分类 · 点开即全屏放映（PDF / HTML）</p>
+  </div>
+
+  {STAGE_ORDER.map((stage) => (
+    <section class="dk-stage">
+      <h2 class="dk-stage__name">{stage}</h2>
+      {DECK_THEMES[stage].map((theme) => {
+        const items = grouped[stage][theme] ?? [];
+        return (
+          <div class="dk-theme">
+            <div class="dk-theme__name">{theme} <span class="dk-theme__n">{items.length}</span></div>
+            {items.length === 0 ? (
+              <div class="dk-empty">— 暂无</div>
+            ) : (
+              <div class="dk-grid">
+                {items.map((d) => (
+                  <a class="dk-card" href={`/decks/${d.id}`} target="_blank" rel="noopener">
+                    <div class={`dk-card__thumb dk-card__thumb--${d.format}`}>
+                      {d.cover ? <img src={d.cover} alt="" /> : <span class="dk-card__fmt">{d.format}</span>}
+                      {d.placeholder && <span class="dk-card__ph">占位</span>}
+                    </div>
+                    <div class="dk-card__title">{d.title}</div>
+                    {d.summary && <div class="dk-card__sum">{d.summary}</div>}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </section>
+  ))}
+</InternalLayout>
+
+<style>
+  .dk-head { margin-bottom: 22px; }
+  .dk-title { font-size: 28px; margin: 0; color: var(--text); }
+  .dk-sub { color: var(--text-muted); font-size: 13px; margin: 6px 0 0; }
+  .dk-stage { margin: 26px 0; }
+  .dk-stage__name { font: 800 18px/1 Manrope, sans-serif; color: var(--text); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); }
+  .dk-theme { margin: 14px 0 20px; }
+  .dk-theme__name { font-weight: 700; font-size: 13px; color: var(--text); margin-bottom: 8px; }
+  .dk-theme__n { color: var(--text-soft); font-weight: 500; margin-left: 4px; }
+  .dk-empty { color: var(--text-soft); font-size: 12px; padding: 2px 0 6px; }
+  .dk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .dk-card { display: block; text-decoration: none; background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color .15s, transform .15s; }
+  .dk-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+  .dk-card__thumb { aspect-ratio: 16 / 9; display: grid; place-items: center; position: relative; background: #eef3f1; }
+  .dk-card__thumb--pdf { background: #fbeeee; }
+  .dk-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .dk-card__fmt { font: 800 13px/1 Inter; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); opacity: .55; }
+  .dk-card__ph { position: absolute; top: 6px; right: 6px; font-size: 10px; background: var(--warning); color: #fff; border-radius: 4px; padding: 1px 6px; }
+  .dk-card__title { font-weight: 700; font-size: 13px; color: var(--text); padding: 9px 10px 2px; }
+  .dk-card__sum { font-size: 11px; color: var(--text-muted); padding: 0 10px 10px; }
+</style>
