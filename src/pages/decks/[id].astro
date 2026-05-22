@@ -114,7 +114,6 @@ const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174';
       var frame = document.getElementById('frame');
       var url = frame && frame.getAttribute('data-pdf');
       if (!url || typeof pdfjsLib === 'undefined') return;
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
       var canvas = document.getElementById('pdfCanvas'), ctx = canvas.getContext('2d');
       var loadEl = document.getElementById('pdfLoad'), pageEl = document.getElementById('pdfPage');
       var doc = null, cur = 1, rendering = false, queued = null;
@@ -137,7 +136,35 @@ const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174';
         });
       }
       function go(n) { if (!doc || n < 1 || n > doc.numPages) return; cur = n; if (rendering) queued = n; else render(n); }
-      pdfjsLib.getDocument(url).promise.then(function (d) { doc = d; render(1); })
+      // pdf.js's own network layer fails on the cross-origin range response (Supabase
+      // doesn't CORS-expose Content-Range), so we fetch the bytes ourselves — with a
+      // progress %, since a deck may be tens of MB — and hand pdf.js {data}. The worker
+      // is loaded as a same-origin blob to sidestep cross-origin Worker restrictions.
+      function fetchBytes(u) {
+        return fetch(u).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          var total = +res.headers.get('content-length') || 0, got = 0, chunks = [];
+          var reader = res.body.getReader();
+          return (function pump() {
+            return reader.read().then(function (r) {
+              if (r.done) {
+                var out = new Uint8Array(got), p = 0;
+                chunks.forEach(function (c) { out.set(c, p); p += c.length; });
+                return out.buffer;
+              }
+              chunks.push(r.value); got += r.value.length;
+              if (loadEl) loadEl.textContent = total ? ('加载中… ' + Math.round(got / total * 100) + '%') : '加载中…';
+              return pump();
+            });
+          })();
+        });
+      }
+      fetch('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js')
+        .then(function (r) { return r.blob(); })
+        .then(function (b) { pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(b); })
+        .then(function () { return fetchBytes(url); })
+        .then(function (buf) { return pdfjsLib.getDocument({ data: buf }).promise; })
+        .then(function (d) { doc = d; render(1); })
         .catch(function () { if (loadEl) loadEl.textContent = 'PDF 加载失败,可点右上「原始 PDF」'; });
       document.querySelectorAll('[data-dir]').forEach(function (el) {
         el.addEventListener('click', function () { go(cur + parseInt(el.getAttribute('data-dir'), 10)); });
