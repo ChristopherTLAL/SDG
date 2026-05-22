@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>国际版 A-Level 三大考试局合分机制深度解析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#fff; --block:#F9F9FB; --sep:#E0E0E0; --ink:#2D2D2D; --body:#4A4A4A;
+    --meta:#808080; --passive:#C0C0C0; --accent:#7B7393; --accent-d:#5E5770; --lilac:#EEEBF2;
+    --cjk:"Noto Sans SC",sans-serif; --lat:"Inter",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--canvas);color:var(--body);
+    font-family:var(--lat),var(--cjk);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .deck{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+  /* ── top nav (go-to) ── */
+  .nav{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:10px 22px;border-bottom:1px solid var(--sep);background:#fff}
+  .nav__brand{font-family:var(--cjk);font-weight:900;color:var(--accent-d);font-size:14px;letter-spacing:.5px;margin-right:auto}
+  .nav__brand b{color:var(--accent)}
+  .nav__pill{font-family:var(--cjk);font-weight:500;font-size:13px;color:var(--meta);background:none;border:0;
+    padding:6px 13px;border-radius:999px;cursor:pointer;transition:.15s}
+  .nav__pill:hover{color:var(--ink);background:var(--block)}
+  .nav__pill.on{color:#fff;background:var(--accent)}
+  /* ── stage ── */
+  .stage{flex:1 1 auto;position:relative;overflow:hidden}
+  .sec{position:absolute;inset:0;padding:42px 56px;overflow:auto;opacity:0;visibility:hidden;
+    transform:translateY(8px);transition:opacity .28s,transform .28s}
+  .sec.on{opacity:1;visibility:visible;transform:none}
+  h1{font-family:var(--cjk);font-weight:900;color:var(--ink);line-height:1.15}
+  h2{font-family:var(--cjk);font-weight:700;color:var(--ink);font-size:30px;line-height:1.2}
+  h2 .sub{display:block;font-size:16px;font-weight:500;color:var(--meta);margin-top:6px}
+  .eyebrow{font-family:var(--lat);font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-size:12px}
+  .ins{margin-top:22px;background:var(--lilac);border-radius:8px;padding:13px 18px;font-family:var(--cjk);
+    color:var(--accent-d);font-weight:500;font-size:14px}
+  .ins b{color:var(--accent-d);font-weight:700}
+  /* ── cover ── */
+  #cover{display:flex;flex-direction:column;justify-content:center;padding:0 80px}
+  #cover .logo{font-family:var(--cjk);font-weight:900;font-size:26px;color:var(--accent-d);letter-spacing:1px}
+  #cover .logo b{color:var(--accent)}
+  #cover h1{font-size:52px;margin:26px 0 14px}
+  #cover .lead{font-family:var(--cjk);font-size:21px;color:var(--body);font-weight:500}
+  #cover .lead .x{color:var(--accent);font-weight:700}
+  #cover .foot{margin-top:46px;padding-top:18px;border-top:1px solid var(--sep);display:flex;
+    justify-content:space-between;color:var(--meta);font-family:var(--cjk);font-size:15px}
+  /* ── matrix ── */
+  .mx{width:100%;border-collapse:collapse;margin-top:18px;font-family:var(--cjk);table-layout:fixed}
+  .mx th,.mx td{border:1px solid var(--sep);padding:11px 13px;text-align:left;vertical-align:top}
+  .mx thead th{background:var(--block);font-weight:700;color:var(--ink);font-size:15px;cursor:pointer;text-align:center}
+  .mx thead th .en{display:block;font-family:var(--lat);font-weight:500;font-size:11px;color:var(--meta)}
+  .mx tbody th{background:var(--block);font-weight:700;color:var(--ink);width:104px;font-size:14px}
+  .mx td{font-size:13px;color:var(--body);cursor:pointer;transition:.12s}
+  .mx td b{display:block;color:var(--ink);font-size:14px;margin-bottom:1px}
+  .mx td .en{font-family:var(--lat);color:var(--meta);font-size:11px}
+  .mx td:hover{background:var(--block)}
+  .mx col.hl,.mx td.hl{background:var(--lilac)!important}
+  .mx td.hl b{color:var(--accent-d)}
+  .mx tr.exp td{background:var(--lilac)}
+  .mx .det td{padding:0;border-top:0;cursor:default}
+  .mx .det .inner{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .mx tr.open .inner{max-height:160px}
+  .mx .det .pad{padding:12px 16px;font-size:13px;color:var(--accent-d);background:var(--lilac);line-height:1.55}
+  .hint{font-family:var(--cjk);color:var(--meta);font-size:12px;margin-top:10px}
+  /* ── accordions (toggle) ── */
+  .acc{border:1px solid var(--sep);border-radius:9px;margin-top:12px;overflow:hidden;background:#fff}
+  .acc__h{display:flex;align-items:center;gap:12px;padding:15px 18px;cursor:pointer;font-family:var(--cjk);
+    font-weight:700;color:var(--ink);font-size:16px;user-select:none}
+  .acc__h:hover{background:var(--block)}
+  .acc__n{flex:0 0 auto;width:26px;height:26px;border-radius:6px;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-family:var(--lat);font-weight:700;font-size:13px}
+  .acc__cap{flex:1}.acc__cap span{display:block;font-weight:500;font-size:12px;color:var(--meta);margin-top:2px}
+  .acc__x{color:var(--accent);font-size:20px;transition:.25s;font-family:var(--lat)}
+  .acc.open .acc__x{transform:rotate(45deg)}
+  .acc__body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .acc.open .acc__body{max-height:720px}
+  .acc__in{padding:4px 18px 18px;font-family:var(--cjk);color:var(--body);font-size:14px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  .card{background:var(--block);border-radius:8px;padding:14px 16px}
+  .card h4{font-family:var(--cjk);color:var(--ink);font-size:14px;margin-bottom:7px}
+  .card.x{background:#fbeeee}.card.x h4{color:#b4474e}
+  .card.k{background:var(--lilac)}.card.k h4{color:var(--accent-d)}
+  ul.t{list-style:none;display:flex;flex-direction:column;gap:5px}
+  ul.t li{padding-left:16px;position:relative;font-size:13px;line-height:1.5}
+  ul.t li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .big{font-family:var(--lat);font-weight:700;color:var(--accent);font-size:15px}
+  .chip{display:inline-block;font-family:var(--lat);font-size:12px;font-weight:600;background:var(--lilac);
+    color:var(--accent-d);border-radius:5px;padding:2px 8px;margin:2px 3px 2px 0}
+  .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .flow .step{background:#fff;border:1px solid var(--sep);border-radius:7px;padding:8px 12px;font-size:13px;text-align:center}
+  .flow .step.k{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .flow .arr{color:var(--passive);font-family:var(--lat)}
+  .warn{background:#fbeeee;border-radius:8px;padding:11px 15px;color:#b4474e;font-size:13px;margin-top:10px;font-family:var(--cjk)}
+  .soon{margin-top:20px;border:1px dashed var(--accent);border-radius:9px;padding:22px;text-align:center;
+    color:var(--accent-d);font-family:var(--cjk);background:var(--lilac)}
+  .soon b{display:block;font-size:16px;margin-bottom:5px}
+</style>
+</head>
+<body>
+<div class="deck">
+  <nav class="nav">
+    <span class="nav__brand">新东方 <b>XDF</b> · A-Level 三大考试局</span>
+    <button class="nav__pill on" data-go="cover">封面</button>
+    <button class="nav__pill" data-go="matrix">对比矩阵</button>
+    <button class="nav__pill" data-go="caie">CAIE</button>
+    <button class="nav__pill" data-go="edexcel">Edexcel</button>
+    <button class="nav__pill" data-go="aqa">OxfordAQA</button>
+    <button class="nav__pill" data-go="taboo">跨局禁忌</button>
+  </nav>
+
+  <div class="stage">
+    <!-- COVER -->
+    <section class="sec on" id="cover">
+      <div class="logo">新东方 <b>XDF.CN</b></div>
+      <h1>国际版 A-Level 三大考试局<br>合分机制深度解析</h1>
+      <p class="lead"><span class="x">CAIE</span> · <span class="x">Edexcel</span> · <span class="x">OxfordAQA</span> 核心规则与策略指南</p>
+      <div class="foot"><span>苏州分公司 · 王世杰</span><span>2026</span></div>
+    </section>
+
+    <!-- MATRIX HUB -->
+    <section class="sec" id="matrix">
+      <div class="eyebrow">Core Difference Matrix</div>
+      <h2>三大考试局核心差异矩阵<span class="sub">评估哲学与技术架构的本质分野 · 点表头高亮考试局,点单元格展开要点</span></h2>
+      <table class="mx" id="mx">
+        <colgroup><col style="width:104px"><col data-board="caie"><col data-board="edexcel"><col data-board="aqa"></colgroup>
+        <thead><tr>
+          <th></th>
+          <th data-board="caie">🌐 CAIE</th>
+          <th data-board="edexcel">▦ Edexcel</th>
+          <th data-board="aqa">🛡 OxfordAQA</th>
+        </tr></thead>
+        <tbody><!-- rows injected by JS --></tbody>
+      </table>
+      <p class="hint">提示:每个考试局的完整机制在顶部导航里有独立的可展开深读页。</p>
+      <div class="ins"><b>核心洞察:</b>三大考试局不可跨局结转,选择即承诺完整路径。</div>
+    </section>
+
+    <!-- CAIE -->
+    <section class="sec" id="caie">
+      <div class="eyebrow">CAIE · Cambridge</div>
+      <h2>CAIE 剑桥评估体系<span class="sub">线性连贯 · 加权总分 + PUM 相对位置 · 13 个月结转铁律</span></h2>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">1</span><span class="acc__cap">评估路径:线性 vs 阶段<span>Linear Route / Staged Route</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <div class="grid2">
+            <div class="card"><h4>Path 1 · 线性路径</h4><div class="flow"><span class="step">Year 12 June</span><span class="arr">→</span><span class="step k">AS + A2 全部组件同时考</span></div><p style="margin-top:8px;font-size:13px">认知负荷极大,适合顶尖学生。</p></div>
+            <div class="card k"><h4>Path 2 · 阶段路径（全球主流）</h4><div class="flow"><span class="step">Y11 June 完整 AS</span><span class="arr">→</span><span class="step">Y12 June AS 结转 + A2</span></div><p style="margin-top:8px;font-size:13px">→ 合成 A-Level。压力分散。</p></div>
+          </div>
+          <div class="warn">⚠ 安全网机制:若 A-Level 获 U,系统自动提取 AS 组件评估,可获补偿性 AS 成绩（小写 a–e）——但<b>补偿性 AS 不可结转</b>。禁忌:混合考季的 AS 试卷不可拼凑结转。</div>
+        </div></div>
+      </div>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">2</span><span class="acc__cap">13 个月结转铁律<span>The 13-month rule</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <div class="flow"><span class="step k">2024.6 AS首考</span><span class="arr">→</span><span class="step">2024.11 ✓</span><span class="arr">→</span><span class="step">2025.3 ✓</span><span class="arr">→</span><span class="step">2025.6 最后机会 ✓</span><span class="arr">→</span><span class="step" style="color:#b4474e">2025.11 ✗</span></div>
+          <ul class="t" style="margin-top:12px">
+            <li><b>有效期:</b>首考后 13 个月内 · <b>使用次数:</b>仅一次</li>
+            <li><b>课程作业:</b>同受 13 个月限制 · <b>违规后果:</b>被迫重考全部 AS+A2</li>
+          </ul>
+          <div class="ins" style="margin-top:14px"><b>策略:</b>Best of Both 选项可自动提取多次 AS 中的最高分。</div>
+        </div></div>
+      </div>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">3</span><span class="acc__cap">合分算法:加权系数 + PUM<span>Weighted marks → PUM percentile</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <div class="flow"><span class="step">原始分 49</span><span class="arr">×系数1.4→</span><span class="step">加权 68.6</span><span class="arr">向上取整→</span><span class="step k">最终 69</span><span class="arr">累加→</span><span class="step">大纲总分 240/280</span></div>
+          <div style="margin-top:10px">加权系数实例:<span class="chip">ICT 0417 ×1.4</span><span class="chip">Eco 0455 ×1.5</span><span class="chip">Geo 0460 ×1.333</span><span style="font-size:12px;color:var(--meta)">系数每考季微调</span></div>
+          <div class="card x" style="margin-top:12px"><h4>⚠ 致命误区:PUM ≠ 答对百分比</h4><p style="font-size:13px">PUM = 在该等级段内的相对位置。A* 90–100 / A 80–89 / B 70–79 / C 60–69。PUM 85（A 级）= 处于 A 与 A* 分数线正中间,<b>并非答对了 85% 的题目</b>。逆向工程:PUM + 官方分数线 → 推算原始总分 → 评估复议价值。</p></div>
+        </div></div>
+      </div>
+      <div class="ins"><b>核心洞察:</b>CAIE 看重整体加权总分,单一组件等级无法直接推算最终大纲等级。</div>
+    </section>
+
+    <!-- EDEXCEL -->
+    <section class="sec" id="edexcel">
+      <div class="eyebrow">Edexcel · Pearson</div>
+      <h2>Edexcel 模块化评估体系<span class="sub">UMS 标准分 · Cash-in 结算 · "最近两次最优" 陷阱 · 数学聚合算法</span></h2>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">1</span><span class="acc__cap">模块化 + UMS 非线性转换<span>6 units · cross-session equating</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <ul class="t"><li>独立考试分散压力 · 无限重考逐个击破 · 自由组合战略灵活</li>
+            <li>4 单元科目 = 400 UMS（物理/化学）· 6 单元 = 600 UMS（生物/数学）</li></ul>
+          <div class="card k" style="margin-top:12px"><h4>UMS 非线性转换</h4><p style="font-size:13px">不同考季难度波动 → 难卷 53 分 = 易卷 58 分 = <b class="big">100 UMS</b>。相同 UMS = 相同学术水平。<b>最终评级 100% 基于 UMS 总分,原始分仅为中间变量。</b>顾问必知:学生成绩单显示 UMS,不是原始分。</p></div>
+        </div></div>
+      </div>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">2</span><span class="acc__cap">Cash-in 结算 + 重考陷阱<span>致命:只报单元、漏报结算</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <div>报名代码:<span class="chip">W… = 单元考试</span><span class="chip">X… = AS 阶段结算</span><span class="chip">Y… = A-Level 总结算</span></div>
+          <div class="warn">⚠ 致命失误:只报单元、漏报结算 → 放榜日仅显示零散单元成绩、无 Overall Grade。补救 Late Cash-in（滞纳金 £7.35–50）；影响 UCAS 传输中断、威胁 Unconditional Offer。</div>
+          <div class="card x" style="margin-top:12px"><h4>⚠ "最近两次最优" 隐蔽陷阱</h4><p style="font-size:13px">Chemistry Unit 4:首考 85（优异）→ 二考 70（失常）→ 三考 75。系统只在<b>最近两次</b>取最高 → 锁定 70 vs 75 → 提取 75,<b>早期高分 85 被永久屏蔽</b>。顾问策略:第三次刷分前必须模拟测验确认胜率。所有考试须挂靠同一 UCI。</p></div>
+        </div></div>
+      </div>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">3</span><span class="acc__cap">数学聚合算法:锁定 vs 解锁<span>Rule 3 Locking / Rule 6 Unlocking</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <p style="font-size:13px">数学与进阶数学共享单元库（P1–4 必修 / FP1–3 进阶 / M·S·D 应用）。Rule 1:先最大化等级,再最大化 UMS;Rule 2:科目优先级。</p>
+          <div class="grid2" style="margin-top:10px">
+            <div class="card x"><h4>🔒 Rule 3 锁定灾难</h4><p style="font-size:13px">仅报单一 Cash-in → 满分 M2 被锁进基础数学 → 进阶数学只能用较差单元 → 死锁,机会浪费。</p></div>
+            <div class="card k"><h4>🔓 Rule 6 解锁正解</h4><p style="font-size:13px">同时报名 YMA01 + YFM01（<b>双重 Cash-in</b>）→ 解锁全部历史单元 → 全局动态最优组合 → 双 B 或 一 A 一 B。</p></div>
+          </div>
+          <div class="ins" style="margin-top:12px"><b>顾问价值:</b>掌握 Unlocking 是避免高分低报的核心,数学双修必须同时触发双科 Cash-in。</div>
+        </div></div>
+      </div>
+      <div class="ins"><b>Edexcel 核心风险:</b>行政失误（漏报 Cash-in）与盲目刷分（第三次陷阱）是两大雷区。</div>
+    </section>
+
+    <!-- OXFORDAQA -->
+    <section class="sec" id="aqa">
+      <div class="eyebrow">OxfordAQA</div>
+      <h2>OxfordAQA 平衡型架构<span class="sub">同源 Edexcel 的 UMS · 非对称权重 · 备考生态结构性匮乏</span></h2>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">1</span><span class="acc__cap">非对称权重 + 关键特征<span>AS 40% / A2 60%（头轻脚重）</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <p style="font-size:13px">Psychology / English（4-unit）:Unit1 20% · Unit2 20% · Unit3 30% · Unit4 30% → <b>AS 40% / A2 60%</b>。对比 Edexcel 均等权重,OxfordAQA 强化高年级进阶能力。</p>
+          <ul class="t" style="margin-top:10px"><li>同源 Edexcel:UMS 机制完全一致 · A* 标准:总分 80% + A2 单元 90%</li><li>模块重考无限次自由组合 · 语言友好:题干素材对国际生友好</li></ul>
+        </div></div>
+      </div>
+
+      <div class="acc"><div class="acc__h"><span class="acc__n">2</span><span class="acc__cap">生态限制与战略风险（冰山）<span>表面优势 vs 隐藏风险</span></span><span class="acc__x">+</span></div>
+        <div class="acc__body"><div class="acc__in">
+          <div class="grid2">
+            <div class="card"><h4>🧊 表面优势</h4><ul class="t"><li>试题较直白</li><li>分数线可能友好</li><li>部分科目出分率优异</li></ul></div>
+            <div class="card x"><h4>⚠ 隐藏风险</h4><ul class="t"><li>真题资源极度稀缺（&lt; CAIE/Edexcel 的 30%）</li><li>分类题库几乎不存在;核心资源锁在 Centre Extranet</li><li>社会考生接受度受限（仅 British Council 渠道,不含实验科目）</li></ul></div>
+          </div>
+          <div class="warn">⚠ 顾问警示:不可仅因"听说 AQA 简单"而盲目转局,必须评估资源支持。脱离成熟学校体系的学生 = 巧妇难为无米之炊。</div>
+        </div></div>
+      </div>
+      <div class="ins"><b>OxfordAQA 悖论:</b>试题本身可能友好,但备考生态的结构性匮乏使其成为"资源依赖型"选择。</div>
+    </section>
+
+    <!-- TABOO / CLOSING -->
+    <section class="sec" id="taboo">
+      <div class="eyebrow">Hard Boundary</div>
+      <h2>跨考试局组合禁忌<span class="sub">刚性壁垒 · A* 评定三局对比 · UCAS 申报验证</span></h2>
+      <div class="grid2">
+        <div class="card x"><h4>🚫 跨局结转绝对禁止</h4><p style="font-size:13px">CAIE ⇄ Edexcel ⇄ OxfordAQA 互相不可结转、禁止成绩拼凑。底层不兼容:计算逻辑根本差异（PUM vs UMS）、大纲知识点分布不同、评估目标不匹配、学分转移已全面废止。</p></div>
+        <div class="card"><h4>A* 评定三局逻辑</h4><ul class="t"><li><b>CAIE:</b>全局单线——总分 ≥ A* 门槛即可,AS 高分可补偿 A2（高容错）</li><li><b>Edexcel:</b>双重刚性——总分 ≥80% <b>且</b> A2 ≥90%,缺一不可</li><li><b>OxfordAQA:</b>同源 Edexcel 逻辑,更偏重 A2</li></ul></div>
+      </div>
+      <div class="card k" style="margin-top:14px"><h4>UCAS 申报验证</h4><p style="font-size:13px">Awarding Body 必须精确填写 → 大学自动化系统交叉验证 → Results Day 匹配。考试局信息不匹配 = 验证失败 / 审核延误 / Offer 无法兑现。常见失误:填错考试局名称、改考点未更新 Centre Number、混淆科目代码。补救:Qualification Amendment Form(最长 21 天)。</p></div>
+      <div class="ins"><b>顾问责任:</b>转学规划必须评估考试局连续性,UCAS 填报必须逐项核对考试局信息,避免验证失败。</div>
+    </section>
+  </div>
+</div>
+
+<script>
+// ── matrix data (rows × 3 boards) ──
+var ROWS = [
+  {dim:"评估哲学", caie:["线性连贯性","Linear Integrity"], edexcel:["模块化灵活性","Modular Flexibility"], aqa:["平衡型架构","Balanced Structure"],
+   det:"CAIE 强调贯通式学习一次成型;Edexcel 把考试拆成独立单元、可分批攻克;OxfordAQA 介于两者之间但偏 A2。"},
+  {dim:"合分机制", caie:["加权总分","Weighted + PUM 相对位置"], edexcel:["UMS 标准分","非线性转换"], aqa:["UMS 标准分","同源 Edexcel"],
+   det:"CAIE 用加权系数 + PUM 百分位;Edexcel/OxfordAQA 用 UMS 把不同考季难度抹平,相同 UMS = 相同水平。"},
+  {dim:"A* 评定", caie:["全局单线","总分跨阈值"], edexcel:["双重刚性","总分 80% + A2 阶段 90%"], aqa:["双重确认","同 Edexcel 逻辑"],
+   det:"CAIE 只看整体加权总分(高容错);Edexcel/OxfordAQA 要求总分与 A2 单元两道门槛同时达标(容错较低)。"},
+  {dim:"重考容错", caie:["13 个月规则","严格时效"], edexcel:["无限重考","最近两次最优"], aqa:["模块重考","资源受限"],
+   det:"CAIE 结转有 13 个月硬时限;Edexcel 可无限重考但只在最近两次取最高(早期高分会被屏蔽)。"},
+  {dim:"结转机制", caie:["阶段性整体结转","禁止混合考季"], edexcel:["Cash-in 触发","需主动申报"], aqa:["同 Edexcel","授权限制"],
+   det:"Edexcel 必须主动报 Cash-in 结算码,漏报则只有零散单元分、无 Overall Grade。"},
+  {dim:"适用学生", caie:["连贯性强","抗压能力高"], edexcel:["需分散压力","逐个击破"], aqa:["语言友好","资源依赖"],
+   det:"抗压强、底子扎实 → CAIE;需要分散压力、逐科攻克 → Edexcel;语言偏弱但有强校资源支持 → OxfordAQA。"},
+  {dim:"市场生态", caie:["历史悠久","资源丰富"], edexcel:["全球主流","教研成熟"], aqa:["新兴势力","资源稀缺"],
+   det:"备考资料丰富度:Edexcel ≈ CAIE ≫ OxfordAQA(真题量不足前两者 30%)。"}
+];
+var tb = document.querySelector("#mx tbody");
+ROWS.forEach(function(r,i){
+  var tr = document.createElement("tr"); tr.className="row"; tr.dataset.i=i;
+  function cell(b){return "<td data-board='"+b+"'><b>"+r[b][0]+"</b><span class='en'>"+r[b][1]+"</span></td>";}
+  tr.innerHTML = "<th>"+r.dim+"</th>"+cell("caie")+cell("edexcel")+cell("aqa");
+  tb.appendChild(tr);
+  var dr = document.createElement("tr"); dr.className="det";
+  dr.innerHTML = "<td colspan='4'><div class='inner'><div class='pad'>"+r.det+"</div></div></td>";
+  tb.appendChild(dr);
+  tr.addEventListener("click", function(){
+    var open = tr.classList.toggle("exp"); dr.classList.toggle("open", open);
+  });
+});
+// board column highlight (click header or column-related)
+function clearHL(){document.querySelectorAll("#mx .hl").forEach(function(e){e.classList.remove("hl")});}
+document.querySelectorAll("#mx thead th[data-board]").forEach(function(th){
+  th.addEventListener("click", function(){
+    var b=th.dataset.board, was=th.classList.contains("hl"); clearHL();
+    if(!was){document.querySelectorAll("#mx [data-board='"+b+"']").forEach(function(e){e.classList.add("hl")});}
+  });
+});
+// ── accordions ──
+document.querySelectorAll(".acc__h").forEach(function(h){
+  h.addEventListener("click", function(){ h.parentElement.classList.toggle("open"); });
+});
+// ── go-to nav ──
+var pills=document.querySelectorAll(".nav__pill"), secs=document.querySelectorAll(".sec");
+function go(id){
+  secs.forEach(function(s){s.classList.toggle("on", s.id===id);});
+  pills.forEach(function(p){p.classList.toggle("on", p.dataset.go===id);});
+  var st=document.querySelector(".sec.on"); if(st) st.scrollTop=0;
+}
+pills.forEach(function(p){p.addEventListener("click",function(){go(p.dataset.go);});});
+document.addEventListener("keydown",function(e){
+  var ids=["cover","matrix","caie","edexcel","aqa","taboo"];
+  var cur=ids.indexOf(document.querySelector(".sec.on").id);
+  if(e.key==="ArrowRight"&&cur<ids.length-1)go(ids[cur+1]);
+  if(e.key==="ArrowLeft"&&cur>0)go(ids[cur-1]);
+});
+</script>
+</body>
+</html>

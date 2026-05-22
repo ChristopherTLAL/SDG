@@ -14,9 +14,11 @@ const { id } = Astro.params;
 const deck = getDeckById(id!);
 if (!deck) return Astro.redirect('/tools');
 
+// Deck content lives under /deck-files/ (NOT /decks/ — that namespace is the
+// prerendered viewer route, whose index.html would collide with an HTML deck's).
 const src = deck.format === 'pdf'
-  ? `/decks/${deck.id}/deck.pdf#toolbar=1&view=FitH`
-  : `/decks/${deck.id}/index.html`;
+  ? `/deck-files/${deck.id}/deck.pdf#toolbar=1&view=FitH`
+  : `/deck-files/${deck.id}/index.html`;
 ---
 <!doctype html>
 <html lang="zh">
@@ -65,7 +67,7 @@ const src = deck.format === 'pdf'
           <div class="ph__16x9">16 : 9</div>
           <div class="ph__t">{deck.title}</div>
           <div class="ph__fmt">{deck.format}</div>
-          <div class="ph__s">内容占位 — 把 deck 放到 public/decks/{deck.id}/ 后这里会嵌入实际幻灯</div>
+          <div class="ph__s">内容占位 — 把 deck 放到 public/deck-files/{deck.id}/ 后这里会嵌入实际幻灯</div>
         </div>
       ) : (
         <iframe src={src} title={deck.title} allow="fullscreen" allowfullscreen></iframe>
