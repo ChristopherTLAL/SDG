@@ -19,7 +19,9 @@ if (!deck) return Astro.redirect('/tools');
 // If deck.srcUrl is set (e.g. a Supabase Storage-hosted PDF), embed it directly.
 const base = deck.srcUrl
   ?? (deck.format === 'pdf' ? `/deck-files/${deck.id}/deck.pdf` : `/deck-files/${deck.id}/index.html`);
-const src = deck.format === 'pdf' ? `${base}#toolbar=1&view=FitH` : base;
+// Hide the native PDF reader chrome (toolbar + thumbnail rail) and fit-to-width so
+// it reads as a slide, not a document. Our own top bar + 全屏放映 cover presenting.
+const src = deck.format === 'pdf' ? `${base}#toolbar=0&navpanes=0&scrollbar=0&view=FitH` : base;
 ---
 <!doctype html>
 <html lang="zh">
