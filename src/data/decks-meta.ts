@@ -38,9 +38,9 @@ export const DECK_THEMES: Record<DeckStage, string[]> = {
 export const STAGE_ORDER: DeckStage[] = ['前期', '中期', '后期', '补充知识'];
 
 // PDF decks are hosted on Supabase Storage (public bucket `decks`), NOT in git —
-// course PDFs are tens of MB. Pending: 2 PDFs (剑桥 Advanced Diploma 68MB / 约翰洛克
-// 夏校 71MB) exceed the 50MB Storage limit (raise limit or compress); 2 PPTX (中外合办 /
-// 西浦 SURF) need PDF conversion before they can be embedded.
+// course PDFs are tens of MB. The 2 originally-oversized PDFs (剑桥 Advanced Diploma /
+// 约翰洛克夏校, ~70MB) were Ghostscript-compressed (/ebook 150dpi) to ~3MB and added.
+// Still pending: 2 PPTX (中外合办 / 西浦 SURF) — need PDF conversion (no LibreOffice on box).
 const SB = 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/decks';
 export const decks: Deck[] = [
   { id: 'alevel-boards-9c4f2a1b', title: '国际版 A-Level 三大考试局合分机制深度解析', titleEn: 'CAIE · Edexcel · OxfordAQA', stage: '中期', theme: '课程与考试局', format: 'html', summary: '交互对比矩阵 + 三局可展开深读（HTML 试做版）', updated: '2026-05-22' },
@@ -50,6 +50,8 @@ export const decks: Deck[] = [
   { id: 'ug-transfer-1d9e', title: '英美本科转学', stage: '后期', theme: '转学', format: 'pdf', srcUrl: `${SB}/ug-transfer-1d9e.pdf`, updated: '2026-02-22' },
   { id: 'postgrad-global-5a2b', title: '考研后全球申请 26', stage: '补充知识', theme: '考研后申请', format: 'pdf', srcUrl: `${SB}/postgrad-global-5a2b.pdf`, updated: '2026-02-28' },
   { id: 'color-design-9e6d', title: '颜色与设计', stage: '补充知识', theme: '设计参考', format: 'pdf', srcUrl: `${SB}/color-design-9e6d.pdf`, updated: '2026-03-15' },
+  { id: 'camb-addip-2a8e', title: '剑桥 Advanced Diploma 特殊背提 26', stage: '补充知识', theme: '背景提升', format: 'pdf', srcUrl: `${SB}/camb-addip-2a8e.pdf`, summary: '原 68MB,已压缩至 3MB', updated: '2026-03-12' },
+  { id: 'john-locke-6b3d', title: '约翰洛克 夏校申请 26', stage: '补充知识', theme: '夏校', format: 'pdf', srcUrl: `${SB}/john-locke-6b3d.pdf`, summary: '原 71MB,已压缩至 4MB', updated: '2026-03-17' },
 ];
 
 export const getDeckById = (id: string): Deck | undefined => decks.find((d) => d.id === id);
