@@ -16,9 +16,10 @@ if (!deck) return Astro.redirect('/tools');
 
 // Deck content lives under /deck-files/ (NOT /decks/ — that namespace is the
 // prerendered viewer route, whose index.html would collide with an HTML deck's).
-const src = deck.format === 'pdf'
-  ? `/deck-files/${deck.id}/deck.pdf#toolbar=1&view=FitH`
-  : `/deck-files/${deck.id}/index.html`;
+// If deck.srcUrl is set (e.g. a Supabase Storage-hosted PDF), embed it directly.
+const base = deck.srcUrl
+  ?? (deck.format === 'pdf' ? `/deck-files/${deck.id}/deck.pdf` : `/deck-files/${deck.id}/index.html`);
+const src = deck.format === 'pdf' ? `${base}#toolbar=1&view=FitH` : base;
 ---
 <!doctype html>
 <html lang="zh">
