@@ -2,7 +2,11 @@
 // src/pages/decks/[id].astro — PUBLIC deck viewer (unguessable id; noindex).
 // Prerendered → static HTML on the CDN (off the serverless function), so adding
 // decks never grows the function. The catalog that links here is gated at
-// /internal/decks. Renders a fixed 16:9 stage; embeds deck.pdf or index.html.
+// /internal/decks. Fixed 16:9 stage:
+//   • PDF  → PDF.js presenter (full-bleed canvas, arrow/click page flip, page counter)
+//   • HTML → iframe of the self-contained deck
+// Deck content lives under /deck-files/<id>/ OR an external srcUrl (e.g. Supabase
+// Storage PDF) — NOT /decks/<id>/, which is THIS prerendered route (index.html clash).
 import { decks, getDeckById } from '../../data/decks-meta';
 
 export const prerender = true;
@@ -14,14 +18,11 @@ const { id } = Astro.params;
 const deck = getDeckById(id!);
 if (!deck) return Astro.redirect('/tools');
 
-// Deck content lives under /deck-files/ (NOT /decks/ — that namespace is the
-// prerendered viewer route, whose index.html would collide with an HTML deck's).
-// If deck.srcUrl is set (e.g. a Supabase Storage-hosted PDF), embed it directly.
 const base = deck.srcUrl
   ?? (deck.format === 'pdf' ? `/deck-files/${deck.id}/deck.pdf` : `/deck-files/${deck.id}/index.html`);
-// Hide the native PDF reader chrome (toolbar + thumbnail rail) and fit-to-width so
-// it reads as a slide, not a document. Our own top bar + 全屏放映 cover presenting.
-const src = deck.format === 'pdf' ? `${base}#toolbar=0&navpanes=0&scrollbar=0&view=FitH` : base;
+const isPdf = deck.format === 'pdf' && !deck.placeholder;
+const isHtml = deck.format === 'html' && !deck.placeholder;
+const PDFJS = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174';
 ---
 <!doctype html>
 <html lang="zh">
@@ -31,28 +32,35 @@ const src = deck.format === 'pdf' ? `${base}#toolbar=0&navpanes=0&scrollbar=0&vi
   <meta name="robots" content="noindex, nofollow" />
   <title>{deck.title}</title>
   <style>
-    :root { --bar: 44px; --ink: #042f24; }
+    :root { --bar: 44px; }
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; background: #0b0f0e; color: #e8efec; font-family: Inter, system-ui, sans-serif; }
-    .deck-bar {
-      height: var(--bar); display: flex; align-items: center; gap: 12px;
-      padding: 0 14px; background: #11201b; color: #eaf3ef; border-bottom: 1px solid #1d3a30;
-    }
-    .deck-bar__title { font-weight: 700; font-size: 14px; letter-spacing: .2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .deck-bar { height: var(--bar); display: flex; align-items: center; gap: 10px; padding: 0 14px; background: #11201b; color: #eaf3ef; border-bottom: 1px solid #1d3a30; }
+    .deck-bar__title { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .deck-bar__tag { font-size: 11px; opacity: .6; border: 1px solid #2a4a3e; border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
     .deck-bar__spacer { flex: 1; }
-    .deck-bar__btn { cursor: pointer; background: #1c3a30; color: #eaf3ef; border: 0; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 600; }
+    .deck-bar__btn { cursor: pointer; background: #1c3a30; color: #eaf3ef; border: 0; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 600; text-decoration: none; }
     .deck-bar__btn:hover { background: #275346; }
     .stage { height: calc(100vh - var(--bar)); display: grid; place-items: center; padding: 18px; }
-    /* The fixed 16:9 frame — the canonical PPT canvas. */
-    .frame { width: 100%; max-width: calc((100vh - var(--bar) - 36px) * 16 / 9); aspect-ratio: 16 / 9; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 14px 50px rgba(0,0,0,.5); }
+    .frame { position: relative; width: 100%; max-width: calc((100vh - var(--bar) - 36px) * 16 / 9); aspect-ratio: 16 / 9; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 14px 50px rgba(0,0,0,.5); }
     .frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-    /* Placeholder slide (until real content is dropped in public/decks/<id>/). */
-    .ph { width: 100%; height: 100%; display: grid; place-content: center; text-align: center; gap: 10px; color: var(--ink); background: repeating-linear-gradient(135deg,#f6f8f7,#f6f8f7 22px,#eef3f1 22px,#eef3f1 44px); }
+    /* PDF.js presenter */
+    .pdf { position: absolute; inset: 0; display: grid; place-items: center; background: #fff; }
+    .pdf canvas { max-width: 100%; max-height: 100%; display: block; }
+    .pdf__load { position: absolute; color: #7B7393; font: 600 13px Inter; }
+    .pdf__click { position: absolute; top: 0; bottom: 0; width: 38%; cursor: pointer; z-index: 2; }
+    .pdf__click--l { left: 0; } .pdf__click--r { right: 0; }
+    .pdf__bar { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; background: rgba(17,32,27,.85); color: #eaf3ef; border-radius: 999px; padding: 4px 6px; z-index: 3; opacity: 0; transition: opacity .2s; }
+    .frame:hover .pdf__bar { opacity: 1; }
+    .pdf__bar button { background: none; border: 0; color: #eaf3ef; font-size: 17px; cursor: pointer; width: 30px; height: 30px; border-radius: 50%; line-height: 1; }
+    .pdf__bar button:hover { background: rgba(255,255,255,.14); }
+    .pdf__bar span { font: 600 12px Inter; min-width: 56px; text-align: center; }
+    /* Placeholder */
+    .ph { width: 100%; height: 100%; display: grid; place-content: center; text-align: center; gap: 10px; color: #042f24; background: repeating-linear-gradient(135deg,#f6f8f7,#f6f8f7 22px,#eef3f1 22px,#eef3f1 44px); }
     .ph__16x9 { font: 800 40px/1 Manrope, sans-serif; letter-spacing: 1px; }
     .ph__t { font: 700 16px/1.4 Manrope, sans-serif; }
     .ph__s { font-size: 12px; opacity: .6; }
-    .ph__fmt { font: 700 11px/1 Inter; text-transform: uppercase; letter-spacing: 1px; color:#fff; background: var(--ink); border-radius: 999px; padding: 4px 10px; justify-self: center; }
+    .ph__fmt { font: 700 11px/1 Inter; text-transform: uppercase; letter-spacing: 1px; color:#fff; background:#042f24; border-radius: 999px; padding: 4px 10px; justify-self: center; }
   </style>
 </head>
 <body>
@@ -60,31 +68,90 @@ const src = deck.format === 'pdf' ? `${base}#toolbar=0&navpanes=0&scrollbar=0&vi
     <span class="deck-bar__title">{deck.title}</span>
     <span class="deck-bar__tag">{deck.stage} · {deck.theme}</span>
     <span class="deck-bar__spacer"></span>
+    {isPdf && <a class="deck-bar__btn" href={base} target="_blank" rel="noopener">原始 PDF</a>}
     <button class="deck-bar__btn" id="fs">全屏放映</button>
   </header>
 
   <main class="stage">
-    <div class="frame" id="frame">
-      {deck.placeholder ? (
+    <div class="frame" id="frame" data-pdf={isPdf ? base : undefined}>
+      {deck.placeholder && (
         <div class="ph">
           <div class="ph__16x9">16 : 9</div>
           <div class="ph__t">{deck.title}</div>
           <div class="ph__fmt">{deck.format}</div>
-          <div class="ph__s">内容占位 — 把 deck 放到 public/deck-files/{deck.id}/ 后这里会嵌入实际幻灯</div>
+          <div class="ph__s">内容占位 — 放到 public/deck-files/{deck.id}/ 后嵌入实际幻灯</div>
         </div>
-      ) : (
-        <iframe src={src} title={deck.title} allow="fullscreen" allowfullscreen></iframe>
+      )}
+      {isHtml && <iframe src={base} title={deck.title} allow="fullscreen" allowfullscreen></iframe>}
+      {isPdf && (
+        <div class="pdf">
+          <div class="pdf__load" id="pdfLoad">加载中…</div>
+          <canvas id="pdfCanvas"></canvas>
+          <div class="pdf__click pdf__click--l" data-dir="-1"></div>
+          <div class="pdf__click pdf__click--r" data-dir="1"></div>
+          <div class="pdf__bar">
+            <button data-dir="-1" aria-label="prev">‹</button>
+            <span id="pdfPage">– / –</span>
+            <button data-dir="1" aria-label="next">›</button>
+          </div>
+        </div>
       )}
     </div>
   </main>
 
+  {isPdf && <script is:inline src={`${PDFJS}/pdf.min.js`}></script>}
   <script is:inline>
-    document.getElementById('fs')?.addEventListener('click', () => {
-      const el = document.getElementById('frame');
+    // Fullscreen the slide frame.
+    document.getElementById('fs')?.addEventListener('click', function () {
+      var el = document.getElementById('frame');
       if (!el) return;
       if (document.fullscreenElement) document.exitFullscreen();
-      else el.requestFullscreen?.();
+      else if (el.requestFullscreen) el.requestFullscreen();
     });
+
+    // PDF.js presenter (only when the frame carries a data-pdf url).
+    (function () {
+      var frame = document.getElementById('frame');
+      var url = frame && frame.getAttribute('data-pdf');
+      if (!url || typeof pdfjsLib === 'undefined') return;
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      var canvas = document.getElementById('pdfCanvas'), ctx = canvas.getContext('2d');
+      var loadEl = document.getElementById('pdfLoad'), pageEl = document.getElementById('pdfPage');
+      var doc = null, cur = 1, rendering = false, queued = null;
+      function render(n) {
+        if (!doc) return; rendering = true;
+        if (pageEl) pageEl.textContent = n + ' / ' + doc.numPages;
+        doc.getPage(n).then(function (pg) {
+          var dpr = window.devicePixelRatio || 1;
+          var v1 = pg.getViewport({ scale: 1 });
+          var s = Math.min(frame.clientWidth / v1.width, frame.clientHeight / v1.height);
+          var vp = pg.getViewport({ scale: s * dpr });
+          canvas.width = Math.floor(vp.width); canvas.height = Math.floor(vp.height);
+          canvas.style.width = Math.floor(vp.width / dpr) + 'px';
+          canvas.style.height = Math.floor(vp.height / dpr) + 'px';
+          pg.render({ canvasContext: ctx, viewport: vp }).promise.then(function () {
+            rendering = false;
+            if (loadEl) loadEl.style.display = 'none';
+            if (queued !== null) { var q = queued; queued = null; render(q); }
+          });
+        });
+      }
+      function go(n) { if (!doc || n < 1 || n > doc.numPages) return; cur = n; if (rendering) queued = n; else render(n); }
+      pdfjsLib.getDocument(url).promise.then(function (d) { doc = d; render(1); })
+        .catch(function () { if (loadEl) loadEl.textContent = 'PDF 加载失败,可点右上「原始 PDF」'; });
+      document.querySelectorAll('[data-dir]').forEach(function (el) {
+        el.addEventListener('click', function () { go(cur + parseInt(el.getAttribute('data-dir'), 10)); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(cur + 1); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); e.preventDefault(); }
+        else if (e.key === 'Home') go(1);
+        else if (e.key === 'End' && doc) go(doc.numPages);
+      });
+      var rt; function onResize() { clearTimeout(rt); rt = setTimeout(function () { if (doc) render(cur); }, 150); }
+      window.addEventListener('resize', onResize);
+      document.addEventListener('fullscreenchange', onResize);
+    })();
   </script>
 </body>
 </html>
