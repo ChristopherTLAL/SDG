@@ -1,0 +1,242 @@
+// Messi book, Ch.4: Argentina win Copa America 2024 in Miami; Di Maria retires, Messi injured (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-07-14',
+    title: 'Copa America 2024: Title and Goodbye',
+    titleZh: '2024 美洲杯：登顶与告别',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/messi-miami/04-copa-america-2024.mp3',
+    wordCount: 312,
+    readingMinutes: 4,
+    editorsNote:
+      "Argentina won the Copa America 2024 final, but the night did not feel like a simple celebration. Messi limped off in tears, Di Maria played his last game, and the team had to lift the trophy without their captain on the pitch.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: "On July 14, 2024, Argentina beat Colombia 1-0 in the Copa America final at Miami's Hard Rock Stadium.", zh: '2024 年 7 月 14 日，阿根廷在迈阿密的硬石体育场以 1 比 0 击败哥伦比亚，赢得美洲杯决赛。' },
+        { id: 's2', en: 'The game was tied after 90 minutes, so it went to extra time.', zh: '常规 90 分钟战平，比赛进入加时赛。' },
+        { id: 's3', en: 'In the 112th minute, striker Lautaro Martinez ran onto a low pass and scored the only goal.', zh: '在第 112 分钟，前锋劳塔罗·马丁内斯接到一记低平球，攻入全场唯一进球。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Argentina lifted the trophy, but the night did not feel like a simple party.', zh: '阿根廷捧起了奖杯，但那一夜并不像一场单纯的庆祝。' },
+        { id: 's5', en: 'Lionel Messi, the captain, had gone off injured in the second half.', zh: '队长莱昂内尔·梅西在下半场因伤被换下。' },
+        { id: 's6', en: 'He had hurt his right ankle, and television cameras showed him crying on the bench.', zh: '他右脚踝受了伤，电视镜头拍到他坐在替补席上落泪。' },
+        { id: 's7', en: 'His teammates went on to win without him, which made the victory both happy and bittersweet.', zh: '队友们没有他也赢下了比赛，这让这场胜利既快乐又苦中带甜。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'After the final whistle, Angel Di Maria gave the news that fans had been quietly fearing.', zh: '终场哨响后，安赫尔·迪马利亚说出了球迷一直在悄悄担心的消息。' },
+        { id: 's9', en: 'He had already decided that this would be his last game for Argentina.', zh: '他早已决定这将是他为阿根廷踢的最后一场比赛。' },
+        { id: 's10', en: 'Di Maria had played for the country for 16 years, and he had scored in three major finals.', zh: '迪马利亚为国家队效力了 16 年，并在三场重大决赛中破门。' },
+        { id: 's11', en: 'Messi walked on crutches to hug him, and the whole team carried him on their shoulders.', zh: '梅西拄着拐杖走过去抱住他，全队把他高高扛在肩上。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'Part of what made the night unusual was the changing of the guard.', zh: '那个夜晚之所以特别，部分原因在于一种"交接"正在发生。' },
+        { id: 's13', en: 'Younger players, like Lautaro and Julian Alvarez, had already taken the spotlight.', zh: '更年轻的球员，比如劳塔罗和胡利安·阿尔瓦雷斯，已经站到了聚光灯下。' },
+        { id: 's14', en: 'Messi was 37 and visibly slower, and his body had finally started to push back.', zh: '梅西 37 岁，明显慢了下来，他的身体也终于开始反抗。' },
+        { id: 's15', en: 'The team would still need him, but it had also learned how to fight when he was not on the pitch.', zh: '球队仍然需要他，但他们也学会了在他不在场上时如何作战。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: "For the first time in years, fans began to ask a careful question.", zh: '多年来第一次，球迷们开始小心翼翼地提出一个问题。' },
+        { id: 's17', en: 'What will Argentina look like after Messi?', zh: '在梅西之后的阿根廷会是什么样子？' },
+        { id: 's18', en: 'Nobody wanted to rush the answer, and Messi himself had not said anything about retirement.', zh: '没人想急着给出答案，梅西本人也没有谈论退役。' },
+        { id: 's19', en: 'Still, the Miami final felt like a turning point, a quiet line drawn between one era and the next.', zh: '尽管如此，这场迈阿密决赛感觉像一个转折点，一道悄悄画在两个时代之间的线。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's20', en: 'A trophy is more than a piece of metal. It is a memory of who held it, and who said goodbye that same night.', zh: '一座奖杯不只是一块金属。它是一段记忆，记得谁举起过它，也记得谁在同一个夜晚说了再见。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'beat', lemma: 'beat', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/biːt/', defZh: '击败；战胜', defEn: 'to defeat in a game or contest', example: 'Our school beat the visitors 2-0 last weekend.', exampleZh: '我们学校上周末以 2 比 0 击败了客队。' },
+    { id: 'v2', word: 'tied', lemma: 'tie', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/taɪd/', defZh: '战平；打平', defEn: 'to finish a game with the same score', example: 'The two teams tied after a long match.', exampleZh: '两队在一场漫长的比赛后战成平手。' },
+    { id: 'v3', word: 'striker', lemma: 'striker', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/ˈstraɪkə(r)/', defZh: '前锋（足球）', defEn: 'a soccer player whose main job is to score goals', example: 'The striker missed two easy chances in the first half.', exampleZh: '这位前锋上半场错失了两次轻松的机会。' },
+    { id: 'v4', word: 'trophy', lemma: 'trophy', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/ˈtrəʊfi/', defZh: '奖杯；奖品', defEn: 'a cup or prize given to the winner of a contest', example: 'She held the trophy above her head for the photo.', exampleZh: '她把奖杯高举过头顶拍照。' },
+    { id: 'v5', word: 'captain', lemma: 'captain', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ˈkæptɪn/', defZh: '队长', defEn: 'the leader of a sports team', example: 'As captain, he spoke to the team before kickoff.', exampleZh: '作为队长，他在开球前对全队讲了话。' },
+    { id: 'v6', word: 'injured', lemma: 'injure', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/ˈɪndʒəd/', defZh: '受伤的', defEn: 'hurt in an accident or in sport', example: 'Two players left the field injured.', exampleZh: '有两名球员因伤离场。' },
+    { id: 'v7', word: 'ankle', lemma: 'ankle', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈæŋkl/', defZh: '脚踝', defEn: 'the joint between the foot and the leg', example: 'He twisted his ankle while jumping for the ball.', exampleZh: '他在跳起争球时扭伤了脚踝。' },
+    { id: 'v8', word: 'crying', lemma: 'cry', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/ˈkraɪɪŋ/', defZh: '哭泣', defEn: 'showing tears because of strong feeling', example: 'The little fan was crying when his team lost.', exampleZh: '小球迷在他的队伍输球时哭了。' },
+    { id: 'v9', word: 'bittersweet', lemma: 'bittersweet', sentenceId: 's7', level: 4, pos: 'adj.', ipa: '/ˌbɪtəˈswiːt/', defZh: '苦乐参半的；又喜又忧的', defEn: 'mixing happiness with sadness at the same time', example: 'Her last day at school was a bittersweet morning.', exampleZh: '她在学校的最后一天是个苦乐参半的早晨。' },
+    { id: 'v10', word: 'whistle', lemma: 'whistle', sentenceId: 's8', level: 2, pos: 'n.', ipa: '/ˈwɪsl/', defZh: '哨声；哨子', defEn: 'a sharp high sound used by a referee', example: 'The referee blew the whistle and the game began.', exampleZh: '裁判吹响哨子，比赛开始了。' },
+    { id: 'v11', word: 'fearing', lemma: 'fear', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ˈfɪərɪŋ/', defZh: '害怕；担心', defEn: 'feeling afraid that something bad will happen', example: 'Many people were fearing more bad weather that week.', exampleZh: '那一周很多人在担心更糟的天气。' },
+    { id: 'v12', word: 'crutches', lemma: 'crutch', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/ˈkrʌtʃɪz/', defZh: '拐杖', defEn: 'long sticks used to support someone who cannot walk well', example: 'After the surgery, he walked with crutches for a month.', exampleZh: '手术后他拄着拐杖走了一个月。' },
+    { id: 'v13', word: 'shoulders', lemma: 'shoulder', sentenceId: 's11', level: 1, pos: 'n.', ipa: '/ˈʃəʊldəz/', defZh: '肩膀', defEn: 'the parts of the body where the arms meet the neck', example: 'Her son fell asleep on her shoulders.', exampleZh: '她儿子在她肩上睡着了。' },
+    { id: 'v14', word: 'spotlight', lemma: 'spotlight', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/ˈspɒtlaɪt/', defZh: '聚光灯；公众关注', defEn: 'public attention on a person', example: 'Young singers are not always ready for the spotlight.', exampleZh: '年轻歌手并不总是为聚光灯做好了准备。' },
+    { id: 'v15', word: 'visibly', lemma: 'visibly', sentenceId: 's14', level: 3, pos: 'adv.', ipa: '/ˈvɪzəbli/', defZh: '明显地；看得出地', defEn: 'in a way that is easy to see', example: 'She was visibly tired by the end of the speech.', exampleZh: '到演讲结束时，她明显已经累了。' },
+    { id: 'v16', word: 'pitch', lemma: 'pitch', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/pɪtʃ/', defZh: '球场（草地球场）', defEn: 'the grass field where a soccer game is played', example: 'The players walked slowly off the pitch at halftime.', exampleZh: '中场休息时球员们慢慢走下场。' },
+    { id: 'v17', word: 'rush', lemma: 'rush', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/rʌʃ/', defZh: '匆忙做；急于', defEn: 'to do something too quickly without enough thought', example: 'Do not rush the decision; take a few more days.', exampleZh: '别急着做决定，再多花几天。' },
+    { id: 'v18', word: 'retirement', lemma: 'retirement', sentenceId: 's18', level: 3, pos: 'n.', ipa: '/rɪˈtaɪəmənt/', defZh: '退役；退休', defEn: 'the act of ending your career or career stage', example: 'The coach announced his retirement after the season.', exampleZh: '主教练在赛季结束后宣布退役。' },
+    { id: 'v19', word: 'era', lemma: 'era', sentenceId: 's19', level: 3, pos: 'n.', ipa: '/ˈɪərə/', defZh: '时代；时期', defEn: 'a long period of time with a clear character', example: 'Many fans see this as the end of one era and the start of another.', exampleZh: '许多球迷把这视为一个时代的结束、另一个时代的开始。' },
+    { id: 'v20', word: 'memory', lemma: 'memory', sentenceId: 's20', level: 1, pos: 'n.', ipa: '/ˈmeməri/', defZh: '记忆；回忆', defEn: 'something you remember from the past', example: "That summer is a memory I'll always keep.", exampleZh: '那个夏天是我会一直珍藏的记忆。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 had done 把"早就……了"放进故事里',
+      pattern: 'had + 过去分词',
+      sentenceIds: ['s5', 's6', 's9', 's10'],
+      explanationZh: [
+        '讲故事时，主体时间通常是过去（比赛在 7 月 14 日打完）。但故事里有些动作，发生得比这个"过去"还要早。这时候英文用 had 加过去分词，把那件"更早的事"放进当下叙述。这就是过去完成时。',
+        '看第 5 句：Messi, the captain, had gone off injured in the second half。文章主线时间是"全队赢得奖杯之后"，而梅西被换下是在那之前。用 had gone 让读者立刻知道：这件事更早。第 9 句 He had already decided that this would be his last game 也是同理：宣布告别是在赛后，但"早已决定"发生在更早。',
+        '什么时候用：写新闻特写、人物故事、回忆性文章时最好用。一旦你已经把读者带到了"那一刻"，再回头补一件更早的事，就该用 had done，而不是另起一段从头讲起。',
+        '一个细节：had 后面跟过去分词（gone, hurt, decided, scored），不是过去式。错写成 had went / had hurted / had scored 是常见错误。',
+      ],
+      examples: [
+        { en: 'By the time we arrived, the show had already started.', zh: '我们到的时候，演出已经开始了。', note: 'had started 把"更早发生"标得很清楚。' },
+        { en: 'She felt nervous because she had never spoken in public before.', zh: '她感到紧张，因为她以前从没在公众面前讲过话。' },
+        { en: 'The road was wet, so it had clearly rained during the night.', zh: '路面是湿的，看得出夜里下过雨。' },
+        { en: 'When I opened the box, someone had already taken the best piece.', zh: '我打开盒子时，最好的那一块已经被人拿走了。' },
+        { en: 'He passed the exam easily because he had studied for months.', zh: '他轻松通过了考试，因为他已经准备了好几个月。' },
+      ],
+      commonMistake: '不要写成 He had went off injured 或 He had hurted his ankle。had 后面一定要用过去分词：gone（不是 went）、hurt（不是 hurted）。',
+      vsSimilar: '一般过去式（went, hurt）只说"那件事过去发生了"；过去完成时（had gone, had hurt）说"那件事比我现在讲的这一刻更早发生"。判断方法：你已经把读者带到的"现在"，到底是哪一刻？',
+    },
+    {
+      id: 'g2',
+      title: '用 which 给整句话加一句评价',
+      pattern: '前面整句话, which + 谓语',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '中文里我们常说"……，这让……"，前半句是发生的事，后半句是对它的总结或感受。英文里对应的写法是用一个逗号加 which，让 which 指代前面整句话，而不只是某一个名词。',
+        '看第 7 句：His teammates went on to win without him, which made the victory both happy and bittersweet。这里的 which 不是指"队友"也不是指"胜利"，而是指"在他不在的情况下队友赢了"这整件事。用一个 which 就把前面一整件事打包，再补一句作者对它的解读。',
+        '什么时候用：当你写完一件事，想顺手补一句"这意味着……"或"这让……"时最好用。新闻评论、个人陈述、感想类文章里用得最多。它能让段落更有节奏：先讲事实，再补反思。',
+        '一个隐藏要点：这种 which 前面一定要有逗号，否则它就变成限定性定语从句，意思和指向都会变。逗号 which 才是"对前面整句的评价"。',
+      ],
+      examples: [
+        { en: 'She missed the bus, which meant she had to walk home in the rain.', zh: '她错过了公交车，这意味着她不得不在雨中走回家。', note: 'which 指代"错过公交"这件事，不只是某个名词。' },
+        { en: 'He spoke very little during dinner, which made everyone feel uneasy.', zh: '他在晚饭时几乎不说话，这让大家都感到不自在。' },
+        { en: 'The team won three matches in a row, which lifted the whole city.', zh: '球队连胜三场，这让整座城市都振奋起来。' },
+        { en: 'My grandmother kept every letter, which now feels like a small miracle.', zh: '我外婆保存了每一封信，这件事如今看来像一个小小的奇迹。' },
+      ],
+      commonMistake: '不要漏掉前面的逗号：He scored a goal which made the team happy 和 He scored a goal, which made the team happy 是两个意思。前者把 which 当成"修饰 goal"；后者才是"对整件事的评价"。',
+    },
+    {
+      id: 'g3',
+      title: '用 for + 一段时间 + 现在 / 过去完成时讲"持续了多久"',
+      pattern: '主语 + had + 过去分词 + for [一段时间]',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '中文里说"他踢了 16 年国家队"，时间可以含糊。英文里要让读者准确知道"这 16 年是从哪一刻往回数的"，就要用 for 加一段时间，再配合时态。如果是从过去某一刻往回数，就用 had done for…。',
+        '看第 10 句：Di Maria had played for the country for 16 years。这里的"参照点"是 2024 年 7 月 14 日的决赛之夜，往回数 16 年，正好覆盖他整个国家队生涯。用 had played for 16 years，把"持续这么久"打包说清楚。',
+        '什么时候用：写人物特写、回忆某段经历时最好用。决赛之夜、毕业典礼、退休派对……当你想从一个具体的"过去时刻"回看一段时长，就用 had done for…。如果参照点是现在，就换成 has done for…。',
+        '一个细节：for 后面跟的是时长（16 years, three months, a long time），不是某个具体时间点。表达"从某个时间点开始"用 since，时间点搭配 since，时长搭配 for。',
+      ],
+      examples: [
+        { en: 'When he finally retired, he had worked at the school for 30 years.', zh: '他终于退休时，已经在那所学校工作了 30 年。' },
+        { en: 'By the time the project ended, the team had run it for almost five years.', zh: '项目结束时，团队已经运作它将近五年。', note: 'had run it for 把"持续多久"和"到此为止"两件事一次说清。' },
+        { en: 'She had lived alone for a long time before her sister moved in.', zh: '在妹妹搬来同住之前，她已经独自生活了很久。' },
+        { en: 'They had been close friends for ten years when one of them moved abroad.', zh: '其中一人搬去国外时，他们已经做了十年的好朋友。' },
+      ],
+      commonMistake: '不要写成 had played for 16 years ago。ago 用于"从现在往回数"的过去式句子（16 years ago, he started playing），不能和 had done for 一起用。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '承认表面赢面，再点出背后真正的情绪',
+      skeleton: '[主语] [取得了什么], but [那一刻 / 那个夜晚] did not feel like [人们以为的样子].',
+      original: 'Argentina lifted the trophy, but the night did not feel like a simple party.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式靠"先扬后抑"做出落差。前半句让读者以为故事会照常往庆祝方向走（举起奖杯），后半句突然用 did not feel like 把那个简单的预期推翻。短短一句话，给整段后续解释打开空间。',
+        '对读者来说，did not feel like 这个表达比直接说 it was sad 更克制：作者没有把情绪一下子拍死，只是说"它的感觉不像你以为的那样"。这种克制反而让接下来的细节更有重量。',
+        '它特别适合用在新闻特写或个人回忆类文章的段落开头：交代了一件大事之后，紧跟一句这样的反转，引出"为什么实际上不像表面那样"。后面再用具体细节把这种"不一样"填实。',
+        '一个隐藏要点：前半句要写一个读者本能会理解为"喜事"的动作（赢了、毕业了、拿到 offer 了），后半句的反差才成立。如果前半句本身已经是坏消息，整个句式就失去了机锋。',
+      ],
+      examples: [
+        { context: '个人陈述：拿到第一志愿 offer 后的复杂心情', text: 'I got the offer I had wanted for two years, but that afternoon did not feel like a victory.', zh: '我拿到了想了两年的 offer，但那个下午并不像一场胜利。' },
+        { context: '新闻特写：球队夺冠后教练宣布离任', text: 'The club won the league, but the locker room did not feel like a celebration.', zh: '俱乐部赢得了联赛冠军，但更衣室里并不像一场庆祝。', note: '前半句是确定的喜事，后半句把镜头拉到一个具体地点（the locker room），反差更具体。' },
+        { context: '影评收尾', text: 'The hero saves the city, but the final scene does not feel like a happy ending.', zh: '主角拯救了城市，但最后一幕并不像一个圆满的结局。' },
+      ],
+      adaptingTip: '前半句尽量写得"明亮"，动词要正面（lifted, won, finished, got），让读者顺势期待一个温暖的画面。后半句的 like 后面要填一个非常具体的、读者脑子里已经有画面的词（a party, a celebration, a victory, a happy ending），反差才落得到地方。空泛的 it was complicated 救不了这个句式。',
+      commonMistake: '不要让后半句也是负面动作：Argentina lost the trophy, but the night did not feel like a defeat. 前半句已经是坏消息，后半句的"不像失败"反而显得没力气。这个句式靠的是"喜事 + 但不像喜事"的落差，方向不能反。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把一个夜晚 / 时刻"重新命名"为一个时代的分界',
+      skeleton: '[那一刻] felt like [一个抽象的转折], [a 同位语补充].',
+      original: 'Still, the Miami final felt like a turning point, a quiet line drawn between one era and the next.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个句式的力量在两步走。第一步先用 felt like 给某个具体事件贴一个抽象标签（a turning point）；第二步紧接一个逗号同位语，把那个抽象标签再具体化（a quiet line drawn between one era and the next）。一抽象一具体，读者一下子就跟上了作者的思考。',
+        '对读者来说，felt like 比 was 客气得多，它把判断的责任留给作者本人："是我感觉如此"。这样写既给了文章观点，又不显得武断，特别适合在没有官方定论的事情上发表看法。',
+        '它适合放在文章接近收尾的位置：前面已经把事实讲完，这一句把整件事抬到一个更大的尺度上。新闻特写、人物侧记、留学经历类文章的结尾段落都很好用。',
+        '一个隐藏前提：后面的同位语必须比 felt like 后面的抽象词更有画面感。如果前面写的是 turning point，后面同位语却只是 a big change，读者会觉得你在原地踏步。后面的描述要往画面、动作、声音上落。',
+      ],
+      examples: [
+        { context: '留学申请的个人陈述', text: 'That summer felt like a quiet turning point, a slow shift from doing what others wanted to choosing what I cared about.', zh: '那个夏天感觉像一个安静的转折点，是一种从"做别人想要的"慢慢转向"选择我在意的"的转变。' },
+        { context: '科技评论的段落收尾', text: 'The launch felt like the end of an era, a last bow from the kind of phone we will probably stop buying.', zh: '这次发布感觉像一个时代的结束，是我们或许再也不会去买的那种手机最后一次谢幕。', note: '同位语用 a last bow，把"时代结束"这个抽象判断翻译成一个戏剧画面。' },
+        { context: '个人随笔', text: 'Their last family dinner felt like a small ceremony, a goodbye dressed up as a normal Tuesday.', zh: '他们的最后一次家庭晚餐感觉像一场小小的仪式，一场穿着普通星期二外衣的告别。' },
+      ],
+      adaptingTip: 'felt like 后面的词要能扛起"分量"，选 turning point / ceremony / end of an era / quiet warning 这类有时代感或情感重量的词，别用 something special 这种太轻的表达。同位语部分一定要往画面落（a line drawn / a bow / a ceremony 都是画面），用 a big moment 这种抽象到底的词等于白补。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾金句：先说"它不只是 Y"，再点出它真正承载的东西',
+      skeleton: '[一件东西] is more than [表面意义]. It is [更大的意义].',
+      original: 'A trophy is more than a piece of metal. It is a memory of who held it, and who said goodbye that same night.',
+      sentenceId: 's20',
+      whyItWorks: [
+        '句式分两步：第一句先承认大家眼里那个浅层意义（a piece of metal），第二句突然把镜头拉远，给出一个更大的解读（a memory of who held it…）。先低后高，落差制造出收尾的升华感。',
+        '对读者来说，第一句的 more than 三个字就埋下了一个小小的承诺："别急，这东西没那么简单"。读者会带着期待读第二句，于是第二句给出的"真正意义"显得是水到渠成，而不是硬喊口号。',
+        '它几乎是为文章结尾设计的：前文已经把人物、场面、事实讲完，这两句负责把"事实"翻译成"意义"。议论文收尾、人物特写、影评、个人陈述结尾都好用。',
+        '一个隐藏要点：第二句的"更大意义"必须呼应全文，不能凭空拔高。文中 a memory of who held it, and who said goodbye that same night 正好回扣前面"梅西哭、迪马利亚告别"的画面，所以读者会买账。',
+      ],
+      examples: [
+        { context: '公益倡议的结尾', text: 'A library card is more than a piece of plastic. It is a permission slip to wander into other people\'s minds.', zh: '一张借书卡不只是一块塑料。它是一张许可证，让你走进别人的脑子里。' },
+        { context: '影评收尾', text: "The director's last film is more than a story about a small town. It is a quiet thank-you letter to the people he grew up with.", zh: '这位导演的最后一部电影不只是一个关于小镇的故事。它是一封写给他从小到大那些人的安静感谢信。', note: '第二句的"更大意义"具体到一个画面（a quiet thank-you letter），比说 a tribute 有力得多。' },
+        { context: '申请文书结尾', text: 'My summer at the clinic was more than work experience. It was the first place where I learned to listen before I answered.', zh: '我在诊所的那个暑期不只是工作经验。那是我第一次学会"先听，再回答"的地方。' },
+      ],
+      adaptingTip: '第二句的"更大意义"要选有重量、能回扣全文的具体说法（a memory / a permission slip / a thank-you letter / the first place where…），不要换成另一个同级别的小词。第一句的"表面意义"则要选大家第一眼真的会这么想的那层，落差才成立。这是结尾模板，别放在开头或中间。',
+      commonMistake: '不要让第二句还停在同一层：A trophy is more than a piece of metal. It is also a prize.（没升华，等于没说）。第二句必须跳到一个更大的、有情感或时代分量的维度。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Who scored the goal that won the Copa America 2024 final?', options: ['Lionel Messi', 'Julian Alvarez', 'Lautaro Martinez', 'Angel Di Maria'], answer: 2, explanation: 'The article says Lautaro Martinez ran onto a low pass and scored the only goal in the 112th minute.', sentenceId: 's3' },
+    { id: 'q2', q: 'Why did Messi leave the field during the final?', options: ['He was substituted for being too slow', 'He had hurt his right ankle', 'The coach was angry with him', 'He had scored a goal already'], answer: 1, explanation: 'The article says he had hurt his right ankle and TV cameras showed him crying on the bench.', sentenceId: 's6' },
+    { id: 'q3', q: 'What did Di Maria announce after the final whistle?', options: ['That he was joining a new club', 'That Messi would retire too', 'That this would be his last game for Argentina', 'That he would become the new captain'], answer: 2, explanation: 'After the final whistle Di Maria said this was his last game for Argentina, ending a 16-year career.', sentenceId: 's9' },
+    { id: 'q4', q: 'How does the writer describe the feeling of the victory?', options: ['Easy and joyful', 'Lonely and angry', 'Happy and bittersweet', 'Boring and slow'], answer: 2, explanation: 'The article says winning without Messi on the pitch made the victory both happy and bittersweet.', sentenceId: 's7' },
+    { id: 'q5', q: 'What new question did fans begin to ask after the Miami final?', options: ['When the next match would be', 'Whether Messi should change clubs', 'What Argentina will look like after Messi', 'Why Colombia did not score'], answer: 2, explanation: "The article says fans, for the first time in years, began to ask what Argentina would look like after Messi.", sentenceId: 's17' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '决赛举行的城市与球场', answer: "Miami's Hard Rock Stadium", sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '比赛最终比分', answer: '1-0', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '阿根廷的对手', answer: 'Colombia', sentenceId: 's1' },
+      { id: 'ig4', cueZh: '进球时间（第几分钟）', answer: '112th minute', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '进球者的名字', answer: 'Lautaro Martinez', sentenceId: 's3' },
+      { id: 'ig6', cueZh: '梅西受伤的部位', answer: 'his right ankle', sentenceId: 's6' },
+      { id: 'ig7', cueZh: '迪马利亚为国家队效力的年数', answer: '16 years', sentenceId: 's10' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一个不看球的朋友介绍 2024 美洲杯决赛那一夜：发生了什么、为什么这个夜晚不只是关于胜利。',
+      promptEn: 'Using the facts in your table, write about 70 words telling a friend who does not watch soccer about the night of the 2024 Copa America final: what happened, and why this night was not only about winning.',
+      targetWords: 70,
+      starters: ['On July 14, 2024, Argentina ...', 'The night did not feel like a simple party because ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        "On July 14, 2024, Argentina beat Colombia 1-0 in the Copa America final at Miami's Hard Rock Stadium. Lautaro Martinez scored the only goal in the 112th minute. Argentina lifted the trophy, but the night did not feel like a simple party. Messi had hurt his ankle and Di Maria had played his last game for Argentina. A trophy is more than a piece of metal. It is a memory of who held it, and who said goodbye that same night.",
+      modelAnswerZh:
+        '2024 年 7 月 14 日，阿根廷在迈阿密的硬石体育场以 1 比 0 击败哥伦比亚，赢得美洲杯决赛。劳塔罗·马丁内斯在第 112 分钟攻入全场唯一进球。阿根廷捧起了奖杯，但那一夜并不像一场单纯的庆祝。梅西扭伤了脚踝，迪马利亚踢完了为阿根廷的最后一场比赛。一座奖杯不只是一块金属。它是一段记忆，记得谁举起过它，也记得谁在同一个夜晚说了再见。',
+    },
+  },
+};

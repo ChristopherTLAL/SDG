@@ -1,0 +1,251 @@
+// Messi book, Ch.15: how MLS rewrote its roster and spending rules around the Messi era (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-01',
+    title: 'The Rules That Bend for Stars',
+    titleZh: '为巨星调整的规则',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/messi-miami/15-mls-rules-change.mp3',
+    wordCount: 340,
+    readingMinutes: 4,
+    editorsNote:
+      "After Messi joined Inter Miami, MLS started changing rules it had defended for years. This chapter looks at the new roster and spending rules of 2024 and 2025, and asks who really benefits when a league bends around one player.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On March 1, 2025, MLS owners met in New York and approved a fresh set of roster rules.', zh: '2025 年 3 月 1 日，MLS 的球队老板们在纽约开会，通过了一套新的球员名单规则。' },
+        { id: 's2', en: 'The headline change was simple: clubs could now spend even more on top players from abroad.', zh: '最重要的变化很简单：球队现在可以在外籍顶级球员身上花更多的钱。' },
+        { id: 's3', en: 'Reporters called it the Messi era at work.', zh: '记者们称之为"梅西时代"在发挥作用。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'MLS has long used a strict salary cap, which limits how much each club can pay its squad.', zh: 'MLS 长期使用严格的工资帽，限制每家球队能支付给阵容的工资总额。' },
+        { id: 's5', en: 'Owners say the cap keeps the league fair and stops rich clubs from buying every star.', zh: '老板们说工资帽让联赛公平，防止有钱的球队买下所有球星。' },
+        { id: 's6', en: 'But the cap also made it hard to sign players like Messi, whose value sits above any normal MLS wage.', zh: '但工资帽也让签下像梅西这样的球员变得困难，因为他的身价高于任何普通的 MLS 薪水。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'To fix this, MLS created what it calls Designated Players, or DPs.', zh: '为了解决这一点，MLS 设立了所谓的"指定球员"，简称 DP。' },
+        { id: 's8', en: "The first version, introduced in 2007 to sign David Beckham, allowed each club one player outside the cap.", zh: '第一版规则在 2007 年为签下 David Beckham 而设立，允许每家球队拥有一名不计入工资帽的球员。' },
+        { id: 's9', en: 'People called it the Beckham Rule, and for years only a few clubs really used it.', zh: '人们把它叫做"贝克汉姆条款"，多年来只有少数球队真的用它。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Since Messi arrived in Miami in 2023, the rules have grown much faster.', zh: '自从梅西 2023 年来到迈阿密以来，这些规则的变化快了很多。' },
+        { id: 's11', en: 'In 2024, MLS raised the limit for Targeted Allocation Money, a fund that helps clubs keep mid-priced players.', zh: '2024 年，MLS 提高了"定向分配资金"的上限，这是一笔帮助球队留住中等价位球员的钱。' },
+        { id: 's12', en: 'It also expanded the U22 Initiative, which lets each team add three young foreign players under 22 at lower cost.', zh: '它还扩大了"U22 计划"，让每支球队可以以更低成本增加三名 22 岁以下的年轻外籍球员。' },
+        { id: 's13', en: 'In 2025, the new package made these slots more flexible and raised the limits.', zh: '2025 年，新方案让这些名额更灵活，上限也再次提高。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'For Inter Miami, the changes have been a clear win.', zh: '对迈阿密国际来说，这些变化显然是一种胜利。' },
+        { id: 's15', en: 'The club has built its squad around Messi, with old friends Suarez, Busquets, and Alba, plus young U22 signings.', zh: '这家球队围绕梅西打造了阵容，有老朋友 Suarez、Busquets、Alba，再加上年轻的 U22 签约。' },
+        { id: 's16', en: 'Big-market clubs in Los Angeles and New York have followed the model.', zh: '洛杉矶和纽约的大市场球队也跟着采用了这一模式。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'Not everyone is happy, though.', zh: '不过，并不是所有人都高兴。' },
+        { id: 's18', en: 'Owners of smaller clubs worry that the league is splitting into two: a top tier that signs world stars, and the rest that watches.', zh: '小球队的老板担心联赛正在分裂成两层：上层签下世界球星，其余的只能旁观。' },
+        { id: 's19', en: "They had blocked similar reforms for almost a decade, but they could not block them once Messi's value became clear.", zh: '他们曾经将类似的改革阻挡了将近十年，但一旦梅西的价值变得明显，他们就再也挡不住了。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's20', en: 'Part of what makes this moment unusual is the speed.', zh: '这一刻特别的部分原因在于速度。' },
+        { id: 's21', en: 'The Beckham Rule took years of debate. The Messi rules took months.', zh: '"贝克汉姆条款"经过了多年的讨论。"梅西规则"只用了几个月。' },
+        { id: 's22', en: 'A league that once moved slowly now bends quickly, and that only makes some owners more nervous about what comes next.', zh: '一个曾经动作缓慢的联赛如今变得敏捷，而这反而让一些老板对接下来的事更紧张。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'approved', lemma: 'approve', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/əˈpruːvd/', defZh: '批准；通过', defEn: 'officially agreed to something', example: 'The board approved the new budget last week.', exampleZh: '董事会上周批准了新预算。' },
+    { id: 'v2', word: 'roster', lemma: 'roster', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈrɒstə(r)/', defZh: '球员名单；人员表', defEn: "a list of a team's official players", example: 'Only fifteen names are on the final roster.', exampleZh: '最终名单上只有十五个名字。' },
+    { id: 'v3', word: 'abroad', lemma: 'abroad', sentenceId: 's2', level: 2, pos: 'adv.', ipa: '/əˈbrɔːd/', defZh: '在国外；到国外', defEn: 'in or to another country', example: 'She studied abroad for two years.', exampleZh: '她在国外学习了两年。' },
+    { id: 'v4', word: 'strict', lemma: 'strict', sentenceId: 's4', level: 2, pos: 'adj.', ipa: '/strɪkt/', defZh: '严格的；严厉的', defEn: 'firmly enforcing rules', example: 'My new teacher is strict about homework.', exampleZh: '我的新老师对作业要求很严。' },
+    { id: 'v5', word: 'cap', lemma: 'cap', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/kæp/', defZh: '上限；最高限额', defEn: 'an upper limit set on something', example: 'The city placed a cap on rent increases.', exampleZh: '该市为房租上涨设置了上限。' },
+    { id: 'v6', word: 'fair', lemma: 'fair', sentenceId: 's5', level: 1, pos: 'adj.', ipa: '/feə(r)/', defZh: '公平的；公正的', defEn: 'treating everyone equally', example: 'Most parents try to be fair to all their children.', exampleZh: '大多数父母都努力公平对待每个孩子。' },
+    { id: 'v7', word: 'sign', lemma: 'sign', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/saɪn/', defZh: '签下（球员）；签约', defEn: 'to officially hire a player by contract', example: 'The club hopes to sign two new strikers this summer.', exampleZh: '俱乐部希望今夏签下两名新前锋。' },
+    { id: 'v8', word: 'wage', lemma: 'wage', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/weɪdʒ/', defZh: '工资；薪水', defEn: 'money paid for work, often weekly', example: 'The minimum wage went up this year.', exampleZh: '最低工资今年上调了。' },
+    { id: 'v9', word: 'designated', lemma: 'designate', sentenceId: 's7', level: 4, pos: 'adj.', ipa: '/ˈdezɪɡneɪtɪd/', defZh: '指定的；被划定的', defEn: 'officially chosen for a specific role', example: "Smoking is only allowed in designated areas.", exampleZh: '只能在指定区域吸烟。' },
+    { id: 'v10', word: 'introduced', lemma: 'introduce', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ˌɪntrəˈdjuːst/', defZh: '推出；引入', defEn: 'to start using something new', example: 'The school introduced a new grading system last fall.', exampleZh: '学校去年秋天推出了新的评分系统。' },
+    { id: 'v11', word: 'allowed', lemma: 'allow', sentenceId: 's8', level: 1, pos: 'v.', ipa: '/əˈlaʊd/', defZh: '允许；准许', defEn: 'to give permission for something', example: 'Phones are not allowed during the exam.', exampleZh: '考试期间不允许使用手机。' },
+    { id: 'v12', word: 'arrived', lemma: 'arrive', sentenceId: 's10', level: 1, pos: 'v.', ipa: '/əˈraɪvd/', defZh: '到达；来到', defEn: 'reached a place', example: 'They arrived in Miami late at night.', exampleZh: '他们深夜抵达迈阿密。' },
+    { id: 'v13', word: 'raised', lemma: 'raise', sentenceId: 's11', level: 2, pos: 'v.', ipa: '/reɪzd/', defZh: '提高；上调', defEn: 'made something higher or larger', example: 'The shop raised its prices in March.', exampleZh: '这家店在三月份上调了价格。' },
+    { id: 'v14', word: 'fund', lemma: 'fund', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/fʌnd/', defZh: '基金；专项资金', defEn: 'a sum of money kept for a special purpose', example: 'The school set up a fund to help low-income students.', exampleZh: '学校设立了一笔基金来帮助低收入学生。' },
+    { id: 'v15', word: 'expanded', lemma: 'expand', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/ɪkˈspændɪd/', defZh: '扩大；扩展', defEn: 'made something larger in size or scope', example: 'The company expanded its business into Asia.', exampleZh: '这家公司把业务扩展到了亚洲。' },
+    { id: 'v16', word: 'flexible', lemma: 'flexible', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/ˈfleksəbl/', defZh: '灵活的；可调整的', defEn: 'able to change or adapt easily', example: 'My new job has flexible working hours.', exampleZh: '我的新工作有灵活的工作时间。' },
+    { id: 'v17', word: 'squad', lemma: 'squad', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/skwɒd/', defZh: '球队阵容；队伍', defEn: 'a sports team or a group within one', example: 'The coach picked a squad of twenty for the tour.', exampleZh: '教练为这次巡回赛挑选了二十人的阵容。' },
+    { id: 'v18', word: 'splitting', lemma: 'split', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/ˈsplɪtɪŋ/', defZh: '分裂；分开', defEn: 'separating into parts', example: 'The class is splitting into small groups for the project.', exampleZh: '班级正分成几个小组来做这个项目。' },
+    { id: 'v19', word: 'tier', lemma: 'tier', sentenceId: 's18', level: 4, pos: 'n.', ipa: '/tɪə(r)/', defZh: '层级；级别', defEn: 'a level or rank in a system', example: 'The membership has three tiers, each with different perks.', exampleZh: '会员分为三个层级，每层有不同的福利。' },
+    { id: 'v20', word: 'blocked', lemma: 'block', sentenceId: 's19', level: 2, pos: 'v.', ipa: '/blɒkt/', defZh: '阻拦；阻止', defEn: 'stopped something from happening', example: 'The committee blocked the proposal for months.', exampleZh: '委员会把这项提案阻拦了好几个月。' },
+    { id: 'v21', word: 'nervous', lemma: 'nervous', sentenceId: 's22', level: 1, pos: 'adj.', ipa: '/ˈnɜːvəs/', defZh: '紧张的；不安的', defEn: 'worried and slightly afraid', example: 'I always feel nervous before a long flight.', exampleZh: '长途飞行前我总会感到紧张。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 which 加一句解释，不必另起新句',
+      pattern: '名词, which + 动词..., 主句继续',
+      sentenceIds: ['s4', 's11', 's12'],
+      explanationZh: [
+        '想给一个名词加一句说明，新手常会写两句话：MLS uses a salary cap. The cap limits each club\'s pay. 这样读起来很碎。英文里更顺的做法，是用 which 引导的非限制性定语从句把解释直接接在名词后面，两边用逗号围起来。',
+        '看第 4 句：a strict salary cap, which limits how much each club can pay its squad。前面 which 之前是逗号，后面 squad 之后也是逗号（或句号收尾），整段 which limits… 就是对 salary cap 的补充说明。把这段去掉，主句 MLS has long used a strict salary cap 依然完整。第 11 句和第 12 句用的是同一招。',
+        '什么时候用：写新闻、写说明性段落时特别好用，当你刚介绍一个读者可能不熟悉的术语，又不想专门停下来定义它，就用 which 顺手补一句。它能保持句子的节奏，也让信息密度更高。',
+        '一个容易忽略的点：这里的 which 前面必须有逗号。没有逗号的 which 是限制性从句（the cap which limits…），意思会变成"那个起到限制作用的工资帽"，暗示还有别的工资帽，这通常不是你想说的。',
+      ],
+      examples: [
+        { en: 'I bought a small notebook, which I now carry everywhere.', zh: '我买了一个小本子，现在走到哪里都带着它。' },
+        { en: 'The team hired a new coach, who used to play for Real Madrid.', zh: '球队请了一位新教练，他曾经在皇马踢过球。', note: '人物用 who，事物用 which，结构完全一样。' },
+        { en: 'They moved to a quiet town, which has only one bus stop.', zh: '他们搬到了一个安静的小镇，这里只有一个公交站。' },
+        { en: 'The app uses a new system, which still has some bugs.', zh: '这个应用使用了一套新系统，目前还有一些 bug。' },
+        { en: 'Our school has a small library, which closes at six every day.', zh: '我们学校有一个小图书馆，每天六点关门。' },
+      ],
+      commonMistake: '不要写成 a salary cap which limits… 没有前面的逗号。少了逗号意思就变了：限制性 which 等于"那种起到限制作用的工资帽"，暗示还有别的工资帽存在。补充信息一定要把 which 用逗号围起来。',
+      vsSimilar: 'which 用于事物，who 用于人，that 在限制性从句中常替代 which 但不能跟在逗号后面。要补充信息一律用 ", which" 或 ", who"，不要用 ", that"。',
+    },
+    {
+      id: 'g2',
+      title: '用 since 加完成时，串起"从某时起到现在"的故事',
+      pattern: 'Since + 时间/事件, 主语 + have / has + 过去分词',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '想表达"从过去某个点开始，一直到现在发生了什么变化"，中文是"自从梅西来了以后……"。英文里这种"自某时起"的时间锚点最常和现在完成时（have / has + 过去分词）一起出现，因为现在完成时正好强调"从那时延续到现在"。',
+        '看第 10 句：Since Messi arrived in Miami in 2023, the rules have grown much faster。前半句用 Since + 过去式 arrived 定下时间起点，后半句用 have grown 描述"从那以后到现在"的累积变化。两段就像门和门后的房间，缺一不可。',
+        '什么时候用：写"近期趋势"或"个人转折点"时最好用。新闻报道、个人陈述都常见，比如 Since 2020, more students have chosen…，或者 Since I moved to Beijing, I have made many new friends。',
+        '一个容易出错的细节：since 后面跟一个具体的时间点（since 2020 / since I was ten）或者过去事件（since Messi arrived），不要跟一段时间。表示"持续多久"用 for（for ten years），表示"从何时起"才用 since。',
+      ],
+      examples: [
+        { en: 'Since I started running, I have slept much better.', zh: '自从我开始跑步以来，睡眠改善了很多。' },
+        { en: 'Since the new road opened, traffic has become much smoother.', zh: '自从新路开通以来，交通顺畅了很多。' },
+        { en: 'The company has hired more than fifty people since last year.', zh: '这家公司自去年以来已经招了五十多人。', note: 'since 短语也可以放句尾，意思一样。' },
+        { en: 'Since she moved abroad, we have only met twice.', zh: '自从她搬到国外以后，我们只见过两次面。' },
+        { en: 'Prices have risen steadily since the new tax took effect.', zh: '自新税生效以来，物价稳步上涨。' },
+      ],
+      commonMistake: '不要写成 Since Messi arrived in Miami in 2023, the rules grow much faster。一旦用了 since，主句就要用现在完成时 have grown，不能用一般现在时 grow，否则"从那时延续到现在"的感觉就丢了。',
+    },
+    {
+      id: 'g3',
+      title: '用 not everyone 表达"不是所有人都……"的礼貌否定',
+      pattern: 'Not everyone / not every + 名词 + 动词',
+      sentenceIds: ['s17'],
+      explanationZh: [
+        '想表达"不是所有人都满意"，新手常写 All people are not happy，听起来既别扭也容易让母语者误解。英文里更地道的说法是把否定提到前面：Not everyone is happy。这是一种"部分否定"，意思是"有人满意，有人不满意"。',
+        '看第 17 句：Not everyone is happy, though。这一句作用很大：前面几段都在讲规则改革带来的好处，作者用 not everyone is happy 转入反方观点。它比 But some people are not happy 更克制，因为它没把话说死，留下了"大多数人可能还是接受的"的余地。',
+        '什么时候用：议论文要"先承认，再反驳"或者"先讲主流，再引入反方"时特别好用。它也常出现在段落开头，作为承上启下的句子。',
+        '注意主谓一致：not everyone 是单数主语，动词要用 is / has / does（不是 are / have / do）。这一点很多学生会错，因为 everyone 看上去像"很多人"。',
+      ],
+      examples: [
+        { en: 'Not everyone agrees with the new policy.', zh: '不是所有人都同意这项新政策。' },
+        { en: 'Not every student needs extra classes after school.', zh: '不是每个学生都需要课后补习。' },
+        { en: 'Not everyone is ready to move so quickly.', zh: '不是所有人都准备好这么快搬家。', note: '常用作转折开头，比 But some… 更克制。' },
+        { en: 'Not every change is an improvement.', zh: '不是每个变化都是改进。' },
+        { en: 'Not everyone in the family likes spicy food.', zh: '家里不是每个人都喜欢吃辣。' },
+      ],
+      commonMistake: '不要写成 Not everyone are happy 或 All people are not happy。前者主谓不一致（everyone 是单数，要 is），后者在英文里常被理解成"所有人都不满意"（全否定），意思和你想表达的"部分否定"正好相反。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '先讲表面变化，再用一句话点出深层意义',
+      skeleton: 'The headline change was [简单]: [具体内容].',
+      original: 'The headline change was simple: clubs could now spend even more on top players from abroad.',
+      sentenceId: 's2',
+      whyItWorks: [
+        '这个句式像新闻里的"导语"：先用一句短话给读者一个明确的路标（headline change），再用冒号把"到底改了什么"摊开来。读者还没读完冒号前的几个字，就已经知道下一句会给出答案，注意力立刻被拉住。',
+        '冒号的作用是"承诺"：作者说"最大的变化很简单"，读者会期待一个干净利落的答案。如果冒号后面接的是一长串复杂的子句，效果就会落空。所以冒号后通常配一个清晰、可一口气读完的短句。',
+        '它最适合用在新闻段落、报告或博客的开头，尤其当你要解释一个复杂事件的核心变化时。先用这一句锁定主线，后面段落再展开细节，结构会变得很清晰。',
+        '一个隐藏要点：headline 前面的形容词（simple / brutal / surprising / small）决定了这句话的态度。换成 The headline change was brutal，整段的色调立刻变得严厉。所以这个形容词不能随便填，要呼应整篇文章的情绪。',
+      ],
+      examples: [
+        { context: '科技产品发布报道', text: 'The headline change was small: the camera could now read text in twelve languages.', zh: '最大的变化很小：摄像头现在可以识别十二种语言的文字。' },
+        { context: '教育政策评论', text: 'The headline change was bold: every public school would offer free lunch by 2027.', zh: '最大的变化很大胆：到 2027 年，所有公立学校都将提供免费午餐。', note: '冒号后的内容必须能一口气读完，否则节奏感会断。' },
+        { context: '城市规划简讯', text: 'The headline change was quiet: a new bus lane that almost no one noticed.', zh: '最大的变化很安静：一条几乎没人注意到的新公交车道。' },
+      ],
+      adaptingTip: '冒号前的形容词要短而有态度（simple / bold / quiet / brutal），别用 important 这种没有色彩的词。冒号后的内容要具体可视化，能让读者一眼"看到"那个变化，避免抽象。这是开头句的模板，放在段落首句最好用；放在结尾会显得头重脚轻。',
+      commonMistake: '不要把冒号后写得过长：The headline change was simple: clubs could spend more on players from abroad, especially those over the age of 28 with international experience…（一长串就破坏了"简单"的承诺）。冒号后必须是一句干净的短句。',
+    },
+    {
+      id: 'pt2',
+      useCase: '点出一个事物特别之处，并展开解释',
+      skeleton: 'Part of what makes [主体] [形容词] is [原因].',
+      original: 'Part of what makes this moment unusual is the speed.',
+      sentenceId: 's20',
+      whyItWorks: [
+        '这个开头先用 Part of what makes…unusual 把"我接下来要解释一个亮点"摆上桌，等于给读者一个路标：下面这句是关键。它比直接写 This moment is unusual because… 更稳，因为 Part of 暗示"原因不止一个"，留出了讨论空间。',
+        '对读者来说，Part of 这两个字降低了句子的攻击性：作者没有把话说死，只说"这是原因之一"，反而让人更愿意接受。它是一种"留有余地的自信"。',
+        '它适合用在段落开头，后面紧跟具体解释。文中第 20 句之后立刻接 The Beckham Rule took years…，正是用后文把"特别之处在速度"这一抽象判断落到实处。',
+        '一个细节：is 后面接的是"原因或特质"，要尽量具体（the speed 而不是 it is different）。越具体，后文越好展开。如果填一个空泛的形容词，整段就会失去重心。',
+      ],
+      examples: [
+        { context: '城市观察', text: 'Part of what makes this neighborhood lively is that the shops stay open late.', zh: '这个街区之所以热闹，部分原因在于商店开到很晚。' },
+        { context: '科技评论', text: 'Part of what makes the new app useful is that it works without a network.', zh: '这个新应用之所以好用，部分原因在于它在没有网络时也能工作。', note: 'is 后面接 that 引导的从句，把"特别之处"说得很具体。' },
+        { context: '人物特写', text: 'Part of what makes her writing strong is her habit of reading her drafts out loud.', zh: '她的写作之所以有力，部分原因在于她有把草稿大声读出来的习惯。' },
+      ],
+      adaptingTip: 'is 后面一定要填一个具体的名词或从句（the speed / her habit / that it works…），别填空泛的形容词。用 Part of 是故意留余地，所以后文最好真能再补一两点别的原因，否则这个 Part of 会显得空头支票。',
+    },
+    {
+      id: 'pt3',
+      useCase: '把"看似令人安心"反转成"让人更不安"的收尾',
+      skeleton: '[某种变化], and that only makes [某人] more [负面情绪] about [接下来的事].',
+      original: 'A league that once moved slowly now bends quickly, and that only makes some owners more nervous about what comes next.',
+      sentenceId: 's22',
+      whyItWorks: [
+        '正常思路里，"联赛变快了"应该是好事。这个句式偏偏用 and that only makes…more… 把这件看似"好事"扭成"坏事"：正因为变快了，反而让人更紧张。一个小小的反转，让句子在结尾处显得有意味。',
+        '对读者来说，only 这个词是关键，它把因果说得很满：不是"有点"更紧张，而是"正因如此"才更紧张。读者会停下来重读一遍，因为这个反转和他们的直觉相反。',
+        '它适合用在文章结尾，把一个表面上正面的状态（变快、变大、变多）翻成一个负面解读，给读者留一个值得回味的小问号。新闻特写、评论、个人随笔都常见。',
+        '一个隐藏前提：前半句描述的变化必须是大家本能会觉得"是好事"的事，反转才有力。如果前半句本身就是坏消息，这个句式就变成了普通的因果关系，没有机锋。',
+      ],
+      examples: [
+        { context: '科技评论收尾', text: 'The phone now answers almost every question, and that only makes some parents more worried about how their kids will learn.', zh: '手机现在几乎能回答所有问题，而这反而让一些家长更担心孩子要怎么学习。' },
+        { context: '城市观察收尾', text: 'The street is much cleaner now, and that only makes the empty shops look more lonely.', zh: '这条街现在干净多了，而这反而让那些空店面显得更孤单。', note: '前半"干净"看似好事，后半"更孤单"形成反转。' },
+        { context: '体育评论', text: 'Our team is winning more often, and that only makes the coach more careful about overconfidence.', zh: '我们的队赢球越来越多，而这反而让教练对过度自信更加警惕。' },
+      ],
+      adaptingTip: '前半句要放一个读者本能觉得"是好事"的变化（变快、变多、变干净），后半句用 more 加负面情绪词（nervous / worried / careful / lonely）收尾。only 不能省，它是"正因如此"的力度来源；省了就变成普通转折，机锋全无。这是结尾模板，不要放在开头。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What did MLS owners approve on March 1, 2025?', options: ['A new playoff format', 'A fresh set of roster rules', 'The retirement of Lionel Messi', 'A move to a winter schedule'], answer: 1, explanation: 'The article opens with owners meeting in New York and approving a fresh set of roster rules.', sentenceId: 's1' },
+    { id: 'q2', q: 'Why was the salary cap a problem for signing Messi?', options: ['Because Messi did not want to play in MLS', 'Because his real value was far above any normal MLS wage', 'Because the cap was higher than European leagues', 'Because Inter Miami had no money'], answer: 1, explanation: 'The article says the cap made it hard to sign players like Messi, whose real value sits far above any normal MLS wage.', sentenceId: 's6' },
+    { id: 'q3', q: 'What does the U22 Initiative allow each MLS team to do?', options: ['Sign one famous player above the salary cap', 'Add up to three young foreign players under 22 at lower cost', 'Trade unlimited players in the summer', 'Skip the salary cap for one season'], answer: 1, explanation: 'The article explains the U22 Initiative lets each team add up to three young foreign players under the age of 22 at lower cost.', sentenceId: 's12' },
+    { id: 'q4', q: 'Why are the owners of smaller clubs worried?', options: ['They think Messi will retire too soon', 'They think the league is splitting into a top tier and the rest', 'They want to leave MLS for Europe', 'They believe the salary cap is too low'], answer: 1, explanation: 'The article says smaller-club owners worry the league is splitting into two: a top tier that signs world stars, and the rest that watches.', sentenceId: 's18' },
+    { id: 'q5', q: "What is the writer's main point in the closing paragraph?", options: ["MLS is moving too slowly compared to Europe", "Messi's contract is the most important rule change", "A league that once moved slowly now bends quickly, which worries some owners", "All owners welcome the speed of the new reforms"], answer: 2, explanation: 'The closing lines stress that MLS once moved slowly and now bends quickly, and that this only makes some owners more nervous about what comes next.', sentenceId: 's22' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'MLS 老板们开会的日期', answer: 'March 1, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '第一版"指定球员"规则推出的年份', answer: '2007', sentenceId: 's8' },
+      { id: 'ig3', cueZh: '第一版规则是为了签下哪位球星', answer: 'David Beckham', sentenceId: 's8' },
+      { id: 'ig4', cueZh: '人们给那条规则起的别名', answer: 'the Beckham Rule', sentenceId: 's9' },
+      { id: 'ig5', cueZh: '梅西加盟迈阿密的年份', answer: '2023', sentenceId: 's10' },
+      { id: 'ig6', cueZh: 'U22 计划允许每队增加的最多人数', answer: 'three', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '小球队老板担心联赛分裂成几层', answer: 'two', sentenceId: 's18' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 60 词的短文，向朋友解释 MLS 为什么要在 2024 到 2025 年改规则：原来的规则有什么问题、新规则做了什么、谁开心、谁担心。',
+      promptEn: "Using the facts in your table, write about 60 words explaining to a friend why MLS changed its rules in 2024 and 2025: what was wrong with the old cap, what the new rules do, and who is happy or worried.",
+      targetWords: 60,
+      starters: ['The headline change was simple, and ...', 'Part of what makes this moment unusual is ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'The headline change was simple: MLS owners voted on March 1, 2025 to let clubs spend more on top players from abroad. Since Messi arrived in 2023, the league has raised limits on Targeted Allocation Money and expanded the U22 Initiative. Part of what makes this moment unusual is the speed. Big-market clubs are happy, but owners of smaller clubs worry the league is splitting into two tiers.',
+      modelAnswerZh:
+        '最大的变化很简单：2025 年 3 月 1 日，MLS 的老板们投票通过让球队可以在外籍顶级球员身上花更多的钱。自从 2023 年梅西来了之后，联赛提高了"定向分配资金"的上限，也扩大了"U22 计划"。这一刻特别的部分原因在于速度。大市场的球队很高兴，但小球队的老板担心联赛正在分裂成两层。',
+    },
+  },
+};

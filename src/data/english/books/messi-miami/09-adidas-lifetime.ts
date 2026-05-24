@@ -1,0 +1,241 @@
+// Messi book, Ch.9: the Adidas lifetime deal and its quiet MLS profit-share clause (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-12-20',
+    title: 'A Lifetime With Three Stripes',
+    titleZh: '和三条杠的终身合约',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/messi-miami/09-adidas-lifetime.mp3',
+    wordCount: 295,
+    readingMinutes: 4,
+    editorsNote:
+      'Most fans focus on what a player earns on the field. This chapter follows the money in the other direction, into a quiet line in the Adidas contract that makes Messi something closer to a business partner than a paid face.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'Most footballers earn their money on the field.', zh: '大多数足球运动员是在球场上赚钱的。' },
+        { id: 's2', en: 'A few of them earn even more off it.', zh: '其中少数人在场外赚得更多。' },
+        { id: 's3', en: 'In 2024, Lionel Messi made about 79 million dollars from his sponsors, far more than the salary Inter Miami paid him to actually play.', zh: '2024 年，梅西从赞助商那里挣到约 7900 万美元，远远超过迈阿密国际付给他踢球的工资。' },
+        { id: 's4', en: 'A big part of that money came from one quiet detail in his deal with Adidas: a clause that ties his pay to how much profit the brand earns from him in Major League Soccer.', zh: '其中一大部分来自他和阿迪达斯合同里一条很安静的细节：一条把他的收入和品牌通过他在美职联赚到的利润绑在一起的条款。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's5', en: 'Messi started wearing three white stripes when he was a teenager, and he never switched.', zh: '梅西从十几岁起就穿着三条白色条纹的球鞋，之后再也没换过品牌。' },
+        { id: 's6', en: 'In 2017, Adidas and Messi signed something rare in sport: a lifetime contract.', zh: '2017 年，阿迪达斯和梅西签下了体育界少见的一份东西：一份终身合约。' },
+        { id: 's7', en: 'The deal is worth about 25 million dollars every year, and it does not end when he retires.', zh: '这份合约每年大约价值 2500 万美元，而且不会在他退役时终止。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'When Messi moved to Inter Miami in 2023, Adidas added a new piece to the contract.', zh: '2023 年梅西转会到迈阿密国际时，阿迪达斯在合同上加了一块新内容。' },
+        { id: 's9', en: 'From that point on, every time the company sold more MLS jerseys because of him, Messi himself would receive a share of the extra profit.', zh: '从那时起，只要公司因为他多卖出了美职联的球衣，梅西本人就能从这部分多出来的利润里分到一份。' },
+        { id: 's10', en: 'This kind of profit-sharing is common among company founders, but very rare among athletes.', zh: '这种分润安排在公司创始人之间很常见，但在运动员里非常少见。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Adidas is only one piece of the picture.', zh: '阿迪达斯只是其中一块。' },
+        { id: 's12', en: 'In 2024, Messi also earned money from Hard Rock, the hotel and casino brand, and from Apple TV, the company that streams every MLS match.', zh: '2024 年，梅西还从酒店与赌场品牌 Hard Rock，以及负责直播每一场美职联比赛的 Apple TV 那里挣到了钱。' },
+        { id: 's13', en: 'Together with Adidas, these three deals brought in about 79 million dollars, more than three times his Miami salary.', zh: '加上阿迪达斯，这三份合约一共带来约 7900 万美元，是他迈阿密薪水的三倍多。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'For most athletes, a sponsorship is simple: the brand pays a flat fee, and the player wears the logo.', zh: '对大多数运动员来说，赞助是一件简单事：品牌付一笔固定的钱，球员穿上他们的标志。' },
+        { id: 's15', en: 'For Messi, the brand agreed to share its winnings with him whenever those winnings come from him.', zh: '而对梅西来说，品牌答应：只要这部分收益是因为他而来的，就要分给他一部分。' },
+        { id: 's16', en: 'That is a much more unusual arrangement, and it shifts some of the risk back onto the company.', zh: '这是一种少见得多的安排，它把一部分风险反过来推给了公司。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'Few players ever reach this kind of off-field power.', zh: '能走到这种场外影响力的球员并不多。' },
+        { id: 's18', en: 'And for the ones who do, the next contract is no longer about a fee. It is about a share.', zh: '而对走到这一步的人来说，下一份合同已经不再是关于一笔劳务费了。它是关于一份股份。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'earn', lemma: 'earn', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/ɜːn/', defZh: '赚（钱）；挣得', defEn: 'to get money by working', example: 'Most teenagers in this town earn their first money in summer jobs.', exampleZh: '镇上大多数青少年的第一笔钱都是从暑期工里挣到的。' },
+    { id: 'v2', word: 'sponsors', lemma: 'sponsor', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/ˈspɒnsəz/', defZh: '赞助商；提供资助的公司', defEn: 'companies that pay to support a person or event', example: 'The race lost two of its main sponsors this year.', exampleZh: '今年这场比赛失去了两家主要赞助商。' },
+    { id: 'v3', word: 'salary', lemma: 'salary', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/ˈsæləri/', defZh: '工资；薪水', defEn: 'a fixed amount of money paid every month for work', example: 'She turned down a higher salary to stay close to family.', exampleZh: '为了离家人近一些，她放弃了更高的薪水。' },
+    { id: 'v4', word: 'clause', lemma: 'clause', sentenceId: 's4', level: 4, pos: 'n.', ipa: '/klɔːz/', defZh: '（合同里的）条款', defEn: 'a single rule or item inside a legal contract', example: 'A small clause in the lease lets the landlord raise the rent each year.', exampleZh: '租约里一条不起眼的条款允许房东每年涨房租。' },
+    { id: 'v5', word: 'profit', lemma: 'profit', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/ˈprɒfɪt/', defZh: '利润；盈利', defEn: 'the money a business keeps after paying its costs', example: 'The cafe made a small profit in its first year.', exampleZh: '这家咖啡馆在开业的第一年挣到了一点利润。' },
+    { id: 'v6', word: 'switched', lemma: 'switch', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/swɪtʃt/', defZh: '换；改用', defEn: 'changed from one thing to another', example: 'After five years, he switched from coffee to green tea.', exampleZh: '五年之后，他从咖啡换到了绿茶。' },
+    { id: 'v7', word: 'signed', lemma: 'sign', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/saɪnd/', defZh: '签（合同等）', defEn: 'agreed to a contract by writing your name on it', example: 'They signed the deal at the end of a long meeting.', exampleZh: '在一场漫长的会议之后，他们签下了这份合约。' },
+    { id: 'v8', word: 'lifetime', lemma: 'lifetime', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈlaɪftaɪm/', defZh: '一生；终身', defEn: 'the period of time during which someone is alive', example: 'A library card is free for a lifetime in this city.', exampleZh: '在这座城市，借书证可以终身免费。' },
+    { id: 'v9', word: 'worth', lemma: 'worth', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/wɜːθ/', defZh: '值（多少钱）', defEn: 'having a particular value in money', example: 'That old camera is worth more than you think.', exampleZh: '那台旧相机比你想的要值钱。' },
+    { id: 'v10', word: 'retires', lemma: 'retire', sentenceId: 's7', level: 3, pos: 'v.', ipa: '/rɪˈtaɪəz/', defZh: '退役；退休', defEn: 'stops working at the end of a career', example: 'My uncle retires next month after thirty years at the same firm.', exampleZh: '我叔叔下个月就要从同一家公司退休，他在那里干了三十年。' },
+    { id: 'v11', word: 'added', lemma: 'add', sentenceId: 's8', level: 1, pos: 'v.', ipa: '/ˈædɪd/', defZh: '增加；加入', defEn: 'put a new part onto something that already existed', example: 'The cafe added a quiet reading corner last spring.', exampleZh: '咖啡馆去年春天加了一个安静的阅读角。' },
+    { id: 'v12', word: 'share', lemma: 'share', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/ʃeə(r)/', defZh: '一份；分成', defEn: 'a part of something divided between people', example: 'Each cousin got a small share of the bookshop after their grandfather died.', exampleZh: '祖父去世后，每个堂兄弟姐妹都从书店里分到了一小份。' },
+    { id: 'v13', word: 'founders', lemma: 'founder', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈfaʊndəz/', defZh: '创始人', defEn: 'people who start a company or organization', example: 'The two founders met in college and started the app in a dorm room.', exampleZh: '两位创始人是大学同学，他们在宿舍里做出了这个应用。' },
+    { id: 'v14', word: 'athletes', lemma: 'athlete', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ˈæθliːts/', defZh: '运动员', defEn: 'people who are trained in sport at a high level', example: 'Most athletes at this gym train six days a week.', exampleZh: '这家健身房里大多数运动员每周训练六天。' },
+    { id: 'v15', word: 'streams', lemma: 'stream', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/striːmz/', defZh: '在线播放；流媒体直播', defEn: 'sends video over the internet so people can watch live', example: 'The platform streams concerts from small clubs around the world.', exampleZh: '这个平台直播来自世界各地小型俱乐部的演出。' },
+    { id: 'v16', word: 'fee', lemma: 'fee', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/fiː/', defZh: '费用；酬金', defEn: 'a sum of money paid for a service or for permission to do something', example: 'The museum dropped its entry fee for students on Friday evenings.', exampleZh: '博物馆在周五晚上免去了学生的门票费。' },
+    { id: 'v17', word: 'logo', lemma: 'logo', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/ˈləʊɡəʊ/', defZh: '标志；徽标', defEn: 'a small design that stands for a company or brand', example: 'The new logo is on every coffee cup and napkin.', exampleZh: '新标志被印在每一个咖啡杯和餐巾纸上。' },
+    { id: 'v18', word: 'winnings', lemma: 'winnings', sentenceId: 's15', level: 4, pos: 'n.', ipa: '/ˈwɪnɪŋz/', defZh: '赢得的钱；收益', defEn: 'money that someone gains from a bet, prize, or successful deal', example: 'She gave most of her tournament winnings to a youth chess club.', exampleZh: '她把大部分比赛奖金都捐给了一家青少年国际象棋俱乐部。' },
+    { id: 'v19', word: 'arrangement', lemma: 'arrangement', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/əˈreɪndʒmənt/', defZh: '安排；约定', defEn: 'a plan or agreement made between people', example: 'The two cafes have a quiet arrangement to share one delivery driver.', exampleZh: '这两家咖啡馆有一个低调的约定，共用一名送货员。' },
+    { id: 'v20', word: 'risk', lemma: 'risk', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/rɪsk/', defZh: '风险；可能的损失', defEn: 'the chance that something bad will happen', example: 'Opening a second shop carries a real risk.', exampleZh: '开第二家店是有真实风险的。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 when 开头的时间从句，把"什么时候"先交代清楚',
+      pattern: 'When + 句子, 主句.',
+      sentenceIds: ['s5', 's7', 's8'],
+      explanationZh: [
+        '中文里我们经常用"……的时候"来交代时间。英文对应的最顺手工具就是 when 引导的时间从句。把它放在句首，等于先告诉读者"这件事发生在哪个时间点"，再交代主句的动作。先时间，后动作，读起来很有顺序感。',
+        '看文中第 8 句：When Messi moved to Inter Miami in 2023, Adidas added a new piece to the contract. 句首先用 When… 把"2023 年他转会"这个时间点摆好，然后逗号一收，主句 Adidas added… 立刻接上。读者的注意力被先安顿在时间上，再被引向"那时阿迪达斯做了什么"，节奏很干净。第 5 句 when he was a teenager 和第 7 句 when he retires 是同样思路。',
+        '什么时候用它：写一段经历、一段历史、一段新闻背景时最好用。"当 X 发生时，Y 做了 Z"是新闻写作里最常见的句型之一。它也可以放在主句后面（Adidas added a new piece when Messi moved…），那样语气更平。',
+        '一个容易忽略的细节：when 从句里如果主句是未来意思，从句要用现在时，不用 will。文中第 7 句 it does not end when he retires，retires 用一般现在时，不能写 when he will retire。这是 when 时间从句的固定规则，和 if 条件从句一样。',
+      ],
+      examples: [
+        { en: 'When the rain stopped, we walked back along the river.', zh: '雨停的时候，我们沿着河边走回去。' },
+        { en: 'When the new line opens next year, my commute will be twenty minutes shorter.', zh: '明年新线路开通时，我的通勤时间会缩短二十分钟。', note: '主句是将来意思（will），但 when 从句用一般现在时 opens，不写 will open。' },
+        { en: 'I always feel calmer when I sit by a window.', zh: '坐在窗边时我总是觉得更平静。' },
+        { en: 'When the meeting ended, half of the room stayed behind to keep talking.', zh: '会议结束时，房间里一半的人留下来继续聊。' },
+        { en: 'My grandfather was a fisherman when he was young.', zh: '我祖父年轻的时候是个渔民。' },
+      ],
+      commonMistake: '不要写成 When he will retire, the contract will end。when 从句不能用 will，要用一般现在时 When he retires, the contract will end。',
+      vsSimilar: 'if 和 when 都引导从句，但意思不同。if 是"如果（不一定会发生）"，when 是"当……时（一定会发生，只是时间未定）"。当你确信一件事一定会发生，只是不知道哪天，就用 when。',
+    },
+    {
+      id: 'g2',
+      title: '用 far more / much more 强化比较的差距',
+      pattern: 'far / much + more + 形容词 / 名词 + than ...',
+      sentenceIds: ['s3', 's13', 's16'],
+      explanationZh: [
+        '中文常说"远远多于"、"差不多多了三倍"。英文表达"比较结果差距很大"时，最常见的做法是在 more 前面加一个程度副词：far more / much more / way more。它把一个普通的比较句直接抬到"差距大到值得注意"的高度。',
+        '看第 3 句：…far more than the salary Inter Miami paid him to actually play。如果只写 more than，读者只知道"多一点"，但 far 这个字立刻把差距拉开，告诉读者"不是多一点，是多得离谱"。第 16 句 a much more unusual arrangement 用的是同一招：much 把"少见"这件事从"少见"升级到"少见得多"。',
+        '什么时候用它：报道数字差距、对比两个对象时最好用。新闻、商业评论、学术比较段都常见。它的兄弟有 far better / far worse / much higher / much smaller，逻辑都一样：把比较的差距说出分量。',
+        '一个细节：far / much 修饰的是比较级，不能修饰普通形容词。可以说 far more expensive，不能说 far expensive。如果你要修饰原级形容词，要用 very：very expensive，不是 much expensive。',
+      ],
+      examples: [
+        { en: 'The new bridge is far longer than the old one.', zh: '新桥比旧桥长得多。' },
+        { en: 'Living near the office turned out to be much cheaper than I expected.', zh: '住在公司附近比我想的便宜得多。', note: 'much 直接放在比较级 cheaper 前面，把"便宜"的差距拉开。' },
+        { en: 'This year, the school received far more applications than last year.', zh: '今年学校收到的申请远多于去年。' },
+        { en: 'Her second novel is much darker than her first.', zh: '她的第二本小说比第一本黑暗得多。' },
+        { en: 'Train tickets are far cheaper if you buy them a month early.', zh: '提前一个月买，火车票要便宜得多。' },
+      ],
+      commonMistake: '不要写成 very more expensive 或 much expensive。强化比较级要用 far / much / way + more / 比较级；普通形容词前才用 very。',
+    },
+    {
+      id: 'g3',
+      title: '用 would 描述"从那以后会一直发生的事"',
+      pattern: '主语 + would + 动词原形（习惯性、规则性的未来）',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        'would 这个词最常被记成"将要"或者"愿意"，但它还有一个非常实用的用法：在讲过去的某个安排或规则时，描述"从那时起，会一直发生的事"。中文常说"以后只要……就会……"，英文就常常用 would 把这种规律性的未来感装进过去的语境里。',
+        '看文中第 9 句：From that point on, every time the company sold more MLS jerseys because of him, Messi himself would receive a share of the extra profit。注意时间已经被定在过去（From that point on…2023 年以后），但 would receive 不是单纯一次性的未来，而是"从那个时间点起，凡是符合条件，就会反复发生"的一种规则。这种感觉只有 would 装得下，will 不行，因为 will 是从现在说起。',
+        '什么时候用：讲合同条款、规则、历史里"从某刻起一直会发生"的事时特别合适。新闻特写、传记、回忆文章里常见。',
+        '一个细节：would 后面只跟动词原形 receive，没有 to，也不加 -s。如果是否定，就 would not / wouldn\'t + 动词原形。',
+      ],
+      examples: [
+        { en: 'From that day on, every student who finished the year-end project would get a small handmade pin.', zh: '从那天起，每个完成年终项目的学生都会收到一枚手工小别针。' },
+        { en: 'Under the new rule, anyone who arrived after eight would have to wait in the lobby.', zh: '按新规定，八点之后到的人都要在大厅等候。', note: 'would 把"以后只要 X 就 Y"的规则感装进一段过去的安排里。' },
+        { en: 'My grandmother decided that, on quiet evenings, the family would read together for an hour.', zh: '我祖母决定，安静的晚上，全家人会一起读一小时书。' },
+        { en: 'Once the new policy started, employees who hit their targets would share a year-end bonus.', zh: '新政策开始后，达成目标的员工会一起分一份年终奖。' },
+      ],
+      commonMistake: '不要写成 Messi would received a share。would 后面必须是动词原形 receive，不是过去式 received，也不是 to receive。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇钩子：先讲"大多数人怎样"，再点出"少数人不一样"，把读者拉进对比里',
+      skeleton: 'Most [群体] [常规行为]. A few of them [反常行为].',
+      original: 'Most footballers earn their money on the field. A few of them earn even more off it.',
+      sentenceId: 's2',
+      whyItWorks: [
+        '这个开头之所以有力，是因为它在两句之间制造了一个"基准线 + 例外"的对比。第一句先把读者放在大多数人的位置上："对，大多数球员就是这样。" 第二句立刻拐到例外："但其中少数人不一样。" 读者本能想知道：是哪些人？为什么？于是文章的主角顺势可以登场。',
+        '对读者来说，Most…A few of them… 这两个词组本身就在划线：把世界先分成大堆和小堆，然后宣告"我接下来要讲小堆里的事"。这种"分群"动作让读者愿意继续读下去，因为他们知道作者已经把视角对准了"特别的少数"。',
+        '它最适合做新闻特写、人物报道、议论文的第一段。两句话就把背景和"今天要讲什么"都铺好了，比"In recent years…"那种开头快得多。',
+        '一个隐藏要点：第二句的"反常行为"要和第一句的"常规行为"是同一类事，只是方向相反或维度更高。文中两句都讲 earn money，但一句在 on the field，一句在 off it，对照立刻成立。',
+      ],
+      examples: [
+        { context: '一篇关于自学者的报道开头', text: 'Most students leave their school behind after graduation. A few of them spend the rest of their lives building their own.', zh: '大多数学生毕业之后就和母校告别了。其中少数人却用余生在打造一所属于自己的学校。' },
+        { context: '商业评论的引子', text: 'Most small shops shut their doors at six. A few of them stay open just long enough to catch the people no one else serves.', zh: '大多数小店六点就关门了。其中少数人会再多撑一会儿，去接住那些没人服务的客人。', note: '两句都讲"营业到几点"，但第二句把维度升到"服务谁"，对比就有了重量。' },
+        { context: '人物特写开头', text: 'Most photographers post their best shots online. A few of them keep the best ones in a drawer for years.', zh: '大多数摄影师会把最满意的照片发到网上。其中少数人会把最好的那几张在抽屉里收上好几年。' },
+      ],
+      adaptingTip: '第一句的"常规行为"要尽量是读者一秒就能点头的事实（"对，确实如此"）；第二句的"反常行为"必须和第一句在同一维度上扭一下，不能突然换话题。这是开篇钩子，最好就摆在文章第一段，再往后用就失去新鲜感。',
+      commonMistake: '不要让第二句变成完全无关的话题：Most footballers earn their money on the field. A few of them also like painting.（"画画"和前一句不在同一维度，对比断了）。第二句必须接住第一句的"赚钱"维度，只是把方向换掉。',
+    },
+    {
+      id: 'pt2',
+      useCase: '段落对比：用 For most X, … / For Y, … 把两种世界并排放在读者面前',
+      skeleton: 'For most [群体], [常规情况]. For [特殊个体], [不同情况].',
+      original: 'For most athletes, a sponsorship is simple: the brand pays a flat fee, and the player wears the logo. For Messi, the brand agreed to share its winnings with him whenever those winnings come from him.',
+      sentenceId: 's15',
+      whyItWorks: [
+        '这个句式的关键是两个 For 起头的并排句子，结构整齐，意思相反。第一个 For most X 给出"通常情况"，第二个 For Y 给出"这位主角的情况"。两个 For 并排出现，读者会自动把两段话对比着看，差异立刻浮起来，不用作者多解释。',
+        '对读者来说，重复 For 这个词本身就在暗示"接下来要做对照"。当读者看到第二个 For，心里已经准备好"这次和上一句不一样了"，所以差异感不需要靠大词来强调，结构本身就把活干完了。',
+        '它最适合放在段落或文章的中段，用来把已经讲过的事实做一次"普通 vs 不普通"的总结。议论文的论证段、新闻特写解释"为什么这件事不同寻常"时都很顺手。',
+        '一个隐藏要点：两个 For 后面接的"群体 vs 个体"要确实有可比性。如果第一个是 For most athletes，第二个最好就是 For Messi，而不是 For the world，这样对照才真的在同一层面上。',
+      ],
+      examples: [
+        { context: '一篇讨论自由职业的评论', text: 'For most office workers, a weekday starts at nine and ends at six. For freelancers, the day is shaped by whichever client emails first.', zh: '对大多数上班族来说，工作日从九点开始，六点结束。对自由职业者来说，一天的形状由哪位客户先发邮件来决定。' },
+        { context: '城市观察文章', text: 'For most tourists, the old town is a half-day stop. For the people who grew up here, it is the whole map.', zh: '对大多数游客来说，老城是半天的停留点。而对在这里长大的人来说，它就是整张地图。', note: '两个 For 后面接"游客 vs 本地人"，并排对比直接立住。' },
+        { context: '科技产品评论', text: 'For most users, the app is a quiet helper in the background. For the people who tune it, it slowly becomes their second brain.', zh: '对大多数用户来说，这个应用只是后台一个安静的小助手。对那些愿意调试它的人来说，它会慢慢变成他们的第二个大脑。' },
+      ],
+      adaptingTip: '两个 For 句子要尽量长度相近、结构相近，对比才整齐。第二个 For 后面的对象一定要具体（For Messi / For freelancers / For the people who grew up here），不能写 For some people 这种含糊的群体，否则对比的"主角"就消失了。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾反转：先承认"不再是 X 了"，再点出"它现在是 Y"',
+      skeleton: '... is no longer about [旧的核心]. It is about [新的核心].',
+      original: 'And for the ones who do, the next contract is no longer about a fee. It is about a share.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式的力量来自一次"重新定义"。第一句用 no longer about 告诉读者"过去那套说法不算数了"，第二句立刻给出新的关键词。两句中间没有连接词，只有一个句号，落差就在那个停顿里。',
+        '对读者来说，no longer about 这四个字像一个小宣告：作者要把这件事的核心改个名字。读者会本能想知道"那现在到底是什么？" 第二句一个短句给出答案 It is about + 名词，干脆，余韵长。',
+        '它最适合放在文章结尾。前文已经把数据和案例摆完，这两句负责把"事实"翻译成"新的命名"，给读者一个值得记住的句子。议论文、特写、评论的收尾都好用。',
+        '一个隐藏前提：第一句被否掉的那个"旧核心"必须是读者本来真的会以为的那一个。如果读者本来就不会先想到 a fee，否定就没意义。所以第一句的关键词必须是常识层面的默认答案。',
+      ],
+      examples: [
+        { context: '一篇关于城市图书馆的评论收尾', text: 'For these readers, the library is no longer about books. It is about a quiet room they can finally afford.', zh: '对这些读者来说，图书馆已经不再关于书了。它关于的是一间他们终于负担得起的安静房间。' },
+        { context: '人物特写的结尾', text: 'After ten years on stage, her performance is no longer about being seen. It is about saying one thing clearly to the few people still listening.', zh: '在舞台上十年之后，她的表演已经不再关于"被看见"了。它关于的是把一件事清楚地说给那些还在听的人。', note: '第一句否掉常识答案"被看见"，第二句拉到一个更具体的画面，收尾立刻有了分量。' },
+        { context: '关于一座小城转型的报道', text: 'For these towns, growth is no longer about new factories. It is about whether their young people stay one more year.', zh: '对这些小城来说，发展已经不再关于建新工厂了。它关于的是它们的年轻人是否愿意再多留一年。' },
+      ],
+      adaptingTip: '第一句否掉的"旧核心"要选读者第一反应就会想到的那一个（a fee / books / new factories / being seen），第二句给出的"新核心"要尽量具体，最好用一个有重量的名词或一个有画面感的小短语，不要换成另一个空泛的形容词。这是收尾模板，别放在开头或中间，否则后面的话会被这两句反噬。',
+      commonMistake: '不要让第二句还停在抽象层：The contract is no longer about a fee. It is about something more important.（"something more important"太空，等于没说）。第二句必须给出一个具体的新关键词（a share / a partnership / a vote），才能让句号砸出声音。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'About how much did Messi earn from sponsors in 2024?', options: ['About 20 million dollars', 'About 25 million dollars', 'About 79 million dollars', 'About 250 million dollars'], answer: 2, explanation: 'The article says Messi made about 79 million dollars from his sponsors in 2024.', sentenceId: 's3' },
+    { id: 'q2', q: 'What is special about the clause Adidas added when Messi joined Inter Miami?', options: ['It lets Messi keep his salary after he retires', 'It gives Messi a share of the extra profit from MLS jersey sales linked to him', 'It bans him from wearing any other brand', 'It pays him a higher flat fee'], answer: 1, explanation: 'The article says that from that point on, when the company sold more MLS jerseys because of him, Messi would receive a share of the extra profit.', sentenceId: 's9' },
+    { id: 'q3', q: 'Why does the writer call profit-sharing unusual for athletes?', options: ["Because it is illegal in most countries", 'Because most athletes are paid a flat fee and just wear the logo', 'Because athletes usually own the brand themselves', 'Because Adidas refuses to share profits with anyone'], answer: 1, explanation: 'The article contrasts most athletes (flat fee, wearing the logo) with Messi (a share of the brand\'s winnings).', sentenceId: 's14' },
+    { id: 'q4', q: 'According to the article, how is the new arrangement different for the company?', options: ['The company makes more money no matter what', 'The company can drop Messi at any time', 'The company carries more of the risk', 'The company stops paying Messi a salary'], answer: 2, explanation: 'The article says the unusual arrangement shifts some of the risk back onto the company.', sentenceId: 's16' },
+    { id: 'q5', q: "What is the writer's overall view of Messi's off-field power?", options: ['It is harmful to the sport', 'It is common among top players today', 'It is rare, and changes what a contract is really about', 'It is something he should give up'], answer: 2, explanation: 'The closing lines say few players ever reach this kind of power, and for those who do, the contract is no longer about a fee but about a share.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '梅西 2024 年从赞助商挣到的金额', answer: '79 million dollars', sentenceId: 's3', prefilled: true },
+      { id: 'ig2', cueZh: '梅西和阿迪达斯签终身合约的年份', answer: '2017', sentenceId: 's6' },
+      { id: 'ig3', cueZh: '阿迪达斯合约每年大约价值', answer: '25 million dollars', sentenceId: 's7' },
+      { id: 'ig4', cueZh: '梅西转会到迈阿密国际的年份', answer: '2023', sentenceId: 's8' },
+      { id: 'ig5', cueZh: '提到的酒店与赌场品牌名字', answer: 'Hard Rock', sentenceId: 's12' },
+      { id: 'ig6', cueZh: '负责直播每一场美职联比赛的公司', answer: 'Apple TV', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '这种分润安排在哪一类人之间常见', answer: 'company founders', sentenceId: 's10' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 60 词的短文，向一位朋友解释为什么梅西和阿迪达斯的这份合约不同寻常：合约什么时候签的、有什么特别条款、为什么这种安排在运动员里少见。',
+      promptEn: "Using the facts in your table, write about 60 words explaining to a friend why Messi's deal with Adidas is unusual: when it was signed, what special clause it has, and why this kind of arrangement is rare among athletes.",
+      targetWords: 60,
+      starters: ['Most athletes wear a logo for a flat fee, but ...', "For Messi, the Adidas contract is no longer about ..."],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        "Most athletes wear a logo for a flat fee, but Messi's deal with Adidas is different. In 2017, the two sides signed a lifetime contract worth about 25 million dollars a year. When he moved to Inter Miami in 2023, a new clause was added. From that point on, Messi would receive a share of the extra profit from MLS jersey sales linked to him. For Messi, the contract is no longer about a fee. It is about a share.",
+      modelAnswerZh:
+        '大多数运动员只是为一笔固定的钱穿上品牌的标志，但梅西和阿迪达斯的合约不一样。2017 年，双方签下了一份终身合约，每年大约价值 2500 万美元。2023 年他转会到迈阿密国际时，合约里加了一条新条款：从那以后，因为他多卖出的美职联球衣所带来的额外利润，梅西本人能分到一部分。对梅西来说，这份合约已经不再关于一笔劳务费。它关于的是一份股份。',
+    },
+  },
+};

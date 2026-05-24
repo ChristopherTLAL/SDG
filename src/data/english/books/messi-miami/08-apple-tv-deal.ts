@@ -1,0 +1,243 @@
+// Messi Miami book, Ch.8: the unusual Apple TV revenue-share clause in his 2023 Inter Miami contract (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-08-15',
+    title: 'The Deal That Paid Him for Subscribers',
+    titleZh: '靠订阅数赚钱的合同',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/messi-miami/08-apple-tv-deal.mp3',
+    wordCount: 312,
+    readingMinutes: 4,
+    editorsNote:
+      'When Messi signed with Inter Miami in 2023, his contract did something no player had done before. It tied part of his pay to how many people signed up to watch the league on Apple TV. This chapter explains why that one clause matters.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In the summer of 2023, Lionel Messi signed a contract with Inter Miami that did something no soccer deal had done before.', zh: '2023 年夏天，里奥·梅西和迈阿密国际签下了一份合同，做了一件以前足球合同从未做过的事。' },
+        { id: 's2', en: 'A small clause near the end said Messi would share in the new subscribers Apple TV gained from his arrival.', zh: '合同接近末尾的一个小条款写道，梅西将分享 Apple TV 因他到来而获得的新订阅用户。' },
+        { id: 's3', en: 'In simple words, the more people who paid to watch MLS on Apple, the more he earned.', zh: '简单来说，越多人付费在 Apple 上观看 MLS，他赚到的就越多。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'To understand the deal, you need a little background.', zh: '要理解这份合同，你需要一点背景。' },
+        { id: 's5', en: 'In 2022, Apple paid MLS about 250 million dollars a year for ten years to put every game on one streaming service called MLS Season Pass.', zh: '2022 年，Apple 用每年约 2.5 亿美元、为期十年的价格，把每一场 MLS 比赛放到了一个叫 MLS Season Pass 的流媒体服务上。' },
+        { id: 's6', en: 'At first, sign-ups were slow.', zh: '一开始，订阅增长很慢。' },
+        { id: 's7', en: 'Then Messi arrived in Miami, and the numbers jumped almost overnight.', zh: '随后梅西来到迈阿密，数字几乎是一夜之间猛涨。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'Reports say Apple gained more than one million new MLS Season Pass subscribers in the months after Messi joined.', zh: '据报道，在梅西加盟之后的几个月里，Apple 获得了一百多万新的 MLS Season Pass 订阅用户。' },
+        { id: 's9', en: 'Because of the clause, Messi has been earning a share of every new sign-up since then.', zh: '由于那个条款，从那以后梅西一直在赚取每一份新订阅的分成。' },
+        { id: 's10', en: 'By 2024, that share was reported to be worth tens of millions of dollars on top of his regular salary.', zh: '到 2024 年，这部分分成据报道在他正常工资之外又达到了数千万美元。' },
+        { id: 's11', en: 'No fan ever paid him directly, but every Apple TV sign-up sent a small piece of the money his way.', zh: '没有哪个球迷直接付钱给他，但每一份 Apple TV 订阅都把一小笔钱送到了他这边。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'Part of what makes this deal new is the role it gives the player.', zh: '这份合同之所以新颖，部分原因在于它给了球员一个新的角色。' },
+        { id: 's13', en: 'A normal contract pays a fixed salary, sometimes with a small bonus for goals.', zh: '一份普通合同支付固定工资，有时再加一点进球奖金。' },
+        { id: 's14', en: 'This one made Messi something closer to a partner, a person who wins or loses with the broadcast itself.', zh: '这份合同让梅西更接近于一个合伙人，一个和转播本身共同输赢的人。' },
+        { id: 's15', en: 'If Apple sold more subscriptions, he benefited; if the league lost interest, he would feel that too.', zh: '如果 Apple 卖出更多订阅，他就受益；如果联赛失去关注，他也会感受到。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: 'Not everyone is sure this is good for the sport.', zh: '不是所有人都确信这对体育界是好事。' },
+        { id: 's17', en: 'Some worry that big stars will now demand a piece of the broadcast money in every league, which smaller clubs cannot easily afford.', zh: '一些人担心，从此之后大牌球星会在每个联赛里都要求分一杯转播费的羹，而这是小俱乐部难以负担的。' },
+        { id: 's18', en: 'Others argue that Messi did the platform a real favor and deserves to share in the reward.', zh: '另一些人则认为，梅西确实给这个平台帮了大忙，理应分享回报。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'For now, the lesson is simple.', zh: '目前来看，这件事的启示很简单。' },
+        { id: 's20', en: 'In modern sports, a famous player is no longer just an employee.', zh: '在现代体育里，一位著名球员不再只是一个雇员。' },
+        { id: 's21', en: 'A great signing is more than a new shirt on the field. It is a number on a streaming dashboard that someone, somewhere, is being paid to grow.', zh: '一次伟大的签约不只是球场上多了一件新球衣。它是某个流媒体后台上的一个数字，而某个人在某处正因为推动它增长而拿钱。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'contract', lemma: 'contract', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈkɒntrækt/', defZh: '合同；契约', defEn: 'a written legal agreement between two sides', example: 'She signed a two-year contract with the new company.', exampleZh: '她和新公司签了一份两年的合同。' },
+    { id: 'v2', word: 'clause', lemma: 'clause', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/klɔːz/', defZh: '条款；条文', defEn: 'a single point in a legal document', example: 'The clause about working hours was hard to understand.', exampleZh: '关于工作时间的那一条款很难看懂。' },
+    { id: 'v3', word: 'subscribers', lemma: 'subscriber', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/səbˈskraɪbəz/', defZh: '订阅用户；订户', defEn: 'people who pay regularly to use a service', example: 'The magazine lost half of its subscribers in five years.', exampleZh: '这本杂志在五年里失去了一半订户。' },
+    { id: 'v4', word: 'arrival', lemma: 'arrival', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/əˈraɪvl/', defZh: '到来；抵达', defEn: 'the moment when someone or something comes', example: 'His arrival changed the mood of the meeting.', exampleZh: '他的到来改变了会议的气氛。' },
+    { id: 'v5', word: 'earned', lemma: 'earn', sentenceId: 's3', level: 1, pos: 'v.', ipa: '/ɜːnd/', defZh: '挣得；赚到', defEn: 'received money for work', example: 'She earned enough to pay her rent.', exampleZh: '她挣的钱够付房租了。' },
+    { id: 'v6', word: 'streaming', lemma: 'streaming', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/ˈstriːmɪŋ/', defZh: '流媒体的；在线播放的', defEn: 'sent over the internet to watch live', example: 'Most young viewers prefer streaming services to TV.', exampleZh: '大多数年轻观众更喜欢流媒体服务而不是电视。' },
+    { id: 'v7', word: 'service', lemma: 'service', sentenceId: 's5', level: 1, pos: 'n.', ipa: '/ˈsɜːvɪs/', defZh: '服务；服务平台', defEn: 'a system that provides something to users', example: 'The bus service runs every ten minutes.', exampleZh: '公交服务每十分钟一班。' },
+    { id: 'v8', word: 'sign-ups', lemma: 'sign-up', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈsaɪnʌps/', defZh: '注册；订阅', defEn: 'people newly joining a service', example: 'The class had only ten sign-ups in the first week.', exampleZh: '这门课头一周只有十个人报名。' },
+    { id: 'v9', word: 'jumped', lemma: 'jump', sentenceId: 's7', level: 2, pos: 'v.', ipa: '/dʒʌmpt/', defZh: '猛涨；飙升', defEn: 'rose sharply and quickly', example: 'Sales jumped after the new ad came out.', exampleZh: '新广告出来后销量猛涨。' },
+    { id: 'v10', word: 'share', lemma: 'share', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/ʃeə(r)/', defZh: '分成；份额', defEn: 'a portion that belongs to one person', example: 'Each writer got a fair share of the prize.', exampleZh: '每位作者都分到了一份公平的奖金。' },
+    { id: 'v11', word: 'salary', lemma: 'salary', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ˈsæləri/', defZh: '工资；薪水', defEn: 'fixed pay received regularly for a job', example: 'His new salary lets him save a little each month.', exampleZh: '他的新工资让他每个月能存下一点钱。' },
+    { id: 'v12', word: 'directly', lemma: 'directly', sentenceId: 's11', level: 2, pos: 'adv.', ipa: '/dəˈrektli/', defZh: '直接地', defEn: 'without anything in between', example: 'You can write to the author directly.', exampleZh: '你可以直接写信给作者。' },
+    { id: 'v13', word: 'partner', lemma: 'partner', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/ˈpɑːtnə(r)/', defZh: '合伙人；伙伴', defEn: 'someone who shares risk and reward in a business', example: 'She became a partner in the law firm last year.', exampleZh: '她去年成了这家律所的合伙人。' },
+    { id: 'v14', word: 'broadcast', lemma: 'broadcast', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/ˈbrɔːdkɑːst/', defZh: '广播；转播', defEn: 'a TV or radio program sent out to viewers', example: 'The broadcast of the final reached many countries.', exampleZh: '决赛的转播覆盖了许多国家。' },
+    { id: 'v15', word: 'benefited', lemma: 'benefit', sentenceId: 's15', level: 3, pos: 'v.', ipa: '/ˈbenɪfɪtɪd/', defZh: '受益；得到好处', defEn: 'got something good from a situation', example: 'Small shops benefited from the new bus stop.', exampleZh: '小店铺从这个新公交站点中受益。' },
+    { id: 'v16', word: 'afford', lemma: 'afford', sentenceId: 's17', level: 2, pos: 'v.', ipa: '/əˈfɔːd/', defZh: '负担得起', defEn: 'have enough money or means to pay for', example: 'The school cannot afford new computers this year.', exampleZh: '学校今年买不起新电脑。' },
+    { id: 'v17', word: 'platform', lemma: 'platform', sentenceId: 's18', level: 3, pos: 'n.', ipa: '/ˈplætfɔːm/', defZh: '平台；网络平台', defEn: 'a service or website where people meet or watch', example: 'The video was shared on every major platform.', exampleZh: '这段视频在每个主要平台上都被转发了。' },
+    { id: 'v18', word: 'deserves', lemma: 'deserve', sentenceId: 's18', level: 3, pos: 'v.', ipa: '/dɪˈzɜːvz/', defZh: '应得；值得', defEn: 'has earned the right to receive something', example: 'She deserves a long break after that project.', exampleZh: '完成那个项目后她应该好好休息一下。' },
+    { id: 'v19', word: 'employee', lemma: 'employee', sentenceId: 's20', level: 2, pos: 'n.', ipa: '/ɪmˈplɔɪiː/', defZh: '雇员；员工', defEn: 'a person paid to work for a company', example: 'Every new employee gets two weeks of training.', exampleZh: '每位新员工都有两周的培训。' },
+    { id: 'v20', word: 'dashboard', lemma: 'dashboard', sentenceId: 's21', level: 4, pos: 'n.', ipa: '/ˈdæʃbɔːd/', defZh: '仪表盘；数据后台', defEn: 'a screen showing live numbers for a business', example: 'The team checks the sales dashboard every morning.', exampleZh: '团队每天早上都看销售数据后台。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 the more X, the more Y 表达"越……越……"',
+      pattern: 'the more [子句 X], the more [子句 Y]',
+      sentenceIds: ['s3'],
+      explanationZh: [
+        '中文里"越多人付费看，他赚得越多"这种"越……越……"结构，对应英文的 the more X, the more Y。两个 the more 引导两个短句，前一个是原因或前提，后一个是结果。',
+        '看第 3 句：the more people who paid to watch MLS on Apple, the more he earned。前半截描述一个数量（多少人付费），后半截给出相应的结果（他赚到多少）。两边的 more 形成对应关系，读者一眼就能抓住因果链。',
+        '什么时候用：当你想强调"两个变量是同步变动的"，特别适合新闻里写经济、数据、影响时使用。它比 If more people pay, he earns more 更紧凑、更有节奏。',
+        '一个细节：the 后面不一定都是 more，可以是 the better / the harder / the higher 等。两边的形容词或副词可以不同，但都必须用比较级。',
+      ],
+      examples: [
+        { en: 'The more you practice, the faster you improve.', zh: '你练习得越多，进步就越快。' },
+        { en: 'The harder the test, the more useful the review notes become.', zh: '考试越难，复习笔记就越有用。' },
+        { en: 'The longer the project ran, the more money it lost.', zh: '这个项目持续得越久，亏的钱就越多。', note: '两个 the 引导的部分一前一后，因果关系一目了然。' },
+        { en: 'The earlier you book, the cheaper the flight will be.', zh: '你订得越早，机票就越便宜。' },
+        { en: 'The more she read about the city, the more she wanted to visit it.', zh: '她读到的关于这座城市的内容越多，就越想去看看。' },
+      ],
+      commonMistake: '不要写成 More people paid, more he earned（漏掉两个 the）。这个句式里两个 the 都必须出现，少一个意思就不再是"越……越……"。',
+    },
+    {
+      id: 'g2',
+      title: '用 because of 加名词说原因，不要接整句',
+      pattern: 'Because of + 名词短语, 主句',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '中文里"因为那个条款"和"因为有那个条款"几乎一样，但英文里 because 后面接的是整句，而 because of 后面只能接名词或名词短语，两者不能混用。',
+        '看第 9 句：Because of the clause, Messi has been earning a share。这里 because of 后面直接跟名词 the clause，干净利落。如果作者想用 because 起句，就必须写成 Because the clause existed, Messi has been earning... 多出来一个动词，节奏就拖。',
+        '什么时候用：当原因可以用一个简短的名词概括（一个事件、一项决定、一份合同）时，用 because of 更简洁，特别适合新闻和说明文。如果原因是一个完整的动作（包含主语和动词），那就回到 because。',
+        '一个小提醒：because of 也可以放在句中，写成 He stayed because of the rain。位置在主句前还是主句后，都需要用逗号正确分隔。',
+      ],
+      examples: [
+        { en: 'Because of the rain, the match was moved to Monday.', zh: '由于下雨，比赛被改到了周一。' },
+        { en: 'The store stayed open late because of the holiday rush.', zh: '由于假期的购物高峰，这家店延后了打烊时间。' },
+        { en: 'Because of one careless mistake, the whole report had to be rewritten.', zh: '由于一个粗心的错误，整份报告不得不重写。', note: 'because of 后面接 mistake 这个名词，比写整句更紧凑。' },
+        { en: 'She joined the club because of her sister.', zh: '她加入这个俱乐部是因为她姐姐。' },
+        { en: 'Because of new rules, every player has to wear the same tracker.', zh: '由于新规定，每位球员都必须戴同一种追踪设备。' },
+      ],
+      commonMistake: '不要写成 Because of the clause was added, Messi earned more。because of 后面不能接完整句子。要么把 was added 删掉，要么把 of 删掉换成 because。',
+      vsSimilar: 'because 后接完整子句（含主谓），表达"因为某件事发生了"。because of 后接名词或名词短语，表达"出于某物或某人之故"。看后面是不是有动词，就能选对。',
+    },
+    {
+      id: 'g3',
+      title: '用分号把两个并列短句紧紧连在一起',
+      pattern: '主句 ; 主句',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '中文里写"如果 A，他就 X；如果 B，他也会 Y"时，常用分号把两段对照的内容连起来。英文里分号（;）的功能相似：它连接两个能各自独立成句的小短句，但又比句号更紧密。',
+        '看第 15 句：If Apple sold more subscriptions, he benefited; if the league lost interest, he would feel that too。前后两段都是完整的 if 条件句，作者用分号让它们既独立又呼应，读者一眼看出"两个方向的可能性"。',
+        '什么时候用：当你写两个对比、并列或互补的句子，并希望读者一眼读出它们的对称关系时，最适合用分号。新闻评论、议论文里常出现，因为它有节奏感而不喧哗。',
+        '一个常被忽略的点：分号两边必须都能独立成句。如果一边只是短语（例如 a great team），那就只能用逗号，不能用分号。',
+      ],
+      examples: [
+        { en: 'Some students like to study early; others do their best work at night.', zh: '有些学生喜欢早晨学习；另一些人则在晚上发挥最好。' },
+        { en: 'The river was calm in the morning; by afternoon, it was rough and noisy.', zh: '早晨这条河很平静；到了下午却变得汹涌而喧闹。' },
+        { en: 'If the test goes well, he will join the team; if it does not, he will try again next year.', zh: '如果测试顺利，他会进队；如果不顺利，明年再试一次。', note: '两个 if 条件句用分号对照，读起来像两面镜子。' },
+        { en: 'We expected a few visitors; over a hundred showed up.', zh: '我们原本以为只来几位访客；结果来了一百多人。' },
+      ],
+      commonMistake: '不要在分号一边写半句话：He benefited; if the league lost interest（后半段不完整）。要么改成完整句，要么把分号改回逗号或句号。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '提醒读者要先看背景，再带出关键信息',
+      skeleton: 'To understand [主题], you need [背景或概念].',
+      original: 'To understand the deal, you need a little background.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个开头句用 To understand…you need… 给读者一个明确的台阶：作者承认这件事不是一眼看懂的，需要先垫一层背景。这个谦让的姿态反而让读者更愿意继续读下去。',
+        '它在结构上还有一个隐藏作用：让作者顺势在下一段插入历史、数字或定义，而不显得突兀。读者已经被告知"接下来是背景"，所以就不会觉得节奏被打断。',
+        '它最适合放在文章中段开头，用来引出一段解释性的内容。新闻特写、知识类文章、说明文里常见。如果放在文章最开头，效果会稍弱，因为那一段通常该是更有画面感的钩子。',
+        '一个细节：you need 后面接的内容要短而具体（a little background / one number / a quick definition），不要写得太长。短促的承诺反而让读者愿意接受这次"绕路"。',
+      ],
+      examples: [
+        { context: '科技文章中段', text: 'To understand the price drop, you need a quick look at how chips are made.', zh: '要理解这次降价，你需要快速看一眼芯片是怎么造出来的。' },
+        { context: '社会议题文章', text: 'To understand why the law passed, you need to remember what happened in 2018.', zh: '要理解这条法律为什么通过，你需要记起 2018 年发生过什么。', note: '后半段以 to remember 开头，把"背景"具体化为一个事件，简洁有力。' },
+        { context: '体育评论', text: 'To understand the trade, you need just one statistic.', zh: '要理解这笔交易，你只需要看一个数据。' },
+      ],
+      adaptingTip: 'you need 后面要给一个清晰可数的承诺：a little background / one number / a quick look，让读者知道"绕一下就回来"。如果承诺太抽象（you need an open mind），力度就泄了。这句话放在中段开头最自然，不要重复用，一篇里最多用一次。',
+    },
+    {
+      id: 'pt2',
+      useCase: '指出某事的新意：用 Part of what makes…new is… 把焦点引到一个具体特点上',
+      skeleton: 'Part of what makes [主体] [new / special / …] is [具体原因].',
+      original: 'Part of what makes this deal new is the role it gives the player.',
+      sentenceId: 's12',
+      whyItWorks: [
+        '这个句式先用 Part of 留出余地：作者承认"原因不止一个"，但选定一个特别值得讲的来展开。这种谦让让句子既显得客观，又能把重点说清楚。',
+        'what makes…new 把读者的注意力锁定到"新"这件事上。读者会自动跟着想"那到底新在哪里"，于是 is 后面的那个名词或短句就有了重量。',
+        '它最适合放在段落开头，给整段定一个论点。后面再用具体的例子或数据去支撑。新闻特写、商业评论、产品分析里都很常见。',
+        '一个细节：is 后面要选具体的特质或对象（the role it gives / the data it shares / the silence it allows），不要换成空泛的形容词（it is interesting）。具体了，后文才好展开。',
+      ],
+      examples: [
+        { context: '产品评论开头', text: 'Part of what makes the phone different is how light it feels in the hand.', zh: '这款手机之所以与众不同，部分原因在于它在手里的轻盈感。' },
+        { context: '城市观察', text: 'Part of what makes the market lively is the way regulars greet each other.', zh: '这个市场之所以热闹，部分原因在于熟客之间相互打招呼的方式。', note: 'is 后面用 the way…来具体化"特别之处"，比一个形容词更有画面感。' },
+        { context: '人物特写', text: 'Part of what makes her writing memorable is how often she stops to ask a question.', zh: '她的文字之所以令人难忘，部分原因在于她常常停下来发问。' },
+      ],
+      adaptingTip: 'is 后面填一个"具体到能展开一段"的名词或短句（a role / a habit / a number / a refusal），再用后文用一两个细节去证明它。Part of 暗示还有别的原因，所以同一段或下一段最好真的再补一笔，否则 Part of 就成了空话。',
+    },
+    {
+      id: 'pt3',
+      useCase: '结尾升华：先说"不只是 Y"，再点出它真正是什么',
+      skeleton: '[一件事] is more than [表面意义]. It is [更大的意义].',
+      original: 'A great signing is more than a new shirt on the field. It is a number on a streaming dashboard that someone, somewhere, is being paid to grow.',
+      sentenceId: 's21',
+      whyItWorks: [
+        '这个收尾句先用 more than 给出一个承诺：表面上看到的那一层（一件新球衣）不是事情的全部。读者读到 more than 就会自动期待下一句给出"更大的意义"，于是 It is 引导的那句就有了戏剧性。',
+        '第二句的特殊力量在于它把"球衣"这种具体的、温度高的东西，换成了"流媒体后台上的一个数字"这种冷静、商业化的形象。这种从感性到理性的跳跃，让结尾句既有冲击力又留下回味。',
+        '它最适合放在文章结尾或大段落结尾，把前文铺陈的事实拉到一个更宏观或更尖锐的解读上。新闻评论、个人随笔、商业分析的收尾都很好用。',
+        '一个隐藏要点：第二句给出的"更大意义"必须能回扣全文。文中前面铺垫了订阅数、合伙人角色、转播经济，所以"流媒体后台上的数字"才会让读者觉得自然，而不是突然拔高。',
+      ],
+      examples: [
+        { context: '环保评论结尾', text: 'A used water bottle is more than trash. It is a small vote on what we throw away.', zh: '一只用过的水瓶不只是垃圾。它是一张关于我们扔掉什么的小小选票。' },
+        { context: '教育随笔结尾', text: 'A good teacher is more than a source of answers. She is a quiet pressure to keep asking better questions.', zh: '一位好老师不只是答案的提供者。她是一种安静的压力，让你不停去问出更好的问题。', note: '第二句把"答案"换成"提问的压力"，跳到一个更大的维度。' },
+        { context: '商业分析结尾', text: 'A famous customer is more than free advertising. It is proof that the product fits a real life, not just a brochure.', zh: '一位有名的客户不只是免费的广告。这证明这个产品适合真实的生活，而不只是宣传册里的生活。' },
+      ],
+      adaptingTip: '第二句的"更大意义"要选有重量、能回扣全文主线的词（a number / a vote / a pressure / a promise），不要换成另一个同级的小词。第一句的"表面意义"则要选大家第一眼真的会这么想的那一层，落差才成立。这是结尾用的，别放开头或中间。',
+      commonMistake: '不要让第二句还停在同一层：A great signing is more than a new shirt. It is also a new player.（没有跳维度，等于没说）。第二句必须从具体物件跳到更大的概念或更冷静的画面。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What was unusual about the contract Messi signed with Inter Miami in 2023?', options: ['It paid him more than any soccer contract ever', 'It tied part of his pay to new Apple TV subscribers', 'It made him a club owner', 'It allowed him to choose his own coach'], answer: 1, explanation: 'The article says a clause linked his earnings to the new subscribers Apple TV gained from his arrival.', sentenceId: 's2' },
+    { id: 'q2', q: 'How much does Apple pay MLS each year for broadcast rights, according to the article?', options: ['About 25 million dollars', 'About 250 million dollars', 'About 2.5 billion dollars', 'The article does not say'], answer: 1, explanation: 'The article states the deal is about 250 million dollars a year for ten years.', sentenceId: 's5' },
+    { id: 'q3', q: 'Why does the article compare Messi to a partner rather than a normal employee?', options: ['Because he owns Inter Miami', 'Because he wins or loses with the broadcast itself', 'Because he plays without a salary', 'Because he chose his teammates'], answer: 1, explanation: 'The article says the deal made him closer to a partner who wins or loses with the broadcast.', sentenceId: 's14' },
+    { id: 'q4', q: 'What worry do some people have about deals like this?', options: ['That players will play less', 'That Apple TV will go out of business', 'That smaller clubs will not be able to afford similar deals for big stars', 'That fans will stop watching MLS'], answer: 2, explanation: 'The article says some worry stars will demand a piece of broadcast money in every league, which smaller clubs cannot easily afford.', sentenceId: 's17' },
+    { id: 'q5', q: 'What is the writer\'s overall point in the closing paragraph?', options: ['Messi is overpaid and should give the money back', 'A modern star is no longer just an employee and is part of the business itself', 'Streaming services will soon replace live stadiums', 'Soccer should ban revenue-share clauses'], answer: 1, explanation: 'The closing lines argue that in modern sports a famous player is more than an employee, becoming a number on a streaming dashboard.', sentenceId: 's20' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '梅西签约的俱乐部', answer: 'Inter Miami', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '合同签订的年份', answer: '2023', sentenceId: 's1' },
+      { id: 'ig3', cueZh: 'Apple 每年付给 MLS 的金额', answer: '250 million dollars', sentenceId: 's5' },
+      { id: 'ig4', cueZh: '合作的时长（年）', answer: 'ten years', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '流媒体服务的名字', answer: 'MLS Season Pass', sentenceId: 's5' },
+      { id: 'ig6', cueZh: '梅西到来后新增订阅大约的规模', answer: 'more than one million', sentenceId: 's8' },
+      { id: 'ig7', cueZh: '2024 年这部分分成据报道的级别', answer: 'tens of millions of dollars', sentenceId: 's10' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向朋友解释梅西和 Apple TV 之间的这份合同为什么不寻常，以及它说明了现代体育的什么。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining to a friend why the contract between Messi and Apple TV is unusual, and what it shows about modern sports.',
+      targetWords: 70,
+      starters: ['In 2023, Messi signed a contract with Inter Miami, and ...', 'Part of what makes this deal new is ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        'In 2023, Messi signed a contract with Inter Miami, and one clause tied his pay to new Apple TV subscribers. Apple pays MLS about 250 million dollars a year for MLS Season Pass. After Messi arrived, more than one million new subscribers signed up. Part of what makes this deal new is the role it gives the player. A great signing is more than a shirt on the field. It is a number someone is being paid to grow.',
+      modelAnswerZh:
+        '2023 年，梅西和迈阿密国际签下了合同，其中一个条款把他的收入和 Apple TV 的新订阅用户绑在了一起。Apple 每年付给 MLS 大约 2.5 亿美元用于 MLS Season Pass。梅西到来之后，新增订阅超过了一百万。这份合同新颖之处的一部分，在于它给了球员一个新的角色。一次伟大的签约不只是球场上的一件球衣。它是某个有人正在被付钱去推动其增长的数字。',
+    },
+  },
+};
