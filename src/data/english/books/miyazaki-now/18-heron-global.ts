@@ -119,7 +119,7 @@ export const article: Article = {
         { en: 'Our team moved to a coworking space, where the noise turned out to be the real problem.', zh: '我们团队搬进了一家共享办公空间，结果在那里，噪音才是真正的麻烦。' },
         { en: 'He grew up in a small fishing town, where almost everyone knew his grandmother.', zh: '他在一个小渔镇长大，那里几乎人人都认识他的外婆。' },
       ],
-      commonMistake: '不要写成 The film opened in cinemas where it built word of mouth. 这样没有逗号，就变成"只在'积累口碑的那些影院'里上映"，限定了一个奇怪的子集。要补一个非限定信息，就一定要在 where 前加逗号。',
+      commonMistake: '不要写成 The film opened in cinemas where it built word of mouth. 这样没有逗号，就变成「只在『积累口碑的那些影院』里上映」，限定了一个奇怪的子集。要补一个非限定信息，就一定要在 where 前加逗号。',
     },
     {
       id: 'g3',
