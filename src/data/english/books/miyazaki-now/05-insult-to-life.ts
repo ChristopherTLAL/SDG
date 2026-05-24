@@ -1,0 +1,247 @@
+// Miyazaki Now book, Ch.5: how a 2016 NHK clip became the 2025 anti-AI rallying cry (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-28',
+    title: "'An Insult to Life Itself'",
+    titleZh: '「对生命本身的侮辱」',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/05-insult-to-life.mp3',
+    wordCount: 334,
+    readingMinutes: 5,
+    editorsNote:
+      "In March 2025, a Ghibli-style AI image trend swept every social platform, and a nine-year-old Miyazaki quote came roaring back. This chapter looks at where the line actually came from, and why so many people pulled it out of the archive at the exact moment they were posting cartoon versions of themselves.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In late March 2025, almost every social feed turned soft and pastel.', zh: '2025 年 3 月下旬，几乎每一个社交平台都被一种柔和的粉彩色淹没。' },
+        { id: 's2', en: "A new feature in OpenAI's GPT-4o image tool let users redraw their selfies, their pets, and their family photos in the warm, hand-painted style of Studio Ghibli.", zh: 'OpenAI 旗下 GPT-4o 推出的图像新功能，让用户能把自拍、宠物照片和家庭合影，重画成吉卜力工作室那种温暖、手绘感的风格。' },
+        { id: 's3', en: 'Within days, an old clip of Hayao Miyazaki was being shared just as widely as the cheerful new portraits.', zh: '几天之内，一段宫崎骏的旧视频，被转发的速度几乎与这些可爱的新画像一样快。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The clip was nine years old.', zh: '这段视频其实已经有九年历史了。' },
+        { id: 's5', en: "It came from a 2016 NHK documentary called Never-Ending Man, which had followed Miyazaki out of his short retirement and back to the drawing desk.", zh: '它出自 2016 年 NHK 的一部纪录片《永不停步》，那部片子跟拍了短暂退休后又回到画桌前的宫崎骏。' },
+        { id: 's6', en: 'In one scene, a small group of researchers came to his studio to demonstrate an early AI animation experiment.', zh: '在其中一场戏里，一小群研究者来到他的工作室，展示一项早期的 AI 动画实验。' },
+        { id: 's7', en: 'On the screen, a grotesque figure crawled across the floor by pulling itself along with its head.', zh: '屏幕上，一个怪诞的人形角色用脑袋撑着地面，在地板上爬行。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: "Miyazaki watched in silence, and then he spoke very plainly.", zh: '宫崎骏沉默地看着，随后非常平静地开了口。' },
+        { id: 's9', en: 'He said he was utterly disgusted by what he had just seen.', zh: '他说，他对刚才看到的画面感到极度厌恶。' },
+        { id: 's10', en: 'He would never wish, he added, to bring this kind of technology into his work.', zh: '他还补充说，他绝不希望把这种技术引入自己的创作。' },
+        { id: 's11', en: '"I strongly feel," he said, "that this is an insult to life itself."', zh: '他说：「我强烈地感到，这是对生命本身的侮辱。」' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'The 2016 demonstration was not GPT-4o.', zh: '2016 年那次演示，并不是 GPT-4o。' },
+        { id: 's13', en: 'It was a crude research prototype that had nothing to do with the soft, smiling images filling timelines in 2025.', zh: '它只是一个粗糙的研究原型，与 2025 年时间线里那些柔和、带着微笑的图像，完全是两回事。' },
+        { id: 's14', en: "What made the quote resonate nine years later was the gap between the cute output people were celebrating and the question Miyazaki was actually asking.", zh: '让这句话在九年之后仍然刺耳的，是人们追捧的可爱画风，与宫崎骏真正在追问的那个问题之间的落差。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's15', en: 'For him, the demo was never really about that ugly crawling figure. It was about a process that skipped the long, patient work of looking closely at how a real body moves, and how pain feels.', zh: '对他来说，那场演示真正的问题，从来都不是那个丑陋的爬行角色。它指向的是一套绕过漫长功课的流程，那种功课是仔细观察真实身体如何活动、痛感究竟是什么样子。' },
+        { id: 's16', en: 'What he was defending was not a drawing style. It was the discipline of drawing from life.', zh: '他想守住的并不是一种画风。他想守住的是「从生活中描摹」这件事本身的功夫。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: "Studio Ghibli has not officially responded to the trend, and Miyazaki, now eighty-four, gives almost no interviews.", zh: '吉卜力工作室没有就此次潮流发表正式声明，已经 84 岁的宫崎骏，几乎不接受任何采访。' },
+        { id: 's18', en: 'The 2016 line, however, has done the talking for him.', zh: '不过 2016 年的那句话，已经替他把话说了。' },
+        { id: 's19', en: 'Pulled out of the archive at the exact moment millions were producing Ghibli-flavored portraits of themselves, it forced a small uncomfortable pause in the middle of the fun.', zh: '正当数以百万计的人在生产带着吉卜力味道的自我画像时，这句话被人们从档案里翻了出来，在这场狂欢之中按下了一个短促而尴尬的暂停键。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'pastel', lemma: 'pastel', sentenceId: 's1', level: 3, pos: 'adj.', ipa: '/ˈpæstəl/', defZh: '粉彩的；柔和淡色的', defEn: 'pale and soft in colour', example: 'The bedroom walls were painted in pastel shades of blue and pink.', exampleZh: '卧室的墙被涂成蓝色和粉色的柔和淡彩。' },
+    { id: 'v2', word: 'feature', lemma: 'feature', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/ˈfiːtʃə(r)/', defZh: '功能；特性', defEn: 'a specific function offered by a tool or product', example: 'The new feature lets users edit photos directly inside the app.', exampleZh: '这个新功能让用户能直接在应用里编辑照片。' },
+    { id: 'v3', word: 'redraw', lemma: 'redraw', sentenceId: 's2', level: 3, pos: 'v.', ipa: '/ˌriːˈdrɔː/', defZh: '重新绘制；重画', defEn: 'to draw something again, often in a different style', example: 'The artist was asked to redraw the map with clearer borders.', exampleZh: '这位画家被要求把地图重画一遍，边界要画得更清楚。' },
+    { id: 'v4', word: 'cheerful', lemma: 'cheerful', sentenceId: 's3', level: 2, pos: 'adj.', ipa: '/ˈtʃɪəfl/', defZh: '欢快的；明朗的', defEn: 'bright and happy in mood or look', example: 'She wore a cheerful yellow jacket to brighten the cloudy day.', exampleZh: '她穿了一件明亮的黄色外套，为阴天添一点亮色。' },
+    { id: 'v5', word: 'old', lemma: 'old', sentenceId: 's4', level: 1, pos: 'adj.', ipa: '/əʊld/', defZh: '存在已久的；老的', defEn: 'having existed for a long time', example: 'The library keeps a small collection of very old maps.', exampleZh: '这家图书馆保存着一小批非常古老的地图。' },
+    { id: 'v6', word: 'documentary', lemma: 'documentary', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ˌdɒkjuˈmentri/', defZh: '纪录片', defEn: 'a film that reports on real events or people', example: 'They watched a documentary about deep-sea creatures.', exampleZh: '他们看了一部关于深海生物的纪录片。' },
+    { id: 'v7', word: 'retirement', lemma: 'retirement', sentenceId: 's5', level: 3, pos: 'n.', ipa: '/rɪˈtaɪəmənt/', defZh: '退休', defEn: 'the time of life after one stops working', example: 'After his retirement, he started painting again.', exampleZh: '退休之后，他重新开始了绘画。' },
+    { id: 'v8', word: 'demonstrate', lemma: 'demonstrate', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/ˈdemənstreɪt/', defZh: '演示；展示', defEn: 'to show how something works in person', example: 'The engineer came in to demonstrate the new printer.', exampleZh: '工程师过来现场演示这台新打印机。' },
+    { id: 'v9', word: 'grotesque', lemma: 'grotesque', sentenceId: 's7', level: 4, pos: 'adj.', ipa: '/ɡrəʊˈtesk/', defZh: '怪诞的；丑陋扭曲的', defEn: 'strange and ugly in a way that disturbs', example: 'The mask had a grotesque, twisted smile that scared the children.', exampleZh: '那张面具上挂着一种怪诞扭曲的笑容，把孩子们吓到了。' },
+    { id: 'v10', word: 'crawled', lemma: 'crawl', sentenceId: 's7', level: 2, pos: 'v.', ipa: '/krɔːld/', defZh: '爬行', defEn: 'moved slowly on hands, knees or belly', example: 'The baby crawled across the carpet toward the toy.', exampleZh: '小宝宝从地毯上爬过去，朝着玩具方向。' },
+    { id: 'v11', word: 'silence', lemma: 'silence', sentenceId: 's8', level: 1, pos: 'n.', ipa: '/ˈsaɪləns/', defZh: '沉默；安静', defEn: 'a state of no sound or speech', example: 'A long silence followed the question.', exampleZh: '那个问题之后是一段长长的沉默。' },
+    { id: 'v12', word: 'utterly', lemma: 'utterly', sentenceId: 's9', level: 4, pos: 'adv.', ipa: '/ˈʌtəli/', defZh: '完全地；彻底地', defEn: 'in a complete and total way', example: 'She was utterly exhausted after the long flight.', exampleZh: '长途飞行之后，她已经彻底累垮了。' },
+    { id: 'v13', word: 'disgusted', lemma: 'disgust', sentenceId: 's9', level: 3, pos: 'adj.', ipa: '/dɪsˈɡʌstɪd/', defZh: '反感的；厌恶的', defEn: 'feeling strong dislike at something offensive', example: 'He was disgusted by the rude way the manager spoke to her.', exampleZh: '经理对她说话的粗鲁方式让他感到厌恶。' },
+    { id: 'v14', word: 'insult', lemma: 'insult', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/ˈɪnsʌlt/', defZh: '侮辱；冒犯', defEn: 'a remark or act that treats something with disrespect', example: 'Calling his painting "lazy" felt like a real insult to his years of training.', exampleZh: '把他的画说成「敷衍」，对他多年的训练来说几乎是一种侮辱。' },
+    { id: 'v15', word: 'crude', lemma: 'crude', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/kruːd/', defZh: '粗糙的；不完善的', defEn: 'rough and unfinished, not yet refined', example: 'The early prototype was a crude wooden frame held together with tape.', exampleZh: '那个早期原型只是一个用胶带粘起来的粗糙木架。' },
+    { id: 'v16', word: 'prototype', lemma: 'prototype', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ˈprəʊtətaɪp/', defZh: '原型；样机', defEn: 'an early version built for testing', example: 'The team showed a working prototype of the foldable phone.', exampleZh: '团队展示了这款折叠手机的可用原型。' },
+    { id: 'v17', word: 'resonate', lemma: 'resonate', sentenceId: 's14', level: 4, pos: 'v.', ipa: '/ˈrezəneɪt/', defZh: '引起共鸣；产生回响', defEn: 'to feel meaningful or important to many people', example: 'Her speech about quiet courage resonated with younger readers.', exampleZh: '她那段关于安静勇气的发言，在年轻读者中引起了共鸣。' },
+    { id: 'v18', word: 'gap', lemma: 'gap', sentenceId: 's14', level: 1, pos: 'n.', ipa: '/ɡæp/', defZh: '差距；落差', defEn: 'a noticeable difference between two things', example: 'There is a real gap between what the company promises and what it delivers.', exampleZh: '这家公司承诺的与实际做到的，之间存在着真实的差距。' },
+    { id: 'v19', word: 'skipped', lemma: 'skip', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/skɪpt/', defZh: '跳过；省略', defEn: 'left out a step or stage on purpose', example: 'He skipped breakfast and went straight to the office.', exampleZh: '他没吃早饭，直接去了办公室。' },
+    { id: 'v20', word: 'discipline', lemma: 'discipline', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/ˈdɪsəplɪn/', defZh: '训练；功夫', defEn: 'the careful practice of a craft or habit', example: 'Daily sketching takes the same discipline as learning an instrument.', exampleZh: '每天速写所需要的功夫，和学习一门乐器一样。' },
+    { id: 'v21', word: 'pause', lemma: 'pause', sentenceId: 's19', level: 2, pos: 'n.', ipa: '/pɔːz/', defZh: '停顿；暂停', defEn: 'a short break in an action or feeling', example: 'There was a thoughtful pause before she gave her answer.', exampleZh: '她回答之前，停顿了一下，似乎在思考。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 what... was 把句子的"重点"往前提',
+      pattern: 'What [clause] is/was [emphasis]',
+      sentenceIds: ['s14', 's16'],
+      explanationZh: [
+        '中文里想强调一件事，常用语气词："真正让人有感觉的，是 X。"英文里实现同样效果，有一个很顺手的结构：What 加一个从句开头，再用 is 或 was 把"真正的重点"放在后面，叫做 what-cleft。它的好处是先吊住读者，让读者一直等到句末才拿到答案。',
+        '看文中第 14 句：What made the quote resonate nine years later was the gap…。如果直接写 The gap made the quote resonate，信息没错，但平铺直叙，缺乏停顿。用 what-cleft 之后，读者要读到 was 那里才看到 the gap，这一停一放，重音就落在 the gap 上了。第 16 句 What he was defending was not a drawing style 用法相同，先把"他想守住的"摆上桌，再揭晓"不是一种画风"。',
+        '什么时候用：分析、评论、人物特写里非常好用，尤其是你想把读者注意力锁在某个具体的名词或短语上时。它适合书面，不太适合口语里频繁出现，否则会显得有点端着。',
+        '一个容易踩的细节：what 引导的从句视为单数，所以后面用 is / was，不用 are / were。即使你想强调的是复数名词（two reasons），动词依然写 is / was，因为它配的是前面的 what-从句，而不是后面的强调对象。',
+      ],
+      examples: [
+        { en: 'What surprised the audience was how calmly the speaker handled the angry question.', zh: '让观众意外的，是讲者面对那个愤怒提问时的冷静。', note: '用 what-cleft 把"冷静的应对"摆到句末重音位置。' },
+        { en: 'What the report failed to mention was the cost of repairing the old bridge.', zh: '这份报告漏掉的，是修复那座老桥的开销。' },
+        { en: 'What the doctor really wanted to say was that the patient needed rest, not more tests.', zh: '医生真正想说的是，这位病人需要休息，而不是更多检查。' },
+        { en: 'What carried the team through the final week was not talent but routine.', zh: '让这支队伍熬过最后一周的，不是天赋，而是日常的习惯。' },
+        { en: 'What we lost in the move was a sense of where everything belonged.', zh: '搬家之后我们失去的，是「每样东西该放在哪里」的那种把握。' },
+      ],
+      commonMistake: '不要写成 What we lost are our books。即使强调对象是复数 books，what-从句仍当单数处理，动词写 is / was。正确写法是 What we lost is our books。',
+      vsSimilar: 'It-cleft（It was the gap that made the quote resonate）也用来强调，但语气更斩钉截铁，常用于澄清"是这个、不是那个"。What-cleft 更柔和，更像在"揭晓答案"，节奏感不一样。',
+    },
+    {
+      id: 'g2',
+      title: '把状语提到句首，让"哪个时刻"先说清',
+      pattern: '[时间/地点状语], + 主句',
+      sentenceIds: ['s1', 's3', 's8', 's19'],
+      explanationZh: [
+        '英文的默认语序是「主语+动词+其他」，但写新闻或叙事时，作者常常把时间或地点状语提到句首，再用一个逗号把它和主句分开。这个小调整能让读者先建立时间或场景的坐标，再去理解主句。',
+        '看文中第 1 句：In late March 2025, almost every social feed turned soft and pastel。先有 In late March 2025 这个时间坐标，主句才登场。第 3 句 Within days、第 8 句 Miyazaki watched in silence, and then…（用 and then 替代单独的提前状语，但意图一样）、第 19 句 Pulled out of the archive at the exact moment…，都是先给读者一个坐标，再展开主语和动词。',
+        '什么时候用：当你想强调"这是在什么时刻、什么背景下发生的"时尤其好用。它非常适合新闻特写、回忆性文章的开篇，能立刻把读者拉进具体场景，避免开篇就抛抽象判断。',
+        '细节提醒：状语提前后，逗号是必需的，它的作用是告诉读者「前面是状语，后面是真正的主句」。如果忘了写逗号，长状语容易和后面的主语黏在一起，读者要反复回看才能切分。',
+      ],
+      examples: [
+        { en: 'On the last day of school, the corridors went unusually quiet.', zh: '学期最后一天，走廊里安静得出奇。' },
+        { en: 'After three years of waiting, the family finally moved into their own apartment.', zh: '等了三年之后，这家人终于搬进了属于自己的公寓。' },
+        { en: 'In the small workshop behind the shop, an old watchmaker still repairs Soviet-era clocks.', zh: '店铺后那间小工坊里，一位老钟表匠仍在修苏联时期的钟。', note: '地点状语提前，画面感比 "An old watchmaker still repairs… in the small workshop." 强很多。' },
+        { en: 'During the worst week of the storm, neighbours shared meals across the hallway.', zh: '风暴最猛烈的那一周，邻居们隔着走廊互送饭菜。' },
+        { en: 'Just before the lights came up, the room fell silent.', zh: '灯亮之前的那一刻，整个房间安静下来。' },
+      ],
+      commonMistake: '不要漏掉那个逗号：In late March 2025 almost every social feed turned…。状语长一点，没有逗号读起来就像主语黏在了状语后面，会让读者卡顿一下。补上逗号即可。',
+    },
+    {
+      id: 'g3',
+      title: '用 -ed 分词短语开头，省掉 "which was"',
+      pattern: '[过去分词短语], + 主句',
+      sentenceIds: ['s19'],
+      explanationZh: [
+        '想给主语加一句背景说明，正常写法是另起一句或用 which was。例如：The 2016 line, which was pulled out of the archive…, forced a pause。这没问题，但句子立刻变长，读起来也有些机械。英文里常用的简化是把 which was 整段省掉，只留下过去分词短语，放在句首。',
+        '看文中第 19 句：Pulled out of the archive at the exact moment millions were producing Ghibli-flavored portraits of themselves, it forced a small uncomfortable pause…。整个开头都是 -ed 短语，描述主句的主语 it（也就是那句话）发生了什么事。把 which was 省掉之后，句子的节奏立刻紧了一档。',
+        '什么时候用：写新闻、评论、特写这种节奏稍快的文体时特别合适。它能在一句话里同时交代「这是个怎样的对象」加「这个对象做了什么」，避免你不断使用 which 从句把句子越拉越长。',
+        '一个容易被忽略的细节：分词短语描述的对象，必须是主句的主语，否则会变成「悬空分词」。如果开头写 Pulled out of the archive，那紧跟逗号之后的主语，必须就是被翻出来的那东西（it 指那句话）。如果主语换了人，整句就会读起来错位。',
+      ],
+      examples: [
+        { en: 'Trained as a violinist, she still thinks of every essay as a piece of music.', zh: '小提琴出身的她，仍然把每篇文章当成一段音乐来写。', note: 'Trained as a violinist 描述的就是主句主语 she，没有悬空。' },
+        { en: 'Built in the 1920s, the small theatre still hosts a film festival every summer.', zh: '这座建于 1920 年代的小剧场，每年夏天仍会举办一场电影节。' },
+        { en: 'Asked the same question three times in one week, the spokesperson finally gave a clear answer.', zh: '一周之内被问了三遍同样的问题，发言人终于给出了一个明确的答复。' },
+        { en: 'Painted bright red and parked at the corner, the old van had become a neighbourhood landmark.', zh: '那辆漆成鲜红色、停在街角的旧厢式车，已经成了街区的地标。' },
+      ],
+      commonMistake: '不要写成 Pulled out of the archive…, the room went silent。分词短语描述的是「那句话」，而主语却是「房间」，两者对不上，这就是"悬空分词"。把主句改回原来的主语，或者干脆补上 which was，才能读得通。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '指出"真正的问题不在表面，而在背后那件事"',
+      skeleton: "[人/对象] was never really about [表面的小事]. It was about [更大的关切].",
+      original: 'For him, the demo was never really about that ugly crawling figure. It was about a process that skipped the long, patient work of looking closely at how a real body moves, and how pain feels.',
+      sentenceId: 's15',
+      whyItWorks: [
+        '这个句式靠两步反差来制造分量。第一句先把表面那件最显眼、看似是"问题主角"的东西摆出来，然后用 never really about 轻轻地把它否决掉；第二句紧跟着抬出真正在意的那件更大、更抽象的事。表面 vs. 深层，小 vs. 大，节奏一拉开，重点就立住了。',
+        '对读者来说，第一句里的 never really 是一个低调但坚定的承诺：作者在告诉读者，"你以为这件事是这样的，但你看得不够远。"这是一种克制的自信。它不靠喊口号，而靠让读者意识到自己之前看错了重点。',
+        '它最适合用在评论文的中段或转折处，尤其是想把一个具体争议升级到价值判断时。新闻人物特写、影评、社会评论里都很常见。也可以用在个人陈述里，把一段经历的表层故事和它真正塑造你的部分区分开。',
+        '一个隐藏要点：第二句给出的"真正在意的那件事"必须比第一句更大一档，否则反差立不起来。如果第一句说的是「冰箱坏了」，第二句又说「冰箱里的酸奶坏了」，就还停在同一层，没有任何升华。',
+      ],
+      examples: [
+        { context: '影评中段', text: 'The film was never really about the missing watch. It was about how a family decides which memories to keep.', zh: '这部电影真正讲的，从来都不是那只丢掉的手表，而是一个家庭如何决定要留下哪些记忆。' },
+        { context: '社会评论', text: 'For the protesters, the new fence was never really about safety. It was about who got to decide which streets counted as public.', zh: '对抗议者来说，这道新栅栏从来都不是安全问题，而是关于「由谁来决定哪些街道算公共空间」的问题。', note: '第二句把"安全"升级到"谁拥有公共空间的话语权"，反差立刻拉开。' },
+        { context: '个人陈述', text: 'For my grandmother, the daily walk was never really about exercise. It was about checking in on every neighbour she had known for forty years.', zh: '对外婆来说，每天的散步从来都不只是锻炼，而是去看望那些她认识了四十年的邻居们。' },
+      ],
+      adaptingTip: '第一句的"表面那件事"要选读者第一眼真的会以为是关键的小细节（一个物件、一句话、一个数字），第二句的"真正关切"则要往价值、关系、习惯这种更抽象、更有重量的方向走。两个层级的落差越明显，句子越有力。这是评论或人物特写里的中段武器，别放在最开头，否则读者还没建立起"表面认知"，反差就没东西可压。',
+      commonMistake: '不要让第二句还停在同一层：The film was never really about the missing watch. It was about a broken clock.（依然是物件，没有升华）。第二句必须跳到价值、情感或关系这种更大的维度，否则整个反差就空转了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把"在 A 的同时，B 反而显得更刺耳"这种讽刺感写出来',
+      skeleton: '[过去分词短语, 描述背景], + [主句, 给出反差中的小动作].',
+      original: 'Pulled out of the archive at the exact moment millions were producing Ghibli-flavored portraits of themselves, it forced a small uncomfortable pause in the middle of the fun.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个句式的力量来自背景与主句之间的对照。开头那个 -ed 分词短语在背景里铺一个"人很多、热闹很大"的场面（millions were producing…），主句却用一个轻、慢、低调的小动作（a small uncomfortable pause）把这股热闹按了一下。一大一小，一热一冷，讽刺感就来了。',
+        '对读者来说，分词短语放在最前面，意味着作者要先让你看清那个热闹的场景，然后才出主句。读者已经被铺垫"准备好了一个大场面"，但主句给的偏偏是一个克制的小动作，这种节奏的落差，比直接评论"我觉得这很讽刺"要有力得多。',
+        '它适合放在评论文或特写的收尾段落，把整篇文章的张力凝在一句话里。报道一场过度狂欢、一种集体情绪、一项突然走红的产品时，特别好用。也可以用在影评里，描述一部电影在某个特定的文化时刻被翻出来重看的效果。',
+        '一个非常关键的隐藏前提：分词短语描述的对象，必须就是主句的主语，否则就变成悬空分词，整句读起来会错位。文中 Pulled out of the archive 描述的是 it（那句话），主语对得上，所以读起来稳。',
+      ],
+      examples: [
+        { context: '专栏文章收尾', text: 'Re-read in a week when every paper was full of layoffs, the company\'s old "we are family" slogan suddenly looked very different.', zh: '在一个每份报纸都在讨论裁员的周里被重读，这家公司当年那句「我们是一家人」的旧口号，看起来就变了味道。' },
+        { context: '影评收尾', text: 'Released the same month the city banned that style of advertising, the documentary felt less like a memoir and more like a quiet rebuttal.', zh: '在这座城市禁止那类广告的同一个月发布，这部纪录片读起来已经不像回忆录，更像是一份安静的反驳。', note: '背景（同月被禁）让主句的"安静反驳"显得格外刺耳。' },
+        { context: '个人随笔', text: 'Found at the bottom of a box on the day we sold the house, that small notebook said more about my mother than every photo album combined.', zh: '在卖掉那栋房子的那天，从纸箱底翻出的那本小笔记本，比所有相册加起来都更能说明母亲是个怎样的人。' },
+      ],
+      adaptingTip: '前半的分词短语要给一个有规模、有声响的背景（数百万人在做、整个城市在谈、报纸都在写），主句给的动作则要刻意做小、做轻、做慢，反差才出得来。还要时刻检查：分词描述的对象，是不是主句的主语？两者对不上就是悬空分词，整句立刻塌。这是收尾或转折段落的武器，不适合频繁使用。',
+    },
+    {
+      id: 'pt3',
+      useCase: '一句澄清"它不是 A，它是 B"，把两件容易混淆的事干净分开',
+      skeleton: '[句子 1]: [对象] was not [常被误以为是的东西]. [句子 2]: It was [真正的对象].',
+      original: 'What he was defending was not a drawing style. It was the discipline of drawing from life.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个句式靠两个短句的并置来澄清歧义。第一句先用 was not 直接否定一个常见的误解，第二句再用 It was 给出真正的对象。前后形成一个工整的"否-肯"结构，读起来像一记慢动作的纠错，简洁而有节奏。',
+        '对读者来说，第一句里的否定是有暗示的：作者知道你大概率会以为是 A，所以才需要先把 A 拿掉。这种"我知道你以为"的暗示，让读者更愿意听下文。第二句给出 B 时，读者已经在等答案，所以 B 落地得格外稳。',
+        '它最适合用在评论或特写的关键段落，作为对一种流行误读的纠正。也常出现在学术写作或解释性新闻的中段，用来分清"这篇文章在说什么"和"这篇文章不在说什么"。',
+        '一个细节：两个句子最好都短，且结构对称（was not X / It was Y）。如果第二句拖得太长，节奏感就被破坏了，那种"干净切割"的效果会消失。',
+      ],
+      examples: [
+        { context: '议论文中段', text: 'What the rule changed was not how often the trains ran. It was who got to ride them for free.', zh: '这条规定改变的，不是火车运行的频次，而是谁能免费乘车。' },
+        { context: '人物特写', text: 'What he taught his students was not how to win the debate. It was how to lose one without ending the friendship.', zh: '他教学生的，不是怎么赢下一场辩论，而是怎么输掉一场辩论却没有失去朋友。', note: '两句结构对称，否定与肯定一一对应，读起来像一刀切开。' },
+        { context: '产品评论', text: 'What made the new keyboard popular was not its design. It was the strange satisfaction of pressing each key.', zh: '让这款新键盘走红的，不是它的外观，而是按下每一个键时那种奇异的满足感。' },
+      ],
+      adaptingTip: '第一句里要被否定的那个东西，必须是读者最容易第一时间想到的版本（最流行的误读），否则这一记纠错就落空了。第二句给出的"真正对象"要比第一句更精确、更具体，最好是一个抽象名词加修饰（the discipline of…, the satisfaction of…），不要换成另一个表层物件。这个句式适合做一段的中心句，不要在一段里连续用两次，否则那种"清晰切割"的力度会被稀释。',
+      commonMistake: '不要把两句的结构写得不平衡：What he was defending was not a drawing style, but really, I think, the whole philosophy behind how Japanese animators have always done things。第二段过长，原本"否-肯"的快节奏被冲掉，澄清感就没了。两句都要短且对称。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: "Where did the 2016 Miyazaki quote originally come from?", options: ['A press conference promoting a new film', 'A documentary called Never-Ending Man', "An interview with the New York Times", "An open letter Studio Ghibli posted online"], answer: 1, explanation: 'The article says the clip came from the 2016 NHK documentary Never-Ending Man.', sentenceId: 's5' },
+    { id: 'q2', q: "What was actually being shown to Miyazaki in 2016?", options: ['An early version of GPT-4o', 'A finished Studio Ghibli film', 'A crude AI animation prototype', "A new digital tablet for animators"], answer: 2, explanation: 'The article calls it a crude research prototype with nothing to do with the 2025 GPT-4o tool.', sentenceId: 's13' },
+    { id: 'q3', q: 'According to the article, what was Miyazaki really objecting to in 2016?', options: ['That the figure was ugly to look at', 'That the technology skipped the careful study of how real bodies move', 'That the researchers were too young', 'That the animation was too slow'], answer: 1, explanation: 'The article says the issue for him was a process that skipped the long, patient work of looking closely at real bodies and pain.', sentenceId: 's15' },
+    { id: 'q4', q: "Why did the old quote resonate so strongly in 2025?", options: ['Because Miyazaki had just released a new film about AI', 'Because Studio Ghibli officially shared it', "Because of the gap between cheerful AI portraits and the deeper question Miyazaki was asking", 'Because GPT-4o quoted him by name'], answer: 2, explanation: 'The article points to the gap between the cute output people were celebrating and the question Miyazaki was actually asking.', sentenceId: 's14' },
+    { id: 'q5', q: 'What is the writer\'s overall attitude toward the 2025 trend?', options: ['Enthusiastic and uncritical', 'Coldly dismissive', 'Quietly uneasy, drawn to the discomfort Miyazaki\'s line introduced', 'Confused about why the trend went viral'], answer: 2, explanation: 'The closing sentence frames the old line as forcing a small uncomfortable pause in the middle of the fun, signaling a quietly uneasy stance.', sentenceId: 's19' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '触发这次潮流的 AI 工具名称', answer: 'GPT-4o', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '潮流被新画风模仿的工作室名字', answer: 'Studio Ghibli', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '宫崎骏那段视频来自哪一年', answer: '2016', sentenceId: 's5' },
+      { id: 'ig4', cueZh: '收录这段话的纪录片名字', answer: 'Never-Ending Man', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '当时来工作室演示的是什么样的实验', answer: 'an early AI animation experiment', sentenceId: 's6' },
+      { id: 'ig6', cueZh: '宫崎骏说自己感受到的是哪种强烈情绪', answer: 'utterly disgusted', sentenceId: 's9' },
+      { id: 'ig7', cueZh: '宫崎骏想要守护的"功夫"是什么', answer: 'the discipline of drawing from life', sentenceId: 's16' },
+      { id: 'ig8', cueZh: '宫崎骏目前的年龄', answer: 'eighty-four', sentenceId: 's17' },
+    ],
+    writing: {
+      promptZh: '用你在表格里整理到的信息，写一段大约 70 词的短文，向一位没看过这条新闻的朋友解释：为什么 2016 年一句旧话，会在 2025 年 3 月又一次刷屏。',
+      promptEn: "Using the facts in your table, write about 70 words explaining to a friend why a 2016 Miyazaki line went viral again in March 2025: what triggered the trend, where the quote came from, and what he was really objecting to.",
+      targetWords: 70,
+      starters: [
+        'In late March 2025, ...',
+        'What he was really objecting to was ...',
+      ],
+      usePatternIds: ['pt3', 'pt1'],
+      modelAnswer:
+        "In late March 2025, a GPT-4o feature let millions redraw their photos in the style of Studio Ghibli. An old clip from a 2016 NHK documentary, Never-Ending Man, came back online. In it, Miyazaki watched an early AI animation experiment and called it utterly disgusting, even an insult to life itself. What he was really objecting to was not the ugly figure on screen. It was the discipline of drawing from life being skipped.",
+      modelAnswerZh:
+        '2025 年 3 月下旬，GPT-4o 的一项新功能让数百万人把自己的照片重画成吉卜力风格。一段 2016 年 NHK 纪录片《永不停步》的旧片段也被重新翻了出来。片段里，宫崎骏看完一段早期 AI 动画演示，称它令人极度厌恶，甚至是对生命本身的侮辱。他真正反对的，不是屏幕上那个丑陋的角色，而是「从生活中描摹」这件功夫被跳过了。',
+    },
+  },
+};

@@ -1,0 +1,240 @@
+// Miyazaki & Studio Ghibli book, Ch.15: GKIDS, the small NYC indie distributor, wins its first Best Animated Feature Oscar after 13 nominations (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-05-08',
+    title: 'The Indie Distributor That Took Home an Oscar',
+    titleZh: '拿下奥斯卡的独立发行商',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/15-gkids-rises.mp3',
+    wordCount: 343,
+    readingMinutes: 5,
+    editorsNote:
+      'When The Boy and the Heron won Best Animated Feature in 2024, the trophy went to a small office in Manhattan, not to Disney or Pixar. This chapter follows GKIDS, a 16-year-old indie distributor, and asks why a tiny outfit keeps beating the giants.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'When the envelope opened at the 2024 Oscars, a small New York company finally heard its own name.', zh: '2024 年奥斯卡颁奖礼上信封打开的那一刻，一家纽约的小公司终于听到了自己的名字。' },
+        { id: 's2', en: 'GKIDS, the indie distributor behind The Boy and the Heron, had won Best Animated Feature on its thirteenth try.', zh: '《苍鹭与少年》的发行方、独立公司 GKIDS，在第十三次提名时拿下了最佳动画长片奖。' },
+        { id: 's3', en: 'For a company of fewer than thirty staff, beating Pixar, Sony, and Netflix on the same night was hard to believe.', zh: '对一家不到三十人的公司而言，在同一晚击败皮克斯、索尼和奈飞，几乎令人难以置信。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'GKIDS was founded in 2008 by Eric Beckman, a former children\'s film festival organizer based in Manhattan.', zh: 'GKIDS 创立于 2008 年，创始人是常驻曼哈顿的前儿童电影节策划人 Eric Beckman。' },
+        { id: 's5', en: 'The full name, Guerrilla Kids International Distribution Syndicate, signals the attitude: scrappy, foreign-friendly, allergic to mass-market formulas.', zh: '全称 Guerrilla Kids International Distribution Syndicate（游击儿童国际发行联盟）已经摆明态度：草根、亲近外语片、对大众市场的套路过敏。' },
+        { id: 's6', en: 'For its first decade, the company released niche animated films that the big studios would not touch, picking up titles like The Red Turtle and Long Way North.', zh: '在最初的十年里，公司发行的都是大公司不愿接手的小众动画片，把《红海龟》《漫漫北寻路》这样的作品一一拿下。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The turning point came in 2017, when Disney quietly handed over its North American rights to the Studio Ghibli library.', zh: '转折出现在 2017 年，那一年迪士尼悄悄把吉卜力工作室在北美的发行权交了出来。' },
+        { id: 's8', en: 'GKIDS took the catalogue and went the other way from Disney: instead of pushing the films onto a streaming app, it sent them back to small cinemas, often as limited theatrical re-releases.', zh: 'GKIDS 接过这批片库，做了与迪士尼相反的事：没有把片子塞进一个流媒体应用，而是把它们送回小影院，常以限时重映的方式上映。' },
+        { id: 's9', en: 'Audiences, it turned out, were hungry to see Spirited Away on a real screen again.', zh: '事实证明，观众非常渴望在真正的大银幕上再看一次《千与千寻》。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'By the time The Boy and the Heron opened in late 2023, GKIDS had something the majors had lost: a loyal arthouse audience that trusted the brand on the poster.', zh: '当《苍鹭与少年》在 2023 年底上映时，GKIDS 拥有了大公司已经丢掉的东西：一群忠实的艺术片观众，他们信任海报上那个发行方。' },
+        { id: 's11', en: 'The film became the company\'s highest-grossing release ever, and also the most successful Japanese animated film in North American history.', zh: '这部电影成为公司历史上票房最高的作品，也是日本动画在北美历史上最卖座的一次。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's12', en: 'Industry analysts had been writing off indie distributors for years, claiming that streaming had eaten their market.', zh: '业内分析人士多年来一直在唱衰独立发行商，声称流媒体已经把他们的市场吃光。' },
+        { id: 's13', en: 'What the GKIDS win quietly proved was that a careful theatrical release, aimed at the right cinemas, can still produce both money and prestige.', zh: 'GKIDS 这次获奖悄悄证明了一件事：一次面向合适影院的精心院线发行，依然能同时带来票房和声望。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's14', en: 'A statuette in a small Manhattan office is more than a trophy.', zh: '曼哈顿一间小办公室里的小金人，不只是一座奖杯。' },
+        { id: 's15', en: 'It is a reminder that, in an industry that talks about scale, the most lasting wins still come from people who know exactly which film belongs in which room.', zh: '它是一个提醒：在一个张口闭口谈规模的行业里，最经得起时间考验的胜利，往往属于那些清楚知道哪部电影该放进哪个房间的人。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'envelope', lemma: 'envelope', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈenvələʊp/', defZh: '信封；封套', defEn: 'a folded paper cover used to hold a letter or card', example: 'She slid the photo into a brown envelope and sealed it.', exampleZh: '她把照片塞进一个棕色信封然后封好。' },
+    { id: 'v2', word: 'indie', lemma: 'indie', sentenceId: 's2', level: 2, pos: 'adj.', ipa: '/ˈɪndi/', defZh: '独立的（不属于大公司的）', defEn: 'made or run independently of major companies', example: 'The festival shows indie films from twelve countries.', exampleZh: '这个电影节展映来自十二个国家的独立电影。' },
+    { id: 'v3', word: 'distributor', lemma: 'distributor', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/dɪˈstrɪbjətə(r)/', defZh: '发行商；经销商', defEn: 'a company that supplies a product to cinemas, shops, or platforms', example: 'A local distributor handled the film\'s release across Asia.', exampleZh: '一家本地发行商负责这部电影在亚洲的发行。' },
+    { id: 'v4', word: 'staff', lemma: 'staff', sentenceId: 's3', level: 1, pos: 'n.', ipa: '/stɑːf/', defZh: '员工；全体职员', defEn: 'all the people employed by an organization', example: 'The whole staff stayed late to finish the report.', exampleZh: '全体员工都留到很晚把报告做完。' },
+    { id: 'v5', word: 'founded', lemma: 'found', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/ˈfaʊndɪd/', defZh: '创立；创办', defEn: 'started a company or organization', example: 'The school was founded by two retired teachers in 1980.', exampleZh: '这所学校由两位退休教师于 1980 年创办。' },
+    { id: 'v6', word: 'attitude', lemma: 'attitude', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ˈætɪtjuːd/', defZh: '态度；姿态', defEn: 'a way of thinking or feeling about something', example: 'Her attitude toward feedback changed after the first review.', exampleZh: '在第一次复盘之后，她对反馈的态度变了。' },
+    { id: 'v7', word: 'scrappy', lemma: 'scrappy', sentenceId: 's5', level: 4, pos: 'adj.', ipa: '/ˈskræpi/', defZh: '草根的；不服输的；拼劲十足的', defEn: 'small, determined, and willing to fight harder than expected', example: 'A scrappy startup beat three established firms to the contract.', exampleZh: '一家拼劲十足的初创公司在投标中击败了三家老牌企业。' },
+    { id: 'v8', word: 'allergic', lemma: 'allergic', sentenceId: 's5', level: 3, pos: 'adj.', ipa: '/əˈlɜːdʒɪk/', defZh: '过敏的；强烈排斥的（比喻）', defEn: 'strongly opposed to something, as if it caused an allergy', example: 'He is allergic to long meetings that lead nowhere.', exampleZh: '他对那种毫无结果的冗长会议深恶痛绝。' },
+    { id: 'v9', word: 'niche', lemma: 'niche', sentenceId: 's6', level: 4, pos: 'adj.', ipa: '/niːʃ/', defZh: '小众的；细分领域的', defEn: 'aimed at a small, specific audience', example: 'The magazine covers a niche corner of jazz history.', exampleZh: '这本杂志关注爵士史上一个小众的角落。' },
+    { id: 'v10', word: 'touch', lemma: 'touch', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/tʌtʃ/', defZh: '碰；接手（项目）', defEn: 'to be willing to handle or take on something', example: 'Most major banks would not touch a loan that risky.', exampleZh: '大多数大银行根本不会碰那种高风险的贷款。' },
+    { id: 'v11', word: 'turning point', lemma: 'turning point', sentenceId: 's7', level: 3, pos: 'n.', ipa: '/ˈtɜːnɪŋ pɔɪnt/', defZh: '转折点；分水岭', defEn: 'a moment when an important change happens', example: 'Losing that job was the turning point of her career.', exampleZh: '丢掉那份工作成了她职业生涯的转折点。' },
+    { id: 'v12', word: 'quietly', lemma: 'quietly', sentenceId: 's7', level: 2, pos: 'adv.', ipa: '/ˈkwaɪətli/', defZh: '悄悄地；低调地', defEn: 'without attracting attention', example: 'The company quietly closed two unprofitable stores.', exampleZh: '公司悄悄关闭了两家亏损的门店。' },
+    { id: 'v13', word: 'catalogue', lemma: 'catalogue', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/ˈkætəlɒɡ/', defZh: '片库；目录', defEn: 'a complete list of works a company holds rights to', example: 'The label\'s back catalogue includes hundreds of jazz records.', exampleZh: '这家厂牌的旧片库收录了数百张爵士唱片。' },
+    { id: 'v14', word: 'limited', lemma: 'limited', sentenceId: 's8', level: 2, pos: 'adj.', ipa: '/ˈlɪmɪtɪd/', defZh: '限量的；限定的', defEn: 'restricted in number, time, or scope', example: 'The book had a limited print run of two thousand copies.', exampleZh: '这本书只印了两千册的限量版。' },
+    { id: 'v15', word: 'hungry', lemma: 'hungry', sentenceId: 's9', level: 2, pos: 'adj.', ipa: '/ˈhʌŋɡri/', defZh: '渴望的；急切想要的', defEn: 'strongly wanting something', example: 'After a year online, students were hungry for real classrooms.', exampleZh: '在网课一年之后，学生们渴望真正的课堂。' },
+    { id: 'v16', word: 'loyal', lemma: 'loyal', sentenceId: 's10', level: 3, pos: 'adj.', ipa: '/ˈlɔɪəl/', defZh: '忠诚的；忠实的', defEn: 'continuing to support someone or something over time', example: 'The bookshop has built a loyal weekend crowd.', exampleZh: '这家书店积累了一群忠实的周末客人。' },
+    { id: 'v17', word: 'arthouse', lemma: 'arthouse', sentenceId: 's10', level: 4, pos: 'adj.', ipa: '/ˈɑːthaʊs/', defZh: '艺术片的；文艺院线的', defEn: 'relating to serious, often non-mainstream films', example: 'The arthouse cinema downtown still sells out on Saturday nights.', exampleZh: '市中心的那家艺术影院每到周六晚依然座无虚席。' },
+    { id: 'v18', word: 'highest-grossing', lemma: 'highest-grossing', sentenceId: 's11', level: 4, pos: 'adj.', ipa: '/ˈhaɪɪst ˈɡrəʊsɪŋ/', defZh: '票房最高的；总收入最高的', defEn: 'earning the most money at the box office', example: 'It became the highest-grossing documentary of the decade.', exampleZh: '它成了这十年里票房最高的纪录片。' },
+    { id: 'v19', word: 'writing off', lemma: 'write off', sentenceId: 's12', level: 4, pos: 'phr. v.', ipa: '/ˈraɪtɪŋ ɒf/', defZh: '看衰；判定无可救药', defEn: 'deciding someone or something is no longer worth attention', example: 'Critics had been writing off the format until streaming brought it back.', exampleZh: '在流媒体让这种形式重生之前，评论界一直在唱衰它。' },
+    { id: 'v20', word: 'prestige', lemma: 'prestige', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/preˈstiːʒ/', defZh: '声望；声誉', defEn: 'respect and admiration earned through quality', example: 'A small magazine can carry surprising prestige in its field.', exampleZh: '一本小杂志在自己的领域里可能拥有惊人的声望。' },
+    { id: 'v21', word: 'lasting', lemma: 'lasting', sentenceId: 's15', level: 2, pos: 'adj.', ipa: '/ˈlɑːstɪŋ/', defZh: '持久的；经得起时间的', defEn: 'continuing to exist or have effect for a long time', example: 'The trip left a lasting impression on the young writer.', exampleZh: '那次旅行给这位年轻作家留下了持久的印象。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 "instead of + V-ing" 把"没选的路"和"选了的路"对照',
+      pattern: 'instead of + V-ing, [主语] + [动作]',
+      sentenceIds: ['s8'],
+      explanationZh: [
+        '中文里我们会说"没有 A，而是 B"，分成两句来讲。英文里如果想把"放弃的那条路"和"真正走的路"放进同一句，instead of 加动名词是最顺的方式。它的作用是把两个动作并排，让对比一秒钟就生效。',
+        '看第 8 句：instead of pushing the films onto a streaming app, it sent them back to small cinemas。作者没有写 GKIDS did not put the films on a streaming app. It sent them to cinemas（两句话），而是用 instead of 把"没做 A"压成一个介词短语，让"做了 B"留在主句，重点立刻落在 B 上。',
+        '什么时候用：当你想强调"主角做出了一个反主流或反直觉的选择"时最好用，尤其是分析企业战略、人物决定、政策走向的段落。读者会被那个"本来该 A 却 B"的反差吸引。',
+        '一个容易忽略的语法点：instead of 后面要接动名词（V-ing），不是不定式（to V）。写 instead of to push 是中国学生最常犯的错。把它记成"instead of 后面跟 -ing"就稳了。',
+      ],
+      examples: [
+        { en: 'Instead of hiring more salespeople, the founder spent the budget on one really good designer.', zh: '与其多招销售，这位创始人把预算砸在了一位真正出色的设计师身上。', note: '把"没选的常规做法"摆在前，后面那条反常规的路才显得有想法。' },
+        { en: 'Instead of writing a long apology, she just changed the policy the next morning.', zh: '她没有写长长的道歉信，而是第二天一早就把规定改了。' },
+        { en: 'Instead of widening the road, the city narrowed it and added trees.', zh: '这座城市没有把路拓宽，而是把它收窄并种上了树。' },
+        { en: 'Instead of asking the students what they wanted to learn, the school asked what they were afraid of.', zh: '学校没有问学生想学什么，而是问他们在害怕什么。' },
+        { en: 'Instead of buying a new camera, he spent a weekend cleaning the old one.', zh: '他没有买新相机，而是花了一个周末把旧的擦干净。' },
+      ],
+      commonMistake: '不要写成 instead of to push 或 instead of push。instead of 是介词，后面只能接动名词（pushing）或名词（this plan），动词原形和不定式都不行。',
+      vsSimilar: 'rather than 也能做类似对比，但更书面、更适合正式议论文；instead of 偏中性，新闻、评论、散文里都顺手。两者的语法要求一样：后面跟动名词。',
+    },
+    {
+      id: 'g2',
+      title: '用 "By the time + 过去时, 主语 had + 过去分词" 写"在那个时间点之前已经……"',
+      pattern: 'By the time [过去时间状语], [主语] had + 过去分词',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '中文里我们会说"等到那部电影上映的时候，GKIDS 已经有了一群忠实观众"。英文里"那个时刻"和"那个时刻之前已经发生的事"之间有一个先后关系，过去完成时（had + 过去分词）就是用来把这种"早一步"标出来的。',
+        '看第 10 句：By the time The Boy and the Heron opened in late 2023, GKIDS had something the majors had lost。打开电影是 2023 年底（过去时点），但 GKIDS 拥有这群观众是更早就完成的事，所以用 had。如果两个都写成过去式（opened... had），读者会以为它们同时发生，时序立刻乱掉。',
+        '什么时候用：在分析"为什么 X 在那个时间点能做成 Y"时特别顺。它给读者一个"伏笔已经埋好"的感觉，让结果显得不是偶然。新闻特写、企业案例、人物经历都常用。',
+        '一个细节：By the time 后面的从句永远是简单过去时（opened），不是 had opened，过去完成只属于主句。两个都用 had 是另一类常见错。',
+      ],
+      examples: [
+        { en: 'By the time the investors arrived, the team had already rewritten the pitch twice.', zh: '等投资人到的时候，团队已经把路演稿改写了两遍。' },
+        { en: 'By the time she turned thirty, she had moved to four different cities for work.', zh: '到她三十岁时，她已经为了工作搬到过四个不同的城市。' },
+        { en: 'By the time the rain stopped, the field had turned into a small lake.', zh: '等雨停下来的时候，那块场地已经变成了一个小湖。', note: 'turned 是简单过去式（从句），had turned 是主句的过去完成时，时序非常清晰。' },
+        { en: 'By the time the meeting started, two of the key decisions had already been made in private.', zh: '会议开始时，两个关键决定其实已经在私下做出来了。' },
+        { en: 'By the time critics noticed the trend, three of the smaller labels had built loyal followings.', zh: '等评论界注意到这个趋势时，三家更小的厂牌已经积累了忠实的粉丝。' },
+      ],
+      commonMistake: '不要写成 By the time the film had opened, GKIDS had built…。By the time 后面的从句要用过去式 opened，过去完成只用一次，只放在主句里。两个都用 had，整句的时序就消失了。',
+    },
+    {
+      id: 'g3',
+      title: '用 What + [一句子] + was + [真正的重点]，把焦点拎到句末',
+      pattern: 'What [clause] [was/is] + [emphasis]',
+      sentenceIds: ['s13'],
+      explanationZh: [
+        '中文里我们会说"GKIDS 这次获奖证明了一件事：……"，把"那件事是什么"留到冒号后面。英文里如果不用冒号，What 起头的句式可以达到同样的效果：先抛出"重点是什么……"，让读者带着好奇等下文的揭晓。',
+        '看第 13 句：What the GKIDS win quietly proved was that a careful theatrical release, aimed at the right cinemas, can still produce both money and prestige。作者没有写 The GKIDS win proved that…，因为他想把读者的注意力先压在"获奖到底证明了什么"上，再让真正的"证明"在 was 之后落地，戏剧感更足。',
+        '什么时候用：议论文的承上启下、新闻特写里"前面铺事实、这里给判断"的位置都好用。它比直接陈述更稳，因为 What 子句替你"打了灯光"，读者已经准备好接受那个判断。',
+        '一个常被忽略的细节：What 子句无论里面是单数还是复数，主句的动词都看后面那个名词或从句来判断。这里因为后面接的是 that 从句（一件事），所以用单数 was。',
+      ],
+      examples: [
+        { en: 'What the report really showed was that small classrooms still produced the best reading scores.', zh: '这份报告真正揭示的，是小班教学依然能带来最好的阅读成绩。' },
+        { en: 'What surprised the audience was how quietly the actor delivered the angriest line.', zh: '让观众意外的是，演员把最愤怒的那句台词说得有多么安静。' },
+        { en: 'What the long delay accidentally proved was that the city could survive without the highway.', zh: '这场漫长延期意外证明的是：这座城市没有那条高速依然能正常运转。' },
+        { en: 'What kept the bookshop alive was not the books but the slow afternoons people came for.', zh: '让这家书店活下去的不是书，而是人们来享受的那些慢悠悠的下午。', note: '把"真正的原因"留到 was 之后，比直接说原因有节奏。' },
+        { en: 'What I missed most was the sound of the front door at six in the evening.', zh: '我最想念的，是傍晚六点前门打开的那个声音。' },
+      ],
+      commonMistake: '不要写成 What the win proved are that…。What 子句后面只跟一件抽象的事时用单数 is/was，复数 are/were 只在 What…后面接的是一组并列名词时才用。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '人物或公司侧写开头：用一个戏剧化的小动作把"久等终于发生的事"先抛出来',
+      skeleton: 'When [一个具体动作发生], [主语] finally [动作/反应].',
+      original: 'When the envelope opened at the 2024 Oscars, a small New York company finally heard its own name.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个句式的力量来自一个"小动作 + finally"的搭配。前半句给一个画面感很强的小动作（信封被打开），后半句用 finally 把"等了很久的事终于发生"的时间感压进一秒钟。读者一进文章就被推到现场。',
+        '对读者来说，finally 这个词是承诺：作者在告诉你"这之前还有一个很长的故事"，所以你愿意继续读下去看那段故事是什么。它把读者的好奇心从第一句就钩住。',
+        '它最适合做新闻特写、人物侧写、企业案例的开头。如果你的文章后面要花一两段交代"为什么这是漫长等待之后的爆发"，那这个开头就是最稳的引线。',
+        '一个隐藏要点：前半句的"动作"要选一个具体到能拍下来的画面（信封打开、舞台灯亮、电话响起），不要写成抽象的"奖项揭晓时"。具体度决定了 finally 的份量。',
+      ],
+      examples: [
+        { context: '体育人物侧写开头', text: 'When the buzzer sounded at midnight in Tokyo, a 34-year-old marathoner finally crossed her first Olympic finish line.', zh: '东京午夜响起终点哨声的那一刻，34 岁的马拉松选手终于跑过了她人生中第一条奥运终点线。' },
+        { context: '科技公司案例开头', text: 'When the demo button was pressed in a half-empty conference room, a five-person startup finally watched its first paying customer click.', zh: '半空的会议室里演示按钮被按下的那一刻，五个人的初创公司终于看到了第一位付费用户点下了那一下。', note: '小动作 + finally + 一个具体的"被等到的瞬间"，写企业故事开头很顺手。' },
+        { context: '申请文书开头', text: 'When the admission email arrived at three in the afternoon, the kid who had failed math three times finally read his own name in a different sentence.', zh: '下午三点录取邮件到达的那一刻，那个数学考砸过三次的孩子终于在一句不一样的话里读到了自己的名字。' },
+      ],
+      adaptingTip: '前半句的"具体动作"要可视化（信封打开、铃声响起、灯亮起），后半句的"主语"和"反应动词"要能装得下一段很长的等待。finally 不能省，省了句子就只剩动作没有时间纵深。这个开头比"经过 13 年的等待，X 终于……"更有戏。',
+      commonMistake: '不要写成 When the Oscars happened in 2024, GKIDS finally won an award.（动作太宽，画面感丧失）。前半句一定要小到能定格成一帧画面（信封被打开、舞台灯亮），不能是一个时间段。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用 "A had something B had lost" 把对手的弱点压成主角的优点',
+      skeleton: '[小主角] had something [大对手] had lost: [那件东西].',
+      original: 'GKIDS had something the majors had lost: a loyal arthouse audience that trusted the brand on the poster.',
+      sentenceId: 's10',
+      whyItWorks: [
+        '这个句式的机巧在于不直接夸主角，而是借对手反衬。先说"主角拥有 X"，再用 had lost 暗示 X 不是天生没有，而是大对手当年也有、后来弄丢了。一句话同时给了主角"难得"和"难得在哪儿"的双重信息。',
+        '对读者来说，had lost 三个字带着惋惜和评判：作者在偷偷告诉你"这本该是行业的常识，可惜大公司把它丢了"，所以主角能赢不是侥幸，而是大公司自己出的让。读者会觉得作者很懂行业，更愿意接受后文的论点。',
+        '它最适合用在商业案例、行业评论或人物侧写的中段，正好处在"摆事实"和"做评判"之间。它把一段事实压成一句俏皮的、有定性力的话，再为下一段的展开留足空间。',
+        '一个隐藏前提：你必须在前文真的铺过"大对手为什么会失去这个东西"的线索，否则这句话会显得空。文中前两段交代了 GKIDS 选了"小影院 + 实体放映"的路，正是大公司因为押注流媒体放弃的路。',
+      ],
+      examples: [
+        { context: '独立书店评论', text: 'The small bookshop had something the chains had lost: a clerk who remembered which novel made you cry last spring.', zh: '这家小书店拥有连锁店已经丢掉的东西：一个还记得去年春天哪本小说让你掉过眼泪的店员。' },
+        { context: '本地餐厅观察', text: 'The neighborhood diner had something the food halls had lost: a regular table where strangers slowly became friends.', zh: '街角的家常餐馆拥有美食广场已经丢掉的东西：一张陌生人能慢慢聊成朋友的固定桌子。', note: '把"小店赢在哪儿"压成一个具体场景，比抽象的"人情味"有力得多。' },
+        { context: '小型出版社案例', text: 'The 12-person press had something the conglomerates had lost: the patience to publish a book that would only sell a thousand copies in its first year.', zh: '这家十二人的出版社拥有大集团已经丢掉的东西：愿意出版一本第一年只能卖出一千册的书的耐心。' },
+      ],
+      adaptingTip: '冒号后面那个"东西"要选一个具体、可视化的小细节（一位店员、一张桌子、一份耐心），不要写成抽象的形容词（"灵魂"、"温度"）。had lost 不能改成 doesn\'t have，因为时态的过去性正好暗示"曾经有过、后来丢了"，这是这个句式的核心戏剧。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾升华：先把象征物压回它的"小尺寸"，再让它指向一个更大的判断',
+      skeleton: 'A [小物件] in a [小地点] is more than [表面意义]. It is [更大的意义].',
+      original: 'A statuette in a small Manhattan office is more than a trophy.',
+      sentenceId: 's14',
+      whyItWorks: [
+        '这个收尾的力量来自"尺寸落差"。前半句故意把那个胜利物件压回最小的物理尺度（一座小金人，一间小办公室），后半句突然把镜头拉到一个抽象、更大的判断。物理上越小，意义上越大，落差制造了升华。',
+        '对读者来说，前半句的"小"让他们防御卸下：作者没有大喊"这是历史性时刻"，反而把奖杯放低了一格。于是当 more than 后面那个抽象意义出现时，读者更愿意接受，因为作者明显没有在自吹。',
+        '它最适合做整篇文章的最后一段。前文已经把事实讲完，这两句负责把"事实"翻译成"意义"。议论文、人物特写、企业故事的结尾都能用，特别是当主角是"小角色赢了大行业"的故事时，效果最好。',
+        '一个隐藏要点：第二句的"更大意义"必须能反过来照亮全文，不能凭空抒情。文中 a reminder that…the most lasting wins still come from people who know exactly which film belongs in which room 正好回扣前面"GKIDS 把片子送回小影院"的细节，所以听起来像一个判断，不像一句口号。',
+      ],
+      examples: [
+        { context: '独立杂志收尾', text: 'A printed copy on a kitchen table is more than a magazine. It is a slow promise to keep reading something that was not made in a hurry.', zh: '厨房桌上的一本印刷杂志，不只是一本杂志。它是一个缓慢的承诺：愿意继续阅读那些不是被赶出来的东西。' },
+        { context: '本地小馆收尾', text: 'A handwritten chalkboard menu in a corner café is more than a list of dishes. It is a small refusal to let the day blur into the next.', zh: '街角咖啡馆里那块手写黑板菜单，不只是一份菜单。它是一种小小的拒绝，拒绝让今天和明天糊成一团。', note: '从"一块小黑板"跳到"对生活节奏的态度"，落差正好升华。' },
+        { context: '社区图书馆收尾', text: 'A row of children\'s books on a low shelf is more than a corner of a library. It is the city\'s quiet bet that some kid will become a reader.', zh: '矮书架上一排儿童读物，不只是图书馆的一个角落。它是这座城市悄悄下的赌注：会有某个孩子因此成为一个读书人。' },
+      ],
+      adaptingTip: '前半句一定要把"物件"和"地点"都给出来，且都要小（小金人 + 小办公室，纸杯 + 旧咖啡馆）。第二句的"更大意义"要选有重量、能回扣全文的抽象名词（a reminder / a promise / a refusal / a bet），不要换成另一个具体的小词。这是收尾模板，别放在开头或中段。',
+      commonMistake: '不要让第二句还停在物件本身：A statuette is more than a trophy. It is a really nice trophy.（没有跳出"奖杯"这一层）。第二句必须跳到一个更大的维度（一个提醒、一个赌注、一种态度），落差才成立。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'In what year did GKIDS finally win its first Best Animated Feature Oscar?', options: ['2017', '2023', '2024', '2008'], answer: 2, explanation: 'The article opens at the 2024 Oscars and says the win came on the company\'s thirteenth nomination.', sentenceId: 's2' },
+    { id: 'q2', q: 'According to the article, what does the full name "Guerrilla Kids International Distribution Syndicate" signal?', options: ['That the company makes children\'s cartoons', 'That the company is scrappy, foreign-friendly, and against mass-market formulas', 'That the company belongs to a large studio', 'That the company only releases films online'], answer: 1, explanation: 'The article uses the words "scrappy, foreign-friendly, allergic to mass-market formulas" to describe what the name signals.', sentenceId: 's5' },
+    { id: 'q3', q: 'What did GKIDS do with the Studio Ghibli catalogue that was different from Disney?', options: ['It dubbed every film into Spanish', 'It sent the films back to small cinemas instead of streaming them', 'It re-edited the films for younger audiences', 'It refused to release them in North America'], answer: 1, explanation: 'The article contrasts GKIDS\'s strategy with Disney\'s by saying GKIDS sent the films back to small cinemas instead of pushing them onto a streaming app.', sentenceId: 's8' },
+    { id: 'q4', q: 'Why does the writer suggest GKIDS could beat the major studios in 2024?', options: ['Because it had a bigger marketing budget', 'Because Pixar withdrew from the race', 'Because it had built a loyal arthouse audience that trusted the brand', 'Because it owned a streaming platform'], answer: 2, explanation: 'The article credits GKIDS\'s success to a loyal arthouse audience that trusted the brand on the poster, something the major studios had lost.', sentenceId: 's10' },
+    { id: 'q5', q: 'What broader point does the writer make in the final paragraph?', options: ['That all small companies will soon win Oscars', 'That streaming platforms are dead', 'That lasting wins still come from people who know which film fits which audience', 'That GKIDS will be sold to Disney next year'], answer: 2, explanation: 'The closing paragraph reframes the small statuette as a reminder that the most lasting wins come from people who know exactly which film belongs in which room.', sentenceId: 's15' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '获奖电影的英文名称', answer: 'The Boy and the Heron', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: 'GKIDS 之前的提名次数', answer: 'thirteenth', sentenceId: 's2' },
+      { id: 'ig3', cueZh: 'GKIDS 的创立年份', answer: '2008', sentenceId: 's4' },
+      { id: 'ig4', cueZh: 'GKIDS 的创始人姓名', answer: 'Eric Beckman', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '迪士尼把吉卜力北美发行权交出的年份', answer: '2017', sentenceId: 's7' },
+      { id: 'ig6', cueZh: '《苍鹭与少年》在北美上映的大致时间', answer: 'late 2023', sentenceId: 's10' },
+      { id: 'ig7', cueZh: 'GKIDS 公司所在城市', answer: 'New York', sentenceId: 's1' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位喜欢动画的朋友介绍 GKIDS：它是谁、它做了什么不一样的事、它为什么在 2024 年终于赢了。',
+      promptEn: "Using the facts in your table, write about 70 words introducing GKIDS to a friend who loves animation: who they are, what they did differently, and why they finally won in 2024.",
+      targetWords: 70,
+      starters: ['GKIDS is a small New York indie distributor that ...', 'What finally won them an Oscar in 2024 was ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        'GKIDS is a small New York indie distributor founded by Eric Beckman in 2008. In 2017, it took over the Studio Ghibli catalogue from Disney and sent the films back to small cinemas instead of pushing them onto streaming. By the time The Boy and the Heron opened in late 2023, GKIDS had something the majors had lost: a loyal arthouse audience that trusted the brand. A statuette in a small Manhattan office is more than a trophy.',
+      modelAnswerZh:
+        'GKIDS 是一家小型纽约独立发行商，由 Eric Beckman 于 2008 年创办。2017 年，它从迪士尼手中接过吉卜力片库，没有把电影塞进流媒体，而是把它们送回小影院。当《苍鹭与少年》在 2023 年底上映时，GKIDS 拥有了大公司已经丢掉的东西：一群信任这个品牌的忠实艺术片观众。曼哈顿小办公室里的一座小金人，不只是一座奖杯。',
+    },
+  },
+};

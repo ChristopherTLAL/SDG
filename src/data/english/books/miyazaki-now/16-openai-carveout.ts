@@ -1,0 +1,241 @@
+// Miyazaki-Now book, Ch.16: OpenAI's "living artist vs. studio style" line in the GPT-4o system card (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-31',
+    title: 'Living Artists, Studio Styles',
+    titleZh: '活着的艺术家与工作室风格',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/16-openai-carveout.mp3',
+    wordCount: 348,
+    readingMinutes: 5,
+    editorsNote:
+      'When millions of users turned ChatGPT into a Ghibli-image factory, OpenAI pointed to one line in its own safety document as the reason it was allowed. That line drew a curious border, and critics are still asking why studios sit on the safe side of it.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'Buried in a long technical document that OpenAI released alongside GPT-4o was a single sentence that, by late March 2025, was suddenly everywhere.', zh: '在 OpenAI 随 GPT-4o 发布的一份冗长技术文件里，藏着一句话；到 2025 年 3 月底，这句话突然被到处引用。' },
+        { id: 's2', en: 'The model, the company wrote, would refuse to imitate the style of individual living artists, but it would permit broader studio styles.', zh: '公司写道，这个模型会拒绝模仿在世艺术家个人的风格，但会允许更宽泛的工作室风格。' },
+        { id: 's3', en: 'It was a quiet line in a quiet section, and it became the legal fence around the Ghibli image storm.', zh: '这是一份安静文件里安静一段中的一句话，却成了 Ghibli 风图像热潮周围的法律围栏。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The document, known inside the industry as a system card, is where labs describe what their models will and will not do.', zh: '这份文件在业内被称作"系统卡"，实验室用它来说明自己的模型会做什么、不会做什么。' },
+        { id: 's5', en: 'Most readers skip them.', zh: '大多数读者会跳过它们。' },
+        { id: 's6', en: 'But after users discovered they could ask GPT-4o to redraw their wedding photo "in the style of Studio Ghibli", reporters began reading the small print, and that one carveout came into focus.', zh: '但当用户发现可以让 GPT-4o 把自己的婚礼照片"以吉卜力工作室的风格"重画一遍后，记者开始细读小字，那一处例外随即被聚焦。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: "OpenAI's logic was that a named living person, an artist whose career is ongoing, has a clear interest in controlling their look.", zh: 'OpenAI 的逻辑是，一个具名的在世个体，一位职业生涯仍在进行的艺术家，对自己的视觉风格有明确的利益。' },
+        { id: 's8', en: 'A studio, the argument went, is a brand, a collective shorthand for an era of work that no single hand can claim.', zh: '该论点认为，一家工作室是一个品牌，是一段创作时代的集体简称，没有任何一只手能独自宣称它属于自己。' },
+        { id: 's9', en: 'On that reading, "Ghibli style" sat closer to "noir film" or "art deco" than to any one painter.', zh: '按这种解读，"吉卜力风格"更接近"黑色电影"或"装饰艺术"，而不更接近任何一位画家。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Critics were not convinced.', zh: '批评者并不买账。' },
+        { id: 's11', en: 'What made the line so striking was how cleanly it ignored the fact that Hayao Miyazaki, very much alive at eighty-four, has directed almost every film the public associates with the studio.', zh: '这条规则之所以引人注意，是因为它干净利落地忽略了一个事实：八十四岁的宫崎骏仍然健在，而公众与该工作室关联的几乎每一部电影都由他执导。' },
+        { id: 's12', en: 'Strip away his pencil and the "studio style" thins out fast.', zh: '一旦抽掉他的铅笔，"工作室风格"很快就薄了下来。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'The carveout also created an awkward inconsistency.', zh: '这一例外也制造出一种尴尬的不一致。' },
+        { id: 's14', en: 'A prompt asking for an image "in the style of Hayao Miyazaki" would be refused; a prompt asking for the same image "in the style of Studio Ghibli" would not.', zh: '一个要求"以宫崎骏的风格"出图的指令会被拒绝；而一个要求"以吉卜力工作室的风格"出同样图像的指令则不会。' },
+        { id: 's15', en: 'For users, the workaround was a single word.', zh: '对用户来说，绕过这条规则只差一个词。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'What the line really showed was how policy gets written under pressure.', zh: '这条规则真正显示的，是政策在压力下是怎样被写出来的。' },
+        { id: 's17', en: 'Naming a single artist invites a lawsuit; naming a studio invites a shrug.', zh: '点名一个艺术家会招来诉讼；点名一家工作室只会换来一个耸肩。' },
+        { id: 's18', en: 'It was less an ethical position than a legal one, dressed in the language of respect.', zh: '它与其说是一种伦理立场，不如说是一种法律立场，只是穿上了尊重的措辞。' },
+        { id: 's19', en: 'And in the meantime, the timelines kept filling with soft skies and round-cheeked children that one man had spent fifty years learning to draw.', zh: '与此同时，社交媒体的时间线上继续涌入柔和的天空和圆脸颊的孩子，而这些正是一个人花了五十年才学会画的东西。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'buried', lemma: 'bury', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/ˈberid/', defZh: '埋藏；夹在不显眼处', defEn: 'placed where it is hard to find', example: 'The most useful clause was buried on page nineteen of the contract.', exampleZh: '最有用的那一条款被夹在合同的第十九页里。' },
+    { id: 'v2', word: 'refuse', lemma: 'refuse', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/rɪˈfjuːz/', defZh: '拒绝；不肯', defEn: 'to say no to doing something', example: 'The chatbot refused to answer questions about its training data.', exampleZh: '这个聊天机器人拒绝回答关于其训练数据的问题。' },
+    { id: 'v3', word: 'imitate', lemma: 'imitate', sentenceId: 's2', level: 3, pos: 'v.', ipa: '/ˈɪmɪteɪt/', defZh: '模仿；仿效', defEn: 'to copy the way someone does something', example: 'Young writers often imitate the authors they read most.', exampleZh: '年轻作者常常模仿自己读得最多的作家。' },
+    { id: 'v4', word: 'permit', lemma: 'permit', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/pəˈmɪt/', defZh: '允许；准许', defEn: 'to officially allow something', example: 'The new rules permit short videos but not full episodes.', exampleZh: '新规则允许短视频但不允许完整剧集。' },
+    { id: 'v5', word: 'broader', lemma: 'broad', sentenceId: 's2', level: 1, pos: 'adj.', ipa: '/ˈbrɔːdə(r)/', defZh: '更宽泛的；更广义的', defEn: 'more general or wider in scope', example: 'She wanted a broader definition of what counts as a translation.', exampleZh: '她希望对"何为翻译"采用一个更宽泛的定义。' },
+    { id: 'v6', word: 'fence', lemma: 'fence', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/fens/', defZh: '围栏；边界', defEn: 'a boundary that marks what is allowed', example: 'The policy puts a fence around what advertisers can collect.', exampleZh: '这项政策给广告商可以收集的内容画了一道围栏。' },
+    { id: 'v7', word: 'system', lemma: 'system', sentenceId: 's4', level: 1, pos: 'n.', ipa: '/ˈsɪstəm/', defZh: '系统；体系', defEn: 'a set of connected parts that work together', example: 'The library upgraded its catalogue system last spring.', exampleZh: '图书馆在去年春天升级了它的目录系统。' },
+    { id: 'v8', word: 'discovered', lemma: 'discover', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/dɪˈskʌvəd/', defZh: '发现；察觉到', defEn: 'found something that was not known before', example: 'Users discovered a hidden setting that doubled the upload speed.', exampleZh: '用户发现了一个能让上传速度翻倍的隐藏设置。' },
+    { id: 'v9', word: 'carveout', lemma: 'carveout', sentenceId: 's6', level: 4, pos: 'n.', ipa: '/ˈkɑːrvaʊt/', defZh: '例外条款；特别豁免', defEn: 'a specific exception inside a general rule', example: 'The treaty had a small carveout for traditional fishing communities.', exampleZh: '这份条约里有一项给传统渔业社区的小型例外条款。' },
+    { id: 'v10', word: 'logic', lemma: 'logic', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/ˈlɒdʒɪk/', defZh: '逻辑；理据', defEn: 'the reasoning behind a decision', example: "I followed the logic of his argument up to the last step.", exampleZh: '他论证的逻辑我跟到了最后一步之前。' },
+    { id: 'v11', word: 'ongoing', lemma: 'ongoing', sentenceId: 's7', level: 3, pos: 'adj.', ipa: '/ˈɒnɡəʊɪŋ/', defZh: '正在进行的；持续中的', defEn: 'still in progress, not finished', example: 'The investigation is ongoing and no names have been released.', exampleZh: '调查仍在进行中，目前没有公布任何姓名。' },
+    { id: 'v12', word: 'collective', lemma: 'collective', sentenceId: 's8', level: 3, pos: 'adj.', ipa: '/kəˈlektɪv/', defZh: '集体的；共同的', defEn: 'shared by a group rather than one person', example: 'The album was a collective effort by all five members.', exampleZh: '这张专辑是五位成员共同完成的成果。' },
+    { id: 'v13', word: 'reading', lemma: 'reading', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/ˈriːdɪŋ/', defZh: '解读；理解（一种诠释）', defEn: 'a particular way of interpreting something', example: 'On a more generous reading, his email was just blunt, not rude.', exampleZh: '从更宽厚的解读来看，他那封邮件只是直率，并不算无礼。' },
+    { id: 'v14', word: 'convinced', lemma: 'convince', sentenceId: 's10', level: 2, pos: 'adj.', ipa: '/kənˈvɪnst/', defZh: '被说服的；信服的', defEn: 'made to believe something is true', example: 'The judges were not convinced by the second witness.', exampleZh: '法官们并不被第二位证人说服。' },
+    { id: 'v15', word: 'striking', lemma: 'striking', sentenceId: 's11', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；显著的（非"打击"）', defEn: 'noticeable and remarkable', example: 'The most striking thing about the building is how quiet it feels inside.', exampleZh: '这座建筑最引人注目的地方是它内部的安静。' },
+    { id: 'v16', word: 'ignored', lemma: 'ignore', sentenceId: 's11', level: 2, pos: 'v.', ipa: '/ɪɡˈnɔːd/', defZh: '忽略；置之不理', defEn: 'did not take notice of something on purpose', example: 'The report ignored two key sources cited everywhere else.', exampleZh: '该报告忽略了在其他地方被广泛引用的两个关键来源。' },
+    { id: 'v17', word: 'directed', lemma: 'direct', sentenceId: 's11', level: 2, pos: 'v.', ipa: '/dəˈrektɪd/', defZh: '执导；导演', defEn: 'guided the making of a film', example: 'She has directed three short films but no feature yet.', exampleZh: '她执导了三部短片，但还没有拍过长片。' },
+    { id: 'v18', word: 'inconsistency', lemma: 'inconsistency', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ˌɪnkənˈsɪstənsi/', defZh: '不一致；自相矛盾', defEn: 'a place where two parts of something do not agree', example: 'Readers spotted an inconsistency between the chart and the text.', exampleZh: '读者发现图表和正文之间有一处不一致。' },
+    { id: 'v19', word: 'workaround', lemma: 'workaround', sentenceId: 's15', level: 4, pos: 'n.', ipa: '/ˈwɜːkəraʊnd/', defZh: '变通办法；绕过限制的方式', defEn: 'a clever way of avoiding a rule or obstacle', example: 'There is a simple workaround for the missing dark-mode toggle.', exampleZh: '对于缺失的深色模式开关，有一个简单的变通办法。' },
+    { id: 'v20', word: 'invites', lemma: 'invite', sentenceId: 's17', level: 3, pos: 'v.', ipa: '/ɪnˈvaɪts/', defZh: '招致；引来（结果）', defEn: 'makes something likely to happen', example: 'Vague wording invites disputes that the contract was meant to prevent.', exampleZh: '含糊的措辞会招致这份合同本想避免的争议。' },
+    { id: 'v21', word: 'dressed', lemma: 'dress', sentenceId: 's18', level: 3, pos: 'v.', ipa: '/drest/', defZh: '伪装；以…的语言包装', defEn: 'presented in a way that hides its real nature', example: 'The new fee was dressed as a service upgrade.', exampleZh: '这笔新费用被包装成一次服务升级。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '把名词的修饰塞进 was a + 名词短语 的句首结构',
+      pattern: 'Buried in [处所] was [真正主语].',
+      sentenceIds: ['s1'],
+      explanationZh: [
+        '正常英文语序是"主语在前、修饰在后"，比如 A single sentence was buried in a long document, and by late March 2025 it was suddenly everywhere。这种顺序信息没错，但很平。文章开头第一句反其道而行：把过去分词短语 Buried in a long technical document 拎到句首，把真正的主语 a single sentence 推到后面。',
+        '这种写法叫"倒装"，它产生两个效果：一是制造悬念，读者先读到"被埋在某文件里"，自然会想"什么东西被埋在那里？"；二是把"埋"这个动作的颜色压在了句子开头，让全句带上"隐藏被翻出"的叙事色彩。',
+        '什么时候用：写新闻特写、长报道的第一句很合适，特别是那种"小细节里藏着大事"的题材。一段话的开头放一个，可以马上把读者的注意力收回到这段要讲的具体物件上。',
+        '一个细节：动词位置要保持 was，而不是写成 Buried in a long technical document, a single sentence was…。这两种都对，但前者（was a single sentence that…）把"主语"推到更远，悬念感更强；后者只是普通的分词作状语。',
+      ],
+      examples: [
+        { en: 'Tucked into the back of the museum gift shop was a small shelf of out-of-print art books.', zh: '在博物馆礼品店的最里面，藏着一个摆着绝版艺术书的小书架。', note: '把"位置"推到句首，让读者先有画面感，再揭开"是什么"。' },
+        { en: 'Hidden behind a paywall was the only graph that actually supported the headline.', zh: '被付费墙挡住的，是唯一一张真正支撑那个标题的图表。' },
+        { en: 'Folded inside the application was a handwritten note from her grandmother.', zh: '夹在申请材料里的，是她外婆手写的一张便条。' },
+        { en: 'Listed at the bottom of the contract was a clause no one had bothered to read.', zh: '合同最末尾列出的，是一条没人愿意细读的条款。' },
+      ],
+      commonMistake: '不要写成 Buried in a long document, was a single sentence。前置的分词短语和后面句子之间不要加逗号，逗号会把这种倒装语气切断，读起来变成普通的状语。',
+      vsSimilar: 'There was a single sentence buried in a long document 同样达意，但信息从"存在 + 主语 + 修饰"一路展开，没有悬念。倒装版本（Buried in… was…）更适合开篇，普通版本更适合中段交代。',
+    },
+    {
+      id: 'g2',
+      title: '用 What ... was 把"真正起作用的东西"推到句首',
+      pattern: 'What [子句] was [真正解释/原因].',
+      sentenceIds: ['s11', 's16'],
+      explanationZh: [
+        '想说"它真正引人注意的地方在于……"，新手会写 It was striking because…，这没错，但语气平。英文里有个更有劲的写法：用 What 引导一个小从句当主语，然后用 was 给出真正想强调的那部分。这叫 what-cleft。',
+        '看第 11 句：What made the line so striking was how cleanly it ignored the fact that…。作者没有写 The line was striking because…，而是把"是什么让这条规则如此引人注意"先提出来当主语，再用 was 引出答案。读者读到 What made the line so striking was… 时，会自然停一下，准备听重点；这一停，就给后面的内容腾出了空间。',
+        '什么时候用：评论文章里要"点睛"时用得最多——你想让读者意识到"接下来这一句是关键判断"，就用 what-cleft 把判断单独抬高。文中第 16 句 What the line really showed was… 也是同样手法，专门用来给文章的真正立论铺垫。',
+        '一个容易错的细节：was / is 的单复数取决于 what-从句里被指代的东西，不取决于 was 后面接的内容。What we lost is time（time 是不可数，所以用 is），不是 are。文中两句都用了 was，因为指代的都是单一抽象事项。',
+      ],
+      examples: [
+        { en: 'What surprised reviewers was not the price but the packaging.', zh: '让评测者意外的不是价格，而是包装。' },
+        { en: 'What the report really measured was attendance, not learning.', zh: '这份报告真正衡量的是出勤，而不是学习成果。', note: '把"真正在测什么"推到句首，再用 was 给出答案，论点的分量明显加重。' },
+        { en: 'What kept the team together was a shared sense of pace.', zh: '让这支团队凝聚在一起的，是一种共有的节奏感。' },
+        { en: 'What worries me most is how quietly the change took effect.', zh: '最让我担心的，是这场变化生效时的安静。' },
+      ],
+      commonMistake: '不要写成 What made the line so striking were how cleanly it ignored…。was / is 后面接的不是复数主语，而是一段说明；what-从句指代的是单一情形，所以用 was。',
+    },
+    {
+      id: 'g3',
+      title: '用分号把两个对照句拼成一组',
+      pattern: '主句1; 主句2.',
+      sentenceIds: ['s14', 's17'],
+      explanationZh: [
+        '想表达"A 会怎样，B 又会怎样"的对照，新手常常分开写两句：A prompt asking for X would be refused. A prompt asking for Y would not. 这没错，但两句之间的对照感会被句号削弱。英文里如果两个句子在结构和意思上明显对仗，用分号把它们连成一组会显得更紧、更有节奏。',
+        '看第 14 句：A prompt asking for an image "in the style of Hayao Miyazaki" would be refused; a prompt asking for the same image "in the style of Studio Ghibli" would not. 两边的句子结构几乎完全平行，只在"宫崎骏"和"吉卜力工作室"上换了词。这种"几乎相同、只换关键变量"的对比，是分号最合适的场合。第 17 句 Naming a single artist invites a lawsuit; naming a studio invites a shrug 也是同样套路。',
+        '什么时候用：评论或分析里要快速点出"对比"时最好用。前一句立一个情境，分号后面立刻给出另一个，差别在哪里读者一眼看清。议论文段落中部和收尾经常出现。',
+        '一个细节：分号两边必须是两个能各自独立成句的完整句子，不能是短语。如果其中一边不完整（比如 invites a shrug 没有主语），就要补全主语，让它能站立，否则要换成逗号或换写法。',
+      ],
+      examples: [
+        { en: 'In the city, the lights stayed on all night; in the suburbs, families turned theirs off by ten.', zh: '在城市里，灯整晚亮着；在郊区，家庭十点前就关了灯。', note: '两边结构对仗，分号把"城里/郊外"的对照串得更紧。' },
+        { en: 'A short email gets a quick reply; a long email gets read tomorrow.', zh: '短邮件能立刻收到回复；长邮件只会被留到明天再读。' },
+        { en: 'Critics praised the script; audiences praised the lead actor.', zh: '评论家称赞剧本；观众则称赞主演。' },
+        { en: 'New users want the basics done well; long-time users want one new trick.', zh: '新用户希望基础功能做扎实；老用户希望多一个新花样。' },
+      ],
+      commonMistake: '不要在分号一边写一个不完整的句子，比如 Naming a single artist invites a lawsuit; and a studio a shrug。第二段缺动词，无法独立成句，这种情况下分号是错用，应该写成 …a studio invites a shrug 或者改用逗号。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '在开篇句里把一个"小细节"和"大反响"拉到同一个句子里',
+      skeleton: '[动词过去分词] in [庞大或不起眼的地方] was [一个小东西] that, by [时间点], was suddenly [大反响].',
+      original: 'Buried in a long technical document that OpenAI released alongside GPT-4o was a single sentence that, by late March 2025, was suddenly everywhere.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个句式的力量来自一个"反差"：句子前半段越是把对象描述得"小、藏、被忽略"（buried, a single sentence），后半段越是把它的影响推到极致（suddenly everywhere），落差就越大。读者一句话之内经历了"被埋"到"无处不在"两个极端，文章的张力立刻起来。',
+        '对读者来说，这一句相当于一个隐形的承诺：作者会在后文告诉你，那个小东西到底是什么、为什么突然爆炸。读者带着这个悬念读下去，比读一个直白的"OpenAI 写了一句话，引起很大讨论"耐心得多。',
+        '它最适合放在长报道、特写、深度评论的第一句。后续段落正好可以按"先讲那小东西本身、再讲它为什么炸"的节奏展开，结构天然顺手。',
+        '一个隐藏要点：前半段的"埋藏感"和后半段的"反响"必须真的有反差，不能两边都很热闹。如果那东西本来就被铺天盖地报道过，再写 buried 就显得做作。',
+      ],
+      examples: [
+        { context: '科技长报道开篇', text: "Tucked into the footnotes of an annual report that few investors finish was a number that, by Friday afternoon, had wiped out a billion dollars in market cap.", zh: '夹在没几个投资者会读完的年报脚注里的一个数字，到周五下午已经抹掉了十亿美元的市值。' },
+        { context: '环境新闻开头', text: "Listed on page forty of a local planning document was a single line that, within a week, had brought five hundred residents to a town hall meeting.", zh: '一份地方规划文件第四十页上列出的一句话，一周之内就把五百名居民召集到了市政厅会议。', note: '前半段越具体（page forty 比 somewhere 强），反差越实在。' },
+        { context: '人物特写', text: "Folded into the back of a notebook her father had thrown out was a sketch that, decades later, would hang in the city museum.", zh: '夹在她父亲扔掉的笔记本最后的一张速写，几十年后会挂进市立博物馆。' },
+      ],
+      adaptingTip: '前半段的"埋藏感"要靠具体地点（page nineteen / the footnotes / the back of a notebook）来支撑，避免写 somewhere、in a document 这种模糊词；后半段的"大反响"则要靠一个具体的、可量化或可视化的结果（市值掉一个亿、五百人到场、被挂进美术馆），这两端越具体，落差越成立。这是开篇模板，不要放在中段。',
+      commonMistake: '不要让两端都很"大"或两端都很"小"：Listed prominently at the top of the homepage was a banner that, by Friday, had been seen by many people。开头并不"被埋"，结尾也不"突然爆炸"，整个反差落空，句式就废了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '议论收尾：把对方的说法重述一遍，再点出它"其实是另一回事"',
+      skeleton: 'It was less [对方声称的事] than [你认为的真正本质], dressed in the language of [听上去更好的措辞].',
+      original: 'It was less an ethical position than a legal one, dressed in the language of respect.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式的核心是"重新命名"：你不直接反驳对方，而是承认表面看上去像 X，再立刻给它一个更尖锐的名字 Y。less X than Y 这个结构在英文里特别经济，一句话之内就完成了"承认表象、揭示本质"两步。',
+        '加上 dressed in the language of… 又给反驳加了一层冷静的笑意。你没有指责对方撒谎，只是说"这是用 X 的措辞包装的 Y"，像在剥洋葱皮。读者会觉得作者既克制又有判断力，比直接的指控更有说服力。',
+        '它最适合用在评论文章、读后感、深度报道的"立论收口"那一段，特别是当你想批评一个机构、政策或表态时。前文铺垫好事实，最后用这一句给出你的判断。',
+        '一个隐藏要点：less X than Y 里的 X 必须是对方真的会承认或主张的事，Y 才显得"被揭穿"。如果 X 是你自己脑补的、对方根本没说过，整个反转就没意义。',
+      ],
+      examples: [
+        { context: '政策评论收尾', text: 'It was less a safety regulation than a market entry barrier, dressed in the language of consumer protection.', zh: '与其说这是一项安全监管，不如说是一道市场准入门槛，只是穿上了"保护消费者"的措辞。' },
+        { context: '企业声明分析', text: 'It was less an apology than a press release, dressed in the language of accountability.', zh: '与其说这是一份道歉，不如说是一篇新闻稿，只是套上了"承担责任"的语言。', note: 'dressed in… 的措辞要真的是对方原话里出现过的好词，反讽才有依据。' },
+        { context: '校园活动书评', text: 'It was less a debate than a casting call, dressed in the language of free inquiry.', zh: '与其说这是一场辩论，不如说是一次选角试镜，只是冠上了"自由探讨"的措辞。' },
+      ],
+      adaptingTip: 'X 要选对方真正用过的、听起来体面的标签（ethical / safety / apology / debate）；Y 则要选你认为真正在起作用的、更直白的动机（legal / barrier / press release / casting call）。dressed in the language of 后面接的词，最好是对方公开声明里出现过的，否则会显得是你强加。整个句式是评论收尾用的，别放在事实段。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾"反讽镜头"：在做总结的同时，把现实状态再拉回读者眼前',
+      skeleton: 'And in the meantime, [可视化的现实状态] that [更长时间尺度的真相].',
+      original: 'And in the meantime, the timelines kept filling with soft skies and round-cheeked children that one man had spent fifty years learning to draw.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '前几段在分析"规则怎么写、谁有道理"，全在抽象层面打转。这一句突然把镜头拉到一个非常具体的画面（柔和的天空、圆脸颊的孩子），又用 that 引导一个更长时间尺度的事实（一个人花了五十年学画这些）。读者刚刚还在听政策辩论，下一秒就看见画面，对比格外强烈。',
+        '这一句的反讽藏在结构里：现实仍然在按"被允许的方式"继续，但被反讽的对象（被忽略的那个人）正出现在画面深处。作者没有再说一遍"这不公平"，只是让读者自己看见。沉默的画面比一句愤怒的总结更扎心。',
+        '它最适合用在评论性文章的最末一段，紧跟在"做出判断"的那一句之后。整篇文章的论证已经讲完，这一句负责把抽象的判断重新落回到一个具体的、可视的画面里，让读者带着这个画面走开。',
+        '一个隐藏要点：that 后面那段"更长时间尺度的真相"要和前半句的画面有实在的关联（这里是"画面里的孩子 = 那个人花五十年学画的对象"）。如果两段没有真实的连线，反讽就会变成炫技。',
+      ],
+      examples: [
+        { context: '环境长报道结尾', text: 'And in the meantime, the river kept carrying away topsoil that farmers four valleys downstream had spent a generation protecting.', zh: '与此同时，这条河继续冲走那些下游四个山谷的农民花了一代人保护下来的表层土壤。' },
+        { context: '教育评论收尾', text: 'And in the meantime, the children kept arriving at school carrying questions that no item on the new test had been written to answer.', zh: '与此同时，孩子们继续每天到校，带着一些问题，而新测验里没有任何一道题是为回答它们而写的。', note: 'that 后面那段把"画面里的东西"和"更长时间尺度的事实"绑在一起，反讽就有了根。' },
+        { context: '城市观察结尾', text: 'And in the meantime, the bus kept stopping at the corner that a planning document had quietly marked for removal.', zh: '与此同时，那班公交车继续停靠在一个早已被规划文件悄悄标注为"取消"的街角。' },
+      ],
+      adaptingTip: '前半段一定要选一个能被读者"看见"的画面（天空、河流、孩子、公交车），别用抽象名词（progress / efforts / discussions）。that 之后那段时间尺度要拉长（五十年、几代人、一份长期文件），让读者意识到"画面里这件事，背后是一段很长的事实"。这是收尾模板，整篇文章只放一次，放在最后。',
+      commonMistake: '不要把前半段写成抽象总结：And in the meantime, debates continued among researchers that had been ongoing for years。读者看不到画面，反讽落空，整句变成又一句平淡的总结。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what distinction did the GPT-4o system card draw?', options: ['Between paid and free users', 'Between living and dead artists', 'Between individual living artists and broader studio styles', 'Between American and Japanese studios'], answer: 2, explanation: 'The system card said the model would refuse to imitate individual living artists but would permit broader studio styles.', sentenceId: 's2' },
+    { id: 'q2', q: 'Why did reporters suddenly start reading the small print of the system card?', options: ['Because OpenAI sent them a press release', 'Because users had begun making Ghibli-style images and reporters wanted to know what was allowed', 'Because a court case had been filed', 'Because Studio Ghibli published a statement'], answer: 1, explanation: 'The article says reporters began reading the small print after users discovered they could ask GPT-4o to redraw photos in Ghibli style.', sentenceId: 's6' },
+    { id: 'q3', q: "What was OpenAI's stated reasoning for treating studios differently from individual artists?", options: ['Studios pay licensing fees', 'A studio is a collective brand and no single hand can claim its style', 'Studios are usually no longer active', 'Studios have fewer fans than artists'], answer: 1, explanation: "The article says the argument was that a studio is a brand, a collective shorthand for an era of work that no single hand can claim.", sentenceId: 's8' },
+    { id: 'q4', q: 'What is the main inconsistency critics pointed out?', options: ['That OpenAI charges money for the feature', 'That Hayao Miyazaki, very much alive, directed almost every film associated with Studio Ghibli', 'That the system card was published late', 'That Ghibli films are also made by other studios'], answer: 1, explanation: 'The article highlights that Miyazaki, alive at eighty-four, has directed almost every film the public associates with the studio.', sentenceId: 's11' },
+    { id: 'q5', q: "What is the writer's overall stance toward OpenAI's carveout?", options: ['Approving, treating it as a careful ethical decision', 'Neutral, simply reporting both sides', 'Skeptical, suggesting the line was shaped more by legal risk than by ethics', 'Hostile, calling for the policy to be removed'], answer: 2, explanation: 'The closing paragraphs frame the line as less an ethical position than a legal one, dressed in the language of respect.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'OpenAI 这份文件的行业内名称', answer: 'system card', sentenceId: 's4', prefilled: true },
+      { id: 'ig2', cueZh: '这条规则附带在哪个模型的发布上', answer: 'GPT-4o', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '这一争论变得"无处不在"的时间', answer: 'late March 2025', sentenceId: 's1' },
+      { id: 'ig4', cueZh: '模型会拒绝模仿的对象类型', answer: 'individual living artists', sentenceId: 's2' },
+      { id: 'ig5', cueZh: '模型仍然允许的对象类型', answer: 'broader studio styles', sentenceId: 's2' },
+      { id: 'ig6', cueZh: '宫崎骏当时的年龄', answer: 'eighty-four', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '作者认为该规则更接近的立场类型', answer: 'a legal one', sentenceId: 's18' },
+    ],
+    writing: {
+      promptZh: '用表格里整理出的信息，写一段大约 80 词的短评，向不熟悉这件事的同学解释 OpenAI 的这条规则到底说了什么、为什么有人觉得不合理，并给出你自己的简短判断。',
+      promptEn: "Using the facts in your table, write about 80 words explaining what OpenAI's carveout actually said, why critics found it inconsistent, and your own short take, for a classmate who has not followed the story.",
+      targetWords: 80,
+      starters: ['Buried in the GPT-4o system card was a single line that ...', 'What made the carveout so striking was ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'Buried in the GPT-4o system card was a single line that, by late March 2025, was suddenly everywhere: the model would refuse individual living artists but would permit broader studio styles. What made the carveout so striking was how cleanly it ignored Hayao Miyazaki, alive at eighty-four and the hand behind almost every Ghibli film. To me, it was less an ethical position than a legal one, dressed in the language of respect. The studio became a shield for one man.',
+      modelAnswerZh:
+        '埋在 GPT-4o 系统卡里的一句话，到 2025 年 3 月底突然无处不在：模型会拒绝具名的在世艺术家，但允许更宽泛的工作室风格。这条例外之所以引人注意，是它干净利落地忽略了宫崎骏：八十四岁，仍然在世，是几乎每一部吉卜力电影背后的那只手。在我看来，与其说这是一种伦理立场，不如说是一种法律立场，只是穿上了尊重的措辞。"工作室"成了为一个人挡风的盾牌。',
+    },
+  },
+};

@@ -1,0 +1,240 @@
+// Miyazaki & Studio Ghibli book, Ch.3: how GPT-4o's Ghibli image feature reshaped a week of the internet (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-25',
+    title: 'The Internet Goes Ghibli',
+    titleZh: '互联网变成了吉卜力风',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/03-ghibli-ai-storm.mp3',
+    wordCount: 315,
+    readingMinutes: 5,
+    editorsNote:
+      'On March 25, 2025, OpenAI shipped a new image tool inside ChatGPT, and within hours the internet was awash in Ghibli-style portraits. This chapter follows that week, and asks the harder question Studio Ghibli itself refused to answer aloud.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On March 25, 2025, OpenAI quietly released a new image generator inside ChatGPT, and within hours the internet looked different.', zh: '2025 年 3 月 25 日，OpenAI 悄悄在 ChatGPT 里上线了一款新的图像生成器，几个小时之内，整个互联网就变了样子。' },
+        { id: 's2', en: 'Feeds on X, Instagram, and Reddit filled with soft, hand-painted portraits in the unmistakable style of Studio Ghibli.', zh: '在 X、Instagram 和 Reddit 的信息流里，到处都是柔和的、手绘风格的肖像，那种风格一眼就能认出，是吉卜力的样子。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'The new tool was called GPT-4o native image generation, and it let users turn any photo into a Ghibli-style scene with a single short prompt.', zh: '这个新工具叫做 GPT-4o 原生图像生成，它让用户只用一句简短的指令，就能把任何一张照片变成吉卜力风格的画面。' },
+        { id: 's4', en: 'People dropped in family snapshots, wedding pictures, pets, and even news photographs, and watched them come back looking like stills from Spirited Away.', zh: '人们丢进去全家合影、婚礼照片、宠物照，甚至新闻图片，再看它们返回时，已经像是《千与千寻》里的画面截图。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's5', en: 'The trend spread so fast that Sam Altman, the head of OpenAI, joked that the company\'s GPUs were "melting" under the load.', zh: '这股热潮蔓延得如此之快，以至于 OpenAI 的负责人 Sam Altman 开玩笑说，公司的 GPU 在这种负荷下"快要熔化了"。' },
+        { id: 's6', en: 'The free tier of the feature was delayed, and ChatGPT slowed down for hours at a time.', zh: '这个功能的免费版本被推迟开放，ChatGPT 也接连数小时变得卡顿。' },
+        { id: 's7', en: 'By March 27, even the official White House account had posted a Ghibli-style image, a move that drew millions of views and harsh criticism within a single day.', zh: '到 3 月 27 日，就连白宫的官方账号也发布了一张吉卜力风格的图片，这个动作在一天之内引来数百万次浏览，也招来了尖锐的批评。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's8', en: 'For many users, the appeal was simple: the Ghibli look softens almost anything, turning ordinary faces into characters who seem to belong in a kinder world.', zh: '对很多用户来说，吸引力其实很简单：吉卜力的画风几乎能把一切都"柔化"，让普通的脸看上去像是属于一个更温柔世界的角色。' },
+        { id: 's9', en: 'For others, the same images raised a sharper question, one about who actually owns a visual style.', zh: '而对另一些人来说，同样的这些图片提出了一个更尖锐的问题：一种视觉风格，到底归谁所有。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's10', en: 'Studio Ghibli itself stayed completely silent through the storm.', zh: '吉卜力工作室本身，在这场风暴里始终保持沉默。' },
+        { id: 's11', en: 'What people shared instead was an older clip, one in which Hayao Miyazaki, watching an early AI animation in 2016, called the technology "an insult to life itself."', zh: '取而代之被广泛转发的，是一段更早的视频片段。在那段片段里，2016 年的宫崎骏看了一段早期的 AI 动画后，称这种技术是"对生命本身的侮辱"。' },
+        { id: 's12', en: 'That nine-year-old line, delivered in a quiet documentary, suddenly felt urgent again.', zh: '这句九年前的话，原本是在一部安静的纪录片里说出的，如今却突然变得迫切起来。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's13', en: 'Within a week, lawyers were arguing about copyright, journalists were writing about taste, and ordinary users were still busy turning their cats into hand-drawn forest spirits.', zh: '一个星期之内，律师在争论版权，记者在写关于审美趣味的文章，而普通用户还在忙着把自家的猫变成手绘的森林精灵。' },
+        { id: 's14', en: 'One feature, released on one Tuesday, had reshaped a full week of the internet.', zh: '一个功能，在一个周二上线，就重塑了整整一周的互联网。' },
+        { id: 's15', en: 'What lingered, after the images stopped scrolling by, was the question they forced into the open: when a style can be copied in seconds, what is left for the artists who built it?', zh: '当那些图片不再刷屏之后，真正留下来的，是它们逼到台面上的那个问题：当一种风格可以在几秒钟里被复制，留给那些亲手创造它的艺术家的，还有什么？' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'quietly', lemma: 'quietly', sentenceId: 's1', level: 1, pos: 'adv.', ipa: '/ˈkwaɪətli/', defZh: '悄悄地；安静地', defEn: 'without making noise or attracting attention', example: 'The new policy was quietly added to the website overnight.', exampleZh: '新政策在一夜之间被悄悄加到了网站上。' },
+    { id: 'v2', word: 'released', lemma: 'release', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/rɪˈliːst/', defZh: '发布；上线', defEn: 'made something available to the public', example: 'The studio released the trailer one week before the film opened.', exampleZh: '工作室在影片上映前一周发布了预告片。' },
+    { id: 'v3', word: 'generator', lemma: 'generator', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈdʒenəreɪtə(r)/', defZh: '生成器；发生器', defEn: 'a tool or machine that produces something', example: 'The text generator can write a short summary from any article.', exampleZh: '这个文本生成器可以从任何一篇文章里写出一段简短的摘要。' },
+    { id: 'v4', word: 'feeds', lemma: 'feed', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/fiːdz/', defZh: '信息流；动态', defEn: 'the streams of posts shown by a social app', example: 'Most of the news in my feeds comes from people I do not follow directly.', exampleZh: '我信息流里的大部分新闻，都来自我并不直接关注的人。' },
+    { id: 'v5', word: 'unmistakable', lemma: 'unmistakable', sentenceId: 's2', level: 4, pos: 'adj.', ipa: '/ˌʌnmɪˈsteɪkəbl/', defZh: '一眼就能认出的；明白无误的', defEn: 'so clear that it cannot be confused with anything else', example: 'The bakery has an unmistakable smell of warm butter.', exampleZh: '那家面包店有一种一闻便知、是温热黄油的味道。' },
+    { id: 'v6', word: 'prompt', lemma: 'prompt', sentenceId: 's3', level: 3, pos: 'n.', ipa: '/prɒmpt/', defZh: '提示语；指令', defEn: 'a short instruction given to an AI tool', example: 'A good prompt usually names both the topic and the tone you want.', exampleZh: '一个好的提示语通常会同时指明话题和你想要的语气。' },
+    { id: 'v7', word: 'snapshots', lemma: 'snapshot', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/ˈsnæpʃɒts/', defZh: '快照；随手拍', defEn: 'informal photos taken quickly, not staged', example: 'The album is just family snapshots from her grandparents\' old camera.', exampleZh: '这本相册都是她祖父母那台旧相机拍下的随手家庭快照。' },
+    { id: 'v8', word: 'stills', lemma: 'still', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/stɪlz/', defZh: '剧照；定格画面', defEn: 'single frames taken from a film or video', example: 'The exhibition uses stills from the film to show how each scene was lit.', exampleZh: '展览用电影里的剧照来展示每个场景是如何打光的。' },
+    { id: 'v9', word: 'melting', lemma: 'melt', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/ˈmeltɪŋ/', defZh: '熔化；融化（此处比喻"扛不住了"）', defEn: 'becoming liquid from heat (used here to mean overloaded)', example: 'The servers were practically melting on launch day.', exampleZh: '在发布当天，服务器几乎要被压垮了。' },
+    { id: 'v10', word: 'tier', lemma: 'tier', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/tɪə(r)/', defZh: '层级；档位', defEn: 'one level in a set of ranked groups', example: 'The free tier of the app limits you to five exports a month.', exampleZh: '这款应用的免费档位每月限制你只能导出五次。' },
+    { id: 'v11', word: 'drew', lemma: 'draw', sentenceId: 's7', level: 2, pos: 'v.', ipa: '/druː/', defZh: '招来；吸引（draw 的过去式）', defEn: 'attracted (past tense of draw)', example: 'The new restaurant drew long lines on its first weekend.', exampleZh: '这家新餐厅在开业的第一个周末就引来了长队。' },
+    { id: 'v12', word: 'harsh', lemma: 'harsh', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/hɑːʃ/', defZh: '严厉的；尖锐的', defEn: 'severe and unkind in tone or judgment', example: 'The review was harsh, but most of its points were fair.', exampleZh: '那篇评论很尖锐，但它的多数观点其实是公平的。' },
+    { id: 'v13', word: 'softens', lemma: 'soften', sentenceId: 's8', level: 3, pos: 'v.', ipa: '/ˈsɒfənz/', defZh: '使变柔和；使柔化', defEn: 'makes something less sharp or severe', example: 'Warm light softens almost every face in a photograph.', exampleZh: '温暖的光线几乎能让照片里的每一张脸都显得更柔和。' },
+    { id: 'v14', word: 'raised', lemma: 'raise', sentenceId: 's9', level: 2, pos: 'v.', ipa: '/reɪzd/', defZh: '提出（问题、疑虑）', defEn: 'brought up a question or concern', example: 'Her essay raised an uncomfortable point about who gets to speak first.', exampleZh: '她那篇文章提出了一个让人不舒服的问题：到底谁有资格先说话。' },
+    { id: 'v15', word: 'silent', lemma: 'silent', sentenceId: 's10', level: 1, pos: 'adj.', ipa: '/ˈsaɪlənt/', defZh: '沉默的；不出声的', defEn: 'making no sound or saying nothing', example: 'The company stayed silent for three days before posting any statement.', exampleZh: '这家公司在发布任何声明之前，沉默了整整三天。' },
+    { id: 'v16', word: 'clip', lemma: 'clip', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/klɪp/', defZh: '视频片段；短片', defEn: 'a short piece of film or video', example: 'A thirty-second clip of the speech went viral overnight.', exampleZh: '演讲中一段三十秒的视频片段一夜之间就火了。' },
+    { id: 'v17', word: 'urgent', lemma: 'urgent', sentenceId: 's12', level: 3, pos: 'adj.', ipa: '/ˈɜːdʒənt/', defZh: '迫切的；紧迫的', defEn: 'needing immediate attention or thought', example: 'What used to feel like a distant worry now feels urgent.', exampleZh: '原本像是遥远忧虑的事情，如今却变得迫切起来。' },
+    { id: 'v18', word: 'lingered', lemma: 'linger', sentenceId: 's15', level: 4, pos: 'v.', ipa: '/ˈlɪŋɡəd/', defZh: '挥之不去；久久停留', defEn: 'stayed on after most of something had ended', example: 'The smell of woodsmoke lingered in the room long after the fire went out.', exampleZh: '火熄了很久之后，木柴烟的气味还在房间里久久不散。' },
+    { id: 'v19', word: 'copyright', lemma: 'copyright', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/ˈkɒpiraɪt/', defZh: '版权；著作权', defEn: 'the legal right to control the use of a creative work', example: 'The photographer kept copyright of every image she sold to the magazine.', exampleZh: '这位摄影师对她卖给杂志的每张照片都保留了版权。' },
+    { id: 'v20', word: 'reshaped', lemma: 'reshape', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/ˌriːˈʃeɪpt/', defZh: '重塑；改写', defEn: 'changed the form or course of something', example: 'A single video can reshape how millions of people see a city.', exampleZh: '一段视频就能改变上百万人看待一座城市的方式。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用过去完成时（had done）说"在那个时间点之前已经……"',
+      pattern: '过去时间点 + had + 过去分词',
+      sentenceIds: ['s7', 's14'],
+      explanationZh: [
+        '中文说"到 3 月 27 日，连白宫都发了一张吉卜力图"，时间线其实有两层：3 月 27 日是一个"参照点"，而"白宫已经发了"是在那个参照点之前完成的动作。英文里要把这种"过去之前的过去"讲清楚，常用 had 加过去分词，也就是过去完成时。',
+        '看第 7 句：By March 27, even the official White House account had posted a Ghibli-style image。作者没有写 posted（一般过去式），而是写 had posted，是因为他要表达"到 3 月 27 日为止，这件事已经完成了"。read 第 14 句也是一样：One feature, released on one Tuesday, had reshaped a full week of the internet。"一周已经被重塑"这件事，是站在文章的结尾回头看，所以也用 had reshaped。',
+        '什么时候用：写新闻、写回顾性段落、写传记中的某个节点时特别合用。当你想说"到那个时刻，事情已经走到这一步了"，就让 had done 出场。一旦句子只是单纯讲"那时发生了什么"，回到一般过去式即可。',
+        '一个容易踩的点：had done 永远需要一个时间参照点（明示或暗示），不能孤零零地出现。By March 27 / By the end of that week / When she arrived… 这些短语就是参照点。如果上下文没有任何"那时为止"的意味，写 had done 反而会显得别扭。',
+      ],
+      examples: [
+        { en: 'By the time the meeting started, half the team had already read the report.', zh: '会议开始的时候，团队里已经有一半人读过那份报告了。', note: 'By the time… 是典型的"过去参照点"，后面自然跟过去完成时。' },
+        { en: 'When the rain stopped, the children had been waiting under the tree for nearly an hour.', zh: '雨停的时候，孩子们已经在树下等了快一个小时了。' },
+        { en: 'By 2010, the small bookstore had closed, and the building was for sale.', zh: '到 2010 年时，那家小书店已经关门了，房子也挂出了出售。' },
+        { en: 'By the end of his first year, he had visited every museum on the island.', zh: '到第一年结束的时候，他已经把岛上每一座博物馆都走遍了。' },
+        { en: 'When I called back, she had already left the office.', zh: '我回电话的时候，她已经离开办公室了。' },
+      ],
+      commonMistake: '不要写成 By March 27, the White House posted a Ghibli image。一旦有 By + 时间点，后面就要用 had posted；用一般过去式 posted，时间层次就塌掉了。',
+      vsSimilar: '一般过去式（posted）只说"过去发生过"，没有"在另一件过去事情之前"的层次；过去完成时（had posted）一定要靠一个参照点撑起来。问自己：句子里有没有一个"截至那时"的锚？有，就用 had done。',
+    },
+    {
+      id: 'g2',
+      title: '用 it 引出一个抽象的东西，再用同位语展开',
+      pattern: '主句, one (in which / about / that)…',
+      sentenceIds: ['s9', 's11'],
+      explanationZh: [
+        '想给前一句里出现的某个名词加一点说明，但又不想另起一句把节奏拖慢，英文里有一个很顺手的做法：在主句后面接一个 one，让它代替前面的名词，再用 in which / about / that 拉出一段具体说明。这其实是一种"轻量同位语"。',
+        '看第 9 句：For others, the same images raised a sharper question, one about who actually owns a visual style。这里的 one 指代前面的 a sharper question，about 后面是它的具体内容。如果直接写 a sharper question about who owns…，意思也对，但句子节奏一口气太长。用逗号加 one about… 把"提出问题"和"问题是什么"切开，停顿恰到好处。',
+        '第 11 句的 What people shared instead was an older clip, one in which Hayao Miyazaki… 是同样的招式：先说"是一段老视频"，停一下，再用 one in which 拉开里面的内容。读者先有"什么"，再有"哪段"，理解负担很小。',
+        '什么时候用：议论文里要给一个抽象名词（question, idea, image, moment, fear…）加分量时特别合适；新闻报道里要"先点出结论、再补细节"时也很顺。注意 one 一定要跟前面的可数单数名词一致；如果前面是复数 questions，就要用 ones。',
+      ],
+      examples: [
+        { en: 'The film leaves you with a strange feeling, one that you cannot quite name on the way home.', zh: '这部电影会留给你一种奇怪的感觉，一种在回家的路上你也说不清的感觉。', note: '用 one that… 把"那是种什么样的感觉"拉开说，不必另起一句。' },
+        { en: 'They built a small library, one in which every book had been donated by a local family.', zh: '他们建了一座小图书馆，里面的每一本书都是当地某户人家捐的。' },
+        { en: 'She gave a simple answer, one about trust rather than skill.', zh: '她给出了一个简单的回答，关乎信任，而不是能力。' },
+        { en: 'It is a question, one no policy paper has fully answered.', zh: '这是一个问题，一个还没有任何政策报告真正回答过的问题。' },
+        { en: 'He kept a single photo on his desk, one taken on the morning his daughter was born.', zh: '他在桌上只放了一张照片，那是他女儿出生那天早上拍下的。' },
+      ],
+      commonMistake: '不要写成 a sharper question, one about who actually own a visual style（动词 own 漏掉了 -s）。从句里的动词要和它真正的主语保持一致；这里 who 指 a (single) person 时通常用第三人称单数 owns。',
+    },
+    {
+      id: 'g3',
+      title: '用 What … is/was … 把整句的焦点拎到后半句',
+      pattern: 'What [主语 + 动词] is/was [被强调的东西]',
+      sentenceIds: ['s11', 's15'],
+      explanationZh: [
+        '正常英文写"人们分享的是一段老视频"会说 People shared an older clip instead。意思没错，但重点是平的。如果你想让"那段老视频"成为整句的高光，就可以用 What [人] [做了 sth] is/was [那个东西] 的结构，把焦点拎到后半句。这就是所谓的 what-cleft。',
+        '看第 11 句：What people shared instead was an older clip…。读者读完前半句 What people shared instead was…，会自动悬着一口气等着"到底是什么"，等到 an older clip 落下来时，那种"重点终于来了"的感觉就出现了。第 15 句 What lingered… was the question they forced into the open 也是同样的手法，把"留下的东西到底是什么"延后给出，比直接说 The question lingered… 多了一层情绪。',
+        '什么时候用：议论文、特写、个人陈述里要做"重点转移"或"情感升华"时最合适。它会让句子比平铺直叙更有节奏感，但用多了会显得做作；一篇文章里一两次就够。',
+        '一个细节：what-cleft 里的系动词 is/was，要看后面被强调的那个东西是单数还是复数来决定。What he wanted was a quiet room（单数）/ What he wanted were a few quiet hours（复数）。文中两处后面都是单数 an older clip / the question，所以用 was。',
+      ],
+      examples: [
+        { en: 'What surprised me was how calmly she answered.', zh: '让我意外的，是她回答时有多么平静。' },
+        { en: 'What the city needs is a slower kind of growth.', zh: '这座城市需要的，是一种更慢的增长方式。', note: '把"城市需要"前置，让 a slower kind of growth 成为整句的落点。' },
+        { en: 'What I remember from that summer is the smell of warm grass, not the heat.', zh: '我从那个夏天记住的，是温热草地的味道，而不是热本身。' },
+        { en: 'What broke the silence was a single laugh from the back of the room.', zh: '打破那阵沉默的，是房间后面传来的一声笑。' },
+        { en: 'What the report leaves out is more telling than what it includes.', zh: '这份报告里没有提到的，比它提到的更说明问题。' },
+      ],
+      commonMistake: '不要写成 What people shared instead were an older clip。后面 an older clip 是单数，系动词要用 was，不是 were。判断标准看后半句被强调的名词单复数，不看 what 本身。',
+      vsSimilar: 'It-cleft（It was an older clip that people shared instead）也能强调，但 It-cleft 像聚光灯打在一个具体名词上；what-cleft 更像把整个句子拉出一条悬念，再把答案落下，节奏感更强。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '新闻特写开头：用"某天 + 某动作 + 在很短时间里 + 世界变了样"建立现场感',
+      skeleton: 'On [具体日期], [机构 / 人] [低调动词] [事件], and within [极短的时间], [大场面动词].',
+      original: 'On March 25, 2025, OpenAI quietly released a new image generator inside ChatGPT, and within hours the internet looked different.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头的力量在前后两半的落差：前半句用一个具体日期加一个"低调动作"（quietly released），把事件写得几乎不像新闻；后半句用 within hours 加一个大动作（the internet looked different），把规模一下子拉满。读者还没回过神，就被告知"那件小事其实掀翻了一切"。',
+        'On + 具体日期 是一种"档案级"的开头，它告诉读者"这一天值得记住"。配上 quietly 这种低音量副词，作者又暗示"当时没什么人注意"，等于给读者一种"我比当时的所有人都早一步看清"的视角，读起来很有特写感。',
+        '它最适合用在新闻特写、长报道、回顾性文章的第一句。要求事件本身确实有"小动作引发大后果"的反差；如果你写的是一件本就轰动的大事（地震、战争爆发），这个句式反而显得力气没用对。',
+        '一个隐藏要点：within 后面的时间单位要小（hours / days / a single weekend），才撑得起后半句"已经面目全非"的判断；写成 within a year，反差感立刻泄气。',
+      ],
+      examples: [
+        { context: '写一篇关于某款 App 突然走红的长报道开头', text: 'On a quiet Friday in October, a Korean studio quietly uploaded a free app to the App Store, and within a weekend half the country had downloaded it.', zh: '十月一个平静的周五，一家韩国工作室悄悄把一款免费 App 上传到了应用商店，一个周末过去，全国就有一半人下载了它。' },
+        { context: '科技评论开头', text: 'On May 14, the small chip company announced a single new feature, and within a day its stock had nearly doubled.', zh: '5 月 14 日，那家不大的芯片公司宣布了一个单一的新功能，仅一天之内，它的股价就几乎翻倍。', note: '具体日期 + quietly 风格的动词 + within a day 的拉满，让读者感到"小事掀大浪"。' },
+        { context: '生活观察类专栏', text: 'On a damp Tuesday in March, the city council quietly opened a single new bike lane, and within three months the entire neighbourhood had reorganised around it.', zh: '三月一个潮湿的周二，市政厅悄悄开通了一条新的自行车道，三个月之内，整个社区就围着它重新组织了起来。' },
+      ],
+      adaptingTip: '前半句的"低调动词"（quietly released / quietly uploaded / quietly opened）一定要选得有点反常，让读者觉得"这件事本不该这么安静地发生"。后半句的时间单位要小到让人觉得"快得不真实"，比如 hours / a weekend / three days 这种量级是上限。如果时间感不够紧，前后的反差就会塌掉。',
+      commonMistake: '不要写成 On March 25, 2025, OpenAI released a new image generator, and within a year the internet looked different。within a year 太长，读者立刻不觉得这是"突如其来"的事，反差不再成立。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把两种相反的反应并列：先写多数人看到的"简单原因"，再写另一群人看到的"更尖锐的问题"',
+      skeleton: 'For many [群体], [简单解读]: [展开]. For others, [同一个事物] raised [更尖锐的反应], one about [更深的议题].',
+      original: 'For many users, the appeal was simple: the Ghibli look softens almost anything, turning ordinary faces into characters who seem to belong in a kinder world. For others, the same images raised a sharper question, one about who actually owns a visual style.',
+      sentenceId: 's9',
+      whyItWorks: [
+        '这个句式靠"并列两个 For X"的对照来制造张力：前一句先承认大多数人的浅层感受（appeal was simple），后一句立刻把视角切到另一群人，提出一个更尖锐的问题。读者在第二句出现的瞬间会感到"原来同一件事还有另一面"，文章的层次马上立体起来。',
+        '对读者来说，作者用 For many… For others… 显得克制：他没有否定第一群人，而是承认两种反应都成立，只是把后一个更难的问题留给愿意继续读下去的人。这种"先肯定、再深化"的姿态比直接喊"但是问题在于……"温柔，也更可信。',
+        '它最适合用在长文的中部或议论文的转折段落。前文已经把基本事实摆清楚，这两句负责把"事实"分成两层解读，并把读者引向更深的那层。新闻特写、社科评论、影评里都很常见。',
+        '一个隐藏要点：For many 后面的解读必须是真的代表多数人的浅层感受，而不是稻草人。否则 For others 那一句的"尖锐问题"就像是凭空贬低别人，反而显得作者刻薄。',
+      ],
+      examples: [
+        { context: '关于短视频热潮的评论中段', text: 'For many viewers, the appeal was simple: short videos kill ten boring minutes. For others, the same feeds raised a quieter worry, one about what those ten minutes do to attention over a year.', zh: '对很多观众来说，吸引力其实很简单：短视频能消磨十分钟的无聊。而对另一些人来说，同样的信息流引出一种更安静的担忧：这十分钟，在一年的尺度上，会对注意力做什么。' },
+        { context: '关于一项新政策的评论', text: 'For many residents, the new rule felt fair: fewer cars near the school. For others, the same rule raised an older question, one about who in this city gets to drive at all.', zh: '对许多居民来说，这条新规则感觉是公平的：学校附近少一些车。而对另一些人来说，同样的这条规则引出一个更老的问题：在这座城里，到底谁还有资格开车。', note: '第二句不否定第一句，只是把问题往更深处推一层。' },
+        { context: '关于一部热门电影的影评', text: 'For many audiences, the film was easy to love: a beautiful ending, a clean moral. For others, the same ending raised a harder question, one about what the film chose not to show.', zh: '对很多观众来说，这部电影很容易让人爱上：漂亮的结尾，干净的道理。而对另一些人来说，同样的这个结尾提出了一个更难的问题：电影选择不去呈现的，是什么。' },
+      ],
+      adaptingTip: '前后两组 For X 的"群体名"要真的不同（many users vs others / 多数观众 vs 少数评论者），不要写成 For many vs for some 这种几乎一样的指代。第二句里的 a sharper / quieter / harder question 是这套句式的发力点，要选一个有方向感的形容词，单单写 a question 就泄气了。后面 one about… 接的议题要比第一句的"简单解读"明显更深一层，落差才成立。',
+    },
+    {
+      id: 'pt3',
+      useCase: '结尾抛出一个让事实"翻译成意义"的问题，用 when …, what is left for …? 收束',
+      skeleton: '… : when [某种新能力 / 新条件], what is left for [被这件事冲击的人 / 行业]?',
+      original: 'What lingered, after the images stopped scrolling by, was the question they forced into the open: when a style can be copied in seconds, what is left for the artists who built it?',
+      sentenceId: 's15',
+      whyItWorks: [
+        '这个结尾不再补新事实，而是把全文累积下来的紧张一次性兑换成一个真实的问句。冒号之后的 when … , what is left for …? 是一种"假设式提问"：先用 when 抛出一种新的现实条件（一种风格几秒就能被复制），再用 what is left for 把代价具体地落到某一群人身上。读者读到问号的那一刻，会自动开始替这群人想答案，文章的能量就传到了读者那里。',
+        'when 这个连词在这里承担两层任务：一是引出新现实，二是把这件事写成"已经发生、而非假设"。它比 if 更斩钉截铁，比 since 更克制。配上后半句的 what is left for …?，整句的语气是承认现实、但不放弃追问，正是结尾最需要的姿态。',
+        '它最适合用在评论、随笔、长报道的最后一句。前文已经讲清"发生了什么"，这一句负责把事实抬升到"它意味着什么"。注意它要求前文真的铺垫了"代价落在谁头上"，否则 what is left for X 就显得空喊。',
+        '一个隐藏要点：when 后面写的"新条件"必须是已经成立的事，不是潜在的趋势。如果你写 when AI might one day be able to copy a style，提问的紧迫感立刻泄掉。把它写成"已经可以"的现在时，整句才扛得住分量。',
+      ],
+      examples: [
+        { context: '关于流媒体冲击影院的评论结尾', text: 'The audience kept clapping, but the question stayed in the room: when a film can be watched in bed within a week, what is left for the people who built theatres to be cathedrals?', zh: '观众一直在鼓掌，但问题留在了那个房间里：当一部电影一周之内就能躺在床上看完，那些把影院建得像教堂的人，还剩下什么？' },
+        { context: '关于翻译软件冲击译者的评论结尾', text: 'The tool is faster, and that is no longer in doubt: when a contract can be translated in three seconds, what is left for the translators who learned the language for ten years?', zh: '这个工具更快，这一点已经没什么可争议的：当一份合同三秒钟就能翻完，那些花十年学一门语言的译者，还剩下什么？', note: '冒号前先承认事实（faster），冒号后用 when …, what is left for … 把代价落到具体人身上。' },
+        { context: '关于配音演员被 AI 替代的评论结尾', text: 'The studio said the change was small, but the question outlasted the headline: when a voice can be cloned from a single line, what is left for the actors who lent it for a living?', zh: '工作室说这次调整不大，但问题比头条活得更久：当一个声音可以从一句话里被复制出来，那些把嗓音当作生计的演员，还剩下什么？' },
+      ],
+      adaptingTip: 'when 后面写的"新条件"动词要用现在时（can be copied / can be translated / can be cloned），暗示这件事已经成立。what is left for 后面的对象要写得具体（艺术家 / 译者 / 配音演员），最好再用一个 who 从句点明他们的代价（who built it / who learned for ten years），否则读者无法替他们想答案。这是结尾模板，整篇文章前面要有铺垫，不能直接放在开头。',
+      commonMistake: '不要写成 when a style could one day be copied in seconds, what is left for the artists?。一旦 when 后面用了 could one day，事件的紧迫感被推到未来，问题就失去了重量。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what did OpenAI release on March 25, 2025?', options: ['A new chatbot called Ghibli', 'A new native image generator inside ChatGPT', 'A subscription tier for animation studios', 'A partnership with Studio Ghibli'], answer: 1, explanation: 'The first sentence states that OpenAI quietly released a new image generator inside ChatGPT on that date.', sentenceId: 's1' },
+    { id: 'q2', q: 'How did Sam Altman describe the load that the trend put on OpenAI?', options: ['That the GPUs were "melting"', 'That the servers were "yawning"', 'That the system was "fully fine"', 'That the company was "delighted"'], answer: 0, explanation: 'The article quotes Altman joking that the company\'s GPUs were "melting" under the load.', sentenceId: 's5' },
+    { id: 'q3', q: 'Why does the article bring up Miyazaki\'s 2016 comment about AI?', options: ['Because Studio Ghibli posted it on social media', 'Because Miyazaki repeated it on TV in 2025', 'Because users circulated the old clip while Studio Ghibli itself stayed silent', 'Because OpenAI quoted it in its launch post'], answer: 2, explanation: 'The article says Studio Ghibli stayed silent, and that what people shared instead was the older clip of Miyazaki calling AI animation an insult to life itself.', sentenceId: 's11' },
+    { id: 'q4', q: 'What broader question does the article say the trend forced into the open?', options: ['Whether ChatGPT should be free', 'Whether anime is good for children', 'Who actually owns a visual style', 'Whether White House posts should be moderated'], answer: 2, explanation: 'The article frames the deeper question as being about who actually owns a visual style.', sentenceId: 's9' },
+    { id: 'q5', q: 'How does the writer seem to feel about the events of that week?', options: ['Annoyed at users for joining the trend', 'Worried, and unwilling to let the question drop', 'Bored by another tech launch', 'Sure that nothing has really changed'], answer: 1, explanation: 'The closing line keeps pressing the question of what is left for the artists who built the style, suggesting the writer is uneasy and not ready to move on.', sentenceId: 's15' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'OpenAI 发布新工具的日期', answer: 'March 25, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '这款新工具的正式名称', answer: 'GPT-4o native image generation', sentenceId: 's3' },
+      { id: 'ig3', cueZh: 'Sam Altman 形容 GPU 状态的那个词', answer: 'melting', sentenceId: 's5' },
+      { id: 'ig4', cueZh: '官方白宫账号发图的日期', answer: 'March 27', sentenceId: 's7' },
+      { id: 'ig5', cueZh: '吉卜力工作室在这场风暴中的态度', answer: 'completely silent', sentenceId: 's10' },
+      { id: 'ig6', cueZh: '宫崎骏 2016 年那句话的原文', answer: 'an insult to life itself', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '一周里律师们争论的话题', answer: 'copyright', sentenceId: 's13' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 80 词的短文，向一个没听过这件事的朋友介绍这场"吉卜力 AI 风暴"：发生了什么、规模如何、为什么有人觉得不安。结尾要用一个问句收束。',
+      promptEn: 'Using the facts in your table, write about 80 words telling a friend who missed it what the "Ghibli AI storm" was: what happened, how big it got, and why some people were uneasy. End on a question.',
+      targetWords: 80,
+      starters: ['On March 25, 2025, OpenAI quietly released ...', 'What lingered, after the trend cooled down, was ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'On March 25, 2025, OpenAI quietly released a new image generator inside ChatGPT, and within hours feeds everywhere filled with Ghibli-style portraits. Sam Altman joked that the GPUs were "melting." By March 27, even the White House had posted one. Studio Ghibli itself stayed completely silent, and people instead shared an old clip of Miyazaki calling AI an insult to life itself. When a style can be copied in seconds, what is left for the artists who built it?',
+      modelAnswerZh:
+        '2025 年 3 月 25 日，OpenAI 悄悄在 ChatGPT 里上线了一款新的图像生成器，几小时之内，各处的信息流就被吉卜力风格的肖像塞满。Sam Altman 开玩笑说 GPU"快要熔化了"。到 3 月 27 日，连白宫都发了一张。吉卜力工作室本身始终保持沉默，人们转发的是一段宫崎骏的老视频，他在里面把 AI 称作"对生命本身的侮辱"。当一种风格可以在几秒钟里被复制，那些亲手创造它的艺术家，还剩下什么？',
+    },
+  },
+};

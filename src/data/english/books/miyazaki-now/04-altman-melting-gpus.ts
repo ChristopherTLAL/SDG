@@ -1,0 +1,242 @@
+// Miyazaki Now book, Ch.4: Sam Altman, the Ghibli-style image storm, and what "melting GPUs" really means (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-03-27',
+    title: 'When the Servers Melted',
+    titleZh: '当服务器「融化」',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/04-altman-melting-gpus.mp3',
+    wordCount: 326,
+    readingMinutes: 5,
+    editorsNote:
+      'In late March 2025, a fresh ChatGPT image feature turned half the internet into Ghibli-style portraits, and Sam Altman said his servers were "melting." This chapter unpacks what that phrase really means, why a cute trend stressed a serious datacenter, and why this single weekend marked a turning point for image-generation demand.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On March 27, 2025, Sam Altman, the chief executive of OpenAI, posted a short message that quickly went around the world.', zh: '2025 年 3 月 27 日，OpenAI 首席执行官 Sam Altman 发了一条很短的消息，这条消息很快传遍了世界。' },
+        { id: 's2', en: 'Demand for the new image feature in ChatGPT, he wrote, was so intense that the company\'s GPUs were "melting."', zh: '他写道，ChatGPT 新图像功能的需求太过强烈，公司的 GPU 正在「融化」。' },
+        { id: 's3', en: 'To slow things down, OpenAI was bringing back temporary rate limits.', zh: '为了让节奏缓一缓，OpenAI 重新启用了临时的频次限制。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The cause was a feature that had been live for less than a week.', zh: '起因是一个上线还不到一周的功能。' },
+        { id: 's5', en: 'A new model inside ChatGPT could turn any photo into a soft, hand-drawn image in the style of Studio Ghibli, the Japanese animation house behind Spirited Away and My Neighbor Totoro.', zh: '一个嵌在 ChatGPT 里的新模型，可以把任何照片变成带着柔光、手绘感的图像，风格仿照吉卜力工作室，这家日本动画公司制作过《千与千寻》和《龙猫》。' },
+        { id: 's6', en: 'Within hours, users had pushed millions of family photos, selfies, and pet pictures through the tool.', zh: '不过几小时，用户就把几百万张全家福、自拍和宠物照片塞了进去。' },
+        { id: 's7', en: 'Even Altman, who is usually careful about brand image, swapped his own profile picture for a Ghibli-style version of his face.', zh: '就连一向注意品牌形象的 Altman，也把自己头像换成了一张吉卜力风的脸。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'What Altman called "melting" is not, of course, literal.', zh: 'Altman 所说的「融化」，当然不是字面意思。' },
+        { id: 's9', en: 'A GPU, or graphics processing unit, is a kind of chip used to run large AI models, and modern datacenters stack thousands of them in tightly cooled rooms.', zh: 'GPU，即图形处理器，是一种用来运行大型 AI 模型的芯片，现代数据中心会在严密冷却的机房里堆放上千块这样的芯片。' },
+        { id: 's10', en: 'Each image request burns through a lot of computation, and image generation is far heavier than ordinary text chat.', zh: '每一次出图请求都会消耗大量算力，出图比普通的文字对话要重得多。' },
+        { id: 's11', en: 'When too many requests arrive at once, the servers cannot draw enough power, the cooling cannot keep up, and the only safe move is to throttle traffic.', zh: '当请求一齐涌来，服务器拉不到足够的电，制冷也跟不上，唯一安全的做法就是限流。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'A few days later, on March 31, ChatGPT went down for several hours, and image generation was the slowest service to recover.', zh: '几天后的 3 月 31 日，ChatGPT 出现了几个小时的故障，而图像生成是最慢恢复的功能。' },
+        { id: 's13', en: 'For a company that had spent years promising endless scale, this was an unusual public admission of a hard limit.', zh: '对一家多年来一直承诺「无限扩展」的公司而言，这是一次不太常见的公开承认：我们撞上了一堵硬墙。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'What this weekend showed was something the industry had been quietly expecting.', zh: '这个周末真正暴露出来的，是行业内部已经悄悄预料到的事。' },
+        { id: 's15', en: 'Image demand, once a niche use of AI, can scale faster than any company can build datacenters.', zh: '图像需求曾经是 AI 的小众应用，如今可以比任何公司建机房的速度都快地增长。' },
+        { id: 's16', en: 'Cute trends, it turns out, are not soft on hardware.', zh: '事实证明，可爱的潮流并不会对硬件手下留情。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'Looking back, the Ghibli weekend was not just a viral moment.', zh: '现在回头看，那个「吉卜力周末」并不只是一次网络爆梗。' },
+        { id: 's18', en: 'It was the day a generation realized that its toys quietly share a power grid with everything else.', zh: '它是新一代人忽然意识到的那一天：他们的「玩具」正悄悄和别的一切共用同一张电网。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'message', lemma: 'message', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈmesɪdʒ/', defZh: '消息；信息', defEn: 'a short piece of written communication', example: 'She left a quick message on the office board.', exampleZh: '她在公司公告栏留了一条简短的消息。' },
+    { id: 'v2', word: 'intense', lemma: 'intense', sentenceId: 's2', level: 3, pos: 'adj.', ipa: '/ɪnˈtens/', defZh: '强烈的；密集的', defEn: 'extreme in degree or strength', example: 'The pressure on first-year doctors is famously intense.', exampleZh: '一年级住院医师承受的压力出了名地大。' },
+    { id: 'v3', word: 'temporary', lemma: 'temporary', sentenceId: 's3', level: 2, pos: 'adj.', ipa: '/ˈtempərəri/', defZh: '临时的；暂时的', defEn: 'lasting only for a short time', example: 'The bridge is a temporary fix until the new one opens.', exampleZh: '这座桥只是临时方案，新桥开通前先用着。' },
+    { id: 'v4', word: 'feature', lemma: 'feature', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/ˈfiːtʃə(r)/', defZh: '功能；特性', defEn: 'a part or function of a product', example: 'The new phone\'s most useful feature is a brighter screen.', exampleZh: '这部新手机最实用的功能是一块更亮的屏幕。' },
+    { id: 'v5', word: 'style', lemma: 'style', sentenceId: 's5', level: 1, pos: 'n.', ipa: '/staɪl/', defZh: '风格；样式', defEn: 'a recognizable way of doing or making something', example: 'Her cooking style draws from her grandmother\'s recipes.', exampleZh: '她的烹饪风格借鉴了祖母的菜谱。' },
+    { id: 'v6', word: 'pushed', lemma: 'push', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/pʊʃt/', defZh: '推送；塞进', defEn: 'sent or forced through a system', example: 'Editors pushed dozens of drafts through the review tool that night.', exampleZh: '那天晚上编辑们把几十份草稿塞进了评审工具。' },
+    { id: 'v7', word: 'profile', lemma: 'profile', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/ˈprəʊfaɪl/', defZh: '个人资料；侧脸', defEn: 'a short public description of a person online', example: 'He updated his profile right after the promotion.', exampleZh: '升职之后他立刻更新了个人资料。' },
+    { id: 'v8', word: 'literal', lemma: 'literal', sentenceId: 's8', level: 3, pos: 'adj.', ipa: '/ˈlɪtərəl/', defZh: '字面的；本意的', defEn: 'meaning the exact words, not symbolic', example: 'When she said she was starving, the meaning was not quite literal.', exampleZh: '她说自己「快饿死了」，意思并不完全是字面上的。' },
+    { id: 'v9', word: 'chip', lemma: 'chip', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/tʃɪp/', defZh: '芯片', defEn: 'a small electronic component that processes data', example: 'The factory makes one chip every two seconds.', exampleZh: '这家工厂每两秒生产一块芯片。' },
+    { id: 'v10', word: 'stack', lemma: 'stack', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/stæk/', defZh: '堆放；摞起来', defEn: 'to arrange things on top of each other', example: 'Workers stack the crates against the back wall every evening.', exampleZh: '工人们每天傍晚把板条箱堆到后墙边上。' },
+    { id: 'v11', word: 'burns', lemma: 'burn', sentenceId: 's10', level: 3, pos: 'v.', ipa: '/bɜːnz/', defZh: '消耗（资源）；烧掉', defEn: 'uses up quickly (often of resources)', example: 'A long film shoot burns money faster than the budget can plan.', exampleZh: '一场长时间的拍摄烧钱的速度比预算计划还要快。' },
+    { id: 'v12', word: 'computation', lemma: 'computation', sentenceId: 's10', level: 4, pos: 'n.', ipa: '/ˌkɒmpjuˈteɪʃn/', defZh: '计算；算力', defEn: 'the act or amount of calculation a computer does', example: 'Weather forecasting needs huge amounts of computation.', exampleZh: '天气预报需要海量的计算。' },
+    { id: 'v13', word: 'throttle', lemma: 'throttle', sentenceId: 's11', level: 4, pos: 'v.', ipa: '/ˈθrɒtl/', defZh: '限流；控制流量', defEn: 'to slow down or restrict the flow of something', example: 'The platform had to throttle uploads during the live event.', exampleZh: '直播期间该平台不得不对上传进行限流。' },
+    { id: 'v14', word: 'recover', lemma: 'recover', sentenceId: 's12', level: 2, pos: 'v.', ipa: '/rɪˈkʌvə(r)/', defZh: '恢复；复原', defEn: 'to return to a normal state', example: 'It took the website two hours to recover after the crash.', exampleZh: '崩溃之后，网站花了两个小时才恢复正常。' },
+    { id: 'v15', word: 'admission', lemma: 'admission', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/ədˈmɪʃn/', defZh: '承认；坦白', defEn: 'a statement that something is true, often reluctantly', example: 'The report was a quiet admission that earlier promises had been too bold.', exampleZh: '这份报告等于在悄悄承认，之前的承诺说得太满了。' },
+    { id: 'v16', word: 'scale', lemma: 'scale', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/skeɪl/', defZh: '规模；扩展能力', defEn: 'the size or growth potential of something', example: 'Tools that work for ten users often fail at the scale of ten million.', exampleZh: '能服务十个用户的工具，在一千万用户的规模上常常就撑不住了。' },
+    { id: 'v17', word: 'niche', lemma: 'niche', sentenceId: 's15', level: 4, pos: 'adj.', ipa: '/niːʃ/', defZh: '小众的；细分市场的', defEn: 'aimed at a small, specialist group', example: 'Hand-bound notebooks remain a niche product for serious writers.', exampleZh: '手工装订的笔记本仍然是面向严肃写作者的小众产品。' },
+    { id: 'v18', word: 'soft', lemma: 'soft', sentenceId: 's16', level: 1, pos: 'adj.', ipa: '/sɒft/', defZh: '温和的；手下留情的', defEn: 'gentle or easy on something', example: 'The new judge is anything but soft on careless drivers.', exampleZh: '这位新法官对马虎驾驶的司机绝不手软。' },
+    { id: 'v19', word: 'viral', lemma: 'viral', sentenceId: 's17', level: 3, pos: 'adj.', ipa: '/ˈvaɪrəl/', defZh: '病毒式传播的；爆火的', defEn: 'spreading very quickly online', example: 'A short clip of the speech went viral overnight.', exampleZh: '演讲的一个短片段一夜之间爆火。' },
+    { id: 'v20', word: 'grid', lemma: 'grid', sentenceId: 's18', level: 3, pos: 'n.', ipa: '/ɡrɪd/', defZh: '电网；网格', defEn: 'a network that supplies electricity to a region', example: 'A heatwave puts the whole grid under strain.', exampleZh: '一场热浪会让整张电网承压。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 so ... that ... 把「太……以至于」一句话说清',
+      pattern: 'so + 形容词/副词 + that + 后果分句',
+      sentenceIds: ['s2'],
+      explanationZh: [
+        '中文里说「需求太强了，结果 GPU 都受不了」时，常常忍不住写成两个独立句子。英文里有一个非常顺手的结构，把「程度」和「后果」直接焊在一起：so 加形容词或副词，再接 that 引出后果分句。它的好处是一句话就把因果讲完，节奏紧凑。',
+        '看第 2 句：Demand … was so intense that the company\'s GPUs were "melting."。so intense 是程度词，that 引出真正想报道的后果（GPU 在「融化」）。把它拆成两句也能写，但英文新闻特写里更喜欢用这种合并版，因为读者一眼就能看到「程度 → 后果」的逻辑。',
+        '什么时候用：报道一个让人惊讶的现象，要在同一句里同时给出强度和影响时最合适。它特别适合开头段，因为信息密度高，又不显得啰嗦。议论文、新闻特写、个人陈述里都常出现。',
+        '一个隐藏细节：that 是可以省略的，写成 The demand was so intense the GPUs were melting 也对，但在正式书面语里通常保留 that，因为它让分句边界更清楚，读起来不容易卡。',
+      ],
+      examples: [
+        { en: 'The line outside the bakery was so long that some customers gave up and walked home.', zh: '面包店外的队太长了，一些顾客干脆放弃，回家了。' },
+        { en: 'She spoke so quietly that the people at the back asked her to start again.', zh: '她说话太小声，后排的人请她重新讲一遍。', note: '副词 quietly 后面接 that，从句给出「重新讲」这个后果。' },
+        { en: 'The film was so unexpected that critics needed a week to agree on what it was about.', zh: '这部电影太出人意料，影评人花了一周才在「它到底讲什么」这件事上达成一致。' },
+        { en: 'Traffic moved so slowly that I finished an entire podcast on the way home.', zh: '路上车开得太慢，我一路上居然听完了一整集播客。' },
+        { en: 'Their first product was so cheap that no one believed it would work.', zh: '他们的第一款产品便宜得让人不敢相信它真能用。' },
+      ],
+      commonMistake: '不要写成 The demand was so intense, that the GPUs were melting，在 so ... that 中间不需要逗号；逗号会切断「程度 → 后果」的连贯感，让句子读起来像两件事。',
+      vsSimilar: 'so ... that 和 such ... that 都表「太……以至于」，但 so 后面接形容词或副词（so intense），such 后面接名词短语（such intense demand）。一句之内只用一种，别把两个混着用。',
+    },
+    {
+      id: 'g2',
+      title: '用逗号补一句说明，让陌生术语自带解释',
+      pattern: '名词, 简短补充, 句子继续',
+      sentenceIds: ['s1', 's5', 's9'],
+      explanationZh: [
+        '一篇科技稿里，常会出现一些读者未必熟的名字或术语。新手写法是再起一句解释：A GPU is a kind of chip. It is used to run AI models. 这样断断续续，读起来很碎。英文里更顺的做法是把解释嵌进两个逗号之间，让它紧贴在被解释的词后面，这叫「同位语」。',
+        '看第 1 句：Sam Altman, the chief executive of OpenAI, posted ...。两个逗号之间的 the chief executive of OpenAI 是对前面 Sam Altman 的补充。第 5 句 Studio Ghibli, the Japanese animation house behind Spirited Away ... 同样在引入一个读者可能不熟的机构时立刻补上身份。第 9 句 A GPU, or graphics processing unit, ... 则用 or 加同位语把缩写词展开。',
+        '什么时候用：当你要顺手介绍人名、公司名、缩写、专业术语时最好用。它能让段落信息量大却不显得突兀，新闻、科技特写、留学文书里都很常见。',
+        '一个容易忽略的细节：两个逗号必须成对出现。开头点开了逗号补充，结尾必须有第二个逗号把句子收回主干。少一个，整句就读不通。',
+      ],
+      examples: [
+        { en: 'Reykjavik, the capital of Iceland, sits within sight of an active volcano.', zh: '冰岛首都雷克雅未克坐落在一座活火山的视线之内。' },
+        { en: 'Our lead engineer, a former physics teacher, designed the prototype in two weeks.', zh: '我们的首席工程师曾是一名物理老师，他在两周内做出了原型。' },
+        { en: 'The CFA, or Chartered Financial Analyst exam, is taken in three stages.', zh: 'CFA，即特许金融分析师考试，分三个阶段进行。', note: '用 or 加同位语把缩写词展开，是科技和金融报道里非常常见的写法。' },
+        { en: 'The lab\'s newest member, an undergraduate from Beijing, ran the first successful trial.', zh: '实验室最新加入的成员是一名来自北京的本科生，正是她跑出了第一次成功的实验。' },
+        { en: 'My grandmother\'s village, a small place in the south of France, has only one shop.', zh: '我祖母的村子是法国南部一个很小的地方，那里只有一家商店。' },
+      ],
+      commonMistake: '不要只写一半：A GPU, or graphics processing unit is a kind of chip ...（漏了第二个逗号）。同位语结束后必须再加一个逗号，把句子接回主干，否则读起来像没说完。',
+    },
+    {
+      id: 'g3',
+      title: '把 What 开头当主语，把「真正暴露的东西」往后送',
+      pattern: 'What + 从句 + be + 真正要强调的内容',
+      sentenceIds: ['s14'],
+      explanationZh: [
+        '想强调某件事「真正暴露出来的」是什么，中文里会说「这件事真正暴露的是……」。英文里有一个对应的结构：让 What 引导的从句来当主语，把要强调的内容放到 be 之后。这就是常说的 what-cleft。',
+        '看第 14 句：What this weekend showed was something the industry had been quietly expecting。普通版会写成 This weekend showed something the industry had been quietly expecting，意思一样，但重点就被埋在中间了。改成 what-cleft 之后，be 后面的内容（something … quietly expecting）被推到句末，自然得到聚光灯。',
+        '什么时候用：每当你想说「真正重要的不是表面那件事，而是它背后的 X」时最合适。它在评论文、专栏、新闻特写的承转句里出现得特别多，用来从描述拉到分析。',
+        '一个容易出错的小点：what-cleft 里的 be 永远跟着 what 从句的逻辑主语一致，通常是单数：What we lost is …，不是 are。哪怕后面接的是复数名词，是依然保持单数。',
+      ],
+      examples: [
+        { en: 'What surprised me most was how quickly the room emptied after the announcement.', zh: '最让我意外的，是消息一公布，房间就空得那么快。' },
+        { en: 'What the survey actually measures is willingness to recommend, not loyalty.', zh: '这份调查真正测的是推荐意愿，不是忠诚度。', note: '用 what-cleft 顺势纠正读者可能的误解，比直接说 "actually it measures ..." 更有重量。' },
+        { en: 'What young workers want is not just higher pay but a more flexible schedule.', zh: '年轻员工想要的，不只是更高的工资，还有更灵活的时间安排。' },
+        { en: 'What the photo missed was the small note pinned to the wall behind her.', zh: '这张照片漏掉的，是她身后墙上别着的一张小纸条。' },
+        { en: 'What this delay really shows is how thin the supply chain has become.', zh: '这次延误真正反映出来的，是供应链已经多么脆弱。' },
+      ],
+      commonMistake: '不要写成 What we lost are luxuries（把 are 用复数）。what-cleft 里的 be 紧跟 what 从句，永远单数。即使后面接的是 luxuries 这种复数名词，也只能用 is 或 was。',
+      vsSimilar: 'What-cleft 和 It-cleft 都用来强调，但聚焦的单位不同。What this weekend showed was X 把焦点放在 X（事物本身）上；It was this weekend that showed X 把焦点放在「这个周末」（时间）上。先想清楚你要强调的是「东西」还是「时间」。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '点出一个看起来夸张的说法，先承认它不是字面意思，再解释真相',
+      skeleton: 'What [人] called "[夸张说法]" is not, of course, literal.',
+      original: 'What Altman called "melting" is not, of course, literal.',
+      sentenceId: 's8',
+      whyItWorks: [
+        '这个句式的妙处在节奏：它先重复读者刚刚读到的那个夸张说法（这里是 "melting"），让人在脑子里再听一遍，然后用一句平静的 is not, of course, literal 把它「降温」。一冷一热的对照，让读者愿意往下读真正的解释。',
+        '对读者来说，of course 三个字是关键。它没有把对方说成幼稚，而是顺势把读者也拉进同一阵营：「咱们当然都知道这不是字面意思。」这种共谋感比直接反驳客气得多，也更有作者自信。',
+        '它最适合用在一个段落的开头，专门负责把上一段抛出的夸张说法落地、解释清楚。新闻特写、科普文章、专栏评论里，每当作者要在一个比喻和一组数据之间切换时，都很好用。',
+        '一个隐藏前提：被引号包起来的那个词必须真的让人有「这听上去太夸张」的反应（melting / drowning / collapsing 这种）。如果原说法本身就很平淡，硬套这个句式反而显得作者在没事找事。',
+      ],
+      examples: [
+        { context: '科普文章解释比喻', text: 'What scientists call a "memory" inside a single cell is not, of course, literal.', zh: '科学家们说单个细胞里有「记忆」，当然不是字面意思。' },
+        { context: '财经评论反驳标题党', text: 'What the headline called a "collapse" of the rental market is not, of course, literal.', zh: '那则标题把租房市场说成「崩塌」，当然不是字面上的崩塌。', note: '用引号还原对方的原词，再用 of course, literal 顺势纠偏，态度克制但有立场。' },
+        { context: '体育专栏', text: 'What the coach called a "war" with the visiting team is not, of course, literal.', zh: '教练把和客队的对决说成一场「战争」，当然不是字面上的。' },
+      ],
+      adaptingTip: '引号里的词一定要选一个读者已经被反复看到、本身有视觉冲击力的说法（melting / war / collapse / drowning）。of course 不要省，它是让句子保持克制的关键；少了它，整句会从「冷静解释」掉到「居高临下纠正」。这一句之后，紧跟一句平实的真相解释，反差才完整。',
+      commonMistake: '不要把引号里换成中性词，比如 What the report called a "decline" is not, of course, literal（decline 本身不夸张，没人会把它当字面意思读）。这种情况下用这个句式会显得作者在和稻草人吵架。',
+    },
+    {
+      id: 'pt2',
+      useCase: '描写一个连锁失败：当 X 同时发生，唯一能做的就是 Y',
+      skeleton: 'When [触发事件], [系统反应 1], [系统反应 2], and the only safe move is to [收尾动作].',
+      original: 'When too many requests arrive at once, the servers cannot draw enough power, the cooling cannot keep up, and the only safe move is to throttle traffic.',
+      sentenceId: 's11',
+      whyItWorks: [
+        '这个句式靠节奏取胜：When 引出触发条件，中间用两个并排的、句法相似的短句把连锁反应一层层铺出来（the servers cannot ..., the cooling cannot ...），最后用 the only safe move is to ... 把整串压力收成一个动作。先膨胀、再收紧，读起来像看一段慢动作。',
+        '对读者来说，两个并排短句的相似结构是关键。它让因果像列清单一样被一项项确认，作者并没有大声告诉你「这很严重」，但你已经在心里数清了有几件事在同时崩。等到 the only safe move 出现时，结论的分量已经自动到位。',
+        '它最适合放在解释性段落的中段：你刚刚抛出一个抽象概念（限流、熔断、系统冻结），需要用一句话把它的画面具体化。科技解释、医学科普、商业评论都常用。',
+        '一个隐藏要点：中间的并排短句最好不要超过三个，否则节奏会塌。两个最稳，三个紧凑，四个开始拖。',
+      ],
+      examples: [
+        { context: '医学科普解释急救', text: 'When the lungs cannot take in enough air, the heart rate climbs, the lips turn blue, and the only safe move is to call an ambulance.', zh: '当肺部无法吸入足够的空气，心率会上升，嘴唇会发紫，唯一安全的做法就是叫救护车。' },
+        { context: '商业评论解释市场踩踏', text: 'When too many sellers head for the exit at once, prices fall faster than buyers can react, liquidity dries up, and the only safe move is to halt trading.', zh: '当太多卖家同时夺路而出，价格下落的速度快过买家的反应，流动性枯竭，唯一安全的做法就是暂停交易。', note: '两个并排短句各自描写一种连锁反应，最后用 the only safe move is to ... 把张力收紧。' },
+        { context: '户外探险写作', text: 'When the cloud rolls in fast, the trail markers disappear, the temperature drops, and the only safe move is to set up camp where you stand.', zh: '当云层迅速压下来，路标消失，气温骤降，唯一安全的做法就是就地扎营。' },
+      ],
+      adaptingTip: '中间的两个并排短句要保持句法一致：要么都是 the X cannot ...，要么都是 the X starts to ...，这样节奏才统一。如果你需要写一段「连锁危机」的画面，这个句式可以一次性把铺垫和收口都做掉，但同一篇文章里别用第二次，否则节奏会被反复识别出来。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾升华：把刚刚讲完的事件，重新框定为「真正发生的那一刻」',
+      skeleton: 'It was the day [一群人] realized that [一个之前没意识到的真相].',
+      original: 'It was the day a generation realized that its toys quietly share a power grid with everything else.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个收尾句靠的是「时间锚定 + 集体意识」。It was the day 把某件具体的事件直接钉成一个历史时刻，比说 it was an important moment 重得多；接着 a generation realized 把范围从「某些用户」扩到「一整代人」，气势又被推上一档。',
+        '对读者来说，realized 是关键动词。它暗示这件事不是被告知的，而是大家在某个时刻自己「忽然看明白了」。这种「自己看明白」的描写比作者直接下结论更可信，读者会觉得「这是我也意识到的」，不会有被说教的感觉。',
+        '它适合放在新闻特写、随笔、文化评论的最后一句，用来把一个具体事件升格为时代标志。你前面已经把事实交代清楚，这一句负责把读者带出去，留下一句他们愿意截图分享的话。',
+        '一个隐藏前提：that 后面的真相必须是文章前面真的铺垫过的，不能凭空拔高。文中第 18 句之所以站得住，是因为前面已经用第 9 到 13 句解释了「图像生成会拉穿电网」这件事；最后一句只是把这一线索翻译成了集体觉醒。',
+      ],
+      examples: [
+        { context: '气候报道收尾', text: 'It was the day a coastal town realized that its sea wall had quietly become its main street.', zh: '正是这一天，这座海滨小镇意识到，海堤已经不知不觉成了它的主街道。' },
+        { context: '科技专栏收尾', text: 'It was the day many readers realized that the assistant in their pocket already knew their schedule better than they did.', zh: '正是这一天，许多读者意识到，他们口袋里那个助理，已经比他们自己更清楚他们的日程。', note: '把「助理比你更懂你」这件事钉成集体觉醒的一刻，比直接评论更有重量。' },
+        { context: '体育长篇收尾', text: 'It was the day a city realized that its team had stopped being the underdog and become the favorite.', zh: '正是这一天，这座城市意识到，它的球队已经不再是黑马，而是夺冠热门。' },
+      ],
+      adaptingTip: '主语「一群人」一定要选有真正集体感的词（a generation / a city / a country / a profession），别用 some people 这种轻飘的说法，气势会立刻泄掉。that 后面的真相最好是「之前作者已经一点点铺过」的东西，让最后这一句像顺势揭面，而不是临时升华。这是收尾模板，别在中段使用。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what did Sam Altman post on March 27, 2025?', options: ['That OpenAI was closing the image feature for good', 'That demand was so intense the GPUs were "melting" and rate limits were coming back', 'That ChatGPT had just released a new text model', 'That he was leaving the company'], answer: 1, explanation: 'The opening paragraph says Altman wrote that demand for the new image feature was so intense the GPUs were "melting," and that OpenAI was bringing back temporary rate limits.', sentenceId: 's2' },
+    { id: 'q2', q: 'What did the new ChatGPT feature actually do?', options: ['It turned photos into images in the style of Studio Ghibli', 'It generated full-length anime films', 'It removed people from photos automatically', 'It translated Japanese cartoons into English'], answer: 0, explanation: 'The article says the new model could turn any photo into a soft, hand-drawn image in the style of Studio Ghibli.', sentenceId: 's5' },
+    { id: 'q3', q: 'According to the article, why does heavy image demand strain a datacenter?', options: ['Because GPUs literally melt at high temperatures', 'Because each image request uses a lot of computation and the cooling cannot keep up', 'Because users send too many text messages at once', 'Because OpenAI runs out of graphic designers'], answer: 1, explanation: 'The article explains that each image request burns through a lot of computation, and when too many requests arrive at once the cooling cannot keep up.', sentenceId: 's11' },
+    { id: 'q4', q: 'Why does the writer call OpenAI\'s rate limits an "unusual public admission"?', options: ['Because OpenAI had previously kept all news secret', 'Because OpenAI had spent years promising endless scale', 'Because rate limits are illegal', 'Because users never noticed the slowdown'], answer: 1, explanation: 'The article frames the admission as unusual because OpenAI had spent years promising endless scale, and now had to publicly admit a hard limit.', sentenceId: 's13' },
+    { id: 'q5', q: 'What is the writer\'s main point in the closing paragraph?', options: ['That AI image features are dangerous and should be banned', 'That Ghibli films are overrated', 'That a viral trend revealed how AI toys share infrastructure with everything else', 'That OpenAI will soon move out of the image business'], answer: 2, explanation: 'The closing line frames the weekend as the day a generation realized its AI "toys" quietly share a power grid with everything else.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'Sam Altman 发帖的具体日期', answer: 'March 27, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: 'Altman 当时担任的职位', answer: 'chief executive of OpenAI', sentenceId: 's1' },
+      { id: 'ig3', cueZh: 'Altman 用来形容 GPU 状态的那个词', answer: 'melting', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '为了缓压公司启用的临时措施', answer: 'rate limits', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '新功能模仿的动画工作室名称', answer: 'Studio Ghibli', sentenceId: 's5' },
+      { id: 'ig6', cueZh: 'ChatGPT 出现长时间故障的日期', answer: 'March 31', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '故障中最慢恢复的服务', answer: 'image generation', sentenceId: 's12' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位不太懂 AI 的朋友解释那个「吉卜力周末」：发生了什么、Altman 说了什么、为什么这件事值得记住。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining the "Ghibli weekend" to a friend who does not follow AI news: what happened, what Altman said, and why the moment is worth remembering.',
+      targetWords: 70,
+      starters: ['On March 27, 2025, Sam Altman, the chief executive of OpenAI, ...', 'What this weekend showed was ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'On March 27, 2025, Sam Altman, the chief executive of OpenAI, said demand for a new Ghibli-style image feature was so intense that the company\'s GPUs were "melting," and ChatGPT had to bring back rate limits. What Altman called "melting" is not, of course, literal. It was the day a generation realized that its cute AI toys quietly share a power grid with everything else.',
+      modelAnswerZh:
+        '2025 年 3 月 27 日，OpenAI 首席执行官 Sam Altman 说，新的吉卜力风图像功能需求太过强烈，公司的 GPU 正在「融化」，ChatGPT 不得不重新启用频次限制。Altman 所说的「融化」当然不是字面意思。正是这一天，新一代人意识到，他们那些可爱的 AI「玩具」正悄悄和别的一切共用同一张电网。',
+    },
+  },
+};

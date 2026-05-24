@@ -1,0 +1,245 @@
+// Miyazaki Now book, Ch.12: Goro Miyazaki, his father's company, and the succession question Ghibli has quietly answered (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-10-20',
+    title: 'The Son Who Could Have Run Ghibli',
+    titleZh: '本可以接手吉卜力的儿子',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/12-goro-question.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      "Hayao Miyazaki has a son who has already directed three Ghibli films, runs the Ghibli Park project, and could have taken over the studio years ago. He has chosen not to. This chapter looks at what Goro Miyazaki has said about that choice, and why succession at a small art studio is so much harder than it looks from outside.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In October 2024, a quiet interview reminded readers of an awkward question that Studio Ghibli had spent years not quite answering.', zh: '2024 年 10 月，一场低调的采访让读者想起了一个吉卜力工作室多年来一直没有正面回应的尴尬问题。' },
+        { id: 's2', en: 'The studio had just announced a new behind-the-scenes documentary about Ghibli Park, and the spotlight returned to the man running the park: Goro Miyazaki, the son of Hayao.', zh: '工作室刚刚宣布将推出一部关于吉卜力主题公园的幕后纪录片，于是聚光灯再次落到了运营这座公园的人身上：宫崎吾朗，宫崎骏的儿子。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'Goro is not new to the family business.', zh: '吾朗对家里的这门生意并不陌生。' },
+        { id: 's4', en: 'He has directed three Ghibli films, Tales from Earthsea, From Up on Poppy Hill, and Earwig and the Witch, the last of them shot entirely in 3D computer animation.', zh: '他已经执导过三部吉卜力作品：《地海战记》《虞美人盛开的山坡》和《阿雅与魔女》，其中最后一部全程使用 3D 电脑动画拍摄。' },
+        { id: 's5', en: 'He also led the design of Ghibli Park, which opened in stages from 2022 and added its dreamlike Valley of Witches area in March 2024.', zh: '他还主导了吉卜力主题公园的设计，公园自 2022 年起分阶段开放，并于 2024 年 3 月增设了如梦似幻的「魔女之谷」园区。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's6', en: 'What Goro is not, by his own account, is a man eager to inherit his father.', zh: '但按吾朗自己的说法，他并不是一个急于继承父亲的人。' },
+        { id: 's7', en: 'Trained as a landscape architect, he spent his early career designing parks and gardens, well away from any drawing desk.', zh: '作为景观设计师出身的他，早年一直在做公园和庭院的设计，远离任何一张画桌。' },
+        { id: 's8', en: 'He has said in more than one interview that he never planned to make animation, and that he stepped into film only because the studio asked him to.', zh: '他不止一次在采访里说，自己从未打算做动画，是因为工作室找上门，他才走进了电影。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's9', en: 'Toshio Suzuki, the long-time president of Ghibli, has been even more direct.', zh: '吉卜力的长任社长铃木敏夫说得更直白。' },
+        { id: 's10', en: 'In a 2024 interview, he praised Goro\'s real gift, the ability to think in three dimensions, and said the park was a better fit for him than another hand-drawn film would ever be.', zh: '在 2024 年的一场访谈中，他称赞了吾朗真正的天赋，也就是三维空间的思考能力，并表示主题公园对他来说，比再拍一部手绘动画要合适得多。' },
+        { id: 's11', en: 'It was a careful compliment, and also a careful admission.', zh: '这是一句小心的赞美，也是一句小心的承认。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's12', en: 'Part of the reason the question keeps coming back is that succession at a small art studio is genuinely harder than at a large media corporation.', zh: '这个问题之所以反复被提起，部分原因在于：一家小型艺术工作室的接班，比一家大型媒体公司难得多。' },
+        { id: 's13', en: 'A broadcaster can replace its CEO without changing what it makes.', zh: '一家电视台可以在不改变节目内容的情况下换掉总裁。' },
+        { id: 's14', en: 'Ghibli\'s identity, however, is tied to one pair of hands and one set of obsessions, and no son can simply be handed that.', zh: '可吉卜力的身份，是和一双手、一组执念绑在一起的，这种东西，没法直接交到儿子手上。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's15', en: 'In 2023, the studio sold a majority stake to Nippon TV, partly to settle this question without forcing it onto Goro.', zh: '2023 年，工作室把多数股权卖给了日本电视台，部分原因正是想在不强迫吾朗的前提下，把这个问题安顿下来。' },
+        { id: 's16', en: 'The deal made the long-running drama feel less urgent, but it did not really end it.', zh: '这桩交易让这场长跑式的讨论不再那么紧迫，但并没有真正终结它。' },
+        { id: 's17', en: 'What Goro seems to want is something the public conversation has rarely allowed: room to be a different kind of artist than his father, in a different kind of medium, and to be judged on his own terms.', zh: '吾朗似乎真正想要的，是公共讨论里少有给他的东西：在不同的媒介里，做一种和父亲不一样的艺术家，并以他自己的标准被评价。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'awkward', lemma: 'awkward', sentenceId: 's1', level: 3, pos: 'adj.', ipa: '/ˈɔːkwəd/', defZh: '尴尬的；不好处理的', defEn: 'difficult or embarrassing to deal with', example: 'The reporter asked an awkward question about the leaked emails.', exampleZh: '记者就那批被泄露的邮件提了一个尴尬的问题。' },
+    { id: 'v2', word: 'spotlight', lemma: 'spotlight', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/ˈspɒtlaɪt/', defZh: '聚光灯；公众关注', defEn: 'strong public attention on one person or topic', example: 'After winning the prize, the young writer found himself in the spotlight.', exampleZh: '得奖之后，这位年轻作家发现自己被推到了聚光灯下。' },
+    { id: 'v3', word: 'directed', lemma: 'direct', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/dəˈrektɪd/', defZh: '执导（电影）', defEn: 'led the making of a film', example: 'She directed her first short film while still in college.', exampleZh: '她还在大学时就执导了自己的第一部短片。' },
+    { id: 'v4', word: 'dreamlike', lemma: 'dreamlike', sentenceId: 's5', level: 4, pos: 'adj.', ipa: '/ˈdriːmlaɪk/', defZh: '梦境般的；如梦似幻的', defEn: 'strange and beautiful in a way that feels like a dream', example: 'The whole village had a dreamlike quality in the morning fog.', exampleZh: '晨雾中的整座村庄，仿佛蒙上了一层梦境般的色彩。' },
+    { id: 'v5', word: 'eager', lemma: 'eager', sentenceId: 's6', level: 2, pos: 'adj.', ipa: '/ˈiːɡə(r)/', defZh: '急切的；热切的', defEn: 'very keen to do something', example: 'The students were eager to start their first field trip.', exampleZh: '同学们都迫不及待想开始第一次野外考察。' },
+    { id: 'v6', word: 'inherit', lemma: 'inherit', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/ɪnˈherɪt/', defZh: '继承', defEn: 'to receive a role, title, or property from someone before you', example: 'She did not want to inherit the family business and chose teaching instead.', exampleZh: '她不愿意接手家族生意，转而选择了教书。' },
+    { id: 'v7', word: 'landscape', lemma: 'landscape', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/ˈlændskeɪp/', defZh: '景观；地景', defEn: 'a view or design of outdoor land', example: 'The new museum sits in a landscape of soft hills and old olive trees.', exampleZh: '这座新博物馆坐落在一片缓丘和老橄榄树构成的地景中。' },
+    { id: 'v8', word: 'gardens', lemma: 'garden', sentenceId: 's7', level: 1, pos: 'n.', ipa: '/ˈɡɑːdnz/', defZh: '园林；花园', defEn: 'planned outdoor spaces with plants and paths', example: 'The hotel is famous for its quiet gardens near the river.', exampleZh: '这家酒店以靠近河边的几座静谧花园而出名。' },
+    { id: 'v9', word: 'planned', lemma: 'plan', sentenceId: 's8', level: 1, pos: 'v.', ipa: '/plænd/', defZh: '打算；计划', defEn: 'intended to do something in advance', example: 'I had planned to leave early, but the meeting ran long.', exampleZh: '我本来打算早走，但会议拖了很久。' },
+    { id: 'v10', word: 'direct', lemma: 'direct', sentenceId: 's9', level: 2, pos: 'adj.', ipa: '/dəˈrekt/', defZh: '直接的；坦率的', defEn: 'saying what you mean without softening it', example: 'Her email was short and very direct.', exampleZh: '她那封邮件简短而非常直接。' },
+    { id: 'v11', word: 'praised', lemma: 'praise', sentenceId: 's10', level: 3, pos: 'v.', ipa: '/preɪzd/', defZh: '称赞；表扬', defEn: 'said admiring things about someone or their work', example: 'The teacher praised the class for their patience with the new student.', exampleZh: '老师称赞全班对这位新同学的耐心。' },
+    { id: 'v12', word: 'gift', lemma: 'gift', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ɡɪft/', defZh: '天赋；才华', defEn: 'a natural ability for something', example: 'He has a real gift for explaining hard ideas in plain words.', exampleZh: '他有一种把复杂概念讲得浅白的真正才华。' },
+    { id: 'v13', word: 'admission', lemma: 'admission', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/ədˈmɪʃn/', defZh: '承认；坦白', defEn: 'a statement that something difficult is true', example: 'It was a quiet admission that the first plan had not worked.', exampleZh: '这是在低调承认，最初的计划并没有奏效。' },
+    { id: 'v14', word: 'succession', lemma: 'succession', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/səkˈseʃn/', defZh: '接班；继任', defEn: 'the act of passing a role from one person to the next', example: 'The board began planning the succession a full decade before the founder retired.', exampleZh: '在创始人退休前整整十年，董事会就开始筹划接班事宜。' },
+    { id: 'v15', word: 'genuinely', lemma: 'genuinely', sentenceId: 's12', level: 3, pos: 'adv.', ipa: '/ˈdʒenjuɪnli/', defZh: '确实地；真正地', defEn: 'in a real and honest way, not just for show', example: 'She was genuinely surprised when the prize was announced.', exampleZh: '当奖项公布时，她是真心感到意外。' },
+    { id: 'v16', word: 'corporation', lemma: 'corporation', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˌkɔːpəˈreɪʃn/', defZh: '大公司；法人企业', defEn: 'a large registered business', example: 'A small founder-led brand behaves very differently from a global corporation.', exampleZh: '一家由创始人主导的小品牌，和全球性大公司的行事方式完全不同。' },
+    { id: 'v17', word: 'tied', lemma: 'tie', sentenceId: 's14', level: 2, pos: 'v.', ipa: '/taɪd/', defZh: '紧紧绑在一起；关联', defEn: 'closely connected to someone or something', example: 'The cafe\'s reputation is tied to one woman and her family recipes.', exampleZh: '这家咖啡馆的口碑，和一位女士及她的家传食谱紧紧绑在一起。' },
+    { id: 'v18', word: 'obsessions', lemma: 'obsession', sentenceId: 's14', level: 4, pos: 'n.', ipa: '/əbˈseʃnz/', defZh: '执念；痴迷', defEn: 'subjects that someone cannot stop thinking about', example: 'His films return again and again to the same obsessions: childhood, water, flight.', exampleZh: '他的电影一再回到同样几个执念：童年、水，以及飞行。' },
+    { id: 'v19', word: 'stake', lemma: 'stake', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/steɪk/', defZh: '股权；持股', defEn: 'a share of ownership in a company', example: 'The investor bought a small stake in the local newspaper.', exampleZh: '这位投资人买下了那家本地报纸的一小部分股权。' },
+    { id: 'v20', word: 'settle', lemma: 'settle', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/ˈsetl/', defZh: '解决；安顿下来', defEn: 'to bring an open question to a calm end', example: 'A short note from the manager was enough to settle the dispute.', exampleZh: '经理一封简短的便条，就足以让这场争执安顿下来。' },
+    { id: 'v21', word: 'judged', lemma: 'judge', sentenceId: 's17', level: 2, pos: 'v.', ipa: '/dʒʌdʒd/', defZh: '评价；评判', defEn: 'evaluated by some standard', example: 'Young architects often feel judged against their famous teachers.', exampleZh: '年轻建筑师常常觉得自己被拿来和他们的著名老师做比较。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What... is/was 把"他真正不是的角色"摆到句末',
+      pattern: 'What [clause] is/is not [emphasis]',
+      sentenceIds: ['s6', 's17'],
+      explanationZh: [
+        '中文里强调一件事，我们常说「他真正不是的，是急着接班的人」。英文里有一个对应的句式叫 what-cleft：先用 What 加一个从句开头，用 is 或 was 做枢纽，把真正要强调的东西甩到句末。读者要一路读到 is 之后，才看到答案，自然就把重音落在那里。',
+        '看文中第 6 句：What Goro is not, by his own account, is a man eager to inherit his father。如果直接写 Goro is not eager to inherit his father，意思一样，但平铺直叙。改成 What-cleft 之后，先把「他真正不是的」摆上桌，中间还插了一个 by his own account，让"按他自己的说法"这层语气也站住脚，最后才点出 a man eager to inherit his father。第 17 句 What Goro seems to want is… 用法相同，先吊读者胃口，再揭晓。',
+        '什么时候用：分析、评论、人物特写里最顺手，尤其是在你想把读者注意力锁在某个具体的名词或动词短语上时。它适合书面，口语里频繁用会显得端着。',
+        '一个容易踩的细节：what 引导的从句永远当单数处理，所以后面用 is / was，不用 are / were。即便你强调的对象是复数（two reasons），动词还是 is / was，因为它配的是前面那个 what-从句。',
+      ],
+      examples: [
+        { en: 'What the team underestimated was how quickly the small fault would spread.', zh: '团队低估的，是这个小故障扩散得有多快。', note: '用 what-cleft 把"扩散速度"摆到句末重音位置。' },
+        { en: 'What the new policy did not change was the rule that most teachers cared about.', zh: '这项新政策没有改动的，恰恰是大多数老师在意的那条规定。' },
+        { en: 'What the documentary leaves unsaid is more telling than what it shows.', zh: '这部纪录片没说出口的部分，比它呈现出来的更有意味。' },
+        { en: 'What surprised me, after a year of reading her columns, was how seldom she raised her voice.', zh: '读了她一年的专栏之后，让我意外的是她极少把声音抬高。' },
+        { en: 'What he is selling is not a course. It is a daily habit.', zh: '他真正在卖的不是一门课，而是一种日常习惯。' },
+      ],
+      commonMistake: '不要写成 What Goro is not are the rumors。即使强调对象是复数 rumors，what-从句仍当单数，动词写 is / was。正确写法是 What Goro is not is a man eager to inherit his father（保留单数 is）。',
+      vsSimilar: 'It-cleft（It was the park that suited him）也是强调结构，但口气更斩钉截铁，常用于澄清「是这个、不是那个」。What-cleft 更柔和，更像「揭晓答案」，节奏感不同。',
+    },
+    {
+      id: 'g2',
+      title: '用 -ed 分词短语开头，省掉 "who was"',
+      pattern: '[过去分词短语], + 主句',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '想给主语加一句背景说明，正常写法是用一个 who was 从句：Goro, who was trained as a landscape architect, spent his early career…。这没问题，但每写一次 who was，句子就被拖慢一拍。英文里常用的简化是把 who was 整段省掉，只留下过去分词短语，放在主句之前。',
+        '看文中第 7 句：Trained as a landscape architect, he spent his early career designing parks and gardens, well away from any drawing desk。开头的 Trained as a landscape architect 描述的就是主句的主语 he。这种"分词短语 + 逗号 + 主句"的结构能在一句话里同时交代「他是什么背景」加「他做了什么」，比 who was 紧凑得多。',
+        '什么时候用：写新闻、人物特写、评论这种节奏稍快的文体时特别合适。当你想用一句话同时给出"身份"和"行动"，就用它。读者读到逗号那一刻，已经知道主语是个什么样的人，然后才看到他做了什么，信息密度立刻变高。',
+        '一个最容易被忽略的细节：分词短语描述的对象，必须是主句的主语，否则会变成「悬空分词」(dangling modifier)。如果开头写 Trained as a landscape architect，紧跟逗号之后的主语就必须是这位被训练成景观设计师的人。如果主语换成了别人或别的事物，整句立刻读起来错位。',
+      ],
+      examples: [
+        { en: 'Trained as a pianist, she still hears every essay as a piece of music.', zh: '钢琴出身的她，仍然把每篇文章当成一段音乐来听。', note: 'Trained as a pianist 描述的就是主句主语 she，没有悬空。' },
+        { en: 'Built in 1958, the small cinema still shows one black-and-white film every Sunday.', zh: '这家建于 1958 年的小电影院，至今每周日仍放映一部黑白片。' },
+        { en: 'Asked the same question three times in one week, the spokesperson finally gave a clearer answer.', zh: '一周内被问了三次同样的问题，发言人终于给出了一个更清晰的答复。' },
+        { en: 'Painted bright blue and parked outside the bakery, the old van had become a neighbourhood landmark.', zh: '那辆漆成亮蓝色、停在面包店外的旧厢式车，已经成了街区的地标。' },
+      ],
+      commonMistake: '不要写成 Trained as a landscape architect, the studio asked him to direct a film。Trained as a landscape architect 描述的应该是吾朗这个人，但主句的主语换成了 the studio，整句就变成了「工作室被训练成景观设计师」，明显错位。把主句改回 he 即可：Trained as a landscape architect, he was eventually asked by the studio to direct a film。',
+    },
+    {
+      id: 'g3',
+      title: '用 not... but... 把"看似的赞美"翻成"小心的承认"',
+      pattern: '[同一对象] was [描述 A], and also [描述 B]',
+      sentenceIds: ['s11', 's16'],
+      explanationZh: [
+        '想说一件事同时具有两个性质，新手常会拆成两个句子：It was a compliment. It was also an admission. 这没错，但语气太分。英文里更顺手的做法是把两个并列的判断绑在同一句里，中间用 and also 连接，让读者一次性看到两面。',
+        '看文中第 11 句：It was a careful compliment, and also a careful admission。两个"a careful 名词"结构一模一样，only 名词从 compliment 换成了 admission。这种工整的对称把两个判断"并排放在一起"，读者立刻明白：作者是在告诉你，同一句话既是表扬，也是承认。第 16 句 The deal made the long-running drama feel less urgent, but it did not really end it 用的是 but 版本，但作用类似：把两个相反方向的判断压进一句。',
+        '什么时候用：评论、人物特写、影评、政策分析里特别好用，尤其是想表达「这件事不能只用一种话来形容，它同时是 A 和 B」。它适合放在段落收尾，给读者留一个有层次的判断。',
+        '一个隐藏细节：两个并列项的结构最好对称（a 形容词 名词，a 形容词 名词），结构越对称，对照感越强。如果第二项突然拖得很长，那种"两面一句"的紧凑感就被破坏掉了。',
+      ],
+      examples: [
+        { en: 'It was a generous offer, and also a careful warning.', zh: '这是一份慷慨的提议，同时也是一份小心的警告。', note: '两个"a 形容词 名词"结构对称，对照感最强。' },
+        { en: 'The new design was an improvement, and also an admission that the first version had been rushed.', zh: '这版新设计是一次改进，也是在承认第一版当时赶得太急。' },
+        { en: 'Her short reply was polite, and also a quiet way of closing the conversation.', zh: '她那封简短的回复礼貌得体，同时也是一种安静的结束谈话的方式。' },
+        { en: 'The court\'s decision was a victory for the campaign, and also a reminder of how narrow that victory really was.', zh: '法庭的裁决是这场行动的一次胜利，同时也提醒着我们：这场胜利其实有多么险。' },
+      ],
+      commonMistake: '不要让第二个并列项突然拖得很长：It was a careful compliment, and also it was, when you really read between the lines and consider what Suzuki had said in earlier interviews, a kind of admission。第二项一长，那种"两面一句"的紧凑感就散了。两个并列项尽量结构对称、长度接近。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '人物特写：先说"他真正不是的人"，再让读者自己拼出他是什么样的人',
+      skeleton: 'What [人] is not, by [来源/限定], is [常被误以为的身份].',
+      original: 'What Goro is not, by his own account, is a man eager to inherit his father.',
+      sentenceId: 's6',
+      whyItWorks: [
+        '这个句式的力量来自"先排除，再揭晓"的双重节奏。What [人] is not 直接把读者最容易先入为主的那个标签排除掉，中间夹的 by his own account 给这个排除标上来源，意思是说，这不是作者主观判断，而是当事人自己的说法。最后才落到 is a man eager to inherit his father，那种"被以为是、实际上不是"的反差立刻立起来。',
+        '对读者来说，这个开头的隐藏信号是："我知道你大概率以为他是 X。"作者没有跟你争辩，他先承认了你的预期，然后用当事人自己的话把它推翻。这种「我懂你的成见，但事实不是这样」的姿态，比直接断言更让人愿意继续读。',
+        '它最适合用在人物特写或评论文的中段，正在介绍一个公众人物、要纠正大众对他的某种刻板想象时。新闻特写、深度访谈、申请文书里写自己「被以为是 X，其实不是」的段落都很好用。',
+        '一个隐藏要点：中间那个 by [来源] 不是可有可无。它把判断的权重从作者身上转移到了一个具体来源（当事人、采访、研究），等于在告诉读者「这不是我说的，这是有依据的」。少了它，整句的可信度会打折。',
+      ],
+      examples: [
+        { context: '人物特写中段', text: 'What she is not, by every colleague we spoke to, is a manager who needs the last word.', zh: '我们采访过的每一位同事都说，她真正不是的那种人，是非要在每件事上拿最后一句话的管理者。' },
+        { context: '申请文书自我陈述', text: 'What I am not, by anyone who has worked beside me in the lab, is a quiet observer; I argue more than most.', zh: '在实验室里和我共事过的人都会说，我真正不是的，是一个安静的旁观者，我比大多数人都更愿意和别人争论。', note: '用 by anyone who has… 把"判断的来源"具体到一群在场的人，比直接说 I am not 要可信得多。' },
+        { context: '影评中段', text: 'What this film is not, by the director\'s own admission in the press notes, is a coming-of-age story; it is a study of refusing to come of age.', zh: '导演自己在新闻通稿里也承认，这部电影真正不是的，是一个成长故事，它讲的是「拒绝长大」这件事。' },
+      ],
+      adaptingTip: '中间的 by [来源] 是这个句式的灵魂，一定要填一个具体、可核查的来源（by his own account / by every colleague we spoke to / by the director\'s own admission in the press notes…），不要写成 by some people 或 by most readers，那样判断就空了。被否定的"误以为身份"也要选读者第一眼真的会冒出来的那一个，否则反差立不住。这是人物特写的中段武器，放在开头会让读者还没有"预期"可以推翻。',
+      commonMistake: '不要把 by [来源] 写得太泛：What Goro is not, by many critics, is a great director。many critics 是个虚的来源，读者不知道你引的是谁的话，整句的可信度立刻打折。把来源换成 by Suzuki, his long-time mentor 或 by his own account 这种具体出处，效果就完全不同。',
+    },
+    {
+      id: 'pt2',
+      useCase: '一句承认事情有两个性质：既是 A，也是 B',
+      skeleton: 'It was a [形容词] [名词 A], and also a [形容词] [名词 B].',
+      original: 'It was a careful compliment, and also a careful admission.',
+      sentenceId: 's11',
+      whyItWorks: [
+        '这个句式靠两个并列项之间的工整对称来制造分量。a careful compliment 和 a careful admission 两个短语的结构完全一致，连形容词都重复了一遍，这种刻意的对称把两件本来分属不同方向的事（表扬 vs. 承认）强行放在同一条线上。读者一眼就看到：这两个判断不是先后发生的，是同一句话里同时存在的两个面。',
+        '对读者来说，重复 a careful 这一手是一个微妙的信号：作者在告诉你，这两个判断不能拆开看。如果换成 It was a compliment, and also an admission，意思也通，但少了那种"同一句、同样的小心"的紧迫感。重复这两个字，让读者意识到，铃木的措辞，每一个字都在两条路上同时走。',
+        '它最适合用在评论或人物特写的段落收尾，给读者一个有层次的判断。也适合放在政策分析、影评、商业评论里，用来描述一个发言、一项决定、一种姿态同时具备两种相反的性质。',
+        '一个非常关键的隐藏要点：两个并列项的长度和结构必须接近。如果第一项是 a careful compliment，第二项突然变成 a quietly devastating piece of public bookkeeping，结构一不对称，那种"两面同时存在"的紧凑感就垮了。',
+      ],
+      examples: [
+        { context: '政策评论段落收尾', text: 'It was a real concession, and also a real warning.', zh: '这是一次真实的让步，同时也是一次真实的警告。' },
+        { context: '产品评论收尾', text: 'The redesign was a quiet improvement, and also a quiet admission that the launch had been rushed.', zh: '这次重新设计是一次安静的改进，同时也是在安静地承认，当初发布太赶了。', note: '形容词 quiet 重复一遍，把"低调改进"和"低调承认"绑在一起。' },
+        { context: '影评中段', text: 'Her performance was a generous tribute, and also a generous correction of how we remembered her teacher.', zh: '她的这次演出是一份慷慨的致敬，同时也是在慷慨地纠正我们对她那位老师的记忆。' },
+      ],
+      adaptingTip: '两个并列项要尽量保持结构对称（同样的冠词、同样的形容词、同类型的名词），形容词重复一遍是最稳的做法，能让两个判断像照镜子一样并列在一起。如果实在不想重复同一个形容词，至少要让两个形容词同长度、同语气（careful/quiet/real 之类的克制词），不要一个轻一个重。这是段落收尾的武器，一段里用一次就够，连用会让句式感太重。',
+      commonMistake: '不要把两个并列项拉得长度悬殊：It was a careful compliment, and also a long, slow, painfully careful admission that nothing was really being resolved。第二项一长，整句对称就破掉了。保持两个名词短语长度接近，效果才出得来。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾升华：点出当事人真正想要的，是公共讨论一直没给他的东西',
+      skeleton: 'What [人] seems to want is something [限定从句]: [真正想要的具体东西].',
+      original: 'What Goro seems to want is something the public conversation has rarely allowed: room to be a different kind of artist than his father, in a different kind of medium, and to be judged on his own terms.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式靠"先吊胃口，再具体落地"的两段式来收尾。前半 What [人] seems to want is something… 先告诉读者「我接下来要说的是一件特别的事」，但故意不说是什么；中间的限定从句进一步缩小范围，告诉读者「这件事是公共讨论很少给他的」；冒号之后才正式给出那件具体的事。三段递进，读者一路被引导到最后那个落点。',
+        '对读者来说，seems to want 这两个字非常重要：作者没有把当事人的想法说死，只说"看起来想要"，留有余地。这种克制反而让读者更愿意相信：作者并没有替别人代言，只是在小心地把已知的事情拼起来。冒号之后那段长长的解释，因此读起来不像断言，而像总结。',
+        '它最适合放在人物特写、深度评论或专栏的结尾段落，把全文铺垫的所有事实压缩成"这个人到底在追求什么"这一句。也可以用在书评或影评的最后一段，给一部作品下一个克制但有力的判断。',
+        '一个隐藏要点：冒号之后那段"真正想要的"，要够具体、够长，包含至少两到三个并列的意象（in a different kind of medium / to be judged on his own terms…），不能只给一个空泛的抽象名词。前半留白拉得越长，后半就需要越实在的落地，否则读者会有"被吊起来又没接住"的失望感。',
+      ],
+      examples: [
+        { context: '人物特写结尾', text: 'What she seems to want is something her job title has never quite captured: time to teach one student at a time, in a room that is hers, without a screen between them.', zh: '她似乎真正想要的，是她的职位头衔从未真正涵盖过的东西：时间，能让她一次只面对一个学生，在一间属于她的房间里，中间没有屏幕隔着。' },
+        { context: '专栏文章结尾', text: 'What the city seems to want is something its planning documents have never spelt out: a way to grow without selling its quiet streets to whoever can pay the most for them.', zh: '这座城市似乎真正想要的，是它的规划文件从未明说过的东西：一种成长方式，能让它在长大的过程中，不必把那些安静的街道卖给出价最高的人。', note: '冒号之后用一个长句解释「具体是什么」，比留一个抽象名词要饱满得多。' },
+        { context: '影评结尾', text: 'What the film seems to want from us is something most films no longer ask: patience to sit with a face for thirty seconds, before it finally turns to speak.', zh: '这部电影似乎真正想从我们这里得到的，是如今大多数电影已经不再要求的东西：一份耐心，让我们陪一张脸坐上三十秒，直到它终于转过来开口说话。' },
+      ],
+      adaptingTip: '冒号之后那段"真正想要的"是整个句式的承重墙，一定要写得具体、有画面感，最好能带两到三个并列的意象（地点、媒介、被对待的方式…），不要塞一个空泛的形容词或单词。前半的"something [限定从句]"是吊胃口的一环，限定从句最好点出"为什么这件事难"（公共讨论一直没给他、规划文件从未明说、大多数电影不再要求…），这样冒号之后那段才有重量。这是文章收尾的句式，不要放在中段，否则后面没东西收尾了。',
+      commonMistake: '不要让冒号之后那段太短或太抽象：What Goro seems to want is something the public conversation has rarely allowed: independence。一个抽象名词 independence 撑不起前面那么长的铺垫，读者会觉得"等了半天就这个？"。冒号之后至少要给一组具体的意象，把那个抽象判断落到能想象的画面里。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'How many Ghibli films has Goro Miyazaki directed, according to the article?', options: ['One', 'Two', 'Three', 'Four'], answer: 2, explanation: 'The article names Tales from Earthsea, From Up on Poppy Hill, and Earwig and the Witch.', sentenceId: 's4' },
+    { id: 'q2', q: "What was Goro's profession before he started directing animation?", options: ['Television producer', 'Landscape architect', 'Magazine editor', 'Voice actor'], answer: 1, explanation: 'The article says he was trained as a landscape architect and designed parks and gardens.', sentenceId: 's7' },
+    { id: 'q3', q: 'In the 2024 interview, what did Toshio Suzuki say was the right kind of work for Goro?', options: ['Another hand-drawn animated film', 'Three-dimensional projects like the park', 'A live-action film', 'Voice direction'], answer: 1, explanation: "Suzuki praised Goro's gift for thinking in three dimensions and called the park a better fit than another hand-drawn film.", sentenceId: 's10' },
+    { id: 'q4', q: 'According to the article, why is the succession question at Ghibli harder than at a media corporation?', options: ['Because Ghibli has more employees', 'Because Ghibli is older', "Because Ghibli's identity is tied to one pair of hands and one set of obsessions", 'Because Goro refuses to take any role'], answer: 2, explanation: 'The article contrasts a broadcaster, which can replace its CEO without changing its content, with Ghibli, whose identity is tied to one pair of hands and one set of obsessions.', sentenceId: 's14' },
+    { id: 'q5', q: 'What is the writer\'s overall stance on what Goro wants?', options: ['That Goro should accept the family role and run the studio', 'That Goro is making a mistake by avoiding animation', 'That Goro wants room to be a different kind of artist than his father, judged on his own terms', 'That Goro has not made his views clear at all'], answer: 2, explanation: 'The closing sentence states what Goro seems to want is room to be a different kind of artist than his father, in a different medium, judged on his own terms.', sentenceId: 's17' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '吾朗的父亲名字', answer: 'Hayao', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '吾朗执导过的吉卜力电影数量', answer: 'three', sentenceId: 's4' },
+      { id: 'ig3', cueZh: '其中全程用 3D 电脑动画拍摄的作品', answer: 'Earwig and the Witch', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '吉卜力主题公园开始分阶段开放的年份', answer: '2022', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '主题公园「魔女之谷」园区的开放时间', answer: 'March 2024', sentenceId: 's5' },
+      { id: 'ig6', cueZh: '吾朗本来的专业身份', answer: 'a landscape architect', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '吉卜力的长任社长名字', answer: 'Toshio Suzuki', sentenceId: 's9' },
+      { id: 'ig8', cueZh: '2023 年买下吉卜力多数股权的公司', answer: 'Nippon TV', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里整理到的信息，写一段大约 70 词的短文，向一位只听说过宫崎骏、没听说过他儿子的朋友介绍：宫崎吾朗是谁、他做过什么、为什么他没有接手工作室。',
+      promptEn: "Using the facts in your table, write about 70 words introducing Goro Miyazaki to a friend who has only heard of Hayao: who Goro is, what he has done at Ghibli, and why he is not running the studio.",
+      targetWords: 70,
+      starters: [
+        'Goro Miyazaki is the son of Hayao, and ...',
+        'What Goro is not, by his own account, is ...',
+      ],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        "Goro Miyazaki is the son of Hayao, and he has already directed three Ghibli films, including Earwig and the Witch in 3D. Trained as a landscape architect, he has also led the design of Ghibli Park since 2022. What Goro is not, by his own account, is a man eager to inherit his father. In 2023, Ghibli sold a majority stake to Nippon TV, partly so the studio could move on without forcing succession onto him.",
+      modelAnswerZh:
+        '宫崎吾朗是宫崎骏的儿子，已经执导过三部吉卜力作品，其中包括用 3D 制作的《阿雅与魔女》。景观设计师出身的他，从 2022 年起还主导了吉卜力主题公园的设计。但按他自己的说法，他真正不是的，是一个急于继承父亲的人。2023 年，吉卜力把多数股权卖给了日本电视台，部分原因正是为了让工作室能继续走下去，又不必把接班这件事强加到他身上。',
+    },
+  },
+};

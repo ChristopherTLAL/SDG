@@ -1,0 +1,243 @@
+// Miyazaki & Studio Ghibli, Ch.7: a hand-drawn New Year horse on the Ghibli homepage (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2026-01-05',
+    title: 'A New-Year Sketch from Miyazaki',
+    titleZh: '宫崎骏的新年手绘',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/07-miyazaki-80.mp3',
+    wordCount: 334,
+    readingMinutes: 5,
+    editorsNote:
+      "On the first week of 2026, Studio Ghibli posted a hand-drawn horse and a quiet photograph of an eighty-five-year-old Miyazaki at his desk. No trailer, no campaign. The world's news desks wrote about it anyway, and that fact is the lesson.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: "On January 5, 2026, Studio Ghibli's website carried a single new image at the top of its homepage.", zh: '2026 年 1 月 5 日，吉卜力工作室官网首页顶部挂出了一张全新的图。' },
+        { id: 's2', en: 'It was a hand-drawn horse, painted by Hayao Miyazaki himself, posted to mark the new year and his eighty-fifth birthday.', zh: '那是一匹手绘的马，由宫崎骏亲笔画就，用来纪念新年和他八十五岁的生日。' },
+        { id: 's3', en: 'There was no press release, no fanfare, only a picture and a short note of thanks to the studio\'s fans.', zh: '没有新闻稿，也没有任何造势，只有一张画和一句简短的致谢，写给一直支持工作室的粉丝。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The image is a small homage to the Year of the Horse, sketched in the rough, almost cave-painting style Miyazaki sometimes uses for quick notes.', zh: '这张图是对马年的一份小小致敬，画风粗粝，几乎像史前洞窟壁画，正是宫崎骏偶尔用来打草稿时的笔法。' },
+        { id: 's5', en: 'It sits on a digital ema, a wooden votive tablet that Japanese visitors hang at shrines, with the traditional New Year greeting written above it.', zh: '它落在一块电子绘马之上，绘马是日本人参拜神社时悬挂的木制许愿牌；图的上方写着传统的新年问候。' },
+        { id: 's6', en: 'A short caption thanks fans for their continued support of the studio.', zh: '配图的简短文字向粉丝们多年来对工作室的支持表示感谢。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'Beside the drawing, the studio shared a quieter detail: a photograph of Miyazaki at his desk in Mitaka, taken in December with producer Toshio Suzuki.', zh: '在这幅画的旁边，工作室还放出了一个更安静的细节：一张宫崎骏坐在三鹰工作桌前的照片，去年十二月与制作人铃木敏夫一同拍摄。' },
+        { id: 's8', en: 'The two men, founders of a studio that has shaped global animation for four decades, were discussing plans for 2026.', zh: '这两位作为一家影响全球动画四十年的工作室的创始人，正在商谈 2026 年的工作计划。' },
+        { id: 's9', en: "It was the first public picture of Miyazaki since his Oscar appearance two years earlier.", zh: '这是宫崎骏自两年前奥斯卡颁奖礼亮相以来，首次公开露面的影像。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'To post a hand-drawn horse instead of a trailer is, in 2026, a small statement.', zh: '在 2026 年，用一张手绘的马代替预告片，本身就是一种小小的表态。' },
+        { id: 's11', en: 'Studio Ghibli has never been loud about its work.', zh: '吉卜力工作室从来不擅自夸宣传自己的作品。' },
+        { id: 's12', en: 'When The Boy and the Heron went into Japanese theaters, Suzuki sent it out with no trailer, no TV spots, and no merchandise tie-ins.', zh: '《苍鹭与少年》进入日本院线时，铃木敏夫让它以"零预告片、零电视广告、零周边商品联动"的方式上映。' },
+        { id: 's13', en: 'When the studio speaks, it speaks through pictures.', zh: '工作室一旦开口，开的也只是画里的口。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'There is something quietly defiant about a man of eighty-five still at his desk, drawing horses by hand in an age of generated images.', zh: '一个八十五岁的人还坐在画桌前，在 AI 生成图像盛行的年代里一笔一笔地画马，这件事本身就带着一种安静的倔强。' },
+        { id: 's15', en: 'Many studios now use AI for concept art, mood boards, and even rough storyboards, and the technology keeps getting faster.', zh: '如今许多工作室都在用 AI 做概念图、情绪板，甚至粗略的分镜，而这项技术还在不断加速。' },
+        { id: 's16', en: 'Miyazaki has called this kind of work an insult to life itself, and he has gone on drawing anyway.', zh: '宫崎骏曾把这一类东西称为「对生命本身的侮辱」，而他自己照样接着画。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'The horse on the homepage will not break news cycles, yet news outlets across the world wrote about it.', zh: '首页上的这匹马并不会真的搅动什么新闻周期，可全世界的媒体还是写了它。' },
+        { id: 's18', en: 'A single image, posted without comment, became a story.', zh: '一张没有任何注解的图，自己长成了一条新闻。' },
+        { id: 's19', en: 'Perhaps that is what Ghibli has always understood: to draw slowly, while the rest of the world shouts, is its own kind of news.', zh: '也许这正是吉卜力一直明白的事：在整个世界都在叫嚷的时候，慢慢地画，本身就是一种新闻。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'mark', lemma: 'mark', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/mɑːk/', defZh: '纪念；标记（某个日子）', defEn: 'to celebrate or note a special date or event', example: 'The town will mark its 200th birthday with a free concert.', exampleZh: '这座小城将以一场免费音乐会来纪念建城两百年。' },
+    { id: 'v2', word: 'fanfare', lemma: 'fanfare', sentenceId: 's3', level: 4, pos: 'n.', ipa: '/ˈfænfeə(r)/', defZh: '隆重宣传；大张旗鼓的造势', defEn: 'a loud, attention-grabbing announcement', example: 'The new tower opened with surprisingly little fanfare.', exampleZh: '这座新塔开放时低调得出人意料。' },
+    { id: 'v3', word: 'homage', lemma: 'homage', sentenceId: 's4', level: 4, pos: 'n.', ipa: '/ˈhɒmɪdʒ/', defZh: '致敬；敬意', defEn: 'a respectful tribute to someone or something', example: 'The young director\'s first film was a clear homage to old Hong Kong cinema.', exampleZh: '这位年轻导演的处女作明显是向旧香港电影的致敬。' },
+    { id: 'v4', word: 'sketched', lemma: 'sketch', sentenceId: 's4', level: 3, pos: 'v.', ipa: '/sketʃt/', defZh: '速写；简略画出', defEn: 'drew quickly without finishing details', example: 'She sketched the bridge in her notebook while waiting for the bus.', exampleZh: '等车的间隙，她在笔记本上速写了那座桥。' },
+    { id: 'v5', word: 'rough', lemma: 'rough', sentenceId: 's4', level: 2, pos: 'adj.', ipa: '/rʌf/', defZh: '粗糙的；未完成的（指画作或草稿）', defEn: 'quickly done and not yet polished', example: 'He showed us a rough version of the cover before sending it to print.', exampleZh: '送印之前，他给我们看了封面的一个粗略版本。' },
+    { id: 'v6', word: 'votive', lemma: 'votive', sentenceId: 's5', level: 4, pos: 'adj.', ipa: '/ˈvəʊtɪv/', defZh: '还愿用的；许愿用的', defEn: 'given or offered as a religious wish', example: 'Rows of small votive candles lined the back of the chapel.', exampleZh: '小礼拜堂后部摆着一排排小小的许愿蜡烛。' },
+    { id: 'v7', word: 'greeting', lemma: 'greeting', sentenceId: 's5', level: 1, pos: 'n.', ipa: '/ˈɡriːtɪŋ/', defZh: '问候语；致意', defEn: 'a polite word or phrase you use to welcome someone', example: 'He sends the same greeting to friends every Lunar New Year.', exampleZh: '每到农历新年，他都会给朋友们发同一句问候。' },
+    { id: 'v8', word: 'caption', lemma: 'caption', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/ˈkæpʃn/', defZh: '图说；配图文字', defEn: 'a short line of text under or beside a picture', example: 'The caption explained where the photo was taken and by whom.', exampleZh: '图下的说明文字写明了拍摄地点和摄影者。' },
+    { id: 'v9', word: 'shared', lemma: 'share', sentenceId: 's7', level: 1, pos: 'v.', ipa: '/ʃeəd/', defZh: '分享；公开（消息或图片）', defEn: 'let others see or read something', example: 'The school shared a few photos from the trip on its website.', exampleZh: '学校在官网上分享了几张旅途中的照片。' },
+    { id: 'v10', word: 'quieter', lemma: 'quiet', sentenceId: 's7', level: 1, pos: 'adj.', ipa: '/ˈkwaɪətə(r)/', defZh: '更安静的；更低调的', defEn: 'less noticeable or less loud', example: 'After the launch, the team chose a quieter pace for the second product.', exampleZh: '产品发布之后，团队为第二款产品选了一种更安静的节奏。' },
+    { id: 'v11', word: 'founders', lemma: 'founder', sentenceId: 's8', level: 2, pos: 'n.', ipa: '/ˈfaʊndəz/', defZh: '创始人', defEn: 'the people who started an organization', example: 'The two founders still answer customer emails on Sunday nights.', exampleZh: '两位创始人到现在还在周日晚上回复用户邮件。' },
+    { id: 'v12', word: 'shaped', lemma: 'shape', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ʃeɪpt/', defZh: '塑造；深刻影响', defEn: 'given form to; strongly influenced', example: 'A single teacher shaped the way she thinks about writing.', exampleZh: '一位老师塑造了她对写作的整套看法。' },
+    { id: 'v13', word: 'appearance', lemma: 'appearance', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/əˈpɪərəns/', defZh: '亮相；公开露面', defEn: 'an act of appearing in public', example: 'His last appearance on stage was almost ten years ago.', exampleZh: '他上一次登台已经是将近十年前的事了。' },
+    { id: 'v14', word: 'statement', lemma: 'statement', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈsteɪtmənt/', defZh: '表态；态度的表达（非"声明文件"）', defEn: 'a meaningful gesture that expresses a position', example: 'Choosing not to wear a logo can be a quiet statement.', exampleZh: '选择不穿带 logo 的衣服，也可以是一种安静的表态。' },
+    { id: 'v15', word: 'loud', lemma: 'loud', sentenceId: 's11', level: 2, pos: 'adj.', ipa: '/laʊd/', defZh: '高调的；张扬的（非"声音大"）', defEn: 'eager to call attention to itself', example: 'The brand has never been loud about its prices.', exampleZh: '这个品牌从来不在价格上张扬。' },
+    { id: 'v16', word: 'merchandise', lemma: 'merchandise', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈmɜːtʃəndaɪs/', defZh: '周边商品；衍生品', defEn: 'goods produced to be sold alongside something else', example: 'The band makes more money from merchandise than from streaming.', exampleZh: '这支乐队从周边商品上赚的钱比从流媒体上多。' },
+    { id: 'v17', word: 'tie-ins', lemma: 'tie-in', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/ˈtaɪ ɪnz/', defZh: '联名合作；商业联动产品', defEn: 'products or campaigns made jointly with another brand', example: 'The film avoided fast-food tie-ins, which surprised its young audience.', exampleZh: '这部电影没有做任何快餐联名，这让它的小观众有些意外。' },
+    { id: 'v18', word: 'defiant', lemma: 'defiant', sentenceId: 's14', level: 4, pos: 'adj.', ipa: '/dɪˈfaɪənt/', defZh: '不服输的；执拗的', defEn: 'openly refusing to give in or follow what others do', example: 'There was something defiant in the way she kept her old bookstore open.', exampleZh: '她坚持让那家老书店开下去，这件事里有一种执拗的劲头。' },
+    { id: 'v19', word: 'generated', lemma: 'generate', sentenceId: 's14', level: 3, pos: 'adj.', ipa: '/ˈdʒenəreɪtɪd/', defZh: '生成的（由机器或程序产生的）', defEn: 'produced by a computer or algorithm', example: 'Most of the article was written by hand, but the headers were generated by a tool.', exampleZh: '这篇文章大部分是手写的，但小标题是工具生成的。' },
+    { id: 'v20', word: 'outlets', lemma: 'outlet', sentenceId: 's17', level: 3, pos: 'n.', ipa: '/ˈaʊtlets/', defZh: '媒体机构；报道渠道（非"插座"）', defEn: 'news organizations or channels', example: 'Several international outlets picked up the small local story.', exampleZh: '几家国际媒体接力报道了这则本来不大的本地新闻。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 There is something + 形容词 + about 把一种"说不清的感受"先点出来',
+      pattern: 'There is something + adj. + about + 名词 / 动名词短语',
+      sentenceIds: ['s14'],
+      explanationZh: [
+        '想说"某件事里有一种说不出的味道"，中文常用「带着一种……的感觉」。英文最顺手的对应是 There is something + 形容词 + about…：先用 something 把"那种东西"含糊地指出来，再用 about 把它落在一个具体的人或场景上。',
+        '看文中第 14 句：There is something quietly defiant about a man of eighty-five still at his desk。作者没有直接断言"这个人很倔"，他先说"这件事里有一种说不出的倔"，再用 about 把"倔"接到画面上。这样比 He is defiant 更含蓄，也更耐读，因为读者是被引导着自己看见这种气质，而不是被结论砸到。',
+        '什么时候用：当你想给一个画面或行为下一个评判，但又不想把话说死时最合适。新闻特写、影评、人物素描里几乎到处都是这种句式。它给读者留出了同意或不同意的空间，所以观点显得稳。',
+        '一个容易忽略的细节：about 后面可以接名词（something strange about this town），也可以接动名词短语（something strange about staying up so late）。注意是 V-ing，不是 to V。',
+      ],
+      examples: [
+        { en: 'There is something honest about a recipe that tells you how it can go wrong.', zh: '一份把"哪里可能出错"也写明白的食谱，里头有一种诚实。', note: 'about 后接名词短语 a recipe that…，把"诚实"挂在一个具体对象上。' },
+        { en: 'There is something restless about working in a city you never quite call home.', zh: '在一座你始终没把它当成家的城市里工作，本身就带着一种不安。' },
+        { en: 'There was something gentle about the way he closed the door behind us.', zh: '他随手把门带上的样子，里头有一种温柔。' },
+        { en: 'There is something a little sad about a library that locks at eight.', zh: '一座八点就关门的图书馆，多少带点感伤。' },
+        { en: 'There was something defiant about choosing the staircase when everyone else queued for the lift.', zh: '当所有人都在等电梯时，他选了楼梯，这件事里有一种执拗。', note: 'about 后接动名词短语 choosing…，把这个动作本身当作"那种气质"的载体。' },
+      ],
+      commonMistake: '不要写成 There is something defiant about he keeps drawing。about 后面如果是动作，要用动名词 keeping，不能用 he keeps。也不要漏掉 about（×There is something defiant a man of eighty-five），about 是把抽象气质落地的那个钩子，不能省。',
+      vsSimilar: '直接写 He is defiant 是断言，给出结论；写 There is something defiant about him 是观察，留出余地。前者适合摆事实的句子，后者适合带评论色彩的段落开头。',
+    },
+    {
+      id: 'g2',
+      title: '用 To V is to V / To V is + 名词 把一句话变成"格言式的等号"',
+      pattern: 'To + 动词原形, + is + 名词 / is to + 动词原形',
+      sentenceIds: ['s10', 's19'],
+      explanationZh: [
+        '英文有一种很短促的句式：用 To V 起句当主语，再用 is 加另一个动作或名词收尾，给出一个"做这件事 等于 那件事"的等号。中文里的「做 X，就是 Y」就是它最贴近的对应。',
+        '文中两个例子放在一起读最清楚：第 10 句 To post a hand-drawn horse instead of a trailer is…a small statement，第 19 句 …to draw slowly…is its own kind of news。两句都把一个动作（post / draw）抬到主语位置，然后用 is 给它配一个"它真正等于的东西"。这样写比 Posting a horse is a statement 更正式，也更格言化，像在下一个小小的判断。',
+        '什么时候用：议论文、影评、个人陈述的关键句很喜欢这个结构，尤其是想给一个观点一锤定音的时候。它的"短"是关键，读者一眼读完，会下意识把前后两端当成等号两边。',
+        '一个隐藏的点：主语 To V 在英文里被当成单数，所以后面用 is，不是 are。中间可以插入状语（如 in 2026），但等号本身不要拆散：To V … is + …。把 to 漏写成 -ing（Posting a horse is…）语法没错，但格言味就淡了一半。',
+      ],
+      examples: [
+        { en: 'To leave the city before sunrise is to see a place very few people ever see.', zh: '在日出之前离开这座城市，就是在看一个很少有人看过的地方。' },
+        { en: 'To answer every message at once is, in the end, to answer no one well.', zh: '想立刻回复每一条消息，到头来等于没认真回过任何一条。', note: '中间插了 in the end 这种状语，等号两边仍然清晰：To V… is to V…。' },
+        { en: 'To keep a small bookstore open in 2026 is a quiet act of resistance.', zh: '在 2026 年还把一家小书店撑着开下去，本身就是一种安静的抵抗。' },
+        { en: 'To say nothing is sometimes to say a great deal.', zh: '什么都不说，有时候等于说了很多。' },
+        { en: 'To draw by hand for sixty years is to refuse to forget what hands can do.', zh: '用手画上六十年，就是不肯忘掉手能做到的事。' },
+      ],
+      commonMistake: '不要写成 To post a horse are a statement。主语是 To V，无论后面接什么，谓语都用 is。也不要在等号两端摆同级别的小词（To smile is to smile back 是同义反复），第二端要给出"更大的意义"才有格言力度。',
+    },
+    {
+      id: 'g3',
+      title: '用 go on + V-ing 表达"该停的不停，照样继续"',
+      pattern: 'go / went / has gone on + V-ing',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '想说一个人"明知道该停，却照样接着做"，中文是「他照样接着画」。英文里 go on 加动名词正好对应这种"在阻力中继续"的味道，比 continue 多了一份执拗。',
+        '看第 16 句：he has gone on drawing anyway。前半句承认 Miyazaki 知道这个时代的潮流（AI 在画画），但他 has gone on drawing，意思就是"反正照画"。anyway 把这股「不管那么多」的劲头收紧，go on V-ing 把动作的"继续性"延长。两个一起，就是文中那种安静的倔。',
+        '什么时候用：写一个人坚持某事、对抗某种压力、在变化里守住习惯时特别合适。议论文段落里也好用："The government banned X, but families went on doing it."',
+        '一个小提醒：go on 后面只能接 V-ing，不能接 to V。He went on drawing 表示"接着画"；He went on to draw 是另一个完全不同的意思，表示"做完别的事，接下来去画"。两个意思最好不要搞混。',
+      ],
+      examples: [
+        { en: 'The festival lost its sponsor last year, but the volunteers went on running it anyway.', zh: '去年这个节庆失去了赞助商，志愿者们还是照样把它办了下去。' },
+        { en: 'Critics laughed at the first three issues, and the small magazine has gone on publishing for ten years.', zh: '前三期被评论家嘲笑过，这本小杂志照样出到了第十年。', note: 'has gone on V-ing 把"一直没停"延伸到现在，比 continued 多一点不服气的味道。' },
+        { en: 'Even after the news broke, she went on teaching her morning class.', zh: '消息曝光之后，她照样上完了早上那节课。' },
+        { en: 'The shop went on opening at six every morning, just as the old owner had.', zh: '这家店照样像老板在世时那样每天早上六点开门。' },
+      ],
+      commonMistake: '不要写成 he has gone on to draw（这表示"接下来又去做画画这件事"，不是"照样继续画"）。"照样继续"必须用 V-ing：he has gone on drawing。',
+      vsSimilar: 'continue doing 和 go on doing 都能表示"继续"，但 go on 隐含「外界有阻力或诱因要他停，他不停」的味道，所以更适合用在对抗或坚持的语境里；continue 则更中性，可以指任何不间断的延续。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇白描："没有 X，没有 Y，只有 Z"，用三组否定把一个画面的极简感坐实',
+      skeleton: 'There was no [常见声势 1], no [常见声势 2], only [那个真正剩下来的小东西].',
+      original: "There was no press release, no fanfare, only a picture and a short note of thanks to the studio's fans.",
+      sentenceId: 's3',
+      whyItWorks: [
+        '这个句式靠节奏取胜。两个 no 把读者预设的"通常会发生的事"逐一拿走（新闻稿、造势活动），到第三个分句 only 一翻面，把"真正留下来的小东西"亮出来。三段递进、由大到小、由喧闹到安静，读起来像一个相机镜头从广角一步步推到特写。',
+        '它对读者的暗示是：作者并不是没注意到这件事的常规规模，而是有意把那些都剥掉。两个 no 拿出来的东西越具体（不是 no advertising 这种泛词），后面的 only 就越有分量。读者会信任作者，因为这个排除是认真做过的。',
+        '它最适合用在新闻特写、人物素描、随笔的开头一两句，用来定调。一旦定下"低调"基调，整段叙事就可以围绕"那个小东西"展开，不需要再额外解释为什么用了低调的写法。',
+        '一个隐藏的要求：no 后面那两样东西，必须是读者在这种场合"本来真会期待出现"的东西。如果列了两个本来就不该出现的东西（× no fireworks, no parade for a website update），整个反差就失效。',
+      ],
+      examples: [
+        { context: '科技公司低调上线', text: 'There was no countdown, no livestream, only a new page on the site and a single sentence: it works now.', zh: '没有倒计时，没有直播，只是网站上多出一个新页面，配一句话：现在能用了。' },
+        { context: '小型独立电影上映', text: 'There were no posters at the bus stops, no celebrity appearances, only a small ad on the local paper\'s back page.', zh: '公交站没有海报，没有明星出席，只是当地报纸的最后一版多了一则小小的广告。', note: '把"本应出现的两件大事"先剥掉，再让一个非常小的细节顶上去。' },
+        { context: '丧礼悼念', text: 'There were no speeches, no formal photographs, only a quiet line outside the door and a tin of his favorite tea on the table.', zh: '没有致辞，没有正式合影，只有门外一条安静的队伍，桌上一罐他爱喝的茶。' },
+      ],
+      adaptingTip: '两个 no 一定要选场合里"通常真会有"的东西，越具体越好。最后那个 only 接的东西要小、要具体、要带感官（一张图、一句感谢、一盏灯），抽象词（只有 emotion / 只有 meaning）会把全句拖垮。这个句式是开场用的，一篇里只用一次最好。',
+      commonMistake: '不要写成 There was no big news, no big event, only a picture（前两个否定太笼统）。读者预期的不是"大新闻"，而是"具体的 PR 套路"，比如 press release, billboard, trailer，越具体越显得作者真正在场。',
+    },
+    {
+      id: 'pt2',
+      useCase: '段落中段定义型一击：当 X 行动时，X 是用 Y 的方式行动的',
+      skeleton: 'When [主语] [common verb], [主语] [common verb] through [非常规的媒介或方式].',
+      original: 'When the studio speaks, it speaks through pictures.',
+      sentenceId: 's13',
+      whyItWorks: [
+        '这个句式的力量在于"重复"。同一个动词出现两次（speak…speak），但被 through 拉到一个意想不到的对象上（不是 words，而是 pictures）。重复让读者第二次读到这个动词时不再当它是字面意思，而是去寻找"它真正的含义"，这正是这个句式的机关：先承认行为，再重新定义这个行为的方式。',
+        '对读者而言，through 后面接的是"作者真正想强调的那个媒介"。读者会自动把它当作答案：原来这位作者写这一段，就是要让我注意到 pictures（或 silence，或 schedules……）这一项。所以 through 后面接的词要选得准，选错了，整句的力气就散了。',
+        '它最适合放在段落的中段，用来对前文的一种描述做"重新定义"。前一句通常已经铺出"它似乎在做某件常见的事"，这一句一压上，就把那件事的真正方式点了出来。新闻特写、人物素描里非常好用。',
+        '一个细节：动词最好是平常、低调的动词（speak, say, give, lead, fight…），越普通越好，因为"重复一个普通词"本身就有力。如果换成 articulates / communicates 这种学术词，节奏感就垮了。',
+      ],
+      examples: [
+        { context: '人物素描', text: 'When she teaches, she teaches through silence: long pauses that make every student check whether the question was meant for them.', zh: '她讲课的方式，是靠沉默讲：那种长长的停顿，让每个学生都去琢磨这个问题是不是问自己的。' },
+        { context: '机构观察', text: 'When the library disagrees with a new rule, it disagrees through which books it leaves at the front table.', zh: '这家图书馆要对一条新规定表达不满，它的方式是更换前台桌上摆的书。', note: 'through 后面是一个非常具体的、几乎不像"反对"的动作，反而才有意外感。' },
+        { context: '产品评论', text: 'When the small company apologizes, it apologizes through code: a tiny update notes line that admits exactly what went wrong.', zh: '这家小公司道歉的方式，是写在代码里：更新日志里那一行小字，把哪里出错说得清清楚楚。' },
+      ],
+      adaptingTip: 'through 后面要选一个"听起来不太像在做那件事"的具体媒介，比如通过画、通过沉默、通过菜单、通过日程表。越不像，越显得作者察觉到了别人没察觉的东西。两个一样的动词要并排放着，中间不能插太多东西，否则重复的节奏就被冲散了。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾揭示："也许这正是某人/某组织一直明白的事："，把全文的看见汇成一个安静的领悟',
+      skeleton: 'Perhaps that is what [主体] has always understood: [一句把全文凝结成意义的判断句].',
+      original: "Perhaps that is what Ghibli has always understood: to draw slowly, while the rest of the world shouts, is its own kind of news.",
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个收尾的妙处在于把作者的观点"借给"了被写的对象。文章前面铺了一堆事实（图、照片、营销习惯），结尾用 Perhaps that is what X has always understood 一句话，把"读出来的意义"翻译成"X 本来就懂的道理"。这样读者会觉得：这不是作者强行抬高，而是作者发现了一个本来就在那里的真相。',
+        'Perhaps 这个词是关键。它把全句的语气从"我教你"软化成"我猜想"，留给读者同意或保留的空间。配上 always understood 这种带有时间纵深感的短语，整句既谦虚又笃定，既不武断也不软。',
+        '它最适合放在文章最后一段、甚至最后一句。前文已经把现象描写完，这一句负责把"现象"翻译成"道理"。议论文、影评、人物特写、机构观察的收尾都很适合。',
+        '冒号后面那个判断句是整篇的"金句"。它必须能脱离上下文也成立，读者把它截图发朋友圈时，没看过原文也能感受到力度。这意味着冒号后那一句要尽量短、有节奏、自带画面感。',
+      ],
+      examples: [
+        { context: '观点性影评收尾', text: "Perhaps that is what the director has always understood: a story does not get bigger when you add more characters, only louder.", zh: '也许这正是导演一直明白的事：一个故事不会因为加了更多人物就变大，只会变吵。' },
+        { context: '人物特写收尾', text: 'Perhaps that is what my grandmother has always understood: a meal is something you eat slowly, and someone has to be there to watch you slow down.', zh: '也许这正是外婆一直明白的事：一顿饭是要慢慢吃的，而且要有一个人坐在那里看着你慢下来。', note: '冒号后面那句脱离上下文也立得住，自带画面。' },
+        { context: '城市观察文章收尾', text: 'Perhaps that is what the old city has always understood: a street stays alive only if it is allowed to be slightly inconvenient.', zh: '也许这正是这座老城一直明白的事：一条街要活下去，必须被允许稍微不那么方便。' },
+      ],
+      adaptingTip: '冒号前的主语要选一个全文已经反复出现的对象（一个人、一座城、一个机构），不要临时引入新角色。冒号后的句子要短而有判断，最好是"做 X 就是 Y"或"X 之所以 X，是因为 Y"这种结构，避免泛泛的形容词收尾（× is wonderful / is beautiful）。这是收尾模板，不要放在开头。',
+      commonMistake: '不要把 Perhaps 删掉换成 That is what X has always understood。少了 Perhaps，整句就从"领悟"变成了"判决"，作者一下子就显得太肯定，读者反而起戒心。Perhaps 不是软弱，是留余地。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: "What did Studio Ghibli's website post on January 5, 2026?", options: ['A trailer for a new film', 'A hand-drawn horse by Miyazaki and a short thank-you note', 'A press release announcing a retirement', 'A live event with Toshio Suzuki'], answer: 1, explanation: 'The article opens with the studio posting a hand-drawn horse and a short note of thanks to fans.', sentenceId: 's2' },
+    { id: 'q2', q: 'Where was the December photograph of Miyazaki taken?', options: ['Outside the Oscars venue', 'At a fan event in Tokyo', 'At his desk in Mitaka, with Toshio Suzuki', 'At Ghibli Park'], answer: 2, explanation: 'The article says the photograph was taken at his desk in Mitaka, in December, with producer Toshio Suzuki.', sentenceId: 's7' },
+    { id: 'q3', q: 'Why does the writer call posting a hand-drawn horse "a small statement"?', options: ['Because the drawing is technically very advanced', 'Because most studios in 2026 use generated images and big marketing campaigns', 'Because Miyazaki has retired from drawing', 'Because the studio rarely posts on its website'], answer: 1, explanation: 'The article sets the horse against an age of generated images and loud marketing, so doing the opposite reads as a quiet position.', sentenceId: 's10' },
+    { id: 'q4', q: "Which of these best describes Studio Ghibli's communication style, according to the article?", options: ['Loud and constant, with frequent press events', 'Restrained, letting images do most of the talking', 'Focused on social media trends', 'Heavy on merchandise tie-ins and TV spots'], answer: 1, explanation: 'The article says the studio has never been loud about its work and that when it speaks, it speaks through pictures.', sentenceId: 's13' },
+    { id: 'q5', q: 'What is the writer\'s closing point about the New Year image?', options: ['It will probably be forgotten by next week', 'It became news because the studio paid for coverage', 'A small, quiet gesture can itself become news in a noisy world', 'It was created with AI tools'], answer: 2, explanation: 'The final paragraph turns the small image into the lesson: drawing slowly while everyone else shouts is its own kind of news.', sentenceId: 's19' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '工作室发图的日期', answer: 'January 5, 2026', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '画里出现的动物', answer: 'a horse', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '宫崎骏当天的年龄', answer: 'eighty-five', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '画作借鉴的风格', answer: 'cave-painting style', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '马所落在的日本传统物件', answer: 'a digital ema', sentenceId: 's5' },
+      { id: 'ig6', cueZh: '十二月照片里与宫崎骏一同出现的人', answer: 'Toshio Suzuki', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '《苍鹭与少年》在日本上映时被工作室省去的三样常规营销之一（任选其一）', answer: 'no trailer', sentenceId: 's12' },
+    ],
+    writing: {
+      promptZh: '用表格里的信息，写一段大约 70 词的短文，向一个对动画不熟的朋友介绍这条新闻：吉卜力官网放了什么、谁画的、以及为什么这件小事会被全世界报道。',
+      promptEn: "Using the facts in your table, write about 70 words telling a friend who is not into anime about this news: what Studio Ghibli posted on its homepage, who drew it, and why such a small image became a story around the world.",
+      targetWords: 70,
+      starters: ['On January 5, 2026, Studio Ghibli posted ...', 'There was no press release, no fanfare, only ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        "On January 5, 2026, Studio Ghibli posted a hand-drawn horse on its homepage, painted by Hayao Miyazaki for the new year and his eighty-fifth birthday. There was no press release, no fanfare, only the picture and a short thank-you note to fans. News outlets across the world still wrote about it. Perhaps that is what Ghibli has always understood: in a noisy age, drawing slowly is its own kind of news.",
+      modelAnswerZh:
+        '2026 年 1 月 5 日，吉卜力工作室在官网首页放出了一匹手绘的马，由宫崎骏亲笔为新年和他八十五岁生日所画。没有新闻稿，没有任何造势，只有这张画和一句简短的致谢。世界各地的媒体仍然报道了这件事。也许这正是吉卜力一直明白的事：在一个嘈杂的时代里，慢慢地画，本身就是一种新闻。',
+    },
+  },
+};

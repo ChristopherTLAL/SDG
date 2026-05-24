@@ -1,0 +1,245 @@
+// Miyazaki Now book, Ch.6: why "style" is not protected by copyright, and what Ghibli could realistically sue for (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-04-03',
+    title: 'Can You Copyright a Look?',
+    titleZh: '「风格」也能版权化吗',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/miyazaki-now/06-style-copyright.mp3',
+    wordCount: 347,
+    readingMinutes: 5,
+    editorsNote:
+      "After the Ghibli-style AI wave of March 2025, lawyers wrote one column after another asking a very dry question with a very heated answer: can a studio actually own its look? This chapter walks through what copyright protects, what it does not, and the quieter route Studio Ghibli might still take.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In the first days of April 2025, the Ghibli-style portraits were still everywhere, and so were the lawyers.', zh: '2025 年 4 月初，吉卜力风格的肖像依然铺天盖地，律师们的身影也是如此。' },
+        { id: 's2', en: 'Trade columns at The Conversation, TechCrunch, and Variety lined up to answer one short question: can you copyright a look?', zh: '《The Conversation》《TechCrunch》和《Variety》上的行业评论一字排开，回答着同一个简短的问题：「风格」本身能受版权保护吗？' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'The legal answer turned out to be tidier than the public mood.', zh: '法律给出的答案，比公众的情绪要干净得多。' },
+        { id: 's4', en: 'Copyright, in most countries, is the right to control specific works of expression, like a single painting, a film, or the design of one named character.', zh: '在大多数国家，版权指的是对某项具体作品的控制权，比如一幅画、一部影片，或者某个有名有姓的角色设计。' },
+        { id: 's5', en: 'What it does not protect is a general style, a mood, a colour palette, or the broad feeling a body of work leaves behind.', zh: '它不保护的，则是一种笼统的风格、一种情绪、一组配色，或者整批作品留给观众的那种整体感受。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's6', en: 'For Studio Ghibli, this meant the bad news was simple.', zh: '对吉卜力工作室来说，这意味着坏消息其实很简单。' },
+        { id: 's7', en: 'If an AI image copied Totoro himself, or used the exact face of No-Face, the studio would have a clean copyright claim.', zh: '如果一张 AI 图片直接复制了龙猫本人，或者用了「无脸男」那张特定的脸，工作室就有一个干净利落的版权主张。' },
+        { id: 's8', en: 'But if the picture only shared the warm light, the rounded faces, and the gentle countryside that everyone now reads as "Ghibli," the studio had almost nothing to sue over.', zh: '但如果那张图只是用了温暖的光线、圆润的脸庞和柔和的乡野景色，也就是如今所有人一眼会读作「吉卜力」的那些元素，工作室几乎没有什么可以起诉的。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's9', en: 'Several reports said Studio Ghibli was quietly looking at its options anyway.', zh: '多份报道说，吉卜力工作室仍在悄悄评估它手上的选项。' },
+        { id: 's10', en: 'The most interesting route had nothing to do with copyright at all.', zh: '其中最有意思的一条路，和版权完全无关。' },
+        { id: 's11', en: 'Lawyers pointed instead to trademark law, and to a doctrine called passing off, both of which protect the name and reputation of a brand rather than any single image.', zh: '律师们指向的是商标法，以及一项被称为「假冒之诉」（passing off）的原则，这两者保护的是品牌的名字和声誉，而不是任何一张具体的画面。' },
+        { id: 's12', en: 'OpenAI had let users prompt the tool with the words "in the style of Studio Ghibli," and that, several commentators argued, was the part the studio could press on.', zh: 'OpenAI 允许用户在指令里使用「以吉卜力风格生成」这样的措辞，多位评论者认为，恰恰是这一点，工作室是可以发力的。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'The gap between what feels stolen and what the law calls infringement turned out to be wide.', zh: '「感觉像被偷了」与「法律意义上的侵权」之间，落差比想象中要大得多。' },
+        { id: 's14', en: 'For fans, every cute AI portrait was a small theft of decades of careful drawing.', zh: '对粉丝来说，每一张可爱的 AI 肖像，都是对几十年用心绘画的一次小小偷窃。' },
+        { id: 's15', en: 'For courts, only a copied character or a misused brand name would clear the bar.', zh: '对法庭来说，只有复制了具体角色，或者滥用了品牌名称，才有可能跨过门槛。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'By early April, no lawsuit had been filed and no cease-and-desist letter had been confirmed.', zh: '到 4 月初为止，没有任何诉讼被提起，也没有任何已被证实的禁制函发出。' },
+        { id: 's17', en: 'What lingered was a quieter question, the one the lawyers had answered without quite meaning to.', zh: '真正留下来的，是一个更安静的问题，那个律师们其实在不经意间已经回答了的问题。' },
+        { id: 's18', en: 'A style is what an artist spends a lifetime building, and what the law, as written today, has decided no one is allowed to own.', zh: '风格是一位艺术家用一辈子去打磨的东西，而如今的法律已经决定：它不属于任何人。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'lined', lemma: 'line', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/laɪnd/', defZh: '排成一行；接连出现', defEn: 'arranged or stood in a row', example: 'Reporters lined the corridor outside the courtroom.', exampleZh: '记者们在法庭外的走廊里排成一长列。' },
+    { id: 'v2', word: 'tidier', lemma: 'tidy', sentenceId: 's3', level: 3, pos: 'adj.', ipa: '/ˈtaɪdiə(r)/', defZh: '更整洁的；更清爽的', defEn: 'neater or more orderly', example: 'The new filing system is tidier and saves us hours each week.', exampleZh: '新的归档系统更清爽，每周能为我们省下好几个小时。' },
+    { id: 'v3', word: 'expression', lemma: 'expression', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/ɪkˈspreʃn/', defZh: '表达；表达形式', defEn: 'a particular way of putting an idea into a created form', example: 'A song and a novel can carry the same idea in very different forms of expression.', exampleZh: '一首歌和一部小说可以承载同一个想法，但表达形式完全不同。' },
+    { id: 'v4', word: 'palette', lemma: 'palette', sentenceId: 's5', level: 4, pos: 'n.', ipa: '/ˈpælət/', defZh: '调色板；色调', defEn: 'the range of colours used in a work or by an artist', example: 'The film uses a cold blue palette to match its winter setting.', exampleZh: '这部电影用冷蓝色调，搭配它的冬季背景。' },
+    { id: 'v5', word: 'broad', lemma: 'broad', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/brɔːd/', defZh: '宽泛的；笼统的', defEn: 'general and not detailed', example: 'The article gives a broad picture of the housing crisis without naming any city.', exampleZh: '这篇文章给出了房荒的宽泛图景，却没有点名任何一座城市。' },
+    { id: 'v6', word: 'claim', lemma: 'claim', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/kleɪm/', defZh: '主张；诉求', defEn: 'a formal demand or right that can be argued in law', example: 'The writer has a strong claim against any publisher who reprints the book without permission.', exampleZh: '这位作者对任何未经许可重印该书的出版商，都拥有有力的法律主张。' },
+    { id: 'v7', word: 'rounded', lemma: 'rounded', sentenceId: 's8', level: 2, pos: 'adj.', ipa: '/ˈraʊndɪd/', defZh: '圆润的；带弧度的', defEn: 'curved rather than sharp in shape', example: 'The cafe chose chairs with rounded edges so children would not bump into corners.', exampleZh: '这家咖啡馆挑了边角圆润的椅子，免得孩子撞到。' },
+    { id: 'v8', word: 'gentle', lemma: 'gentle', sentenceId: 's8', level: 1, pos: 'adj.', ipa: '/ˈdʒentl/', defZh: '柔和的；温和的', defEn: 'soft and mild, not harsh', example: 'A gentle wind moved the curtains in the late afternoon.', exampleZh: '傍晚时分，一阵柔和的风拂动着窗帘。' },
+    { id: 'v9', word: 'sue', lemma: 'sue', sentenceId: 's8', level: 3, pos: 'v.', ipa: '/suː/', defZh: '起诉；提起诉讼', defEn: 'to bring a legal action against someone', example: 'The musician threatened to sue the company that used her song in a commercial.', exampleZh: '这位音乐人威胁要起诉那家在广告里使用她歌曲的公司。' },
+    { id: 'v10', word: 'route', lemma: 'route', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ruːt/', defZh: '路径；途径', defEn: 'a chosen way of reaching a goal', example: 'A small claim in a local court is often the cheapest legal route for ordinary buyers.', exampleZh: '在地方法院提起小额诉讼，往往是普通买家最便宜的法律途径。' },
+    { id: 'v11', word: 'doctrine', lemma: 'doctrine', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/ˈdɒktrɪn/', defZh: '原则；学说', defEn: 'a settled principle or rule, especially in law', example: 'A long-standing doctrine in contract law protects buyers who acted in good faith.', exampleZh: '合同法里有一条由来已久的原则，保护那些怀着善意行事的买家。' },
+    { id: 'v12', word: 'reputation', lemma: 'reputation', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/ˌrepjuˈteɪʃn/', defZh: '声誉；名声', defEn: 'the general opinion people hold about a person or brand', example: 'The shop built its reputation slowly, one careful repair at a time.', exampleZh: '这家店是一次次细心修理，慢慢攒下来的声誉。' },
+    { id: 'v13', word: 'prompt', lemma: 'prompt', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/prɒmpt/', defZh: '给（AI 工具）输入指令', defEn: 'to give an instruction to an AI tool', example: 'You can prompt the model with a few words and a sample image.', exampleZh: '你可以用几句话加一张样图给这个模型下指令。' },
+    { id: 'v14', word: 'commentators', lemma: 'commentator', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈkɒmənteɪtəz/', defZh: '评论者；评论员', defEn: 'people who write or speak in public about events', example: 'Several commentators warned that the new policy would be hard to enforce fairly.', exampleZh: '几位评论者警告说，这项新政策将很难公平执行。' },
+    { id: 'v15', word: 'infringement', lemma: 'infringement', sentenceId: 's13', level: 4, pos: 'n.', ipa: '/ɪnˈfrɪndʒmənt/', defZh: '侵权；违反', defEn: 'a breach of a legal right, especially in copyright or trademark', example: 'The court ruled that copying the logo was a clear infringement.', exampleZh: '法庭裁定，复制这个标志属于明确的侵权行为。' },
+    { id: 'v16', word: 'theft', lemma: 'theft', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/θeft/', defZh: '偷窃；盗窃', defEn: 'the act of taking something that is not yours', example: 'For her, even a quoted sentence without credit felt like theft.', exampleZh: '对她来说，哪怕只是引用一句话不署名，都像是一种偷窃。' },
+    { id: 'v17', word: 'bar', lemma: 'bar', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/bɑː(r)/', defZh: '门槛；标准', defEn: 'a level that must be reached', example: 'The new rule sets a higher bar for what counts as solid evidence.', exampleZh: '新规定为「确凿证据」的标准设得更高。' },
+    { id: 'v18', word: 'cease-and-desist', lemma: 'cease-and-desist', sentenceId: 's16', level: 4, pos: 'adj.', ipa: '/ˌsiːs ən dɪˈzɪst/', defZh: '禁制（信）；停止侵权（函）', defEn: 'a legal letter ordering someone to stop a stated act', example: 'The label sent a cease-and-desist letter to every unofficial fan store.', exampleZh: '唱片公司向每一家非官方的粉丝店都发去了一封禁制函。' },
+    { id: 'v19', word: 'lingered', lemma: 'linger', sentenceId: 's17', level: 4, pos: 'v.', ipa: '/ˈlɪŋɡəd/', defZh: '挥之不去；久久停留', defEn: 'stayed on after most of something had ended', example: 'A trace of smoke lingered in the room long after the candle was blown out.', exampleZh: '蜡烛熄灭后很久，房间里还残留着一缕烟味。' },
+    { id: 'v20', word: 'lifetime', lemma: 'lifetime', sentenceId: 's18', level: 1, pos: 'n.', ipa: '/ˈlaɪftaɪm/', defZh: '一生；终生', defEn: 'the length of a person\'s life', example: 'A lifetime of small habits shapes the person you finally become.', exampleZh: '一生里那些细小的习惯，塑造了你最终成为的那个人。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What [子句] is [对象] 把"重点"先吊住，再揭晓',
+      pattern: 'What [clause] + is/was + [emphasis]',
+      sentenceIds: ['s5', 's17'],
+      explanationZh: [
+        '英文里想把读者注意力锁在某个具体名词或短语上，常用一种"先卖关子，再揭晓"的结构：What 起头一个从句，再用 is 或 was 把真正想强调的东西放到句末。中文里近似于"它不保护的，则是……"，把句子的重音留到最后那一下。',
+        '看第 5 句：What it does not protect is a general style…。如果直接写 It does not protect a general style，信息没错，但平铺直叙，读起来像列清单。改成 What-cleft 之后，读者要一直读到 is 那一刻，才看到"a general style"，重音自然落在它上面。第 17 句 What lingered was a quieter question 也是同一招：先告诉你"真正留下来的"，再揭晓"是一个更安静的问题"。',
+        '什么时候用：评论、分析、特写里非常合用，尤其当你想让某个名词在句末"立住"时。它适合书面语，不适合口语里高频出现；用得太密，句子会一直在做"先停后亮"的小把戏，反而单调。',
+        '一个容易被中文学习者忽略的细节：What 引导的从句，永远视为单数，所以后面用 is 或 was，不会变成 are / were。哪怕你最后想强调的是一个复数名词（two questions），动词依然写 is / was，因为它配的是前面的整段 What-从句。',
+      ],
+      examples: [
+        { en: 'What the law actually requires is a written contract, not a friendly handshake.', zh: '法律真正要求的，是一份书面合同，而不是一次友好的握手。', note: '把"a written contract"留到句末，重音立刻立住。' },
+        { en: 'What no one in the meeting was willing to say was that the deadline had already slipped.', zh: '会议上没人愿意说出口的，是最后期限其实已经过了。' },
+        { en: 'What kept the small shop alive through the recession was a single loyal supplier.', zh: '让这家小店熬过经济衰退的，是一个忠实的供货商。' },
+        { en: 'What you remember about a city is rarely what the guidebook lists.', zh: '你对一座城市的记忆，往往不是旅游手册上写的那些东西。' },
+        { en: 'What the editor cut from the final draft was the one sentence I had liked most.', zh: '编辑从终稿里删掉的，恰好是我最喜欢的那一句。' },
+      ],
+      commonMistake: '不要写成 What it does not protect are styles。即使后面强调的名词是复数 styles，What-从句仍当单数处理，动词必须写 is / was。正确写法是 What it does not protect is general styles。',
+      vsSimilar: 'It-cleft（It is a general style that the law does not protect）也用于强调，语气更斩钉截铁，常带"是这个、不是那个"的澄清感。What-cleft 更像在揭晓答案，节奏更柔，更适合分析性段落。',
+    },
+    {
+      id: 'g2',
+      title: '用 like 加举例，把抽象概念落到具体上',
+      pattern: '[抽象类别], like + 名词1, 名词2, 名词3',
+      sentenceIds: ['s4', 's5'],
+      explanationZh: [
+        '写法律、写制度、写抽象概念时，最容易让读者茫然的，就是一连串大词。英文里对付这种抽象的方法之一，是在抽象类别后面用 like 加几个具体例子，让读者立刻有画面感。中文里类似"比如 X、Y、Z"。',
+        '看第 4 句：…specific works of expression, like a single painting, a film, or the design of one named character。前半句给出抽象的法律概念 specific works of expression，但读者其实不知道这指什么。like 后面三个具体例子（一幅画、一部影片、一个角色设计）一出来，整句立刻变得可触可摸。第 5 句 a general style, a mood, a colour palette, or the broad feeling… 用的是另一种"逐项展开"的写法，但用意一样：用一连串具体名词，让抽象的概念可视化。',
+        '什么时候用：议论文、解释性新闻、入门读物里都好用。每当你刚抛出一个抽象类别，紧接着用 like 加 2-3 个例子，读者的理解速度会显著加快。也常用于学术写作的开篇定义段落，定义抽象后立刻给例子，几乎是标配。',
+        '一个细节：like 后面跟的几个例子，最好属于同一个层级，不要一个具体、一个又抽象，否则平行结构就乱了。例如 like a painting, a film, or "art in general" 就糟糕，因为最后一项又跳回抽象。',
+      ],
+      examples: [
+        { en: 'The rule covers small public spaces, like a park bench, a bus stop, or the steps in front of a library.', zh: '这条规定涵盖小型公共空间，比如公园长椅、公交站台、图书馆门前的台阶。', note: 'like 后面三项都是同一个层级的小型公共设施，平行很干净。' },
+        { en: 'Local foods, like the steamed buns sold at the night market, often tell a city\'s story better than any museum.', zh: '本地小吃，比如夜市上卖的蒸包子，往往比任何博物馆更能讲清一座城市的故事。' },
+        { en: 'Old apps, like the offline calculator on my first phone, sometimes work better than their fancier replacements.', zh: '一些旧应用，比如我第一台手机上的离线计算器，有时反而比花哨的新版本更好用。' },
+        { en: 'Quiet exercises, like a slow walk after dinner, are often easier to keep up than gym routines.', zh: '安静一点的运动，比如晚饭后慢走，往往比健身房计划更容易坚持下来。' },
+      ],
+      commonMistake: '不要让 like 后面跳层级：like a painting, a film, or the whole field of visual art。前两个是具体作品，第三个突然变回抽象类别，平行结构破掉，读者会卡顿。给的例子要保持在同一颗粒度。',
+    },
+    {
+      id: 'g3',
+      title: '用 "If X…, the studio would have Y" 谈"假设里成立的情况"',
+      pattern: 'If + 一般现在时, + would/could/might + 动词原形',
+      sentenceIds: ['s7', 's8'],
+      explanationZh: [
+        '想讨论一种"还没真正发生、但如果发生了会怎样"的法律情境，英文里非常顺手的句式是 If 加一般现在时（或一般过去时），主句用 would / could / might 加动词原形。这是英语里典型的"第二条件句"，专门用来谈假设。中文里近似"如果……，就会……"。',
+        '看第 7 句：If an AI image copied Totoro himself…, the studio would have a clean copyright claim。这里讨论的不是真实发生的事件，而是一个法律上的"假设场景"：万一这种情况成立，结果会是什么。If 后面用 copied（过去式），主句用 would have，整个句子就被拉到"假设"的语气里。第 8 句 But if the picture only shared… the studio had almost nothing to sue over，作者把主句改成 had（这里语意接近 would have），保持讨论"如果发生了会怎样"的语调。',
+        '什么时候用：写法律分析、写经济推演、写"在某条件下结果如何"的评论时几乎是必备。它能在不下定论的前提下，把可能性讲透：如果是 A，就是这个结果；如果是 B，就是那个结果。',
+        '一个细节：If 之后的从句，动词要倒退一格，一般现在时事实，要写成一般过去时；现在完成时的事实，要写成过去完成时。这是英语区分"现实"与"假设"的方式，初学者经常忘记这一格。',
+      ],
+      examples: [
+        { en: 'If the brand sued every small bakery using its name, it would lose every customer it has.', zh: '如果这家品牌起诉每一家使用它名字的小面包店，它会失去手上所有的顾客。', note: 'If 后面 sued（过去式），主句 would lose，整句保持"假设"语气。' },
+        { en: 'If schools paid teachers a higher base salary, fewer of them would leave in the first three years.', zh: '如果学校付给老师更高的底薪，前三年里离职的人会少很多。' },
+        { en: 'If the photo showed the model\'s face, the magazine could be forced to remove it.', zh: '如果那张照片露出了模特的脸，杂志可能会被要求把它撤掉。' },
+        { en: 'If the city kept the old market open on weekends, neighbours might use it again.', zh: '如果这座城市把旧菜市场在周末继续保留，邻居们也许会重新光顾。' },
+      ],
+      commonMistake: '不要写成 If an AI image copies Totoro, the studio would have a claim。一旦主句用了 would，从句的动词必须倒退到 copied 这种过去式，才能进入"假设"语气；保持一般现在时 copies，整个句子就读起来像在描述真实事实。',
+      vsSimilar: '一般现在时的 If 句（If the image copies Totoro, the studio has a claim）讨论的是"事实条件"，只要发生就成立。第二条件句（If the image copied… the studio would have…）讨论的是"假设条件"，尚未发生，仅作推演。两者的差别就在动词时态那一格。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '解释一个概念时，先说"它是什么"，再立刻补一句"它不是什么"',
+      skeleton: '[抽象概念] is [定义]. What it does not [verb] is [常见误解].',
+      original: 'Copyright, in most countries, is the right to control specific works of expression, like a single painting, a film, or the design of one named character. What it does not protect is a general style, a mood, a colour palette, or the broad feeling a body of work leaves behind.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式靠两句一前一后的反差来澄清概念。第一句正面给出"它是什么"，让读者建立一个初步框架；第二句紧接着用 What it does not… 把"常见的误以为属于它、但其实不属于它"的部分剪掉。两步一合，概念的边界就被画干净了。',
+        '对读者来说，第二句里的 What it does not… 是一个非常贴心的承诺：作者知道你大概率会把"风格"也算进版权范围，所以才主动来把那块切出去。这种"我先帮你避开误区"的写法，让读者更愿意继续读下去，因为他知道作者在认真带他。',
+        '它最适合放在解释性文章的中段，特别是在抛出一个法律、经济或科学的专有名词之后。也常出现在面向大众的法律评论、政策解读、科普文章里，因为它能在一段话里同时完成"定义"加"边界"两件事。',
+        '一个隐藏前提：第二句砍掉的那部分，必须是读者最容易当成"也算"的版本，否则这一刀就落空了。如果第二句砍掉的是大家根本不会误以为属于它的东西，整个反差就显得多此一举。',
+      ],
+      examples: [
+        { context: '科普文章中段', text: 'Vaccination is a way of teaching the immune system to recognise a specific threat. What it does not promise is a life free from every cold or sore throat.', zh: '疫苗是一种教会免疫系统识别某种具体威胁的方式。它并不承诺的，是一种再也不感冒、不喉咙痛的生活。' },
+        { context: '议论文中段', text: 'Free speech is the right to say things the government may not like. What it does not give you is a guarantee that any private platform must carry your post.', zh: '言论自由，是说出政府未必喜欢的话的权利。它并不给你的，是某个私人平台必须替你发帖的保证。', note: '第二句砍掉的"私人平台必须发你的帖"，正是大家最常混进言论自由的部分。' },
+        { context: '政策解读', text: 'The new visa is meant for short research stays. What it does not cover is teaching paid work in a local school.', zh: '这种新签证是为短期学术访问设计的。它并不涵盖的，是在当地学校做付薪教学。' },
+      ],
+      adaptingTip: '第一句要给一个相对收紧的定义（保护的是 specific works，不是 every work），第二句砍掉的那块要选大家最容易"以为也算"的部分（a style, a mood, a vibe…）。两句之间最好用上下文有节奏的并置：第一句 is，第二句 What it does not …。要做的是"画边界"，不是"列禁忌"，所以语气保持冷静、不带情绪。',
+      commonMistake: '不要让第二句砍掉的东西过于明显或夸张：Copyright is the right to control a specific work. What it does not protect is the air we breathe。读者根本不会把"空气"误以为也算版权对象，所以这一刀切下去，纯粹是浪费。第二句砍掉的必须是真实存在的误解。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把"两种立场看到不同结论"摆开，让读者自己感受落差',
+      skeleton: 'For [群体 A], [对这件事的解读 1]. For [群体 B], [对同一件事的解读 2].',
+      original: 'For fans, every cute AI portrait was a small theft of decades of careful drawing. For courts, only a copied character or a misused brand name would clear the bar.',
+      sentenceId: 's14',
+      whyItWorks: [
+        '这个句式的力量来自一对并列的"视角"。两句都用 For 加群体名开头，结构完全对称，但落点截然相反：粉丝看到的是道德层面的小偷窃，法庭看到的是法律意义上的高门槛。结构的对称把内容的对立衬得格外清晰。',
+        '对读者来说，作者没有跳出来评判"哪一方对、哪一方错"，而是把两种解读并排摆好，让读者自己感受其中的落差。这种克制反而比直接下结论更有说服力，因为读者觉得自己是在被尊重，而不是被牵着走。',
+        '它特别适合放在评论文或特写的中段，紧接着前文给出的事实之后，用来呈现争议。也常出现在社会评论、人物特写、政策解读里，每当你想呈现"同一件事，不同立场"时几乎都好用。',
+        '一个细节：两句之间的对称要做足。如果第一句很短、第二句突然拉长，对称感就泄了。两句要尽量做到长度接近、节奏对应，对立才像一面镜子，而不像两块独立的砖。',
+      ],
+      examples: [
+        { context: '政策评论', text: 'For supporters, the new rule was a long-overdue protection of clean rivers. For small farmers, it was one more form to fill in before the spring planting.', zh: '对支持者来说，这项新规是一份早就该到位、对清洁河流的保护。对小农户来说，则是春耕前又多了一张要填的表。' },
+        { context: '产品评论', text: 'For first-time users, the app was a friendly way to track their reading. For long-time readers, it was one more tool that kept asking for a subscription.', zh: '对新手用户来说，这款应用是一种亲切的阅读追踪方式。对老读者来说，它是又一个不断催你订阅的工具。', note: '两句结构对称，两种立场的判断各占一句，对立感立刻立住。' },
+        { context: '社会评论', text: 'For the neighbours, the closed factory was a quiet relief from years of noise. For its former workers, it was the morning routine that no longer existed.', zh: '对邻居们来说，这家关停的工厂，是一次摆脱多年噪音的安静解脱。对原本的工人来说，则是一段不复存在的清晨日常。' },
+      ],
+      adaptingTip: '两个 For 后面的群体，要选立场真的会相反的两方（粉丝 vs. 法庭，支持者 vs. 反对者，新人 vs. 老用户），不要选两个本来观点就重合的群体。两句的句子长度和节奏要尽量接近，对称感才能撑起对立。这是中段武器，前面要先把事实交代清楚，否则两种立场没有共同的"原始事件"做支点。',
+      commonMistake: '不要让两个 For 后面的群体观点其实差不多：For fans, the trend felt like a theft. For most viewers, the trend also felt unfair。两句方向一致，对称结构就空转了。两个群体的判断必须落在不同方向，句式才有力。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾时，把全文最大的那个问题留到最后一句，让它"挥之不去"',
+      skeleton: 'What lingered was [一个更安静的、回扣全文的问题或事实]. [可选第二句解释或扩展].',
+      original: 'What lingered was a quieter question, the one the lawyers had answered without quite meaning to. A style is what an artist spends a lifetime building, and what the law, as written today, has decided no one is allowed to own.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式的力量来自动词 lingered（挥之不去）本身。它不说"留下的问题很大、很重要"，只说"它没有走"，这种克制的描述反而比直接喊"重要"更有分量。读者读完一篇评论文，看到这个动词，就像看到一缕烟在房间里慢慢散，心里那一下也跟着停。',
+        '对读者来说，What lingered 这两个词是一个明显的"收尾信号"：作者要把全文最值得带走的那个东西交到读者手上了。读者会自动放慢节奏，准备接住。这种节奏上的提醒，比硬写"To sum up"或"In conclusion"高级很多。',
+        '它最适合放在评论文、特写、社论的最后一段。前面已经把事实和争议都摆完，这一句负责把"事实"翻译成"挥之不去的疑问或洞察"，给读者一个值得带走的尾巴。',
+        '一个隐藏要点：lingered 后面接的那个"东西"，必须是回扣全文的，不能是新冒出来的话题。文中 a quieter question 紧扣前文的版权讨论，所以读者读到这里会有"啊，那个一直没说破的疑问"的恍然，而不是突兀。',
+      ],
+      examples: [
+        { context: '社会评论收尾', text: 'What lingered was a smaller doubt, the one no one in the meeting had quite been willing to put into words.', zh: '真正挥之不去的，是一个更小的疑虑，是会议上没有人真愿意说出口的那一种。' },
+        { context: '影评收尾', text: 'What lingered was not the explosion in the third act, but the silence the camera held for two long seconds before it.', zh: '真正挥之不去的，不是第三幕里的那场爆炸，而是它发生前镜头停留的那两秒安静。', note: 'lingered 后面接的不是大场面，而是一个细小的安静瞬间，反而更有重量。' },
+        { context: '政策评论收尾', text: 'What lingered was a question the new rule had carefully avoided, the one about who should pay when both sides could afford to lose a little.', zh: '真正挥之不去的，是这条新规小心翼翼绕开的那个问题：当双方都能承受一点小损失时，到底该由谁来出钱。' },
+      ],
+      adaptingTip: 'lingered 后面接的东西要刻意做"小、安静、低调"，一个 quieter question、一个 smaller doubt、一段 silence，和前文里那些喧嚣或激烈的事件形成反差，挥之不去的效果才出得来。如果你接的是一个更大、更激烈的东西，整个句式的克制感就立刻塌掉。这是收尾武器，不要放在开头或中段。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what does copyright in most countries actually protect?', options: ['A general artistic style', 'A particular mood or feeling', 'Specific works of expression, like a single painting or named character', 'Any image that looks similar to a famous one'], answer: 2, explanation: "The article defines copyright as the right to control specific works of expression, like a single painting, a film, or the design of one named character.", sentenceId: 's4' },
+    { id: 'q2', q: 'When would Studio Ghibli have a clean copyright claim against an AI image?', options: ['When the image used warm colours and a quiet countryside scene', 'When the image copied Totoro himself or the face of No-Face', 'When the user mentioned the word "Ghibli" in the prompt', 'Whenever the image looked like a Ghibli film'], answer: 1, explanation: 'The article says a clean copyright claim would exist only if the AI image copied a specific character like Totoro or No-Face.', sentenceId: 's7' },
+    { id: 'q3', q: 'What legal route, other than copyright, did lawyers point to?', options: ['Tax law', 'Trademark law and the doctrine of passing off', 'Criminal fraud law', 'International trade law'], answer: 1, explanation: 'The article says lawyers pointed to trademark law and a doctrine called passing off, both protecting brand name and reputation.', sentenceId: 's11' },
+    { id: 'q4', q: 'Why was OpenAI\'s wording "in the style of Studio Ghibli" legally interesting?', options: ['Because it broke a private agreement with the studio', 'Because it used the brand name directly, opening a possible trademark or passing-off claim', 'Because the phrase itself was copyrighted', 'Because the words were too long to use in court'], answer: 1, explanation: 'The article says commentators pointed to this wording as the part the studio could press on under trademark or passing-off ideas.', sentenceId: 's12' },
+    { id: 'q5', q: "What is the writer's overall tone in the closing paragraph?", options: ['Triumphant about the strength of current copyright law', 'Excited that artists are now well protected', 'Quietly troubled by the gap between what the law owns and what a lifetime of work feels like', 'Angry at Studio Ghibli for not suing'], answer: 2, explanation: 'The closing lines say a style is what an artist spends a lifetime building, and what the law has decided no one is allowed to own. The tone is reflective and quietly troubled.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '这场讨论发生的时间', answer: 'April 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '文中点名的三家行业媒体之一', answer: 'The Conversation', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '版权保护的具体对象（一个例子）', answer: 'a single painting', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '版权不保护的东西（一个例子）', answer: 'a general style', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '一个吉卜力可以打版权官司的具体角色', answer: 'Totoro', sentenceId: 's7' },
+      { id: 'ig6', cueZh: '版权之外律师指出的法律路径', answer: 'trademark law', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '一项保护品牌声誉的法律原则名称', answer: 'passing off', sentenceId: 's11' },
+      { id: 'ig8', cueZh: '到 4 月初为止，吉卜力是否已经提起诉讼', answer: 'no', sentenceId: 's16' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位没有学过法律的朋友解释：为什么吉卜力风格的 AI 图片"感觉像被偷了"，可在版权法上却很难起诉，律师们又看到了什么别的可能。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining to a friend who has not studied law why Ghibli-style AI images feel stolen but are hard to sue over under copyright, and what other legal route lawyers pointed to.',
+      targetWords: 70,
+      starters: [
+        'In April 2025, ...',
+        'What copyright does not protect is ...',
+      ],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'In April 2025, lawyers asked whether Studio Ghibli could sue over the AI images flooding social media. Copyright protects specific works, like a single painting or the design of Totoro. What it does not protect is a general style, a mood, or a soft palette. For fans, every cute AI portrait felt like theft. For courts, only a copied character or a misused brand name would clear the bar. Lawyers pointed instead to trademark law and the doctrine of passing off.',
+      modelAnswerZh:
+        '2025 年 4 月，律师们在问：吉卜力工作室能否就那些刷屏的 AI 图片提起诉讼。版权保护的是具体作品，比如一幅画或者龙猫这个角色的设计。它不保护的，则是一种笼统的风格、一种情绪，或者一组柔和的配色。对粉丝来说，每一张可爱的 AI 肖像都像是一次偷窃。对法庭来说，只有复制了具体角色，或者滥用了品牌名称，才有可能跨过门槛。律师们指向的是另一条路：商标法，以及那项叫做「假冒之诉」的原则。',
+    },
+  },
+};
