@@ -1,0 +1,253 @@
+// AI Revolution book, Ch.1: OpenAI's GPT-5.5 launch on April 23, 2026 (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2026-04-23',
+    title: 'GPT-5.5 Lands',
+    titleZh: 'GPT-5.5 上线',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/ai-revolution/01-gpt5-5.mp3',
+    wordCount: 348,
+    readingMinutes: 5,
+    editorsNote:
+      'On April 23, 2026, OpenAI shipped GPT-5.5 with a confident pitch: smarter, more intuitive, able to operate software and hop between tools to finish a task. Within a day it topped the global intelligence index. Within hours, Reddit was complaining about message caps. This chapter walks through what shipped, what the benchmarks said, and why the launch landed with less noise than OpenAI probably expected.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On April 23, 2026, OpenAI released GPT-5.5 and called it the smartest and most intuitive model the company had ever shipped.', zh: '2026 年 4 月 23 日，OpenAI 发布了 GPT-5.5，把它定性为公司迄今为止"最聪明、最直觉化"的一款模型。' },
+        { id: 's2', en: 'The pitch was simple: this model understands what you are trying to do faster, and it carries more of the work itself.', zh: '宣传话术很直接：这款模型更快理解你想做什么，并且会替你扛下更多的活。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'OpenAI highlighted four areas where the gains were strongest.', zh: 'OpenAI 重点强调了四个进步最明显的方向。' },
+        { id: 's4', en: 'GPT-5.5 writes and debugs code more reliably, researches across the open web with sharper judgement, drafts documents and spreadsheets in one pass, and operates other software, moving across tools until a task is finished.', zh: 'GPT-5.5 写代码和找 bug 更稳，在公开网络上做研究时判断力更准，能一次性起草文档和表格，还能直接操作其他软件，跨工具跳转，直到把一件事做完。' },
+        { id: 's5', en: "That last point, the ability to act across applications, is what most reviewers picked up on as the real shift from the company's earlier models.", zh: '最后一点，也就是跨应用执行任务的能力，被多数评论者抓出来当作这次相比之前几代模型的真正分水岭。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's6', en: 'The benchmark scores arrived with the model.', zh: '基准测试分数和模型一起发布。' },
+        { id: 's7', en: 'OpenAI reported 82.7 percent on Terminal-Bench 2.0, a test of how well a model can work inside a real command line, and 51.7 percent on the first three tiers of FrontierMath, a harder set of problems built to resist memorization.', zh: 'OpenAI 公布的成绩包括 Terminal-Bench 2.0 拿到 82.7%（这是测模型在真实命令行里能否干活的考题），以及 FrontierMath 前三档拿到 51.7%（这是一套故意设计来防"背题"的硬数学集）。' },
+        { id: 's8', en: 'Within twenty-four hours, an independent index ranked GPT-5.5 at the top of the global leaderboard, breaking a three-way tie that had held for weeks.', zh: '上线 24 小时内，一份独立评测把 GPT-5.5 排到了全球榜首，打破了之前持续数周的三方并列局面。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's9', en: 'And yet the reception was strangely muted.', zh: '可是反响出奇地平静。' },
+        { id: 's10', en: 'Part of what makes a launch feel big is contrast, and in April 2026 the contrast had eroded.', zh: '一次发布会显得"大"，部分原因来自反差，而 2026 年 4 月，反差已经被磨平了。' },
+        { id: 's11', en: 'Frontier model releases were arriving every few weeks, often from competitors with comparable scores.', zh: '前沿模型每隔几周就有一次发布，常常来自分数咬得很紧的竞争对手。' },
+        { id: 's12', en: 'A model that would have shaken the industry six months earlier now slid into a saturated feed.', zh: '一款放在半年前足以撼动整个行业的模型，如今滑进了一条已经饱和的信息流里。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'The other complaint came from paying users.', zh: '另一类抱怨来自付费用户。' },
+        { id: 's14', en: 'OpenAI capped Plus subscribers at 200 thinking-mode messages per week, a sharp cut from what GPT-5.4 had allowed.', zh: 'OpenAI 把 Plus 订阅用户的"思考模式"使用次数限制到每周 200 条，相比 GPT-5.4 的额度被砍掉了一大块。' },
+        { id: 's15', en: 'Reddit threads filled within hours, the company raised the cap to roughly 3,000 within days, and the episode exposed a tension that keeps returning: smarter models cost more to serve, but the audience expects them to feel free.', zh: '论坛帖几小时内就爆了，公司在几天之内把上限拉到大约 3,000 条，整件事暴露了一个反复出现的矛盾：更聪明的模型服务成本更高，但用户期待用起来"像是免费"。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'What the benchmarks leave room to dispute is the size of the leap; what they leave no room to dispute is the direction.', zh: '基准测试给争议留出的，是这次跃升的"幅度"；它们没给争议留余地的，是方向。' },
+        { id: 's17', en: 'GPT-5.5 can do more on its own than the version it replaces, and that is a step that does not unhappen.', zh: 'GPT-5.5 能独立完成的事，比它替代掉的那一代更多，这一步迈出去就收不回来了。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'released', lemma: 'release', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/rɪˈliːst/', defZh: '发布；推出', defEn: 'made available to the public for the first time', example: 'The studio released the trailer two weeks before the film opened.', exampleZh: '影片上映前两周，制片厂就放出了预告片。' },
+    { id: 'v2', word: 'intuitive', lemma: 'intuitive', sentenceId: 's1', level: 3, pos: 'adj.', ipa: '/ɪnˈtjuːɪtɪv/', defZh: '直觉化的；不用学就会用的', defEn: 'easy to understand or use without instruction', example: 'The app has an intuitive layout that new users pick up in minutes.', exampleZh: '这款应用的布局很直观，新用户几分钟就上手。' },
+    { id: 'v3', word: 'pitch', lemma: 'pitch', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/pɪtʃ/', defZh: '推介话术；卖点说辞', defEn: 'a short, persuasive presentation of a product or idea', example: 'Her pitch to investors took only ninety seconds.', exampleZh: '她对投资人的推介只讲了九十秒。' },
+    { id: 'v4', word: 'highlighted', lemma: 'highlight', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/ˈhaɪlaɪtɪd/', defZh: '着重指出；突出', defEn: 'drew attention to a particular point', example: 'The report highlighted three risks the board had ignored.', exampleZh: '这份报告着重点出了董事会忽视的三个风险。' },
+    { id: 'v5', word: 'debugs', lemma: 'debug', sentenceId: 's4', level: 3, pos: 'v.', ipa: '/diːˈbʌɡz/', defZh: '调试；找出并修复代码错误', defEn: 'finds and fixes errors in computer code', example: 'A junior engineer debugs the script before each release.', exampleZh: '每次发版前都会有一位初级工程师调试这段脚本。' },
+    { id: 'v6', word: 'judgement', lemma: 'judgement', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/ˈdʒʌdʒmənt/', defZh: '判断力；判断', defEn: 'the ability to make a careful, reasoned decision', example: 'Good judgement matters more than speed in this role.', exampleZh: '在这个岗位上，判断力比速度更重要。' },
+    { id: 'v7', word: 'shift', lemma: 'shift', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ʃɪft/', defZh: '转变；变化', defEn: 'a clear change in direction or position', example: 'There has been a quiet shift in how parents view homework.', exampleZh: '家长看待家庭作业的方式，悄悄发生了变化。' },
+    { id: 'v8', word: 'reliably', lemma: 'reliably', sentenceId: 's4', level: 3, pos: 'adv.', ipa: '/rɪˈlaɪəbli/', defZh: '可靠地；稳定地', defEn: 'in a way that can be trusted to work', example: 'The old printer still feeds paper reliably after ten years.', exampleZh: '这台旧打印机用了十年，进纸依然稳定。' },
+    { id: 'v9', word: 'resist', lemma: 'resist', sentenceId: 's7', level: 2, pos: 'v.', ipa: '/rɪˈzɪst/', defZh: '抵抗；防住', defEn: 'to refuse to give in to a pressure or force', example: 'The coating helps the surface resist scratches.', exampleZh: '这层涂层让表面更不容易被划伤。' },
+    { id: 'v10', word: 'tiers', lemma: 'tier', sentenceId: 's7', level: 4, pos: 'n.', ipa: '/tɪəz/', defZh: '层级；档位', defEn: 'levels in a system arranged in layers', example: 'The lowest tiers of the program are free for students.', exampleZh: '这个项目的最低几档对学生免费。' },
+    { id: 'v11', word: 'leaderboard', lemma: 'leaderboard', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/ˈliːdəbɔːd/', defZh: '排行榜；公共榜单', defEn: 'a public ranking of the best performers', example: 'Her name stayed on the leaderboard for a whole season.', exampleZh: '她的名字在排行榜上挂了整整一个赛季。' },
+    { id: 'v12', word: 'muted', lemma: 'muted', sentenceId: 's9', level: 3, pos: 'adj.', ipa: '/ˈmjuːtɪd/', defZh: '平静的；不强烈的（反应/色彩）', defEn: 'quieter or less intense than expected', example: 'The crowd gave the speaker a muted response.', exampleZh: '听众对这位演讲者的反应相当平淡。' },
+    { id: 'v13', word: 'eroded', lemma: 'erode', sentenceId: 's10', level: 4, pos: 'v.', ipa: '/ɪˈrəʊdɪd/', defZh: '被慢慢磨损；逐渐削弱', defEn: 'gradually worn or weakened over time', example: 'Years of small delays eroded trust in the agency.', exampleZh: '常年的小延误一点点磨掉了大家对这个机构的信任。' },
+    { id: 'v14', word: 'frontier', lemma: 'frontier', sentenceId: 's11', level: 3, pos: 'adj.', ipa: '/ˈfrʌntɪə(r)/', defZh: '前沿的；最尖端的', defEn: 'at the leading edge of a field', example: 'Frontier research often takes years to reach the public.', exampleZh: '前沿研究往往要等好几年才能落到大众身上。' },
+    { id: 'v15', word: 'comparable', lemma: 'comparable', sentenceId: 's11', level: 3, pos: 'adj.', ipa: '/ˈkɒmpərəbl/', defZh: '相当的；可比的', defEn: 'similar enough in size or quality to be compared', example: 'The two cities have comparable housing prices.', exampleZh: '这两座城市的房价水平相近。' },
+    { id: 'v16', word: 'saturated', lemma: 'saturate', sentenceId: 's12', level: 4, pos: 'adj.', ipa: '/ˈsætʃəreɪtɪd/', defZh: '饱和的；填得满满的', defEn: 'so full that nothing more can be absorbed', example: 'The streaming market is now saturated with cooking shows.', exampleZh: '流媒体平台上的烹饪节目已经多到饱和。' },
+    { id: 'v17', word: 'capped', lemma: 'cap', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/kæpt/', defZh: '限定上限；封顶', defEn: 'set an upper limit on something', example: 'The school capped class sizes at twenty-four.', exampleZh: '学校把班级人数上限定在 24 人。' },
+    { id: 'v18', word: 'tension', lemma: 'tension', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ˈtenʃn/', defZh: '矛盾；张力', defEn: 'a strain between two opposing forces or wishes', example: 'There is a long-running tension between speed and safety in this industry.', exampleZh: '这个行业里速度和安全之间一直有一种长期的张力。' },
+    { id: 'v19', word: 'dispute', lemma: 'dispute', sentenceId: 's16', level: 3, pos: 'v.', ipa: '/dɪˈspjuːt/', defZh: '质疑；提出异议', defEn: 'to question or argue against something', example: 'Nobody disputes that the rules need updating, only how fast.', exampleZh: '没人质疑规则需要更新，分歧只在更新的快慢。' },
+    { id: 'v20', word: 'leap', lemma: 'leap', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/liːp/', defZh: '跃升；大跨越', defEn: 'a large, sudden advance or change', example: 'Image generation made a leap in quality between 2023 and 2024.', exampleZh: '图像生成在 2023 到 2024 年间在质量上出现了一次大跃迁。' },
+    { id: 'v21', word: 'replaces', lemma: 'replace', sentenceId: 's17', level: 1, pos: 'v.', ipa: '/rɪˈpleɪsɪz/', defZh: '取代；替换', defEn: 'takes the place of something else', example: 'The new app replaces three older tools the team used.', exampleZh: '这款新应用取代了团队以前用的三种旧工具。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What 引导的从句把要强调的"那件事"提到句首',
+      pattern: 'What [clause] is [emphasis]',
+      sentenceIds: ['s5', 's10', 's16'],
+      explanationZh: [
+        '英文正常语序是先说主语再说判断：The benchmarks leave no room to dispute the direction。这句没毛病，但读起来很平，重音落不到作者真正想强调的那个名词上。如果你想把"那件事"拽到句末重音位，可以把前半改成 what 引导的从句，让整句变成 what-cleft 结构。',
+        '看第 16 句：What the benchmarks leave room to dispute is the size of the leap; what they leave no room to dispute is the direction。前后两个 what 从句把"分歧在哪里"和"共识在哪里"都框出来，is 后面的名词（the size of the leap / the direction）则被重重砸在句末。读到这里，读者会下意识把注意力放到 direction 这个词上，分量就出来了。第 5 句 That last point, the ability to act across applications, is what most reviewers picked up on… 是同一思路的变体：先用同位语点出"最后那一点是什么"，再用 is what… 把"评论者抓住的是它"明明白白说出来。',
+        '什么时候用：议论文段落收尾、新闻特写的主张句、对比研究的总结，凡是需要"把读者眼神强行拉到一个点上"的位置最合适。日常聊天里硬塞，反而显得做作。这是为什么文中三次出现的 what-cleft 都集中在段尾或转折位上。',
+        '一个非常容易踩雷的细节：what 引导的从句无论后面跟单数还是复数名词，谓语永远跟 what 这个从句本身走，所以谓语用 is，不用 are。写 What worries economists are the numbers 是错的，要写成 What worries economists is the numbers。哪怕 numbers 是复数，整个 what 从句被当作单数主语处理。',
+      ],
+      examples: [
+        { en: 'What this report quietly admits is that the deadline was unrealistic from the start.', zh: '这份报告悄悄承认的，是这个截止日期从一开始就不现实。', note: '把"悄悄承认"作为框定动作，重音砸在 the deadline was unrealistic 这个判断上。' },
+        { en: 'What surprised me about the trip was not the food but the silence at breakfast.', zh: '这趟旅行让我意外的不是食物，而是早餐时的沉默。' },
+        { en: 'What no current chart in the deck addresses is who pays for the transition.', zh: 'PPT 里目前任何一张图都没碰过的，是这件事的过渡成本要谁来承担。' },
+        { en: 'What the team has been missing is a single person willing to say no.', zh: '这个团队一直缺的，是一个愿意说"不"的人。' },
+        { en: 'What no follow-up email can fix is the impression left in the first thirty seconds.', zh: '任何跟进邮件都没法修补的，是头三十秒留下的印象。' },
+      ],
+      commonMistake: '不要把谓语写成 are：What the benchmarks dispute are the size and direction ✗。改成 What the benchmarks dispute is the size and direction ✓。哪怕后面的名词短语是并列复数，what 引导的从句仍然算单数主语。',
+      vsSimilar: 'It-cleft（It is the direction that the benchmarks leave no room to dispute）同样能强调，但落点是 the direction 这个名词短语本身；what-cleft 落点在"被框起来的范围 vs. 被点名的那件事"的对比上，节奏更慢，长句里更顺。',
+    },
+    {
+      id: 'g2',
+      title: '用现在分词短语把状态描写嵌进句中，省掉一整个从句',
+      pattern: '名词 + V-ing 短语（充当后置定语或伴随状语）',
+      sentenceIds: ['s4', 's7', 's11'],
+      explanationZh: [
+        '中文习惯把定语堆在名词前面（"故意设计来防背题的硬数学集"），写英文时新手第一反应往往是 a hard math set that is designed to resist memorization。这没错，但一旦句子里要塞三件事，每件事都套一个 that is 从句，整句就像一串挂钩，读着累。新闻和正式写作更常见的做法是把 that is 直接省掉，让现在分词短语直接接在名词后面。',
+        '看第 7 句：a harder set of problems built to resist memorization。完整版本是 a harder set of problems that is built to…，省掉 that is 之后，过去分词 built 直接挂在 problems 后面，节奏一下就紧了。第 4 句结尾 moving across tools until a task is finished 也是同样手法，但这里 moving 是现在分词，表示 operating other software 这个动作的伴随状态。第 11 句 often from competitors with comparable scores 用的是介词短语，但思路一致：用一个简短的修饰挂在名词后面，不另开从句。',
+        '什么时候用：新闻导语、研究综述、商业报告，但凡需要在一句话里挤进多重信息又不想读者数从句的位置，这个手法都好用。它也是 IELTS Task 2 提升句式密度最稳的工具之一。一个段落里出现一两次最合适，太密反而把句子写僵。',
+        '一个关键区分点：分词的"主被动"必须对。名词是动作的承受者（被设计、被领导），用过去分词 built / led；名词是动作的发出者（操作、跳转、覆盖），用现在分词 moving / covering。文中 problems built to resist 是被动（被设计来防背题），所以用 built；moving across tools 是 it（the model）正在主动跨工具跳，所以用 moving。',
+      ],
+      examples: [
+        { en: 'A short paper signed by both authors changed the policy overnight.', zh: '一份由两位作者共同签署的短文，一夜之间改变了那项政策。', note: 'signed 是过去分词，等同于 that was signed，省掉之后句子明显更紧。' },
+        { en: 'She showed me a chart comparing this year\'s applications with last year\'s.', zh: '她给我看了一张图表，把今年的申请和去年的做了对比。' },
+        { en: 'Most of the points raised in the meeting were quietly dropped.', zh: '会上提出的大多数要点，事后都被悄悄搁置了。' },
+        { en: 'The bridge, rebuilt after the flood, now carries twice the traffic.', zh: '洪水后重建的这座桥，如今承担的车流是过去的两倍。' },
+        { en: 'I prefer essays grounded in specific cases, not arguments built on broad claims.', zh: '我更喜欢那种扎根在具体案例上的文章，而不是建立在大而空主张上的论证。' },
+      ],
+      commonMistake: '不要把分词短语和主句的主语错配。比如 Walking into the studio, the lights were off 字面上是"灯走进了工作室"。补回正确主语：Walking into the studio, I noticed the lights were off。文中所有分词短语都紧贴它要修饰的名词，这是它们成立的前提。',
+      vsSimilar: '完整定语从句（that is / which is）信息感更稳，但句子更长；分词短语更紧凑，但要求读者跟得上"省略"。学术写作两种都用，新闻写作偏分词，口语里则更常用从句。',
+    },
+    {
+      id: 'g3',
+      title: '用一对逗号把同位语嵌进句中，不再另起一句解释',
+      pattern: '名词, 同位语短语, 句子继续',
+      sentenceIds: ['s5', 's7'],
+      explanationZh: [
+        '中文里我们常用括号或"即"插入解释："Terminal-Bench 2.0（一项测命令行能力的基准）"。英文新闻里更常见的处理是用一对逗号，把这段解释嵌进句中，称为同位语。两个逗号像一对括号，但读起来更顺，也更书面。',
+        '看第 7 句：82.7 percent on Terminal-Bench 2.0, a test of how well a model can work inside a real command line, and 51.7 percent on the first three tiers of FrontierMath, a harder set of problems built to resist memorization。两段补充说明各自用一对逗号嵌入，把"这两个基准到底是什么"顺手交代给读者，主句节奏没有被打断。把这两段拿掉，句子 82.7 percent on Terminal-Bench 2.0 and 51.7 percent on the first three tiers of FrontierMath 依然完整，这正是同位语成立的标志。第 5 句 the ability to act across applications 也是同位语，紧跟在 That last point 后面，告诉读者"上一段最后那一点指的就是这件事"。',
+        '什么时候用：当你要顺手交代一个机构、术语、人物或基准是什么，但又不想破坏主句节奏的时候。新闻导语第一段几乎必备。议论文里用它能在一句之内同时给出"主张+定义"，省下后续的解释段。',
+        '一个细节：两个逗号必须配对出现。开了第一个逗号补充，补充结束后必须再有一个逗号把句子接回主干。漏掉第二个是新手最常见的失误，整句的语法会瞬间崩掉。写完长句之后逐句检查"两个逗号是否成对"是一个好习惯。',
+      ],
+      examples: [
+        { en: 'GPT-5.5, the company\'s first base model in nearly a year, arrived without the usual livestream event.', zh: 'GPT-5.5，这家公司将近一年里第一次推出的基座模型，发布时并没有走常见的直播流程。' },
+        { en: 'My uncle, a retired civil engineer, still gets called in to look at old bridges.', zh: '我叔叔是一位退休的土木工程师，至今还会被请去看那些老桥。', note: '同位语把身份顺手嵌进去，不必另写一句，也不用 who is。' },
+        { en: 'Seoul, often described as one of the most connected cities in the world, has built its image around fast internet.', zh: '常被形容为全球网络最发达城市之一的首尔，把自己的形象建立在了高速互联网之上。' },
+        { en: 'The new project, a side experiment from two old colleagues, now drives half the company\'s revenue.', zh: '这个新项目，最初是两位老同事的副业实验，如今贡献了公司一半的营收。' },
+        { en: 'Erik Brynjolfsson, an economist at Stanford, has spent two decades writing about technology and labor.', zh: '斯坦福经济学家 Erik Brynjolfsson 研究技术和劳动力议题已经有二十年。' },
+      ],
+      commonMistake: '不要写成 GPT-5.5, the company\'s first base model in nearly a year arrived without…（漏了第二个逗号）。补充说明结束后必须再加一个逗号，才能把句子接回主干。长句里这种漏逗号是新手最常见的错。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '段落收尾用"分歧 vs. 共识"的对仗句，把读者注意力拉到方向上',
+      skeleton: 'What [thing] leaves room to [verb] is [contested point]; what they leave no room to [verb] is [shared point].',
+      original: 'What the benchmarks leave room to dispute is the size of the leap; what they leave no room to dispute is the direction.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个句式的力量来自"先承认 vs. 后定调"的两步走。第一句先把可争议的部分让出去（the size of the leap），读者会觉得作者很公允，没有把话说满；第二句紧跟一个相同结构的反转，把不容质疑的那件事点出来（the direction）。两句结构完全平行，只在 leave room / leave no room 一处微调，读起来像天平猛地朝一边砸下去。',
+        '对读者来说，让出去的那部分等于先付了一笔"信任成本"。读者会下意识地想，作者既然连这个都让步了，那他接下来要坚持的事就必然是真的扛得住。这是一种很冷静的修辞姿态，比直接喊"这一点毋庸置疑"高级得多。',
+        '它最适合放在文章或段落的结尾，前文已经把数据和争议都摆完，这两句负责给读者一个回家钥匙。议论文、政策评论、长篇科普的收尾都好用。不要放在文章开头，那时读者连争议的轮廓都还没看到。',
+        '一个隐藏前提：让出去的那一项必须是真的有人争（不是稻草人），坚持的那一项必须前文真的支撑过（不是凭空拔高）。否则整个句式就像演戏，读者会立刻识破。',
+      ],
+      examples: [
+        { context: '气候政策评论收尾', text: 'What the modelers leave room to argue is the timeline; what they leave no room to argue is the slope.', zh: '建模者给争议留出来的，是这件事的时间表；他们没给争议留余地的，是那条曲线的坡度。' },
+        { context: 'IELTS Task 2 收尾段', text: 'What the data leaves room to question is the size of the gap; what it leaves no room to question is who is on the losing side.', zh: '数据让出来的，是这道差距究竟有多大；它没给争议留余地的，是哪一群人站在了输的那一侧。', note: '前后两个 what 从句对仗，最后一击落在"谁在输"上，比直接喊"贫富分化加剧"有力。' },
+        { context: '产品评论收束', text: 'What this new release leaves room to argue is whether it is worth the price; what it leaves no room to argue is whether the category has moved.', zh: '这次新品发布让你可以争论的，是它值不值这个价；它没给你争议留余地的，是这个品类整体已经往前挪了一步。' },
+      ],
+      adaptingTip: '前后两句一定要严格平行，只在 leave room / leave no room 一处变化，其它名词、动词、宾语都不要换；任何破坏对仗的小改动都会让"砸下去"的力气泄掉。最后那个"不容争议"的名词一定要简短有力（the direction / the slope / the loser），不要写成长长的从句，否则收束的节奏被拖垮。这是结尾模板，不要放在中间。',
+      commonMistake: '不要让让步的那一项和坚持的那一项错位：What the data leaves room to dispute is the direction; what it leaves no room to dispute is the speed ✗。如果让出去的是 direction，等于自己拆了自己的论证，整句就崩了。让出去的应该是次要分歧（幅度、时间表），坚持的才是主轴（方向、谁受损）。',
+    },
+    {
+      id: 'pt2',
+      useCase: '段落转折：用一个短句承认"反响其实平平"，再用下一句解释原因',
+      skeleton: 'And yet the [response] was strangely [adjective].',
+      original: 'And yet the reception was strangely muted.',
+      sentenceId: 's9',
+      whyItWorks: [
+        '这一句的力量来自三件小事叠加：And yet 把前文热闹的描述（榜首、刷新纪录）一刀切断；strangely 又把这个反差标注出来，意思是按理不该这样；muted 是一个对比词，特意挑选来对照前文的"shake the industry"。三件事合起来，让读者在五秒之内意识到："等等，故事好像没按预期走。"',
+        '对读者来说，strangely 这个词其实是作者站到台前来打了个招呼：我注意到你也觉得奇怪了，下面我来解释。读者会信任这种"愿意停下来解释反差"的作者，而不是只列事实就走。',
+        '它最适合放在文章中段，前面铺垫了"按理应该 A"，后面要解释"为什么实际上是 B"。新闻特写、文化评论、产品复盘里特别常见。不要用在文章开头，那时读者还没建立期待，"反差"无从谈起。',
+        '一个非显而易见的细节：这一句必须短。如果写成 And yet the overall reception in the days following the launch was strangely muted, almost subdued, one might say，所有的力都泄了。这个句式的"刀感"在于动词周围没有任何修饰，让 strangely 这一词单独承担反差的重量。',
+      ],
+      examples: [
+        { context: '电影评论中段', text: 'And yet the box office was strangely quiet.', zh: '可票房却出奇地冷。', note: '把"按理应该爆"的暗示压在 yet 一个词里，短句的刀感全在动词周围没有修饰语。' },
+        { context: '科技产品复盘', text: 'And yet the app store reviews were strangely flat.', zh: '可应用商店里的评论却平淡得出奇。' },
+        { context: '体育赛事观察', text: 'And yet the stadium was strangely empty.', zh: '可那座体育场却空得让人意外。' },
+      ],
+      adaptingTip: '后半的形容词必须是和前文期待形成明显反差的词（muted / quiet / flat / empty / cold），不要用 normal、moderate 这种没有反差感的中性词。strangely 也可以替成 oddly / surprisingly，但不能省，它是"我注意到这反常了"的标记。下一句一定要立刻接出"为什么"，否则读者被吊在反差里没人接，反而觉得作者没说完。',
+    },
+    {
+      id: 'pt3',
+      useCase: '段尾用一句具体的判断给整段定调，把抽象趋势收成"这件事不会反向"',
+      skeleton: '[subject] can do more than [previous version], and that is a step that does not [reverse verb].',
+      original: 'GPT-5.5 can do more on its own than the version it replaces, and that is a step that does not unhappen.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式的节奏靠后半 that does not unhappen 的"反向动词否定"撑起来。unhappen 不是常规英语词，作者故意造了它，让读者在结尾位停一下，问自己"这能反向吗？"，然后立刻意识到答案是不能。这种"造一个新词来强调不可逆"的手法，比写 cannot be undone / is irreversible 多一层机智。',
+        '对读者来说，前半 can do more than… 看起来是个温和的比较，但后半 a step that does not unhappen 突然把这个比较从"幅度问题"升级到"性质问题"。这个升级是隐含的：作者没有喊"这件事不可逆"，只是把动词改成一个让你不得不停下来想一秒的形态，结论由你自己得出。',
+        '它最适合放在文章或长段落的结尾，前文已经把争议和细节都铺过，这一句负责把"不管你怎么吵，这一步迈出去就收不回来"作为余味送给读者。议论文收束、长评收尾、科技评论的结句都好用。',
+        '一个隐藏的关键：前半的 do more than 不能写成 do everything；不能把模型的能力夸到不留余地，否则后半"不可逆"的分量反而被削弱。承认是渐进的"more than"，再说这一步不可逆，整句才稳。',
+      ],
+      examples: [
+        { context: 'AI 监管评论结尾', text: 'The law can now reach into more rooms than the version it replaces, and that is a step that does not unhappen.', zh: '这部新法案能伸进的房间，比它替代掉的旧法案更多，这一步迈出去就收不回来了。' },
+        { context: '气候政策长评结尾', text: 'The grid can now lean on more renewables than the version it replaces, and that is a step that does not unhappen.', zh: '电网现在能依赖的可再生能源，比它取代掉的旧结构多，这一步迈出去就回不去了。', note: 'lean on 让"依赖"显得有重量，配 unhappen 的造词，整句的反向不可逆才落得下来。' },
+        { context: '教育评论结尾', text: 'A teenager today can search across more sources than the version of school it replaces, and that is a step that does not unhappen.', zh: '今天的一个少年能搜索到的资料源，比它取代掉的那种学校形态更多，这一步迈出去就收不回来了。' },
+      ],
+      adaptingTip: '前半 do more than… 一定要选一个能比的具体维度（rooms / sources / renewables / tools），不要泛说 "do more"。后半的 unhappen / undo / reverse 类反向动词请选一个真正不可逆的词，不要写 cannot be changed（语义偏弱）。整句的力气全押在最后那个"反向动词的否定"上，前面任何冗余的修饰都会削弱它，控制在 25 词以内。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what date did OpenAI release GPT-5.5?', options: ['April 5, 2026', 'April 23, 2026', 'May 5, 2026', 'May 23, 2026'], answer: 1, explanation: 'The article opens by stating that on April 23, 2026, OpenAI released GPT-5.5.', sentenceId: 's1' },
+    { id: 'q2', q: 'Which of the four improvement areas did most reviewers single out as the real shift from earlier models?', options: ['Writing and debugging code', 'Researching across the open web', 'Drafting documents and spreadsheets in one pass', 'Operating other software and moving across tools'], answer: 3, explanation: 'The article says reviewers picked up on the ability to act across applications, which is the operating-software / moving-across-tools point.', sentenceId: 's5' },
+    { id: 'q3', q: 'How did the writer explain the strangely muted reception?', options: ['The benchmarks were weaker than claimed', 'Frontier model releases had become so frequent that contrast was lost', 'Most reviewers had not had time to test the model', 'The model was only available in the API'], answer: 1, explanation: 'The article argues the contrast had eroded because frontier models were now arriving every few weeks, often from competitors with comparable scores.', sentenceId: 's10' },
+    { id: 'q4', q: 'What does the article say about the initial Plus-tier message cap and the response to it?', options: [
+      'The cap was 200 thinking-mode messages per week and OpenAI never changed it',
+      'The cap was 200 thinking-mode messages per week, and OpenAI raised it to roughly 3,000 within days',
+      'The cap was 3,000 messages per week and users were satisfied',
+      'There was no cap; users complained about the price instead',
+    ], answer: 1, explanation: 'The article states OpenAI capped Plus users at 200 thinking-mode messages per week and within days raised the cap to roughly 3,000 after backlash.', sentenceId: 's15' },
+    { id: 'q5', q: 'Which best captures the writer\'s closing stance?', options: [
+      'The size of the leap is settled; only the direction is in doubt',
+      'Both the size and the direction of the leap are still up for debate',
+      'The size of the leap is debatable, but the direction is not',
+      'Neither the size nor the direction of the leap matters',
+    ], answer: 2, explanation: 'The closing lines say the benchmarks leave room to dispute the size of the leap but no room to dispute the direction, and call it a step that does not unhappen.', sentenceId: 's16' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'GPT-5.5 发布的具体日期', answer: 'April 23, 2026', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: 'OpenAI 强调进步最明显的方向数量', answer: 'four', sentenceId: 's3' },
+      { id: 'ig3', cueZh: '被评论者抓出来当真正分水岭的那项能力', answer: 'the ability to act across applications', sentenceId: 's5' },
+      { id: 'ig4', cueZh: 'GPT-5.5 在 Terminal-Bench 2.0 上的成绩', answer: '82.7 percent', sentenceId: 's7' },
+      { id: 'ig5', cueZh: 'GPT-5.5 在 FrontierMath 前三档上的成绩', answer: '51.7 percent', sentenceId: 's7' },
+      { id: 'ig6', cueZh: 'GPT-5.5 多长时间内登顶独立评测榜', answer: 'twenty-four hours', sentenceId: 's8' },
+      { id: 'ig7', cueZh: 'Plus 用户最初被限制的每周思考模式消息数', answer: '200', sentenceId: 's14' },
+      { id: 'ig8', cueZh: '几天后被调高到的上限大约值', answer: '3,000', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里收集到的数据，写一段大约 70 词的短文，向一位备考雅思议论文的同学解释 GPT-5.5 这次发布"为什么反响其实平平"。要求至少用一次 "And yet… was strangely…" 这样的转折，以及一句类似"What the benchmarks leave no room to dispute is…"的判断收尾。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining to a friend preparing for IELTS Task 2 why the GPT-5.5 launch landed with such a muted reception. Use at least one "And yet… was strangely…" turn, and close with a what-cleft judgement in the spirit of "What the benchmarks leave no room to dispute is…".',
+      targetWords: 70,
+      starters: ['On April 23, 2026, OpenAI released GPT-5.5 with strong claims and strong scores, including 82.7 percent on Terminal-Bench 2.0 and a top ranking on the global intelligence index within a day.', 'And yet the reception was strangely muted.'],
+      usePatternIds: ['pt2', 'pt1'],
+      modelAnswer:
+        'On April 23, 2026, OpenAI released GPT-5.5 with strong claims and strong scores, including 82.7 percent on Terminal-Bench 2.0 and a top ranking on the global intelligence index within a day. And yet the reception was strangely muted. Frontier releases had become so frequent that contrast was lost, and a Plus message cap of only 200 thinking-mode messages per week (later raised to roughly 3,000) soured paying users. What the benchmarks leave room to dispute is the size of the leap; what they leave no room to dispute is the direction.',
+      modelAnswerZh:
+        '2026 年 4 月 23 日，OpenAI 发布了 GPT-5.5，宣传话术很硬，分数也很硬，包括 Terminal-Bench 2.0 拿到 82.7%，并在 24 小时内登顶全球智能榜。可反响却出奇地平。前沿模型发布已经密到反差不再，付费用户又因为 Plus 每周只有 200 条思考模式消息（后来被调到约 3,000）而不满。基准测试让你可以争论的，是这次跃升有多大；它们没给争议留余地的，是方向。',
+    },
+  },
+};

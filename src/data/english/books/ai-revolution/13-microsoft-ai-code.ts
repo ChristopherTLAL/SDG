@@ -1,0 +1,241 @@
+// AI Revolution book, Ch.13: Microsoft says 30% of its code is now written by AI, while laying off engineers (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-04-30',
+    title: 'Microsoft: Thirty Percent AI-Written',
+    titleZh: '当老板说，三成代码不是人写的',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/ai-revolution/13-microsoft-ai-code.mp3',
+    wordCount: 355,
+    readingMinutes: 5,
+    editorsNote:
+      'In April 2025, Satya Nadella casually told investors that about 30 percent of Microsoft code is now written by AI. Weeks later, the company cut thousands of jobs, with software engineers hit hardest. This chapter unpacks what that number really means, and the tension behind it.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On an April 2025 earnings call, Satya Nadella, the chief executive of Microsoft, dropped a line that lit up the tech press.', zh: '在 2025 年 4 月的财报电话会议上，微软首席执行官萨蒂亚·纳德拉随口说了一句话，让科技媒体炸开了锅。' },
+        { id: 's2', en: 'Roughly 30 percent of the code in some Microsoft projects, he said, is now written by AI.', zh: '他说，在微软的一些项目里，如今大约有 30% 的代码是由 AI 写的。' },
+        { id: 's3', en: 'The number was vague, but the message was sharp.', zh: '这个数字本身有些含糊，但传达的信号却很尖锐。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'What Nadella actually described was not a robot typing in silence at midnight.', zh: '纳德拉真正描述的，并不是某个机器人在深夜里安静地敲代码。' },
+        { id: 's5', en: 'It was something more ordinary: engineers using GitHub Copilot to draft functions, and AI agents quietly opening pull requests for routine fixes.', zh: '它其实更日常：工程师用 GitHub Copilot 起草函数，AI 智能体悄悄为常规修复提交合并请求。' },
+        { id: 's6', en: 'A human still reviews the change before it ships, but the first draft, more and more, is not written by a human at all.', zh: '改动上线前依然要由人来审核，但越来越多的「初稿」，根本不是人写的。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The phrase "30 percent AI-written" is therefore softer than it sounds.', zh: '所以「30% 由 AI 写的」这种说法，其实比听起来要温和。' },
+        { id: 's8', en: 'It does not mean a third of Microsoft engineers have been replaced.', zh: '它并不意味着微软三分之一的工程师已经被取代。' },
+        { id: 's9', en: 'It means the keystrokes have shifted: humans now spend more time editing, reviewing, and steering, and less time typing from a blank screen.', zh: '它意味着「敲键盘」的位置变了，工程师如今更多时间在编辑、审核和把方向，而不是对着空白屏幕从零写起。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Yet the tension is real.', zh: '可这背后的张力却是真实的。' },
+        { id: 's11', en: 'In a separate round of 2025 layoffs, Microsoft cut roughly six thousand workers, and more than 40 percent of the affected roles in Washington State were software engineers.', zh: '在 2025 年另一轮裁员里，微软裁掉了大约六千人，其中华盛顿州受影响的岗位有四成多是软件工程师。' },
+        { id: 's12', en: 'The same year Nadella praised AI productivity, the people writing code were the ones losing jobs.', zh: '就在纳德拉夸赞 AI 提升生产力的同一年，丢工作的恰恰是写代码的人。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'Microsoft argues the two facts are not connected.', zh: '微软辩称，这两件事并没有关系。' },
+        { id: 's14', en: 'Outside the company, few engineers are convinced.', zh: '在公司之外，几乎没有工程师真的信这套说法。' },
+        { id: 's15', en: 'What the industry is watching for is not whether AI writes code, but whose code it stops needing.', zh: '业界真正盯着的，不是 AI 会不会写代码，而是它会让谁的代码变得不再被需要。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'For now, 30 percent is a headline number, not a forecast.', zh: '目前来说，30% 是一个抢头条的数字，而不是一个预测。' },
+        { id: 's17', en: 'Whether it climbs to 50, or stalls because the remaining work is the hard kind that machines still struggle with, is the question every engineer in the room is quietly asking.', zh: '它会不会爬到 50%，还是会因为剩下的活才是机器真正啃不动的硬骨头而停在原地，是房间里每个工程师都在心里默默问的问题。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'dropped', lemma: 'drop', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/drɒpt/', defZh: '抛出（一句话）；随口说出', defEn: 'casually said something noteworthy', example: 'She dropped a hint about a possible promotion.', exampleZh: '她随口透露了一个关于升职的暗示。' },
+    { id: 'v2', word: 'vague', lemma: 'vague', sentenceId: 's3', level: 3, pos: 'adj.', ipa: '/veɪɡ/', defZh: '含糊的；不明确的', defEn: 'not clear or precise', example: 'His answer was vague enough to satisfy no one.', exampleZh: '他的回答含糊到让所有人都不满意。' },
+    { id: 'v3', word: 'sharp', lemma: 'sharp', sentenceId: 's3', level: 2, pos: 'adj.', ipa: '/ʃɑːp/', defZh: '尖锐的；明确的', defEn: 'clear, pointed, or forceful', example: 'The contrast between the two reports was sharp.', exampleZh: '两份报告之间的对比非常鲜明。' },
+    { id: 'v4', word: 'draft', lemma: 'draft', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/drɑːft/', defZh: '起草；草拟', defEn: 'to write a first version of something', example: 'Could you draft the email and send it to me?', exampleZh: '你能起草一份邮件然后发给我吗？' },
+    { id: 'v5', word: 'routine', lemma: 'routine', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/ruːˈtiːn/', defZh: '常规的；例行的', defEn: 'happening as a normal part of work', example: 'The doctor ordered a routine blood test.', exampleZh: '医生开了一个常规血液检查。' },
+    { id: 'v6', word: 'reviews', lemma: 'review', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/rɪˈvjuːz/', defZh: '审核；评审', defEn: 'checks carefully before approving', example: 'A senior editor reviews every article before it goes live.', exampleZh: '每篇文章发布前都由资深编辑审核。' },
+    { id: 'v7', word: 'ships', lemma: 'ship', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/ʃɪps/', defZh: '上线；发布（软件用语）', defEn: 'releases a product to users', example: 'The team ships a new build every Friday.', exampleZh: '团队每周五发布一个新版本。' },
+    { id: 'v8', word: 'softer', lemma: 'soft', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ˈsɒftə(r)/', defZh: '更温和的；分量更轻的', defEn: 'less strong or extreme than it sounds', example: 'The final policy was softer than the early draft.', exampleZh: '最终政策比早期草案温和得多。' },
+    { id: 'v9', word: 'replaced', lemma: 'replace', sentenceId: 's8', level: 1, pos: 'v.', ipa: '/rɪˈpleɪst/', defZh: '取代；替换', defEn: 'taken the place of', example: 'Email has largely replaced the handwritten letter.', exampleZh: '电子邮件已大体取代了手写信件。' },
+    { id: 'v10', word: 'steering', lemma: 'steer', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ˈstɪərɪŋ/', defZh: '把方向；引导', defEn: 'guiding the direction of something', example: 'The new manager is steering the team toward longer projects.', exampleZh: '新经理正在引导团队转向更长期的项目。' },
+    { id: 'v11', word: 'tension', lemma: 'tension', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈtenʃn/', defZh: '紧张；矛盾感', defEn: 'an underlying conflict between two facts or forces', example: 'There is a real tension between growth and safety in this industry.', exampleZh: '这个行业里增长和安全之间存在真实的矛盾。' },
+    { id: 'v12', word: 'separate', lemma: 'separate', sentenceId: 's11', level: 2, pos: 'adj.', ipa: '/ˈseprət/', defZh: '另外的；独立的', defEn: 'different and not connected to something just mentioned', example: 'That issue belongs to a separate report.', exampleZh: '那个问题属于另一份报告。' },
+    { id: 'v13', word: 'roles', lemma: 'role', sentenceId: 's11', level: 1, pos: 'n.', ipa: '/rəʊlz/', defZh: '岗位；职位', defEn: 'jobs or positions inside an organization', example: 'The company is hiring for three engineering roles.', exampleZh: '公司正在为三个工程岗位招人。' },
+    { id: 'v14', word: 'praised', lemma: 'praise', sentenceId: 's12', level: 2, pos: 'v.', ipa: '/preɪzd/', defZh: '称赞；表扬', defEn: 'expressed strong approval of', example: 'The teacher praised her clear writing.', exampleZh: '老师称赞了她清晰的写作。' },
+    { id: 'v15', word: 'productivity', lemma: 'productivity', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˌprɒdʌkˈtɪvəti/', defZh: '生产力；产出效率', defEn: 'the rate at which useful work gets done', example: 'Shorter meetings boosted the team\'s productivity.', exampleZh: '更短的会议提升了团队的生产力。' },
+    { id: 'v16', word: 'argues', lemma: 'argue', sentenceId: 's13', level: 2, pos: 'v.', ipa: '/ˈɑːɡjuːz/', defZh: '主张；声称', defEn: 'states a position with reasons', example: 'The author argues that small towns are recovering faster than cities.', exampleZh: '作者主张，小城镇恢复得比大城市更快。' },
+    { id: 'v17', word: 'convinced', lemma: 'convinced', sentenceId: 's14', level: 3, pos: 'adj.', ipa: '/kənˈvɪnst/', defZh: '被说服的；信服的', defEn: 'persuaded that something is true', example: 'Few voters were convinced by the speech.', exampleZh: '没几个选民被这场演讲说服。' },
+    { id: 'v18', word: 'forecast', lemma: 'forecast', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/ˈfɔːkɑːst/', defZh: '预测；预报', defEn: 'a statement about what is expected to happen', example: 'The forecast warns of heavy rain by Friday.', exampleZh: '预报提示周五前会有大雨。' },
+    { id: 'v19', word: 'stalls', lemma: 'stall', sentenceId: 's17', level: 4, pos: 'v.', ipa: '/stɔːlz/', defZh: '停滞；停下', defEn: 'stops making progress', example: 'Negotiations stalled after the third round.', exampleZh: '谈判在第三轮之后陷入停滞。' },
+    { id: 'v20', word: 'struggle', lemma: 'struggle', sentenceId: 's17', level: 2, pos: 'v.', ipa: '/ˈstrʌɡl/', defZh: '吃力；难以应付', defEn: 'finds something difficult to do', example: 'Models still struggle with sarcasm.', exampleZh: '模型在处理讽刺时仍然吃力。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 Yet 起句，比 But 更克制，更书面',
+      pattern: 'Yet + 完整子句',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '中文里"可是"几乎可以用在任何地方。英文里 But 也是这样，但它有点口语，写新闻、评论、学术议论文时会显得力度不够。要在段落开头做一次"我现在要反驳前文"的转弯，更书面的选择是 Yet。',
+        '看第 10 句：Yet the tension is real。前几段都在解释「30% 其实没那么吓人」，这一句突然要把读者拉回另一面：「但事情没那么简单」。Yet 一出现，读者立刻知道：作者要换立场了。这种"提示转折"的力量，But 给不了。',
+        '什么时候用：议论文、新闻评论、读后感这类正式书面里。一段写完一组事实或一种解读，下一段开头用 Yet 翻面，整篇的层次马上分明。口语和日常邮件里少用，会显得太正式。',
+        '一个常被忽略的细节：Yet 起句后面是完整子句（主语加谓语），不是短语。不要写成 Yet a real tension，而要写 Yet the tension is real。后面也必须紧跟一个能站得住的反面观点，不能只是补一个小例外。',
+      ],
+      examples: [
+        { en: 'The numbers looked strong all quarter. Yet the founders kept warning their team not to celebrate.', zh: '整个季度数据都看着不错。可两位创始人却一直提醒团队不要高兴得太早。', note: 'Yet 把前文的正面叙述明确翻面，比 But 更稳。' },
+        { en: 'The film won every award it was nominated for. Yet almost no one talks about it today.', zh: '这部电影提名的奖几乎全部拿下。可如今几乎没人再谈起它。' },
+        { en: 'Our survey shows clear support for the change. Yet attendance at the town hall told a different story.', zh: '我们的问卷显示对这项变化的支持很清楚。可市政厅听证会上的出席情况，讲的是另一个故事。' },
+        { en: 'The product is technically impressive. Yet it solves a problem that very few users actually have.', zh: '这款产品在技术上确实出色。但它解决的，是一个几乎没有用户真正面对的问题。' },
+        { en: 'She had every reason to walk away. Yet she stayed for two more years.', zh: '她有充分的理由离开。可她又留了整整两年。' },
+      ],
+      commonMistake: '不要写成 Yet, the tension is real（在 Yet 后面加逗号）。Yet 起句不需要逗号，直接接子句即可。',
+      vsSimilar: 'But 偏口语，转折力度均匀；Yet 偏书面，特别适合段落开头做立场翻面；However 也可以放段首但要有逗号（However, the tension is real），停顿感更强，节奏更慢。',
+    },
+    {
+      id: 'g2',
+      title: '用 not X but Y 让对比变成一个完整动作',
+      pattern: 'not [X], but [Y]',
+      sentenceIds: ['s4', 's5', 's15'],
+      explanationZh: [
+        '想强调"我说的不是 A，而是 B"，中文很自然就能拐过去。英文里 not X but Y 这个结构正是为它而生：先否定一个常见的理解，再立刻给出真正想说的那个，两边在结构上对齐，读者在一句话里完成"先放下原以为的，再接住真相"。',
+        '看第 4 到 5 句：What Nadella actually described was not a robot typing in silence at midnight. It was something more ordinary…。作者故意先放一个有画面感、读者本能就会想到的形象（机器人深夜打字），再立刻翻面，给出更朴素的真相。第 15 句的 not whether AI writes code, but whose code it stops needing 也是同样的手法。',
+        '什么时候用：议论文、长评论里要"澄清一个常见误解"时最好用。它比 "It is not A. It is B." 更紧凑，比 "Actually, it is B" 更有节奏。新闻评论、求职信、个人陈述都很合适。',
+        '一个细节：not 和 but 后面两边的语法形式要对齐。两边都是名词，就都用名词；两边都是从句，就都用从句。第 15 句里两边都是 wh- 从句（whether…/ whose…），节奏才对齐。',
+      ],
+      examples: [
+        { en: 'The hardest part of the job is not writing the code, but deciding what code is worth writing.', zh: '这份工作最难的不是写代码，而是决定什么代码值得写。' },
+        { en: 'What she lost in those three years was not a job, but the habit of trusting her own judgment.', zh: '那三年里她失去的，不是一份工作，而是相信自己判断的习惯。', note: '两边都是名词短语，结构对齐，否定与肯定的节奏就出来了。' },
+        { en: 'The exhibition asks not how the city has grown, but what it has had to forget in order to grow.', zh: '这场展览追问的，不是这座城市如何成长，而是它为了成长不得不忘记了什么。' },
+        { en: 'My favorite part of the trip was not the museum, but the long bus ride between cities.', zh: '这趟旅行我最喜欢的，不是博物馆，而是城市之间那段漫长的大巴。' },
+      ],
+      commonMistake: '不要让两边结构不对齐：not writing the code, but to decide what code is worth writing。前半 -ing 形式，后半就也用 -ing；前半名词，后半就也用名词。',
+    },
+    {
+      id: 'g3',
+      title: '用 the same year/day 起头，让两件事撞在一起',
+      pattern: 'The same [time unit] [clause A], [clause B].',
+      sentenceIds: ['s12'],
+      explanationZh: [
+        '想让读者意识到「两件本应矛盾的事其实发生在同一时间」，最有力的做法是把时间词放到句首，把两件事并排撞在一起。这就是 The same year/day/week + 主语 + 动词 的开头法。',
+        '看第 12 句：The same year Nadella praised AI productivity, the people writing code were the ones losing jobs。如果改成 In 2025, Nadella praised AI productivity. At the same time, people writing code lost their jobs.，意思一样，但力度被稀释了。集中在 The same year… 一句里，矛盾感就被时间钉死。',
+        '什么时候用：评论、社论、深度报道里揭示「反讽」时最好用。它特别适合做一段的"压舱句"，把前文铺开的事实，用一句话压成一个让读者皱眉的瞬间。',
+        '一个细节：逗号之后的主句要给出"另一件事"的关键事实，不要再补背景。这里 the people writing code were the ones losing jobs 直接点出反差对象（写代码的人 vs. 丢工作的人），读起来才有冲击力。',
+      ],
+      examples: [
+        { en: 'The same week the company announced record profits, it asked staff to take unpaid leave.', zh: '公司宣布创纪录利润的那一周，也是它要求员工无薪休假的那一周。' },
+        { en: 'The same year the city celebrated its cleanest air on record, three new highway projects broke ground.', zh: '城市庆祝有史以来最干净空气的那一年，三条新高速公路也同时动工了。', note: '把庆祝与动工放进同一年，反讽不靠形容词，全靠时间撞击。' },
+        { en: 'The same day the report praised remote work, the executives quietly extended their office lease by ten years.', zh: '报告称赞远程办公的那一天，高管们也悄悄把办公室租约续签了十年。' },
+        { en: 'The same month she finished her novel, she sold the desk it had been written on.', zh: '她完成小说的那个月，也卖掉了那张写出这本小说的桌子。' },
+      ],
+      commonMistake: '不要在 The same year 后面再加 in（不要写 The same year in 2025）。The same 已经把时间锁定了，再加 in 反而冗余。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '段落收尾：先承认一个数字不像看上去那么吓人，再点出真正变了什么',
+      skeleton: '[Surface claim] is therefore softer than it sounds. It does not mean [scary reading]. It means [the real shift].',
+      original: 'The phrase "30 percent AI-written" is therefore softer than it sounds. It does not mean a third of Microsoft engineers have been replaced. It means the keystrokes have shifted: humans now spend more time editing, reviewing, and steering, and less time typing from a blank screen.',
+      sentenceId: 's9',
+      whyItWorks: [
+        '这个三步走的节奏，先用 softer than it sounds 把读者最紧张的情绪安抚下来，再用 It does not mean… 把最坏的解读明确否定，最后用 It means… 给出作者真正认为的解读。每一步只做一件事，所以读起来稳，不混乱。',
+        '对读者来说，这种结构有种「记者帮我把账算清楚」的感觉：作者既没有否定数字，也没有放大数字，而是耐心地把它放回正确尺寸里。比起一上来就喊"别慌"，这种节奏更让人信服。',
+        '它最适合议论文、专栏、新闻分析里出现"惊人数字 / 极端说法"时使用。把它放在数字第一次出现之后的一段开头，既能给读者方向感，又能为后文的细节解释铺好路。',
+        '一个隐藏要点：第三步 It means… 给出的"真正变化"必须是具体可看见的细节（这里是「编辑、审核、把方向 vs. 从空白屏开始打字」），不能是更抽象的口号。具体细节才让读者真正放下心，否则前两步就白安抚了。',
+      ],
+      examples: [
+        { context: '气候新闻评论', text: 'The phrase "50 percent renewables" is softer than it sounds. It does not mean coal plants are closing tomorrow. It means the grid is starting to lean on wind and solar during the easiest hours of the day.', zh: '「可再生能源占 50%」这种说法没有听起来那么强。它并不意味着燃煤电厂明天就关。它的意思是，电网开始在一天里最轻松的时段更多依靠风电和光伏。' },
+        { context: '教育政策专栏', text: 'The headline "AI tutors in every classroom" is softer than it sounds. It does not mean teachers are leaving. It means a chatbot now handles the first round of student questions before a teacher steps in.', zh: '「每间教室都配 AI 导师」这种标题没听起来那么硬核。它并不意味着老师要走。它的意思是，学生提的第一轮问题先由聊天机器人接住，老师再上场。', note: '具体到「第一轮问题」这种细节，读者才真的理解变化的真实尺寸。' },
+        { context: '城市观察文章', text: 'The claim that the city has "halved its traffic" is softer than it sounds. It does not mean people are walking everywhere. It means rush hour has flattened into a long, slow afternoon instead of two short, intense peaks.', zh: '所谓「这座城市把交通量减半」没有听起来那么夸张。它并不意味着大家都改步行了。它的意思是，原本两个又短又猛的高峰，被拉成了一个又长又慢的下午。' },
+      ],
+      adaptingTip: '第二步 It does not mean… 一定要选「读者最容易脑补的极端解读」，否则没有澄清价值；第三步 It means… 一定要给出读者能在心里画面化的具体改变，不要再用大词。这三步的节奏建立在「先安抚、再否定、再具体」上，任意一步换成抽象口号，整段就会松。这是段落级模板，单独一句话拆出来反而失效。',
+      commonMistake: '不要把第三步写成另一句口号：It means we are entering a new era。这等于没说话。第三步必须落到具体的、可观察的变化（动作、对象、对比）。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把抽象现象画面化：先抛出一个反向画面，再说真实情况其实更平淡',
+      skeleton: 'What [authority] actually described was not [vivid scary image]. It was something more [ordinary/quiet/etc.]: [the real picture].',
+      original: 'What Nadella actually described was not a robot typing in silence at midnight. It was something more ordinary: engineers using GitHub Copilot to draft functions, and AI agents quietly opening pull requests for routine fixes.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式的力量来自「画面对画面」：第一句故意给读者一个戏剧化的镜头（机器人深夜打字），然后第二句把它换成一个更安静、更日常的画面（人在用 Copilot、智能体提 PR）。两张画面并排，差距本身就在替作者讲话。',
+        '对读者来说，作者没有用「其实没那么夸张」这种抽象判断，而是把抽象差距具体化成两个能想象的场景。这比讲道理强得多——读者一旦在脑中看到了那两张图，就自动接受了第二张才是真的。',
+        '它最适合用在文章前几段，对一个公众容易脑补出戏剧化版本的话题做"祛魅"。AI、量化交易、跨国并购、间谍战、深空探测，这些话题里都常用得上。',
+        '一个隐藏要点：冒号后面那一串"真实画面"必须有可数、可看见的细节（人 / 工具 / 动作），而不是再来一句概念。冒号后面才是这个句式真正的发力点，越具体越好。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'What the documentary actually captured was not a lone genius arguing with a blackboard. It was something more communal: three researchers in mismatched chairs, finishing each other\'s sentences over cold coffee.', zh: '这部纪录片真正捕捉到的，不是一个孤独天才对着黑板争论。它其实更像一种集体场景：三位研究者坐在不太成套的椅子上，端着凉掉的咖啡，互相把对方的话接完。' },
+        { context: '科技评论', text: 'What the demo actually showed was not a self-driving car making impossible decisions. It was something more domestic: a sedan deciding, very slowly, whether the puddle ahead was a puddle or a pothole.', zh: '这场演示真正展示的，不是一辆自动驾驶车在做不可能的判断。它其实更日常：一辆轿车非常缓慢地判断前面那摊水到底是水洼还是坑。', note: '第二句把「自动驾驶」的英雄叙事压回到「判断水洼」这种朴素动作上，读者立刻明白了真实尺寸。' },
+        { context: '政策报道', text: 'What the new law actually changed was not the price of medicine in every pharmacy. It was something more limited: the way three federal agencies talk to each other when a single drug goes on a shortage list.', zh: '这部新法真正改变的，不是每家药店的药价。它的改变其实更有限：当某一种药进入短缺名单时，三个联邦机构相互之间的沟通方式。' },
+      ],
+      adaptingTip: '第一句的"反向画面"要选读者本能就会脑补的那种戏剧版本（机器人、孤独天才、自动驾驶英雄），越典型越好；第二句冒号后面要给出可数的真实细节（人 / 工具 / 动作 / 速度），不要回到抽象。something more 后面接一个形容词（ordinary, quiet, domestic, limited…），这个词就是作者真正想给读者的情绪定调。',
+    },
+    {
+      id: 'pt3',
+      useCase: '把一个数字定性：不是预测，只是一时的头条',
+      skeleton: 'For now, [number/claim] is [a headline number / a working figure / a snapshot], not [a forecast / a verdict / a destination].',
+      original: 'For now, 30 percent is a headline number, not a forecast.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个句式靠两个名词的对照站立：作者把一个数字「降级」为某种较轻的东西（headline number, working figure, snapshot），再把它和一个更重、读者更想要的东西（forecast, verdict, destination）对照。两个词一轻一重，立场不需要说就到位了。',
+        '对读者来说，For now 三个字先把时间限定收紧：「就当下而言」。这给作者留下了余地，也提醒读者：未来可能会变，但目前不要把这个数字当成承诺。读者愿意接受这种克制。',
+        '它最适合放在段落或文章的结尾附近，用来给一个数字做总结性的定性。新闻分析、科技评论、政策解读都常见。如果放在文章开头，反而会显得作者太早下结论。',
+        '一个隐藏要点：两边的两个名词要在「重量」上明显错位，对照才有力。如果两边都很轻（a number, not a figure），读者感觉不到落差；如果两边都很重（a verdict, not a forecast），又像在玩词。',
+      ],
+      examples: [
+        { context: '气候报告评论', text: 'For now, the 1.5-degree target is a political promise, not an engineering plan.', zh: '就目前来说，1.5 度目标是一个政治承诺，而不是一份工程方案。' },
+        { context: '科技评论结尾', text: 'For now, the prototype is a proof that the idea is buildable, not a sign that it is shippable.', zh: '目前为止，这个原型证明了这个想法能造，但并不说明它能上线发售。', note: 'buildable 和 shippable 两个词的轻重对照，作者立场不喊就到位。' },
+        { context: '财经分析', text: 'For now, that 8 percent quarterly growth is a recovery story, not a return to the old normal.', zh: '目前来说，那 8% 的季度增长讲的是一个复苏故事，而不是回到从前那种「正常」。' },
+        { context: '教育政策', text: 'For now, the new test scores are a comfort to the principal, not evidence that the curriculum works.', zh: '就当下而言，这套新考试的分数对校长来说是一种安慰，而不是新课程奏效的证据。' },
+      ],
+      adaptingTip: '两个名词要明显错位重量：headline number / forecast、political promise / engineering plan、proof that it is buildable / sign that it is shippable。如果换成同重量的名词（a number / a figure），对照立刻就泄了。这个句式适合做总结句，不适合做引入句，否则太早把结论说死了。',
+      commonMistake: '不要把 For now 写成 In now 或 At now。这是固定搭配，意思是「就目前而言」。同时句末分号或破折号都不需要，逗号 + not 就够。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What did Satya Nadella say on the April 2025 earnings call?', options: ['That Microsoft would stop hiring engineers', 'That roughly 30 percent of code in some Microsoft projects is now written by AI', 'That GitHub Copilot would be discontinued', 'That AI agents now ship code without any review'], answer: 1, explanation: 'The article opens with Nadella saying that about 30 percent of the code in some Microsoft projects is now written by AI.', sentenceId: 's2' },
+    { id: 'q2', q: 'According to the article, what does "30 percent AI-written" actually mean in practice?', options: ['Robots type code at night with no human involved', 'A third of Microsoft engineers have been replaced', 'Engineers use Copilot to draft code, while humans still review changes before they ship', 'AI now decides which features Microsoft builds'], answer: 2, explanation: 'The article explains the number refers to Copilot-drafted code and agent pull requests, with humans still reviewing before shipping.', sentenceId: 's6' },
+    { id: 'q3', q: 'What was striking about the 2025 Microsoft layoffs in Washington State?', options: ['Most affected roles were in marketing', 'More than 40 percent of affected roles were software engineers', 'Only managers were impacted', 'No engineers were laid off at all'], answer: 1, explanation: 'The article states that in the Washington State cuts, more than 40 percent of affected roles were software engineers.', sentenceId: 's11' },
+    { id: 'q4', q: 'What does the author imply by writing "the people writing code were the ones losing jobs"?', options: ['That Microsoft was hiring more coders than ever', 'That there is a real tension between AI productivity claims and engineering layoffs', 'That AI tools were quickly cancelled', 'That engineers were happy about the changes'], answer: 1, explanation: 'The juxtaposition shows the irony the author wants the reader to feel: AI is praised, while coders are cut.', sentenceId: 's12' },
+    { id: 'q5', q: "What is the author's overall stance toward the 30 percent figure?", options: ['It proves that engineers will soon be replaced', 'It is a headline number for now, with the real question being how much further it climbs and how easily', 'It is meaningless and should be ignored', 'It shows that AI cannot write code at all'], answer: 1, explanation: 'The closing paragraph treats 30 percent as a headline, not a forecast, and asks whether it will climb or stall on the harder work.', sentenceId: 's17' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '微软首席执行官的名字', answer: 'Satya Nadella', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '财报电话会议发生的月份和年份', answer: 'April 2025', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '据说由 AI 写的代码比例', answer: '30 percent', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '工程师用来起草函数的工具名称', answer: 'GitHub Copilot', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '改动上线前必须做的动作', answer: 'reviews', sentenceId: 's6' },
+      { id: 'ig6', cueZh: '2025 年这轮裁员的总人数（约数）', answer: 'six thousand', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '华盛顿州受影响岗位中工程师所占比例（下限）', answer: '40 percent', sentenceId: 's11' },
+      { id: 'ig8', cueZh: '作者把 30% 这个数字定性为什么', answer: 'a headline number', sentenceId: 's16' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的事实，写一段大约 80 词的短文，向一位不太关注科技新闻的朋友解释：纳德拉的「30%」到底是什么意思，以及为什么同一年微软工程师反而在被裁。试着至少用上本章的一个句式。',
+      promptEn: "Using the facts in your table, write about 80 words explaining to a non-tech friend what Nadella's '30 percent' really means, and why Microsoft engineers were still being laid off in the same year. Try to use at least one pattern from this chapter.",
+      targetWords: 80,
+      starters: ['What Nadella actually described was not ...', 'For now, 30 percent is ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        "What Nadella actually described in April 2025 was not a robot writing code alone. It was something more ordinary: Microsoft engineers using GitHub Copilot to draft functions, with humans still reviewing every change before it ships. Yet in the same year, Microsoft cut around six thousand workers, and more than 40 percent of affected roles in Washington State were software engineers. For now, 30 percent is a headline number, not a forecast about how many coders we still need.",
+      modelAnswerZh:
+        '纳德拉在 2025 年 4 月真正描述的，不是一个机器人独自写代码。它其实更日常：微软工程师用 GitHub Copilot 起草函数，每一次改动上线前依然由人审核。可就在这同一年，微软裁掉了大约六千人，其中华盛顿州受影响岗位有四成多是软件工程师。就目前来说，30% 只是一个抢头条的数字，而不是一份关于「我们还需要多少程序员」的预测。',
+    },
+  },
+};
