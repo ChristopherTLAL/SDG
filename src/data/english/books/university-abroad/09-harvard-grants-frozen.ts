@@ -1,0 +1,243 @@
+// University Abroad book, Ch.9: Trump freezes 2.2 billion in Harvard research grants after the university refuses federal demands (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-04-14',
+    title: "Harvard's Frozen $2.2 Billion",
+    titleZh: '哈佛被冻结的 22 亿',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/university-abroad/09-harvard-grants-frozen.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      "On April 14, 2025, Harvard told the federal government no, and within hours $2.2 billion in research grants was frozen. This chapter unpacks what that money actually paid for, why Harvard sued, and why the same pressure is now reaching Columbia, Penn, and Princeton.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On April 14, 2025, Harvard University did something American universities rarely do.', zh: '2025 年 4 月 14 日，哈佛大学做了一件美国高校很少做的事。' },
+        { id: 's2', en: 'It told the federal government, in writing, that it would not comply.', zh: '它用书面方式告诉联邦政府，自己不会照办。' },
+        { id: 's3', en: 'Within hours, the Trump administration froze 2.2 billion dollars in research grants and another 60 million dollars in federal contracts to the university.', zh: '几小时之内，特朗普政府冻结了发往哈佛的 22 亿美元科研经费，另有 6000 万美元的联邦合同也被一并冻结。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The demands had arrived in a letter from a federal task force.', zh: '这些要求来自一个联邦工作组发出的信函。' },
+        { id: 's5', en: 'Washington wanted Harvard to change how it ran admissions, how it disciplined student conduct, and how it handled diversity programs, and it wanted outside reviewers to audit departments accused of antisemitism.', zh: '华盛顿要求哈佛改变招生方式、调整学生纪律处理流程，以及修改多元化项目的做法，并要求由外部审查人员对被指控存在反犹情绪的院系进行审计。' },
+        { id: 's6', en: 'Harvard President Alan Garber answered that no government, regardless of party, should dictate what a private university teaches or whom it admits.', zh: '哈佛校长艾伦·加伯回应称，无论哪个政党执政，都不应由政府来决定一所私立大学教什么、招收哪些人。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The figures sound abstract, but the money is not.', zh: '这些数字听起来很抽象，但这笔钱并不抽象。' },
+        { id: 's8', en: 'Federal grants pay the salaries of postdoctoral researchers, buy reagents for cancer labs, keep electron microscopes running, and fund the stipends that allow most American PhD students to study at all.', zh: '联邦经费用来支付博士后研究员的工资、购买癌症实验室的试剂、维持电子显微镜的运转，也用来发放让大多数美国博士生得以读完学业的津贴。' },
+        { id: 's9', en: 'When a grant is frozen, the work that depends on it stops, sometimes within a week.', zh: '一旦经费被冻结，依赖它的研究就会停下来，有时一周之内就停摆。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Harvard sued the federal government in federal court the following week, arguing that the freeze was unconstitutional and that the demands violated the First Amendment.', zh: '次周，哈佛在联邦法院起诉联邦政府，主张这次冻结违宪，相关要求侵犯了宪法第一修正案。' },
+        { id: 's11', en: 'What gave the lawsuit unusual weight was Harvard\'s endowment of 53 billion dollars, which meant the school could afford the legal fight that most universities cannot.', zh: '让这场诉讼分量格外重的，是哈佛 530 亿美元的捐赠基金，这意味着哈佛能负担起大多数高校负担不起的法律对抗。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's12', en: 'Other elite schools watched the case closely, knowing the outcome would set the terms for their own future negotiations.', zh: '其他名校都在密切关注这宗诉讼，因为他们清楚结果会为自己未来的谈判定下基调。' },
+        { id: 's13', en: 'Columbia had already lost 400 million dollars in federal funding earlier that spring and had agreed, under pressure, to revise its protest rules and place a department under outside oversight.', zh: '哥伦比亚大学早在那年春天已经损失了 4 亿美元的联邦经费，并在压力下同意修改抗议规则，把一个院系置于外部监管之下。' },
+        { id: 's14', en: 'The University of Pennsylvania and Princeton soon faced their own frozen grants and their own letters of demand.', zh: '宾夕法尼亚大学和普林斯顿很快也面临自己的经费冻结和自己的整改函。' },
+        { id: 's15', en: 'A confrontation that began with one university had widened, in a single month, into a national fight over who controls the American research system.', zh: '一场从一所大学开始的对抗，在一个月之内扩大成了一场关于谁来掌控美国科研体系的全国性较量。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'For graduate students in the affected labs, the question is no longer abstract: whether the science they came to do will survive the politics they did not.', zh: '对受影响实验室里的研究生而言，问题已不再抽象：他们前来从事的科研，能否在他们并未参与的政治博弈中存活下来。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'comply', lemma: 'comply', sentenceId: 's2', level: 3, pos: 'v.', ipa: '/kəmˈplaɪ/', defZh: '遵从；照办', defEn: 'to act in line with a rule or request', example: 'The factory was fined for refusing to comply with the new safety code.', exampleZh: '这家工厂因拒绝遵守新安全规范而被罚款。' },
+    { id: 'v2', word: 'froze', lemma: 'freeze', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/frəʊz/', defZh: '冻结（资金或账户）', defEn: 'stopped funds from being used or moved', example: 'The court froze the company\'s accounts during the investigation.', exampleZh: '调查期间，法院冻结了该公司的账户。' },
+    { id: 'v3', word: 'grants', lemma: 'grant', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/grɑːnts/', defZh: '拨款；专项经费', defEn: 'sums of money given for a specific purpose', example: 'Most of the lab\'s work depends on grants from public foundations.', exampleZh: '这个实验室的大部分工作依赖来自公共基金会的拨款。' },
+    { id: 'v4', word: 'contracts', lemma: 'contract', sentenceId: 's3', level: 1, pos: 'n.', ipa: '/ˈkɒntrækts/', defZh: '合同；协议', defEn: 'formal paid agreements between parties', example: 'The agency signed two contracts with the same supplier last quarter.', exampleZh: '该机构上一季度与同一家供应商签订了两份合同。' },
+    { id: 'v5', word: 'demands', lemma: 'demand', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/dɪˈmɑːndz/', defZh: '要求；条件', defEn: 'firm requests that expect to be met', example: 'The union refused to accept the company\'s latest demands.', exampleZh: '工会拒绝接受公司最新提出的要求。' },
+    { id: 'v6', word: 'admissions', lemma: 'admission', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ədˈmɪʃnz/', defZh: '招生；录取', defEn: 'the process of accepting students into a school', example: 'Many universities have changed their admissions policies in the past year.', exampleZh: '过去一年里许多大学修改了招生政策。' },
+    { id: 'v7', word: 'disciplined', lemma: 'discipline', sentenceId: 's5', level: 3, pos: 'v.', ipa: '/ˈdɪsəplɪnd/', defZh: '处分；纪律处理', defEn: 'punished or corrected for breaking rules', example: 'Two students were disciplined for cheating on the final exam.', exampleZh: '两名学生因期末考试作弊被处分。' },
+    { id: 'v8', word: 'audit', lemma: 'audit', sentenceId: 's5', level: 4, pos: 'v.', ipa: '/ˈɔːdɪt/', defZh: '审计；审查', defEn: 'to officially inspect records or practices', example: 'External accountants will audit the charity\'s books next month.', exampleZh: '外部会计将于下月审计这家慈善机构的账目。' },
+    { id: 'v9', word: 'dictate', lemma: 'dictate', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/dɪkˈteɪt/', defZh: '强行规定；发号施令', defEn: 'to give orders that must be followed', example: 'The boss tried to dictate every detail of the project.', exampleZh: '老板试图对项目的每个细节都发号施令。' },
+    { id: 'v10', word: 'abstract', lemma: 'abstract', sentenceId: 's7', level: 3, pos: 'adj.', ipa: '/ˈæbstrækt/', defZh: '抽象的；脱离实际的', defEn: 'not concrete or tied to real things', example: 'For most readers, the policy felt abstract until prices began to rise.', exampleZh: '对大多数读者来说，这项政策一直显得抽象，直到物价开始上涨。' },
+    { id: 'v11', word: 'reagents', lemma: 'reagent', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/riˈeɪdʒənts/', defZh: '试剂', defEn: 'substances used to test or cause a chemical reaction', example: 'The biology lab orders fresh reagents every two weeks.', exampleZh: '这个生物实验室每两周订购一次新鲜试剂。' },
+    { id: 'v12', word: 'stipends', lemma: 'stipend', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/ˈstaɪpendz/', defZh: '津贴；定期津贴', defEn: 'fixed regular payments, often to students', example: 'Most graduate programs offer modest stipends to cover living costs.', exampleZh: '大多数研究生项目都会提供少量津贴来支付生活开销。' },
+    { id: 'v13', word: 'sued', lemma: 'sue', sentenceId: 's10', level: 2, pos: 'v.', ipa: '/suːd/', defZh: '起诉；提起诉讼', defEn: 'started a legal case against someone', example: 'The journalist sued the magazine for publishing false claims.', exampleZh: '这名记者因杂志刊登虚假说法而提起诉讼。' },
+    { id: 'v14', word: 'unconstitutional', lemma: 'unconstitutional', sentenceId: 's10', level: 4, pos: 'adj.', ipa: '/ˌʌnkɒnstɪˈtjuːʃənl/', defZh: '违宪的', defEn: 'not allowed by a country\'s constitution', example: 'The state court found the ban unconstitutional and struck it down.', exampleZh: '州法院认定这项禁令违宪，并将其推翻。' },
+    { id: 'v15', word: 'endowment', lemma: 'endowment', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/ɪnˈdaʊmənt/', defZh: '捐赠基金（高校）', defEn: 'a large fund whose income supports a university', example: 'Smaller colleges rarely have an endowment big enough to weather one bad year.', exampleZh: '小型学院很少有规模大到能扛过一个糟糕年份的捐赠基金。' },
+    { id: 'v16', word: 'elite', lemma: 'elite', sentenceId: 's12', level: 2, pos: 'adj.', ipa: '/eɪˈliːt/', defZh: '精英的；顶尖的', defEn: 'belonging to a small, highly selective group', example: 'Only a handful of elite programs accept students directly from high school.', exampleZh: '只有少数顶尖项目会直接从高中招收学生。' },
+    { id: 'v17', word: 'oversight', lemma: 'oversight', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/ˈəʊvəsaɪt/', defZh: '监督；监管', defEn: 'official supervision of how something is run', example: 'After the scandal, the company was placed under federal oversight.', exampleZh: '丑闻发生后，这家公司被纳入联邦监管之下。' },
+    { id: 'v18', word: 'confrontation', lemma: 'confrontation', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ˌkɒnfrənˈteɪʃn/', defZh: '对抗；正面冲突', defEn: 'an open clash between two sides', example: 'Neither leader wanted a public confrontation in front of the cameras.', exampleZh: '两位领导人都不希望在镜头前发生公开对抗。' },
+    { id: 'v19', word: 'widened', lemma: 'widen', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/ˈwaɪdnd/', defZh: '扩大；蔓延', defEn: 'became larger in scale or reach', example: 'The strike widened from one factory to the whole industry within days.', exampleZh: '罢工几天之内就从一家工厂蔓延到整个行业。' },
+    { id: 'v20', word: 'survive', lemma: 'survive', sentenceId: 's16', level: 1, pos: 'v.', ipa: '/səˈvaɪv/', defZh: '存活；挺过来', defEn: 'to continue to exist after difficulty', example: 'Few small bookstores survive a recession unchanged.', exampleZh: '少有小书店能在经济衰退中毫发无损地挺过来。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What 起句，把"重点"摆到主语位置',
+      pattern: 'What [一段从句] is/was [真正想强调的内容]',
+      sentenceIds: ['s11'],
+      explanationZh: [
+        '正常英文语序会先说主语，再说它怎么样：Harvard\'s 53-billion-dollar endowment gave the lawsuit unusual weight。这样写没错，但语气平稳，读者不会特别留意那个 endowment。',
+        '当作者想让读者把目光锁在某个特定原因上时，可以用 What 引导的从句当主语，把"真正想强调的内容"挪到句末，让它成为整句的落点。看文中第 11 句：What gave the lawsuit unusual weight was Harvard\'s endowment of 53 billion dollars。读到 was 的时候，读者已经被吊起好奇心：到底是什么给了这场诉讼分量？答案落在最后那个数字上，冲击力比常规语序大很多。',
+        '什么时候用：新闻报道写到关键原因、个人陈述要点出转折因素、议论文段落要锁定核心论据时，都很合适。它带一点正式感，不适合很随意的对话语境。',
+        '一个语法细节：What 引导的从句虽然里面可能涉及很多人或事，但整体被视为单数，所以后面用 is / was，而不是 are / were。哪怕被强调的内容（endowment of 53 billion dollars）听起来像复数，动词依然保持单数。',
+      ],
+      examples: [
+        { en: 'What surprised the auditors most was how openly the records had been altered.', zh: '最让审计师感到意外的，是这些记录被改动得多么公开。', note: '把"意外感"前置，落点放在"如此公开"上。' },
+        { en: 'What changed my mind about the job was a single five-minute conversation in the hallway.', zh: '让我对这份工作改变看法的，是走廊里短短五分钟的一次交谈。' },
+        { en: 'What kept the small library alive was not its budget but the regulars who came every Saturday.', zh: '让这家小图书馆活下去的，不是它的预算，而是每周六都来的常客。' },
+        { en: 'What worries doctors now is the speed at which the bacteria is becoming resistant.', zh: '现在让医生担忧的，是这种细菌产生耐药性的速度。' },
+        { en: 'What the report leaves out is more telling than what it includes.', zh: '这份报告没写的部分，比它写出来的部分更说明问题。' },
+      ],
+      commonMistake: '不要写成 What gave the lawsuit weight were Harvard\'s endowment。What 从句视为单数，动词只能用 is / was，哪怕后面跟的内容听起来像复数。',
+      vsSimilar: 'It-cleft（It was Harvard\'s endowment that gave the lawsuit weight）也能强调，但它强调的是"是哪一个"，更像在指认；What-cleft 强调的是"原因 / 真正的那件事是什么"，更像在揭示。',
+    },
+    {
+      id: 'g2',
+      title: '用 when 引导的状语从句交代"在什么情况下"',
+      pattern: 'When [情境], [主句结果]',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '想说明"在某种情境下会发生什么"，中文常用"一旦…就…"。英文里最直接的对应是 When 引导的状语从句，放在主句前面，用一个逗号隔开，先把情境摆出来，再把结果接上。',
+        '看文中第 9 句：When a grant is frozen, the work that depends on it stops, sometimes within a week。前半句先把情境（经费被冻结）讲清楚，后半句紧接着给出后果（依赖它的研究停下来）。读者顺着 When 走，自然进入了"如果发生 X，就会 Y"的因果框架。',
+        '什么时候用：解释一个机制、一个规则、一个连锁反应时最好用，比 If 更中性，不带"也许会、也许不会"的不确定语气。If 暗示"看情况"；When 暗示"一旦发生，就一定如此"。新闻分析、科普写作里 When 比 If 更常见。',
+        '一个标点小细节：When 引导的状语从句放在前面时，必须用逗号收尾再接主句。如果换成主句在前（the work stops when a grant is frozen），中间就不用逗号。位置一换，标点也跟着换。',
+      ],
+      examples: [
+        { en: 'When the rules are unclear, even careful people make mistakes.', zh: '当规则模糊时，连小心谨慎的人也会出错。' },
+        { en: 'When a city cuts its bus routes, the riders who lose service are usually the ones who cannot afford a car.', zh: '当一座城市削减公交线路时，失去服务的乘客往往恰好是那些买不起车的人。', note: 'When 句给情境，主句给后果，因果一目了然。' },
+        { en: 'When prices rise faster than wages, families quietly trade down to cheaper brands.', zh: '当物价上涨快过工资时，家庭会悄悄换用更便宜的品牌。' },
+        { en: 'When you stop watering a plant for a week, you find out a lot about how strong it really is.', zh: '当你一周不给一棵植物浇水时，你会发现它真正有多强壮。' },
+        { en: 'When the lab loses its grant, three years of equipment can sit unused.', zh: '当实验室失去经费时，价值三年的设备可能就此闲置。' },
+      ],
+      commonMistake: '不要忘了那个逗号：When a grant is frozen the work stops（缺少逗号），读起来会卡。前置状语从句和主句之间必须用逗号断开。',
+      vsSimilar: 'If 表示"假设可能发生"，带有不确定性；When 表示"事情确实会以这种方式发生"，是规律性陈述。说机制用 When，说假设用 If。',
+    },
+    {
+      id: 'g3',
+      title: '用 that 引导的同位语从句，把抽象名词的内容讲清楚',
+      pattern: '抽象名词 + that + 完整句子',
+      sentenceIds: ['s10', 's16'],
+      explanationZh: [
+        '英文里 argument, idea, fact, question 这种抽象名词，本身没说清楚"具体是什么内容"，需要后面跟一个 that 引导的从句把内容补齐。这种从句叫"同位语从句"，它不是修饰那个名词，而是直接告诉你"那个名词指的就是这件事"。',
+        '看文中第 10 句：arguing that the freeze was unconstitutional。argue 后面跟 that 从句，"主张"的内容（冻结违宪）就被装进了那个 that 从句里。再看第 16 句：the question is no longer abstract: whether the science they came to do will survive。这里用 whether 取代 that，但功能完全一样：告诉读者"问题"具体指的是什么。',
+        '什么时候用：报道里复述某人观点、论文写作交代研究问题、议论文摆出对方立场时，都靠这种结构来"打开"抽象名词。否则光说 the argument is strong，读者并不知道 argument 到底说了什么。',
+        '注意 that 不能省：在动词后面（he said that…）的 that 经常可以省略，但在抽象名词后面（the argument that…, the fact that…）的 that 一般不省，省了之后句子会显得跳跃，读者抓不到"这里在打开名词内容"。',
+      ],
+      examples: [
+        { en: 'The claim that exercise alone can cure depression has been quietly walked back by most researchers.', zh: '"光靠运动就能治愈抑郁"这种说法已被大多数研究者悄悄收回。', note: 'claim 之后用 that 从句把"什么样的说法"摊开。' },
+        { en: 'She raised the question whether the survey had reached enough rural households to be representative.', zh: '她提出了一个问题：这份调查是否覆盖了足够多的农村家庭，才能具有代表性。' },
+        { en: 'The fact that the river still freezes some winters surprises many newer residents.', zh: '"这条河在某些冬天依然会结冰"这一事实让许多新住户感到意外。' },
+        { en: 'There is a growing sense that small schools are being squeezed out of the conversation.', zh: '人们越来越感到小型学校正在被挤出讨论之外。' },
+        { en: 'Critics raised the worry that audits of this kind could become routine political tools.', zh: '批评者提出了这样的担忧：这类审计可能会演变成例行的政治工具。' },
+      ],
+      commonMistake: '不要写成 The argument the freeze was unconstitutional…（漏掉了 that）。抽象名词后面的同位语从句必须用 that 或 whether 引导，不能省略。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇制造反差：先说"做了一件少见的事"，再揭示具体是什么',
+      skeleton: 'On [date], [主体] did something [群体] rarely do. [下一句揭示具体动作].',
+      original: 'On April 14, 2025, Harvard University did something American universities rarely do. It told the federal government, in writing, that it would not comply.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开篇的力量来自两步信息分配：第一句先抛出一个钩子，告诉读者"做了一件同类很少做的事"，但故意不告诉你是什么；第二句紧跟着把那件事讲清楚。读者读完第一句就会想"到底做了什么"，第二句立刻给出答案，形成一个干脆的悬念到揭晓节奏。',
+        '对读者来说，something X rarely do 这一短语暗示了两层信息：第一，这件事是反常的；第二，作者已经把它放在更大的群体行为里做了比较。这种"我已经替你看过整个行业"的姿态，让作者在第一句就建立了权威感，读者愿意接着往下读。',
+        '它适合用在新闻特写、长报道、个人陈述的开头。前提是后文确实有一件具体的反常动作要展开。如果第二句揭晓的事其实并不那么反常，整个开头会显得夸张。',
+        '一个隐藏要点：第一句要用过去时（did），第二句要用紧贴前一句的动作动词，最好简短有力。如果第二句拖得太长，悬念会被稀释。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'In her third year of teaching, Ms. Patel did something high school teachers rarely do. She refused to grade her students on attendance.', zh: '在教书的第三年，帕特尔老师做了一件高中老师很少做的事。她拒绝把出勤算进学生成绩。' },
+        { context: '商业报道开头', text: 'In late 2024, the small bakery did something its competitors never did. It published the wholesale price of every loaf it sold.', zh: '2024 年底，这家小烘焙坊做了一件它的竞争对手从不做的事。它公开了自己卖出的每一条面包的批发价。', note: '第二句用一个具体到"公开了什么"的动作收尾，悬念立刻落地。' },
+        { context: '环境议题开篇', text: 'In the middle of the drought, the city did something American cities almost never do. It made residential water free.', zh: '在干旱最严重的时候，这座城市做了一件美国城市几乎从不做的事。它对居民免费供水。' },
+      ],
+      adaptingTip: '第一句的"反常"要落在具体可验证的层面（rarely, almost never, never had），不要用 unusual 这种含糊的词。第二句一定要短，并且要直接给出动作本身（refuse to X / publish X / make X free），不要绕到背景或理由。理由留给第三句以后再讲。这是开头模板，放在文章中段会失去钩子效果。',
+      commonMistake: '不要让第二句变成解释或评论：It was a brave move that surprised many.（这就只是评论，没有揭示具体动作）。第二句必须是动作本身，不是对动作的感受。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把抽象数字拉回到具体生活：先承认"这听起来抽象"，再列出钱具体做了什么',
+      skeleton: 'The [figures / numbers] sound [abstract / large / small], but [the money / it] is not. [具体清单].',
+      original: 'The figures sound abstract, but the money is not. Federal grants pay the salaries of postdoctoral researchers, buy reagents for cancer labs, keep electron microscopes running, and fund the stipends that allow most American PhD students to study at all.',
+      sentenceId: 's7',
+      whyItWorks: [
+        '新闻里大数字（22 亿、530 亿）很容易让读者麻木：数字越大，越没有画面感。这个句式用一句话点破这个心理，承认"我也知道你看到 2.2 billion 这种数字会失焦"，然后立刻用一串具体动作把钱"翻译"回看得见摸得着的事。读者的注意力因此被重新拉回。',
+        '对读者来说，sound abstract, but…is not 是一种"我和你在同一边"的姿态：作者没把数字硬塞给你，而是先承认它的不可感知性，再带你穿过这层抽象，看到背后的实际后果。这种"先共情，再陈述"的开场让后面的清单显得诚恳，而不是说教。',
+        '它最适合用在数据型新闻、政策分析、商业评论里。任何一段开头有一个"巨大的钱数 / 比例 / 排名"的写作场景，都可以用它把读者重新接住。后面那串具体动作越具象越好（salaries, reagents, microscopes 这种摸得着的东西），抽象词越少越好。',
+        '一个隐藏要点：but 之后要立刻给具体清单，至少 3 项以上，平行结构整齐（pay…, buy…, keep…, fund…）。如果只跟 1-2 项，反差感不够；如果用名词清单（salaries, reagents, microscopes），缺少动作动词的节奏感。动词列表是这个句式的脊柱。',
+      ],
+      examples: [
+        { context: '医疗政策评论', text: 'The waiting times sound bureaucratic, but the delay is not. Patients miss treatment windows, lose jobs that hold their insurance, and watch curable conditions turn into chronic ones.', zh: '这些等待时长听起来像是官僚问题，但那种拖延并不是。病人错过治疗时机、失去能保住医保的工作，眼看着可治的病拖成慢性病。' },
+        { context: '气候报道', text: 'A two-degree rise sounds modest, but the heat is not. Crops fail in their second flowering, rivers warm past the tolerance of native fish, and air conditioners run through nights they used to skip.', zh: '两度的升温听起来不算多，但那种热不止两度的事。庄稼在第二次开花时绝收，河水温度超过本地鱼能承受的上限，空调在过去不需要开的夜晚整夜运转。', note: '清单 4 项动作动词并列，把"两度"这个抽象数字翻成可看到的场景。' },
+        { context: '教育资金报道', text: 'A 12-percent budget cut sounds technical, but the loss is not. Music classes shrink to once a week, after-school programs end at four instead of six, and the school nurse covers two buildings instead of one.', zh: '12% 的预算削减听起来很技术性，但那种损失并不技术性。音乐课缩成一周一次，课后项目从六点提前到四点结束，学校护士要兼顾两栋楼而不是一栋。' },
+      ],
+      adaptingTip: 'sound 后面的词（abstract / technical / bureaucratic / modest）要选一个"会让人麻木"的词，反差才成立。后面的清单一定要用动词开头的平行短语（pay…, buy…, keep…, fund…），名词清单效果差很多。清单 3-4 项最好，2 项太薄，5 项以上读者会失焦。',
+      commonMistake: '不要把但前后两部分都写成抽象表达：The figures sound abstract, but the impact is real and serious.（impact 本身就是抽象词，等于没翻译）。but 之后必须落到具体的、能想象的画面。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾留余味：用冒号把"问题"展开，最后一句不点结论，把人留在思考里',
+      skeleton: 'For [人群], the question is no longer abstract: whether [他们关心的事] will survive [他们没法控制的事].',
+      original: 'For graduate students in the affected labs, the question is no longer abstract: whether the science they came to do will survive the politics they did not.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个收尾句的关键在 no longer abstract 这个铺垫。它先暗示"对很多人来说这还是个抽象议题，但对这群人不是了"，然后用冒号把"对他们而言的问题"打开。冒号在英文里有"现在我给你看具体内容"的语义，读者会带着期待读后半句。',
+        '对读者来说，whether X will survive Y 这种结构本身就有重量：survive 这个词把对抗、损耗、不确定性全压进一个动词里，比 continue 或 last 都更紧。再加上 X 和 Y 之间存在明显的不对称，X 是这群人来做的事，Y 是他们没参与的政治，这种"想做的事 / 没掺和的事"的并置让句子充满克制的悲剧感。',
+        '它适合放在文章或长报道的最末一句，特别是议题型报道。前文已经把宏观局势铺好，最后一段把镜头切到一个具体的小群体（这里是 graduate students），用他们的视角问一个开放的问题，让读者带着这个问题离开。议论文、特写、长博客的结尾都很好用。',
+        '一个隐藏要点：whether 后面要选两件本来"不该相关"的事，把它们硬连在一起。science 和 politics 本来分属不同领域，连在一句里就显得反讽；如果换成 whether the research will succeed or fail，就太直白，余味全无。',
+      ],
+      examples: [
+        { context: '医院关闭报道结尾', text: 'For the night-shift nurses, the question is no longer abstract: whether the patients they want to care for will survive the budget cuts they did not vote on.', zh: '对夜班护士而言，问题已不再抽象：他们想照护的病人，能否在他们并未投票通过的预算削减中活下来。' },
+        { context: '环境议题结尾', text: 'For the small farmers along the river, the question is no longer abstract: whether the soil they have worked for thirty years will survive the upstream choices they do not make.', zh: '对沿河的小农户而言，问题已不再抽象：他们耕种了三十年的土地，能否在上游那些他们插不上手的决定中存留下来。', note: '把"耕种三十年"和"上游决定"并置，反差让结尾沉下来。' },
+        { context: '艺术教育报道结尾', text: 'For the kids in those classrooms, the question is no longer abstract: whether the music they learned to love will survive the schedule changes they had no say in.', zh: '对那些教室里的孩子而言，问题已不再抽象：他们刚刚学着喜欢的音乐，能否在他们没有发言权的课表调整中保留下来。' },
+      ],
+      adaptingTip: '前置短语 For [人群] 要选一个具体到能想象的群体（不是 people 或 students 这种泛指，而是 graduate students in affected labs / night-shift nurses 这种贴肉的描写）。whether 引导的两件事必须形成"他们想做的 / 他们没参与的"对称，反讽才能立起来。这是结尾专用模板，放在中段会让读者以为文章结束了。',
+      commonMistake: '不要把后半段写成简单陈述：whether the work will go on as planned。这种平实表达失去了 survive…they did not 那种克制的悲剧感。survive 这种带损耗意味的动词，加上"他们 / 他们没"的对照，是这个句式的灵魂。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'On April 14, 2025, how much federal money was frozen for Harvard?', options: ['$60 million in grants and $2.2 billion in contracts', '$2.2 billion in research grants and $60 million in contracts', '$53 billion in endowment funds', '$400 million in grants alone'], answer: 1, explanation: 'The article says the administration froze 2.2 billion dollars in research grants and another 60 million dollars in federal contracts.', sentenceId: 's3' },
+    { id: 'q2', q: 'What did the federal task force want Harvard to change?', options: ['Only its admissions process', 'Only how it handled antisemitism complaints', 'Its admissions, student discipline, and diversity programs, plus outside audits of some departments', 'Its endowment investment strategy'], answer: 2, explanation: 'Sentence 5 lists admissions, student discipline, diversity programs, and outside reviewers auditing departments accused of antisemitism.', sentenceId: 's5' },
+    { id: 'q3', q: 'Why does the writer say the frozen money is "not abstract"?', options: ['Because the numbers are easy to picture', 'Because it pays for real things like postdoc salaries, lab reagents, microscopes, and PhD stipends', 'Because Harvard does not need it', 'Because most of it never gets spent'], answer: 1, explanation: 'Sentence 8 lists concrete things the money pays for, showing why "abstract" figures translate into real activity.', sentenceId: 's8' },
+    { id: 'q4', q: 'According to the article, what made Harvard\'s lawsuit unusual in weight?', options: ['Its president had been a federal judge', 'Its 53-billion-dollar endowment let it afford a fight other universities could not', 'A coalition of 100 universities joined the lawsuit', 'The Supreme Court agreed to hear it immediately'], answer: 1, explanation: 'Sentence 11 says the endowment of 53 billion dollars meant Harvard could afford the legal fight that most universities cannot.', sentenceId: 's11' },
+    { id: 'q5', q: 'What is the writer\'s closing tone toward the graduate students in the affected labs?', options: ['Confident their work will be fine', 'Dismissive of their concerns', 'Sympathetic and uncertain, framing their work as caught up in politics they did not choose', 'Critical of their political views'], answer: 2, explanation: 'The closing line frames their question as no longer abstract: whether the science they came to do will survive the politics they did not, which is a sympathetic, open ending.', sentenceId: 's16' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '哈佛拒绝联邦要求的日期', answer: 'April 14, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '被冻结的科研经费金额', answer: '2.2 billion dollars', sentenceId: 's3' },
+      { id: 'ig3', cueZh: '同时被冻结的联邦合同金额', answer: '60 million dollars', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '哈佛校长的姓名', answer: 'Alan Garber', sentenceId: 's6' },
+      { id: 'ig5', cueZh: '联邦经费具体用于支付的一类人员', answer: 'postdoctoral researchers', sentenceId: 's8' },
+      { id: 'ig6', cueZh: '哈佛捐赠基金的规模', answer: '53 billion dollars', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '哥伦比亚此前已损失的联邦经费金额', answer: '400 million dollars', sentenceId: 's13' },
+      { id: 'ig8', cueZh: '另外两所同样面临经费冻结的大学', answer: 'the University of Pennsylvania and Princeton', sentenceId: 's14' },
+    ],
+    writing: {
+      promptZh: '用你在表格里填到的事实，写一段大约 80 词的短文，向一位关心美国研究生院的朋友解释 2025 年 4 月哈佛和联邦政府之间发生了什么、为什么这件事会牵连到普通博士生。',
+      promptEn: "Using the facts in your table, write about 80 words explaining to a friend who cares about U.S. graduate schools what happened between Harvard and the federal government in April 2025, and why the conflict reaches ordinary PhD students.",
+      targetWords: 80,
+      starters: ['On April 14, 2025, Harvard did something American universities rarely do, and ...', 'The figures sound abstract, but ...'],
+      usePatternIds: ['pt1', 'pt2', 'pt3'],
+      modelAnswer:
+        "On April 14, 2025, Harvard did something American universities rarely do. It refused federal demands on admissions, student discipline, and diversity programs, and the Trump administration froze 2.2 billion dollars in research grants and 60 million dollars in contracts. The figures sound abstract, but the money is not. It pays postdoctoral salaries, buys lab reagents, and funds PhD stipends. For graduate students in the affected labs, the question is no longer abstract: whether the science they came to do will survive the politics they did not.",
+      modelAnswerZh:
+        '2025 年 4 月 14 日，哈佛做了一件美国高校很少做的事。它拒绝了联邦政府在招生、学生纪律和多元化项目上的整改要求，于是特朗普政府冻结了 22 亿美元科研经费和 6000 万美元合同。这些数字听起来抽象，但这笔钱不抽象。它用来支付博士后工资、购买实验室试剂，并资助博士生津贴。对受影响实验室里的研究生而言，问题已不再抽象：他们前来从事的科研，能否在他们并未参与的政治博弈中存活下来。',
+    },
+  },
+};

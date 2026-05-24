@@ -1,0 +1,240 @@
+// University Abroad, Ch.15: top US schools raise free-tuition income caps in 2024-25 (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-11-18',
+    title: 'Top Schools Push Aid Higher',
+    titleZh: '顶尖名校加大补贴',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/university-abroad/15-tuition-free-aid.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      'In late 2024 and early 2025, MIT, Harvard, and Princeton each lifted the family-income line under which tuition becomes free. The sticker price still scares applicants, but very few people actually pay it. This chapter explains the new numbers and the math behind them.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On November 20, 2024, the Massachusetts Institute of Technology announced that families earning under 200,000 dollars a year would pay nothing in tuition.', zh: '2024 年 11 月 20 日，麻省理工学院宣布，家庭年收入低于 20 万美元的学生将无需支付学费。' },
+        { id: 's2', en: 'For families earning under 100,000 dollars, even room and board would also be covered, making the full residential year effectively free.', zh: '对于年收入低于 10 万美元的家庭，甚至连住宿和餐费也会一并由学校负担，整个住校年事实上完全免费。' },
+        { id: 's3', en: 'Four months later, in March 2025, Harvard followed with almost the same plan, setting its own free-tuition line at 200,000 dollars.', zh: '四个月后，也就是 2025 年 3 月，哈佛大学公布了几乎相同的方案，把自己的免学费线同样定在了 20 万美元。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The announcements arrived in a year when the published cost of attending these schools had crossed 90,000 dollars.', zh: '在这些学校的对外公布费用已经突破 9 万美元的一年，这些公告紧接着出现了。' },
+        { id: 's5', en: 'That sticker price has shaped how Chinese families talk about American universities for years.', zh: '多年来，这个"标价"一直影响着中国家庭谈论美国大学的方式。' },
+        { id: 's6', en: 'Yet only a small slice of admitted students actually writes that full check.', zh: '然而，在被录取的学生中，真正按全额开支票的只是很小一部分。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'Princeton has been the most generous for the longest time, having waived tuition for families under 100,000 dollars since 2023.', zh: '普林斯顿一直是最慷慨的学校，自 2023 年起就为年收入低于 10 万美元的家庭免除学费。' },
+        { id: 's8', en: 'After the MIT and Harvard moves, several other elite schools quietly raised their own caps to match.', zh: 'MIT 与哈佛行动之后，几所其他顶尖学校也悄悄上调了自己的收入门槛以保持同步。' },
+        { id: 's9', en: 'The pattern is becoming clear: the more public these schools are about being expensive, the more aggressively they need to prove they are not.', zh: '一个规律正在显现：这些学校越是公开显得昂贵，就越要主动证明它们其实并不是。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'The math behind these decisions is less mysterious than it sounds.', zh: '这些决定背后的算账，并没有听起来那么神秘。' },
+        { id: 's11', en: 'Harvard sits on an endowment worth over 50 billion dollars, and the annual payout from that pile easily absorbs the extra aid without forcing the school to cut anything else.', zh: '哈佛拥有超过 500 亿美元的捐赠基金，每年从这笔资金中拨出的款项足以轻松覆盖新增的助学开支，而不必让学校在其他地方动刀。' },
+        { id: 's12', en: 'For schools without that kind of cushion, copying the policy is harder than copying the press release, since the money has to come from somewhere real.', zh: '对于没有这种资金缓冲的学校来说，照抄这套政策远比照抄一份新闻稿要难得多，因为这笔钱终究要从某个真实的账户里出。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'Still, the sticker shock does real damage before any aid letter arrives.', zh: '不过，在任何一封资助通知书到达之前，标价的冲击就已经造成了真实的伤害。' },
+        { id: 's14', en: 'Many middle-class families never apply, assuming the answer is no.', zh: '许多中产家庭根本就不申请，认定结果一定是被拒。' },
+        { id: 's15', en: 'What the new caps are really fighting is not the price but the perception.', zh: '这些新的收入门槛真正要对抗的，不是价格本身，而是人们对价格的认知。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'For a family weighing options in Shanghai or Chengdu, the message is worth pausing on.', zh: '对于一个正在上海或成都权衡选项的家庭来说，这条消息值得停下来读一读。' },
+        { id: 's17', en: 'A 90,000-dollar headline number does not mean a 90,000-dollar bill at the end of the year.', zh: '9 万美元的标题数字，并不意味着年底那张账单也是 9 万美元。' },
+        { id: 's18', en: 'Sometimes the school that looks the most expensive on paper turns out to be the one that asks for the least when the aid letter finally lands.', zh: '有时候，账面上看起来最贵的那所学校，等到资助通知书寄到手时，反而是要价最少的那一所。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'announced', lemma: 'announce', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/əˈnaʊnst/', defZh: '宣布；公布', defEn: 'made something known publicly', example: 'The minister announced new rules for foreign students.', exampleZh: '部长宣布了针对留学生的新规定。' },
+    { id: 'v2', word: 'tuition', lemma: 'tuition', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/tjuˈɪʃn/', defZh: '学费；学杂费', defEn: 'the money paid for teaching at a school', example: 'Annual tuition at the law school has doubled in ten years.', exampleZh: '这所法学院的年学费十年里翻了一番。' },
+    { id: 'v3', word: 'covered', lemma: 'cover', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/ˈkʌvəd/', defZh: '涵盖；包含费用', defEn: 'paid for or included in a payment', example: 'The scholarship covered both books and travel.', exampleZh: '这份奖学金涵盖了书本和差旅费。' },
+    { id: 'v4', word: 'sticker', lemma: 'sticker', sentenceId: 's5', level: 3, pos: 'n.', ipa: '/ˈstɪkə(r)/', defZh: '标价（sticker price 指对外公布的全额价格）', defEn: 'the publicly listed full price', example: 'The sticker price hides the discounts most buyers actually get.', exampleZh: '标价掩盖了大多数买家实际能拿到的折扣。' },
+    { id: 'v5', word: 'shaped', lemma: 'shape', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/ʃeɪpt/', defZh: '塑造；深刻影响', defEn: 'strongly influenced the form of something', example: 'Her early years in Tokyo shaped her sense of design.', exampleZh: '在东京的早年生活塑造了她的设计感。' },
+    { id: 'v6', word: 'slice', lemma: 'slice', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/slaɪs/', defZh: '一小部分（占比）', defEn: 'a small share or portion of a group', example: 'Only a thin slice of voters change their minds at the last minute.', exampleZh: '只有很少一部分选民会在最后一刻改变主意。' },
+    { id: 'v7', word: 'generous', lemma: 'generous', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ˈdʒenərəs/', defZh: '慷慨的；大方的', defEn: 'giving more than what is strictly required', example: 'The grant program has been unusually generous this year.', exampleZh: '今年这项资助计划格外慷慨。' },
+    { id: 'v8', word: 'waived', lemma: 'waive', sentenceId: 's7', level: 4, pos: 'v.', ipa: '/weɪvd/', defZh: '放弃（要求）；豁免', defEn: 'chose not to require a fee or rule', example: 'The clinic waived the appointment fee for low-income patients.', exampleZh: '诊所为低收入患者免除了预约费用。' },
+    { id: 'v9', word: 'quietly', lemma: 'quietly', sentenceId: 's8', level: 2, pos: 'adv.', ipa: '/ˈkwaɪətli/', defZh: '低调地；不张扬地', defEn: 'without drawing public attention', example: 'The company quietly dropped the controversial feature.', exampleZh: '公司低调地砍掉了那个引发争议的功能。' },
+    { id: 'v10', word: 'caps', lemma: 'cap', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/kæps/', defZh: '上限；门槛（金额）', defEn: 'upper limits set on an amount', example: 'The new caps on rent take effect in July.', exampleZh: '租金新上限将在七月生效。' },
+    { id: 'v11', word: 'aggressively', lemma: 'aggressively', sentenceId: 's9', level: 4, pos: 'adv.', ipa: '/əˈɡresɪvli/', defZh: '强势地；高调地', defEn: 'with strong and active effort', example: 'The startup is aggressively expanding into Southeast Asia.', exampleZh: '这家创业公司正在强势进军东南亚。' },
+    { id: 'v12', word: 'endowment', lemma: 'endowment', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/ɪnˈdaʊmənt/', defZh: '捐赠基金（高校长期投资金）', defEn: 'a large fund of donations a school invests for income', example: 'A bigger endowment lets a college spend more on financial aid.', exampleZh: '更大的捐赠基金让学校能在助学金上花得更多。' },
+    { id: 'v13', word: 'absorbs', lemma: 'absorb', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/əbˈzɔːbz/', defZh: '吸收；承担（成本）', defEn: 'takes in and handles a cost without strain', example: 'The factory absorbs the higher fuel prices for now.', exampleZh: '工厂目前自行消化了上涨的燃料价格。' },
+    { id: 'v14', word: 'cushion', lemma: 'cushion', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/ˈkʊʃn/', defZh: '缓冲；备用资金', defEn: 'a backup amount that softens financial pressure', example: 'A six-month savings cushion helps when the job market shifts.', exampleZh: '六个月的应急储蓄能在就业市场波动时起到缓冲作用。' },
+    { id: 'v15', word: 'shock', lemma: 'shock', sentenceId: 's13', level: 2, pos: 'n.', ipa: '/ʃɒk/', defZh: '冲击；震惊感', defEn: 'a strong, sudden negative reaction', example: 'The shock of the bill kept her from booking again.', exampleZh: '账单带来的冲击让她不敢再次下单。' },
+    { id: 'v16', word: 'assuming', lemma: 'assume', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/əˈsjuːmɪŋ/', defZh: '假定；想当然地认为', defEn: 'taking something to be true without checking', example: 'Many candidates skip the test, assuming they will not pass.', exampleZh: '很多考生想当然认为自己过不了，干脆放弃考试。' },
+    { id: 'v17', word: 'perception', lemma: 'perception', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/pəˈsepʃn/', defZh: '认知；印象', defEn: 'the way people understand or see something', example: 'Public perception of the brand changed after the recall.', exampleZh: '召回事件后，公众对该品牌的印象发生了变化。' },
+    { id: 'v18', word: 'weighing', lemma: 'weigh', sentenceId: 's16', level: 3, pos: 'v.', ipa: '/ˈweɪɪŋ/', defZh: '权衡；掂量', defEn: 'carefully comparing different options', example: 'She spent a week weighing offers from three universities.', exampleZh: '她花了一周时间权衡三所大学的录取。' },
+    { id: 'v19', word: 'headline', lemma: 'headline', sentenceId: 's17', level: 2, pos: 'n.', ipa: '/ˈhedlaɪn/', defZh: '标题（数字）；表面数字', defEn: 'the eye-catching number used in headlines', example: 'The headline figure looked huge, but the details told another story.', exampleZh: '标题上的数字看起来惊人，但细节讲的是另一个故事。' },
+    { id: 'v20', word: 'turns out', lemma: 'turn out', sentenceId: 's18', level: 2, pos: 'phr. v.', ipa: '/tɜːnz aʊt/', defZh: '结果是；事实证明', defEn: 'is found to be the case in the end', example: 'The cheaper hotel turns out to be cleaner than the expensive one.', exampleZh: '事实证明，便宜的那家酒店反而比贵的那家更干净。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 "the more X, the more Y" 把两个变化绑成同一句',
+      pattern: 'the more [X], the more [Y]',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '想说"A 越……，B 就越……"，中文里轻松一句，英文新手往往写成 If they are more public, they need to prove more。这样写虽然懂，但拖沓，且失去了"两件事同步增长"的节奏。英文里有一个专门的句式：the more X, the more Y，把两个变化压进同一句。',
+        '看文中第 9 句：The more public these schools are about being expensive, the more aggressively they need to prove they are not. 前半句的 the more public 是"越显得贵"，后半句的 the more aggressively 是"越要拼命证明不贵"。读者一眼就看出这是一对绑死的因果。',
+        '什么时候用：当你要点出"一个规律"或者"一种张力"时最好用。新闻评论、议论文的关键论点句、个人陈述里讲规律性的观察都很合适。它本身自带"我在总结一种现象"的语气。',
+        '一个常被忽略的细节：两个 "the more" 后面跟的可以是形容词（public）、副词（aggressively）、名词短语（the more time you spend），但前后两段的形式最好对称：前面是副词，后面也尽量是副词，读起来才整齐。',
+      ],
+      examples: [
+        { en: 'The more rules a platform adds, the more creative its users get at breaking them.', zh: '平台加的规则越多，用户在规避规则上就越有创意。', note: '后半句把"破坏规则"反向升级，制造了一点反讽，正是这个句式擅长的效果。' },
+        { en: 'The more confident he sounded, the less anyone believed him.', zh: '他听起来越自信，反而越没人相信他。' },
+        { en: 'The more I read about the topic, the harder it became to write a single clean paragraph.', zh: '我读得越多，越难写出一段干净的文字。' },
+        { en: 'The more public the apology, the more carefully it has to be worded.', zh: '道歉越公开，措辞就越得小心。' },
+      ],
+      commonMistake: '不要写成 More public these schools are, more aggressively they prove。两个比较短语前面的 the 都不能省，否则不成立。',
+      vsSimilar: '直接说 X causes Y 只交代因果方向；the more X, the more Y 还额外强调"两者同步变化"。如果你想突出的是"一起增长"的节奏，就用后者。',
+    },
+    {
+      id: 'g2',
+      title: '用 having done 这种分词把先发生的事压到一个短语里',
+      pattern: '主句, having + 过去分词 + 宾语 + since/for ...',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '想说"普林斯顿一直最慷慨，它从 2023 年起就免学费了"，新手会写成两句：Princeton has been the most generous. It has waived tuition since 2023. 这样信息是对的，但读起来碎。英文里可以用一个分词短语 having waived...since 2023 把第二件事压进主句后面，让句子既紧凑又有层次。',
+        '看文中第 7 句：Princeton has been the most generous for the longest time, having waived tuition for families under 100,000 dollars since 2023. 主句讲"现状"，having waived 这一段交代"为什么能这么说"，时间上更早。读者一句话就拿到了结论加证据。',
+        '什么时候用：当你想在主句里给出一个判断或总结，紧接着用一句解释"凭什么这么说"时最好用。新闻特写、人物介绍、推荐信里很常见。它给人一种"作者在做一个有依据的判断"的稳重感。',
+        '一个常被忽略的细节：having done 的隐含主语必须和主句主语一致。文中 Princeton 既是 "has been generous" 的主语，也是 "having waived" 的隐含主语，所以成立。如果两段的主语不同，就不能这样压缩。',
+      ],
+      examples: [
+        { en: 'She is now the most senior editor at the magazine, having joined the team straight out of college.', zh: '她现在是这本杂志最资深的编辑，大学一毕业就加入了团队。' },
+        { en: 'The library still feels modern, having been renovated only two years ago.', zh: '这座图书馆仍然显得很现代，因为它两年前才刚翻修过。', note: 'having been done 形式用于被动，文中是主动 having waived。' },
+        { en: 'He spoke with unusual confidence, having lived in the city for over a decade.', zh: '他说话格外有底气，毕竟他在这座城市住了十多年。' },
+        { en: 'The team came in calm, having played in louder stadiums before.', zh: '球队入场时神情镇定，因为他们见识过更喧闹的球场。' },
+      ],
+      commonMistake: '不要让两段主语不一致：Princeton has been generous, having raised them since 2023（这里 them 没指清，分词的隐含主语也不再是 Princeton 自己的动作）。分词短语的隐含主语必须和主句一致。',
+    },
+    {
+      id: 'g3',
+      title: '用 what + 从句 把"真正……的是"摆到主语位置',
+      pattern: 'What [clause] is/was [emphasis]',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '想强调"真正的目标不是 X，而是 Y"，中文随手就能说，英文里如果直白写成 The new caps are really fighting perception, not price，重音落在动词上，反而把意思冲淡了。英文里有一个常用的强调句式：What … is/was …，把"真正的核心"放到 is 后面，强迫读者把重音落在那里。',
+        '看文中第 15 句：What the new caps are really fighting is not the price but the perception. 主语位置是一整段 What the new caps are really fighting，看似笨重，正是它把所有铺垫都拉到了 is 的前面，让 is 后面的 perception 砸下来更有分量。再配合 not X but Y 的对比结构，整句的力度被放大了两倍。',
+        '什么时候用：议论文段落的关键判断句、专栏文章里点题的那一句、申请文书里"我真正想做的是……"这种自我定义的句子，都非常合适。它本质是一个"重读符号"，所以一篇里用一次就够，多了会显得用力过猛。',
+        '一个非常容易错的小点：is/was 由 what 从句的"逻辑主语"决定单复数。文中 What the new caps are really fighting is（不是 are），因为 What 从句本身被当成一个单数概念。即使主语里出现 caps 这种复数词，is 仍然保持单数。',
+      ],
+      examples: [
+        { en: 'What the policy actually changes is not how much you pay but who gets to apply.', zh: '这项政策真正改变的，不是你要付多少钱，而是谁有资格申请。' },
+        { en: 'What I miss most about that year is how quiet the mornings were.', zh: '我最怀念那一年的，是早晨有多么安静。', note: 'what 从句把"怀念"这件事拉到主语位置，比 I miss the quiet mornings 更聚焦。' },
+        { en: 'What the company sells is not really coffee. It is a place to sit down.', zh: '这家公司卖的其实不是咖啡。它卖的是一个可以坐下来的地方。' },
+        { en: 'What surprised her in the interview was how short the answers had to be.', zh: '面试中真正让她意外的，是回答必须有多简短。' },
+      ],
+      commonMistake: '不要写成 What the new caps are fighting are perception。 What 从句作主语永远配 is/was，不管后面跟的名词是单数还是复数。',
+      vsSimilar: 'It-cleft 也能强调（It is perception that the new caps are fighting），但它把焦点放在一个名词上；what-cleft 更适合放整段动作或抽象概念，分量更重。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '点出一个数字背后藏着的反差，开篇就把张力立住',
+      skeleton: '[一段时间或事件] arrived in a year when [外部背景的数字或事实].',
+      original: 'The announcements arrived in a year when the published cost of attending these schools had crossed 90,000 dollars.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式把两层信息叠成一句：前半说"事件发生了"，后半用 when 引导的时间从句不写空泛的年份，而是塞进一个有冲击力的数字或事实。读者一句话内就拿到"事件 + 背景反差"两个维度，比分两句写要紧凑得多。',
+        '对读者来说，arrived in a year when…的句式带着一种"作者已经看清了时代背景"的气场。它暗示作者不是在堆事实，而是在拣选，他挑了这个最有反差的背景来衬这件事。读者会下意识相信后面的判断也是经过挑选的。',
+        '它最适合用在新闻特写或专栏的第一段或第二段。当你想给一个新政策、新事件加一个时代背景框，这个句式既正式又利落。议论文开头点题时也可以用。',
+        '一个隐藏要点：when 后面的事实必须和主句构成反差或张力（学校在给钱 vs. 学费正在创纪录），如果只是平淡的同期事件，这个句式就变成了普通的时间状语，张力消失。',
+      ],
+      examples: [
+        { context: '科技专栏开头', text: 'The layoffs arrived in a year when the same company had spent more on AI than ever before.', zh: '裁员发生在公司在 AI 上投入创纪录的一年。' },
+        { context: '环境新闻开篇', text: 'The pledge arrived in a season when local rivers were running at their lowest in a decade.', zh: '这份承诺出现在当地河流水位创十年新低的季节。', note: '后半句用具体数据制造反差，比写 in a difficult season 有力得多。' },
+        { context: '体育评论', text: "The new contract arrived in a year when the player's own scoring had quietly dropped.", zh: '这份新合同出现在球员自己的得分已经悄悄下滑的一年。' },
+      ],
+      adaptingTip: 'when 后面要装具体的数字、事实或事件，不要写抽象状态（"a year of change"）。前后两段必须有可以读出来的反差或张力，写之前先问自己：这个背景和事件如果摆在一起，读者会不会皱一下眉？如果不会，就换一个更有冲击力的背景。',
+      commonMistake: '不要把 when 后面写成无聊的时间填充：arrived in a year when many things happened。 那样这个句式就退化成普通的 "in 2024" 时间状语，完全失去了反差的力量。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用 "X is less Y than it sounds/seems" 把读者的预期先压下去，再展开解释',
+      skeleton: 'The [topic] is less [adjective] than it sounds/seems.',
+      original: 'The math behind these decisions is less mysterious than it sounds.',
+      sentenceId: 's10',
+      whyItWorks: [
+        '这个句式的力量在于"预先泄气"。读者本来以为后面会是一段复杂的财务解释，作者一句 The math is less mysterious than it sounds 直接把那种紧张感拆掉了。读者放松下来，反而更愿意跟着读后面的解释。',
+        '对读者来说，作者在这里做了一个隐性的承诺：我接下来要讲的事情没那么吓人，跟我走就行。这种"放下戒备"的姿态让作者显得自信而平易，读者会更信任他。',
+        '它最适合放在一段技术性、专业性内容的引子位置。新闻里讲制度、讲算法、讲财务时尤其好用。议论文里要解释一个"听起来很专业"的现象时，用它当过渡句非常顺。',
+        '一个常被忽略的细节：sounds 和 seems 有微妙差别。sounds 偏"听人说起来如何"，seems 偏"看起来如何"。如果你前文用过转述或别人说法，用 sounds 更呼应；如果是视觉印象（如复杂图表），seems 更贴切。',
+      ],
+      examples: [
+        { context: '产品测评开头', text: 'Setting up the camera is less complicated than it looks.', zh: '设置这台相机并没有看起来那么复杂。' },
+        { context: '历史科普段落引子', text: 'The dispute is less ancient than it sounds, dating only to the early 1990s.', zh: '这场争端并没有听起来那么古老，它的源头其实只到 1990 年代初。', note: '后面接一个具体反例（only to the early 1990s），让"less ancient"立刻落地。' },
+        { context: '学术论文引言', text: 'The model is less novel than the paper makes it appear.', zh: '这个模型并不像论文写得那样新颖。' },
+      ],
+      adaptingTip: '后面紧跟的一段必须真的把这个 "less Y" 兑现，给一个具体的、能让读者拍腿的解释或对比。否则这一句就成了空头支票，反而损害作者的信誉。这是过渡句，不要把它当结论。',
+    },
+    {
+      id: 'pt3',
+      useCase: '用一组对比收尾：表面看起来 X 的，反而是真正 Y 的',
+      skeleton: 'Sometimes the [thing] that looks the most [adjective1] turns out to be the one that [verb the least/most adjective2].',
+      original: 'Sometimes the school that looks the most expensive on paper turns out to be the one that asks for the least when the aid letter finally lands.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式自带"反转"。Looks the most expensive 和 asks for the least 是两个方向相反的极端，读者读到 turns out 时已经知道作者要翻盘，但具体怎么翻还要等到 the least 落地。这种"知道要反转、又不知道怎么反"的节奏感，是金句句式的核心。',
+        '对读者来说，Sometimes 这个开头很温和，不是绝对断言，而是一种经验之谈。这让句子既有金句的力度，又没有 "always" 的绝对感，读起来分寸合适，容易点头。',
+        '它最适合做一段或一篇的收尾句。前文铺好事实，结尾用这个句式把事实翻译成"一个值得记住的小道理"。新闻评论、人物特写、申请文书的结尾都好用。',
+        '一个隐藏要点：两端的对比必须落在同一个维度上（expensive 和 asks for money 都是钱的维度），不能跨维度对比。如果写 looks the most expensive turns out to be the one that teaches the best，对比就散了，金句感会被稀释。',
+      ],
+      examples: [
+        { context: '职业建议结尾', text: 'Sometimes the offer that looks the most generous turns out to be the one that asks for the most of your time.', zh: '有时候，看上去最慷慨的那份 offer，最后反而是要占去你最多时间的那一份。' },
+        { context: '个人随笔结尾', text: 'Sometimes the city that looks the busiest turns out to be the one that lets you disappear most easily.', zh: '有时候，看上去最忙碌的那座城市，反而最能让你彻底消失其中。', note: '两端都落在"和人的关系"这个维度上，对比成立。' },
+        { context: '影评结尾', text: 'Sometimes the character who looks the strongest turns out to be the one carrying the heaviest doubt.', zh: '有时候，看起来最坚强的那个角色，反而是心里背着最沉重怀疑的那一个。' },
+      ],
+      adaptingTip: '两端的 adjective 必须严格对应、方向相反。先想好"维度"（钱 / 时间 / 力量 / 速度），再分别填正反两端的形容词。Sometimes 不要随便换成 Always，整个句子的稳重感来自那种克制。',
+      commonMistake: '不要让两端跨维度：the school that looks the most expensive turns out to be the one with the best library。 这就不是反转，只是另一件无关的好事，金句感会立刻塌掉。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what did MIT announce in November 2024?', options: ['Free tuition for all admitted students', 'Free tuition for families earning under 200,000 dollars', 'Free room and board for every undergraduate', 'A new entrance exam for international students'], answer: 1, explanation: 'The opening sentence says MIT announced that families earning under 200,000 dollars a year would pay nothing in tuition.', sentenceId: 's1' },
+    { id: 'q2', q: 'How long has Princeton been waiving tuition for families under 100,000 dollars?', options: ['Since the 1990s', 'Since 2023', 'Only since 2025', 'It has not started yet'], answer: 1, explanation: 'The article says Princeton has waived tuition for families under 100,000 dollars since 2023.', sentenceId: 's7' },
+    { id: 'q3', q: 'Why can Harvard afford this expanded aid relatively easily?', options: ['Because it admits fewer students each year', 'Because its endowment is worth over 50 billion dollars', 'Because the federal government pays for it', 'Because tuition has fallen sharply'], answer: 1, explanation: 'The article explains that Harvard sits on an endowment over 50 billion dollars, whose annual payout absorbs the extra aid.', sentenceId: 's11' },
+    { id: 'q4', q: 'What does the writer suggest is the real problem the new aid caps are trying to solve?', options: ['Falling enrollment from rural states', 'The high cost of campus housing', 'The perception that these schools are unaffordable', 'Competition from European universities'], answer: 2, explanation: 'The article says what the new caps are really fighting is not the price but the perception.', sentenceId: 's15' },
+    { id: 'q5', q: "What is the writer's overall message to families weighing options?", options: ['Avoid expensive-looking American universities', 'Apply only to schools with low sticker prices', 'Do not let the headline price decide for you, because the actual bill can be much lower', 'Wait several years before applying anywhere'], answer: 2, explanation: 'The closing paragraph tells families a 90,000-dollar headline does not mean a 90,000-dollar bill, and the most expensive-looking school may ask for the least.', sentenceId: 's17' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: 'MIT 公布新政策的日期', answer: 'November 20, 2024', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: 'MIT 免学费的家庭年收入上限', answer: '200,000 dollars', sentenceId: 's1' },
+      { id: 'ig3', cueZh: 'MIT 免住宿餐费的家庭年收入上限', answer: '100,000 dollars', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '哈佛跟进的时间间隔', answer: 'four months later', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '这些学校公开公布的就读总费用', answer: '90,000 dollars', sentenceId: 's4' },
+      { id: 'ig6', cueZh: '普林斯顿自哪一年起就免学费', answer: '2023', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '哈佛捐赠基金的规模', answer: 'over 50 billion dollars', sentenceId: 's11' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位正在犹豫要不要申请美国名校的中国家长解释 2024–25 年的新助学政策：发生了什么，背后的逻辑是什么，他们应该怎么看待 9 万美元的"标价"。',
+      promptEn: "Using the facts in your table, write about 70 words explaining the 2024-25 financial aid changes to a Chinese parent who is hesitating to apply to top US schools: what happened, what the logic is, and how they should think about the 90,000-dollar sticker price.",
+      targetWords: 70,
+      starters: ['In late 2024, MIT announced that ...', 'The math is less mysterious than it sounds, because ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        'In late 2024, MIT announced that families earning under 200,000 dollars would pay no tuition, and Harvard followed four months later. Princeton had already waived tuition for families under 100,000 dollars since 2023. The math is less mysterious than it sounds, because Harvard sits on an endowment over 50 billion dollars. Sometimes the school that looks the most expensive turns out to be the one that asks for the least.',
+      modelAnswerZh:
+        '2024 年末，MIT 宣布家庭年收入低于 20 万美元的学生不再缴纳学费，哈佛在四个月后跟进。普林斯顿则从 2023 年起就为年收入低于 10 万美元的家庭免除了学费。背后的算账并没有听起来那么神秘，因为哈佛坐拥超过 500 亿美元的捐赠基金。有时候，看上去最贵的那所学校，最后反而是要价最少的那一所。',
+    },
+  },
+};

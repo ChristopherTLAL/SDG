@@ -1,0 +1,245 @@
+// University Life Abroad, Ch.13: a May 2025 visa threat aimed at Chinese STEM students (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-05-28',
+    title: 'The STEM Visa Warning',
+    titleZh: 'STEM 签证警示',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/university-abroad/13-stem-visa-threat.mp3',
+    wordCount: 364,
+    readingMinutes: 5,
+    editorsNote:
+      'On May 28, 2025, the U.S. Secretary of State said his department would "aggressively revoke" the visas of certain Chinese students. The wording was vague, the timing was tight, and the message reached families long before the rules did. This chapter walks through what was said, what was paused, and what it felt like for students already mid-application.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On May 28, 2025, U.S. Secretary of State Marco Rubio said the State Department would "aggressively revoke" the visas of Chinese students with ties to the Chinese Communist Party or studying in "critical fields".', zh: '2025 年 5 月 28 日，美国国务卿马尔科·卢比奥表示，美国国务院将"积极吊销"与中国共产党有关联、或在"关键领域"学习的中国留学生签证。' },
+        { id: 's2', en: 'He did not say which fields counted.', zh: '他没有说明哪些领域属于"关键领域"。' },
+        { id: 's3', en: 'The announcement landed one day after Washington had already paused new visa interview scheduling for international students worldwide.', zh: '这份声明发布的前一天，华盛顿刚刚暂停了全球范围内国际学生签证面谈的新预约。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The pause was announced on May 27 and applied to F, M, and J visas, the three categories most international students use.', zh: '这次暂停于 5 月 27 日宣布，覆盖 F、M、J 三类签证，这正是大多数国际学生申请的种类。' },
+        { id: 's5', en: 'Students with interviews already on the calendar could still attend, but those still trying to book one were told to wait.', zh: '已经约到面谈的学生仍可如期前往，但还没成功预约的人则被告知继续等待。' },
+        { id: 's6', en: 'In 2024, the United States hosted about 277,000 students from China, many of them in graduate STEM programs.', zh: '2024 年，美国接待了约 27.7 万名来自中国的学生，其中很多人就读于研究生阶段的 STEM 项目。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'Within days, the State Department said interviews would resume, but with stricter checks of applicants\' social media activity.', zh: '几天之内，美国国务院表示面谈将恢复，但对申请人社交媒体活动的审查会更严格。' },
+        { id: 's8', en: 'A later cable from Secretary Rubio instructed consular officers to treat private or empty social media profiles as a possible red flag, on the theory that limited online presence suggested "evasiveness".', zh: '卢比奥之后下发的一份电报指示领事官员，把私密或空白的社交媒体账号视为潜在的警示信号，理由是这种克制的网络存在感暗示着"回避"。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's9', en: 'What troubled many observers was less the screening itself than the silence around its scope.', zh: '让许多观察者忧心的，并不是审查本身，而是其范围始终没有被讲清。' },
+        { id: 's10', en: '"Critical fields" was never publicly defined, so a student in semiconductor research could not tell whether the warning aimed at them or at someone else.', zh: '"关键领域"始终没有公开定义，因此一名做半导体研究的学生根本无法判断这条警告是针对自己，还是针对别人。' },
+        { id: 's11', en: 'University international offices were flooded with anxious emails from current students, accepted students, and parents.', zh: '各大学的国际学生办公室收到了海量焦虑邮件，发件人有在读学生、已录取的新生，也有家长。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's12', en: 'Supporters argued that the policy was a reasonable response to real concerns about research security.', zh: '支持者认为，这一政策是对研究安全方面真实担忧的一种合理回应。' },
+        { id: 's13', en: 'Critics noted that Chinese graduate students publish a substantial share of U.S. STEM research, and that broad threats are easier to issue than to limit.', zh: '批评者则指出，美国 STEM 研究的相当一部分论文是由中国研究生发表的，而泛泛的威胁，更容易抛出来，比真正落实边界要容易得多。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's14', en: 'For students mid-application, the practical effect was the same either way.', zh: '对于正处在申请阶段的学生来说，无论谁说得对，实际影响都是一样的。' },
+        { id: 's15', en: 'They had to keep working on their projects, keep refreshing their visa appointment pages, and try not to read every headline as a verdict on their own future.', zh: '他们还是要继续推进自己的研究项目，继续刷新签证预约页面，并且努力不把每一条新闻都当作对自己未来的最终判决。' },
+        { id: 's16', en: 'The strength of an open university system has always rested on a quiet assumption: that the door stays open while you are still walking toward it.', zh: '一个开放的大学体系，其力量始终建立在一个安静的前提之上：当你还在朝着那扇门走去的时候，它会一直开着。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'revoke', lemma: 'revoke', sentenceId: 's1', level: 3, pos: 'v.', ipa: '/rɪˈvəʊk/', defZh: '吊销；撤销', defEn: 'to officially cancel a permission or document', example: 'The city can revoke a taxi license after repeated complaints.', exampleZh: '在多次投诉之后，市政府可以吊销一张出租车执照。' },
+    { id: 'v2', word: 'ties', lemma: 'tie', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/taɪz/', defZh: '关联；联系', defEn: 'connections to a group or organization', example: 'She kept close ties with her former classmates.', exampleZh: '她和以前的同学一直保持着紧密的联系。' },
+    { id: 'v3', word: 'critical', lemma: 'critical', sentenceId: 's1', level: 2, pos: 'adj.', ipa: '/ˈkrɪtɪkl/', defZh: '关键的；至关重要的', defEn: 'extremely important; central to a situation', example: 'Water is critical for any farming village.', exampleZh: '对任何农村来说，水都是至关重要的。' },
+    { id: 'v4', word: 'announcement', lemma: 'announcement', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/əˈnaʊnsmənt/', defZh: '声明；公告', defEn: 'an official public statement', example: 'The company made a quiet announcement about the new factory.', exampleZh: '公司低调发布了关于新工厂的公告。' },
+    { id: 'v5', word: 'paused', lemma: 'pause', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/pɔːzd/', defZh: '暂停', defEn: 'temporarily stopped an ongoing process', example: 'The airline paused all night flights during the storm.', exampleZh: '风暴期间，这家航空公司暂停了所有的夜间航班。' },
+    { id: 'v6', word: 'categories', lemma: 'category', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/ˈkætəɡəriz/', defZh: '类别；种类', defEn: 'groups of things sharing a common feature', example: 'The prize has three categories: writing, design, and code.', exampleZh: '这个奖项分为写作、设计和代码三个类别。' },
+    { id: 'v7', word: 'attend', lemma: 'attend', sentenceId: 's5', level: 1, pos: 'v.', ipa: '/əˈtend/', defZh: '出席；参加', defEn: 'to go to an event, meeting, or appointment', example: 'Only twelve people came to attend the workshop.', exampleZh: '只有十二个人来参加这场工作坊。' },
+    { id: 'v8', word: 'hosted', lemma: 'host', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/həʊstɪd/', defZh: '接待；承办', defEn: 'received and looked after visitors or guests', example: 'The school hosted students from five countries last summer.', exampleZh: '去年夏天，这所学校接待了来自五个国家的学生。' },
+    { id: 'v9', word: 'resume', lemma: 'resume', sentenceId: 's7', level: 3, pos: 'v.', ipa: '/rɪˈzjuːm/', defZh: '恢复；重新开始', defEn: 'to start something again after a stop', example: 'Trains will resume normal service tomorrow morning.', exampleZh: '列车明天早上将恢复正常运营。' },
+    { id: 'v10', word: 'stricter', lemma: 'strict', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ˈstrɪktə(r)/', defZh: '更严格的', defEn: 'more demanding or controlled', example: 'The new rules are stricter than the old ones.', exampleZh: '新的规定比原来的更严格。' },
+    { id: 'v11', word: 'cable', lemma: 'cable', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/ˈkeɪbl/', defZh: '外交电报（指官方内部文件）', defEn: 'an official internal message sent within a government', example: 'The cable instructed all embassies to follow the same procedure.', exampleZh: '这份电报要求所有使馆都遵循相同的程序。' },
+    { id: 'v12', word: 'consular', lemma: 'consular', sentenceId: 's8', level: 4, pos: 'adj.', ipa: '/ˈkɒnsjələ(r)/', defZh: '领事的；领馆的', defEn: 'relating to the work of a consulate', example: 'You can get a visa stamp at any consular office abroad.', exampleZh: '你可以在任何驻外领事处获得签证盖章。' },
+    { id: 'v13', word: 'evasiveness', lemma: 'evasiveness', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/ɪˈveɪsɪvnəs/', defZh: '回避；闪烁其辞', defEn: 'the act of avoiding clear or direct answers', example: 'Her evasiveness in the interview made the panel suspicious.', exampleZh: '她在面试中的躲闪态度让评委心生怀疑。' },
+    { id: 'v14', word: 'troubled', lemma: 'trouble', sentenceId: 's9', level: 2, pos: 'v.', ipa: '/ˈtrʌbld/', defZh: '使忧虑；使不安', defEn: 'made someone feel worried or uneasy', example: 'What troubled the staff was how quickly the rule changed.', exampleZh: '让员工不安的是这条规定改变得有多快。' },
+    { id: 'v15', word: 'scope', lemma: 'scope', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/skəʊp/', defZh: '范围；界限', defEn: 'the range that something covers', example: 'The report keeps its scope to one school year only.', exampleZh: '这份报告只把范围限定在一个学年里。' },
+    { id: 'v16', word: 'semiconductor', lemma: 'semiconductor', sentenceId: 's10', level: 4, pos: 'n.', ipa: '/ˌsemikənˈdʌktə(r)/', defZh: '半导体', defEn: 'a material used in computer chips and electronics', example: 'Several countries are racing to build advanced semiconductor factories.', exampleZh: '多个国家正在竞相建设先进的半导体工厂。' },
+    { id: 'v17', word: 'flooded', lemma: 'flood', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/ˈflʌdɪd/', defZh: '涌入；如潮水般充满', defEn: 'arrived in very large numbers all at once', example: 'Complaints flooded the help desk after the app update.', exampleZh: '应用更新后，投诉如潮水般涌向客服。' },
+    { id: 'v18', word: 'reasonable', lemma: 'reasonable', sentenceId: 's12', level: 2, pos: 'adj.', ipa: '/ˈriːznəbl/', defZh: '合理的；说得通的', defEn: 'based on good sense and fair judgement', example: 'A short delay seems reasonable given the bad weather.', exampleZh: '考虑到天气不好，短暂延误似乎是合理的。' },
+    { id: 'v19', word: 'substantial', lemma: 'substantial', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/səbˈstænʃl/', defZh: '相当大的；可观的', defEn: 'large in size, value, or importance', example: 'The grant gave the lab a substantial boost for two years.', exampleZh: '这笔资助让实验室在两年内获得了相当可观的助力。' },
+    { id: 'v20', word: 'verdict', lemma: 'verdict', sentenceId: 's15', level: 4, pos: 'n.', ipa: '/ˈvɜːdɪkt/', defZh: '裁决；定论', defEn: 'a final decision or judgement on something', example: 'The teacher gave a gentle verdict on the rough first draft.', exampleZh: '老师对这份粗糙的初稿给出了温和的评判。' },
+    { id: 'v21', word: 'rested', lemma: 'rest', sentenceId: 's16', level: 1, pos: 'v.', ipa: '/ˈrestɪd/', defZh: '依赖；建立在……之上', defEn: 'depended on something as a base', example: 'The whole argument rested on one weak example.', exampleZh: '整段论证都建立在一个站不住脚的例子之上。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 "What troubled X was…" 把"真正让人不安的事"推到句首',
+      pattern: 'What + [verb] + [人] + was/is + [真正的原因]',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '中文里我们常说"让人忧心的不是 A，而是 B"。英文要把这种"指认重点"的语气写出来，最常用的工具就是 what-cleft：用 What 开头，把"真正的关键"留到 was / is 后面。这样在句子内部就有了一种"先卖关子，再点题"的节奏。',
+        '看第 9 句：What troubled many observers was less the screening itself than the silence around its scope。前半句先承认了一个普通人会以为是重点的东西（the screening itself），后半句才点出真正令人忧心的是另一件事（the silence）。这种"先承认表面，再翻向更深一层"的节奏，比直接写 The silence troubled observers 多了一层力气。',
+        '它适合用在评论、社论、研究讨论这类需要"指认问题真正所在"的写作里。开头段、过渡段、结尾段都好用，尤其适合你想让读者停下来想一想的位置。',
+        '一个小细节：what-cleft 后面的动词是单数 was / is，无论后面的真正主语是单数还是复数。因为整个 what 从句被当作一个整体名词来处理。',
+      ],
+      examples: [
+        { en: 'What worried the engineers was not the noise but the silence between the alarms.', zh: '让工程师们担忧的不是噪音，而是几次警报之间的安静。' },
+        { en: 'What sold the audience on the film was its refusal to explain itself.', zh: '真正说服观众接受这部电影的，是它拒绝自我解释。', note: '主语 audience 是复数，但 sold 仍接 was，因为 what-cleft 后面永远配单数动词。' },
+        { en: 'What surprised me about the city was how quiet the morning streets felt.', zh: '这座城市最让我意外的，是清晨的街道有多么安静。' },
+        { en: 'What angered the parents was not the new rule itself but the way it was announced.', zh: '让家长们愤怒的不是新规定本身，而是它被宣布的方式。' },
+        { en: 'What kept the project alive was a single volunteer who refused to give up.', zh: '让这个项目能撑下去的，是一个不肯放弃的志愿者。' },
+      ],
+      commonMistake: '不要写成 What troubled observers were the silence。无论后面那个真正的主语是什么数，what 从句永远配单数动词 was / is。',
+      vsSimilar: 'It-cleft（It was the silence that troubled observers）也能起到强调作用，但它强调的是一个"具体单元"；what-cleft 更适合强调"一类事情、一种状态"，语气更像在解释心里的判断。',
+    },
+    {
+      id: 'g2',
+      title: '用 "less A than B" 写"与其说是 A，不如说是 B"',
+      pattern: 'less [A] than [B]',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '中文里我们想说"重点不在 A，而在 B"时，常会写"与其说……不如说……"。英文里更紧凑的写法是 less A than B，把两个被比较的对象直接挨在一起，让读者一眼就看到对比。',
+        '看第 9 句：what troubled many observers was less the screening itself than the silence around its scope。less 后面接的是大家以为是重点的事（the screening itself），than 后面接的才是作者真正想强调的（the silence）。两个名词短语并列，省去了"虽然 A，但更主要是 B"那种啰嗦的让步。',
+        '它特别适合议论文或新闻评论里"为某个判断做微调"的句子：你既不想全盘否定 A，也不想说 A 完全无关，只是想把权重明显地拨到 B 这一边。',
+        '一个语法细节：less 和 than 后面接的两个成分要尽量在结构上对齐。两边都接名词，或者两边都接形容词，或者两边都接 -ing 短语；不要一边接名词、一边接整句话，对比就会失衡。',
+      ],
+      examples: [
+        { en: 'The novel is less a love story than a quiet study of loneliness.', zh: '这本小说与其说是一个爱情故事，不如说是一份关于孤独的安静观察。' },
+        { en: 'Her note read less like an apology than like a careful explanation.', zh: '她那张便条与其说像道歉，不如说像一份小心翼翼的解释。', note: '两边都用 like 加名词短语，结构对齐，对比才干净。' },
+        { en: 'What the city needs is less new buildings than better paths between the old ones.', zh: '这座城市真正需要的，与其说是新建筑，不如说是老建筑之间更好的步道。' },
+        { en: 'The reform was less a change of direction than a polite admission of failure.', zh: '这次改革与其说是方向的转变，不如说是一次客气的失败承认。' },
+      ],
+      commonMistake: '不要把对比的两边写成不同结构，比如 less the screening itself than because the rules were unclear。两边都应该是名词短语 / 形容词 / 同类成分，对比才成立。',
+    },
+    {
+      id: 'g3',
+      title: '用 not X but Y 把句子推向更强的那一个选项',
+      pattern: 'not [选项 A], [but] [选项 B]',
+      sentenceIds: ['s14'],
+      explanationZh: [
+        '当你想说"A 不重要，B 才重要"或"A 不对，B 才对"时，最直接的做法是写 not A but B。它的力量在于把两个东西并排丢出来，逼读者立刻看到哪一边更值得关注。',
+        '看第 14 句：For students mid-application, the practical effect was the same either way。这里作者用了相关思路：either way 等于在说 not whether critics are right or supporters are，而是 the practical effect。换成显式 not X but Y 写法就是：For students, what mattered was not who was right, but what to do tomorrow morning。这种否一立一的对照感，是议论文最常见的修辞底色。',
+        '它适合用在你想"纠正一个普遍误解"的位置：先复述读者脑里已有的那个判断 A，再用 but Y 把更准确的判断推上来。',
+        '一个细节：not 后面通常接一个名词短语或一个动词短语，B 那边要保持平行结构。如果 A 是一个名词，B 也最好是名词；如果 A 是 to V，B 也用 to V。',
+      ],
+      examples: [
+        { en: 'The real lesson of that year was not how to win, but how to lose well.', zh: '那一年真正的教训不在于如何赢，而在于如何漂亮地输。' },
+        { en: 'She asked not for a loan, but for someone to listen for an hour.', zh: '她要的不是一笔贷款，而是一个愿意听她说一小时的人。' },
+        { en: 'What students remember is not the syllabus, but the one teacher who saw them clearly.', zh: '学生记住的不是教学大纲，而是那个真正看见他们的老师。', note: '配合 what-cleft 一起用，对比的力度会更明确。' },
+        { en: 'The town needs not more rules, but a quieter way of enforcing the ones it has.', zh: '这座小镇需要的不是更多的规则，而是一种更安静的方式去执行现有的规则。' },
+      ],
+      vsSimilar: 'not only A but also B 也是常见对照句式，但它说的是"A 和 B 都重要"，是相加关系；not A but B 说的是"A 不对、B 才对"，是替代关系。两个意思别混。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '新闻开篇：先报"谁、什么时候、说了什么"，再用一句短话点出最不安的地方',
+      skeleton: 'On [date], [人] said [机构] would [动作]. [短句揭示问题].',
+      original: 'On May 28, 2025, U.S. Secretary of State Marco Rubio said the State Department would "aggressively revoke" the visas of Chinese students with ties to the Chinese Communist Party or studying in "critical fields". He did not say which fields counted.',
+      sentenceId: 's2',
+      whyItWorks: [
+        '这是新闻报道里非常稳的开篇结构：第一句把谁、何时、说了什么交代清楚，几乎像电报一样紧凑；紧接着用一句极短的话点出"真正值得读者注意的地方"。两句之间有一个明显的长度落差，长句信息密、短句情绪重，节奏立即拉开。',
+        '对读者来说，长短交替的开头让人放心。长句给了事实，短句给了角度，读者知道作者不只是搬运消息，而是已经看出问题在哪里。这种"先客观、再点评"的节奏，是评论性新闻最常用的可信感来源。',
+        '它最适合放在新闻、长篇报道、研究综述的开头段。如果你想用一句话告诉读者"这篇文章会用什么角度看这件事"，第二句短话就是最好的位置。',
+        '一个隐藏要点：第二句必须真的击中事件的关键缺口，而不是泛泛感叹。文中的 He did not say which fields counted 直接指出政策最大的不确定性，所以这个短句才有分量。如果换成 "It was big news"，整段就立刻塌了。',
+      ],
+      examples: [
+        { context: '科技政策评论开头', text: 'On April 4, 2026, the agency said the new chip rules would take effect "as soon as possible". It did not say what "soon" meant.', zh: '2026 年 4 月 4 日，该机构表示新的芯片规则将"尽快"生效。机构并没有说明"尽快"指的是多久。' },
+        { context: '校园新闻开头', text: 'On Monday morning, the dean said the university would review its honor code. He did not say who would be on the committee.', zh: '周一早上，院长表示学校将重新审视荣誉守则。他没有说明委员会会由谁组成。', note: '第二句直接戳到"细节缺位"，让读者立刻意识到这条新闻有未被回答的部分。' },
+        { context: '产品发布评论开头', text: 'On launch day, the founder said the app would "respect every user". She did not explain how.', zh: '发布会当天，创始人表示这款应用会"尊重每一位用户"。她并没有解释具体怎么做到。' },
+        { context: '体育报道开头', text: 'On the final whistle, the coach said the team would "come back stronger". He did not say with which players.', zh: '终场哨响时，教练表示球队会"卷土重来"。他没有说会和哪些球员一起。' },
+      ],
+      adaptingTip: '第一句尽量塞满事实：日期、人、机构、原话引号。引号里最好放一个对方真说过的关键词，让读者一眼记住。第二句必须短，必须直指对方没有说清楚的那一点，不要写感叹，不要先发表观点。这一短一长的节奏才能立住。',
+      commonMistake: '不要把第二句写得过长或抒情：He did not say which fields counted, which made everyone very anxious and confused about the future of education.（一旦展开，短句的力量就完全消失了，写成两句更好。）',
+    },
+    {
+      id: 'pt2',
+      useCase: '描写"被通知后无能为力"的群体：把几个小动作并列起来，让读者听见生活继续的节奏',
+      skeleton: 'They had to keep [doing 1], keep [doing 2], and try not to [负面动作].',
+      original: 'They had to keep working on their projects, keep refreshing their visa appointment pages, and try not to read every headline as a verdict on their own future.',
+      sentenceId: 's15',
+      whyItWorks: [
+        '这个句式的力量来自"重复 + 拐弯"。两个 keep + ing 把生活里日复一日的小动作摆出来，造出一种安静的、几乎机械的节奏；第三个动作偏偏用 try not to 把方向转过来，让读者感到这个人不只是在做事，还要在心里防着什么。三个动作并排，读起来像一份"日常清单"，但其实是一段隐忍的心理描写。',
+        '对读者来说，并列让"压力"具体化。作者没有写 They felt stressed，而是让我们看到他们具体在做什么，刷新页面、继续写代码，读者自己就能听见焦虑。这种"以动作代心情"的策略，是写小人物处境最有效的一种。',
+        '它最适合用在新闻特写、个人随笔、申请文书里描写一个普通人在大政策、大事件之下的日子。放在段落中间或结尾都可以，做小结时尤其有力。',
+        '一个隐藏要点：三个动作的强度要从外到内升一级。前两个是身体能做的事，第三个则要写到"心里要做的事"（try not to 后面常常是心理动作），这种由外向内的递进让句子有了情感的纵深。',
+      ],
+      examples: [
+        { context: '考前压力随笔', text: 'She had to keep solving past papers, keep going to morning runs, and try not to count the days left.', zh: '她还得继续做往年真题，继续早起跑步，并努力不去数还剩多少天。' },
+        { context: '裁员后的写字楼故事', text: 'They had to keep showing up at nine, keep replying to emails, and try not to read every meeting invite as a sign.', zh: '他们还要继续准点九点到岗，继续回复邮件，并努力不把每一封会议邀请都读成某种信号。', note: '前两个 keep + ing 写外在动作，try not to 一下子转到"心理上要克制的事"，落差就出来了。' },
+        { context: '海外学生申请文书段落', text: 'I had to keep applying to scholarships, keep practising my speaking on the way to class, and try not to treat each rejection as a verdict on the whole plan.', zh: '我还得继续申请奖学金，继续在去上课的路上练口语，并努力不把每一次拒信都当作整个计划的最终判决。' },
+      ],
+      adaptingTip: '前两个 keep + ing 选具体、可观察的小动作（刷新页面、做题、回邮件），不要选抽象的事（"keep working hard"）。第三个 try not to 一定要把方向从动作转到心理，否则就只是平铺的清单。整句最好放在一段的末尾，作为对前面背景的回应。',
+      commonMistake: '不要让三个动作都停在同一层面：keep working, keep refreshing, keep waiting。三个 keep + ing 排在一起会变成平铺，没有任何反差。第三个动作必须换方向。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾升华：把全文落点放在"一个安静的前提"上',
+      skeleton: '[宏观体系] has always rested on a quiet assumption: that [短句揭示前提].',
+      original: 'The strength of an open university system has always rested on a quiet assumption: that the door stays open while you are still walking toward it.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个收尾句的力量来自一个"反差结构"：前半句很大（an open university system, its strength, has always），听上去像在做宏观判断；冒号之后却突然落到一个非常具体、几乎日常的画面（a door, walking toward it）。从大到小的落差，让结尾既有概括性，又能被读者亲身感受到。',
+        '对读者来说，a quiet assumption 这几个字是关键。它在说："这件事我们平时不会拿出来讲，但你想想看，整件事其实是建在这上面的。" 这是一种邀请读者一起想的语气，比直接喊口号更让人愿意停下来。',
+        '它特别适合用在评论文、政策分析、长篇随笔的结尾段。在你已经把事实和争论讲完之后，用这一句把全文的落点从"发生了什么"抬到"我们一直默认了什么"。',
+        '一个隐藏前提：冒号后面的"安静假设"必须真的是大家心里默认、但从没明说过的事，而不是一个新观点。如果你冒号后面写的是新结论，就变成强行升华，效果反而垮掉。',
+      ],
+      examples: [
+        { context: '公共图书馆改革文章结尾', text: 'A public library system has always rested on a quiet assumption: that anyone can walk in without being asked why.', zh: '一个公共图书馆体系始终建立在一个安静的前提之上：任何人都能走进来，不会被追问原因。' },
+        { context: '医患关系评论结尾', text: 'Modern medicine has always rested on a quiet assumption: that a patient will tell the truth before the test is run.', zh: '现代医学始终建立在一个安静的前提之上：在检查开始之前，病人愿意如实开口。' },
+        { context: '城市步行街区评论结尾', text: 'A walkable city has always rested on a quiet assumption: that strangers will share a pavement without watching each other too carefully.', zh: '一座宜步行的城市始终建立在一个安静的前提之上：陌生人会共享一段人行道，而不会过分打量彼此。', note: '冒号后面是一个大家心里默认却从没说出口的小画面，所以收尾才有分量。' },
+      ],
+      adaptingTip: '冒号前的"宏观体系"要选有体量的词（an open university system, a public library, modern medicine），冒号后则要落到一个很具体的画面或动作（a door stays open, anyone can walk in）。两边的尺度反差越大，结尾越有力。注意 a quiet assumption 后面用冒号，而不是逗号或破折号。',
+      commonMistake: '不要把冒号后面写得太抽象：that fairness must continue to exist。读者无法看见这种话；要写出一个能被画面化的小事，前提才显得"安静而真实"。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what exactly did Secretary Rubio say on May 28, 2025?', options: ['That all Chinese students would lose their visas immediately', 'That the State Department would aggressively revoke visas for Chinese students with CCP ties or in critical fields', 'That Chinese students could only study humanities', 'That the U.S. would close every consulate in China'], answer: 1, explanation: 'The article paraphrases Rubio as saying the department would aggressively revoke visas for Chinese students with ties to the CCP or studying in critical fields.', sentenceId: 's1' },
+    { id: 'q2', q: 'What did the State Department do on May 27, one day before the announcement?', options: ['It cancelled all existing F-1 visas', 'It paused new visa interview scheduling for international students', 'It banned all Chinese travel to the U.S.', 'It opened extra interview slots'], answer: 1, explanation: 'The article notes that Washington had paused new visa interview scheduling worldwide one day before the announcement.', sentenceId: 's3' },
+    { id: 'q3', q: 'Why does the author say the cable about social media was unusual?', options: ['It told officers to ignore online activity', 'It told officers to treat private or empty profiles as a possible red flag', 'It required every applicant to delete their accounts', 'It applied only to graduate students'], answer: 1, explanation: 'The article explains that the cable told consular officers to view limited or private profiles as a possible sign of evasiveness.', sentenceId: 's8' },
+    { id: 'q4', q: 'What did observers find most troubling, according to the article?', options: ['The screening itself', 'The lack of clarity about what "critical fields" meant', 'The number of universities involved', 'The cost of new visas'], answer: 1, explanation: 'The article explicitly says what troubled observers was less the screening itself than the silence around its scope, and that "critical fields" was never publicly defined.', sentenceId: 's9' },
+    { id: 'q5', q: 'What is the overall tone of the final paragraph?', options: ['Triumphant and celebratory', 'Bitter and accusing', 'Quietly worried but balanced', 'Detached and uninterested'], answer: 2, explanation: 'The closing lines describe students continuing their work while trying not to read every headline as a verdict, and end on a quiet image of an open door. The tone is reflective and concerned, not angry.', sentenceId: 's16' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '宣布"积极吊销"政策的官员', answer: 'Marco Rubio', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '宣布政策的日期', answer: 'May 28, 2025', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '前一天暂停的事情', answer: 'new visa interview scheduling', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '受影响的三类签证', answer: 'F, M, and J', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '2024 年美国接待的中国学生人数', answer: 'about 277,000', sentenceId: 's6' },
+      { id: 'ig6', cueZh: '审查恢复后被加强检查的项目', answer: 'social media activity', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '私密或空白账号被视为什么', answer: 'a possible red flag', sentenceId: 's8' },
+      { id: 'ig8', cueZh: '文中作者指出始终没有被公开定义的词', answer: 'critical fields', sentenceId: 's10' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的事实，写一段大约 80 词的短文，向一位还没听说这件事的朋友介绍 2025 年 5 月的留学生签证风波：发生了什么、影响了谁、为什么有人担心。',
+      promptEn: 'Using the facts in your table, write about 80 words introducing the May 2025 student visa episode to a friend who has not heard about it: what happened, who was affected, and why people were worried.',
+      targetWords: 80,
+      starters: [
+        'On May 28, 2025, Secretary of State Marco Rubio said ...',
+        'What troubled many observers was ...',
+      ],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'On May 28, 2025, Secretary of State Marco Rubio said the State Department would aggressively revoke the visas of Chinese students with CCP ties or in "critical fields". He did not say which fields counted. One day earlier, Washington had paused new F, M, and J visa interviews worldwide. In 2024 the U.S. had hosted about 277,000 Chinese students. What troubled many observers was less the screening itself than the silence around its scope, because an open university system has always rested on a quiet assumption: that the door stays open while you are still walking toward it.',
+      modelAnswerZh:
+        '2025 年 5 月 28 日，美国国务卿马尔科·卢比奥表示，美国国务院将"积极吊销"与中国共产党有关联、或在"关键领域"学习的中国留学生签证。他没有说明哪些领域属于"关键领域"。前一天，华盛顿刚刚暂停了全球范围内 F、M、J 三类签证的新面谈预约。2024 年，美国接待了约 27.7 万名中国学生。许多观察者最担忧的，并不是审查本身，而是范围始终没有被讲清，因为一个开放的大学体系，其力量始终建立在一个安静的前提之上：当你还在朝着那扇门走去的时候，它会一直开着。',
+    },
+  },
+};

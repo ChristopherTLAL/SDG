@@ -1,0 +1,240 @@
+// University Abroad book, Ch.2: US new international student enrollment falls 20% for fall 2025 (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2026-05-12',
+    title: 'America Loses Twenty Percent of Its New Foreign Students',
+    titleZh: '美国流失了两成新国际生',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/university-abroad/02-intl-student-drop.mp3',
+    wordCount: 337,
+    readingMinutes: 5,
+    editorsNote:
+      'A new IIE survey says American universities enrolled 20 percent fewer new international students in fall 2025, the sharpest drop in over a decade. The number sounds dry until you read what is behind it: visa delays, policy whiplash, and quiet decisions made in living rooms in Shanghai and Dhaka.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On May 12, 2026, the Institute of International Education released a number that made American university officials wince.', zh: '2026 年 5 月 12 日，美国国际教育协会公布了一个让全美大学官员皱起眉头的数字。' },
+        { id: 's2', en: 'Compared with the year before, the country had enrolled roughly 20 percent fewer new international students in the fall of 2025.', zh: '与前一年相比，2025 年秋季美国新招收的国际生数量减少了约 20%。' },
+        { id: 's3', en: 'It was the steepest single-year fall in more than a decade.', zh: '这是十多年来单年最陡峭的一次下跌。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The headline number hides an important distinction.', zh: '这个大标题数字背后藏着一个重要的区分。' },
+        { id: 's5', en: '"New" students are the freshmen and first-year graduate students just arriving on campus, while "continuing" students are those already partway through a degree.', zh: '所谓"新生"是指刚到校的本科一年级和研究生一年级学生，而"在读生"则是已经读了一段时间的学生。' },
+        { id: 's6', en: 'Continuing enrollment held up reasonably well, which means most of the damage is concentrated in the pipeline of people deciding right now whether to come at all.', zh: '在读生人数总体保持平稳，这意味着大部分冲击集中在那些此刻正在决定是否赴美的新申请群体上。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The losses are not spread evenly.', zh: '损失并非均匀分布。' },
+        { id: 's8', en: 'New students from China, India, and Bangladesh fell the hardest, with some Bangladeshi numbers down by close to half.', zh: '来自中国、印度和孟加拉国的新生跌幅最大，孟加拉国的部分数字几乎减半。' },
+        { id: 's9', en: 'NAFSA, an association of international educators, estimates the dropoff has already cost the American economy around seven billion dollars in tuition, rent, and everyday spending.', zh: '国际教育者协会 NAFSA 估算，这场下跌已经让美国经济损失了约 70 亿美元的学费、房租和日常开销。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'What changed in a single year was not the appetite for an American degree but the experience of trying to get one.', zh: '一年之间发生变化的，并不是大家对美国学位的渴望，而是获取它的整个过程。' },
+        { id: 's11', en: 'Students described visa appointments that vanished overnight, slots that reopened only to fill in minutes, and rejection letters with no explanation.', zh: '学生们讲述签证预约一夜之间消失、刚重开就在几分钟内被抢光，以及没有任何解释的拒签信。' },
+        { id: 's12', en: 'Earlier in the spring, NAFSA had warned of a possible 30 to 40 percent collapse, so the eventual 20 percent figure was received with grim relief rather than celebration.', zh: '今年早些时候，NAFSA 曾警告下跌幅度可能达到 30% 至 40%，因此最终 20% 的数字带来的是一种黯淡的松一口气，而不是庆祝。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'Many of the missing students did not give up on studying abroad. They simply went elsewhere.', zh: '许多消失的学生并没有放弃留学，他们只是去了别处。' },
+        { id: 's14', en: 'British, Canadian, Australian, and Irish universities all reported sharp jumps in applications from precisely the countries where America lost ground.', zh: '英国、加拿大、澳大利亚和爱尔兰的大学都报告说，来自这些美国失利国家的申请量出现了明显跳涨。' },
+        { id: 's15', en: 'Hong Kong, quietly, attracted a record class of mainland Chinese applicants who had once assumed they would head west.', zh: '与此同时，香港悄悄迎来了创纪录的内地申请群体，他们中许多人原本默认自己会西渡赴美。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'For American universities, the worry is not only this year\'s budget hole.', zh: '对美国大学来说，担忧的并不仅仅是今年的预算缺口。' },
+        { id: 's17', en: 'A reputation as a reliable destination takes decades to build and only a few news cycles to chip away.', zh: '"靠谱的留学目的地"这个声誉，需要几十年来建立，却只需要几轮新闻周期就能被一点点蚕食。' },
+        { id: 's18', en: 'A 20 percent drop is more than a budget problem. It is a warning that the next generation is making different plans.', zh: '20% 的下跌不只是一个预算问题。它是一个信号，提醒人们下一代正在做出不一样的选择。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'released', lemma: 'release', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/rɪˈliːst/', defZh: '发布；公布', defEn: 'made information available to the public', example: 'The agency released its annual report on Monday.', exampleZh: '该机构周一发布了年度报告。' },
+    { id: 'v2', word: 'wince', lemma: 'wince', sentenceId: 's1', level: 4, pos: 'v.', ipa: '/wɪns/', defZh: '皱眉；面露痛色', defEn: 'to flinch slightly from pain or discomfort', example: 'He winced at the size of the dental bill.', exampleZh: '看到牙医账单的金额，他不禁皱了下眉。' },
+    { id: 'v3', word: 'enrolled', lemma: 'enroll', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/ɪnˈrəʊld/', defZh: '招收；注册入学', defEn: 'officially registered students into a course or school', example: 'The program enrolled over two hundred students this year.', exampleZh: '今年这个项目招收了两百多名学生。' },
+    { id: 'v4', word: 'steepest', lemma: 'steep', sentenceId: 's3', level: 3, pos: 'adj.', ipa: '/ˈstiːpɪst/', defZh: '最陡峭的；最急剧的', defEn: 'the most extreme or sharp (of a rise or fall)', example: 'The summer brought the steepest rise in food prices in years.', exampleZh: '今年夏天带来了多年来食品价格最急剧的上涨。' },
+    { id: 'v5', word: 'distinction', lemma: 'distinction', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/dɪˈstɪŋkʃn/', defZh: '区别；区分', defEn: 'a clear difference between two similar things', example: 'The report draws a careful distinction between mistakes and lies.', exampleZh: '这份报告对失误和谎言做了细致的区分。' },
+    { id: 'v6', word: 'pipeline', lemma: 'pipeline', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/ˈpaɪplaɪn/', defZh: '管道；储备群体', defEn: 'the supply of people or things gradually flowing toward something', example: 'The company has a strong pipeline of young engineers.', exampleZh: '这家公司有充足的年轻工程师储备。' },
+    { id: 'v7', word: 'evenly', lemma: 'evenly', sentenceId: 's7', level: 2, pos: 'adv.', ipa: '/ˈiːvnli/', defZh: '均匀地；平均地', defEn: 'in equal amounts or quantity', example: 'The work was not shared evenly among the team.', exampleZh: '工作并未在团队中均匀分配。' },
+    { id: 'v8', word: 'dropoff', lemma: 'dropoff', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/ˈdrɒpɒf/', defZh: '骤降；下降', defEn: 'a sudden decrease in numbers', example: 'Bookshops have seen a sharp dropoff in walk-in customers.', exampleZh: '书店看到顾客上门数量大幅骤降。' },
+    { id: 'v9', word: 'tuition', lemma: 'tuition', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/tjuˈɪʃn/', defZh: '学费', defEn: 'the money paid to a school or university for teaching', example: 'Annual tuition at the school has nearly doubled in a decade.', exampleZh: '该校的年学费在十年里几乎翻了一番。' },
+    { id: 'v10', word: 'appetite', lemma: 'appetite', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈæpɪtaɪt/', defZh: '渴望；意愿', defEn: 'a strong desire for something', example: 'The public still has a healthy appetite for thoughtful journalism.', exampleZh: '公众对深思熟虑的新闻依然有相当大的渴求。' },
+    { id: 'v11', word: 'vanished', lemma: 'vanish', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/ˈvænɪʃt/', defZh: '消失；不见', defEn: 'suddenly stopped being available or visible', example: 'Half the available seats vanished within an hour of release.', exampleZh: '开放预订一小时之内，半数空位就消失了。' },
+    { id: 'v12', word: 'slots', lemma: 'slot', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/slɒts/', defZh: '名额；时段', defEn: 'available times or places in a schedule', example: 'New appointment slots open every Wednesday morning.', exampleZh: '每周三上午都会放出新的预约时段。' },
+    { id: 'v13', word: 'collapse', lemma: 'collapse', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/kəˈlæps/', defZh: '崩盘；骤跌', defEn: 'a sudden and complete failure or fall', example: 'A collapse in tourist numbers hit the island economy hard.', exampleZh: '游客人数的骤跌重创了岛上经济。' },
+    { id: 'v14', word: 'grim', lemma: 'grim', sentenceId: 's12', level: 4, pos: 'adj.', ipa: '/ɡrɪm/', defZh: '严峻的；黯淡的', defEn: 'serious, gloomy, and offering no comfort', example: 'The doctors gave the family a grim assessment.', exampleZh: '医生向家人给出了一个严峻的评估。' },
+    { id: 'v15', word: 'precisely', lemma: 'precisely', sentenceId: 's14', level: 3, pos: 'adv.', ipa: '/prɪˈsaɪsli/', defZh: '恰恰；精确地', defEn: 'exactly and accurately', example: 'The shops that closed are precisely the ones the neighborhood needed.', exampleZh: '关掉的店铺恰恰是这个街区最需要的那些。' },
+    { id: 'v16', word: 'quietly', lemma: 'quietly', sentenceId: 's15', level: 2, pos: 'adv.', ipa: '/ˈkwaɪətli/', defZh: '悄悄地；不张扬地', defEn: 'in a calm or subdued way, without much notice', example: 'The startup quietly hired half the team that had just been laid off.', exampleZh: '这家初创公司悄悄招走了刚被裁的那个团队一半的人。' },
+    { id: 'v17', word: 'assumed', lemma: 'assume', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/əˈsjuːmd/', defZh: '默认认为；以为', defEn: 'believed something to be true without checking', example: 'Many parents assumed the school would handle it.', exampleZh: '许多家长默认学校会处理这件事。' },
+    { id: 'v18', word: 'reliable', lemma: 'reliable', sentenceId: 's17', level: 2, pos: 'adj.', ipa: '/rɪˈlaɪəbl/', defZh: '可靠的；靠谱的', defEn: 'able to be trusted to behave consistently', example: 'A reliable bus service makes the suburb feel closer to the city.', exampleZh: '可靠的公交服务让郊区感觉离市区更近。' },
+    { id: 'v19', word: 'chip', lemma: 'chip', sentenceId: 's17', level: 4, pos: 'v.', ipa: '/tʃɪp/', defZh: '一点点削弱（chip away）', defEn: 'to gradually wear something down (in "chip away")', example: 'Years of small scandals chipped away at the politician\'s image.', exampleZh: '多年来的小丑闻一点点削弱了这位政客的形象。' },
+    { id: 'v20', word: 'warning', lemma: 'warning', sentenceId: 's18', level: 1, pos: 'n.', ipa: '/ˈwɔːnɪŋ/', defZh: '警告；信号', defEn: 'something that tells you trouble may be coming', example: 'The early frost was a warning to bring the plants inside.', exampleZh: '提早降霜是一个把植物搬进室内的信号。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '把比较的"参照点"先摆在句首，让数字读起来更稳',
+      pattern: 'Compared with [参照], [主语] [动作/数据]',
+      sentenceIds: ['s2'],
+      explanationZh: [
+        '中文里我们常说"和去年比，今年少了 20%"，先抛出"比谁"，再说差距。英文新闻里同样有一套做法：用 Compared with 加参照物开头，再带出主句。它的好处是让一个冰冷的数字有了清晰的对照面，读者一上来就知道"少 20% 是相对什么而言"。',
+        '看文中第 2 句：Compared with the year before, the country had enrolled roughly 20 percent fewer new international students。如果直接写 The country enrolled 20 percent fewer..., 读者要在心里默默补一句"比什么少？"。先把 Compared with the year before 放在前面，问题就提前回答了，整句节奏更顺。',
+        '什么时候用：所有涉及"今年 vs 去年"、"政策前 vs 政策后"、"A 组 vs B 组"的对比段落都好用，尤其是数据新闻、行业报告、商业分析。它比 Year-on-year, ... 之类的术语更口语，又比 In comparison to ... 更轻快。',
+        '一个小细节：Compared with 后面接的是名词性结构（the year before / last quarter / their peers），不要接完整句子。如果想用完整句子比较，应改成 Whereas last year saw X, this year ...。',
+      ],
+      examples: [
+        { en: 'Compared with the previous winter, snowfall in the region was down by nearly half.', zh: '和上一个冬天比，该地区的降雪量减少了将近一半。' },
+        { en: 'Compared with paper notes, voice memos let me capture an idea before it slips.', zh: '和纸笔记相比，语音备忘录能让我在想法溜走前把它抓住。', note: '日常写作里用 Compared with 也很自然，不只是数据报告才能用。' },
+        { en: 'Compared with first-time applicants, returning students had a much smoother visa process.', zh: '和首次申请人相比，回签学生的签证过程要顺利得多。' },
+        { en: 'Compared with the noisy launch, the company\'s quiet second product did far better.', zh: '和那场喧闹的发布相比，公司低调推出的第二款产品反而做得好得多。' },
+      ],
+      commonMistake: '不要写成 Comparing with the year before, ...。这里要用过去分词 Compared，因为是"被比较"的关系，不是"在比较"。Comparing 只在主语真的是"我或我们正在比较"时才能用，比如 Comparing the two reports, I noticed...。',
+      vsSimilar: 'Compared with 和 Compared to 在现代英文里基本通用，区别极小。要说倾向，Compared with 在正式数据语境里更常见，Compared to 在比喻和文学语境里更常见（She compared the city to a sleeping animal）。',
+    },
+    {
+      id: 'g2',
+      title: '用 "What changed was not X but Y" 让"重点是什么"立刻立住',
+      pattern: 'What [动词的过去式] was not [X] but [Y]',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '很多议论文段落要回答这样一个问题："变了什么？"或者"问题到底在哪？"中文常用"真正变的不是 X，而是 Y"。英文里有个非常顺手的句式：What changed was not X but Y。它把"否定一个常见解释、强调另一个"这件事在一句话里同时做完。',
+        '看第 10 句：What changed in a single year was not the appetite for an American degree but the experience of trying to get one。这一句的力量在于：它先承认了一个读者本能会想到的解释（appetite 变了），再立即推翻它，给出真正的解释（experience 变了）。这种"先承认再反转"的结构，几乎是分析段落的万能开头。',
+        '什么时候用：议论文段落首句、新闻特写的"角度提示句"、个人陈述里解释"为什么我改变了主意"。它适合一切"读者以为是 A，其实是 B"的场合。',
+        '注意 was 的时态要和主句的事件时间对应。讲已经发生的变化用 was；讲普遍规律用 is；讲未来可能的变化可以写 What will change is not ... but ...。否定那一半永远跟在 not 之后，肯定那一半永远跟在 but 之后，不能反过来。',
+      ],
+      examples: [
+        { en: 'What surprised the doctors was not the symptoms but the speed at which they appeared.', zh: '让医生吃惊的不是这些症状，而是它们出现的速度。', note: '把读者会预设的答案（症状）先点名再排除，留给真正的重点（速度）一个聚光位。' },
+        { en: 'What I needed in my first month abroad was not advice but someone willing to listen.', zh: '出国第一个月，我需要的不是建议，而是一个愿意听我说话的人。' },
+        { en: 'What the campaign really sold was not the product but the feeling of belonging.', zh: '这场营销真正卖的不是产品，而是一种归属感。' },
+        { en: 'What had shifted by the second semester was not my grades but how I studied.', zh: '到第二个学期，变的不是我的成绩，而是我学习的方式。' },
+      ],
+      commonMistake: '不要把动词的"数"搞错：What changed was（单数 was），因为 What 引导的从句作主语时一律视为单数，即使 X 和 Y 都是复数也用 was / is。错误示例：What changed were not the rules but the teachers。',
+    },
+    {
+      id: 'g3',
+      title: '用 "with + 名词 + 过去分词" 把一个相关细节挂在主句后面',
+      pattern: '[主句], with [名词] [过去分词/形容词短语]',
+      sentenceIds: ['s8'],
+      explanationZh: [
+        '想给一个主句补一个相关数据或现象，新手常另起一句，导致段落变碎。英文里有一个非常省力的工具叫"with 短语"：在主句后面接一个 with，再接一个名词加状态描述，就能把一个细节当作"附加镜头"挂在主句尾巴上。',
+        '看第 8 句：New students from China, India, and Bangladesh fell the hardest, with some Bangladeshi numbers down by close to half。主句已经说完"哪几个国家跌得最惨"，with some Bangladeshi numbers down by close to half 像一个补充镜头，给出最尖锐的那个具体数据。读起来像新闻摄影：先全景再特写。',
+        '什么时候用：所有带数据补充的新闻段落、研究综述、产品报告。它的好处是"轻"，不用换一句话主语，也不用 and 一句话拖很长，就能把一个支撑性细节挂上去。',
+        '结构上要注意：with 后面是"名词加状态描述"，状态描述可以是过去分词（down, broken, vanished）、现在分词（rising, growing），或者形容词短语（unclear, on hold）。不能是一个完整的主谓结构，比如不能写 with some Bangladeshi numbers were down。',
+      ],
+      examples: [
+        { en: 'The startup laid off a third of its staff, with the engineering team taking most of the cuts.', zh: '这家创业公司裁掉了三分之一员工，其中工程团队承受了大部分裁员。', note: '主句给整体，with 短语给具体落点，读起来像两个镜头。' },
+        { en: 'Air quality worsened across the region, with several schools forced to cancel outdoor classes.', zh: '整片地区的空气质量恶化，几所学校被迫取消了户外课。' },
+        { en: 'Applications surged that spring, with international submissions almost doubling.', zh: '那年春天申请激增，其中国际生提交量几乎翻倍。' },
+        { en: 'The restaurant has slowly recovered, with weekend bookings now back to pre-pandemic levels.', zh: '这家餐厅在慢慢恢复，周末订位量已经回到了疫情前的水平。' },
+      ],
+      commonMistake: '不要写成 with some Bangladeshi numbers were down...（多了一个 were）或 with some Bangladeshi numbers being down...（多了 being）。规则是 with 后只接"名词加形容词/分词"，be 动词要么省略，要么这里就不该用 with 句式。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '收尾升华：先承认表面问题，再点出更大的警示',
+      skeleton: '[A 20% 跌幅这类事实] is more than [小问题]. It is [更大维度的判断].',
+      original: 'A 20 percent drop is more than a budget problem. It is a warning that the next generation is making different plans.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式靠"两步走"完成升华。第一句把读者容易想到的那个层面（a budget problem）先承认下来，紧接着用 It is 拉到一个更大、更有警示意味的层面（a warning that...）。先小后大的落差，让结尾不显得空喊，而像水到渠成的提醒。',
+        '对读者来说，more than 三个字本身就是一个承诺：作者在说"别只盯着表面"。读者会带着期待读下一句，而下一句给出的"更大意义"必须真的扛得住这份期待。一旦做到，结尾就有重量。',
+        '它最适合放在评论文章、研究综述、新闻特写的最后一段，是把"事实"翻译成"立场"的标准动作。也适合 academic personal statement 的结尾段，用来把自己的经历升华成一个更大的判断。',
+        '一个隐藏要点：It is 后面给出的"更大意义"必须能回扣前文。本文前面铺垫了"声誉是几十年建起来又一夜被啃掉"的危机感，所以收尾说 a warning that the next generation is making different plans 完全 land 得住。',
+      ],
+      examples: [
+        { context: '公益倡议结尾', text: 'A single closed library is more than an inconvenience. It is a quiet message about whose attention the town can afford to lose.', zh: '一座关闭的图书馆不只是带来不便。它是一个无声的信息，关于这座城市能承受失去谁的注意力。' },
+        { context: '科技评论收尾', text: 'A 5 percent battery drop is more than a spec sheet detail. It is the difference between making it home and finding a charger at midnight.', zh: '5% 的电池下降不只是参数表上的一个小数字。它决定了你是顺利到家，还是半夜在外找充电器。' },
+        { context: '申请文书结尾', text: 'That semester abroad was more than a year on a transcript. It was the first time I had to choose my own questions.', zh: '那个海外学期不只是成绩单上的一年。那是我第一次必须自己决定要问什么问题。', note: '把"一年的留学"翻译成"开始决定自己的问题"，让结尾从经历跳到自我认知。' },
+      ],
+      adaptingTip: '第二句的"更大意义"要选有重量、能回扣前文的词（a warning / a promise / the first time / a quiet message），不要换成另一个同级别的小词。第一句的"表面意义"则要选大家第一眼真的会这么想的那层，落差才能成立。这是结尾的模板，别放在开头或中间，否则后文会显得多余。',
+      commonMistake: '不要让第二句还停在同一层，比如 A 20 percent drop is more than a budget problem. It is also a recruitment problem.（recruitment problem 和 budget problem 几乎是同级，没升华）。第二句必须跳到一个更大的维度，比如声誉、信任、代际选择。',
+    },
+    {
+      id: 'pt2',
+      useCase: '在分析段开头用 "What changed was not X but Y" 立住真正的角度',
+      skeleton: 'What [动词] [in 某段时间] was not [大家以为的解释] but [真正的解释].',
+      original: 'What changed in a single year was not the appetite for an American degree but the experience of trying to get one.',
+      sentenceId: 's10',
+      whyItWorks: [
+        '这个句式的力量来自"否定+肯定"的双动作：作者一句话同时做了两件事，先把读者本能会想到的那个解释摆上桌再划掉，紧接着抛出自己真正想强调的解释。两段思路压在一个句子里，节奏紧而清晰。',
+        '对读者来说，What 引导的句子读起来像一个"焦点灯打开"的动作：注意，这里才是重点。读者在 was not 之后会自动屏息：那不是答案，那真正的答案是什么？这种结构性的悬念，比一句平铺直叙的解释更抓人。',
+        '它最适合放在分析段的首句，给整段定调。新闻特写、深度评论、研究综述里非常好用。它也是申请文书"反思段"的常见武器，用来纠正一个读者可能有的预设。',
+        '一个非常实用的细节：not 后的解释要选一个读者真的会先想到的"假答案"，否则反转就显得空。本文写"appetite for an American degree（学生还想不想去）"恰好就是读者第一反应。如果换成 the weather in California（没人会这么想），整个反转就失效了。',
+      ],
+      examples: [
+        { context: '科技评论分析段开头', text: 'What had shifted by 2025 was not the demand for cheap flights but how airlines decided which seats were worth selling.', zh: '到 2025 年发生变化的，不是大家对廉价机票的需求，而是航空公司决定哪些座位值得卖的方式。' },
+        { context: '申请文书反思段', text: 'What I lost during that internship was not free weekends but the comfortable belief that I already knew what I wanted to do.', zh: '那段实习里我失去的不是周末，而是我原本对"自己想做什么"的那份笃定。', note: '把读者预设的"代价"（周末）轻轻划掉，转入更深的代价（认知改变），段落立刻有了厚度。' },
+        { context: '城市观察特写', text: 'What had changed about the neighborhood was not the rent but the kind of stillness on a weekday morning.', zh: '这个街区真正变了的，不是租金，而是工作日早晨那种特别的安静。' },
+      ],
+      adaptingTip: 'not 后面那个"假答案"，一定要选读者真的会先想到的那一个，否则反转无效。but 后面那个"真答案"，要比"假答案"更具体、更不容易被一眼看穿，反转才有力。这句话通常放在分析段的首句，后面要立刻用一两句继续展开 Y，否则它就像抛了悬念却不解的标题党。',
+      commonMistake: '不要把 was / is 写成 were / are。What 引导的从句作主语时按单数处理，即使 X 和 Y 都是复数：错例 What changed were not the policies but the messages.，正例 What changed was not the policies but the messages.',
+    },
+    {
+      id: 'pt3',
+      useCase: '点出一个数字让人发声反应的瞬间，比直接报数字更生动',
+      skeleton: 'On [日期], [机构] released a number that made [相关方] [情绪反应].',
+      original: 'On May 12, 2026, the Institute of International Education released a number that made American university officials wince.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这句话的妙处在于：它没有直接报数字，而是先报"一个让某些人发出反应的数字"。读者立刻好奇：什么样的数字能让大学官员皱眉？这种"先讲反应再讲数据"的安排，把抽象的统计立刻人格化。',
+        '对读者来说，made ... wince 这种动作型反应（不是 felt sad / was worried 这种抽象情绪）就像一个特写镜头：你能看到他们的脸。读者于是产生情感先于理性的代入，再接着读下一句的具体数字时，已经被拉进了故事里。',
+        '它最适合放在数据驱动文章的开头。新闻特写、行业报告导语、申请文书里讲"那个让我突然意识到问题严重的瞬间"，都可以用。',
+        '一个隐藏要点：reaction 必须是身体性、可视的（wince, flinch, sigh, sit up, exchange glances），不能是抽象情绪（felt concerned, was unhappy）。身体性反应让句子有了戏剧张力，抽象情绪则会让它退回普通描述。',
+      ],
+      examples: [
+        { context: '健康报告新闻开头', text: 'In April, the city health office quietly published a chart that made every school nurse in town sit up.', zh: '今年四月，市卫生局悄悄发布了一张图表，让全城每一位校医都坐直了身子。' },
+        { context: '财经特写开头', text: 'Last Friday, the central bank released a forecast that made traders across Asia exchange uneasy glances.', zh: '上周五，中央银行发布了一份预测，让亚洲各地的交易员互相投去不安的眼神。', note: 'exchange uneasy glances 这种动作描写比 felt nervous 有镜头感得多。' },
+        { context: '申请文书开头', text: 'On the second day of my hospital volunteer shift, a nurse handed me a chart that made me put down my coffee.', zh: '在医院志愿者第二天的班上，一位护士递给我一张表格，让我放下了手里的咖啡。' },
+      ],
+      adaptingTip: '主语要是一个有权威的发布方（机构、官员、研究团队），让"数字"显得可信。反应动作必须是身体性、能想象画面的（wince, sit up, exchange glances, put down…），别用 felt worried / was alarmed 这类抽象短语。这是开头模板，紧接着应给出那个数字的具体内容，否则悬念就空挂。',
+      commonMistake: '不要让反应主语模糊，比如 ...released a number that made people uncomfortable。people 太抽象，画面感全无。要写"具体的谁"，比如 university officials, ER nurses, a generation of parents，反应才能落地。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, how much did new international student enrollment in the US fall in fall 2025?', options: ['About 7 percent', 'About 20 percent', 'About 30 to 40 percent', 'Close to half'], answer: 1, explanation: 'The article says the country enrolled roughly 20 percent fewer new international students compared with the year before.', sentenceId: 's2' },
+    { id: 'q2', q: 'What distinction does the article highlight as important?', options: ['Between undergraduate and graduate students', 'Between new students and continuing students', 'Between Chinese and Indian students', 'Between public and private universities'], answer: 1, explanation: 'The article explains that "new" students are first-year arrivals while "continuing" students are partway through a degree, and most of the damage is in the new pipeline.', sentenceId: 's5' },
+    { id: 'q3', q: 'Why does the article say the eventual 20 percent figure was received with "grim relief"?', options: ['Because the economy lost less than expected', 'Because NAFSA had earlier warned of a 30 to 40 percent collapse', 'Because Hong Kong took in fewer students than feared', 'Because tuition revenue was up'], answer: 1, explanation: 'The article notes that NAFSA had warned of a possible 30 to 40 percent collapse, so 20 percent felt grim but less catastrophic than predicted.', sentenceId: 's12' },
+    { id: 'q4', q: 'What does the article suggest happened to many of the "missing" students from China, India, and Bangladesh?', options: ['They gave up on studying abroad', 'They went to British, Canadian, Australian, Irish, and Hong Kong universities instead', 'They retook their entrance exams', 'They stayed in the US illegally'], answer: 1, explanation: 'The article says many simply went elsewhere, with the UK, Canada, Australia, Ireland, and Hong Kong reporting jumps in applications.', sentenceId: 's14' },
+    { id: 'q5', q: "What is the writer's main worry in the closing paragraph?", options: ['That tuition will rise next year', 'That the budget hole will not close', 'That America\'s reputation as a reliable destination is being damaged for the long term', 'That Hong Kong universities cannot handle the new students'], answer: 2, explanation: 'The closing lines argue a 20 percent drop is more than a budget problem; it is a warning that the next generation is making different plans, framing this as a long-term reputational concern.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '发布报告的机构名', answer: 'the Institute of International Education', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '新生入学下跌的大致比例', answer: '20 percent', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '这是多少年来最陡的一次单年下跌', answer: 'more than a decade', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '受冲击最大的三个生源国', answer: 'China, India, and Bangladesh', sentenceId: 's8' },
+      { id: 'ig5', cueZh: 'NAFSA 估算的经济损失金额', answer: 'around seven billion dollars', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '今年春天 NAFSA 曾预警的下跌区间', answer: '30 to 40 percent', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '悄悄迎来创纪录内地申请者的城市', answer: 'Hong Kong', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 80 词的短文，向一位正在考虑申请美国大学的高中朋友解释 2026 年 5 月这份报告说了什么、为什么值得关注。',
+      promptEn: 'Using the facts in your table, write about 80 words explaining to a high-school friend who is considering applying to a US university what the May 2026 report said and why it is worth paying attention to.',
+      targetWords: 80,
+      starters: ['On May 12, 2026, a major report ...', 'What changed in a single year was not ...'],
+      usePatternIds: ['pt3', 'pt2', 'pt1'],
+      modelAnswer:
+        'On May 12, 2026, the Institute of International Education released a number that made American university officials wince: new international student enrollment fell about 20 percent in fall 2025, the steepest single-year drop in over a decade. What changed in a single year was not the appetite for an American degree but the experience of trying to get one, with visa appointments vanishing overnight. A 20 percent drop is more than a budget problem. It is a warning that the next generation is making different plans.',
+      modelAnswerZh:
+        '2026 年 5 月 12 日，美国国际教育协会发布了一个让美国大学官员皱眉的数字：2025 年秋季新国际生入学下跌了约 20%，是十多年来最陡的一次单年下跌。一年之间变了的不是大家对美国学位的渴望，而是获取它的整个过程，签证预约一夜之间消失。20% 的下跌不只是预算问题，它是一个信号，提醒人们下一代正在做出不一样的选择。',
+    },
+  },
+};
