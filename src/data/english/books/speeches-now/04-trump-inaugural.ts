@@ -1,0 +1,242 @@
+// Speeches Now, Ch.4: Trump's second inaugural address declares a 'golden age' (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-01-20',
+    title: "Trump's 'Golden Age' Inaugural",
+    titleZh: '特朗普的「黄金时代」就职演说',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/04-trump-inaugural.mp3',
+    wordCount: 355,
+    readingMinutes: 5,
+    editorsNote:
+      "A second inaugural is supposed to be a victory lap. This one was held indoors because of the cold, and its opening line promised a 'golden age' starting right now. We look at what Trump said, how he framed his own survival, and the rhetorical choices behind the speech.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On a bitterly cold morning in Washington, Donald Trump stood inside the Capitol rotunda and began his second inaugural address.', zh: '在华盛顿一个严寒的早晨，唐纳德·特朗普站在国会大厦圆形大厅内，开始了他的第二次就职演说。' },
+        { id: 's2', en: 'The ceremony had been moved indoors because of the freezing weather, the first time since Ronald Reagan in 1985 that an inauguration had not been held outside on the Capitol steps.', zh: '由于天气严寒，仪式被移至室内，这是自 1985 年里根之后首次没有在国会大厦台阶上户外举行的就职典礼。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'What followed was a speech that ran for about half an hour and announced, in the very first minutes, that "the golden age of America begins right now."', zh: '随后的演说持续了大约半小时，并在开场不久就宣告：「美国的黄金时代从此刻开启。」' },
+        { id: 's4', en: 'Trump called the day "Liberation Day" and promised an era of national renewal, with sweeping changes to immigration, trade, and the federal government.', zh: '特朗普将这一天称为「解放日」，并承诺一个国家复兴的时代，包括在移民、贸易和联邦政府层面的全面变革。' },
+        { id: 's5', en: 'He framed the speech less as a quiet inauguration and more as the opening scene of an agenda he intended to launch within hours.', zh: '他把这场演讲塑造得不像一次平静的就职，而更像是他打算在数小时内启动的施政议程的开场。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's6', en: 'One of the most striking moments came when he referred to the attempt on his life in Pennsylvania the previous July.', zh: '最引人注目的一刻之一，是他提到去年七月在宾夕法尼亚发生的针对他的暗杀未遂事件。' },
+        { id: 's7', en: '"An assassin\'s bullet ripped through my ear," he told the audience, before saying he believed his life had been spared for a purpose.', zh: '他对在场听众说：「一颗刺客的子弹擦过了我的耳朵」，随后表示他相信自己活下来是有原因的。' },
+        { id: 's8', en: 'That single sentence, delivered without drama, served as both personal recollection and political argument: a leader who has survived, returning to govern.', zh: '这一句话，他说得并不戏剧化，却同时承担了私人回忆与政治论证两种功能：一位幸存下来的领导人，重新归来执政。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's9', en: '"Golden age" is not a phrase Trump invented for this occasion.', zh: '「黄金时代」并不是特朗普为这次场合发明的词。' },
+        { id: 's10', en: 'He had used it on the campaign trail for months, and it appears repeatedly in his 2025 messaging.', zh: '过去几个月他在竞选途中反复使用过它，在他 2025 年的话术中也一再出现。' },
+        { id: 's11', en: 'By placing it at the very top of the inaugural, he was making the slogan official, lifting it from a campaign line into a governing theme.', zh: '将它放在就职演说的最开头，他是在把这个口号正式化，把它从一句竞选语提升为治理主题。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's12', en: 'Inaugurals are usually written to reach across the aisle, with at least a few sentences aimed at the people who did not vote for the new president.', zh: '就职演说通常会写得相对平和，至少留几句话给那些没有投票给新总统的人。' },
+        { id: 's13', en: 'Trump\'s speech largely set that convention aside, addressing his supporters directly and naming the policies he intended to reverse.', zh: '特朗普的演讲基本搁置了这一惯例，直接面对支持者，并点名他打算扭转的政策。' },
+        { id: 's14', en: 'What unified the address was not consensus but momentum: a clear signal that the next four years would feel different from the last four.', zh: '把这篇演讲串起来的不是共识，而是势头：一个明确的信号，未来四年的感觉将和过去四年截然不同。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's15', en: 'Within hours of leaving the rotunda, Trump began signing a series of executive orders, turning the speech\'s broad promises into immediate paperwork.', zh: '离开圆形大厅几小时内，特朗普就开始签署一系列行政命令，把演讲中的宏大承诺迅速转化为具体的文件。' },
+        { id: 's16', en: 'For listeners, the test of a "golden age" had moved, very quickly, from the page to the desk.', zh: '对听众而言，「黄金时代」的检验已经迅速地从演讲稿，转到了办公桌。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'bitterly', lemma: 'bitterly', sentenceId: 's1', level: 3, pos: 'adv.', ipa: '/ˈbɪtəli/', defZh: '刺骨地；强烈地', defEn: 'in a way that is extremely cold or intense', example: 'The wind blew bitterly across the open square.', exampleZh: '寒风刺骨地刮过空旷的广场。' },
+    { id: 'v2', word: 'rotunda', lemma: 'rotunda', sentenceId: 's1', level: 4, pos: 'n.', ipa: '/rəʊˈtʌndə/', defZh: '圆形大厅；圆顶建筑', defEn: 'a round hall, usually with a domed roof', example: 'The state funeral was held in the building\'s marble rotunda.', exampleZh: '国葬在这座建筑的大理石圆形大厅举行。' },
+    { id: 'v3', word: 'inaugural', lemma: 'inaugural', sentenceId: 's1', level: 3, pos: 'adj.', ipa: '/ɪˈnɔːɡjərəl/', defZh: '就职的；首次的', defEn: 'marking the beginning of a leader\'s term', example: 'The new chancellor gave a short inaugural speech.', exampleZh: '新校长发表了一篇简短的就职演讲。' },
+    { id: 'v4', word: 'ceremony', lemma: 'ceremony', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/ˈserəməni/', defZh: '典礼；仪式', defEn: 'a formal event with set traditions', example: 'The award ceremony lasted nearly two hours.', exampleZh: '颁奖典礼持续了将近两个小时。' },
+    { id: 'v5', word: 'announced', lemma: 'announce', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/əˈnaʊnst/', defZh: '宣布；宣告', defEn: 'said something publicly and officially', example: 'The company announced its results on Monday morning.', exampleZh: '公司在周一早上公布了业绩。' },
+    { id: 'v6', word: 'renewal', lemma: 'renewal', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/rɪˈnjuːəl/', defZh: '复兴；更新', defEn: 'the act of making something new or strong again', example: 'The neighborhood is going through a slow renewal.', exampleZh: '这个街区正在经历一场缓慢的复兴。' },
+    { id: 'v7', word: 'sweeping', lemma: 'sweeping', sentenceId: 's4', level: 3, pos: 'adj.', ipa: '/ˈswiːpɪŋ/', defZh: '全面的；影响广泛的', defEn: 'affecting many things in a major way', example: 'The new law brought sweeping changes to small businesses.', exampleZh: '新法律给小企业带来了全面的变化。' },
+    { id: 'v8', word: 'framed', lemma: 'frame', sentenceId: 's5', level: 3, pos: 'v.', ipa: '/freɪmd/', defZh: '塑造（话语方式）；定位', defEn: 'presented something in a particular way', example: 'She framed the loss as a chance to start over.', exampleZh: '她把这次失败定位成一次重新开始的机会。' },
+    { id: 'v9', word: 'agenda', lemma: 'agenda', sentenceId: 's5', level: 3, pos: 'n.', ipa: '/əˈdʒendə/', defZh: '议程；施政计划', defEn: 'a planned list of things to be done', example: 'Climate policy is high on the new mayor\'s agenda.', exampleZh: '气候政策在这位新市长的议程上占有重要位置。' },
+    { id: 'v10', word: 'striking', lemma: 'striking', sentenceId: 's6', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；显著的', defEn: 'so noticeable that it gets attention', example: 'The most striking thing about the painting is its silence.', exampleZh: '这幅画最引人注目的地方是它的静谧。' },
+    { id: 'v11', word: 'attempt', lemma: 'attempt', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/əˈtempt/', defZh: '企图；未遂行为', defEn: 'an effort to do something difficult', example: 'Her first attempt to fix the engine failed.', exampleZh: '她第一次尝试修理引擎以失败告终。' },
+    { id: 'v12', word: 'assassin', lemma: 'assassin', sentenceId: 's7', level: 4, pos: 'n.', ipa: '/əˈsæsɪn/', defZh: '刺客；行刺者', defEn: 'a person who kills an important person, often for political reasons', example: 'The novel follows an assassin who hesitates at the last moment.', exampleZh: '这部小说讲述一个在最后一刻犹豫的刺客。' },
+    { id: 'v13', word: 'spared', lemma: 'spare', sentenceId: 's7', level: 3, pos: 'v.', ipa: '/speəd/', defZh: '幸免；免遭', defEn: 'saved from harm or death', example: 'The old church was spared by the fire.', exampleZh: '这座老教堂在大火中幸免于难。' },
+    { id: 'v14', word: 'recollection', lemma: 'recollection', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/ˌrekəˈlekʃn/', defZh: '回忆；记忆', defEn: 'a memory of something past', example: 'My recollection of that summer is mostly smells and music.', exampleZh: '我对那个夏天的记忆，大多是气味和音乐。' },
+    { id: 'v15', word: 'slogan', lemma: 'slogan', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/ˈsləʊɡən/', defZh: '口号；标语', defEn: 'a short memorable phrase used in advertising or politics', example: 'The campaign slogan ended up on millions of T-shirts.', exampleZh: '这条竞选口号最终印在了数百万件 T 恤上。' },
+    { id: 'v16', word: 'official', lemma: 'official', sentenceId: 's11', level: 1, pos: 'adj.', ipa: '/əˈfɪʃl/', defZh: '官方的；正式的', defEn: 'approved by people in authority', example: 'The change becomes official next Monday.', exampleZh: '这项变更将于下周一正式生效。' },
+    { id: 'v17', word: 'aisle', lemma: 'aisle', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/aɪl/', defZh: '过道；（政治上）党派分隔', defEn: 'the gap between two sides; here, between political parties', example: 'The bill drew support from both sides of the aisle.', exampleZh: '这项法案在两党都赢得了支持。' },
+    { id: 'v18', word: 'convention', lemma: 'convention', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/kənˈvenʃn/', defZh: '惯例；约定俗成', defEn: 'a usual way of doing something', example: 'It is a convention to stand when the judge enters.', exampleZh: '法官进入时起立是一种惯例。' },
+    { id: 'v19', word: 'momentum', lemma: 'momentum', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/məˈmentəm/', defZh: '势头；推进力', defEn: 'the force a moving thing keeps building', example: 'The team lost momentum after the second goal.', exampleZh: '球队在第二个进球之后失去了势头。' },
+    { id: 'v20', word: 'unified', lemma: 'unify', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/ˈjuːnɪfaɪd/', defZh: '统一；使联结', defEn: 'brought separate parts together as one', example: 'A simple chorus unified the three songs.', exampleZh: '一段简单的副歌把三首歌串成了一体。' },
+    { id: 'v21', word: 'signal', lemma: 'signal', sentenceId: 's14', level: 1, pos: 'n.', ipa: '/ˈsɪɡnəl/', defZh: '信号；表态', defEn: 'a sign that something is going to happen', example: 'Her quiet smile was a signal that the meeting was over.', exampleZh: '她安静的微笑是一个信号，说明会议结束了。' },
+    { id: 'v22', word: 'executive', lemma: 'executive', sentenceId: 's15', level: 3, pos: 'adj.', ipa: '/ɪɡˈzekjətɪv/', defZh: '行政的；执行的', defEn: 'relating to the part of government that runs things', example: 'The order was signed under the president\'s executive power.', exampleZh: '这份命令是依据总统的行政权签署的。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What 把"句子的真正答案"推到最后',
+      pattern: 'What [clause] is/was [emphasis]',
+      sentenceIds: ['s14'],
+      explanationZh: [
+        '中文里要强调"重要的是 X"，常会写"重要的是势头，而不是共识"。英文有一个相对应的高效结构，叫 what-cleft：用 What 开头先把一个抽象的问题摆出来（"把句子串起来的东西是什么"），再用 is 接出真正的答案。这样读者会因为"问题先出现"而对答案更敏感。',
+        '看第 14 句：What unified the address was not consensus but momentum。如果改写成 Momentum, not consensus, unified the address，意思一样，但力度差很远。原句把 momentum 留在了听觉的"高潮位置"，再加上 not X but Y 的对照，结尾几乎是钉子一样钉进去。',
+        '什么时候用：议论文、评论文章里需要"亮出立场"的关键句最适合。它的天然位置是段尾或文章结尾，让前文铺垫的内容在这一句被命名出来。新闻报道开头偶尔也用，但要节制，一篇里出现一两次就够了。',
+        '一个细节：What 引导的从句永远当单数处理，所以是 was 而不是 were，即使后面接的是 not consensus but momentum 这样的对照结构。把 was 写成 were 是中国学习者很常见的错。',
+      ],
+      examples: [
+        { en: 'What surprised the panel most was how calmly she answered the hardest question.', zh: '最让评委吃惊的，是她在面对最难那道题时的冷静。', note: '把"吃惊"的具体内容放到句末，比 She answered calmly, which surprised the panel 更聚焦。' },
+        { en: 'What the new policy really changes is who pays for the damage.', zh: '新政策真正改变的，是由谁来承担损失。' },
+        { en: 'What worries me about the plan is not the cost but the timing.', zh: '让我担心这个计划的，不是成本，而是时机。' },
+        { en: 'What kept the team together through that month was a shared private joke.', zh: '让这支队伍在那个月不散的，是一个只有他们懂的玩笑。' },
+        { en: 'What this novel offers is permission to feel sad without explanation.', zh: '这部小说给读者的，是不必解释的悲伤许可。', note: '抽象主题作答案，what-cleft 把抽象感升到合适的高度。' },
+      ],
+      commonMistake: '不要写成 What unified the address were not consensus but momentum。What 从句永远是单数，动词必须是 is / was，即便答案部分是 not X but Y 的复合结构。',
+      vsSimilar: 'It-cleft（It was momentum, not consensus, that unified the address）也强调重点，但 it-cleft 通常用于强调"谁/什么"这种身份信息；what-cleft 更适合让"抽象主题"出场，给读者留思考空间。',
+    },
+    {
+      id: 'g2',
+      title: '用过去完成时交代"在那之前已经发生的事"',
+      pattern: 'had + 过去分词（用于过去事件之前）',
+      sentenceIds: ['s2', 's10'],
+      explanationZh: [
+        '英文叙事里，时间不是一条直线，而是经常需要回头交代"在那时间点之前还发生了什么"。这时候用过去完成时（had + 过去分词），就像电影里短暂闪回一帧。中文表达"在 X 之前已经……"，对应的就是这个时态。',
+        '看第 2 句：The ceremony had been moved indoors because of the freezing weather。叙事主线在"就职那一刻"（过去），而"被移到室内"这个决定其实更早就做了，所以用 had been moved 表示它发生在更早的过去。同样第 10 句 He had used it on the campaign trail for months：动作发生在演讲之前，自然要用 had used。',
+        '什么时候用：写新闻特写或回顾性文章特别好用，作者经常需要在主线（一场仪式、一次演讲）和背景（之前几个月的铺垫）之间切换。在个人陈述里，写"在我做出 X 决定之前，我已经……"时也很自然。',
+        '一个细节：用 had done 必须有一个更靠后的过去时间点作锚，不能孤立使用。如果上下文已经全在过去（一段段都是 said / went / began），插入一个 had done 就会让"那件事更早"的感觉跳出来。',
+      ],
+      examples: [
+        { en: 'By the time the audience arrived, the hall had already filled with reporters.', zh: '观众到场的时候，大厅里已经挤满了记者。' },
+        { en: 'She finally said yes to the job, though she had hesitated for weeks.', zh: '她最终答应了那份工作，尽管她已经犹豫了好几个星期。' },
+        { en: 'The book felt familiar because he had read an early draft years before.', zh: '这本书让他觉得熟悉，因为多年前他读过早期版本。', note: 'had read 把"早年读过的版本"清晰放在主线（felt）之前。' },
+        { en: 'The road was wet by morning. It had rained heavily through the night.', zh: '到了早上，路面是湿的，因为夜里下过大雨。' },
+        { en: 'I recognized the smell. I had grown up near a bakery just like that one.', zh: '我认出了那个味道，我从小住在一家和那家一模一样的面包房旁边。' },
+      ],
+      commonMistake: '不要写成 The ceremony was moved indoors because of the freezing weather, the first time since Reagan in 1985 it didn\'t happen outside。一旦你要把"早于过去"的事讲出来，时态必须是 had been moved，否则两件事会被读者误读为同一时刻发生。',
+    },
+    {
+      id: 'g3',
+      title: '用 by + 动词-ing 解释"做了什么动作 → 才造成了某结果"',
+      pattern: 'By [verb-ing] X, S + V',
+      sentenceIds: ['s11'],
+      explanationZh: [
+        '中文里要说"通过做某事，他实现了某事"，英文里有一个非常顺手的结构：By + 动词-ing 起首，紧接主句。这个结构把"手段（动词-ing）"放在最前面，让读者先看到动作，再看到结果，因果一目了然。',
+        '看第 11 句：By placing it at the very top of the inaugural, he was making the slogan official。前半句的 placing 是"具体做了什么"，后半句 was making official 是"造成的结果"。如果改写成 He made the slogan official because he placed it at the top，意思相同，但因果就藏在了 because 后面，远不如 By placing 起首来得有节奏。',
+        '什么时候用：写分析性文章特别合适，比如评点别人为什么这么写、这么做的时候。新闻评论里频繁出现："By + 动词-ing"几乎是一个标准的"分析开头"句型。也适合学术写作的方法说明：By comparing A and B, we observed…',
+        '一个细节：By 后面只能跟动词-ing，不能跟 to 不定式。By to place 是错的；要么 By placing，要么换成 In order to place 这种"目的"结构，但目的和手段是两个不同的意思。',
+      ],
+      examples: [
+        { en: 'By keeping the title short, the writer makes the line easier to remember.', zh: '通过把标题写短，作者让这句话更容易被记住。' },
+        { en: 'By refusing to answer the question, she made the real answer obvious.', zh: '通过拒绝回答这个问题，她反而把真正的答案变得显而易见。', note: '"拒绝"本身被定义成手段，让结果（暴露真相）更具反差感。' },
+        { en: 'By cutting one paragraph, the editor saved the whole piece.', zh: '通过删掉一段，编辑救回了整篇稿件。' },
+        { en: 'By naming the policy after a person, the government turned it into a story.', zh: '通过用一个人的名字给政策命名，政府把这项政策变成了一个故事。' },
+        { en: 'By not replying for two days, he let the team figure it out themselves.', zh: '通过两天不回复，他让团队自己摸索出了答案。' },
+      ],
+      commonMistake: '不要写成 By place it at the top 或 By to place it at the top。By 后面动词必须是 -ing 形式（placing），这是这个结构的硬规则。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开头钩子：把一个反常细节（"原本应该在外面，却进了室内"）放在最显眼的位置',
+      skeleton: 'On a [vivid sensory adjective] [time], [subject] [action] inside/at [unexpected place].',
+      original: 'On a bitterly cold morning in Washington, Donald Trump stood inside the Capitol rotunda and began his second inaugural address.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头的核心是把一个具体可感的细节（bitterly cold / inside the Capitol rotunda）摆到最前面，而不是先告诉读者"这是一场重要演讲"。读者一进来就闻到、感到、看到一个画面，再被告知这画面意味着什么。新闻写作里这叫"以场景开篇"，比 In January 2025, Donald Trump gave his second inaugural address 多出整整一层质感。',
+        '对读者来说，bitterly cold morning 和 stood inside the Capitol rotunda 两个细节合在一起，已经在暗示有点不对劲：就职演说一般在户外台阶上，为什么这次在里面？读者带着这个小问号读下去，作者再用第二句给出答案，读起来像看一段电影的开镜。',
+        '它最适合用在新闻特写、深度报道、个人随笔的开头：场景里要有可见的物（地点、人物、动作）和可感的状态（天气、声音、光线）。一旦开头给到了画面，接下来的几段就有了一个"锚点"，读者会愿意被你带着走。',
+        '一个隐藏的小细节：感官形容词必须是有信息量的，不能是 nice 或 beautiful 这种空泛词。bitterly cold 之所以好用，是因为它既给画面也给暗示（冷到要改地点）。换成 a sunny morning 就只剩画面，没有暗示。',
+      ],
+      examples: [
+        { context: '新闻特写开头', text: 'On a still, smoke-heavy afternoon in northern California, the mayor stood in front of an empty fire station and read out the new evacuation order.', zh: '在北加州一个静止而烟气浓重的下午，市长站在一座空荡的消防站门前，宣读了新的撤离令。' },
+        { context: '个人随笔开头', text: 'On a quiet Sunday in August, my grandmother sat in her usual chair and asked me a question I had been avoiding for years.', zh: '在八月一个安静的周日，外婆坐在她常坐的椅子上，问了我一个我躲了多年的问题。', note: '把"安静"和"她常坐的椅子"两个细节摞起来，问题来临时就有了反差。' },
+        { context: '体育长文开头', text: 'On a damp February evening at Wembley, the captain walked onto the pitch already knowing it would be her last England match.', zh: '在温布利球场一个潮湿的二月夜晚，队长走上球场时已经知道，这将是她代表英格兰队的最后一场比赛。' },
+      ],
+      adaptingTip: '感官形容词（cold / smoke-heavy / quiet / damp）要承担两份工作：一份是画面，一份是暗示。如果它只给画面而不暗示后文走向，就换一个更有信息量的形容词。地点也别只写城市名，要写到"在某城市里的一个具体房间或角落"，颗粒度越细，读者越愿意停在第一句多读一秒。',
+      commonMistake: '不要写成 On a beautiful winter morning, Trump gave a speech in Washington。beautiful 没信息量，gave a speech 是抽象动词。开头第一句的全部价值在于"让读者看见一个画面，并隐约感到一点不寻常"，太抽象就废了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '总结性的"分类性陈述"：用 "less … and more …" 把一个动作从一种类别推到另一种类别',
+      skeleton: 'S framed/treated [X] less as [expected role] and more as [reinterpreted role].',
+      original: 'He framed the speech less as a quiet inauguration and more as the opening scene of an agenda he intended to launch within hours.',
+      sentenceId: 's5',
+      whyItWorks: [
+        '这个句式的力学很巧妙：less as A 先承认"大家本来以为是 A"，再用 more as B 把它拽到一个新的归类（B）。承认在前，重新定义在后，读者会因为"先被肯定了一下原有理解"而更愿意接受作者新给出的解释。这是评论文章的高级技巧。',
+        '对读者来说，less … and more … 比直接说 "this wasn\'t an inauguration, it was an opening scene" 要稳很多：后者像在抢话，前者像在引导。作者没有否定旧的看法，只是说"它更像是另一件事"。这种留余地的姿态，反而让结论显得更有说服力。',
+        '它最适合用在新闻分析、影评、文化评论的关键段落，尤其是当你要给一个事件、一段表演、一种现象重新归类的时候。一篇议论文里，这种句子常出现在论点段开头，预告"我要给这件事一个新的解释"。',
+        '一个隐藏要点：A 和 B 必须是同一维度的两种解读，而且 B 要比 A 多走一步。如果 B 和 A 没有可比性，整个反差就成了硬切。原文里 A（a quiet inauguration）和 B（the opening scene of an agenda）都是对"这场演讲是什么"的回答，只是后者更激进，所以重新定位才有力。',
+      ],
+      examples: [
+        { context: '影评分析段落', text: 'The director treats the second hour less as a continuation of the story and more as a quiet apology to the audience.', zh: '导演把第二个小时塑造得不像故事的延续，而更像是对观众的一次低声致歉。', note: 'apology 和 continuation 在"这一段是什么"的同一维度上，B 走得更远。' },
+        { context: '新闻评论', text: 'The mayor presented the press conference less as an explanation and more as a list of people he wanted to blame.', zh: '市长把这场新闻发布会处理得不像一次解释，而更像一份他想要责怪的名单。' },
+        { context: '人物特写', text: 'She talks about the gallery less as a place she runs and more as a long conversation she happens to host.', zh: '她谈论这间画廊时，不像是在谈一处由她经营的场所，而更像是一场她碰巧主持的漫长对话。' },
+      ],
+      adaptingTip: 'A 必须是大家会自然以为的那个解读（"就职演说 / 解释 / 经营场所"），B 必须比 A 更刺一点、更主观一点。如果你给的 B 和 A 一样平淡，重新定位的意图就落空了。同时注意 less as 和 more as 后面要接同类成分（都是名词短语，或都是动名词短语），结构要对称。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾金句：用一个空间或物件的小转移，象征一个抽象议题从"承诺"走向"检验"',
+      skeleton: 'For [audience], the test of [abstract claim] had moved, very quickly, from [symbol A] to [symbol B].',
+      original: 'For listeners, the test of a "golden age" had moved, very quickly, from the page to the desk.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '这个收尾的力量来自一个空间隐喻：from the page to the desk。"页"代表演讲稿，"桌"代表签字办公的工作台。两个具体物件本身没什么，但作者把"黄金时代"这个抽象的政治承诺装进它们之间的位移里，于是抽象议题就有了重量和速度。读者读到这里，会突然意识到"哦，这件事已经不再是言语了"。',
+        '对读者来说，very quickly 这三个字插在句中，是一种带着评论的停顿。作者没有直接说"这变化太快了"，而是用一个插入语让你自己感到那种速度。这种克制的注释，比直接评价更有书面感。',
+        '它最适合作为文章或大段落的收尾。前文已经把人物、事件、话语铺好，最后一句用一组对照物（from A to B）把抽象议题落到具体之物上，给读者一个画面而非一句口号。新闻特写、长评、文化随笔的尾段都常用这种"图像化收尾"。',
+        '一个隐藏要点：from A to B 的两个物件必须各自承载一个抽象意义（声明 → 执行 / 想法 → 行动 / 童年 → 现实……）。如果只是两个并列的物体（from a notebook to a phone），就没有这层抽象迁移，整个句子的力度会归零。',
+      ],
+      examples: [
+        { context: '环境议题评论收尾', text: 'For the city, the question of climate adaptation had moved, almost overnight, from the meeting room to the basement.', zh: '对这座城市而言，气候适应的议题几乎在一夜之间，就从会议室搬进了地下室。' },
+        { context: '科技评论收尾', text: 'For users, the promise of "safe AI" had moved, surprisingly fast, from the keynote slide to the customer-service inbox.', zh: '对用户而言，「安全 AI」的承诺出人意料地迅速，就从主题演讲的幻灯片，跑进了客服邮箱。', note: 'keynote slide 与 customer-service inbox 形成"漂亮承诺 → 实际投诉"的对照。' },
+        { context: '教育议题随笔收尾', text: 'For my classmates, the meaning of the gap year had moved, quietly, from a travel plan to a job application.', zh: '对我的同学们而言，间隔年的含义悄悄地从一份旅行计划，变成了一份求职申请。' },
+      ],
+      adaptingTip: 'from A to B 的 A 必须代表"前面的状态/阶段"，B 必须代表"现在到达的状态/阶段"，两个物件越具体越好（page / desk / inbox / basement），越能给抽象主题一个可见的归宿。中间插入的副词（very quickly / quietly / almost overnight）是作者表态的窗口，但不要塞太长的评论。',
+      commonMistake: '不要写成 the test of a golden age had moved from words to action。words 和 action 都太抽象了，整个句子就缩回到口号层面。换成具体的物（the page / the desk / the inbox / the contract）才能让句子落地。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Where was Trump\'s second inaugural address delivered, according to the article?', options: ['On the steps of the White House', 'Inside the Capitol rotunda', 'At a stadium in Washington', 'In the Senate chamber'], answer: 1, explanation: 'The article opens by placing Trump inside the Capitol rotunda, because the ceremony had been moved indoors.', sentenceId: 's1' },
+    { id: 'q2', q: 'Why was the ceremony held indoors?', options: ['Because of a security threat', 'Because of the freezing weather', 'Because of construction at the Capitol', 'Because Trump preferred a smaller audience'], answer: 1, explanation: 'The article says the ceremony was moved indoors because of the freezing weather, the first time since Reagan in 1985.', sentenceId: 's2' },
+    { id: 'q3', q: 'According to the article, "golden age" was:', options: ['A phrase Trump invented for the inaugural', 'A phrase borrowed from a previous president', 'A phrase he had used for months during the campaign', 'A phrase used only once and then dropped'], answer: 2, explanation: 'The article notes that Trump had used the phrase on the campaign trail for months, and the inaugural made it official.', sentenceId: 's10' },
+    { id: 'q4', q: 'How does the article describe Trump\'s mention of the assassination attempt?', options: ['As an emotional outburst', 'As delivered without drama, working as both personal memory and political argument', 'As a long detailed account of that day', 'As a passing remark with no political meaning'], answer: 1, explanation: 'The article emphasizes that the line was delivered without drama and served as both personal recollection and political argument.', sentenceId: 's8' },
+    { id: 'q5', q: 'What does the closing paragraph suggest about the day\'s broader significance?', options: ['That the speech itself was the main event', 'That the speech\'s promises would quickly need to be tested in real policy', 'That nothing changed after the inauguration', 'That Trump regretted some of what he said'], answer: 1, explanation: 'The article ends by saying the test of a "golden age" moved from the page to the desk, signaling that follow-through would be measured against the speech.', sentenceId: 's16' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '演讲举行的具体地点', answer: 'Capitol rotunda', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '上一次室内就职的总统名字', answer: 'Ronald Reagan', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '演讲大致持续的时长', answer: 'about half an hour', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '特朗普为这一天起的名字', answer: 'Liberation Day', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '行刺未遂事件发生的州', answer: 'Pennsylvania', sentenceId: 's6' },
+      { id: 'ig6', cueZh: '他用来形容子弹的动作动词（过去式）', answer: 'ripped', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '演说后他立即开始签署的政府文件类型', answer: 'executive orders', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用表格里的事实，写一段大约 70 词的短文，向同学介绍特朗普第二次就职演讲：地点、当天异常之处、最核心的口号、以及之后他如何把承诺变成动作。保持中立语气，描述而非评价。',
+      promptEn: "Using the facts in your table, write about 70 words explaining Trump's second inaugural to a classmate: where it was held, what made the day unusual, the speech's central phrase, and how he quickly moved from words to action. Keep the tone neutral and descriptive.",
+      targetWords: 70,
+      starters: ['On a bitterly cold January morning, ...', 'What unified the speech was ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        "On a bitterly cold January morning, Donald Trump took the oath inside the Capitol rotunda, the first indoor inauguration since Reagan in 1985. The speech ran about half an hour and announced that the golden age of America began that day. What unified the address was not consensus but momentum. For listeners, the test of a golden age had moved, very quickly, from the page to the desk, as Trump began signing executive orders within hours.",
+      modelAnswerZh:
+        '在一月一个严寒的早晨，唐纳德·特朗普在国会大厦圆形大厅内宣誓就职，这是自 1985 年里根之后首次的室内就职典礼。演讲持续了大约半小时，宣告美国的黄金时代从这一天开启。把整篇演讲串起来的不是共识，而是势头。对听众来说，「黄金时代」的检验非常迅速地从演讲稿转到了办公桌上，特朗普在几个小时之内就开始签署一系列行政命令。',
+    },
+  },
+};

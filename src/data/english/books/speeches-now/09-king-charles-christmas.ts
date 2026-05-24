@@ -1,0 +1,241 @@
+// Speeches book, Ch.9: King Charles III delivers his first Christmas message after cancer (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-12-25',
+    title: "King Charles's First Christmas After Cancer",
+    titleZh: '国王查尔斯抗癌后的首次圣诞致辞',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/09-king-charles-christmas.mp3',
+    wordCount: 332,
+    readingMinutes: 5,
+    editorsNote:
+      "On Christmas Day 2024, King Charles III walked into a small chapel that used to be part of a London hospital and spoke about his year of cancer treatment. The setting, the tone, and the personal disclosure all marked a quiet shift in what a royal Christmas message is allowed to sound like.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On Christmas Day 2024, King Charles III delivered his annual message from a place no monarch had used before: the Fitzrovia Chapel in central London.', zh: '2024 年圣诞节，国王查尔斯三世从一个从未有君主使用过的地方发表了年度致辞：伦敦市中心的菲茨罗维亚小教堂。' },
+        { id: 's2', en: 'The chapel was once part of the Middlesex Hospital, a building that has since been pulled down.', zh: '这座小教堂曾是米德塞克斯医院的一部分，那栋医院后来已被拆除。' },
+        { id: 's3', en: 'A king speaking from a former hospital was, in itself, a quiet statement.', zh: '一位国王在一座旧医院里发言，这件事本身就是一种安静的表态。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Earlier in 2024, Charles had been diagnosed with cancer, and his treatment had quietly reshaped the royal calendar all year.', zh: '2024 年早些时候，查尔斯被诊断出癌症，他的治疗悄悄地重塑了那一整年的王室日程。' },
+        { id: 's5', en: 'Public events were cancelled, foreign trips were trimmed, and the Princess of Wales, who was also being treated for cancer, stepped back from public life as well.', zh: '公开活动被取消，外访行程被削减，同样在接受癌症治疗的威尔士王妃也退出了公开活动。' },
+        { id: 's6', en: 'For months, the British public had watched the family from a respectful distance.', zh: '几个月里，英国公众都保持着一种克制的距离感关注着这个家庭。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The message itself was short, just under seven minutes, and unusually personal.', zh: '致辞本身很短，不到七分钟，却出乎寻常地私人化。' },
+        { id: 's8', en: 'Charles thanked the doctors, nurses, and other workers of the National Health Service whose care, he said, he had relied on himself this year.', zh: '查尔斯感谢了英国国民保健署的医生、护士及其他工作人员，他说自己今年就是依靠他们的照护走过来的。' },
+        { id: 's9', en: 'He spoke about caring for one another, about strangers turned into friends in hospital corridors, and about the strength people find when their plans suddenly fall apart.', zh: '他谈到了相互照顾，谈到了在医院走廊里由陌生人变成的朋友，也谈到了人在计划突然崩塌时能找到的那种力量。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: "What made the speech feel different was not what it said but what it chose not to do.", zh: '这场致辞之所以让人感觉不同，并不在于它说了什么，而在于它选择不去做什么。' },
+        { id: 's11', en: 'There was no throne, no grand state room, no Christmas tree heavy with ornament behind him.', zh: '画面里没有王座，没有华丽的国宴厅，身后也没有挂满装饰的圣诞树。' },
+        { id: 's12', en: 'The camera stayed close, the lighting was soft, and the chapel walls did most of the work.', zh: '镜头始终很近，光线柔和，剩下的氛围几乎全靠教堂的墙壁本身在承担。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: "Royal Christmas messages have a long, careful history of saying very little about the monarch's own body.", zh: '王室的圣诞致辞历来都很小心，几乎从不谈及君主自己的身体。' },
+        { id: 's14', en: 'Health, when mentioned at all, is usually somebody else\'s: a soldier\'s, a nurse\'s, a stranger\'s in a faraway country.', zh: '即使提到健康，谈的也通常是别人的健康：士兵的、护士的、远方某个陌生人的。' },
+        { id: 's15', en: 'For Charles to place his own illness inside that script, even gently, was the part commentators kept circling back to.', zh: '查尔斯把自己的病放进这个叙事框架，哪怕只是轻轻一点，这正是评论员们反复回到的细节。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'Yet the message was not about him.', zh: '可这场致辞并不是关于他的。' },
+        { id: 's17', en: 'It was about a public service that had carried him, and a country that, for one year, had been quietly carrying its head of state.', zh: '它说的是一个曾托住他的公共服务体系，以及在过去一年里，默默托着自己国家元首的这个国家。' },
+        { id: 's18', en: 'A monarchy that can admit it has been carried is a monarchy doing something new.', zh: '一个能够承认"自己被托住过"的君主制，就是在做一件新的事情。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'delivered', lemma: 'deliver', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/dɪˈlɪvəd/', defZh: '发表（讲话）；交付', defEn: 'gave or presented (a speech) formally', example: 'The minister delivered her opening speech in under ten minutes.', exampleZh: '部长用不到十分钟就发表完了开幕致辞。' },
+    { id: 'v2', word: 'monarch', lemma: 'monarch', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈmɒnək/', defZh: '君主；国王或女王', defEn: 'a king, queen, or other royal ruler', example: 'The country has had a constitutional monarch since the 19th century.', exampleZh: '这个国家自十九世纪以来就有一位立宪君主。' },
+    { id: 'v3', word: 'diagnosed', lemma: 'diagnose', sentenceId: 's4', level: 3, pos: 'v.', ipa: '/ˈdaɪəɡnəʊzd/', defZh: '诊断出（病情）', defEn: 'identified as having a particular illness', example: 'She was diagnosed with diabetes two years ago.', exampleZh: '她两年前被诊断出糖尿病。' },
+    { id: 'v4', word: 'reshaped', lemma: 'reshape', sentenceId: 's4', level: 3, pos: 'v.', ipa: '/ˌriːˈʃeɪpt/', defZh: '重塑；改变形态', defEn: 'changed the form or pattern of something', example: 'The pandemic reshaped the way we work from home.', exampleZh: '这场大流行重塑了我们在家工作的方式。' },
+    { id: 'v5', word: 'trimmed', lemma: 'trim', sentenceId: 's5', level: 3, pos: 'v.', ipa: '/trɪmd/', defZh: '削减；修剪', defEn: 'reduced or cut down in size', example: 'The airline has trimmed its winter schedule by twelve percent.', exampleZh: '该航空公司将冬季航班削减了百分之十二。' },
+    { id: 'v6', word: 'stepped back', lemma: 'step back', sentenceId: 's5', level: 2, pos: 'phr. v.', ipa: '/stept bæk/', defZh: '退一步；暂退（公众视野）', defEn: 'withdrew from an active role for a while', example: 'After the launch, the founder stepped back from daily decisions.', exampleZh: '产品发布之后，创始人不再过问日常决策。' },
+    { id: 'v7', word: 'respectful', lemma: 'respectful', sentenceId: 's6', level: 2, pos: 'adj.', ipa: '/rɪˈspektfəl/', defZh: '克制的；表示尊重的', defEn: 'showing care, distance, or politeness', example: 'The journalists kept a respectful silence during the funeral.', exampleZh: '记者们在葬礼上保持着克制的沉默。' },
+    { id: 'v8', word: 'personal', lemma: 'personal', sentenceId: 's7', level: 1, pos: 'adj.', ipa: '/ˈpɜːsənəl/', defZh: '私人的；涉及个人感受的', defEn: 'about a person\'s own life or feelings', example: 'Her essay was unusually personal for an academic journal.', exampleZh: '她的这篇文章对一本学术期刊而言相当私人。' },
+    { id: 'v9', word: 'relied', lemma: 'rely', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/rɪˈlaɪd/', defZh: '依靠；依赖', defEn: 'depended on someone or something for support', example: 'During the move, I relied on two friends almost every weekend.', exampleZh: '搬家那段时间，几乎每个周末我都要依靠两个朋友帮忙。' },
+    { id: 'v10', word: 'strangers', lemma: 'stranger', sentenceId: 's9', level: 1, pos: 'n.', ipa: '/ˈstreɪndʒəz/', defZh: '陌生人', defEn: 'people one does not know', example: 'In small towns, strangers still nod to each other on the street.', exampleZh: '在小镇上，陌生人在街上仍会互相点头致意。' },
+    { id: 'v11', word: 'corridors', lemma: 'corridor', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/ˈkɒrɪdɔːz/', defZh: '走廊；通道', defEn: 'long narrow passages in a building', example: 'The hospital corridors smelled of disinfectant and floor wax.', exampleZh: '医院的走廊里飘着消毒水和地板蜡的气味。' },
+    { id: 'v12', word: 'fall apart', lemma: 'fall apart', sentenceId: 's9', level: 2, pos: 'phr. v.', ipa: '/fɔːl əˈpɑːt/', defZh: '崩塌；破碎', defEn: 'to break up or collapse', example: 'When the contract was cancelled, her travel plans fell apart.', exampleZh: '合同一被取消，她的出行计划就全乱了。' },
+    { id: 'v13', word: 'throne', lemma: 'throne', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/θrəʊn/', defZh: '王座；御座', defEn: 'a ceremonial chair for a king or queen', example: 'The throne stood at the far end of the long red room.', exampleZh: '王座立在长长的红色厅堂的尽头。' },
+    { id: 'v14', word: 'ornament', lemma: 'ornament', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/ˈɔːnəmənt/', defZh: '装饰品；点缀物', defEn: 'a small object used to decorate', example: 'She hung one glass ornament on each branch.', exampleZh: '她在每一根树枝上挂了一个玻璃饰物。' },
+    { id: 'v15', word: 'soft', lemma: 'soft', sentenceId: 's12', level: 1, pos: 'adj.', ipa: '/sɒft/', defZh: '柔和的；不刺眼的', defEn: 'gentle or not bright (of light)', example: 'A soft lamp made the small room feel calmer.', exampleZh: '一盏柔和的台灯让这间小屋显得安静了许多。' },
+    { id: 'v16', word: 'script', lemma: 'script', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/skrɪpt/', defZh: '剧本；约定俗成的脚本', defEn: 'a written or expected pattern of behavior', example: 'Political concession speeches usually follow a familiar script.', exampleZh: '政治败选致辞通常会遵循一套熟悉的脚本。' },
+    { id: 'v17', word: 'gently', lemma: 'gently', sentenceId: 's15', level: 2, pos: 'adv.', ipa: '/ˈdʒentli/', defZh: '轻轻地；克制地', defEn: 'in a soft, careful way', example: 'He gently corrected the student instead of scolding him.', exampleZh: '他轻轻地纠正了那个学生，而不是责骂他。' },
+    { id: 'v18', word: 'commentators', lemma: 'commentator', sentenceId: 's15', level: 4, pos: 'n.', ipa: '/ˈkɒmənteɪtəz/', defZh: '评论员；评论者', defEn: 'people who analyze events for the public', example: 'Political commentators argued about the speech for days.', exampleZh: '政治评论员们就那场演讲争论了好几天。' },
+    { id: 'v19', word: 'circling', lemma: 'circle', sentenceId: 's15', level: 3, pos: 'v.', ipa: '/ˈsɜːklɪŋ/', defZh: '反复绕回；围绕（某事）转', defEn: 'returning repeatedly to (a topic)', example: 'Every conversation that night kept circling back to the same question.', exampleZh: '那晚所有的对话都不断绕回到同一个问题上。' },
+    { id: 'v20', word: 'admit', lemma: 'admit', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/ədˈmɪt/', defZh: '承认；坦承', defEn: 'agree (often reluctantly) that something is true', example: 'It is hard for a public figure to admit that they were afraid.', exampleZh: '一个公众人物要承认自己当时害怕过，并不容易。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '把焦点放在"做了什么 / 没做什么"上，而不是"它是什么"',
+      pattern: 'What [clause] is/was [emphasis]',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '中文里说"这场致辞特别的地方在于……"，可以直接说出特别之处。英文里如果想要更有力的强调，常用 What … is/was … 这种"what-cleft"结构，把后半句拎到聚光灯下，让读者一定要等到句子末尾才听到答案。',
+        '看文中第 10 句：What made the speech feel different was not what it said but what it chose not to do。作者本可以写成 The speech felt different because of what it chose not to do，但那样就把答案过早地抛了出来。用 what-cleft 之后，读者被引导先停下来想一秒"哪一点不一样"，然后才在 was 之后看到那个反差点：not what it said but what it chose not to do。',
+        '这种结构最适合用在文章中段的"转折点"或评论性段落：当你想从描述事实切到"我要告诉你这件事真正的重量"时，它能把句子语气抬高一档。新闻特写、影评、申请文书里都很常见。',
+        '一个细节要注意：what 引导的从句被当作一个整体的"它"来用，所以后面的动词一律用单数 is/was，即使后面接的内容看起来像复数。文中 What made the speech feel different was，用的是 was，不是 were。',
+      ],
+      examples: [
+        { en: 'What surprised reporters most was not the announcement but the timing.', zh: '最让记者们意外的，不是公告本身，而是公告的时机。', note: 'not X but Y 的对照结构，让 what-cleft 显得更克制有力。' },
+        { en: 'What made the apology useful was that she named the people she had hurt.', zh: '这份道歉之所以管用，是因为她点出了那些被她伤害的人的名字。' },
+        { en: 'What the team needed was a longer break, not another meeting.', zh: '这支团队需要的是一段更长的休息，而不是再开一次会。' },
+        { en: 'What really changed after the move was how often we ate dinner together.', zh: '搬家之后真正改变的，是我们一起吃晚饭的频率。' },
+        { en: 'What worried the doctor was how quietly the symptoms had returned.', zh: '让医生担心的，是症状回来时有多安静。' },
+      ],
+      commonMistake: '不要写成 What made the speech feel different were not what it said…。被 What … 包起来的内容算单数，后面要用 was，不是 were。',
+      vsSimilar: 'It-cleft（It was not what it said but what it chose not to do that made the speech feel different）也能强调，但它把强调点放在前面（It was X that…），更适合点名一个"谁"或"什么"；what-cleft 则适合强调一整件"做的事"或"特质"。',
+    },
+    {
+      id: 'g2',
+      title: '把 who/which is 省掉，让句子更紧',
+      pattern: '名词 + 过去分词 / 现在分词短语，作后置定语',
+      sentenceIds: ['s2', 's17'],
+      explanationZh: [
+        '英文里常常需要给一个名词加一句"它是…的"，新手会写成 the building which has since been pulled down 这样带 which 的从句。但如果情境允许，可以把 which is / which has been 这些字直接省掉，让分词短语紧贴在名词后面，句子立刻干净一档。这就是所谓的"减化定语从句"。',
+        '看第 2 句：the Middlesex Hospital, a building that has since been pulled down。这里作者其实可以再省一步，写成 the Middlesex Hospital, a building since pulled down，把 that has been 都省掉，留下 pulled down 直接作为定语。文中保留 that has 是为 B2 读者照顾节奏；正式英文里更短的版本也常见。第 17 句 a country that, for one year, had been quietly carrying its head of state 也是同一思路：that 引导的从句在贴着 country 后面补足信息。',
+        '什么时候用：当你要补充的信息是"这个名词被怎么处理过 / 正在做什么"，并且补充信息已经能独立站住时最好用。新闻导语和人物特写里特别多，因为它能在一句话里塞下两条信息又不显得拖沓。',
+        '一个隐藏要点：被省掉的必须是 who / which 加 be 动词的组合，不能省到改了意思。如果从句里的动词不是 be 形态（has lived, will travel），就不能这样省，要么保留完整从句，要么改成分词短语。',
+      ],
+      examples: [
+        { en: 'The library, opened in 1932, still uses its original wooden shelves.', zh: '这座建于 1932 年的图书馆，至今仍使用着它最初的木质书架。', note: 'opened in 1932 等于 which was opened in 1932，省掉 which was。' },
+        { en: 'Proposals drafted in haste rarely survive the second round of review.', zh: '匆忙起草的方案，很少能撑过第二轮审议。' },
+        { en: 'The patients waiting in the corridor had been there since dawn.', zh: '在走廊里等候的病人，从清晨起就一直在那儿。' },
+        { en: 'A report released last week showed a sharp drop in winter bookings.', zh: '上周发布的一份报告显示，冬季订房量大幅下滑。' },
+        { en: 'A king speaking from a former hospital was, in itself, a quiet statement.', zh: '一位国王在一座旧医院里发言，这件事本身就是一种安静的表态。', note: '现在分词短语 speaking from a former hospital 直接作 king 的定语，相当于 who was speaking from a former hospital。' },
+      ],
+      commonMistake: '不要把"被动 + 现在动作"混着省。a building since pulled down（被拆，过去分词）和 a building slowly falling apart（正在坍塌，现在分词）含义完全不同，省错了形态意思就变了。',
+    },
+    {
+      id: 'g3',
+      title: '用 Yet 在句首接住前一段，比 But 更克制',
+      pattern: 'Yet + 完整句子',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '想要转折，初学者最常用 But。But 没有错，但放在段首会显得有点像聊天："但是其实呢……"。如果你的语气是"我承认你刚才看到的事实，但我现在要把视角拉远一点"，用句首大写的 Yet 会更书面、更稳。',
+        '看第 16 句：Yet the message was not about him。前面整整一段都在讨论"查尔斯把自己的病放进剧本"，读者刚刚开始觉得"这是关于他的"。Yet 一出现，作者立刻把方向掰回来：其实重点不在他。Yet 在这里既承认了前文，又轻轻把焦点挪走，比 However 更短，比 But 更正式。',
+        '什么时候用：评论性段落或长文章里，当你要在两个段落之间做一次"温和反转"时，用 Yet 起句几乎总是合适的。它特别适合"事实陈述 → 更高层意义"的过渡，新闻特写和申请文书的"反思段"里大量出现。',
+        '注意：Yet 起句要带逗号或不带逗号都可以，但用了就连接完整句子，不要写半截。也不要在一段里连用两个 Yet，否则会失去那种"轻轻一推"的劲。',
+      ],
+      examples: [
+        { en: 'The hall was nearly empty. Yet every seat that mattered had been filled.', zh: '会场几乎是空的。可重要的座位却都坐满了人。' },
+        { en: 'The results were modest. Yet the team had answered the one question that mattered.', zh: '结果并不亮眼。但这支队伍回答了那个真正要紧的问题。', note: 'Yet 在这里把"成绩平平"轻轻翻过去，引出更高一层的评价。' },
+        { en: 'The exhibition closed early. Yet the conversations it started are still going on.', zh: '展览早早闭幕了。可它引发的讨论还在继续。' },
+        { en: 'I had read the chapter twice. Yet the ending still caught me off guard.', zh: '那一章我已经读过两遍了。可结尾还是让我猝不及防。' },
+      ],
+      commonMistake: '不要写 Yet, but the message was not about him。Yet 已经是一个转折词，再加 but 等于说了两次"但是"，是冗余。挑一个用就好。',
+      vsSimilar: 'However 比 Yet 更书面，也更"冷"，常带逗号；Yet 短一拍，更有"承认你说得对，可是……"的语气；But 最口语化，适合段落内部转折，而不是段首大写转折。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '收尾升华：用 "能承认自己 X 的 Y" 给一个新事物下定义',
+      skeleton: 'A [范畴] that can admit it has been [被动状态] is a [范畴] doing something new.',
+      original: 'A monarchy that can admit it has been carried is a monarchy doing something new.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式的力气，全在重复同一个名词（这里是 monarchy）上。把 a monarchy 摆在句首，再把它摆在句末，中间用 that can admit … 这一笔轻轻一拐，一个看起来熟悉的旧词，在你眼前被重新定义为"做了一件新事的东西"。读者会感到：这不是夸奖，是判定。',
+        '它对读者的隐含承诺是"我没有否定这个事物，我只是在更高一层重新理解它"。因为前后两次出现的名词完全一样，读者本能地信任作者是从内部讲话，而不是站在外面指责。结尾句这样写，最不容易让人觉得说教。',
+        '它最适合用在评论文、专栏、申请文书的最后一句，把整篇文章的具体细节抽象成一个值得记住的判断。新闻特写的尾段也常这么收。',
+        '一个隐藏前提：中间的 admit it has been … 必须接一件这个范畴通常"不愿承认"的事，反差才成立。如果你接的是这个范畴本来就乐意公开的事，整句话就没有力量了。',
+      ],
+      examples: [
+        { context: '城市观察类专栏的结尾', text: 'A city that can admit it has shrunk is a city doing something new.', zh: '一座能够承认自己在变小的城市，就是在做一件新的事。' },
+        { context: '科技伦理评论结尾', text: 'A platform that can admit it has been wrong is a platform doing something new.', zh: '一个能够承认自己错过的平台，就是在做一件新的事。', note: 'admit 后面接 it has been wrong 是这个范畴通常最不愿承认的事，反差立起来。' },
+        { context: '申请文书的结尾段', text: 'A student who can admit she has been lost is a student ready to start over.', zh: '一个能够承认自己迷失过的学生，正是一个准备好重新开始的学生。' },
+      ],
+      adaptingTip: '前后两次出现的"范畴"必须完全一样的词（monarchy → monarchy；city → city），不能换近义词，否则失去镜面效果。中间 admit it has been 后面要接一件这个范畴"按习惯不愿承认"的事，差距越大，结尾越响。这是收束模板，别放在文章开头。',
+      commonMistake: '不要写成 A monarchy that can admit it has been carried is doing something new（少了第二次的 a monarchy）。少了那次重复，句子就变成普通的"它在做新事"，镜面对照消失，力量也消失。',
+    },
+    {
+      id: 'pt2',
+      useCase: '描写一个画面：用三个并列的"没有……"勾出一个反常场景',
+      skeleton: 'There was no [常见物 1], no [常见物 2], no [带细节的常见物 3].',
+      original: 'There was no throne, no grand state room, no Christmas tree heavy with ornament behind him.',
+      sentenceId: 's11',
+      whyItWorks: [
+        '这个句式靠"否定的清单"工作。三个 no 排成一列，读者在心里依次擦掉三样他原本以为会看到的东西。被擦掉的越具体（不是 no decoration，而是 no Christmas tree heavy with ornament），那个空出来的画面就越清晰。你不需要再描述墙是什么颜色，读者已经自动把场景脑补出来了。',
+        '它的修辞承诺是"我不直接告诉你画面，我让你自己看到画面"。这种描写方式比 The setting was simple and bare 这种概括句更有现场感，因为读者动了脑筋。新闻特写、纪实散文、影评里都很受欢迎。',
+        '它最适合用在一个新场景刚刚被介绍出来之后的第二、第三句。第一句说明"这是哪儿"，紧接着这一句负责"它看起来不像你以为的那样"，给整段定下基调。也可以放在文章的开篇，作为一种反常识的钩子。',
+        '一个细节：三个 no 后面的名词最好"由小到大"或"由大到小"递进，而且第三个一般带一个修饰短语（heavy with ornament），不然三项之间就是平面的，缺少节奏。',
+      ],
+      examples: [
+        { context: '人物特写的开头', text: 'There was no desk, no laptop, no pile of papers under his elbow.', zh: '他面前没有桌子，没有笔记本电脑，胳膊下也没有一摞文件。', note: '三个 no 排开，把人物"不像我们以为的样子"立刻立住。' },
+        { context: '城市变化报道', text: 'There was no signage, no welcome banner, no row of taxis waiting outside the new terminal.', zh: '新航站楼外没有指示牌，没有欢迎横幅，也没有一排等客的出租车。' },
+        { context: '申请文书的回忆段', text: 'There was no audience, no microphone, no warm round of applause when I finished.', zh: '我说完时，没有观众，没有麦克风，也没有一阵温暖的掌声。' },
+      ],
+      adaptingTip: '三个 no 后面挑的名词必须都是该场景"读者默认会有的东西"，不要混入读者本来就不期待的东西，否则反差消失。第三项加一个修饰短语（heavy with ornament / waiting outside / when I finished），让节奏从短到长，读起来才有收束感。',
+    },
+    {
+      id: 'pt3',
+      useCase: '点出一件事的真正分量：放慢节奏，列出三件具体小事',
+      skeleton: 'He / She spoke about [抽象主题 1], about [带细节的具体场景 2], and about [带情绪的具体场景 3].',
+      original: 'He spoke about caring for one another, about strangers turned into friends in hospital corridors, and about the strength people find when their plans suddenly fall apart.',
+      sentenceId: 's9',
+      whyItWorks: [
+        '这个句式靠"重复 about + 越来越具体的内容"工作。第一个 about 后面通常是个抽象主题（caring for one another），第二个 about 把镜头拉近到一个画面（strangers turned into friends in hospital corridors），第三个 about 把焦点再拉到情绪上（the strength people find when their plans suddenly fall apart）。三步走，从概念走到画面，再走到读者的胸口。',
+        '它的隐含承诺是"我不会替你总结，我让这三件具体的事自己作证"。三个 about 平行排列，等于在说"演讲里讲的不止一两点，但我挑了这三点告诉你"。读者会觉得你做了筛选，不是在转述全部。',
+        '它最适合用在叙事或报道的中段，要从"事件层"切到"内容层"时使用。新闻特写在交代完时间地点之后，紧接着用这种句式概括"对方说了什么"，比一连串引号更顺、更有节奏。',
+        '一个隐藏前提：三个 about 后面挑的内容必须"抽象 → 具体 → 情绪"或类似的递进，不能三个都同一密度。三个都很抽象会显得空，三个都是细节又会变流水账。',
+      ],
+      examples: [
+        { context: '人物特写中段', text: 'She wrote about home, about the smell of wet leaves in October, and about the way silence builds up inside an empty house.', zh: '她写家，写十月里湿叶子的气味，也写沉默如何在一间空房子里一层层堆积。' },
+        { context: '会议报道的概括段', text: 'They argued about cost, about whether the existing teachers could be retrained, and about how much patience the parents still had.', zh: '他们争论的是成本，是现有的教师能否重新培训，以及家长们还剩下多少耐心。', note: '三个 about 从经济到操作到情绪，递进很明显。' },
+        { context: '影评中段', text: 'The film talks about loss, about meals that no one is hungry for, and about the long, slow afternoon that follows a funeral.', zh: '这部电影谈失去，谈那些没人有胃口吃的饭菜，也谈葬礼之后那个漫长而缓慢的下午。' },
+      ],
+      adaptingTip: '三个 about 后面的内容要走"抽象 → 具体场景 → 带情绪的场景"这种阶梯，长度也最好递增（短词组、短句、带从句的长句）。最后一个 about 后面挑一个能直接打到读者心口的画面，整句的重量才落得下来。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Where did King Charles III deliver his 2024 Christmas message?', options: ['Buckingham Palace', 'Westminster Abbey', 'The Fitzrovia Chapel in central London', 'Windsor Castle'], answer: 2, explanation: 'The article opens by naming the Fitzrovia Chapel in central London as the setting, a place no monarch had used before.', sentenceId: 's1' },
+    { id: 'q2', q: 'Why is the chapel that Charles used a notable choice?', options: ['It is the oldest church in London', 'It was once part of a hospital that has since been pulled down', 'It belongs to the royal family privately', 'It is normally closed on Christmas Day'], answer: 1, explanation: 'The article explains that the chapel was once part of the Middlesex Hospital, a building that has since been pulled down.', sentenceId: 's2' },
+    { id: 'q3', q: 'According to the article, what did Charles thank in his message?', options: ['Foreign leaders and trade partners', 'Volunteers at his charities', 'The doctors, nurses, and other workers of the NHS', 'The British armed forces overseas'], answer: 2, explanation: 'The article says he thanked the doctors, nurses, and other workers of the National Health Service whose care he had relied on himself this year.', sentenceId: 's8' },
+    { id: 'q4', q: 'What does the writer mean when they say the speech felt different because of "what it chose not to do"?', options: ['Charles refused to use a script', 'The message left out the usual royal staging like a throne and grand state room', 'The speech was given in a language other than English', 'Charles did not mention any other royals'], answer: 1, explanation: 'The article describes the missing throne, state room, and decorated tree to show that the speech felt different because the usual royal staging was deliberately absent.', sentenceId: 's11' },
+    { id: 'q5', q: "What is the writer's overall attitude toward the speech?", options: ['Mocking, treating it as a publicity stunt', 'Worried that the monarchy is becoming weak', 'Reflective, treating it as a quiet but genuine shift in royal tone', 'Indifferent and bored by another royal message'], answer: 2, explanation: 'The closing paragraphs frame the message as a monarchy admitting it has been carried, which the writer presents as a real and quiet shift, not a stunt or a sign of weakness.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '查尔斯发表致辞的日期', answer: 'Christmas Day 2024', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '本次致辞所选的地点', answer: 'the Fitzrovia Chapel', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '该小教堂原属的医院名称', answer: 'the Middlesex Hospital', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '2024 年早些时候查尔斯被确诊的病症', answer: 'cancer', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '致辞大约的长度', answer: 'just under seven minutes', sentenceId: 's7' },
+      { id: 'ig6', cueZh: '查尔斯在致辞中感谢的公共服务机构', answer: 'the National Health Service', sentenceId: 's8' },
+      { id: 'ig7', cueZh: '同样在接受癌症治疗、退出公开活动的王室成员', answer: 'the Princess of Wales', sentenceId: 's5' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位不熟悉英国王室的朋友介绍这场致辞：在哪里、为什么这个地点特别、查尔斯感谢了谁，以及为什么这场致辞被认为不同寻常。',
+      promptEn: "Using the facts in your table, write about 70 words explaining this Christmas message to a friend unfamiliar with the British royal family: where it was given, why the setting was notable, who Charles thanked, and why the message was seen as unusual.",
+      targetWords: 70,
+      starters: ['On Christmas Day 2024, King Charles III delivered his message from ...', 'What made the speech feel different was ...'],
+      usePatternIds: ['pt2', 'pt1'],
+      modelAnswer:
+        'On Christmas Day 2024, King Charles III delivered his annual message from the Fitzrovia Chapel, once part of the Middlesex Hospital. Earlier that year he had been diagnosed with cancer, and his treatment had quietly reshaped the royal calendar. There was no throne, no grand state room, no Christmas tree heavy with ornament behind him. He thanked the National Health Service. A monarchy that can admit it has been carried is a monarchy doing something new.',
+      modelAnswerZh:
+        '2024 年圣诞节，国王查尔斯三世从菲茨罗维亚小教堂发表了年度致辞，这座教堂曾是米德塞克斯医院的一部分。那一年早些时候，他被诊断出癌症，治疗悄悄改变了整年的王室日程。画面里没有王座，没有华丽的国宴厅，身后也没有挂满装饰的圣诞树。他感谢了英国国民保健署。一个能够承认"自己被托住过"的君主制，就是在做一件新的事情。',
+    },
+  },
+};

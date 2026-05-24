@@ -1,0 +1,242 @@
+// Speeches Now, Ch.16: Maria Corina Machado's Nobel Peace Prize from hiding (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-10-10',
+    title: 'A Nobel in Hiding',
+    titleZh: '藏身中获得的诺贝尔',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/16-machado-nobel.mp3',
+    wordCount: 318,
+    readingMinutes: 5,
+    editorsNote:
+      'A laureate who could not appear in public, a phone call she nearly missed, a recorded message thanking the people she could not safely meet. Machado\'s 2025 Nobel was announced while she was still in hiding inside Venezuela, and her first words were not for cameras but for the country she refuses to leave.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On the morning of October 10, 2025, the Norwegian Nobel Committee announced that the Peace Prize would go to Maria Corina Machado, a Venezuelan opposition leader who had been living in hiding for more than a year.', zh: '2025 年 10 月 10 日上午，挪威诺贝尔委员会宣布将和平奖授予玛丽亚·科里娜·马查多，一位已躲藏一年多的委内瑞拉反对派领袖。' },
+        { id: 's2', en: 'The committee praised her for promoting democratic rights and pushing for a peaceful transition away from the government of Nicolas Maduro.', zh: '委员会赞扬她推动民主权利，争取从尼古拉斯·马杜罗政府走向和平过渡。' },
+        { id: 's3', en: 'It was a recognition delivered to an address nobody publicly knew.', zh: '这是一份递给一个无人公开知晓的地址的荣誉。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Machado, 58, learned the news through a phone call that briefly broke into her hidden routine.', zh: '58 岁的马查多通过一通短暂打破她隐蔽日常的电话得知了这个消息。' },
+        { id: 's5', en: 'Reporters later released a short clip of her reaction.', zh: '记者随后公布了一段她反应的简短录像。' },
+        { id: 's6', en: '"Oh my God," she said, almost whispering. "I have no words."', zh: '"我的天啊，"她几乎是低声说道。"我无言以对。"' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'Within hours, she recorded a video and audio message to Venezuelans.', zh: '几小时内，她录制了一段面向委内瑞拉人的视频和音频。' },
+        { id: 's8', en: 'In it, she thanked her compatriots, her family, and the activists who had kept her movement alive while she could not appear in public.', zh: '她在录音中感谢她的同胞、家人，以及在她无法公开露面期间一直让运动继续运转的活动人士。' },
+        { id: 's9', en: 'Then came the line that headlines repeated for days: "I dedicate this prize to the suffering people of Venezuela."', zh: '随后是被各大头条反复引用的那句话："我把这个奖献给受苦的委内瑞拉人民。"' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'The phrase was simple, but its setting was not.', zh: '这句话很朴素，但它的语境并不简单。' },
+        { id: 's11', en: 'Machado had been forced underground after the disputed 2024 presidential election, in which the opposition said its candidate had clearly won and the government insisted otherwise.', zh: '在 2024 年那场存在争议的总统选举之后，马查多被迫转入地下；反对派坚称其候选人明显胜出，而政府坚决否认。' },
+        { id: 's12', en: 'For over a year she had moved between safe houses, communicating mostly through encrypted apps and recorded clips.', zh: '一年多来，她在多处安全屋之间辗转，几乎只通过加密应用和录制的短片对外沟通。' },
+        { id: 's13', en: 'A Nobel does not change those conditions overnight.', zh: '一个诺贝尔奖不会在一夜之间改变这些处境。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Reactions split along familiar lines.', zh: '各方的反应沿着熟悉的阵营分裂。' },
+        { id: 's15', en: 'Western governments and human rights groups welcomed the choice, while Caracas dismissed it as foreign interference.', zh: '西方各国政府与人权组织对这一选择表示欢迎，而加拉加斯方面则将其斥为外国干涉。' },
+        { id: 's16', en: 'Some critics in Latin America argued that handing the prize to a sharply political figure risked making the award itself a battleground rather than a healing gesture.', zh: '拉丁美洲的一些批评者认为，把奖授予一位立场鲜明的政治人物，可能让奖项本身成为战场，而非愈合的姿态。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'What is striking is how little Machado claimed for herself.', zh: '令人印象深刻的，是马查多为自己揽下了多么少的东西。' },
+        { id: 's18', en: 'In the recorded message, she framed the prize as a verdict on a movement, not a person, calling it proof that Venezuelans had been seen.', zh: '在那段录音里，她把奖项定位为对一个运动而非个人的评价，称它证明委内瑞拉人被看见了。' },
+        { id: 's19', en: 'Whether that recognition translates into political change is the question the prize itself cannot answer.', zh: '这份被看见能否转化为政治改变，是这个奖本身回答不了的问题。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'announced', lemma: 'announce', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/əˈnaʊnst/', defZh: '宣布；公布', defEn: 'made something officially known to the public', example: 'The court announced its ruling shortly before noon.', exampleZh: '法院在临近中午时宣布了判决。' },
+    { id: 'v2', word: 'opposition', lemma: 'opposition', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/ˌɒpəˈzɪʃ(ə)n/', defZh: '反对派；反对方', defEn: 'a political group that opposes the ruling government', example: 'The opposition refused to attend the closing session.', exampleZh: '反对派拒绝出席闭幕会议。' },
+    { id: 'v3', word: 'hiding', lemma: 'hiding', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/ˈhaɪdɪŋ/', defZh: '躲藏；隐匿状态', defEn: 'the state of staying out of public sight to avoid danger', example: 'The witness spent six months in hiding before testifying.', exampleZh: '这位证人在出庭作证前躲藏了六个月。' },
+    { id: 'v4', word: 'praised', lemma: 'praise', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/preɪzd/', defZh: '赞扬；称赞', defEn: 'expressed strong approval of someone or something', example: 'Teachers praised her quiet steadiness during the crisis.', exampleZh: '老师们称赞她在危机中那种沉静的稳定。' },
+    { id: 'v5', word: 'transition', lemma: 'transition', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/trænˈzɪʃ(ə)n/', defZh: '过渡；转变', defEn: 'a change from one state or system to another', example: 'The country managed a smooth transition to civilian rule.', exampleZh: '这个国家顺利地过渡到了文官治理。' },
+    { id: 'v6', word: 'recognition', lemma: 'recognition', sentenceId: 's3', level: 3, pos: 'n.', ipa: '/ˌrekəɡˈnɪʃ(ə)n/', defZh: '认可；肯定', defEn: 'public approval or formal acknowledgement of someone\'s work', example: 'After years of quiet work, the team finally got real recognition.', exampleZh: '在多年默默工作之后，团队终于得到了真正的认可。' },
+    { id: 'v7', word: 'whispering', lemma: 'whisper', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/ˈwɪspərɪŋ/', defZh: '低声说；耳语', defEn: 'speaking very softly so others can barely hear', example: 'She kept whispering as she passed the sleeping baby.', exampleZh: '她经过熟睡的婴儿时一直在低声说话。' },
+    { id: 'v8', word: 'compatriots', lemma: 'compatriot', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/kəmˈpætrɪəts/', defZh: '同胞；同国人', defEn: 'people from the same country', example: 'He missed his compatriots more than he expected to.', exampleZh: '他对同胞的思念超出了他自己的预期。' },
+    { id: 'v9', word: 'activists', lemma: 'activist', sentenceId: 's8', level: 2, pos: 'n.', ipa: '/ˈæktɪvɪsts/', defZh: '活动人士；积极分子', defEn: 'people who campaign for political or social change', example: 'Local activists organized the first protests within hours.', exampleZh: '当地活动人士在几小时内组织了首批抗议。' },
+    { id: 'v10', word: 'dedicate', lemma: 'dedicate', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ˈdedɪkeɪt/', defZh: '把……献给；致意', defEn: 'to formally offer something in honor of someone', example: 'She wanted to dedicate the book to her late grandmother.', exampleZh: '她想把这本书献给已故的祖母。' },
+    { id: 'v11', word: 'suffering', lemma: 'suffer', sentenceId: 's9', level: 2, pos: 'adj.', ipa: '/ˈsʌf(ə)rɪŋ/', defZh: '受苦的；遭难的', defEn: 'experiencing pain or hardship', example: 'Aid trucks finally reached the suffering villages last week.', exampleZh: '救援车队上周终于抵达了那些受苦的村庄。' },
+    { id: 'v12', word: 'underground', lemma: 'underground', sentenceId: 's11', level: 3, pos: 'adv.', ipa: '/ˌʌndəˈɡraʊnd/', defZh: '转入地下；秘密地活动', defEn: 'into secret or hidden activity, often political', example: 'The journalist went underground after the second threat.', exampleZh: '在第二次威胁之后，这名记者转入地下。' },
+    { id: 'v13', word: 'disputed', lemma: 'dispute', sentenceId: 's11', level: 3, pos: 'adj.', ipa: '/dɪˈspjuːtɪd/', defZh: '有争议的；存疑的', defEn: 'argued over by opposing sides', example: 'The disputed border has been a source of tension for decades.', exampleZh: '这条有争议的边界几十年来一直是紧张的源头。' },
+    { id: 'v14', word: 'encrypted', lemma: 'encrypt', sentenceId: 's12', level: 4, pos: 'adj.', ipa: '/ɪnˈkrɪptɪd/', defZh: '加密的；经加密的', defEn: 'converted into a code so only authorized people can read', example: 'They only shared the document through an encrypted channel.', exampleZh: '他们只通过加密渠道共享这份文件。' },
+    { id: 'v15', word: 'overnight', lemma: 'overnight', sentenceId: 's13', level: 2, pos: 'adv.', ipa: '/ˌəʊvəˈnaɪt/', defZh: '一夜之间；很快地', defEn: 'in a very short time, suddenly', example: 'No reform can fix that economy overnight.', exampleZh: '没有哪项改革能够一夜之间修好那个经济体。' },
+    { id: 'v16', word: 'dismissed', lemma: 'dismiss', sentenceId: 's15', level: 3, pos: 'v.', ipa: '/dɪsˈmɪst/', defZh: '驳斥；不予理会', defEn: 'refused to take something seriously', example: 'The minister dismissed the report as politically motivated.', exampleZh: '部长驳斥这份报告，称其出于政治动机。' },
+    { id: 'v17', word: 'interference', lemma: 'interference', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ˌɪntəˈfɪərəns/', defZh: '干涉；插手', defEn: 'unwanted involvement in another country\'s affairs', example: 'The election was clean and free of foreign interference.', exampleZh: '这次选举干净，且没有外国干涉。' },
+    { id: 'v18', word: 'battleground', lemma: 'battleground', sentenceId: 's16', level: 4, pos: 'n.', ipa: '/ˈbæt(ə)lɡraʊnd/', defZh: '战场；争夺焦点', defEn: 'a place or topic of intense disagreement', example: 'School curricula have become a political battleground.', exampleZh: '学校课程已变成一个政治战场。' },
+    { id: 'v19', word: 'striking', lemma: 'striking', sentenceId: 's17', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；显著的', defEn: 'noticeable in a way that makes you pause', example: 'What is striking is how calm she remained throughout.', exampleZh: '令人印象深刻的，是她全程多么镇定。' },
+    { id: 'v20', word: 'verdict', lemma: 'verdict', sentenceId: 's18', level: 4, pos: 'n.', ipa: '/ˈvɜːdɪkt/', defZh: '裁决；评价', defEn: 'a final judgment or opinion', example: 'Voters delivered their verdict on the policy last Sunday.', exampleZh: '选民上周日对这项政策作出了他们的裁决。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用过去完成时回看"在那之前已经……"',
+      pattern: 'had + 过去分词',
+      sentenceIds: ['s1', 's11', 's12'],
+      explanationZh: [
+        '一篇报道发生在过去（announced、was forced），但作者常常想再往前回看一步：在那个过去时刻之前，事情已经怎样了。这时候就用 had 加过去分词，把读者带回更早的时间层。它的核心作用是"分清两个过去"。',
+        '看第 1 句：committee announced ... a leader who had been living in hiding for more than a year。announced 是 2025 年 10 月的事，had been living 把镜头拉到更早一年多前她已经开始躲藏的状态。两件事都在过去，但 had been living 比 announced 还早，这层落差靠 had 表达。',
+        '第 11 句 had been forced underground 和第 12 句 had moved between safe houses 也是同理：故事的主时间在 2025 年 10 月，作者用 had 把读者带回 2024 年大选之后那段更早的过去，交代背景。',
+        '小提醒：日常英文里用过去完成时不必每次都用，只在"两个过去需要分清先后"时才用，否则会显得啰嗦。如果时间顺序从上下文已经清楚，可以直接用过去式。',
+      ],
+      examples: [
+        { en: 'By the time the journalist arrived, the protesters had already left the square.', zh: '记者赶到时，抗议者已经离开了广场。', note: 'arrived 是主时间线，had left 把读者带回更早的离开。' },
+        { en: 'She finally spoke to the press, but only after she had checked with her lawyers.', zh: '她最终接受了媒体采访，但只是在她已经和律师确认之后。' },
+        { en: 'When the news broke, the family had not eaten dinner yet.', zh: '消息传出时，那家人还没吃晚饭。' },
+        { en: 'He returned to a city he had not visited in twenty years.', zh: '他回到了一座他二十年未曾踏足的城市。' },
+        { en: 'By 2024, the company had quietly shut three offices abroad.', zh: '到 2024 年，公司已经悄悄关闭了三个海外办公室。' },
+      ],
+      commonMistake: '不要写成 a leader who has been living in hiding before the announcement。当主时间已经在过去（announced），更早发生的事要用 had been living，不能再用现在完成时 has been living。',
+      vsSimilar: '一般过去式（lived）只交代"过去发生了"；过去完成时（had lived）强调"在另一件过去事之前就已经"。如果文中已有一个明确的过去时间点，往前再退一步就用 had 加过去分词。',
+    },
+    {
+      id: 'g2',
+      title: '用 what 开头的从句当主语，把焦点放在"那件事"上',
+      pattern: 'What [clause] + is/was [emphasis]',
+      sentenceIds: ['s17'],
+      explanationZh: [
+        '一般英文语序是"主语+动词+……"，写起来很直接，但缺少强调感。如果作者想让读者特别注意接下来要说的那个内容，可以用 what 引导的从句当整句的主语，把真正的重点压到 is/was 之后那个位置。',
+        '看第 17 句：What is striking is how little Machado claimed for herself。如果改写成 It is striking how little she claimed 或者 She claimed very little for herself, which is striking，意思一样，但节奏散了。What is striking 这个开头先给读者一个钩子："我接下来要说的，是值得你停一秒的那件事"，然后再把真正的内容（how little she claimed）端出来。',
+        '什么时候用：评论性段落、特写文章的转折句、文章结尾的金句都很合适。它带有一点点"我作为作者要发表看法了"的味道，所以放在评论或反思的位置最自然，新闻的纯事实段落里不太用。',
+        '一个容易踩的点：what 引导的从句后面接的动词是单数 is/was，不论后面强调的内容是单数还是复数。What surprises me are the results 是错的，应该是 What surprises me is the results。',
+      ],
+      examples: [
+        { en: 'What worried investors was not the price drop but the silence from the company.', zh: '让投资者担心的不是价格下跌，而是公司的沉默。', note: '用 what 从句把"真正的问题"压到 was 后面，比直接说 Investors were worried about... 有力得多。' },
+        { en: 'What I remember most is the smell of the rain on hot pavement.', zh: '我记得最清楚的，是雨水落在滚烫人行道上的气味。' },
+        { en: 'What the report fails to mention is who paid for the research.', zh: '这份报告没有提到的，是谁出钱资助了这项研究。' },
+        { en: 'What surprised her was how quickly the room emptied.', zh: '让她意外的，是房间空下来的速度有多快。' },
+      ],
+      commonMistake: '不要写成 What is striking are how little she claimed。what 从句作主语时，动词永远用单数 is/was，即使后面强调的内容听起来像复数。',
+      vsSimilar: 'It-cleft（It was X that Y）也用于强调，但 It-cleft 把"某一个明确的人/物/事"挑出来对比，而 what-cleft 更适合压一段"内容性"的信息（一个动作、一个观察、一个原因）。',
+    },
+    {
+      id: 'g3',
+      title: '用 while 同时说两件正在发生的事，并暗含对照',
+      pattern: '主句, while + 从句',
+      sentenceIds: ['s8', 's15'],
+      explanationZh: [
+        'while 最常见的用法是"在……的同时"，但它还有一层经常被忽略的作用：把两件同时发生的事并列起来，让读者自动感到它们之间的对照或反差。会用 while 的人，往往是想让两件事互相衬托。',
+        '看第 8 句：activists who had kept her movement alive while she could not appear in public。while 在这里同时做了两件事：一是说"在她无法公开露面的那段时间里"，二是把"活动人士在动"和"她不能动"这两种状态放在一起，让读者感受到这份分工的重量。',
+        '第 15 句 Western governments ... welcomed the choice, while Caracas dismissed it as foreign interference 用法更明显：while 摆在两个完全相反的反应中间，几乎等于在说"看，一边这样，另一边那样"。读起来比 but 更克制、更客观。',
+        '什么时候用：写多方反应、写时间并行、写背景与前景对比时都很合适。新闻评论、研究综述里 while 几乎是默认连接词。要避免的，是把 while 当成纯粹的 but 用，那样会丢掉"同时发生"的味道。',
+      ],
+      examples: [
+        { en: 'The CEO praised the team\'s effort, while quietly admitting the launch had failed.', zh: '这位 CEO 称赞了团队的努力，与此同时也悄悄承认这次发布失败了。', note: 'while 把"对外称赞"和"对内承认"并排放好，让读者自己看到张力。' },
+        { en: 'Coastal cities are sinking, while inland regions are losing groundwater.', zh: '沿海城市在下沉，与此同时内陆地区正在失去地下水。' },
+        { en: 'She kept smiling during the interview, while her hands gripped the chair.', zh: '她在采访中一直微笑着，与此同时她的手紧紧抓着椅子。' },
+        { en: 'Older readers prefer print, while younger ones rarely buy a physical paper.', zh: '年长读者偏好纸质阅读，与此同时年轻读者几乎不再购买实体报纸。' },
+      ],
+      vsSimilar: 'but 强调单纯的转折，读起来比较冲；while 多了一层"同时存在"的意味，更适合写客观对比。如果两件事不是同时发生的，就不要硬用 while。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '用一句短句给前一段加一个安静的结论，制造"事实就是这样"的余韵',
+      skeleton: 'It was [一种身份、状态或东西] + [简短限定语].',
+      original: 'It was a recognition delivered to an address nobody publicly knew.',
+      sentenceId: 's3',
+      whyItWorks: [
+        '这个句式只做一件事：把前文刚刚交代的复杂事实（委员会宣布奖项授予一个躲藏中的人），压缩成一句简短的"它是什么"的定性陈述。It was 加一个名词，再加一个不长的修饰，就够了。多一句都嫌啰嗦。',
+        '对读者来说，前两句是"信息"，这第三句是"作者抬头看了你一眼"。它打破了纯事实流，让人感到作者在做一个判断。读者会更愿意停顿、更愿意往下读，因为他们意识到这位作者会"挑出值得指出的事"。',
+        '它最适合用在段落收尾或第一段结尾。前面已经把事实说清楚，用这一句把事实定性、给一个角度，等于给整段一个轻巧的盖子。新闻特写、人物素描、评论开头都很常见。',
+        '一个隐藏要点：It was 后面接的名词要选有概念分量的词（recognition / a warning / a refusal / a confession），不要选过于普通的（a thing / a moment）。修饰语也要简短，太长就破坏了这个收束句的节奏。',
+      ],
+      examples: [
+        { context: '体育特写段落收尾', text: 'It was a goodbye disguised as a celebration.', zh: '那是一场伪装成庆祝的告别。' },
+        { context: '商业评论开篇收口', text: 'It was a promise the company could not afford to keep.', zh: '那是一个公司无力兑现的承诺。', note: '一句话给"亏损公司宣布新计划"这件事下了定性，比写一段分析更利落。' },
+        { context: '人物素描段落收尾', text: 'It was a question her colleagues had stopped asking out loud.', zh: '那是一个她的同事们已经不再大声问出口的问题。' },
+      ],
+      adaptingTip: '前一两句要先把具体的事实交代清楚，这句才有可压缩的内容。It was 后面那个名词决定整段的味道：选 a recognition / a warning / a confession，整段就有评论感；选 a thing / an event，整段就垮。修饰语保持在 6–10 个词之内，长了节奏就丢。',
+      commonMistake: '不要让 It was 这一句成为段落里唯一的信息。它必须建立在前文已经说过的事实之上，是"压缩定性"，不是"突然抛出新事实"。如果读者看到 It was 时不知道你在指什么，这个句式就失败了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用 What is striking 当作转折信号，引出作者真正想强调的观察',
+      skeleton: 'What is striking is [作者的核心观察].',
+      original: 'What is striking is how little Machado claimed for herself.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式有一种"举手发言"的效果：它告诉读者，前面交代的事实只是铺垫，真正值得停下来的是 is 后面那部分。比直接陈述观点（She claimed very little for herself）多了一份正式感和重量。',
+        '对读者来说，What is striking 几乎像是作者轻轻拍了一下桌子，说"看这里"。它降低了读者跳读的可能，因为人对"被指出来要看"的内容会本能更专注。这是评论性写作里很高效的注意力分配工具。',
+        '它最适合用在文章后段的转折句、特写人物描写的反转、研究综述里的"反直觉发现"段落开头。新闻硬稿里不用它，因为新闻不希望作者出面；评论、特写、综述类才合适。',
+        '一个细节：is 后面接的不必是名词，常常是 how 从句（how little / how quickly / how few）。这种 how-从句给"程度"留出空间，比起一个简单形容词，更耐读。',
+      ],
+      examples: [
+        { context: '研究综述里指出反直觉发现', text: 'What is striking is how rarely the heaviest users reported any benefit.', zh: '引人注意的是，使用最频繁的那批用户中，几乎没有人报告任何益处。', note: 'is 后面用 how rarely 这个程度从句，比直接说 The heavy users did not benefit 更耐人寻味。' },
+        { context: '人物特写中段反转', text: 'What is striking is how little he speaks of the years that made him famous.', zh: '令人印象深刻的是，他几乎不谈那些让他出名的岁月。' },
+        { context: '社论结尾段落开头', text: 'What is striking is not the cost of the program but who is asked to pay it.', zh: '真正值得注意的，不是这个项目的成本，而是谁被要求买单。' },
+      ],
+      adaptingTip: 'is 后面要么是一个抽象名词（the silence / the absence / the calm），要么是一个 how 从句（how little / how quickly），都比形容词更有质感。注意 is 永远是单数，不要写成 What is striking are。把这一句放在段落开头或文章后段的转折处，别开头就用，会显得太抢戏。',
+    },
+    {
+      id: 'pt3',
+      useCase: '设问加点睛：用一句问句把核心矛盾留给读者，但不直接回答',
+      skeleton: 'Whether [核心问题] is the question [限定语].',
+      original: 'Whether that recognition translates into political change is the question the prize itself cannot answer.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个句式做的是收尾里最难的一件事：既不喊口号，也不假装乐观，而是把读者刚刚读完的整篇内容浓缩成一个真正的问号。Whether 引导的从句作主语，is the question 后面再加一句限定，整句既冷静又有重量。',
+        '对读者来说，这种"作者把问题留给你"的姿态比直接给答案更让人信服。它暗示作者认真想过、不愿草率收束。读完最后一句，读者会自动在脑里继续想下去，这正是好结尾的标志。',
+        '它最适合用在评论文、新闻特写、研究反思类文章的最后一句。注意它不适合开头，因为开头需要的是"抓住"，而这个句式是"放手"。议论文中段也不太适合，那时读者还需要论证支撑，不需要悬置。',
+        '一个隐藏要点：is the question 后面那个限定语很关键。直接写 is the question we cannot answer 太平；写 is the question the prize itself cannot answer 把句子的主体（prize）拉回来呼应全文，让结尾既留白又收口。',
+      ],
+      examples: [
+        { context: '气候报道收尾', text: 'Whether these promises survive the next election is the question the summit itself has no power to decide.', zh: '这些承诺能否熬过下一次大选，是这场峰会本身无权决定的问题。' },
+        { context: '科技伦理评论收尾', text: 'Whether the tool helps more than it harms is the question its makers seem unwilling to ask.', zh: '这个工具利大于弊还是弊大于利，似乎是它的开发者不愿意问的问题。', note: 'is the question 后面那个限定语点名了责任主体（its makers），比泛泛的 is an open question 更尖锐。' },
+        { context: '教育改革反思', text: 'Whether smaller classes can repair years of underfunding is the question no single reform can settle.', zh: '更小的班级能否修补多年的资金不足，是任何一项单独的改革都无法解决的问题。' },
+      ],
+      adaptingTip: 'Whether 从句要包含整篇文章真正悬而未决的那个矛盾，不要换成一个无关的小问题，否则结尾就空了。is the question 后面那个限定语最好回扣文章的主体（the prize / the summit / the reform），形成首尾呼应。这是结尾模板，不要放在开头或中段。',
+      commonMistake: '不要把 Whether 从句写成一个其实有明显答案的问题。如果答案对读者而言一目了然，这个"留白"就变成了装腔。Whether 后面那个矛盾必须是文章真的没法替读者下定论的那种。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'On what date did the Norwegian Nobel Committee announce that Machado would receive the 2025 Peace Prize?', options: ['October 10, 2024', 'December 10, 2025', 'October 10, 2025', 'October 11, 2025'], answer: 2, explanation: 'The article opens by naming October 10, 2025 as the morning of the announcement.', sentenceId: 's1' },
+    { id: 'q2', q: 'Why was Machado living in hiding at the time of the announcement?', options: ['She was preparing a secret election campaign abroad', 'She had been forced underground after the disputed 2024 presidential election', 'She was attending the Nobel ceremony in Oslo', 'She had quietly retired from politics'], answer: 1, explanation: 'The article explains she had been forced underground after the disputed 2024 election, where her side said its candidate had clearly won.', sentenceId: 's11' },
+    { id: 'q3', q: 'In her recorded message, to whom did Machado dedicate the prize?', options: ['The Norwegian committee', 'The suffering people of Venezuela', 'Foreign governments that helped her', 'Future generations of Venezuelan students'], answer: 1, explanation: 'The article quotes her directly: "I dedicate this prize to the suffering people of Venezuela."', sentenceId: 's9' },
+    { id: 'q4', q: 'How did reactions to the award break down, according to the article?', options: ['Everyone in Latin America welcomed it', 'Caracas welcomed it while Western governments dismissed it', 'Western governments and human rights groups welcomed it, while Caracas called it foreign interference', 'Only human rights groups responded at all'], answer: 2, explanation: 'The article says Western governments and human rights groups welcomed the choice, while Caracas dismissed it as foreign interference.', sentenceId: 's15' },
+    { id: 'q5', q: "What does the closing paragraph suggest about the writer's view of the prize's impact?", options: ['The prize will quickly bring down the Maduro government', 'The prize is meaningless and changes nothing', 'The prize recognizes a movement, but cannot itself guarantee political change', 'The prize was given to the wrong person'], answer: 2, explanation: 'The final sentence frames the prize as a verdict on a movement and openly says whether it translates into change is a question the prize itself cannot answer.', sentenceId: 's19' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '宣布奖项的日期', answer: 'October 10, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '获奖者的姓名', answer: 'Maria Corina Machado', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '她在 2024 年那场什么样的选举之后被迫转入地下', answer: 'disputed', sentenceId: 's11' },
+      { id: 'ig4', cueZh: '她转入地下时的年龄', answer: '58', sentenceId: 's4' },
+      { id: 'ig5', cueZh: '她得知消息时说的那两句话之一', answer: 'I have no words', sentenceId: 's6' },
+      { id: 'ig6', cueZh: '她把奖献给的对象', answer: 'the suffering people of Venezuela', sentenceId: 's9' },
+      { id: 'ig7', cueZh: '她躲藏期间主要使用的两种通讯方式', answer: 'encrypted apps and recorded clips', sentenceId: 's12' },
+    ],
+    writing: {
+      promptZh: '根据表格里你听到的信息，写一段大约 70 词的短文，向一位不熟悉这条新闻的朋友介绍马查多获得 2025 年诺贝尔和平奖这件事：她是谁、她在什么处境中得知消息、她说了什么。',
+      promptEn: 'Using the facts in your table, write about 70 words for a friend who has not followed this story, introducing the 2025 Nobel Peace Prize for Maria Corina Machado: who she is, where she was when she heard the news, and what she said.',
+      targetWords: 70,
+      starters: ['On October 10, 2025, the Norwegian Nobel Committee announced that ...', 'What is striking is ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'On October 10, 2025, the Norwegian Nobel Committee announced that the Peace Prize would go to Maria Corina Machado, a Venezuelan opposition leader who had been living in hiding since the disputed 2024 election. It was a recognition delivered to an address nobody publicly knew. In a recorded message, she dedicated the prize to the suffering people of Venezuela. What is striking is how little she claimed for herself.',
+      modelAnswerZh:
+        '2025 年 10 月 10 日，挪威诺贝尔委员会宣布将和平奖授予委内瑞拉反对派领袖玛丽亚·科里娜·马查多，她自 2024 年那场有争议的选举之后一直在躲藏。那是一份递给一个无人公开知晓的地址的荣誉。在一段录音中，她把奖项献给受苦的委内瑞拉人民。令人印象深刻的是，她为自己揽下的东西如此之少。',
+    },
+  },
+};

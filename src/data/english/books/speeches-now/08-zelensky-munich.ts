@@ -1,0 +1,242 @@
+// Speeches Now, Ch.8: Zelensky calls for an 'armed forces of Europe' at Munich, Feb 2025 (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-02-15',
+    title: "Zelensky's Munich Wake-Up Call",
+    titleZh: '泽连斯基在慕尼黑的警钟',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/08-zelensky-munich.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      "Three years into Russia's full-scale invasion, Ukrainian president Volodymyr Zelensky climbed onto the Munich stage and asked Europe to imagine a defense of its own. The line that traveled around the world: it is time for the armed forces of Europe.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On the morning of February 15, 2025, Volodymyr Zelensky walked to the podium at the Munich Security Conference in a familiar dark sweatshirt and gave one of the most blunt speeches of his presidency.', zh: '2025 年 2 月 15 日清晨，泽连斯基穿着标志性的深色卫衣走上慕尼黑安全会议的讲台，发表了他执政以来最直白的演讲之一。' },
+        { id: 's2', en: 'The Ukrainian president had come to Munich every year of the war, but this time the room felt different.', zh: '战争开始以来他每年都来慕尼黑，但这一次，整个会场的气氛已经变了。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'Just days earlier, the new American president had spoken by phone with Vladimir Putin and called for negotiations to begin at once, without inviting Kyiv or any European capital to the table.', zh: '就在几天前，美国新任总统与普京通了电话，呼吁立即开启谈判，却没有邀请基辅和任何一个欧洲国家加入。' },
+        { id: 's4', en: 'A senior American envoy had then told reporters that Europe would not directly take part in the talks.', zh: '一位美国高级特使随后对记者表示，欧洲不会直接参与谈判。' },
+        { id: 's5', en: 'For European leaders sitting in the hall, the message was hard to miss.', zh: '对坐在会场里的欧洲领导人来说，这层意思已经很难忽略。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's6', en: 'Zelensky used the moment to deliver a line that would travel far beyond Munich.', zh: '泽连斯基抓住这一刻，说出了一句很快传出会场的话。' },
+        { id: 's7', en: '"I really believe that the time has come," he told the audience. "The armed forces of Europe must be created."', zh: '他对在场听众说：「我真的相信，这一刻已经到了。欧洲必须建立自己的武装力量。」' },
+        { id: 's8', en: 'He was not asking NATO to do more, and he was not begging Washington to stay.', zh: '他既不是在请北约多做一些，也不是在恳求华盛顿留下。' },
+        { id: 's9', en: 'He was telling Europe, plainly, that it might soon have to defend itself alone.', zh: '他是在直白地告诉欧洲，它可能很快就要独自承担自己的防务。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Part of what gave the speech its weight was the speaker behind it.', zh: '这场演讲之所以分量很重，部分原因在于说话的人是谁。' },
+        { id: 's11', en: 'Zelensky was not a think-tank voice imagining a future crisis, but a wartime leader whose country had been fighting Russia for three years.', zh: '泽连斯基不是某个智库在设想未来危机，而是一位国家与俄罗斯打了三年仗的战时领导人。' },
+        { id: 's12', en: 'He argued that Ukraine had already built the foundation of such a force, and that its army was the only one in Europe with real, modern combat experience.', zh: '他认为乌克兰其实已经为这样一支力量打下了基础，乌军是欧洲唯一拥有真实现代作战经验的军队。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'The reaction split sharply.', zh: '反应几乎是当场分裂的。' },
+        { id: 's14', en: 'Some European officials called the speech a long overdue wake-up call, while others worried it would only widen the gap with the new American administration.', zh: '一些欧洲官员把它称作一记早该响起的警钟，另一些人则担心它只会让与美国新政府之间的裂痕更大。' },
+        { id: 's15', en: 'A stand-alone European army has been discussed for decades, often warmly received and rarely funded.', zh: '独立的欧洲军队这件事，已经讨论了几十年，每次都被热烈附和，却很少真的拿到预算。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'Yet the Munich speech mattered less for any single proposal than for the question it forced into the open.', zh: '不过这场慕尼黑演讲的真正意义，与其说在于某一条具体建议，不如说在于它把一个问题摆到了台面上。' },
+        { id: 's17', en: 'If the country that built the postwar order quietly steps back, who, exactly, holds the line.', zh: '如果当年搭起战后秩序的那个国家悄悄退后一步，那么这条防线，到底由谁来守。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'blunt', lemma: 'blunt', sentenceId: 's1', level: 3, pos: 'adj.', ipa: '/blʌnt/', defZh: '直白的；不加修饰的', defEn: 'speaking in a very direct way, without softening', example: 'Her review was blunt, but most readers thought it was fair.', exampleZh: '她的评论很直白，但多数读者觉得评得公道。' },
+    { id: 'v2', word: 'podium', lemma: 'podium', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈpəʊdiəm/', defZh: '讲台；演讲台', defEn: 'a small raised platform a speaker stands on', example: 'She paused at the podium before reading the opening line.', exampleZh: '她在讲台前停了一下，才念出开场白。' },
+    { id: 'v3', word: 'presidency', lemma: 'presidency', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈprezɪdənsi/', defZh: '总统任期；总统职务', defEn: 'the period a person serves as president', example: 'Foreign policy will define his presidency.', exampleZh: '外交政策将定义他的总统任期。' },
+    { id: 'v4', word: 'hall', lemma: 'hall', sentenceId: 's5', level: 1, pos: 'n.', ipa: '/hɔːl/', defZh: '大厅；会场', defEn: 'a large room used for meetings or events', example: 'The hall was packed half an hour before the talk began.', exampleZh: '讲座开始前半小时，会场就已经坐满了。' },
+    { id: 'v5', word: 'envoy', lemma: 'envoy', sentenceId: 's4', level: 4, pos: 'n.', ipa: '/ˈenvɔɪ/', defZh: '特使；外交代表', defEn: 'an official sent on a diplomatic mission', example: 'A senior envoy was sent to Brussels to calm the dispute.', exampleZh: '一位高级特使被派往布鲁塞尔，以平息争端。' },
+    { id: 'v6', word: 'reporters', lemma: 'reporter', sentenceId: 's4', level: 1, pos: 'n.', ipa: '/rɪˈpɔːtəz/', defZh: '记者', defEn: 'journalists who gather and write news', example: 'Reporters waited outside the building until almost midnight.', exampleZh: '记者们一直在楼外等到接近午夜。' },
+    { id: 'v7', word: 'capital', lemma: 'capital', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/ˈkæpɪtl/', defZh: '首都', defEn: 'the main city of a country, where its government sits', example: 'No European capital had been told in advance.', exampleZh: '事先没有任何一个欧洲首都得到通知。' },
+    { id: 'v8', word: 'negotiations', lemma: 'negotiation', sentenceId: 's3', level: 3, pos: 'n.', ipa: '/nɪˌɡəʊʃiˈeɪʃnz/', defZh: '谈判；磋商', defEn: 'formal talks aimed at reaching an agreement', example: 'Negotiations resumed after a long, quiet weekend.', exampleZh: '在漫长安静的周末过后，谈判重新开启。' },
+    { id: 'v9', word: 'audience', lemma: 'audience', sentenceId: 's7', level: 1, pos: 'n.', ipa: '/ˈɔːdiəns/', defZh: '听众；观众', defEn: 'the group of people listening to a speaker', example: 'The audience was silent until the final sentence.', exampleZh: '听众一直保持安静，直到最后一句话。' },
+    { id: 'v10', word: 'plainly', lemma: 'plainly', sentenceId: 's9', level: 3, pos: 'adv.', ipa: '/ˈpleɪnli/', defZh: '直白地；明白地', defEn: 'in a clear and simple way, without dressing it up', example: 'He spoke plainly about what the team had failed to do.', exampleZh: '他直白地说出了团队没能做到的事。' },
+    { id: 'v11', word: 'defend', lemma: 'defend', sentenceId: 's9', level: 2, pos: 'v.', ipa: '/dɪˈfend/', defZh: '保卫；防御', defEn: 'to protect from attack or harm', example: 'The country could no longer defend its long coast alone.', exampleZh: '这个国家已无法独自守卫它漫长的海岸线。' },
+    { id: 'v12', word: 'weight', lemma: 'weight', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/weɪt/', defZh: '分量；说服力', defEn: 'importance or seriousness in argument', example: 'Coming from a former judge, the warning carried real weight.', exampleZh: '出自一位前法官之口，这份警告分量十足。' },
+    { id: 'v13', word: 'wartime', lemma: 'wartime', sentenceId: 's11', level: 3, pos: 'adj.', ipa: '/ˈwɔːtaɪm/', defZh: '战时的', defEn: 'happening during a war', example: 'Her grandfather had been a wartime nurse in Italy.', exampleZh: '她的祖父曾在意大利做过战时护士。' },
+    { id: 'v14', word: 'combat', lemma: 'combat', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈkɒmbæt/', defZh: '作战；战斗', defEn: 'active fighting in a war', example: 'Most of the unit had no real combat experience before that winter.', exampleZh: '在那个冬天之前，这支部队大多数人都没有真正的作战经验。' },
+    { id: 'v15', word: 'foundation', lemma: 'foundation', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/faʊnˈdeɪʃn/', defZh: '基础；地基', defEn: 'the base on which something is built', example: 'Three years of joint exercises had laid the foundation for the plan.', exampleZh: '三年的联合演习为这个计划打下了基础。' },
+    { id: 'v16', word: 'split', lemma: 'split', sentenceId: 's13', level: 2, pos: 'v.', ipa: '/splɪt/', defZh: '分裂；分化', defEn: 'to divide into separate groups, often in disagreement', example: 'The committee split over whether to publish the report.', exampleZh: '委员会在是否发布这份报告的问题上出现了分裂。' },
+    { id: 'v17', word: 'overdue', lemma: 'overdue', sentenceId: 's14', level: 4, pos: 'adj.', ipa: '/ˌəʊvəˈdjuː/', defZh: '早该发生的；过期的', defEn: 'that should have happened or arrived earlier', example: 'The reform was long overdue and still came as a surprise.', exampleZh: '这项改革早该推行，可宣布时仍让人意外。' },
+    { id: 'v18', word: 'widen', lemma: 'widen', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/ˈwaɪdn/', defZh: '扩大；加宽', defEn: 'to make or become wider, bigger, or more serious', example: 'The new tariffs are likely to widen the gap between the two markets.', exampleZh: '新关税很可能会让两个市场的差距进一步扩大。' },
+    { id: 'v19', word: 'gap', lemma: 'gap', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/ɡæp/', defZh: '差距；裂痕', defEn: 'a space or difference between two sides', example: 'A small gap in trust can quickly become a wide one.', exampleZh: '信任上的小裂痕，会很快变成大裂缝。' },
+    { id: 'v20', word: 'stand-alone', lemma: 'stand-alone', sentenceId: 's15', level: 4, pos: 'adj.', ipa: '/ˈstænd əˌləʊn/', defZh: '独立运作的；自成体系的', defEn: 'able to operate on its own, not relying on something else', example: 'Each city ran a stand-alone program, with no central office above it.', exampleZh: '每座城市运行的是一个独立的项目，上面没有统一的总部。' },
+    { id: 'v21', word: 'funded', lemma: 'fund', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/ˈfʌndɪd/', defZh: '提供资金；拨款支持', defEn: 'given money to make something happen', example: 'The plan was praised in every speech and rarely funded in any budget.', exampleZh: '这个计划在每场演讲里都被赞美，却几乎从未在任何预算里获得真正拨款。' },
+    { id: 'v22', word: 'postwar', lemma: 'postwar', sentenceId: 's17', level: 4, pos: 'adj.', ipa: '/ˌpəʊstˈwɔː/', defZh: '战后的', defEn: 'belonging to the period after a major war', example: 'The postwar order rested on a handful of treaties signed in the late 1940s.', exampleZh: '战后秩序建立在 1940 年代末签订的几份条约之上。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 not... but... 把"不是 A，而是 B"说清楚',
+      pattern: 'not [X], but [Y]',
+      sentenceIds: ['s8', 's11'],
+      explanationZh: [
+        '中文里要否定一种说法、同时给出正确版本，常常一句话说完："不是请北约多做，而是告诉欧洲自己上。" 英文用 not...but... 这个对子，把否定和肯定挨在一起，对比的力度立刻出来。',
+        '看第 8 句：He was not asking NATO to do more, and he was not begging Washington to stay。两个 not 像两次划线，把外界容易先入为主的解读划掉，第 9 句才接出真正的论点："他是在直白告诉欧洲……"。第 11 句 not a think-tank voice imagining a future crisis, but a wartime leader… 也是同一手法：先否定可能的标签，再给出真实身份。',
+        '什么时候用：写人物特写、解读演讲、议论文反驳对方观点时最好用。先把读者最可能误判的那一层划掉，再写出你认定的版本，论证就显得稳。',
+        '一个小细节：not 和 but 之间的两个成分，结构最好对齐（都是名词短语，或者都是动词短语），读起来才有节奏。文中 a think-tank voice... / a wartime leader... 都是名词短语，平衡感很强。',
+      ],
+      examples: [
+        { en: 'The protest was not about one law, but about a decade of small refusals.', zh: '那场抗议不是为了某一条法律，而是为了过去十年里一连串小小的拒绝。', note: '两个 about 后面挂的成分对称，对比就立得住。' },
+        { en: 'She did not want sympathy, but a clear answer.', zh: '她要的不是同情，而是一个明确的答复。' },
+        { en: 'The city is not running out of water, but out of time.', zh: '这座城市缺的不是水，而是时间。' },
+        { en: 'We are not measuring effort here, but outcome.', zh: '我们这里衡量的不是付出，而是结果。' },
+        { en: 'His first job was not a paycheck, but a kind of education.', zh: '他的第一份工作不是一份薪水，更像是一次教育。' },
+      ],
+      commonMistake: '不要写成 He was not asking NATO to do more, but Washington to stay。两边要对齐：前半是 asking NATO to do more，后半也得是 asking 或类似形式的动作，否则结构一歪，对比力就没了。',
+      vsSimilar: 'rather than 也能表达类似意思（He told Europe to defend itself rather than to wait for help），但 not...but... 是"先划掉再立"，对照感更强；rather than 更像"两选一"，没有那种否定动作。',
+    },
+    {
+      id: 'g2',
+      title: '用 if 起句，先描出场景，再扔出问题',
+      pattern: 'If [clause], who/what/how, exactly, [question]',
+      sentenceIds: ['s17'],
+      explanationZh: [
+        '想在结尾留一个悬而未决的问题，新手往往直接写：Who will hold the line? 太干了。英文老练的写法是先用 If 起一个假设性场景，把读者带到那个画面里，再把问题轻轻扔下去。',
+        '看第 17 句：If the country that built the postwar order quietly steps back, who, exactly, holds the line。前半 If... 给了一个具体的画面，也就是美国"悄悄退后一步"；后半 who, exactly, holds the line 才是真正的拷问。读者已经站在那个假设里，问题就压得更重。',
+        '什么时候用：议论文、社论、长文章的收尾尤其好用。前面整篇都在铺事实，结尾这一句把"如果这条线索成真，意味着什么"摆出来，余韵就出来了。开场用它也可以，给读者一个钩子。',
+        '一个细节：If 引导的从句里用现在时（steps back），不要用 will step back；这是描述一个假设性、近未来的场景，英文的习惯是用现在时表将来。',
+      ],
+      examples: [
+        { en: 'If the river keeps falling at this rate, what, exactly, will the city drink in ten years.', zh: '如果河水继续以这个速度下降，十年后这座城市究竟还能喝什么。' },
+        { en: 'If teachers are asked to do everything, who decides what gets dropped.', zh: '如果老师被要求什么都做，那么由谁来决定哪些事可以放下。' },
+        { en: 'If the museum closes its doors next winter, where do these objects go.', zh: '如果博物馆明年冬天关门，这些藏品要去哪里。' },
+        { en: 'If we agree that growth is slowing, what are we still spending so much to chase.', zh: '如果我们都承认增长在放缓，那我们还在花这么多钱追什么。' },
+      ],
+      commonMistake: '不要把疑问句写成 If the country steps back, who exactly will be holding the line? 太啰嗦了。文中用 holds the line（现在时一般式），既精炼又有"现在就开始悬着"的感觉。',
+    },
+    {
+      id: 'g3',
+      title: '用 yet 起句，比 but 更克制、更书面',
+      pattern: 'Yet [主句]，常出现在段首',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '想表达"话虽如此，但是"的转折，口语里用 but 就够。可一旦写正式新闻或评论，连续几段都以 But 开头会显得幼稚。Yet 是 but 的书面版，意思相近，语气更克制、更有分寸。',
+        '看第 16 句：Yet the Munich speech mattered less for any single proposal than for the question it forced into the open。前一段在讲"独立欧洲军讨论了几十年也没拿到预算"，这一段如果用 But the speech mattered…，读起来像在抢戏。换成 Yet，转折依然清楚，语气却像在悄悄校准前面那句的尺度。',
+        '什么时候用：评论性长文里要拐弯时最稳。尤其是前一段讲了一个"看起来很消极的事实"，下一段要把它的意义拔出来，Yet 起句几乎是教科书级的做法。新闻特写、书评、严肃博客都常见。',
+        '一个细节：Yet 起句时后面一般跟逗号也行、不跟也行（Yet the speech…/Yet, the speech…），多数英美主流刊物倾向不加逗号。And yet 也很常用，比单用 Yet 再多一层"我承认前面这点，但还是想说"的语气。',
+      ],
+      examples: [
+        { en: 'Yet the numbers, impressive as they are, do not tell the whole story.', zh: '不过这些数字，再亮眼，也讲不完整个故事。' },
+        { en: 'Yet many of those policies were quietly dropped within a year.', zh: '然而那些政策中的不少，在一年之内就被悄悄放下了。' },
+        { en: 'Yet what struck me most was how few visitors were taking photos.', zh: '不过最让我意外的，是几乎没有游客在拍照。' },
+        { en: 'And yet the doctor kept the same smile through the entire shift.', zh: '可那位医生在整个班次里，始终保持着同一种微笑。', note: '加 And 后语气更柔，像在承接前文的口气继续说下去。' },
+      ],
+      commonMistake: '不要写成 But yet the speech…（重复转折）或 However yet…。Yet 本身就是转折词，前面不需要再放 but / however；只在前面加 And 是惯用搭配。',
+      vsSimilar: 'But 口语化，几乎任何场合可用；However 最正式，常常单独成句加逗号（However, ...）；Yet 介于两者之间，语气克制又有书面感。同一段里别三个都来，挑一个。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '人物开场：把场景、衣着、动作和"今天为什么不一样"压进同一句',
+      skeleton: 'On [date], [person] walked to [place] in [signature detail] and gave one of the most [adj] [events] of [his/her career].',
+      original: 'On the morning of February 15, 2025, Volodymyr Zelensky walked to the podium at the Munich Security Conference in a familiar dark sweatshirt and gave one of the most blunt speeches of his presidency.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开场句的力量来自"四件事压进一句"：时间、人物动作、有辨识度的小细节（dark sweatshirt）、以及对整个事件的定性（one of the most blunt speeches）。读者一口气拿到坐标、画面、和阅读方向，根本不用第二句铺垫。',
+        '对读者来说，familiar dark sweatshirt 不是装饰，是一个微型路标：这是大家都认得的那个泽连斯基，但接下来要发生的事不一样。具体的衣着细节让"重大演讲"有了体温，否则就是干巴巴的新闻概要。',
+        '它最适合作人物特写、长篇报道、传记类文章的第一句。如果你要写"某人在某天做了一件后来很关键的事"，这个公式几乎不会失手。新闻特写（feature）的入门模板就是它。',
+        '一个隐藏要点：句末的定性短语（one of the most X Y of his Z）会暗暗承诺读者"接下来我要解释为什么这件事属于那一类"。所以这种开场之后，文章必须真的兑现这个承诺，否则读者会觉得被骗。',
+      ],
+      examples: [
+        { context: '人物特写开场（运动员退役)', text: 'On a quiet Tuesday in October, Naomi Osaka walked onto the practice court in her usual black hoodie and played one of the most unhurried sessions of her career.', zh: '十月里一个安静的周二，大坂直美穿着她惯常的黑色连帽衫走上训练场，打出了她职业生涯中最从容的一次练习。' },
+        { context: '商业报道开场（创始人重返公司）', text: 'On the first Monday of the new fiscal year, Lin Wei walked back into the lobby of the company he had founded in a plain gray jacket and gave one of the strangest all-hands speeches of his career.', zh: '在新财年的第一个周一，林为穿着一件素灰外套走回他亲手创办的公司大堂，做了职业生涯里最古怪的一次全员讲话。', note: '细节 plain gray jacket 暗示"这个人不打算摆架子"，跟"all-hands speech"的反差就成立。' },
+        { context: '艺术评论开场（导演颁奖典礼）', text: 'On a cold March night in Berlin, Wim Wenders walked to the stage in a long charcoal coat and gave one of the most uncertain acceptance speeches of his long career.', zh: '柏林一个寒冷的三月夜晚，文德斯穿着一件深灰长大衣走上领奖台，发表了他漫长生涯中最犹疑的一次获奖致辞。' },
+      ],
+      adaptingTip: '四个槽位都要具体：日期写到月日，人物动作选一个真实的小动作（walked to / sat down at / stepped out of），衣着或外形细节选一个有辨识度但不抢戏的，定性短语里的形容词要选一个能引出后文论点的（blunt / unhurried / uncertain）。最忌讳形容词写成 great / important，那等于没写。',
+      commonMistake: '不要把衣着细节换成 wearing a suit、in normal clothes 这种没有信息量的描写。读者要从那个细节读出"这是这个人没错"或"今天有点不一样"，写得太普通，整个开场就空了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '人物分量定调：先否定一个最容易的标签，再点出真正的身份',
+      skeleton: '[Person] was not [easy label], but [the real identity].',
+      original: 'Zelensky was not a think-tank voice imagining a future crisis, but a wartime leader whose country had been fighting Russia for three years.',
+      sentenceId: 's11',
+      whyItWorks: [
+        '读者看到一个政治演讲被报道，第一反应往往是把它归到"又一个外交辞令"那一类。这个句式抢在读者归类前先动手：not a think-tank voice imagining a future crisis 把那个最容易的、最廉价的标签划掉，然后用 but 接出真正的身份，也就是一位打了三年仗的战时领导人。读者一下子明白：哦，这不一样。',
+        '对读者来说，先否定一个"看起来差不多但是低一档"的版本，比单纯说真版本要有力得多。如果直接写 Zelensky was a wartime leader…，听起来像在贴标签；走完 not...but... 这条路，标签就变成了一个被论证过的结论。',
+        '它适合放在人物报道、演讲解读、社论的第二或第三段，用来确立"这位主角到底是谁"。前面铺完事件场景，需要给读者一个理由"为什么这个人值得我读完三千字"时，最好用。',
+        '一个隐藏要点：被划掉的那个标签（think-tank voice），必须是读者真的可能那样误解的版本，不能是稻草人。如果你否定的是 a circus clown，没人会觉得他像，你的否定就显得多余。',
+      ],
+      examples: [
+        { context: '商业报道（创始人）', text: 'She was not a public-relations face borrowed for the launch, but the engineer who had written the first version of the code.', zh: '她不是为这次发布临时找来的公关脸面，而是那位亲手写下第一版代码的工程师。' },
+        { context: '社论（科学家发声）', text: 'They were not academics writing from a safe office, but doctors who had spent the past month in the flooded hospital.', zh: '他们不是在安稳办公室里写字的学者，而是过去一个月一直待在被淹医院里的医生。', note: '"safe office" 那个细节让被否定的版本立住，对比就有力。' },
+        { context: '体育人物特写', text: 'He was not a veteran cashing in on his name, but a player who had quietly come back from three surgeries in two years.', zh: '他不是一个靠名字捞最后一桶金的老将，而是两年内做了三次手术、悄悄回到赛场的球员。' },
+      ],
+      adaptingTip: '前半的"假标签"要选读者真的可能这样误判的那一类，越具体越好（a think-tank voice / a public-relations face / a veteran cashing in）。后半的"真身份"必须有一个具体的资格细节挂在后面（fighting Russia for three years / written the first version of the code / come back from three surgeries），否则就只是另一个空标签。',
+    },
+    {
+      id: 'pt3',
+      useCase: '揭示真正分量：与其谈具体提议，不如谈它"逼出了什么问题"',
+      skeleton: '[Yet] the [event] mattered less for [any single thing it proposed] than for [the question / tension / shift it forced into view].',
+      original: 'Yet the Munich speech mattered less for any single proposal than for the question it forced into the open.',
+      sentenceId: 's16',
+      whyItWorks: [
+        '一篇报道的常见烂尾是"逐条总结对方提出了哪些建议"。这个句式把镜头拉远，告诉读者：别盯着那些细节，真正的分量在于它推到桌面上的那个问题。一句话把"小事变大事"完成。',
+        '对读者来说，mattered less for X than for Y 这个比较结构暗暗承诺了一个智识层面的判断：作者已经看完了所有的细节，并替你筛掉了不重要的。读者会信任这种"我替你看过了"的姿态。',
+        '它最适合长报道、社论、年度回顾的倒数第二段，用来把整篇文章从"事件复盘"升级成"意义分析"。最后一段再补一句"那个问题到底是什么"，整篇文章的结构就完整了，本文 s17 正是这么做的。',
+        '一个隐藏要点：Y 那一头必须是一个真正更大的东西（the question / the shift / the precedent / the silence），不能是另一个同级的细节。否则比较失败，整句变成"东边的事不重要，西边的事也不重要"。',
+      ],
+      examples: [
+        { context: '科技年度回顾结尾段', text: 'Yet this launch mattered less for any single feature than for the bargain it asked users to accept.', zh: '不过这次发布的真正分量，不在某一个具体功能，而在它要求用户接受的那个新交易。' },
+        { context: '城市报道结尾', text: 'Yet the new bridge mattered less for the minutes it saved drivers than for the neighborhood it quietly cut in two.', zh: '不过这座新桥的真正分量，不在为司机省下的那几分钟，而在它悄悄把一个社区切成了两半。', note: '小好处对上大代价，比较结构里两边的"量级"差距越大，句子越有力。' },
+        { context: '影评结尾', text: 'Yet the film mattered less for its handful of striking scenes than for the kind of silence it left in the room afterwards.', zh: '不过这部电影的真正分量，不在那几个鲜明的画面，而在散场后留在影厅里的那种安静。' },
+      ],
+      adaptingTip: '比较的两端要级别明显不对等：前半是"看得见的小东西"（a proposal, a feature, a scene, a number），后半是"看不见的大东西"（a question, a bargain, a silence, a precedent）。如果两边都是细节，句式立刻塌；如果两边都太抽象，读者会觉得空。前半越具体、后半越大格局，反差越漂亮。',
+      commonMistake: '不要写成 mattered less for X than because Y。结构是 less for X than for Y，两个 for 必须成对出现，省略其一句子就语法不对了。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'When and where did Zelensky deliver this speech?', options: ['February 15, 2025, at the Munich Security Conference', 'February 14, 2025, at the UN General Assembly', 'February 16, 2025, at a NATO summit in Brussels', 'February 15, 2025, at the Davos forum'], answer: 0, explanation: 'The article opens with the date and venue: the morning of February 15, 2025, at the Munich Security Conference.', sentenceId: 's1' },
+    { id: 'q2', q: 'What event in the days before Munich shaped how the speech was received?', options: ['Russia withdrew from talks with Ukraine', 'A European army was officially launched', "The new American president called Putin and pushed for negotiations without inviting Kyiv or Europe", 'NATO admitted Ukraine as a member'], answer: 2, explanation: 'The article describes a recent Trump-Putin call and the absence of Kyiv and European capitals at the table as the immediate backdrop.', sentenceId: 's3' },
+    { id: 'q3', q: 'According to the article, why does Zelensky argue Ukraine has a special role in any future European force?', options: ['Because Ukraine has the largest population in Europe', "Because its army is the only one in Europe with real, modern combat experience", 'Because Ukraine already leads NATO', 'Because Ukraine has the most advanced weapons in the world'], answer: 1, explanation: 'The article credits Zelensky with the claim that the Ukrainian army has real, modern combat experience that no other European force has.', sentenceId: 's12' },
+    { id: 'q4', q: "What does the article suggest about earlier proposals for a European army?", options: ['They have never been mentioned before Munich', 'They have been discussed for decades but rarely funded', 'They were rejected by all European leaders', 'They were a personal idea of Zelensky'], answer: 1, explanation: 'The article notes that a stand-alone European army has been discussed for decades, often warmly received and rarely funded.', sentenceId: 's15' },
+    { id: 'q5', q: "What is the author's main stance in the closing paragraph?", options: ['That Zelensky overstated the danger and should apologize', 'That the speech mainly matters for the larger question it forced into the open about who defends Europe', 'That a European army will certainly exist within a year', 'That the United States has already left NATO'], answer: 1, explanation: 'The closing lines step back from any single proposal and frame the speech as forcing the question of who, exactly, holds the line.', sentenceId: 's17' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '泽连斯基发表演讲的日期', answer: 'February 15, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '演讲举行的会议名称', answer: 'Munich Security Conference', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '泽连斯基穿的标志性服装', answer: 'a familiar dark sweatshirt', sentenceId: 's1' },
+      { id: 'ig4', cueZh: '美方在演讲前几天与之通话的对象', answer: 'Vladimir Putin', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '泽连斯基呼吁创建的力量名称', answer: 'the armed forces of Europe', sentenceId: 's7' },
+      { id: 'ig6', cueZh: '截至演讲时乌克兰与俄罗斯交战年数', answer: 'three years', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '部分欧洲官员对这次演讲的定性', answer: 'a long overdue wake-up call', sentenceId: 's14' },
+    ],
+    writing: {
+      promptZh: '用表格里的信息，写一段大约 70 词的短文，向一位完全不了解这件事的同学解释 2025 年慕尼黑安全会议上泽连斯基这场演讲：他在哪里、说了什么、为什么这句话被很多人称作一记警钟。',
+      promptEn: "Using the facts in your table, write about 70 words explaining Zelensky's speech at the 2025 Munich Security Conference to a classmate who knows nothing about it: where he spoke, what he said, and why many people called the line a wake-up call.",
+      targetWords: 70,
+      starters: ['On February 15, 2025, Volodymyr Zelensky walked to the podium at ...', 'Part of what gave the speech its weight was ...'],
+      usePatternIds: ['pt1', 'pt2', 'pt3'],
+      modelAnswer:
+        'On February 15, 2025, Volodymyr Zelensky walked to the podium at the Munich Security Conference in a familiar dark sweatshirt and told Europe that the armed forces of Europe must be created. Part of what gave the speech its weight was the speaker: not a think-tank voice imagining a future crisis, but a wartime leader whose country had been fighting Russia for three years. The speech mattered less for any single proposal than for the question it forced into the open.',
+      modelAnswerZh:
+        '2025 年 2 月 15 日，泽连斯基穿着标志性的深色卫衣走上慕尼黑安全会议的讲台，告诉欧洲：必须建立属于欧洲自己的武装力量。这场演讲之所以分量很重，部分原因在于说话的人。他不是某个智库在设想未来危机，而是一位国家与俄罗斯打了三年仗的战时领导人。这场演讲的真正意义，与其说在于某一条具体建议，不如说在于它把一个问题摆到了台面上。',
+    },
+  },
+};

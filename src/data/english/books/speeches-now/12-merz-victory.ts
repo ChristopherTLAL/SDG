@@ -1,0 +1,250 @@
+// Speeches book, Ch.12: Friedrich Merz's Feb 23 2025 victory address signals German independence from the USA (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-02-23',
+    title: "Merz's Late-Night Independence Plea",
+    titleZh: '默茨深夜的「独立」之声',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/12-merz-victory.mp3',
+    wordCount: 348,
+    readingMinutes: 3,
+    editorsNote:
+      "On the night of his election victory, Friedrich Merz used a single sentence to redraw seventy years of German foreign policy. This chapter unpacks how a late-night podium remark became the line everyone was quoting by sunrise.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'It was already past ten on a cold Berlin Sunday when Friedrich Merz stepped up to the podium at CDU headquarters.', zh: '2 月一个寒冷的柏林周日夜里，已经过了十点，弗里德里希·默茨走上 CDU 总部的讲台。' },
+        { id: 's2', en: 'The exit polls had been clear for hours: his Christian Democrats had finished first, and he was about to become chancellor.', zh: '出口民调几个小时前就已经明朗：他领导的基民盟得票第一，他即将成为总理。' },
+        { id: 's3', en: 'What no one quite expected was the line he chose to deliver next.', zh: '没人完全预料到的，是他接下来选择说出的那句话。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: '"My absolute priority," he told the room, "will be to strengthen Europe as quickly as possible so that, step by step, we can really achieve independence from the USA."', zh: '「我的首要任务，」他对在场的人说，「就是尽快加强欧洲的力量，让我们能够一步一步地真正实现对美国的独立。」' },
+        { id: 's5', en: 'For a politician from the CDU, the party that had anchored West Germany inside the transatlantic alliance since 1949, the sentence was unusual.', zh: '对于一位 CDU 政治家来说，这句话不同寻常。这个党派自 1949 年起就把西德牢牢锚定在跨大西洋联盟之内。' },
+        { id: 's6', en: 'Anchors are something you trust. Independence is something you build when trust runs out.', zh: '锚是用来托付信任的，独立则是在信任耗尽时才会去搭建的。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The timing explained part of the shock.', zh: '时机本身就解释了部分震惊。' },
+        { id: 's8', en: 'Only days earlier, the Trump administration had pivoted toward Moscow on Ukraine, opening direct talks without inviting Kyiv or any European capital to the table.', zh: '就在几天前，特朗普政府在乌克兰问题上转向莫斯科，绕开基辅和任何一个欧洲国家直接开启会谈。' },
+        { id: 's9', en: 'European leaders had gathered in Paris that week looking, by most accounts, slightly dazed.', zh: '本周欧洲领导人在巴黎聚会，多数报道说，他们看上去有些茫然。' },
+        { id: 's10', en: 'A senior aide to Emmanuel Macron later called the new American posture a "wake-up siren" for the continent.', zh: '马克龙的一位高级幕僚后来把美国的新姿态称为给欧洲大陆敲响的「警报」。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Merz, watching from Berlin, seemed to have heard the siren and decided to answer in public.', zh: '默茨在柏林一边观察，似乎已经听到了那声警报，并决定公开回应。' },
+        { id: 's12', en: 'Within hours, his words were running on every front page in Europe.', zh: '几个小时之内，他的话就出现在欧洲所有报纸的头版上。' },
+        { id: 's13', en: 'The Frankfurter Allgemeine Zeitung called it a generational shift. The Guardian called it the most striking line ever spoken by an incoming German chancellor.', zh: '《法兰克福汇报》称之为代际转变。《卫报》则称之为德国新任总理曾经讲过的最有冲击力的一句话。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Critics quickly pointed out that the practical road is much longer than the speech.', zh: '批评者很快指出，实际要走的路远比这场演讲长得多。' },
+        { id: 's15', en: 'Europe still depends on American intelligence, American weapons, and the American nuclear umbrella, none of which can be replaced in a single legislative term.', zh: '欧洲仍然依赖美国的情报、美国的武器以及美国的核保护伞，这些没有一项能在一个立法任期内被替代。' },
+        { id: 's16', en: 'Yet even the skeptics conceded that something had shifted that night.', zh: '然而即便是怀疑者也承认，那个夜晚发生了某种转变。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'Part of what gave the moment its weight was the speaker.', zh: '让这个时刻显得有分量的，部分原因在于讲话的人是谁。' },
+        { id: 's18', en: 'Merz had built his career as a transatlantic conservative, a man comfortable in Washington boardrooms.', zh: '默茨一直作为一名跨大西洋保守派建立自己的事业，是那种在华盛顿董事会里轻松自如的人。' },
+        { id: 's19', en: 'When that man, on his victory night, names independence as his absolute priority, the meaning is harder to write off.', zh: '当这样一个人，在他胜选的夜晚把「独立」定为绝对优先事项时，这层意思就更难被一笔带过。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's20', en: 'By morning, the analysts were already arguing about whether Merz had spoken too soon.', zh: '到第二天早上，分析人士已经在争论默茨是不是说得太早了。' },
+        { id: 's21', en: 'The voters who put him there will judge that in time.', zh: '把他送上这个位置的选民，会在适当的时候做出判断。' },
+        { id: 's22', en: 'For one Sunday night, however, a single sentence had quietly reset the expectations of a continent.', zh: '不过就在那个周日夜里，仅仅一句话，已经悄悄重置了整个欧洲大陆的预期。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'podium', lemma: 'podium', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/ˈpəʊdiəm/', defZh: '讲台；演讲台', defEn: 'a small raised platform a speaker stands on', example: 'She stepped onto the podium and waited for the room to settle.', exampleZh: '她走上讲台，等待会场安静下来。' },
+    { id: 'v2', word: 'exit', lemma: 'exit', sentenceId: 's2', level: 2, pos: 'adj.', ipa: '/ˈeksɪt/', defZh: '出口的；离场的（搭配 polls 指出口民调）', defEn: 'taken as people leave a place (as in exit polls)', example: 'The exit polls suggested a close race.', exampleZh: '出口民调显示选情胶着。' },
+    { id: 'v3', word: 'deliver', lemma: 'deliver', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/dɪˈlɪvə(r)/', defZh: '发表（讲话）；传达', defEn: 'to give a speech or message in public', example: 'He delivered a short statement and took no questions.', exampleZh: '他发表了一份简短声明，没有回答问题。' },
+    { id: 'v4', word: 'priority', lemma: 'priority', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/praɪˈɒrəti/', defZh: '优先事项；首要任务', defEn: 'the thing you treat as most important', example: 'Safety has to be the priority on any building site.', exampleZh: '在任何工地上，安全都必须是首要任务。' },
+    { id: 'v5', word: 'strengthen', lemma: 'strengthen', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/ˈstreŋθən/', defZh: '加强；使更强', defEn: 'to make something stronger or more effective', example: 'The new law is meant to strengthen consumer protection.', exampleZh: '这项新法律旨在加强消费者保护。' },
+    { id: 'v6', word: 'achieve', lemma: 'achieve', sentenceId: 's4', level: 1, pos: 'v.', ipa: '/əˈtʃiːv/', defZh: '实现；达成', defEn: 'to succeed in reaching a goal', example: 'They achieved more in six months than the old team did in two years.', exampleZh: '他们在六个月里取得的成果比旧团队两年还多。' },
+    { id: 'v7', word: 'anchored', lemma: 'anchor', sentenceId: 's5', level: 3, pos: 'v.', ipa: '/ˈæŋkəd/', defZh: '锚定；牢牢固定', defEn: 'fixed firmly in one position or alliance', example: 'For decades, the country had anchored itself to the dollar.', exampleZh: '几十年来，这个国家一直把自己锚定在美元之上。' },
+    { id: 'v8', word: 'trust', lemma: 'trust', sentenceId: 's6', level: 1, pos: 'n.', ipa: '/trʌst/', defZh: '信任；信赖', defEn: 'the belief that someone or something is reliable', example: 'Trust between the two governments has clearly cooled.', exampleZh: '两国政府之间的信任明显降温。' },
+    { id: 'v9', word: 'pivoted', lemma: 'pivot', sentenceId: 's8', level: 3, pos: 'v.', ipa: '/ˈpɪvətɪd/', defZh: '转向；策略性转变', defEn: 'made a sharp change in direction or policy', example: 'The company pivoted toward subscription pricing after the third quarter.', exampleZh: '第三季度之后，这家公司转向了订阅制收费。' },
+    { id: 'v10', word: 'dazed', lemma: 'dazed', sentenceId: 's9', level: 4, pos: 'adj.', ipa: '/deɪzd/', defZh: '茫然的；眩晕的', defEn: 'unable to think clearly after a shock', example: 'The witnesses looked dazed even an hour after the crash.', exampleZh: '事故发生一小时后，目击者看上去仍然茫然。' },
+    { id: 'v11', word: 'aide', lemma: 'aide', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/eɪd/', defZh: '助手；幕僚', defEn: 'an assistant to an important official', example: 'A senior aide answered the reporters in her place.', exampleZh: '一位高级幕僚代替她回答了记者提问。' },
+    { id: 'v12', word: 'posture', lemma: 'posture', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈpɒstʃə(r)/', defZh: '姿态；立场', defEn: 'the attitude or position a government takes', example: "The country's new posture on trade alarmed its partners.", exampleZh: '这个国家在贸易问题上的新姿态让伙伴感到警觉。' },
+    { id: 'v13', word: 'siren', lemma: 'siren', sentenceId: 's10', level: 3, pos: 'n.', ipa: '/ˈsaɪrən/', defZh: '警报；汽笛', defEn: 'a loud warning sound, or what acts like one', example: 'The report read like a siren for the regulator.', exampleZh: '这份报告读起来就像给监管机构敲响的警报。' },
+    { id: 'v14', word: 'striking', lemma: 'striking', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；震撼的', defEn: 'unusual enough to grab attention', example: 'The most striking thing about the room was the silence.', exampleZh: '房间里最引人注目的是那种安静。' },
+    { id: 'v15', word: 'umbrella', lemma: 'umbrella', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/ʌmˈbrelə/', defZh: '保护伞；庇护', defEn: 'a wider system of protection (here: nuclear umbrella)', example: 'The smaller members rely on the same security umbrella.', exampleZh: '体量较小的成员国依赖着同一把安全保护伞。' },
+    { id: 'v16', word: 'replaced', lemma: 'replace', sentenceId: 's15', level: 1, pos: 'v.', ipa: '/rɪˈpleɪst/', defZh: '替代；替换', defEn: 'put something new in the place of something else', example: 'The damaged cables will have to be replaced this winter.', exampleZh: '受损的电缆今年冬天就得替换。' },
+    { id: 'v17', word: 'skeptics', lemma: 'skeptic', sentenceId: 's16', level: 4, pos: 'n.', ipa: '/ˈskeptɪks/', defZh: '怀疑论者；存疑的人', defEn: 'people who doubt a claim or plan', example: 'Even the skeptics admitted the early data looked promising.', exampleZh: '连怀疑者也承认早期数据看上去不错。' },
+    { id: 'v18', word: 'conceded', lemma: 'concede', sentenceId: 's16', level: 4, pos: 'v.', ipa: '/kənˈsiːdɪd/', defZh: '承认；让步', defEn: 'admitted that something is true, often reluctantly', example: 'The minister conceded that the rollout had been too slow.', exampleZh: '部长承认这项推行过于缓慢。' },
+    { id: 'v19', word: 'write off', lemma: 'write off', sentenceId: 's19', level: 3, pos: 'phr. v.', ipa: '/raɪt ɒf/', defZh: '一笔带过；视而不见', defEn: 'to dismiss something as unimportant', example: 'It would be a mistake to write off her warning this early.', exampleZh: '这么早就把她的警告一笔带过，将是个错误。' },
+    { id: 'v20', word: 'reset', lemma: 'reset', sentenceId: 's22', level: 2, pos: 'v.', ipa: '/ˌriːˈset/', defZh: '重置；重新设定', defEn: 'to set something back to a new starting point', example: 'The court ruling effectively reset the conversation about privacy.', exampleZh: '这项法院裁决实际上重置了关于隐私的讨论。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '把"出乎意料的是什么"放到句子最前',
+      pattern: 'What [clause] is/was [the unexpected thing]',
+      sentenceIds: ['s3', 's17'],
+      explanationZh: [
+        '中文写"没人预料到他接下来要说的话"，主语很自然就是"没人"。英文里如果作者想强调的是"那句话本身"而不是"没人"，常常会换一个角度：把"那件出乎意料的事"拉到主语位置，用 What 引导。',
+        '看第 3 句：What no one quite expected was the line he chose to deliver next。原本可以写成 No one quite expected the line he chose to deliver next，但作者用 What 起句，相当于把镜头对准了"那句话"，让读者带着"到底是什么话"的期待往下读。第 17 句 Part of what gave the moment its weight was the speaker 用的也是同样的手法。',
+        '什么时候用：写新闻特写、人物专访、议论文段落开头的时候很好用，尤其当你想让读者在读完前半句之后停一下、再期待后半句揭晓。它把信息延后了一拍，节奏感更强。',
+        '一个容易被忽略的细节：What 引导的名词性从句整体被当作单数处理，所以中间的系动词通常是 is 或 was，而不是 are 或 were，即便后面跟的是一个复数名词。',
+      ],
+      examples: [
+        { en: 'What surprised the committee was how cheaply the prototype had been built.', zh: '让委员会意外的是，这个原型机造得有多便宜。', note: '把"出乎意料的是什么"放到主语位置，比 The committee was surprised by… 更聚焦。' },
+        { en: 'What the manager forgot to mention was the deadline.', zh: '经理忘了提的，是截止日期。' },
+        { en: 'What he liked most about the city was the quiet of its mornings.', zh: '他最喜欢这座城市的，是清晨的安静。' },
+        { en: "What the report carefully avoided was any mention of the missing files.", zh: '这份报告小心翼翼回避的，是那些丢失文件的事。' },
+        { en: 'What gave the speech its punch was the long pause before the final line.', zh: '让这场演讲有冲击力的，是结尾前的那段长时间停顿。' },
+      ],
+      commonMistake: '不要写成 What no one expected were the lines he chose。What 引导的整体是单数主语，即便后面跟的是 lines 这种复数名词，系动词也应该是 was。',
+      vsSimilar: 'It-cleft 也能强调，结构是 It was X that…，但它倾向于强调一个具体的"东西"或"人"；What-cleft 强调的是"一个内容、一件事、一种动作"，更适合带出后面要展开的整句信息。',
+    },
+    {
+      id: 'g2',
+      title: '用 none of which 把"补充信息"挂在句末',
+      pattern: '主句 + ", none of which + 谓语"',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '想表达"列出几样东西，然后整体加一句评价"，中文一般会另起一句：欧洲依赖美国的情报、武器和核保护伞，但这些没有一项能短期被替代。英文里更紧凑的做法，是用逗号加 none of which 把第二句"挂"在第一句末尾。',
+        '看第 15 句：…American intelligence, American weapons, and the American nuclear umbrella, none of which can be replaced in a single legislative term。前面列了三样东西，作者没有另起一句，而是直接用 , none of which 把对这三样东西的整体判断接了上去。读起来一气呵成。',
+        '什么时候用：议论文、政策分析、长报道里非常常见，尤其在列举完几项之后要立刻给出一个评价时。它比 "All of these can\'t be replaced" 这种另起一句的写法更密。',
+        '一个细节：none of which 后面跟单数还是复数动词都可以，但默认搭配单数（can be replaced 而不是 can be），因为 none 在书面语中常被处理成 not one。如果你想强调"全体当中没有一个"，单数动词读起来更稳。',
+      ],
+      examples: [
+        { en: 'She offered three reasons for the delay, none of which convinced the committee.', zh: '她为延期给出了三个理由，没有一个能说服委员会。' },
+        { en: 'The proposal listed five new taxes, none of which had appeared in the campaign.', zh: '这份提案列了五项新税，没有一项在竞选时出现过。' },
+        { en: 'He owns three watches, none of which actually keeps accurate time.', zh: '他有三块手表，没有一块走时是准的。', note: '列举之后直接挂一句反讽式评价，比另起一句更轻巧。' },
+        { en: 'The article cites four studies, none of which has been peer-reviewed.', zh: '这篇文章引用了四项研究，没有一项经过同行评审。' },
+        { en: 'They proposed two routes, neither of which the residents had been consulted about.', zh: '他们提出了两条路线，居民对其中任何一条都没有被征询意见。', note: '只有两项时用 neither of which，逻辑相同。' },
+      ],
+      commonMistake: '不要写成 American intelligence, weapons, and the umbrella, and none of them can be replaced。重复用 and 加 them 太松散；用一个逗号加 none of which 就够了。',
+    },
+    {
+      id: 'g3',
+      title: '用 even 把怀疑者也拉进来加重语气',
+      pattern: '"Yet even [怀疑者/最不该认同的人] + 动词"',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '想说"连最不该认同这件事的人都认同了"，中文常用"连……都……"。英文里非常顺的写法，是用 even 配上一个"最不该认同的群体"作主语，把语气一下子加重。',
+        '看第 16 句：Yet even the skeptics conceded that something had shifted that night。作者没有写 The skeptics conceded… 或 Many people agreed…，而是把主语换成"连怀疑者都"。这一下，读者会觉得"如果连他们都承认了，那这件事一定不小"。Yet 起句又给整句加了一点克制感。',
+        '什么时候用：议论文、新闻评论、个人陈述里都很好用，尤其在你要承认对方阵营的观点之后给出一个让步：连他们都开始……。这是一种很有力量的修辞让步。',
+        '一个隐藏要点：even 后面那个"最不该认同的人"必须是读者本能里"应该反对"的人。如果选错了对象（比如选支持者），整个反差就消失了。',
+      ],
+      examples: [
+        { en: 'Yet even the harshest critics admitted that the renovation had improved the neighborhood.', zh: '然而连最严厉的批评者也承认，这次翻修让街区有了改善。' },
+        { en: 'Even the cautious investors began moving money into the sector last quarter.', zh: '上个季度，连最谨慎的投资者也开始把钱投入这个行业。' },
+        { en: 'Even her opponents agreed that the proposal deserved a proper hearing.', zh: '连她的反对者也同意，这项提案值得一次正式的听证。', note: 'even 后面接的是"对手"，让步效果最明显。' },
+        { en: 'Yet even the manufacturers conceded that the recall had come too late.', zh: '然而连制造商自己也承认，这次召回已经太迟。' },
+      ],
+      commonMistake: '不要把 even 后面跟一个"理应支持"的群体：Even her supporters agreed that the proposal was good。如果支持者本来就应该支持，even 就失去了"连他们都……"的反差效果。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '用一对短句把两个抽象概念对立起来',
+      skeleton: '[抽象概念 A] is something you [动作 A]. [抽象概念 B] is something you [动作 B 当 A 的条件失效时].',
+      original: 'Anchors are something you trust. Independence is something you build when trust runs out.',
+      sentenceId: 's6',
+      whyItWorks: [
+        '这个句式的力量来自"两步走"加上对称结构：第一句先给出一个看似温和的概念（Anchors / 信任），第二句把"反面情境"端上来（Independence / 信任耗尽时）。结构完全平行，但意思在第二句突然转向，落差就出来了。',
+        '对读者来说，第一句几乎是教科书式的真理，毫无攻击性，读者会点头同意。等到第二句沿用同样的句式给出另一个判断，读者已经被节奏带进来了，那个反差就显得格外结实，不像是在喊口号。',
+        '它最适合放在段落的转折处，或者整篇文章的"小高潮"位置，作者刚刚铺了一个事实，需要一句话把读者从"接受事实"推到"理解意义"。议论文、专栏、人物特写里都好用。',
+        '一个隐藏要点：两个抽象概念必须是真正对立的状态（信任 vs 独立、依赖 vs 自主、相信 vs 验证），而不是相近的同义词。落差越真，整个句子就越站得住。',
+      ],
+      examples: [
+        { context: '写一篇关于自由职业的反思', text: 'A job is something you accept. A career is something you assemble when no one is offering one.', zh: '工作是你接受的东西，事业是没人提供给你时你自己拼起来的东西。' },
+        { context: '议论文中段', text: 'Rules are something you obey. Principles are something you keep when the rules stop making sense.', zh: '规则是用来服从的，原则是规则失灵之后你仍然守住的东西。', note: '后半句给"原则"加上了一个特定情境，读起来比单独说"原则更重要"有力。' },
+        { context: '个人陈述结尾', text: "Encouragement is something you receive. Confidence is something you build the morning after no one shows up.", zh: '鼓励是别人给的，自信是没人到场的第二天早上你自己搭起来的。' },
+      ],
+      adaptingTip: '两边的"抽象概念"要选真正对立的一对，而不是同义词。第二句末尾那个 when 引导的条件最好具体一点（信任耗尽时、规则失灵时、没人提供时），这是整个句子最有质感的地方。这是结尾或转折模板，不适合放在段落开头。',
+      commonMistake: '不要让两个概念几乎是同义词：Loyalty is something you give. Trust is something you give too。两边都是"给"，没有对立，读起来像同一句话讲了两遍。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用 "Part of what makes X Y is Z" 解释"为什么这件事有分量"',
+      skeleton: 'Part of what [made / gave] [事件/人物] [its 抽象品质] [is/was] [具体原因].',
+      original: 'Part of what gave the moment its weight was the speaker.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式很巧妙的地方在于 Part of 这两个字。它先承认"原因不止一个"，于是读者会觉得作者很克制、不武断；接着用 what gave/made X Y 把"这件事的某个品质"框出来，最后给出一个具体的答案。读者跟着这个节奏被引导到关键词上。',
+        '对读者来说，这种"先框定品质、再揭示原因"的两段式比直接说 X is special because… 更稳重。Part of 暗示后面还有别的解释，但你这一段先讲这一条，这是一种自信但不专断的语气。',
+        '它最适合放在分析段的开头，把你接下来要展开的"那个原因"摆到桌面上。新闻特写、政策分析、人物深度报道里都常见，因为它的节奏给后续解释留出了空间。',
+        '一个细节：is/was 后面接的最好是一个具体的名词或短语（the speaker, the timing, the silence），不要填一个空泛的形容词。越具体，后文越好展开。',
+      ],
+      examples: [
+        { context: '影评开头', text: 'Part of what gives the film its quiet power is the way it refuses to explain itself.', zh: '让这部电影具有那种安静力量的，部分原因在于它拒绝解释自己。' },
+        { context: '城市观察', text: 'Part of what made the neighborhood feel safe was the simple fact that everyone walked home at the same time.', zh: '让这个街区有安全感的，部分原因在于一个简单的事实：大家都在同一时间走回家。', note: 'is/was 后面用一个 the fact that… 从句把"具体原因"说得很扎实。' },
+        { context: '个人陈述中段', text: 'Part of what made that internship valuable was the moment my supervisor admitted she did not know the answer.', zh: '那次实习真正有价值的部分，在于我的主管承认她不知道答案的那一刻。' },
+      ],
+      adaptingTip: 'is/was 后面要填一个可以再展开的"具体原因"（the speaker, the timing, the silence），后文最好接着把这个原因讲透。用 Part of 是故意留余地，所以你下一段最好真能再补一条原因，否则 Part of 就成了空话。',
+    },
+    {
+      id: 'pt3',
+      useCase: '用一句"事后回望"的话给文章收尾',
+      skeleton: 'For [短暂时间], however, [一件小事] had quietly [完成的大事].',
+      original: 'For one Sunday night, however, a single sentence had quietly reset the expectations of a continent.',
+      sentenceId: 's22',
+      whyItWorks: [
+        '这个收尾的力量来自三个对比：时间很短（one Sunday night）vs 影响很广（a continent）；动作很小（a single sentence）vs 结果很大（reset the expectations）；动作的方式很轻（quietly）vs 改变的分量很重。三层对比叠在一句话里，读完之后画面就停在那里。',
+        '对读者来说，had quietly 这个完成时加副词的组合是关键。完成时把镜头拉远，让读者意识到这件事已经发生完毕；quietly 又把声音压下来，仿佛作者只是在做一个事后陈述，而不是在喊口号。越克制，越显得有分量。',
+        '它最适合放在文章最后一段、甚至最后一句。前文已经把事实和争论铺完，这一句负责把整件事"封进一个小框里"，让读者带着画面感离开。新闻特写、专栏、随笔的收尾都好用。',
+        '一个隐藏要点：前半的时间一定要短、要具体（one Sunday night, that single afternoon, those forty minutes），后半的影响要明显比它大。如果时间本来就长，"对比"就消失了，整句就变得平淡。',
+      ],
+      examples: [
+        { context: '科技评论收尾', text: 'For one keynote, however, a thirty-second demo had quietly redrawn the industry roadmap.', zh: '但就在那一场主题演讲里，一段三十秒的演示已经悄悄改写了整个行业的路线图。' },
+        { context: '体育长文结尾', text: 'For one final set, however, a tired forehand had quietly ended an era.', zh: '但就在最后一盘里，一记疲惫的正手球已经悄悄结束了一个时代。', note: '时间短、动作小，结果是"结束一个时代"，三层对比堆叠在一起。' },
+        { context: '社会观察结尾', text: 'For one afternoon, however, a closed library had quietly reminded the town what it stood to lose.', zh: '但就在那一个下午，一座关上门的图书馆已经悄悄提醒了整座小城，它会失去什么。' },
+      ],
+      adaptingTip: '前半的时间单位要短而具体（one night / one afternoon / one set），后半的结果要明显大于这个时间单位能承载的（a continent, an era, an industry）。中间的 quietly 不要换成 dramatically 或 suddenly，正因为是"悄悄地"，才有那种事后回望的余味。',
+      commonMistake: '不要把前后两端的体量写得对等：For one entire decade, however, a long campaign had quietly changed several laws。时间长、动作大、结果也大，三层对比全部消失，整句就变成普通陈述。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what did Merz say his absolute priority would be?', options: ['Lowering taxes on German exports', 'Strengthening Europe so it can achieve independence from the USA', 'Building a new coalition with the AfD', 'Restoring trust with Moscow'], answer: 1, explanation: 'The article quotes his line about strengthening Europe so that, step by step, it can achieve independence from the USA.', sentenceId: 's4' },
+    { id: 'q2', q: 'Why did the timing of the line surprise so many observers?', options: ['Germany had just lost an election', 'It came days after the Trump administration opened direct Ukraine talks with Moscow without Europe at the table', 'Macron had asked Merz not to speak that night', 'CDU had governed alone for a decade'], answer: 1, explanation: 'The article links the shock to the recent American pivot toward Moscow on Ukraine, which sidelined Kyiv and European capitals.', sentenceId: 's8' },
+    { id: 'q3', q: 'How did European leaders gathered in Paris reportedly look that week?', options: ['Triumphant', 'Slightly dazed', 'Quietly amused', 'Tightly coordinated'], answer: 1, explanation: 'The article says European leaders gathered in Paris looking slightly dazed by most accounts.', sentenceId: 's9' },
+    { id: 'q4', q: 'What did the critics quoted in the article point out?', options: ['That the speech was too short', 'That Europe still depends on American intelligence, weapons, and the nuclear umbrella, which cannot be replaced in one term', 'That Merz never actually mentioned the USA', 'That the CDU had won by a tiny margin'], answer: 1, explanation: 'The article lists those three American supports and says none of them can be replaced in a single legislative term.', sentenceId: 's15' },
+    { id: 'q5', q: "What is the writer's overall attitude toward the moment?", options: ['Dismissive: it was empty rhetoric', 'Alarmed: Europe is in danger', 'Measured: the practical road is long, but a real shift happened that night', 'Triumphant: independence has been achieved'], answer: 2, explanation: 'The closing lines acknowledge that the practical road is long while insisting that a single sentence quietly reset a continent\'s expectations.', sentenceId: 's22' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '默茨所在的政党', answer: 'CDU', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '他演讲的城市', answer: 'Berlin', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '他承诺要加快加强的地区', answer: 'Europe', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '美国近期在乌克兰问题上转向的对象', answer: 'Moscow', sentenceId: 's8' },
+      { id: 'ig5', cueZh: '欧洲领导人本周聚会的城市', answer: 'Paris', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '马克龙的幕僚把美国新姿态称为什么', answer: 'wake-up siren', sentenceId: 's10' },
+      { id: 'ig7', cueZh: '默茨长期以来被视为哪种类型的保守派', answer: 'transatlantic', sentenceId: 's18' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向同学解释 2025 年 2 月 23 日默茨的胜选演讲为什么引发关注：他是谁、他说了什么、当时的背景是什么。',
+      promptEn: "Using the facts in your table, write about 70 words explaining why Friedrich Merz's victory speech on February 23, 2025 attracted attention: who he is, what he said, and what was happening around him.",
+      targetWords: 70,
+      starters: ['Friedrich Merz is the CDU leader who ...', 'Part of what made the speech striking was ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        'Friedrich Merz is the CDU leader who won the German election on February 23, 2025. From a podium in Berlin, he said his absolute priority would be to strengthen Europe so that it can achieve independence from the USA. Part of what made the speech striking was the timing, only days after the Trump administration had pivoted toward Moscow on Ukraine. For one Sunday night, however, a single sentence had quietly reset the expectations of a continent.',
+      modelAnswerZh:
+        '弗里德里希·默茨是 2025 年 2 月 23 日赢得德国大选的 CDU 领导人。在柏林的一处讲台上，他表示自己的首要任务将是加强欧洲，使欧洲能够实现对美国的独立。这场演讲之所以引人注目，部分原因在于时机：就在几天前，特朗普政府在乌克兰问题上转向了莫斯科。但就在那个周日夜里，仅仅一句话，已经悄悄重置了整个欧洲大陆的预期。',
+    },
+  },
+};

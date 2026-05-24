@@ -1,0 +1,243 @@
+// Speeches That Made News, Ch.15: Nihon Hidankyo's 2024 Nobel Peace Prize lecture in Oslo (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-12-10',
+    title: 'The Hibakusha Take the Nobel Stage',
+    titleZh: '广岛长崎幸存者走上诺奖讲台',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/15-hidankyo-nobel.mp3',
+    wordCount: 348,
+    readingMinutes: 5,
+    editorsNote:
+      "Most Nobel Peace lectures are given by activists or politicians. The 2024 lecture was given by a 92-year-old man describing the morning his city burned. This chapter unpacks how Terumi Tanaka used one personal memory to warn a roomful of diplomats that the nuclear taboo is slipping.",
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On December 10, 2024, in the Oslo City Hall, a 92-year-old man named Terumi Tanaka stood up to accept the Nobel Peace Prize on behalf of Nihon Hidankyo, the Japanese organization of atomic bomb survivors.', zh: '2024 年 12 月 10 日，奥斯陆市政厅里，92 岁的田中熙巳代表日本原子弹爆炸幸存者团体「日本被团协」，走上台领取诺贝尔和平奖。' },
+        { id: 's2', en: 'He did not begin with politics. He began with a single August morning in 1945.', zh: '他没有从政治讲起。他从 1945 年 8 月的某一个早晨讲起。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'Tanaka was thirteen years old when the second atomic bomb fell on Nagasaki.', zh: '当第二颗原子弹落在长崎时，田中熙巳只有 13 岁。' },
+        { id: 's4', en: 'His family home, a few kilometers from the blast, was crushed in seconds.', zh: '他家的房子离爆炸中心只有几公里，几秒钟之内就被压垮了。' },
+        { id: 's5', en: 'In the days that followed, the teenager walked through neighborhoods that no longer had names, and he found the charred body of one of his aunts.', zh: '在随后的几天里，这位少年走过那些已经叫不出名字的街区，找到了一位姑姑被烧焦的遗体。' },
+        { id: 's6', en: 'His grandfather, badly burned, died in front of him.', zh: '他的祖父烧伤严重，在他眼前去世。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'For nearly seventy years, Tanaka had been telling that story.', zh: '将近七十年里，田中一直在讲这段经历。' },
+        { id: 's8', en: 'Nihon Hidankyo, founded by survivors in 1956, had built its entire mission on this kind of testimony.', zh: '1956 年由幸存者们创立的「日本被团协」，整个使命就建立在这种亲历者的证词之上。' },
+        { id: 's9', en: 'The Norwegian Nobel Committee said the prize was given for one thing above all: the survivors had shown, through their own voices, that nuclear weapons must never be used again.', zh: '挪威诺贝尔委员会表示，颁奖最核心的理由只有一条：这些幸存者用他们自己的声音，证明了核武器绝不能再被使用。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'Yet the speech in Oslo was not really about the past.', zh: '然而在奥斯陆的这场演讲，其实并不是在讲过去。' },
+        { id: 's11', en: 'Tanaka warned that the so-called nuclear taboo, the global understanding that these weapons must stay in storage, was beginning to weaken.', zh: '田中提醒大家：那条被称为「核禁忌」的国际共识，也就是核武器必须留在仓库里这个默契，正在开始松动。' },
+        { id: 's12', en: 'Russia had threatened to use such weapons in Ukraine. Other governments had spoken too loosely about them.', zh: '俄罗斯曾在乌克兰战争中威胁动用这类武器。还有一些政府对它们的谈论也越来越随意。' },
+        { id: 's13', en: 'He told the room that he was infinitely saddened and angered that the taboo was now in danger of breaking.', zh: '他对全场说，看到这条禁忌如今面临被打破的风险，他感到无尽的悲伤与愤怒。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Then he said something the audience did not expect.', zh: '接着，他说了一句听众没有想到的话。' },
+        { id: 's15', en: 'Ten years from now, he told them, only a handful of firsthand survivors would still be alive to speak.', zh: '他告诉他们，再过十年，能够亲口作证的幸存者，将只剩下少数几个人。' },
+        { id: 's16', en: 'The weight of the testimony, he said, would have to pass to people who had never seen the fire themselves.', zh: '亲历者的证词所承载的分量，他说，将必须交到那些从未亲眼见过那场大火的人手里。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: "It is a strange thing to watch an old man receive a prize and spend most of his speech worrying about who will speak after him.", zh: '看着一位老人领奖，却把演讲的大部分时间花在担忧自己之后还有谁能开口，这本身就是件少见的事。' },
+        { id: 's18', en: 'Tanaka was not asking the room to remember Nagasaki. He was asking the room to take over.', zh: '田中没有请在场的人去记住长崎。他请的是在场的人，接过这件事。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'accept', lemma: 'accept', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/əkˈsept/', defZh: '接受；接收（奖项、邀请）', defEn: 'to receive something offered, often with thanks', example: 'She traveled to Geneva to accept the award in person.', exampleZh: '她亲自前往日内瓦领受这个奖项。' },
+    { id: 'v2', word: 'behalf', lemma: 'behalf', sentenceId: 's1', level: 3, pos: 'n.', ipa: '/bɪˈhɑːf/', defZh: '代表（on behalf of）', defEn: 'in the name of or as a representative of', example: 'He signed the letter on behalf of the entire team.', exampleZh: '他代表整个团队在信上签了字。' },
+    { id: 'v3', word: 'survivors', lemma: 'survivor', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/səˈvaɪvəz/', defZh: '幸存者；活下来的人', defEn: 'people who continue to live after a serious event', example: 'A small group of survivors met every year on the same date.', exampleZh: '一小群幸存者每年在同一天聚一次。' },
+    { id: 'v4', word: 'blast', lemma: 'blast', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/blɑːst/', defZh: '爆炸；冲击波', defEn: 'a sudden, powerful explosion or its shock wave', example: 'Windows across the street shattered in the blast.', exampleZh: '街对面的窗户在那场爆炸中全部碎裂。' },
+    { id: 'v5', word: 'crushed', lemma: 'crush', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/krʌʃt/', defZh: '压垮；挤碎', defEn: 'broken or flattened by a heavy force', example: 'The empty cans were crushed and sent for recycling.', exampleZh: '空罐子被压扁后送去回收。' },
+    { id: 'v6', word: 'charred', lemma: 'char', sentenceId: 's5', level: 4, pos: 'adj.', ipa: '/tʃɑːd/', defZh: '烧焦的；焦黑的', defEn: 'burned and blackened on the outside', example: 'They walked past the charred remains of the old library.', exampleZh: '他们走过那座旧图书馆烧焦的残骸。' },
+    { id: 'v7', word: 'burned', lemma: 'burn', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/bɜːnd/', defZh: '烧伤；灼伤', defEn: 'injured by fire or heat', example: 'He had been badly burned in the kitchen accident.', exampleZh: '他在厨房事故中被严重烧伤。' },
+    { id: 'v8', word: 'testimony', lemma: 'testimony', sentenceId: 's8', level: 4, pos: 'n.', ipa: '/ˈtestɪməni/', defZh: '证词；亲历者的陈述', defEn: 'a formal statement, especially given as evidence', example: 'The trial turned on the testimony of a single eyewitness.', exampleZh: '整个庭审的关键就在那位唯一目击者的证词上。' },
+    { id: 'v9', word: 'Committee', lemma: 'committee', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/kəˈmɪti/', defZh: '委员会', defEn: 'a small group chosen to handle a specific task', example: 'A new committee was set up to review the school rules.', exampleZh: '校方成立了一个新的委员会，专门审议校规。' },
+    { id: 'v10', word: 'voices', lemma: 'voice', sentenceId: 's9', level: 1, pos: 'n.', ipa: '/ˈvɔɪsɪz/', defZh: '声音；发声（也指意见、立场）', defEn: 'the sounds people make when they speak; also their public opinions', example: 'The report tried to include voices from every neighborhood.', exampleZh: '这份报告努力把每个社区的声音都收进来。' },
+    { id: 'v11', word: 'warned', lemma: 'warn', sentenceId: 's11', level: 2, pos: 'v.', ipa: '/wɔːnd/', defZh: '提醒；警告', defEn: 'told someone about possible danger or trouble', example: 'The teacher warned us that the next chapter would be much harder.', exampleZh: '老师提醒我们，下一章会难得多。' },
+    { id: 'v12', word: 'taboo', lemma: 'taboo', sentenceId: 's11', level: 4, pos: 'n.', ipa: '/təˈbuː/', defZh: '禁忌；不可触碰的规范', defEn: 'a strong social or moral rule against doing something', example: 'In many cultures, talking openly about money is still a taboo.', exampleZh: '在许多文化里，公开谈论金钱仍然是一种禁忌。' },
+    { id: 'v13', word: 'storage', lemma: 'storage', sentenceId: 's11', level: 3, pos: 'n.', ipa: '/ˈstɔːrɪdʒ/', defZh: '存放；储存（处）', defEn: 'the keeping of things in a particular place until needed', example: 'The old photographs had been in storage for thirty years.', exampleZh: '那些旧照片已经被存放了三十年。' },
+    { id: 'v14', word: 'weaken', lemma: 'weaken', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/ˈwiːkən/', defZh: '减弱；松动；变得脆弱', defEn: 'to become less strong or less stable', example: 'Years of bad weather had weakened the bridge.', exampleZh: '多年的恶劣天气让这座桥变得脆弱。' },
+    { id: 'v15', word: 'threatened', lemma: 'threaten', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/ˈθretnd/', defZh: '威胁；扬言要做', defEn: 'said something would be done in order to frighten others', example: 'The company threatened to leave the city if taxes rose again.', exampleZh: '这家公司扬言，如果税再涨，就要离开这座城市。' },
+    { id: 'v16', word: 'loosely', lemma: 'loosely', sentenceId: 's12', level: 4, pos: 'adv.', ipa: '/ˈluːsli/', defZh: '不严谨地；随意地', defEn: 'in a careless or imprecise way', example: 'The term has been used so loosely that it has lost meaning.', exampleZh: '这个词被用得太随意，已经失去了原本的含义。' },
+    { id: 'v17', word: 'saddened', lemma: 'sadden', sentenceId: 's13', level: 3, pos: 'adj.', ipa: '/ˈsædnd/', defZh: '感到悲伤的；悲痛的', defEn: 'made unhappy by something', example: 'She seemed deeply saddened by the closing of her old school.', exampleZh: '老学校关停的消息，让她显得格外伤感。' },
+    { id: 'v18', word: 'firsthand', lemma: 'firsthand', sentenceId: 's15', level: 3, pos: 'adj.', ipa: '/ˌfɜːstˈhænd/', defZh: '亲历的；第一手的', defEn: 'coming directly from one\'s own experience', example: 'Few reporters had firsthand knowledge of the village.', exampleZh: '几乎没有记者真正去过那个村子，掌握第一手情况。' },
+    { id: 'v19', word: 'weight', lemma: 'weight', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/weɪt/', defZh: '分量；重量（也用作比喻）', defEn: 'how heavy something is; also its importance or seriousness', example: 'Her quiet sentence carried more weight than any of the speeches.', exampleZh: '她那句安静的话，比任何演讲都更有分量。' },
+    { id: 'v20', word: 'handful', lemma: 'handful', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ˈhændfʊl/', defZh: '少数；一小撮', defEn: 'a small number of people or things', example: 'Only a handful of students stayed for the final discussion.', exampleZh: '只有少数几个学生留到了最后的讨论。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 had done 把"主线之前的更早一层"垫在叙事下面',
+      pattern: 'had + 过去分词',
+      sentenceIds: ['s7', 's8', 's12'],
+      explanationZh: [
+        '中文讲故事时，"早就、一直、之前"这种词足够交代时间层次。英文里，当主线已经在过去（站上台、做了演讲），而你想再往后退一步交代"在那之前还发生过什么"，就要换上 had 加过去分词，把更早的一层垫到叙事下面。',
+        '看第 7 句：For nearly seventy years, Tanaka had been telling that story。主线是 2024 年那场演讲，had been telling 把"七十年里反复讲述"这件更早、更长的事压在主线下面，让读者明白这位老人不是临时起意。第 8 句 Nihon Hidankyo ... had built its entire mission on this kind of testimony 也是同理：组织早在 1956 年就成立了，建立使命这件事在领奖之前已经完成，所以要用 had built。',
+        '什么时候用：人物特写、深度新闻、回忆性散文里，凡是"现在节点上回望更早的事"，过去完成时几乎不可避免。它给读者一个清晰的时间感：哪一层是当下的镜头，哪一层是背景。',
+        '一个容易疏忽的细节：如果两件事没有"先后差"，就别硬塞 had。"他走进房间，关上门"是一段连贯动作，全部用过去式即可。had 只服务于"比主线更早"这一层意思，乱用反而会让句子读起来卡顿。',
+      ],
+      examples: [
+        { en: 'By the time the verdict was read, the family had already left the courtroom.', zh: '判决宣读时，那家人已经离开了法庭。', note: 'was read 是主线，had left 把更早完成的"离开"垫在下面。' },
+        { en: 'She finally answered the email, even though the offer had expired the week before.', zh: '她终于回复了邮件，尽管那份录用通知一周前就已经过期了。' },
+        { en: 'When the interviewer arrived, the candidate had been waiting for over an hour.', zh: '面试官到的时候，候选人已经等了一个多小时。' },
+        { en: 'He returned to the lab he had quietly left ten years earlier.', zh: '他回到了那个十年前自己悄悄离开的实验室。' },
+        { en: 'The book mattered to her because her father had read it aloud to her as a child.', zh: '这本书对她有特别的意义，因为小时候父亲曾把它一句句读给她听。' },
+      ],
+      commonMistake: '不要写成 For nearly seventy years, Tanaka was telling that story。主线已经在过去（2024 年的演讲），"七十年里反复讲述"是更早一层，要用 had been telling。简单过去式 was telling 会让两层时间挤在同一个平面上，先后差消失。',
+      vsSimilar: '一般过去式（told）只说"那件事发生过"，时间是平的；过去完成时（had told）能在过去里再挖一层，告诉读者"这比刚才那件事更早"。问自己：我是不是站在一个已经过去的节点上，回望更早的事？',
+    },
+    {
+      id: 'g2',
+      title: '用 Yet 起句，比 But 更克制、更书面',
+      pattern: 'Yet [对立的陈述]',
+      sentenceIds: ['s10'],
+      explanationZh: [
+        '日常英文里，让步常用 But 开头：But the speech in Oslo was not really about the past. 这没问题，可放在演讲、新闻特写、社论这种正式语境里会略显生硬。换成 Yet 开头，立刻有了一种克制、文人式的转折，仿佛说话人停顿了一拍，才接下文。',
+        '看第 10 句：Yet the speech in Oslo was not really about the past。前一段刚讲完幸存者们如何用证词换来诺奖（一种"回望过去"的姿态），这里用 Yet 把读者拉回当下：演讲真正的着力点其实在未来。Yet 比 But 多了一份"我承认前面说的，但我想再翻一层"的姿态，分量更稳。',
+        '什么时候用：新闻特写从"背景介绍"切到"今日重点"时、议论文段落由让步转向反驳时、人物特写里需要承认与转折并存时，都很合适。Yet 自带一种从容感，适合作者想显得思考过、而不是临场反应的场合。',
+        '一个细节：Yet 单用可以放句首，And yet 比单用更柔和，节奏上多一个小停顿。Yet 后面通常直接接主语，不需要加逗号；And yet 后面一般会加逗号。两者随语气挑一个即可，同一篇里别频繁混用。',
+      ],
+      examples: [
+        { en: 'The data looked perfect. Yet every reviewer had the same quiet doubt.', zh: '数据看起来完美无缺。然而每一位审稿人，心里都有同一个安静的疑虑。', note: 'Yet 单用，比 But 更书面，也保留了承认与转折并存的语气。' },
+        { en: 'He gave the worst interview of his career. Yet the offer arrived the next morning.', zh: '他做了职业生涯里最糟的一次面试。然而第二天早上，录用通知却到了。' },
+        { en: 'The town lost almost everything in the flood. Yet every family stayed.', zh: '那场洪水几乎冲走了整个小镇的一切。然而每一户人家都留了下来。' },
+        { en: 'She had every reason to refuse. Yet she boarded the plane that night.', zh: '她有十足的理由拒绝。然而那天晚上，她还是登上了那班飞机。' },
+        { en: 'The plan looked impossible on paper. Yet every step in it had been done somewhere before.', zh: '这个计划在纸面上看几乎不可能。然而其中的每一步，在别处其实早已有人做过。' },
+      ],
+      vsSimilar: 'But 是口语首选，节奏快、对话感强；Yet 偏书面，带一点反思味；However 更正式，常用于学术或报告；Still 强调"尽管如此"的坚持。同一段里别同时混用四个，挑一个最贴合语气的就够。',
+    },
+    {
+      id: 'g3',
+      title: '用同位语在两个逗号之间补一句说明',
+      pattern: '名词, 同位语解释, 句子继续',
+      sentenceIds: ['s1', 's11'],
+      explanationZh: [
+        '想给一个名词加一句解释，新手常会另起一句：Nihon Hidankyo is a Japanese organization. It is made up of atomic bomb survivors. 这样读起来很碎。英文里更顺的做法是把解释塞进两个逗号之间，这叫"同位语"。',
+        '看第 1 句：Nihon Hidankyo, the Japanese organization of atomic bomb survivors。两个逗号像一对括号，里面那句话是对前面名词的补充。把它删掉，主句 Tanaka stood up to accept the Nobel Peace Prize on behalf of Nihon Hidankyo 仍然完整，这正是同位语的标志。第 11 句 the so-called nuclear taboo, the global understanding that these weapons must stay in storage 用的是同样手法，把一个读者可能不熟的术语顺手解释清楚。',
+        '什么时候用：当你要顺手介绍一个读者也许不熟的名字、机构、术语时最合适。它提高了信息密度，又不打断主干句的节奏，新闻写作和议论文里几乎到处都是。',
+        '注意两个逗号要成对出现：开了一个逗号补充，补充结束一定要再用一个逗号收回主干，不能只写一个，否则读者读到后面会找不到主语在哪里继续。',
+      ],
+      examples: [
+        { en: 'The director, a former war correspondent, refused to film inside the building.', zh: '这位导演曾是一名战地记者，他拒绝在那栋楼里取景。' },
+        { en: 'My favorite teacher, Ms. Lin, retired last year.', zh: '我最喜欢的老师林老师去年退休了。' },
+        { en: 'Reykjavik, the capital of Iceland, sits near several active volcanoes.', zh: '冰岛首都雷克雅未克坐落在几座活火山附近。', note: '用同位语顺手交代"这是哪座城市"，不必另写一句。' },
+        { en: 'Our goal, a fair test for every student, has not changed in twenty years.', zh: '我们的目标，一场对每位学生都公平的考试，二十年来从未改变。' },
+        { en: 'The founder, a quiet woman in her sixties, signed the contract without a single comment.', zh: '这位创始人是一位六十多岁、沉静的女性，她没有发表任何评论就签下了合同。' },
+      ],
+      commonMistake: '不要只写一半：Nihon Hidankyo, the Japanese organization of atomic bomb survivors stood up（漏了第二个逗号）。补充说明结束后必须再加一个逗号，才能把句子接回主干，否则后面的动词会显得无主。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开场用"He did not begin with X. He began with Y."把一个意外的切入点拉到读者眼前',
+      skeleton: '[人物] did not begin with [大家预期的入口]. [He/She] began with [真正的、更具体的入口].',
+      original: 'He did not begin with politics. He began with a single August morning in 1945.',
+      sentenceId: 's2',
+      whyItWorks: [
+        '这个句式的力量来自两步走：第一句先主动否定读者的预期（大家以为诺贝尔和平奖演讲会从政治讲起），第二句立刻给出一个具体到日期的画面（1945 年 8 月的某一个早晨）。先否定再给具体，落差让"原来真正的入口是这个"变得格外清晰。',
+        '对读者来说，did not begin with 这一句承担了"挡一下"的作用：作者主动把读者脑子里那个预期版本说出来，再翻给读者看真实的版本。这种"我知道你以为是 X，但其实是 Y"的写法，会让读者觉得作者懂他们的思路，于是更愿意往下读。',
+        '它最适合用在新闻特写、人物专访、演讲点评的第二段开头，给读者一个清晰的方向感。第一段交代了大事，第二段用这个句式立刻告诉读者"我接下来要从一个具体的小入口讲起"，文章节奏由此被打开。',
+        '一个隐藏要点：第二句的"真正入口"必须比第一句的"预期入口"具体得多。politics 是抽象词，a single August morning in 1945 是带日期、带季节的画面，对比度才够。如果两边都是同级别的抽象词，整个落差就垮了。',
+      ],
+      examples: [
+        { context: '一篇关于科技 CEO 致辞的特写', text: 'She did not begin with revenue. She began with a Wednesday afternoon in her grandmother\'s kitchen.', zh: '她没有从营收讲起。她从外婆厨房里的一个周三下午讲起。' },
+        { context: '一篇环保抗议报道的开头', text: "The mayor did not begin with statistics. He began with the smell of the river the morning his daughter was born.", zh: '市长没有从数据讲起。他从女儿出生那天清晨河水的气味讲起。', note: '第二句越具体、越有感官细节，与第一句抽象词的反差越大，开篇就越有力。' },
+        { context: '一位作家的获奖致辞特写', text: 'He did not begin with literature. He began with a library card he had lost at the age of nine.', zh: '他没有从文学讲起。他从九岁那年弄丢的一张借书证讲起。' },
+      ],
+      adaptingTip: '第一句要选一个读者真的会本能预期的入口（politics, revenue, literature 这种抽象大词），第二句必须跳到一个具体、带画面、带时间或地点的小入口（"1945 年 8 月的某一个早晨"，"一张借书证"）。两句要紧贴在一起，中间不要插入解释。这是开篇用的，别放在文章中段。',
+      commonMistake: '不要让第二句也停在抽象层：He did not begin with politics. He began with history. 两个抽象词并列，没有具体画面，读者感受不到落差。第二句必须把镜头拉到一个具体的时间、地点或物件上。',
+    },
+    {
+      id: 'pt2',
+      useCase: '揭示一个反差：作者主动指出"这场演讲表面是 X，其实是 Y"',
+      skeleton: 'Yet [这件事] was not really about [大家以为的主题]. [作者补出真正的主题].',
+      original: "Yet the speech in Oslo was not really about the past. Tanaka warned that the so-called nuclear taboo, the global understanding that these weapons must stay in storage, was beginning to weaken.",
+      sentenceId: 's10',
+      whyItWorks: [
+        '这个句式的力量来自一个温和的修正动作：作者并没有否定前文的内容（演讲里确实讲了过去），但用 not really about 这四个字把读者的注意力从"显而易见的主题"挪到"真正重要的主题"上。它不是反驳，是一次轻巧的方向调整。',
+        '对读者来说，Yet 加 not really about 的组合像作者在轻轻拉一下他们的袖子："你以为它只是关于 X，再仔细看一下，其实是关于 Y。"这种姿态留有余地，没把话说死，读者反而更容易跟着调整自己的理解。',
+        '它最适合放在新闻特写或人物特写的中段过渡位，把一篇文章的真正核心从"事件表层"翻到"事件意义"上去。第一段交代了 what，这个句式负责告诉读者 why this matters。议论文段落由现象转入分析，也很好用。',
+        '一个细节：not really about 后面那个被否定的主题，必须是读者读到这里真的会本能以为的那个主题（the past）。否则这个否定动作没有对手，整句也就失去了支点。真正的主题（the nuclear taboo）则必须比被否定的主题更具体、更紧迫。',
+      ],
+      examples: [
+        { context: '一篇关于退休教师的人物特写中段', text: 'Yet the dinner was not really about retirement. It was about who would still teach the children no one else wanted to teach.', zh: '然而这顿晚饭，其实并不是为退休而办的。它是为了一个更具体的问题：今后还有谁会去教那些没人愿意教的孩子。' },
+        { context: '城市观察文章的过渡段', text: "Yet the new park was not really about green space. It was about giving the neighborhood a place to disagree out loud without breaking anything.", zh: '然而这座新公园，并不是为了一片绿地。它是为了给这个社区一个可以把不同意见大声说出来、又不打破任何东西的地方。', note: '把"读者以为的主题"翻成"作者眼中真正的主题"，落差靠具体性拉出来。' },
+        { context: '科技产品评论的反思段', text: 'Yet the new device was not really about saving time. It was about giving people one fewer reason to look at their phones.', zh: '然而这款新设备真正的核心，并不是帮人节省时间。它是给人们一个少看手机的理由。' },
+      ],
+      adaptingTip: '前半句的"读者预期主题"要选一个真的会被本能认定的那个（the past, retirement, saving time），太冷僻的题目反而无效。后半句的"真正主题"必须比前半句更具体、更出乎意料，最好带一个动作（must stay in storage, would still teach, look at their phones）。这是中段过渡用的，别放开头。',
+      commonMistake: '不要让两边停在同一层抽象度：Yet the speech was not really about the past. It was about the present.（past 和 present 都是空泛大词，读者感受不到真正的转折）。后半句必须把"真正主题"往更具体、更带情绪的方向推一步。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾观察句：用 "It is a strange thing to ..." 把一个反常的画面摆给读者看',
+      skeleton: 'It is a strange thing to watch [人物] [做某事] and [做另一件与读者预期相反的事].',
+      original: "It is a strange thing to watch an old man receive a prize and spend most of his speech worrying about who will speak after him.",
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式的结构是"陈述一个反常的画面 + 加一个否定或反向的副动作"。前半句 It is a strange thing to watch... 把作者放在低姿态的观察者位置，没有抢话；后半句用 and 接一个"读者本以为不会出现"的行为（一位老人在领奖时不庆祝、却在担忧未来），让整个画面立刻立体起来。',
+        '对读者来说，strange 是一个温和的词，比 amazing / inspiring / heartbreaking 这种大词稳重得多。作者并没有在卖力推销结论，只是把一个少见的画面摆给你看，让你自己去判断"这件事确实不一般"。这种克制反而最有力。',
+        '它最适合放在人物特写、演讲点评、新闻深度报道的收束位，给整篇文章一个总结性的镜头，但不喊口号。读者读到这里会想"是啊，这确实少见"，而不是"作者好激动"。',
+        '一个隐藏要点：and 后面接的"反向的副动作"必须是读者本能会预期反方向出现的行为。能写 "and worry about who will speak after him" / "and not blame the referee" / "and apologize first" 这种带具体动作的版本，比写笼统的 "and stay calm" 强得多。',
+      ],
+      examples: [
+        { context: '一位选手赛后采访特写的收尾', text: 'It is a strange thing to watch a teenager lose a final by one point and walk straight to the winner to shake her hand.', zh: '看着一个少年以一分之差输掉决赛，却径直走向对手伸出手，这本身就是少见的事。' },
+        { context: '一位企业家退休致辞的特写收尾', text: 'It is a strange thing to watch a founder leave the company she built and spend her last speech praising the people she once fired.', zh: '看着一位创始人离开自己亲手建起的公司，把最后一段讲话花在赞美那些她当年解雇过的人身上，这本身就是少见的事。', note: 'and 后面的反向动作越具体、越出乎意料，整句的力度就越大。' },
+        { context: '一部纪录片影评的收尾', text: "It is a strange thing to watch a director end a war film on a kitchen scene and never let the camera show a single weapon.", zh: '看着一位导演让战争片在一场厨房戏里收尾，整部片里始终不让镜头出现一件武器，这本身就是奇特的事。' },
+      ],
+      adaptingTip: '前半句要选一个真的少见的情景（一位 92 岁老人领诺奖、一位少年决赛输球、一位创始人退场），太普通的事不配这个句式。and 后面的副动作必须是读者本能会预期反方向出现的行为，越具体越好（"worry about who will speak after him" 比 "stay calm" 强一百倍）。这是收尾用的，别放在段落开头。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Who delivered the 2024 Nobel Peace Prize lecture on behalf of Nihon Hidankyo?', options: ['A 13-year-old student from Nagasaki', 'A 92-year-old survivor named Terumi Tanaka', 'A Japanese government minister', 'A Norwegian committee member'], answer: 1, explanation: 'The article opens by stating that a 92-year-old man named Terumi Tanaka stood up to accept the prize on behalf of Nihon Hidankyo.', sentenceId: 's1' },
+    { id: 'q2', q: 'How old was Tanaka when the atomic bomb fell on Nagasaki?', options: ['Eight', 'Thirteen', 'Twenty', 'Ninety-two'], answer: 1, explanation: 'The article states he was thirteen years old when the second atomic bomb fell on Nagasaki.', sentenceId: 's3' },
+    { id: 'q3', q: 'According to the article, why did the Norwegian Nobel Committee award the prize to Nihon Hidankyo?', options: ['Because the organization had funded nuclear research', 'Because survivors had shown, through their own voices, that nuclear weapons must never be used again', 'Because the Japanese government had requested it', 'Because the organization had been founded exactly seventy years earlier'], answer: 1, explanation: 'The article says the prize was given for one thing above all: the survivors had shown, through their own voices, that nuclear weapons must never be used again.', sentenceId: 's9' },
+    { id: 'q4', q: 'What warning did Tanaka give about the so-called nuclear taboo?', options: ['That it had already been broken', 'That it had only existed in Japan', 'That it was beginning to weaken', 'That it would soon be replaced by a stronger one'], answer: 2, explanation: 'The article states Tanaka warned that the so-called nuclear taboo was beginning to weaken.', sentenceId: 's11' },
+    { id: 'q5', q: "What is the writer's main observation in the closing lines?", options: ['That Tanaka spent most of his speech celebrating Nihon Hidankyo\'s long history', 'That Tanaka used the moment to ask the audience to take over the work of testimony', 'That Tanaka avoided any mention of current world events', 'That Tanaka thanked the Norwegian committee for the honor'], answer: 1, explanation: 'The final lines note that Tanaka was not asking the room to remember Nagasaki; he was asking the room to take over.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '颁奖仪式所在的城市', answer: 'Oslo', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '颁奖的具体日期（月日年）', answer: 'December 10, 2024', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '领奖代表的姓名', answer: 'Terumi Tanaka', sentenceId: 's1' },
+      { id: 'ig4', cueZh: '领奖代表当年领奖时的年龄', answer: '92', sentenceId: 's1' },
+      { id: 'ig5', cueZh: '获得诺贝尔和平奖的日本组织', answer: 'Nihon Hidankyo', sentenceId: 's1' },
+      { id: 'ig6', cueZh: '原子弹落下时他的年龄', answer: 'thirteen', sentenceId: 's3' },
+      { id: 'ig7', cueZh: '该组织在哪一年由幸存者创立', answer: '1956', sentenceId: 's8' },
+      { id: 'ig8', cueZh: '他预计十年后还能亲口作证的幸存者数量', answer: 'a handful', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位没看过这场颁奖的朋友介绍田中熙巳的诺贝尔和平奖演讲：他是谁、他讲了什么、为什么这场演讲与众不同。',
+      promptEn: "Using the facts in your table, write about 70 words introducing Terumi Tanaka's 2024 Nobel Peace Prize lecture to a friend who missed it: who he is, what he said, and why this particular speech was different.",
+      targetWords: 70,
+      starters: ['On December 10, 2024, Terumi Tanaka ...', 'It is a strange thing to watch ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        "On December 10, 2024, Terumi Tanaka, a 92-year-old Nagasaki survivor, accepted the Nobel Peace Prize in Oslo on behalf of Nihon Hidankyo, the Japanese organization of atomic bomb survivors founded in 1956. He began with a single August morning in 1945, when he was thirteen and his home was crushed by the blast. Yet the speech was not really about the past. It was about a warning: only a handful of firsthand survivors would still be alive in ten years, and the nuclear taboo was beginning to weaken. It is a strange thing to watch an old man receive a prize and spend most of his speech worrying about who will speak after him.",
+      modelAnswerZh:
+        '2024 年 12 月 10 日，92 岁的长崎幸存者田中熙巳在奥斯陆代表 1956 年由幸存者们创立的「日本被团协」领取诺贝尔和平奖。他从 1945 年 8 月的某一个早晨讲起：那一年他 13 岁，家里的房子被爆炸冲击波压垮。然而这场演讲并不是在讲过去。它是一则警告：再过十年，还能亲口作证的幸存者将只剩下少数几个人，而核禁忌正在松动。看着一位老人领奖，却把演讲的大部分时间花在担忧自己之后还有谁能开口，这本身就是件少见的事。',
+    },
+  },
+};

@@ -1,0 +1,256 @@
+// Speeches book, Ch.11: Mark Carney's 2025 victory speech to a Canada under threat from Trump (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-04-28',
+    title: "Carney's 'Trump Wants to Break Us'",
+    titleZh: '卡尼：「特朗普想拆掉我们」',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/speeches-now/11-carney-victory.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      'A victory speech usually thanks supporters and promises a fresh start. Mark Carney did both, then said something far sharper, naming the U.S. president as a threat to the country. Read why a Canadian banker chose that tone on his first night as prime minister.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'Just before midnight on April 28, 2025, Mark Carney walked onto a stage in Ottawa as the new prime minister of Canada.', zh: '2025 年 4 月 28 日临近午夜，马克·卡尼走上渥太华的舞台，正式成为加拿大新任总理。' },
+        { id: 's2', en: 'His Liberal Party had just won a federal election that almost no one had predicted six months earlier.', zh: '他领导的自由党刚刚赢得了一场联邦大选，而六个月前几乎没有人预测到这个结果。' },
+        { id: 's3', en: 'The mood in the hall was loud and emotional, but the speech he gave was not the usual one.', zh: '会场气氛热烈而动情，但他发表的演讲并非寻常那种。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Carney is a former central banker, known for steady language and careful pauses.', zh: '卡尼曾任央行行长，以稳重的措辞和克制的停顿著称。' },
+        { id: 's5', en: 'That night, the careful man chose unusually direct words.', zh: '但那一晚，这位谨慎的人选择了异常直白的措辞。' },
+        { id: 's6', en: 'President Trump, he told the country, was trying to break Canada so that America could own it.', zh: '他告诉全国民众，特朗普总统正试图拆散加拿大，以便让美国把它收入囊中。' },
+        { id: 's7', en: '"That will never happen," he said, and the room erupted.', zh: '「那永远不会发生，」他说，会场顿时炸开了。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'The campaign had been shaped by tariffs and threats from across the border.', zh: '整场竞选被来自南方边境的关税和威胁所主导。' },
+        { id: 's9', en: 'Trump had imposed heavy duties on Canadian steel and lumber, and had repeatedly suggested that Canada should become the "51st state".', zh: '特朗普对加拿大钢材和木材征收高额关税，并多次表示加拿大应当成为「第 51 州」。' },
+        { id: 's10', en: 'For Canadians, what had once been treated as a joke had begun to feel like policy.', zh: '对加拿大人来说，曾经被当作玩笑的话，开始像一项政策。' },
+        { id: 's11', en: 'Carney, an economist who had governed two central banks, was sold to voters as the calm hand the moment required.', zh: '卡尼是一位曾执掌两国央行的经济学家，他被推介为这个时刻所需要的那双稳健之手。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's12', en: 'In the speech, he laid out three promises, each short enough to fit on a placard.', zh: '在演讲中，他列出了三项承诺，每一项都短到可以印在标语牌上。' },
+        { id: 's13', en: 'Defend Canadian workers. Build a stronger economy at home. Find new friends beyond the United States.', zh: '保护加拿大工人。在国内建设更强的经济。在美国之外寻找新的伙伴。' },
+        { id: 's14', en: 'It was a quiet way of saying the old partnership could no longer be taken for granted.', zh: '这是一种低调的说法，意思是过去的伙伴关系不再是理所当然的。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's15', en: 'What made the line about Trump so striking was its venue.', zh: '关于特朗普那句话之所以如此引人注目，原因在于它的发表场合。' },
+        { id: 's16', en: 'Victory speeches are usually inward, addressed to supporters, with foreign leaders mentioned only in polite generalities.', zh: '胜选演讲通常是向内的，是说给支持者听的，提到外国领导人时也只用客气的泛泛之词。' },
+        { id: 's17', en: 'Carney pointed across a border instead, and named the threat by name.', zh: '卡尼却把矛头指向边境另一侧，并直接点出了那个威胁的名字。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's18', en: 'Reaction in Washington was cool but not surprised.', zh: '华盛顿方面的反应冷淡，但并不意外。' },
+        { id: 's19', en: 'A White House spokesperson said only that the United States looked forward to working with the new government, and left it there.', zh: '一位白宫发言人只表示美国期待与新政府合作，话止于此。' },
+        { id: 's20', en: 'Canadian commentators were less restrained, calling the speech the bluntest a prime minister had delivered toward an American president in living memory.', zh: '加拿大评论员则没有那么克制，称这是当代记忆中加拿大总理对美国总统所发表的最直接的一次演讲。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's21', en: 'Whether the words will age well depends on what comes next.', zh: '这番话能否经得起时间，要看接下来怎么走。' },
+        { id: 's22', en: 'Tariffs are still in place. The trade routes that built modern Canada still run south.', zh: '关税仍在。撑起当代加拿大的那些贸易线，依然通往南方。' },
+        { id: 's23', en: 'A speech is not a policy, and a sentence is not a country, but for one night, a careful man borrowed the voice of a defiant one and made the room believe him.', zh: '演讲不是政策，一句话也不等于一个国家，但那一晚，一个谨慎的人借用了一个不肯让步者的声音，让整个会场相信了他。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'predicted', lemma: 'predict', sentenceId: 's2', level: 1, pos: 'v.', ipa: '/prɪˈdɪktɪd/', defZh: '预测；预言', defEn: 'said what would happen in the future', example: 'No analyst predicted the company would recover so quickly.', exampleZh: '没有一位分析师预料到这家公司会恢复得这么快。' },
+    { id: 'v2', word: 'mood', lemma: 'mood', sentenceId: 's3', level: 1, pos: 'n.', ipa: '/muːd/', defZh: '气氛；情绪', defEn: 'the general feeling in a place or group', example: 'The mood in the office shifted after the announcement.', exampleZh: '通知发布后，办公室的气氛变了。' },
+    { id: 'v3', word: 'steady', lemma: 'steady', sentenceId: 's4', level: 2, pos: 'adj.', ipa: '/ˈstedi/', defZh: '稳重的；平稳的', defEn: 'calm, controlled and not changing suddenly', example: 'She kept a steady voice through the difficult interview.', exampleZh: '她在那场艰难的采访中始终保持平稳的语气。' },
+    { id: 'v4', word: 'erupted', lemma: 'erupt', sentenceId: 's7', level: 3, pos: 'v.', ipa: '/ɪˈrʌptɪd/', defZh: '突然爆发；沸腾', defEn: 'suddenly broke out with loud noise or feeling', example: 'The crowd erupted when the winning goal went in.', exampleZh: '制胜进球攻入时，人群顿时沸腾。' },
+    { id: 'v5', word: 'shaped', lemma: 'shape', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ʃeɪpt/', defZh: '塑造；左右', defEn: 'strongly influenced the form of something', example: 'Her early reading shaped the way she writes today.', exampleZh: '她早年的阅读塑造了她今天的写作方式。' },
+    { id: 'v6', word: 'tariffs', lemma: 'tariff', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/ˈtærɪfs/', defZh: '关税', defEn: 'taxes a country places on imported goods', example: 'New tariffs on solar panels raised prices across the industry.', exampleZh: '对太阳能板加征的新关税推高了整个行业的价格。' },
+    { id: 'v7', word: 'imposed', lemma: 'impose', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ɪmˈpəʊzd/', defZh: '强加；征收', defEn: 'officially forced something on people or trade', example: 'The city imposed a curfew after the storm.', exampleZh: '风暴过后，市里实行了宵禁。' },
+    { id: 'v8', word: 'duties', lemma: 'duty', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/ˈdjuːtiz/', defZh: '关税；税款', defEn: 'taxes paid on imported goods (formal)', example: 'High duties made foreign wine unaffordable for most shoppers.', exampleZh: '高额关税让进口葡萄酒对大多数消费者来说难以负担。' },
+    { id: 'v9', word: 'lumber', lemma: 'lumber', sentenceId: 's9', level: 4, pos: 'n.', ipa: '/ˈlʌmbə(r)/', defZh: '木材（北美用法）', defEn: 'wood that has been cut for building, in North American English', example: 'Builders complained that the cost of lumber had doubled.', exampleZh: '建筑商抱怨木材的价格翻了一倍。' },
+    { id: 'v10', word: 'governed', lemma: 'govern', sentenceId: 's11', level: 3, pos: 'v.', ipa: '/ˈɡʌvənd/', defZh: '执掌；治理', defEn: 'officially led an institution or country', example: 'She governed the school through a difficult decade.', exampleZh: '她在艰难的十年里执掌这所学校。' },
+    { id: 'v11', word: 'placard', lemma: 'placard', sentenceId: 's12', level: 4, pos: 'n.', ipa: '/ˈplækɑːd/', defZh: '标语牌；告示牌', defEn: 'a large sign carried or displayed in public', example: 'Marchers held placards with simple, three-word demands.', exampleZh: '游行者举着写有三个字简短诉求的标语牌。' },
+    { id: 'v12', word: 'defend', lemma: 'defend', sentenceId: 's13', level: 1, pos: 'v.', ipa: '/dɪˈfend/', defZh: '保护；守卫', defEn: 'to protect from harm or attack', example: 'A good union defends its weakest members first.', exampleZh: '一个好的工会会首先保护它最弱势的成员。' },
+    { id: 'v13', word: 'taken for granted', lemma: 'take for granted', sentenceId: 's14', level: 3, pos: 'phr.', ipa: '/ˈteɪkən fə ˈɡrɑːntɪd/', defZh: '视为理所当然', defEn: 'assumed to be there without thought or thanks', example: 'Clean tap water is too easily taken for granted.', exampleZh: '清洁的自来水太容易被视为理所当然。' },
+    { id: 'v14', word: 'striking', lemma: 'striking', sentenceId: 's15', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；醒目的', defEn: 'noticeable in a strong or surprising way', example: 'The most striking thing about the photo was its silence.', exampleZh: '这张照片最引人注目的，是它的安静。' },
+    { id: 'v15', word: 'venue', lemma: 'venue', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ˈvenjuː/', defZh: '场合；地点', defEn: 'the place where an event happens', example: 'The conference moved to a larger venue at the last minute.', exampleZh: '会议在最后一刻改到一个更大的场地。' },
+    { id: 'v16', word: 'inward', lemma: 'inward', sentenceId: 's16', level: 3, pos: 'adj.', ipa: '/ˈɪnwəd/', defZh: '向内的；朝向自己的', defEn: 'directed toward oneself or one\'s own group', example: 'The essay takes an inward turn in its final pages.', exampleZh: '这篇文章在最后几页转向了内省。' },
+    { id: 'v17', word: 'generalities', lemma: 'generality', sentenceId: 's16', level: 4, pos: 'n.', ipa: '/ˌdʒenəˈrælətiz/', defZh: '泛泛之词；笼统说法', defEn: 'vague statements that avoid specifics', example: 'The reply was full of polite generalities and no real answer.', exampleZh: '回复里满是客气的泛泛之词，没有真正的答案。' },
+    { id: 'v18', word: 'restrained', lemma: 'restrained', sentenceId: 's20', level: 3, pos: 'adj.', ipa: '/rɪˈstreɪnd/', defZh: '克制的；有节制的', defEn: 'calm and not openly emotional', example: 'His restrained reply only made the room more uneasy.', exampleZh: '他克制的回应反而让会场更不安。' },
+    { id: 'v19', word: 'bluntest', lemma: 'blunt', sentenceId: 's20', level: 3, pos: 'adj. (superlative)', ipa: '/ˈblʌntɪst/', defZh: '最直白的；最不客气的', defEn: 'most direct in a way that avoids softening', example: 'It was the bluntest review the magazine had run all year.', exampleZh: '这是该杂志全年最不客气的一篇评论。' },
+    { id: 'v20', word: 'defiant', lemma: 'defiant', sentenceId: 's23', level: 4, pos: 'adj.', ipa: '/dɪˈfaɪənt/', defZh: '不服从的；不肯让步的', defEn: 'openly refusing to obey or back down', example: 'She gave a defiant smile and walked out of the meeting.', exampleZh: '她露出一个倔强的笑容，走出了会议室。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 what made X Y is Z 把"为什么显眼"放在最前面',
+      pattern: 'What made [主体] [形容词] was/is [原因].',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '中文里很自然会说"那句话之所以让人震惊，是因为它的场合"。英文如果直接写 The line was striking because of its venue，信息密度其实不低，但语气平。换成 what 引导的从句开头，就能把"震惊这件事"先抬到主语位置，再用 was 把原因甩到句尾，重音自然落在原因上。',
+        '看第 15 句：What made the line about Trump so striking was its venue。整句的逻辑是：先承认"这句话确实让人震惊"（What made…so striking），然后用 was 引出原因（its venue）。读者读到 was 才看见真正的答案，这一拖一放就是 what-cleft 的力量。',
+        '什么时候用它：写新闻评论或人物特写时，你想强调"这件事的关键之处"。它特别适合段首一句，等于给整段定下一个解释的方向：接下来我要告诉你为什么这件事不同寻常。',
+        '一个容易出错的地方：what 引导的从句被当作单数处理，所以谓语用 was / is，不用 were / are，即便后面的原因是复数也一样（What made him special was his friends，不写 were his friends）。',
+      ],
+      examples: [
+        { en: 'What made the announcement powerful was its timing, not its content.', zh: '这份声明之所以有分量，是因为发布的时机，而不是内容本身。' },
+        { en: 'What made the apology feel real was that no one was forcing him to make it.', zh: '这份道歉之所以显得真诚，是因为没有人在逼他道歉。', note: '原因部分用一个 that 引导的完整句子，比单一名词更有分量。' },
+        { en: 'What made the small bakery survive was its single regular customer.', zh: '让这家小面包店活下来的，是它唯一一位常客。' },
+        { en: 'What made the photograph hard to look at was how ordinary the day had been.', zh: '这张照片之所以让人不忍直视，是因为那一天本来太平常。' },
+        { en: 'What makes the policy unusual is that it asks the state to apologize first.', zh: '这项政策不寻常之处在于，它要求州政府先行道歉。' },
+      ],
+      commonMistake: '不要写成 What made the line striking were its venue。what 从句永远算单数，所以哪怕原因是 venues（复数），系动词也还是用 was / is，不用 were / are。',
+      vsSimilar: 'It-cleft 也强调，但侧重点不同：It was its venue that made the line striking 把焦点拉到 venue 这个具体词上；what-cleft 则先承认"那句话确实震撼"，再揭晓原因，节奏感更慢、更适合做段落开头。',
+    },
+    {
+      id: 'g2',
+      title: '过去完成时（had done）：在一个故事里说"更早之前"',
+      pattern: 'had + 过去分词',
+      sentenceIds: ['s2', 's9', 's10', 's11'],
+      explanationZh: [
+        '一篇报道里如果主时间线是过去（he walked, he said），那么"在那个过去之前再更早发生的事"就需要再退一步，用 had done。它就像电影里的回闪，提示读者：这是更早的背景。',
+        '看第 9 句：Trump had imposed heavy duties…and had repeatedly suggested。整篇报道的"现在"是 4 月 28 日卡尼演讲那一刻，而关税和"第 51 州"的言论是在那之前积累出来的，所以用 had imposed / had suggested。第 11 句 an economist who had governed two central banks 也是同理：他执掌央行是在被选为总理之前。',
+        '什么时候用它：写新闻特写、回忆录、个人陈述时，凡是同一段里出现"过去做了一件事"和"在那之前更早的事"两层时间，更早那层就用过去完成时。它不是必须，但用上之后时间感会立刻清晰。',
+        '一个常见误区：过去完成时不是"过去很久以前"的代名词。重点是相对关系。如果上下文里压根没有更晚一个"过去"作参考，单独用 had done 反而显得别扭，普通过去式就够了。',
+      ],
+      examples: [
+        { en: 'By the time we arrived, the band had already left the stage.', zh: '我们到的时候，乐队已经下台了。' },
+        { en: 'She finally read the letter her grandfather had written forty years earlier.', zh: '她终于读了爷爷四十年前写下的那封信。' },
+        { en: 'The bridge collapsed in 2018; engineers had warned about it since 2011.', zh: '这座桥 2018 年坍塌，工程师自 2011 年起就一直在发出警告。', note: 'had warned + since 2011 同时交代时间起点，回闪味道更明显。' },
+        { en: 'When the package finally arrived, he had given up checking the door.', zh: '包裹终于到的时候，他早就放弃去开门看了。' },
+        { en: 'She apologized for what she had said the night before.', zh: '她为前一晚说过的话道歉。' },
+      ],
+      commonMistake: '不要写 Yesterday I had eaten breakfast and went to school。这里没有更晚的"过去"作参照，had eaten 显得多余，写成 I ate breakfast and went to school 就够了。',
+    },
+    {
+      id: 'g3',
+      title: '用被动 was sold to / was treated as 把"被怎样看待"摆到前面',
+      pattern: 'be + 过去分词 + 介词短语',
+      sentenceIds: ['s10', 's11'],
+      explanationZh: [
+        '新闻语体里经常出现"某件事被这样看 / 某个人被这样塑造"的句子。中文很自然说"他被推介为稳健之手"，英文里就用被动语态 was sold to voters as the calm hand。把动作的对象（he）放在主语，强调"他在公众眼中是什么样子"，而不是"是谁在塑造他"。',
+        '看第 11 句：Carney…was sold to voters as the calm hand the moment required。"是谁在卖力推介他"在这里不重要（媒体？竞选团队？整体氛围？），重要的是"在选民心里他被塑造成了这个角色"，所以用被动。第 10 句 what had once been treated as a joke 也是同理，重点是"它被怎样看待"，而不是"是谁这么看"。',
+        '什么时候用它：当主语应该是受动者、且动作的发出者要么不重要、要么不必明说时。新闻、学术、政策类写作里大量使用，因为它能把焦点放在"现象"而不是"谁干的"。',
+        '一个细节：sell sb as 这种习惯搭配，被动形式 was sold as 才地道；treat sth as 同理，被动 was treated as 同样常见。挑动词时要先看它在主动语态里能不能带 as 这种补语，再决定能不能这样用被动。',
+      ],
+      examples: [
+        { en: 'The novel was widely read as a quiet protest against the war.', zh: '这部小说被广泛解读为一场对战争的安静抗议。' },
+        { en: 'For years, the building had been used as a school, then as a warehouse.', zh: '多年来这栋楼先被当作学校，后来又被当作仓库。' },
+        { en: 'Her silence was taken as agreement, which she later said it was not.', zh: '她的沉默被当成了同意，她后来澄清并不是。', note: '被动 + as 把"被解读成什么"放到句首焦点上。' },
+        { en: 'The proposal is being sold as a tax cut for working families.', zh: '这项提案正被包装成对工薪家庭的减税。' },
+        { en: 'He was remembered as the editor who refused to publish under his own name.', zh: '人们记住他，是因为他是那个拒绝在自己名字下发表文章的编辑。' },
+      ],
+      vsSimilar: '主动 The party sold Carney as the calm hand 把焦点放在"谁推介他"；被动 Carney was sold as the calm hand 把焦点放在"他被怎样塑造"。新闻特写里第二种远比第一种常见，因为读者关心的是结果。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '人物特写开头：先立一个标签，再写"那一晚他偏偏不这样"',
+      skeleton: '[某人] is [一贯的标签]. That [时刻], [他/她] [反常的举动].',
+      original: 'Carney is a former central banker, known for steady language and careful pauses. That night, the careful man chose unusually direct words.',
+      sentenceId: 's5',
+      whyItWorks: [
+        '这是一个"标签加反差"的两步结构。第一句给读者一个对人物的稳定印象（central banker, careful），第二句立刻用同一个形容词把那个印象推翻（the careful man chose direct words）。读者刚被告知他是 careful，又看到 careful man 出现在反差的另一头，记忆点马上立住。',
+        '对读者来说，这个结构暗含一个承诺："我接下来要讲的，正是那个反差的来由。"于是读者愿意继续往下看，因为他们已经被吊起了一个具体的疑问：一个谨慎的人为什么这次不谨慎了？',
+        '它最适合用在人物特写、回忆性散文、申请文书的引言段。第一句不必长，关键是把那个标签写到具体、可被推翻；第二句用同一个形容词回环，反差才有效。',
+        '一个隐藏要点：第二句一定要复用第一句里的标签词（careful, quiet, cautious 这种形容词）。如果换成同义词，反差感会被稀释，读者就感觉不到"同一个人在两种状态之间切换"。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'Dr. Yang is a quiet surgeon, the kind who answers questions in one syllable. That afternoon, the quiet surgeon talked for half an hour about a patient he had lost.', zh: '杨医生是一位安静的外科大夫，那种用一个音节就能答完问题的人。那天下午，这位安静的医生却为一位他没能救回来的病人说了整整半个小时。' },
+        { context: '申请文书引言', text: 'My mother is a frugal woman, the kind who reuses envelopes. That summer, the frugal woman quietly paid for my first plane ticket abroad.', zh: '我妈妈是个节俭的人，那种会把信封反复用的人。那个夏天，这位节俭的人却悄悄给我付了人生第一张出国的机票。', note: '反差出现在"她原本会怎样"和"那一次她破例怎样"之间，情感分量立刻起来。' },
+        { context: '体育人物特稿', text: 'Suarez is a defender, paid to stop goals and never to score them. That night, the defender scored twice and apologized for it on camera.', zh: '苏亚雷斯是一名后卫，被聘来阻挡进球，从不是来进球的。那一晚，这位后卫却进了两个，并在镜头前为此道歉。' },
+      ],
+      adaptingTip: '第一句的标签词要选具体可被推翻的形容词（quiet, careful, frugal, modest 等），不要用 great, amazing 这种太大的词。第二句务必把同一个词原样搬过来当主语前定语（the quiet surgeon, the careful man），反差点才会显眼。它是开头模板，用在中段会显得突兀。',
+      commonMistake: '不要让两句之间的反差太小：He is careful. That night, he was a little less careful. 太小的对比毫无张力，第二句的"反常"要明显到读者会停一下，反差才成立。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把读者拉回长期背景：用 what had once been X had begun to feel like Y',
+      skeleton: 'What had once been [较轻的标签] had begun to feel like [更重的标签].',
+      original: 'For Canadians, what had once been treated as a joke had begun to feel like policy.',
+      sentenceId: 's10',
+      whyItWorks: [
+        '这个句式靠两个温度做对比：what had once been 是冷的、回望式的视角，had begun to feel like 是当下慢慢升温的体感。读者读完，会感觉一件事正悄悄从一种状态滑向另一种，时间被压缩进了一句话。',
+        '对读者来说，begun to feel like 比 had become 更柔。它不下断言（这已经是政策了），只描述一个集体感受（人们开始有这种感觉）。这种克制反而比直接断言更有可信度，因为它承认变化还在发生。',
+        '它最适合用在新闻评论或社论的"段落开头"，前一段刚铺好事实，这一段需要点出"这意味着什么"。也适合写时代回顾文，把一段长期变化压到一句里。',
+        '一个隐藏要点：两个标签的轻重一定要拉开。a joke / policy 在分量上落差很大，读者才会感到"温度变了"。如果换成 a rumor / a story 这种同级别的词，整个句式就失效。',
+      ],
+      examples: [
+        { context: '社论段首', text: 'What had once been treated as a hobby had begun to feel like a small business.', zh: '原本被当成爱好的事，开始像一桩小生意。' },
+        { context: '科技评论', text: 'For many parents, what had once been called a phone had begun to feel like a roommate.', zh: '对许多家长来说，原本被叫做手机的东西，开始像一个室友。', note: '把一件事从"工具"重新归入"关系"这个更重的范畴，分量立刻不同。' },
+        { context: '城市观察', text: 'What had once been described as a quiet neighborhood had begun to feel like a film set.', zh: '原本被形容为安静街区的地方，开始像一个片场。' },
+      ],
+      adaptingTip: '前后两个标签必须语义上有跨度，轻在前、重在后（a joke → policy；a hobby → a small business；a phone → a roommate）。had once been 之后的动词用 treated as / called / described as 这类"被认知"动词最稳。这是用来开段的句式，前面要有铺垫的事实段，否则会显得空。',
+      commonMistake: '两个标签同级时整个句式就垮：What had once been a story had begun to feel like a tale。同义词之间没有温度差，读者读完不知道你想说什么。要保留这个句式的力量，必须让第二个标签明显比第一个"更重一档"。',
+    },
+    {
+      id: 'pt3',
+      useCase: '结尾金句：先承认"光这个不够"，再给出那一晚为何依然成立',
+      skeleton: '[A] is not [更大的事物], and [a句] is not [更大的事物], but for [短暂时刻], [小事却成立了].',
+      original: 'A speech is not a policy, and a sentence is not a country, but for one night, a careful man borrowed the voice of a defiant one and made the room believe him.',
+      sentenceId: 's23',
+      whyItWorks: [
+        '这个句式的核心是"两步让步加一次反转"。前两个分句故意泼冷水：演讲不是政策、一句话不是一个国家，读者会想"作者要否定刚才那段话了"。结果 but for 引出的第三段反而救场：在那一夜的限定范围里，那句话确实立住了。',
+        '对读者来说，前两个 is not 句承认了对方可能提出的反驳（"光说没用"），让最后一击显得更可信，因为作者没有装作不知道对手的论点。这是经典的"先让步，再反驳"的修辞节奏。',
+        '它最适合用在评论文章、人物特写或演讲分析的最后一段。前面用一两句承认事件的局限，最后用 but for X 把整篇情感重量压在那个具体的瞬间上，让读者带走一个画面感很强的句尾。',
+        '一个隐藏要点：but for 之后限定的范围必须够小（one night, that afternoon, those ten minutes）。范围越小，越能合法地让"小事成立"；如果写成 but in the long run，整个让步就垮了，因为长远来看演讲确实不是政策。',
+      ],
+      examples: [
+        { context: '影评收尾', text: 'A scene is not a story, and a single look is not a character, but for those ten seconds, the actress did more than the script ever asked of her.', zh: '一个镜头不是一个故事，一个眼神也不是一个角色，但在那十秒钟里，这位女演员做到的，远远超出了剧本对她的要求。' },
+        { context: '社论结尾', text: 'A protest is not a movement, and a slogan is not a policy, but for that one Saturday, the city remembered what it sounded like to ask for something together.', zh: '一场抗议不是一场运动，一句口号也不是一项政策，但在那个星期六，这座城市重新记起了集体提出诉求的声音。', note: '末尾用一个具体可听的画面收尾，比抽象总结更有力。' },
+        { context: '人物特写结尾', text: 'A photograph is not proof, and a smile is not consent, but for that one Sunday, two people who had not spoken in years sat at the same table.', zh: '一张照片不是证据，一个微笑也不是同意，但在那个星期天，两个多年不曾说话的人坐到了同一张桌子前。' },
+      ],
+      adaptingTip: '前面两个 is not 句要选"读者真的会想这么反驳你"的事，否则让步就是表演，没有重量。but for 之后限定的时间或场合务必具体（one night / that afternoon / those ten seconds），不要泛化成 for a moment 这种轻飘的词。最后一击要落到一个动作或画面上，避免抽象形容词。',
+      commonMistake: '不要把两个 is not 句之间的内容写得太像（A speech is not enough, and words are not enough），重复同一层意思就不是让步，是凑字数。两次 is not 应该指向不同维度的反驳（一个偏向"形式不够"，一个偏向"规模不够"），让步才扎实。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, when did Carney give this speech?', options: ['The morning after the election', 'Just before midnight on April 28, 2025', 'A week after taking office', 'During the campaign'], answer: 1, explanation: 'The article opens by placing the speech just before midnight on April 28, 2025.', sentenceId: 's1' },
+    { id: 'q2', q: 'What two trade measures from Trump are mentioned?', options: ['Bans on Canadian travel and tourism', 'Heavy duties on Canadian steel and lumber', 'Sanctions on Canadian banks', 'Taxes on Canadian films'], answer: 1, explanation: 'The article names duties on Canadian steel and lumber, plus the "51st state" comments.', sentenceId: 's9' },
+    { id: 'q3', q: 'Why does the article say the line about Trump was so striking?', options: ['Because of its venue, since victory speeches usually do not target foreign leaders', 'Because Carney said it in French', 'Because it was the longest sentence of the night', 'Because it was scripted by an American advisor'], answer: 0, explanation: 'The article explains that victory speeches are usually inward and polite about foreign leaders, which made the venue itself the striking part.', sentenceId: 's15' },
+    { id: 'q4', q: 'How does the article describe the official reaction in Washington?', options: ['Furious and immediate', 'Cool but not surprised', 'Silent', 'Openly supportive'], answer: 1, explanation: 'A White House spokesperson kept the statement to working with the new government and nothing more.', sentenceId: 's18' },
+    { id: 'q5', q: "What is the author's attitude in the closing sentence?", options: ['Certain that Carney has already changed Canadian policy', 'Dismissive, suggesting the speech meant nothing', 'Measured: he sees the limits of the moment but credits it for what it did that night', 'Worried that Carney will lose the next election'], answer: 2, explanation: 'The closing sentence concedes that a speech is not a policy and a sentence is not a country, yet credits the night for what it accomplished.', sentenceId: 's23' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '卡尼宣誓就任时的具体日期', answer: 'April 28, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '卡尼所属的政党', answer: 'Liberal Party', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '卡尼此前的职业身份', answer: 'former central banker', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '特朗普对加拿大开征关税的两类商品', answer: 'steel and lumber', sentenceId: 's9' },
+      { id: 'ig5', cueZh: '特朗普建议加拿大成为美国的什么', answer: '51st state', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '卡尼提出的三项承诺中第一项', answer: 'Defend Canadian workers', sentenceId: 's13' },
+      { id: 'ig7', cueZh: '加拿大评论员对这场演讲的整体评价', answer: 'the bluntest a prime minister had delivered toward an American president in living memory', sentenceId: 's20' },
+    ],
+    writing: {
+      promptZh: '用表格里的事实，写一段大约 70 词的短文，向一位完全没听说过这场选举的同学介绍：卡尼是谁、为什么这场胜选演讲特别、华盛顿和加拿大评论员各自的反应。',
+      promptEn: "Using the facts in your table, write about 70 words introducing this election to a classmate who has not heard of it: who Carney is, why his victory speech was unusual, and how Washington and Canadian commentators reacted.",
+      targetWords: 70,
+      starters: [
+        'Mark Carney, a former central banker, became prime minister of Canada on April 28, 2025, and ...',
+        'What made his victory speech unusual was ...',
+      ],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'Mark Carney is a former central banker, known for steady language. That night, the careful man chose direct words, saying President Trump was trying to break Canada so America could own it. What made the line so striking was its venue, since victory speeches rarely target foreign leaders. Washington responded coolly. A speech is not a policy, but for one night, Canadians believed him.',
+      modelAnswerZh:
+        '马克·卡尼曾任央行行长，以稳重的措辞著称。那一晚，这位谨慎的人却选择了直白的措辞，他说特朗普总统正试图拆散加拿大，以便美国把它收入囊中。这句话之所以引人注目，是因为它的场合，毕竟胜选演讲很少把矛头指向外国领导人。华盛顿反应冷淡。演讲不是政策，但那一晚，加拿大人相信了他。',
+    },
+  },
+};
