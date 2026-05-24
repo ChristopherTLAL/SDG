@@ -1,0 +1,248 @@
+// Taylor Swift book, Ch.18: how the January 2024 AI deepfake incident pushed platforms and lawmakers to act (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-01-26',
+    title: "'Protect Taylor Swift'",
+    titleZh: '「保护泰勒」',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/taylor-swift/18-ai-deepfake.mp3',
+    wordCount: 308,
+    readingMinutes: 4,
+    editorsNote:
+      'In late January 2024, fake AI images of Taylor Swift spread on X and were seen tens of millions of times before they were taken down. Fans fought back with the slogan "Protect Taylor Swift", and the incident pushed US senators to propose a new law. This chapter explains what a deepfake is and why this one moment mattered for the whole internet.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On January 26, 2024, fake images of Taylor Swift began spreading on X, the site once called Twitter.', zh: '2024 年 1 月 26 日，泰勒·斯威夫特的假图片开始在 X 上传播，这个网站以前叫 Twitter。' },
+        { id: 's2', en: 'The pictures were not real photos. They were made by AI software.', zh: '这些图片不是真照片。它们是由 AI 软件生成的。' },
+        { id: 's3', en: 'A picture or video that an AI tool builds to look like a real person is often called a "deepfake".', zh: 'AI 工具做出来、看起来像真人的图片或视频，常常被叫做「深度伪造」。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The images were sexual and shared without her permission.', zh: '这些图片带有性意味，而且未经她同意就被分享出去。' },
+        { id: 's5', en: 'One post stayed online for about 17 hours and was viewed more than 45 million times.', zh: '其中一条帖子在网上挂了大约 17 小时，被浏览了超过 4500 万次。' },
+        { id: 's6', en: 'It was reposted thousands of times before X finally took it down.', zh: '在 X 终于把它删掉之前，它已经被转发了几千次。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: "Fans of Swift, known online as 'Swifties', refused to wait quietly.", zh: '斯威夫特的粉丝，在网上被称为「Swifties」，没有选择安静等待。' },
+        { id: 's8', en: 'They posted real photos and concert clips of her under the words "Protect Taylor Swift".', zh: '他们在「Protect Taylor Swift」这句话下面发出了她的真实照片和演唱会片段。' },
+        { id: 's9', en: 'By flooding the feed, the fans hoped to bury the fake images so that other users would not see them.', zh: '通过把这条信息流刷满，粉丝们希望把假图盖下去，让其他用户看不到。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's10', en: 'The platform reacted slowly at first, but the pressure soon grew too strong to ignore.', zh: '平台一开始反应很慢，但压力很快就大到不能再忽视。' },
+        { id: 's11', en: 'On January 27, X blocked all searches for the words "Taylor Swift" on its app.', zh: '1 月 27 日，X 在自己的应用里屏蔽了所有对「Taylor Swift」这两个词的搜索。' },
+        { id: 's12', en: 'Two days later, the searches were turned back on, but the message was clear: even a huge star could be unsafe online.', zh: '两天后，搜索功能被重新打开，但传达的信息很清楚：即便是一位巨星，在网上也可能并不安全。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'The story moved fast from social media to politics.', zh: '这件事很快从社交媒体烧到了政界。' },
+        { id: 's14', en: 'On January 30, US senators introduced the DEFIANCE Act, a bill that would let victims of fake explicit images sue the people who made them.', zh: '1 月 30 日，美国参议员推出了 DEFIANCE 法案，这是一项允许虚假露骨图片的受害者起诉制作者的法案。' },
+        { id: 's15', en: 'Microsoft, whose AI tool was traced as one possible source, said it would tighten its own rules.', zh: '微软的 AI 工具被追查为可能的来源之一，公司表示会收紧自己的规则。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's16', en: 'For many readers, the lesson was bigger than one star.', zh: '对许多读者来说，这个教训不只是关于一位明星。' },
+        { id: 's17', en: 'If a fake image of Taylor Swift could reach 45 million eyes in one night, an image of an ordinary student or worker could spread just as fast.', zh: '如果一张泰勒·斯威夫特的假图能在一夜之间被看到 4500 万次，那么一名普通学生或员工的假图也可能传得一样快。' },
+        { id: 's18', en: 'The slogan "Protect Taylor Swift" was about a singer. The harder question was how to protect everyone else.', zh: '「Protect Taylor Swift」这句口号说的是一位歌手。更难的问题是：怎么保护其他所有人。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'fake', lemma: 'fake', sentenceId: 's1', level: 1, pos: 'adj.', ipa: '/feɪk/', defZh: '假的；伪造的', defEn: 'not real, made to look real', example: 'The store was selling fake handbags at a low price.', exampleZh: '这家店在低价卖假的手提包。' },
+    { id: 'v2', word: 'spreading', lemma: 'spread', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/ˈspredɪŋ/', defZh: '传播；扩散', defEn: 'moving to more people or places', example: 'A short video of the talk was spreading on every group chat.', exampleZh: '那段讲话的短视频在每个群聊里都在传。' },
+    { id: 'v3', word: 'software', lemma: 'software', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/ˈsɒftweə(r)/', defZh: '软件', defEn: 'computer programs that do a task', example: 'The new software can write short letters in seconds.', exampleZh: '这款新软件几秒钟就能写出一封短信。' },
+    { id: 'v4', word: 'deepfake', lemma: 'deepfake', sentenceId: 's3', level: 4, pos: 'n.', ipa: '/ˈdiːpfeɪk/', defZh: '深度伪造（AI 仿造的图像或视频）', defEn: 'an AI-made image or video that looks like a real person', example: 'A deepfake of the mayor briefly fooled local reporters.', exampleZh: '一段市长的深度伪造视频一度骗过了本地记者。' },
+    { id: 'v5', word: 'permission', lemma: 'permission', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/pəˈmɪʃn/', defZh: '许可；同意', defEn: 'an act of allowing someone to do something', example: 'You need written permission to use these photos.', exampleZh: '你需要书面许可才能使用这些照片。' },
+    { id: 'v6', word: 'viewed', lemma: 'view', sentenceId: 's5', level: 1, pos: 'v.', ipa: '/vjuːd/', defZh: '观看；查看', defEn: 'looked at, especially online', example: 'The clip was viewed half a million times by Monday morning.', exampleZh: '这段视频到周一早上已经被观看了五十万次。' },
+    { id: 'v7', word: 'reposted', lemma: 'repost', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/ˌriːˈpəʊstɪd/', defZh: '转发；再次发布', defEn: 'shared a post again on social media', example: 'Her quiet message was reposted by readers all over the country.', exampleZh: '她那条朴素的发文被全国各地的读者转发。' },
+    { id: 'v8', word: 'Fans', lemma: 'fan', sentenceId: 's7', level: 1, pos: 'n.', ipa: '/fænz/', defZh: '粉丝；爱好者', defEn: 'people who strongly like someone or something', example: 'Fans waited outside the studio in the cold rain.', exampleZh: '粉丝们在冷雨里守在录音棚外。' },
+    { id: 'v9', word: 'refused', lemma: 'refuse', sentenceId: 's7', level: 2, pos: 'v.', ipa: '/rɪˈfjuːzd/', defZh: '拒绝；不肯', defEn: 'said no to doing something', example: 'She refused to sign the letter without reading it first.', exampleZh: '没先看清楚，她拒绝在信上签字。' },
+    { id: 'v10', word: 'clips', lemma: 'clip', sentenceId: 's8', level: 2, pos: 'n.', ipa: '/klɪps/', defZh: '短片段；片段', defEn: 'short pieces of video or audio', example: 'Short clips from the show were everywhere on TikTok.', exampleZh: '节目的短片段在 TikTok 上到处都是。' },
+    { id: 'v11', word: 'flooding', lemma: 'flood', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ˈflʌdɪŋ/', defZh: '使大量涌入；刷屏', defEn: 'sending so many things that a place fills up', example: 'Readers were flooding the comments with their own stories.', exampleZh: '读者们正在用自己的故事刷满评论区。' },
+    { id: 'v12', word: 'bury', lemma: 'bury', sentenceId: 's9', level: 3, pos: 'v.', ipa: '/ˈberi/', defZh: '掩埋；盖过', defEn: 'to hide something under a pile of other things', example: 'New posts soon buried the angry comment near the bottom.', exampleZh: '新帖子很快把那条愤怒的评论盖到了底部。' },
+    { id: 'v13', word: 'platform', lemma: 'platform', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ˈplætfɔːm/', defZh: '平台（这里指网站或 App）', defEn: 'an online service that lets people share content', example: 'The video platform asked creators to label any AI clips.', exampleZh: '这个视频平台要求创作者给所有 AI 片段加上标注。' },
+    { id: 'v14', word: 'pressure', lemma: 'pressure', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ˈpreʃə(r)/', defZh: '压力；催促', defEn: 'strong demand from people that something be done', example: 'Public pressure forced the company to apologize.', exampleZh: '公众压力迫使公司公开道歉。' },
+    { id: 'v15', word: 'blocked', lemma: 'block', sentenceId: 's11', level: 2, pos: 'v.', ipa: '/blɒkt/', defZh: '屏蔽；阻止', defEn: 'stopped something from passing through', example: 'The school blocked the website on its student wifi.', exampleZh: '学校在学生 wifi 上屏蔽了这个网站。' },
+    { id: 'v16', word: 'unsafe', lemma: 'unsafe', sentenceId: 's12', level: 2, pos: 'adj.', ipa: '/ˌʌnˈseɪf/', defZh: '不安全的', defEn: 'not safe; in danger of harm', example: 'The old bridge felt unsafe after the storm.', exampleZh: '暴风雨过后，那座旧桥让人觉得不太安全。' },
+    { id: 'v17', word: 'senators', lemma: 'senator', sentenceId: 's14', level: 4, pos: 'n.', ipa: '/ˈsenətəz/', defZh: '参议员', defEn: 'members of a senate that helps make laws', example: 'A group of senators asked for tighter rules on new AI tools.', exampleZh: '一群参议员要求对新的 AI 工具制定更严的规则。' },
+    { id: 'v18', word: 'bill', lemma: 'bill', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/bɪl/', defZh: '法案；议案', defEn: 'a written plan for a new law', example: 'The bill still has to pass two more votes.', exampleZh: '这项法案还得再通过两次投票。' },
+    { id: 'v19', word: 'victims', lemma: 'victim', sentenceId: 's14', level: 3, pos: 'n.', ipa: '/ˈvɪktɪmz/', defZh: '受害者', defEn: 'people who have been hurt by an action or crime', example: 'The hotline gives free legal help to victims of online abuse.', exampleZh: '这条热线为网络辱骂的受害者提供免费法律帮助。' },
+    { id: 'v20', word: 'sue', lemma: 'sue', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/suː/', defZh: '起诉；告上法庭', defEn: 'to take someone to court for harm done', example: 'They threatened to sue the magazine over the false story.', exampleZh: '他们威胁要就那条假报道把杂志告上法庭。' },
+    { id: 'v21', word: 'traced', lemma: 'trace', sentenceId: 's15', level: 3, pos: 'v.', ipa: '/treɪst/', defZh: '追查到；追溯到', defEn: 'found the origin of something by following clues', example: 'Researchers traced the rumor back to a single account.', exampleZh: '研究人员把这条谣言追查到了一个账号身上。' },
+    { id: 'v22', word: 'slogan', lemma: 'slogan', sentenceId: 's18', level: 3, pos: 'n.', ipa: '/ˈsləʊɡən/', defZh: '口号；标语', defEn: 'a short phrase that is easy to remember', example: 'The campaign\'s slogan was painted on bags and t-shirts.', exampleZh: '这场活动的口号被印在了袋子和 T 恤上。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 was / were + 过去分词 描述"事情被怎样对待"',
+      pattern: 'was / were + 过去分词',
+      sentenceIds: ['s4', 's5', 's6'],
+      explanationZh: [
+        '中文里我们经常说「图片被分享了」「视频被看了多少次」，重点不在「谁做的」，而在「这件东西经历了什么」。英文里要表达这种「被动」的视角，常用 be 动词加过去分词。在过去时态里就是 was 或 were 加过去分词，叫做「过去被动语态」。',
+        '看文中第 4 句：The images were sexual and shared without her permission。后半句 shared 前面省掉了 were，但意思仍然是「这些图片被分享了」，是被动。第 5 句 was viewed more than 45 million times 也是同一套结构：viewed 是过去分词，was 帮它撑起了过去被动的时态。第 6 句的 was reposted 也是同样的搭配。',
+        '什么时候用：当你想强调一件事发生在某个东西身上，又不想（或不知道）说清楚是谁干的，被动语态正合适。新闻报道里经常用，因为读者关心的是「这件东西出了什么事」，而不是「具体哪个员工按了按钮」。',
+        '一个常被忽略的细节：be 动词要跟主语的单复数对应。The image was viewed（单数用 was），The images were shared（复数用 were）。过去分词本身不变，区别全在 was 和 were 上。',
+      ],
+      examples: [
+        { en: 'The window was broken during the storm last night.', zh: '昨晚暴风雨期间，窗户被打破了。', note: '不想说「谁打破的」，被动语态把焦点放在「窗户」身上。' },
+        { en: 'These letters were written more than fifty years ago.', zh: '这些信是五十多年前写的。' },
+        { en: 'The decision was made before any of us joined the team.', zh: '这个决定是在我们任何一个人加入团队之前就做出的。' },
+        { en: 'A short film about the village was shown at the local school.', zh: '一部关于这个村子的短片在当地学校放映了。' },
+        { en: 'The whole street was painted yellow during the festival.', zh: '节日期间，整条街都被刷成了黄色。' },
+      ],
+      commonMistake: '不要写成 The images were share without her permission（漏了 -d）。被动语态里 be 动词后面必须用过去分词形式（shared, viewed, reposted），不是动词原形。',
+      vsSimilar: 'They shared the images（主动）说「他们分享了图片」，重点是「他们」；The images were shared（被动）说「图片被分享了」，重点是「图片」。先想清楚你想让读者看到哪一边。',
+    },
+    {
+      id: 'g2',
+      title: '用 so that 引出"为了让某事发生"',
+      pattern: 'do something so that [结果句]',
+      sentenceIds: ['s9'],
+      explanationZh: [
+        '想说「我做某事，是为了让另一件事发生」，中文里常说「为了让……」「这样……就……」。英文里有一个很好用的连词组合：so that 后面跟一个完整的句子，表示前面那个动作的目的。它比简单的 to 加动词更适合描述「我做 A，希望别人或某件事变成 B」。',
+        '看文中第 9 句：By flooding the feed, the fans hoped to bury the fake images so that other users would not see them。前半句讲粉丝做了什么（刷屏、想盖住假图），so that 后面接的是他们希望达成的结果（让其他用户看不到）。so that 把「动作」和「目的」清楚地连了起来。',
+        '什么时候用：当你想解释「为什么这么做」时最自然。议论文里讲一个政策的用意、申请文书里说自己为什么参与一项活动、新闻里描述一个团体的策略，so that 都很顺手。',
+        '一个小细节：so that 后面那一句常带 will / would / can / could 这种「情态动词」。表示「希望发生」的语气。文中用的是 would not see（过去希望「不会看到」）。如果整体语境是当下，就用 will 或 can。',
+      ],
+      examples: [
+        { en: 'I left early so that I would not miss the last bus.', zh: '我早点出门，免得错过末班车。' },
+        { en: 'She speaks slowly so that everyone can follow.', zh: '她说话放慢节奏，好让每个人都跟得上。', note: 'so that 后面用 can，表示「希望大家能够」。' },
+        { en: 'The hotel keeps the lobby quiet so that guests can sleep in.', zh: '酒店把大堂保持安静，好让客人能睡懒觉。' },
+        { en: 'We label each box so that the movers do not mix things up.', zh: '我们给每个箱子贴标签，好让搬家工人不会把东西混在一起。' },
+        { en: 'The teacher wrote the rules on the wall so that nobody could say they did not know.', zh: '老师把规则写在墙上，让任何人都没法说自己不知道。' },
+      ],
+      commonMistake: '不要把 so that 和单独的 so 搞混。He left so he would not miss the bus（口语里可以省略 that），写作里完整写 so that 更清楚。也不要写成 so for not missing（错的搭配）。',
+    },
+    {
+      id: 'g3',
+      title: '用逗号加 a bill that … 把"专业名词"立刻解释清楚',
+      pattern: '名词, a / an [简短解释] + (which / that … )',
+      sentenceIds: ['s14', 's15'],
+      explanationZh: [
+        '英文里有一个很常见的写作动作：你刚刚抛出了一个读者可能不熟悉的名字或术语（一个法案的名字、一个公司、一个职位），你不想停下来另起一句话解释，于是就在它后面打一个逗号，跟一个 "a ..." 短语来交代「这是什么东西」。这种结构叫「同位语」，但学语法不重要，记住它的样子就够了。',
+        '看文中第 14 句：US senators introduced the DEFIANCE Act, a bill that would let victims … sue the people who made them。DEFIANCE Act 刚一出现，读者可能愣一下：这是什么？作者立刻用 "a bill that …" 把它解释完。整个句子读下来一气呵成，不需要再插一句「DEFIANCE 法案是一项……」。第 15 句 Microsoft, whose AI tool was traced … 用 whose 引导的从句，也是同一种思路：把背景信息塞进逗号里，主干继续往前走。',
+        '什么时候用：当你写新闻、做汇报、写申请文书需要点出一个机构或专有名词时特别好用。它能在不打断节奏的情况下完成「介绍 + 解释」两件事，让句子显得专业又紧凑。',
+        '一个细节：解释短语前后通常都要有逗号，把它和主句隔开。前一个逗号是"开门"，后面那个逗号（或句号）是"关门"，不能只开不关。',
+      ],
+      examples: [
+        { en: 'They voted for the Clean Air Act, a law that limited factory smoke in nearby cities.', zh: '他们投票支持《空气清洁法案》，一项限制附近城市工厂排烟的法律。' },
+        { en: 'The school invited Mr. Chen, a writer who used to live in the village, to give the opening talk.', zh: '学校邀请了陈先生，一位曾经住在这个村子的作家，来做开场演讲。', note: '把陈先生的身份塞进两个逗号之间，整句读下来不卡顿。' },
+        { en: 'Riley uses Notion, an app that turns notes into shared pages, for every group project.', zh: 'Riley 在每个小组作业里都用 Notion，一款把笔记变成共享页面的应用。' },
+        { en: 'The team booked the Drake Hotel, a quiet place near the river, for the company retreat.', zh: '团队为公司团建订了 Drake 酒店，那是一家靠近河边的安静酒店。' },
+        { en: 'She joined the Red Cross, an aid group with offices in over 190 countries, right after college.', zh: '大学毕业后，她就加入了红十字会，一个在 190 多个国家都有办公室的援助机构。' },
+      ],
+      commonMistake: '不要漏掉第二个逗号。写成 the DEFIANCE Act, a bill that would let victims sue read like a typo（解释开了头却不关门）。补充说明结束后，记得用逗号把句子接回主干。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '解释一个专业新词：用一句话先点出它"通常被叫做……"',
+      skeleton: 'A [things like this] is often called [the term].',
+      original: 'A picture or video that an AI tool builds to look like a real person is often called a "deepfake".',
+      sentenceId: 's3',
+      whyItWorks: [
+        '这是一个非常实用的科普句式：你不直接抛出陌生词，而是先描述一种现象（一个 AI 工具做出来、看起来像真人的图片或视频），再用 is often called 把术语轻轻挂上去。读者先理解了「东西本身」，再认识它的名字，几乎不会被术语吓退。',
+        '对读者来说，is often called 这几个字是一种温和的握手：作者没有假设你已经懂这个词，而是先把它解释给你听。这种姿态让读者愿意继续往下读，因为他们感到「这篇文章是为我写的」。',
+        '它最适合用在文章前半段，第一次出现专业词的那一刻。新闻特写、科普文、申请文书里讲一个不常见的项目时都很顺手。把这个句式当作一个「术语引入器」，几乎放在任何主题里都成立。',
+        '一个小要点：is often called 后面通常用引号把术语包起来（"deepfake"），告诉读者「这是一个特定的说法，不是普通词」。这样视觉上也提示了重要性。',
+      ],
+      examples: [
+        { context: '科普文开头介绍术语', text: 'A computer that copies the way a brain learns from examples is often called a "neural network".', zh: '一台模仿大脑从例子里学习方式的计算机，常常被叫做「神经网络」。' },
+        { context: '城市报道里解释一种现象', text: 'A short, half-empty bus that runs in the middle of the night is often called a "ghost route".', zh: '一辆在半夜里跑、车上几乎没人的小公交，常常被叫做「幽灵线路」。', note: '先描述这种公交长什么样，再用 is often called 给它一个有画面的名字。' },
+        { context: '商业报道介绍新概念', text: 'A small shop that lives inside a bigger store for just a few weeks is often called a "pop-up".', zh: '一家在大商店里只待几周的小店铺，常常被叫做「快闪店」。' },
+      ],
+      adaptingTip: '主语的描述要尽量画面感强，让读者一眼"看见"那个东西，再把术语用 is often called 抛出来。如果术语本身已经家喻户晓（比如 a smartphone），就不需要这个句式；它是给真正陌生的概念准备的。术语两侧用引号是惯例，加上更显正式。',
+      commonMistake: '不要把主语写得太抽象，像 "Something that is digital is often called a deepfake"。读者无法画出「something that is digital」是什么样的。主语越具体（a picture, a short film, a song），整个句式才越有教学力。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用 If A could …, B could just as fast 把"个案"扩展成"普遍问题"',
+      skeleton: 'If [a famous / large case] could [extreme outcome], [an ordinary case] could [the same thing] just as fast.',
+      original: 'If a fake image of Taylor Swift could reach 45 million eyes in one night, an image of an ordinary student or worker could spread just as fast.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这是一种把"大新闻"翻译成"普通人风险"的钩子句。前半句用一个庞大、具体、有冲击力的数字（45 million eyes in one night）把读者震一下，后半句立刻把镜头拉到读者自己（an ordinary student or worker），告诉他们：这件事不只是名人的事，是你的事。',
+        '对读者来说，just as fast 这几个字是关键。作者没有说"普通人会更惨"或"普通人会被忽视"，而是平平地说"一样快"，反而让读者更心惊：连资源最多的人都顶不住，自己又能怎样？这种克制的对比比夸张的呐喊更让人难忘。',
+        '它最适合放在文章靠近结尾的反思段落。前文已经把一个大事件讲完，这个句式负责把"事件"翻译成"启示"，让读者带着问题离开。议论文、社评、申请文书的反思段都很合用。',
+        '一个隐藏要点：前半句的数字一定要具体、刺眼（45 million / 二十年 / 上千次）。如果换成模糊的 a lot of views，对比就会变弱，整句话也就立不起来。',
+      ],
+      examples: [
+        { context: '社评结尾把名人事件扩到普通人', text: 'If a politician with a security team could be tracked online in minutes, an ordinary parent could be tracked just as fast.', zh: '如果一位有专门安保团队的政客可以在几分钟之内被网上追踪到，那么一位普通家长也可能被同样快地追踪到。' },
+        { context: '科技评论把大公司案例扩到小企业', text: 'If a global bank with its own security team could lose customer data in one weekend, a small online shop could lose its records just as fast.', zh: '如果一家有自己安全团队的全球银行能在一个周末丢掉客户数据，那么一家小型网店也可能同样快地丢掉自己的记录。', note: '用大公司的失败托起"小企业更没准备"的隐含判断。' },
+        { context: '申请文书反思段', text: 'If a famous research lab could lose three months of work to a hard-drive crash, my own small project could disappear just as fast.', zh: '如果一个有名的研究实验室都能因为一次硬盘故障丢掉三个月的工作，我自己的小项目也可能消失得一样快。' },
+      ],
+      adaptingTip: '前半句填一个读者会觉得"这人都顶得住吧"的人或机构（名人、大公司、政府部门），加上一个具体到吓人的数字或后果。后半句填一个普通人会代入的角色（an ordinary student, a small shop, a single nurse），再用 just as fast / just as easily 收尾。两边的对比越大，句式的杠杆越长。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾分裂句：把口号或事件留在第一句，把"真正的问题"放进第二句',
+      skeleton: 'The [slogan / event] was about [surface subject]. The harder question was [the larger issue].',
+      original: 'The slogan "Protect Taylor Swift" was about a singer. The harder question was how to protect everyone else.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个收尾句式的力量来自两次落差。第一句先平平地复述大家都看到的表面（一个口号说的是一位歌手），第二句立刻拐到一个更大的问题（怎么保护其他所有人）。两句之间没有 but，也没有 yet，节奏靠句号制造，反而显得更冷静、更有分量。',
+        '对读者来说，The harder question was 这几个字是隐形的承诺：作者承认前面那件事重要，但他真正在乎的是更深的那一层。读者会被这种"看似克制其实有判断"的语气吸引，愿意停一停想一想。',
+        '它最适合放在文章或段落的最后一句话。前文已经把事件铺完，这个句式负责把读者从"具体故事"推向"留给我们的问题"。新闻特写、专栏、申请文书反思段都很合用。',
+        '一个隐藏要点：第二句一定要是一个"更难"的问题，不能只是第一句的同义改写。文中 how to protect everyone else 把焦点从一个人扩到了所有人，问题的重量明显升级，整段才有结尾感。',
+      ],
+      examples: [
+        { context: '社评结尾从具体事件升到普遍问题', text: 'The new rule was about one viral video. The harder question was why the same kind of clip kept going viral every month.', zh: '新规说的是一段火爆的视频。更难的问题是：为什么每个月都会有同类视频火起来。' },
+        { context: '申请文书反思段收尾', text: 'The petition was about saving one tree. The harder question was whether anyone would notice if it had not been ours.', zh: '请愿说的是保住一棵树。更难的问题是：如果那不是我们家的树，还会有人在意吗。', note: '把一棵具体的树升到一个普遍的"谁的损失才会被看见"的问题。' },
+        { context: '科技评论收尾', text: 'The fine was about one company. The harder question was how many other apps were doing the same thing in silence.', zh: '这笔罚款说的是一家公司。更难的问题是：还有多少其他应用在悄悄做着同样的事。' },
+      ],
+      adaptingTip: '第一句的"表面主体"要写得具体（一个口号、一段视频、一笔罚款），让读者一眼明白说的是哪件事。第二句的"更难的问题"必须把范围扩大或层次拔高（从一个人到所有人，从一次事件到一种现象），不要只是换个说法。两句都要短，节奏才会立得住。',
+      commonMistake: '不要让第二句的问题和第一句一个量级。写成 The slogan was about Taylor Swift. The harder question was how to protect Taylor Swift（其实是同一件事），收尾就完全没有升华。第二句要跳到一个更大的维度。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What is a "deepfake" according to the article?', options: ['A real photo edited with filters', 'An AI-made image or video that looks like a real person', 'A short video shared without sound', 'A copy of a movie made by fans'], answer: 1, explanation: 'The article defines a deepfake as a picture or video an AI tool builds to look like a real person.', sentenceId: 's3' },
+    { id: 'q2', q: 'How many times was one of the fake posts viewed before X took it down?', options: ['About 4.5 thousand', 'About 4.5 million', 'More than 45 million', 'Less than one million'], answer: 2, explanation: 'The article says one post stayed online for about 17 hours and was viewed more than 45 million times.', sentenceId: 's5' },
+    { id: 'q3', q: "Why did fans post real photos under the slogan 'Protect Taylor Swift'?", options: ['To sell concert tickets', 'To celebrate her new album', 'To bury the fake images so other users would not see them', 'To ask X to ban all photos of her'], answer: 2, explanation: 'The article says fans hoped to bury the fake images by flooding the feed with real ones.', sentenceId: 's9' },
+    { id: 'q4', q: 'What did X do on January 27, 2024?', options: ['It deleted all of her real photos', 'It blocked searches for the words "Taylor Swift"', 'It paid her compensation', 'It removed every user who reposted the images'], answer: 1, explanation: 'The article says on January 27, X blocked all searches for the words "Taylor Swift" on its app.', sentenceId: 's11' },
+    { id: 'q5', q: "At the end, what does the writer suggest is the bigger lesson of the incident?", options: ['Only famous people need to worry about deepfakes', 'Fans should run all online platforms', 'The harder question is how to protect ordinary people, not just stars', 'Deepfakes will quickly disappear on their own'], answer: 2, explanation: 'The closing lines say the slogan was about a singer, and the harder question is how to protect everyone else.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '假图开始在平台上传播的日期', answer: 'January 26, 2024', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '当时这个网站现在的名字', answer: 'X', sentenceId: 's1' },
+      { id: 'ig3', cueZh: '其中一条帖子在线挂着的时间长度', answer: '17 hours', sentenceId: 's5' },
+      { id: 'ig4', cueZh: '那条帖子被浏览的次数', answer: '45 million', sentenceId: 's5' },
+      { id: 'ig5', cueZh: '粉丝们用来反击的口号', answer: 'Protect Taylor Swift', sentenceId: 's8' },
+      { id: 'ig6', cueZh: 'X 屏蔽相关搜索的日期', answer: 'January 27', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '美国参议员推出的法案名字', answer: 'DEFIANCE Act', sentenceId: 's14' },
+      { id: 'ig8', cueZh: 'AI 工具被追溯到的科技公司', answer: 'Microsoft', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位没有听说过这件事的朋友介绍 2024 年 1 月的泰勒·斯威夫特深度伪造事件：发生了什么、粉丝怎么反应、为什么这件事不只是关于一位歌手。',
+      promptEn: 'Using the facts in your table, write about 70 words for a friend who has not heard about it, introducing the January 2024 Taylor Swift deepfake incident: what happened, how fans reacted, and why the story matters beyond one singer.',
+      targetWords: 70,
+      starters: [
+        'A picture or video that an AI tool builds to look like a real person is ...',
+        'The slogan "Protect Taylor Swift" was about ...',
+      ],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'A picture or video that an AI tool builds to look like a real person is often called a "deepfake". On January 26, 2024, fake images of Taylor Swift spread on X, and one post was viewed more than 45 million times. Fans flooded the feed with real photos under the words "Protect Taylor Swift". The slogan was about a singer. The harder question was how to protect everyone else online.',
+      modelAnswerZh:
+        '一张 AI 工具做出来、看起来像真人的图片或视频，常常被叫做「深度伪造」。2024 年 1 月 26 日，泰勒·斯威夫特的假图在 X 上传播，其中一条帖子被浏览了超过 4500 万次。粉丝们用「Protect Taylor Swift」这句话刷满信息流，配上她的真实照片。这个口号说的是一位歌手。更难的问题是：怎么在网上保护其他所有人。',
+    },
+  },
+};

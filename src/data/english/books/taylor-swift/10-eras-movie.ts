@@ -1,0 +1,242 @@
+// Taylor Swift book, Ch.10: the Eras Tour film breaks the concert-movie record and lands on Disney+ (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-03-15',
+    title: 'A Concert Film Breaks Cinemas',
+    titleZh: '演唱会电影破了影院',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/taylor-swift/10-eras-movie.mp3',
+    wordCount: 299,
+    readingMinutes: 4,
+    editorsNote:
+      'A pop concert turned into the biggest concert film in history, without a single big studio behind it. This chapter follows how the Eras Tour movie set a record, then jumped to Disney+, and why the music industry is still arguing about what it means.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In late 2023, a pop concert quietly broke a record that had stood for fourteen years.', zh: '2023 年底，一场流行演唱会悄悄打破了一个保持了十四年的纪录。' },
+        { id: 's2', en: '"Taylor Swift: The Eras Tour" became the highest-grossing concert film of all time.', zh: '《Taylor Swift：时代巡回演唱会》成为有史以来票房最高的演唱会电影。' },
+        { id: 's3', en: 'The film passed "Michael Jackson\'s This Is It", which had held the title since 2009.', zh: '这部电影超越了自 2009 年以来一直保持纪录的《迈克尔·杰克逊：就是这样》。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The movie opened in October 2023 and pulled in 92.8 million dollars in North America on its first weekend.', zh: '这部电影于 2023 年 10 月上映，首周末在北美收获了 9280 万美元。' },
+        { id: 's5', en: 'That was the biggest opening weekend ever for a concert film, beating not only earlier music documentaries but also several big Hollywood titles released the same week.', zh: '这是演唱会电影历史上最强的首周末，不仅压过了过去的音乐纪录片，也压过了同周上映的多部好莱坞大片。' },
+        { id: 's6', en: 'By early 2024, after an expanded version was added and the film opened in China, the worldwide total had passed 260 million dollars.', zh: '到 2024 年初，加入加长版并在中国上映后，全球票房总数已超过 2.6 亿美元。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'What is unusual is how the film got into cinemas.', zh: '不寻常的是这部电影进入影院的方式。' },
+        { id: 's8', en: 'Taylor Swift skipped the big Hollywood studios.', zh: 'Taylor Swift 绕开了好莱坞的大制片厂。' },
+        { id: 's9', en: 'Her team paid for the movie themselves and made a deal directly with AMC, the largest cinema chain in the United States.', zh: '她的团队自己出钱拍摄，并直接与美国最大的院线 AMC 签约。' },
+        { id: 's10', en: 'Under that deal, the artist and the cinemas split the ticket money, and the studios got nothing.', zh: '根据那份协议，艺人和影院分票房，制片厂分文未得。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'On 15 March 2024, only five months after the cinema release, the movie made another big move and traded the dark theatre for the home screen.', zh: '2024 年 3 月 15 日，距离影院上映仅仅五个月，这部电影又迈出了一大步，从黑暗的影院走向了家中的屏幕。' },
+        { id: 's12', en: 'It arrived on Disney+ as "The Eras Tour (Taylor\'s Version)", with five extra songs that were not in the cinema cut.', zh: '它以《时代巡回演唱会（Taylor 版）》的名字登陆 Disney+，新增五首影院版没有的歌曲。' },
+        { id: 's13', en: 'Fans who had already paid for a ticket got a fresh reason to watch again.', zh: '那些已经买过电影票的歌迷，有了重新观看的新理由。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Other artists noticed.', zh: '其他艺人注意到了。' },
+        { id: 's15', en: 'Beyoncé soon used the same AMC route for her "Renaissance" film.', zh: 'Beyoncé 很快也用同样的 AMC 路线发行了《Renaissance》电影。' },
+        { id: 's16', en: "Industry writers began to ask whether a small group of superstars could now skip the studio system whenever they wanted to.", zh: '行业评论人开始追问：一小群超级巨星是不是现在想绕开制片厂体系就能绕开。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'The Eras Tour film is more than a long music video.', zh: '《时代巡回演唱会》电影不只是一段长长的音乐录影。' },
+        { id: 's18', en: 'It is a quiet sign that, for the biggest names in pop, the old gatekeepers are no longer the only door.', zh: '它是一个安静的信号：对于流行乐里最大牌的艺人，旧的看门人已不再是唯一的那扇门。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'broke', lemma: 'break', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/brəʊk/', defZh: '打破（纪录）', defEn: 'set a new best, beating an old one', example: 'She broke the school record for the 800 metres.', exampleZh: '她打破了学校 800 米的纪录。' },
+    { id: 'v2', word: 'stood', lemma: 'stand', sentenceId: 's1', level: 2, pos: 'v.', ipa: '/stʊd/', defZh: '保持不变；屹立', defEn: 'remained in place, unchanged', example: 'The old tower has stood here for two hundred years.', exampleZh: '这座旧塔在这里屹立了两百年。' },
+    { id: 'v3', word: 'highest-grossing', lemma: 'highest-grossing', sentenceId: 's2', level: 3, pos: 'adj.', ipa: '/ˌhaɪɪst ˈɡrəʊsɪŋ/', defZh: '票房最高的', defEn: 'earning the most money at the box office', example: 'The studio is hoping for its highest-grossing film of the year.', exampleZh: '制片厂希望它成为今年票房最高的电影。' },
+    { id: 'v4', word: 'passed', lemma: 'pass', sentenceId: 's3', level: 1, pos: 'v.', ipa: '/pɑːst/', defZh: '超过；越过', defEn: 'went beyond a number, level, or other thing', example: 'Our sales passed last year\'s total in November.', exampleZh: '我们的销售额在十一月就超过了去年全年的总额。' },
+    { id: 'v5', word: 'held', lemma: 'hold', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/held/', defZh: '保持（头衔、纪录）', defEn: 'kept a title or position for a period', example: 'He held the world title for three years.', exampleZh: '他保持世界冠军头衔三年。' },
+    { id: 'v6', word: 'opened', lemma: 'open', sentenceId: 's4', level: 1, pos: 'v.', ipa: '/ˈəʊpənd/', defZh: '（电影、剧目）首映；开演', defEn: 'first showed in cinemas or theatres', example: 'The play opened in London last spring.', exampleZh: '这部剧去年春天在伦敦首演。' },
+    { id: 'v7', word: 'pulled in', lemma: 'pull in', sentenceId: 's4', level: 3, pos: 'phr. v.', ipa: '/pʊld ɪn/', defZh: '赚得；吸引到', defEn: 'earned a large amount, or drew a crowd', example: 'The festival pulled in twenty thousand visitors.', exampleZh: '这个节庆吸引了两万名访客。' },
+    { id: 'v8', word: 'expanded', lemma: 'expand', sentenceId: 's6', level: 3, pos: 'adj.', ipa: '/ɪkˈspændɪd/', defZh: '加长的；扩展的', defEn: 'made larger or longer than before', example: 'The expanded edition includes two new chapters.', exampleZh: '加长版多收了两个章节。' },
+    { id: 'v9', word: 'unusual', lemma: 'unusual', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ʌnˈjuːʒuəl/', defZh: '不寻常的', defEn: 'not common or normal', example: 'It is unusual for the train to be this late.', exampleZh: '火车迟到这么久很不寻常。' },
+    { id: 'v10', word: 'skipped', lemma: 'skip', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/skɪpt/', defZh: '跳过；绕开', defEn: 'avoided a step that most people use', example: 'She skipped the long queue by booking online.', exampleZh: '她通过线上预约绕开了长长的队伍。' },
+    { id: 'v11', word: 'chain', lemma: 'chain', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/tʃeɪn/', defZh: '连锁（店、影院、酒店等）', defEn: 'a group of shops or businesses owned by the same company', example: 'This coffee chain has shops in every airport.', exampleZh: '这家咖啡连锁在每个机场都有门店。' },
+    { id: 'v12', word: 'split', lemma: 'split', sentenceId: 's10', level: 2, pos: 'v.', ipa: '/splɪt/', defZh: '分（钱、东西）', defEn: 'shared something by dividing it', example: 'The three friends split the bill evenly.', exampleZh: '三个朋友把账单平均分摊。' },
+    { id: 'v13', word: 'arrived', lemma: 'arrive', sentenceId: 's12', level: 1, pos: 'v.', ipa: '/əˈraɪvd/', defZh: '到达；上线', defEn: 'reached a place or became available', example: 'The new app arrived on phones last week.', exampleZh: '新应用上周登陆了手机。' },
+    { id: 'v14', word: 'cinema', lemma: 'cinema', sentenceId: 's12', level: 2, pos: 'n.', ipa: '/ˈsɪnəmə/', defZh: '影院；电影行业', defEn: 'a place where films are shown, or the film industry', example: 'We watched the film at the small cinema downtown.', exampleZh: '我们在市中心那家小影院看了这部电影。' },
+    { id: 'v15', word: 'fresh', lemma: 'fresh', sentenceId: 's13', level: 2, pos: 'adj.', ipa: '/freʃ/', defZh: '新的；新鲜的', defEn: 'new and different, recently produced', example: 'The teacher gave us a fresh start after the break.', exampleZh: '老师在假期后给了我们一个新的开始。' },
+    { id: 'v16', word: 'noticed', lemma: 'notice', sentenceId: 's14', level: 2, pos: 'v.', ipa: '/ˈnəʊtɪst/', defZh: '注意到；留意到', defEn: 'became aware of something', example: 'I noticed that the door had been left open.', exampleZh: '我注意到门被开着没关。' },
+    { id: 'v17', word: 'route', lemma: 'route', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/ruːt/', defZh: '路线；途径', defEn: 'a way or method of reaching something', example: 'He took a different route to get into the industry.', exampleZh: '他走了一条不同的路进入这个行业。' },
+    { id: 'v18', word: 'industry', lemma: 'industry', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/ˈɪndəstri/', defZh: '行业；产业', defEn: 'a group of businesses doing similar work', example: 'The fashion industry hires many young designers.', exampleZh: '时尚行业雇用很多年轻设计师。' },
+    { id: 'v19', word: 'superstars', lemma: 'superstar', sentenceId: 's16', level: 3, pos: 'n.', ipa: '/ˈsuːpəstɑːz/', defZh: '超级巨星', defEn: 'extremely famous and successful performers', example: 'Only a handful of superstars can fill a stadium.', exampleZh: '只有极少数超级巨星能撑满一个体育场。' },
+    { id: 'v20', word: 'gatekeepers', lemma: 'gatekeeper', sentenceId: 's18', level: 4, pos: 'n.', ipa: '/ˈɡeɪtˌkiːpəz/', defZh: '看门人；把关者', defEn: 'people or groups that decide who is allowed through', example: 'Magazine editors have long been the gatekeepers of taste.', exampleZh: '杂志编辑长期以来都是品味的把关者。' },
+    { id: 'v21', word: 'quiet', lemma: 'quiet', sentenceId: 's18', level: 2, pos: 'adj.', ipa: '/ˈkwaɪət/', defZh: '安静的；不张扬的', defEn: 'not loud, not making a fuss', example: 'His quiet support meant more than any speech.', exampleZh: '他不张扬的支持比任何演讲都更有意义。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What is X is Y 把"重点"先点亮',
+      pattern: 'What is [adjective] is [the real point].',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '中文里我们常说"不寻常的是它进影院的方式"。这种"先抛一个评价词，再揭示具体内容"的句式在英文里靠 What is X is Y 来实现，叫"what 分裂句"。它的作用是把焦点提前，告诉读者"接下来这一点才是关键"。',
+        '看文中第 7 句：What is unusual is how the film got into cinemas。如果直接写 The way the film got into cinemas was unusual，意思一样，但语气平，读者很容易一眼滑过去。用 What is unusual is 起头，等于先按下一个信号灯：注意，"不寻常"这件事就在下一行。',
+        '什么时候用：写新闻段落、议论文或个人随笔，准备转到"真正想说的那一点"时最好用。它特别适合放在段落开头，把这一段的重点放在最显眼的位置。',
+        '一个容易忽略的细节：第二个 is 后面的"重点"可以是一个名词，也可以是一个 how / why / that 引导的从句。文中 What is unusual is how the film got into cinemas 用的就是 how 从句；也可以写 What is unusual is the deal itself，用名词。',
+      ],
+      examples: [
+        { en: 'What is interesting is how quickly the rule was changed.', zh: '有意思的是，这条规则改得有多快。', note: '第二个 is 后面接一个 how 从句，把重点放在"速度"上。' },
+        { en: 'What is hard is staying calm when everyone else is shouting.', zh: '难的是在所有人都在喊的时候保持冷静。' },
+        { en: 'What is surprising is the number of small towns that signed up.', zh: '令人意外的是有这么多小镇报名参加。' },
+        { en: 'What is missing is a clear plan for next year.', zh: '缺的是一份明年的清晰计划。' },
+        { en: 'What is new is the price, not the design.', zh: '新的是价格，不是设计。' },
+      ],
+      commonMistake: '不要写成 What is unusual are how the film got into cinemas。前面的 What 是单数主语，后面的 be 动词一律用 is，不能用 are，哪怕后面跟的是复数名词。',
+      vsSimilar: '直接说 The way X did Y is unusual 也对，但语气平淡；用 What is unusual is how X did Y 等于给"不寻常"打了一盏聚光灯，重点更立得起来。',
+    },
+    {
+      id: 'g2',
+      title: '用 which 一逗号补一句背景，不必拆成两句',
+      pattern: '[名词], which [补充信息],',
+      sentenceIds: ['s3', 's9'],
+      explanationZh: [
+        '想给一个名词加一段背景信息，新手常会另起一句：It is Michael Jackson\'s This Is It. It had held the title since 2009. 这样读起来很碎，节奏也断了。英文更顺的做法是用 which 加逗号把背景塞进来，叫"非限制性定语从句"。',
+        '看文中第 3 句："Michael Jackson\'s This Is It", which had held the title since 2009。逗号加 which 引出的部分是补充说明：去掉它，主干 The film passed "Michael Jackson\'s This Is It" 依然完整。第 9 句 AMC, the largest cinema chain in the United States 用的是同位语，也是同一种"顺手补一句"的思路。',
+        '什么时候用：写新闻、人物介绍、影评时特别常用。当你刚提到一个名字、公司或作品，读者可能不熟，你又不想专门停下来另开一段，就用 which 一逗号把背景补完，再继续往下说。',
+        '一个容易忽略的细节：which 前面必须有逗号，这是"非限制性"的标志，意思是这部分信息是补充的，不是用来"区分哪一个"的。如果没有逗号（The film which had held the title），意思变成"那部保持纪录的电影"，是用来限定身份的，不一样。',
+      ],
+      examples: [
+        { en: 'The team chose Lisbon, which is famous for its hills.', zh: '团队选了里斯本，那是一座以山坡闻名的城市。' },
+        { en: 'She joined a small studio, which closed two years later.', zh: '她加入了一家小工作室，那家公司两年后关门了。', note: 'which 一逗号顺手补一句"后来怎么了"，不必另起新句。' },
+        { en: 'The book ends in Paris, which the author visits every spring.', zh: '这本书在巴黎结尾，作者每年春天都会去那里。' },
+        { en: 'They opened a new branch in Chengdu, which now sells more than the original shop.', zh: '他们在成都开了新店，那家店现在比老店卖得更多。' },
+      ],
+      commonMistake: '不要漏逗号写成 The film passed "This Is It" which had held the title since 2009。补充背景的 which 前面必须加逗号；漏了，意思就变成"区分是哪一部电影"，整句节奏也会乱。',
+    },
+    {
+      id: 'g3',
+      title: '用 by + 时间，说"到那时候为止已经……"',
+      pattern: 'By [时间点], [主语 + 完成时].',
+      sentenceIds: ['s6'],
+      explanationZh: [
+        '中文说"到 2024 年初，总票房已经超过 2.6 亿美元"，重点不在"什么时候过的线"，而在"到那一刻，事情已经怎样了"。英文里这种"到 X 时刻为止已经发生"的意思，常用 By 加一个时间点，再配上完成时（had done / has done）。',
+        '看文中第 6 句：By early 2024, after an expanded version was added and the film opened in China, the worldwide total had passed 260 million dollars。By early 2024 是时间锚点，后面 had passed 用的是过去完成时，意思是"到 2024 年初这一刻为止，票房早就过线了"。',
+        '什么时候用：写新闻报道、数据回顾、阶段总结时最好用。它常用在段落中段，作用是把读者"带到一个时间点"，然后告诉他在那一刻局面已经定下来。',
+        '一个容易忽略的细节：By 后面要跟一个具体的时间点（by 2024 / by the end of the month / by last summer），不要用 in。In 2024 只是"在 2024 年的某个时候"；By 2024 是"到 2024 年为止，之前已经完成"，意思不一样。',
+      ],
+      examples: [
+        { en: 'By the end of last year, the app had reached ten million users.', zh: '到去年底，这款应用已经达到了一千万用户。' },
+        { en: 'By March, most of the snow had melted.', zh: '到三月份，大部分雪都已经融化了。' },
+        { en: 'By the time we arrived, the meeting had already started.', zh: '等我们到的时候，会议已经开始了。' },
+        { en: 'By 2030, the company hopes to have opened stores in fifty cities.', zh: '到 2030 年，这家公司希望已经在五十座城市开店。', note: 'By 加时间点，后面配完成时，表示"到那一刻为止已经做到的事"。' },
+        { en: 'By Friday, she had finished all the homework.', zh: '到周五，她已经把所有作业做完了。' },
+      ],
+      commonMistake: '不要写成 In early 2024, the total had passed 260 million dollars。In 只是"在那一年里"，没有"截止"的意思；要表达"到这个时间点为止已经……"，必须用 By。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇钩子：让一件大事"悄悄"完成，制造反差感',
+      skeleton: '[某事] quietly [打破或完成 / 一件大事], that had [背景描述].',
+      original: 'In late 2023, a pop concert quietly broke a record that had stood for fourteen years.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头的力量来自两个词的对撞：quietly 和 broke a record。一个是低调的副词，一个是"打破纪录"的大动作。两者放在一起，读者立刻感到一种反差：明明是件大事，却像是不经意发生的。',
+        '对读者来说，quietly 这个词在做心理铺垫："你可能没怎么注意，但有件事已经发生了。" 这种"低调宣告"的口气比直接喊 A huge record was broken 更可信，也更勾人，因为它给读者一个"参与发现"的感觉。',
+        '它最适合用作新闻特写、回顾报道或长文的开篇句。前面没有任何铺垫的情况下，靠这一句就能把读者拉进来。后面紧接一句具体说明（文中第 2 句揭示"是哪部电影、哪项纪录"），节奏就成立了。',
+        '一个隐藏要点：quietly 后面接的动作必须是"客观上很大、影响力很强"的事，反差才成立。如果接的是一件本来就很小的事（quietly opened a small café），这个句式的机锋就全没了。',
+      ],
+      examples: [
+        { context: '科技新闻开篇', text: 'In the summer of 2024, a tiny start-up quietly built a chatbot that had worried two of the biggest tech companies.', zh: '2024 年夏天，一家小小的创业公司悄悄做出了一款让两家最大科技公司都警觉的聊天机器人。' },
+        { context: '体育特写开篇', text: 'Last Sunday, a sixteen-year-old swimmer quietly beat a record that had lasted since the 1990s.', zh: '上周日，一位 16 岁的游泳选手悄悄打破了一项 1990 年代以来一直保持的纪录。', note: 'quietly 加 beat a record 的反差，配上 that had 引出的背景，开篇钩子立刻成立。' },
+        { context: '环境报道开篇', text: 'Last winter, a small lake in the north quietly froze for the first time in twenty years.', zh: '去年冬天，北方的一个小湖二十年来第一次悄悄结冰。' },
+      ],
+      adaptingTip: 'quietly 后面接的动作必须有"分量"（broke a record / changed a rule / passed a milestone），不能是 quietly opened / quietly wrote 这种轻动作，反差才出得来。后半句 that had 引出的背景越具体（多少年、之前是谁），钩子越牢。这是开篇句，别放在中段。',
+      commonMistake: '不要把 quietly 换成 just 或 simply：a pop concert just broke a record 听起来变成"也没什么了不起"，反差感全没了。quietly 的隐含意思是"事情很大，只是没大声宣布"，换词就走样。',
+    },
+    {
+      id: 'pt2',
+      useCase: '收尾升华：说一件事"不只是表面那样"，再点出它真正的意义',
+      skeleton: '[一件事] is more than [表面看到的东西]. It is [更大的意义].',
+      original: 'The Eras Tour film is more than a long music video. It is a quiet sign that, for the biggest names in pop, the old gatekeepers are no longer the only door.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式的力量来自"两步走"。第一句先承认大家肉眼能看到的那一层（a long music video），第二句突然把镜头拉远，给出一个更大、更有分量的解读（a quiet sign）。先小后大，落差让结尾有了升华感。',
+        '对读者来说，more than 三个字埋下了一个承诺："这件事没那么简单，等我下一句。" 于是读者会带着期待读第二句，给出的"真正意义"就显得水到渠成，而不是硬拔高调。',
+        '它最适合放在文章或段落的结尾。前文已经把事实讲完，这两句负责把"事实"翻译成"意义"，给读者一个值得记住的收束。新闻评论、影评、个人随笔的结尾都很好用。',
+        '一个隐藏要点：第二句的"更大意义"必须能回扣全文，不能凭空拔高。文中 the old gatekeepers are no longer the only door 正好回扣前文"绕开制片厂、直接和 AMC 签约"那一线索，所以读起来可信。',
+      ],
+      examples: [
+        { context: '公益倡议结尾', text: 'A community library is more than a room of books. It is one of the last places strangers can sit together without being asked to buy anything.', zh: '社区图书馆不只是一间放书的屋子。它是少数几个陌生人可以坐在一起、不必被要求消费的地方之一。' },
+        { context: '科技评论结尾', text: 'The new app is more than a cheaper tool. It is a sign that big companies no longer set every price.', zh: '这款新应用不只是一个更便宜的工具。它是一个信号，说明大公司不再决定每一个价格。', note: '第二句给出"行业意义"的解读，比直接说 it is important 有力得多。' },
+        { context: '城市观察结尾', text: 'The old market is more than a tourist stop. It is one of the few corners where the city remembers its own past.', zh: '这座老市场不只是一个旅游打卡点。它是少数几个让这座城市记住自己过去的角落。' },
+      ],
+      adaptingTip: '第二句的"更大意义"要选有重量、能回扣全文的词（a sign / a promise / one of the last places…），不要换成另一个同级别的小词。第一句的"表面意义"要选大家第一眼真的会这么想的那一层，落差才成立。这是结尾模板，别放在文章开头或中段。',
+      commonMistake: '不要让第二句还停在同一层：The film is more than a music video. It is also a really long music video.（没有升华，等于没说）。第二句必须跳到一个更大的维度（行业、社会、时代），句式才成立。',
+    },
+    {
+      id: 'pt3',
+      useCase: '过渡句：把别人的反应一行带过，再引出更大的问题',
+      skeleton: '[其他人] noticed. [具体行动]. [行业 / 评论人]began to ask whether [更大的问题].',
+      original: 'Other artists noticed. Beyoncé soon used the same AMC route for her "Renaissance" film. Industry writers began to ask whether a small group of superstars could now skip the studio system whenever they wanted to.',
+      sentenceId: 's14',
+      whyItWorks: [
+        '这个句式的力量来自节奏的层层放大。第一句很短（Other artists noticed），像一记轻敲；第二句给出一个具体例子（Beyoncé soon used the same AMC route），把"注意到"这件事坐实；第三句一下子拉到行业讨论（began to ask whether…），把视野从两个人扩到整个圈子。',
+        '对读者来说，这种"短-中-长"的节奏会让人不自觉地一直读下去：第一句太短了，必须接着看；第二句给出名字和事件，提供了证据；第三句把问题抛出来，让读者也开始思考。这是新闻特写非常爱用的小三拍。',
+        '它最适合放在文章中段，作为从"具体事件"过渡到"更大讨论"的桥段。前文已经把主角的故事讲完，这三句负责打开视野：把单一事件放进一个更大的趋势里。',
+        '一个隐藏要点：第一句必须短到只有 2 到 4 个词，节奏才立得起来。如果写成 Many other artists in the industry also noticed what was happening，节奏就被拖垮了，后面两句的"层层放大"就感觉不出来。',
+      ],
+      examples: [
+        { context: '科技新闻中段过渡', text: 'Other cities watched. Within a year, Toronto and Berlin started similar bus lanes. Urban planners began to ask whether a single year of testing could now decide policy in five cities at once.', zh: '其他城市在观察。一年之内，多伦多和柏林开通了类似的公交专用道。城市规划者开始追问：是不是一年的试点就能同时决定五座城市的政策。' },
+        { context: '教育报道中段过渡', text: 'Other schools followed. A high school in Shanghai adopted the same project model the next term. Education reporters began to ask whether a single classroom experiment could now reshape an entire curriculum.', zh: '其他学校跟进了。上海的一所高中下一学期就采用了同样的项目模式。教育记者开始追问：是不是一个班级的实验现在就能重塑整套课程。', note: '三句"短-中-长"，从一所学校到整套课程，视野层层放大。' },
+        { context: '环境报道中段过渡', text: 'Other towns acted. A small fishing port in Norway banned single-use plastic two months later. Climate writers began to ask whether one quiet rule could now travel faster than any treaty.', zh: '其他城镇行动了。挪威一座小渔港两个月后也禁了一次性塑料。气候评论人开始追问：是不是一条安静的规则现在比任何国际条约传播得都快。' },
+      ],
+      adaptingTip: '第一句一定要短（2 到 4 个词），可以是 Other X noticed / Other Y followed / Critics watched，节奏才立得住。第二句给出一个具体的名字和动作，证明"注意到"不是空话。第三句用 began to ask whether 抛出一个更大的问题，让段落自然滑进"行业讨论"。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Which film did "The Eras Tour" pass to become the highest-grossing concert film?', options: ['"Renaissance" by Beyoncé', '"Michael Jackson\'s This Is It"', '"Magnificent Coloring World"', '"Taylor Swift: 1989"'], answer: 1, explanation: 'The article says the film passed "Michael Jackson\'s This Is It", which had held the title since 2009.', sentenceId: 's3' },
+    { id: 'q2', q: 'How much did the film earn on its first weekend in North America?', options: ['92.8 million dollars', '260 million dollars', '8.7 million dollars', '30.7 million dollars'], answer: 0, explanation: 'The article gives the first-weekend North American figure as 92.8 million dollars.', sentenceId: 's4' },
+    { id: 'q3', q: 'According to the article, what was unusual about how the film got into cinemas?', options: ['Swift\'s team worked with a major Hollywood studio', 'The film was released only in China at first', 'Swift\'s team paid for the film themselves and dealt directly with AMC', 'The film opened on Disney+ before any cinemas'], answer: 2, explanation: 'The article says Swift paid for the movie herself and signed directly with AMC, skipping the big studios.', sentenceId: 's9' },
+    { id: 'q4', q: 'What was new about "The Eras Tour (Taylor\'s Version)" on Disney+?', options: ['It was shorter than the cinema cut', 'It came out in October 2023', 'It included five extra songs not in the cinema cut', 'It was directed by a new director'], answer: 2, explanation: 'The article says the Disney+ version added five extra songs that were not in the cinema cut.', sentenceId: 's12' },
+    { id: 'q5', q: 'What is the writer\'s view in the closing paragraph?', options: ['The film is only a long music video and nothing more', 'The big studios are still the only way to reach cinemas', 'For the biggest pop names, the old gatekeepers are no longer the only door', 'Smaller artists can easily copy this model'], answer: 2, explanation: 'The closing line calls the film a quiet sign that the old gatekeepers are no longer the only door for the biggest names in pop.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '新的"票房最高演唱会电影"片名', answer: 'Taylor Swift: The Eras Tour', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '此前保持纪录的电影名', answer: "Michael Jackson's This Is It", sentenceId: 's3' },
+      { id: 'ig3', cueZh: '北美首周末票房', answer: '92.8 million dollars', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '到 2024 年初的全球票房', answer: '260 million dollars', sentenceId: 's6' },
+      { id: 'ig5', cueZh: 'Swift 团队直接签约的院线名称', answer: 'AMC', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '电影登陆 Disney+ 的日期', answer: '15 March 2024', sentenceId: 's11' },
+      { id: 'ig7', cueZh: '采用同样发行路线的另一位艺人', answer: 'Beyoncé', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向朋友介绍《Eras Tour》电影的来龙去脉：它创下了什么纪录、为什么发行方式不寻常、上线 Disney+ 后又意味着什么。',
+      promptEn: 'Using the facts in your table, write about 70 words telling a friend the story of the Eras Tour film: what record it broke, why its release was unusual, and what its move to Disney+ might mean.',
+      targetWords: 70,
+      starters: ['In late 2023, a pop concert quietly ...', 'What is unusual is ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'In late 2023, a pop concert quietly broke a record that had stood since 2009. "Taylor Swift: The Eras Tour" became the highest-grossing concert film, passing "Michael Jackson\'s This Is It". What is unusual is how it got there: Swift paid for the film herself and signed directly with AMC. The Eras Tour film is more than a long music video. It is a quiet sign that the old gatekeepers are no longer the only door.',
+      modelAnswerZh:
+        '2023 年底，一场流行演唱会悄悄打破了一项自 2009 年以来的纪录。《Taylor Swift：时代巡回演唱会》成为票房最高的演唱会电影，超越了《迈克尔·杰克逊：就是这样》。不寻常的是它走到这一步的方式：Swift 自己出钱拍片，并直接与 AMC 签约。这部电影不只是一段长长的音乐录影。它是一个安静的信号，说明旧的看门人已不再是唯一的那扇门。',
+    },
+  },
+};

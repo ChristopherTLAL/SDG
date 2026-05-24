@@ -1,0 +1,242 @@
+// Taylor Swift book, Ch.12: guests sign NDAs for the rumored summer wedding, and the leaks come anyway (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2026-05-20',
+    title: 'The Wedding Everyone Wants to See',
+    titleZh: '全网都想看的婚礼',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/taylor-swift/12-wedding-ndas.mp3',
+    wordCount: 340,
+    readingMinutes: 4,
+    editorsNote:
+      'Taylor Swift and Travis Kelce want a private wedding, so their guests have to sign a special legal paper called an NDA. The details have leaked anyway. This chapter looks at how stars try to protect their big day, and why the secret rarely holds.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In May 2026, gossip sites began sharing tiny pieces of news about a wedding that has not happened yet.', zh: '2026 年 5 月，八卦网站开始零星爆出一场还没举办的婚礼的细节。' },
+        { id: 's2', en: 'The couple at the center of the talk is Taylor Swift and football star Travis Kelce.', zh: '处在风口的这对新人，是 Taylor Swift 和橄榄球明星 Travis Kelce。' },
+        { id: 's3', en: 'Reporters say it will likely happen in late June or early July, possibly at the Ocean House, a famous resort in Watch Hill, Rhode Island.', zh: '记者们说，婚礼很可能在六月底或七月初举行，地点也许就在罗德岛 Watch Hill 那家著名的度假酒店 Ocean House。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'To protect the day, the couple has asked every guest to sign an NDA.', zh: '为了保护这一天，新人要求每一位宾客签署一份 NDA。' },
+        { id: 's5', en: 'NDA stands for non-disclosure agreement, a legal paper that promises the signer will not share private information.', zh: 'NDA 是 non-disclosure agreement（保密协议）的缩写，是一份承诺签字人不会泄露私密信息的法律文件。' },
+        { id: 's6', en: 'If a guest breaks the rule and tells the press, the couple can take them to court and ask for money as a penalty.', zh: '如果有宾客违反约定向媒体爆料，新人可以把对方告上法庭，并要求一笔金额作为惩罚。' },
+        { id: 's7', en: 'NDAs are common at celebrity weddings, but they are unusual in the rest of life.', zh: '在明星的婚礼上，保密协议很常见，但在普通生活里就很少见了。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'Even with the paperwork, small leaks keep slipping out.', zh: '即便签了文件，零碎的爆料还是不断流出。' },
+        { id: 's9', en: 'Tabloids have reported the rumored date, the dress designer, a no-plus-one rule, and even which family members may be left off the list.', zh: '小报报出了传闻中的日期、礼服设计师、不能带伴侣同行的规矩，甚至哪些家人可能不在邀请名单上。' },
+        { id: 's10', en: 'Some stories may be wrong, but enough of them line up that fans believe a real wedding is being planned in secret.', zh: '有些消息可能是假的，但其中一部分能对得上，所以粉丝相信确实有一场婚礼正在悄悄筹备。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'The team has also planned against the sky.', zh: 'Swift 的团队还得防着头顶上方。' },
+        { id: 's12', en: 'Helicopters and long-lens cameras can reach across walls, so the couple prefers an indoor venue and quiet guest arrivals.', zh: '直升机和长焦镜头能越过围墙取景，所以新人更偏好室内场地，让宾客安静地入场。' },
+        { id: 's13', en: 'This is the modern shape of celebrity privacy: a wall of paper, a wall of glass, and a sky still full of cameras.', zh: '这就是当代明星隐私的样子：一道纸做的墙，一道玻璃做的墙，再加上一片仍然布满镜头的天空。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Part of what makes this wedding so hard to hide is its size.', zh: '这场婚礼之所以这么难藏，部分原因在于它的规模。' },
+        { id: 's15', en: 'Family, athletes, and other singers will all be there, and the more people you invite, the more mouths there are to slip.', zh: '家人、运动员和其他歌手都会到场；邀请的人越多，可能走漏风声的嘴也越多。' },
+        { id: 's16', en: 'In the end, the NDA is less a perfect lock and more a polite warning to guests.', zh: '说到底，这份保密协议与其说是一把完美的锁，不如说是给宾客的一句礼貌警告。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'For Swift, the goal is simple: one normal day in a life that is rarely normal.', zh: '对 Swift 来说，目标很简单：在一段几乎没有"普通"可言的人生里，过上一个普通的日子。' },
+        { id: 's18', en: 'The world wants to watch, and that only makes the secrecy more interesting to crack.', zh: '全世界都想围观，而这反而让"破解保密"这件事变得更有意思。' },
+        { id: 's19', en: 'A wedding under NDA is more than a private party. It is a quiet argument about who owns the story of a life.', zh: '一场签着保密协议的婚礼不只是一次私人聚会。它是一场安静的辩论，争论一个人的人生故事到底由谁说了算。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'gossip', lemma: 'gossip', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/ˈɡɒsɪp/', defZh: '八卦；闲话', defEn: 'casual talk about other people, often not confirmed', example: 'Office gossip can spread faster than real news.', exampleZh: '办公室里的闲话往往比真新闻传得还快。' },
+    { id: 'v2', word: 'couple', lemma: 'couple', sentenceId: 's2', level: 1, pos: 'n.', ipa: '/ˈkʌpl/', defZh: '一对（夫妻 / 情侣）', defEn: 'two people in a romantic relationship', example: 'The couple bought their first house last spring.', exampleZh: '这对夫妻去年春天买了他们的第一套房。' },
+    { id: 'v3', word: 'resort', lemma: 'resort', sentenceId: 's3', level: 3, pos: 'n.', ipa: '/rɪˈzɔːt/', defZh: '度假酒店；度假胜地', defEn: 'a hotel or place built for holidays', example: 'They spent the week at a small mountain resort.', exampleZh: '他们在一家小型山地度假酒店住了一周。' },
+    { id: 'v4', word: 'guest', lemma: 'guest', sentenceId: 's4', level: 1, pos: 'n.', ipa: '/ɡest/', defZh: '客人；宾客', defEn: 'a person invited to an event or someone\'s home', example: 'Every guest was given a small gift at the door.', exampleZh: '每位客人在门口都收到了一份小礼物。' },
+    { id: 'v5', word: 'legal', lemma: 'legal', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/ˈliːɡl/', defZh: '法律的；合法的', defEn: 'connected with the law', example: 'You should read the legal terms before you sign.', exampleZh: '签字之前你应该读一下法律条款。' },
+    { id: 'v6', word: 'private', lemma: 'private', sentenceId: 's5', level: 2, pos: 'adj.', ipa: '/ˈpraɪvət/', defZh: '私人的；不公开的', defEn: 'not meant to be shared with the public', example: 'She kept her diary private all her life.', exampleZh: '她一辈子都把自己的日记保留为私人物品。' },
+    { id: 'v7', word: 'court', lemma: 'court', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/kɔːt/', defZh: '法庭；法院', defEn: 'a place where legal cases are decided', example: 'The case will go to court next month.', exampleZh: '这个案子下个月将送上法庭。' },
+    { id: 'v8', word: 'penalty', lemma: 'penalty', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/ˈpenəlti/', defZh: '惩罚；罚款', defEn: 'a punishment, often a money fine', example: 'Late payment carries a small penalty.', exampleZh: '逾期付款会有少量罚款。' },
+    { id: 'v9', word: 'unusual', lemma: 'unusual', sentenceId: 's7', level: 2, pos: 'adj.', ipa: '/ʌnˈjuːʒuəl/', defZh: '不寻常的；少见的', defEn: 'not common or normal', example: 'It is unusual for him to be late.', exampleZh: '他迟到是件不寻常的事。' },
+    { id: 'v10', word: 'leaks', lemma: 'leak', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/liːks/', defZh: '泄露的消息；漏出的信息', defEn: 'pieces of information that escape into the public', example: 'Leaks from the meeting reached the press by Friday.', exampleZh: '会议里漏出的消息周五就传到了媒体那里。' },
+    { id: 'v11', word: 'slipping out', lemma: 'slip out', sentenceId: 's8', level: 3, pos: 'phr. v.', ipa: '/ˈslɪpɪŋ aʊt/', defZh: '悄悄漏出；不小心说出来', defEn: 'to come out quietly, often by mistake', example: 'A few names kept slipping out during the call.', exampleZh: '通话中有几个名字总是不小心漏了出来。' },
+    { id: 'v12', word: 'rumored', lemma: 'rumor', sentenceId: 's9', level: 4, pos: 'adj.', ipa: '/ˈruːməd/', defZh: '传闻中的；据传的', defEn: 'said by many people but not yet confirmed', example: 'The rumored release date turned out to be wrong.', exampleZh: '传闻中的发行日期最后证明是错的。' },
+    { id: 'v13', word: 'line up', lemma: 'line up', sentenceId: 's10', level: 3, pos: 'phr. v.', ipa: '/laɪn ʌp/', defZh: '对得上；吻合', defEn: 'to match or fit together', example: 'Her story did not line up with the photos.', exampleZh: '她的说法和照片对不上。' },
+    { id: 'v14', word: 'venue', lemma: 'venue', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈvenjuː/', defZh: '场地；举办地', defEn: 'the place where an event happens', example: 'They are still choosing a venue for the concert.', exampleZh: '他们还在挑选演唱会的场地。' },
+    { id: 'v15', word: 'privacy', lemma: 'privacy', sentenceId: 's13', level: 2, pos: 'n.', ipa: '/ˈprɪvəsi/', defZh: '隐私；私密', defEn: 'the state of being free from public attention', example: 'He moved to the countryside for more privacy.', exampleZh: '他搬到乡下是为了多一点隐私。' },
+    { id: 'v16', word: 'invite', lemma: 'invite', sentenceId: 's15', level: 1, pos: 'v.', ipa: '/ɪnˈvaɪt/', defZh: '邀请', defEn: 'to ask someone to come to an event', example: 'They invite only close friends to the dinner.', exampleZh: '他们只邀请亲近的朋友来这顿晚饭。' },
+    { id: 'v17', word: 'warning', lemma: 'warning', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/ˈwɔːnɪŋ/', defZh: '警告；提醒', defEn: 'something said to prepare a person for danger or rules', example: 'The teacher gave us a gentle warning before the test.', exampleZh: '考试前老师温和地提醒了我们一句。' },
+    { id: 'v18', word: 'secrecy', lemma: 'secrecy', sentenceId: 's18', level: 4, pos: 'n.', ipa: '/ˈsiːkrəsi/', defZh: '保密；秘密状态', defEn: 'the practice of keeping something hidden', example: 'The project was developed in total secrecy.', exampleZh: '这个项目是在完全保密的状态下推进的。' },
+    { id: 'v19', word: 'crack', lemma: 'crack', sentenceId: 's18', level: 3, pos: 'v.', ipa: '/kræk/', defZh: '破解；攻破', defEn: 'to solve something hidden or hard', example: 'It took the team years to crack the code.', exampleZh: '团队花了数年时间才破解这段密码。' },
+    { id: 'v20', word: 'argument', lemma: 'argument', sentenceId: 's19', level: 2, pos: 'n.', ipa: '/ˈɑːɡjumənt/', defZh: '争论；论点', defEn: 'a discussion in which people disagree', example: 'The book makes a strong argument for clearer rules.', exampleZh: '这本书为更清晰的规则提出了有力的论点。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 if 引导的"假设条件 + 后果"：第一条件句',
+      pattern: 'If + 现在时, 主语 + can / will + 动词原形',
+      sentenceIds: ['s6'],
+      explanationZh: [
+        '中文里我们说"如果……就……"很顺，英文里要表达"以后真有可能发生的事 + 这件事一旦发生会怎样"，最常用的句式就是 If 加现在时，再加 can / will 加动词原形，这叫"第一条件句"。它说的是现实里有可能发生、不是纯属空想的情况。',
+        '看文中第 6 句：If a guest breaks the rule and tells the press, the couple can take that person to court。If 后面用的是现在时 breaks 和 tells，而不是 will break、will tell；后半句才用 can take。If 那一段说的是"假设条件"，后半段说的是"条件成真时会有的后果"，分工很清楚。',
+        '什么时候用：写规则、合同、警告、计划时最顺，比如说明流程、解释惩罚、给出建议。和"零条件句"（讲普遍真理：If you heat water, it boils）相比，第一条件句更针对一次具体可能发生的事件。',
+        '一个容易踩的坑：If 那一段不要用 will。中文思维容易翻译成 If a guest will break the rule…，这是错的；英文里 If 引导的条件那一段必须用现在时（breaks, tells），不能用将来时。',
+      ],
+      examples: [
+        { en: 'If the bus is late, we can take a taxi.', zh: '如果公交车晚点，我们可以打车。' },
+        { en: 'If you forget the password, the system will lock your account.', zh: '如果你忘了密码，系统就会锁定你的账户。', note: 'If 那一段用 forget（现在时），主句用 will lock，是标准的第一条件句。' },
+        { en: 'If it rains tomorrow, the match will move indoors.', zh: '如果明天下雨，比赛就改到室内进行。' },
+        { en: 'If a player breaks the rules, the team can lose a point.', zh: '如果有球员违规，球队就可能被扣分。' },
+        { en: 'If she calls back tonight, I will tell her the address.', zh: '如果她今晚回电话，我会把地址告诉她。' },
+      ],
+      commonMistake: '不要写成 If a guest will break the rule, the couple can take that person to court。If 后面只能用现在时 breaks，不能用 will break。',
+      vsSimilar: '"零条件句"（If you heat water, it boils）讲的是永远成立的规律，主句也用现在时；"第一条件句"（If a guest breaks…, the couple can…）讲的是一次具体可能发生的事，主句用 can / will，注意区分。',
+    },
+    {
+      id: 'g2',
+      title: '用"比较级 + the more …"表达"越……越……"',
+      pattern: 'the more [X], the more [Y]',
+      sentenceIds: ['s15'],
+      explanationZh: [
+        '中文里"人越多，嘴越多"读起来很自然。英文里要表达这种"两个量同时上升或下降"的关系，最常用的句式就是 the more 加一个名词或形容词，再来一组 the more 加另一个名词或形容词。两组结构对称，节奏感很强。',
+        '看文中第 15 句：the more people you invite, the more mouths there are to slip。前半段 the more people you invite 给一个变量（邀请的人数），后半段 the more mouths there are 给另一个跟着变化的变量（可能走漏风声的人数）。两个 the more 一前一后，就构成了"越 X 越 Y"的因果。',
+        '什么时候用：写"扩张带来的代价"、"投入越多回报越大"、"越用越熟练"这类规律时特别好用，常出现在评论、议论文、个人陈述里，能让一句话同时说出两个动向。',
+        '一个细节：the more 后面跟形容词 / 副词时直接加形容词（the harder you try, the better），跟名词时要加冠词或不加（the more people, the more noise）。两边的语法要平行，不能一边名词一边动词混着用。',
+      ],
+      examples: [
+        { en: 'The more you practice, the easier the song becomes.', zh: '你越练习，这首歌就越变得容易。' },
+        { en: 'The more we read about it, the less we trust the headlines.', zh: '我们读得越多，就越不相信那些标题。', note: '两边方向相反也可以：一边 the more，一边 the less。' },
+        { en: 'The harder the question, the longer she thinks before she speaks.', zh: '问题越难，她开口前就思考得越久。' },
+        { en: 'The more cities we visit, the smaller the world feels.', zh: '我们走的城市越多，世界就感觉越小。' },
+        { en: 'The earlier you book, the cheaper the ticket is.', zh: '你订得越早，票就越便宜。' },
+      ],
+      commonMistake: '不要写成 More people you invite, more mouths there are to slip。两段开头都必须有 the，少了任何一个，整句结构就垮了。',
+    },
+    {
+      id: 'g3',
+      title: '用 less … and more … 来调整一个东西的"主要身份"',
+      pattern: 'X is less [一种身份], (and) more [另一种身份]',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '想表达"与其说……，不如说……"，中文里很常见。英文里对应的句式是 less 加一个身份描述，再用 more 接另一个更准确的身份描述。这是一种"轻微纠偏"的说法，作者不是全盘否定第一种说法，而是说"它更偏向第二种"。',
+        '看文中第 16 句：the NDA is less a perfect lock and more a polite warning to guests。作者没有说 NDA 没用，而是说它"不像一把完美的锁"，"更像一句礼貌警告"。两个名词词组（a perfect lock / a polite warning）对仗工整，读者一下子就明白作者怎么看待这份文件。',
+        '什么时候用：写评论、影评、社会观察时最顺，特别是在你想纠正读者的第一印象时。比如别人都觉得某个东西是 A，你想说"其实它更像 B"，这个句式就能温和地把判断说出来。',
+        '一个细节：less 和 more 后面要接同一类的成分（两个名词词组，或两个形容词），保持平行才好读。文中是 a perfect lock 对 a polite warning，两个都是"形容词加名词"的结构。',
+      ],
+      examples: [
+        { en: 'For many students, the exam is less a test of memory and more a test of patience.', zh: '对许多学生来说，这场考试与其说是记忆力的测试，不如说是耐心的测试。' },
+        { en: 'The new café is less a coffee shop and more a small reading room.', zh: '这家新咖啡馆与其说是咖啡店，不如说是个小小的阅读室。', note: '两边都用"a 加形容词加名词"，结构整齐。' },
+        { en: 'Her speech was less a goodbye and more a quiet promise to come back.', zh: '她的讲话与其说是告别，不如说是一句安静的、要回来的承诺。' },
+        { en: 'The film is less a love story and more a long letter to the city.', zh: '这部电影与其说是爱情故事，不如说是一封写给这座城市的长信。' },
+      ],
+      commonMistake: '不要写成 the NDA is less a perfect lock and more being a polite warning。more 后面要接和 less 后面同类的成分（这里都是名词词组），不要突然换成 ing 形式。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '收尾金句：用三件并列的小画面，把一个抽象主题"画"出来',
+      skeleton: 'This is the modern shape of [抽象主题]: [画面一], [画面二], and [画面三].',
+      original: 'This is the modern shape of celebrity privacy: a wall of paper, a wall of glass, and a sky still full of cameras.',
+      sentenceId: 's13',
+      whyItWorks: [
+        '这个句式的力量来自"先抽象后具体"。冒号前面 the modern shape of celebrity privacy 是一个大词，单独读会显得空；冒号后面立刻给出三件具体的小画面（a wall of paper, a wall of glass, a sky full of cameras），用具体把抽象拽下来，读者一下就有了画面感。',
+        '对读者来说，三件画面比两件更有节奏，又比四五件更克制。三件构成一个完整的小排比，读起来像作者在数手指：第一、第二、第三，然后收住，干净利落。',
+        '它适合放在段落或文章中段、收尾。前文已经讲过事实，这一句负责把事实"翻译"成一张图。新闻特写、随笔、观察类文章里都很好用，是替代一段长解释的"图像化"金句。',
+        '一个隐藏的细节：三件画面之间最好有一点小变化，不要完全同构。文中前两件都是 a wall of X（同构），第三件突然换成 a sky still full of cameras（变奏），节奏才不死板。',
+      ],
+      examples: [
+        { context: '城市观察文章中段', text: 'This is the modern shape of a downtown weekend: a queue for coffee, a screen for orders, and a sidewalk full of phone cameras.', zh: '这就是当代市中心周末的样子：一条买咖啡的队、一块下单的屏幕，再加一段被手机镜头占满的人行道。' },
+        { context: '教育评论收尾', text: 'This is the modern shape of homework: a chat window for questions, a video for the lesson, and a parent quietly checking the screen.', zh: '这就是当代作业的样子：一个提问的聊天窗、一段讲课的视频，再加一位安静盯着屏幕的家长。', note: '三件画面前两件结构对仗，第三件加入"人"，让句子有了温度。' },
+        { context: '社会观察文章', text: 'This is the modern shape of city loneliness: a delivery bag at the door, a glowing screen in bed, and a chat group that never quite sleeps.', zh: '这就是当代城市孤独的样子：门口一只外卖袋、床上一块发亮的屏幕，再加一个几乎不睡的聊天群。' },
+      ],
+      adaptingTip: '冒号前面那个抽象主题要选有重量的词（孤独 / 公平 / 友情 / 隐私这种），不要是"今天的早餐"这种小事。冒号后面的三件画面要尽量具体到能看见、能拍照，避免抽象词排在一起。三件里前两件可以同构（a wall of X, a wall of Y），第三件做点小变奏，节奏最好。',
+      commonMistake: '不要把三件画面全写得一模一样：a wall of paper, a wall of glass, a wall of cameras。三件完全同构反而像在凑数；第三件做一点小变化（这里把 a wall of 换成 a sky full of），整句才有呼吸。',
+    },
+    {
+      id: 'pt2',
+      useCase: '反转结尾：把"看似是坏事"翻成"反而更带劲"',
+      skeleton: '[一种缺失或限制], and that only makes [某件事] more [正面效果].',
+      original: 'The world wants to watch, and that only makes the secrecy more interesting to crack.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '正常思路里，"全世界都在盯着"是个让人很有压力的状态。这个句式偏偏接上 and that only makes…more…，把这种被注视的状态翻成"反而让破解保密更有意思"。一个小小的转向，让句子有了机锋。',
+        '对读者来说，only 这个词是核心。它把因果关系说满：不是"有一点"更有意思，而是"正因为这样"才更有意思。读者读到这里会心一笑，因为这正是吃瓜群众的真实心理。',
+        '它最适合放在段落或文章结尾，把一个看似负面的状态（关注太多、信息太少、规则太严）翻成正面解读，给读者一个轻巧、机智的余味。新闻特写、博客随笔、文化评论里都很好用。',
+        '一个隐藏要点：被反转的那件事要让读者本能觉得"是不是麻烦了"。如果那件事本来就是好事，or 中性的事，这个反转就失去了张力，读起来像在硬拗。',
+      ],
+      examples: [
+        { context: '展览观察结尾', text: 'The museum bans photos inside, and that only makes visitors look at the paintings more carefully.', zh: '这家博物馆馆内禁止拍照，而这反而让观众更仔细地看那些画。' },
+        { context: '书评收尾', text: 'The author refuses to give interviews, and that only makes readers chase her old essays more hungrily.', zh: '这位作者拒绝接受任何采访，而这反而让读者更急切地翻找她的旧文章。', note: 'only 把因果说满：正因为不接受采访，旧文章才被翻得更热。' },
+        { context: '产品发布观察', text: 'The company released almost no details, and that only made the launch event more crowded.', zh: '公司几乎没有透露任何细节，而这反而让发布会现场更加拥挤。' },
+      ],
+      adaptingTip: '前半句要放一个读者本能觉得"有点遗憾或为难"的事（禁止、缺席、保密、限量），后半句用 more 加正面词收尾。only 不能省，它是"正因如此"的力度来源；少了它就变成普通转折，机锋全无。',
+    },
+    {
+      id: 'pt3',
+      useCase: '升华结尾：先承认表面意义，再点出更大的意义',
+      skeleton: '[一件具体的事] is more than [表面意义]. It is [更大的意义].',
+      original: 'A wedding under NDA is more than a private party. It is a quiet argument about who owns the story of a life.',
+      sentenceId: 's19',
+      whyItWorks: [
+        '这个句式靠"两步走"积累力量。第一句先承认大家都看得到的表面层（a private party），第二句突然把镜头拉远，给出一个更大、更有意义的解读（a quiet argument about who owns the story of a life）。先小后大，落差制造了升华感。',
+        '对读者来说，第一句里 more than 三个字就埋下一个承诺："别急，这件事没那么简单。"于是读者带着期待读第二句，而第二句给出的"真正意义"就显得水到渠成，而不是硬喊口号。',
+        '它最适合放在文章的最后一段、最后一句。前文已经把事实讲完，这两句把"事实"翻译成"意义"，给读者留下一个值得记住的收束。议论文、影评、个人陈述的结尾都很好用。',
+        '一个隐藏要点：第二句的"更大意义"必须和全文呼应，不能凭空拔高。文中 who owns the story of a life 正好回扣前面"NDA、爆料、隐私"的整条线索，所以读起来可信。',
+      ],
+      examples: [
+        { context: '社区报道收尾', text: 'The Sunday market is more than a place to buy vegetables. It is the one hour each week when neighbors actually talk.', zh: '周日的市集不只是一个买菜的地方。它是每周里邻居们真正会说上话的那一个小时。' },
+        { context: '影评收尾', text: 'The film is more than a road trip. It is a long, gentle question about what we keep and what we leave behind.', zh: '这部电影不只是一次公路旅行。它是一个漫长、温柔的提问，问我们留住了什么，又放下了什么。', note: '第二句给出"漫长温柔的提问"，比直接说 it is meaningful 有力得多。' },
+        { context: '个人陈述结尾', text: 'My first job was more than a paycheck. It was the first time someone trusted me with a real key.', zh: '我的第一份工作不只是一份薪水。那是第一次有人把一把真正的钥匙交到我手里。' },
+      ],
+      adaptingTip: '第一句的"表面意义"要选大家第一眼真的会这么想的那层（a private party / a paycheck / a road trip），落差才成立。第二句的"更大意义"要选有重量、能回扣全文线索的词（an argument / a promise / the first time…），不要换成另一个同级别的小词。这是结尾模板，别放在段落中间。',
+      commonMistake: '不要让第二句还停在同一层：A wedding under NDA is more than a private party. It is also a fancy private party.（没有升华，等于没说）。第二句必须跳到一个更大的维度。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, what does NDA stand for?', options: ['New Date Announcement', 'No Drone Allowed', 'Non-disclosure agreement', 'Network Data Access'], answer: 2, explanation: 'The article explains that NDA stands for non-disclosure agreement, a legal paper that asks the signer not to share private information.', sentenceId: 's5' },
+    { id: 'q2', q: 'Where is the wedding likely to be held, according to the reports?', options: ['Kansas City', 'New York City', 'The Ocean House in Watch Hill, Rhode Island', 'A private island in the Caribbean'], answer: 2, explanation: 'The article says the wedding will likely happen at the Ocean House in Watch Hill, Rhode Island.', sentenceId: 's3' },
+    { id: 'q3', q: 'What can happen if a guest breaks the NDA and talks to the press?', options: ['Nothing, because the paper is just symbolic', 'The couple can take the guest to court and ask for money as a penalty', 'The guest must publish a public apology in the newspaper', 'The guest is banned from all weddings in the United States'], answer: 1, explanation: 'The article says the couple can take that person to court and ask for money as a penalty.', sentenceId: 's6' },
+    { id: 'q4', q: 'Why does the article say a large wedding is hard to keep secret?', options: ['Because guests can never read the NDA properly', 'Because more invited people means more mouths that might slip', 'Because Rhode Island is too small to hide a wedding', 'Because the dress designer always leaks the design'], answer: 1, explanation: 'The article says the more people you invite, the more mouths there are to slip.', sentenceId: 's15' },
+    { id: 'q5', q: 'How does the writer seem to feel about the NDA in the end?', options: ['It is a perfect way to stop all leaks', 'It is mostly a polite warning rather than a perfect lock', 'It is completely useless and pointless', 'It is the most important part of the wedding day'], answer: 1, explanation: 'The article calls the NDA less a perfect lock and more a polite warning to guests, suggesting the writer sees it as limited but still useful.', sentenceId: 's16' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '婚礼传闻中的男方姓名', answer: 'Travis Kelce', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '婚礼可能举行的月份', answer: 'late June or early July', sentenceId: 's3' },
+      { id: 'ig3', cueZh: '传闻中的婚礼场地', answer: 'the Ocean House', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '场地所在的州', answer: 'Rhode Island', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '每位宾客必须签的法律文件', answer: 'an NDA', sentenceId: 's4' },
+      { id: 'ig6', cueZh: '违反协议可能面对的后果', answer: 'court and a money penalty', sentenceId: 's6' },
+      { id: 'ig7', cueZh: '新人偏好的场地类型（室内还是室外）', answer: 'an indoor venue', sentenceId: 's12' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向朋友讲讲 Taylor Swift 这场被 NDA 保护的婚礼：婚礼可能在哪里、为什么要签 NDA，以及为什么消息还是不断流出。',
+      promptEn: "Using the facts in your table, write about 70 words telling a friend about Taylor Swift's wedding under NDA: where it may happen, why the couple asks guests to sign NDAs, and why the details still keep slipping out.",
+      targetWords: 70,
+      starters: ['Taylor Swift and Travis Kelce are reportedly planning ...', 'A wedding under NDA is ...'],
+      usePatternIds: ['pt2', 'pt3'],
+      modelAnswer:
+        'Taylor Swift and Travis Kelce are reportedly planning a summer wedding, possibly at the Ocean House in Rhode Island. Every guest is asked to sign an NDA, and a guest who leaks can be taken to court. Even so, small details keep slipping out, and that only makes the secrecy more interesting to crack. A wedding under NDA is more than a private party. It is a quiet argument about who owns the story of a life.',
+      modelAnswerZh:
+        '据报道，Taylor Swift 和 Travis Kelce 正在筹备一场夏天的婚礼，地点可能就在罗德岛的 Ocean House。每位宾客都被要求签一份 NDA，谁要是走漏消息，就可能被告上法庭。即便如此，零碎的细节还是不断流出，而这反而让"破解保密"这件事变得更有意思。一场签着保密协议的婚礼不只是一次私人聚会。它是一场安静的辩论，争论一个人的人生故事到底由谁说了算。',
+    },
+  },
+};
