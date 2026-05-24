@@ -1,0 +1,243 @@
+// Mental Health for Teens, Ch.12: a 2024 CCDH study finds TikTok pushes body-image and disordered-eating content to teen test accounts within minutes (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2024-12-04',
+    title: 'What the Algorithm Shows You',
+    titleZh: '算法给你看什么',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/mental-health-teens/12-tiktok-body-image.mp3',
+    wordCount: 308,
+    readingMinutes: 4,
+    editorsNote:
+      'Researchers made fake teen TikTok accounts and waited to see what the For You Page would serve. The answer arrived in minutes, not hours. This chapter walks through what they found, what TikTok says it has fixed, and what experts still worry about.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In 2024, researchers at the Center for Countering Digital Hate ran a quiet experiment on TikTok.', zh: '2024 年，反数字仇恨中心（CCDH）的研究人员在 TikTok 上做了一项安静的实验。' },
+        { id: 's2', en: 'They built a small number of fake accounts, set the age to 13, and started scrolling.', zh: '他们建了几个假账号，把年龄设为 13 岁，然后开始刷。' },
+        { id: 's3', en: 'Within minutes, the For You Page began to show videos about thin bodies, dieting, and eating problems.', zh: '没过几分钟，"For You" 推荐页就开始推送关于瘦身、节食和饮食问题的视频。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The team had not searched for any of this.', zh: '研究团队并没有去搜索过这些内容。' },
+        { id: 's5', en: 'They had only paused on a few clips that looked sad or showed an unhappy body image.', zh: '他们只是在几条看起来情绪低落、或带有不健康身材话题的视频上多停留了一会儿。' },
+        { id: 's6', en: 'That tiny signal was enough.', zh: '这个微小的信号就够了。' },
+        { id: 's7', en: 'The algorithm picked it up and kept pushing more of the same.', zh: '算法捕捉到了这一点，并不断推送更多类似内容。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'There is a real difference between scrolling away from a harmful video and being pulled toward it.', zh: '滑走一条有害的视频，和被算法不断推向这种视频，是两件不一样的事。' },
+        { id: 's9', en: 'A teen who pauses for two seconds is not asking for that kind of content.', zh: '一个停留两秒钟的青少年并没有在向系统索要这种内容。' },
+        { id: 's10', en: 'But the system reads the pause as a vote, and it votes again on the teen\'s behalf.', zh: '但系统把这次停留当作一张投票，然后替这个青少年继续投下更多票。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'TikTok has answered these studies before.', zh: '面对类似的研究，TikTok 之前也回应过。' },
+        { id: 's12', en: 'The company says it has changed its rules, removed many harmful videos, and added safety tools for younger users.', zh: '公司表示，自己已经修改了规则，下架了大量有害视频，并为年轻用户增加了安全功能。' },
+        { id: 's13', en: 'Newer accounts marked as teen accounts now get a different mix of content.', zh: '被标记为青少年的新账户，现在会看到一份不同的内容组合。' },
+        { id: 's14', en: 'TikTok also points out that the test accounts in the study were not real teenagers.', zh: 'TikTok 还指出，研究中的测试账号并不是真实的青少年。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's15', en: 'Experts agree that some things have improved, but they are not done worrying.', zh: '专家认同确实有些方面在改进，但他们还远没有放下担忧。' },
+        { id: 's16', en: 'Earlier work by Amnesty International and Mozilla found similar patterns, and parents and doctors keep hearing the same stories from teens themselves.', zh: '国际特赦组织和 Mozilla 早前的研究也发现了类似规律，家长和医生也一直从青少年口中听到同样的故事。' },
+        { id: 's17', en: 'A small pause becomes a stream, the stream becomes a feeling, and the feeling becomes hard to shake.', zh: '一次短暂的停留变成一股内容流，这股流变成一种情绪，而那种情绪很难甩掉。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's18', en: 'The deeper question is not whether the app can fix this on its own.', zh: '更深的问题不是这款应用能否靠自己解决这一切。' },
+        { id: 's19', en: 'It is what we ask of a system that decides, faster than any teen can decide for themselves, what their afternoon will look like.', zh: '而是：当一个系统比任何青少年自己都更快地决定他们这个下午要看到什么，我们到底该对它提出什么要求。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'researchers', lemma: 'researcher', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/rɪˈsɜːtʃəz/', defZh: '研究人员', defEn: 'people who study a topic carefully', example: 'The researchers spent two years collecting answers from students.', exampleZh: '研究人员花了两年时间收集学生的回答。' },
+    { id: 'v2', word: 'experiment', lemma: 'experiment', sentenceId: 's1', level: 2, pos: 'n.', ipa: '/ɪkˈsperɪmənt/', defZh: '实验；试验', defEn: 'a test set up to learn something', example: 'The class did a small experiment with plants and sunlight.', exampleZh: '班级做了一个植物和阳光的小实验。' },
+    { id: 'v3', word: 'fake', lemma: 'fake', sentenceId: 's2', level: 1, pos: 'adj.', ipa: '/feɪk/', defZh: '假的；伪造的', defEn: 'not real; made to look real', example: 'He created a fake profile to test the new feature.', exampleZh: '他建了一个假账号来测试新功能。' },
+    { id: 'v4', word: 'dieting', lemma: 'diet', sentenceId: 's3', level: 2, pos: 'n.', ipa: '/ˈdaɪətɪŋ/', defZh: '节食；控制饮食', defEn: 'eating less or in a special way to lose weight', example: 'Strict dieting can be unsafe for growing teens.', exampleZh: '严格的节食对发育中的青少年并不安全。' },
+    { id: 'v5', word: 'searched', lemma: 'search', sentenceId: 's4', level: 1, pos: 'v.', ipa: '/sɜːtʃt/', defZh: '搜索；寻找', defEn: 'looked for something carefully', example: 'I searched the whole library for that book.', exampleZh: '我在整个图书馆里找了那本书。' },
+    { id: 'v6', word: 'paused', lemma: 'pause', sentenceId: 's5', level: 2, pos: 'v.', ipa: '/pɔːzd/', defZh: '停顿；暂停', defEn: 'stopped for a short time', example: 'She paused for a moment before answering the question.', exampleZh: '她停顿了一下才回答这个问题。' },
+    { id: 'v7', word: 'clips', lemma: 'clip', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/klɪps/', defZh: '短视频；片段', defEn: 'short pieces of video', example: 'He shared a few funny clips from the show.', exampleZh: '他分享了节目里几个有趣的片段。' },
+    { id: 'v8', word: 'signal', lemma: 'signal', sentenceId: 's6', level: 3, pos: 'n.', ipa: '/ˈsɪɡnəl/', defZh: '信号；暗示', defEn: 'a small sign that gives information', example: 'A second click is a clear signal that the user is interested.', exampleZh: '第二次点击是用户感兴趣的明确信号。' },
+    { id: 'v9', word: 'algorithm', lemma: 'algorithm', sentenceId: 's7', level: 4, pos: 'n.', ipa: '/ˈælɡərɪðəm/', defZh: '算法', defEn: 'a set of steps a computer follows to make a choice', example: 'The video site uses an algorithm to decide what you see next.', exampleZh: '这个视频网站用一套算法决定你接下来看到什么。' },
+    { id: 'v10', word: 'harmful', lemma: 'harmful', sentenceId: 's8', level: 2, pos: 'adj.', ipa: '/ˈhɑːmfʊl/', defZh: '有害的；造成伤害的', defEn: 'causing harm or damage', example: 'Some online content can be harmful for younger users.', exampleZh: '一些网络内容对年轻用户可能有害。' },
+    { id: 'v11', word: 'pulled', lemma: 'pull', sentenceId: 's8', level: 1, pos: 'v.', ipa: '/pʊld/', defZh: '拉；拽', defEn: 'moved something toward you using force', example: 'The strong wind pulled the door shut.', exampleZh: '强风把门拉上了。' },
+    { id: 'v12', word: 'vote', lemma: 'vote', sentenceId: 's10', level: 1, pos: 'n.', ipa: '/vəʊt/', defZh: '投票；一票', defEn: 'a choice you make among options', example: 'Every vote counts in a close election.', exampleZh: '在势均力敌的选举中，每一票都很重要。' },
+    { id: 'v13', word: 'rules', lemma: 'rule', sentenceId: 's12', level: 1, pos: 'n.', ipa: '/ruːlz/', defZh: '规则；规定', defEn: 'official statements about what is allowed', example: 'The school has clear rules about phone use.', exampleZh: '学校对手机使用有明确的规定。' },
+    { id: 'v14', word: 'removed', lemma: 'remove', sentenceId: 's12', level: 2, pos: 'v.', ipa: '/rɪˈmuːvd/', defZh: '移除；下架', defEn: 'took something away', example: 'The platform removed thousands of fake reviews last month.', exampleZh: '该平台上个月下架了数千条虚假评论。' },
+    { id: 'v15', word: 'marked', lemma: 'mark', sentenceId: 's13', level: 2, pos: 'v.', ipa: '/mɑːkt/', defZh: '标记；标注', defEn: 'labeled in a clear way', example: 'Files marked private cannot be shared with others.', exampleZh: '被标记为私人的文件不能与他人分享。' },
+    { id: 'v16', word: 'points out', lemma: 'point out', sentenceId: 's14', level: 3, pos: 'phr. v.', ipa: '/pɔɪnts aʊt/', defZh: '指出；提请注意', defEn: 'draws attention to a fact', example: 'The teacher points out a small mistake on the board.', exampleZh: '老师指出了黑板上的一个小错误。' },
+    { id: 'v17', word: 'improved', lemma: 'improve', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/ɪmˈpruːvd/', defZh: '改善；好转', defEn: 'become better', example: 'Her writing has improved a lot this year.', exampleZh: '她的写作今年进步了很多。' },
+    { id: 'v18', word: 'patterns', lemma: 'pattern', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/ˈpætənz/', defZh: '规律；模式', defEn: 'things that happen in a regular way', example: 'The doctor noticed similar patterns in many young patients.', exampleZh: '医生在许多年轻病人身上注意到了相似的规律。' },
+    { id: 'v19', word: 'stream', lemma: 'stream', sentenceId: 's17', level: 3, pos: 'n.', ipa: '/striːm/', defZh: '一连串；流（这里指内容流）', defEn: 'a continuous flow of something', example: 'A steady stream of messages came in all afternoon.', exampleZh: '整个下午消息源源不断地涌进来。' },
+    { id: 'v20', word: 'shake', lemma: 'shake', sentenceId: 's17', level: 3, pos: 'v.', ipa: '/ʃeɪk/', defZh: '甩掉；摆脱', defEn: 'get rid of a feeling or thought', example: 'She could not shake the worry about tomorrow\'s test.', exampleZh: '她甩不掉对明天考试的担心。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 has / have done 说"到目前为止他们已经做了什么"',
+      pattern: 'has / have + 过去分词',
+      sentenceIds: ['s11', 's12', 's15'],
+      explanationZh: [
+        '中文常用"已经"两个字带过，但英文里如果要把"到现在为止积累的动作或变化"说清楚，最常用的是 has / have 加过去分词，也就是"现在完成时"。它的重点不在哪一年做的，而在"到今天，做了；并且这件事对现在仍然有意义"。',
+        '看文中第 11 句：TikTok has answered these studies before。作者没有用过去式 answered，而是用 has answered，是因为他想强调的不是"那一次回应"，而是"一直以来，这家公司多次回应过、并且现在还在回应"。第 12 句 it has changed its rules, removed many harmful videos, and added safety tools 也是同理：三个动作并列，全是"截至现在已经完成"。',
+        '什么时候用：写背景、写"截至目前的进展"时最合适。新闻特写、个人陈述里交代"过去几年里我做了什么、积累了什么"，几乎都靠它。一旦你点出具体时间（in 2022, last year），就得换回一般过去式。',
+        '一个细节：主语是公司、组织、单数名词（the company, the algorithm）时用 has；复数（experts, researchers, they）时用 have。文中 Experts agree…they are not done worrying 用复数 are，而 TikTok has answered 用单数 has。',
+      ],
+      examples: [
+        { en: 'The school has tried three different schedules this year.', zh: '今年这所学校尝试过三种不同的课表。', note: 'has tried 把"到现在为止试过几种方案"说清楚，比单纯说 tried 更聚焦。' },
+        { en: 'My parents have lived in the same town since I was born.', zh: '从我出生到现在，我父母一直住在同一个小镇。' },
+        { en: 'Several apps have added stricter age checks in the last two years.', zh: '过去两年里，好几款应用加上了更严格的年龄核验。' },
+        { en: 'I have not finished the book yet, but it is getting interesting.', zh: '我这本书还没读完，不过越来越有意思了。' },
+        { en: 'Doctors have warned parents about this trend many times.', zh: '医生已经就这一趋势多次提醒过家长。' },
+      ],
+      commonMistake: '不要写成 TikTok has answered these studies in 2022。出现 in 2022 这种明确时间点，就必须用过去式 answered，不能再用 has answered。',
+      vsSimilar: '一般过去式（answered）只说"那一次发生过"，和今天没关系；现在完成时（has answered）强调"一路积累到今天"。问自己一句：我在意的是当时，还是如今。',
+    },
+    {
+      id: 'g2',
+      title: '把三件事用一串逗号并排说，让句子又紧又有节奏',
+      pattern: '主语 + 动词 + A, B, and C',
+      sentenceIds: ['s3', 's12', 's17'],
+      explanationZh: [
+        '想一口气列三件事，中文里我们常说"既……又……还……"。英文里更利落的做法是一串逗号加 and，像 A, B, and C 这样把三个并列项串在一起，全部由同一个主语和同一个动词带出。',
+        '看文中第 12 句：it has changed its rules, removed many harmful videos, and added safety tools。三个动作 changed / removed / added 都共享主语 it 和助动词 has，所以只写一次 has 就够了。第 3 句 about thin bodies, dieting, and eating problems 把三类内容并排，逻辑同样清楚。',
+        '什么时候用：写"措施"、"症状"、"结果"、"列举原因"这类内容时最顺。一旦你要列三件以上的事，三项并排比写三句短句更有节奏，也更让读者抓得住重点。',
+        '一个常被忽略的小规则：第三项前面的逗号（即 and 前面那一个）在现代英美新闻写作里通常都加上，叫"牛津逗号"。它能避免读者把 B 和 C 看成一个整体而漏掉两者的并列关系。',
+      ],
+      examples: [
+        { en: 'The app asks for your name, your age, and your phone number.', zh: '这个应用会要你的名字、年龄和电话号码。' },
+        { en: 'She runs in the morning, studies in the afternoon, and writes at night.', zh: '她早上跑步、下午学习、晚上写作。', note: '三个动作共用同一个主语 she，并排说出"一天的节奏"。' },
+        { en: 'The report mentions sleep, screen time, and family meals.', zh: '这份报告提到了睡眠、屏幕时间和家庭聚餐。' },
+        { en: 'My brother saved up, bought a used laptop, and started learning to code.', zh: '我弟弟攒钱、买了二手电脑，然后开始学编程。' },
+        { en: 'They listened, asked a few questions, and left without arguing.', zh: '他们听完、问了几个问题，然后没有争辩就离开了。' },
+      ],
+      commonMistake: '不要把并列动作时态混着写：has changed its rules, removes many videos, and added tools（中间冒出现在时 removes 会立刻让句子崩掉）。三项必须保持同一种时态和动词形式。',
+    },
+    {
+      id: 'g3',
+      title: '用 there is / there are 把"存在某种东西"开宗明义说出来',
+      pattern: 'There is / There are + 名词',
+      sentenceIds: ['s8'],
+      explanationZh: [
+        '中文很容易写成"两件事不一样"。英文里如果想把"存在一个值得注意的东西"这件事单独亮出来，常用 There is / There are 起头。它把读者的注意力一下子拉到"接下来要说的这个东西"上。',
+        '看文中第 8 句：There is a real difference between scrolling away from a harmful video and being pulled toward it。作者没有直接写 Scrolling away is different from being pulled，而是用 There is a real difference 把"差异本身"作为主体提出来，下半句再用 between A and B 说清楚是哪两件事之间的差异。这种写法更稳，更议论文。',
+        '什么时候用：当你要在一段开头建立一个概念、一种现象、一个值得讨论的事实时，用它最顺。它常作为一段的第一句，给后面的解释当一个支点。',
+        '一个语法细节：后面跟单数名词时用 there is（There is a difference），跟复数名词时用 there are（There are two kinds）。如果第一个并列名词是单数，按"就近原则"也可以用 is：There is a girl and three boys in the room（口语常见）。',
+      ],
+      examples: [
+        { en: 'There is a quiet anger behind a lot of these comments.', zh: '在很多这种评论的背后，藏着一种安静的愤怒。' },
+        { en: 'There are two reasons people stop using the app after a month.', zh: '人们一个月后就放弃这款应用，有两个原因。', note: '用 there are 把"两个原因"作为主语提出来，下文自然展开。' },
+        { en: 'There is a small park behind the school where the kids meet.', zh: '学校后面有一个小公园，孩子们常在那里见面。' },
+        { en: 'There are days when nothing in the schedule goes right.', zh: '有些日子，日程表上没有一件事能顺顺当当。' },
+        { en: 'There is a difference between being tired and being burnt out.', zh: '累，和已经燃烧殆尽，是两回事。' },
+      ],
+      commonMistake: '不要把 there is 和 it is 混用：It is a difference between A and B 是错的。如果你要说"存在某种东西"，主语必须是 there；it is 是用来描述"它是什么"，主语已经指向一个具体对象了。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '把"小动作 → 大结果"的链条一气说完，制造滑坡感',
+      skeleton: 'A small [X] becomes a [稍大的 Y], the [Y] becomes a [更抽象的 Z], and the [Z] becomes [难以摆脱的状态].',
+      original: 'A small pause becomes a stream, the stream becomes a feeling, and the feeling becomes hard to shake.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式靠"逐级升级"取得力量：每一步都比前一步更大、更抽象。从 pause（具体动作）到 stream（一串内容）到 feeling（情绪）到 hard to shake（难以摆脱的状态），每一跳都让读者觉得"这事正在变严重"。',
+        '对读者来说，重复的 becomes 像一台慢慢加速的扶手电梯：句子结构一致，但语义在不停升级。读者一边读一边在脑子里把链条画出来，于是结尾的"hard to shake"就显得既意外又合理。',
+        '它最适合放在段落或文章的收尾，用来把前文的事实"翻译"成一个值得记住的画面。社评、调查报道结尾、个人随笔里都很好用，能给读者留下一个清晰的视觉链条。',
+        '一个隐藏要点：四个节点必须严格递进，不能并排。如果第二步并不比第一步大，整个滑坡感就垮了。读者要的是"一步比一步重"。',
+      ],
+      examples: [
+        { context: '关于社媒焦虑的随笔结尾', text: 'A small comparison becomes a habit, the habit becomes a mood, and the mood becomes the way you walk into a room.', zh: '一次微小的比较变成一种习惯，这种习惯变成一种情绪，而那种情绪最终决定了你走进一间房间时的样子。' },
+        { context: '校园纪实结尾', text: 'A missed message becomes a worry, the worry becomes a story, and the story becomes the reason two friends stop talking.', zh: '一条没回的消息变成一点担心，这点担心变成一个故事，而这个故事最终成了两个朋友不再说话的理由。', note: '从"漏看消息"一路升级到"友谊破裂"，递进很有力。' },
+        { context: '关于学习习惯的反思文章结尾', text: 'A skipped review becomes a gap, the gap becomes a fear, and the fear becomes the reason you stop opening the book.', zh: '一次跳过的复习变成一个知识缺口，这个缺口变成一种恐惧，而这种恐惧最终让你再也不愿打开那本书。' },
+      ],
+      adaptingTip: '四个节点要从最小、最具体的动作出发（一次停顿、一条消息、一次比较），然后逐级抽象（动作 → 状态 → 情绪 → 后果）。每一步的"重量"必须明显比上一步重，否则递进感会失效。这是收尾用的句式，不要塞在段落中间，那样会抢走主论点。',
+      commonMistake: '不要让最后一步落回具体动作：…becomes a feeling, and the feeling becomes another video。最后一步必须跳到一个更大、更抽象的层面，否则整条滑坡就像扶手电梯一半就停了。',
+    },
+    {
+      id: 'pt2',
+      useCase: '提问式收尾：先否掉一个表面问题，再亮出真正该问的问题',
+      skeleton: 'The [real / deeper / harder] question is not [表面问题]. It is [真正的问题].',
+      original: 'The deeper question is not whether the app can fix this on its own. It is what we ask of a system that decides...',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式分两步走：先把读者第一反应会问的问题摆上来再否掉，再亮出"其实更值得问"的那个问题。读者会跟着你的否定句调整思路，最后落到你真正想讨论的方向上。',
+        '对读者来说，The deeper question is not… 这一句相当于作者说"别急，你想问的不是重点"。这是一种有自信的引导：作者并没有用力反驳，但已经在悄悄换议题。读完第二句时，读者会觉得"对，这才是该问的"。',
+        '它最适合放在文章结尾或论证段的收束位置。前文已经把事实讲完，这两句负责把"事实"升级成"问题"，给读者留下一个可以继续想下去的提问，而不是一个干瘪的结论。',
+        '一个隐藏前提：被否掉的表面问题，要选读者真的会先冒出来的那一种。如果第一句的"表面问题"本来就没人问，那这种"重定向"的力量就丧失了。',
+      ],
+      examples: [
+        { context: '关于网课的评论结尾', text: 'The real question is not whether students stayed online. It is whether anyone noticed when they stopped showing up at all.', zh: '真正的问题不是学生有没有在线，而是当他们彻底不来时，有没有人注意到。' },
+        { context: '关于青少年作息的随笔', text: 'The harder question is not how late teens go to bed. It is what they are still hoping to read or watch at that hour.', zh: '更难的问题不是青少年几点睡，而是在那个时间他们还在期待读到或看到什么。', note: '把"几点睡"这个表面问题否掉，换成"为什么还不睡"，议题深了一层。' },
+        { context: '关于打工经历的申请文书结尾', text: 'The deeper question is not whether the job paid well. It is what I learned about the people I served and the city I lived in.', zh: '更深的问题不是这份工作挣得多不多，而是我从我服务的人和我生活的这座城市身上学到了什么。' },
+      ],
+      adaptingTip: '第一句的"表面问题"要写得具体、可识别（whether X / how many Y），让读者一眼承认"对，我刚才就在想这个"。第二句的"真正问题"要换一个更大的维度，但仍然要和全文呼应，不能凭空拔高。这是结尾用的句式，放在文章中间会让后续论证没地方落脚。',
+      commonMistake: '不要让第二个问题只是第一个问题的换皮：The deeper question is not whether the app can fix this. It is whether the app should fix this。这样的"重定向"读者会嗅出来，是同一个问题打转。第二句必须真的跳到另一个维度。',
+    },
+    {
+      id: 'pt3',
+      useCase: '点出一个对比："X 和 Y 之间，是有真正差别的"',
+      skeleton: 'There is a real difference between [动作 / 状态 A] and [动作 / 状态 B].',
+      original: 'There is a real difference between scrolling away from a harmful video and being pulled toward it.',
+      sentenceId: 's8',
+      whyItWorks: [
+        '这个句式把"差异本身"作为主语提出来，再用 between A and B 把两件具体的事并排比给读者看。一句话就把"很多人以为这两件事一样，其实不一样"这个判断说稳了。',
+        '对读者来说，real 这个词是关键。它在说："我不是文字游戏，我说的是真的差别，请你认真分一下。"于是 between 后面跟的两件事会被读者放在天平两端，认真权衡。',
+        '它最适合放在段落开头，作为一段"区分式论证"的起点。后文可以解释为什么这两件事不一样、各自有什么后果。新闻评论、思辨型文书、调查报道里都常见。',
+        '一个细节：A 和 B 要在结构上对齐。文中是 scrolling away from… 和 being pulled toward…，两个都是 -ing 形式的动作短语。如果一边是动名词、一边是名词，对比的力度会立刻松掉。',
+      ],
+      examples: [
+        { context: '议论文段落开头', text: 'There is a real difference between staying silent and choosing not to argue.', zh: '保持沉默，和选择不去争辩，是两件不一样的事。' },
+        { context: '关于学习方法的反思', text: 'There is a real difference between reading a chapter once and rereading it after a week.', zh: '读一章一遍，和一周后再回头重读，是两件完全不同的事。', note: 'A 和 B 都是动名词短语，对仗工整，对比就立得住。' },
+        { context: '校园观察评论', text: 'There is a real difference between asking a question and waiting for the teacher to answer it for you.', zh: '提出一个问题，和等老师替你回答，是两件不一样的事。' },
+      ],
+      adaptingTip: 'A 和 B 必须是读者一眼会觉得"差不多"的两件事，差异才显得"值得点出"。两边的语法形式要严格对称（都是 -ing 短语，或都是名词），否则对仗的鼓点会乱掉。real 这个词不要省，它是这个句式的态度来源，省了就变成普通陈述。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'What did the CCDH researchers do in their TikTok experiment?', options: ['They paid real teenagers to scroll', 'They built fake accounts with the age set to 13 and observed the feed', 'They asked TikTok for internal data', 'They studied adult users only'], answer: 1, explanation: 'The article says they built a small number of fake accounts, set the age to 13, and started scrolling.', sentenceId: 's2' },
+    { id: 'q2', q: 'How long did it take before the For You Page started showing body-image and eating content?', options: ['Within minutes', 'After several weeks', 'Only after the accounts searched for it', 'Never, in this study'], answer: 0, explanation: 'The article states that within minutes, the For You Page began to show videos about thin bodies, dieting, and eating problems.', sentenceId: 's3' },
+    { id: 'q3', q: 'According to the article, what does the algorithm treat a short pause on a video as?', options: ['A request to skip', 'A signal it can ignore', 'A vote that it then casts again on the teen\'s behalf', 'A safety warning'], answer: 2, explanation: 'The article explains that the system reads the pause as a vote, and votes again on the teen\'s behalf.', sentenceId: 's10' },
+    { id: 'q4', q: 'What is TikTok\'s response to studies like this one?', options: ['It refuses to comment', 'It says it has changed rules, removed harmful videos, and added safety tools for younger users', 'It blames parents only', 'It denies that any change is needed'], answer: 1, explanation: 'The article lists three things the company says it has done: changed rules, removed harmful videos, and added safety tools.', sentenceId: 's12' },
+    { id: 'q5', q: 'What is the writer\'s overall tone in the closing paragraphs?', options: ['Cheerful and confident that the problem is solved', 'Angry and demanding that the app be banned', 'Thoughtful, willing to credit some progress but still concerned', 'Indifferent to teen experiences'], answer: 2, explanation: 'The writer acknowledges that some things have improved, then reframes the deeper question, showing a measured and concerned tone.', sentenceId: 's15' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '做这项实验的研究机构', answer: 'Center for Countering Digital Hate', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '研究人员在假账号上设的年龄', answer: '13', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '推荐页很快开始推送的内容主题（三类之一）', answer: 'dieting', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '触发算法所需要的"信号"是什么动作', answer: 'a pause', sentenceId: 's6' },
+      { id: 'ig5', cueZh: '另外两家也做过类似研究的组织（举一个）', answer: 'Amnesty International', sentenceId: 's16' },
+      { id: 'ig6', cueZh: 'TikTok 说自己为更年轻用户增加了什么', answer: 'safety tools', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '作者觉得算法决定的对象是青少年的什么', answer: 'afternoon', sentenceId: 's19' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位还没看过这条新闻的朋友介绍 CCDH 的 TikTok 研究：他们做了什么、发现了什么、为什么这件事值得在意。',
+      promptEn: "Using the facts in your table, write about 70 words telling a friend who has not seen the news about the CCDH TikTok study: what the researchers did, what they found, and why it matters.",
+      targetWords: 70,
+      starters: ['In 2024, researchers at the Center for Countering Digital Hate ...', 'There is a real difference between ...'],
+      usePatternIds: ['pt3', 'pt1'],
+      modelAnswer:
+        'In 2024, researchers at the Center for Countering Digital Hate built fake teen accounts on TikTok, set the age to 13, and started scrolling. Within minutes, the For You Page was showing dieting and eating problems. There is a real difference between scrolling past a harmful clip and being pulled toward it. A small pause becomes a stream, the stream becomes a feeling, and the feeling becomes hard to shake.',
+      modelAnswerZh:
+        '2024 年，反数字仇恨中心（CCDH）的研究人员在 TikTok 上建了一些假的青少年账号，把年龄设为 13 岁，然后开始刷。没过几分钟，"For You" 推荐页就开始推送节食和饮食问题。滑走一条有害视频，和被算法不断推向这种视频，是两件不一样的事。一次微小的停留变成一股内容流，这股流变成一种情绪，而那种情绪很难甩掉。',
+    },
+  },
+};

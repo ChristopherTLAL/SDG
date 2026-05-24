@@ -1,0 +1,242 @@
+// Mental Health for Teens, Ch.16: 2024-25 research from Stanford, Brookings, and OECD PISA shows record levels of school burnout in high-schoolers, and US states like New York and California add mental health days (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-05-12',
+    title: 'Burnout Reaches the Classroom',
+    titleZh: '倦怠走进了教室',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/mental-health-teens/16-school-burnout.mp3',
+    wordCount: 307,
+    readingMinutes: 4,
+    editorsNote:
+      'Researchers used to talk about burnout as something doctors and pilots feel. In 2024 and 2025, three major studies showed that high-school students are now feeling it too, and at record rates. This chapter looks at what burnout is, why it is not the same as ordinary stress, and what some schools are trying to do.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In 2024 and 2025, three large studies pointed at the same uncomfortable picture.', zh: '2024 年到 2025 年间，三项大型研究都指向同一幅令人不安的画面。' },
+        { id: 's2', en: 'Stanford\'s COVID Recovery Office, the Brookings Institution, and the OECD PISA wellbeing module all reported that record numbers of high-school students were showing signs of what researchers call school burnout.', zh: '斯坦福大学的疫情恢复办公室、布鲁金斯研究所，以及 OECD 的 PISA 学生福祉调查都报告，越来越多的高中生正在表现出研究者所说的"学业倦怠"的迹象。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's3', en: 'School burnout is not just feeling tired before a big test.', zh: '学业倦怠并不只是大考前的那种疲倦。' },
+        { id: 's4', en: 'Researchers describe it as three things happening at once: long-lasting exhaustion, a growing sense of cynicism about school, and a quiet feeling that nothing you do really counts.', zh: '研究者把它描述为三件事同时发生：长期的疲惫感、对学校越来越浓的疏离与冷感，以及一种安静的"我做什么都不算数"的感觉。' },
+        { id: 's5', en: 'Ordinary stress comes and goes with each deadline.', zh: '普通的压力随着每个截止日期来来去去。' },
+        { id: 's6', en: 'Burnout settles in and refuses to leave.', zh: '倦怠却会沉下来，赖着不走。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The rates have been striking.', zh: '这些数据相当醒目。' },
+        { id: 's8', en: 'Stanford reported that about four in ten high-school students said they felt emotionally used up by school most weeks.', zh: '斯坦福的报告显示，大约十分之四的高中生表示自己几乎每周都被学校"耗尽了情绪"。' },
+        { id: 's9', en: 'Brookings found that the numbers were highest in East Asia and the US northeast, where school days are long and competition is intense.', zh: '布鲁金斯发现这些数字在东亚和美国东北部最高，那里上学时间长、竞争也最激烈。' },
+        { id: 's10', en: 'PISA showed that the students with the lowest wellbeing scores were not always the ones with the lowest grades.', zh: 'PISA 的数据显示，幸福感最低的学生并不总是成绩最低的那一批。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Some US states have started to take small but real steps.', zh: '美国一些州已经开始迈出虽小但实在的几步。' },
+        { id: 's12', en: 'New York and California now allow students to take excused mental health days, the way schools have always allowed sick days for a fever or a cold.', zh: '纽约州和加州现在允许学生请"心理健康假"，就像学校一直允许学生因发烧或感冒请病假一样。' },
+        { id: 's13', en: 'Other districts are trying later start times, lighter homework on weekends, and quiet rooms where students can rest for a few minutes between classes.', zh: '其他学区则在尝试更晚的上学时间、周末更少的作业，以及让学生在课间能休息几分钟的安静教室。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's14', en: 'Not every idea works.', zh: '并不是每个办法都奏效。' },
+        { id: 's15', en: 'A wellness app pushed into one large district was quietly dropped after teens said it added one more thing to do.', zh: '某个大学区曾推广一款心理健康应用，最后悄悄停用了，因为青少年反映"这反而又给我们多加了一件事要做"。' },
+        { id: 's16', en: 'What seems to help most is simple and low-tech: smaller classes, a known adult to talk to, and a schedule that allows real rest.', zh: '看起来真正管用的，反而是一些朴素、不靠技术的事：更小的班级、一位可以说话的固定大人，以及一份能让人真正休息的作息表。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'Burnout is not a sign that a student is weak.', zh: '倦怠并不意味着这个学生不够坚强。' },
+        { id: 's18', en: 'It is a sign that something in the system has been asking too much, for too long, with too little time to recover.', zh: '它意味着系统里有什么东西一直在索取太多，持续得太久，而留给恢复的时间太少。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'uncomfortable', lemma: 'uncomfortable', sentenceId: 's1', level: 2, pos: 'adj.', ipa: '/ʌnˈkʌmftəbl/', defZh: '令人不安的；不舒服的', defEn: 'making you feel worried or not at ease', example: 'The teacher asked an uncomfortable question about the test scores.', exampleZh: '老师问了一个让人不安的关于考试成绩的问题。' },
+    { id: 'v2', word: 'studies', lemma: 'study', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈstʌdiz/', defZh: '研究；调查', defEn: 'careful pieces of research on a topic', example: 'Several studies have looked at how teens use their phones at night.', exampleZh: '几项研究考察了青少年晚上如何使用手机。' },
+    { id: 'v3', word: 'record', lemma: 'record', sentenceId: 's2', level: 2, pos: 'adj.', ipa: '/ˈrekɔːd/', defZh: '创纪录的；前所未有的', defEn: 'higher or larger than ever before', example: 'A record number of students signed up for the club this term.', exampleZh: '本学期报名这个社团的学生人数创下纪录。' },
+    { id: 'v4', word: 'wellbeing', lemma: 'wellbeing', sentenceId: 's2', level: 3, pos: 'n.', ipa: '/ˈwelˌbiːɪŋ/', defZh: '幸福感；身心安康', defEn: 'the state of being healthy and content', example: 'The school added a course about emotional wellbeing.', exampleZh: '学校新增了一门关于情绪健康的课。' },
+    { id: 'v5', word: 'burnout', lemma: 'burnout', sentenceId: 's2', level: 4, pos: 'n.', ipa: '/ˈbɜːnaʊt/', defZh: '倦怠；身心耗竭', defEn: 'deep tiredness caused by long-term stress', example: 'Many young doctors quit because of burnout.', exampleZh: '许多年轻医生因为倦怠而离开了岗位。' },
+    { id: 'v6', word: 'exhaustion', lemma: 'exhaustion', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/ɪɡˈzɔːstʃən/', defZh: '极度疲惫；筋疲力尽', defEn: 'a feeling of being completely tired', example: 'After three days without sleep, exhaustion finally caught up with him.', exampleZh: '三天没睡之后，他终于撑不住了。' },
+    { id: 'v7', word: 'cynicism', lemma: 'cynicism', sentenceId: 's4', level: 4, pos: 'n.', ipa: '/ˈsɪnɪsɪzəm/', defZh: '冷感；疏离与不再信任', defEn: 'a belief that something is no longer worth caring about', example: 'A quiet cynicism crept into her voice when she talked about work.', exampleZh: '她谈起工作时，声音里悄悄爬上一层冷感。' },
+    { id: 'v8', word: 'deadline', lemma: 'deadline', sentenceId: 's5', level: 2, pos: 'n.', ipa: '/ˈdedlaɪn/', defZh: '截止日期', defEn: 'a time by which something must be finished', example: 'The deadline for the essay is Friday at noon.', exampleZh: '论文截止时间是周五中午。' },
+    { id: 'v9', word: 'settles', lemma: 'settle', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/ˈsetlz/', defZh: '沉下来；安顿下来', defEn: 'comes to rest and stays', example: 'The dust slowly settles after a long dry summer.', exampleZh: '在漫长的干燥夏天后，灰尘慢慢沉了下来。' },
+    { id: 'v10', word: 'striking', lemma: 'striking', sentenceId: 's7', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '醒目的；引人注目的', defEn: 'noticeable and worth attention', example: 'The most striking thing about the room was the silence.', exampleZh: '这个房间最让人注意到的，是它的安静。' },
+    { id: 'v11', word: 'emotionally', lemma: 'emotionally', sentenceId: 's8', level: 3, pos: 'adv.', ipa: '/ɪˈməʊʃənəli/', defZh: '在情感上；在情绪上', defEn: 'in a way that relates to feelings', example: 'She felt emotionally close to her grandmother.', exampleZh: '她在情感上和外婆很亲近。' },
+    { id: 'v12', word: 'competition', lemma: 'competition', sentenceId: 's9', level: 2, pos: 'n.', ipa: '/ˌkɒmpəˈtɪʃən/', defZh: '竞争；竞赛', defEn: 'a situation where people try to do better than others', example: 'Competition for the scholarship is very tough this year.', exampleZh: '今年奖学金的竞争非常激烈。' },
+    { id: 'v13', word: 'intense', lemma: 'intense', sentenceId: 's9', level: 3, pos: 'adj.', ipa: '/ɪnˈtens/', defZh: '强烈的；激烈的', defEn: 'very strong or extreme', example: 'The training was intense, but the team improved quickly.', exampleZh: '训练非常激烈，但队伍进步很快。' },
+    { id: 'v14', word: 'grades', lemma: 'grade', sentenceId: 's10', level: 1, pos: 'n.', ipa: '/ɡreɪdz/', defZh: '成绩；分数', defEn: 'the marks a student gets at school', example: 'His grades improved after he started sleeping eight hours a night.', exampleZh: '他每晚开始睡八小时之后，成绩有所提高。' },
+    { id: 'v15', word: 'excused', lemma: 'excuse', sentenceId: 's12', level: 3, pos: 'adj.', ipa: '/ɪkˈskjuːzd/', defZh: '请假获批准的；获准缺席的', defEn: 'officially allowed to be absent', example: 'She was excused from class for a doctor\'s visit.', exampleZh: '她因看医生获准缺席了那节课。' },
+    { id: 'v16', word: 'districts', lemma: 'district', sentenceId: 's13', level: 2, pos: 'n.', ipa: '/ˈdɪstrɪkts/', defZh: '学区；行政区', defEn: 'official areas used to organize schools or services', example: 'The two school districts share one library system.', exampleZh: '这两个学区共用一个图书馆系统。' },
+    { id: 'v17', word: 'lighter', lemma: 'light', sentenceId: 's13', level: 1, pos: 'adj.', ipa: '/ˈlaɪtə(r)/', defZh: '更少的；更轻的（这里指作业量更少）', defEn: 'smaller in amount or weight', example: 'Friday\'s schedule was lighter than usual.', exampleZh: '周五的课表比平时轻松一些。' },
+    { id: 'v18', word: 'dropped', lemma: 'drop', sentenceId: 's15', level: 2, pos: 'v.', ipa: '/drɒpt/', defZh: '放弃；停用', defEn: 'stopped using or supporting', example: 'The team dropped the new uniform after one season.', exampleZh: '球队用了一个赛季就放弃了新球衣。' },
+    { id: 'v19', word: 'schedule', lemma: 'schedule', sentenceId: 's16', level: 2, pos: 'n.', ipa: '/ˈʃedjuːl/', defZh: '作息表；日程', defEn: 'a plan of times when things happen', example: 'A clear schedule helps her finish work earlier.', exampleZh: '清晰的日程让她能更早把工作做完。' },
+    { id: 'v20', word: 'recover', lemma: 'recover', sentenceId: 's18', level: 3, pos: 'v.', ipa: '/rɪˈkʌvə(r)/', defZh: '恢复；复原', defEn: 'return to a normal state after stress or illness', example: 'Athletes need time to recover between hard sessions.', exampleZh: '运动员在两次高强度训练之间需要时间恢复。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 the way + 从句 说"就像 X 怎么做的那样"',
+      pattern: 'A 做某事 the way B 做某事',
+      sentenceIds: ['s12'],
+      explanationZh: [
+        '想说"A 这样做，就像 B 一直那样做一样"，中文用"就像……一样"很顺，英文里有一个对应的紧凑写法：直接用 the way 加一个从句。它的好处是把"参照对象"塞进同一个句子里，不必单独再写一句。',
+        '看文中第 12 句：New York and California now allow students to take excused mental health days, the way schools have always allowed sick days for a fever or a cold。前半句说"允许请心理健康假"，后半句用 the way 把"以前学校一直允许请病假"这件大家熟悉的事拉出来当参照。读者一下就懂："这事不算特殊，只是把熟悉的做法延伸了一下"。',
+        '什么时候用：当你想用一件读者已经熟悉的旧事，来类比一个不太熟悉的新事时最好用。新闻特写、议论文都很常见，特别是讲一个新政策时，用 the way 引出一个旧政策做对比，能让新政策显得不那么陌生。',
+        '一个小细节：the way 后面接的是一个完整的句子，不要写成 the way of。例如 the way schools allowed sick days（正确），不要写成 the way of allowing sick days。',
+      ],
+      examples: [
+        { en: 'The app sends a reminder every evening, the way a kind parent might check in.', zh: '这款应用每晚都会发一条提醒，就像一位温柔的家长会过来问一句一样。' },
+        { en: 'He tells the story slowly, the way his grandfather used to tell stories at dinner.', zh: '他慢慢地讲这个故事，就像他爷爷过去在饭桌上讲故事那样。', note: 'the way 后面接 his grandfather used to…，是一个完整的从句。' },
+        { en: 'She organizes her notes, the way a librarian arranges books on a shelf.', zh: '她整理笔记的方式，就像图书馆员把书摆到书架上一样。' },
+        { en: 'The system saves your work automatically, the way most modern editors do.', zh: '系统会自动保存你的工作，就像大多数现代编辑器那样。' },
+        { en: 'They greeted the new students warmly, the way the school had welcomed them years ago.', zh: '他们热情地迎接新同学，就像多年前学校迎接他们那样。' },
+      ],
+      commonMistake: '不要写成 the way like schools allowed… 或 the way of allowing sick days。the way 后面直接跟一个完整从句即可，不需要 like，也不要换成 of + 动名词。',
+      vsSimilar: '如同 just like 也能表达类似意思，但 just like 后面接的是名词或短语（just like a teacher），而 the way 后面跟的是完整的"主语+谓语"从句，信息量更大。',
+    },
+    {
+      id: 'g2',
+      title: '用 not just X. It is Y. 否定一种说法，再给出真正的解释',
+      pattern: 'X is not just Y. ... It is Z.',
+      sentenceIds: ['s3', 's4'],
+      explanationZh: [
+        '想说"这不是简单的某件事，而是更复杂的另一件事"，中文常一句话说完："这不是 X，而是 Y。" 英文里有一种很好用的两段式：先用 not just 否掉一个表面看法，然后另起一句，慢慢说出真正的意思。',
+        '看文中第 3 句和第 4 句：School burnout is not just feeling tired before a big test. Researchers describe it as three things happening at once… 第 3 句先把读者最容易误会的那种理解（考试前累一下）摆出来否掉，第 4 句再正式给出研究者真正的定义。中间隔开一句，反而比一口气说出来更有节奏。',
+        '什么时候用：解释一个抽象概念、新术语、容易被误解的现象时，这种两段式特别合适。先告诉读者"它不是你以为的那样"，给他们一个"等等，那它到底是什么"的心理空档，然后才慢慢把真正的解释递上去。新闻特写、科普文章里常见。',
+        '一个隐藏的细节：not just（而不是 not only）在这里更口语、也更友好，适合 B1 难度的解释性文字；not only 偏正式，常带书面感。',
+      ],
+      examples: [
+        { en: 'A good library is not just a room full of books. It is a place where strangers feel safe sitting together.', zh: '一座好的图书馆不只是一个堆满书的房间。它是一个让陌生人愿意安静地坐在一起的地方。', note: '先否掉"图书馆=书"的简单印象，再给出更有温度的定义。' },
+        { en: 'Cooking dinner is not just feeding people. It is a small daily way of paying attention to them.', zh: '做晚饭不只是把人喂饱。它是一种日常的、安静的对家人表达关心的方式。' },
+        { en: 'A coach is not just someone who shouts. They are the person who notices when a player is hiding pain.', zh: '教练不只是一个大声指挥的人。他们是那个能看出运动员在硬撑的人。' },
+        { en: 'A goodbye letter is not just a message. It is a small piece of someone you keep.', zh: '一封告别信不只是一段文字。它是你保留下来的对方的一小部分。' },
+      ],
+      commonMistake: '不要把两句挤成一句：School burnout is not just feeling tired before a big test, but three things at once。挤在一起力度变弱，读者也没有缓冲。让 not just 句独立成句，下一句重新起一个主语，节奏感才出得来。',
+    },
+    {
+      id: 'g3',
+      title: '用 too X, for too long, with too little Y 把"过度的代价"叠起来说',
+      pattern: 'too [形容词1], for too [副词], with too little [名词]',
+      sentenceIds: ['s18'],
+      explanationZh: [
+        '想表达"做得过多、持续太久、又没有留出余地"，中文经常用"……太多、太久、太少"的排比。英文里 too…for too…with too little…正好是这种排比的现成结构：三个 too 连排，每个 too 后面接不同的维度，节奏一气呵成。',
+        '看文中第 18 句：something in the system has been asking too much, for too long, with too little time to recover。三个 too 分别处理"量"（too much）、"时长"（for too long）、"恢复空间"（too little time to recover）。三件事都不极端，单独说每一项都不算大新闻，但叠在一起，就成了一句有分量的判断。',
+        '什么时候用：当你想说"问题不是某一件事过分，而是几件事同时过分"时最合适。议论文结尾、健康科普、政策评论里都常见。它能把抽象的"系统问题"变成读者能想象的画面。',
+        '一个小注意：三个分句要平行：分别是 too + 形容词或代词、for too + 副词（long / often）、with too little + 名词。形式整齐，读起来才有排比感。',
+      ],
+      examples: [
+        { en: 'The plan asked too much, for too long, with too little support from above.', zh: '这个计划要求太多，持续太久，得到的上层支持又太少。' },
+        { en: 'She had been waiting too patiently, for too many years, with too little explanation from anyone.', zh: '她已经太耐心地等了太多年，又得不到任何人哪怕一点点解释。', note: 'too 后面的搭配不必和原句一模一样，关键是三段排比，节奏要整齐。' },
+        { en: 'The road was used too heavily, for too many seasons, with too little money for repairs.', zh: '这条路被用得太重，用了太多季节，而修缮的钱又给得太少。' },
+        { en: 'The young player trained too hard, for too many days, with too little rest in between.', zh: '这位年轻选手训练太狠，连续太多天，中间休息又太少。' },
+        { en: 'The promise was kept too quietly, for too many months, with too little credit to the people doing the work.', zh: '这份承诺被默默兑现了太多个月，而真正做事的人得到的认可又太少。' },
+      ],
+      commonMistake: '不要把第三段写成 and too little time，把 with 漏掉。with 在这里是把"伴随条件不足"和前两段拉到同一个语义层的关键词，缺了它，整句的排比就散了。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '解释一个抽象概念：先说"它不是 X"，再列出"它是同时发生的三 / 几件事"',
+      skeleton: '[概念] is not just [常见误解]. Researchers describe it as [N] things happening at once: [事一], [事二], and [事三].',
+      original: 'Researchers describe it as three things happening at once: long-lasting exhaustion, a growing sense of cynicism about school, and a quiet feeling that nothing you do really counts.',
+      sentenceId: 's4',
+      whyItWorks: [
+        '这个句式的力量来自一个心理动作：把一个看不见摸不着的抽象概念，拆成"同时发生的几件事"。读者本来对"倦怠"这种词只有模糊感受，作者用 three things happening at once 一句话就把它装进了一个清单。一旦变成清单，模糊的东西就变得可以一一对照、一一回想。',
+        '对读者来说，three things happening at once 这几个字给出一个隐含承诺："我接下来会逐条解释，请稍微跟我一下。" 三件事不多不少，刚好能记住，又比一件事更有厚度。如果只列一件，读者会觉得过于简化；列五件，又记不住。',
+        '它特别适合科普、心理类、社科类文章中的"定义段"。当你要给一个专业概念下一个 B1 友好的定义时，这个套路把术语翻译成日常可感的小事，让读者立刻能在自己的生活里找到对应。',
+        '一个隐藏要点：三件事最好"性质各异"，一件是身体感受（exhaustion），一件是态度（cynicism），一件是认知（nothing counts）。如果三件事都是同类，例如"累、很累、非常累"，清单的张力就没了，读者也察觉不到这是"复合现象"。',
+      ],
+      examples: [
+        { context: '心理科普文段', text: 'Doctors describe it as three things showing up together: a body that will not relax, a mind that will not stop, and a sleep that will not deepen.', zh: '医生把它描述为三件事同时出现：身体放松不下来、脑子停不下来、睡眠也深不下去。' },
+        { context: '校园观察评论', text: 'Teachers describe it as three quiet shifts at once: students stop asking questions, stop staying after class, and stop pretending they care.', zh: '老师们把它描述为三个安静的同步变化：学生不再提问，不再下课后留下来，也不再假装自己在乎。', note: '三件事性质各异（提问、停留、假装），读者立刻就能对号入座。' },
+        { context: '社会现象专栏', text: 'Sociologists describe it as three things wearing down at once: trust in institutions, patience for slow change, and the habit of showing up.', zh: '社会学家把它描述为三件事在同时被磨损：对机构的信任、对缓慢变化的耐心，以及"出席"这个习惯本身。' },
+      ],
+      adaptingTip: '前半句要给一个读者"以为自己懂"的概念，后半句的三件事要选得性质不同，身体、态度、行为各占一项，清单才有立体感。"three" 这个数字不必硬抠，two / four 都可以，但 three 在英文里最有节奏感。',
+      commonMistake: '不要把三件事写成同义词重复："tiredness, exhaustion, and being worn out" 三个词其实都在说"累"，清单就塌成了一团。每一项都必须能独立站住，互相之间不能换。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把"问题在哪儿"翻译成"读者熟悉的画面"：先用一个对比定调，再给一个真实场景',
+      skeleton: 'Ordinary [X] [来去自如的动作]. [问题词] [赖着不走的动作].',
+      original: 'Ordinary stress comes and goes with each deadline. Burnout settles in and refuses to leave.',
+      sentenceId: 's6',
+      whyItWorks: [
+        '这个句式的核心是一个 "动 vs 静" 的对比。第一句给一个动态画面：普通的东西像潮水一样来来回回。第二句突然换成一个"住下来不走"的静态画面。两个画面靠 come and go 与 settle in 这两个动词撑起来，对比立刻可见。',
+        '对读者来说，settle in and refuses to leave 是一种拟人化：作者把"倦怠"当成一个赖着不走的客人。这种拟人化不是修辞炫技，而是让读者把抽象的心理状态"看见"。读者看不见的东西，给个动作，就能想象了。',
+        '它最适合用在解释段的开头：你要告诉读者"X 和 Y 看起来像，但其实不一样"，与其抽象地区分，不如各给一个动作画面。新闻特写、心理专栏、教学解释文里都常见。',
+        '一个隐藏要点：第一句的动词要选"循环、来去"的感觉（come and go / rise and fall / wash in and out），第二句的动词要选"沉、留、占据"的感觉（settle / take root / move in）。两个动词组的"运动性"必须明显不同，对比才立得住。',
+      ],
+      examples: [
+        { context: '健康科普', text: 'Ordinary worry comes and goes with the morning. Anxiety moves in and takes a chair.', zh: '普通的担忧随着早晨来来去去。焦虑却会搬进来，给自己拉一把椅子。', note: 'takes a chair 是拟人化，让"焦虑"立刻有画面感。' },
+        { context: '校园观察', text: 'Ordinary boredom passes when the bell rings. Burnout stays in the seat after everyone leaves.', zh: '普通的无聊随着下课铃就过去了。倦怠却在大家走光之后还坐在那把椅子上。' },
+        { context: '人际关系随笔', text: 'Ordinary disappointment fades by morning. Resentment unpacks its bags and stays the week.', zh: '普通的失望天亮就淡了。怨恨却会把行李打开，住上一周。' },
+      ],
+      adaptingTip: '两句的动词组要选得反差明显：一组"来去型"（come and go, pass, fade）+ 一组"住下型"（settle in, move in, take root, unpack）。中间不要插任何让步词（however, but），让两句"硬碰硬"地并排，对比才有力度。',
+      commonMistake: '不要把第二句也写成动态："Burnout comes and stays."（既来又走又留，画面感糊了。）第二句必须只剩下"静、占据"这一种动作，对比才能锁死。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾翻面：先说"它不是 X"，再给一个有分量的"它是 Y"',
+      skeleton: '[现象] is not a sign that [X]. It is a sign that [Y].',
+      original: 'Burnout is not a sign that a student is weak. It is a sign that something in the system has been asking too much, for too long, with too little time to recover.',
+      sentenceId: 's17',
+      whyItWorks: [
+        '这个句式的力量来自"两次解读"：作者先否掉一个大家容易脱口而出的解释（学生不够坚强），再给出一个更有结构性、更不容易被忽略的解释（系统索取太多）。同一个事实，前后被读出了两层完全不同的意思，结尾自然就有了分量。',
+        '对读者来说，is not a sign that X 这种否定句先承认"是的，很多人会这么看"，等于尊重了读者的本能反应；紧接着 It is a sign that Y 把视角拔高，让读者觉得"作者带我看到了我没想到的那一层"。读者被尊重，也被升级。',
+        '它特别适合议论文、社科特写、心理科普的结尾段。前文已经给完事实和细节，这一组对照负责"翻面"，把"个人问题"翻成"系统问题"，或反过来把"系统问题"翻成"个体提醒"。',
+        '一个隐藏要点：两个 sign that 后面的解释，必须在"责任归属"上明显不同。一种是把责任归给个人（weak / lazy / careless），另一种是归给系统、环境、时间。如果两个解释方向一致，整个翻面就没意义了。',
+      ],
+      examples: [
+        { context: '社论收尾', text: 'A long waiting line is not a sign that customers are patient. It is a sign that the system has too few people doing too much work.', zh: '长长的队伍并不意味着顾客有耐心。它意味着系统里太少的人在做太多的事。' },
+        { context: '校园观察专栏收尾', text: 'A quiet classroom is not a sign that the lesson is going well. It is a sign that students have learned that questions cost them more than silence.', zh: '安静的课堂并不意味着这节课上得好。它意味着学生学会了一件事：提问的代价比沉默更大。', note: '前一种解读是表扬，后一种解读是揭露，落差极大。' },
+        { context: '健康专栏结尾', text: 'A skipped breakfast is not a sign that a teen is lazy. It is a sign that mornings have been arranged without much thought for them.', zh: '不吃早饭并不意味着这个青少年懒。它意味着早晨这段时间在被设计的时候，并没有把他们放在心上。' },
+      ],
+      adaptingTip: '前半句 not a sign that 后面，放读者最容易脱口而出的那种归因（个人懒、不努力、不够强）；后半句 It is a sign that 后面，放一个不那么本能、需要稍微想一下的归因（系统、设计、长期结构）。两个解释一定要"责任归属"不同，否则翻面没意义。',
+      commonMistake: '不要让两次解读停在同一层："Burnout is not a sign that you are tired. It is a sign that you are very tired."（"累 vs 很累"是同层，没有翻面。）第二句必须跳到一个新维度，例如人 vs 系统、个体 vs 环境、表面 vs 长期。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, which three groups all reported the same pattern?', options: ['The WHO, UNICEF, and the World Bank', 'Stanford\'s COVID Recovery Office, Brookings, and the OECD PISA wellbeing module', 'Harvard, Oxford, and Tsinghua', 'The CDC, the FDA, and the EPA'], answer: 1, explanation: 'The article names the three sources directly in the opening setup.', sentenceId: 's2' },
+    { id: 'q2', q: 'How does the article describe school burnout?', options: ['Just feeling tired before a big test', 'Three things happening at once: exhaustion, cynicism, and a feeling that nothing counts', 'A short reaction to a single bad grade', 'A problem only seen in young children'], answer: 1, explanation: 'The article gives a three-part definition from researchers.', sentenceId: 's4' },
+    { id: 'q3', q: 'According to PISA, who had the lowest wellbeing scores?', options: ['Only the students with the lowest grades', 'Only the students at the most famous schools', 'Not always the students with the lowest grades', 'Only students who skipped class often'], answer: 2, explanation: 'PISA found that low wellbeing did not line up neatly with low grades.', sentenceId: 's10' },
+    { id: 'q4', q: 'What did New York and California decide to do?', options: ['Cancel all homework on weekends', 'Allow students to take excused mental health days', 'Close schools every Friday', 'Require students to use a wellness app'], answer: 1, explanation: 'The article says both states now allow excused mental health days.', sentenceId: 's12' },
+    { id: 'q5', q: 'In the closing paragraph, how does the writer frame burnout?', options: ['As proof that students are weak', 'As a problem that solves itself with time', 'As a sign that the system has been asking too much for too long', 'As an issue only some families face'], answer: 2, explanation: 'The closing pair of sentences explicitly rejects the "weak student" reading and puts the responsibility on the system.', sentenceId: 's18' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '研究开始的年份范围', answer: '2024 and 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '三家发布报告的机构之一（斯坦福办公室名称）', answer: 'COVID Recovery Office', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '研究者所定义的现象名称', answer: 'school burnout', sentenceId: 's2' },
+      { id: 'ig4', cueZh: '斯坦福报告中"几乎每周情绪耗尽"的高中生比例（"几分之几"）', answer: 'four in ten', sentenceId: 's8' },
+      { id: 'ig5', cueZh: '布鲁金斯报告中数字最高的两个地区', answer: 'East Asia and the US northeast', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '允许"心理健康假"的两个美国州', answer: 'New York and California', sentenceId: 's12' },
+      { id: 'ig7', cueZh: '青少年抱怨那款心理健康应用反而怎样', answer: 'added one more thing to do', sentenceId: 's15' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的事实，写一段大约 60 词的短文，向不熟悉这个话题的同学解释什么是"学业倦怠"、它和普通压力有什么不同，以及一些学校正在尝试什么办法。',
+      promptEn: 'Using the facts in your table, write about 60 words explaining school burnout to a classmate who has not heard of it: what it is, how it differs from ordinary stress, and what some schools are trying.',
+      targetWords: 60,
+      starters: ['School burnout is not just feeling tired before a test, ...', 'Part of what makes burnout different is ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'School burnout is not just feeling tired before a test. Researchers describe it as three things happening at once: long-lasting exhaustion, a growing cynicism about school, and a quiet feeling that nothing you do really counts. Ordinary stress comes and goes with each deadline, but burnout settles in and stays. Some US states, like New York and California, now allow excused mental health days, the way schools have always allowed sick days. Burnout is not a sign that a student is weak. It is a sign that the system has been asking too much for too long.',
+      modelAnswerZh:
+        '学业倦怠不只是考试前的疲倦。研究者把它描述为三件事同时发生：长期的疲惫感、对学校越来越浓的冷感，以及一种"我做什么都不算数"的安静感觉。普通的压力随每次截止日期来来去去，倦怠却会沉下来，赖着不走。美国一些州，例如纽约和加州，现在允许学生请"心理健康假"，就像学校一直允许请病假一样。倦怠并不意味着这个学生不够坚强，它意味着系统索取太多、持续太久。',
+    },
+  },
+};

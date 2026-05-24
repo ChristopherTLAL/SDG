@@ -1,0 +1,253 @@
+// Mental Health for Teens, Ch.11: 988 turns three, a short number that saved lives (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-07-16',
+    title: 'Three Digits That Saved Lives',
+    titleZh: '拯救生命的三位数',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/mental-health-teens/11-988-lifeline.mp3',
+    wordCount: 308,
+    readingMinutes: 4,
+    editorsNote:
+      'A short phone number can be a quiet kind of policy. Three years after the United States launched 988, the data shows tens of millions of calls answered. But one part of the service for LGBTQ+ youth is being scaled back, and the debate is far from over.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On July 16, 2025, the United States marked three years of a very short phone number.', zh: '2025 年 7 月 16 日，美国迎来了一个非常简短的电话号码使用三周年。' },
+        { id: 's2', en: 'The number is 988, the national suicide and crisis lifeline.', zh: '这个号码是 988，全美自杀与危机求助热线。' },
+        { id: 's3', en: 'You dial three digits, and a trained counselor picks up.', zh: '你按下三个数字，一位受过训练的接线员就会接起电话。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'Before 988 launched in July 2022, people in crisis had to remember a long ten-digit number.', zh: '2022 年 7 月 988 启用之前，处于危机中的人必须记住一个十位数的长号码。' },
+        { id: 's5', en: 'Many never tried to call.', zh: '很多人根本没打算打那个电话。' },
+        { id: 's6', en: 'Short numbers are easier to share, easier to remember at the worst moment, and easier to print on a poster in a school bathroom.', zh: '简短的号码更容易传播，更容易在最糟的时刻被记起，也更容易印在学校卫生间的海报上。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'The new data is striking.', zh: '新的数据令人瞩目。' },
+        { id: 's8', en: 'Since the launch, 988 has handled more than 16 million contacts by call, text, and chat.', zh: '自启用以来，988 已通过电话、短信和在线聊天处理了超过 1600 万次联系。' },
+        { id: 's9', en: 'The average wait time has dropped from over two minutes to under one minute and a half.', zh: '平均等待时间已从两分钟以上下降到一分半以下。' },
+        { id: 's10', en: 'In 2025 alone, more than 8 million people reached out.', zh: '仅 2025 年一年，就有超过 800 万人主动联系。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'The line was also built to serve specific groups.', zh: '这条热线也被特别设计来服务特定人群。' },
+        { id: 's12', en: 'Veterans can press 1 and reach a counselor who understands military life.', zh: '退伍军人可以按 1，接通理解军旅生活的接线员。' },
+        { id: 's13', en: 'For three years, LGBTQ+ young people could press 3 and talk to a counselor trained to support them.', zh: '过去三年里，LGBTQ+ 青少年可以按 3，与受过专门支持训练的接线员通话。' },
+        { id: 's14', en: 'That service had been reaching about 70,000 young people every month.', zh: '这项服务此前每月接触约 7 万名青少年。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's15', en: 'In July 2025, that special option was shut down.', zh: '2025 年 7 月，那个专门选项被关闭了。' },
+        { id: 's16', en: 'The government said the money set aside by Congress had run out.', zh: '政府表示国会专门拨给的资金已经用完。' },
+        { id: 's17', en: 'Mental health groups pushed back hard, pointing out that LGBTQ+ teens are about four times more likely to attempt suicide than their peers.', zh: '心理健康机构强烈反对，指出 LGBTQ+ 青少年尝试自杀的可能性约为同龄人的四倍。' },
+        { id: 's18', en: 'Lawmakers from both parties have since asked the government to restart the program.', zh: '此后两党议员都要求政府重启该项目。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'Part of what makes 988 powerful is how plain it is.', zh: '988 之所以有力，部分原因在于它的朴素。' },
+        { id: 's20', en: 'It is not an app you have to download or a form you have to fill in at a bad moment.', zh: '它不是你在糟糕时刻还要去下载的应用，也不是要填写的表格。' },
+        { id: 's21', en: 'It is just a number, and a person on the other end.', zh: '它只是一个号码，和电话另一端的一个人。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's22', en: '988 is the United States line.', zh: '988 是美国的热线。' },
+        { id: 's23', en: 'Readers in other places should look up their own local number and save it before they need it.', zh: '其他地区的读者应该查询当地的求助号码，并在需要之前先存好。' },
+        { id: 's24', en: 'A short number is more than a piece of policy. It is a small open door, kept open in case someone walks through it.', zh: '一个简短的号码不只是一项政策。它是一扇小小的、为有人走进而保持敞开的门。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'marked', lemma: 'mark', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/mɑːkt/', defZh: '纪念；标志（某一时刻）', defEn: 'to celebrate or note an important moment', example: 'The city marked the bridge\'s 50th birthday with a small concert.', exampleZh: '这座城市用一场小型音乐会纪念大桥建成 50 周年。' },
+    { id: 'v2', word: 'crisis', lemma: 'crisis', sentenceId: 's2', level: 2, pos: 'n.', ipa: '/ˈkraɪsɪs/', defZh: '危机；紧急关头', defEn: 'a very serious and dangerous situation', example: 'The hospital opens a small office for people in crisis.', exampleZh: '这家医院为处于危机中的人开设了一个小型服务点。' },
+    { id: 'v3', word: 'dial', lemma: 'dial', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/ˈdaɪəl/', defZh: '拨打（电话号码）', defEn: 'to press the numbers to make a phone call', example: 'In an emergency, dial the local help number first.', exampleZh: '紧急情况下，先拨打当地求助号码。' },
+    { id: 'v4', word: 'counselor', lemma: 'counselor', sentenceId: 's3', level: 3, pos: 'n.', ipa: '/ˈkaʊnsələ(r)/', defZh: '辅导员；心理咨询师', defEn: 'a trained person who helps others talk through problems', example: 'A counselor at the school listens to students every Friday.', exampleZh: '学校的一位辅导员每周五都会倾听学生。' },
+    { id: 'v5', word: 'launched', lemma: 'launch', sentenceId: 's4', level: 2, pos: 'v.', ipa: '/lɔːntʃt/', defZh: '启动；推出', defEn: 'started a new service or product', example: 'The library launched a free reading program last spring.', exampleZh: '图书馆去年春天推出了免费阅读项目。' },
+    { id: 'v6', word: 'remember', lemma: 'remember', sentenceId: 's4', level: 1, pos: 'v.', ipa: '/rɪˈmembə(r)/', defZh: '记住；想起', defEn: 'to keep something in your mind', example: 'It is hard to remember a long number when you are upset.', exampleZh: '心烦的时候很难记住一个很长的号码。' },
+    { id: 'v7', word: 'poster', lemma: 'poster', sentenceId: 's6', level: 2, pos: 'n.', ipa: '/ˈpəʊstə(r)/', defZh: '海报；招贴', defEn: 'a large printed sheet put up on a wall', example: 'A bright poster about the helpline hangs near the lockers.', exampleZh: '一张关于求助热线的醒目海报挂在储物柜旁边。' },
+    { id: 'v8', word: 'striking', lemma: 'striking', sentenceId: 's7', level: 3, pos: 'adj.', ipa: '/ˈstraɪkɪŋ/', defZh: '引人注目的；强烈的', defEn: 'unusual enough to get attention', example: 'The drop in road accidents this year is striking.', exampleZh: '今年道路事故的下降非常引人注目。' },
+    { id: 'v9', word: 'handled', lemma: 'handle', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ˈhændld/', defZh: '处理；接待', defEn: 'dealt with or managed something', example: 'The team handled hundreds of calls during the storm.', exampleZh: '风暴期间，这支队伍处理了上百通电话。' },
+    { id: 'v10', word: 'contacts', lemma: 'contact', sentenceId: 's8', level: 2, pos: 'n.', ipa: '/ˈkɒntækts/', defZh: '联系（次数）', defEn: 'separate times people reached out', example: 'The clinic counts every chat, call, and email as one of its contacts.', exampleZh: '诊所把每一次聊天、电话和邮件都算作一次联系。' },
+    { id: 'v11', word: 'wait', lemma: 'wait', sentenceId: 's9', level: 1, pos: 'n.', ipa: '/weɪt/', defZh: '等候时间', defEn: 'the time between asking and being helped', example: 'The wait at the new clinic is much shorter than before.', exampleZh: '新诊所的等候时间比以前短得多。' },
+    { id: 'v12', word: 'reached out', lemma: 'reach out', sentenceId: 's10', level: 3, pos: 'phr. v.', ipa: '/riːtʃt aʊt/', defZh: '主动联系；伸出求助之手', defEn: 'asked someone for help or support', example: 'After the hard week, she reached out to her old teacher.', exampleZh: '在艰难的一周之后，她主动联系了以前的老师。' },
+    { id: 'v13', word: 'veterans', lemma: 'veteran', sentenceId: 's12', level: 3, pos: 'n.', ipa: '/ˈvetərənz/', defZh: '退伍军人', defEn: 'people who used to serve in the military', example: 'The town built a quiet park for veterans and their families.', exampleZh: '小镇为退伍军人及其家人建了一座安静的公园。' },
+    { id: 'v14', word: 'trained', lemma: 'train', sentenceId: 's13', level: 1, pos: 'adj.', ipa: '/treɪnd/', defZh: '受过训练的', defEn: 'taught the right skills for a job', example: 'Every line worker is trained to listen first and talk later.', exampleZh: '每位接线员都接受过先听后说的训练。' },
+    { id: 'v15', word: 'shut down', lemma: 'shut down', sentenceId: 's15', level: 2, pos: 'phr. v.', ipa: '/ʃʌt daʊn/', defZh: '关闭；停止运行', defEn: 'closed or stopped operating', example: 'The old hotline was shut down at the end of the year.', exampleZh: '旧的热线在年底被关闭了。' },
+    { id: 'v16', word: 'set aside', lemma: 'set aside', sentenceId: 's16', level: 3, pos: 'phr. v.', ipa: '/set əˈsaɪd/', defZh: '专门拨出；留出', defEn: 'kept money or time for a specific purpose', example: 'The school set aside a small room for quiet reading.', exampleZh: '学校专门留出一个小房间用于安静阅读。' },
+    { id: 'v17', word: 'pushed back', lemma: 'push back', sentenceId: 's17', level: 3, pos: 'phr. v.', ipa: '/pʊʃt bæk/', defZh: '反对；提出反对意见', defEn: 'argued strongly against a decision', example: 'Parents pushed back when the school cut the music class.', exampleZh: '当学校取消音乐课时，家长们提出了强烈反对。' },
+    { id: 'v18', word: 'attempt', lemma: 'attempt', sentenceId: 's17', level: 3, pos: 'v.', ipa: '/əˈtempt/', defZh: '尝试；企图', defEn: 'to try to do something difficult or dangerous', example: 'Doctors hope to attempt the new treatment next month.', exampleZh: '医生希望下个月尝试这种新疗法。' },
+    { id: 'v19', word: 'restart', lemma: 'restart', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/ˌriːˈstɑːt/', defZh: '重启；重新开始', defEn: 'to start something again after it stopped', example: 'The city plans to restart the late-night bus next month.', exampleZh: '这座城市计划下月重启夜班公交。' },
+    { id: 'v20', word: 'plain', lemma: 'plain', sentenceId: 's19', level: 4, pos: 'adj.', ipa: '/pleɪn/', defZh: '朴素的；不花哨的', defEn: 'simple and without extra features', example: 'The most helpful tool is sometimes the most plain one.', exampleZh: '最有用的工具有时是最朴素的那个。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 has + 过去分词 把"从启用到现在的累计成绩"说清楚',
+      pattern: 'has / have + 过去分词',
+      sentenceIds: ['s8', 's14'],
+      explanationZh: [
+        '中文说"自启用以来一共处理了 1600 万次联系"，时间感是模糊的，重点是"到现在为止累积下来的总量"。英文里要说这类"从过去某个起点一直延续到现在的结果"，最自然的就是用 has / have 加过去分词，也就是现在完成时。',
+        '看第 8 句：988 has handled more than 16 million contacts。作者没有用过去式 handled 单独出现，因为他想强调的不是"哪一年处理了多少"，而是"从 2022 年到 2025 年这段时间里、加起来一共到了这个数"。第 14 句 That service had been reaching about 70,000 young people every month 是这个套路的近亲，但因为前面已经点出"专门选项被关掉"，时间锚定在过去，所以用 had been doing。',
+        '什么时候用：新闻里报道"自某政策启动以来累计的数据""自创立至今的成绩"时几乎默认用这个时态。一旦你点明具体的某一年（in 2025 alone），就要换回一般过去式，因为时间已经锁定了。',
+        '主语单复数会改变 has 还是 have：988（看作一个系统，单数）配 has；more than 8 million people（复数）就该配 have。文中第 8 句 988 has handled 是单数主语，第 18 句 Lawmakers... have asked 是复数主语，自己留意。',
+      ],
+      examples: [
+        { en: 'Our app has answered over a million messages since it launched.', zh: '自启用以来，我们的应用已经回复了超过一百万条消息。', note: 'has 加过去分词专门用来报"从启动到现在累计了多少"。' },
+        { en: 'Doctors have studied this question for decades.', zh: '医生们已经研究这个问题几十年了。' },
+        { en: 'The school has welcomed students from over thirty countries.', zh: '这所学校已经接待了来自三十多个国家的学生。' },
+        { en: 'I have not seen her since the summer.', zh: '从夏天起我就没再见过她。' },
+        { en: 'The team has finished half of the report, but they still need a week.', zh: '团队已经完成了报告的一半，但他们还需要一周。' },
+      ],
+      commonMistake: '不要写成 988 has handled 16 million contacts since 2022 to 2025。一旦给出明确的结束时间，就必须用过去式（handled）。现在完成时只能配开放式的时间锚点（since 2022 / so far / to date）。',
+      vsSimilar: '一般过去式（handled）只说"那时候发生了"，跟现在无关；现在完成时（has handled）强调"这件事一直累积到现在"。问自己：我在意的是事件本身，还是它累积到此刻的总量。',
+    },
+    {
+      id: 'g2',
+      title: '用 can 加动词原形给读者列出"可以做什么"',
+      pattern: '主语 + can + 动词原形',
+      sentenceIds: ['s12', 's13'],
+      explanationZh: [
+        '中文里说"退伍军人可以按 1""LGBTQ+ 青少年可以按 3"，是在告诉读者一个具体的操作选项。英文最直接的对应就是 can 加动词原形，意思是"具备做这件事的可能或权限"。不需要把句子写得很复杂，can do something 就已经把"可以做某事"说清楚了。',
+        '看第 12 句：Veterans can press 1 and reach a counselor。结构是主语（Veterans）加 can 加两个并列的动词原形（press 1 and reach）。注意 can 后面跟的一定是动词的最原始形式，不能是 to press、不能是 presses，也不能是 pressing。第 13 句 LGBTQ+ young people could press 3 and talk to a counselor 用的是 could，因为这件事已经发生在过去，是 can 的过去式形式。',
+        '什么时候用：写"产品功能、服务选项、机构提供什么"时最顺手。说明书、新闻里讲"用户可以怎样、读者可以查询某号码"都常见，可以把一连串动作并列起来。',
+        '一个细节：can 表示"现在可以"，could 表示"过去可以"或"假设里可以"。文章里这两种都出现了，第 12 句用 can（现在仍然成立），第 13 句用 could（过去三年成立，现在已停）。读者读到 could 就该察觉"这件事已经变了"。',
+      ],
+      examples: [
+        { en: 'Members can borrow up to three books at a time.', zh: '会员一次最多可以借三本书。', note: 'can 后面跟两个动词原形（borrow），并列说明一项服务规则。' },
+        { en: 'Students can apply online, attach their essay, and check the result by email.', zh: '学生可以在线申请、附上文章，然后通过邮件查看结果。' },
+        { en: 'You can save the number in your phone now, before you need it.', zh: '你现在就可以把这个号码存进手机，免得需要时找不到。' },
+        { en: 'Anyone can ask for help, but not everyone knows where to start.', zh: '任何人都可以求助，但不是每个人都知道从哪里开始。' },
+        { en: 'Patients could see the doctor without an appointment last year, but the rule has changed.', zh: '去年病人不用预约就能看医生，但规定已经变了。', note: 'could 把"那时候可以"这件事和现在区分开。' },
+      ],
+      commonMistake: '不要写成 Veterans can to press 1 或 Veterans can pressing 1。can 后面只能跟动词原形（press），既不能加 to，也不能用 -ing。',
+    },
+    {
+      id: 'g3',
+      title: '用 is more than X. It is Y. 收尾两句把"事实"翻成"意义"',
+      pattern: '[名词] is more than [表面意义]. It is [更大的意义].',
+      sentenceIds: ['s24'],
+      explanationZh: [
+        '到了文章结尾，作者常常要把前面讲的事实抬升一层、变成一个值得记住的意义。中文里我们会写"这不只是一个号码，它是一道门"。英文里有一个非常稳定的模板：先一句 [名词] is more than [表面意义]，再一句 It is [更大的意义]。',
+        '看第 24 句：A short number is more than a piece of policy. It is a small open door, kept open in case someone walks through it. 第一句承认"它是政策的一部分"，这是任何人都看得到的表面层。第二句 It is a small open door... 用一个具体的比喻，把"一项政策"翻成"一扇门"，文章的情感重心一下被拉高。',
+        '什么时候用：议论文、特写、个人陈述的结尾段都很好用。前文已经把数据和事实摆完，这两句负责告诉读者"所以这件事到底意味着什么"。它不是开篇句，也不是中段过渡，专门留在最后用。',
+        '一个隐藏前提：第二句的"更大意义"要能回扣全文的情绪线索，不能凭空拔高。文中前面反复提到"短号码更容易记住""有人接电话"，所以收尾用 open door 这个意象自然不显突兀。如果前文都在讲数据，结尾突然抒情成"它是希望"，读者会觉得跳脱。',
+      ],
+      examples: [
+        { en: 'A library card is more than a piece of plastic. It is a quiet promise that knowledge belongs to everyone.', zh: '一张借书卡不只是一块塑料。它是一个安静的承诺，说明知识属于每一个人。' },
+        { en: 'A school nurse is more than a person who hands out bandages. She is often the first adult a tired student trusts.', zh: '校医不只是发创可贴的人。她常常是疲惫的学生第一个信任的成年人。', note: '第二句把"发创可贴"这层表面意义翻成"被信任的人"，落差形成升华感。' },
+        { en: 'Free bus tickets are more than a small subsidy. They are an invitation for older people to leave the house.', zh: '免费公交票不只是一项小补贴。它是给老人一个走出家门的邀请。' },
+        { en: 'A daily walk is more than exercise. It is a way to keep one\'s thoughts moving when life feels stuck.', zh: '每天散步不只是运动。当生活感到停滞时，它是一种让思绪重新流动的方式。' },
+      ],
+      commonMistake: '不要让第二句还停留在同一层。比如写 A short number is more than a piece of policy. It is also a useful tool. "工具"和"政策"是同一类抽象词，没有升华效果。第二句必须跳到一个更大或更具象的维度（一扇门、一句承诺、一次邀请）。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开头先把"读者熟悉的事物"和"它的真实身份"并排介绍',
+      skeleton: 'The [事物] is [简短名字], the [完整身份说明].',
+      original: 'The number is 988, the national suicide and crisis lifeline.',
+      sentenceId: 's2',
+      whyItWorks: [
+        '这个句式靠的是"两步介绍"。第一句先把读者已经隐约听过的那个简短名字摆出来（988），第二句立刻用同位语给出它的完整身份（the national suicide and crisis lifeline）。读者既不会被陌生术语挡住，又能立刻知道"这是什么"。',
+        '对读者来说，这种排版方式表达的是一种克制的自信：作者不假设读者什么都知道，但也不当读者是新手。先给一个"门面信息"，再给"真正含义"，节奏短促，信息密度高。',
+        '它最适合用在新闻或科普文章的开头一两句，尤其是要在文章里反复使用这个名字时。开篇用 The number is 988, the national suicide and crisis lifeline. 一次性把"代号"和"全名"都建立了，后面就可以放心只用 988。',
+        '一个隐藏要点：第二部分要写得比第一部分长，让读者知道哪个是"附加说明"、哪个是"主信息"。如果两边都很短，就少了节奏感。',
+      ],
+      examples: [
+        { context: '科技报道开头', text: 'The card is RIBA, the new public transport pass that works on buses, subways, and ferries.', zh: '这张卡叫 RIBA，是可以同时用于公交、地铁和渡轮的新型公共交通卡。' },
+        { context: '校园新闻', text: 'The room is Studio C, the small recording space the school built for student podcasts.', zh: '这个房间叫 Studio C，是学校为学生播客建的小型录音空间。', note: '第一句留代号，第二句拉长说明用途。' },
+        { context: '人物特写', text: 'The teacher is Ms. Park, the math instructor who turned her classroom into a quiet club after hours.', zh: '这位老师是朴老师，那位把教室在放学后变成安静俱乐部的数学老师。' },
+      ],
+      adaptingTip: '第一部分要短、要好记（一个代号、一个名字、一个房间号），第二部分要给一个能让读者瞬间理解角色的身份说明，越具体越好。避免在第二部分塞两到三件事，一个身份说明就够，剩下的留给下一句展开。',
+      commonMistake: '不要把两边都写成空泛的描述：The number is 988, a number that helps people. 这样第二部分等于没说，读者还是不知道 988 到底是什么。第二部分一定要给出一个具体的、可识别的身份。',
+    },
+    {
+      id: 'pt2',
+      useCase: '用一句"看似废话"的常识，揭示一个被忽视的设计原因',
+      skeleton: 'Short [X] are easier to [verb-1], easier to [verb-2], and easier to [verb-3].',
+      original: 'Short numbers are easier to share, easier to remember at the worst moment, and easier to print on a poster in a school bathroom.',
+      sentenceId: 's6',
+      whyItWorks: [
+        '这个句式靠"三步并列"建立一种轻巧的说服力。Short numbers are easier to… 重复三次，每次后面挂一个不同的动作（share / remember / print），形成节奏感。读者读到第三个的时候，会觉得"对呀，这件事的好处确实是这样一层一层叠起来的"。',
+        '对读者来说，这种排比像是作者把一个常识慢慢摊开：你以为短号码只是好记，但作者告诉你还能更容易传播，还能更容易印在卫生间海报上。最后一个具体细节（school bathroom）落地，整句突然从抽象变得有画面，说服力翻倍。',
+        '它最适合用在文章里要解释"一个简单设计为什么有效"的段落。新闻特写、产品评论、公益倡议都常见。前两个动作通常是抽象的好处，最后一个动作落到具体场景，节奏才会有"咔嗒"一声的收束感。',
+        '一个细节：三个 easier to 后面跟的动词原形必须保持同一形式，不能写成 easier to share, easier to remember, and easier printing。结构平行，读者眼睛才舒服。',
+      ],
+      examples: [
+        { context: '城市观察', text: 'Wide sidewalks are easier to walk on, easier to share with a stroller, and easier to keep clean after rain.', zh: '宽人行道更容易走，更容易和婴儿车共享，雨后也更容易保持干净。' },
+        { context: '产品评论', text: 'Light backpacks are easier to carry, easier to swing onto a chair, and easier to forget about during a long day.', zh: '轻便的背包更容易背，更容易甩到椅子上，也更容易在漫长的一天里被忘掉它的存在。', note: '最后一个 easier to forget about 出乎意料，把平行结构拐了一个小弯，反而有亮点。' },
+        { context: '公益倡议', text: 'Short forms are easier to fill out, easier to mail back, and easier to finish on a tired evening.', zh: '简短的表格更容易填写，更容易寄回，也更容易在疲惫的夜晚被填完。' },
+      ],
+      adaptingTip: '三个 easier to 后面接的动词最好一抽象、一日常、一具体：前两个铺垫，第三个用画面收束。如果三个都太抽象（share, use, learn），读者会觉得这是凑数；如果三个都太具体，又显得啰嗦。最关键的是第三个落地的"小场景"，那是这个句式的杀手锏。',
+      commonMistake: '不要把三个动作写成同一个意思的近义词（easier to read, easier to see, easier to notice）。这样不是排比，是重复。每个 easier to 后面的动作必须是真正不同的"好处维度"。',
+    },
+    {
+      id: 'pt3',
+      useCase: '把"为什么这件小事重要"框成"它就是 X 和 Y"',
+      skeleton: 'It is just [X], and [Y].',
+      original: 'It is just a number, and a person on the other end.',
+      sentenceId: 's21',
+      whyItWorks: [
+        '这个句式的力量来自一个 just 字。Just 把作者要说的事情说成"很简单、没什么花哨"，给读者一种放松的姿态：作者并不在夸大其词。然后用 and 加一个更柔软的补充（a person on the other end），把"号码"这件冷冰冰的事突然变成"有人的事"。',
+        '对读者来说，just 这个词意味着"作者收住了情绪"。前一段刚说完它不是 app、不是表格，到这里用 just a number 给出最简版本的定义，再用 and a person 拐到温度上。读者会觉得作者在低声说一句很重要的话，比大喊"这个号码就是救命"更让人记住。',
+        '它最适合用在段落收尾，用来把前面讲的"它不是什么"翻成"它就是什么"。常见于评论、随笔、慢节奏新闻的小段结束位置。前文越复杂，这一句的 just 越有力。',
+        '一个细节：and 后面那部分要选一个能"软化"前半句的词。如果 X 是冷的（a number, a piece of paper），Y 就要有人味（a person on the other end, a hand to hold）。如果 X 是热的，Y 就要有重量。',
+      ],
+      examples: [
+        { context: '校园评论收尾', text: 'It is just a chair in the hallway, and a teacher who happens to sit there at lunch.', zh: '它只是走廊上的一把椅子，和一位午饭时正好坐在那里的老师。' },
+        { context: '社会观察随笔', text: 'It is just a paper bag, and a stranger who took the time to write your name on it.', zh: '它只是一个纸袋，和一位花时间在上面写下你名字的陌生人。', note: 'X 是普通的小物件，Y 给它注入"有人在意"的温度。' },
+        { context: '志愿活动反思', text: 'It is just a phone call once a week, and someone older who waits for it.', zh: '它只是一周一次的电话，和电话那头一位等着它的老人。' },
+      ],
+      adaptingTip: 'Just 是这个句式的灵魂，不能省。前半句要朴素到几乎像废话（a number / a bag / a chair），后半句一定要把人或感情带进来。如果两边都是物件、没有人味，整句就读起来像列清单而不是收尾。这是收尾句，别用在段落中间。',
+      commonMistake: '不要把 and 后面那部分写得太长太完整：It is just a number, and a person on the other end who has been trained to answer crisis calls and knows how to listen carefully. 这样后半句会盖过前半句，just 的节奏完全失效。后半部分一句话就够，留白才有力。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'When did the United States launch the 988 lifeline?', options: ['July 2022', 'July 2025', 'January 2020', 'October 2023'], answer: 0, explanation: 'The article says 988 launched in July 2022, and 2025 marked its third anniversary.', sentenceId: 's4' },
+    { id: 'q2', q: 'According to the article, why does a short number matter?', options: ['It is cheaper for the government to run', 'It is easier to share, remember, and print on posters', 'It rings louder than long numbers', 'It works only in emergencies'], answer: 1, explanation: 'The article lists three reasons: easier to share, easier to remember at the worst moment, and easier to print on a poster.', sentenceId: 's6' },
+    { id: 'q3', q: 'How many contacts has 988 handled since its launch?', options: ['About 1 million', 'About 5 million', 'More than 16 million', 'Less than 100,000'], answer: 2, explanation: 'The article reports more than 16 million contacts by call, text, and chat since 988 launched.', sentenceId: 's8' },
+    { id: 'q4', q: 'Why did the press 3 service for LGBTQ+ youth end in July 2025?', options: ['Not enough people were calling it', 'The counselors were not well trained', 'The money set aside by Congress had run out', 'Other countries took over the program'], answer: 2, explanation: 'The article says the government explained that the money set aside by Congress had run out.', sentenceId: 's16' },
+    { id: 'q5', q: 'At the end, how does the writer seem to feel about 988?', options: ['It is too complicated to be useful', 'It is mainly an American political problem', 'It is a small but meaningful kind of help worth keeping open', 'It is no longer needed because apps do the same job'], answer: 2, explanation: 'The closing lines call a short number a small open door kept open in case someone walks through it, a hopeful and thoughtful note.', sentenceId: 's24' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '988 的官方身份', answer: 'the national suicide and crisis lifeline', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '988 启用的年份和月份', answer: 'July 2022', sentenceId: 's4' },
+      { id: 'ig3', cueZh: '988 启用至今总联系次数', answer: 'more than 16 million', sentenceId: 's8' },
+      { id: 'ig4', cueZh: '2025 年单年的联系人数', answer: 'more than 8 million', sentenceId: 's10' },
+      { id: 'ig5', cueZh: '退伍军人接通对应人员要按的键', answer: '1', sentenceId: 's12' },
+      { id: 'ig6', cueZh: 'LGBTQ+ 青少年此前要按的键', answer: '3', sentenceId: 's13' },
+      { id: 'ig7', cueZh: '专门服务每月接触的青少年人数', answer: 'about 70,000', sentenceId: 's14' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 60 词的短文，向同学介绍 988：它是什么号码、运行多久了、有什么数据，以及为什么作者觉得它重要。',
+      promptEn: 'Using the facts in your table, write about 60 words introducing 988 to a classmate: what the number is, how long it has run, what the data shows, and why the writer thinks it matters.',
+      targetWords: 60,
+      starters: ['The number is 988, the national ...', 'A short number is more than ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'The number is 988, the national suicide and crisis lifeline in the United States. Since July 2022, it has handled more than 16 million contacts. Short numbers are easier to share, easier to remember at the worst moment, and easier to print on a poster. A short number is more than a piece of policy. It is a small open door, kept open in case someone walks through it.',
+      modelAnswerZh:
+        '这个号码是 988，美国的全国自杀与危机求助热线。自 2022 年 7 月以来，它已经处理了超过 1600 万次联系。简短的号码更容易传播，更容易在最糟的时刻被记起，也更容易印在海报上。一个简短的号码不只是一项政策。它是一扇小小的、为有人走进而保持敞开的门。',
+    },
+  },
+};

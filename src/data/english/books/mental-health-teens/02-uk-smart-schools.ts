@@ -1,0 +1,252 @@
+// Mental Health for Teens, Ch.2: a UK study finds that school-only phone bans do not help teen wellbeing (B1).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-02-05',
+    title: 'School Phone Bans Alone Are Not Enough',
+    titleZh: '只在校禁手机还不够',
+    cefr: 'B1',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/mental-health-teens/02-uk-smart-schools.mp3',
+    wordCount: 298,
+    readingMinutes: 4,
+    editorsNote:
+      'Many countries are asking the same question: should schools ban phones during the day? A new study from England has a careful answer. The ban alone does very little, because students still use their phones for many hours outside school.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'In February 2025, a new study from England surprised many parents and teachers.', zh: '2025 年 2 月，一项来自英国的新研究让许多家长和老师感到意外。' },
+        { id: 's2', en: 'The study is called the SMART Schools Study, and it was published in The Lancet Regional Health Europe.', zh: '这项研究名为 SMART Schools Study，发表在《柳叶刀-区域健康欧洲》上。' },
+        { id: 's3', en: 'It looked at 1,227 students from 30 secondary schools.', zh: '研究考察了来自 30 所中学的 1,227 名学生。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The researchers wanted to answer a simple question.', zh: '研究人员想回答一个简单的问题。' },
+        { id: 's5', en: 'Do school phone bans make teenagers feel better?', zh: '在校园里禁用手机会让青少年感觉更好吗？' },
+        { id: 's6', en: 'They compared schools with strict phone bans during the school day to schools that allowed phones.', zh: '他们把在校期间严格禁用手机的学校与允许使用手机的学校进行比较。' },
+        { id: 's7', en: 'Then they checked the students for signs of anxiety, low mood, sleep problems, and school grades.', zh: '随后他们检查了学生在焦虑、情绪低落、睡眠问题和学业成绩方面的表现。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'The result was clear, and a little disappointing.', zh: '结果很清晰，也有点令人失望。' },
+        { id: 's9', en: 'School phone bans on their own did not improve mental wellbeing.', zh: '只在校园里禁用手机，并没有改善学生的心理健康。' },
+        { id: 's10', en: 'The bans also did not lift grades or help students sleep more.', zh: '禁令也没有提升成绩，没有帮助学生多睡一点。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Why did the bans fail?', zh: '为什么禁令没有奏效？' },
+        { id: 's12', en: 'The researchers found a key reason in the numbers.', zh: '研究人员在数据里找到了一个关键原因。' },
+        { id: 's13', en: 'Banning phones in school only cut the few hours during class time.', zh: '在校园里禁用手机，只能减掉上课时段的那几个小时。' },
+        { id: 's14', en: 'It did not change how long teenagers stared at their phones after school, in the evening, or in bed.', zh: '它没有改变青少年放学后、晚上以及躺在床上看手机的时间。' },
+        { id: 's15', en: 'Their total screen time stayed almost the same.', zh: '他们的总屏幕时间几乎没有变化。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: 'At the same time, the study confirmed something important.', zh: '与此同时，这项研究确认了一件重要的事。' },
+        { id: 's17', en: 'Heavy overall phone and social media use was linked to worse mental health, less sleep, and lower grades.', zh: '整体上重度使用手机和社交媒体，与更差的心理健康、更少的睡眠和更低的成绩有关。' },
+        { id: 's18', en: 'So the problem is real. The school-day ban just does not reach far enough.', zh: '所以问题确实存在。只是校内禁令的覆盖面还不够大。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'What do the researchers suggest instead?', zh: '研究人员建议用什么方法来代替？' },
+        { id: 's20', en: 'They argue that families, schools, and platforms need to work together.', zh: '他们认为，家庭、学校和平台需要一起努力。' },
+        { id: 's21', en: 'Part of what makes the problem hard is that teenagers use phones almost everywhere.', zh: '这个问题之所以难，部分原因在于青少年几乎在每个场合都使用手机。' },
+        { id: 's22', en: 'A real plan has to cover the evening, the weekend, and the bedroom, not only the classroom.', zh: '一个真正有用的方案必须覆盖晚上、周末和卧室，而不仅仅是教室。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's23', en: 'For now, the SMART Schools team is not telling schools to drop the ban.', zh: '目前，SMART Schools 团队并没有让学校取消禁令。' },
+        { id: 's24', en: 'A quiet classroom still helps students focus.', zh: '安静的教室依然能帮助学生集中注意力。' },
+        { id: 's25', en: 'But a quiet classroom is more than a rule. It is one small step inside a much longer plan.', zh: '但是一间安静的教室不只是一条规定。它只是更长计划里的一小步。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'study', lemma: 'study', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈstʌdi/', defZh: '研究；调查', defEn: 'a careful piece of research on a question', example: 'A new study shows that walking helps memory.', exampleZh: '一项新研究表明，走路有助于记忆。' },
+    { id: 'v2', word: 'parents', lemma: 'parent', sentenceId: 's1', level: 1, pos: 'n.', ipa: '/ˈpeərənts/', defZh: '父母；家长', defEn: 'a mother or father of a child', example: 'My parents talk with my teacher once a month.', exampleZh: '我父母每个月和我的老师聊一次。' },
+    { id: 'v3', word: 'published', lemma: 'publish', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/ˈpʌblɪʃt/', defZh: '发表；出版', defEn: 'made public in a journal, book, or magazine', example: 'The journal published her paper last year.', exampleZh: '这本期刊去年发表了她的论文。' },
+    { id: 'v4', word: 'secondary', lemma: 'secondary', sentenceId: 's3', level: 3, pos: 'adj.', ipa: '/ˈsekəndri/', defZh: '中等的（教育）；中学的', defEn: 'between primary school and university', example: 'My cousin starts secondary school in September.', exampleZh: '我表弟九月份开始上中学。' },
+    { id: 'v5', word: 'researchers', lemma: 'researcher', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/rɪˈsɜːtʃəz/', defZh: '研究人员', defEn: 'people whose job is to study and find new facts', example: 'The researchers spent two years on the project.', exampleZh: '研究人员在这个项目上花了两年时间。' },
+    { id: 'v6', word: 'compared', lemma: 'compare', sentenceId: 's6', level: 2, pos: 'v.', ipa: '/kəmˈpeəd/', defZh: '比较；对比', defEn: 'looked at two things to see how they differ', example: 'She compared two phones before she chose one.', exampleZh: '她比较了两款手机才做出选择。' },
+    { id: 'v7', word: 'strict', lemma: 'strict', sentenceId: 's6', level: 2, pos: 'adj.', ipa: '/strɪkt/', defZh: '严格的', defEn: 'firmly enforced; not relaxed', example: 'Our coach is strict about being on time.', exampleZh: '我们的教练在守时方面非常严格。' },
+    { id: 'v8', word: 'anxiety', lemma: 'anxiety', sentenceId: 's7', level: 4, pos: 'n.', ipa: '/æŋˈzaɪəti/', defZh: '焦虑；不安', defEn: 'a worried, uneasy feeling', example: 'Exam anxiety made it hard for him to sleep.', exampleZh: '考试焦虑让他难以入睡。' },
+    { id: 'v9', word: 'mood', lemma: 'mood', sentenceId: 's7', level: 2, pos: 'n.', ipa: '/muːd/', defZh: '心情；情绪', defEn: 'the way a person feels at a particular time', example: 'A short walk often lifts my mood.', exampleZh: '短暂的散步常常能改善我的心情。' },
+    { id: 'v10', word: 'grades', lemma: 'grade', sentenceId: 's7', level: 1, pos: 'n.', ipa: '/ɡreɪdz/', defZh: '分数；成绩', defEn: 'marks given for school work', example: 'Her grades have improved this term.', exampleZh: '她这学期的成绩有所提高。' },
+    { id: 'v11', word: 'disappointing', lemma: 'disappointing', sentenceId: 's8', level: 3, pos: 'adj.', ipa: '/ˌdɪsəˈpɔɪntɪŋ/', defZh: '令人失望的', defEn: 'not as good as you hoped', example: 'The film was a little disappointing in the end.', exampleZh: '这部电影最后有点令人失望。' },
+    { id: 'v12', word: 'wellbeing', lemma: 'wellbeing', sentenceId: 's9', level: 3, pos: 'n.', ipa: '/ˌwelˈbiːɪŋ/', defZh: '幸福感；身心健康', defEn: 'the state of being healthy and happy', example: 'Schools care more about student wellbeing today.', exampleZh: '如今学校更关注学生的身心健康。' },
+    { id: 'v13', word: 'stared', lemma: 'stare', sentenceId: 's14', level: 3, pos: 'v.', ipa: '/steəd/', defZh: '盯着看；凝视', defEn: 'looked at something for a long time without moving the eyes', example: 'He stared at the screen for an hour.', exampleZh: '他对着屏幕看了一个小时。' },
+    { id: 'v14', word: 'screen', lemma: 'screen', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/skriːn/', defZh: '屏幕', defEn: 'the flat surface of a phone, computer, or TV', example: 'The new phone has a larger screen.', exampleZh: '这款新手机有一块更大的屏幕。' },
+    { id: 'v15', word: 'confirmed', lemma: 'confirm', sentenceId: 's16', level: 3, pos: 'v.', ipa: '/kənˈfɜːmd/', defZh: '证实；确认', defEn: 'showed that something is true', example: 'New data confirmed the first results.', exampleZh: '新的数据证实了最初的结果。' },
+    { id: 'v16', word: 'linked', lemma: 'link', sentenceId: 's17', level: 2, pos: 'v.', ipa: '/lɪŋkt/', defZh: '关联；联系起来', defEn: 'shown to be connected', example: 'Sugar has been linked to tooth problems for years.', exampleZh: '糖与牙齿问题的关联已被研究多年。' },
+    { id: 'v17', word: 'platforms', lemma: 'platform', sentenceId: 's20', level: 3, pos: 'n.', ipa: '/ˈplætfɔːmz/', defZh: '平台（网络服务）', defEn: 'online services like apps and social networks', example: 'Many small shops sell on online platforms.', exampleZh: '许多小店在网络平台上做生意。' },
+    { id: 'v18', word: 'cover', lemma: 'cover', sentenceId: 's22', level: 1, pos: 'v.', ipa: '/ˈkʌvə(r)/', defZh: '覆盖；涵盖', defEn: 'to include or apply to something', example: 'This rule should cover every classroom.', exampleZh: '这条规定应当涵盖每一间教室。' },
+    { id: 'v19', word: 'focus', lemma: 'focus', sentenceId: 's24', level: 2, pos: 'v.', ipa: '/ˈfəʊkəs/', defZh: '集中注意；专注', defEn: 'to give all your attention to one thing', example: 'It is hard to focus when notifications keep buzzing.', exampleZh: '当提示音不停响起时，很难集中注意力。' },
+    { id: 'v20', word: 'step', lemma: 'step', sentenceId: 's25', level: 1, pos: 'n.', ipa: '/step/', defZh: '步骤；一步', defEn: 'one part of a longer plan or process', example: 'Saving a little each week is a good first step.', exampleZh: '每周存一点是不错的第一步。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 was / were + 过去分词，把"动作"翻过来说"被怎样了"',
+      pattern: 'was / were + 过去分词',
+      sentenceIds: ['s2', 's17'],
+      explanationZh: [
+        '中文里说"这项研究发表在《柳叶刀》上"，主角是研究，但发表它的人不重要。英文里遇到这种情况，常用 was / were 加过去分词，把动作"翻过来"，让被动一方做句子主语。这就是被动语态。',
+        '看文中第 2 句：The study ... was published in The Lancet。作者用 was published，让 The study 站在句首，因为读者关心的是这项研究，不是哪个编辑做的事。第 17 句 was linked to worse mental health 也是同样：作者要把焦点放在"重度使用"和"心理健康"的联系上，不在乎"是谁把它们联系起来的"。',
+        '什么时候用：当动作的执行者不重要、不知道，或者你想让"被影响的一方"成为话题时最好用。新闻报道、研究介绍里很常见，因为读者关心结果，不关心是谁做的。',
+        '小提醒：主语是单数（the study）用 was，复数（the bans, the results）用 were。要写被动，动词后面那一部分必须是过去分词形式（published, linked, found），不是过去式或原形。',
+      ],
+      examples: [
+        { en: 'The new playground was built last summer.', zh: '这个新操场是去年夏天建好的。' },
+        { en: 'Three suggestions were made at the meeting.', zh: '会上提出了三条建议。', note: 'were 后面接 made，是 make 的过去分词，不是 maked。' },
+        { en: 'Her photo was shared more than ten thousand times.', zh: '她的照片被分享了超过一万次。' },
+        { en: 'The book was written by a former teacher.', zh: '这本书是一位前老师写的。' },
+        { en: 'The doors were locked before anyone left.', zh: '在大家离开之前，门已经被锁上了。' },
+      ],
+      commonMistake: '不要写成 The study was publish in The Lancet 或 was publishing。be 动词后面必须用过去分词 published，不能用动词原形 publish，也不能用 ing 形式 publishing。',
+      vsSimilar: '主动句 The team published the study 把焦点放在"团队"上；被动句 The study was published 把焦点放在"研究"上。问自己：我想让谁站在句首。',
+    },
+    {
+      id: 'g2',
+      title: '用 did not 加动词原形说"那件事并没有发生"',
+      pattern: 'did not + 动词原形',
+      sentenceIds: ['s9', 's10', 's14'],
+      explanationZh: [
+        '中文说"它没有改善心理健康"很自然，但英文里 not 不能直接放在动词前面。要表达"在过去某个动作没有发生"，标准做法是用 did not 加动词原形。注意，是原形，不是过去式。',
+        '看第 9 句：School phone bans on their own did not improve mental wellbeing。如果写成 did not improved，improved 已经带了过去式的尾巴，再加 did 就重复了。第 14 句 It did not change how long ... 也是同样：did 已经管了时态，后面只用 change。',
+        '什么时候用：当你要否定一个具体的过去动作或结果时用它。研究报告、新闻摘要里经常出现，因为常常需要交代"哪一项没有改善、哪一项没有提升"。',
+        '小提醒：did not 可以缩写成 didn\'t，正式书面里两种都常见。但缩写更口语化，正式研究报告中作者会倾向写完整形 did not，节奏更稳。',
+      ],
+      examples: [
+        { en: 'The team did not finish the test on time.', zh: '团队没能按时完成测试。' },
+        { en: 'He did not say a single word during the meal.', zh: '吃饭时他一句话都没说。' },
+        { en: 'The new app did not work on older phones.', zh: '这个新应用在旧手机上无法运行。' },
+        { en: 'I did not realize how late it was.', zh: '我没意识到已经这么晚了。', note: 'did not 后面跟 realize，原形，不能写成 realized。' },
+        { en: 'The shop did not open on Sunday.', zh: '这家店周日没开门。' },
+      ],
+      commonMistake: '不要写成 The bans did not improved grades。did 已经告诉读者这是过去时态，后面的动词必须用原形 improve，不能再带过去式尾巴 -d。',
+    },
+    {
+      id: 'g3',
+      title: '用 not only ... but ... 之外，更自然的"补充第二个事实"写法',
+      pattern: '主句, 名词 / 副词短语, 主句继续',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '想在一个句子里列出多件事，中文常说"焦虑、低落、睡眠问题和成绩"，英文里把多个名词用逗号串起来，最后一个前面加 and 即可。听起来简单，但有几个细节决定句子的清晰度。',
+        '看第 7 句：signs of anxiety, low mood, sleep problems, and school grades。注意三处：第一，每个项目都用同一种词性（都是名词或名词短语），不能突然冒出一个动词。第二，最后一个项目前面有 and，前面用逗号隔开。第三，所有项目挂在 of 后面，结构清楚。',
+        '什么时候用：当你要在一个句子里交代研究关注的几个方面、政策影响的几个群体、产品的几个特点时最好用。比写成几句短句更紧凑，也避免读者来回切换主语。',
+        '一个小细节：最后一项前面的逗号叫"牛津逗号"（Oxford comma），加不加都对，但学术写作、研究报告里通常加上，避免歧义。文中 sleep problems, and school grades 就保留了它。',
+      ],
+      examples: [
+        { en: 'The course covers reading, writing, listening, and speaking.', zh: '这门课程涵盖阅读、写作、听力和口语。' },
+        { en: 'She studied biology, chemistry, and computer science at university.', zh: '她在大学学了生物、化学和计算机科学。' },
+        { en: 'The report looked at price, quality, and customer service.', zh: '这份报告考察了价格、质量和客户服务。', note: '三个项目都用名词，词性一致，读起来才顺。' },
+        { en: 'We need volunteers, donations, and a quiet space for the event.', zh: '我们这次活动需要志愿者、捐款和一个安静的场地。' },
+      ],
+      commonMistake: '不要把列表里的项目混着写：The course covers reading, to write, listening, and how you speak。词性必须统一，要么全部名词，要么全部动名词（reading, writing, listening, speaking）。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '展示研究规模：先点出研究名，再用数字说明它考察了多少人',
+      skeleton: 'The study is called [研究名], and it was published in [期刊]. It looked at [数字] [人群].',
+      original: 'It looked at 1,227 students from 30 secondary schools.',
+      sentenceId: 's3',
+      whyItWorks: [
+        '这个开头之所以让人信服，是因为它做了三件事：给研究一个正式名字、点出发表平台、报出受试者规模。三层信息叠在一起，等于告诉读者"这不是一个小观点，是一项有据可查的研究"。读者还没开始读结论，就已经愿意相信了。',
+        '对读者来说，"1,227 students from 30 schools" 这种具体数字比 "many students" 强很多。具体让人相信，模糊让人怀疑。这是新闻和科普写作里很基本但常被忘记的功夫。',
+        '它最适合放在文章前两段。第一段抛出现象，第二段立刻补上规模和出处，等于把"这件事值不值得听下去"的问题提前解决。议论文、综述、科普稿都常用这个起手式。',
+        '一个隐藏前提：报出的数字必须是真实可查的。一旦读者发现 30 schools 其实只是 3 schools，整篇文章的可信度就垮了。模板再好，也救不了假数据。',
+      ],
+      examples: [
+        { context: '科普文开头', text: 'The study is called Project Sleep, and it was published in Nature. It looked at 850 office workers from 12 cities.', zh: '这项研究名为 Project Sleep，发表在《自然》上。它考察了来自 12 个城市的 850 名上班族。' },
+        { context: '教育议论文开头', text: 'The report is called Reading at Ten, and it was released by the OECD. It looked at 5,400 fifth graders from 18 countries.', zh: '这份报告名为 Reading at Ten，由经合组织发布。它考察了来自 18 个国家的 5,400 名五年级学生。', note: '把研究名、发布机构、人数和地理范围一句话装齐。' },
+        { context: '健康博客开头', text: 'The trial is called HEART-FIT, and it was published in The BMJ. It looked at 2,300 adults from 24 hospitals.', zh: '这项试验名为 HEART-FIT，发表在《英国医学杂志》上。它考察了来自 24 家医院的 2,300 名成年人。' },
+      ],
+      adaptingTip: '研究名要大写正式，期刊名要写全（The Lancet 比 a journal 强得多）。数字尽量精确到三位，"1,227" 比 "about 1,000" 更有力。如果实在没有研究名，至少要把发布机构和年份说清楚，让读者能去查证。',
+      commonMistake: '不要写成 A study found that ... 然后就开始下结论。读者会问"哪项研究、多少人、谁做的"，三个问题里只要漏一个，整段就站不住脚。把这三层信息补齐，再说结论。',
+    },
+    {
+      id: 'pt2',
+      useCase: '说"问题确实存在，只是这个办法不够大"的两步反差',
+      skeleton: 'So [问题] is real. The [某做法] just does not reach far enough.',
+      original: 'So the problem is real. The school-day ban just does not reach far enough.',
+      sentenceId: 's18',
+      whyItWorks: [
+        '这个句式的力量在"先承认，再修正"。第一句 So the problem is real 先把对方关心的事实承认下来，让读者不会觉得作者在否认现象；第二句立刻指出"但你那个解决办法不够大"，把焦点从"有没有问题"转到"办法对不对"。这是政策讨论里最干净的转折。',
+        '对读者来说，第一句 is real 用 So 起句，像在做小结，让人放心；第二句 just does not reach far enough 用 just 和 far enough 两个词，把否定说得很克制。没有指责谁，只是说"这条腿还不够长"。',
+        '它最适合放在文章的中段，前面铺完数据之后用它来扣题。议论文、政策评论、研究综述里都好用，尤其是讨论"为什么这个对策失败了"的段落。它给读者一个明确的导航标。',
+        '一个隐藏要点：第二句里"做法"要写得具体（school-day ban / sugar tax / one-week trial），不要换成空泛的 it。具体的名词让批评有抓手，读者才知道你不同意的是哪一招。',
+      ],
+      examples: [
+        { context: '环保评论中段', text: 'So the waste problem is real. The plastic-straw ban just does not reach far enough.', zh: '所以浪费问题确实存在。塑料吸管禁令的覆盖面还不够大。' },
+        { context: '教育议论文中段', text: 'So the gap is real. The free-tutoring scheme just does not reach far enough.', zh: '所以差距确实存在。免费辅导计划的覆盖面还不够大。', note: '把"政策"换成 free-tutoring scheme，立刻指明你不同意的是哪一招。' },
+        { context: '健康评论中段', text: 'So the obesity problem is real. The school-canteen rule just does not reach far enough.', zh: '所以肥胖问题确实存在。学校食堂的规定覆盖面还不够大。' },
+      ],
+      adaptingTip: '第一句一定要先承认问题，不要直接反驳，否则读者会觉得你在替坏现象辩护。第二句的"做法"要选一个对方真正主推的招数，写得具体；批评不够大不是骂它没用，而是说"方向对，规模不够"。这是议论的礼貌也是说服力的来源。',
+    },
+    {
+      id: 'pt3',
+      useCase: '说"问题难解决，部分原因在于事情发生在每个场合"',
+      skeleton: 'Part of what makes [问题] hard is that [人 / 事] [发生 / 出现] almost everywhere.',
+      original: 'Part of what makes the problem hard is that teenagers use phones almost everywhere.',
+      sentenceId: 's21',
+      whyItWorks: [
+        '这个句式先用 Part of what makes ... hard 把"原因之一"挂出来，等于给读者一个路标：下面这句要解释难度。Part of 这两个字降低了句子的攻击性，没有说死"这就是唯一原因"，反而让读者更愿意接受。',
+        '后半句的 almost everywhere 是真正的力量来源。它告诉读者"问题不在某一处，而是到处都有"，立刻让一切单点解决方案显得不够。这是论证"局部办法为什么不够"时最简洁的一招。',
+        '它最适合放在分析段落的开头，紧接着上面铺好的数据。议论文、政策评论、个人随笔里都好用，特别是写"为什么这件事难管"的时候。读者读完这一句，自然愿意听你后面提出的更大方案。',
+        '一个细节：almost everywhere 比 in many places 更强，因为它暗示"几乎逃不掉"。如果你的实际情况只是"在很多地方"，就别用 almost everywhere，要选与事实相符的强度词。',
+      ],
+      examples: [
+        { context: '环境议题分析', text: 'Part of what makes plastic waste hard is that single-use packaging shows up almost everywhere.', zh: '塑料垃圾问题之所以难，部分原因在于一次性包装几乎无处不在。' },
+        { context: '语言学习反思', text: 'Part of what makes the new grammar hard is that the rule appears almost everywhere in spoken English.', zh: '这条新语法之所以难，部分原因在于它在口语英文里几乎无处不在。', note: '把"事情"换成"语法规则"，套路依然成立，因为难度来源是"到处出现"。' },
+        { context: '城市观察', text: 'Part of what makes the traffic hard is that delivery vans park almost everywhere.', zh: '交通问题之所以难，部分原因在于送货车几乎到处都在停。' },
+      ],
+      adaptingTip: 'Part of 是故意留余地，所以后文最好真能再补一两个原因，否则这个 Part of 就落空。"everywhere" 类的副词要选与事实相符的强度，写得太满会让读者怀疑你夸张。问题要选大家本来就觉得"有点棘手"的那种，反差才有意义。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'How many students did the SMART Schools Study include?', options: ['About 300', '1,227', '12,270', '30,000'], answer: 1, explanation: 'The article says the study looked at 1,227 students from 30 secondary schools.', sentenceId: 's3' },
+    { id: 'q2', q: 'What did the researchers find about strict school-day phone bans?', options: ['They lifted grades sharply', 'They had no clear effect on wellbeing, sleep, or grades', 'They cut total screen time in half', 'They made anxiety much worse'], answer: 1, explanation: 'The article says the bans did not improve mental wellbeing, did not lift grades, and did not help students sleep more.', sentenceId: 's9' },
+    { id: 'q3', q: 'Why did the bans not change much, according to the researchers?', options: ['Students did not really follow the rules', 'School hours are only a small part of total phone time', 'The study was too short', 'Most schools allowed phones anyway'], answer: 1, explanation: 'The article explains that banning phones in school only cut the few hours during class, while teenagers kept using phones after school and in bed.', sentenceId: 's13' },
+    { id: 'q4', q: 'What does the study still say about heavy overall phone and social media use?', options: ['It is harmless if grades stay high', 'It is linked to worse mental health, less sleep, and lower grades', 'It mainly affects students in big cities', 'It only matters for children under twelve'], answer: 1, explanation: 'The article says heavy overall use was linked to worse mental health, less sleep, and lower grades.', sentenceId: 's17' },
+    { id: 'q5', q: 'How does the writer seem to view the school-day phone ban by the end of the article?', options: ['A bad idea that should be dropped right away', 'A complete answer on its own', 'A small but useful step inside a much bigger plan', 'A trick that schools use to look strict'], answer: 2, explanation: 'The closing lines say a quiet classroom helps students focus, but the ban is one small step inside a much longer plan.', sentenceId: 's25' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '研究的正式名字', answer: 'SMART Schools Study', sentenceId: 's2', prefilled: true },
+      { id: 'ig2', cueZh: '发表这项研究的期刊', answer: 'The Lancet Regional Health Europe', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '参与研究的学生总人数', answer: '1,227', sentenceId: 's3' },
+      { id: 'ig4', cueZh: '参与研究的学校数量', answer: '30', sentenceId: 's3' },
+      { id: 'ig5', cueZh: '研究人员检查的四个方面（之一）', answer: 'anxiety', sentenceId: 's7' },
+      { id: 'ig6', cueZh: '研究人员检查的另一个方面（学业相关）', answer: 'school grades', sentenceId: 's7' },
+      { id: 'ig7', cueZh: '禁令影响的时段（只覆盖了哪几个小时）', answer: 'class time', sentenceId: 's13' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位老师介绍 SMART Schools Study 的发现：研究是谁做的、规模多大、最重要的结论是什么。',
+      promptEn: 'Using the facts in your table, write about 70 words telling a teacher about the SMART Schools Study findings: what the study was, how big it was, and what its most important conclusion was.',
+      targetWords: 70,
+      starters: ['The study is called the SMART Schools Study, and ...', 'So the problem is real. The ...'],
+      usePatternIds: ['pt1', 'pt2'],
+      modelAnswer:
+        'The study is called the SMART Schools Study, and it was published in The Lancet Regional Health Europe. It looked at 1,227 students from 30 secondary schools. The researchers found that strict school-day phone bans did not improve mental wellbeing, sleep, or grades, because students still used phones at home. So the problem is real. The school-day ban just does not reach far enough on its own.',
+      modelAnswerZh:
+        '这项研究名为 SMART Schools Study，发表在《柳叶刀-区域健康欧洲》上。它考察了来自 30 所中学的 1,227 名学生。研究人员发现，校园里严格的手机禁令并没有改善心理健康、睡眠或成绩，因为学生在家里仍在使用手机。所以问题确实存在。只在校园里禁手机，覆盖面还不够大。',
+    },
+  },
+};
