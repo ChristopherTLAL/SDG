@@ -1,0 +1,253 @@
+// Climate Crisis book, Ch.18: Germanwatch Climate Risk Index 2026 and the climate-injustice argument (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-11-12',
+    title: 'Who Loses Most to Climate',
+    titleZh: '谁在气候里损失最多',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/climate-crisis/18-climate-risk-index.mp3',
+    wordCount: 358,
+    readingMinutes: 5,
+    editorsNote:
+      'Every year Germanwatch publishes a ranking of which countries suffer most from extreme weather. The 2026 edition, released at COP30, names places most readers cannot find on a map. This chapter explains why that list keeps surprising us, and what it asks of the countries that are not on it.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'When Germanwatch released its Climate Risk Index 2026 in November, the top of the list was not where most readers expected.', zh: '当 Germanwatch 在十一月发布《2026 年气候风险指数》时，榜首并不是大多数读者预想的地方。' },
+        { id: 's2', en: 'St. Vincent and the Grenadines, Grenada, and Chad were ranked the three countries most affected by extreme weather in 2024.', zh: '圣文森特和格林纳丁斯、格林纳达、乍得，被列为 2024 年受极端天气冲击最严重的三个国家。' },
+        { id: 's3', en: 'None of them appears often in international headlines.', zh: '这三个国家很少出现在国际头条上。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The index, published since 2006, ranks countries by the human and economic cost of storms, floods, droughts, and heatwaves.', zh: '该指数自 2006 年开始发布，按风暴、洪水、干旱和热浪带来的人员与经济损失对各国排名。' },
+        { id: 's5', en: 'What makes it interesting is the way it counts.', zh: '它有意思的地方，在于它的计算方式。' },
+        { id: 's6', en: 'It does not just total up dead bodies and damaged buildings.', zh: '它不只是把死亡人数和损坏的建筑加起来。' },
+        { id: 's7', en: 'It also weighs deaths per 100,000 people and losses per unit of GDP, so a small country hit hard can outrank a giant economy with bigger absolute losses.', zh: '它还会衡量每十万人中的死亡人数和每单位 GDP 的损失，因此一个被重创的小国，可能比绝对损失更高的经济大国排得更靠前。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's8', en: 'In 2024, Hurricane Beryl tore through the eastern Caribbean as the earliest Category 5 storm on record.', zh: '2024 年，飓风贝里尔横扫加勒比东部，成为有记录以来出现最早的五级飓风。' },
+        { id: 's9', en: 'On some islands in St. Vincent and the Grenadines, nearly every house lost its roof.', zh: '在圣文森特和格林纳丁斯的一些岛屿上，几乎每户人家的屋顶都被掀掉。' },
+        { id: 's10', en: 'Chad, meanwhile, suffered its worst flooding in three decades.', zh: '同期，乍得遭遇了三十年来最严重的洪灾。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Over thirty years, the report counts more than 832,000 deaths and 4.5 trillion dollars of losses from over 9,700 extreme weather events.', zh: '在过去三十年里，该报告统计到逾九千七百起极端天气事件，造成超过 83.2 万人死亡和 4.5 万亿美元损失。' },
+        { id: 's12', en: 'The long-term ranking is dominated by small island states and low-income nations: Dominica, Myanmar, Honduras, Haiti, the Philippines.', zh: '长期排名几乎被小岛屿国家和低收入国家占据：多米尼克、缅甸、洪都拉斯、海地、菲律宾。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's13', en: 'Yet the same countries are responsible for almost none of the emissions that drive the warming.', zh: '然而，这些国家几乎不对推动气候变暖的排放负有责任。' },
+        { id: 's14', en: 'The Philippines emits less than one percent of the world total.', zh: '菲律宾的排放量不到全球总量的百分之一。' },
+        { id: 's15', en: 'The United States, by comparison, has produced about a quarter of all the carbon dioxide ever released into the atmosphere.', zh: '相比之下，美国排放了大气中累计二氧化碳总量的约四分之一。' },
+        { id: 's16', en: 'It is a strange arithmetic in which the countries hit hardest are the ones that did the least to cause the problem.', zh: '这是一种奇怪的算术：受冲击最严重的国家，正是对这个问题贡献最少的国家。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's17', en: 'This is the gap that the Loss and Damage Fund, agreed at COP27 and now slowly filling up, is meant to address.', zh: '这正是在 COP27 谈定、如今正在缓慢注资的"损失与损害基金"想要弥合的差距。' },
+        { id: 's18', en: 'Wealthy nations promised at least 300 billion dollars a year by 2035 to help vulnerable countries cope and rebuild.', zh: '富裕国家承诺到 2035 年，每年至少拿出 3000 亿美元，帮助脆弱国家应对气候灾害与重建家园。' },
+        { id: 's19', en: 'Some estimates put what is actually needed closer to one trillion.', zh: '一些估算认为，实际所需金额更接近一万亿美元。' },
+      ],
+    },
+    {
+      id: 'p7',
+      sentences: [
+        { id: 's20', en: 'The Climate Risk Index will not change the weather.', zh: '气候风险指数无法改变天气。' },
+        { id: 's21', en: 'What it does is make sure the names at the top of the list cannot be forgotten when the rest of the world signs the cheques.', zh: '它能做的，是让榜单顶端的那些名字，不至于在世界其他地方签下支票时被遗忘。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'released', lemma: 'release', sentenceId: 's1', level: 1, pos: 'v.', ipa: '/rɪˈliːst/', defZh: '发布；公布', defEn: 'made something available to the public', example: 'The agency released the survey results on Monday.', exampleZh: '该机构于周一发布了调查结果。' },
+    { id: 'v2', word: 'ranked', lemma: 'rank', sentenceId: 's2', level: 2, pos: 'v.', ipa: '/ræŋkt/', defZh: '把……排名；列为', defEn: 'gave something a position in an ordered list', example: 'The magazine ranked her among the top young scientists.', exampleZh: '该杂志把她列入年轻科学家的顶尖名单。' },
+    { id: 'v3', word: 'headlines', lemma: 'headline', sentenceId: 's3', level: 1, pos: 'n.', ipa: '/ˈhedlaɪnz/', defZh: '头条新闻；标题', defEn: 'the most prominent news stories of the day', example: 'The trial dominated the headlines for a week.', exampleZh: '这场审判一连一周占据头条。' },
+    { id: 'v4', word: 'index', lemma: 'index', sentenceId: 's4', level: 2, pos: 'n.', ipa: '/ˈɪndeks/', defZh: '指数；指标', defEn: 'a number that measures or ranks something', example: 'The corruption index covers over a hundred countries.', exampleZh: '这份腐败指数覆盖了一百多个国家。' },
+    { id: 'v5', word: 'droughts', lemma: 'drought', sentenceId: 's4', level: 3, pos: 'n.', ipa: '/draʊts/', defZh: '干旱；旱灾', defEn: 'long periods with very little or no rain', example: 'Repeated droughts have emptied the village wells.', exampleZh: '一次次的干旱让村里的水井全部见底。' },
+    { id: 'v6', word: 'weighs', lemma: 'weigh', sentenceId: 's7', level: 3, pos: 'v.', ipa: '/weɪz/', defZh: '权衡；将……纳入考量', defEn: 'considers the importance of something carefully', example: 'The committee weighs each application against the same criteria.', exampleZh: '委员会按同一套标准权衡每一份申请。' },
+    { id: 'v7', word: 'outrank', lemma: 'outrank', sentenceId: 's7', level: 4, pos: 'v.', ipa: '/ˌaʊtˈræŋk/', defZh: '排名超过；位居……之上', defEn: 'to be placed higher than something else in a ranking', example: 'On reading scores, a few small districts outrank the major cities.', exampleZh: '在阅读成绩上，几个小区反而排在大城市之上。' },
+    { id: 'v8', word: 'tore', lemma: 'tear', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/tɔː(r)/', defZh: '撕裂；猛烈横扫', defEn: 'moved through very violently (past of tear)', example: 'A sudden wind tore through the open market.', exampleZh: '一阵狂风猛烈地扫过了露天集市。' },
+    { id: 'v9', word: 'roof', lemma: 'roof', sentenceId: 's9', level: 1, pos: 'n.', ipa: '/ruːf/', defZh: '屋顶', defEn: 'the top covering of a building', example: 'The storm peeled the roof off the school gym.', exampleZh: '风暴把学校体育馆的屋顶整个揭走。' },
+    { id: 'v10', word: 'flooding', lemma: 'flood', sentenceId: 's10', level: 2, pos: 'n.', ipa: '/ˈflʌdɪŋ/', defZh: '洪水；水灾', defEn: 'water covering land that is usually dry', example: 'Heavy rain caused serious flooding in low-lying districts.', exampleZh: '大雨让地势低洼的区域出现严重水灾。' },
+    { id: 'v11', word: 'extreme', lemma: 'extreme', sentenceId: 's11', level: 2, pos: 'adj.', ipa: '/ɪkˈstriːm/', defZh: '极端的；严重的', defEn: 'much more severe than usual', example: 'Farmers are adapting their crops to more extreme summers.', exampleZh: '农户们正在调整作物，以应对越来越极端的夏季。' },
+    { id: 'v12', word: 'dominated', lemma: 'dominate', sentenceId: 's12', level: 3, pos: 'v.', ipa: '/ˈdɒmɪneɪtɪd/', defZh: '主导；占据主要位置', defEn: 'took up the largest share or controlling position', example: 'Two firms have dominated the local market for years.', exampleZh: '多年来，两家公司一直主导着本地市场。' },
+    { id: 'v13', word: 'responsible', lemma: 'responsible', sentenceId: 's13', level: 2, pos: 'adj.', ipa: '/rɪˈspɒnsəbl/', defZh: '应承担责任的；负有责任的', defEn: 'being the cause of something, often something bad', example: 'A single faulty pipe was responsible for the leak.', exampleZh: '一根有故障的水管就是漏水的元凶。' },
+    { id: 'v14', word: 'emissions', lemma: 'emission', sentenceId: 's13', level: 3, pos: 'n.', ipa: '/ɪˈmɪʃnz/', defZh: '（气体、污染物的）排放', defEn: 'gases or substances sent out into the air', example: 'New cars in the city must keep emissions below the limit.', exampleZh: '城里的新车排放必须低于规定上限。' },
+    { id: 'v15', word: 'atmosphere', lemma: 'atmosphere', sentenceId: 's15', level: 2, pos: 'n.', ipa: '/ˈætməsfɪə(r)/', defZh: '大气层；大气', defEn: 'the layer of gases surrounding the Earth', example: 'Plastic dust has been found high in the atmosphere.', exampleZh: '在大气高层已经检测到塑料微粒。' },
+    { id: 'v16', word: 'arithmetic', lemma: 'arithmetic', sentenceId: 's16', level: 4, pos: 'n.', ipa: '/əˈrɪθmətɪk/', defZh: '算术；账', defEn: 'the basic logic of how numbers add up', example: 'The arithmetic of the deal does not work for small farmers.', exampleZh: '这桩交易的账，对小农户来说根本算不过来。' },
+    { id: 'v17', word: 'address', lemma: 'address', sentenceId: 's17', level: 3, pos: 'v.', ipa: '/əˈdres/', defZh: '应对；处理（问题）', defEn: 'to deal with a problem in a serious way', example: 'The new law tries to address rising rents in the inner city.', exampleZh: '这部新法试图应对市中心不断上涨的房租。' },
+    { id: 'v18', word: 'vulnerable', lemma: 'vulnerable', sentenceId: 's18', level: 3, pos: 'adj.', ipa: '/ˈvʌlnərəbl/', defZh: '脆弱的；易受伤害的', defEn: 'easily harmed or affected by something', example: 'Older patients are most vulnerable to the new strain.', exampleZh: '年长的患者最容易受到这一新毒株的影响。' },
+    { id: 'v19', word: 'cope', lemma: 'cope', sentenceId: 's18', level: 2, pos: 'v.', ipa: '/kəʊp/', defZh: '应付；扛过去', defEn: 'to deal successfully with a difficult situation', example: 'The clinic could barely cope with the number of patients.', exampleZh: '诊所几乎应付不过来这么多病人。' },
+    { id: 'v20', word: 'estimates', lemma: 'estimate', sentenceId: 's19', level: 2, pos: 'n.', ipa: '/ˈestɪməts/', defZh: '估算；估计数字', defEn: 'rough calculations of an amount or value', example: 'Early estimates of the damage have already doubled.', exampleZh: '对损失的早期估算已经翻了一倍。' },
+    { id: 'v21', word: 'cheques', lemma: 'cheque', sentenceId: 's21', level: 4, pos: 'n.', ipa: '/tʃeks/', defZh: '支票（此处喻指拨款）', defEn: 'written orders to a bank to pay money (here: payments)', example: 'The fund will only matter when real cheques start to arrive.', exampleZh: '只有真正的拨款开始到位，这个基金才有意义。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用 What [主语动词] is/was [关键点] 把焦点拉到一个点上',
+      pattern: 'What [clause] is/was [focus]',
+      sentenceIds: ['s5', 's21'],
+      explanationZh: [
+        '中文里要强调某件事的重点，常会直接说"它的重点就是……"。英文里如果想把读者的注意力锁到"重点是哪一项"，常会用 What 加从句的开头，再用 is 或 was 接出那个重点。语法上这叫"what-cleft"，但学的时候记一句话就够：句子被切成两段，前半段把范围圈出来，后半段把核心亮出来。',
+        '看第 5 句：What makes it interesting is the way it counts。作者完全可以直接写 The way it counts is interesting，但这样读起来太平。用 What…is… 把"有意思的是……"先吊起来，再让"计算方式"在 is 后面落地，读者的注意力就被引到这一句的核心。第 21 句 What it does is make sure… 也是同样思路：先说"它能做的是……"，再把它能做的具体内容亮出来。',
+        '什么时候用：议论文、新闻评论里想给某一点加分量时特别好用。它比 The thing is… 更书面，比直接陈述更有镜头感。一般放在段落开头或转折点，告诉读者"接下来这一句是关键"。',
+        '一个小技巧：What 引导的从句无论多长，is/was 后面的单复数始终看 is 后面紧接的那个东西。What makes it interesting is the way it counts 用 is（the way 是单数）；如果换成 are the ways it counts，就要改 are。',
+      ],
+      examples: [
+        { en: 'What surprised the committee was how quickly the team rebuilt the prototype.', zh: '让委员会意外的，是这支团队重做样机的速度。', note: '前半段把"让人意外的事"打个范围，后半段才点名"什么事"。' },
+        { en: 'What the report does not say is who pays in the end.', zh: '这份报告没说出口的是：最后由谁来买单。' },
+        { en: 'What we lost in that fire was not the building but the records inside it.', zh: '那场火里我们失去的，不是那栋楼，而是楼里的档案。' },
+        { en: 'What makes the proposal hard to refuse is that it costs nothing to try.', zh: '这份提案之所以难以拒绝，是因为试一下根本不花钱。' },
+        { en: 'What the audience came for was a single song.', zh: '观众来这里，只为一首歌。' },
+      ],
+      commonMistake: '不要写成 What makes it interesting are the way it counts。What 从句作主语永远当单数处理，后面跟 is/was 而不是 are/were，除非 is 后面接的本身就是复数名词。',
+      vsSimilar: 'It-cleft 也强调，但聚焦的是一个具体名词或时间点（It was Beryl that destroyed the island）；What-cleft 聚焦的是一段内容或一个特质（What destroyed the island was a single storm）。先想清楚要把镜头对准哪个层级。',
+    },
+    {
+      id: 'g2',
+      title: '用 so 接出"因此就出现了……"的自然推论',
+      pattern: '主句, so [结果句]',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '中文写因果，"所以"放在第二句开头是常态。英文里如果两个句子的因果关系比较顺、不需要重磅强调，常常用一个逗号加 so 把它们连起来，让"原因"和"结果"读起来像一气呵成的一句。',
+        '看第 7 句：It also weighs deaths per 100,000 people and losses per unit of GDP, so a small country hit hard can outrank a giant economy with bigger absolute losses。前半句把方法说清楚，逗号一停，so 把"因此出现的反直觉现象"自然带出来。如果用 Therefore 或 As a result 另起一句，语气会重得多，也更书面、更停顿。这里作者要的就是顺滑。',
+        '什么时候用：解释机制、推导后果、回应读者心里"那然后呢"的疑问时很顺手。它适合中段叙述，不适合段落开头（开头的因果一般要更正式的标记）。',
+        '一个细节：逗号加 so 之间不能省逗号，否则两个独立句子就连成了 run-on（连写句）。它前后必须各自能独立成句，这一点和 because 不同：because 后面只能接从句。',
+      ],
+      examples: [
+        { en: 'The new policy raises the entry threshold, so smaller firms may struggle to qualify.', zh: '新政策抬高了准入门槛，因此规模较小的公司可能很难达标。' },
+        { en: 'Tickets sold out in minutes, so the band added a second night.', zh: '票几分钟就售罄，所以乐队又加了一场。' },
+        { en: 'She studies in the library until late, so she avoids the morning commute entirely.', zh: '她在图书馆学到很晚，因此完全避开了早高峰。' },
+        { en: 'The river runs through the middle of the city, so floods affect both halves at once.', zh: '这条河从城中穿过，所以一旦发洪水，城市两边会同时受影响。', note: 'so 顺手接出"两边一起被淹"这个直接推论，读起来比 As a result 自然。' },
+      ],
+      commonMistake: '不要省略逗号写成 The river runs through the city so floods affect both halves。两个独立句子用 so 相连时，前面那个逗号是必须的。',
+      vsSimilar: 'because 把"原因"塞进从句（floods affect both halves because the river runs through the city），重心在"结果"上；逗号加 so 重心更平衡，结果是"理所应当跟着来的"，节奏更平易。',
+    },
+    {
+      id: 'g3',
+      title: '用 It is a strange [名词] in which … 把一个矛盾命名为一句金句',
+      pattern: 'It is a strange [noun] (in which / that) [clause]',
+      sentenceIds: ['s16'],
+      explanationZh: [
+        '写到一段事实让人觉得"哪里不对劲"，最弱的写法是 This is unfair。一旦你想升级，可以用 It is a strange + 名词（irony / paradox / arithmetic / coincidence）+ in which/that … 这个句式，把这股不对劲先命名，再让从句把矛盾本身展开。命名加举证，比单纯吐槽有力得多。',
+        '看第 16 句：It is a strange arithmetic in which the countries hit hardest are the ones that did the least to cause the problem。作者没有用 unfair 这种情绪词，而是把它叫作一种"奇怪的算术"。读者一秒接收两层信息：作者觉得这件事说不通，理由是这本账"加错了"。这种"先命名再举证"的写法是议论文金句的常见模板。',
+        '什么时候用：段落或文章结尾收束时最合适。前文已经把数据和事实摆好，这一句负责把"事实"翻译成"立场"。新闻评论、个人陈述里点出社会矛盾时也很好用。',
+        '一个细节：strange 后面接的名词决定了句子的味道。换成 irony，强调反讽；换成 paradox，强调逻辑悖论；换成 arithmetic / accounting，把矛盾说成账目算不过来；换成 silence，则把"该说话却没人说"这件事点出来。挑词等于挑角度。',
+      ],
+      examples: [
+        { en: 'It is a strange irony that the loudest voices online belong to those who claim to hate the internet most.', zh: '一种奇怪的反讽是：网上声音最大的人，恰恰是声称最讨厌网络的那群人。' },
+        { en: 'It is a strange paradox in which the more data we collect, the less sure of anything we become.', zh: '一种奇怪的悖论是：我们收集的数据越多，反而对任何事都越没把握。', note: 'paradox 强调"逻辑上说不通"，比 irony 更冷静、更书面。' },
+        { en: 'It is a strange accounting in which the people who keep the city running cannot afford to live in it.', zh: '这是一本奇怪的账：让这座城市运转的人，自己却付不起这里的房租。' },
+        { en: 'It is a strange silence in which everyone agrees the building is unsafe and no one calls the inspector.', zh: '这是一种奇怪的沉默：所有人都同意这栋楼不安全，却没人去找检查员。' },
+      ],
+      commonMistake: '不要写成 It is strange arithmetic that the countries… 缺了冠词 a。这个句式里的名词需要 a 来"圈出一种类型"，没有 a 就读起来像在描述某一本特定账本，逻辑不通。',
+      vsSimilar: 'This is unfair 是情绪化的陈述；It is a strange [noun] 是分析化的陈述。情绪化的版本容易被反驳"你只是感性"，分析化的版本则把矛盾本身摆到桌上，读者要反驳就得证明矛盾不存在，难度更高。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '开篇把"读者本以为是这样"的预期一举打破',
+      skeleton: 'When [机构 / 报告 / 主体] released [产出物], the top of [榜单 / 列表] was not where most readers expected.',
+      original: 'When Germanwatch released its Climate Risk Index 2026 in November, the top of the list was not where most readers expected.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头先用 When 子句把场景钉在一个具体时间和动作上，再用主句完成一次心理反转。先描述事实（机构发布了什么），再立刻告诉读者"你的猜测和现实不一样"，瞬间制造好奇：那到底是谁在榜首？',
+        '对读者来说，was not where most readers expected 这一句是一个温和的挑战。作者没说"你错了"，只说"和大多数读者预想的不一样"，把质疑包装成共同发现。读者会顺势跟着读下去，想看看到底反差在哪里。',
+        '它适合用在新闻评论、特写、专题报道的第一句。前提是这件事确实有反差感，不能是"地球确实变热了"这种没有惊喜的事实，否则反转就空了。',
+        '一个隐藏要点：当主句不能太短，要把"反预期"那层意思说够。如果写成 …the list was surprising，反转感会比 …was not where most readers expected 弱得多，因为后者邀请读者一起回忆"自己当时是怎么想的"。',
+      ],
+      examples: [
+        { context: '科技报道开篇', text: 'When the foundation released its accessibility audit last month, the worst-scoring app was not the one most users complain about.', zh: '当该基金会上个月发布无障碍审核结果时，得分最差的应用并不是用户抱怨最多的那一款。' },
+        { context: '城市观察开篇', text: 'When the city released its air-quality map this spring, the cleanest neighborhood was not where most residents had assumed.', zh: '今年春天，市政府发布空气质量地图时，最干净的街区并不是大多数居民以为的那一片。', note: '先把"发布了什么"说清楚，再用 was not where… 一句立刻打破常识。' },
+        { context: '教育评论开篇', text: 'When the ministry released this year\'s reading scores, the top province was not the one with the highest spending per student.', zh: '当教育部发布今年的阅读成绩时，排名第一的省份并不是生均经费最高的那个。' },
+      ],
+      adaptingTip: 'When 子句里的动作要具体（"released its annual report"，不是 "did some research"），主句的反预期要有数据或名字接得上下文。"不是 X 而是 Y" 的 X 要选读者真会先想到的那个候选，反转才成立。这是开头句，第二、三句必须立刻接出反预期的事实，否则势头掉了。',
+      commonMistake: '不要让反预期空着：When X released Y, the top of the list was surprising. 后面如果不立刻给出"那到底是谁"，读者会觉得吊胃口吊得过头。第二句必须给名字或数据。',
+    },
+    {
+      id: 'pt2',
+      useCase: '点出一组数字背后的不对称：受害者和肇事者不是同一群人',
+      skeleton: '[受害方] [受害程度]. [肇事方], by comparison, [肇事程度].',
+      original: 'The Philippines emits less than one percent of the world total. The United States, by comparison, has produced about a quarter of all the carbon dioxide ever released into the atmosphere.',
+      sentenceId: 's14',
+      whyItWorks: [
+        '这个句式靠两句话之间的"对照"做工。第一句先把受害者一方的数字摆出来（小得令人尴尬），第二句用 by comparison 把肇事者一方的数字放在同一个尺度下。读者无须作者下结论，自己就能感到差距。',
+        'by comparison 这两个字关键。它不带情绪，只是邀请读者"放在同一杆秤上看"。但正因为它如此中立，最后呈现的不对称才更刺眼。如果换成 sadly 或 outrageously，反而会让数字本身的力量被削弱。',
+        '它适合用在论证段落的中段或结尾，承担"把矛盾摆到桌上"的功能。社会观察、政策评论、公益倡导里都很常见。两句各自越简短、对照越锋利。',
+        '一个隐藏要点：两组数字要使用相同的单位或语境（百分比 vs 百分比，绝对数 vs 绝对数）。如果一边给百分比、一边给绝对数，对照就垮了，读者会想"这两个数字怎么比"。',
+      ],
+      examples: [
+        { context: '公共卫生评论', text: 'Rural clinics handle nearly half of all childbirths in the country. They receive, by comparison, about a tenth of the maternal-care budget.', zh: '乡村诊所承担了全国近一半的分娩。它们拿到的母婴照护预算，相比之下只有十分之一左右。' },
+        { context: '科技产业观察', text: 'Open-source maintainers wrote much of the code that runs the global cloud. Their average annual income, by comparison, is a fraction of what their corporate users earn in a week.', zh: '开源维护者写下了运行全球云端的大部分代码。他们的人均年收入，相比之下，还不到企业用户一周薪资的零头。', note: '一句把"贡献"摆出来，一句把"回报"放进同一画面，差距自己浮现。' },
+        { context: '体育评论', text: 'Women players win the same number of titles for the federation each year. Their match prize money, by comparison, is barely a third of the men\'s.', zh: '女子球员每年为协会赢得的冠军数量并不少。她们的比赛奖金，相比之下，还不到男子的三分之一。' },
+      ],
+      adaptingTip: '两句要短，长了反而冲淡对照。两个数字要选最尖锐的两个：受害方挑接近极端的那一个（不到 1%），肇事方挑相当于"全市场份额"的那一个（约四分之一）。by comparison 要放在第二句的主语后面，位置一变就失了节奏。',
+      commonMistake: '不要把两边都说"差不多就那样"：The Philippines emits a small share. The US also emits a lot. 没有量级反差就没有杀伤力，对照句的关键是两个具体数字的撞击。',
+    },
+    {
+      id: 'pt3',
+      useCase: '收尾金句：用"它做不到 X / 它能做的是 Y"的结构把工具的边界和价值同时说清',
+      skeleton: '[主体] will not [夸大期待]. What it does is [真实贡献].',
+      original: 'The Climate Risk Index will not change the weather. What it does is make sure the names at the top of the list cannot be forgotten when the rest of the world signs the cheques.',
+      sentenceId: 's21',
+      whyItWorks: [
+        '这个收尾用两句话完成一次诚实的"自我设限"：第一句先承认"它做不到的事"，第二句立刻把"它真正能做的事"亮出来。读者本来可能在心里嘀咕"一份报告又能改变什么"，作者抢先替他们说了，反而让自己的立场更可信。',
+        '对读者来说，will not 这三个字是一种姿态。作者不夸口、不许愿、不假装一份指数能拯救世界。正因为放低了承诺，后半句的 What it does is… 给出的"真实价值"就显得有底气，不像在喊口号。这是议论文里 humility-then-claim 的经典两步。',
+        '它适合放在文章结尾。前文已经把事实和争议摆完，这两句把"那这玩意儿到底有什么用"这个潜在质疑提前接住，并给出可信的回答。任何评测、报告、工具、政策的评论文都能套。',
+        '一个隐藏要点：第二句给出的"真正贡献"必须低于"改变世界"，但要高于"什么都不是"。介于两者之间的那个具体作用（让名字不被遗忘、把数据放到桌上、让某项条款被讨论）才是这个句式的甜区。',
+      ],
+      examples: [
+        { context: '产品评论结尾', text: 'A reading app will not turn a reluctant child into a bookworm. What it does is remove the friction that makes the first page hardest to open.', zh: '一个阅读应用并不能把抗拒阅读的孩子变成书虫。它能做的，是减掉打开第一页时最让人却步的那道阻力。' },
+        { context: '政策评论结尾', text: 'A minimum wage will not by itself end working poverty. What it does is set a floor below which no employer is allowed to bargain.', zh: '最低工资本身并不能终结工作贫困。它能做的，是设一条任何雇主都不许往下砍的底线。', note: '先承认局限，再把"底线"这个具体功能交付给读者，结尾既谦逊又有力。' },
+        { context: '公益倡议结尾', text: 'A community fridge will not solve food insecurity in this neighborhood. What it does is make sure no neighbor has to ask twice for a meal.', zh: '一个社区冰箱并不能解决这个社区的食物不安全问题。它能做的，是让任何邻居要饭吃这件事，不必开口问第二次。' },
+      ],
+      adaptingTip: '第一句的"夸大期待"要选读者真的会先想到的那个夸张承诺（改变天气、消灭贫困、根除偏见），不要选稻草人。第二句的"真实贡献"要具体到一个动作或机制（让名字不被遗忘、设一条底线、减一道阻力），不要又退回到口号。两句各自尽量短，对比才硬。',
+      commonMistake: '不要把第二句也说成抽象口号：What it does is raise awareness. raise awareness 太空，等于没说。第二句的价值必须是一个能被验证的具体动作。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'Which three countries did the Climate Risk Index 2026 rank as most affected by extreme weather in 2024?', options: ['India, China, and the United States', 'St. Vincent and the Grenadines, Grenada, and Chad', 'Germany, France, and Italy', 'Brazil, Mexico, and Argentina'], answer: 1, explanation: 'The article names these three as the top of the 2024 ranking.', sentenceId: 's2' },
+    { id: 'q2', q: 'According to the article, what makes the Climate Risk Index unusual?', options: ['It only counts deaths, not money', 'It weighs both absolute totals and per-capita / per-GDP rates', 'It excludes hurricanes from the count', 'It ranks only wealthy countries'], answer: 1, explanation: 'The article explains that the index measures deaths per 100,000 and losses per unit of GDP alongside absolute totals.', sentenceId: 's7' },
+    { id: 'q3', q: 'Why does the article say the result is a "strange arithmetic"?', options: ['Because the maths in the report is wrong', 'Because the countries hit hardest contributed least to emissions', 'Because the index uses too many decimal places', 'Because losses are reported in dollars'], answer: 1, explanation: 'The article frames the imbalance between damage and responsibility as the strange arithmetic.', sentenceId: 's16' },
+    { id: 'q4', q: 'What is the Loss and Damage Fund meant to do?', options: ['Pay scientists who write the index', 'Help vulnerable countries cope with and rebuild after climate disasters', 'Punish countries that pollute too much', 'Replace national insurance schemes'], answer: 1, explanation: 'The article describes it as the fund agreed at COP27 to help vulnerable countries cope and rebuild.', sentenceId: 's17' },
+    { id: 'q5', q: 'How does the writer view the role of the Climate Risk Index in the closing paragraph?', options: ['As something that can stop extreme weather', 'As a useless ranking that should be abandoned', 'As a way to keep affected countries visible when funding is decided', 'As a tool for predicting next year\'s disasters'], answer: 2, explanation: 'The closing lines say the index keeps the names at the top of the list from being forgotten when the world signs cheques.', sentenceId: 's21' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '发布该指数的机构名', answer: 'Germanwatch', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '2024 年受冲击最严重的前三个国家', answer: 'St. Vincent and the Grenadines, Grenada, and Chad', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '该指数最早开始发布的年份', answer: '2006', sentenceId: 's4' },
+      { id: 'ig4', cueZh: '2024 年袭击加勒比东部的飓风名称', answer: 'Hurricane Beryl', sentenceId: 's8' },
+      { id: 'ig5', cueZh: '过去三十年因极端天气死亡的总人数', answer: 'more than 832,000', sentenceId: 's11' },
+      { id: 'ig6', cueZh: '菲律宾排放占全球总量的比例', answer: 'less than one percent', sentenceId: 's14' },
+      { id: 'ig7', cueZh: 'COP27 上谈定的气候基金名称', answer: 'the Loss and Damage Fund', sentenceId: 's17' },
+      { id: 'ig8', cueZh: '富裕国家承诺到 2035 年每年至少出资的金额', answer: '300 billion dollars', sentenceId: 's18' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的信息，写一段大约 70 词的短文，向一位不读气候新闻的朋友说明 Climate Risk Index 2026 讲了什么、它有意思在哪儿、以及它对富裕国家提出了什么要求。',
+      promptEn: "Using the facts in your table, write about 70 words for a friend who does not follow climate news: explain what the Climate Risk Index 2026 found, why the way it counts is interesting, and what it asks of wealthier countries.",
+      targetWords: 70,
+      starters: ['When Germanwatch released its Climate Risk Index 2026, ...', 'What makes the index interesting is ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'When Germanwatch released its Climate Risk Index 2026, the top of the list was not where most readers expected: St. Vincent and the Grenadines, Grenada, and Chad. What makes the index interesting is the way it counts, weighing deaths per 100,000 people and losses per unit of GDP so small countries hit hard rise to the top. The index will not change the weather. What it does is make sure the wealthier nations cannot forget who is paying the bill.',
+      modelAnswerZh:
+        '当 Germanwatch 发布《2026 年气候风险指数》时，榜首并不是大多数读者预想的地方：圣文森特和格林纳丁斯、格林纳达、乍得。这份指数有意思的地方在于它的算法：它把每十万人死亡数和每单位 GDP 的损失也纳入考量，因此被重创的小国会被推到榜首。这份指数无法改变天气。它能做的，是让富裕国家无法忘记到底是谁在替这笔账买单。',
+    },
+  },
+};

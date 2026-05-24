@@ -1,0 +1,243 @@
+// Climate Crisis book, Ch.6: the January 2025 Los Angeles wildfires and climate whiplash (B2).
+import type { Article } from '../../types';
+
+export const article: Article = {
+  meta: {
+    date: '2025-01-07',
+    title: 'Los Angeles Burns in January',
+    titleZh: '一月的洛杉矶在燃烧',
+    cefr: 'B2',
+    audioUrl: 'https://sdcubejyamnghhhxzvco.supabase.co/storage/v1/object/public/english-audio/climate-crisis/06-la-wildfires.mp3',
+    wordCount: 351,
+    readingMinutes: 5,
+    editorsNote:
+      'A wet winter is supposed to be good news. So is a dry one. The Los Angeles fires of January 2025 show what happens when both arrive within a year of each other, and a hurricane-force wind shows up to finish the work.',
+  },
+  paragraphs: [
+    {
+      id: 'p1',
+      sentences: [
+        { id: 's1', en: 'On the morning of January 7, 2025, a brush fire broke out above Pacific Palisades, a neighborhood on the western edge of Los Angeles.', zh: '2025 年 1 月 7 日清晨，洛杉矶西部边缘的太平洋帕利塞兹社区上方燃起了一场山地灌木火。' },
+        { id: 's2', en: 'Within hours, a second fire had ignited above Altadena, near Pasadena.', zh: '几小时之内，第二场大火又在帕萨迪纳附近的阿尔塔迪纳上方点燃。' },
+        { id: 's3', en: 'By nightfall, both fires were racing through dry hillsides, and a city of four million people was watching the sky turn orange.', zh: '到入夜时分，两场大火已在干燥的山坡上飞速蔓延，一座四百万人口的城市眼睁睁看着天空变成橙色。' },
+      ],
+    },
+    {
+      id: 'p2',
+      sentences: [
+        { id: 's4', en: 'The two largest blazes, named the Palisades Fire and the Eaton Fire, would burn for more than three weeks.', zh: '其中两场最大的火灾，被命名为帕利塞兹大火和伊顿大火，将持续燃烧三个多星期。' },
+        { id: 's5', en: 'Smaller fires followed in the days that came after, including the Hughes Fire further north.', zh: '在之后的几天里，更多较小的火灾相继出现，其中包括位于更北方的休斯大火。' },
+        { id: 's6', en: 'Together, the January fires killed at least 29 people, destroyed more than 18,000 homes and other structures, and forced over 180,000 residents to evacuate.', zh: '这场一月大火合计造成至少 29 人死亡，烧毁了一万八千多座住宅及其他建筑，并迫使十八万多名居民撤离。' },
+      ],
+    },
+    {
+      id: 'p3',
+      sentences: [
+        { id: 's7', en: 'What turned ordinary brush fires into a catastrophe was the wind.', zh: '让普通的灌木火演变成一场灾难的，是那场风。' },
+        { id: 's8', en: 'The Santa Ana winds, dry gusts that sweep down from the inland deserts toward the coast every winter, were forecast to be unusually strong that week.', zh: '圣安娜风是每年冬天从内陆沙漠刮向海岸的干燥强风，预报显示那一周它将异常猛烈。' },
+        { id: 's9', en: 'In some canyons, gusts reached close to 100 miles per hour, comparable to a Category 2 hurricane.', zh: '在一些峡谷里，阵风时速接近一百英里，相当于二级飓风的强度。' },
+        { id: 's10', en: 'Embers flew for miles ahead of the flames, lighting new fires faster than crews could respond.', zh: '火星被风吹到火头前方数英里之外，引燃新的火点，速度快得让消防队来不及反应。' },
+      ],
+    },
+    {
+      id: 'p4',
+      sentences: [
+        { id: 's11', en: 'Behind the disaster lies a pattern scientists now call climate whiplash.', zh: '在这场灾难背后，是科学家如今称为"气候鞭击"的一种模式。' },
+        { id: 's12', en: 'Southern California had just gone through two unusually wet winters, which fed an enormous growth of grass and brush across the hills.', zh: '南加州刚刚经历了两个异常多雨的冬天，这让山区的草和灌木长得格外茂盛。' },
+        { id: 's13', en: 'Then the rain stopped.', zh: '然后雨就停了。' },
+        { id: 's14', en: 'From October 2024 onward, the region received less than ten percent of its normal rainfall, and the vegetation that had thrived in the wet years became dry fuel by January.', zh: '从 2024 年 10 月开始，这片地区的降雨不到正常水平的十分之一，雨季中长得茂盛的植被到 1 月已变成干燥的燃料。' },
+        { id: 's15', en: 'Part of what makes this whiplash dangerous is the speed of the swing from one extreme to the other.', zh: '这种"鞭击"之所以危险，部分原因在于它从一个极端摆向另一个极端的速度。' },
+      ],
+    },
+    {
+      id: 'p5',
+      sentences: [
+        { id: 's16', en: 'The financial cost has been estimated at around 61 billion dollars, roughly twice the previous record for a single wildfire event in the United States.', zh: '据估计，这场灾害造成的经济损失约为六百一十亿美元，大约是美国此前单场野火灾害最高纪录的两倍。' },
+        { id: 's17', en: 'Insurance companies have warned that some areas may become difficult to cover at all.', zh: '保险公司已经发出警告，某些地区可能将完全难以承保。' },
+        { id: 's18', en: 'Officials and residents have begun asking how a major city should plan, rebuild, and live with a fire season that no longer stays in summer.', zh: '官员和居民开始追问，一座大城市该如何规划、重建，并和一个不再只属于夏天的火灾季共存。' },
+      ],
+    },
+    {
+      id: 'p6',
+      sentences: [
+        { id: 's19', en: 'The fires of January 2025 are more than another bad fire season. They are a warning about what a warming climate looks like in a place people thought they understood.', zh: '2025 年 1 月的这场大火不只是又一次糟糕的火灾季。它是一个警告，告诉人们一个变暖的气候在一片他们自以为熟悉的土地上是什么样子。' },
+      ],
+    },
+  ],
+  vocab: [
+    { id: 'v1', word: 'broke out', lemma: 'break out', sentenceId: 's1', level: 2, pos: 'phr. v.', ipa: '/brəʊk aʊt/', defZh: '突然爆发；忽然发生', defEn: 'started suddenly', example: 'A small fire broke out in the kitchen last night.', exampleZh: '昨晚厨房里突然起了一场小火。' },
+    { id: 'v2', word: 'ignited', lemma: 'ignite', sentenceId: 's2', level: 3, pos: 'v.', ipa: '/ɪɡˈnaɪtɪd/', defZh: '点燃；着火', defEn: 'started to burn', example: 'A single spark ignited the dry leaves at the edge of the road.', exampleZh: '一点火星点燃了路边的干树叶。' },
+    { id: 'v3', word: 'racing', lemma: 'race', sentenceId: 's3', level: 2, pos: 'v.', ipa: '/ˈreɪsɪŋ/', defZh: '飞奔；快速蔓延', defEn: 'moving very fast', example: 'Rumors were racing through the office by lunchtime.', exampleZh: '到午餐时分，传言已经在办公室里飞速扩散。' },
+    { id: 'v4', word: 'blazes', lemma: 'blaze', sentenceId: 's4', level: 4, pos: 'n.', ipa: '/ˈbleɪzɪz/', defZh: '大火；猛烈燃烧的火', defEn: 'large strong fires', example: 'Firefighters worked through the night to control the blazes on the hillside.', exampleZh: '消防员通宵工作，控制住了山坡上的大火。' },
+    { id: 'v5', word: 'destroyed', lemma: 'destroy', sentenceId: 's6', level: 1, pos: 'v.', ipa: '/dɪˈstrɔɪd/', defZh: '摧毁；破坏', defEn: 'damaged so badly that it no longer exists', example: 'The storm destroyed dozens of small boats in the harbor.', exampleZh: '风暴摧毁了港口里几十艘小船。' },
+    { id: 'v6', word: 'evacuate', lemma: 'evacuate', sentenceId: 's6', level: 3, pos: 'v.', ipa: '/ɪˈvækjueɪt/', defZh: '撤离；疏散', defEn: 'leave a dangerous place', example: 'Residents had thirty minutes to evacuate the apartment block.', exampleZh: '居民只有三十分钟时间从公寓楼撤离。' },
+    { id: 'v7', word: 'catastrophe', lemma: 'catastrophe', sentenceId: 's7', level: 4, pos: 'n.', ipa: '/kəˈtæstrəfi/', defZh: '大灾难；浩劫', defEn: 'a sudden event that causes great damage or suffering', example: 'The flood was the worst catastrophe the town had seen in fifty years.', exampleZh: '这场洪水是这个小镇五十年来遭遇的最严重灾难。' },
+    { id: 'v8', word: 'gusts', lemma: 'gust', sentenceId: 's8', level: 3, pos: 'n.', ipa: '/ɡʌsts/', defZh: '阵风；一股强风', defEn: 'short, strong rushes of wind', example: 'Sudden gusts shook the windows for most of the night.', exampleZh: '一阵阵突如其来的强风摇晃着窗户，几乎持续了一整夜。' },
+    { id: 'v9', word: 'sweep', lemma: 'sweep', sentenceId: 's8', level: 3, pos: 'v.', ipa: '/swiːp/', defZh: '迅速掠过；横扫', defEn: 'move quickly across an area', example: 'Cold air will sweep across the northern plains tomorrow.', exampleZh: '明天冷空气将横扫北部平原。' },
+    { id: 'v10', word: 'forecast', lemma: 'forecast', sentenceId: 's8', level: 2, pos: 'v.', ipa: '/ˈfɔːkɑːst/', defZh: '预测；预报', defEn: 'said in advance what would happen', example: 'Heavy rain was forecast for the weekend.', exampleZh: '周末有大雨的预报。' },
+    { id: 'v11', word: 'comparable', lemma: 'comparable', sentenceId: 's9', level: 3, pos: 'adj.', ipa: '/ˈkɒmpərəbl/', defZh: '相当的；可比的', defEn: 'similar in size or quality', example: 'The two cities have comparable housing costs.', exampleZh: '这两个城市的住房成本相当。' },
+    { id: 'v12', word: 'embers', lemma: 'ember', sentenceId: 's10', level: 4, pos: 'n.', ipa: '/ˈembəz/', defZh: '余烬；红炭', defEn: 'small pieces of burning wood or coal in a dying fire', example: 'The campfire was almost out, with only a few embers still glowing.', exampleZh: '营火快熄了，只剩几点余烬还在发红。' },
+    { id: 'v13', word: 'lies', lemma: 'lie', sentenceId: 's11', level: 1, pos: 'v.', ipa: '/laɪz/', defZh: '在于；存在于', defEn: 'is located or found in a place or idea', example: 'The real problem lies in how we measure progress.', exampleZh: '真正的问题在于我们如何衡量进步。' },
+    { id: 'v14', word: 'pattern', lemma: 'pattern', sentenceId: 's11', level: 2, pos: 'n.', ipa: '/ˈpætən/', defZh: '模式；规律', defEn: 'a repeated way that something happens', example: 'Researchers noticed a clear pattern in the way the disease spread.', exampleZh: '研究人员注意到这种疾病传播方式中有一种明显的规律。' },
+    { id: 'v15', word: 'thrived', lemma: 'thrive', sentenceId: 's14', level: 4, pos: 'v.', ipa: '/θraɪvd/', defZh: '茁壮生长；蓬勃发展', defEn: 'grew strong and healthy', example: 'The cafe thrived in its first year despite the crowded market.', exampleZh: '尽管市场拥挤，这家咖啡馆在第一年里依然蓬勃发展。' },
+    { id: 'v16', word: 'fuel', lemma: 'fuel', sentenceId: 's14', level: 2, pos: 'n.', ipa: '/ˈfjuːəl/', defZh: '燃料；可燃物', defEn: 'material that can burn and feed a fire', example: 'Dry grass and dead trees are the perfect fuel for a wildfire.', exampleZh: '干草和枯树是野火的绝佳燃料。' },
+    { id: 'v17', word: 'swing', lemma: 'swing', sentenceId: 's15', level: 3, pos: 'n.', ipa: '/swɪŋ/', defZh: '摆动；剧烈变化', defEn: 'a sharp change from one state to another', example: 'The country has seen a sudden swing in public opinion.', exampleZh: '这个国家的公众舆论出现了一次突然的转向。' },
+    { id: 'v18', word: 'estimated', lemma: 'estimate', sentenceId: 's16', level: 2, pos: 'v.', ipa: '/ˈestɪmeɪtɪd/', defZh: '估计；估算', defEn: 'calculated roughly', example: 'The damage to the road was estimated at two million dollars.', exampleZh: '道路损失估计达两百万美元。' },
+    { id: 'v19', word: 'cover', lemma: 'cover', sentenceId: 's17', level: 2, pos: 'v.', ipa: '/ˈkʌvə(r)/', defZh: '承保；提供保险', defEn: 'to provide insurance against a loss', example: 'This policy does not cover damage caused by floods.', exampleZh: '这份保单不承保洪水造成的损失。' },
+    { id: 'v20', word: 'warning', lemma: 'warning', sentenceId: 's19', level: 1, pos: 'n.', ipa: '/ˈwɔːnɪŋ/', defZh: '警告；警示', defEn: 'something that tells you about a danger ahead', example: 'The report served as a warning to other coastal cities.', exampleZh: '这份报告对其他沿海城市起到了警示作用。' },
+  ],
+  collocations: [],
+  grammar: [
+    {
+      id: 'g1',
+      title: '用过去完成时把"已经发生过的"放进过去的故事里',
+      pattern: 'had + 过去分词',
+      sentenceIds: ['s2', 's4'],
+      explanationZh: [
+        '当你在用过去时讲一个故事，但又想交代"在那之前已经发生了什么"，就要用过去完成时 had 加过去分词。它给读者搭出一条时间线：故事的主线在过去，而某件事在更早就已经完成了。',
+        '看第 2 句：Within hours, a second fire had ignited above Altadena。整篇文章的故事时间是 1 月 7 日早上往后，而这场火"在几小时内就已经被点燃"，比叙述的当下更早一点。如果写成 a second fire ignited，时间感会模糊：读者不清楚是同时发生还是先后发生。had ignited 立刻让"先后顺序"变得明确。',
+        '什么时候用：写新闻特写、回忆性散文、申请文书里讲一段经历时最好用。任何"主线是过去时，而我想说之前的事"的场景都适用。一旦你的故事时间继续往前推进，就回到一般过去式 ignited / killed / destroyed。',
+        '一个细节：had 这个词无论主语单复数，形式都不变。a second fire had ignited 和 the two largest blazes would burn 不一样，后者用 would 表"过去之后将要发生"的将来时。两套时间工具不要弄混。',
+      ],
+      examples: [
+        { en: 'By the time we arrived, the meeting had already started without us.', zh: '我们到的时候，会议已经在没有我们的情况下开始了。', note: 'had started 把"开会"放在"我们到"之前，时间线很干净。' },
+        { en: 'She realized she had left her phone on the train.', zh: '她意识到自己把手机落在了火车上。' },
+        { en: 'The team had practiced the play many times before the final game.', zh: '在决赛之前，这支队伍已经把这套战术练习了很多次。' },
+        { en: 'By 2024, the population had fallen for three years in a row.', zh: '到 2024 年，人口已经连续三年下降。' },
+        { en: 'When the manager called, the customer had already complained online.', zh: '经理打电话时，那位顾客早已在网上投诉了。' },
+      ],
+      commonMistake: '不要写成 Before we arrived, the meeting had started yesterday。一旦出现 yesterday / last week 这种明确的时间词，往往直接用一般过去式 started 就够了，过去完成时通常配合一个"在更早之前"的语境，而不是配一个独立的具体时间。',
+      vsSimilar: '一般过去式（ignited）只说"那件事在过去发生了"；过去完成时（had ignited）说"在过去某个时间点之前，它就已经完成了"。问自己：我是在记录一件事，还是在交代另一件事之前的背景？',
+    },
+    {
+      id: 'g2',
+      title: '用 What…was X 把"真正起作用的东西"放到句首',
+      pattern: 'What [clause], was/is [关键变量]',
+      sentenceIds: ['s7'],
+      explanationZh: [
+        '中文里我们常说"让事情变糟的，是风"，把原因放到句末，等于把灯打在那个原因上。英文有一个对等的句式叫 what-cleft：用 What 引出一个从句作主语，然后用 was 或 is 接上你真正想强调的那个东西。',
+        '看第 7 句：What turned ordinary brush fires into a catastrophe was the wind。如果换成 The wind turned ordinary brush fires into a catastrophe，意思相同，但效果完全不同：后者一开口就给答案，没有悬念。What…was 句式则像在镜头上做一次推拉，先把"是什么让事情变糟"这件事悬着，最后一秒才推出 the wind，分量重得多。',
+        '什么时候用：议论文的关键论点句、新闻报道里要点明"真正原因"的过渡句、申请文书里强调"对我来说真正重要的"那一句，都很合适。它有种克制的、给答案的语气，适合用在你希望读者记住的那一句上。',
+        '一个细节：What 引出的从句在语法上是单数，所以后面用 was / is，即使后面接的关键词是复数。比如 What kept me going were my friends 在严谨写作里更稳的写法是 What kept me going was my friends 或者换成 The people who kept me going were my friends。',
+      ],
+      examples: [
+        { en: 'What surprised the researchers most was how quickly the species recovered.', zh: '最让研究人员意外的，是这个物种恢复得有多快。' },
+        { en: 'What kept the small bookstore alive was its weekly reading group.', zh: '让这家小书店活下去的，是它每周一次的读书会。', note: '把"读书会"留到句末，比一上来就说 The reading group kept... 更有力。' },
+        { en: 'What made the policy fail was not the idea itself, but the speed of the rollout.', zh: '让这项政策失败的，不是这个想法本身，而是推行的速度。' },
+        { en: 'What I remember from that summer is the smell of rain on hot pavement.', zh: '那个夏天我记得的，是雨水落在滚烫人行道上的味道。' },
+        { en: 'What worries economists most is the gap between wages and rent.', zh: '最让经济学家担心的，是工资和房租之间的差距。' },
+      ],
+      commonMistake: '不要写成 What turned brush fires into a catastrophe were the wind。What 引导的从句是单数主语，要用 was。即使后面接 the winds（复数），更稳的写法也是 What turned brush fires into a catastrophe was the wind that swept down from the desert。',
+      vsSimilar: 'It-cleft（It was the wind that turned…）也能强调"是风"，但它聚焦在"是哪一个名词"。What-cleft（What turned…was the wind）聚焦在"什么东西在做这件事"，问题感更强，更适合点出一个论点。',
+    },
+    {
+      id: 'g3',
+      title: '用现在完成时把"事情已经做了"接回到现在',
+      pattern: 'have / has + 过去分词',
+      sentenceIds: ['s17', 's18'],
+      explanationZh: [
+        '当一件事在过去发生了，但它的影响一直延续到现在，英文常用现在完成时 have 或 has 加过去分词。它不是单纯说"这件事过去发生过"，而是在告诉读者"截至此刻，状态是这样"。',
+        '看第 17 和 18 句：Insurance companies have warned…、Officials and residents have begun asking…。这两件事都是过去几个月里陆续发生的，但作者用现在完成时，是因为它们的影响（保险政策在变、规划讨论在进行）就在此刻还在生效。如果换成过去式 warned / began，读者会觉得这是"已经结束"的事，张力立刻就弱了。',
+        '什么时候用：新闻报道里交代"目前为止做了什么"、研究综述里说"学界已经发现什么"、个人陈述里写"我至今做过什么"，都是现在完成时的主场。一旦你给出明确的时间点（in January 2024, last year），就要切回一般过去式。',
+        '一个细节：主语是单数（the insurance company）用 has，复数（companies, officials and residents）用 have。文中 The financial cost has been estimated 用 has，是因为主语 the financial cost 是单数。',
+      ],
+      examples: [
+        { en: 'Three more cities have joined the agreement since last month.', zh: '自上个月以来，又有三座城市加入了这项协议。' },
+        { en: 'The company has not yet responded to the letter.', zh: '这家公司还没有对这封信作出回应。', note: 'has not yet + 过去分词，强调"到目前为止依然没有"。' },
+        { en: 'Researchers have warned that the trend is likely to continue.', zh: '研究人员警告说，这一趋势可能还会延续。' },
+        { en: 'She has lived in three different countries in the past ten years.', zh: '过去十年里，她在三个不同的国家生活过。' },
+        { en: 'Voters have begun to question the new tax plan.', zh: '选民已经开始质疑这项新的税收方案。' },
+      ],
+      commonMistake: '不要写成 Insurance companies have warned in January 2025。一旦出现 in January 2025 这种具体时间点，就用一般过去式 warned。现在完成时的氛围是"延伸到现在"，不喜欢和精确日期搭配。',
+    },
+  ],
+  patterns: [
+    {
+      id: 'pt1',
+      useCase: '在新闻段落开头建立时间感：用一个具体的早晨把读者拉进现场',
+      skeleton: 'On the morning of [具体日期], [一件突发的事] broke out in [具体地点].',
+      original: 'On the morning of January 7, 2025, a brush fire broke out above Pacific Palisades, a neighborhood on the western edge of Los Angeles.',
+      sentenceId: 's1',
+      whyItWorks: [
+        '这个开头之所以有力，是因为它用三件最具体的东西取代了"近年来"或者"最近"这种模糊起手：精确到日的日期、明确的动词 broke out、有名字的地点。读者一句话就被放到了那个清晨。',
+        '对读者来说，On the morning of 这三个字给出一种镜头感：作者站在历史的某个瞬间，他要告诉你的故事从这一刻开始。这种克制比"In recent years, wildfires have become more common"那种概述句要有力得多。',
+        '它最适合用在新闻报道、回忆性文章和申请文书的开篇。一旦你能定位一个具体的早上、傍晚或夜里，你就把读者直接带进了故事，不需要预热。',
+        '一个隐藏前提：日期和地点都要写出来，而且写得越具体越好。如果只写 In January 2025, fires broke out in California，就失去了大半的临场感。具体的街区名、城市边缘的方位，才是这个开头的灵魂。',
+      ],
+      examples: [
+        { context: '人物特写开头', text: 'On the evening of March 4, 2024, a small fire broke out backstage at the Royal Opera House.', zh: '2024 年 3 月 4 日傍晚，皇家歌剧院后台发生了一场小火灾。' },
+        { context: '个人陈述开头', text: 'On the morning of my first surgery, a power cut took out half the hospital for ninety minutes.', zh: '我第一次上台手术的那个早上，一次停电让整所医院的一半区域停摆了九十分钟。', note: '把"那一天"具体到上午，瞬间把读者拉到现场，比 During my training... 之类的概述有力得多。' },
+        { context: '体育报道', text: 'On the night of November 18, 2025, an underdog Argentine club broke a 41-year title drought in front of a roaring home crowd.', zh: '2025 年 11 月 18 日的夜晚，一家阿根廷弱旅在主场震天的呼喊中，结束了 41 年的冠军荒。' },
+      ],
+      adaptingTip: '日期一定要写到日，至少写到月份和具体时段（the morning of, the evening of）。地点要选有名字、有边缘信息的地方（a neighborhood on the western edge of…），不要只写 in California。动词要选有动作感的（broke out, opened, crashed, walked in），不要用 something happened 这种没力气的写法。这是开头句，别留到中段才用。',
+      commonMistake: '不要写成 On a winter morning in 2025, a fire broke out somewhere in Los Angeles。模糊的 "a winter morning" 和 "somewhere" 会立刻把这个句式的力气抽空，因为具体性是它全部的能量来源。',
+    },
+    {
+      id: 'pt2',
+      useCase: '把"真正起作用的因素"留到句末揭晓：制造一拍悬念',
+      skeleton: 'What [verb 描述结果], was [关键因素].',
+      original: 'What turned ordinary brush fires into a catastrophe was the wind.',
+      sentenceId: 's7',
+      whyItWorks: [
+        '这个句式的力量来自"先问后答"的节奏：What 引出的从句先把问题摆出来，比如"什么把普通的火烧成灾难"，读者在读到 was 之前，已经在脑子里自己问过一遍这个问题。然后那个一个词的答案 the wind 落下来，重量感立刻翻倍。',
+        '对读者来说，这种句式释放的是一种克制的自信：作者并没有立刻喊出答案，而是慢半拍。这种慢半拍恰恰让答案显得更确定，仿佛是被层层推理之后才点名的。',
+        '它适合用在段落或文章里你最想被读者记住的那一句上：解释一个核心原因、点出一个反直觉的真相、收尾一段论证。报道、评论、申请文书的转折段都很好用。',
+        '一个隐藏前提：句末那个被强调的东西必须值得这种推拉。如果它只是一个普通名词（例如 the weather），整个推拉就显得用力过猛。要选一个出乎意料、单刀直入的词（the wind, his silence, the price），才对得起这个句式给它的舞台。',
+      ],
+      examples: [
+        { context: '政策评论', text: 'What kept the small rule from working was the way it was enforced.', zh: '让这条小规定无法奏效的，是它被执行的方式。' },
+        { context: '申请文书', text: 'What pushed me to switch majors was a single conversation with my grandmother.', zh: '让我决定转专业的，是和外婆的一次谈话。', note: '把那个具体的"对话"留到句末，比 My grandmother\'s words made me switch majors 更有分量。' },
+        { context: '商业分析', text: 'What sank the merger was not the price, but the timing.', zh: '让这笔合并失败的，不是价格，而是时机。' },
+      ],
+      adaptingTip: '句末要落在一个具体的、读者能立刻记住的名词或短语上（the wind, a single conversation, the timing），不要落在一个抽象的、含混的词上（the situation, various factors）。被强调的东西最好是"读者本来不会第一个想到"的那个原因，反差越大，句式越亮。',
+    },
+    {
+      id: 'pt3',
+      useCase: '点出一件事为什么棘手：先说"它之所以危险，部分在于……"',
+      skeleton: 'Part of what makes [现象] [负面形容词] is [具体原因].',
+      original: 'Part of what makes this whiplash dangerous is the speed of the swing from one extreme to the other.',
+      sentenceId: 's15',
+      whyItWorks: [
+        '这个句式用 Part of what makes…dangerous（或 difficult / costly / strange）做路标，向读者宣告：接下来我要解释一个核心原因。它比直接写 This whiplash is dangerous because… 更稳，因为 Part of 暗示"原因不止一个"，给作者留了余地，也让结论显得更经过权衡。',
+        '对读者来说，Part of 这两个字降低了句子的攻击性：作者没有把话说死，只说"这是原因之一"。读者反而更愿意接受这种留有余地的判断，比铁口直断要更可信。',
+        '它最适合用在分析段落的开头：研究综述、政策评论、新闻特写里要展开"为什么这件事难"的那一段。后面紧跟具体的原因解释，整段才稳。',
+        '一个隐藏前提：is 后面接的"具体原因"必须真的具体（the speed of the swing），不能是空泛的概括（it is complicated）。越具体，越能撑起 Part of 这个开头给出的预告。',
+      ],
+      examples: [
+        { context: '城市观察', text: 'Part of what makes this neighborhood fragile is its dependence on a single industry.', zh: '让这个社区脆弱的部分原因，是它对单一产业的依赖。' },
+        { context: '科技评论', text: 'Part of what makes the new chatbot risky is how confident it sounds when it is wrong.', zh: '让这款新聊天机器人有风险的部分原因，是它说错话时的口吻有多么自信。', note: 'is 后面接一个 how 引导的从句，把"为什么风险"说得很具体。' },
+        { context: '教育评论', text: 'Part of what makes the policy unfair is the way it asks the same fee from very different families.', zh: '让这项政策不公平的部分原因，是它向情况非常不同的家庭收取相同的费用。' },
+      ],
+      adaptingTip: 'is 后面要填一个具体到读者可以想象的原因（the speed of the swing, the way it is enforced, its dependence on…），不要填一个抽象形容词或空话。Part of 是故意留余地，所以后文最好真能再补一两个原因，否则 Part of 这个伏笔就落空了。',
+    },
+  ],
+  quiz: [
+    { id: 'q1', q: 'According to the article, when did the first major fire of January 2025 begin?', options: ['On the evening of January 6 above Altadena', 'On the morning of January 7 above Pacific Palisades', 'In the middle of December 2024 in Pasadena', 'On January 31, when the fires were contained'], answer: 1, explanation: 'The article opens with the brush fire breaking out above Pacific Palisades on the morning of January 7, 2025.', sentenceId: 's1' },
+    { id: 'q2', q: 'How does the article describe the strength of the Santa Ana winds that week?', options: ['Light breezes that barely reached 20 mph', 'Average for a Southern California winter', 'Gusts close to 100 mph in some canyons, comparable to a Category 2 hurricane', 'Stronger than any wind ever recorded on Earth'], answer: 2, explanation: 'The article says gusts reached close to 100 miles per hour in some canyons, comparable to a Category 2 hurricane.', sentenceId: 's9' },
+    { id: 'q3', q: 'What does the article mean by "climate whiplash"?', options: ['A sudden injury caused by a wildfire', 'A rapid swing from very wet conditions to very dry ones', 'A wind that changes direction every few minutes', 'A government policy that keeps changing'], answer: 1, explanation: 'The article describes climate whiplash as the fast swing from one extreme (wet winters) to another (almost no rain), which left dry fuel behind.', sentenceId: 's15' },
+    { id: 'q4', q: 'Why does the writer mention that insurance companies have warned about coverage?', options: ['To show that insurance prices have already fallen', 'To suggest that some areas may be too risky to insure in the future', 'To advise readers to buy more insurance', 'To prove that climate whiplash is not a real problem'], answer: 1, explanation: 'The article uses the insurance warning to show that the disaster has consequences beyond the immediate damage, and that some areas may become difficult to cover at all.', sentenceId: 's17' },
+    { id: 'q5', q: "Which sentence best captures the writer's overall attitude in the closing paragraph?", options: ['A confident claim that this was a one-time event', 'A cheerful prediction that things will improve soon', 'A sober warning that a warming climate is reshaping a familiar place', 'A purely technical summary with no judgment'], answer: 2, explanation: 'The final paragraph calls the fires a warning about what a warming climate looks like in a place people thought they understood, a sober and reflective stance.', sentenceId: 's19' },
+  ],
+  listeningWriting: {
+    infoGap: [
+      { id: 'ig1', cueZh: '帕利塞兹大火爆发的日期', answer: 'January 7, 2025', sentenceId: 's1', prefilled: true },
+      { id: 'ig2', cueZh: '第二场大火爆发的地点（社区名）', answer: 'Altadena', sentenceId: 's2' },
+      { id: 'ig3', cueZh: '一月大火造成的死亡人数（至少）', answer: '29', sentenceId: 's6' },
+      { id: 'ig4', cueZh: '被烧毁的住宅及其他建筑数量（超过）', answer: '18,000', sentenceId: 's6' },
+      { id: 'ig5', cueZh: '峡谷里阵风的最高接近时速（英里每小时）', answer: '100', sentenceId: 's9' },
+      { id: 'ig6', cueZh: '2024 年 10 月起降雨不到正常水平的比例', answer: 'ten percent', sentenceId: 's14' },
+      { id: 'ig7', cueZh: '这场灾害估计造成的经济损失（美元）', answer: '61 billion', sentenceId: 's16' },
+    ],
+    writing: {
+      promptZh: '用你在表格里找到的事实，写一段大约 70 词的短文，向一位没看新闻的朋友解释 2025 年 1 月洛杉矶大火：何时何地开始、为什么这么严重，以及它告诉了我们什么。',
+      promptEn: 'Using the facts in your table, write about 70 words explaining the January 2025 Los Angeles fires to a friend who missed the news: when and where they started, why they grew so severe, and what they tell us.',
+      targetWords: 70,
+      starters: ['On the morning of January 7, 2025, ...', 'Part of what makes these fires alarming is ...'],
+      usePatternIds: ['pt1', 'pt3'],
+      modelAnswer:
+        'On the morning of January 7, 2025, a brush fire broke out above Pacific Palisades, and a second fire ignited above Altadena hours later. Together, the January fires killed at least 29 people and destroyed more than 18,000 buildings. Part of what makes these fires alarming is the climate whiplash behind them: two wet winters grew the fuel, then almost no rain dried it out. The wind did the rest.',
+      modelAnswerZh:
+        '2025 年 1 月 7 日清晨，太平洋帕利塞兹上方燃起一场山地灌木火，几小时后又一场大火在阿尔塔迪纳上方点燃。这场一月大火合计造成至少 29 人死亡，烧毁了超过一万八千座建筑。让这场大火令人警觉的部分原因，是它背后的"气候鞭击"：两个多雨的冬天养出了燃料，然后几乎滴雨未下又把它彻底烤干。剩下的事，由风来完成。',
+    },
+  },
+};
