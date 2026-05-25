@@ -4,7 +4,7 @@
 
 export type RadarTier = 'green' | 'yellow' | 'pink' | 'red' | 'critical' | 'inactive' | 'unknown';
 
-export const INACTIVE_STAGES = new Set(['已结案', '退费', '已完成']);
+export const INACTIVE_STAGES = new Set(['已结案', '退费', '已完成', '未签约']);
 
 export function isInactive(stage: string | null | undefined): boolean {
   return !!stage && INACTIVE_STAGES.has(stage);

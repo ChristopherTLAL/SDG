@@ -126,6 +126,7 @@ const STAGE_STYLE: Record<string, { bg: string; fg: string }> = {
   '已结案':   { bg: '#e5e7eb', fg: '#475569' },
   '已完成':   { bg: '#e0e7ff', fg: '#3730a3' },
   '退费':     { bg: '#fee2e2', fg: '#991b1b' },
+  '未签约':   { bg: '#f1f5f9', fg: '#64748b' },
 };
 function stageBadge(stage: string | null | undefined) {
   if (!stage) return { bg: '#f1f5f9', fg: '#64748b' };
