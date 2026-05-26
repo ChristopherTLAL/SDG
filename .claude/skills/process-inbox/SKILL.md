@@ -68,7 +68,46 @@ When archiving a submission inline (without spawning a subagent), every submissi
 
 The "Step-by-step workflow" below describes the subagent orchestration (path 1). The inline path (path 2) is: just walk through the 4-file checklist for each submission, then run `sync-students-to-supabase.mjs` once at the end, then SQL UPDATE `processed=true`.
 
----
+### Special case: `type='录音'` (Voice Memo 自动转写, 2026-05-23 onwards)
+
+Local n8n workflow **「自动录音转文字」** (id `ESa6oaWaxz9N7Oda-4zcY`) polls Apple Voice Memos hourly, ships m4a to 阿里云 Dashscope paraformer-v2 ASR with speaker diarization, then POSTs the raw transcript straight to `submissions` with:
+
+- `type = '录音'`
+- `submitted_by = '录音自动'`
+- `student_id = null`
+- `student_name_raw = '【待确定，请和主管确认】'` ← always this exact literal
+- `summary = '【录音自动转写】<filename>.m4a'`
+- `content = '[Speaker 0] MM:SS: ...\n[Speaker 1] MM:SS: ...\n...'`
+- `ai_transcript = (same as content — kept for forward compat)`
+
+**No LLM has touched the content before it lands.** Speaker N labels are anonymous (顾问/学生/家长 not resolved). Diarization can be wrong (e.g. one speaker split into 2 IDs across long pauses).
+
+#### Processing rules — ALWAYS inline, NEVER auto-mark without student confirmation
+
+1. **Student attribution first**. Read the content. Try to infer the student by:
+   - Names mentioned ("XX 同学" / "XX 你"... )
+   - Topics specific to one student (e.g. 北航 EE 转专业 → 王峥)
+   - The submitter (here always 录音自动, useless) and submitted_at (録音 was made today / yesterday)
+   
+   If ≥80% confident on a single student → propose to user: `#<id> 这条録音内容看着像 XX 的（理由 ...）。归到 XX 文件夹？` Wait for "yes" before proceeding.
+   
+   If ambiguous or multi-student → list candidates, ask user to pick.
+   
+   If not student-related (e.g. you对自己录了个 reminder / 内部会议) → ask user how to handle (likely: just delete the submission row, no vault write).
+
+2. **Mandatory vault meeting-minutes treatment**. Voice Memo recordings are STT-grade messy. Naked archive (just dump the Speaker N text into 沟通记录/.md) is **forbidden** — defeats the whole "用 vault 智能" point of the new pipeline.
+   
+   Run vault meeting-minutes skill **inline** (Pattern B from sdg-html CLAUDE.md):
+   - `Read` vault `CLAUDE.md` (two iron rules) if not already read this turn
+   - `Read` `/Users/shijie/Obsidian/规划看板/_agents/skills/meeting-minutes/SKILL.md`
+   - Follow its full flow: 信息时效性 sanity check (雅思/标化/GPA/申请窗口), STT 纠错, 角色判断 ([顾问老师]/[学生]/[家长] — NOT `[Speaker 0]`), 议题重组
+   - Output: structured 纪要 .md to `01_Student/<student>/沟通记录/{YYYY-MM-DD} 沟通记录 - <title>.md`
+
+3. **All 4 vault writes per the inline checklist above still apply** (学生主档 双向链接 + 日报 顶部插入 + 任务看板 todo). Don't skip them — that was the 2026-05-12 mistake series.
+
+4. **Type stays `'录音'` in Supabase** (don't rewrite to `'沟通记录'`). It's how we trace provenance: queries like "show me notes that originated from a録音" work via `processed_path IS NOT NULL AND type='录音'`.
+
+5. **Mark `processed=true` only after the meeting-minutes-shaped .md exists + student is confirmed + all 4 writes done.**
 
 ## NON-NEGOTIABLE: every submission must produce a 沟通记录 .md
 

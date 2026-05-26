@@ -74,10 +74,14 @@ def _largest_signing_xlsx():
     return max(cands, key=lambda p: (p.stat().st_size, p.stat().st_mtime))
 
 # --dry-run: read everything, compute changes, print summary, NO writes.
-# Useful before a full sync to preview what will change. Strip flag from argv
-# so it doesn't break the positional-arg parsing.
+# --incremental: MERGE input contracts into existing vault 合同明细 by 合同编号
+# (file wins on conflict). Use this for weekly slice files (~50-200 rows) where
+# rewriting from file would destroy historical contracts not in the slice.
+# Useful before a full sync to preview what will change. Strip flags from argv
+# so they don't break positional-arg parsing.
 DRY_RUN = '--dry-run' in sys.argv
-_pos_args = [a for a in sys.argv[1:] if a != '--dry-run']
+INCREMENTAL = '--incremental' in sys.argv
+_pos_args = [a for a in sys.argv[1:] if a not in ('--dry-run', '--incremental')]
 
 if _pos_args and _pos_args[0] not in ('-h', '--help'):
     XLSX = Path(_pos_args[0]).expanduser()
@@ -86,9 +90,12 @@ if _pos_args and _pos_args[0] not in ('-h', '--help'):
         sys.exit(1)
 elif _pos_args:
     print(__doc__)
-    print(f'\nUsage: {sys.argv[0]} [--dry-run] [path/to/*客户签约明细*.xlsx]')
+    print(f'\nUsage: {sys.argv[0]} [--dry-run] [--incremental] [path/to/*客户签约明细*.xlsx]')
     print(f'\nNo arg → auto-pick LARGEST file across ~/Downloads/ + _工作运营/')
     print(f'--dry-run → preview changes without writing to vault or Supabase')
+    print(f'--incremental → merge 合同明细 by 合同编号 (file wins) instead of rewriting.')
+    print(f'                Use for WEEKLY SLICE files where full rewrite would')
+    print(f'                destroy historic contracts not in the slice.')
     sys.exit(0)
 else:
     XLSX = _largest_signing_xlsx()
@@ -468,6 +475,91 @@ def identify_onboard_candidates(rows, COL, cid_to_folder, vault_folder_names):
 
 # ── YAML rewrite: 合同明细 ──────────────────────────────────────────────
 
+def read_existing_contracts_from_yaml(md_path):
+    """Parse existing 合同明细 entries from vault md frontmatter.
+
+    Returns list of dicts with the same shape as `contracts` rows we build:
+      template_name / category / signed_at / signed_amount / status / contract_id
+
+    Returns [] if file doesn't exist or has no 合同明细 entries. Tolerant of
+    missing/messy YAML — anything unparseable is skipped silently so an existing
+    bad entry doesn't block a new write.
+    """
+    if not md_path.exists():
+        return []
+    text = md_path.read_text(encoding='utf-8', errors='ignore')
+    fm = re.match(r'(?s)^---\s*\n(.*?)\n---', text)
+    if not fm:
+        return []
+    fm_body = fm.group(1)
+    # Find the 合同明细 block — everything from `合同明细:` until the next
+    # top-level YAML key (a line starting with non-whitespace + `:`).
+    m = re.search(
+        r'^合同明细:\s*\n((?:[ \t]+.*\n?)*)',
+        fm_body,
+        re.MULTILINE,
+    )
+    if not m:
+        return []
+    block = m.group(1)
+    # Parse list-of-dict entries. Each entry begins with `  - 名称: ...`.
+    entries = []
+    cur = None
+    for line in block.splitlines():
+        if not line.strip():
+            continue
+        list_item = re.match(r'^\s*-\s*名称:\s*(.*?)\s*$', line)
+        kv = re.match(r'^\s+(\S[^:]*?):\s*(.*?)\s*$', line)
+        if list_item:
+            if cur:
+                entries.append(cur)
+            cur = {'template_name': list_item.group(1).strip('"').strip("'")}
+        elif kv and cur is not None:
+            key, val = kv.group(1), kv.group(2).strip('"').strip("'")
+            if key == '大类':
+                cur['category'] = val
+            elif key == '签约日期':
+                cur['signed_at'] = val
+            elif key == '签约金额':
+                try:
+                    cur['signed_amount'] = float(val) if '.' in val else int(val)
+                except ValueError:
+                    cur['signed_amount'] = val
+            elif key == '合同状态':
+                cur['status'] = val
+            elif key == '合同编号':
+                cur['contract_id'] = val
+    if cur:
+        entries.append(cur)
+    # Filter out entries without 合同编号 (can't dedupe them safely)
+    return [e for e in entries if e.get('contract_id')]
+
+
+def merge_contracts_by_id(existing, new):
+    """Merge two contract lists, file (new) wins on 合同编号 conflict.
+    Order: existing first (preserves vault order), then new entries
+    whose 合同编号 wasn't in existing.
+    """
+    existing_ids = {c['contract_id']: i for i, c in enumerate(existing)}
+    merged = []
+    seen_ids = set()
+    # Pass 1: keep existing, but if a new contract has the same id, use the new one
+    new_by_id = {c['contract_id']: c for c in new}
+    for c in existing:
+        cid = c['contract_id']
+        if cid in new_by_id:
+            merged.append(new_by_id[cid])  # file wins
+        else:
+            merged.append(c)
+        seen_ids.add(cid)
+    # Pass 2: append new contracts whose id wasn't in existing
+    for c in new:
+        if c['contract_id'] not in seen_ids:
+            merged.append(c)
+            seen_ids.add(c['contract_id'])
+    return merged
+
+
 def render_contracts_yaml(contracts):
     """Render 合同明细 list as YAML (with 2-space indent, list-of-dict)."""
     if not contracts:
@@ -528,7 +620,17 @@ def replace_yaml_field(text, field, new_value_block):
 
 
 def update_existing_student_yaml(md_path, customer_ids, signers, contracts):
-    """Rewrite YAML frontmatter for an existing student."""
+    """Rewrite (or in INCREMENTAL mode, merge) YAML frontmatter for an existing student.
+
+    Full mode (default): rewrites 合同明细 / 合同 / 客户ID from input data. Safe
+    only when input is the full-history financial export — otherwise it destroys
+    historic contracts not in the slice.
+
+    Incremental mode (`--incremental` flag): reads existing 合同明细 from vault,
+    merges with input contracts by 合同编号 (file wins on conflict), preserving
+    historic contracts not in the slice. 合同 大类 union'd. 客户ID also merged
+    with existing array.
+    """
     text = md_path.read_text(encoding='utf-8')
 
     # Defensive: never overwrite 私单 — even if upstream logic misroutes here.
@@ -537,6 +639,22 @@ def update_existing_student_yaml(md_path, customer_ids, signers, contracts):
     # 钟婷婷的 ERP 李想 数据. Belt-and-suspenders check.
     if _yaml_is_private(text):
         return False
+
+    # In incremental mode, merge inputs with what's already in the vault file.
+    if INCREMENTAL:
+        existing_contracts = read_existing_contracts_from_yaml(md_path)
+        contracts = merge_contracts_by_id(existing_contracts, contracts)
+        # Also merge customer_ids with existing array
+        m = re.search(r'^客户ID:\s*\[(.+?)\]', text, re.MULTILINE)
+        if m:
+            existing_cids = [c.strip() for c in m.group(1).split(',') if c.strip()]
+            seen = set()
+            merged_cids = []
+            for c in existing_cids + list(customer_ids):
+                if c not in seen:
+                    merged_cids.append(c)
+                    seen.add(c)
+            customer_ids = merged_cids
 
     # Build new value blocks
     cid_block = '客户ID: [' + ', '.join(customer_ids) + ']'
