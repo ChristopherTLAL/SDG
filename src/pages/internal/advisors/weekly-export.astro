@@ -315,7 +315,7 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
         // Row heights deliberately NOT set — wrapText + no !rows entry causes Excel
         // to auto-compute row height to fit content on file open. Vertical merges in
         // column 0 don't block this (they only block the post-open AutoFit command).
-        ws['!views'] = [{ state: 'frozen', xSplit: 1, ySplit: 1 }]; // freeze first col + first row
+        ws['!views'] = [{ state: 'frozen', xSplit: 0, ySplit: 1 }]; // freeze first row only
         ws['!autofilter'] = { ref: ws['!ref'] };
       }
 
@@ -348,7 +348,7 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
             { wch: 26 },  // 已规划的二销方向
             { wch: 38 },  // 最近沟通要点
             { wch: 38 },  // 近期需关注事项
-            { wch: 42 },  // 本周建议(AI)
+            { wch: 84 },  // 本周建议(AI) — 用户要求宽一倍 (was 42)
           ];
           styleAdvisor(ws, s.bucketSeq || []);
           XLSX.utils.book_append_sheet(wb, ws, String(s.advisor).slice(0, 31));
