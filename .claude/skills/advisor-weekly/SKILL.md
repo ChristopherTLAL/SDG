@@ -102,32 +102,37 @@ STEP 4 — Compute days_since_contact = TODAY - last_contact_at::date for each s
            🆕 待对接 — stage = '待对接' (regardless of days; first contact pending)
          Students with days < 14 are dropped — the page already lists them under 「建议跟进」 from raw data.
 
-STEP 5 — Return STRUCTURED JSON. The parent Opus parses + persists this into TWO tables:
-per-student rows go into `student_weekly_advice` (source of truth for the Excel export
-and any future per-student UI), and a derived markdown blob still goes into
-`advisor_weekly_advice.advice_md` for the existing weekly web page.
+STEP 5 — For each qualifying student, produce 5 rich fields. These become the columns of the
+Excel export (`/internal/advisors/weekly-export`) and the per-student web page snapshot.
+The OLD single-field `suggestion_md` is preserved, plus 4 new ones (v2 schema, 2026-05-26):
 
-Output ONE JSON object matching this schema exactly:
+  - background_md       —  3-5 句的学生背景: 在读 (年级+学校+专业) / GPA / 标化 / 家庭关键诉求 / 已签合同概览。具体数字优先。
+  - planned_upsell      —  已规划的二销方向, 字面 lift from 顾问 / 学生档案 / 沟通记录 (e.g. "考虑加博士申请" / "暑期实习二期 + 海外科研 add-on"). 如未明确,填 "无"。不要凭空脑补。
+  - recent_note_summary —  最近一次 沟通记录 的要点, 1-2 句, 复述实质内容 (谁说了什么 / 同意了什么 / 卡在哪里)。
+  - watch_items_md      —  近期需关注事项的子弹列表 (\n- ... 格式), 通常是沟通记录里的「下一步」/标化考试节点/截止日期/家长/留学申请季关键 deadline。3-5 条为佳。
+  - suggestion_md       —  本周建议 (why → do-this), 同旧规则。
 
-  {
-    "advisor_name": "<ADVISOR_NAME>",
-    "week_start":   "<WEEK_START_YYYY_MM_DD>",
-    "students": [
-      {
-        "student_id":          <int>,
-        "name":                "<学生名 — for log/sanity only, not stored>",
-        "bucket":              "urgent" | "normal" | "kickoff",
-        "stage":               "<stage from STEP 1 — passed through verbatim>",
-        "enroll_year":         "<first element of enroll_years, e.g. '2026 fall'>",
-        "days_since_contact":  <int or null>,
-        "last_note_date":      "<YYYY-MM-DD or null>",
-        "pending_subs_count":  <int>,
-        "target_region":       "<first element of target_regions, or null — used by kickoff bullets>",
-        "suggestion_md":       "<one or two sentences: why → do-this>"
-      },
-      ...
-    ]
-  }
+QUALITY BAR examples:
+  ✓ background: "西交利物浦大学信息系统与管理 Y2 · GPA 65 预警 · IELTS 5.5 待刷 · 妈妈强势,坚持要英港美三线 + 2 段实习"
+  ✗ background: "西交利物浦大学,2027 fall入学"  (空话; 都在结构化字段里, 不需要重复)
+
+  ✓ recent_note_summary: "5/14 葛倩+古淑婷 CSAP 已完成, 暑假已安排雅思课程和国内科研, 下一步计划做 UCL/爱丁堡生物信息专业深度解析。"
+  ✗ recent_note_summary: "上次沟通讨论了申请相关事宜。"  (没说实质)
+
+  ✓ watch_items_md:
+    "- 6 月初期末考试成绩单出炉, 若 GPA <75 立刻调整选校
+    - 7 月雅思首考报名截止 5/30, 现在没看到付费记录
+    - 暑期数据科学科研 8/15 出研究方向, 学生要先选导师"
+  ✗ watch_items_md: "- 跟进雅思\n- 跟进科研"  (没说节点)
+
+  ✓ planned_upsell: "本期合同包含跃领+顶锋, 顾问提过 26 年秋后加博士 PhD 申请套餐"
+  ✗ planned_upsell: "可能加博士、夏校、实习..."  (脑补, 不是已规划)
+
+  ✓ suggestion_md: "4/15 学生说要试三个夏校但还没选定 → 本周主动 ping,让他给 4 选 1 名单 + 顺带催 IELTS 4 月模考成绩单"
+
+If the latest 沟通记录 contains an explicit 「下一步」/「Action Items」/「我会...」 section, lift those
+verbatim into watch_items_md (forward-looking) and `suggestion_md` (this week's action) — they're
+promises the advisor already made.
 
 Bucket mapping (same rule as STEP 4):
   - "urgent"  → 🔴 优先   (stage='后期在途' AND days>=31, OR stage in ('中期在途','需对接') AND days>=28)
@@ -135,79 +140,126 @@ Bucket mapping (same rule as STEP 4):
   - "kickoff" → 🆕 待对接 (stage='待对接', regardless of days)
 
 Students with days < 14 AND stage != '待对接' are DROPPED — do NOT include them.
-An advisor with zero qualifying students returns `"students": []` and Opus handles it.
 
-QUALITY BAR — `suggestion_md` must be SPECIFIC. Spend tokens reading the actual 沟通记录 body_md.
-Bucket / days / 学生姓名 are already in structured fields — DO NOT repeat them in `suggestion_md`.
+STEP 6 — UPSERT all qualifying students DIRECTLY into `student_weekly_advice` from this subagent
+via `mcp__supabase__execute_sql`. Do NOT return the full per-student list back to the parent — it
+would blow the parent's context window when totals run into the hundreds. Use multi-row INSERTs
+with dollar-quoting to handle 全角 punctuation / quotes safely; chunk into batches of ≤ 20 rows
+per INSERT to keep the SQL string under the MCP transport limit.
 
-  ✓ GOOD: "4/15 沟通记录学生说要试三个夏校但还没选定 → 本周主动 ping,让他给出 4 选 1 名单 + 顺带催 IELTS 4 月模考成绩单"
-  ✗ BAD:  "已 30+ 天未联系 → 本周主动跟进"   (空话; days 已经在结构化字段里)
-  ✗ BAD:  "跟进文书"                       (没说为什么、没说做什么)
+  INSERT INTO student_weekly_advice
+    (student_id, week_start, advisor_name, bucket, days_since_contact,
+     suggestion_md, last_note_date, pending_subs_count,
+     background_md, planned_upsell, recent_note_summary, watch_items_md)
+  VALUES
+    (114716, '2026-05-25', '<ADVISOR>', 'urgent', 427,
+     $sugg$...$sugg$, '2025-03-25', 0,
+     $bg$...$bg$, $up$无$up$, $note$...$note$, $watch$...$watch$),
+    ...
+  ON CONFLICT (student_id, week_start, advisor_name) DO UPDATE SET
+    bucket             = EXCLUDED.bucket,
+    days_since_contact = EXCLUDED.days_since_contact,
+    suggestion_md      = EXCLUDED.suggestion_md,
+    last_note_date     = EXCLUDED.last_note_date,
+    pending_subs_count = EXCLUDED.pending_subs_count,
+    background_md      = EXCLUDED.background_md,
+    planned_upsell     = EXCLUDED.planned_upsell,
+    recent_note_summary= EXCLUDED.recent_note_summary,
+    watch_items_md     = EXCLUDED.watch_items_md,
+    generated_at       = now();
 
-If the latest 沟通记录 contains an explicit 「下一步」/「Action Items」/「我会...」 section, lift those as
-the do-this — they're verbatim promises the advisor made and the student is waiting on.
+STEP 7 — Return ONLY a brief JSON summary so the parent can build the report and the per-advisor
+markdown blob:
 
-STEP 6 — Return ONLY the JSON object. No preamble, no markdown framing, no code-fence —
-just the raw JSON so the parent can JSON.parse it directly.
+  {
+    "advisor_name": "<ADVISOR_NAME>",
+    "totals": { "urgent": N, "normal": N, "kickoff": N, "skipped_under_14d": N, "in_scope_total": N },
+    "persisted_rows": N,
+    "sample": [
+      { "name": "...", "bucket": "...", "days": N, "suggestion_md": "first 80 chars..." }
+    ]
+  }
+
+2-3 samples are enough for spot-check. Do NOT dump the full list — parent will read the table back via SQL.
+
+If 0 students in scope: persist nothing, return totals all zero with empty sample[].
 ```
 
 Replace `<ADVISOR_NAME>` and `<WEEK_START_YYYY_MM_DD>` per advisor before spawning.
 
-### Step 4: review + dual-table UPSERT
+### Step 4: review subagent summaries + aggregate advisor markdown via SQL
 
-After all subagents return, Opus parses each JSON output and does a light review:
+By the time each subagent returns, its rich per-student data is already in `student_weekly_advice`
+(the subagent did its own UPSERT in its STEP 6). The parent's job now is light:
 
-- Valid JSON matching the schema? `advisor_name` + `week_start` match what was requested?
-- Each student has `student_id`, `bucket` ∈ {urgent, normal, kickoff}, non-empty `suggestion_md`?
-- Spot-check 2-3 random `suggestion_md` values: specific (references actual notes/dates) — or vague ("跟进文书" type)?
-- If a subagent returned malformed JSON or vague suggestions, re-spawn that one — don't write garbage.
+1. **Review the JSON summaries**. Each subagent returns totals + 2-3 samples. Check:
+   - Totals match `in_scope_total` (sanity)
+   - Samples look specific (references real dates / promises), not vague ("跟进文书")
+   - If a subagent's samples are garbage, re-spawn it (it can re-UPSERT the same rows safely thanks to ON CONFLICT)
 
-Then persist to BOTH tables. Use `mcp__supabase__execute_sql` with `params` for parameter binding (suggestion_md / advice_md can contain quotes).
-
-#### (a) Per-student rows into `student_weekly_advice`
-
-The source of truth for the Excel export + any future per-student UI. One row per item in `students[]`. Skip entirely if `students[]` is empty.
+2. **Normalize sentinel `days_since_contact` values** (subagents sometimes pass 9999 / 99999 for "no contact ever"; we want NULL):
 
 ```sql
-INSERT INTO student_weekly_advice
-  (student_id, week_start, advisor_name, bucket, days_since_contact,
-   suggestion_md, last_note_date, pending_subs_count, generated_at)
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8, now())
-ON CONFLICT (student_id, week_start, advisor_name) DO UPDATE SET
-  bucket             = EXCLUDED.bucket,
-  days_since_contact = EXCLUDED.days_since_contact,
-  suggestion_md      = EXCLUDED.suggestion_md,
-  last_note_date     = EXCLUDED.last_note_date,
-  pending_subs_count = EXCLUDED.pending_subs_count,
-  generated_at       = now();
+UPDATE student_weekly_advice
+SET days_since_contact = NULL
+WHERE week_start = $1 AND days_since_contact > 2000;
 ```
 
-#### (b) Aggregated markdown into `advisor_weekly_advice`
+3. **Build the per-advisor markdown blob server-side via one SQL CTE** — no need to pull 300+ rows
+   back through the parent's context. The CTE joins `student_weekly_advice` with `students` (for
+   name / stage / enroll_year / target_regions) and `string_agg`s bullets per bucket, then INSERTs
+   into `advisor_weekly_advice` in a single statement:
 
-Backward-compat: the website's `/internal/advisors/[name]/weekly` still renders this. Build the markdown by walking the JSON's `students[]` grouped by `bucket`, using the same shape the old skill produced:
-
+```sql
+WITH ranked AS (
+  SELECT
+    swa.advisor_name, swa.bucket, swa.days_since_contact, swa.suggestion_md,
+    s.name AS student_name, s.stage,
+    array_to_string(s.enroll_years, '/') AS enroll_year_str,
+    array_to_string(s.target_regions, '/') AS target_region_str
+  FROM student_weekly_advice swa
+  JOIN students s ON s.id = swa.student_id
+  WHERE swa.week_start = '<WEEK_START>'
+),
+agg AS (
+  SELECT advisor_name,
+    COUNT(*) FILTER (WHERE bucket='urgent')  AS u_n,
+    COUNT(*) FILTER (WHERE bucket='normal')  AS n_n,
+    COUNT(*) FILTER (WHERE bucket='kickoff') AS k_n,
+    string_agg(CASE WHEN bucket='urgent' THEN
+      '- ' || student_name || ' (' || COALESCE(stage,'') ||
+      CASE WHEN enroll_year_str <> '' THEN ' · ' || enroll_year_str ELSE '' END || ' · ' ||
+      CASE WHEN days_since_contact IS NULL THEN '无沟通记录'
+           ELSE days_since_contact::text || 'd 未联系' END ||
+      '): ' || suggestion_md END,
+      E'\n' ORDER BY (days_since_contact IS NULL) DESC, days_since_contact DESC NULLS LAST
+    ) FILTER (WHERE bucket='urgent') AS u_list,
+    -- (normal / kickoff list aggregations follow the same pattern;
+    --  see `src/pages/internal/advisors/weekly-export.astro` for full reference)
+    ...
+  FROM ranked GROUP BY advisor_name
+)
+INSERT INTO advisor_weekly_advice (advisor_name, week_start, advice_md, generated_at)
+SELECT advisor_name, '<WEEK_START>'::date,
+  '## 本周建议跟进 · ' || advisor_name || E'\n\n' ||
+  '**🔴 优先 (' || u_n || ')**' || E'\n' ||
+  (CASE WHEN u_n=0 THEN '本周该顾问该桶下无学生' ELSE COALESCE(u_list,'本周该顾问该桶下无学生') END) ||
+  ...,
+  now()
+FROM agg
+ON CONFLICT (advisor_name, week_start)
+DO UPDATE SET advice_md = EXCLUDED.advice_md, generated_at = now();
 ```
-## 本周建议跟进 · <advisor>
 
-**🔴 优先 (N)**
-- <name> (<stage> · <enroll_year> · <days>d 未联系): <suggestion_md>
-- ...
+ALWAYS print all three bucket headers with `(N)` even when empty (use `(0)` + "本周该顾问该桶下无学生").
 
-**🟠 常规 (N)**
-- ...
-
-**🆕 待对接 kickoff (N)**
-- <name> (<enroll_year> · <target_region>): <suggestion_md>
-- ...
-```
-
-ALWAYS print all three bucket headers with `(N)` even when empty (use `(0)` + "本周该顾问该桶下无学生"). For an advisor with `students: []`, write a single-line advice: `"本周该顾问无 in-管 学生。"`. Then UPSERT:
+4. **Handle advisors with `in_scope_total = 0`** (e.g. a 中期 advisor with no students) separately —
+   they don't appear in `student_weekly_advice` so the CTE skips them. Manually upsert a placeholder:
 
 ```sql
 INSERT INTO advisor_weekly_advice (advisor_name, week_start, advice_md, generated_at)
-VALUES ($1, $2, $3, now())
-ON CONFLICT (advisor_name, week_start) DO UPDATE SET
-  advice_md = EXCLUDED.advice_md, generated_at = now();
+VALUES ('<advisor>', '<WEEK_START>', '## 本周建议跟进 · <advisor>' || E'\n\n' || '本周该顾问无 in-管 学生。', now())
+ON CONFLICT (advisor_name, week_start) DO UPDATE SET advice_md = EXCLUDED.advice_md, generated_at = now();
 ```
 
 ### Step 5: final report

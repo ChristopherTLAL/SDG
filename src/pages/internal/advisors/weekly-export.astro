@@ -1,12 +1,18 @@
 ---
 // /internal/advisors/weekly-export — admin-only one-page Excel export.
 // Linked from the "导出本周顾问周报 (Excel)" button on /internal/advisors. SSR
-// fetches advisors + their in-管 active students + this week's `student_weekly_advice`
-// rows (per-student AI suggestions, written by the refactored advisor-weekly skill).
+// fetches advisors + their in-管 active students + this week's per-student rich advice
+// (student_weekly_advice, populated by the refactored advisor-weekly skill v2).
 // Client-side xlsx-js-style (CDN) builds a multi-sheet styled xlsx and triggers download.
 //
-// Sheets: 总览 + one per 中期 advisor. Columns (9, no 私单标 — 私单 students are
-// segregated into 王世杰's sheet only, so the column carries no info anywhere).
+// Per-advisor sheet columns (14, no 合同 / no 跃领分级 — user feedback 2026-05-26):
+//   紧急度 · 姓名 · 距上次沟通(d) · 上次沟通日期 · 阶段 · 入学年份 · 学校 · 总金额(¥)
+//   · 前期 · 学生背景和说明 · 已规划的二销方向 · 最近沟通要点 · 近期需关注事项 · 本周建议(AI)
+//
+// Sort: bucket rank (urgent → normal → kickoff → ok), within each bucket
+// last_contact_at ASC nulls first (so "无沟通记录" sits at top, oldest-contact next).
+// The 紧急度 column has vertical cell merges per bucket so the leftmost column
+// becomes a visual section header.
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
@@ -14,16 +20,16 @@ import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer?.isAdmin) return Astro.redirect('/internal');
 
-// Monday-of-this-week (advisor-weekly skill convention; same as `/internal/advisors/[name]/weekly`).
 function mondayOfThisWeek(d = new Date()): string {
-  const day = d.getDay() || 7; // 1..7, Mon=1
+  const day = d.getDay() || 7;
   const m = new Date(d);
   m.setDate(d.getDate() - (day - 1));
   m.setHours(0, 0, 0, 0);
   return m.toISOString().slice(0, 10);
 }
 const weekStart = mondayOfThisWeek();
-const ACTIVE_STAGES = ['中期在途', '后期在途', '需对接'];
+// '待对接' is the kickoff bucket — was missing from the old filter, so kickoff was always empty.
+const ACTIVE_STAGES = ['中期在途', '后期在途', '需对接', '待对接'];
 const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
 
 // 1) Active 中期 advisors
@@ -36,24 +42,34 @@ const advisors = ((advisorRows ?? []) as { name: string; roles: string[] | null 
   .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
 
 // 2) Active in-scope students (cohort ≥26F)
+type ContractDetail = { 名称?: string; 大类?: string; 签约金额?: number; 合同状态?: string; 签约日期?: string };
 type Stu = {
   id: number; name: string; stage: string | null;
   enroll_years: string[] | null; contracts: string[] | null;
-  yueling_tier: string | null; mid_advisors: string[] | null;
-  early_advisors: string[] | null; last_contact_at: string | null;
+  contract_details: ContractDetail[] | null;
+  current_school: string | null; major_intention: string | null;
+  target_regions: string[] | null;
+  mid_advisors: string[] | null;
+  early_advisors: string[] | null;
+  last_contact_at: string | null;
 };
 const { data: rawStudents } = await supabase
   .from('students')
-  .select('id, name, stage, enroll_years, contracts, yueling_tier, mid_advisors, early_advisors, last_contact_at')
+  .select('id, name, stage, enroll_years, contracts, contract_details, current_school, major_intention, target_regions, mid_advisors, early_advisors, last_contact_at')
   .in('stage', ACTIVE_STAGES);
 const allStudents = ((rawStudents ?? []) as Stu[]).filter((s) => studentHasInScopeCohort(s.enroll_years));
 
-// 3) This week's per-student AI advice
+// 3) This week's per-student rich advice
+type Advice = {
+  student_id: number; advisor_name: string; bucket: string;
+  suggestion_md: string | null;
+  background_md: string | null; planned_upsell: string | null;
+  recent_note_summary: string | null; watch_items_md: string | null;
+};
 const { data: adviceRows } = await supabase
   .from('student_weekly_advice')
-  .select('student_id, advisor_name, bucket, suggestion_md')
+  .select('student_id, advisor_name, bucket, suggestion_md, background_md, planned_upsell, recent_note_summary, watch_items_md')
   .eq('week_start', weekStart);
-type Advice = { student_id: number; advisor_name: string; bucket: string; suggestion_md: string };
 const adviceMap = new Map<string, Advice>();
 for (const r of (adviceRows ?? []) as Advice[]) adviceMap.set(`${r.student_id}::${r.advisor_name}`, r);
 
@@ -71,18 +87,39 @@ function deriveBucket(stage: string | null, days: number | null): BKey {
   if (days >= 14) return 'normal';
   return 'ok';
 }
-const LABEL: Record<BKey, string> = { urgent: '🔴 紧急', normal: '🟠 常规', kickoff: '🆕 待对接', ok: '正常' };
+const LABEL: Record<BKey, string> = { urgent: '🔴 紧急', normal: '🟠 常规', kickoff: '🆕 待对接', ok: '✅ 正常' };
 const RANK: Record<BKey, number> = { urgent: 0, normal: 1, kickoff: 2, ok: 3 };
 const isPrivate = (c: string[] | null) => Array.isArray(c) && c.some((x) => PRIVATE_CONTRACTS.includes(x));
+function sumAmount(details: ContractDetail[] | null): number {
+  if (!Array.isArray(details)) return 0;
+  let total = 0;
+  for (const d of details) {
+    if (!d || typeof d !== 'object') continue;
+    if (d.合同状态 === '已退费' || d.合同状态 === '退费') continue;
+    const amt = Number(d.签约金额 ?? 0);
+    if (Number.isFinite(amt)) total += amt;
+  }
+  return total;
+}
 
 // 5) Build per-advisor sheets + overview
 type SheetRow = {
-  '姓名': string; '紧急度': string;
-  '距上次沟通(d)': number | ''; '上次沟通日期': string;
-  '阶段': string; '入学年份': string; '合同': string;
-  '跃领分级': string; '前期': string; '本周建议(AI)': string;
+  '紧急度':       string;
+  '姓名':         string;
+  '距上次沟通(d)': number | '';
+  '上次沟通日期':  string;
+  '阶段':         string;
+  '入学年份':     string;
+  '学校':         string;
+  '总金额(¥)':    number | '';
+  '前期':         string;
+  '学生背景和说明': string;
+  '已规划的二销方向': string;
+  '最近沟通要点':  string;
+  '近期需关注事项': string;
+  '本周建议(AI)':  string;
 };
-const sheets: { advisor: string; rows: SheetRow[] }[] = [];
+const sheets: { advisor: string; rows: SheetRow[]; bucketSeq: BKey[] }[] = [];
 const overview: Array<Record<string, string | number>> = [];
 
 for (const adv of advisors) {
@@ -90,30 +127,47 @@ for (const adv of advisors) {
   let mine = allStudents.filter((s) => s.mid_advisors?.includes(name));
   if (name !== '王世杰') mine = mine.filter((s) => !isPrivate(s.contracts));
 
+  // Compose per-student metadata
   const meta = mine.map((s) => {
     const days = daysSince(s.last_contact_at);
     const a = adviceMap.get(`${s.id}::${name}`);
-    const bucket = ((a?.bucket as BKey) ?? deriveBucket(s.stage, days));
+    const bucket: BKey = ((a?.bucket as BKey) ?? deriveBucket(s.stage, days));
     return { s, days, a, bucket };
-  }).sort((x, y) => RANK[x.bucket] - RANK[y.bucket] || ((y.days ?? -1) - (x.days ?? -1)));
+  });
+
+  // Sort: bucket rank → last_contact_at ASC (nulls first → "no contact" floats up)
+  meta.sort((x, y) => {
+    const r = RANK[x.bucket] - RANK[y.bucket];
+    if (r !== 0) return r;
+    const lx = x.s.last_contact_at;
+    const ly = y.s.last_contact_at;
+    if (lx == null && ly == null) return 0;
+    if (lx == null) return -1;
+    if (ly == null) return 1;
+    return lx < ly ? -1 : (lx > ly ? 1 : 0);
+  });
 
   const rows: SheetRow[] = meta.map(({ s, days, a, bucket }) => ({
-    '姓名': s.name,
-    '紧急度': LABEL[bucket],
+    '紧急度':       LABEL[bucket],
+    '姓名':         s.name,
     '距上次沟通(d)': days ?? '',
-    '上次沟通日期': s.last_contact_at ?? '',
-    '阶段': s.stage ?? '',
-    '入学年份': (s.enroll_years ?? []).join(' / '),
-    '合同': (s.contracts ?? []).join(' / '),
-    '跃领分级': s.yueling_tier ?? '',
-    '前期': (s.early_advisors ?? []).join(' / '),
-    '本周建议(AI)': a?.suggestion_md ?? '',
+    '上次沟通日期':  s.last_contact_at ?? '',
+    '阶段':         s.stage ?? '',
+    '入学年份':     (s.enroll_years ?? []).join(' / '),
+    '学校':         s.current_school ?? '',
+    '总金额(¥)':    sumAmount(s.contract_details) || '',
+    '前期':         (s.early_advisors ?? []).join(' / '),
+    '学生背景和说明': a?.background_md ?? '',
+    '已规划的二销方向': a?.planned_upsell ?? '',
+    '最近沟通要点':  a?.recent_note_summary ?? '',
+    '近期需关注事项': a?.watch_items_md ?? '',
+    '本周建议(AI)':  a?.suggestion_md ?? '',
   }));
 
   const counts = { urgent: 0, normal: 0, kickoff: 0, ok: 0 };
   for (const m of meta) counts[m.bucket]++;
 
-  sheets.push({ advisor: name, rows });
+  sheets.push({ advisor: name, rows, bucketSeq: meta.map((m) => m.bucket) });
   const hasAdvice = ((adviceRows ?? []) as Advice[]).some((r) => r.advisor_name === name);
   overview.push({
     '顾问': name,
@@ -121,6 +175,7 @@ for (const adv of advisors) {
     '🔴 紧急': counts.urgent,
     '🟠 常规': counts.normal,
     '🆕 待对接': counts.kickoff,
+    '✅ 正常': counts.ok,
     '本周 AI 建议': hasAdvice ? '✓' : '—',
   });
 }
@@ -134,7 +189,7 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
     <h1 class="font-headline">导出本周顾问周报 (Excel)</h1>
     <p class="exp__sub">
       周一 <code>{weekStart}</code> · {advisors.length} 位 中期 顾问 · {totalStudents} 名在管学生
-      {!hasAnyAdvice && <span class="exp__warn">⚠ 本周还没跑过 /advisor-weekly,「本周建议(AI)」列将为空</span>}
+      {!hasAnyAdvice && <span class="exp__warn">⚠ 本周还没跑过 /advisor-weekly,「本周建议(AI)」+ 4 个 rich 字段将为空</span>}
     </p>
     <div id="status" class="exp__s">生成中…</div>
     <p class="exp__hint">下载完成后可直接关闭此页。如未触发下载,请检查浏览器拦截设置。</p>
@@ -142,7 +197,7 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
 
   <script id="exp-data" type="application/json" set:html={JSON.stringify(payload)}></script>
   <!-- xlsx-js-style: maintained fork of SheetJS CE that re-adds cell-level styling
-       (fill / font / border / alignment). Same global `XLSX` API as upstream. -->
+       (fill / font / border / alignment + cell merges). Same global `XLSX` API. -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
   <script is:inline>
     (function () {
@@ -171,7 +226,16 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
         '🔴 紧急':  'FEE2E2',
         '🟠 常规':  'FFEDD5',
         '🆕 待对接': 'DBEAFE',
+        '✅ 正常':  'F0FDF4',
       };
+      // Bucket header cell (the merged leftmost column) — bolder version of the tint
+      var BUCKET_HEAD_FILL = {
+        '🔴 紧急':  'FCA5A5',
+        '🟠 常规':  'FDBA74',
+        '🆕 待对接': '93C5FD',
+        '✅ 正常':  '86EFAC',
+      };
+
       function bodyStyle(fillRgb) {
         var s = {
           alignment: { vertical: 'top', wrapText: true },
@@ -181,54 +245,116 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
         if (fillRgb) s.fill = { fgColor: { rgb: fillRgb } };
         return s;
       }
-      // bucketCol: 0-indexed column of 紧急度 (null = no tinting, e.g. 总览)
-      function stylize(ws, bucketCol, bodyRowPt) {
+      function bucketHeadStyle(fillRgb) {
+        return {
+          alignment: { horizontal: 'center', vertical: 'center', wrapText: true },
+          font: { bold: true, sz: 11, name: 'Microsoft YaHei', color: { rgb: '1F2937' } },
+          border: BORDER_LIGHT,
+          fill: { fgColor: { rgb: fillRgb } },
+        };
+      }
+
+      // ── overview (no bucket merging) ──
+      function styleOverview(ws) {
         if (!ws['!ref']) return;
         var range = XLSX.utils.decode_range(ws['!ref']);
-        // header row
         for (var C = range.s.c; C <= range.e.c; C++) {
           var hAddr = XLSX.utils.encode_cell({ r: 0, c: C });
           if (ws[hAddr]) ws[hAddr].s = HEADER_STYLE;
         }
-        // body rows
         for (var R = 1; R <= range.e.r; R++) {
-          var fill = null;
-          if (bucketCol != null) {
-            var bAddr = XLSX.utils.encode_cell({ r: R, c: bucketCol });
-            var b = ws[bAddr] ? ws[bAddr].v : '';
-            fill = BUCKET_FILL[b] || null;
-          }
-          for (var Cb = range.s.c; Cb <= range.e.c; Cb++) {
-            var addr = XLSX.utils.encode_cell({ r: R, c: Cb });
+          for (var C2 = range.s.c; C2 <= range.e.c; C2++) {
+            var addr = XLSX.utils.encode_cell({ r: R, c: C2 });
             if (!ws[addr]) ws[addr] = { v: '', t: 's' };
-            ws[addr].s = bodyStyle(fill);
+            ws[addr].s = bodyStyle(null);
           }
         }
-        // row heights
         ws['!rows'] = [{ hpt: 28 }];
-        for (var i = 1; i <= range.e.r; i++) ws['!rows'][i] = { hpt: bodyRowPt || 22 };
-        // frozen header + autofilter
+        for (var i = 1; i <= range.e.r; i++) ws['!rows'][i] = { hpt: 22 };
         ws['!views'] = [{ state: 'frozen', xSplit: 0, ySplit: 1 }];
+        ws['!autofilter'] = { ref: ws['!ref'] };
+      }
+
+      // ── per-advisor sheet (bucket grouping + merge column 0) ──
+      // bucketSeq: array of bucket strings (one per data row), in display order.
+      function styleAdvisor(ws, bucketSeq) {
+        if (!ws['!ref']) return;
+        var range = XLSX.utils.decode_range(ws['!ref']);
+        // header
+        for (var C = range.s.c; C <= range.e.c; C++) {
+          var hAddr = XLSX.utils.encode_cell({ r: 0, c: C });
+          if (ws[hAddr]) ws[hAddr].s = HEADER_STYLE;
+        }
+        // body
+        for (var R = 1; R <= range.e.r; R++) {
+          var bucket = bucketSeq[R - 1] || '';
+          var rowFill = BUCKET_FILL[bucket] || null;
+          for (var C2 = range.s.c; C2 <= range.e.c; C2++) {
+            var addr = XLSX.utils.encode_cell({ r: R, c: C2 });
+            if (!ws[addr]) ws[addr] = { v: '', t: 's' };
+            // Column 0 = 紧急度: use the bolder head fill so the merged section header pops
+            if (C2 === 0) {
+              ws[addr].s = bucketHeadStyle(BUCKET_HEAD_FILL[bucket] || 'F3F4F6');
+            } else {
+              ws[addr].s = bodyStyle(rowFill);
+            }
+          }
+        }
+        // Merge consecutive rows in column 0 (紧急度) for the same bucket
+        var merges = [];
+        var runStart = 1;
+        for (var r = 1; r <= range.e.r; r++) {
+          var thisB = bucketSeq[r - 1];
+          var nextB = bucketSeq[r];
+          if (thisB !== nextB) {
+            if (r > runStart) merges.push({ s: { r: runStart, c: 0 }, e: { r: r, c: 0 } });
+            runStart = r + 1;
+          }
+        }
+        ws['!merges'] = merges;
+        // row heights: header 30pt; "ok" rows compact (24pt) since no rich AI fields;
+        // urgent/normal/kickoff rows 80pt to show multi-line narrative.
+        ws['!rows'] = [{ hpt: 30 }];
+        for (var i = 1; i <= range.e.r; i++) {
+          var b = bucketSeq[i - 1];
+          ws['!rows'][i] = { hpt: b === 'ok' || b === '✅ 正常' ? 24 : 80 };
+        }
+        ws['!views'] = [{ state: 'frozen', xSplit: 1, ySplit: 1 }]; // freeze first col + first row
         ws['!autofilter'] = { ref: ws['!ref'] };
       }
 
       try {
         var dataEl = document.getElementById('exp-data');
         var data = JSON.parse((dataEl && dataEl.textContent) || '{}');
-        if (typeof XLSX === 'undefined') { say('SheetJS 加载失败 (CDN 可能被拦截)'); return; }
+        if (typeof XLSX === 'undefined') { say('xlsx-js-style 加载失败 (CDN 可能被拦截)'); return; }
         var wb = XLSX.utils.book_new();
 
         // 总览
         var ov = XLSX.utils.json_to_sheet(data.overview || []);
-        ov['!cols'] = [{wch:12},{wch:8},{wch:8},{wch:8},{wch:10},{wch:14}];
-        stylize(ov, null, 22);
+        ov['!cols'] = [{wch:12},{wch:8},{wch:8},{wch:8},{wch:10},{wch:8},{wch:14}];
+        styleOverview(ov);
         XLSX.utils.book_append_sheet(wb, ov, '总览');
 
-        // 每顾问 — col 1 (B) = 紧急度 → tint, AI 建议列(col J) wrap → 60pt 行高
+        // 每顾问 — 14 columns matching SheetRow in SSR
         (data.sheets || []).forEach(function (s) {
           var ws = XLSX.utils.json_to_sheet(s.rows);
-          ws['!cols'] = [{wch:12},{wch:11},{wch:14},{wch:14},{wch:11},{wch:14},{wch:30},{wch:11},{wch:11},{wch:64}];
-          stylize(ws, 1, 60);
+          ws['!cols'] = [
+            { wch: 10 },  // 紧急度
+            { wch: 12 },  // 姓名
+            { wch: 10 },  // 距上次沟通(d)
+            { wch: 13 },  // 上次沟通日期
+            { wch: 11 },  // 阶段
+            { wch: 11 },  // 入学年份
+            { wch: 18 },  // 学校
+            { wch: 12 },  // 总金额(¥)
+            { wch: 12 },  // 前期
+            { wch: 38 },  // 学生背景和说明
+            { wch: 26 },  // 已规划的二销方向
+            { wch: 38 },  // 最近沟通要点
+            { wch: 38 },  // 近期需关注事项
+            { wch: 42 },  // 本周建议(AI)
+          ];
+          styleAdvisor(ws, s.bucketSeq || []);
           XLSX.utils.book_append_sheet(wb, ws, String(s.advisor).slice(0, 31));
         });
 
