@@ -269,8 +269,8 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
             ws[addr].s = bodyStyle(null);
           }
         }
-        ws['!rows'] = [{ hpt: 28 }];
-        for (var i = 1; i <= range.e.r; i++) ws['!rows'][i] = { hpt: 22 };
+        // Row heights deliberately NOT set — wrapText + no !rows entry causes
+        // Excel to auto-compute row height to fit content on file open.
         ws['!views'] = [{ state: 'frozen', xSplit: 0, ySplit: 1 }];
         ws['!autofilter'] = { ref: ws['!ref'] };
       }
@@ -312,13 +312,9 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
           }
         }
         ws['!merges'] = merges;
-        // row heights: header 30pt; "ok" rows compact (24pt) since no rich AI fields;
-        // urgent/normal/kickoff rows 80pt to show multi-line narrative.
-        ws['!rows'] = [{ hpt: 30 }];
-        for (var i = 1; i <= range.e.r; i++) {
-          var b = bucketSeq[i - 1];
-          ws['!rows'][i] = { hpt: b === 'ok' || b === '✅ 正常' ? 24 : 80 };
-        }
+        // Row heights deliberately NOT set — wrapText + no !rows entry causes Excel
+        // to auto-compute row height to fit content on file open. Vertical merges in
+        // column 0 don't block this (they only block the post-open AutoFit command).
         ws['!views'] = [{ state: 'frozen', xSplit: 1, ySplit: 1 }]; // freeze first col + first row
         ws['!autofilter'] = { ref: ws['!ref'] };
       }
