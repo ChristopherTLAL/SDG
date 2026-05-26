@@ -3,7 +3,7 @@
 // Linked from the "导出本周顾问周报 (Excel)" button on /internal/advisors. SSR
 // fetches advisors + their in-管 active students + this week's `student_weekly_advice`
 // rows (per-student AI suggestions, written by the refactored advisor-weekly skill).
-// Client-side SheetJS (CDN) builds a multi-sheet xlsx and triggers download.
+// Client-side xlsx-js-style (CDN) builds a multi-sheet styled xlsx and triggers download.
 //
 // Sheets: 总览 + one per 中期 advisor. Columns (9, no 私单标 — 私单 students are
 // segregated into 王世杰's sheet only, so the column carries no info anywhere).
@@ -141,27 +141,97 @@ const hasAnyAdvice = (adviceRows ?? []).length > 0;
   </div>
 
   <script id="exp-data" type="application/json" set:html={JSON.stringify(payload)}></script>
-  <script is:inline src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- xlsx-js-style: maintained fork of SheetJS CE that re-adds cell-level styling
+       (fill / font / border / alignment). Same global `XLSX` API as upstream. -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
   <script is:inline>
     (function () {
       var st = document.getElementById('status');
       function say(t, ok) { if (!st) return; st.textContent = t; st.className = 'exp__s' + (ok ? ' exp__s--ok' : ''); }
+
+      // ── style constants ──
+      var HEADER_STYLE = {
+        fill: { fgColor: { rgb: '1F2937' } },
+        font: { bold: true, color: { rgb: 'FFFFFF' }, sz: 11, name: 'Microsoft YaHei' },
+        alignment: { horizontal: 'center', vertical: 'center', wrapText: true },
+        border: {
+          top:    { style: 'thin', color: { rgb: 'FFFFFF' } },
+          bottom: { style: 'thin', color: { rgb: 'FFFFFF' } },
+          left:   { style: 'thin', color: { rgb: '374151' } },
+          right:  { style: 'thin', color: { rgb: '374151' } },
+        },
+      };
+      var BORDER_LIGHT = {
+        top:    { style: 'thin', color: { rgb: 'E5E7EB' } },
+        bottom: { style: 'thin', color: { rgb: 'E5E7EB' } },
+        left:   { style: 'thin', color: { rgb: 'E5E7EB' } },
+        right:  { style: 'thin', color: { rgb: 'E5E7EB' } },
+      };
+      var BUCKET_FILL = {
+        '🔴 紧急':  'FEE2E2',
+        '🟠 常规':  'FFEDD5',
+        '🆕 待对接': 'DBEAFE',
+      };
+      function bodyStyle(fillRgb) {
+        var s = {
+          alignment: { vertical: 'top', wrapText: true },
+          font: { sz: 10, name: 'Microsoft YaHei' },
+          border: BORDER_LIGHT,
+        };
+        if (fillRgb) s.fill = { fgColor: { rgb: fillRgb } };
+        return s;
+      }
+      // bucketCol: 0-indexed column of 紧急度 (null = no tinting, e.g. 总览)
+      function stylize(ws, bucketCol, bodyRowPt) {
+        if (!ws['!ref']) return;
+        var range = XLSX.utils.decode_range(ws['!ref']);
+        // header row
+        for (var C = range.s.c; C <= range.e.c; C++) {
+          var hAddr = XLSX.utils.encode_cell({ r: 0, c: C });
+          if (ws[hAddr]) ws[hAddr].s = HEADER_STYLE;
+        }
+        // body rows
+        for (var R = 1; R <= range.e.r; R++) {
+          var fill = null;
+          if (bucketCol != null) {
+            var bAddr = XLSX.utils.encode_cell({ r: R, c: bucketCol });
+            var b = ws[bAddr] ? ws[bAddr].v : '';
+            fill = BUCKET_FILL[b] || null;
+          }
+          for (var Cb = range.s.c; Cb <= range.e.c; Cb++) {
+            var addr = XLSX.utils.encode_cell({ r: R, c: Cb });
+            if (!ws[addr]) ws[addr] = { v: '', t: 's' };
+            ws[addr].s = bodyStyle(fill);
+          }
+        }
+        // row heights
+        ws['!rows'] = [{ hpt: 28 }];
+        for (var i = 1; i <= range.e.r; i++) ws['!rows'][i] = { hpt: bodyRowPt || 22 };
+        // frozen header + autofilter
+        ws['!views'] = [{ state: 'frozen', xSplit: 0, ySplit: 1 }];
+        ws['!autofilter'] = { ref: ws['!ref'] };
+      }
+
       try {
         var dataEl = document.getElementById('exp-data');
         var data = JSON.parse((dataEl && dataEl.textContent) || '{}');
         if (typeof XLSX === 'undefined') { say('SheetJS 加载失败 (CDN 可能被拦截)'); return; }
         var wb = XLSX.utils.book_new();
+
         // 总览
         var ov = XLSX.utils.json_to_sheet(data.overview || []);
-        ov['!cols'] = [{wch:10},{wch:6},{wch:7},{wch:7},{wch:9},{wch:10}];
+        ov['!cols'] = [{wch:12},{wch:8},{wch:8},{wch:8},{wch:10},{wch:14}];
+        stylize(ov, null, 22);
         XLSX.utils.book_append_sheet(wb, ov, '总览');
-        // 每顾问
+
+        // 每顾问 — col 1 (B) = 紧急度 → tint, AI 建议列(col J) wrap → 60pt 行高
         (data.sheets || []).forEach(function (s) {
           var ws = XLSX.utils.json_to_sheet(s.rows);
-          ws['!cols'] = [{wch:10},{wch:10},{wch:13},{wch:13},{wch:9},{wch:12},{wch:28},{wch:10},{wch:10},{wch:60}];
-          // Excel sheet name limit: 31 chars; advisor names are short.
+          ws['!cols'] = [{wch:12},{wch:11},{wch:14},{wch:14},{wch:11},{wch:14},{wch:30},{wch:11},{wch:11},{wch:64}];
+          stylize(ws, 1, 60);
           XLSX.utils.book_append_sheet(wb, ws, String(s.advisor).slice(0, 31));
         });
+
         var fn = '顾问周报_' + data.weekStart + '.xlsx';
         XLSX.writeFile(wb, fn);
         say('已下载 ✓ ' + fn, true);
