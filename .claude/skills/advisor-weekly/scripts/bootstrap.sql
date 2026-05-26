@@ -23,14 +23,27 @@ create table if not exists public.student_weekly_advice (
   advisor_name        text    not null,
   bucket              text    not null check (bucket in ('urgent','normal','kickoff')),
   days_since_contact  int,
-  suggestion_md       text    not null,
+  suggestion_md       text    not null,    -- 本周建议 — why → do-this
   last_note_date      date,
   pending_subs_count  int     default 0,
+  -- v2 rich fields (2026-05-26): drive the new Excel columns
+  background_md       text,                -- 学生背景和说明 (在读/GPA/标化/家庭等关键 context)
+  planned_upsell      text,                -- 已规划的二销方向 (literal from records, "无" if not stated)
+  recent_note_summary text,                -- 最近沟通要点 (extracted from latest 沟通记录)
+  watch_items_md      text,                -- 近期需关注事项 (bullet list, forward-looking)
   generated_at        timestamptz not null default now(),
   primary key (student_id, week_start, advisor_name)
 );
 create index if not exists idx_swa_advisor_week
   on public.student_weekly_advice (advisor_name, week_start);
+
+-- v2 rich fields idempotent backfill (for existing tables created without them):
+alter table public.student_weekly_advice
+  add column if not exists background_md       text,
+  add column if not exists planned_upsell      text,
+  add column if not exists recent_note_summary text,
+  add column if not exists watch_items_md      text;
+
 -- Per the project's new-table convention (memory: supabase_new_table_grant) —
 -- public-schema new tables default to no grants; service_role must be granted
 -- and RLS must be enabled in the same migration.
