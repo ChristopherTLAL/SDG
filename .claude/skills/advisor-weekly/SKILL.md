@@ -102,55 +102,113 @@ STEP 4 — Compute days_since_contact = TODAY - last_contact_at::date for each s
            🆕 待对接 — stage = '待对接' (regardless of days; first contact pending)
          Students with days < 14 are dropped — the page already lists them under 「建议跟进」 from raw data.
 
-STEP 5 — Write the markdown. Format:
+STEP 5 — Return STRUCTURED JSON. The parent Opus parses + persists this into TWO tables:
+per-student rows go into `student_weekly_advice` (source of truth for the Excel export
+and any future per-student UI), and a derived markdown blob still goes into
+`advisor_weekly_advice.advice_md` for the existing weekly web page.
 
-  ## 本周建议跟进 · <ADVISOR_NAME>
+Output ONE JSON object matching this schema exactly:
 
-  **🔴 优先 (N)**
-  - <学生名> (<stage> · <enroll_year> · <days>d 未联系): <一句话 why> + <一句话 do-this>
-  - ...
+  {
+    "advisor_name": "<ADVISOR_NAME>",
+    "week_start":   "<WEEK_START_YYYY_MM_DD>",
+    "students": [
+      {
+        "student_id":          <int>,
+        "name":                "<学生名 — for log/sanity only, not stored>",
+        "bucket":              "urgent" | "normal" | "kickoff",
+        "stage":               "<stage from STEP 1 — passed through verbatim>",
+        "enroll_year":         "<first element of enroll_years, e.g. '2026 fall'>",
+        "days_since_contact":  <int or null>,
+        "last_note_date":      "<YYYY-MM-DD or null>",
+        "pending_subs_count":  <int>,
+        "target_region":       "<first element of target_regions, or null — used by kickoff bullets>",
+        "suggestion_md":       "<one or two sentences: why → do-this>"
+      },
+      ...
+    ]
+  }
 
-  **🟠 常规 (N)**
-  - ...
+Bucket mapping (same rule as STEP 4):
+  - "urgent"  → 🔴 优先   (stage='后期在途' AND days>=31, OR stage in ('中期在途','需对接') AND days>=28)
+  - "normal"  → 🟠 常规   (14 <= days < urgent threshold for that stage)
+  - "kickoff" → 🆕 待对接 (stage='待对接', regardless of days)
 
-  **🆕 待对接 kickoff (N)**
-  - <学生名> (<enroll_year> · <目标地区>): <一句话 do-this>
-  - ...
+Students with days < 14 AND stage != '待对接' are DROPPED — do NOT include them.
+An advisor with zero qualifying students returns `"students": []` and Opus handles it.
 
-  ALWAYS write the heading even if a bucket is empty — print "(0)" and "本周该顾问该桶下无学生" so the advisor knows it was checked.
+QUALITY BAR — `suggestion_md` must be SPECIFIC. Spend tokens reading the actual 沟通记录 body_md.
+Bucket / days / 学生姓名 are already in structured fields — DO NOT repeat them in `suggestion_md`.
 
-QUALITY BAR — your advice must be SPECIFIC. Spend tokens reading the actual 沟通记录 body_md.
+  ✓ GOOD: "4/15 沟通记录学生说要试三个夏校但还没选定 → 本周主动 ping,让他给出 4 选 1 名单 + 顺带催 IELTS 4 月模考成绩单"
+  ✗ BAD:  "已 30+ 天未联系 → 本周主动跟进"   (空话; days 已经在结构化字段里)
+  ✗ BAD:  "跟进文书"                       (没说为什么、没说做什么)
 
-  ✓ GOOD: "张三 (中期 · 24F · 32d 未联系): 4/15 沟通记录学生说要试三个夏校但还没选定 → 本周主动 ping，让他给出 4 选 1 名单 + 顺带催 IELTS 4 月模考成绩单"
-  ✗ BAD:  "张三 (中期 · 24F · 32d 未联系): 已 30+ 天未联系 → 本周主动跟进"   (空话; days 信息已经在括号里, 跟进是废话)
-  ✗ BAD:  "李四: 跟进文书"                                                    (没说为什么、没说做什么)
+If the latest 沟通记录 contains an explicit 「下一步」/「Action Items」/「我会...」 section, lift those as
+the do-this — they're verbatim promises the advisor made and the student is waiting on.
 
-If the latest 沟通记录 contains an explicit 「下一步」/「Action Items」/「我会...」 section, lift those as the do-this — they're verbatim promises the advisor made and the student is waiting on.
-
-STEP 6 — Return ONLY the markdown. Don't preamble, don't explain — the parent agent (Opus) will collect your markdown and upsert it.
+STEP 6 — Return ONLY the JSON object. No preamble, no markdown framing, no code-fence —
+just the raw JSON so the parent can JSON.parse it directly.
 ```
 
 Replace `<ADVISOR_NAME>` and `<WEEK_START_YYYY_MM_DD>` per advisor before spawning.
 
-### Step 4: review + UPSERT
+### Step 4: review + dual-table UPSERT
 
-After all subagents return, Opus reads each markdown output and does a light review:
+After all subagents return, Opus parses each JSON output and does a light review:
 
-- Heading present? `## 本周建议跟进 · {name}` matches the advisor?
-- Three buckets present, each with `(N)` count?
-- Spot-check 2-3 random items: is the why-then-what format respected? Or is it vague?
-- If a subagent returned something off-format, regenerate that one (re-spawn with stricter prompt) — don't write garbage to the DB.
+- Valid JSON matching the schema? `advisor_name` + `week_start` match what was requested?
+- Each student has `student_id`, `bucket` ∈ {urgent, normal, kickoff}, non-empty `suggestion_md`?
+- Spot-check 2-3 random `suggestion_md` values: specific (references actual notes/dates) — or vague ("跟进文书" type)?
+- If a subagent returned malformed JSON or vague suggestions, re-spawn that one — don't write garbage.
 
-Then for each advisor, run:
+Then persist to BOTH tables. Use `mcp__supabase__execute_sql` with `params` for parameter binding (suggestion_md / advice_md can contain quotes).
+
+#### (a) Per-student rows into `student_weekly_advice`
+
+The source of truth for the Excel export + any future per-student UI. One row per item in `students[]`. Skip entirely if `students[]` is empty.
+
+```sql
+INSERT INTO student_weekly_advice
+  (student_id, week_start, advisor_name, bucket, days_since_contact,
+   suggestion_md, last_note_date, pending_subs_count, generated_at)
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8, now())
+ON CONFLICT (student_id, week_start, advisor_name) DO UPDATE SET
+  bucket             = EXCLUDED.bucket,
+  days_since_contact = EXCLUDED.days_since_contact,
+  suggestion_md      = EXCLUDED.suggestion_md,
+  last_note_date     = EXCLUDED.last_note_date,
+  pending_subs_count = EXCLUDED.pending_subs_count,
+  generated_at       = now();
+```
+
+#### (b) Aggregated markdown into `advisor_weekly_advice`
+
+Backward-compat: the website's `/internal/advisors/[name]/weekly` still renders this. Build the markdown by walking the JSON's `students[]` grouped by `bucket`, using the same shape the old skill produced:
+
+```
+## 本周建议跟进 · <advisor>
+
+**🔴 优先 (N)**
+- <name> (<stage> · <enroll_year> · <days>d 未联系): <suggestion_md>
+- ...
+
+**🟠 常规 (N)**
+- ...
+
+**🆕 待对接 kickoff (N)**
+- <name> (<enroll_year> · <target_region>): <suggestion_md>
+- ...
+```
+
+ALWAYS print all three bucket headers with `(N)` even when empty (use `(0)` + "本周该顾问该桶下无学生"). For an advisor with `students: []`, write a single-line advice: `"本周该顾问无 in-管 学生。"`. Then UPSERT:
 
 ```sql
 INSERT INTO advisor_weekly_advice (advisor_name, week_start, advice_md, generated_at)
 VALUES ($1, $2, $3, now())
-ON CONFLICT (advisor_name, week_start)
-DO UPDATE SET advice_md = EXCLUDED.advice_md, generated_at = now();
+ON CONFLICT (advisor_name, week_start) DO UPDATE SET
+  advice_md = EXCLUDED.advice_md, generated_at = now();
 ```
-
-via `mcp__supabase__execute_sql`. Parameter binding via `params` is preferred over string interpolation (markdown can contain quotes).
 
 ### Step 5: final report
 
@@ -171,7 +229,7 @@ Inspect on the site:
   ...
 ```
 
-Pull the bucket counts by parsing each subagent's markdown (regex `\((\d+)\)` against the header lines), or count items in each bucket.
+Bucket counts come straight from the JSON: group each subagent's `students[]` by `bucket` and count.
 
 ## What this skill does NOT do
 
@@ -189,7 +247,8 @@ Pull the bucket counts by parsing each subagent's markdown (regex `\((\d+)\)` ag
 
 ## See also
 
-- `scripts/bootstrap.sql` — the `create table if not exists` DDL for `advisor_weekly_advice`. Single source of truth.
-- `src/pages/internal/advisors/[name]/weekly.astro` — the page that consumes this table.
+- `scripts/bootstrap.sql` — `create table if not exists` DDL for BOTH `advisor_weekly_advice` (the per-advisor markdown blob, fed to the website) AND `student_weekly_advice` (per-student rows, fed to the Excel export). Single source of truth.
+- `src/pages/internal/advisors/[name]/weekly.astro` — the per-advisor page; reads `advisor_weekly_advice.advice_md` (markdown).
+- `src/pages/internal/advisors/index.astro` — the catalog page; hosts the "导出本周顾问周报 (Excel)" button which reads `student_weekly_advice` for per-student rows.
 - `src/utils/cohort-filter.ts` — defines the 26F+ cohort floor used in the SQL `enroll_years` predicate above.
 - `.claude/skills/morning-digest/SKILL.md` — sibling skill using the same parallel-subagents architecture (different cadence + output).

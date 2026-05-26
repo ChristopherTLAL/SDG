@@ -83,7 +83,15 @@ function canClickAdvisor(_advName: string): boolean {
   <a href="/internal/kanban" class="back-link">← Kanban</a>
 
   <header class="advisors-head">
-    <h1 class="font-headline advisors-title">Advisors</h1>
+    <div class="advisors-head__row">
+      <h1 class="font-headline advisors-title">Advisors</h1>
+      {viewer?.isAdmin && (
+        <a href="/internal/advisors/weekly-export" target="_blank" rel="noopener" class="advisors-export" title="一键导出本周所有顾问周报为 Excel (多 sheet,每顾问一 sheet)">
+          <span class="material-symbols-outlined">download</span>
+          导出本周顾问周报 (Excel)
+        </a>
+      )}
+    </div>
     <p class="advisors-sub">
       全公司在册中期顾问 {advisors.length} 位 · 学生归属采多顾问口径
       ({canClickAny ? '点 「看板」 / 「本周提醒」 进个人页' : '当前用户无个人页访问权限'})
@@ -176,6 +184,29 @@ function canClickAdvisor(_advName: string): boolean {
     font-size: 13px;
     color: var(--text-muted);
   }
+
+  .advisors-head__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .advisors-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .15s;
+  }
+  .advisors-export:hover { background: var(--primary-dim); }
+  .advisors-export .material-symbols-outlined { font-size: 18px; }
 
   .advisor-grid {
     list-style: none;
