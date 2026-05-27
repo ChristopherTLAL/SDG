@@ -46,12 +46,17 @@ export async function resolveViewer(request: Request): Promise<Viewer | null> {
 
   const { data: advisorRow } = await supabase
     .from('advisors')
-    .select('name, is_admin')
+    .select('name, is_admin, active')
     .contains('emails', [email])
     .maybeSingle();
 
   let viewer: Viewer;
-  if (advisorRow) {
+  // An advisor row matches AND active is not explicitly false → full advisor.
+  // active=false (former / off-boarded advisor) → demote to guest viewer:
+  // CF Access already authenticated them via the xdf.cn wildcard or OTP, but
+  // they no longer get advisor privileges (submit / 私单 visibility / caseload
+  // attribution). This is the auth-layer enforcement of vault YAML `active`.
+  if (advisorRow && advisorRow.active !== false) {
     viewer = {
       email,
       name: advisorRow.name,
@@ -59,11 +64,11 @@ export async function resolveViewer(request: Request): Promise<Viewer | null> {
       isAdvisor: true,
     };
   } else {
-    // Authenticated XDF colleague with no advisor row — guest viewer. They
-    // see the dashboard and roster (with 私单 hidden) but can't submit etc.
+    // Authenticated XDF colleague with no (or inactive) advisor row — guest viewer.
+    // They see the dashboard and roster (with 私单 hidden) but can't submit etc.
     viewer = {
       email,
-      name: email.split('@')[0],
+      name: advisorRow ? advisorRow.name : email.split('@')[0],
       isAdmin: false,
       isAdvisor: false,
     };
