@@ -1,0 +1,375 @@
+---
+// src/pages/tools/personality/[id]/print.astro
+// 性格报告 PDF 导出页 — 仿 EnglishPrintLayout 的「打印页 + action bar + @page A4」模式。
+// ?mode=simple|full 控制是否渲染 data-detail 段（数据画像 / 行为证据 / 原始分 / N 子维度），
+// 与网页报告的 simple/full 切换完全一致：复用 parseMarkdown 已注入的 data-detail 包裹。
+import { client } from '../../../../lib/sanity/client';
+import { parseMarkdown } from '../../../../lib/mdpa/parseMarkdown';
+import { DIMENSIONS, DIMENSION_LABELS } from '../../../../lib/mdpa/constants';
+
+const { id } = Astro.params;
+const modeParam = Astro.url.searchParams.get('mode');
+const mode: 'simple' | 'full' = modeParam === 'simple' ? 'simple' : 'full';
+
+const result = await client.fetch(
+  `*[_type == "mdpaResult" && resultId == $id][0]{
+    resultId, studentName, mbtiType, mbtiStrength, ocean, oceanRaw, nClusters,
+    completedAt, totalQuestions, durationSeconds,
+    reportO, reportC, reportE, reportA, reportN, reportInteractions, reportPersonal
+  }`,
+  { id }
+);
+
+// No report content → bounce back to the viewer page.
+if (!result || !result.reportO || !result.reportInteractions || !result.reportPersonal) {
+  return Astro.redirect(`/tools/personality/${id}`);
+}
+
+const mbti = result.mbtiType || '????';
+const mbtiStr: Record<string, number> = result.mbtiStrength || {};
+const ocean: Record<string, number> = result.ocean || {};
+const oceanRaw: Record<string, number> | undefined = result.oceanRaw;
+const nClusters: Record<string, number> | undefined = result.nClusters;
+
+const dims: Record<string, string> = {
+  O: parseMarkdown(result.reportO || '').html,
+  C: parseMarkdown(result.reportC || '').html,
+  E: parseMarkdown(result.reportE || '').html,
+  A: parseMarkdown(result.reportA || '').html,
+  N: parseMarkdown(result.reportN || '').html,
+};
+const interactionsHtml = parseMarkdown(result.reportInteractions || '').html;
+const personalHtml = parseMarkdown(result.reportPersonal || '').html;
+
+const mbtiAxes = [
+  { key: 'EI', labels: ['I 内向', 'E 外向'] },
+  { key: 'NS', labels: ['S 实感', 'N 直觉'] },
+  { key: 'FT', labels: ['T 思考', 'F 情感'] },
+  { key: 'JP', labels: ['P 感知', 'J 判断'] },
+] as const;
+
+const completedStr = result.completedAt
+  ? new Date(result.completedAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })
+  : '';
+const durationMin = result.durationSeconds ? Math.round(result.durationSeconds / 60) : null;
+
+const studentName = result.studentName || 'Anonymous';
+const otherMode = mode === 'simple' ? 'full' : 'simple';
+const modeLabel = mode === 'simple' ? '性格解析（简版）' : '数据分析报告（完整版）';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{studentName} · MDPA 性格报告 · {modeLabel}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-mode={mode}>
+    <!-- ─────────── action bar (screen only) ─────────── -->
+    <div class="pr-actions no-print">
+      <a href={`/tools/personality/${id}`} class="pr-btn pr-btn-ghost">← 返回报告</a>
+      <button id="pr-print" class="pr-btn" type="button">保存为 PDF / 打印</button>
+      <a href={`/tools/personality/${id}/print?mode=${otherMode}`} class="pr-btn pr-btn-ghost">
+        切换到{otherMode === 'simple' ? '简版' : '完整版'}
+      </a>
+      <span class="pr-hint">
+        当前：<b>{modeLabel}</b>。打印对话框里选「另存为 PDF」，边距设为「默认」，并勾选「背景图形」。
+      </span>
+    </div>
+
+    <main class="pr-doc">
+      <!-- ─────────── cover / header ─────────── -->
+      <header class="pr-cover">
+        <div class="pr-eyebrow">MDPA 人格测评报告</div>
+        <h1 class="pr-name">{studentName}</h1>
+        <div class="pr-mbti">{mbti}</div>
+        <div class="pr-meta">
+          {completedStr}
+          {result.totalQuestions ? ` · ${result.totalQuestions} 道题` : ''}
+          {durationMin ? ` · ${durationMin} 分钟` : ''}
+          {` · ${modeLabel}`}
+        </div>
+      </header>
+
+      <!-- ─────────── overview: MBTI axes + OCEAN ─────────── -->
+      <section class="pr-overview">
+        <h2 class="pr-h2"><span class="pr-h2-num">1</span>概览</h2>
+
+        <h3 class="pr-h3">MBTI 轴向强度</h3>
+        <div class="pr-mbti-axes">
+          {mbtiAxes.map(({ key, labels }) => {
+            const v = mbtiStr[key] ?? 0.5;
+            const pct = Math.round(Math.abs(v - 0.5) * 200);
+            const strength = pct > 60 ? '明确' : pct > 20 ? '较明确' : '边界型';
+            return (
+              <div class="pr-axis">
+                <span class="pr-axis-l">{labels[0]}</span>
+                <div class="pr-axis-track">
+                  <div class="pr-axis-fill" style={`width:${Math.round(v * 100)}%;opacity:${v >= 0.5 ? 1 : 0.45}`}></div>
+                  <div class="pr-axis-mid"></div>
+                </div>
+                <span class="pr-axis-r">{labels[1]}</span>
+                <span class="pr-axis-tag">{strength}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        <h3 class="pr-h3">OCEAN 大五人格（校准分，0 为同龄平均，单位：标准差）</h3>
+        <div class="pr-ocean">
+          {DIMENSIONS.map((dim) => {
+            const score = ocean[dim] ?? 0;
+            const clamped = Math.max(-2.5, Math.min(2.5, score));
+            const halfPct = (Math.abs(clamped) / 2.5) * 50;
+            const isPos = clamped >= 0;
+            const label = DIMENSION_LABELS[dim];
+            return (
+              <div class="pr-ocean-row">
+                <div class="pr-ocean-label"><b>{dim}</b> {label.zh}<span class="pr-ocean-en"> {label.en}</span></div>
+                <div class="pr-ocean-track">
+                  <div class="pr-ocean-zero"></div>
+                  <div
+                    class="pr-ocean-fill"
+                    style={`${isPos ? 'left:50%' : `left:${50 - halfPct}%`};width:${halfPct}%`}
+                  ></div>
+                </div>
+                <div class="pr-ocean-score">{score.toFixed(2)}</div>
+              </div>
+            );
+          })}
+        </div>
+
+        <!-- detail-only: raw scores + N sub-clusters -->
+        <div data-detail="true" class="pr-detail-block">
+          {oceanRaw && (
+            <div class="pr-detail-row">
+              <span class="pr-detail-h">原始分（AV 校准前）</span>
+              {(['O', 'C', 'E', 'A'] as const).map((d) => (
+                <span class="pr-mono">{d}: {(oceanRaw[d] ?? 0).toFixed(3)}</span>
+              ))}
+            </div>
+          )}
+          {nClusters && (
+            <div class="pr-detail-row">
+              <span class="pr-detail-h">N 子维度</span>
+              <span class="pr-mono">反刍 ar: {(nClusters.ar ?? 0).toFixed(2)}</span>
+              <span class="pr-mono">压力 sv: {(nClusters.sv ?? 0).toFixed(2)}</span>
+              <span class="pr-mono">情绪 er: {(nClusters.er ?? 0).toFixed(2)}</span>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <!-- ─────────── dimension interactions ─────────── -->
+      <section class="pr-section">
+        <h2 class="pr-h2"><span class="pr-h2-num">2</span>维度交互解读</h2>
+        <div class="pr-body" set:html={interactionsHtml} />
+      </section>
+
+      <!-- ─────────── five dimensions ─────────── -->
+      <section class="pr-section">
+        <h2 class="pr-h2"><span class="pr-h2-num">3</span>五大人格深度</h2>
+        {DIMENSIONS.map((dim) => {
+          const label = DIMENSION_LABELS[dim];
+          const score = (ocean[dim] ?? 0).toFixed(3);
+          return (
+            <div class="pr-dim">
+              <h3 class="pr-dim-head">
+                <span class="pr-dim-letter">{dim}</span>
+                <span class="pr-dim-name">{label.zh} <span class="pr-dim-en">{label.en}</span></span>
+                <span class="pr-dim-score">校准分 {score}</span>
+              </h3>
+              <div class="pr-body" set:html={dims[dim]} />
+            </div>
+          );
+        })}
+      </section>
+
+      <!-- ─────────── personalized analysis + letter ─────────── -->
+      <section class="pr-section pr-personal">
+        <h2 class="pr-h2"><span class="pr-h2-num">4</span>个人化深度分析</h2>
+        <div class="pr-body" set:html={personalHtml} />
+      </section>
+
+      <footer class="pr-footer">
+        Chinese SDGs Institute · MDPA 人格测评 · 本报告为内省式参考，非临床诊断
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById('pr-print')?.addEventListener('click', () => window.print());
+    </script>
+
+    <style is:global>
+      @page { size: A4; margin: 16mm 15mm; }
+
+      :root {
+        --ink: #1a1a1a;
+        --accent: #042f24;
+        --muted: #64748b;
+        --soft: #94a3b8;
+        --line: #e2e8f0;
+        --cjk: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: #eef0f3;
+        color: var(--ink);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif;
+        font-size: 11pt;
+        line-height: 1.6;
+      }
+      /* Force background colors into the PDF (browsers drop them by default). */
+      body, body * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      /* simple-mode hide — mirrors the web report's data-mode mechanism */
+      body[data-mode="simple"] [data-detail="true"] { display: none !important; }
+
+      /* ── action bar (screen only) ── */
+      .pr-actions {
+        position: sticky; top: 0; z-index: 50;
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        padding: 11px 18px; background: #0f172a; color: #fff;
+      }
+      .pr-btn {
+        font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+        padding: 8px 16px; border-radius: 8px; border: none;
+        background: var(--accent); color: #fff; text-decoration: none;
+      }
+      .pr-btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); }
+      .pr-hint { font-size: 12px; color: rgba(255,255,255,0.72); }
+      .pr-hint b { color: #fff; }
+
+      /* ── document shell ── */
+      .pr-doc {
+        background: #fff; max-width: 210mm; margin: 22px auto; padding: 18mm 16mm;
+        box-shadow: 0 10px 40px -12px rgba(0,0,0,0.3);
+      }
+
+      /* ── cover ── */
+      .pr-cover { padding-bottom: 14px; margin-bottom: 22px; border-bottom: 2px solid var(--accent); }
+      .pr-eyebrow { font-size: 10pt; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+      .pr-name { font-family: 'Manrope', var(--cjk); font-weight: 800; font-size: 26pt; line-height: 1.1; margin: 6px 0 0; color: #0f172a; }
+      .pr-mbti { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20pt; letter-spacing: 6px; color: var(--accent); margin: 8px 0 0; }
+      .pr-meta { font-size: 9.5pt; color: var(--muted); margin: 8px 0 0; }
+
+      /* ── headings ── */
+      .pr-h2 {
+        display: flex; align-items: center; gap: 10px;
+        font-family: 'Manrope', var(--cjk); font-weight: 800; font-size: 15pt;
+        margin: 26px 0 14px; padding-bottom: 6px;
+        border-bottom: 2px solid var(--accent); color: #0f172a;
+        break-after: avoid; break-inside: avoid;
+      }
+      .pr-h2-num {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 22px; height: 22px; flex: 0 0 auto;
+        background: var(--accent); color: #fff; border-radius: 5px; font-size: 11pt;
+      }
+      .pr-h3 {
+        font-family: 'Manrope', var(--cjk); font-weight: 700; font-size: 11.5pt;
+        margin: 16px 0 8px; color: #0f172a; break-after: avoid;
+      }
+
+      /* ── MBTI axes ── */
+      .pr-mbti-axes { display: flex; flex-direction: column; gap: 9px; margin-bottom: 6px; }
+      .pr-axis { display: grid; grid-template-columns: 64px 1fr 64px 52px; align-items: center; gap: 8px; font-size: 9.5pt; }
+      .pr-axis-l { color: var(--muted); }
+      .pr-axis-r { color: var(--muted); text-align: right; }
+      .pr-axis-track { position: relative; height: 14px; background: #eef2f6; border-radius: 7px; overflow: hidden; }
+      .pr-axis-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); border-radius: 7px; }
+      .pr-axis-mid { position: absolute; left: 50%; top: 0; width: 1px; height: 100%; background: rgba(0,0,0,0.18); }
+      .pr-axis-tag { font-size: 8pt; font-weight: 700; color: var(--muted); text-align: right; }
+
+      /* ── OCEAN diverging bars ── */
+      .pr-ocean { display: flex; flex-direction: column; gap: 8px; }
+      .pr-ocean-row { display: grid; grid-template-columns: 132px 1fr 46px; align-items: center; gap: 10px; }
+      .pr-ocean-label { font-size: 9.5pt; color: #334155; }
+      .pr-ocean-label b { font-family: 'Manrope', monospace; color: var(--accent); margin-right: 3px; }
+      .pr-ocean-en { color: var(--soft); font-size: 8pt; }
+      .pr-ocean-track { position: relative; height: 16px; background: #f1f5f9; border-radius: 4px; }
+      .pr-ocean-zero { position: absolute; left: 50%; top: -2px; width: 1px; height: calc(100% + 4px); background: rgba(0,0,0,0.25); }
+      .pr-ocean-fill { position: absolute; top: 0; height: 100%; background: var(--accent); border-radius: 3px; opacity: 0.82; }
+      .pr-ocean-score { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 9.5pt; font-weight: 700; text-align: right; color: #0f172a; }
+
+      /* ── detail block (full mode only) ── */
+      .pr-detail-block { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+      .pr-detail-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 6px 0; font-size: 9pt; }
+      .pr-detail-h { font-weight: 700; color: var(--muted); }
+      .pr-mono { font-family: ui-monospace, 'SF Mono', Menlo, monospace; color: #334155; }
+
+      /* ── dimension blocks ── */
+      .pr-dim { margin: 14px 0 20px; }
+      .pr-dim-head {
+        display: flex; align-items: baseline; gap: 10px;
+        margin: 18px 0 8px; padding: 6px 0 5px;
+        border-bottom: 1px solid var(--line); break-after: avoid;
+      }
+      .pr-dim-letter {
+        font-family: 'Manrope', monospace; font-weight: 800; font-size: 13pt;
+        color: #fff; background: var(--accent); border-radius: 5px;
+        width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto;
+      }
+      .pr-dim-name { font-family: 'Manrope', var(--cjk); font-weight: 800; font-size: 13pt; color: #0f172a; }
+      .pr-dim-en { font-weight: 500; font-size: 10pt; color: var(--muted); }
+      .pr-dim-score { margin-left: auto; font-family: ui-monospace, monospace; font-size: 9pt; color: var(--muted); }
+
+      /* ── rendered markdown body ── */
+      .pr-body { font-size: 10.5pt; line-height: 1.72; }
+      .pr-body h2 {
+        font-family: 'Manrope', var(--cjk); font-weight: 700; font-size: 11.5pt; color: #0f172a;
+        margin: 15px 0 7px; padding-left: 9px; border-left: 3px solid var(--accent); break-after: avoid;
+      }
+      .pr-body h3 { font-family: 'Manrope', var(--cjk); font-weight: 700; font-size: 10.5pt; color: #1e293b; margin: 12px 0 5px; break-after: avoid; }
+      .pr-body p { margin: 7px 0; }
+      .pr-body ul, .pr-body ol { margin: 7px 0; padding-left: 20px; }
+      .pr-body li { margin: 4px 0; line-height: 1.65; }
+      .pr-body strong, .pr-body b { font-weight: 700; color: #0f172a; }
+      .pr-body a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(4,47,36,0.3); word-break: break-word; }
+      .pr-body hr { border: none; border-top: 1px solid var(--line); margin: 14px 0; }
+
+      /* blockquote → insight card（报告里的 > [!洞察｜...] 等会落到这里） */
+      .pr-body blockquote {
+        margin: 10px 0; padding: 9px 13px;
+        background: color-mix(in srgb, var(--accent) 6%, white);
+        border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+        color: #243b34; break-inside: avoid;
+      }
+      .pr-body blockquote p { margin: 4px 0; font-size: 10pt; }
+      .pr-body blockquote p:first-child { margin-top: 0; }
+      .pr-body blockquote p:last-child { margin-bottom: 0; }
+
+      /* three-line table */
+      .pr-body table {
+        border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 9.5pt;
+        border-top: 1.5pt solid #1a1a1a; border-bottom: 1.5pt solid #1a1a1a;
+        break-inside: avoid;
+      }
+      .pr-body th { text-align: left; padding: 5px 9px; font-weight: 700; border-bottom: 0.75pt solid #1a1a1a; color: #334155; }
+      .pr-body td { padding: 5px 9px; line-height: 1.5; vertical-align: top; }
+      .pr-body tr { break-inside: avoid; }
+
+      /* ── footer ── */
+      .pr-footer { margin-top: 26px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8.5pt; color: var(--soft); text-align: center; }
+
+      /* ── screen vs print ── */
+      @media print {
+        .no-print { display: none !important; }
+        body { background: #fff; }
+        .pr-doc { margin: 0; max-width: none; padding: 0; box-shadow: none; }
+        /* 个人化深度分析是收尾大块，从新页开始更清爽 */
+        .pr-personal { break-before: page; }
+        .pr-section, .pr-overview { break-inside: auto; }
+        a { color: var(--accent); }
+      }
+    </style>
+  </body>
+</html>

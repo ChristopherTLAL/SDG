@@ -44,6 +44,7 @@ if (hasReport) {
   const personal = parseMarkdown(result.reportPersonal || '');
 
   reportProps = {
+    resultId: result.resultId,
     studentName: result.studentName || 'Anonymous',
     mbtiType: mbti,
     mbtiStrength: mbtiStr,

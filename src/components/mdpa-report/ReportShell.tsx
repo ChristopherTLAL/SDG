@@ -16,6 +16,7 @@ interface DimensionData {
 }
 
 export interface ReportShellProps {
+  resultId: string
   studentName: string
   mbtiType: string
   mbtiStrength: Record<string, number>
@@ -172,12 +173,24 @@ export default function ReportShell(props: ReportShellProps) {
         {/* Main content */}
         <main ref={contentRef} className="min-w-0 py-6">
           {/* Mode toggle bar */}
-          <div className="flex items-center justify-between mb-8 sticky top-[72px] z-10 bg-surface/95 backdrop-blur-sm py-3 -mx-2 px-2 rounded-lg">
+          <div className="flex items-center justify-between gap-3 mb-8 sticky top-[72px] z-10 bg-surface/95 backdrop-blur-sm py-3 -mx-2 px-2 rounded-lg">
             <ModeToggle mode={mode === 'full' ? 'full' : 'simple'} onToggle={(m) => setMode(m)} />
-            <a href={`#`} onClick={(e) => { e.preventDefault(); setMode('landing') }}
-              className="text-sm text-on-surface-variant hover:text-primary transition-colors">
-              切换模式
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href={`/tools/personality/${props.resultId}/print?mode=${mode === 'full' ? 'full' : 'simple'}`}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1.5 bg-primary text-white px-3.5 py-1.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
+                title={`导出当前「${mode === 'full' ? '数据分析报告' : '性格解析'}」版本为 PDF`}
+              >
+                <span className="material-symbols-outlined text-base">picture_as_pdf</span>
+                <span className="hidden sm:inline">导出 PDF</span>
+              </a>
+              <a href={`#`} onClick={(e) => { e.preventDefault(); setMode('landing') }}
+                className="text-sm text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">
+                切换模式
+              </a>
+            </div>
           </div>
 
           {/* Overview */}
