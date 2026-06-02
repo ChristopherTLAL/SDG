@@ -1,0 +1,497 @@
+---
+export const prerender = true;
+// src/pages/tools/time-converter.astro — Time Zone Converter (World Time Buddy style)
+import MainLayout from '../../layouts/MainLayout.astro';
+const lang = 'en';
+---
+
+<MainLayout
+  title="Time Zone Converter | 时区换算器 | Chinese SDGs Institute"
+  description="Compare multiple time zones side by side, drag across the hour grid to find overlapping working hours, and plan meetings across cities. Built for cross-border study-abroad coordination."
+  lang={lang}
+>
+  <main class="pt-24 md:pt-32 pb-16 md:pb-24">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-6">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <!-- Header -->
+      <header class="mb-6">
+        <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
+          <span class="material-symbols-outlined text-[14px]">schedule</span>
+          Time Zone Converter
+        </div>
+        <h1 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface tracking-tight mb-2">
+          Time Zones at a <span class="text-primary">Glance</span>
+        </h1>
+        <p class="font-body text-base md:text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+          Compare cities side by side, find overlapping working hours, and pick a meeting time that works everywhere. Click any hour to convert it across every zone.
+        </p>
+      </header>
+
+      <!-- Control bar -->
+      <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-5">
+        <div class="flex items-center gap-1 bg-white rounded-xl border border-outline-variant/20 p-1">
+          <button id="tzc-prev" class="tzc-icon-btn" aria-label="Previous day">
+            <span class="material-symbols-outlined text-lg">chevron_left</span>
+          </button>
+          <input type="date" id="tzc-date" class="bg-transparent text-sm font-semibold text-on-surface px-2 py-1.5 outline-none cursor-pointer" />
+          <button id="tzc-next" class="tzc-icon-btn" aria-label="Next day">
+            <span class="material-symbols-outlined text-lg">chevron_right</span>
+          </button>
+        </div>
+
+        <button id="tzc-today" class="tzc-btn">
+          <span class="material-symbols-outlined text-base">today</span>
+          Today
+        </button>
+
+        <div class="flex items-center bg-white rounded-xl border border-outline-variant/20 p-1 text-sm font-semibold">
+          <button id="tzc-12h" class="tzc-fmt-btn px-3 py-1.5 rounded-lg" data-fmt="12">12h</button>
+          <button id="tzc-24h" class="tzc-fmt-btn px-3 py-1.5 rounded-lg" data-fmt="24">24h</button>
+        </div>
+
+        <div class="relative ml-auto">
+          <button id="tzc-add-btn" class="tzc-btn tzc-btn-primary">
+            <span class="material-symbols-outlined text-base">add</span>
+            Add city
+          </button>
+          <!-- Add panel -->
+          <div id="tzc-add-panel" class="hidden absolute right-0 mt-2 w-[330px] max-w-[88vw] bg-white rounded-2xl border border-outline-variant/20 shadow-2xl shadow-primary/10 z-30 overflow-hidden">
+            <div class="p-3 border-b border-outline-variant/10">
+              <div class="relative">
+                <span class="material-symbols-outlined text-lg text-on-surface-variant/50 absolute left-3 top-1/2 -translate-y-1/2">search</span>
+                <input type="text" id="tzc-search" placeholder="Search city or timezone…" autocomplete="off"
+                  class="w-full bg-surface-container-low rounded-xl pl-10 pr-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+              </div>
+              <div id="tzc-popular" class="flex flex-wrap gap-1.5 mt-3"></div>
+            </div>
+            <div id="tzc-results" class="max-h-[300px] overflow-y-auto p-1.5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Converter table -->
+      <div class="bg-white rounded-2xl border border-outline-variant/15 shadow-sm overflow-hidden">
+        <div id="tzc-scroll" class="overflow-x-auto">
+          <div id="tzc-table" class="min-w-[760px]"></div>
+        </div>
+      </div>
+
+      <!-- Legend + tip -->
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 text-xs text-on-surface-variant">
+        <span class="font-bold uppercase tracking-widest text-[10px] text-on-surface-variant/60">Hours</span>
+        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-emerald-100 border border-emerald-200"></span> Working (9–17)</span>
+        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-amber-100 border border-amber-200"></span> Early (7–8)</span>
+        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300"></span> Evening (18–21)</span>
+        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-700"></span> Night (22–6)</span>
+        <span class="flex items-center gap-1.5 ml-auto text-on-surface-variant/70"><span class="material-symbols-outlined text-sm">touch_app</span> Click an hour to convert it across all cities</span>
+      </div>
+
+    </div>
+  </main>
+</MainLayout>
+
+<style is:global>
+  .tzc-icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 0.5rem; color: #475569;
+    transition: background .15s, color .15s;
+  }
+  .tzc-icon-btn:hover { background: rgba(4,47,36,.06); color: #042f24; }
+  .tzc-btn {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .55rem .9rem; border-radius: .75rem; font-size: .8rem; font-weight: 700;
+    background: #fff; border: 1px solid rgba(0,0,0,.1); color: #1f2937;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .tzc-btn:hover { border-color: rgba(4,47,36,.3); color: #042f24; }
+  .tzc-btn-primary { background: #042f24; color: #fff; border-color: #042f24; }
+  .tzc-btn-primary:hover { background: #064534; color: #fff; }
+  .tzc-fmt-btn { color: #94a3b8; transition: all .15s; }
+  .tzc-fmt-btn.active { background: #042f24; color: #fff; }
+
+  /* Converter rows */
+  .tzc-row { display: flex; align-items: stretch; border-top: 1px solid rgba(0,0,0,.06); }
+  .tzc-row:first-child { border-top: none; }
+  .tzc-loc {
+    width: 210px; flex-shrink: 0; padding: .85rem 1rem;
+    position: sticky; left: 0; background: #fff; z-index: 10;
+    border-right: 1px solid rgba(0,0,0,.06);
+  }
+  .tzc-row.is-home .tzc-loc { background: #f5faf8; }
+  .tzc-strip {
+    flex: 1; display: grid; grid-template-columns: repeat(24, minmax(24px, 1fr));
+  }
+  .tzc-tile {
+    position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 56px; font-size: .72rem; line-height: 1.1; cursor: pointer;
+    border-left: 1px solid rgba(255,255,255,.55); user-select: none;
+    transition: filter .12s;
+  }
+  .tzc-tile:hover { filter: brightness(.94); }
+  .tzc-tile.tzc-hi { filter: brightness(.9); }
+  .tzc-tile.is-sel { outline: 2px solid #042f24; outline-offset: -2px; z-index: 5; font-weight: 800; }
+  .tzc-tile .tzc-h { font-weight: 700; }
+  .tzc-tile .tzc-d { font-size: .58rem; opacity: .8; margin-top: 1px; font-weight: 700; letter-spacing: .02em; }
+  /* day/night palette */
+  .tzc-work    { background: #d1fae5; color: #065f46; }
+  .tzc-early   { background: #fef3c7; color: #92400e; }
+  .tzc-evening { background: #e2e8f0; color: #475569; }
+  .tzc-night   { background: #334155; color: #cbd5e1; }
+  .tzc-night .tzc-tile-sep { border-color: rgba(255,255,255,.12); }
+  /* new-day marker */
+  .tzc-tile.is-newday { border-left: 2px solid #042f24; }
+  /* now marker */
+  .tzc-nowtag {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    background: #e11d48; color: #fff; font-size: .5rem; font-weight: 800;
+    padding: 1px 4px; border-radius: 0 0 4px 4px; letter-spacing: .05em; z-index: 6;
+  }
+  .tzc-chip {
+    font-size: .72rem; font-weight: 700; padding: .3rem .6rem; border-radius: 999px;
+    background: rgba(4,47,36,.06); color: #042f24; transition: background .15s;
+  }
+  .tzc-chip:hover { background: rgba(4,47,36,.14); }
+  .tzc-result-item {
+    display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+    width: 100%; text-align: left; padding: .6rem .7rem; border-radius: .6rem; transition: background .12s;
+  }
+  .tzc-result-item:hover { background: rgba(4,47,36,.06); }
+</style>
+
+<script>
+  // ---------- timezone helpers ----------
+  const POPULAR = [
+    ['Shanghai', 'Asia/Shanghai'], ['Hong Kong', 'Asia/Hong_Kong'], ['Singapore', 'Asia/Singapore'],
+    ['Tokyo', 'Asia/Tokyo'], ['Seoul', 'Asia/Seoul'], ['London', 'Europe/London'],
+    ['Paris', 'Europe/Paris'], ['New York', 'America/New_York'], ['Los Angeles', 'America/Los_Angeles'],
+    ['Toronto', 'America/Toronto'], ['Vancouver', 'America/Vancouver'], ['Sydney', 'Australia/Sydney'],
+    ['Auckland', 'Pacific/Auckland'], ['Dubai', 'Asia/Dubai'], ['Berlin', 'Europe/Berlin'],
+    ['Chicago', 'America/Chicago'], ['Boston', 'America/New_York'], ['Melbourne', 'Australia/Melbourne'],
+  ];
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  const _numFmt = new Map();
+  function numFmt(tz) {
+    let f = _numFmt.get(tz);
+    if (!f) {
+      f = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz, hour12: false,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+      });
+      _numFmt.set(tz, f);
+    }
+    return f;
+  }
+  function parts(ms, tz) {
+    const o = {};
+    for (const p of numFmt(tz).formatToParts(new Date(ms))) o[p.type] = p.value;
+    let hour = parseInt(o.hour, 10); if (hour === 24) hour = 0;
+    return { y: +o.year, mo: +o.month, d: +o.day, hour, minute: +o.minute, second: +o.second };
+  }
+  function offsetMin(ms, tz) {
+    const p = parts(ms, tz);
+    const asUTC = Date.UTC(p.y, p.mo - 1, p.d, p.hour, p.minute, p.second);
+    return Math.round((asUTC - ms) / 60000);
+  }
+  // instant (ms) when home wall-clock = given date+hour
+  function homeInstant(y, mo, d, hour, tz) {
+    const guess = Date.UTC(y, mo - 1, d, hour, 0, 0);
+    let inst = guess - offsetMin(guess, tz) * 60000;
+    inst = guess - offsetMin(inst, tz) * 60000; // refine across DST edges
+    return inst;
+  }
+  const _absFmt = new Map();
+  function absFmt(tz, hour12) {
+    const key = tz + '|' + hour12;
+    let f = _absFmt.get(key);
+    if (!f) {
+      f = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz, weekday: 'short', month: 'short', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12, timeZoneName: 'short',
+      });
+      _absFmt.set(key, f);
+    }
+    return f;
+  }
+  function pretty(ms, tz, hour12) {
+    const o = {};
+    for (const p of absFmt(tz, hour12).formatToParts(new Date(ms))) o[p.type] = p.value;
+    return {
+      weekday: o.weekday, month: o.month, day: o.day,
+      hour: o.hour, minute: o.minute, ap: o.dayPeriod || '', abbr: o.timeZoneName || '',
+    };
+  }
+  function cityName(tz) {
+    const seg = tz.split('/').pop().replace(/_/g, ' ');
+    return seg;
+  }
+  function regionName(tz) {
+    return (tz.split('/')[0] || '').replace(/_/g, ' ');
+  }
+  function hourLabel(h, hour12) {
+    if (!hour12) return String(h).padStart(2, '0');
+    if (h === 0) return '12a';
+    if (h === 12) return '12p';
+    return h < 12 ? (h + 'a') : ((h - 12) + 'p');
+  }
+  function hourClass(h) {
+    if (h >= 9 && h <= 17) return 'tzc-work';
+    if (h >= 7 && h < 9) return 'tzc-early';
+    if (h >= 18 && h < 22) return 'tzc-evening';
+    return 'tzc-night';
+  }
+  function offsetLabel(min) {
+    const sign = min < 0 ? '-' : '+';
+    const a = Math.abs(min);
+    const h = Math.floor(a / 60), m = a % 60;
+    return 'GMT' + sign + h + (m ? ':' + String(m).padStart(2, '0') : '');
+  }
+  function diffLabel(min) {
+    if (min === 0) return 'same time';
+    const sign = min < 0 ? '-' : '+';
+    const a = Math.abs(min);
+    const h = Math.floor(a / 60), m = a % 60;
+    return sign + h + (m ? '.5' : '') + 'h';
+  }
+  const ALL_ZONES = (typeof Intl.supportedValuesOf === 'function')
+    ? Intl.supportedValuesOf('timeZone')
+    : POPULAR.map(p => p[1]);
+
+  // ---------- state ----------
+  const LS_LOC = 'tzc_locations_v1', LS_FMT = 'tzc_hour12_v1';
+  const localTz = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) { return 'Asia/Shanghai'; } })();
+
+  function loadLocations() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(LS_LOC) || 'null');
+      if (Array.isArray(raw) && raw.length) return raw.filter(z => typeof z === 'string');
+    } catch (e) {}
+    const def = ['Europe/London', 'America/New_York'];
+    return [localTz, ...def.filter(z => z !== localTz)].slice(0, 4);
+  }
+  let locations = loadLocations();
+  let hour12 = (() => { const v = localStorage.getItem(LS_FMT); return v === null ? true : v === '1'; })();
+  const today0 = parts(Date.now(), localTz);
+  let selDate = { y: today0.y, mo: today0.mo, d: today0.d };
+  let selCol = today0.hour; // 0..23, column in the home-date grid
+
+  function save() {
+    try {
+      localStorage.setItem(LS_LOC, JSON.stringify(locations));
+      localStorage.setItem(LS_FMT, hour12 ? '1' : '0');
+    } catch (e) {}
+  }
+
+  // ---------- rendering ----------
+  const table = document.getElementById('tzc-table');
+  const dateInput = document.getElementById('tzc-date');
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+  function isoOf(d) { return d.y + '-' + pad2(d.mo) + '-' + pad2(d.d); }
+
+  function render() {
+    const homeTz = locations[0];
+    const grid = [];
+    for (let h = 0; h < 24; h++) grid.push(homeInstant(selDate.y, selDate.mo, selDate.d, h, homeTz));
+    if (selCol > 23) selCol = 23; if (selCol < 0) selCol = 0;
+    const selInstant = grid[selCol];
+    const homeOff = offsetMin(selInstant, homeTz);
+
+    const now = Date.now();
+    const nowHome = parts(now, homeTz);
+    const isToday = nowHome.y === selDate.y && nowHome.mo === selDate.mo && nowHome.d === selDate.d;
+    const nowCol = isToday ? nowHome.hour : -1;
+
+    dateInput.value = isoOf(selDate);
+
+    let html = '';
+    locations.forEach((tz, idx) => {
+      const isHome = idx === 0;
+      const pr = pretty(selInstant, tz, hour12);
+      const off = offsetMin(selInstant, tz);
+      const liveP = pretty(now, tz, hour12);
+      const offLbl = offsetLabel(off);
+      const metaTz = pr.abbr && pr.abbr !== offLbl ? `${pr.abbr} · ${offLbl}` : offLbl;
+
+      // tiles
+      let tiles = '';
+      for (let i = 0; i < 24; i++) {
+        const tp = parts(grid[i], tz);
+        const newDay = tp.hour === 0;
+        const cls = hourClass(tp.hour);
+        const sel = i === selCol ? ' is-sel' : '';
+        const nd = newDay ? ' is-newday' : '';
+        const dateTag = (newDay || i === 0) ? `<span class="tzc-d">${MONTHS[tp.mo - 1]} ${tp.d}</span>` : '';
+        const nowTag = (isHome && i === nowCol) ? `<span class="tzc-nowtag">NOW</span>` : '';
+        tiles += `<div class="tzc-tile ${cls}${sel}${nd}" data-act="pick" data-col="${i}">`
+          + nowTag
+          + `<span class="tzc-h">${hourLabel(tp.hour, hour12)}</span>`
+          + dateTag
+          + `</div>`;
+      }
+
+      const diff = isHome ? '<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Home</span>'
+        : `<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">${diffLabel(off - homeOff)}</span>`;
+
+      const bigTime = `${pr.hour}:${pr.minute}${hour12 ? ` <span class="text-sm font-bold">${pr.ap}</span>` : ''}`;
+      const pinBtn = isHome ? '' : `<button class="tzc-icon-btn" data-act="pin" data-idx="${idx}" title="Set as home" aria-label="Set as home"><span class="material-symbols-outlined text-base">push_pin</span></button>`;
+      const rmBtn = locations.length > 1 ? `<button class="tzc-icon-btn hover:!text-rose-600" data-act="remove" data-idx="${idx}" title="Remove" aria-label="Remove"><span class="material-symbols-outlined text-base">close</span></button>` : '';
+
+      html += `<div class="tzc-row${isHome ? ' is-home' : ''}">`
+        + `<div class="tzc-loc">`
+        +   `<div class="flex items-start justify-between gap-1">`
+        +     `<div class="min-w-0">`
+        +       `<div class="font-headline font-bold text-on-surface text-[15px] leading-tight truncate">${cityName(tz)}</div>`
+        +       `<div class="text-[11px] text-on-surface-variant/70 truncate">${regionName(tz)} · ${metaTz}</div>`
+        +     `</div>`
+        +     `<div class="flex items-center -mr-1.5 -mt-1 shrink-0">${pinBtn}${rmBtn}</div>`
+        +   `</div>`
+        +   `<div class="mt-2 flex items-baseline gap-2">`
+        +     `<div class="font-headline font-extrabold text-on-surface text-2xl leading-none tracking-tight">${bigTime}</div>`
+        +     diff
+        +   `</div>`
+        +   `<div class="mt-1 text-[12px] text-on-surface-variant">${pr.weekday}, ${pr.month} ${pr.day} · <span class="text-on-surface-variant/60">now ${liveP.hour}:${liveP.minute}${hour12 ? ' ' + liveP.ap : ''}</span></div>`
+        + `</div>`
+        + `<div class="tzc-strip">${tiles}</div>`
+        + `</div>`;
+    });
+    table.innerHTML = html;
+  }
+
+  // ---------- interactions ----------
+  table.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-act]');
+    if (!el) return;
+    const act = el.getAttribute('data-act');
+    if (act === 'pick') {
+      selCol = parseInt(el.getAttribute('data-col'), 10);
+      render();
+    } else if (act === 'remove') {
+      const i = parseInt(el.getAttribute('data-idx'), 10);
+      locations.splice(i, 1);
+      save(); render();
+    } else if (act === 'pin') {
+      const i = parseInt(el.getAttribute('data-idx'), 10);
+      const [z] = locations.splice(i, 1);
+      locations.unshift(z);
+      save(); render();
+    }
+  });
+  // column hover highlight
+  table.addEventListener('mouseover', (e) => {
+    const t = e.target.closest('.tzc-tile');
+    if (!t) return;
+    const c = t.getAttribute('data-col');
+    table.querySelectorAll(`.tzc-tile[data-col="${c}"]`).forEach(x => x.classList.add('tzc-hi'));
+  });
+  table.addEventListener('mouseout', (e) => {
+    const t = e.target.closest('.tzc-tile');
+    if (!t) return;
+    table.querySelectorAll('.tzc-hi').forEach(x => x.classList.remove('tzc-hi'));
+  });
+
+  // date controls
+  function shiftDay(delta) {
+    const anchor = Date.UTC(selDate.y, selDate.mo - 1, selDate.d, 12) + delta * 86400000;
+    const dd = new Date(anchor);
+    selDate = { y: dd.getUTCFullYear(), mo: dd.getUTCMonth() + 1, d: dd.getUTCDate() };
+    render();
+  }
+  document.getElementById('tzc-prev').addEventListener('click', () => shiftDay(-1));
+  document.getElementById('tzc-next').addEventListener('click', () => shiftDay(1));
+  document.getElementById('tzc-today').addEventListener('click', () => {
+    const t = parts(Date.now(), locations[0]);
+    selDate = { y: t.y, mo: t.mo, d: t.d };
+    selCol = t.hour;
+    render();
+  });
+  dateInput.addEventListener('change', () => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateInput.value);
+    if (m) { selDate = { y: +m[1], mo: +m[2], d: +m[3] }; render(); }
+  });
+
+  // format toggle
+  function setFmt(is12) {
+    hour12 = is12; save();
+    document.getElementById('tzc-12h').classList.toggle('active', is12);
+    document.getElementById('tzc-24h').classList.toggle('active', !is12);
+    render();
+  }
+  document.getElementById('tzc-12h').addEventListener('click', () => setFmt(true));
+  document.getElementById('tzc-24h').addEventListener('click', () => setFmt(false));
+
+  // ---------- add panel ----------
+  const addBtn = document.getElementById('tzc-add-btn');
+  const addPanel = document.getElementById('tzc-add-panel');
+  const searchInput = document.getElementById('tzc-search');
+  const resultsBox = document.getElementById('tzc-results');
+  const popularBox = document.getElementById('tzc-popular');
+
+  function addZone(tz) {
+    if (!locations.includes(tz)) { locations.push(tz); save(); render(); }
+    closeAdd();
+  }
+  function renderPopular() {
+    popularBox.innerHTML = POPULAR
+      .filter(p => !locations.includes(p[1]))
+      .slice(0, 8)
+      .map(p => `<button class="tzc-chip" data-tz="${p[1]}">${p[0]}</button>`)
+      .join('');
+  }
+  function renderResults(q) {
+    const query = q.trim().toLowerCase();
+    let list = ALL_ZONES;
+    if (query) {
+      list = list.filter(tz => tz.toLowerCase().replace(/_/g, ' ').includes(query));
+    }
+    const now = Date.now();
+    resultsBox.innerHTML = list.slice(0, 60).map(tz => {
+      const added = locations.includes(tz);
+      const off = offsetLabel(offsetMin(now, tz));
+      return `<button class="tzc-result-item${added ? ' opacity-40 pointer-events-none' : ''}" data-tz="${tz}">`
+        + `<span class="min-w-0"><span class="block text-sm font-semibold text-on-surface truncate">${cityName(tz)}</span>`
+        + `<span class="block text-[11px] text-on-surface-variant/60 truncate">${regionName(tz)}</span></span>`
+        + `<span class="text-[11px] font-bold text-on-surface-variant/70 shrink-0">${off}${added ? ' ✓' : ''}</span>`
+        + `</button>`;
+    }).join('') || `<div class="px-3 py-6 text-center text-sm text-on-surface-variant/60">No matches</div>`;
+  }
+  function openAdd() {
+    renderPopular(); renderResults('');
+    addPanel.classList.remove('hidden');
+    searchInput.value = '';
+    setTimeout(() => searchInput.focus(), 30);
+  }
+  function closeAdd() { addPanel.classList.add('hidden'); }
+
+  addBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    addPanel.classList.contains('hidden') ? openAdd() : closeAdd();
+  });
+  searchInput.addEventListener('input', () => renderResults(searchInput.value));
+  addPanel.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-tz]');
+    if (el) addZone(el.getAttribute('data-tz'));
+    e.stopPropagation();
+  });
+  document.addEventListener('click', (e) => {
+    if (!addPanel.classList.contains('hidden') && !addPanel.contains(e.target) && e.target !== addBtn) closeAdd();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAdd(); });
+
+  // live clock refresh — keeps the "now" marker and per-row live time current.
+  // Selection state (selCol) is preserved across re-renders.
+  setInterval(() => {
+    const t = parts(Date.now(), locations[0]);
+    const stillToday = t.y === selDate.y && t.mo === selDate.mo && t.d === selDate.d;
+    if (stillToday) render();
+  }, 60000);
+
+  // init
+  setFmt(hour12);
+</script>
