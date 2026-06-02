@@ -33,7 +33,7 @@ const lang = 'en';
       </header>
 
       <!-- Control bar -->
-      <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-5">
+      <div id="tzc-controls" class="flex flex-wrap items-center gap-2 md:gap-3 mb-5">
         <div class="flex items-center gap-1 bg-white rounded-xl border border-outline-variant/20 p-1">
           <button id="tzc-prev" class="tzc-icon-btn" aria-label="Previous day">
             <span class="material-symbols-outlined text-lg">chevron_left</span>
@@ -54,22 +54,28 @@ const lang = 'en';
           <button id="tzc-24h" class="tzc-fmt-btn px-3 py-1.5 rounded-lg" data-fmt="24">24h</button>
         </div>
 
-        <div class="relative ml-auto">
-          <button id="tzc-add-btn" class="tzc-btn tzc-btn-primary">
-            <span class="material-symbols-outlined text-base">add</span>
-            Add city
+        <div class="ml-auto flex items-center gap-2">
+          <button id="tzc-export" class="tzc-btn" data-busy="0" title="Download the current view as a PNG">
+            <span class="material-symbols-outlined text-base">download</span>
+            Export
           </button>
-          <!-- Add panel -->
-          <div id="tzc-add-panel" class="hidden absolute right-0 mt-2 w-[330px] max-w-[88vw] bg-white rounded-2xl border border-outline-variant/20 shadow-2xl shadow-primary/10 z-30 overflow-hidden">
-            <div class="p-3 border-b border-outline-variant/10">
-              <div class="relative">
-                <span class="material-symbols-outlined text-lg text-on-surface-variant/50 absolute left-3 top-1/2 -translate-y-1/2">search</span>
-                <input type="text" id="tzc-search" placeholder="Search city or timezone…" autocomplete="off"
-                  class="w-full bg-surface-container-low rounded-xl pl-10 pr-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+          <div class="relative">
+            <button id="tzc-add-btn" class="tzc-btn tzc-btn-primary">
+              <span class="material-symbols-outlined text-base">add</span>
+              Add city
+            </button>
+            <!-- Add panel -->
+            <div id="tzc-add-panel" class="hidden absolute right-0 mt-2 w-[330px] max-w-[88vw] bg-white rounded-2xl border border-outline-variant/20 shadow-2xl shadow-primary/10 z-30 overflow-hidden">
+              <div class="p-3 border-b border-outline-variant/10">
+                <div class="relative">
+                  <span class="material-symbols-outlined text-lg text-on-surface-variant/50 absolute left-3 top-1/2 -translate-y-1/2">search</span>
+                  <input type="text" id="tzc-search" placeholder="Search city or timezone…" autocomplete="off"
+                    class="w-full bg-surface-container-low rounded-xl pl-10 pr-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30" />
+                </div>
+                <div id="tzc-popular" class="flex flex-wrap gap-1.5 mt-3"></div>
               </div>
-              <div id="tzc-popular" class="flex flex-wrap gap-1.5 mt-3"></div>
+              <div id="tzc-results" class="max-h-[300px] overflow-y-auto p-1.5"></div>
             </div>
-            <div id="tzc-results" class="max-h-[300px] overflow-y-auto p-1.5"></div>
           </div>
         </div>
       </div>
@@ -474,6 +480,13 @@ const lang = 'en';
     if (ns !== selStart || ne !== selEnd) { selStart = ns; selEnd = ne; didDrag = true; applySelection(); }
   });
   document.addEventListener('mouseup', () => { dragging = false; });
+  // click anywhere outside the grid (and outside the toolbar) clears the selection
+  document.addEventListener('click', (e) => {
+    if (selStart < 0) return;                          // nothing selected
+    if (e.target.closest('#tzc-table') || e.target.closest('#tzc-controls')) return;
+    selStart = selEnd = -1;
+    applySelection();
+  });
 
   // date controls
   function shiftDay(delta) {
@@ -562,6 +575,90 @@ const lang = 'en';
     if (!addPanel.classList.contains('hidden') && !addPanel.contains(e.target) && e.target !== addBtn) closeAdd();
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAdd(); });
+
+  // ---------- export as PNG ----------
+  const exportBtn = document.getElementById('tzc-export');
+
+  function legendDot(color, label) {
+    return `<span style="display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:3px;background:${color};display:inline-block;"></span>${label}</span>`;
+  }
+  function buildExportCard() {
+    const card = document.createElement('div');
+    card.style.cssText = 'width:1200px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;font-family:Inter,system-ui,sans-serif;';
+
+    // context line from the home city + current state
+    const homeTz = locations[0];
+    const homeCity = cityName(homeTz);
+    let ctx;
+    if (selStart >= 0) {
+      const ps = pretty(gridInstants[selStart], homeTz, hour12);
+      ctx = selEnd > selStart
+        ? `${ps.weekday}, ${ps.month} ${ps.day} · ${timeStr(ps)} – ${timeStr(pretty(gridInstants[selEnd] + 3600000, homeTz, hour12))} in ${homeCity}`
+        : `${ps.weekday}, ${ps.month} ${ps.day} · ${timeStr(ps)} in ${homeCity}`;
+    } else {
+      const pn = pretty(Date.now(), homeTz, hour12);
+      ctx = `Current time · ${pn.weekday}, ${pn.month} ${pn.day}`;
+    }
+
+    const header = document.createElement('div');
+    header.style.cssText = 'background:#042f24;color:#fff;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;';
+    header.innerHTML = `<div>`
+      + `<div style="font-family:Manrope,sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.02em;">Time Zone Converter</div>`
+      + `<div style="font-size:11px;opacity:.65;margin-top:3px;letter-spacing:.12em;text-transform:uppercase;">Chinese SDGs Institute</div>`
+      + `</div>`
+      + `<div style="text-align:right;font-size:14px;font-weight:600;max-width:560px;line-height:1.4;">${ctx}</div>`;
+
+    const body = document.createElement('div');
+    const clone = table.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.style.minWidth = '0';
+    clone.style.width = '1200px';
+    clone.querySelectorAll('.tzc-loc').forEach(el => { el.style.position = 'static'; });
+    clone.querySelectorAll('[data-act="remove"],[data-act="pin"]').forEach(el => el.remove());  // drop control icons
+    body.appendChild(clone);
+
+    const footer = document.createElement('div');
+    footer.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;border-top:1px solid #eee;font-size:12px;color:#64748b;';
+    footer.innerHTML = `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">`
+      + legendDot('#d1fae5', 'Working 9–17') + legendDot('#fef3c7', 'Early 7–8')
+      + legendDot('#e2e8f0', 'Evening 18–21') + legendDot('#334155', 'Night 22–6')
+      + `</div><div style="font-weight:700;color:#042f24;">sdg.undp.ac.cn</div>`;
+
+    card.appendChild(header);
+    card.appendChild(body);
+    card.appendChild(footer);
+    return card;
+  }
+  exportBtn.addEventListener('click', async () => {
+    if (exportBtn.dataset.busy === '1') return;
+    exportBtn.dataset.busy = '1';
+    const icon = exportBtn.querySelector('.material-symbols-outlined');
+    const prevIcon = icon ? icon.textContent : '';
+    if (icon) icon.textContent = 'hourglass_top';
+    let holder = null;
+    try {
+      const card = buildExportCard();
+      holder = document.createElement('div');           // off-screen host; the captured node itself stays static
+      holder.style.cssText = 'position:fixed;top:0;left:-99999px;z-index:-1;pointer-events:none;';
+      holder.appendChild(card);
+      document.body.appendChild(holder);
+      const { toPng } = await import('html-to-image');
+      if (document.fonts && document.fonts.ready) await document.fonts.ready;
+      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const dataUrl = await toPng(card, { backgroundColor: '#ffffff', pixelRatio: 2, cacheBust: true });
+      const link = document.createElement('a');
+      link.download = `time-zones-${cityName(locations[0]).replace(/\s+/g, '-')}-${isoOf(selDate)}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error('Export PNG failed:', err);
+      alert('Export failed — please try again.');
+    } finally {
+      if (holder && holder.parentNode) holder.parentNode.removeChild(holder);
+      if (icon) icon.textContent = prevIcon || 'download';
+      exportBtn.dataset.busy = '0';
+    }
+  });
 
   // live clock refresh — keep per-row "now" current; re-render to move the NOW tag
   // when the hour rolls over. Selection (selStart..selEnd) is preserved across renders.
