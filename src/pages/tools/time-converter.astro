@@ -645,7 +645,15 @@ const lang = 'en';
       const { toPng } = await import('html-to-image');
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
       await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-      const dataUrl = await toPng(card, { backgroundColor: '#ffffff', pixelRatio: 2, cacheBust: true });
+      // Same recipe as the validated EnglishTestTool export. html-to-image logs benign cross-origin
+      // cssRules SecurityErrors while scanning the Google Fonts stylesheets; it catches them and the
+      // PNG still renders with the already-loaded Manrope/Inter. Guard with a timeout: the
+      // foreignObject->image rasterisation can stall in restricted environments, and we never want
+      // the button stuck spinning — fail to the catch (alert + reset) instead.
+      const dataUrl = await Promise.race([
+        toPng(card, { backgroundColor: '#ffffff', pixelRatio: 2, cacheBust: true }),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('Export timed out')), 20000)),
+      ]);
       const link = document.createElement('a');
       link.download = `time-zones-${cityName(locations[0]).replace(/\s+/g, '-')}-${isoOf(selDate)}.png`;
       link.href = dataUrl;
