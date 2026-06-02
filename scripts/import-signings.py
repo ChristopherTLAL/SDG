@@ -2,20 +2,21 @@
 """
 import-signings.py — single source of truth for contract data.
 
-Reads the *客户签约明细*.xlsx from ~/Downloads, auto-picking the LARGEST file by
-size (the full-history export) — NOT the most recent, so a partial weekly slice
-never wins. Pass an explicit path to override.
+Reads EVERY *客户签约明细*.xlsx across ~/Downloads + ~/Downloads/_工作运营/ and
+unions contracts by 合同编号 (newest file wins), so weekly slices + occasional old
+backfills all contribute and nothing is dropped. Pass an explicit path for single-file.
 
 Three things it does, all idempotent:
 
 1. **Update existing vault students' YAML**:
    - add `客户ID: [...]` (array, supports sibling-combined folders)
    - add `合同签约人: [...]` (alias for special cases like Kimi+Byran → LI KIMI)
-   - rewrite `合同明细` from signing data (drop 预收余额 / 已收 / 已交付 fields)
+   - merge `合同明细` from signing data (DEFAULT; `--rewrite` replaces instead,
+     dropping vault contracts absent from all files; legacy 预收余额/已收/已交付 dropped)
    - new contract entry shape: 名称 / 大类 / 签约日期 / 签约金额 / 合同状态 / 合同编号
 
 2. **Onboard new vault folders** for advisors who lack vault coverage
-   (currently 钟婷婷 + 古淑婷 — extend ONBOARD_ADVISORS list).
+   (see ONBOARD_ADVISORS list — currently 钟婷婷 / 古淑婷 / 高幸玲 / 王姝琰).
    - skips if folder already exists
    - if name collides with existing vault folder → suffix with " (中期顾问)"
    - intake-year-based 当前进度 (2025F or earlier = 已结案, 2026F = 后期在途, 2027F+ = 中期在途)
@@ -47,14 +48,15 @@ VAULT = Path('/Users/shijie/Obsidian/规划看板/01_Student')
 SDG_HTML = Path('/Users/shijie/Code/sdg-html')
 ENV_FILE = SDG_HTML / '.env'
 
-# Resolve signing xlsx source:
-#   1. CLI arg (highest priority) — explicit override
-#   2. Default: pick LARGEST *客户签约明细*.xlsx across ~/Downloads/ AND
-#      ~/Downloads/_工作运营/ (full-history file is always >1MB, weekly slices <50KB).
-#      We choose by size, not mtime, because the weekly file is sometimes newer
-#      than the most recent full export — and we always prefer full-history for
-#      Phase A vault override + contracts table refresh to be effective.
-def _largest_signing_xlsx():
+# Resolve signing xlsx source(s):
+#   1. CLI path arg → use EXACTLY that one file (explicit single-file override).
+#   2. Default (no arg) → MULTI-FILE UNION: read EVERY *客户签约明细*.xlsx across
+#      ~/Downloads/ + ~/Downloads/_工作运营/, union contracts by 合同编号, newest
+#      file wins on conflict (status/advisor updates from the latest export take
+#      precedence). A weekly slice can never drop contracts that live only in the
+#      full-history export, and dropping an old backfill export into the folder
+#      just adds its missing contracts. "几个文档都要看" — all of them, every run.
+def _all_signing_xlsx():
     search_dirs = [
         Path.home() / 'Downloads',
         Path.home() / 'Downloads' / '_工作运营',
@@ -64,41 +66,45 @@ def _largest_signing_xlsx():
         if not d.exists():
             continue
         for p in d.glob('*客户签约明细*.xlsx'):
-            if p.name.startswith('~$'):
-                continue
-            cands.append(p)
+            if not p.name.startswith('~$'):
+                cands.append(p)
     if not cands:
         raise FileNotFoundError(
             'No *客户签约明细*.xlsx found in ~/Downloads or ~/Downloads/_工作运营')
-    # Largest = full history; tie-break by mtime (newer)
-    return max(cands, key=lambda p: (p.stat().st_size, p.stat().st_mtime))
+    # oldest → newest by mtime, so the newest file wins on union.
+    return sorted(cands, key=lambda p: p.stat().st_mtime)
 
-# --dry-run: read everything, compute changes, print summary, NO writes.
-# --incremental: MERGE input contracts into existing vault 合同明细 by 合同编号
-# (file wins on conflict). Use this for weekly slice files (~50-200 rows) where
-# rewriting from file would destroy historical contracts not in the slice.
-# Useful before a full sync to preview what will change. Strip flags from argv
-# so they don't break positional-arg parsing.
-DRY_RUN = '--dry-run' in sys.argv
-INCREMENTAL = '--incremental' in sys.argv
-_pos_args = [a for a in sys.argv[1:] if a not in ('--dry-run', '--incremental')]
+# Flags:
+#   --dry-run    : read everything, compute changes, print summary, NO writes.
+#   --rewrite    : AUTHORITATIVE — REPLACE each vault 合同明细 from the file union,
+#                  DROPPING any vault contract absent from every file. Use only when
+#                  you deliberately want to prune stale/cancelled contracts.
+#   (default)    : MERGE the file union into existing vault 合同明细 by 合同编号
+#                  (file wins on conflict, vault-only contracts are KEPT). This is
+#                  the safe weekly behavior — it never loses a vault 档案 contract.
+#   --incremental: accepted for back-compat but now a NO-OP (merge IS the default).
+DRY_RUN     = '--dry-run' in sys.argv
+REWRITE     = '--rewrite' in sys.argv
+INCREMENTAL = not REWRITE          # merge-into-vault default; --rewrite opts out
+_FLAGS = ('--dry-run', '--incremental', '--rewrite')
+_pos_args = [a for a in sys.argv[1:] if a not in _FLAGS]
 
+EXPLICIT_FILE = None               # set when a CLI path arg forces single-file mode
 if _pos_args and _pos_args[0] not in ('-h', '--help'):
-    XLSX = Path(_pos_args[0]).expanduser()
-    if not XLSX.exists():
-        print(f'ERROR: {XLSX} not found', file=sys.stderr)
+    EXPLICIT_FILE = Path(_pos_args[0]).expanduser()
+    if not EXPLICIT_FILE.exists():
+        print(f'ERROR: {EXPLICIT_FILE} not found', file=sys.stderr)
         sys.exit(1)
 elif _pos_args:
     print(__doc__)
-    print(f'\nUsage: {sys.argv[0]} [--dry-run] [--incremental] [path/to/*客户签约明细*.xlsx]')
-    print(f'\nNo arg → auto-pick LARGEST file across ~/Downloads/ + _工作运营/')
-    print(f'--dry-run → preview changes without writing to vault or Supabase')
-    print(f'--incremental → merge 合同明细 by 合同编号 (file wins) instead of rewriting.')
-    print(f'                Use for WEEKLY SLICE files where full rewrite would')
-    print(f'                destroy historic contracts not in the slice.')
+    print(f'\nUsage: {sys.argv[0]} [--dry-run] [--rewrite] [path/to/*客户签约明细*.xlsx]')
+    print(f'\nNo arg  → MULTI-FILE UNION of every *客户签约明细*.xlsx in ~/Downloads + _工作运营/')
+    print(f'          (newest file wins per 合同编号; nothing in any file is dropped).')
+    print(f'path    → use EXACTLY that one file (single-file override).')
+    print(f'--dry-run → preview changes without writing to vault or Supabase.')
+    print(f'--rewrite → authoritative: REPLACE vault 合同明细 from files, dropping vault')
+    print(f'            contracts absent from all files. Default = merge (never drops).')
     sys.exit(0)
-else:
-    XLSX = _largest_signing_xlsx()
 
 
 # Aliases — vault folder name → list of contract signer 客户姓名
@@ -256,16 +262,44 @@ def load_env():
 # ── Read signing xlsx ───────────────────────────────────────────────────
 
 def read_signings():
-    print(f'📖 Reading {XLSX.name}')
-    wb = openpyxl.load_workbook(XLSX, read_only=True, data_only=True)
-    ws = wb['签约明细']
-    header = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
-    COL = {h: i for i, h in enumerate(header) if h}
-    rows = []
-    for r in ws.iter_rows(min_row=2, values_only=True):
-        if r and r[COL['客户姓名']] and r[COL['客户ID']] and r[COL['合同编号']]:
-            rows.append(r)
-    print(f'   {len(rows)} contract rows')
+    """Read contract rows. Default = union of ALL 客户签约明细 exports (newest file
+    wins per 合同编号); a CLI path forces a single file. Rows are normalized to a
+    canonical column order (by header name) so exports with slightly different
+    column layouts still union correctly. Keeps rows with 客户姓名+客户ID+合同编号."""
+    files = [EXPLICIT_FILE] if EXPLICIT_FILE else _all_signing_xlsx()
+    label = 'single file' if EXPLICIT_FILE else f'{len(files)}-file union'
+    print(f'📖 Reading {label}: ' + ', '.join(f.name for f in files))
+    canonical = []          # header names, first-seen order
+    COL = {}                # header name → canonical index
+    by_contract = {}        # 合同编号 → row (normalized to canonical order)
+    NEED = ('客户姓名', '客户ID', '合同编号')
+    for f in files:
+        wb = openpyxl.load_workbook(f, read_only=True, data_only=True)
+        ws = wb['签约明细']
+        fheader = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
+        fcol = {h: i for i, h in enumerate(fheader) if h}
+        for h in fheader:                       # extend canonical with new columns
+            if h and h not in COL:
+                COL[h] = len(canonical); canonical.append(h)
+        if not all(k in fcol for k in NEED):
+            print(f'   ⚠ skip {f.name}: missing {[k for k in NEED if k not in fcol]}')
+            wb.close(); continue
+        ci, idi, ni = fcol['客户姓名'], fcol['客户ID'], fcol['合同编号']
+        n = 0
+        for r in ws.iter_rows(min_row=2, values_only=True):
+            if not (r and len(r) > ni and r[ci] and r[idi] and r[ni]):
+                continue
+            norm = [None] * len(canonical)      # remap to canonical order by name
+            for h, i in fcol.items():
+                if i < len(r):
+                    norm[COL[h]] = r[i]
+            by_contract[r[ni]] = norm           # newest file wins (oldest→newest)
+            n += 1
+        wb.close()
+        print(f'   · {f.name}: {n} rows')
+    width = len(canonical)
+    rows = [tuple(row) + (None,) * (width - len(row)) for row in by_contract.values()]
+    print(f'   = {len(rows)} unique contracts (unioned by 合同编号 across {len(files)} file[s])')
     return rows, COL
 
 
@@ -620,16 +654,16 @@ def replace_yaml_field(text, field, new_value_block):
 
 
 def update_existing_student_yaml(md_path, customer_ids, signers, contracts):
-    """Rewrite (or in INCREMENTAL mode, merge) YAML frontmatter for an existing student.
+    """Merge (or in --rewrite mode, replace) YAML frontmatter for an existing student.
 
-    Full mode (default): rewrites 合同明细 / 合同 / 客户ID from input data. Safe
-    only when input is the full-history financial export — otherwise it destroys
-    historic contracts not in the slice.
+    Merge mode (DEFAULT): reads existing 合同明细 from vault, merges with the input
+    (multi-file union) by 合同编号 (file wins on conflict), PRESERVING vault contracts
+    not present in any file. 合同 大类 union'd. 客户ID also merged with existing array.
+    This is the safe behavior — a vault 档案 contract is never lost just because the
+    latest export doesn't contain it.
 
-    Incremental mode (`--incremental` flag): reads existing 合同明细 from vault,
-    merges with input contracts by 合同编号 (file wins on conflict), preserving
-    historic contracts not in the slice. 合同 大类 union'd. 客户ID also merged
-    with existing array.
+    Rewrite mode (`--rewrite` flag): REPLACES 合同明细 / 合同 / 客户ID from the input,
+    dropping any vault contract absent from every file. Use only to deliberately prune.
     """
     text = md_path.read_text(encoding='utf-8')
 

@@ -230,7 +230,9 @@ function cellLink(cohort: string, advisor: string): string {
     const cohortParam = cohort === COHORT_TBD ? '待定,5000 fall' : cohort;
     params.set('cohort', cohortParam);
   }
-  if (advisor !== ADVISOR_FALLBACK) params.set('advisor', advisor);
+  // 未分配 is now an explicit, filterable mid_advisor value (sentinel) — drill
+  // straight into the unassigned roster instead of the full list.
+  params.set('advisor', advisor);
   return params.toString() ? `/internal/students?${params}` : '/internal/students';
 }
 
