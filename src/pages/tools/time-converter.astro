@@ -88,7 +88,7 @@ const lang = 'en';
         <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-amber-100 border border-amber-200"></span> Early (7–8)</span>
         <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300"></span> Evening (18–21)</span>
         <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-700"></span> Night (22–6)</span>
-        <span class="flex items-center gap-1.5 ml-auto text-on-surface-variant/70"><span class="material-symbols-outlined text-sm">touch_app</span> Click an hour to convert it across all cities</span>
+        <span class="flex items-center gap-1.5 ml-auto text-on-surface-variant/70"><span class="material-symbols-outlined text-sm">touch_app</span> Click an hour — or drag across several — to highlight a window</span>
       </div>
 
     </div>
@@ -130,11 +130,13 @@ const lang = 'en';
     position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
     min-height: 56px; font-size: .72rem; line-height: 1.1; cursor: pointer;
     border-left: 1px solid rgba(255,255,255,.55); user-select: none;
-    transition: filter .12s;
+    transition: filter .15s, opacity .15s;
   }
-  .tzc-tile:hover { filter: brightness(.94); }
-  .tzc-tile.tzc-hi { filter: brightness(.9); }
-  .tzc-tile.is-sel { outline: 2px solid #042f24; outline-offset: -2px; z-index: 5; font-weight: 800; }
+  .tzc-tile:hover { filter: brightness(.96); }
+  /* selection focus — dim everything outside the band, lift the band into focus */
+  .tzc-tile.tzc-dim { opacity: .32; }
+  .tzc-tile.tzc-band { z-index: 4; }
+  .tzc-tile.tzc-band .tzc-h { font-weight: 800; }
   .tzc-tile .tzc-h { font-weight: 700; }
   .tzc-tile .tzc-d { font-size: .58rem; opacity: .8; margin-top: 1px; font-weight: 700; letter-spacing: .02em; }
   /* day/night palette */
@@ -279,7 +281,9 @@ const lang = 'en';
   let hour12 = (() => { const v = localStorage.getItem(LS_FMT); return v === null ? true : v === '1'; })();
   const today0 = parts(Date.now(), localTz);
   let selDate = { y: today0.y, mo: today0.mo, d: today0.d };
-  let selCol = today0.hour; // 0..23, column in the home-date grid
+  let selStart = today0.hour, selEnd = today0.hour;   // selected hour band [start..end], inclusive
+  let gridInstants = [];                              // 24 ms instants for the current date in home tz
+  let dragging = false, dragAnchor = 0, didDrag = false;
 
   function save() {
     try {
@@ -297,11 +301,10 @@ const lang = 'en';
 
   function render() {
     const homeTz = locations[0];
-    const grid = [];
-    for (let h = 0; h < 24; h++) grid.push(homeInstant(selDate.y, selDate.mo, selDate.d, h, homeTz));
-    if (selCol > 23) selCol = 23; if (selCol < 0) selCol = 0;
-    const selInstant = grid[selCol];
-    const homeOff = offsetMin(selInstant, homeTz);
+    gridInstants = [];
+    for (let h = 0; h < 24; h++) gridInstants.push(homeInstant(selDate.y, selDate.mo, selDate.d, h, homeTz));
+    const refInst = gridInstants[12];                  // stable midday reference for offset / abbr
+    const homeOff = offsetMin(refInst, homeTz);
 
     const now = Date.now();
     const nowHome = parts(now, homeTz);
@@ -313,23 +316,20 @@ const lang = 'en';
     let html = '';
     locations.forEach((tz, idx) => {
       const isHome = idx === 0;
-      const pr = pretty(selInstant, tz, hour12);
-      const off = offsetMin(selInstant, tz);
-      const liveP = pretty(now, tz, hour12);
+      const pr = pretty(refInst, tz, hour12);
+      const off = offsetMin(refInst, tz);
       const offLbl = offsetLabel(off);
       const metaTz = pr.abbr && pr.abbr !== offLbl ? `${pr.abbr} · ${offLbl}` : offLbl;
 
-      // tiles
+      // hour tiles — band / dim styling is applied separately by applySelection()
       let tiles = '';
       for (let i = 0; i < 24; i++) {
-        const tp = parts(grid[i], tz);
+        const tp = parts(gridInstants[i], tz);
         const newDay = tp.hour === 0;
-        const cls = hourClass(tp.hour);
-        const sel = i === selCol ? ' is-sel' : '';
         const nd = newDay ? ' is-newday' : '';
         const dateTag = (newDay || i === 0) ? `<span class="tzc-d">${MONTHS[tp.mo - 1]} ${tp.d}</span>` : '';
         const nowTag = (isHome && i === nowCol) ? `<span class="tzc-nowtag">NOW</span>` : '';
-        tiles += `<div class="tzc-tile ${cls}${sel}${nd}" data-act="pick" data-col="${i}">`
+        tiles += `<div class="tzc-tile ${hourClass(tp.hour)}${nd}" data-act="pick" data-col="${i}">`
           + nowTag
           + `<span class="tzc-h">${hourLabel(tp.hour, hour12)}</span>`
           + dateTag
@@ -339,7 +339,6 @@ const lang = 'en';
       const diff = isHome ? '<span class="text-[10px] font-bold uppercase tracking-widest text-primary/70">Home</span>'
         : `<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/60">${diffLabel(off - homeOff)}</span>`;
 
-      const bigTime = `${pr.hour}:${pr.minute}${hour12 ? ` <span class="text-sm font-bold">${pr.ap}</span>` : ''}`;
       const pinBtn = isHome ? '' : `<button class="tzc-icon-btn" data-act="pin" data-idx="${idx}" title="Set as home" aria-label="Set as home"><span class="material-symbols-outlined text-base">push_pin</span></button>`;
       const rmBtn = locations.length > 1 ? `<button class="tzc-icon-btn hover:!text-rose-600" data-act="remove" data-idx="${idx}" title="Remove" aria-label="Remove"><span class="material-symbols-outlined text-base">close</span></button>` : '';
 
@@ -352,49 +351,113 @@ const lang = 'en';
         +     `</div>`
         +     `<div class="flex items-center -mr-1.5 -mt-1 shrink-0">${pinBtn}${rmBtn}</div>`
         +   `</div>`
-        +   `<div class="mt-2 flex items-baseline gap-2">`
-        +     `<div class="font-headline font-extrabold text-on-surface text-2xl leading-none tracking-tight">${bigTime}</div>`
+        +   `<div class="mt-2 flex items-baseline gap-2 flex-wrap">`
+        +     `<div class="tzc-bigtime font-headline font-extrabold text-on-surface text-2xl leading-none tracking-tight"></div>`
         +     diff
         +   `</div>`
-        +   `<div class="mt-1 text-[12px] text-on-surface-variant">${pr.weekday}, ${pr.month} ${pr.day} · <span class="text-on-surface-variant/60">now ${liveP.hour}:${liveP.minute}${hour12 ? ' ' + liveP.ap : ''}</span></div>`
+        +   `<div class="tzc-window hidden text-[11.5px] font-bold text-primary mt-1"></div>`
+        +   `<div class="mt-1 text-[12px] text-on-surface-variant"><span class="tzc-seldate"></span> · <span class="text-on-surface-variant/60">now <span class="tzc-nowtime"></span></span></div>`
         + `</div>`
         + `<div class="tzc-strip">${tiles}</div>`
         + `</div>`;
     });
     table.innerHTML = html;
+    applySelection();
+    refreshNow();
+  }
+
+  // Highlight the selected hour band [selStart..selEnd] and dim everything else,
+  // then refresh each row's converted readout. Cheap enough to call on every drag move.
+  function applySelection() {
+    if (!gridInstants.length) return;
+    selStart = Math.max(0, Math.min(23, selStart));
+    selEnd = Math.max(selStart, Math.min(23, selEnd));
+    const rows = table.querySelectorAll('.tzc-row');
+    const rowCount = rows.length;
+    const C = '#042f24', W = 2;                         // band outline colour + width (px)
+    const sInst = gridInstants[selStart];
+    const eInst = gridInstants[selEnd] + 3600000;       // window end = end of the last selected hour
+    const rangeHrs = selEnd - selStart + 1;
+    rows.forEach((row, ri) => {
+      const tz = locations[ri];
+      row.querySelectorAll('.tzc-tile').forEach((t) => {
+        const c = +t.dataset.col;
+        const inBand = c >= selStart && c <= selEnd;
+        if (!inBand) { t.classList.add('tzc-dim'); t.classList.remove('tzc-band'); t.style.boxShadow = ''; return; }
+        t.classList.add('tzc-band'); t.classList.remove('tzc-dim');
+        const sh = [];                                   // draw a clean rectangle around the whole band
+        if (ri === 0) sh.push(`inset 0 ${W}px 0 0 ${C}`);
+        if (ri === rowCount - 1) sh.push(`inset 0 -${W}px 0 0 ${C}`);
+        if (c === selStart) sh.push(`inset ${W}px 0 0 0 ${C}`);
+        if (c === selEnd) sh.push(`inset -${W}px 0 0 0 ${C}`);
+        t.style.boxShadow = sh.join(',');
+      });
+      const ps = pretty(sInst, tz, hour12);
+      const bt = row.querySelector('.tzc-bigtime');
+      if (bt) bt.innerHTML = `${ps.hour}:${ps.minute}${hour12 ? ` <span class="text-sm font-bold">${ps.ap}</span>` : ''}`;
+      const sd = row.querySelector('.tzc-seldate');
+      if (sd) sd.textContent = `${ps.weekday}, ${ps.month} ${ps.day}`;
+      const win = row.querySelector('.tzc-window');
+      if (win) {
+        if (rangeHrs > 1) {
+          const pe = pretty(eInst, tz, hour12);
+          win.textContent = `${ps.hour}:${ps.minute}${hour12 ? ' ' + ps.ap : ''} – ${pe.hour}:${pe.minute}${hour12 ? ' ' + pe.ap : ''} · ${rangeHrs}h`;
+          win.classList.remove('hidden');
+        } else {
+          win.classList.add('hidden');
+        }
+      }
+    });
+  }
+
+  // Live "now HH:MM" per row — independent of the selected band.
+  function refreshNow() {
+    const now = Date.now();
+    table.querySelectorAll('.tzc-row').forEach((row, ri) => {
+      const el = row.querySelector('.tzc-nowtime');
+      if (!el) return;
+      const lp = pretty(now, locations[ri], hour12);
+      el.textContent = `${lp.hour}:${lp.minute}${hour12 ? ' ' + lp.ap : ''}`;
+    });
   }
 
   // ---------- interactions ----------
+  // click: remove / pin a city — plus a touch/fallback single-hour select
   table.addEventListener('click', (e) => {
     const el = e.target.closest('[data-act]');
     if (!el) return;
     const act = el.getAttribute('data-act');
-    if (act === 'pick') {
-      selCol = parseInt(el.getAttribute('data-col'), 10);
-      render();
-    } else if (act === 'remove') {
+    if (act === 'remove') {
       const i = parseInt(el.getAttribute('data-idx'), 10);
-      locations.splice(i, 1);
-      save(); render();
+      locations.splice(i, 1); save(); render();
     } else if (act === 'pin') {
       const i = parseInt(el.getAttribute('data-idx'), 10);
-      const [z] = locations.splice(i, 1);
-      locations.unshift(z);
-      save(); render();
+      const [z] = locations.splice(i, 1); locations.unshift(z); save(); render();
+    } else if (act === 'pick') {
+      if (didDrag) { didDrag = false; return; }      // a drag just finished — keep the range
+      selStart = selEnd = parseInt(el.getAttribute('data-col'), 10);
+      applySelection();
     }
   });
-  // column hover highlight
+  // click-and-drag across hour tiles to select a meeting window
+  table.addEventListener('mousedown', (e) => {
+    const t = e.target.closest('.tzc-tile');
+    if (!t) return;
+    e.preventDefault();                              // suppress text selection while dragging
+    dragging = true; didDrag = false;
+    dragAnchor = +t.dataset.col;
+    selStart = selEnd = dragAnchor;
+    applySelection();
+  });
   table.addEventListener('mouseover', (e) => {
+    if (!dragging) return;
     const t = e.target.closest('.tzc-tile');
     if (!t) return;
-    const c = t.getAttribute('data-col');
-    table.querySelectorAll(`.tzc-tile[data-col="${c}"]`).forEach(x => x.classList.add('tzc-hi'));
+    const c = +t.dataset.col;
+    const ns = Math.min(dragAnchor, c), ne = Math.max(dragAnchor, c);
+    if (ns !== selStart || ne !== selEnd) { selStart = ns; selEnd = ne; didDrag = true; applySelection(); }
   });
-  table.addEventListener('mouseout', (e) => {
-    const t = e.target.closest('.tzc-tile');
-    if (!t) return;
-    table.querySelectorAll('.tzc-hi').forEach(x => x.classList.remove('tzc-hi'));
-  });
+  document.addEventListener('mouseup', () => { dragging = false; });
 
   // date controls
   function shiftDay(delta) {
@@ -408,7 +471,7 @@ const lang = 'en';
   document.getElementById('tzc-today').addEventListener('click', () => {
     const t = parts(Date.now(), locations[0]);
     selDate = { y: t.y, mo: t.mo, d: t.d };
-    selCol = t.hour;
+    selStart = selEnd = t.hour;
     render();
   });
   dateInput.addEventListener('change', () => {
@@ -484,12 +547,13 @@ const lang = 'en';
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAdd(); });
 
-  // live clock refresh — keeps the "now" marker and per-row live time current.
-  // Selection state (selCol) is preserved across re-renders.
+  // live clock refresh — keep per-row "now" current; re-render to move the NOW tag
+  // when the hour rolls over. Selection (selStart..selEnd) is preserved across renders.
   setInterval(() => {
+    refreshNow();
     const t = parts(Date.now(), locations[0]);
     const stillToday = t.y === selDate.y && t.mo === selDate.mo && t.d === selDate.d;
-    if (stillToday) render();
+    if (stillToday && !dragging) render();
   }, 60000);
 
   // init
