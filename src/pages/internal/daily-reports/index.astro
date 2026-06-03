@@ -16,11 +16,20 @@ if (!viewer.isAdmin) {
   return Astro.redirect(`/internal/daily-reports/${encodeURIComponent(viewer.name)}`);
 }
 
+// Active advisors only — a 离职 advisor's historical 日报 still syncs to the
+// daily_reports table, but it shouldn't surface in this picker list (their page
+// stays reachable directly by URL). Matches the active-filter on every other list.
+const { data: activeRows } = await supabase
+  .from('advisors')
+  .select('name')
+  .eq('active', true);
+const activeAdvisorSet = new Set((activeRows ?? []).map((r: any) => r.name as string));
+
 const { data: reportsRaw } = await supabase
   .from('daily_reports')
   .select('advisor, body_md, synced_at, obsidian_path')
   .order('advisor');
-const reports = reportsRaw ?? [];
+const reports = (reportsRaw ?? []).filter((r: any) => activeAdvisorSet.has(r.advisor));
 
 // For each report, extract the most recent date heading + a tiny preview snippet
 type ReportCard = {

@@ -71,8 +71,16 @@ const allStudents = (rawStudents ?? []) as Array<{
 
 // ── Active 中期顾问 list — only those in advisors table drive the contracts
 //    widgets. New 顾问 onboarding = adding to advisors table. ──
-const { data: rawAdvisorsRows } = await supabase.from('advisors').select('name');
-const ACTIVE_ADVISORS = (rawAdvisorsRows ?? []).map((r: any) => r.name as string);
+// active=true + role 中期 — match the overview / roster / weekly-export queries.
+// (Was missing both filters, so 离职 advisors like 袁辰飞 leaked into every export
+//  table here even though every OTHER advisors query in the app filters them out.)
+const { data: rawAdvisorsRows } = await supabase
+  .from('advisors')
+  .select('name, roles')
+  .eq('active', true);
+const ACTIVE_ADVISORS = (rawAdvisorsRows ?? [])
+  .filter((r: any) => Array.isArray(r.roles) && r.roles.includes('中期'))
+  .map((r: any) => r.name as string);
 const ACTIVE_ADVISORS_SET = new Set(ACTIVE_ADVISORS);
 
 // ── Contracts (留学 + 产品) by student → mid_advisor breakdown ──

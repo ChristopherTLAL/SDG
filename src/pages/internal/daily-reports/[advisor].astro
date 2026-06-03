@@ -72,11 +72,17 @@ if (report.body_md) {
 }
 
 // Advisor picker is admin-only — regular advisors don't need to switch (they only
-// have access to their own).
-const { data: allAdvisorsRaw } = viewer.isAdmin
-  ? await supabase.from('daily_reports').select('advisor').order('advisor')
-  : { data: [] as { advisor: string }[] };
-const allAdvisors = allAdvisorsRaw ?? [];
+// have access to their own). Active advisors only: a 离职 advisor's report stays
+// reachable by direct URL, but doesn't clutter the switcher.
+let allAdvisors: { advisor: string }[] = [];
+if (viewer.isAdmin) {
+  const [{ data: drRows }, { data: actRows }] = await Promise.all([
+    supabase.from('daily_reports').select('advisor').order('advisor'),
+    supabase.from('advisors').select('name').eq('active', true),
+  ]);
+  const actSet = new Set((actRows ?? []).map((r: any) => r.name as string));
+  allAdvisors = (drRows ?? []).filter((r: any) => actSet.has(r.advisor));
+}
 
 function dateAnchor(d: string): string {
   return `d-${d}`;
