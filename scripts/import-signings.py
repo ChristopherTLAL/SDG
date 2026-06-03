@@ -2,9 +2,10 @@
 """
 import-signings.py — single source of truth for contract data.
 
-Reads EVERY *客户签约明细*.xlsx across ~/Downloads + ~/Downloads/_工作运营/ and
-unions contracts by 合同编号 (newest file wins), so weekly slices + occasional old
-backfills all contribute and nothing is dropped. Pass an explicit path for single-file.
+Finds every signing export by SCHEMA (any .xlsx containing a 签约明细 sheet — filename-
+agnostic) across ~/Downloads + ~/Downloads/_工作运营/ and unions contracts by 合同编号
+(newest file wins), so weekly slices named anything + old backfills all contribute and
+nothing is dropped. Pass an explicit path for single-file.
 
 Three things it does, all idempotent:
 
@@ -33,6 +34,7 @@ import json
 import os
 import re
 import sys
+import zipfile
 import urllib.request
 import urllib.error
 from collections import defaultdict, Counter
@@ -50,12 +52,23 @@ ENV_FILE = SDG_HTML / '.env'
 
 # Resolve signing xlsx source(s):
 #   1. CLI path arg → use EXACTLY that one file (explicit single-file override).
-#   2. Default (no arg) → MULTI-FILE UNION: read EVERY *客户签约明细*.xlsx across
-#      ~/Downloads/ + ~/Downloads/_工作运营/, union contracts by 合同编号, newest
-#      file wins on conflict (status/advisor updates from the latest export take
-#      precedence). A weekly slice can never drop contracts that live only in the
-#      full-history export, and dropping an old backfill export into the folder
-#      just adds its missing contracts. "几个文档都要看" — all of them, every run.
+#   2. Default (no arg) → MULTI-FILE UNION: find every .xlsx that contains a 签约明细
+#      sheet (detection by SCHEMA, not filename — so a weekly export named anything,
+#      e.g. 53周.xlsx / 本周签约.xlsx, is picked up automatically) across ~/Downloads/
+#      + ~/Downloads/_工作运营/, union contracts by 合同编号, newest file wins on
+#      conflict. A weekly slice can never drop contracts that live only in the
+#      full-history export; an old backfill just adds its missing contracts.
+#      "几个文档都要看" — all of them, every run, regardless of filename.
+def _has_signing_sheet(path):
+    """Cheap, filename-agnostic check: does this .xlsx contain a 签约明细 sheet?
+    Reads only xl/workbook.xml from the zip (sheet names live there) — no full
+    workbook parse — so scanning a Downloads folder of 100+ xlsx stays sub-second."""
+    try:
+        with zipfile.ZipFile(path) as z:
+            return '签约明细' in z.read('xl/workbook.xml').decode('utf-8', 'ignore')
+    except Exception:
+        return False
+
 def _all_signing_xlsx():
     search_dirs = [
         Path.home() / 'Downloads',
@@ -65,12 +78,12 @@ def _all_signing_xlsx():
     for d in search_dirs:
         if not d.exists():
             continue
-        for p in d.glob('*客户签约明细*.xlsx'):
-            if not p.name.startswith('~$'):
+        for p in d.glob('*.xlsx'):
+            if not p.name.startswith('~$') and _has_signing_sheet(p):
                 cands.append(p)
     if not cands:
         raise FileNotFoundError(
-            'No *客户签约明细*.xlsx found in ~/Downloads or ~/Downloads/_工作运营')
+            'No .xlsx with a 签约明细 sheet found in ~/Downloads or ~/Downloads/_工作运营')
     # oldest → newest by mtime, so the newest file wins on union.
     return sorted(cands, key=lambda p: p.stat().st_mtime)
 
@@ -98,8 +111,8 @@ if _pos_args and _pos_args[0] not in ('-h', '--help'):
 elif _pos_args:
     print(__doc__)
     print(f'\nUsage: {sys.argv[0]} [--dry-run] [--rewrite] [path/to/*客户签约明细*.xlsx]')
-    print(f'\nNo arg  → MULTI-FILE UNION of every *客户签约明细*.xlsx in ~/Downloads + _工作运营/')
-    print(f'          (newest file wins per 合同编号; nothing in any file is dropped).')
+    print(f'\nNo arg  → MULTI-FILE UNION of every .xlsx with a 签约明细 sheet in ~/Downloads + _工作运营/')
+    print(f'          (filename-agnostic; newest file wins per 合同编号; nothing dropped).')
     print(f'path    → use EXACTLY that one file (single-file override).')
     print(f'--dry-run → preview changes without writing to vault or Supabase.')
     print(f'--rewrite → authoritative: REPLACE vault 合同明细 from files, dropping vault')
