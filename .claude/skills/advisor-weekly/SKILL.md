@@ -1,6 +1,6 @@
 ---
 name: advisor-weekly
-description: Generate AI-written "this-week follow-up suggestions" for every active 中期 advisor, then persist to Supabase so the website (/internal/advisors/[name]/weekly) shows the suggestions at the top of each advisor's weekly reminder page. Uses agent-teams architecture — Opus orchestrates, one Sonnet subagent per advisor reads that advisor's students (recent comm notes + pending submissions + contracts + days-since-contact) in parallel and writes 「本周建议跟进」 markdown, Opus then UPSERTs each into `advisor_weekly_advice`. Trigger whenever the user says "/advisor-weekly", "本周顾问建议", "顾问周报建议", "每周顾问 AI 建议", "advisor weekly advice", "跑一下顾问 AI 周报", "更新顾问本周提醒", "刷新本周 AI 建议", or any phrasing implying "let AI generate this week's advisor action list and push it to the site". Don't undertrigger.
+description: Generate AI-written "this-week follow-up suggestions" for every active 中期 advisor, then persist to Supabase so the website (/internal/advisors/[name]/weekly) shows the suggestions at the top of each advisor's weekly reminder page. Uses the **Workflow tool** — a `parallel()` fan-out runs one schema-validated Sonnet agent per advisor (each reads that advisor's students — recent comm notes + pending submissions + contracts + days-since-contact — and UPSERTs per-student rows into `student_weekly_advice`), then the coordinator aggregates them into `advisor_weekly_advice` via one SQL CTE. Trigger whenever the user says "/advisor-weekly", "本周顾问建议", "顾问周报建议", "每周顾问 AI 建议", "advisor weekly advice", "跑一下顾问 AI 周报", "更新顾问本周提醒", "刷新本周 AI 建议", or any phrasing implying "let AI generate this week's advisor action list and push it to the site". Don't undertrigger.
 ---
 
 # advisor-weekly
@@ -46,20 +46,30 @@ ORDER BY name;
 
 Compute `week_start` = the Monday of the week the skill is being run for. Use the existing system clock: if today is Mon → today; otherwise → previous Monday. Same convention as `/internal/advisors/[name]/weekly` page.
 
-### Step 3: spawn N Sonnet subagents in PARALLEL — one per advisor
+### Step 3: run a Workflow — one agent per advisor (parallel fan-out)
 
-This is the heart of the skill. In a **single message**, emit one `Agent` tool call per advisor. All N must be in the same message so they run concurrently. (Sequential spawning defeats the purpose.)
+This is the heart of the skill. Use the **Workflow tool** (the `workflow` keyword opts you in). It fans out one Sonnet `agent()` per advisor via `parallel()` — built-in concurrency cap + schema-validated returns — cleaner than hand-spawning N `Agent` calls. Pass the script inline; **inline the advisor list + week_start into the script body** (memory `workflow_args_inline` — `args` is unreliable).
 
-Each `Agent` call:
-
+```js
+export const meta = {
+  name: 'advisor-weekly',
+  description: '并行为每个活跃中期顾问生成本周建议跟进 + UPSERT student_weekly_advice',
+  phases: [{ title: 'PerAdvisor' }],
+}
+const WEEK = '<WEEK_START_YYYY_MM_DD>'   // ISO Monday of the reporting week
+const TODAY = '<TODAY_YYYY_MM_DD>'       // days-since-contact reference (Date.* is unavailable in scripts)
+const ADVISORS = [/* inline the active 中期 advisor names from Step 2 */]
+const SUMMARY_SCHEMA = { /* { advisor_name, totals{urgent,normal,kickoff,skipped_under_14d,in_scope_total}, persisted_rows, sample[{name,bucket,days,suggestion_md}] } */ }
+const prompt = (adv) => `<the per-advisor agent prompt below, interpolating ${adv} / ${WEEK} / ${TODAY}>`
+phase('PerAdvisor')
+const results = await parallel(ADVISORS.map(adv => () =>
+  agent(prompt(adv), { label: `weekly:${adv}`, model: 'sonnet', schema: SUMMARY_SCHEMA })))
+return results.filter(Boolean)
 ```
-subagent_type: "general-purpose"
-model: "sonnet"
-description: "Advisor weekly advice · <name>"
-prompt: <see template below>
-```
 
-Subagent prompt template — be specific so the subagent doesn't need to ask follow-ups:
+Each agent runs its own Supabase SQL (reads students / notes / submissions, UPSERTs `student_weekly_advice`) and returns ONLY the schema summary — the workflow result is the array of summaries (drives Step 4 review + Step 5 report). Agents reach `mcp__supabase__execute_sql` via ToolSearch on demand. A failed agent resolves to `null` (filtered out); re-run just that advisor with a lone `agent()`, or `Workflow({scriptPath, resumeFromRunId})` to resume (completed agents return cached results).
+
+Per-advisor agent prompt (the `prompt(adv)` body) — be specific so it doesn't ask follow-ups:
 
 ```
 You are generating "本周建议跟进" for 中期顾问 「<ADVISOR_NAME>」 for the week starting <WEEK_START_YYYY_MM_DD>.
@@ -185,7 +195,7 @@ markdown blob:
 If 0 students in scope: persist nothing, return totals all zero with empty sample[].
 ```
 
-Replace `<ADVISOR_NAME>` and `<WEEK_START_YYYY_MM_DD>` per advisor before spawning.
+Interpolate `${adv}` / `${WEEK}` / `${TODAY}` inside the `prompt(adv)` function above — `parallel()` does the per-advisor fan-out, no manual spawning. (Note: `<STUDENT_IDS>` / `<N_STUDENTS>` stay literal — the agent fills them after its STEP 1 query.)
 
 ### Step 4: review subagent summaries + aggregate advisor markdown via SQL
 
