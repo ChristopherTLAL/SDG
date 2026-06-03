@@ -1,0 +1,226 @@
+{
+  "id": "cardiff",
+  "type": "school",
+  "name": "Cardiff University",
+  "nameCn": "卡迪夫大学",
+  "city": "Cardiff",
+  "center": [
+    51.499,
+    -3.177
+  ],
+  "zoom": 13,
+  "blurb": "英国卡迪夫大学,罗素集团成员,主校区集中于市中心卡瑟斯公园,另有希斯公园医学校区、Maindy路创新园区及多处宿舍与运动场地。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Cathays Park Campus",
+          "nameCn": "卡瑟斯公园主校区",
+          "lat": 51.488,
+          "lng": -3.1805,
+          "radius": 650,
+          "note": "主校区,集中文理、社科与理工学院及多座一二级登录历史建筑。"
+        },
+        {
+          "name": "Heath Park Campus",
+          "nameCn": "希斯公园医学校区",
+          "lat": 51.5067,
+          "lng": -3.191,
+          "radius": 700,
+          "note": "医学、牙医与健康学院,与威尔士大学医院同址。"
+        },
+        {
+          "name": "Cardiff Innovation Campus (Maindy Road)",
+          "nameCn": "创新园区(Maindy路)",
+          "lat": 51.4931,
+          "lng": -3.1842,
+          "radius": 300,
+          "note": "sbarc|spark 与转化研究中心所在的科研创新园区。"
+        },
+        {
+          "name": "Talybont Student Residences & Sports Village",
+          "nameCn": "Talybont宿舍区与运动村",
+          "lat": 51.4979,
+          "lng": -3.1965,
+          "radius": 450,
+          "note": "大学最大宿舍群,含运动训练村(健身、球类场馆)。"
+        },
+        {
+          "name": "Llanrumney Sports Fields",
+          "nameCn": "Llanrumney运动场",
+          "lat": 51.5164,
+          "lng": -3.1357,
+          "radius": 350,
+          "note": "市区东北的橄榄球/足球/长曲棍球大草坪。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Main Building",
+          "nameCn": "主楼",
+          "lat": 51.489,
+          "lng": -3.1797,
+          "note": "1909年落成的二级登录地标主楼,53 Park Place。"
+        },
+        {
+          "name": "Glamorgan Building",
+          "nameCn": "格拉摩根楼",
+          "lat": 51.4859,
+          "lng": -3.1815,
+          "note": "一级登录建筑,地理规划与社会科学学院。"
+        },
+        {
+          "name": "Bute Building",
+          "nameCn": "布特楼",
+          "lat": 51.4865,
+          "lng": -3.1826,
+          "note": "威尔士建筑学院所在,二级登录建筑。"
+        },
+        {
+          "name": "Queen's Buildings",
+          "nameCn": "女王楼",
+          "lat": 51.4886,
+          "lng": -3.1769,
+          "note": "工程学院与物理天文学院教学楼群。"
+        },
+        {
+          "name": "Abacws",
+          "nameCn": "Abacws楼",
+          "lat": 51.4899,
+          "lng": -3.1772,
+          "note": "计算机科学与数学学院新楼,Senghennydd路。"
+        },
+        {
+          "name": "Redwood Building",
+          "nameCn": "红木楼",
+          "lat": 51.4868,
+          "lng": -3.1789,
+          "note": "药学与制药科学学院。"
+        },
+        {
+          "name": "School of Medicine",
+          "nameCn": "医学院",
+          "lat": 51.5067,
+          "lng": -3.1913,
+          "note": "希斯公园校区,与威尔士大学医院共址教学。"
+        },
+        {
+          "name": "School of Dentistry",
+          "nameCn": "牙医学院",
+          "lat": 51.5072,
+          "lng": -3.1898,
+          "note": "希斯公园校区牙科学院及附属牙科医院。"
+        },
+        {
+          "name": "2 Central Square",
+          "nameCn": "中央广场2号",
+          "lat": 51.4766,
+          "lng": -3.1805,
+          "note": "市中心新闻、媒体与文化学院,毗邻BBC威尔士。"
+        },
+        {
+          "name": "sbarc|spark",
+          "nameCn": "sbarc|spark创新楼",
+          "lat": 51.4931,
+          "lng": -3.1842,
+          "note": "全球首座社会科学研究园,Maindy路创新园区核心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Arts and Social Studies Library",
+          "nameCn": "文社科图书馆",
+          "lat": 51.4878,
+          "lng": -3.1786,
+          "note": "主校区最大馆,Colum Road。"
+        },
+        {
+          "name": "Science Library (Trevithick)",
+          "nameCn": "理科图书馆",
+          "lat": 51.4885,
+          "lng": -3.178,
+          "note": "原Drapers图书馆,服务理工学科。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "National Museum Cardiff",
+          "nameCn": "威尔士国家博物馆",
+          "lat": 51.4858,
+          "lng": -3.1768,
+          "note": "紧邻主校区的国家级艺术与自然史博物馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Cardiff University Students' Union",
+          "nameCn": "卡迪夫大学学生会",
+          "lat": 51.4894,
+          "lng": -3.1772,
+          "note": "Park Place 学生会大楼,临近卡瑟斯火车站。"
+        },
+        {
+          "name": "Cathays railway station",
+          "nameCn": "卡瑟斯火车站",
+          "lat": 51.4891,
+          "lng": -3.1793,
+          "note": "主校区最近的本地火车站。"
+        },
+        {
+          "name": "Cardiff Central railway station",
+          "nameCn": "卡迪夫中央火车站",
+          "lat": 51.4762,
+          "lng": -3.179,
+          "note": "城市主火车站,紧邻中央广场校园。"
+        },
+        {
+          "name": "University Hospital of Wales",
+          "nameCn": "威尔士大学医院",
+          "lat": 51.507,
+          "lng": -3.19,
+          "note": "希斯公园校区临床教学与威尔士最大医院。"
+        },
+        {
+          "name": "Aberdare Hall",
+          "nameCn": "阿伯戴尔学舍",
+          "lat": 51.4905,
+          "lng": -3.1818,
+          "note": "1895年女生学舍,登录历史建筑。"
+        }
+      ]
+    }
+  ]
+}

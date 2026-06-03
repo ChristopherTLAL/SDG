@@ -1,0 +1,191 @@
+{
+  "id": "leeds",
+  "type": "school",
+  "name": "University of Leeds",
+  "nameCn": "利兹大学",
+  "city": "Leeds",
+  "center": [
+    53.818,
+    -1.553
+  ],
+  "zoom": 13,
+  "blurb": "利兹大学:英格兰约克郡的罗素集团名校,主校区紧邻利兹市中心北侧,医学教学分散于市内多家医院,体育园则远在北郊 Adel。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "University of Leeds Main Campus",
+          "nameCn": "主校区",
+          "lat": 53.8072,
+          "lng": -1.5517,
+          "radius": 650,
+          "note": "市中心北约1.6公里,98英亩的紧凑校园,哥特复兴+装饰艺术+粗野主义混合建筑群。"
+        },
+        {
+          "name": "St James's University Hospital (Leeds)",
+          "nameCn": "圣詹姆斯教学医院",
+          "lat": 53.8081,
+          "lng": -1.5186,
+          "radius": 500,
+          "note": "主校区以东约2.6公里,医学院临床教学与医学研究所(LIMR)所在地。"
+        },
+        {
+          "name": "Leeds General Infirmary",
+          "nameCn": "利兹综合医院",
+          "lat": 53.8021,
+          "lng": -1.5508,
+          "radius": 350,
+          "note": "紧邻主校区西南,医学院另一处主要临床教学医院。"
+        },
+        {
+          "name": "Sports Park Bodington & The Brownlee Centre",
+          "nameCn": "博丁顿体育园/布朗利中心",
+          "lat": 53.843,
+          "lng": -1.5887,
+          "radius": 700,
+          "note": "主校区以北约5公里(Adel/Otley路),含运动场、足球中心与英国首座铁人三项训练场。"
+        },
+        {
+          "name": "Devonshire Hall Residences (Headingley)",
+          "nameCn": "德文郡宿舍区",
+          "lat": 53.8187,
+          "lng": -1.5647,
+          "radius": 300,
+          "note": "海丁利方向的历史学生宿舍群,距主校区约1.5公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Roger Stevens Building",
+          "nameCn": "罗杰·史蒂文斯楼",
+          "lat": 53.8075,
+          "lng": -1.554,
+          "note": "粗野主义阶梯式建筑,含25间阶梯教室,校园核心教学楼。"
+        },
+        {
+          "name": "Maurice Keyworth Building (Leeds University Business School)",
+          "nameCn": "商学院(基沃斯楼)",
+          "lat": 53.8064,
+          "lng": -1.5497,
+          "note": "利兹大学商学院主楼,位于校园东缘临近 Moorland 路。"
+        },
+        {
+          "name": "Worsley Building (School of Medicine & Dentistry)",
+          "nameCn": "沃斯利楼(医牙学院)",
+          "lat": 53.8043,
+          "lng": -1.5532,
+          "note": "医学院与牙学院本部,毗邻利兹综合医院,设健康科学图书馆。"
+        },
+        {
+          "name": "Great Hall",
+          "nameCn": "大礼堂",
+          "lat": 53.8083,
+          "lng": -1.5527,
+          "note": "维多利亚哥特式礼堂,毕业典礼主场地。"
+        },
+        {
+          "name": "School of Mechanical Engineering (Mechanical Engineering Building)",
+          "nameCn": "机械工程学院楼",
+          "lat": 53.8094,
+          "lng": -1.5556,
+          "note": "工程学科群,位于校园北部。"
+        },
+        {
+          "name": "Leeds Institute of Medical Research at St James's (LIMR)",
+          "nameCn": "圣詹姆斯医学研究所",
+          "lat": 53.8073,
+          "lng": -1.5172,
+          "note": "位于圣詹姆斯医院园区内,连接大学与NHS的医学研究中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Brotherton Library",
+          "nameCn": "布拉泽顿图书馆",
+          "lat": 53.8079,
+          "lng": -1.5525,
+          "note": "帕金森楼内的圆形主图书馆,人文社科馆藏,1936年装饰艺术风格。"
+        },
+        {
+          "name": "Edward Boyle Library",
+          "nameCn": "爱德华·博伊尔图书馆",
+          "lat": 53.8069,
+          "lng": -1.5545,
+          "note": "粗野主义理工科主图书馆,经2800万英镑翻新。"
+        },
+        {
+          "name": "Laidlaw Library",
+          "nameCn": "莱德劳图书馆",
+          "lat": 53.8087,
+          "lng": -1.5512,
+          "note": "2015年开放的本科生图书馆,位于校园东南入口处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Stanley & Audrey Burton Gallery",
+          "nameCn": "伯顿美术馆",
+          "lat": 53.8081,
+          "lng": -1.5527,
+          "note": "帕金森楼内的大学美术馆,藏英国近现代艺术。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Parkinson Building",
+          "nameCn": "帕金森楼(钟塔)",
+          "lat": 53.8081,
+          "lng": -1.553,
+          "note": "57米高白色钟塔,利兹地标,2006年起入校徽,M621高速远眺可见。"
+        },
+        {
+          "name": "Leeds University Union",
+          "nameCn": "利兹大学学生会",
+          "lat": 53.8085,
+          "lng": -1.5548,
+          "note": "英国规模最大的学生会之一,位于校园核心区。"
+        },
+        {
+          "name": "Leeds railway station",
+          "nameCn": "利兹火车站",
+          "lat": 53.7952,
+          "lng": -1.5477,
+          "note": "市中心主火车站,距主校区步行约15分钟,通伦敦/曼城等地。"
+        }
+      ]
+    }
+  ]
+}

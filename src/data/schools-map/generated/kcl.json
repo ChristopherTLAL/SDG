@@ -1,0 +1,212 @@
+{
+  "id": "kcl",
+  "type": "school",
+  "name": "King's College London",
+  "nameCn": "伦敦国王学院",
+  "city": "London",
+  "center": [
+    51.495,
+    -0.1045
+  ],
+  "zoom": 13,
+  "blurb": "伦敦大学联盟核心成员,主校区在泰晤士河北岸 Strand,另设盖伊、滑铁卢、圣托马斯三个河畔医学校区与南伦敦丹麦山校区,文医并重。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Strand Campus",
+          "nameCn": "斯特兰德校区(主校区)",
+          "lat": 51.5115,
+          "lng": -0.1161,
+          "radius": 320,
+          "note": "1831年创校原址,人文、法律、理学、社科与商科所在地,毗邻萨默塞特府与河岸。"
+        },
+        {
+          "name": "Guy's Campus",
+          "nameCn": "盖伊校区",
+          "lat": 51.5033,
+          "lng": -0.0869,
+          "radius": 280,
+          "note": "伦敦桥旁、紧邻碎片大厦,生命科学与医学、牙科及精神病学研究主场。"
+        },
+        {
+          "name": "Waterloo Campus",
+          "nameCn": "滑铁卢校区",
+          "lat": 51.5063,
+          "lng": -0.1078,
+          "radius": 220,
+          "note": "隔滑铁卢桥与主校区相望,南丁格尔护理学院与富兰克林-威尔金斯楼所在。"
+        },
+        {
+          "name": "St Thomas' Campus",
+          "nameCn": "圣托马斯校区",
+          "lat": 51.498,
+          "lng": -0.118,
+          "radius": 200,
+          "note": "圣托马斯医院内,隔河正对议会大厦,医学牙科继续教育与南丁格尔博物馆所在。"
+        },
+        {
+          "name": "Denmark Hill Campus",
+          "nameCn": "丹麦山校区",
+          "lat": 51.47,
+          "lng": -0.0894,
+          "radius": 360,
+          "note": "南伦敦坎伯韦尔,唯一不临泰晤士河的校区,精神病学心理学与神经科学研究所主场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "King's Building",
+          "nameCn": "国王楼",
+          "lat": 51.5116,
+          "lng": -0.1157,
+          "note": "斯特兰德校区一级保护建筑,1831年创校原始教学楼。"
+        },
+        {
+          "name": "Bush House",
+          "nameCn": "布什楼",
+          "lat": 51.5127,
+          "lng": -0.1172,
+          "note": "原 BBC 世界服务总部,2015年起并入主校区,现为多学院教学楼。"
+        },
+        {
+          "name": "Somerset House East Wing",
+          "nameCn": "萨默塞特府东翼",
+          "lat": 51.5108,
+          "lng": -0.1175,
+          "note": "主校区扩建并入的河畔历史建筑,法学院等所在。"
+        },
+        {
+          "name": "Franklin-Wilkins Building",
+          "nameCn": "富兰克林-威尔金斯楼",
+          "lat": 51.5063,
+          "lng": -0.1078,
+          "note": "滑铁卢校区主楼,含图书馆与伦敦牙科教育中心。"
+        },
+        {
+          "name": "Institute of Psychiatry, Psychology & Neuroscience",
+          "nameCn": "精神病学心理学与神经科学研究所",
+          "lat": 51.47,
+          "lng": -0.0894,
+          "note": "丹麦山校区核心,欧洲领先的精神健康研究机构。"
+        },
+        {
+          "name": "New Hunt's House",
+          "nameCn": "亨特楼",
+          "lat": 51.5036,
+          "lng": -0.0875,
+          "note": "盖伊校区医学与生命科学主要教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Maughan Library",
+          "nameCn": "莫恩图书馆",
+          "lat": 51.5152,
+          "lng": -0.1111,
+          "note": "钱瑟里巷新哥特式主图书馆,原英国公共档案馆,十二边形阅览室。"
+        },
+        {
+          "name": "Guy's Campus Library (New Hunt's House)",
+          "nameCn": "盖伊校区图书馆",
+          "lat": 51.5031,
+          "lng": -0.087,
+          "note": "盖伊校区医学与牙科专业图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Florence Nightingale Museum",
+          "nameCn": "南丁格尔博物馆",
+          "lat": 51.4986,
+          "lng": -0.1181,
+          "note": "圣托马斯校区内,纪念现代护理奠基人南丁格尔。"
+        },
+        {
+          "name": "Gordon Museum of Pathology",
+          "nameCn": "戈登病理学博物馆",
+          "lat": 51.5035,
+          "lng": -0.0867,
+          "note": "盖伊校区,英国最大的医学病理标本馆(仅限医学相关人士)。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Temple Underground Station",
+          "nameCn": "圣殿地铁站",
+          "lat": 51.511,
+          "lng": -0.1143,
+          "note": "主校区最近地铁站,Circle/District 线,河岸边。"
+        },
+        {
+          "name": "London Bridge Station",
+          "nameCn": "伦敦桥车站",
+          "lat": 51.5052,
+          "lng": -0.0864,
+          "note": "盖伊校区最近的国铁与地铁大站。"
+        },
+        {
+          "name": "Waterloo Station",
+          "nameCn": "滑铁卢车站",
+          "lat": 51.5031,
+          "lng": -0.1132,
+          "note": "服务滑铁卢与圣托马斯校区的英国最繁忙车站之一。"
+        },
+        {
+          "name": "Denmark Hill Station",
+          "nameCn": "丹麦山车站",
+          "lat": 51.4682,
+          "lng": -0.0894,
+          "note": "丹麦山校区最近的国铁/地上铁车站。"
+        },
+        {
+          "name": "KCLSU Strand (Students' Union)",
+          "nameCn": "学生会(斯特兰德)",
+          "lat": 51.5119,
+          "lng": -0.1164,
+          "note": "国王学院学生会主校区据点,Macadam 楼。"
+        },
+        {
+          "name": "The Shard",
+          "nameCn": "碎片大厦",
+          "lat": 51.5045,
+          "lng": -0.0865,
+          "note": "盖伊校区旁地标摩天楼,西欧最高建筑之一。"
+        }
+      ]
+    }
+  ]
+}

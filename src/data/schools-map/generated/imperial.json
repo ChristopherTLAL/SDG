@@ -1,0 +1,242 @@
+{
+  "id": "imperial",
+  "type": "school",
+  "name": "Imperial College London",
+  "nameCn": "帝国理工学院",
+  "city": "London",
+  "center": [
+    51.49,
+    -0.32
+  ],
+  "zoom": 12,
+  "blurb": "帝国理工学院:伦敦理工与医学名校,以南肯辛顿主校区为核心,辐射白城创新园、三家教学医院、哈灵顿运动场与伯克郡 Silwood Park 生态校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "South Kensington Campus",
+          "nameCn": "南肯辛顿主校区",
+          "lat": 51.4988,
+          "lng": -0.1749,
+          "radius": 350,
+          "note": "核心校区,位于「艾尔伯特城」博物馆区中央,理工与商科主力所在。"
+        },
+        {
+          "name": "White City Campus",
+          "nameCn": "白城校区",
+          "lat": 51.515,
+          "lng": -0.2241,
+          "radius": 400,
+          "note": "原 BBC 旧址改建的创新与科研园区,化学系与公共卫生学院迁入。"
+        },
+        {
+          "name": "St Mary's Hospital Campus",
+          "nameCn": "圣玛丽医院校区",
+          "lat": 51.5172,
+          "lng": -0.1731,
+          "radius": 250,
+          "note": "帕丁顿教学医院,医学院主要临床教学点,弗莱明发现青霉素之地。"
+        },
+        {
+          "name": "Hammersmith Hospital Campus",
+          "nameCn": "哈默史密斯医院校区",
+          "lat": 51.5163,
+          "lng": -0.2369,
+          "radius": 300,
+          "note": "白城北侧教学医院,医学院重要科研与临床基地。"
+        },
+        {
+          "name": "Charing Cross Hospital Campus",
+          "nameCn": "查令十字医院校区",
+          "lat": 51.4871,
+          "lng": -0.2195,
+          "radius": 250,
+          "note": "哈默史密斯区教学医院,医学院临床培训基地。"
+        },
+        {
+          "name": "Harlington Sports Ground",
+          "nameCn": "哈灵顿运动场",
+          "lat": 51.49,
+          "lng": -0.442,
+          "radius": 450,
+          "note": "希思罗机场附近的户外运动旗舰场地,各体育社团主场。"
+        },
+        {
+          "name": "Silwood Park Campus",
+          "nameCn": "Silwood Park 校区",
+          "lat": 51.4086,
+          "lng": -0.641,
+          "radius": 700,
+          "note": "伯克郡阿斯科特附近研究生校区,专攻生态、进化与保护生物学。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Imperial College Business School",
+          "nameCn": "帝国理工商学院",
+          "lat": 51.4988,
+          "lng": -0.1746,
+          "note": "展览路口诺曼·福斯特设计的现代商学院大楼。"
+        },
+        {
+          "name": "Sherfield Building",
+          "nameCn": "Sherfield 行政楼",
+          "lat": 51.4986,
+          "lng": -0.1759,
+          "note": "校区中央行政与服务枢纽,大礼堂所在。"
+        },
+        {
+          "name": "Blackett Laboratory (Physics)",
+          "nameCn": "Blackett 物理楼",
+          "lat": 51.4988,
+          "lng": -0.1773,
+          "note": "物理系所在,以诺奖得主 Blackett 命名。"
+        },
+        {
+          "name": "Huxley Building (Computing & Mathematics)",
+          "nameCn": "Huxley 楼(计算机与数学)",
+          "lat": 51.4989,
+          "lng": -0.1792,
+          "note": "皇后门路上的计算机系与数学系大楼。"
+        },
+        {
+          "name": "Skempton Building (Civil Engineering)",
+          "nameCn": "Skempton 土木工程楼",
+          "lat": 51.4982,
+          "lng": -0.1784,
+          "note": "土木与环境工程系所在大楼。"
+        },
+        {
+          "name": "Royal School of Mines",
+          "nameCn": "皇家矿业学院楼",
+          "lat": 51.4994,
+          "lng": -0.1771,
+          "note": "爱德华时代地标建筑,材料系与地球科学系所在。"
+        },
+        {
+          "name": "Sir Alexander Fleming Building",
+          "nameCn": "亚历山大·弗莱明楼",
+          "lat": 51.498,
+          "lng": -0.1755,
+          "note": "生命科学与医学院核心实验楼。"
+        },
+        {
+          "name": "City and Guilds Building",
+          "nameCn": "City and Guilds 工程楼",
+          "lat": 51.4983,
+          "lng": -0.1748,
+          "note": "机械与航空工程系所在大楼。"
+        },
+        {
+          "name": "Molecular Sciences Research Hub (White City)",
+          "nameCn": "分子科学研究中心(白城)",
+          "lat": 51.515,
+          "lng": -0.2241,
+          "note": "白城校区化学系主楼,82 Wood Lane。"
+        },
+        {
+          "name": "Sir Michael Uren Hub (White City)",
+          "nameCn": "Michael Uren 研究中心(白城)",
+          "lat": 51.5143,
+          "lng": -0.2236,
+          "note": "白城校区生物医学工程与转化研究大楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Imperial College Central Library",
+          "nameCn": "中央图书馆",
+          "lat": 51.4985,
+          "lng": -0.1763,
+          "note": "主校区核心图书馆,位于 Sherfield 楼旁。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Natural History Museum",
+          "nameCn": "自然历史博物馆",
+          "lat": 51.4967,
+          "lng": -0.1765,
+          "note": "毗邻南肯辛顿校区南侧,世界级自然史馆藏。"
+        },
+        {
+          "name": "Victoria and Albert Museum",
+          "nameCn": "维多利亚与艾伯特博物馆",
+          "lat": 51.4966,
+          "lng": -0.1722,
+          "note": "展览路东侧艺术与设计博物馆,校区紧邻。"
+        },
+        {
+          "name": "Science Museum",
+          "nameCn": "科学博物馆",
+          "lat": 51.4978,
+          "lng": -0.1745,
+          "note": "校区南缘的国家科学博物馆,展览路上。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Queen's Tower",
+          "nameCn": "女王塔",
+          "lat": 51.4983,
+          "lng": -0.1769,
+          "note": "校区中央地标钟塔,原帝国理工学院学院旧建筑唯一遗存。"
+        },
+        {
+          "name": "Imperial College Union (Beit Quadrangle)",
+          "nameCn": "帝国理工学生会",
+          "lat": 51.499,
+          "lng": -0.1781,
+          "note": "Beit 庭院内的学生会大楼,社团与学生生活中心。"
+        },
+        {
+          "name": "Main Entrance, Exhibition Road",
+          "nameCn": "展览路主入口",
+          "lat": 51.4986,
+          "lng": -0.1745,
+          "note": "校区东侧展览路主入口,毗邻各大博物馆。"
+        },
+        {
+          "name": "South Kensington Underground Station",
+          "nameCn": "南肯辛顿地铁站",
+          "lat": 51.4941,
+          "lng": -0.1739,
+          "note": "最近地铁站,经地下通道直通博物馆区。"
+        }
+      ]
+    }
+  ]
+}

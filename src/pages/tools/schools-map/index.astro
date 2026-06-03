@@ -1,0 +1,97 @@
+---
+export const prerender = true;
+// Schools map — UK country overview. Universities tiered by QS rank, filterable, searchable.
+import MainLayout from '../../../layouts/MainLayout.astro';
+import { UNIVERSITIES, RANK_TIERS } from '../../../data/universities/universities';
+import { SCENE_IDS, SCENE_INDEX } from '../../../data/schools-map/registry';
+import '../../../styles/schools-map.css';
+
+const lang = 'en';
+const hasDetail = new Set(SCENE_IDS);
+
+const uk = UNIVERSITIES
+  .filter((u) => u.country === 'UK' && u.lat != null && u.lng != null)
+  .map((u) => ({
+    id: u.id, name: u.name, nameCn: u.nameCn, city: u.city,
+    qsRank: u.qsRank, lat: u.lat, lng: u.lng, hasDetail: hasDetail.has(u.id),
+  }));
+
+const tiers = RANK_TIERS.map((t) => ({ key: t.key, label: t.label, color: t.color, max: t.max === Infinity ? 999999 : t.max }));
+const detailBase = '/tools/schools-map';
+const ranksYear = UNIVERSITIES.find((u) => u.country === 'UK')?.ranksYear ?? 2026;
+---
+
+<MainLayout title="英国院校地图 · QS 分布 | Chinese SDGs Institute" description="英国大学按真实位置与 QS 排名分档展示，可筛选、搜索、点击进入单校精览。" lang={lang}>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <main class="pt-24 md:pt-28 pb-10">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+      <a href="/tools" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-5">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Tools
+      </a>
+
+      <div class="smap-wrap" id="smap-wrap">
+        <div class="smap-map" id="smap-map"></div>
+
+        <!-- top-center nav -->
+        <div class="smap-card smap-nav">
+          <span class="smap-nav-home"><span class="material-symbols-outlined" style="font-size:16px">map</span>英国院校总览</span>
+          <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>
+        </div>
+
+        <!-- left: title + filter/legend -->
+        <div class="smap-left">
+          <div class="smap-card smap-title">
+            <h2>英国院校地图 · QS 分布</h2>
+            <p>{uk.length} 所英国大学按真实位置分布，颜色＝QS 档位（QS{ranksYear}）。点有「精览」的学校进入单校地图。</p>
+            <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
+            <a class="smap-pill ghost" href="/tools/schools-map/london" style="margin-left:6px">🚇 伦敦地区</a>
+          </div>
+          <div class="smap-card smap-panel">
+            <div class="smap-sec">QS 筛选</div>
+            <div class="smap-filter-row" id="smap-filter-row"></div>
+            <div class="smap-divider"></div>
+            <div class="smap-sec">档位配色</div>
+            <div class="smap-legend" id="smap-tier-row"></div>
+          </div>
+        </div>
+
+        <!-- right: tools + list -->
+        <div class="smap-right">
+          <div class="smap-card smap-toolscard">
+            <div class="smap-tt">底图</div>
+            <div class="smap-base-row" id="smap-base-row"></div>
+            <div class="smap-toggles">
+              <button class="smap-toggle" id="smap-label-btn"><span class="material-symbols-outlined">label</span>名称</button>
+              <button class="smap-toggle active" id="smap-list-btn"><span class="material-symbols-outlined">list</span>列表</button>
+            </div>
+          </div>
+          <div class="smap-card smap-list-wrap" id="smap-list-wrap">
+            <h3>院校列表</h3>
+            <input type="text" id="smap-search" placeholder="搜索学校 / 城市…" class="smap-search-input" />
+            <p class="sub" id="smap-count"></p>
+            <div class="smap-list-scroll" id="smap-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style is:global>
+    .smap-search-input { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: 12.5px; margin: 0 0 7px; font-family: 'Inter', sans-serif; }
+    .smap-search-input:focus { outline: none; border-color: #042f24; }
+  </style>
+
+  <script is:inline define:vars={{ unisData: uk, tiersData: tiers, baseData: detailBase, scenesData: SCENE_INDEX }}>
+    window.__SMAP_UNIS__ = unisData;
+    window.__SMAP_TIERS__ = tiersData;
+    window.__SMAP_BASE__ = baseData;
+    window.__SMAP_SCENES__ = scenesData;
+  </script>
+  <script>
+    import { mountOverview } from '../../../scripts/schools-map/overview';
+    mountOverview((window).__SMAP_UNIS__, (window).__SMAP_TIERS__, (window).__SMAP_BASE__, (window).__SMAP_SCENES__);
+  </script>
+</MainLayout>

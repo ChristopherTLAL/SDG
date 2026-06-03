@@ -3,7 +3,19 @@ export const prerender = true;
 // src/pages/tools/budget-calculator.astro — Study Abroad Budget Calculator
 import MainLayout from '../../layouts/MainLayout.astro';
 import budgetData from '../../data/budget-data.json';
+import { UNIVERSITIES } from '../../data/universities/universities';
 const lang = 'en';
+
+// QS ranks come from the canonical university dataset (single source of truth);
+// budget-data.json no longer stores qsRank. Inject it by school id at build time.
+const qsById = new Map(UNIVERSITIES.map((u) => [u.id, u.qsRank]));
+const budgetDataMerged = {
+  ...budgetData,
+  regions: budgetData.regions.map((r) => ({
+    ...r,
+    schools: r.schools.map((s) => ({ ...s, qsRank: qsById.get(s.id) ?? null })),
+  })),
+};
 ---
 
 <MainLayout title="Study Abroad Budget Calculator | Chinese SDGs Institute" description="Compare tuition, living costs, and total expenses across 105 universities in 16 countries. Real-time CNY conversion." lang={lang}>
@@ -388,7 +400,7 @@ const lang = 'en';
     }
   </style>
 
-  <script is:inline define:vars={{ budgetDataJSON: JSON.stringify(budgetData) }}>
+  <script is:inline define:vars={{ budgetDataJSON: JSON.stringify(budgetDataMerged) }}>
     var DATA = JSON.parse(budgetDataJSON);
     var FALLBACK_RATES = DATA.meta.exchangeRates;
     var MAX_SCHOOLS = 8;

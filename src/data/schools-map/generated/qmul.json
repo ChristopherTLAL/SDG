@@ -1,0 +1,234 @@
+{
+  "id": "qmul",
+  "type": "school",
+  "name": "Queen Mary University of London",
+  "nameCn": "伦敦玛丽女王大学",
+  "city": "London",
+  "center": [
+    51.49,
+    -0.06
+  ],
+  "zoom": 12,
+  "blurb": "伦敦玛丽女王大学:罗素集团成员,主校区在东伦敦Mile End(全伦敦最大的独立校区),医学院散布于Whitechapel、West Smithfield与Charterhouse Square三处医疗园区,法学研究生中心位于Lincoln's Inn Fields,体育场远在东南郊Chislehurst。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Mile End Campus",
+          "nameCn": "Mile End主校区",
+          "lat": 51.5238,
+          "lng": -0.0405,
+          "radius": 450,
+          "note": "主校区,人文社科与理工学院所在地,号称全伦敦最大的独立式大学校园。"
+        },
+        {
+          "name": "Whitechapel Campus",
+          "nameCn": "Whitechapel校区",
+          "lat": 51.5178,
+          "lng": -0.0608,
+          "radius": 300,
+          "note": "巴茨与伦敦医学与牙科学院主址,含Blizard研究所,毗邻皇家伦敦医院。"
+        },
+        {
+          "name": "West Smithfield Campus",
+          "nameCn": "West Smithfield校区",
+          "lat": 51.5176,
+          "lng": -0.1001,
+          "radius": 260,
+          "note": "医学院西史密斯菲尔德园区,依托圣巴塞洛缪医院(Barts),含John Vane科学中心与心脏中心。"
+        },
+        {
+          "name": "Charterhouse Square Campus",
+          "nameCn": "Charterhouse Square校区",
+          "lat": 51.5209,
+          "lng": -0.0987,
+          "radius": 220,
+          "note": "医学研究总部:巴茨癌症研究所、William Harvey研究所、Wolfson预防医学研究所。"
+        },
+        {
+          "name": "Lincoln's Inn Fields Campus",
+          "nameCn": "Lincoln's Inn Fields校区",
+          "lat": 51.5158,
+          "lng": -0.1173,
+          "radius": 180,
+          "note": "法学院商法研究中心(CCLS)所在的研究生城区站点,位于荷尔本。"
+        },
+        {
+          "name": "Queen Mary Sports Ground, Chislehurst",
+          "nameCn": "Chislehurst体育场",
+          "lat": 51.4181,
+          "lng": 0.092,
+          "radius": 700,
+          "note": "东南郊Chislehurst的草地运动场(足球/橄榄球/板球),距主校区约13公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Blizard Building (Blizard Institute)",
+          "nameCn": "Blizard研究所大楼",
+          "lat": 51.5165,
+          "lng": -0.0613,
+          "note": "Will Alsop设计的彩色玻璃幕墙生物医学建筑,2005年落成。"
+        },
+        {
+          "name": "Graduate Centre",
+          "nameCn": "研究生中心",
+          "lat": 51.5247,
+          "lng": -0.0388,
+          "note": "主校区七层教学楼,7700平米学习与教学空间。"
+        },
+        {
+          "name": "Engineering Building",
+          "nameCn": "工程楼",
+          "lat": 51.5226,
+          "lng": -0.041,
+          "note": "主校区理工科教学楼,工程与材料科学院系所在。"
+        },
+        {
+          "name": "Bancroft Building",
+          "nameCn": "Bancroft楼",
+          "lat": 51.5235,
+          "lng": -0.0418,
+          "note": "主校区主要教学楼之一,临Bancroft Road。"
+        },
+        {
+          "name": "Centre for Commercial Law Studies",
+          "nameCn": "商法研究中心",
+          "lat": 51.5158,
+          "lng": -0.1173,
+          "note": "法学院研究生中心,位于67-69 Lincoln's Inn Fields。"
+        },
+        {
+          "name": "John Vane Science Centre",
+          "nameCn": "John Vane科学中心",
+          "lat": 51.518,
+          "lng": -0.1005,
+          "note": "West Smithfield园区医学研究楼,以诺奖得主John Vane命名。"
+        },
+        {
+          "name": "William Harvey Research Institute",
+          "nameCn": "William Harvey研究所",
+          "lat": 51.5207,
+          "lng": -0.0982,
+          "note": "Charterhouse Square园区心血管与药理学研究所。"
+        },
+        {
+          "name": "Barts Cancer Institute",
+          "nameCn": "巴茨癌症研究所",
+          "lat": 51.5211,
+          "lng": -0.099,
+          "note": "Charterhouse Square园区癌症研究机构。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Mile End Library",
+          "nameCn": "Mile End图书馆",
+          "lat": 51.5236,
+          "lng": -0.0395,
+          "note": "主校区主图书馆,学期内24小时开放。"
+        },
+        {
+          "name": "Whitechapel Medical Library",
+          "nameCn": "Whitechapel医学图书馆",
+          "lat": 51.5176,
+          "lng": -0.0606,
+          "note": "医学院Whitechapel校区图书馆。"
+        },
+        {
+          "name": "West Smithfield Medical Library",
+          "nameCn": "West Smithfield医学图书馆",
+          "lat": 51.5173,
+          "lng": -0.0998,
+          "note": "Barts园区医学图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "St Bartholomew's Hospital Museum",
+          "nameCn": "圣巴塞洛缪医院博物馆",
+          "lat": 51.5172,
+          "lng": -0.0997,
+          "note": "位于Barts医院,展出英国最古老医院的历史与医学文物。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Queen Mary Clock Tower",
+          "nameCn": "钟塔",
+          "lat": 51.524,
+          "lng": -0.0398,
+          "note": "主校区Mile End Road正门标志,校园主入口位于钟塔两侧。"
+        },
+        {
+          "name": "Queens' Building (The Octagon)",
+          "nameCn": "皇后楼/八角厅",
+          "lat": 51.5233,
+          "lng": -0.0404,
+          "note": "1887年建的二级保护建筑,前身人民宫,内有八角厅,现为行政主楼。"
+        },
+        {
+          "name": "People's Palace & Great Hall",
+          "nameCn": "人民宫大礼堂",
+          "lat": 51.523,
+          "lng": -0.0412,
+          "note": "1930年代Art Deco大礼堂,用于毕业典礼与大型活动。"
+        },
+        {
+          "name": "Queen Mary Students' Union (Hub)",
+          "nameCn": "学生会",
+          "lat": 51.5243,
+          "lng": -0.0386,
+          "note": "主校区学生会中心(Hub),含社团、活动与服务空间。"
+        },
+        {
+          "name": "Mile End Underground Station",
+          "nameCn": "Mile End地铁站",
+          "lat": 51.525,
+          "lng": -0.033,
+          "note": "最近地铁站,中央线/区域线/H&C线,主校区步行可达。"
+        },
+        {
+          "name": "Whitechapel Station",
+          "nameCn": "Whitechapel车站",
+          "lat": 51.5195,
+          "lng": -0.0613,
+          "note": "伊丽莎白线/区域线/Overground,医学院Whitechapel校区最近车站。"
+        }
+      ]
+    }
+  ]
+}

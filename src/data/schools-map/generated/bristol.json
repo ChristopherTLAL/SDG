@@ -1,0 +1,232 @@
+{
+  "id": "bristol",
+  "type": "school",
+  "name": "University of Bristol",
+  "nameCn": "布里斯托大学",
+  "city": "Bristol",
+  "center": [
+    51.46,
+    -2.62
+  ],
+  "zoom": 13,
+  "blurb": "英国布里斯托大学:罗素集团名校,主校区为克利夫顿\"大学区\",卫星点含斯托克主教宿舍村、库姆丁格尔体育园与14英里外的兰福德兽医校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Clifton (University Precinct)",
+          "nameCn": "克利夫顿主校区(大学区)",
+          "lat": 51.457,
+          "lng": -2.6035,
+          "radius": 650,
+          "note": "核心教学区,威尔斯纪念楼、参议院大楼、学院群集中于此。"
+        },
+        {
+          "name": "Stoke Bishop Residential Village",
+          "nameCn": "斯托克主教宿舍村",
+          "lat": 51.4775,
+          "lng": -2.625,
+          "radius": 700,
+          "note": "最大宿舍集群:威尔斯堂、丘吉尔堂等,距主校区约2英里。"
+        },
+        {
+          "name": "Coombe Dingle Sports Complex",
+          "nameCn": "库姆丁格尔体育园",
+          "lat": 51.4906,
+          "lng": -2.6305,
+          "radius": 350,
+          "note": "38英亩主体育场地,含球场、健身与3G人工草坪。"
+        },
+        {
+          "name": "Langford Campus (Bristol Veterinary School)",
+          "nameCn": "兰福德兽医校区",
+          "lat": 51.3432,
+          "lng": -2.7781,
+          "radius": 500,
+          "note": "兽医学院与教学动物医院,位于市区西南约14英里乡村。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Senate House",
+          "nameCn": "参议院大楼",
+          "lat": 51.4574,
+          "lng": -2.6028,
+          "note": "行政中枢,学生注册与校级办公。"
+        },
+        {
+          "name": "Merchant Venturers Building",
+          "nameCn": "商人冒险家楼",
+          "lat": 51.4559,
+          "lng": -2.603,
+          "note": "计算机科学与电子电气工程系所在。"
+        },
+        {
+          "name": "School of Chemistry",
+          "nameCn": "化学学院",
+          "lat": 51.4582,
+          "lng": -2.601,
+          "note": "凯西堂,化学系教学与科研楼。"
+        },
+        {
+          "name": "School of Physics (HH Wills Lab)",
+          "nameCn": "物理学院(威尔斯实验室)",
+          "lat": 51.4585,
+          "lng": -2.6005,
+          "note": "泰恩德尔大道物理系,量子工程研究重镇。"
+        },
+        {
+          "name": "Arts Complex (Woodland Road)",
+          "nameCn": "人文学院群",
+          "lat": 51.4561,
+          "lng": -2.6036,
+          "note": "伍德兰路一带的人文与社科院系建筑。"
+        },
+        {
+          "name": "School of Economics & Management",
+          "nameCn": "经济与管理学院",
+          "lat": 51.456,
+          "lng": -2.6047,
+          "note": "管理学院,毗邻主图书馆的商科教学楼。"
+        },
+        {
+          "name": "Medical Sciences Building",
+          "nameCn": "医学科学楼",
+          "lat": 51.4581,
+          "lng": -2.6022,
+          "note": "大学路医学院,基础医学教学与实验。"
+        },
+        {
+          "name": "Bristol Royal Infirmary (Teaching Hospital)",
+          "nameCn": "布里斯托皇家医院(教学医院)",
+          "lat": 51.4588,
+          "lng": -2.5966,
+          "note": "附属教学医院,临床医学实习基地。"
+        },
+        {
+          "name": "Bristol Dental School",
+          "nameCn": "布里斯托牙医学院",
+          "lat": 51.4586,
+          "lng": -2.595,
+          "note": "牙科教学医院,临床培训中心。"
+        },
+        {
+          "name": "Wills Hall",
+          "nameCn": "威尔斯堂",
+          "lat": 51.4781,
+          "lng": -2.6235,
+          "note": "斯托克主教标志性宿舍,新哥特式四合院。"
+        },
+        {
+          "name": "Churchill Hall",
+          "nameCn": "丘吉尔堂",
+          "lat": 51.4768,
+          "lng": -2.6272,
+          "note": "斯托克主教宿舍村主要学生公寓。"
+        },
+        {
+          "name": "Bristol Veterinary School (Langford)",
+          "nameCn": "兽医学院(兰福德)",
+          "lat": 51.3432,
+          "lng": -2.7781,
+          "note": "兰福德校区兽医教学楼与农场动物医院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Arts and Social Sciences Library",
+          "nameCn": "文社科图书馆",
+          "lat": 51.4566,
+          "lng": -2.6043,
+          "note": "主馆,泰恩德尔大道上的核心藏书地。"
+        },
+        {
+          "name": "Beacon House",
+          "nameCn": "灯塔楼学习中心",
+          "lat": 51.4572,
+          "lng": -2.6066,
+          "note": "24小时学习空间与学生服务枢纽。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Bristol Museum & Art Gallery",
+          "nameCn": "布里斯托博物馆与美术馆",
+          "lat": 51.4567,
+          "lng": -2.6063,
+          "note": "邻接校区的市立博物馆,大学常用展陈。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Wills Memorial Building",
+          "nameCn": "威尔斯纪念楼",
+          "lat": 51.4562,
+          "lng": -2.6037,
+          "note": "新哥特式钟塔地标,毕业典礼与法学院所在。"
+        },
+        {
+          "name": "Bristol SU (Richmond Building)",
+          "nameCn": "学生会(里士满楼)",
+          "lat": 51.4575,
+          "lng": -2.6075,
+          "note": "学生会总部,皇后路上的活动与社团中心。"
+        },
+        {
+          "name": "Victoria Rooms",
+          "nameCn": "维多利亚厅",
+          "lat": 51.4585,
+          "lng": -2.6098,
+          "note": "古典柱廊礼堂,音乐学院与典礼场地。"
+        },
+        {
+          "name": "Royal Fort House",
+          "nameCn": "皇家堡邸",
+          "lat": 51.4578,
+          "lng": -2.6018,
+          "note": "乔治时期宅邸,坐落于皇家堡花园中。"
+        },
+        {
+          "name": "Bristol Temple Meads Station",
+          "nameCn": "坦普尔米兹火车站",
+          "lat": 51.4491,
+          "lng": -2.5804,
+          "note": "布里斯托主火车站,城市铁路门户。"
+        }
+      ]
+    }
+  ]
+}

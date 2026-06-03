@@ -1,0 +1,224 @@
+{
+  "id": "york",
+  "type": "school",
+  "name": "University of York",
+  "nameCn": "约克大学",
+  "city": "York",
+  "center": [
+    53.9515,
+    -1.0525
+  ],
+  "zoom": 13,
+  "blurb": "英国约克大学:核心赫斯灵顿东、西校区相邻,外加城中世遗 King's Manor、东侧体育村与科学园等数个独立园区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Campus West (Heslington West)",
+          "nameCn": "西校区(赫斯灵顿西)",
+          "lat": 53.9472,
+          "lng": -1.0512,
+          "radius": 700,
+          "note": "1960年代建成的主校区,环湖布局,含图书馆、中央礼堂与多数老学院。"
+        },
+        {
+          "name": "Campus East (Heslington East)",
+          "nameCn": "东校区(赫斯灵顿东)",
+          "lat": 53.9483,
+          "lng": -1.028,
+          "radius": 600,
+          "note": "2009年启用的新校区,Ron Cooke Hub 为核心,设新学院与计算机系。"
+        },
+        {
+          "name": "York Sport Village",
+          "nameCn": "约克体育村",
+          "lat": 53.9504,
+          "lng": -1.0185,
+          "radius": 350,
+          "note": "东校区东缘的运动园区,含约克奥林匹克级户外自行车赛车场。"
+        },
+        {
+          "name": "York Science Park",
+          "nameCn": "约克科学园",
+          "lat": 53.9492,
+          "lng": -1.0468,
+          "radius": 300,
+          "note": "西校区东北角的产学研园区(Genesis/创新中心),孵化科技企业。"
+        },
+        {
+          "name": "King's Manor",
+          "nameCn": "国王庄园",
+          "lat": 53.9624,
+          "lng": -1.0865,
+          "radius": 180,
+          "note": "市中心的中世纪历史建筑,原考古系所在,正逐步迁回赫斯灵顿。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Department of Chemistry",
+          "nameCn": "化学系",
+          "lat": 53.94823,
+          "lng": -1.04798,
+          "note": "西校区核心理科楼群之一。"
+        },
+        {
+          "name": "Heslington Hall",
+          "nameCn": "赫斯灵顿厅",
+          "lat": 53.9459,
+          "lng": -1.04679,
+          "note": "16世纪庄园改建的大学行政中枢。"
+        },
+        {
+          "name": "Spring Lane Building",
+          "nameCn": "春巷楼",
+          "lat": 53.94754,
+          "lng": -1.05135,
+          "note": "西校区集中授课/讲堂楼。"
+        },
+        {
+          "name": "The Catalyst",
+          "nameCn": "Catalyst 大楼",
+          "lat": 53.94741,
+          "lng": -1.03269,
+          "note": "东校区理工教学与实验大楼。"
+        },
+        {
+          "name": "Department of Computer Science (Ron Cooke Hub area)",
+          "nameCn": "计算机系",
+          "lat": 53.94724,
+          "lng": -1.02844,
+          "note": "位于东校区 Ron Cooke Hub 旁。"
+        },
+        {
+          "name": "Hull York Medical School (York)",
+          "nameCn": "赫尔约克医学院",
+          "lat": 53.95005,
+          "lng": -1.0507,
+          "note": "赫尔与约克合办医学院的约克院址,在西校区北侧。"
+        },
+        {
+          "name": "Innovation Centre, York Science Park",
+          "nameCn": "创新中心(科学园)",
+          "lat": 53.94916,
+          "lng": -1.04754,
+          "note": "科学园企业孵化与产学研办公楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "JB Morrell Library",
+          "nameCn": "莫雷尔图书馆",
+          "lat": 53.94917,
+          "lng": -1.05176,
+          "note": "大学主图书馆,藏书逾百万册。"
+        },
+        {
+          "name": "Harry Fairhurst Building",
+          "nameCn": "费尔赫斯特楼",
+          "lat": 53.9496,
+          "lng": -1.05288,
+          "note": "与莫雷尔相连的图书馆扩建楼。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Central Hall",
+          "nameCn": "中央礼堂",
+          "lat": 53.94704,
+          "lng": -1.05297,
+          "note": "环湖蘑菇形地标礼堂,毕业典礼/音乐会场地。"
+        },
+        {
+          "name": "Information Centre",
+          "nameCn": "信息中心",
+          "lat": 53.94848,
+          "lng": -1.0538,
+          "note": "西校区入口的师生服务/接待中心。"
+        },
+        {
+          "name": "Ron Cooke Hub",
+          "nameCn": "罗恩·库克中心",
+          "lat": 53.94737,
+          "lng": -1.02791,
+          "note": "东校区湖畔标志性枢纽楼,含会展与咖啡。"
+        },
+        {
+          "name": "Piazza Building",
+          "nameCn": "Piazza 餐饮楼",
+          "lat": 53.94774,
+          "lng": -1.02805,
+          "note": "东校区设350座餐厅与弹性学习空间。"
+        },
+        {
+          "name": "York Sport Velodrome",
+          "nameCn": "约克自行车赛车场",
+          "lat": 53.94975,
+          "lng": -1.01659,
+          "note": "约克郡唯一户外250米奥林匹克级赛车场。"
+        },
+        {
+          "name": "Derwent College",
+          "nameCn": "德温特学院",
+          "lat": 53.9466,
+          "lng": -1.04793,
+          "note": "西校区创校学院之一。"
+        },
+        {
+          "name": "Vanbrugh College",
+          "nameCn": "范布勒学院",
+          "lat": 53.94912,
+          "lng": -1.05789,
+          "note": "西校区西端的住宿学院。"
+        },
+        {
+          "name": "Langwith College",
+          "nameCn": "兰格威斯学院",
+          "lat": 53.94877,
+          "lng": -1.02837,
+          "note": "东校区住宿学院。"
+        },
+        {
+          "name": "Constantine College",
+          "nameCn": "君士坦丁学院",
+          "lat": 53.94914,
+          "lng": -1.02507,
+          "note": "东校区最新住宿学院之一。"
+        },
+        {
+          "name": "York railway station",
+          "nameCn": "约克火车站",
+          "lat": 53.9583,
+          "lng": -1.093,
+          "note": "东海岸主线大站,距各校区约2-5公里。"
+        }
+      ]
+    }
+  ]
+}

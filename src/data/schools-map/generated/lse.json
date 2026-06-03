@@ -1,0 +1,212 @@
+{
+  "id": "lse",
+  "type": "school",
+  "name": "London School of Economics",
+  "nameCn": "伦敦政治经济学院",
+  "city": "London",
+  "center": [
+    51.49,
+    -0.16
+  ],
+  "zoom": 12,
+  "blurb": "伦敦政治经济学院:伦敦市中心Aldwych一带高密度社科名校,主校区约30栋楼连成一片,另有南岸/Clerkenwell宿舍区与New Malden体育场。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Houghton Street / Aldwych)",
+          "nameCn": "主校区(Houghton街/Aldwych)",
+          "lat": 51.5143,
+          "lng": -0.1165,
+          "radius": 320,
+          "note": "Kingsway与Aldwych之间约30栋楼连成一片的城市校园核心。"
+        },
+        {
+          "name": "Lincoln's Inn Fields Precinct",
+          "nameCn": "林肯律师学院广场片区",
+          "lat": 51.5158,
+          "lng": -0.1175,
+          "radius": 200,
+          "note": "主校区北侧扩展,含Marshall楼、法学院与经济系等新楼。"
+        },
+        {
+          "name": "Bankside House (South Bank Halls)",
+          "nameCn": "Bankside宿舍区(南岸)",
+          "lat": 51.5064,
+          "lng": -0.0986,
+          "radius": 180,
+          "note": "LSE最大宿舍,泰晤士河南岸、泰特现代美术馆旁。"
+        },
+        {
+          "name": "Rosebery Hall (Clerkenwell Halls)",
+          "nameCn": "Rosebery宿舍区(Clerkenwell)",
+          "lat": 51.5238,
+          "lng": -0.1111,
+          "radius": 170,
+          "note": "Clerkenwell的大型自炊宿舍,近Sadler's Wells剧院。"
+        },
+        {
+          "name": "LSE Sports Ground, New Malden",
+          "nameCn": "New Malden体育场",
+          "lat": 51.395,
+          "lng": -0.2705,
+          "radius": 350,
+          "note": "西南郊9.5公顷运动场,含足球/橄榄球/板球场地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Old Building",
+          "nameCn": "旧楼",
+          "lat": 51.5143,
+          "lng": -0.116,
+          "note": "1922年落成的历史主楼,Houghton街上的校园象征。"
+        },
+        {
+          "name": "Centre Building (CBG)",
+          "nameCn": "中心楼",
+          "lat": 51.5147,
+          "lng": -0.1167,
+          "note": "2019年启用的核心教学楼,位于校园中央。"
+        },
+        {
+          "name": "New Academic Building",
+          "nameCn": "新学术楼",
+          "lat": 51.5138,
+          "lng": -0.1175,
+          "note": "24 Kingsway,2008年启用,含法学院部分院系。"
+        },
+        {
+          "name": "Marshall Building",
+          "nameCn": "Marshall楼",
+          "lat": 51.5155,
+          "lng": -0.1178,
+          "note": "44 Lincoln's Inn Fields,2022年启用的旗舰新楼。"
+        },
+        {
+          "name": "Sir Arthur Lewis Building (Economics)",
+          "nameCn": "经济系楼",
+          "lat": 51.516,
+          "lng": -0.1172,
+          "note": "Lincoln's Inn Fields,经济系所在地。"
+        },
+        {
+          "name": "Cheng Kin Ku Building (Law School)",
+          "nameCn": "法学院楼",
+          "lat": 51.5162,
+          "lng": -0.117,
+          "note": "54 Lincoln's Inn Fields,法学院主楼。"
+        },
+        {
+          "name": "Clement House",
+          "nameCn": "Clement楼",
+          "lat": 51.5135,
+          "lng": -0.1158,
+          "note": "99 Aldwych,大型教学与办公楼。"
+        },
+        {
+          "name": "Connaught House",
+          "nameCn": "Connaught楼",
+          "lat": 51.5133,
+          "lng": -0.1163,
+          "note": "63-65 Aldwych,临Aldwych的院系楼。"
+        },
+        {
+          "name": "Columbia House",
+          "nameCn": "Columbia楼",
+          "lat": 51.5135,
+          "lng": -0.1167,
+          "note": "69 Aldwych,办公与教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Lionel Robbins Building — LSE Library",
+          "nameCn": "LSE图书馆(Lionel Robbins楼)",
+          "lat": 51.5141,
+          "lng": -0.117,
+          "note": "全球最大社科图书馆,Portugal街上。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Women's Library @ LSE",
+          "nameCn": "女性图书馆",
+          "lat": 51.514,
+          "lng": -0.1169,
+          "note": "馆藏于LSE图书馆内的女性运动史专藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Saw Swee Hock Student Centre",
+          "nameCn": "学生中心",
+          "lat": 51.5145,
+          "lng": -0.1172,
+          "note": "2014年启用的获奖学生会大楼,含LSESU。"
+        },
+        {
+          "name": "Peacock Theatre",
+          "nameCn": "Peacock剧院",
+          "lat": 51.5137,
+          "lng": -0.118,
+          "note": "Portugal街,兼作大型讲堂与西区剧场。"
+        },
+        {
+          "name": "Holborn Underground Station",
+          "nameCn": "Holborn地铁站",
+          "lat": 51.5174,
+          "lng": -0.12,
+          "note": "最近地铁站(中央线/皮卡迪利线),校园西北角。"
+        },
+        {
+          "name": "Temple Underground Station",
+          "nameCn": "Temple地铁站",
+          "lat": 51.5111,
+          "lng": -0.1141,
+          "note": "校园南侧近站,区域线/环线。"
+        },
+        {
+          "name": "Lincoln's Inn Fields",
+          "nameCn": "林肯律师学院广场",
+          "lat": 51.5165,
+          "lng": -0.1175,
+          "note": "伦敦最大广场绿地,环绕LSE北侧多栋楼。"
+        }
+      ]
+    }
+  ]
+}

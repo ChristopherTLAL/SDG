@@ -1,0 +1,197 @@
+{
+  "id": "manchester",
+  "type": "school",
+  "name": "University of Manchester",
+  "nameCn": "曼彻斯特大学",
+  "city": "Manchester",
+  "center": [
+    53.4555,
+    -2.2375
+  ],
+  "zoom": 13,
+  "blurb": "英国曼彻斯特大学:以牛津路主校区为核心,加上北侧Sackville工程园、南侧Fallowfield学生村与Wythenshawe运动场的多点城市校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Oxford Road Campus (South Campus)",
+          "nameCn": "牛津路主校区",
+          "lat": 53.4655,
+          "lng": -2.232,
+          "radius": 750,
+          "note": "核心教学科研区,沿牛津路一字排开,含老方庭、博物馆、学生会。"
+        },
+        {
+          "name": "North Campus (Sackville Street)",
+          "nameCn": "北校区(萨克维尔街)",
+          "lat": 53.4751,
+          "lng": -2.2342,
+          "radius": 320,
+          "note": "原UMIST工程区,正逐步并入主校区并改造为SISTER创新园。"
+        },
+        {
+          "name": "Fallowfield Campus",
+          "nameCn": "Fallowfield学生村",
+          "lat": 53.4448,
+          "lng": -2.2155,
+          "radius": 550,
+          "note": "主校区以南约3公里的宿舍区,Owens Park等大型学生公寓集群。"
+        },
+        {
+          "name": "Wythenshawe Sports Ground",
+          "nameCn": "Wythenshawe运动场",
+          "lat": 53.4168,
+          "lng": -2.2774,
+          "radius": 700,
+          "note": "城南约10公里的大型户外运动场,26块足球场加橄榄球场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "National Graphene Institute",
+          "nameCn": "国家石墨烯研究院",
+          "lat": 53.4687,
+          "lng": -2.2335,
+          "note": "石墨烯发现地的旗舰研究中心,主校区北端。"
+        },
+        {
+          "name": "Alliance Manchester Business School",
+          "nameCn": "联盟曼彻斯特商学院",
+          "lat": 53.4676,
+          "lng": -2.2365,
+          "note": "英国老牌商学院,Booth Street West。"
+        },
+        {
+          "name": "Pariser Building",
+          "nameCn": "Pariser工程楼",
+          "lat": 53.4741,
+          "lng": -2.2338,
+          "note": "北校区工程教学楼,原UMIST核心建筑之一。"
+        },
+        {
+          "name": "Sackville Street Building",
+          "nameCn": "萨克维尔街主楼",
+          "lat": 53.476,
+          "lng": -2.2345,
+          "note": "北校区地标主楼,昔日UMIST总部。"
+        },
+        {
+          "name": "Manchester Royal Infirmary",
+          "nameCn": "曼彻斯特皇家医院",
+          "lat": 53.4615,
+          "lng": -2.2291,
+          "note": "医学院教学医院,牛津路东侧。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Alan Gilbert Learning Commons",
+          "nameCn": "Alan Gilbert学习中心",
+          "lat": 53.4649,
+          "lng": -2.2331,
+          "note": "24小时开放的现代化自习与协作空间。"
+        },
+        {
+          "name": "The John Rylands Library",
+          "nameCn": "约翰·赖兰兹图书馆",
+          "lat": 53.4804,
+          "lng": -2.2491,
+          "note": "市中心Deansgate的新哥特式珍本馆,藏善本手稿。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Manchester Museum",
+          "nameCn": "曼彻斯特博物馆",
+          "lat": 53.466,
+          "lng": -2.2337,
+          "note": "校属自然史与文化博物馆,藏埃及木乃伊。"
+        },
+        {
+          "name": "The Whitworth",
+          "nameCn": "惠特沃斯美术馆",
+          "lat": 53.4602,
+          "lng": -2.2295,
+          "note": "主校区南端的美术馆,毗邻惠特沃斯公园。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "University of Manchester Students' Union",
+          "nameCn": "学生会",
+          "lat": 53.4644,
+          "lng": -2.2324,
+          "note": "英国最大学生会之一,牛津路活动中心。"
+        },
+        {
+          "name": "Whitworth Hall & The Old Quadrangle",
+          "nameCn": "惠特沃斯礼堂与老方庭",
+          "lat": 53.4664,
+          "lng": -2.2339,
+          "note": "维多利亚哥特式标志建筑群,学校象征。"
+        },
+        {
+          "name": "Sugden Sports Centre",
+          "nameCn": "Sugden体育中心",
+          "lat": 53.4712,
+          "lng": -2.236,
+          "note": "校内体育馆,距主校区步行约一分钟。"
+        },
+        {
+          "name": "Owens Park",
+          "nameCn": "Owens Park宿舍",
+          "lat": 53.4446,
+          "lng": -2.2167,
+          "note": "Fallowfield学生村中心的大型本科生公寓。"
+        },
+        {
+          "name": "Unsworth Park",
+          "nameCn": "Unsworth Park宿舍",
+          "lat": 53.4452,
+          "lng": -2.2112,
+          "note": "Fallowfield较新的宿舍楼群。"
+        },
+        {
+          "name": "Manchester Oxford Road railway station",
+          "nameCn": "牛津路火车站",
+          "lat": 53.4738,
+          "lng": -2.2423,
+          "note": "距主校区最近的铁路站,城市线枢纽。"
+        }
+      ]
+    }
+  ]
+}

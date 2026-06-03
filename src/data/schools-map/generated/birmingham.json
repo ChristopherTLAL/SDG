@@ -1,0 +1,219 @@
+{
+  "id": "birmingham",
+  "type": "school",
+  "name": "University of Birmingham",
+  "nameCn": "伯明翰大学",
+  "city": "Birmingham",
+  "center": [
+    52.456,
+    -1.928
+  ],
+  "zoom": 13,
+  "blurb": "英国伯明翰大学:以爱德巴斯顿主校区为核心,辅以塞利奥克、瓦尔学生村、医学院/伊丽莎白女王医院教学区,及市中心 The Exchange 的多点布局红砖名校。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Edgbaston Campus (Main)",
+          "nameCn": "爱德巴斯顿主校区",
+          "lat": 52.4505,
+          "lng": -1.9305,
+          "radius": 750,
+          "note": "核心校区,以 Old Joe 钟塔为中心,绝大多数院系、图书馆、学生会皆在此。"
+        },
+        {
+          "name": "The Vale Student Village",
+          "nameCn": "瓦尔学生村",
+          "lat": 52.4543,
+          "lng": -1.9232,
+          "radius": 350,
+          "note": "主校区东北侧最大的本科生宿舍区,环湖而建,步行约 15 分钟到主校区。"
+        },
+        {
+          "name": "Selly Oak Campus",
+          "nameCn": "塞利奥克校区",
+          "lat": 52.4358,
+          "lng": -1.947,
+          "radius": 420,
+          "note": "主校区以南约 2 公里的绿地校区,教育学院/教师培训等使用。"
+        },
+        {
+          "name": "Medical School & Queen Elizabeth Hospital",
+          "nameCn": "医学院与伊丽莎白女王医院",
+          "lat": 52.4517,
+          "lng": -1.9431,
+          "radius": 380,
+          "note": "主校区西缘的医学院及教学医院区,临床医学教学与科研基地。"
+        },
+        {
+          "name": "The Exchange (City Centre)",
+          "nameCn": "The Exchange 市中心址",
+          "lat": 52.479,
+          "lng": -1.9088,
+          "radius": 160,
+          "note": "百年广场旁原市政银行改建的市中心活动/展览据点,2021 年启用。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Muirhead Tower",
+          "nameCn": "缪尔黑德塔楼",
+          "lat": 52.4516,
+          "lng": -1.93,
+          "note": "社会科学/政治与国际关系等院系所在的高层教学楼。"
+        },
+        {
+          "name": "Watson Building (Mathematics)",
+          "nameCn": "沃森楼(数学)",
+          "lat": 52.4501,
+          "lng": -1.9335,
+          "note": "数学学院所在地。"
+        },
+        {
+          "name": "School of Chemistry (Haworth Building)",
+          "nameCn": "化学学院(豪沃斯楼)",
+          "lat": 52.4493,
+          "lng": -1.929,
+          "note": "化学学院教学与实验楼。"
+        },
+        {
+          "name": "Gisbert Kapp Building (Engineering)",
+          "nameCn": "吉斯伯特·卡普楼(工程)",
+          "lat": 52.4528,
+          "lng": -1.9343,
+          "note": "电子电气与系统工程学院所在。"
+        },
+        {
+          "name": "University of Birmingham Medical School",
+          "nameCn": "伯明翰大学医学院",
+          "lat": 52.4522,
+          "lng": -1.942,
+          "note": "医学与牙科学院主楼,毗邻伊丽莎白女王医院。"
+        },
+        {
+          "name": "Birmingham Business School (University House)",
+          "nameCn": "伯明翰商学院(大学楼)",
+          "lat": 52.453,
+          "lng": -1.929,
+          "note": "商学院所在,位于主校区东北入口处。"
+        },
+        {
+          "name": "Alan Walters Building (Economics)",
+          "nameCn": "艾伦·沃尔特斯楼(经济)",
+          "lat": 52.4519,
+          "lng": -1.9311,
+          "note": "经济学等社科院系教学楼。"
+        },
+        {
+          "name": "School of Education (Selly Oak)",
+          "nameCn": "教育学院(塞利奥克)",
+          "lat": 52.4356,
+          "lng": -1.9468,
+          "note": "位于塞利奥克校区的教育学院专用楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Main Library",
+          "nameCn": "主图书馆",
+          "lat": 52.4513,
+          "lng": -1.9304,
+          "note": "2016 年启用的新主馆,馆藏与学习空间核心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Barber Institute of Fine Arts",
+          "nameCn": "巴伯美术馆",
+          "lat": 52.4504,
+          "lng": -1.9277,
+          "note": "校园东缘的著名美术馆,藏有文艺复兴至印象派名作。"
+        },
+        {
+          "name": "Lapworth Museum of Geology",
+          "nameCn": "拉普沃斯地质博物馆",
+          "lat": 52.4509,
+          "lng": -1.9286,
+          "note": "位于阿斯顿·韦伯楼内,英国最古老的地质博物馆之一。"
+        },
+        {
+          "name": "Winterbourne House and Garden",
+          "nameCn": "温特伯恩故居与花园",
+          "lat": 52.4533,
+          "lng": -1.9255,
+          "note": "主校区北侧的爱德华式宅邸与植物园,对公众开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Joseph Chamberlain Memorial Clock Tower (Old Joe)",
+          "nameCn": "约瑟夫·张伯伦纪念钟塔(老乔)",
+          "lat": 52.4499,
+          "lng": -1.9307,
+          "note": "校园地标,全球最高独立钟塔,位于校长广场正中。"
+        },
+        {
+          "name": "Aston Webb Building & Great Hall",
+          "nameCn": "阿斯顿·韦伯楼与大礼堂",
+          "lat": 52.4503,
+          "lng": -1.9296,
+          "note": "半圆形红砖原始建筑群,毕业典礼大礼堂所在。"
+        },
+        {
+          "name": "Guild of Students",
+          "nameCn": "学生会",
+          "lat": 52.452,
+          "lng": -1.932,
+          "note": "英国最大的学生会大楼,社团、酒吧、活动中心。"
+        },
+        {
+          "name": "University (Birmingham) Railway Station",
+          "nameCn": "伯明翰大学站",
+          "lat": 52.451,
+          "lng": -1.936,
+          "note": "校内火车站,直达市中心 New Street,通勤主动脉。"
+        },
+        {
+          "name": "Bramall Music Building",
+          "nameCn": "布拉莫尔音乐楼",
+          "lat": 52.4497,
+          "lng": -1.93,
+          "note": "与 Old Joe 同风格的音乐厅,2012 年落成。"
+        }
+      ]
+    }
+  ]
+}

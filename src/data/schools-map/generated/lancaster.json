@@ -1,0 +1,233 @@
+{
+  "id": "lancaster",
+  "type": "school",
+  "name": "Lancaster University",
+  "nameCn": "兰卡斯特大学",
+  "city": "Lancaster",
+  "center": [
+    54.005,
+    -2.785
+  ],
+  "zoom": 14,
+  "blurb": "英国兰卡斯特大学:位于兰卡斯特郊外 Bailrigg 的英式 plate-glass 名校,主校区呈\"脊柱(Spine)\"步道串联各学院,另设健康创新园、Forrest Hills 会议中心及市中心车站节点。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Bailrigg Main Campus",
+          "nameCn": "Bailrigg 主校区",
+          "lat": 54.01028,
+          "lng": -2.78556,
+          "radius": 700,
+          "note": "578 英亩公园式校园,所有学院围绕中央 Spine 步道与 Alexandra Square 广场分布。"
+        },
+        {
+          "name": "Health Innovation Campus",
+          "nameCn": "健康创新园",
+          "lat": 54.0148,
+          "lng": -2.7905,
+          "radius": 300,
+          "note": "主校区西北角的医学/健康研究园区,设医学院与临床解剖中心。"
+        },
+        {
+          "name": "Southern Colleges & Sports Area",
+          "nameCn": "南区学院与运动场",
+          "lat": 54.0068,
+          "lng": -2.7838,
+          "radius": 350,
+          "note": "Spine 南端的 Graduate College、运动中心与 Lake Carter 水塘所在的低坡居住运动区。"
+        },
+        {
+          "name": "Forrest Hills",
+          "nameCn": "Forrest Hills 会议中心",
+          "lat": 54.0066,
+          "lng": -2.771,
+          "radius": 400,
+          "note": "2016 年购入,位于 M6 高速对面的 165 英亩会议中心兼高尔夫球场。"
+        },
+        {
+          "name": "Lancaster City Centre Site",
+          "nameCn": "兰卡斯特市中心节点",
+          "lat": 54.0466,
+          "lng": -2.8074,
+          "radius": 500,
+          "note": "市中心约 3 英里外,含 Lancaster 火车站及城内学生活动落脚点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Lancaster University Management School (LUMS)",
+          "nameCn": "兰卡斯特管理学院",
+          "lat": 54.009,
+          "lng": -2.786,
+          "note": "Spine 中段偏南的世界排名商学院。"
+        },
+        {
+          "name": "Engineering Building",
+          "nameCn": "工程楼",
+          "lat": 54.0108,
+          "lng": -2.7836,
+          "note": "校园东侧的工程系教学楼。"
+        },
+        {
+          "name": "Physics Building",
+          "nameCn": "物理楼",
+          "lat": 54.0102,
+          "lng": -2.7832,
+          "note": "理学院物理系所在,邻近化学与计算。"
+        },
+        {
+          "name": "Lancaster Institute for the Contemporary Arts (LICA)",
+          "nameCn": "当代艺术学院 (LICA)",
+          "lat": 54.0114,
+          "lng": -2.7848,
+          "note": "校园北侧的艺术、设计与表演学院。"
+        },
+        {
+          "name": "Faculty of Science and Technology / Sciences Cluster",
+          "nameCn": "理工学院科学楼群",
+          "lat": 54.0098,
+          "lng": -2.7828,
+          "note": "化学、环境与计算等理学楼集中在 Spine 东缘。"
+        },
+        {
+          "name": "Bowland College",
+          "nameCn": "Bowland 学院",
+          "lat": 54.0118,
+          "lng": -2.7858,
+          "note": "九大住宿学院之一,靠近北部 Alexandra Square。"
+        },
+        {
+          "name": "County College",
+          "nameCn": "County 学院",
+          "lat": 54.0127,
+          "lng": -2.7852,
+          "note": "Spine 最北端的住宿学院。"
+        },
+        {
+          "name": "Graduate College",
+          "nameCn": "研究生学院",
+          "lat": 54.0072,
+          "lng": -2.7848,
+          "note": "Spine 西南端的研究生住宿学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Lancaster University Library",
+          "nameCn": "大学图书馆",
+          "lat": 54.0102,
+          "lng": -2.7848,
+          "note": "1966 年启用,藏书逾五十万册,校园核心学习区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Peter Scott Gallery",
+          "nameCn": "彼得·斯科特美术馆",
+          "lat": 54.0119,
+          "lng": -2.7855,
+          "note": "Great Hall 建筑群内的免费公共美术馆。"
+        },
+        {
+          "name": "The Ruskin — Library, Museum and Research Centre",
+          "nameCn": "Ruskin 图书馆与博物馆",
+          "lat": 54.0112,
+          "lng": -2.7843,
+          "note": "收藏约翰·拉斯金手稿与艺术品的研究中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Alexandra Square",
+          "nameCn": "Alexandra 广场",
+          "lat": 54.0104,
+          "lng": -2.7852,
+          "note": "校园中央广场,商铺与学生生活的核心。"
+        },
+        {
+          "name": "Lancaster University Students' Union (LUSU)",
+          "nameCn": "学生会",
+          "lat": 54.0106,
+          "lng": -2.7849,
+          "note": "位于中央广场旁的学生会。"
+        },
+        {
+          "name": "Great Hall Complex",
+          "nameCn": "大礼堂建筑群",
+          "lat": 54.012,
+          "lng": -2.7858,
+          "note": "北端礼堂群,含音乐会、剧院与画廊。"
+        },
+        {
+          "name": "Nuffield Theatre",
+          "nameCn": "Nuffield 剧院",
+          "lat": 54.0118,
+          "lng": -2.786,
+          "note": "Great Hall 内的黑盒剧场。"
+        },
+        {
+          "name": "Sports Centre",
+          "nameCn": "运动中心",
+          "lat": 54.0078,
+          "lng": -2.7825,
+          "note": "南区运动中心,设泳池与桑拿。"
+        },
+        {
+          "name": "Health Innovation One",
+          "nameCn": "健康创新一号楼",
+          "lat": 54.0148,
+          "lng": -2.7905,
+          "note": "健康创新园主楼,设医学院与临床解剖学习中心。"
+        },
+        {
+          "name": "Chaplaincy Centre",
+          "nameCn": "教堂中心",
+          "lat": 54.0096,
+          "lng": -2.7842,
+          "note": "三叶草造型的多信仰祈祷中心。"
+        },
+        {
+          "name": "Lancaster Railway Station",
+          "nameCn": "兰卡斯特火车站",
+          "lat": 54.049,
+          "lng": -2.8074,
+          "note": "西海岸主线车站,距校园约 3 英里、巴士直达。"
+        }
+      ]
+    }
+  ]
+}

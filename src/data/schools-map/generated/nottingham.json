@@ -1,0 +1,243 @@
+{
+  "id": "nottingham",
+  "type": "school",
+  "name": "University of Nottingham",
+  "nameCn": "诺丁汉大学",
+  "city": "Nottingham",
+  "center": [
+    52.945,
+    -1.21
+  ],
+  "zoom": 12,
+  "blurb": "英国诺丁汉大学:以University Park湖畔主校区为核心,辅以Jubilee创新园、Sutton Bonington农学/兽医校区,以及QMC医学院、城市与德比的医院/商学院卫星点。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "University Park Campus",
+          "nameCn": "大学公园主校区",
+          "lat": 52.9387,
+          "lng": -1.1959,
+          "radius": 950,
+          "note": "300英亩湖畔主校区,大学绝大多数院系所在地"
+        },
+        {
+          "name": "Jubilee Campus",
+          "nameCn": "禧年校区",
+          "lat": 52.9529,
+          "lng": -1.1872,
+          "radius": 420,
+          "note": "主校区东北约1.6公里,前Raleigh自行车厂改建,商学院与计算机/工程"
+        },
+        {
+          "name": "Sutton Bonington Campus",
+          "nameCn": "萨顿博宁顿校区",
+          "lat": 52.8302,
+          "lng": -1.2524,
+          "radius": 750,
+          "note": "市区以南约19公里,420公顷农学、生物科学与兽医学院"
+        },
+        {
+          "name": "King's Meadow Campus",
+          "nameCn": "国王草地校区",
+          "lat": 52.938,
+          "lng": -1.1731,
+          "radius": 230,
+          "note": "主校区东侧,前电视台演播厅改建的行政办公区"
+        },
+        {
+          "name": "Castle Meadow Campus",
+          "nameCn": "城堡草地校区",
+          "lat": 52.9455,
+          "lng": -1.1545,
+          "radius": 200,
+          "note": "2021年新增的市中心校区,毗邻诺丁汉城堡,商学院进驻"
+        },
+        {
+          "name": "Queen's Medical Centre",
+          "nameCn": "女王医学中心",
+          "lat": 52.9433,
+          "lng": -1.1856,
+          "radius": 380,
+          "note": "主校区西北,医学院主基地与大型教学医院"
+        },
+        {
+          "name": "Nottingham City Hospital",
+          "nameCn": "诺丁汉市立医院",
+          "lat": 52.9906,
+          "lng": -1.1578,
+          "radius": 480,
+          "note": "市区北部,医学院第二教学医院基地"
+        },
+        {
+          "name": "Royal Derby Hospital",
+          "nameCn": "皇家德比医院",
+          "lat": 52.9107,
+          "lng": -1.5143,
+          "radius": 420,
+          "note": "德比市的医学院分部,Graduate Entry Medicine所在地"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Nottingham University Business School (Jubilee)",
+          "nameCn": "商学院(禧年)",
+          "lat": 52.9534,
+          "lng": -1.1882,
+          "note": "禧年校区商学院教学楼群"
+        },
+        {
+          "name": "School of Computer Science",
+          "nameCn": "计算机科学学院",
+          "lat": 52.9522,
+          "lng": -1.1855,
+          "note": "禧年校区计算机与信息技术学院"
+        },
+        {
+          "name": "GSK Carbon Neutral Laboratory",
+          "nameCn": "GSK碳中和实验室",
+          "lat": 52.9542,
+          "lng": -1.1849,
+          "note": "禧年校区零碳可持续化学研究实验楼"
+        },
+        {
+          "name": "School of Veterinary Medicine and Science",
+          "nameCn": "兽医学院",
+          "lat": 52.8298,
+          "lng": -1.2515,
+          "note": "萨顿博宁顿校区兽医学院,2006年启用"
+        },
+        {
+          "name": "Medical School (QMC)",
+          "nameCn": "医学院(QMC)",
+          "lat": 52.9425,
+          "lng": -1.1845,
+          "note": "女王医学中心内,本科医学教育主基地"
+        },
+        {
+          "name": "Engineering Faculty (Coates / Tower Building)",
+          "nameCn": "工程学院",
+          "lat": 52.9368,
+          "lng": -1.1987,
+          "note": "主校区工程学院教学与实验楼群"
+        },
+        {
+          "name": "School of Law (Law and Social Sciences Building)",
+          "nameCn": "法学院",
+          "lat": 52.9395,
+          "lng": -1.1976,
+          "note": "主校区法律与社会科学楼"
+        },
+        {
+          "name": "Si Yuan Centre",
+          "nameCn": "思源中心",
+          "lat": 52.9377,
+          "lng": -1.1955,
+          "note": "主校区中英合作建筑,设国际研究与会议设施"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Hallward Library",
+          "nameCn": "霍尔沃德图书馆",
+          "lat": 52.9379,
+          "lng": -1.1984,
+          "note": "主校区人文与社科主图书馆"
+        },
+        {
+          "name": "George Green Library",
+          "nameCn": "乔治·格林图书馆",
+          "lat": 52.9376,
+          "lng": -1.2003,
+          "note": "理工科学图书馆,2016年扩建翻新"
+        },
+        {
+          "name": "Djanogly Learning Resource Centre",
+          "nameCn": "Djanogly学习资源中心",
+          "lat": 52.9525,
+          "lng": -1.1869,
+          "note": "禧年校区湖畔圆形图书馆与学习中心"
+        },
+        {
+          "name": "James Cameron-Gifford Library",
+          "nameCn": "卡梅伦-吉福德图书馆",
+          "lat": 52.8312,
+          "lng": -1.2487,
+          "note": "萨顿博宁顿校区图书馆,服务农学与兽医学"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Lakeside Arts / Djanogly Art Gallery",
+          "nameCn": "湖畔艺术中心",
+          "lat": 52.9374,
+          "lng": -1.1925,
+          "note": "主校区文化艺术中心,含美术馆、考古博物馆与剧场"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Trent Building",
+          "nameCn": "特伦特楼",
+          "lat": 52.9382,
+          "lng": -1.1971,
+          "note": "主校区标志性钟楼行政楼,人文社科核心建筑"
+        },
+        {
+          "name": "Portland Building",
+          "nameCn": "波特兰楼",
+          "lat": 52.9389,
+          "lng": -1.1964,
+          "note": "学生会所在地,设餐饮、社团与学生媒体"
+        },
+        {
+          "name": "Aspire Sculpture",
+          "nameCn": "Aspire雕塑",
+          "lat": 52.9531,
+          "lng": -1.1858,
+          "note": "禧年校区60米红色地标雕塑,曾为英国最高独立艺术品"
+        },
+        {
+          "name": "Nottingham Railway Station",
+          "nameCn": "诺丁汉火车站",
+          "lat": 52.947,
+          "lng": -1.146,
+          "note": "市中心铁路枢纽,有轨电车直达University Park校区"
+        }
+      ]
+    }
+  ]
+}

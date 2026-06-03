@@ -1,0 +1,201 @@
+{
+  "id": "exeter",
+  "type": "school",
+  "name": "University of Exeter",
+  "nameCn": "埃克塞特大学",
+  "city": "Exeter",
+  "center": [
+    50.7295,
+    -3.5255
+  ],
+  "zoom": 13,
+  "blurb": "英国德文郡埃克塞特大学,罗素集团成员;主校区 Streatham 园林式校园 + 城东 St Luke's 医学/体育校区 + Topsham 运动场,另在康沃尔郡 Penryn 设第三校区(与 Falmouth 大学共享,距此约110公里,不在本图范围)。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Streatham Campus",
+          "nameCn": "斯特里萨姆主校区",
+          "lat": 50.7363,
+          "lng": -3.5345,
+          "radius": 620,
+          "note": "主校区,园林式校园,绝大多数院系、Forum 图书馆、学生中心均在此。"
+        },
+        {
+          "name": "St Luke's Campus",
+          "nameCn": "圣路加校区",
+          "lat": 50.7225,
+          "lng": -3.5168,
+          "radius": 300,
+          "note": "城东卫星校区,医学院、体育与健康科学、教育学及室内泳池所在。"
+        },
+        {
+          "name": "Topsham Sports Ground",
+          "nameCn": "托普瑟姆运动场",
+          "lat": 50.6903,
+          "lng": -3.476,
+          "radius": 350,
+          "note": "市区东南托普瑟姆的户外运动场,板球、橄榄球、足球场地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Queen's Building",
+          "nameCn": "女王楼",
+          "lat": 50.7342,
+          "lng": -3.535,
+          "note": "人文学院主楼:英语、电影、艺术史、现代语言。"
+        },
+        {
+          "name": "Amory Building",
+          "nameCn": "阿莫里楼",
+          "lat": 50.7365,
+          "lng": -3.5317,
+          "note": "社会科学与国际研究学院,政治、社会学。"
+        },
+        {
+          "name": "Washington Singer Building",
+          "nameCn": "华盛顿·辛格楼",
+          "lat": 50.7331,
+          "lng": -3.5365,
+          "note": "心理学与运动科学系所在。"
+        },
+        {
+          "name": "Geoffrey Pope Building",
+          "nameCn": "杰弗里·波普楼",
+          "lat": 50.7367,
+          "lng": -3.5351,
+          "note": "生命科学/生物科学院系楼。"
+        },
+        {
+          "name": "Living Systems Institute",
+          "nameCn": "生命系统研究所",
+          "lat": 50.7371,
+          "lng": -3.535,
+          "note": "2017 年启用的跨学科生命科学研究中心。"
+        },
+        {
+          "name": "Building One (Business School)",
+          "nameCn": "商学院一号楼",
+          "lat": 50.7355,
+          "lng": -3.5299,
+          "note": "埃克塞特商学院核心教学楼。"
+        },
+        {
+          "name": "Streatham Court",
+          "nameCn": "斯特里萨姆庭院楼",
+          "lat": 50.7357,
+          "lng": -3.5304,
+          "note": "商学院与经济学教学/办公楼。"
+        },
+        {
+          "name": "Peter Chalk Centre",
+          "nameCn": "彼得·查尔克中心",
+          "lat": 50.7363,
+          "lng": -3.5361,
+          "note": "公共教学楼,大量讲座与考试在此。"
+        },
+        {
+          "name": "Sir Henry Wellcome Building for Biocatalysis",
+          "nameCn": "亨利·威康生物催化楼",
+          "lat": 50.7333,
+          "lng": -3.5362,
+          "note": "化学/生物催化研究楼。"
+        },
+        {
+          "name": "University of Exeter Medical School (St Luke's)",
+          "nameCn": "埃克塞特医学院",
+          "lat": 50.7224,
+          "lng": -3.5168,
+          "note": "位于圣路加校区,医学与健康教学主楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "The Forum & Library",
+          "nameCn": "Forum 中心与图书馆",
+          "lat": 50.7351,
+          "lng": -3.5339,
+          "note": "校园核心地标,24小时主图书馆 + 学生服务大厅。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Great Hall",
+          "nameCn": "大礼堂",
+          "lat": 50.7354,
+          "lng": -3.5343,
+          "note": "主校区大型活动与毕业典礼场地,毗邻 Forum。"
+        },
+        {
+          "name": "Reed Hall",
+          "nameCn": "里德楼",
+          "lat": 50.7349,
+          "lng": -3.534,
+          "note": "校园最古老建筑,现作会议婚礼场地。"
+        },
+        {
+          "name": "Students' Guild",
+          "nameCn": "学生会",
+          "lat": 50.7225,
+          "lng": -3.5179,
+          "note": "埃克塞特学生会(St Luke's 一侧),社团与活动中枢。"
+        },
+        {
+          "name": "Exeter Northcott Theatre",
+          "nameCn": "诺斯科特剧院",
+          "lat": 50.7358,
+          "lng": -3.5352,
+          "note": "主校区专业剧院。"
+        },
+        {
+          "name": "Cornwall House",
+          "nameCn": "康沃尔楼",
+          "lat": 50.735,
+          "lng": -3.5297,
+          "note": "含游泳池与活动空间的学生综合楼。"
+        },
+        {
+          "name": "University of Exeter Laver Building",
+          "nameCn": "拉弗楼",
+          "lat": 50.7374,
+          "lng": -3.5335,
+          "note": "地理/计算机科学等院系教学楼。"
+        },
+        {
+          "name": "Exeter St Davids Railway Station",
+          "nameCn": "埃克塞特圣戴维斯火车站",
+          "lat": 50.7292,
+          "lng": -3.5433,
+          "note": "最近大型火车站,距主校区步行约15分钟。"
+        }
+      ]
+    }
+  ]
+}

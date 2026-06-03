@@ -1,0 +1,197 @@
+{
+  "id": "bath",
+  "type": "school",
+  "name": "University of Bath",
+  "nameCn": "巴斯大学",
+  "city": "Bath",
+  "center": [
+    51.3785,
+    -2.343
+  ],
+  "zoom": 14,
+  "blurb": "巴斯大学:英国巴斯东郊 Claverton Down 山顶的现代主义紧凑型校园,以中央图书馆为核心、Parade 步道东西贯通,另有市中心 Virgil 学生服务楼与 Thornbank Gardens 等市区宿舍。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Claverton Down Campus",
+          "nameCn": "克拉弗顿丘主校区",
+          "lat": 51.3784,
+          "lng": -2.3255,
+          "radius": 750,
+          "note": "建于1964年的山顶主校区,图书馆居中,Parade 步道由西(Wessex House)贯穿至东(Founders Hall),东侧含体育村与室外场地。"
+        },
+        {
+          "name": "Sports Training Village & Outdoor Pitches",
+          "nameCn": "体育训练村与室外场地",
+          "lat": 51.3798,
+          "lng": -2.3225,
+          "radius": 300,
+          "note": "主校区东缘的 Team Bath 体育训练中心,身后沿 Norwood Avenue 排布室外运动场。"
+        },
+        {
+          "name": "The Virgil Building (City Centre)",
+          "nameCn": "维吉尔楼(市中心站点)",
+          "lat": 51.3793,
+          "lng": -2.3567,
+          "radius": 160,
+          "note": "曼弗斯街旧警局改建的市中心学生服务中心,设职业、咨询与学习共享空间。"
+        },
+        {
+          "name": "Thornbank Gardens Residences",
+          "nameCn": "索恩班克花园宿舍区",
+          "lat": 51.3776,
+          "lng": -2.3673,
+          "radius": 190,
+          "note": "下布里斯托路旁、Oldfield Park 与 Bath Spa 站之间的本科生宿舍群,逾200间套房。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Wessex House",
+          "nameCn": "威塞克斯楼",
+          "lat": 51.3784,
+          "lng": -2.329,
+          "note": "Parade 步道西端起点,含教学与职能办公空间。"
+        },
+        {
+          "name": "10 West (Mathematical Sciences)",
+          "nameCn": "10 West 数学科学楼",
+          "lat": 51.3779,
+          "lng": -2.3284,
+          "note": "校园西侧理学楼群,数学科学系所在。"
+        },
+        {
+          "name": "4 West (Social & Policy Sciences)",
+          "nameCn": "4 West 社科楼",
+          "lat": 51.3781,
+          "lng": -2.3281,
+          "note": "西侧人文与社会政策科学院系楼。"
+        },
+        {
+          "name": "6 East (School of Management)",
+          "nameCn": "6 East 管理学院",
+          "lat": 51.3783,
+          "lng": -2.3251,
+          "note": "巴斯管理学院主楼,位于 Parade 东段南侧。"
+        },
+        {
+          "name": "1 South (Chemistry & Physics)",
+          "nameCn": "1 South 化学物理楼",
+          "lat": 51.3779,
+          "lng": -2.3266,
+          "note": "中部南侧的化学与物理实验教学楼。"
+        },
+        {
+          "name": "2 East (Engineering)",
+          "nameCn": "2 East 工程楼",
+          "lat": 51.3782,
+          "lng": -2.3253,
+          "note": "机械与电子工程系所在的东侧教学楼。"
+        },
+        {
+          "name": "8 West (Pharmacy & Biology)",
+          "nameCn": "8 West 药学与生物楼",
+          "lat": 51.378,
+          "lng": -2.3279,
+          "note": "西侧生命科学与药学院系实验楼。"
+        },
+        {
+          "name": "Chancellors' Building",
+          "nameCn": "校监楼",
+          "lat": 51.3788,
+          "lng": -2.3262,
+          "note": "图书馆北侧的大型现代化教学楼,多用于讲座授课。"
+        },
+        {
+          "name": "3 East (Computer Science)",
+          "nameCn": "3 East 计算机科学楼",
+          "lat": 51.3785,
+          "lng": -2.325,
+          "note": "东侧计算机科学系教学与研究楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "The Library and Learning Centre",
+          "nameCn": "图书馆与学习中心",
+          "lat": 51.3784,
+          "lng": -2.3268,
+          "note": "校园正中央的核心建筑,所有楼宇以其东西方位编号定位。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Andrew Brownsword Gallery, The Edge",
+          "nameCn": "安德鲁·布朗斯沃德美术馆",
+          "lat": 51.37856,
+          "lng": -2.32448,
+          "note": "位于 The Edge 艺术中心内的大学美术馆,东侧公共艺术展览空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Edge (Arts Centre)",
+          "nameCn": "The Edge 艺术中心",
+          "lat": 51.37858,
+          "lng": -2.32445,
+          "note": "校园东侧巴士总站对面的艺术与表演中心。"
+        },
+        {
+          "name": "The Students' Union (SU)",
+          "nameCn": "学生会",
+          "lat": 51.3787,
+          "lng": -2.3258,
+          "note": "位于中央 Parade 步道沿线的学生会综合体。"
+        },
+        {
+          "name": "The Parade & Founders Hall",
+          "nameCn": "Parade 步道与创办者厅",
+          "lat": 51.3786,
+          "lng": -2.3247,
+          "note": "贯穿校园中轴的高架步道,东端止于 Founders Hall。"
+        },
+        {
+          "name": "Bath Spa Railway Station",
+          "nameCn": "巴斯温泉火车站",
+          "lat": 51.3775,
+          "lng": -2.3564,
+          "note": "市中心主火车站,毗邻维吉尔楼,通往伦敦与布里斯托。"
+        }
+      ]
+    }
+  ]
+}

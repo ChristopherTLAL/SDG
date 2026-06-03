@@ -1,0 +1,212 @@
+{
+  "id": "newcastle",
+  "type": "school",
+  "name": "Newcastle University",
+  "nameCn": "纽卡斯尔大学",
+  "city": "Newcastle",
+  "center": [
+    54.984,
+    -1.612
+  ],
+  "zoom": 13,
+  "blurb": "英国纽卡斯尔大学:市中心主校区(Armstrong 楼+图书馆+大北方博物馆)、西侧 RVI 医学院与 Newcastle Helix 创新园,加上东北的户外运动场与利兹公园学生宿舍区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Newcastle University Main City Campus",
+          "nameCn": "市中心主校区",
+          "lat": 54.9795,
+          "lng": -1.6148,
+          "radius": 600,
+          "note": "核心园区,北接黑市集(Haymarket),覆盖 Armstrong 楼、图书馆、学生会与体育馆。"
+        },
+        {
+          "name": "Medical School & Royal Victoria Infirmary",
+          "nameCn": "医学院与皇家维多利亚医院",
+          "lat": 54.9808,
+          "lng": -1.6195,
+          "radius": 320,
+          "note": "主校区西缘的医学/牙医学院,紧邻 RVI 教学医院。"
+        },
+        {
+          "name": "Newcastle Helix (Science Central)",
+          "nameCn": "Helix 科技创新园",
+          "lat": 54.9719,
+          "lng": -1.6263,
+          "radius": 320,
+          "note": "原啤酒厂旧址改建的 24 英亩创新区,在圣詹姆斯公园球场西南。"
+        },
+        {
+          "name": "Cochrane Park & Longbenton Sports Grounds",
+          "nameCn": "户外运动场(科克伦园/朗本顿)",
+          "lat": 54.9978,
+          "lng": -1.5752,
+          "radius": 650,
+          "note": "市区东北的两片相邻户外运动场,橄榄球/足球/板球主场。"
+        },
+        {
+          "name": "Castle Leazes / Leazes Terrace Halls",
+          "nameCn": "利兹公园学生宿舍区",
+          "lat": 54.9786,
+          "lng": -1.6235,
+          "radius": 240,
+          "note": "主校区西侧、利兹公园旁的大型自营宿舍群。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Armstrong Building",
+          "nameCn": "Armstrong 楼",
+          "lat": 54.9798,
+          "lng": -1.6155,
+          "note": "1888 年启用的校内最古老建筑,内含 King's Hall。"
+        },
+        {
+          "name": "School of Architecture, Planning and Landscape",
+          "nameCn": "建筑规划与景观学院",
+          "lat": 54.9798,
+          "lng": -1.6152,
+          "note": "位于主校区核心的建筑学院。"
+        },
+        {
+          "name": "Faculty of Science, Agriculture and Engineering (Herschel / Bedson)",
+          "nameCn": "理农工学部",
+          "lat": 54.978,
+          "lng": -1.615,
+          "note": "理学与工程教学楼集中区(Herschel/Bedson 楼)。"
+        },
+        {
+          "name": "Frederick Douglass Centre",
+          "nameCn": "弗雷德里克·道格拉斯中心",
+          "lat": 54.9724,
+          "lng": -1.6266,
+          "note": "Helix 园区内 3400 万英镑教学/会议大楼。"
+        },
+        {
+          "name": "Urban Sciences Building",
+          "nameCn": "城市科学楼",
+          "lat": 54.9716,
+          "lng": -1.6261,
+          "note": "计算机学院所在,带 4000+ 数字传感器的活体实验楼。"
+        },
+        {
+          "name": "The Catalyst (National Innovation Centres)",
+          "nameCn": "Catalyst 楼",
+          "lat": 54.9721,
+          "lng": -1.627,
+          "note": "国家数据创新中心与老龄创新中心所在地。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Philip Robinson Library",
+          "nameCn": "菲利普·罗宾逊图书馆",
+          "lat": 54.981,
+          "lng": -1.6113,
+          "note": "藏书逾百万册的中央主馆。"
+        },
+        {
+          "name": "Walton Library (Medical Sciences)",
+          "nameCn": "沃尔顿医学图书馆",
+          "lat": 54.9805,
+          "lng": -1.6178,
+          "note": "服务医学/牙医学院的分馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Great North Museum: Hancock",
+          "nameCn": "大北方博物馆(汉考克)",
+          "lat": 54.98,
+          "lng": -1.613,
+          "note": "自然史与古物综合馆,校区标志展馆。"
+        },
+        {
+          "name": "Hatton Gallery",
+          "nameCn": "哈顿美术馆",
+          "lat": 54.9796,
+          "lng": -1.615,
+          "note": "美术学院内的画廊。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Newcastle University Students' Union (NUSU)",
+          "nameCn": "纽卡斯尔大学学生会",
+          "lat": 54.9789,
+          "lng": -1.615,
+          "note": "学生会主楼,主校区社交中枢。"
+        },
+        {
+          "name": "Northern Stage",
+          "nameCn": "北方剧场",
+          "lat": 54.9792,
+          "lng": -1.6143,
+          "note": "校园内的专业剧院。"
+        },
+        {
+          "name": "Sport & Fitness Centre (Wallace Street)",
+          "nameCn": "体育健身中心",
+          "lat": 54.9803,
+          "lng": -1.6168,
+          "note": "主校区室内体育馆,在 Wallace St(NE2 4DR)。"
+        },
+        {
+          "name": "St James' Park",
+          "nameCn": "圣詹姆斯公园球场",
+          "lat": 54.9756,
+          "lng": -1.6217,
+          "note": "纽卡斯尔联队主场,紧邻 Helix 园区的地标。"
+        },
+        {
+          "name": "Newcastle Central Station",
+          "nameCn": "纽卡斯尔中央车站",
+          "lat": 54.9684,
+          "lng": -1.617,
+          "note": "最近的国铁主站,距主校区约 1.5 公里。"
+        },
+        {
+          "name": "Haymarket Metro Station",
+          "nameCn": "黑市集地铁站",
+          "lat": 54.9772,
+          "lng": -1.6135,
+          "note": "主校区南门最近的 Tyne & Wear 地铁站。"
+        }
+      ]
+    }
+  ]
+}

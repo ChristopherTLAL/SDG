@@ -1,0 +1,205 @@
+{
+  "id": "liverpool",
+  "type": "school",
+  "name": "University of Liverpool",
+  "nameCn": "利物浦大学",
+  "city": "Liverpool",
+  "center": [
+    53.358,
+    -2.963
+  ],
+  "zoom": 12,
+  "blurb": "利物浦大学是英格兰利物浦市的罗素集团研究型大学,主校区为市中心 Brownlow Hill 一带约 40 公顷的城市校园,另有南郊 Greenbank 宿舍村、Wyncote 运动场,以及威勒尔半岛 Neston 的 Leahurst 兽医校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Brownlow Hill / Mount Pleasant)",
+          "nameCn": "市中心主校区",
+          "lat": 53.4058,
+          "lng": -2.9665,
+          "radius": 650,
+          "note": "约 40 公顷的城市校园,核心教学楼、图书馆与学生会均在此,距市中心步行约五分钟。"
+        },
+        {
+          "name": "Royal Liverpool University Hospital",
+          "nameCn": "皇家利物浦大学医院",
+          "lat": 53.4094,
+          "lng": -2.9641,
+          "radius": 300,
+          "note": "主校区东北侧的教学医院,医学院临床教学基地。"
+        },
+        {
+          "name": "Greenbank Student Village",
+          "nameCn": "Greenbank 宿舍村",
+          "lat": 53.3848,
+          "lng": -2.9298,
+          "radius": 400,
+          "note": "Mossley Hill 区南郊宿舍区,容纳 1300 多名本科新生,含 Greenbank 古宅与公园。"
+        },
+        {
+          "name": "Wyncote Sports Ground",
+          "nameCn": "Wyncote 运动场",
+          "lat": 53.3815,
+          "lng": -2.9069,
+          "radius": 350,
+          "note": "Allerton 区 Mather Avenue 的大学主运动场,含多块草地、曲棍球场与 3G 人工草坪。"
+        },
+        {
+          "name": "Leahurst Campus (School of Veterinary Science)",
+          "nameCn": "Leahurst 兽医校区",
+          "lat": 53.2896,
+          "lng": -3.027,
+          "radius": 700,
+          "note": "威勒尔半岛 Neston 的乡村校区,兽医学院临床设施与三所转诊医院所在地,距市区约 19 公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Foundation Building",
+          "nameCn": "基础楼",
+          "lat": 53.4047,
+          "lng": -2.9659,
+          "note": "Brownlow Hill 上的行政与综合教学楼。"
+        },
+        {
+          "name": "Central Teaching Hub",
+          "nameCn": "中央教学中心",
+          "lat": 53.4052,
+          "lng": -2.9648,
+          "note": "2012 年建成的共享大型讲堂与教学楼。"
+        },
+        {
+          "name": "School of Engineering (Brodie Tower / Harrison Hughes)",
+          "nameCn": "工程学院",
+          "lat": 53.4068,
+          "lng": -2.9645,
+          "note": "校区北部理工区的工程系教学与实验楼群。"
+        },
+        {
+          "name": "Liverpool Management School",
+          "nameCn": "管理学院",
+          "lat": 53.4039,
+          "lng": -2.9665,
+          "note": "Chatham Street 一带的商科与管理学院。"
+        },
+        {
+          "name": "School of Law and Social Justice (Eleanor Rathbone Building)",
+          "nameCn": "法学与社会公正学院",
+          "lat": 53.4036,
+          "lng": -2.9656,
+          "note": "Bedford Street South 的法学与社会科学楼。"
+        },
+        {
+          "name": "School of Veterinary Science (Liverpool teaching)",
+          "nameCn": "兽医学院(市区教学楼)",
+          "lat": 53.4072,
+          "lng": -2.9628,
+          "note": "市区校园内的兽医学院基础教学与小动物教学医院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Sydney Jones Library",
+          "nameCn": "Sydney Jones 图书馆",
+          "lat": 53.4044,
+          "lng": -2.9659,
+          "note": "人文社科主图书馆,24 小时开放,毗邻新公共广场。"
+        },
+        {
+          "name": "Harold Cohen Library",
+          "nameCn": "Harold Cohen 图书馆",
+          "lat": 53.4078,
+          "lng": -2.9655,
+          "note": "Ashton Street 的理工与健康科学图书馆,1938 年开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Victoria Gallery & Museum (Victoria Building)",
+          "nameCn": "维多利亚美术馆与博物馆",
+          "lat": 53.4061,
+          "lng": -2.9664,
+          "note": "1892 年红砖维多利亚楼,大学博物馆与美术馆,'红砖大学'一词的由来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Liverpool Guild of Students",
+          "nameCn": "利物浦学生会",
+          "lat": 53.4053,
+          "lng": -2.9664,
+          "note": "Mount Pleasant 160 号的学生会(Reilly 楼),社团与活动中心。"
+        },
+        {
+          "name": "Yoko Ono Lennon Centre (Tung Auditorium)",
+          "nameCn": "小野洋子列侬中心",
+          "lat": 53.4043,
+          "lng": -2.965,
+          "note": "Oxford Street 与 Grove Street 交口,含 399 座 Tung 音乐厅,2022 年启用。"
+        },
+        {
+          "name": "Liverpool Metropolitan Cathedral",
+          "nameCn": "利物浦大都会主教座堂",
+          "lat": 53.4046,
+          "lng": -2.9668,
+          "note": "校区旁标志性现代天主教堂,俗称'Paddy's Wigwam'。"
+        },
+        {
+          "name": "Crown Place Student Accommodation",
+          "nameCn": "Crown Place 学生公寓",
+          "lat": 53.4058,
+          "lng": -2.9636,
+          "note": "Brownlow Hill 202 号的大型市区学生公寓(约 1259 床)。"
+        },
+        {
+          "name": "Vine Court Halls",
+          "nameCn": "Vine Court 宿舍",
+          "lat": 53.4009,
+          "lng": -2.9628,
+          "note": "Myrtle Street 的市区学生宿舍,靠校区东南缘。"
+        },
+        {
+          "name": "Liverpool Lime Street Railway Station",
+          "nameCn": "利物浦莱姆街火车站",
+          "lat": 53.4075,
+          "lng": -2.9784,
+          "note": "最近的城际火车总站,距主校区步行约 10 分钟。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "id": "sheffield",
+  "type": "school",
+  "name": "University of Sheffield",
+  "nameCn": "谢菲尔德大学",
+  "city": "Sheffield",
+  "center": [
+    53.3811,
+    -1.4878
+  ],
+  "zoom": 13,
+  "blurb": "英国谢菲尔德大学:罗素集团名校,主校区沿西班克—圣乔治一带,另有恩克利夫学生村、北总医院教学点、先进制造园与诺顿体育园等多个分散园区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Western Bank Campus",
+          "nameCn": "西班克主校区",
+          "lat": 53.3823,
+          "lng": -1.4878,
+          "radius": 420,
+          "note": "主校区核心:弗斯楼、艺术塔、西班克图书馆、学生会所在地。"
+        },
+        {
+          "name": "St George's Campus",
+          "nameCn": "圣乔治校区",
+          "lat": 53.3817,
+          "lng": -1.4805,
+          "radius": 380,
+          "note": "内环路东侧的工程学群,含钻石楼与马平工程楼。"
+        },
+        {
+          "name": "Royal Hallamshire Hospital / Medical & Dental Quarter",
+          "nameCn": "皇家哈勒姆郡医学区",
+          "lat": 53.3791,
+          "lng": -1.4931,
+          "radius": 260,
+          "note": "医学院与口腔学院所在的主教学医院区。"
+        },
+        {
+          "name": "Endcliffe & Ranmoor Student Village",
+          "nameCn": "恩克利夫学生村",
+          "lat": 53.373,
+          "lng": -1.5059,
+          "radius": 420,
+          "note": "市区以西最大住宿区,容纳大部分一年级新生。"
+        },
+        {
+          "name": "Advanced Manufacturing Park (AMRC)",
+          "nameCn": "先进制造园",
+          "lat": 53.3858,
+          "lng": -1.383,
+          "radius": 500,
+          "note": "市区东侧约6公里,先进制造研究中心(AMRC)所在地。"
+        },
+        {
+          "name": "Northern General Hospital teaching site",
+          "nameCn": "北总医院教学点",
+          "lat": 53.4105,
+          "lng": -1.4574,
+          "radius": 420,
+          "note": "市区北部教学医院,设临床技能中心与肾脏研究所。"
+        },
+        {
+          "name": "Norton Sports Park",
+          "nameCn": "诺顿体育园",
+          "lat": 53.3447,
+          "lng": -1.4655,
+          "radius": 350,
+          "note": "市区以南约4公里的主运动场与体育中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Firth Court",
+          "nameCn": "弗斯楼",
+          "lat": 53.3816,
+          "lng": -1.4892,
+          "note": "爱德华时期红砖楼,大学行政与生物科学所在。"
+        },
+        {
+          "name": "The Diamond",
+          "nameCn": "钻石楼",
+          "lat": 53.3816,
+          "lng": -1.4821,
+          "note": "2015年启用的工程教学楼,标志性外立面。"
+        },
+        {
+          "name": "Sir Frederick Mappin Building",
+          "nameCn": "马平工程楼",
+          "lat": 53.3819,
+          "lng": -1.4793,
+          "note": "工程学院主楼,圣乔治校区核心。"
+        },
+        {
+          "name": "Alfred Denny Building",
+          "nameCn": "阿尔弗雷德·丹尼楼",
+          "lat": 53.3819,
+          "lng": -1.4886,
+          "note": "生物科学系所在,内设动物学博物馆。"
+        },
+        {
+          "name": "Royal Hallamshire Hospital",
+          "nameCn": "皇家哈勒姆郡医院",
+          "lat": 53.3787,
+          "lng": -1.4932,
+          "note": "主教学医院,毗邻医学院。"
+        },
+        {
+          "name": "School of Clinical Dentistry",
+          "nameCn": "临床口腔学院",
+          "lat": 53.3796,
+          "lng": -1.4933,
+          "note": "英国规模领先的口腔教学与诊疗中心。"
+        },
+        {
+          "name": "AMRC (Factory 2050)",
+          "nameCn": "先进制造研究中心",
+          "lat": 53.3858,
+          "lng": -1.383,
+          "note": "与波音等合作的尖端制造研究基地。"
+        },
+        {
+          "name": "Clinical Skills Centre, Northern General",
+          "nameCn": "北总临床技能中心",
+          "lat": 53.4105,
+          "lng": -1.4574,
+          "note": "模拟病房与复苏教学设施所在。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Western Bank Library",
+          "nameCn": "西班克图书馆",
+          "lat": 53.3826,
+          "lng": -1.4881,
+          "note": "二级保护建筑,主校区核心藏书馆。"
+        },
+        {
+          "name": "Information Commons",
+          "nameCn": "信息共享中心",
+          "lat": 53.3816,
+          "lng": -1.4847,
+          "note": "24小时开放的现代化学习与图书空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Alfred Denny Museum",
+          "nameCn": "阿尔弗雷德·丹尼博物馆",
+          "lat": 53.3819,
+          "lng": -1.4886,
+          "note": "校内动物学标本博物馆。"
+        },
+        {
+          "name": "Turner Museum of Glass",
+          "nameCn": "特纳玻璃博物馆",
+          "lat": 53.3819,
+          "lng": -1.4793,
+          "note": "收藏19—20世纪玻璃艺术,位于工程区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Arts Tower",
+          "nameCn": "艺术塔",
+          "lat": 53.3828,
+          "lng": -1.4873,
+          "note": "战后现代主义高楼,谢大地标。"
+        },
+        {
+          "name": "Students' Union",
+          "nameCn": "学生会",
+          "lat": 53.3804,
+          "lng": -1.4872,
+          "note": "屡获全英最佳学生会,社团与活动中心。"
+        },
+        {
+          "name": "Goodwin Sports Centre",
+          "nameCn": "古德温体育中心",
+          "lat": 53.3822,
+          "lng": -1.4943,
+          "note": "主校区健身与室内运动中心。"
+        },
+        {
+          "name": "Sheffield railway station",
+          "nameCn": "谢菲尔德火车站",
+          "lat": 53.3784,
+          "lng": -1.4621,
+          "note": "距主校区约1.5公里的城际铁路枢纽。"
+        }
+      ]
+    }
+  ]
+}

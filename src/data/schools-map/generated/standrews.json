@@ -1,0 +1,240 @@
+{
+  "id": "standrews",
+  "type": "school",
+  "name": "University of St Andrews",
+  "nameCn": "圣安德鲁斯大学",
+  "city": "St Andrews",
+  "center": [
+    56.3475,
+    -2.835
+  ],
+  "zoom": 13,
+  "blurb": "苏格兰最古老大学(1413年),坐落于法夫郡海滨小镇圣安德鲁斯,古城教学区、North Haugh理工园与4公里外的Eden研究园区共同构成校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central / Old Town (St Salvator's & The Scores)",
+          "nameCn": "古城中心教学区",
+          "lat": 56.3414,
+          "lng": -2.7935,
+          "radius": 550,
+          "note": "St Salvator's方庭、The Scores、North/South Street沿线的人文社科核心区。"
+        },
+        {
+          "name": "St Mary's College (South Street)",
+          "nameCn": "圣玛丽学院区",
+          "lat": 56.3391,
+          "lng": -2.7946,
+          "radius": 220,
+          "note": "南街最古老学院,神学与心理及神经科学学院所在。"
+        },
+        {
+          "name": "North Haugh Science & Management Park",
+          "nameCn": "North Haugh理工园",
+          "lat": 56.3401,
+          "lng": -2.8095,
+          "radius": 550,
+          "note": "城西自然科学+计算机+数学+医学+管理学院集群。"
+        },
+        {
+          "name": "Western Halls of Residence Cluster",
+          "nameCn": "西区宿舍群",
+          "lat": 56.3382,
+          "lng": -2.8195,
+          "radius": 500,
+          "note": "Andrew Melville、Agnes Blackadder、David Russell等大型学生宿舍区。"
+        },
+        {
+          "name": "Eden Campus, Guardbridge",
+          "nameCn": "Eden研究园区(Guardbridge)",
+          "lat": 56.3644,
+          "lng": -2.8909,
+          "radius": 350,
+          "note": "城外约4公里的研究与创新园区,含生物质能源中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "St Salvator's Quadrangle (United College)",
+          "nameCn": "圣萨尔瓦多方庭",
+          "lat": 56.3417,
+          "lng": -2.7943,
+          "note": "北街联合学院方庭,兼作教学与学生活动场地。"
+        },
+        {
+          "name": "St Mary's College",
+          "nameCn": "圣玛丽学院",
+          "lat": 56.3391,
+          "lng": -2.7946,
+          "note": "神学院与心理及神经科学学院,含国王詹姆斯图书馆。"
+        },
+        {
+          "name": "Gateway Building (School of Management)",
+          "nameCn": "Gateway楼(管理学院)",
+          "lat": 56.3412,
+          "lng": -2.8095,
+          "note": "2000年落成,管理学院所在。"
+        },
+        {
+          "name": "Jack Cole Building (Computer Science)",
+          "nameCn": "Jack Cole楼(计算机系)",
+          "lat": 56.3403,
+          "lng": -2.8087,
+          "note": "North Haugh的计算机科学学院主楼。"
+        },
+        {
+          "name": "Purdie Building (Chemistry)",
+          "nameCn": "Purdie楼(化学系)",
+          "lat": 56.3399,
+          "lng": -2.8106,
+          "note": "North Haugh化学学院教学实验楼。"
+        },
+        {
+          "name": "School of Mathematics and Statistics",
+          "nameCn": "数学与统计学院",
+          "lat": 56.3399,
+          "lng": -2.808,
+          "note": "North Haugh的数学与统计学院。"
+        },
+        {
+          "name": "Bute Medical Building",
+          "nameCn": "Bute医学楼",
+          "lat": 56.3392,
+          "lng": -2.7948,
+          "note": "圣玛丽方庭内旧医学楼,藏Bell Pettigrew自然史博物馆。"
+        },
+        {
+          "name": "New College (former Madras College, South Street)",
+          "nameCn": "新学院(原马德拉斯学院南街址)",
+          "lat": 56.339,
+          "lng": -2.7976,
+          "note": "大学收购的南街历史校舍,改建为新学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "University of St Andrews Main Library",
+          "nameCn": "大学主图书馆",
+          "lat": 56.342,
+          "lng": -2.796,
+          "note": "北街主馆,藏书逾百万册。"
+        },
+        {
+          "name": "Parliament Hall & King James Library",
+          "nameCn": "国王詹姆斯图书馆",
+          "lat": 56.3393,
+          "lng": -2.794,
+          "note": "1643年建,神学与中世纪史特藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Wardlaw Museum (formerly MUSA)",
+          "nameCn": "沃德劳博物馆",
+          "lat": 56.343,
+          "lng": -2.794,
+          "note": "The Scores上的大学博物馆,2008年开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "St Salvator's Chapel",
+          "nameCn": "圣萨尔瓦多礼拜堂",
+          "lat": 56.3414,
+          "lng": -2.7944,
+          "note": "1450年创建,大学标志性礼拜堂与钟塔。"
+        },
+        {
+          "name": "Younger Hall",
+          "nameCn": "扬格音乐厅",
+          "lat": 56.3412,
+          "lng": -2.7921,
+          "note": "北街毕业典礼与音乐会主礼堂。"
+        },
+        {
+          "name": "University of St Andrews Sports Centre",
+          "nameCn": "大学体育中心",
+          "lat": 56.339,
+          "lng": -2.8148,
+          "note": "St Leonards路,North Haugh上方的运动中心。"
+        },
+        {
+          "name": "St Salvator's Hall",
+          "nameCn": "圣萨尔瓦多宿舍",
+          "lat": 56.3419,
+          "lng": -2.7922,
+          "note": "古城核心区代表性学生宿舍。"
+        },
+        {
+          "name": "Andrew Melville Hall",
+          "nameCn": "安德鲁·梅尔维尔宿舍",
+          "lat": 56.3407,
+          "lng": -2.8171,
+          "note": "西区现代主义大型学生宿舍。"
+        },
+        {
+          "name": "David Russell Apartments",
+          "nameCn": "David Russell公寓",
+          "lat": 56.3366,
+          "lng": -2.8229,
+          "note": "西郊最大学生公寓群。"
+        },
+        {
+          "name": "Old Course (St Andrews Links)",
+          "nameCn": "老球场(高尔夫)",
+          "lat": 56.3438,
+          "lng": -2.8027,
+          "note": "世界高尔夫发源地,紧邻校园西北海滨。"
+        },
+        {
+          "name": "St Andrews Castle",
+          "nameCn": "圣安德鲁斯城堡",
+          "lat": 56.3422,
+          "lng": -2.7905,
+          "note": "海崖城堡遗址,毗邻The Scores教学区。"
+        },
+        {
+          "name": "Leuchars Railway Station",
+          "nameCn": "鲁哈斯火车站",
+          "lat": 56.3753,
+          "lng": -2.8921,
+          "note": "最近铁路站,距城约8公里,东海岸干线。"
+        }
+      ]
+    }
+  ]
+}

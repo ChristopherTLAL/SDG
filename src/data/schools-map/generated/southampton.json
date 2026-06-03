@@ -1,0 +1,244 @@
+{
+  "id": "southampton",
+  "type": "school",
+  "name": "University of Southampton",
+  "nameCn": "南安普顿大学",
+  "city": "Southampton",
+  "center": [
+    50.978,
+    -1.398
+  ],
+  "zoom": 12,
+  "blurb": "英国南安普顿大学:罗素集团研究型名校,主校区 Highfield 位于南安普顿市北,另有人文、工程创新、海洋、医学、温切斯特艺术学院等多个分散校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Highfield Campus",
+          "nameCn": "高田主校区",
+          "lat": 50.9347,
+          "lng": -1.3958,
+          "radius": 600,
+          "note": "最大最古老的主校区,绝大多数院系、图书馆与学生会所在地。"
+        },
+        {
+          "name": "Avenue Campus",
+          "nameCn": "大道校区",
+          "lat": 50.9294,
+          "lng": -1.403,
+          "radius": 200,
+          "note": "人文学院所在地,位于市中心与高田之间的林地中。"
+        },
+        {
+          "name": "Boldrewood Innovation Campus",
+          "nameCn": "博德伍德创新校区",
+          "lat": 50.9367,
+          "lng": -1.4047,
+          "radius": 260,
+          "note": "工程与海事卓越中心,含劳氏船级社技术中心。"
+        },
+        {
+          "name": "University Hospital Southampton (Southampton General Hospital)",
+          "nameCn": "南安普顿大学医院",
+          "lat": 50.9318,
+          "lng": -1.4324,
+          "radius": 420,
+          "note": "医学与健康科学教学医院,临床教学集中在南学术楼。"
+        },
+        {
+          "name": "Waterfront Campus (National Oceanography Centre)",
+          "nameCn": "海滨校区(国家海洋中心)",
+          "lat": 50.8928,
+          "lng": -1.3948,
+          "radius": 240,
+          "note": "海洋与地球科学校区,坐落于南安普顿码头帝后船坞旁。"
+        },
+        {
+          "name": "University of Southampton Science Park",
+          "nameCn": "南安普顿科学园",
+          "lat": 50.9611,
+          "lng": -1.4248,
+          "radius": 380,
+          "note": "奇尔沃斯的科技企业孵化园区,位于主校区西北约 3 公里。"
+        },
+        {
+          "name": "Glen Eyre Halls",
+          "nameCn": "格伦艾尔宿舍区",
+          "lat": 50.9436,
+          "lng": -1.4012,
+          "radius": 230,
+          "note": "最大的学生宿舍群,在高田主校区以北步行约 10 分钟。"
+        },
+        {
+          "name": "Wide Lane Sports Ground",
+          "nameCn": "宽巷体育场",
+          "lat": 50.9554,
+          "lng": -1.3643,
+          "radius": 450,
+          "note": "大学最大的户外运动综合体,位于伊斯特利、M27 高速旁。"
+        },
+        {
+          "name": "Winchester School of Art",
+          "nameCn": "温切斯特艺术学院",
+          "lat": 51.0657,
+          "lng": -1.3097,
+          "radius": 220,
+          "note": "艺术、时尚与设计学院,位于北面约 14 公里外的温切斯特城。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Faculty of Humanities (Avenue Campus)",
+          "nameCn": "人文学院",
+          "lat": 50.9294,
+          "lng": -1.403,
+          "note": "历史、哲学、考古、英语等人文学科教学楼。"
+        },
+        {
+          "name": "Boldrewood Engineering & Maritime Building (Building 176)",
+          "nameCn": "博德伍德工程海事楼",
+          "lat": 50.93667,
+          "lng": -1.40466,
+          "note": "工程与海事学科主教学楼,含大型船模水池实验室。"
+        },
+        {
+          "name": "South Academic Block, Southampton General Hospital",
+          "nameCn": "医院南学术楼",
+          "lat": 50.9322,
+          "lng": -1.4318,
+          "note": "医学院临床教学主楼,位于大学医院院区内。"
+        },
+        {
+          "name": "National Oceanography Centre Southampton",
+          "nameCn": "国家海洋中心",
+          "lat": 50.8928,
+          "lng": -1.3948,
+          "note": "海洋与地球科学教学研究主楼,码头海滨校区。"
+        },
+        {
+          "name": "Winchester School of Art Main Building",
+          "nameCn": "温切斯特艺术学院主楼",
+          "lat": 51.0657,
+          "lng": -1.3097,
+          "note": "艺术与纺织设计工作室,温切斯特公园大道。"
+        },
+        {
+          "name": "Building 67 — Mathematical Sciences",
+          "nameCn": "数学科学楼",
+          "lat": 50.9362,
+          "lng": -1.3972,
+          "note": "高田校区数学与统计科学院系楼。"
+        },
+        {
+          "name": "Murray Building (Building 58) — Social Sciences",
+          "nameCn": "默里社会科学楼",
+          "lat": 50.9345,
+          "lng": -1.3939,
+          "note": "高田校区社会科学与经济学院教学楼。"
+        },
+        {
+          "name": "Mountbatten Building (Building 53) — Electronics & Computer Science",
+          "nameCn": "蒙巴顿电子计算机楼",
+          "lat": 50.9374,
+          "lng": -1.3956,
+          "note": "高田校区电子与计算机科学院、纳米中心。"
+        },
+        {
+          "name": "Physics & Astronomy (Building 46)",
+          "nameCn": "物理与天文楼",
+          "lat": 50.9358,
+          "lng": -1.3945,
+          "note": "高田校区物理与天文学院、光电子研究中心(ORC)。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Hartley Library (Building 36)",
+          "nameCn": "哈特利图书馆",
+          "lat": 50.93504,
+          "lng": -1.39531,
+          "note": "高田校区主图书馆,藏大学档案与特藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "John Hansard Gallery (Studio 144)",
+          "nameCn": "约翰·汉萨德美术馆",
+          "lat": 50.9079,
+          "lng": -1.4044,
+          "note": "大学当代艺术馆,2018 年迁入市中心市政广场文化区。"
+        },
+        {
+          "name": "Turner Sims Concert Hall (Building 52)",
+          "nameCn": "特纳·西姆斯音乐厅",
+          "lat": 50.9352,
+          "lng": -1.3946,
+          "note": "高田校区室内乐演出厅,声学设计出自声振研究所。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "University of Southampton Students' Union (SUSU, Building 42)",
+          "nameCn": "南安学生会",
+          "lat": 50.93418,
+          "lng": -1.39755,
+          "note": "高田校区学生会大楼,含 The Cube 夜店与活动空间。"
+        },
+        {
+          "name": "Nuffield Theatre (Building 6)",
+          "nameCn": "纳菲尔德剧院",
+          "lat": 50.9357,
+          "lng": -1.3964,
+          "note": "英国首座建于大学内的剧院,1964 年启用。"
+        },
+        {
+          "name": "Swaythling Railway Station",
+          "nameCn": "斯韦斯林火车站",
+          "lat": 50.9281,
+          "lng": -1.3819,
+          "note": "距高田校区最近的火车站,步行约 20 分钟。"
+        },
+        {
+          "name": "Southampton Airport Parkway Station",
+          "nameCn": "南安机场火车站",
+          "lat": 50.9503,
+          "lng": -1.3573,
+          "note": "邻近机场与宽巷体育场,经高田换乘站直达主校区。"
+        }
+      ]
+    }
+  ]
+}

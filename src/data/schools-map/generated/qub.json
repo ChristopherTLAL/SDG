@@ -1,0 +1,213 @@
+{
+  "id": "qub",
+  "type": "school",
+  "name": "Queen's University Belfast",
+  "nameCn": "贝尔法斯特女王大学",
+  "city": "Belfast",
+  "center": [
+    54.5701,
+    -5.9512
+  ],
+  "zoom": 12,
+  "blurb": "英国北爱尔兰贝尔法斯特的罗素集团研究型大学，主校区以维多利亚哥特式的莱尼恩楼为核心，向南沿马龙路延伸出医学园、学生村与体育场，并在斯特兰福德湖畔设有海洋实验室。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (University Road / Lanyon)",
+          "nameCn": "主校区(大学路·莱尼恩楼)",
+          "lat": 54.5844,
+          "lng": -5.9351,
+          "radius": 600,
+          "note": "以莱尼恩楼与四方庭为中心,集中于大学路、大学广场一带,绝大多数文社理工学院在此。"
+        },
+        {
+          "name": "Health Sciences / Medical Campus (Lisburn Road)",
+          "nameCn": "医学健康科学园(利斯本路)",
+          "lat": 54.5858,
+          "lng": -5.9437,
+          "radius": 350,
+          "note": "毗邻贝尔法斯特城市医院,含医学生物中心与癌症研究中心,是医学院主体所在。"
+        },
+        {
+          "name": "Royal Victoria Hospital Teaching Site (Grosvenor Road)",
+          "nameCn": "皇家维多利亚医院教学区",
+          "lat": 54.5915,
+          "lng": -5.9555,
+          "radius": 350,
+          "note": "皇家维多利亚医院旁的临床教学与病理研究所,医学生临床实习基地。"
+        },
+        {
+          "name": "Elms Village & BT9 Halls of Residence",
+          "nameCn": "榆树村学生宿舍区",
+          "lat": 54.5759,
+          "lng": -5.9424,
+          "radius": 350,
+          "note": "马龙路南段的大型自建学生村,本科生主要住宿区。"
+        },
+        {
+          "name": "Upper Malone Playing Fields & Mary Peters Track",
+          "nameCn": "上马龙体育场(玛丽·彼得斯田径场)",
+          "lat": 54.5486,
+          "lng": -5.9674,
+          "radius": 600,
+          "note": "校区南郊的运动场与田径跑道,距主校区约4公里。"
+        },
+        {
+          "name": "Queen's University Marine Laboratory, Portaferry",
+          "nameCn": "波特费里海洋实验室",
+          "lat": 54.38,
+          "lng": -5.5484,
+          "radius": 250,
+          "note": "斯特兰福德湖口波特费里镇的海洋生物研究站,距贝尔法斯特约30公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Computer Science Building (CSB)",
+          "nameCn": "计算机科学楼",
+          "lat": 54.5818,
+          "lng": -5.9374,
+          "note": "电子电气工程与计算机科学学院主楼,位于马龙路。"
+        },
+        {
+          "name": "Ashby Building",
+          "nameCn": "阿什比工程楼",
+          "lat": 54.5801,
+          "lng": -5.9366,
+          "note": "斯特兰米利斯路上的工程学科教学楼。"
+        },
+        {
+          "name": "Riddel Hall",
+          "nameCn": "里德尔楼",
+          "lat": 54.5763,
+          "lng": -5.9351,
+          "note": "管理学院与企业研究中心所在地。"
+        },
+        {
+          "name": "Medical Biology Centre (MBC)",
+          "nameCn": "医学生物中心",
+          "lat": 54.5858,
+          "lng": -5.9426,
+          "note": "利斯本路医学园主体,生物医学科学教学核心。"
+        },
+        {
+          "name": "Centre for Cancer Research and Cell Biology",
+          "nameCn": "癌症研究与细胞生物学中心",
+          "lat": 54.586,
+          "lng": -5.9447,
+          "note": "邓卢斯大道的肿瘤研究机构,属医学园。"
+        },
+        {
+          "name": "Institute of Pathology",
+          "nameCn": "病理学研究所",
+          "lat": 54.5946,
+          "lng": -5.9516,
+          "note": "皇家维多利亚医院旁的临床病理教学与研究楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "The McClay Library",
+          "nameCn": "麦克莱图书馆",
+          "lat": 54.5836,
+          "lng": -5.9318,
+          "note": "2009年启用的中央图书馆,藏有C.S.刘易斯阅览室。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Naughton Gallery at Queen's",
+          "nameCn": "诺顿美术馆",
+          "lat": 54.5844,
+          "lng": -5.9351,
+          "note": "设于莱尼恩楼内的注册美术馆,免费向公众开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Lanyon Building",
+          "nameCn": "莱尼恩楼",
+          "lat": 54.5844,
+          "lng": -5.9351,
+          "note": "查尔斯·莱尼恩设计的维多利亚哥特式标志建筑,大学象征。"
+        },
+        {
+          "name": "One Elmwood Student Centre (Students' Union)",
+          "nameCn": "榆园一号学生中心(学生会)",
+          "lat": 54.5847,
+          "lng": -5.9369,
+          "note": "2022年启用的学生会大楼,含曼德拉厅,正对莱尼恩楼。"
+        },
+        {
+          "name": "Sir William Whitla Hall",
+          "nameCn": "惠特拉大礼堂",
+          "lat": 54.5837,
+          "lng": -5.936,
+          "note": "校内主要典礼与音乐会礼堂。"
+        },
+        {
+          "name": "Queen's Film Theatre (QFT)",
+          "nameCn": "女王电影院",
+          "lat": 54.5855,
+          "lng": -5.934,
+          "note": "大学广场旁的独立艺术电影院。"
+        },
+        {
+          "name": "Queen's Physical Education Centre (PEC)",
+          "nameCn": "体育运动中心",
+          "lat": 54.5807,
+          "lng": -5.9306,
+          "note": "植物园路上的综合体育馆,含攀岩墙与泳池。"
+        },
+        {
+          "name": "Botanic Railway Station",
+          "nameCn": "植物园火车站",
+          "lat": 54.5884,
+          "lng": -5.9329,
+          "note": "距主校区最近的火车站,步行可达学生区。"
+        },
+        {
+          "name": "Mary Peters Track",
+          "nameCn": "玛丽·彼得斯田径场",
+          "lat": 54.5486,
+          "lng": -5.9674,
+          "note": "上马龙体育场内的国际级田径跑道。"
+        }
+      ]
+    }
+  ]
+}

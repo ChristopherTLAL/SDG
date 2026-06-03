@@ -1,0 +1,228 @@
+{
+  "id": "durham",
+  "type": "school",
+  "name": "Durham University",
+  "nameCn": "杜伦大学",
+  "city": "Durham",
+  "center": [
+    54.7665,
+    -1.5765
+  ],
+  "zoom": 13,
+  "blurb": "杜伦大学 (Durham University)：英格兰东北部历史名校，1832 年创立的书院制大学，校园主体沿威尔河畔的杜伦古城铺开，另有斯托克顿等卫星校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Peninsula (Bailey & Palace Green)",
+          "nameCn": "半岛历史校区",
+          "lat": 54.7736,
+          "lng": -1.5761,
+          "radius": 320,
+          "note": "威尔河环抱的古城核心，杜伦城堡、大教堂与最古老的几所学院所在地。"
+        },
+        {
+          "name": "Mountjoy / Science Site (Lower & Upper Mountjoy)",
+          "nameCn": "蒙乔伊理科校区",
+          "lat": 54.7668,
+          "lng": -1.5735,
+          "radius": 420,
+          "note": "原名 Science Site，理科与多数社科院系、中央行政、主图书馆集中于此。"
+        },
+        {
+          "name": "Elvet (New & Old Elvet)",
+          "nameCn": "埃尔维特校区",
+          "lat": 54.7748,
+          "lng": -1.5678,
+          "radius": 320,
+          "note": "河东侧，英语、哲学、现代语言系与学生会 Dunelm House 所在。"
+        },
+        {
+          "name": "Elvet Hill / The Hill (South Road)",
+          "nameCn": "埃尔维特山校区",
+          "lat": 54.7642,
+          "lng": -1.5795,
+          "radius": 600,
+          "note": "城南南路一带，多所‘山上’住宿学院、商学院、东方博物馆与植物园。"
+        },
+        {
+          "name": "Maiden Castle Sport & Wellbeing Park",
+          "nameCn": "梅登堡运动园",
+          "lat": 54.767,
+          "lng": -1.559,
+          "radius": 450,
+          "note": "威尔河畔的主体育中心与运动场,Team Durham 大本营。"
+        },
+        {
+          "name": "Queen's Campus, Stockton-on-Tees",
+          "nameCn": "女王校区(斯托克顿)",
+          "lat": 54.5636,
+          "lng": -1.2964,
+          "radius": 350,
+          "note": "杜伦以南约 48 公里,现为国际学习中心与沃尔夫森研究院。"
+        },
+        {
+          "name": "Ushaw College",
+          "nameCn": "乌肖学院",
+          "lat": 54.7895,
+          "lng": -1.6615,
+          "radius": 300,
+          "note": "城西约 8 公里,前天主教神学院,现为大学注册宿舍兼会议遗产地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Palatine Centre",
+          "nameCn": "帕拉丁中心",
+          "lat": 54.7676,
+          "lng": -1.5728,
+          "note": "蒙乔伊校区的中央行政楼与法学院所在。"
+        },
+        {
+          "name": "Calman Learning Centre",
+          "nameCn": "卡尔曼教学中心",
+          "lat": 54.7659,
+          "lng": -1.5717,
+          "note": "理科校区主教学楼,大讲堂与公共课集中地。"
+        },
+        {
+          "name": "Ogden Centre for Fundamental Physics",
+          "nameCn": "奥格登基础物理中心",
+          "lat": 54.7672,
+          "lng": -1.5763,
+          "note": "2017 年开放,Libeskind 设计,理论物理与宇宙学研究楼。"
+        },
+        {
+          "name": "Durham University Business School (Mill Hill Lane)",
+          "nameCn": "杜伦商学院",
+          "lat": 54.7651,
+          "lng": -1.5772,
+          "note": "城南磨坊山巷,会计、经济与金融系所在。"
+        },
+        {
+          "name": "Al-Qasimi Building (Government & International Affairs)",
+          "nameCn": "卡西米楼(政府与国际事务)",
+          "lat": 54.7636,
+          "lng": -1.5786,
+          "note": "埃尔维特山,政府与国际事务学院所在。"
+        },
+        {
+          "name": "Teaching and Learning Centre (Lower Mountjoy)",
+          "nameCn": "下蒙乔伊教学中心",
+          "lat": 54.7684,
+          "lng": -1.5709,
+          "note": "下蒙乔伊新建的大型公共教学与考试空间。"
+        },
+        {
+          "name": "Dunelm House (Students' Union)",
+          "nameCn": "邓内尔姆楼(学生会)",
+          "lat": 54.7745,
+          "lng": -1.5736,
+          "note": "粗野主义学生会大楼,经金斯盖特桥连接半岛区。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Bill Bryson Library",
+          "nameCn": "比尔·布莱森图书馆",
+          "lat": 54.7663,
+          "lng": -1.5745,
+          "note": "蒙乔伊校区的主图书馆,馆藏与自习核心。"
+        },
+        {
+          "name": "Palace Green Library",
+          "nameCn": "宫廷草坪图书馆",
+          "lat": 54.7733,
+          "lng": -1.5772,
+          "note": "半岛区特藏与珍本图书馆,毗邻大教堂。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Oriental Museum",
+          "nameCn": "东方博物馆",
+          "lat": 54.7639,
+          "lng": -1.5814,
+          "note": "英国唯一专攻东方艺术的博物馆,埃尔维特山上。"
+        },
+        {
+          "name": "Durham University Botanic Garden",
+          "nameCn": "杜伦大学植物园",
+          "lat": 54.7611,
+          "lng": -1.5816,
+          "note": "城南 10 公顷植物园,温室与林地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Durham Castle (University College)",
+          "nameCn": "杜伦城堡(大学学院)",
+          "lat": 54.7745,
+          "lng": -1.5762,
+          "note": "诺曼城堡,大学学院驻地,世界遗产组成部分。"
+        },
+        {
+          "name": "Durham Cathedral",
+          "nameCn": "杜伦大教堂",
+          "lat": 54.7736,
+          "lng": -1.5761,
+          "note": "半岛区地标,与城堡同列世界文化遗产。"
+        },
+        {
+          "name": "Kingsgate Bridge",
+          "nameCn": "金斯盖特桥",
+          "lat": 54.7741,
+          "lng": -1.5749,
+          "note": "一级保护人行桥,连接半岛 Bailey 与学生会。"
+        },
+        {
+          "name": "Durham Railway Station",
+          "nameCn": "杜伦火车站",
+          "lat": 54.7794,
+          "lng": -1.5818,
+          "note": "东海岸干线车站,城西高地俯瞰大教堂景观。"
+        },
+        {
+          "name": "Graham Sports Centre, Maiden Castle",
+          "nameCn": "格雷厄姆体育中心",
+          "lat": 54.7665,
+          "lng": -1.5588,
+          "note": "梅登堡运动园主馆,健身、球馆与人工草场。"
+        }
+      ]
+    }
+  ]
+}

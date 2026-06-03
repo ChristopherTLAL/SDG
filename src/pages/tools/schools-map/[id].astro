@@ -1,0 +1,100 @@
+---
+export const prerender = true;
+// Schools map — detail / region scene (Cambridge, Oxford, London, …).
+import MainLayout from '../../../layouts/MainLayout.astro';
+import { SCENE_IDS, getScene, SCENE_INDEX } from '../../../data/schools-map/registry';
+import '../../../styles/schools-map.css';
+
+export function getStaticPaths() {
+  return SCENE_IDS.map((id) => ({ params: { id } }));
+}
+
+const { id } = Astro.params;
+const scene = getScene(id!)!;
+const lang = 'en';
+---
+
+<MainLayout title={`${scene.name} 地图 | Chinese SDGs Institute`} description={scene.blurb || `${scene.name} interactive campus map`} lang={lang}>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <main class="pt-24 md:pt-28 pb-10">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+      <a href="/tools/schools-map" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-5">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        返回英国总览
+      </a>
+
+      <div class="smap-wrap" id="smap-wrap">
+        <div class="smap-map" id="smap-map"></div>
+
+        <!-- top-center nav -->
+        <div class="smap-card smap-nav">
+          <a class="smap-nav-home" href="/tools/schools-map"><span class="material-symbols-outlined" style="font-size:16px">map</span>英国总览</a>
+          <span class="smap-nav-sep">▸</span>
+          <span class="smap-nav-cur">{scene.nameCn}</span>
+          <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>
+        </div>
+
+        <!-- left: title + layers -->
+        <div class="smap-left">
+          <div class="smap-card smap-title">
+            <h2>{scene.nameCn} · {scene.name}</h2>
+            <p>{scene.blurb}</p>
+            <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
+          </div>
+          <div class="smap-card smap-panel">
+            <div id="smap-era-sec">
+              <div class="smap-sec">学院 Colleges · 始终显示</div>
+              <div class="smap-legend" id="smap-era-row"></div>
+              <div class="smap-divider"></div>
+            </div>
+            <div id="smap-cat-sec">
+              <div class="smap-sec">图层 · 勾选叠加</div>
+              <div id="smap-cat-rows"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- right: tools + list -->
+        <div class="smap-right">
+          <div class="smap-card smap-toolscard">
+            <div class="smap-tt">底图</div>
+            <div class="smap-base-row" id="smap-base-row"></div>
+            <div class="smap-toggles">
+              <button class="smap-toggle" id="smap-label-btn"><span class="material-symbols-outlined">label</span>名称</button>
+              <button class="smap-toggle active" id="smap-list-btn"><span class="material-symbols-outlined">list</span>列表</button>
+            </div>
+          </div>
+          <div class="smap-card smap-list-wrap" id="smap-list-wrap">
+            <h3 id="smap-list-title">建院时间轴</h3>
+            <p class="sub" id="smap-list-sub">点击在地图上定位</p>
+            <div class="smap-list-scroll" id="smap-list"></div>
+          </div>
+        </div>
+
+        <!-- timeline -->
+        <div class="smap-card smap-timeline" id="smap-timeline">
+          <div class="smap-tl-top">
+            <button class="smap-play" id="smap-play"><span id="smap-play-icon">▶</span><span id="smap-play-txt">播放建院顺序</span></button>
+            <div class="smap-yr">
+              <span class="y" id="smap-yr-y"></span>
+              <span class="era" id="smap-yr-era"></span>
+              <span class="cnt" id="smap-yr-cnt"></span>
+            </div>
+          </div>
+          <input type="range" id="smap-slider" min="1284" max="2010" step="1" value="2010" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script is:inline define:vars={{ sceneData: scene, scenesData: SCENE_INDEX }}>
+    window.__SMAP_SCENE__ = sceneData;
+    window.__SMAP_SCENES__ = scenesData;
+  </script>
+  <script>
+    import { mountDetail } from '../../../scripts/schools-map/detail';
+    mountDetail((window).__SMAP_SCENE__, (window).__SMAP_SCENES__);
+  </script>
+</MainLayout>

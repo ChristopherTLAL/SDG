@@ -1,0 +1,248 @@
+{
+  "id": "warwick",
+  "type": "school",
+  "name": "University of Warwick",
+  "nameCn": "华威大学",
+  "city": "Coventry",
+  "center": [
+    52.34,
+    -1.52
+  ],
+  "zoom": 12,
+  "blurb": "英国华威大学:主校区横跨考文垂与凯尼尔沃斯之间的绿地,另设医学院教学医院、科技园与韦尔斯伯恩创新园等多个卫星园区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central Campus",
+          "nameCn": "中央主校区",
+          "lat": 52.3793,
+          "lng": -1.5615,
+          "radius": 950,
+          "note": "核心教学区,图书馆、学生会、艺术中心、人文社科楼群均在此。"
+        },
+        {
+          "name": "Gibbet Hill Campus",
+          "nameCn": "吉贝特山校区",
+          "lat": 52.3835,
+          "lng": -1.5585,
+          "radius": 420,
+          "note": "生命科学学院与医学院临床前教学区,紧邻主校区北侧。"
+        },
+        {
+          "name": "Westwood Campus",
+          "nameCn": "韦斯特伍德校区",
+          "lat": 52.3758,
+          "lng": -1.569,
+          "radius": 400,
+          "note": "终身学习中心、教育研究、室内网球馆与研究生宿舍区,主校区西南。"
+        },
+        {
+          "name": "University of Warwick Science Park",
+          "nameCn": "华威科技园",
+          "lat": 52.3862,
+          "lng": -1.5578,
+          "radius": 300,
+          "note": "Venture Centre 创业孵化园,主校区北缘 Sir William Lyons Road。"
+        },
+        {
+          "name": "University Hospital Coventry (Warwick Medical School)",
+          "nameCn": "考文垂大学医院",
+          "lat": 52.4212,
+          "lng": -1.4378,
+          "radius": 550,
+          "note": "华威医学院临床教学医院,位于考文垂东北 Walsgrave,距主校区约 11 公里。"
+        },
+        {
+          "name": "Wellesbourne Innovation Campus",
+          "nameCn": "韦尔斯伯恩创新园",
+          "lat": 52.1925,
+          "lng": -1.6055,
+          "radius": 650,
+          "note": "生命科学作物研究 + WMG 未来交通研究,沃里克郡乡间,距主校区约 21 公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "The Oculus",
+          "nameCn": "Oculus 教学楼",
+          "lat": 52.38,
+          "lng": -1.5602,
+          "note": "旗舰共享教学楼,大型讲堂群。"
+        },
+        {
+          "name": "Warwick Business School",
+          "nameCn": "华威商学院",
+          "lat": 52.3825,
+          "lng": -1.5618,
+          "note": "Scarman Road,英国顶尖商学院之一。"
+        },
+        {
+          "name": "Warwick Medical School (Gibbet Hill)",
+          "nameCn": "华威医学院",
+          "lat": 52.3838,
+          "lng": -1.5595,
+          "note": "临床前教学位于吉贝特山校区。"
+        },
+        {
+          "name": "School of Engineering",
+          "nameCn": "工程学院",
+          "lat": 52.3835,
+          "lng": -1.5628,
+          "note": "主校区西北工科楼群。"
+        },
+        {
+          "name": "WMG (International Manufacturing Centre)",
+          "nameCn": "华威制造集团",
+          "lat": 52.3812,
+          "lng": -1.5628,
+          "note": "先进制造与未来交通研究,国际制造中心。"
+        },
+        {
+          "name": "Department of Mathematics (Zeeman Building)",
+          "nameCn": "数学系(齐曼楼)",
+          "lat": 52.3818,
+          "lng": -1.5648,
+          "note": "数学与统计所在的 Zeeman Building。"
+        },
+        {
+          "name": "Department of Physics",
+          "nameCn": "物理系",
+          "lat": 52.3828,
+          "lng": -1.564,
+          "note": "理学院物理系楼,近数学楼。"
+        },
+        {
+          "name": "Faculty of Arts Building",
+          "nameCn": "人文学部楼",
+          "lat": 52.3786,
+          "lng": -1.5612,
+          "note": "集中文史哲与文化研究的人文学部新楼。"
+        },
+        {
+          "name": "Social Sciences Building",
+          "nameCn": "社会科学楼",
+          "lat": 52.3808,
+          "lng": -1.5588,
+          "note": "经济、政治与国际研究等社科院系。"
+        },
+        {
+          "name": "School of Life Sciences (Gibbet Hill)",
+          "nameCn": "生命科学学院",
+          "lat": 52.3848,
+          "lng": -1.558,
+          "note": "吉贝特山校区生物与生命科学教研楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "University of Warwick Library",
+          "nameCn": "大学主图书馆",
+          "lat": 52.3805,
+          "lng": -1.5615,
+          "note": "中央校区核心,藏书约 126 万册。"
+        },
+        {
+          "name": "Modern Records Centre",
+          "nameCn": "现代档案中心",
+          "lat": 52.3799,
+          "lng": -1.5628,
+          "note": "英国工会与工业史档案馆,主图书馆旁。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Mead Gallery (Warwick Arts Centre)",
+          "nameCn": "米德美术馆",
+          "lat": 52.3753,
+          "lng": -1.5601,
+          "note": "华威艺术中心内的视觉艺术展馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Warwick Arts Centre",
+          "nameCn": "华威艺术中心",
+          "lat": 52.3753,
+          "lng": -1.5598,
+          "note": "英国最大校园文化艺术综合体之一,剧院音乐厅影院。"
+        },
+        {
+          "name": "Warwick Students' Union (SUHQ)",
+          "nameCn": "华威学生会",
+          "lat": 52.3795,
+          "lng": -1.5635,
+          "note": "学生会总部,Copper Rooms 活动场地所在。"
+        },
+        {
+          "name": "Sports and Wellness Hub",
+          "nameCn": "体育健康中心",
+          "lat": 52.3768,
+          "lng": -1.565,
+          "note": "Leighfield Road,含泳池健身房,距主校区约 10 分钟步行。"
+        },
+        {
+          "name": "Canley Railway Station",
+          "nameCn": "坎利火车站",
+          "lat": 52.3992,
+          "lng": -1.5476,
+          "note": "最近的火车站,距主校区约 2 公里。"
+        },
+        {
+          "name": "Cryfield Village",
+          "nameCn": "克莱菲尔德学生村",
+          "lat": 52.3735,
+          "lng": -1.564,
+          "note": "主校区南侧大型本科宿舍区。"
+        },
+        {
+          "name": "Lakeside Residences",
+          "nameCn": "湖畔宿舍区",
+          "lat": 52.3782,
+          "lng": -1.5705,
+          "note": "校区西侧临湖宿舍,近 Heronbank。"
+        },
+        {
+          "name": "Tocil Residences",
+          "nameCn": "托西尔宿舍",
+          "lat": 52.3772,
+          "lng": -1.5578,
+          "note": "邻 Tocil Wood 树林,近艺术中心与运动场。"
+        }
+      ]
+    }
+  ]
+}

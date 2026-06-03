@@ -1,0 +1,212 @@
+{
+  "id": "glasgow",
+  "type": "school",
+  "name": "University of Glasgow",
+  "nameCn": "格拉斯哥大学",
+  "city": "Glasgow",
+  "center": [
+    55.8845,
+    -4.3035
+  ],
+  "zoom": 13,
+  "blurb": "格拉斯哥大学:1451年建校的苏格兰古典名校,主校区在西区Gilmorehill的哥特式钟楼建筑群,另设兽医、医学、体育及宿舍等多个卫星校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Gilmorehill Campus (Main)",
+          "nameCn": "Gilmorehill 主校区",
+          "lat": 55.8719,
+          "lng": -4.2885,
+          "radius": 750,
+          "note": "西区核心校区,以Gilbert Scott哥特钟楼建筑群为标志,绝大多数学院与图书馆都在此。"
+        },
+        {
+          "name": "Garscube Campus",
+          "nameCn": "Garscube 校区",
+          "lat": 55.902405,
+          "lng": -4.31708,
+          "radius": 900,
+          "note": "城市西北约6公里的200英亩庄园,设兽医学院、小动物医院、病毒研究中心及Wolfson宿舍。"
+        },
+        {
+          "name": "Queen Elizabeth University Hospital (Teaching)",
+          "nameCn": "伊丽莎白女王大学医院(教学)",
+          "lat": 55.86222,
+          "lng": -4.34111,
+          "radius": 600,
+          "note": "Govan区的大型教学医院,大学临床医学教学中心设于此。"
+        },
+        {
+          "name": "Kelvin Campus / Garscube Sports Complex",
+          "nameCn": "Kelvin 校区 / Garscube 体育中心",
+          "lat": 55.8945,
+          "lng": -4.301,
+          "radius": 450,
+          "note": "Maryhill路苏格兰西部科技园内,大学的主要室外体育场地与科研园区。"
+        },
+        {
+          "name": "Murano Street Student Village",
+          "nameCn": "Murano Street 学生村",
+          "lat": 55.8835,
+          "lng": -4.279,
+          "radius": 220,
+          "note": "Firhill区Caithness街,大学规模最大的本科生宿舍区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Gilbert Scott Building (Main Building)",
+          "nameCn": "Gilbert Scott 主楼",
+          "lat": 55.87146,
+          "lng": -4.2885,
+          "note": "1870年哥特复兴主楼,含纪念礼拜堂与狮鹫楼梯,大学标志。"
+        },
+        {
+          "name": "James McCune Smith Learning Hub",
+          "nameCn": "James McCune Smith 学习中心",
+          "lat": 55.8731,
+          "lng": -4.2879,
+          "note": "2021年启用的旗舰教学楼,可容纳2500名学生。"
+        },
+        {
+          "name": "Wolfson Medical School Building",
+          "nameCn": "Wolfson 医学院楼",
+          "lat": 55.8709,
+          "lng": -4.2897,
+          "note": "University Avenue上的医学院主楼。"
+        },
+        {
+          "name": "Boyd Orr Building",
+          "nameCn": "Boyd Orr 楼",
+          "lat": 55.8726,
+          "lng": -4.2889,
+          "note": "粗野主义高层教学楼,与亚当·斯密商学院相连。"
+        },
+        {
+          "name": "Adam Smith Business School",
+          "nameCn": "亚当·斯密商学院",
+          "lat": 55.8724,
+          "lng": -4.2882,
+          "note": "以校友亚当·斯密命名的商学院与研究生教学楼。"
+        },
+        {
+          "name": "Advanced Research Centre (ARC)",
+          "nameCn": "高等研究中心 ARC",
+          "lat": 55.8716855,
+          "lng": -4.2955955,
+          "note": "1.16亿英镑跨学科研究大楼,主校区西侧Chapel Lane。"
+        },
+        {
+          "name": "School of Veterinary Medicine (Garscube)",
+          "nameCn": "兽医学院(Garscube)",
+          "lat": 55.9035,
+          "lng": -4.3148,
+          "note": "Garscube校区兽医学院与小动物医院所在。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "University of Glasgow Library",
+          "nameCn": "格拉斯哥大学图书馆",
+          "lat": 55.873543,
+          "lng": -4.289058,
+          "note": "Hillhead街12层主图书馆,藏书逾250万册。"
+        },
+        {
+          "name": "James Herriot Library (Garscube)",
+          "nameCn": "James Herriot 图书馆",
+          "lat": 55.9028,
+          "lng": -4.3162,
+          "note": "Garscube校区兽医与生命科学图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Hunterian Museum",
+          "nameCn": "亨特博物馆",
+          "lat": 55.8718,
+          "lng": -4.288,
+          "note": "苏格兰最古老的公共博物馆,位于Gilbert Scott主楼内。"
+        },
+        {
+          "name": "Hunterian Art Gallery",
+          "nameCn": "亨特美术馆",
+          "lat": 55.8736,
+          "lng": -4.2894,
+          "note": "含麦金托什故居重建室,藏惠斯勒等大量画作。"
+        },
+        {
+          "name": "The Hunterian at Kelvin Hall",
+          "nameCn": "Kelvin Hall 亨特典藏中心",
+          "lat": 55.8684944,
+          "lng": -4.2940444,
+          "note": "Argyle街Kelvin Hall内的亨特典藏研究与展示空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "University Memorial Chapel & Bell Tower",
+          "nameCn": "纪念礼拜堂与钟塔",
+          "lat": 55.8717,
+          "lng": -4.2884,
+          "note": "主楼中央的钟塔与尖顶,1891年完工,西区天际线地标。"
+        },
+        {
+          "name": "Glasgow University Union",
+          "nameCn": "格拉斯哥大学学生会",
+          "lat": 55.8721,
+          "lng": -4.2899,
+          "note": "University Avenue上的历史学生会,以辩论传统著称。"
+        },
+        {
+          "name": "Hillhead Subway Station",
+          "nameCn": "Hillhead 地铁站",
+          "lat": 55.87521,
+          "lng": -4.29328,
+          "note": "Byres路上服务西区的主要地铁站,距主校区最近。"
+        },
+        {
+          "name": "Partick Interchange Station",
+          "nameCn": "Partick 换乘站",
+          "lat": 55.8698,
+          "lng": -4.3091,
+          "note": "火车与地铁换乘枢纽,连接市中心与西区。"
+        }
+      ]
+    }
+  ]
+}

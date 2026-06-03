@@ -1,0 +1,233 @@
+{
+  "id": "ucl",
+  "type": "school",
+  "name": "University College London",
+  "nameCn": "伦敦大学学院",
+  "city": "London",
+  "center": [
+    51.5365,
+    -0.0775
+  ],
+  "zoom": 13,
+  "blurb": "伦敦大学学院 (UCL):伦敦布鲁姆斯伯里为核心、横跨多个院区与教学医院的世界顶尖综合性大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Bloomsbury Main Campus",
+          "nameCn": "布鲁姆斯伯里主校区",
+          "lat": 51.5246,
+          "lng": -0.1339,
+          "radius": 750,
+          "note": "Gower Street 一带的历史主校区,200 多栋楼集中于此。"
+        },
+        {
+          "name": "UCL East (Queen Elizabeth Olympic Park, Stratford)",
+          "nameCn": "UCL East 东校区(斯特拉特福)",
+          "lat": 51.5381,
+          "lng": -0.0123,
+          "radius": 320,
+          "note": "2022 年启用的新校区,位于伊丽莎白女王奥林匹克公园南端。"
+        },
+        {
+          "name": "Royal Free Hospital Campus",
+          "nameCn": "皇家自由医院院区",
+          "lat": 51.5529,
+          "lng": -0.1655,
+          "radius": 260,
+          "note": "汉普斯特德的教学医院,UCL 医学院临床基地之一。"
+        },
+        {
+          "name": "Whittington Hospital Campus",
+          "nameCn": "惠廷顿医院院区",
+          "lat": 51.5665,
+          "lng": -0.1395,
+          "radius": 240,
+          "note": "Archway 的教学医院,UCL 医学院北部临床基地。"
+        },
+        {
+          "name": "Queen Square Medical Institutes",
+          "nameCn": "皇后广场医学研究区",
+          "lat": 51.5224,
+          "lng": -0.1215,
+          "radius": 320,
+          "note": "神经科学、儿童健康等研究所及国家神经病医院聚集区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "UCL Institute of Education (20 Bedford Way)",
+          "nameCn": "UCL 教育学院",
+          "lat": 51.5231,
+          "lng": -0.1283,
+          "note": "全球顶尖教育研究机构,贝德福德路主楼。"
+        },
+        {
+          "name": "UCL Faculty of Laws (Bentham House)",
+          "nameCn": "UCL 法学院",
+          "lat": 51.5253,
+          "lng": -0.131,
+          "note": "Endsleigh Gardens 边的边沁楼。"
+        },
+        {
+          "name": "UCL Bartlett School of Architecture (22 Gordon Street)",
+          "nameCn": "巴特莱特建筑学院",
+          "lat": 51.5258,
+          "lng": -0.1322,
+          "note": "戈登街 22 号,世界顶尖建筑教育重镇。"
+        },
+        {
+          "name": "UCL Great Ormond Street Institute of Child Health",
+          "nameCn": "大奥蒙德街儿童健康研究所",
+          "lat": 51.5232,
+          "lng": -0.1202,
+          "note": "Guilford Street 30 号,与儿童医院相邻的研究所。"
+        },
+        {
+          "name": "UCL Queen Square Institute of Neurology",
+          "nameCn": "皇后广场神经病学研究所",
+          "lat": 51.5222,
+          "lng": -0.1219,
+          "note": "与国家神经病与神经外科医院同址。"
+        },
+        {
+          "name": "UCL Eastman Dental Institute (Gray's Inn Road)",
+          "nameCn": "伊士曼牙科研究所",
+          "lat": 51.5263,
+          "lng": -0.1191,
+          "note": "格雷律师学院路上的口腔医学研究机构。"
+        },
+        {
+          "name": "UCL School of Management (One Canada Square, Canary Wharf)",
+          "nameCn": "UCL 管理学院(金丝雀码头)",
+          "lat": 51.505,
+          "lng": -0.0195,
+          "note": "金丝雀码头加拿大一号广场高层,商科教学点。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "UCL Main Library",
+          "nameCn": "UCL 主图书馆",
+          "lat": 51.5247,
+          "lng": -0.134,
+          "note": "位于威尔金斯主楼内的核心图书馆。"
+        },
+        {
+          "name": "UCL Science Library",
+          "nameCn": "UCL 科学图书馆",
+          "lat": 51.5239,
+          "lng": -0.1316,
+          "note": "DMS Watson 楼内,理工科主要藏书地。"
+        },
+        {
+          "name": "UCL Institute of Education Library (Newsam Library)",
+          "nameCn": "教育学院图书馆",
+          "lat": 51.5229,
+          "lng": -0.1283,
+          "note": "20 Bedford Way 内,教育与社科藏书。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Petrie Museum of Egyptian Archaeology",
+          "nameCn": "皮特里埃及考古博物馆",
+          "lat": 51.524,
+          "lng": -0.133,
+          "note": "馆藏丰富的埃及与苏丹文物博物馆。"
+        },
+        {
+          "name": "Grant Museum of Zoology",
+          "nameCn": "格兰特动物学博物馆",
+          "lat": 51.5252,
+          "lng": -0.1338,
+          "note": "伦敦仅存的大学动物学博物馆,标本众多。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Wilkins Building (Main Building, The Quad & Portico)",
+          "nameCn": "威尔金斯主楼与中央广场",
+          "lat": 51.5248,
+          "lng": -0.1336,
+          "note": "带圆顶与门廊的标志性主楼,内含八角厅与中央广场。"
+        },
+        {
+          "name": "Students' Union UCL (25 Gordon Street)",
+          "nameCn": "UCL 学生会",
+          "lat": 51.5256,
+          "lng": -0.1326,
+          "note": "戈登街学生会大楼,社团与活动中心。"
+        },
+        {
+          "name": "Euston Station",
+          "nameCn": "尤斯顿火车站",
+          "lat": 51.5282,
+          "lng": -0.1337,
+          "note": "距主校区最近的国铁与地铁大站,步行约 8 分钟。"
+        },
+        {
+          "name": "Euston Square Underground Station",
+          "nameCn": "尤斯顿广场地铁站",
+          "lat": 51.5258,
+          "lng": -0.1359,
+          "note": "紧邻主校区西侧的地铁站。"
+        },
+        {
+          "name": "Marshgate (UCL East)",
+          "nameCn": "Marshgate 大楼",
+          "lat": 51.5383,
+          "lng": -0.0121,
+          "note": "UCL East 主体建筑,2023 年正式开放。"
+        },
+        {
+          "name": "One Pool Street (UCL East)",
+          "nameCn": "One Pool Street 大楼",
+          "lat": 51.5375,
+          "lng": -0.0126,
+          "note": "东校区首栋建筑,与 Marshgate 隔河相望。"
+        },
+        {
+          "name": "Stratford Station",
+          "nameCn": "斯特拉特福车站",
+          "lat": 51.5416,
+          "lng": -0.0042,
+          "note": "服务东校区的交通枢纽,距 UCL East 约 10 分钟。"
+        }
+      ]
+    }
+  ]
+}
