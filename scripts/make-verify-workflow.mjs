@@ -20,13 +20,16 @@ const SCHOOLS = files.map((f) => {
   return { id: s.id, name: s.name, nameCn: s.nameCn, points };
 });
 
+const ONLY = process.argv[2] ? new Set(process.argv[2].split(',')) : null;
+const USE = ONLY ? SCHOOLS.filter((s) => ONLY.has(s.id)) : SCHOOLS;
+
 const script = `export const meta = {
   name: 'verify-uk-coords',
   description: 'Verify campus point coordinates for UK university scenes',
   phases: [{ title: 'Verify', detail: 'one agent per school re-checks every coordinate' }],
 };
 
-const SCHOOLS = ${JSON.stringify(SCHOOLS)};
+const SCHOOLS = ${JSON.stringify(USE)};
 
 const SCHEMA = {
   type: 'object', required: ['corrections'], additionalProperties: false,
@@ -64,7 +67,7 @@ log('verify complete: ' + results.length + ' schools, ' + results.reduce((n, r) 
 return results;
 `;
 
-const out = '/tmp/verify-uk-coords-wf.js';
+const out = ONLY ? '/tmp/verify-4-wf.js' : '/tmp/verify-uk-coords-wf.js';
 writeFileSync(out, script);
 console.log('wrote', out, '(', script.length, 'chars )');
 console.log('schools:', SCHOOLS.length, 'total points:', SCHOOLS.reduce((n, s) => n + s.points.length, 0));

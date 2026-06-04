@@ -1,8 +1,8 @@
 ---
 export const prerender = true;
-// Schools map — UK country overview. Universities tiered by QS rank, filterable, searchable.
+// Schools map — US country overview. Universities tiered by U.S. News National rank.
 import MainLayout from '../../../layouts/MainLayout.astro';
-import { UNIVERSITIES, RANK_TIERS } from '../../../data/universities/universities';
+import { UNIVERSITIES, USNEWS_TIERS } from '../../../data/universities/universities';
 import { SCENE_IDS, SCENE_INDEX } from '../../../data/schools-map/registry';
 import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
@@ -11,25 +11,25 @@ const lang = 'en';
 const hasDetail = new Set(SCENE_IDS);
 const budgetIds = new Set(budgetData.regions.flatMap((r) => r.schools.map((s) => s.id)));
 
-const uk = UNIVERSITIES
-  .filter((u) => u.country === 'UK' && u.lat != null && u.lng != null)
+const us = UNIVERSITIES
+  .filter((u) => u.country === 'US' && u.lat != null && u.lng != null)
   .map((u) => ({
     id: u.id, name: u.name, nameCn: u.nameCn, city: u.city,
-    rank: u.qsRank, lat: u.lat, lng: u.lng, hasDetail: hasDetail.has(u.id),
+    rank: u.usnewsRank ? Number(u.usnewsRank) : null,
+    lat: u.lat, lng: u.lng, hasDetail: hasDetail.has(u.id),
     inBudget: budgetIds.has(u.id), tags: u.tags || [],
   }));
 
-const tiers = RANK_TIERS.map((t) => ({ key: t.key, label: t.label, color: t.color, max: t.max === Infinity ? 999999 : t.max }));
+const tiers = USNEWS_TIERS.map((t) => ({ key: t.key, label: t.label, color: t.color, max: t.max === Infinity ? 999999 : t.max }));
 const detailBase = '/tools/schools-map';
-const ranksYear = UNIVERSITIES.find((u) => u.country === 'UK')?.ranksYear ?? 2026;
-const ukOpts = {
-  center: [54.4, -3.2], zoom: 6, rankLabel: 'QS',
-  filters: [{ label: '前 50', max: 50 }, { label: '前 100', max: 100 }, { label: '前 200', max: 200 }, { label: '全部', max: 99999 }],
-  tags: ['罗素集团', 'G5', '苏格兰'],
+const usOpts = {
+  center: [39.5, -98.35], zoom: 4, rankLabel: 'USNews',
+  filters: [{ label: '前 10', max: 10 }, { label: '前 25', max: 25 }, { label: '前 50', max: 50 }, { label: '前 100', max: 100 }, { label: '全部', max: 99999 }],
+  tags: ['藤校', 'Top20', '公立', '私立'],
 };
 ---
 
-<MainLayout title="英国院校地图 · QS 分布 | Chinese SDGs Institute" description="英国大学按真实位置与 QS 排名分档展示，可筛选、搜索、点击进入单校精览。" lang={lang}>
+<MainLayout title="美国院校地图 · U.S. News 分布 | Chinese SDGs Institute" description="美国大学按真实位置与 U.S. News 全国排名分档展示，可筛选、搜索、点击进入单校精览。" lang={lang}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -43,24 +43,21 @@ const ukOpts = {
       <div class="smap-wrap" id="smap-wrap">
         <div class="smap-map" id="smap-map"></div>
 
-        <!-- top-center nav -->
         <div class="smap-card smap-nav">
-          <span class="smap-nav-home"><span class="material-symbols-outlined" style="font-size:16px">map</span>英国院校总览</span>
+          <span class="smap-nav-home"><span class="material-symbols-outlined" style="font-size:16px">map</span>美国院校总览</span>
           <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>
         </div>
 
-        <!-- left: title + filter/legend -->
         <div class="smap-left">
           <div class="smap-card smap-title">
-            <h2>英国院校地图 · QS 分布</h2>
-            <p>{uk.length} 所英国大学按真实位置分布，颜色＝QS 档位（QS{ranksYear}）。点有「精览」的学校进入单校地图。</p>
+            <h2>美国院校地图 · U.S. News 分布</h2>
+            <p>{us.length} 所美国大学按真实位置分布，颜色＝U.S. News 全国大学档位。点有「精览」的学校进入单校地图。</p>
             <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
-            <a class="smap-pill ghost" href="/tools/schools-map/london" style="margin-left:6px">🚇 伦敦地区</a>
             <button class="smap-pill ghost" id="smap-fullscreen" style="margin-left:6px">⛶ 全屏</button>
-            <a class="smap-pill ghost" href="/tools/schools-map/us" style="margin-left:6px">🇺🇸 美国</a>
+            <a class="smap-pill ghost" href="/tools/schools-map" style="margin-left:6px">🇬🇧 英国</a>
           </div>
           <div class="smap-card smap-panel">
-            <div class="smap-sec">QS 筛选</div>
+            <div class="smap-sec">U.S. News 筛选</div>
             <div class="smap-filter-row" id="smap-filter-row"></div>
             <div class="smap-divider"></div>
             <div class="smap-sec">档位配色</div>
@@ -71,7 +68,6 @@ const ukOpts = {
           </div>
         </div>
 
-        <!-- right: tools + list -->
         <div class="smap-right">
           <div class="smap-card smap-toolscard">
             <div class="smap-tt">底图</div>
@@ -97,7 +93,7 @@ const ukOpts = {
     .smap-search-input:focus { outline: none; border-color: #042f24; }
   </style>
 
-  <script is:inline define:vars={{ unisData: uk, tiersData: tiers, baseData: detailBase, scenesData: SCENE_INDEX, optsData: ukOpts }}>
+  <script is:inline define:vars={{ unisData: us, tiersData: tiers, baseData: detailBase, scenesData: SCENE_INDEX, optsData: usOpts }}>
     window.__SMAP_UNIS__ = unisData;
     window.__SMAP_TIERS__ = tiersData;
     window.__SMAP_BASE__ = baseData;

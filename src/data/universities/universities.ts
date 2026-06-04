@@ -22,6 +22,15 @@ export const RANK_TIERS: RankTier[] = [
   { key: 'beyond', label: '200+ / 未排名', color: '#94a3b8', max: Infinity },
 ];
 
+/** U.S. News National Universities tiers — used for the US overview (US market uses USNews, not QS). */
+export const USNEWS_TIERS: RankTier[] = [
+  { key: 'top10', label: 'USNews 前 10', color: '#6d28d9', max: 10 },
+  { key: 'top25', label: 'USNews 前 25', color: '#2563eb', max: 25 },
+  { key: 'top50', label: 'USNews 前 50', color: '#0891b2', max: 50 },
+  { key: 'top100', label: 'USNews 前 100', color: '#0d9488', max: 100 },
+  { key: 'beyond', label: '100+ / 未排名', color: '#94a3b8', max: Infinity },
+];
+
 const BEYOND = RANK_TIERS[RANK_TIERS.length - 1];
 
 /** Map a QS rank to its tier (null / >200 → "beyond"). */
