@@ -1,0 +1,207 @@
+{
+  "id": "monash",
+  "type": "school",
+  "name": "Monash University",
+  "nameCn": "蒙纳士大学",
+  "city": "Melbourne",
+  "center": [
+    -37.91,
+    145.134
+  ],
+  "zoom": 12,
+  "blurb": "蒙纳士大学是澳大利亚规模最大的高校之一，以墨尔本东南郊的克莱顿主校区为核心，加上考菲尔德、半岛、帕克维尔等多个专业校区与市区法学院，构成横跨大墨尔本的多点布局。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Clayton Campus",
+          "nameCn": "克莱顿校区",
+          "lat": -37.9105,
+          "lng": 145.134,
+          "radius": 900,
+          "note": "最大主校区，距市区约20公里，工科理科法商医齐全。"
+        },
+        {
+          "name": "Monash Technology Precinct (Australian Synchrotron)",
+          "nameCn": "科技园区（澳大利亚同步加速器）",
+          "lat": -37.914,
+          "lng": 145.1428,
+          "radius": 500,
+          "note": "紧邻克莱顿东南的科研园，含同步辐射大科学装置。"
+        },
+        {
+          "name": "Caulfield Campus",
+          "nameCn": "考菲尔德校区",
+          "lat": -37.8774,
+          "lng": 145.045,
+          "radius": 500,
+          "note": "第二大校区，艺术设计建筑（MADA）与商科重镇。"
+        },
+        {
+          "name": "Parkville Campus",
+          "nameCn": "帕克维尔校区",
+          "lat": -37.7844,
+          "lng": 144.9586,
+          "radius": 350,
+          "note": "皇家大道旁的药学与药剂科学专属校区。"
+        },
+        {
+          "name": "Peninsula Campus",
+          "nameCn": "半岛校区",
+          "lat": -38.1528,
+          "lng": 145.1358,
+          "radius": 600,
+          "note": "弗兰克斯顿海湾区，护理、健康与急救医学为主。"
+        },
+        {
+          "name": "Law Chambers (City Campus)",
+          "nameCn": "法学院市区校区",
+          "lat": -37.8144,
+          "lng": 144.9562,
+          "radius": 250,
+          "note": "市中心法律区，开设JD与法学硕士课程。"
+        },
+        {
+          "name": "Monash University, The Alfred Centre",
+          "nameCn": "阿尔弗雷德医学中心",
+          "lat": -37.8461,
+          "lng": 144.9827,
+          "radius": 300,
+          "note": "阿尔弗雷德医院内，中央临床学院与公共卫生学院。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Robert Menzies Building",
+          "nameCn": "孟席斯楼",
+          "lat": -37.9117,
+          "lng": 145.1338,
+          "note": "克莱顿地标高塔，文学院与社科系所所在。"
+        },
+        {
+          "name": "Woodside Building for Technology and Design",
+          "nameCn": "伍德赛德科技与设计楼",
+          "lat": -37.9098,
+          "lng": 145.1352,
+          "note": "工程与信息技术学院的跨学科绿色建筑。"
+        },
+        {
+          "name": "Learning and Teaching Building",
+          "nameCn": "教学楼",
+          "lat": -37.9128,
+          "lng": 145.1318,
+          "note": "克莱顿现代化通用教学与协作空间。"
+        },
+        {
+          "name": "Monash Art Design & Architecture (MADA)",
+          "nameCn": "艺术设计与建筑学院",
+          "lat": -37.8769,
+          "lng": 145.0438,
+          "note": "考菲尔德校区，设计与建筑教学核心。"
+        },
+        {
+          "name": "Faculty of Pharmacy and Pharmaceutical Sciences",
+          "nameCn": "药学与药剂科学学院",
+          "lat": -37.7844,
+          "lng": 144.9586,
+          "note": "帕克维尔校区，全澳顶尖药学研究基地。"
+        },
+        {
+          "name": "Central Clinical School",
+          "nameCn": "中央临床学院",
+          "lat": -37.8458,
+          "lng": 144.9825,
+          "note": "依托阿尔弗雷德医院的临床医学与研究。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Sir Louis Matheson Library",
+          "nameCn": "马西森图书馆",
+          "lat": -37.9112,
+          "lng": 145.1332,
+          "note": "克莱顿主图书馆，文商人文藏书中心。"
+        },
+        {
+          "name": "Hargrave-Andrew Library",
+          "nameCn": "哈格雷夫-安德鲁图书馆",
+          "lat": -37.9101,
+          "lng": 145.1345,
+          "note": "克莱顿工程理工科学图书馆。"
+        },
+        {
+          "name": "Caulfield Library",
+          "nameCn": "考菲尔德图书馆",
+          "lat": -37.8776,
+          "lng": 145.0455,
+          "note": "考菲尔德校区图书馆，服务艺术与商科。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Monash University Museum of Art (MUMA)",
+          "nameCn": "蒙纳士大学艺术博物馆",
+          "lat": -37.8771,
+          "lng": 145.0447,
+          "note": "考菲尔德校区，专注澳洲当代艺术收藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Campus Centre",
+          "nameCn": "校园中心",
+          "lat": -37.9108,
+          "lng": 145.1335,
+          "note": "克莱顿学生生活枢纽，餐饮与社团聚集地。"
+        },
+        {
+          "name": "Robert Blackwood Hall",
+          "nameCn": "罗伯特·布莱克伍德音乐厅",
+          "lat": -37.9119,
+          "lng": 145.1325,
+          "note": "可容1600人的演出与典礼场馆。"
+        },
+        {
+          "name": "Monash Sport (Clayton)",
+          "nameCn": "蒙纳士体育中心",
+          "lat": -37.9088,
+          "lng": 145.1318,
+          "note": "克莱顿体育馆与运动场，校园北侧。"
+        }
+      ]
+    }
+  ]
+}

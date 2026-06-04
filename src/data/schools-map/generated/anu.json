@@ -1,0 +1,168 @@
+{
+  "id": "anu",
+  "type": "school",
+  "name": "Australian National University",
+  "nameCn": "澳大利亚国立大学",
+  "city": "Canberra",
+  "center": [
+    -35.2778,
+    149.1205
+  ],
+  "zoom": 15,
+  "blurb": "澳大利亚国立大学主校区坐落于堪培拉市中心阿克顿半岛，绿树成荫、被黑山与伯利格里芬湖环抱，由沙利文溪贯穿，是澳洲唯一的国家级研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Acton Campus",
+          "nameCn": "阿克顿主校区",
+          "lat": -35.2778,
+          "lng": 149.1205,
+          "radius": 1100,
+          "note": "1.45平方公里的园林式主校区，七大学院与各国家级研究所所在地。"
+        },
+        {
+          "name": "Mount Stromlo Observatory",
+          "nameCn": "斯特罗姆洛山天文台",
+          "lat": -35.3194,
+          "lng": 149.0088,
+          "radius": 700,
+          "note": "市区西南约18公里，天文与天体物理研究院及先进仪器技术中心。"
+        },
+        {
+          "name": "Spring Valley Farm",
+          "nameCn": "春谷农场",
+          "lat": -35.288,
+          "lng": 149.006,
+          "radius": 800,
+          "note": "堪培拉西南租赁科研农场，位于斯特罗姆洛山以北约3.5公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "John Curtin School of Medical Research",
+          "nameCn": "约翰·科廷医学研究院",
+          "lat": -35.2758,
+          "lng": 149.1175,
+          "note": "校区北部医学研究重镇，曾走出多位诺贝尔奖得主。"
+        },
+        {
+          "name": "Research School of Physics",
+          "nameCn": "物理研究院",
+          "lat": -35.2752,
+          "lng": 149.1188,
+          "note": "校区北部理科区，含粒子加速器等大型实验装置。"
+        },
+        {
+          "name": "ANU College of Law",
+          "nameCn": "法学院",
+          "lat": -35.2802,
+          "lng": 149.1188,
+          "note": "校区东南，弗莱劳与法律图书馆相邻。"
+        },
+        {
+          "name": "School of Music",
+          "nameCn": "音乐学院",
+          "lat": -35.2807,
+          "lng": 149.1236,
+          "note": "校区东缘，含莱韦林音乐厅，毗邻城市干道。"
+        },
+        {
+          "name": "Crawford School of Public Policy",
+          "nameCn": "克劳福德公共政策学院",
+          "lat": -35.2825,
+          "lng": 149.1158,
+          "note": "校区南部，亚太地区顶尖公共政策与治理学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "J.B. Chifley Library",
+          "nameCn": "奇夫利图书馆",
+          "lat": -35.278,
+          "lng": 149.1204,
+          "note": "本科生核心馆，藏社科与人文资料，1963年启用。"
+        },
+        {
+          "name": "W.K. Hancock Library",
+          "nameCn": "汉考克图书馆",
+          "lat": -35.2768,
+          "lng": 149.1198,
+          "note": "沙利文溪路122号，理工科主馆。"
+        },
+        {
+          "name": "R.G. Menzies Library",
+          "nameCn": "孟席斯图书馆",
+          "lat": -35.2788,
+          "lng": 149.1218,
+          "note": "亚太馆藏与珍本论文中心，1963年女王揭幕。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Drill Hall Gallery",
+          "nameCn": "操练厅美术馆",
+          "lat": -35.2742,
+          "lng": 149.122,
+          "note": "由1940年代操练厅改建，校区北部艺术展馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Kambri Precinct",
+          "nameCn": "坎布里中心区",
+          "lat": -35.2772,
+          "lng": 149.1212,
+          "note": "2019年启用的校园心脏，沿沙利文溪的教学、餐饮与活动枢纽。"
+        },
+        {
+          "name": "University House",
+          "nameCn": "大学之家",
+          "lat": -35.2795,
+          "lng": 149.1232,
+          "note": "校区东南标志性住宿与学术会客建筑。"
+        },
+        {
+          "name": "ANU Sport & South Oval",
+          "nameCn": "ANU体育场与南椭圆场",
+          "lat": -35.2818,
+          "lng": 149.1195,
+          "note": "校区南部运动场、健身房与游泳馆所在。"
+        }
+      ]
+    }
+  ]
+}

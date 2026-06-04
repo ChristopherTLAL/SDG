@@ -1,0 +1,190 @@
+{
+  "id": "uwa",
+  "type": "school",
+  "name": "University of Western Australia",
+  "nameCn": "西澳大学",
+  "city": "Perth",
+  "center": [
+    -31.9785,
+    115.8181
+  ],
+  "zoom": 13,
+  "blurb": "坐落于天鹅河畔克劳利的65公顷主校区，以罗马复兴风格的温斯洛普钟楼和绿荫大庭院闻名，是西澳历史最悠久的砂岩名校（另在400公里外的奥尔巴尼设有南部校区）。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Crawley Campus (Main)",
+          "nameCn": "克劳利主校区",
+          "lat": -31.9785,
+          "lng": 115.8181,
+          "radius": 800,
+          "note": "天鹅河畔65公顷主校区，全校核心所在。"
+        },
+        {
+          "name": "UWA Health Campus (QEII Medical Centre)",
+          "nameCn": "UWA健康校区（QEII医学中心）",
+          "lat": -31.9686,
+          "lng": 115.8147,
+          "radius": 600,
+          "note": "内德兰兹临床医学教学与哈里·珀金斯研究所所在地。"
+        },
+        {
+          "name": "UWA Claremont",
+          "nameCn": "克莱蒙特校区",
+          "lat": -31.9852,
+          "lng": 115.7762,
+          "radius": 350,
+          "note": "2005年购自ECU，设孔子学院与继续教育课程。"
+        },
+        {
+          "name": "UWA Sports Park",
+          "nameCn": "UWA体育公园",
+          "lat": -31.9728,
+          "lng": 115.7785,
+          "radius": 700,
+          "note": "克莱蒙特山56公顷综合运动场地与板球主场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Hackett Hall & Arts Building",
+          "nameCn": "哈克特楼与文学院楼",
+          "lat": -31.9769,
+          "lng": 115.8175,
+          "note": "围合大庭院的砂岩文学院核心建筑群。"
+        },
+        {
+          "name": "UWA Business School",
+          "nameCn": "UWA商学院",
+          "lat": -31.9806,
+          "lng": 115.8176,
+          "note": "校区南侧河畔，三个圆形容器外观极具辨识度。"
+        },
+        {
+          "name": "Bayliss Building (Chemistry)",
+          "nameCn": "贝利斯楼（化学）",
+          "lat": -31.9799,
+          "lng": 115.8197,
+          "note": "化学与分子科学教学楼。"
+        },
+        {
+          "name": "UWA Medical School",
+          "nameCn": "UWA医学院",
+          "lat": -31.9681,
+          "lng": 115.8159,
+          "note": "位于QEII健康校区的临床医学教学楼。"
+        },
+        {
+          "name": "Law School",
+          "nameCn": "法学院",
+          "lat": -31.9775,
+          "lng": 115.8166,
+          "note": "大庭院西侧的法学院建筑。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Reid Library",
+          "nameCn": "里德图书馆",
+          "lat": -31.9776,
+          "lng": 115.8186,
+          "note": "俯瞰大庭院的全校最大图书馆。"
+        },
+        {
+          "name": "Barry J Marshall Library",
+          "nameCn": "巴里·马歇尔图书馆",
+          "lat": -31.98,
+          "lng": 115.8189,
+          "note": "科学与生物医学馆藏图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Lawrence Wilson Art Gallery",
+          "nameCn": "劳伦斯·威尔逊美术馆",
+          "lat": -31.9772,
+          "lng": 115.8173,
+          "note": "紧邻下沉花园的校园美术馆。"
+        },
+        {
+          "name": "Berndt Museum of Anthropology",
+          "nameCn": "伯恩特人类学博物馆",
+          "lat": -31.977,
+          "lng": 115.817,
+          "note": "收藏丰富的原住民艺术与人类学博物馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Winthrop Hall",
+          "nameCn": "温斯洛普礼堂",
+          "lat": -31.977,
+          "lng": 115.8181,
+          "note": "罗马复兴风格钟楼，全校地标。"
+        },
+        {
+          "name": "The Great Court",
+          "nameCn": "大庭院",
+          "lat": -31.9769,
+          "lng": 115.8179,
+          "note": "砂岩拱廊环抱的历史中心广场。"
+        },
+        {
+          "name": "Sunken Garden",
+          "nameCn": "下沉花园",
+          "lat": -31.9774,
+          "lng": 115.8177,
+          "note": "由施工沙坑改造的热门婚礼与演出场地。"
+        },
+        {
+          "name": "Octagon Theatre",
+          "nameCn": "八角剧院",
+          "lat": -31.9783,
+          "lng": 115.8174,
+          "note": "校园主要演出与活动剧场。"
+        },
+        {
+          "name": "UWA Boatshed (Matilda Bay)",
+          "nameCn": "UWA船库（玛蒂尔达湾）",
+          "lat": -31.9809,
+          "lng": 115.8199,
+          "note": "天鹅河畔标志性蓝白船库与划船基地。"
+        }
+      ]
+    }
+  ]
+}

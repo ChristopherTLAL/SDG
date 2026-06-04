@@ -1,0 +1,206 @@
+{
+  "id": "university-of-wollongong",
+  "type": "school",
+  "name": "University of Wollongong",
+  "nameCn": "伍伦贡大学",
+  "city": "Wollongong",
+  "center": [
+    -34.4063,
+    150.8791
+  ],
+  "zoom": 13,
+  "blurb": "伍伦贡大学以坐落于本土桉树林间的Wollongong主校区为核心,东侧约2公里是滨海的Innovation创新研究园,并向北延伸出悉尼CBD、Liverpool、Sutherland等卫星校区,另在Moss Vale、Nowra、Bega等南海岸城镇设有区域教学点。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Wollongong Campus",
+          "nameCn": "卧龙岗主校区",
+          "lat": -34.4055,
+          "lng": 150.8794,
+          "radius": 650,
+          "note": "Northfields大道主校区,被原生灌木林环抱,公认全澳最美校园之一。"
+        },
+        {
+          "name": "Innovation Campus (iC)",
+          "nameCn": "创新研究园",
+          "lat": -34.4015,
+          "lng": 150.9001,
+          "radius": 450,
+          "note": "主校区东侧约2公里的滨海科研商业园,含AIIM材料所与iAccelerate孵化器。"
+        },
+        {
+          "name": "Science Space",
+          "nameCn": "科学馆(原天文台)",
+          "lat": -34.401,
+          "lng": 150.8999,
+          "radius": 220,
+          "note": "创新园内的互动科学中心兼天文馆,面向公众的科普场馆。"
+        },
+        {
+          "name": "UOW Sydney CBD",
+          "nameCn": "悉尼CBD校区",
+          "lat": -33.8724,
+          "lng": 151.2037,
+          "radius": 300,
+          "note": "Darling Park塔楼内,商学院(Sydney Business School)研究生授课点。"
+        },
+        {
+          "name": "UOW Liverpool",
+          "nameCn": "利物浦校区",
+          "lat": -33.9225,
+          "lng": 150.9252,
+          "radius": 300,
+          "note": "悉尼西南Liverpool市中心教学点,近Westfield与火车站。"
+        },
+        {
+          "name": "UOW Southern Sydney (Loftus)",
+          "nameCn": "南悉尼校区(Loftus)",
+          "lat": -34.0453,
+          "lng": 151.0513,
+          "radius": 350,
+          "note": "Sutherland郡Loftus教学点,毗邻TAFE与皇家国家公园。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "McKinnon Building (67)",
+          "nameCn": "麦金农楼(商学院)",
+          "lat": -34.405,
+          "lng": 150.8772,
+          "note": "以前任校长Ken McKinnon命名,商科与社科教学楼。"
+        },
+        {
+          "name": "Engineering (Building 4)",
+          "nameCn": "工程学院4号楼",
+          "lat": -34.407,
+          "lng": 150.881,
+          "note": "校园东缘的工程教学科研楼群核心。"
+        },
+        {
+          "name": "Informatics & Computer Science (3)",
+          "nameCn": "信息与计算机科学楼",
+          "lat": -34.4064,
+          "lng": 150.8823,
+          "note": "信息学、IT与计算机科学院系所在的3号楼。"
+        },
+        {
+          "name": "The Sciences Building (41)",
+          "nameCn": "理学楼(41号)",
+          "lat": -34.4053,
+          "lng": 150.8798,
+          "note": "理学院授课与实验空间,毗邻科学教学设施43号楼。"
+        },
+        {
+          "name": "Arts Building (19)",
+          "nameCn": "文学院楼(19号)",
+          "lat": -34.4062,
+          "lng": 150.8776,
+          "note": "人文艺术与社会科学课程的主要授课楼。"
+        },
+        {
+          "name": "Early Start (21)",
+          "nameCn": "Early Start早教研究楼",
+          "lat": -34.4047,
+          "lng": 150.8758,
+          "note": "教育学院旗舰大楼,内含面向儿童的Discovery探索中心。"
+        },
+        {
+          "name": "Illawarra Health & Medical Research Institute (IHMRI)",
+          "nameCn": "伊拉瓦拉健康与医学研究院",
+          "lat": -34.405,
+          "lng": 150.8808,
+          "note": "校园内的健康医学研究中心,医学院科研主阵地。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "UOW Library (Building 16)",
+          "nameCn": "大学图书馆(16号楼)",
+          "lat": -34.4068,
+          "lng": 150.8786,
+          "note": "主校区中心图书馆,1972年启用后多次扩建。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Early Start Discovery Centre",
+          "nameCn": "Early Start探索中心",
+          "lat": -34.4048,
+          "lng": 150.8752,
+          "note": "Early Start楼内的互动式儿童博物馆,澳洲首座同类场馆。"
+        },
+        {
+          "name": "Science Space",
+          "nameCn": "科学馆与天文馆",
+          "lat": -34.401,
+          "lng": 150.8999,
+          "note": "创新园内的科普展馆兼天文馆,前身为大学天文台。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "UniCentre & UniBar (Building 11)",
+          "nameCn": "学生中心与UniBar",
+          "lat": -34.4076,
+          "lng": 150.8792,
+          "note": "学生会/学生中心,内设获奖设计的UniBar社交酒吧。"
+        },
+        {
+          "name": "Hope Theatre",
+          "nameCn": "Hope剧场",
+          "lat": -34.4064,
+          "lng": 150.8769,
+          "note": "商学院旁的演讲/演出剧场,大型讲座与活动场地。"
+        },
+        {
+          "name": "University Recreation & Aquatic Centre (URAC, 13)",
+          "nameCn": "大学休闲与水上运动中心",
+          "lat": -34.4044,
+          "lng": 150.8807,
+          "note": "校内体育馆与游泳馆,学生健身与赛事中心。"
+        },
+        {
+          "name": "The Hub",
+          "nameCn": "The Hub学生枢纽",
+          "lat": -34.4033,
+          "lng": 150.8799,
+          "note": "校园北侧学生生活枢纽,餐饮与活动集聚地。"
+        }
+      ]
+    }
+  ]
+}

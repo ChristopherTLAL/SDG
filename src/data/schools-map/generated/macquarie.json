@@ -1,0 +1,168 @@
+{
+  "id": "macquarie",
+  "type": "school",
+  "name": "Macquarie University",
+  "nameCn": "麦考瑞大学",
+  "city": "Sydney",
+  "center": [
+    -33.7753,
+    151.1129
+  ],
+  "zoom": 14,
+  "blurb": "麦考瑞大学坐落于悉尼西北的麦考瑞园科技商务区,主校区绿树成荫、布鲁特主义建筑与近百件户外雕塑环绕,是澳洲唯一校内自带火车站、并整合附属医院的研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Wallumattagal Campus (North Ryde)",
+          "nameCn": "瓦卢马塔加尔主校区(北莱德)",
+          "lat": -33.7753,
+          "lng": 151.1129,
+          "radius": 1200,
+          "note": "126公顷主校区,距悉尼市中心约16公里的园林式学术核心。"
+        },
+        {
+          "name": "Macquarie University Hospital & MQ Health (Technology Place)",
+          "nameCn": "麦考瑞大学医院与健康中心(科技广场)",
+          "lat": -33.7727,
+          "lng": 151.1163,
+          "radius": 400,
+          "note": "校区北侧3号科技广场,澳洲首家完全整合的学术型医院。"
+        },
+        {
+          "name": "City Campus (123 Pitt Street)",
+          "nameCn": "城市校区(皮特街123号)",
+          "lat": -33.8676,
+          "lng": 151.2089,
+          "radius": 250,
+          "note": "悉尼CBD天使广场高层,部分本硕课程的市区教学点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Faculty of Arts (Arts Precinct)",
+          "nameCn": "人文学院(艺术区)",
+          "lat": -33.7746,
+          "lng": 151.1135,
+          "note": "新建艺术区,人文社科教学核心。"
+        },
+        {
+          "name": "Faculty of Medicine, Health & Human Sciences",
+          "nameCn": "医学、健康与人类科学学院",
+          "lat": -33.7733,
+          "lng": 151.1155,
+          "note": "毗邻医院与听力中心的健康学科集群。"
+        },
+        {
+          "name": "Macquarie Business School",
+          "nameCn": "麦考瑞商学院",
+          "lat": -33.7758,
+          "lng": 151.1142,
+          "note": "商科与管理教学楼群。"
+        },
+        {
+          "name": "Faculty of Science & Engineering",
+          "nameCn": "理学与工程学院",
+          "lat": -33.7768,
+          "lng": 151.1118,
+          "note": "理工科实验室与讲堂所在区域。"
+        },
+        {
+          "name": "Australian Hearing Hub",
+          "nameCn": "澳大利亚听力中心",
+          "lat": -33.773,
+          "lng": 151.1148,
+          "note": "大学大道16号,听觉研究与临床合作枢纽。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Macquarie University Library (Building C3C)",
+          "nameCn": "麦考瑞大学图书馆",
+          "lat": -33.775,
+          "lng": 151.1125,
+          "note": "配备机器人自动存取系统(ASRS)的中心馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Gale History Museum",
+          "nameCn": "盖尔历史博物馆",
+          "lat": -33.7748,
+          "lng": 151.1122,
+          "note": "Wally's Walk 25C,合并古代文化与澳洲史馆藏。"
+        },
+        {
+          "name": "Macquarie University Art Gallery",
+          "nameCn": "麦考瑞大学美术馆",
+          "lat": -33.7745,
+          "lng": 151.113,
+          "note": "校内当代艺术展馆,馆藏丰富。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Macquarie University Railway Station",
+          "nameCn": "麦考瑞大学火车站",
+          "lat": -33.7773,
+          "lng": 151.1181,
+          "note": "悉尼地铁西北线,澳洲唯一校内车站。"
+        },
+        {
+          "name": "Central Courtyard Precinct",
+          "nameCn": "中央庭院区",
+          "lat": -33.7755,
+          "lng": 151.113,
+          "note": "新落成的校园中心广场与学生集散地。"
+        },
+        {
+          "name": "Macquarie University Sport & Aquatic Centre",
+          "nameCn": "麦考瑞大学体育与水上中心",
+          "lat": -33.7765,
+          "lng": 151.1098,
+          "note": "体育馆路10号,含50米FINA标准泳池。"
+        },
+        {
+          "name": "Macquarie University Observatory",
+          "nameCn": "麦考瑞大学天文台",
+          "lat": -33.7785,
+          "lng": 151.111,
+          "note": "1978年建成的校园天文观测台。"
+        }
+      ]
+    }
+  ]
+}

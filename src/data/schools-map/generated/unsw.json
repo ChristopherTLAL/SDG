@@ -1,0 +1,184 @@
+{
+  "id": "unsw",
+  "type": "school",
+  "name": "UNSW Sydney",
+  "nameCn": "新南威尔士大学",
+  "city": "Sydney",
+  "center": [
+    -33.9173,
+    151.2308
+  ],
+  "zoom": 13,
+  "blurb": "新南威尔士大学是悉尼东郊的研究型名校，以肯辛顿主校区为核心，沿安扎克大道铺展，并辐射帕丁顿艺术校区与兰德威克医学健康精区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Kensington Campus (Main)",
+          "nameCn": "肯辛顿主校区",
+          "lat": -33.9173,
+          "lng": 151.2308,
+          "radius": 700,
+          "note": "38公顷主校区，工科、商科、理科及行政中枢所在。"
+        },
+        {
+          "name": "Paddington Campus (Art & Design)",
+          "nameCn": "帕丁顿艺术设计校区",
+          "lat": -33.8838,
+          "lng": 151.2203,
+          "radius": 350,
+          "note": "艺术与设计学院，距主校区有免费班车接驳。"
+        },
+        {
+          "name": "Randwick Health & Innovation Precinct",
+          "nameCn": "兰德威克健康创新精区",
+          "lat": -33.9185,
+          "lng": 151.239,
+          "radius": 600,
+          "note": "临床医学院与四家教学医院共址，全州最大医疗精区。"
+        },
+        {
+          "name": "Sydney CBD Campus",
+          "nameCn": "悉尼市中心校区",
+          "lat": -33.8636,
+          "lng": 151.2076,
+          "radius": 250,
+          "note": "乔治街210号试点校区，面向研究生与企业合作。"
+        },
+        {
+          "name": "Water Research Laboratory (Manly Vale)",
+          "nameCn": "曼利维尔水利研究实验室",
+          "lat": -33.7855,
+          "lng": 151.263,
+          "radius": 300,
+          "note": "土木与环境工程学院水利研究站，位于北海滩。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Quadrangle Building",
+          "nameCn": "四方庭大楼",
+          "lat": -33.9168,
+          "lng": 151.2295,
+          "note": "主校区行政与人文核心建筑。"
+        },
+        {
+          "name": "Wallace Wurth Building (Medicine)",
+          "nameCn": "华莱士·沃斯楼（医学）",
+          "lat": -33.9162,
+          "lng": 151.233,
+          "note": "医学与健康学院基础医学教研楼。"
+        },
+        {
+          "name": "Law Building",
+          "nameCn": "法学院大楼",
+          "lat": -33.9152,
+          "lng": 151.232,
+          "note": "UNSW 法学与司法学院所在地。"
+        },
+        {
+          "name": "Anita B. Lawrence Centre (Science/Maths)",
+          "nameCn": "安妮塔·劳伦斯中心",
+          "lat": -33.9178,
+          "lng": 151.2322,
+          "note": "数学与理科教学楼，曾名 Red Centre。"
+        },
+        {
+          "name": "Electrical Engineering Building",
+          "nameCn": "电气工程大楼",
+          "lat": -33.9188,
+          "lng": 151.2305,
+          "note": "工程学院电气与电信教研楼。"
+        },
+        {
+          "name": "UNSW Business School",
+          "nameCn": "商学院大楼",
+          "lat": -33.9183,
+          "lng": 151.2318,
+          "note": "AGSM 与商学院本科研究生教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "UNSW Main Library",
+          "nameCn": "主图书馆",
+          "lat": -33.9175,
+          "lng": 151.2312,
+          "note": "图书馆草坪旁的中央图书馆，学习生活地标。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "UNSW Galleries",
+          "nameCn": "UNSW 美术馆",
+          "lat": -33.8836,
+          "lng": 151.22,
+          "note": "帕丁顿校区当代艺术展览空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "John Niland Scientia Building",
+          "nameCn": "约翰·尼兰科学大楼",
+          "lat": -33.9171,
+          "lng": 151.23,
+          "note": "标志性玻璃翼建筑，重大典礼场所。"
+        },
+        {
+          "name": "The Roundhouse",
+          "nameCn": "圆顶剧场",
+          "lat": -33.9165,
+          "lng": 151.2288,
+          "note": "学生会演出与活动场地。"
+        },
+        {
+          "name": "University Mall & Library Lawn",
+          "nameCn": "大学步道与图书馆草坪",
+          "lat": -33.9176,
+          "lng": 151.2305,
+          "note": "贯穿校园的中央步道与聚集草坪。"
+        },
+        {
+          "name": "UNSW Light Rail Stop (Anzac Parade)",
+          "nameCn": "UNSW 轻轨站",
+          "lat": -33.9175,
+          "lng": 151.2278,
+          "note": "L2 线轻轨站，安扎克大道校门口。"
+        }
+      ]
+    }
+  ]
+}

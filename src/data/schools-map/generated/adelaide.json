@@ -1,0 +1,184 @@
+{
+  "id": "adelaide",
+  "type": "school",
+  "name": "University of Adelaide",
+  "nameCn": "阿德莱德大学",
+  "city": "Adelaide",
+  "center": [
+    -34.9192,
+    138.6041
+  ],
+  "zoom": 12,
+  "blurb": "阿德莱德大学以北阶地（North Terrace）历史校区为核心，坐落于阿德莱德市文化大道之上，紧邻南澳州立美术馆、博物馆与图书馆，并向西延伸至生物医学城医学校区，城外另设怀特农业校区与罗斯沃西兽医校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "North Terrace Campus",
+          "nameCn": "北阶地校区（主校区）",
+          "lat": -34.9205,
+          "lng": 138.6054,
+          "radius": 450,
+          "note": "市中心历史主校区，本科教学与研究核心，毗邻文化大道。"
+        },
+        {
+          "name": "Adelaide BioMed City (AHMS) Precinct",
+          "nameCn": "生物医学城医学校区",
+          "lat": -34.921,
+          "lng": 138.5905,
+          "radius": 350,
+          "note": "西端医学与健康科学区，与皇家阿德莱德医院、SAHMRI 相邻。"
+        },
+        {
+          "name": "Waite Campus",
+          "nameCn": "怀特校区",
+          "lat": -34.9688,
+          "lng": 138.6339,
+          "radius": 900,
+          "note": "厄尔布雷，市区东南约 7 公里，全澳最大农业科研集群。"
+        },
+        {
+          "name": "Thebarton (Research Park)",
+          "nameCn": "西巴顿研究园校区",
+          "lat": -34.911,
+          "lng": 138.572,
+          "radius": 400,
+          "note": "托伦斯河畔工程与物理科研基地，距市中心约 4 公里。"
+        },
+        {
+          "name": "Roseworthy Campus",
+          "nameCn": "罗斯沃西校区",
+          "lat": -34.531,
+          "lng": 138.69,
+          "radius": 1500,
+          "note": "市区以北约 50 公里，南澳唯一兽医学院与兽医教学医院。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Ingkarni Wardli (Faculty of Engineering)",
+          "nameCn": "工程学院大楼",
+          "lat": -34.9189,
+          "lng": 138.6065,
+          "note": "工程、计算机与数学学院所在，2012 年启用。"
+        },
+        {
+          "name": "The Braggs",
+          "nameCn": "布拉格大楼（物理科学）",
+          "lat": -34.9197,
+          "lng": 138.6072,
+          "note": "以诺奖父子校友命名，物理科学研究楼。"
+        },
+        {
+          "name": "Adelaide Health and Medical Sciences Building",
+          "nameCn": "健康与医学科学大楼",
+          "lat": -34.9209,
+          "lng": 138.5902,
+          "note": "医学院、牙科与护理学院，北阶地与乔治街转角。"
+        },
+        {
+          "name": "Waite Agricultural Research Institute",
+          "nameCn": "怀特农业研究所",
+          "lat": -34.9687,
+          "lng": 138.636,
+          "note": "葡萄酒、谷物与植物科学研究重镇。"
+        },
+        {
+          "name": "Roseworthy Veterinary Hospital",
+          "nameCn": "罗斯沃西兽医教学医院",
+          "lat": -34.5285,
+          "lng": 138.687,
+          "note": "兽医学院临床教学与动物医疗中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Barr Smith Library",
+          "nameCn": "巴尔·史密斯图书馆",
+          "lat": -34.9194,
+          "lng": 138.6048,
+          "note": "主图书馆，1932 年阅览室启用，紧邻 Hub Central。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "South Australian Museum",
+          "nameCn": "南澳博物馆",
+          "lat": -34.921,
+          "lng": 138.602,
+          "note": "校区西侧文化大道上，毗邻北阶地校园。"
+        },
+        {
+          "name": "Art Gallery of South Australia",
+          "nameCn": "南澳州立美术馆",
+          "lat": -34.9209,
+          "lng": 138.6042,
+          "note": "北阶地文化大道上的州立美术馆，紧邻主校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Bonython Hall",
+          "nameCn": "博尼森大礼堂",
+          "lat": -34.9205,
+          "lng": 138.6054,
+          "note": "1936 年大礼堂，毕业典礼场地，临北阶地正门。"
+        },
+        {
+          "name": "Elder Hall",
+          "nameCn": "埃尔德音乐厅",
+          "lat": -34.9203,
+          "lng": 138.6043,
+          "note": "1900 年启用，埃尔德音乐学院音乐厅。"
+        },
+        {
+          "name": "Hub Central",
+          "nameCn": "中央学生枢纽",
+          "lat": -34.9197,
+          "lng": 138.6052,
+          "note": "学生学习与活动中心，连接巴尔·史密斯图书馆。"
+        },
+        {
+          "name": "Adelaide Railway Station",
+          "nameCn": "阿德莱德火车站",
+          "lat": -34.9211,
+          "lng": 138.5982,
+          "note": "北阶地上的城市铁路总站，校区西侧步行可达。"
+        }
+      ]
+    }
+  ]
+}

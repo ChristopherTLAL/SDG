@@ -1,0 +1,170 @@
+{
+  "id": "uts",
+  "type": "school",
+  "name": "University of Technology Sydney",
+  "nameCn": "悉尼科技大学",
+  "city": "Sydney",
+  "center": [
+    -33.8836,
+    151.2008
+  ],
+  "zoom": 13,
+  "blurb": "悉尼科技大学:坐落于悉尼CBD南缘的都市型理工名校,以Broadway/Ultimo主校区为核心,串联Haymarket(唐人街旁)、Moore Park体育精英区与Botany科技实验室,校园即城市。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "City Campus — Broadway/Ultimo",
+          "nameCn": "City主校区(Broadway/Ultimo)",
+          "lat": -33.8836,
+          "lng": 151.2003,
+          "radius": 420,
+          "note": "校园心脏,UTS Tower与UTS Central(图书馆)所在,理工、科学、健康、设计各院系主楼云集。"
+        },
+        {
+          "name": "City Campus — Haymarket",
+          "nameCn": "Haymarket校区",
+          "lat": -33.8811,
+          "lng": 151.2018,
+          "radius": 260,
+          "note": "紧邻唐人街的市集旧址改建区,Frank Gehry设计的商学院大楼坐镇。"
+        },
+        {
+          "name": "Moore Park Precinct (Rugby Australia Building)",
+          "nameCn": "Moore Park体育校区",
+          "lat": -33.8877,
+          "lng": 151.2242,
+          "radius": 350,
+          "note": "悉尼板球场旁的体育精英区,运动科学、理疗与体育媒体专业基地,与澳大利亚橄榄球队共址。"
+        },
+        {
+          "name": "Botany — UTS Tech Lab",
+          "nameCn": "Botany科技实验室",
+          "lat": -33.9388,
+          "lng": 151.1991,
+          "radius": 350,
+          "note": "近机场工业区的18000平米工程研究重镇,机器人、土木、通信与车辆系统专业实验室。"
+        },
+        {
+          "name": "Blackfriars Precinct",
+          "nameCn": "Blackfriars园区",
+          "lat": -33.8861,
+          "lng": 151.1976,
+          "radius": 220,
+          "note": "Chippendale一侧的历史园区,绿荫幽静,设儿童中心与科研创新团队办公。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "UTS Tower (Building 1)",
+          "nameCn": "UTS主塔楼(1号楼)",
+          "lat": -33.8837,
+          "lng": 151.2009,
+          "note": "120米高的粗野主义地标塔楼,行政与多院系核心,校园门面。"
+        },
+        {
+          "name": "Building 11 — Faculty of Engineering and IT",
+          "nameCn": "11号楼(工程与信息技术学院)",
+          "lat": -33.8832,
+          "lng": 151.2003,
+          "note": "外墙覆二进制码穿孔屏的14层工程IT学院主楼。"
+        },
+        {
+          "name": "Vicki Sara Building (Building 7) — Science",
+          "nameCn": "Vicki Sara楼(7号楼·理学院)",
+          "lat": -33.8824,
+          "lng": 151.1998,
+          "note": "Thomas与Jones街角的理科主楼,与健康学院相连成科学健康片区。"
+        },
+        {
+          "name": "Dr Chau Chak Wing Building (Building 8) — Business",
+          "nameCn": "周泽荣博士楼(8号楼·商学院)",
+          "lat": -33.8811,
+          "lng": 151.2014,
+          "note": "Frank Gehry在澳设计首作,32万块定制砖砌成的「褶皱纸袋」商学院。"
+        },
+        {
+          "name": "Faculty of Law (UTS Central)",
+          "nameCn": "法学院(UTS Central内)",
+          "lat": -33.8839,
+          "lng": 151.1999,
+          "note": "扭转塔楼UTS Central内,与图书馆同栋,法学院主场。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "UTS Library (UTS Central, Building 2)",
+          "nameCn": "UTS图书馆(UTS Central·2号楼)",
+          "lat": -33.884,
+          "lng": 151.1999,
+          "note": "2019年迁入UTS Central五至九层,馆藏经Alumni Green地下检索系统调取。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Powerhouse Museum (Ultimo)",
+          "nameCn": "动力博物馆(Ultimo)",
+          "lat": -33.8782,
+          "lng": 151.1996,
+          "note": "经The Goods Line步道与Haymarket校区相连的科技设计博物馆,共享其剧场空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Alumni Green",
+          "nameCn": "校友草坪(Alumni Green)",
+          "lat": -33.8833,
+          "lng": 151.2001,
+          "note": "主校区中央开放草坪,地下即图书馆检索库,学生活动聚集地。"
+        },
+        {
+          "name": "The Goods Line",
+          "nameCn": "The Goods Line步行长廊",
+          "lat": -33.88,
+          "lng": 151.2005,
+          "note": "由旧货运铁路改造的高线公园式步道,串联校园、动力博物馆与中央车站。"
+        },
+        {
+          "name": "Central Station",
+          "nameCn": "中央火车站",
+          "lat": -33.884,
+          "lng": 151.2063,
+          "note": "悉尼最大铁路枢纽,步行可达校园东侧,通勤主入口。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "id": "queensland-university-of-technology",
+  "type": "school",
+  "name": "Queensland University of Technology",
+  "nameCn": "昆士兰科技大学",
+  "city": "Brisbane",
+  "center": [
+    -27.4769,
+    153.0281
+  ],
+  "zoom": 13,
+  "blurb": "昆士兰科技大学是布里斯班的城市型研究大学，主校区花园角紧邻布里斯班河与市政植物园，凯尔文格罗夫校区则以创意产业与健康学科见长，另在萨姆福德山谷设有生态研究基地。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Gardens Point Campus",
+          "nameCn": "花园角校区（主校区）",
+          "lat": -27.4769,
+          "lng": 153.0281,
+          "radius": 500,
+          "note": "市中心河畔主校区，商科、法律、工程与理学院所在地。"
+        },
+        {
+          "name": "Kelvin Grove Campus",
+          "nameCn": "凯尔文格罗夫校区",
+          "lat": -27.4498,
+          "lng": 153.0135,
+          "radius": 600,
+          "note": "市区以北约3公里，创意产业、设计、教育与健康学科主场。"
+        },
+        {
+          "name": "Samford Ecological Research Facility",
+          "nameCn": "萨姆福德生态研究基地",
+          "lat": -27.392,
+          "lng": 152.877,
+          "radius": 900,
+          "note": "西北郊营山路51公顷生态研究地，距市区约23公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Science and Engineering Centre (P Block)",
+          "nameCn": "理工科学中心（P座）",
+          "lat": -27.4774,
+          "lng": 153.0274,
+          "note": "工程与理学核心楼，内设巨型互动屏The Cube。"
+        },
+        {
+          "name": "QUT Business School (Z Block, Gardens Point)",
+          "nameCn": "商学院（Z座）",
+          "lat": -27.4779,
+          "lng": 153.0289,
+          "note": "花园角商科主楼，临布里斯班河。"
+        },
+        {
+          "name": "QUT Law (C Block)",
+          "nameCn": "法学院（C座）",
+          "lat": -27.4766,
+          "lng": 153.0286,
+          "note": "法学与司法教学楼，近园景剧院。"
+        },
+        {
+          "name": "Creative Industries Precinct",
+          "nameCn": "创意产业园区",
+          "lat": -27.4491,
+          "lng": 153.0122,
+          "note": "凯尔文格罗夫创意产业与设计高科技教学集群。"
+        },
+        {
+          "name": "Education Precinct (B/C Block, Kelvin Grove)",
+          "nameCn": "教育学院区（B/C座）",
+          "lat": -27.4505,
+          "lng": 153.0148,
+          "note": "教育学科主楼，靠维多利亚公园路。"
+        },
+        {
+          "name": "Institute of Health and Biomedical Innovation",
+          "nameCn": "健康与生物医学创新研究所",
+          "lat": -27.4486,
+          "lng": 153.0156,
+          "note": "凯尔文格罗夫健康与生物医学研究中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Gardens Point Library",
+          "nameCn": "花园角图书馆",
+          "lat": -27.4762,
+          "lng": 153.0272,
+          "note": "主校区核心图书馆，服务商法工理学生。"
+        },
+        {
+          "name": "Kelvin Grove Library",
+          "nameCn": "凯尔文格罗夫图书馆",
+          "lat": -27.45,
+          "lng": 153.014,
+          "note": "维多利亚公园路149号，服务创意与健康学科。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "QUT Art Museum",
+          "nameCn": "昆士兰科技大学艺术博物馆",
+          "lat": -27.4759,
+          "lng": 153.0292,
+          "note": "校园公立艺术馆，展出澳大利亚现当代艺术。"
+        },
+        {
+          "name": "William Robinson Gallery (Old Government House)",
+          "nameCn": "威廉·罗宾逊画廊（旧总督府）",
+          "lat": -27.4756,
+          "lng": 153.0298,
+          "note": "1862年旧总督府内的画廊，藏罗宾逊作品。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Old Government House",
+          "nameCn": "旧总督府",
+          "lat": -27.4757,
+          "lng": 153.0297,
+          "note": "昆州第一座总督府，国家级遗产建筑。"
+        },
+        {
+          "name": "QUT Gardens Theatre",
+          "nameCn": "园景剧院",
+          "lat": -27.4768,
+          "lng": 153.029,
+          "note": "花园角校区表演艺术剧场。"
+        },
+        {
+          "name": "Roundhouse Theatre (La Boite)",
+          "nameCn": "圆屋剧院（拉博伊特剧团）",
+          "lat": -27.4483,
+          "lng": 153.0128,
+          "note": "凯尔文格罗夫圆形剧场，拉博伊特剧团驻地。"
+        },
+        {
+          "name": "City Botanic Gardens",
+          "nameCn": "市政植物园",
+          "lat": -27.4751,
+          "lng": 153.0305,
+          "note": "紧邻主校区的市中心河畔植物园。"
+        }
+      ]
+    }
+  ]
+}

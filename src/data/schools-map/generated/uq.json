@@ -1,0 +1,212 @@
+{
+  "id": "uq",
+  "type": "school",
+  "name": "University of Queensland",
+  "nameCn": "昆士兰大学",
+  "city": "Brisbane",
+  "center": [
+    -27.4972,
+    153.0131
+  ],
+  "zoom": 15,
+  "blurb": "昆士兰大学主校区坐落于布里斯班河环抱的圣卢西亚半岛，以砂岩拱廊围合的标志性大草坪（Great Court）为核心，是一所绿意盎然、临河而建的研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "St Lucia Campus",
+          "nameCn": "圣卢西亚主校区",
+          "lat": -27.4972,
+          "lng": 153.0131,
+          "radius": 1100,
+          "note": "主校区，约114公顷，三面被布里斯班河环抱，以大草坪Great Court为中心。"
+        },
+        {
+          "name": "Herston Campus",
+          "nameCn": "赫斯顿医学校区",
+          "lat": -27.4476,
+          "lng": 153.0282,
+          "radius": 500,
+          "note": "临皇家布里斯班医院的临床医学与健康研究校区。"
+        },
+        {
+          "name": "Dutton Park Campus (PACE)",
+          "nameCn": "达顿公园校区（药学）",
+          "lat": -27.4995,
+          "lng": 153.0305,
+          "radius": 350,
+          "note": "原PACE药学中心，毗邻PA医院，设药学院与环境健康研究院。"
+        },
+        {
+          "name": "UQ Customs House",
+          "nameCn": "海关大楼（市中心）",
+          "lat": -27.4655,
+          "lng": 153.0311,
+          "radius": 250,
+          "note": "市中心皇后街临河历史建筑，商学院市区教学与文化活动场地。"
+        },
+        {
+          "name": "Gatton Campus",
+          "nameCn": "加顿农学校区",
+          "lat": -27.5554,
+          "lng": 152.3372,
+          "radius": 1500,
+          "note": "布里斯班以西约80公里洛克耶谷，1068公顷农业、动物与兽医科学校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Forgan Smith Building",
+          "nameCn": "福根·史密斯楼",
+          "lat": -27.4974,
+          "lng": 153.0139,
+          "note": "1949年落成的标志性砂岩楼，曾设法学院与人文学科。"
+        },
+        {
+          "name": "Michie Building",
+          "nameCn": "米奇楼",
+          "lat": -27.497,
+          "lng": 153.0129,
+          "note": "大草坪西侧，人文与社会科学学院所在。"
+        },
+        {
+          "name": "Steele Building",
+          "nameCn": "斯蒂尔楼",
+          "lat": -27.4979,
+          "lng": 153.0137,
+          "note": "大草坪南侧砂岩建筑，地理与环境科学等院系。"
+        },
+        {
+          "name": "Mayne Medical School (Herston)",
+          "nameCn": "梅恩医学院楼",
+          "lat": -27.4476,
+          "lng": 153.0288,
+          "note": "赫斯顿校区遗产建筑，UQ医学院核心教学楼。"
+        },
+        {
+          "name": "Susan Tett Building",
+          "nameCn": "苏珊·泰特楼",
+          "lat": -27.4995,
+          "lng": 153.0305,
+          "note": "达顿公园校区，药学与制药科学学院主楼（原PACE）。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Duhig Tower & Central Library",
+          "nameCn": "杜伊格塔与中央图书馆",
+          "lat": -27.4966,
+          "lng": 153.0136,
+          "note": "全昆士兰州最大的研究图书馆，临大草坪。"
+        },
+        {
+          "name": "Fryer Library",
+          "nameCn": "弗赖尔图书馆",
+          "lat": -27.4965,
+          "lng": 153.0137,
+          "note": "位于杜伊格楼内的善本与档案馆，藏澳洲文学手稿。"
+        },
+        {
+          "name": "Dorothy Hill Engineering & Sciences Library",
+          "nameCn": "多萝西·希尔工程与科学图书馆",
+          "lat": -27.4988,
+          "lng": 153.0147,
+          "note": "工程与理科专业图书馆，位于校区东南。"
+        },
+        {
+          "name": "Herston Health Sciences Library",
+          "nameCn": "赫斯顿健康科学图书馆",
+          "lat": -27.448,
+          "lng": 153.0285,
+          "note": "赫斯顿校区医学与健康专业图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "UQ Art Museum",
+          "nameCn": "昆士兰大学艺术博物馆",
+          "lat": -27.4958,
+          "lng": 153.0134,
+          "note": "James and Mary Emelia Mayne中心内，藏澳洲当代艺术。"
+        },
+        {
+          "name": "R.D. Milns Antiquities Museum",
+          "nameCn": "米尔恩斯古物博物馆",
+          "lat": -27.4972,
+          "lng": 153.0131,
+          "note": "馆藏古希腊、罗马与埃及文物的教学博物馆。"
+        },
+        {
+          "name": "Marks-Hirschfeld Museum (Herston)",
+          "nameCn": "马克斯-希施菲尔德医学史博物馆",
+          "lat": -27.4477,
+          "lng": 153.0287,
+          "note": "赫斯顿校区，展示医学史器械与档案。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Great Court",
+          "nameCn": "大草坪",
+          "lat": -27.4972,
+          "lng": 153.0136,
+          "note": "砂岩拱廊环绕的半圆形大草坪，校园标志与精神核心。"
+        },
+        {
+          "name": "UQ Union & Student Union Complex",
+          "nameCn": "学生会综合楼",
+          "lat": -27.4979,
+          "lng": 153.0128,
+          "note": "学生会、餐饮与社团活动中心。"
+        },
+        {
+          "name": "UQ Lakes Bus Station",
+          "nameCn": "UQ湖区巴士站",
+          "lat": -27.4985,
+          "lng": 153.0117,
+          "note": "校区主巴士枢纽，连接市区的高频公交终点。"
+        },
+        {
+          "name": "UQ St Lucia CityCat Ferry Terminal",
+          "nameCn": "圣卢西亚渡轮码头",
+          "lat": -27.4925,
+          "lng": 153.0118,
+          "note": "布里斯班河CityCat渡轮码头，可乘船往返市区。"
+        }
+      ]
+    }
+  ]
+}

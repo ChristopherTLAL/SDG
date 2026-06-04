@@ -1,0 +1,161 @@
+{
+  "id": "deakin-university",
+  "type": "school",
+  "name": "Deakin University",
+  "nameCn": "迪肯大学",
+  "city": "Melbourne",
+  "center": [
+    -37.8478,
+    145.1142
+  ],
+  "zoom": 14,
+  "blurb": "迪肯大学主校区位于墨尔本东郊伯伍德，绿树成荫、临花园溪谷，另在吉朗与瓦南布尔设有滨海与区域校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Melbourne Burwood Campus",
+          "nameCn": "墨尔本伯伍德校区",
+          "lat": -37.8478,
+          "lng": 145.1142,
+          "radius": 750,
+          "note": "迪肯最大校区，位于墨尔本东郊，乘75路电车约45分钟入城。"
+        },
+        {
+          "name": "Geelong Waterfront Campus",
+          "nameCn": "吉朗滨水校区",
+          "lat": -38.1439,
+          "lng": 144.3603,
+          "radius": 350,
+          "note": "由旧羊毛仓库改建，俯瞰科里奥湾，地处吉朗市中心。"
+        },
+        {
+          "name": "Geelong Waurn Ponds Campus",
+          "nameCn": "吉朗沃恩池校区",
+          "lat": -38.1978,
+          "lng": 144.2972,
+          "radius": 900,
+          "note": "迪肯最初校区，距墨尔本西南约72公里，含科技与精英体育园区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Law Building",
+          "nameCn": "法学楼",
+          "lat": -37.8472,
+          "lng": 145.1135,
+          "note": "2021年由Woods Bagot设计，获2022 WAN建筑金奖。"
+        },
+        {
+          "name": "Building BC (Business & Law)",
+          "nameCn": "商法学楼 BC",
+          "lat": -37.8483,
+          "lng": 145.1129,
+          "note": "伯伍德校区高速公路沿线主教学楼，商学与法学院。"
+        },
+        {
+          "name": "Specialised Exercise & Sport Science Building",
+          "nameCn": "运动与体育科学楼",
+          "lat": -37.8466,
+          "lng": 145.115,
+          "note": "健康学院旗舰设施，配澳洲顶尖运动科学实验室。"
+        },
+        {
+          "name": "Dennys Lascelles Building (Waterfront)",
+          "nameCn": "丹尼斯·拉斯塞尔斯楼",
+          "lat": -38.1442,
+          "lng": 144.3598,
+          "note": "吉朗滨水校区核心楼，耗资3700万翻新，含阿尔弗雷德·迪肯研究所。"
+        },
+        {
+          "name": "School of Medicine (Waurn Ponds)",
+          "nameCn": "医学院",
+          "lat": -38.1972,
+          "lng": 144.2982,
+          "note": "2008年设立于沃恩池校区，区域医学教学中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Building V Library (Burwood)",
+          "nameCn": "伯伍德图书馆 V栋",
+          "lat": -37.8474,
+          "lng": 145.1146,
+          "note": "主校区图书馆，位于Morgan's Walk尽头，含展览空间。"
+        },
+        {
+          "name": "Alfred Deakin Prime Ministerial Library",
+          "nameCn": "阿尔弗雷德·迪肯总理图书馆",
+          "lat": -38.144,
+          "lng": 144.36,
+          "note": "纪念澳洲第二任总理迪肯，藏于吉朗滨水校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Deakin University Art Gallery",
+          "nameCn": "迪肯大学美术馆",
+          "lat": -37.848,
+          "lng": 145.1148,
+          "note": "位于伯伍德校区FA栋，展出大学艺术收藏与当代展览。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "DeakinACTIVE Burwood (LC Building)",
+          "nameCn": "DeakinACTIVE健身中心 LC栋",
+          "lat": -37.8469,
+          "lng": 145.1118,
+          "note": "2020年启用，850平米健身房俯瞰康养花园，临Elgar路。"
+        },
+        {
+          "name": "Costa Hall",
+          "nameCn": "科斯塔音乐厅",
+          "lat": -38.1436,
+          "lng": 144.3608,
+          "note": "1422座音乐厅，毕业典礼场地，属吉朗艺术中心。"
+        },
+        {
+          "name": "Elite Sports Precinct (Waurn Ponds)",
+          "nameCn": "精英体育园区",
+          "lat": -38.199,
+          "lng": 144.296,
+          "note": "迪肯小鸭橄榄球俱乐部主场，吉朗猫队备用训练基地。"
+        }
+      ]
+    }
+  ]
+}

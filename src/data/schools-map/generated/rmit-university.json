@@ -1,0 +1,176 @@
+{
+  "id": "rmit-university",
+  "type": "school",
+  "name": "RMIT University",
+  "nameCn": "皇家墨尔本理工大学",
+  "city": "Melbourne",
+  "center": [
+    -37.8082,
+    144.963
+  ],
+  "zoom": 15,
+  "blurb": "皇家墨尔本理工大学的城市校区嵌在墨尔本市中心 Hoddle 网格北缘，沿 Swanston 街铺开维多利亚式古建与大胆的当代建筑，是一座没有围墙、与城市融为一体的都市校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Melbourne City Campus",
+          "nameCn": "墨尔本城市校区",
+          "lat": -37.8082,
+          "lng": 144.963,
+          "radius": 600,
+          "note": "主校区，124 La Trobe St，沿 Swanston 街六个街区，与市中心交融。"
+        },
+        {
+          "name": "Brunswick Campus",
+          "nameCn": "布伦瑞克校区",
+          "lat": -37.7722,
+          "lng": 144.9578,
+          "radius": 350,
+          "note": "市区以北约 6 公里，时尚与纺织、设计学院所在地。"
+        },
+        {
+          "name": "Bundoora Campus (West & East)",
+          "nameCn": "邦多拉校区（东西两区）",
+          "lat": -37.6804,
+          "lng": 145.0634,
+          "radius": 900,
+          "note": "东北约 18 公里，Plenty Road 分隔东西区，工程与健康医学、运动场地集中地。"
+        },
+        {
+          "name": "RMIT Point Cook (RAAF Williams)",
+          "nameCn": "波因特库克航空基地（RAAF Williams）",
+          "lat": -37.9312,
+          "lng": 144.7544,
+          "radius": 700,
+          "note": "西南约 20 公里，皇家空军基地内的飞行训练点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Swanston Academic Building (Building 80)",
+          "nameCn": "斯旺斯顿教学楼（80 号楼）",
+          "lat": -37.8082,
+          "lng": 144.963,
+          "note": "445 Swanston St，彩色折面立面的标志性教学楼。"
+        },
+        {
+          "name": "Design Hub (Building 100)",
+          "nameCn": "设计中心（100 号楼）",
+          "lat": -37.8067,
+          "lng": 144.9637,
+          "note": "Swanston 与 Victoria 街角，圆盘玻璃幕墙的设计研究楼。"
+        },
+        {
+          "name": "Emily McPherson Building (Building 13)",
+          "nameCn": "艾米丽·麦弗森楼（13 号楼）",
+          "lat": -37.8068,
+          "lng": 144.9617,
+          "note": "Franklin 与 Victoria 街角，1927 年新古典学院楼。"
+        },
+        {
+          "name": "New Academic Street (Building 12/14)",
+          "nameCn": "新学术街（12/14 号楼）",
+          "lat": -37.8078,
+          "lng": 144.9624,
+          "note": "贯穿校区的学术步行轴，连接图书馆与学生服务。"
+        },
+        {
+          "name": "Bundoora West Engineering & Health",
+          "nameCn": "邦多拉西区 工程与健康学院",
+          "lat": -37.6804,
+          "lng": 145.0634,
+          "note": "航空、电气、机械工程与医学科学教学区。"
+        },
+        {
+          "name": "School of Fashion and Textiles (Brunswick)",
+          "nameCn": "时尚与纺织学院（布伦瑞克）",
+          "lat": -37.7722,
+          "lng": 144.9578,
+          "note": "25 Dawson St，服装、纺织、印刷与平面设计。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Swanston Library (Building 8)",
+          "nameCn": "斯旺斯顿图书馆（8 号楼）",
+          "lat": -37.8076,
+          "lng": 144.9633,
+          "note": "城市校区主图书馆，Swanston 街沿线。"
+        },
+        {
+          "name": "Bundoora West Library",
+          "nameCn": "邦多拉西区图书馆",
+          "lat": -37.6808,
+          "lng": 145.0628,
+          "note": "邦多拉校区主图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "RMIT Gallery (Storey Hall)",
+          "nameCn": "RMIT 美术馆（斯托里厅）",
+          "lat": -37.8085,
+          "lng": 144.9637,
+          "note": "342-348 Swanston St，1887 年古建内的当代艺术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "RMIT Capitol Theatre (Building 113)",
+          "nameCn": "RMIT 国会剧院（113 号楼）",
+          "lat": -37.8113,
+          "lng": 144.9656,
+          "note": "113 Swanston St，1924 年沃尔特·伯利·格里芬设计的剧院。"
+        },
+        {
+          "name": "Alumni Courtyard & Old Melbourne Gaol",
+          "nameCn": "校友庭院与旧墨尔本监狱",
+          "lat": -37.8074,
+          "lng": 144.965,
+          "note": "由旧监狱围墙院落改造，校区历史地标。"
+        },
+        {
+          "name": "Melbourne Central Station",
+          "nameCn": "墨尔本中央车站",
+          "lat": -37.81,
+          "lng": 144.9628,
+          "note": "La Trobe 与 Swanston 街角，校区门口的地铁枢纽。"
+        }
+      ]
+    }
+  ]
+}

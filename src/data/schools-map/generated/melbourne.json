@@ -1,0 +1,214 @@
+{
+  "id": "melbourne",
+  "type": "school",
+  "name": "University of Melbourne",
+  "nameCn": "墨尔本大学",
+  "city": "Melbourne",
+  "center": [
+    -37.7963,
+    144.9614
+  ],
+  "zoom": 13,
+  "blurb": "墨尔本大学是澳洲最古老的学府之一，主校区坐落于市中心以北的帕克维尔历史街区，绿草成荫、古典哥特建筑与现代研究楼交错，并辐射出横跨大墨尔本与维多利亚乡村的六个专业校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Parkville Campus",
+          "nameCn": "帕克维尔主校区",
+          "lat": -37.7963,
+          "lng": 144.9614,
+          "radius": 700,
+          "note": "1853年创立的主校区，十大学院与核心研究中心所在地。"
+        },
+        {
+          "name": "Southbank Campus",
+          "nameCn": "南岸校区",
+          "lat": -37.8253,
+          "lng": 144.967,
+          "radius": 400,
+          "note": "维多利亚艺术学院与墨尔本音乐学院，表演与视觉艺术教学地。"
+        },
+        {
+          "name": "Burnley Campus",
+          "nameCn": "伯恩利校区",
+          "lat": -37.8288,
+          "lng": 145.0228,
+          "radius": 450,
+          "note": "亚拉河畔的园艺与景观园林教学校区。"
+        },
+        {
+          "name": "Werribee Campus",
+          "nameCn": "韦里比校区",
+          "lat": -37.882,
+          "lng": 144.667,
+          "radius": 600,
+          "note": "兽医学院及U-Vet动物医院，市区西南约30公里。"
+        },
+        {
+          "name": "Creswick Campus",
+          "nameCn": "克雷斯威克校区",
+          "lat": -37.396,
+          "lng": 143.8698,
+          "radius": 500,
+          "note": "维州乡村的森林与生态系统科学校区，邻近原生林。"
+        },
+        {
+          "name": "Dookie Campus",
+          "nameCn": "杜基校区",
+          "lat": -36.3842,
+          "lng": 145.7144,
+          "radius": 900,
+          "note": "2440公顷农业校区，含机器人牧场、酒庄与果园。"
+        },
+        {
+          "name": "Shepparton Campus",
+          "nameCn": "谢珀顿校区",
+          "lat": -36.3622,
+          "lng": 145.4062,
+          "radius": 300,
+          "note": "医学院乡村临床学院与乡村健康学术中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Old Arts Building",
+          "nameCn": "旧文科楼",
+          "lat": -37.7975,
+          "lng": 144.9598,
+          "note": "1924年落成的哥特复兴文科教学楼，钟楼标志。"
+        },
+        {
+          "name": "Melbourne Law School",
+          "nameCn": "墨尔本法学院",
+          "lat": -37.803,
+          "lng": 144.9587,
+          "note": "全澳顶尖法学院，位于校区西南角。"
+        },
+        {
+          "name": "Melbourne School of Engineering",
+          "nameCn": "工程学院",
+          "lat": -37.798,
+          "lng": 144.9635,
+          "note": "工程与信息技术学院，临斯旺斯顿街一侧。"
+        },
+        {
+          "name": "Arts West",
+          "nameCn": "文科西楼",
+          "lat": -37.797,
+          "lng": 144.9595,
+          "note": "翻新后的人文教学楼，毗邻贝利图书馆。"
+        },
+        {
+          "name": "Peter Hall Building",
+          "nameCn": "彼得霍尔楼",
+          "lat": -37.7956,
+          "lng": 144.961,
+          "note": "数学与统计学院所在。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Baillieu Library",
+          "nameCn": "贝利图书馆",
+          "lat": -37.7976,
+          "lng": 144.9606,
+          "note": "主图书馆，人文社科藏书核心，紧邻南草坪。"
+        },
+        {
+          "name": "Eastern Resource Centre (ERC)",
+          "nameCn": "东区资源中心",
+          "lat": -37.7968,
+          "lng": 144.9633,
+          "note": "理工科图书馆与学习空间，校区东侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Potter Museum of Art",
+          "nameCn": "波特艺术博物馆",
+          "lat": -37.7989,
+          "lng": 144.9646,
+          "note": "校方主艺术馆，斯旺斯顿街与马森路转角。"
+        },
+        {
+          "name": "Grainger Museum",
+          "nameCn": "格兰杰博物馆",
+          "lat": -37.7958,
+          "lng": 144.9588,
+          "note": "纪念作曲家珀西·格兰杰的自传式博物馆。"
+        },
+        {
+          "name": "Science Gallery Melbourne",
+          "nameCn": "墨尔本科学画廊",
+          "lat": -37.7997,
+          "lng": 144.9641,
+          "note": "科艺交融的公众展览空间，校区东南门户。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Old Quadrangle",
+          "nameCn": "旧方庭",
+          "lat": -37.798,
+          "lng": 144.9603,
+          "note": "1853年最早的建筑，2019年修复的标志性方庭。"
+        },
+        {
+          "name": "Wilson Hall",
+          "nameCn": "威尔逊礼堂",
+          "lat": -37.7977,
+          "lng": 144.9614,
+          "note": "毕业典礼大礼堂，校区核心地标。"
+        },
+        {
+          "name": "South Lawn",
+          "nameCn": "南草坪",
+          "lat": -37.7984,
+          "lng": 144.9608,
+          "note": "标志性绿地，地下停车场顶部的橄榄树草坪。"
+        },
+        {
+          "name": "University Square",
+          "nameCn": "大学广场",
+          "lat": -37.8008,
+          "lng": 144.9627,
+          "note": "校区南侧公共绿地广场，连接城市。"
+        }
+      ]
+    }
+  ]
+}

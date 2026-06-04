@@ -1,0 +1,146 @@
+{
+  "id": "la-trobe-university",
+  "type": "school",
+  "name": "La Trobe University",
+  "nameCn": "拉筹伯大学",
+  "city": "Melbourne",
+  "center": [
+    -37.72179,
+    145.047909
+  ],
+  "zoom": 13,
+  "blurb": "拉筹伯大学的主校区坐落于墨尔本北郊 Bundoora，占地 235 公顷，是澳大利亚最大的城市校园，绿地、湖泊与野生动物保护区环绕；另在 Collins 街市中心设研究生城市校区，并辐射 Bendigo、Albury-Wodonga 等多个区域校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Melbourne (Bundoora) Campus",
+          "nameCn": "墨尔本 Bundoora 主校区",
+          "lat": -37.72179,
+          "lng": 145.047909,
+          "radius": 1400,
+          "note": "235 公顷主校区，全澳最大城市校园，学术与生活核心区。"
+        },
+        {
+          "name": "Research & Development Park / AgriBio Precinct",
+          "nameCn": "研发园区与 AgriBio 农业生物科技中心",
+          "lat": -37.7182,
+          "lng": 145.0435,
+          "radius": 500,
+          "note": "校区西北角科研与产业创新带，含 AgriBio 农业生物中心。"
+        },
+        {
+          "name": "La Trobe Sports Park",
+          "nameCn": "拉筹伯体育公园",
+          "lat": -37.7266,
+          "lng": 145.0502,
+          "radius": 450,
+          "note": "南侧运动精修区，含墨尔本城足球俱乐部训练基地与运动场。"
+        },
+        {
+          "name": "Melbourne City Campus (360 Collins St)",
+          "nameCn": "墨尔本城市校区（Collins 街 360 号）",
+          "lat": -37.8163,
+          "lng": 144.9623,
+          "radius": 250,
+          "note": "市中心 CBD 研究生授课点，距主校区约 12 公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "David Myers Building",
+          "nameCn": "David Myers 大楼",
+          "lat": -37.7213,
+          "lng": 145.0469,
+          "note": "校区核心教学楼之一，标志性高架连廊建筑。"
+        },
+        {
+          "name": "Martin Building",
+          "nameCn": "Martin 大楼",
+          "lat": -37.7222,
+          "lng": 145.0463,
+          "note": "原始国际风格教学楼，人文社科院系所在。"
+        },
+        {
+          "name": "Health Sciences Building",
+          "nameCn": "健康科学大楼",
+          "lat": -37.7206,
+          "lng": 145.049,
+          "note": "护理、物理治疗与健康科学院系核心。"
+        },
+        {
+          "name": "George Singer Building",
+          "nameCn": "George Singer 大楼",
+          "lat": -37.7229,
+          "lng": 145.0455,
+          "note": "心理学与行为科学教学研究楼。"
+        },
+        {
+          "name": "La Trobe Institute for Molecular Science (LIMS)",
+          "nameCn": "拉筹伯分子科学研究院（LIMS）",
+          "lat": -37.7232,
+          "lng": 145.0446,
+          "note": "生化、遗传、化学、物理与药学三栋研究建筑群。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Borchardt Library",
+          "nameCn": "Borchardt 图书馆",
+          "lat": -37.72145,
+          "lng": 145.0483,
+          "note": "主图书馆，藏书逾百万册，紧邻 Agora 广场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Agora",
+          "nameCn": "Agora 中央广场",
+          "lat": -37.72185,
+          "lng": 145.0479,
+          "note": "校园心脏地带，餐饮、剧院与学生服务汇聚的中庭。"
+        },
+        {
+          "name": "Nangak Tamboree Wildlife Sanctuary",
+          "nameCn": "Nangak Tamboree 野生动物保护区",
+          "lat": -37.7246,
+          "lng": 145.0528,
+          "note": "校区东南湖泊湿地保护区，校园绿色名片。"
+        },
+        {
+          "name": "Melbourne City FC Training Facility",
+          "nameCn": "墨尔本城足球俱乐部训练基地",
+          "lat": -37.7261,
+          "lng": 145.0498,
+          "note": "1500 万澳元职业足球训练场，位于体育公园内。"
+        }
+      ]
+    }
+  ]
+}

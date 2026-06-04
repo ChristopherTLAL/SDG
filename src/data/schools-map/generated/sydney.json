@@ -1,0 +1,200 @@
+{
+  "id": "sydney",
+  "type": "school",
+  "name": "University of Sydney",
+  "nameCn": "悉尼大学",
+  "city": "Sydney",
+  "center": [
+    -33.8884,
+    151.1875
+  ],
+  "zoom": 13,
+  "blurb": "悉尼大学是澳大利亚最古老的大学，主校区坐落于内城坎珀当与达灵顿，以维多利亚式砂岩四方院和绿地草坪为标志，并向 CBD、医学研究区及远郊农牧场延伸成多点格局。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Camperdown/Darlington Campus",
+          "nameCn": "坎珀当/达灵顿主校区",
+          "lat": -33.8884,
+          "lng": 151.1875,
+          "radius": 900,
+          "note": "主校区，砂岩四方院与多数学院所在地，横跨城路两侧。"
+        },
+        {
+          "name": "Mallett Street Campus (Brain and Mind Centre)",
+          "nameCn": "马利特街校区（脑与心智中心）",
+          "lat": -33.8856,
+          "lng": 151.1806,
+          "radius": 300,
+          "note": "距主校区数步之遥，脑与心智中心及临床试验设施。"
+        },
+        {
+          "name": "Surry Hills Campus (Sydney Dental Hospital)",
+          "nameCn": "萨里山校区（悉尼牙科医院）",
+          "lat": -33.8835,
+          "lng": 151.2068,
+          "radius": 250,
+          "note": "中央车站对面，牙学院与牙科医院临床基地。"
+        },
+        {
+          "name": "Sydney Conservatorium of Music",
+          "nameCn": "悉尼音乐学院",
+          "lat": -33.86348,
+          "lng": 151.21435,
+          "radius": 250,
+          "note": "CBD 皇家植物园旁，格林威砂岩历史建筑内。"
+        },
+        {
+          "name": "Sydney CBD Campus (133 Castlereagh St)",
+          "nameCn": "CBD 城区校区",
+          "lat": -33.8718,
+          "lng": 151.2086,
+          "radius": 220,
+          "note": "商学院与法学院部分课程在卡苏里街开设。"
+        },
+        {
+          "name": "Westmead Campus",
+          "nameCn": "韦斯特米德校区",
+          "lat": -33.8045,
+          "lng": 150.9886,
+          "radius": 700,
+          "note": "西郊大型健康与科研区，紧邻韦斯特米德医院。"
+        },
+        {
+          "name": "Camden Campus",
+          "nameCn": "卡姆登校区",
+          "lat": -34.0353,
+          "lng": 150.6559,
+          "radius": 1200,
+          "note": "西南远郊农牧科研区，兽医教学医院与试验农场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Quadrangle (Faculty of Arts)",
+          "nameCn": "四方院（文学院）",
+          "lat": -33.8884,
+          "lng": 151.1875,
+          "note": "标志性砂岩四方院，文学院办公与历史核心。"
+        },
+        {
+          "name": "Anderson Stuart Building",
+          "nameCn": "安德森·斯图尔特楼",
+          "lat": -33.8896,
+          "lng": 151.1869,
+          "note": "悉尼医学院最早的砂岩教学楼。"
+        },
+        {
+          "name": "Charles Perkins Centre",
+          "nameCn": "查尔斯·珀金斯中心",
+          "lat": -33.8893,
+          "lng": 151.1844,
+          "note": "慢性病多学科研究旗舰，毗邻皇家阿尔弗雷德医院。"
+        },
+        {
+          "name": "Susan Wakil Health Building",
+          "nameCn": "苏珊·瓦基尔健康楼",
+          "lat": -33.8901,
+          "lng": 151.1851,
+          "note": "护理与健康学科教学楼，西大道健康区内。"
+        },
+        {
+          "name": "School of Civil Engineering (PNR Building)",
+          "nameCn": "工程学院（PNR 楼）",
+          "lat": -33.8884,
+          "lng": 151.1944,
+          "note": "工程与计算机学科集中于校区东侧达灵顿一带。"
+        },
+        {
+          "name": "Sydney Nanoscience Hub",
+          "nameCn": "悉尼纳米科学中心",
+          "lat": -33.8881,
+          "lng": 151.1916,
+          "note": "物理与纳米科技研究，配高端洁净室设施。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Fisher Library",
+          "nameCn": "费舍尔图书馆",
+          "lat": -33.8863,
+          "lng": 151.1904,
+          "note": "全校最大图书馆，东大道旁九层主馆。"
+        },
+        {
+          "name": "Law Library (New Law Building)",
+          "nameCn": "法学图书馆（新法学楼）",
+          "lat": -33.8893,
+          "lng": 151.19,
+          "note": "法学院新楼内，邻东大道。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Chau Chak Wing Museum",
+          "nameCn": "周泽荣博物馆",
+          "lat": -33.8869,
+          "lng": 151.1899,
+          "note": "合并尼科尔森等三馆，藏古物与艺术，临大学广场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Great Hall",
+          "nameCn": "大礼堂",
+          "lat": -33.8881,
+          "lng": 151.1869,
+          "note": "四方院内哥特复兴式礼堂，毕业典礼场所。"
+        },
+        {
+          "name": "Holme Building (Students' Union)",
+          "nameCn": "霍姆楼（学生会）",
+          "lat": -33.8872,
+          "lng": 151.1885,
+          "note": "学生组织活动与社团中心。"
+        },
+        {
+          "name": "Redfern Station",
+          "nameCn": "雷德芬车站",
+          "lat": -33.8917,
+          "lng": 151.1985,
+          "note": "校区东南最近火车站，通勤主要门户。"
+        }
+      ]
+    }
+  ]
+}
