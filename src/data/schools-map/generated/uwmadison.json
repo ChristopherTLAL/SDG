@@ -171,6 +171,175 @@
           "note": "西南侧第二学生活动中心，邻工程区"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Asian Midway Foods",
+          "nameCn": "亚洲中途食品超市",
+          "lat": 43.0639,
+          "lng": -89.4003,
+          "note": "离校园最近的亚洲超市,South Park St上,中餐调料、米面、冷冻饺子和亚洲蔬菜都齐全,步行可达。"
+        },
+        {
+          "name": "Trader Joe's",
+          "nameCn": "缺德舅超市",
+          "lat": 43.0646,
+          "lng": -89.4178,
+          "note": "Monroe St上的连锁超市,性价比高、冷冻速食和零食出名,留学生日常采购首选。"
+        },
+        {
+          "name": "Whole Foods Market",
+          "nameCn": "全食超市",
+          "lat": 43.0712,
+          "lng": -89.4493,
+          "note": "University Ave上的高端有机超市,生鲜和熟食区好,自驾或公交约10分钟。"
+        },
+        {
+          "name": "Metcalfe's Market (Hilldale)",
+          "nameCn": "Metcalfe's 本地超市(Hilldale店)",
+          "lat": 43.0707,
+          "lng": -89.452,
+          "note": "本地大型综合超市,生鲜、肉类、亚洲货架都有,Hilldale购物中心内,补货一站搞定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Ruyi Hand Pulled Noodle",
+          "nameCn": "如意拉面",
+          "lat": 43.0743,
+          "lng": -89.3905,
+          "note": "State St上的兰州手工拉面,牛肉面和凉皮地道,是中国学生解馋的常去店。"
+        },
+        {
+          "name": "Chen's Dumpling House",
+          "nameCn": "陈记饺子馆",
+          "lat": 43.0729,
+          "lng": -89.3952,
+          "note": "505 State St,手工水饺和家常川菜出名,价格学生友好,本地华人口碑很好。"
+        },
+        {
+          "name": "Ian's Pizza on State",
+          "nameCn": "Ian's 披萨(State St店)",
+          "lat": 43.075,
+          "lng": -89.3857,
+          "note": "麦迪逊招牌按片卖的创意披萨(土豆培根口味必试),深夜营业,UW学生的灵魂食堂。"
+        },
+        {
+          "name": "Babcock Dairy Store",
+          "nameCn": "Babcock 乳品店",
+          "lat": 43.0774,
+          "lng": -89.4128,
+          "note": "校内自制冰淇淋老字号(1951年起),用本校牧场牛奶,来UW必尝的招牌甜点。"
+        },
+        {
+          "name": "Mickie's Dairy Bar",
+          "nameCn": "Mickie's 复古早餐店",
+          "lat": 43.0683,
+          "lng": -89.4136,
+          "note": "Monroe St上的复古早餐馆,招牌Scrambler超大份,周末常排队,麦迪逊经典。"
+        },
+        {
+          "name": "State Street Brats",
+          "nameCn": "State Street 烤肠店",
+          "lat": 43.0745,
+          "lng": -89.3879,
+          "note": "威州特色烤肠和炸奶酪块,带露天座,看球氛围浓,体验本地饮食文化首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "UW Credit Union – State Street",
+          "nameCn": "UW信用社(State St分行)",
+          "lat": 43.0739,
+          "lng": -89.3963,
+          "note": "662 State St,紧邻校园的信用社,办学生支票/储蓄账户方便,UW学生主力银行。"
+        },
+        {
+          "name": "U.S. Bank – University Square",
+          "nameCn": "美国合众银行(University Square校园支行)",
+          "lat": 43.0726,
+          "lng": -89.3956,
+          "note": "389 East Campus Mall,与学校合作的校园网点,新生开美元账户、办借记卡可现场办理。"
+        },
+        {
+          "name": "UW Health University Hospital",
+          "nameCn": "UW Health大学医院",
+          "lat": 43.0759,
+          "lng": -89.4307,
+          "note": "校园西侧的主力综合医院与急诊,留学生看病/急诊的主要去处,校医保SHIP对接。"
+        },
+        {
+          "name": "UnityPoint Health Urgent Care – University Ave",
+          "nameCn": "UnityPoint紧急护理诊所(University Ave)",
+          "lat": 43.0712,
+          "lng": -89.4316,
+          "note": "非预约的urgent care,小病小伤、流感、验血当天就诊,比急诊快且便宜。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Wisconsin State Capitol",
+          "nameCn": "威斯康星州议会大厦",
+          "lat": 43.0747,
+          "lng": -89.3844,
+          "note": "State St尽头的州议会大厦,免费参观、可上观景台,麦迪逊地标,打卡拍照必去。"
+        },
+        {
+          "name": "Memorial Union Terrace",
+          "nameCn": "纪念学生会湖畔露台",
+          "lat": 43.0763,
+          "lng": -89.4001,
+          "note": "门多塔湖畔的标志性露台,彩色向日葵椅+日落湖景,UW学生social和拍照圣地(4-9月开放)。"
+        },
+        {
+          "name": "Bascom Hill",
+          "nameCn": "巴斯科姆山坡",
+          "lat": 43.0753,
+          "lng": -89.4043,
+          "note": "校园历史核心的草坡,顶端林肯像可俯瞰State St和州议会,毕业季和秋叶最美。"
+        },
+        {
+          "name": "Chazen Museum of Art",
+          "nameCn": "Chazen艺术博物馆",
+          "lat": 43.0719,
+          "lng": -89.3998,
+          "note": "校内免费的大型艺术博物馆,藏品横跨古今,适合周末逛展避寒,文艺打卡好去处。"
+        },
+        {
+          "name": "Lake Mendota Lakeshore Path",
+          "nameCn": "门多塔湖滨步道",
+          "lat": 43.0782,
+          "lng": -89.4115,
+          "note": "沿校园北侧门多塔湖的步道,跑步、骑车、看日落都合适,四季风景各异。"
+        }
+      ]
     }
   ]
 }

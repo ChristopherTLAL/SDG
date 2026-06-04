@@ -18,6 +18,8 @@ const SCHOOLS = readdirSync(GEN).filter((f) => f.endsWith('.json')).map((f) => {
   return { id: s.id, name: s.name, nameCn: s.nameCn, city: s.city || '', anchor: s.center, country: CNAME[countryOf[s.id]] || 'the UK' };
 });
 
+const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(',')) : null;
+const USE = ONLY ? SCHOOLS.filter((s) => ONLY.has(s.id)) : SCHOOLS;
 const OUT = process.argv[2] || '/tmp/lifestyle-wf.js';
 
 const script = `export const meta = {
@@ -26,7 +28,7 @@ const script = `export const meta = {
   phases: [{ title: 'Research', detail: 'one agent per school finds nearby living essentials' }],
 };
 
-const SCHOOLS = ${JSON.stringify(SCHOOLS)};
+const SCHOOLS = ${JSON.stringify(USE)};
 
 const ITEM = {
   type: 'object', required: ['name', 'nameCn', 'lat', 'lng'], additionalProperties: false,
@@ -66,5 +68,5 @@ return ok;
 
 import('node:fs').then((fs) => {
   fs.writeFileSync(OUT, script);
-  console.log('wrote', OUT, '(', script.length, 'chars )', '|', SCHOOLS.length, 'schools');
+  console.log('wrote', OUT, '(', script.length, 'chars )', '|', USE.length, 'schools');
 });

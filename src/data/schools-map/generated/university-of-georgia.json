@@ -208,6 +208,140 @@
           "note": "北校区白色立柱礼拜堂，标志性历史建筑。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Orient Mart",
+          "nameCn": "东方市场（亚洲超市）",
+          "lat": 33.9262,
+          "lng": -83.3373,
+          "note": "校园东侧约2公里的老牌亚洲超市，中日韩货品齐全，有新鲜蔬菜和冷冻区，开车几分钟可达。"
+        },
+        {
+          "name": "Fooks Foods",
+          "nameCn": "福食亚洲食品",
+          "lat": 33.924,
+          "lng": -83.3796,
+          "note": "校园南侧约3公里，二十多年的华人/亚洲杂货店，米面酱料零食最全，留学生采购中餐食材的首选。"
+        },
+        {
+          "name": "Kroger (Baxter Street)",
+          "nameCn": "克罗格超市（Baxter街店）",
+          "lat": 33.9469,
+          "lng": -83.3993,
+          "note": "离校最近的美式大型连锁超市，日常生鲜、生活用品一站买齐，离宿舍区步行或公交均可。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Dumpling Master",
+          "nameCn": "饺子大师",
+          "lat": 33.9581,
+          "lng": -83.3698,
+          "note": "市中心地道中餐，手工饺子和点心出名，价格学生友好，想吃家乡味来这准没错。"
+        },
+        {
+          "name": "The Grill",
+          "nameCn": "The Grill 通宵汉堡店",
+          "lat": 33.9582,
+          "lng": -83.3757,
+          "note": "1981年开业、紧邻校门The Arch的红霓虹灯老牌通宵餐馆，汉堡薯条奶昔是UGA几代学生的回忆。"
+        },
+        {
+          "name": "Last Resort Grill",
+          "nameCn": "Last Resort Grill 南方菜馆",
+          "lat": 33.9581,
+          "lng": -83.3784,
+          "note": "市中心最具人气的南方料理与周末早午餐地标，请家人朋友吃饭体验美式南方风味的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Downtown Financial Center)",
+          "nameCn": "美国银行（市中心网点）",
+          "lat": 33.9581,
+          "lng": -83.3768,
+          "note": "紧邻校门的市中心网点，新生开户、办借记卡、存现金都方便，步行即到。"
+        },
+        {
+          "name": "Piedmont Athens Regional Medical Center",
+          "nameCn": "皮埃蒙特雅典地区医疗中心",
+          "lat": 33.9607,
+          "lng": -83.3995,
+          "note": "本地最大的综合医院，设急诊，校医院University Health Center之外看大病、急症就来这里。"
+        },
+        {
+          "name": "CVS Pharmacy (Alps Road)",
+          "nameCn": "CVS 药房（Alps路店）",
+          "lat": 33.9444,
+          "lng": -83.411,
+          "note": "连锁药房，可凭处方取药、买常用感冒药和日用品，店内MinuteClinic还能做简单问诊。"
+        },
+        {
+          "name": "T-Mobile (Alps Rd & Broad St)",
+          "nameCn": "T-Mobile 手机营业厅（Alps路店）",
+          "lat": 33.9485,
+          "lng": -83.4103,
+          "note": "运营商门店，落地后办美国手机号、选套餐、买SIM卡，工作人员可现场协助开通。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Arch",
+          "nameCn": "UGA 标志性铁拱门",
+          "lat": 33.9576,
+          "lng": -83.3753,
+          "note": "连接校园与市中心的铸铁拱门，学校最经典的打卡地标（传说本科生穿过它就不能按时毕业）。"
+        },
+        {
+          "name": "Sanford Stadium",
+          "nameCn": "桑福德体育场",
+          "lat": 33.9498,
+          "lng": -83.3732,
+          "note": "可容纳九万人的橄榄球主场，秋季比赛日全城沸腾，是感受美式校园文化的必去之地。"
+        },
+        {
+          "name": "Georgia Museum of Art",
+          "nameCn": "佐治亚艺术博物馆",
+          "lat": 33.9412,
+          "lng": -83.3698,
+          "note": "位于东校区的州立艺术博物馆，免费参观，藏品丰富，适合周末安静看展拍照。"
+        },
+        {
+          "name": "State Botanical Garden of Georgia",
+          "nameCn": "佐治亚州立植物园",
+          "lat": 33.9013,
+          "lng": -83.384,
+          "note": "校园南侧约5公里的313英亩州立植物园，温室、主题花园加数英里步道，散步赏景放松的好地方。"
+        }
+      ]
     }
   ]
 }

@@ -239,6 +239,161 @@
           "note": "邻近机场与宽巷体育场,经高田换乘站直达主校区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sainsbury's Superstore (Portswood)",
+          "nameCn": "Sainsbury's 超市（Portswood 大店）",
+          "lat": 50.9267582,
+          "lng": -1.3896009,
+          "note": "离高地校区最近的大型连锁超市，224 Portswood Road，营业到晚上10点，日常采买首选。"
+        },
+        {
+          "name": "Aldi (Portswood Road)",
+          "nameCn": "Aldi 平价超市",
+          "lat": 50.9239343,
+          "lng": -1.394605,
+          "note": "Portswood Road 上的德国平价超市，蔬果肉蛋比 Sainsbury's 便宜，留学生省钱囤货好去处。"
+        },
+        {
+          "name": "Song Oriental Chinese Supermarket",
+          "nameCn": "颂记中超（Song Oriental）",
+          "lat": 50.9271582,
+          "lng": -1.3914801,
+          "note": "136 Highfield Lane，紧贴校区与学生宿舍区，老牌中超，老干妈、火锅底料、米面酱料一站买齐。"
+        },
+        {
+          "name": "T-Rex Supermarket & Bubble Tea",
+          "nameCn": "T-Rex 亚超 + 奶茶",
+          "lat": 50.9256,
+          "lng": -1.393,
+          "note": "172 Portswood Road，2024 年新开的亚洲超市，集合中日韩马来越南食材，店内还有奶茶吧，HRA 会员有折扣。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Xiongqi Hot Pot (雄柒火锅)",
+          "nameCn": "雄柒火锅 Xiongqi Hotpot",
+          "lat": 50.9258,
+          "lng": -1.3925,
+          "note": "186-188 Portswood Road，川渝手工锅底的正宗中式火锅，自助调料台，留学生圈口碑爆棚的聚餐据点。"
+        },
+        {
+          "name": "Shanghai Bay",
+          "nameCn": "上海湾粤式酒楼",
+          "lat": 50.9077443,
+          "lng": -1.4046325,
+          "note": "市中心 Above Bar Street，广式茶点与现做点心，想吃虾饺、流沙包、烧腊正餐时进城来这家。"
+        },
+        {
+          "name": "COSMO World Buffet (Portswood)",
+          "nameCn": "COSMO 世界自助餐",
+          "lat": 50.9263334,
+          "lng": -1.3909122,
+          "note": "Portswood Broadway 上的全球自助餐，中餐、日料、印度菜、英式现切肉应有尽有，学生党性价比之选。"
+        },
+        {
+          "name": "Mettricks (Southampton Common)",
+          "nameCn": "Mettricks 公园咖啡馆",
+          "lat": 50.9216,
+          "lng": -1.4072,
+          "note": "南安普顿公园南侧的人气独立咖啡馆，英式早午餐 brunch + 司康下午茶，本地必打卡的悠闲一餐。"
+        },
+        {
+          "name": "Bournemouth Road Fish & Chips area (Portswood)",
+          "nameCn": "Portswood 炸鱼薯条店",
+          "lat": 50.9248515,
+          "lng": -1.3937655,
+          "note": "Portswood 大街沿线的传统英式 fish & chips，来英国必尝的国民快餐，炸鱼配 mushy peas。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "NatWest Bank (Portswood Road)",
+          "nameCn": "NatWest 银行（Portswood 支行）",
+          "lat": 50.9255876,
+          "lng": -1.3929741,
+          "note": "189 Portswood Road，离校最近的实体银行网点，可办理开户与现金业务，工作日午间开放（10:30-14:30）。"
+        },
+        {
+          "name": "Day Lewis Pharmacy (Portswood)",
+          "nameCn": "Day Lewis 药房",
+          "lat": 50.9252,
+          "lng": -1.3932,
+          "note": "195 Portswood Road，社区连锁药房，可取 NHS 处方药、买感冒药与常用药，紧急避孕等服务也有。"
+        },
+        {
+          "name": "University Hospital Southampton (General Hospital)",
+          "nameCn": "南安普顿大学医院（综合医院）",
+          "lat": 50.9325418,
+          "lng": -1.435113,
+          "note": "Tremona Road，本地最大的 NHS 医院，设 24 小时急诊 A&E，重病急症去这里，Unilink 巴士直达。"
+        },
+        {
+          "name": "Phone shop, Portswood Broadway",
+          "nameCn": "Portswood 手机/电话卡店",
+          "lat": 50.9264487,
+          "lng": -1.391999,
+          "note": "Portswood Broadway 步行街上的手机店，可办英国手机卡/合约套餐，落地后就近搞定通讯（大牌 EE/O2/Vodafone 在市中心 Westquay）。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Southampton Common",
+          "nameCn": "南安普顿公园（Southampton Common）",
+          "lat": 50.9283066,
+          "lng": -1.4103651,
+          "note": "紧邻校区的 365 英亩大型城市公园，林地、湖泊与跑步道，散步遛弯、野餐、看松鼠的日常去处。"
+        },
+        {
+          "name": "SeaCity Museum",
+          "nameCn": "海洋城市博物馆（泰坦尼克号）",
+          "lat": 50.9081893,
+          "lng": -1.4075203,
+          "note": "市中心文化区，讲述泰坦尼克号从南安出发的历史，城市必看博物馆，凭学生证常有优惠。"
+        },
+        {
+          "name": "WestQuay Shopping Centre",
+          "nameCn": "WestQuay 购物中心",
+          "lat": 50.903689,
+          "lng": -1.4066729,
+          "note": "市中心最大商场，紧邻中世纪古城墙，逛街购物、看电影、各大手机运营商门店都在这一带。"
+        },
+        {
+          "name": "Old Town & Town Walls",
+          "nameCn": "老城区与中世纪城墙",
+          "lat": 50.898,
+          "lng": -1.4075,
+          "note": "保存完好的中世纪城墙、Bargate 城门与都铎老宅，海边古城拍照打卡的历史地标。"
+        }
+      ]
     }
   ]
 }
