@@ -14,6 +14,17 @@ const oxford: SchoolsMapScene = {
   blurb: '38 所学院按建院先后编号、按年代配色。拖动 / 播放时间轴看近八百年扩张；勾选叠加院系、博物馆、图书馆、地标。',
   features: [
     {
+      kind: 'zone',
+      label: '校区 / 区域',
+      color: '#16a34a',
+      items: [
+        { name: 'City-Centre Colleges', nameCn: '市中心学院区', lat: 51.754, lng: -1.2545, radius: 700, note: '绝大多数学院与博德利、拉德克利夫聚集的历史核心。' },
+        { name: 'Science Area', nameCn: '科学区', lat: 51.7588, lng: -1.2565, radius: 340, note: 'Parks Road 一带的理科系所与实验室。' },
+        { name: 'Radcliffe Observatory Quarter', nameCn: '拉德克利夫天文台区', lat: 51.7598, lng: -1.2638, radius: 300, note: '数学、人文与医学新建筑群。' },
+        { name: 'Headington Medical Campuses', nameCn: 'Headington 医学校区', lat: 51.764, lng: -1.2185, radius: 700, note: '约翰·拉德克利夫等教学医院与临床医学校区（城东）。' },
+      ],
+    },
+    {
       kind: 'collegeTimeline',
       label: '学院 Colleges',
       items: [

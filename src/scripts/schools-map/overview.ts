@@ -1,10 +1,11 @@
 // Country overview renderer — universities as rank-tiered dots + QS filter + searchable list.
 import { L } from './leaflet-global';
-import { createMap, buildBaseRow, buildSwitcher, wireToggle, attachHoverLabel, disableMapDragOn, esc } from './shell';
+import { createMap, buildBaseRow, buildSwitcher, wireToggle, wireFullscreen, attachHoverLabel, disableMapDragOn, esc, mapsLink } from './shell';
 
 interface OverviewUni {
   id: string; name: string; nameCn: string; city: string;
   qsRank: number | null; lat: number; lng: number; hasDetail: boolean;
+  inBudget?: boolean; tags?: string[];
 }
 interface Tier { key: string; label: string; color: string; max: number; }
 
@@ -21,6 +22,7 @@ export function mountOverview(unis: OverviewUni[], tiers: Tier[], detailBase: st
   const wrap = $('smap-wrap');
   const { map, setBase } = createMap('smap-map', [54.4, -3.2], 6);
   buildSwitcher($('smap-switch'), scenes, '', detailBase);
+  wireFullscreen($('smap-fullscreen'), wrap, map);
 
   const tierOf = (q: number | null) => (q == null ? tiers[tiers.length - 1] : tiers.find((t) => q <= t.max) || tiers[tiers.length - 1]);
 
@@ -50,8 +52,9 @@ export function mountOverview(unis: OverviewUni[], tiers: Tier[], detailBase: st
     const m = L.marker([u.lat, u.lng], { icon }).addTo(map);
     m.bindTooltip(esc(u.nameCn), { permanent: true, direction: 'right', offset: [13, 0], className: 'smap-mk-label' });
     const rankTxt = u.qsRank != null ? `QS #${u.qsRank}` : '未排名';
-    const detailLink = u.hasDetail ? `<a class="smap-pop-link" href="${detailBase}/${u.id}">查看精览 →</a>` : '';
-    m.bindPopup(`<div class="smap-pop-name">${esc(u.name)}</div><div class="smap-pop-cn">${esc(u.nameCn)} · ${esc(u.city)}</div><div class="smap-pop-tag" style="color:${tier.color}">${rankTxt}</div>${detailLink}`);
+    const detailLink = u.hasDetail ? `<a class="smap-pop-link" href="${detailBase}/${u.id}">🗺 精览 →</a>` : '';
+    const budgetLink = u.inBudget ? `<a class="smap-pop-link" href="/tools/budget-calculator?school=${u.id}">💰 估算预算</a>` : '';
+    m.bindPopup(`<div class="smap-pop-name">${esc(u.name)}</div><div class="smap-pop-cn">${esc(u.nameCn)} · ${esc(u.city)}</div><div class="smap-pop-tag" style="color:${tier.color}">${rankTxt}</div>${detailLink}${budgetLink}${mapsLink(u.lat, u.lng)}`);
     attachHoverLabel(m);
     m.on('mouseover', () => setHot(u.id, true));
     m.on('mouseout', () => setHot(u.id, false));
@@ -74,6 +77,7 @@ export function mountOverview(unis: OverviewUni[], tiers: Tier[], detailBase: st
   // filter + search
   let maxRank = Infinity;
   let query = '';
+  let activeTag = '';
   const countEl = $('smap-count');
   const applyVis = () => {
     let n = 0;
@@ -81,7 +85,8 @@ export function mountOverview(unis: OverviewUni[], tiers: Tier[], detailBase: st
       const rankOk = u.qsRank != null ? u.qsRank <= maxRank : maxRank === Infinity;
       const q = query.trim().toLowerCase();
       const searchOk = !q || u.name.toLowerCase().includes(q) || (u.nameCn && u.nameCn.includes(query.trim())) || (u.city && u.city.toLowerCase().includes(q));
-      const vis = rankOk && searchOk;
+      const tagOk = !activeTag || (u.tags && u.tags.indexOf(activeTag) !== -1);
+      const vis = rankOk && searchOk && tagOk;
       if (vis) n++;
       if (m._icon) { m._icon.style.opacity = vis ? '1' : '0.1'; m._icon.style.pointerEvents = vis ? 'auto' : 'none'; }
       const t = m.getTooltip(); if (t && t._container) t._container.classList.toggle('tl-hidden', !vis);
@@ -103,6 +108,23 @@ export function mountOverview(unis: OverviewUni[], tiers: Tier[], detailBase: st
       });
       filterRow.appendChild(b);
     });
+  }
+
+  const tagRow = $('smap-tag-row');
+  if (tagRow) {
+    const mkTag = (label: string, val: string) => {
+      const b = document.createElement('button');
+      b.className = 'smap-filter-btn' + (val === '' ? ' active' : '');
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        activeTag = val;
+        tagRow.querySelectorAll('.smap-filter-btn').forEach((x: any) => x.classList.toggle('active', x === b));
+        applyVis();
+      });
+      tagRow.appendChild(b);
+    };
+    mkTag('全部', '');
+    ['罗素集团', 'G5', '苏格兰'].forEach((t) => mkTag(t, t));
   }
 
   const search = $('smap-search');

@@ -191,6 +191,19 @@ out.sort((a, b) =>
 );
 console.log(`Added ${added} vault-only entries (ranks only).`);
 
+// Tag UK universities (drives the overview tag filter). Membership lists are stable.
+const RUSSELL = new Set(['cambridge', 'oxford', 'imperial', 'ucl', 'kcl', 'lse', 'edinburgh', 'manchester', 'bristol', 'warwick', 'glasgow', 'leeds', 'southampton', 'sheffield', 'birmingham', 'nottingham', 'durham', 'newcastle', 'liverpool', 'exeter', 'cardiff', 'qmul', 'york', 'qub']);
+const G5 = new Set(['oxford', 'cambridge', 'imperial', 'ucl', 'lse']);
+const SCOTLAND = new Set(['edinburgh', 'glasgow', 'standrews']);
+for (const u of out) {
+  if (u.country !== 'UK') continue;
+  const t = [];
+  if (RUSSELL.has(u.id)) t.push('罗素集团');
+  if (G5.has(u.id)) t.push('G5');
+  if (SCOTLAND.has(u.id)) t.push('苏格兰');
+  u.tags = t;
+}
+
 mkdirSync(here('../src/data/universities'), { recursive: true });
 writeFileSync(here('../src/data/universities/universities.json'), JSON.stringify(out, null, 2) + '\n');
 

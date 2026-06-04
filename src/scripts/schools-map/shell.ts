@@ -50,6 +50,27 @@ export function wireToggle(btnEl: HTMLElement | null, onToggle: (active: boolean
   });
 }
 
+/** Wire a fullscreen toggle button for the map wrapper (Fullscreen API). */
+export function wireFullscreen(btnEl: HTMLElement | null, wrapEl: HTMLElement | null, map: any) {
+  if (!btnEl || !wrapEl) return;
+  const d = document as any;
+  const sync = () => {
+    const fs = d.fullscreenElement === wrapEl || d.webkitFullscreenElement === wrapEl;
+    btnEl.innerHTML = fs ? '✕ 退出全屏' : '⛶ 全屏';
+    setTimeout(() => map.invalidateSize(), 150);
+  };
+  document.addEventListener('fullscreenchange', sync);
+  document.addEventListener('webkitfullscreenchange', sync);
+  btnEl.addEventListener('click', () => {
+    const w = wrapEl as any;
+    if (d.fullscreenElement || d.webkitFullscreenElement) {
+      (d.exitFullscreen || d.webkitExitFullscreen)?.call(d);
+    } else {
+      (w.requestFullscreen || w.webkitRequestFullscreen)?.call(w);
+    }
+  });
+}
+
 /** Show a marker's permanent-but-hidden label on hover (even when the global 名称 toggle is off). */
 export function attachHoverLabel(m: any) {
   m.on('mouseover', () => { const t = m.getTooltip(); if (t && t._container) t._container.classList.add('force'); });
@@ -62,6 +83,11 @@ export function disableMapDragOn(els: Array<HTMLElement | null>) {
     L.DomEvent.disableClickPropagation(el);
     L.DomEvent.disableScrollPropagation(el);
   });
+}
+
+/** Google Maps / Street View link for a coordinate (opens in a new tab). */
+export function mapsLink(lat: number, lng: number): string {
+  return `<a class="smap-pop-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${lat},${lng}">📍 街景 / 地图</a>`;
 }
 
 export function esc(s: unknown): string {

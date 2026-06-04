@@ -3,6 +3,7 @@ export const prerender = true;
 // Schools map — detail / region scene (Cambridge, Oxford, London, …).
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { SCENE_IDS, getScene, SCENE_INDEX } from '../../../data/schools-map/registry';
+import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
 
 export function getStaticPaths() {
@@ -11,6 +12,7 @@ export function getStaticPaths() {
 
 const { id } = Astro.params;
 const scene = getScene(id!)!;
+const inBudget = budgetData.regions.some((r) => r.schools.some((s) => s.id === scene.id));
 const lang = 'en';
 ---
 
@@ -42,6 +44,8 @@ const lang = 'en';
             <h2>{scene.nameCn} · {scene.name}</h2>
             <p>{scene.blurb}</p>
             <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
+            <button class="smap-pill ghost" id="smap-fullscreen" style="margin-left:6px">⛶ 全屏</button>
+            {inBudget && <a class="smap-pill ghost" href={`/tools/budget-calculator?school=${scene.id}`} style="margin-left:6px">💰 留学预算</a>}
           </div>
           <div class="smap-card smap-panel">
             <div id="smap-era-sec">

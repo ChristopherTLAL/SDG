@@ -436,6 +436,15 @@ const budgetDataMerged = {
       });
     });
 
+    // Deep-link from the schools map: ?school=<id> pre-selects that university for comparison.
+    try {
+      var _preId = new URLSearchParams(window.location.search).get('school');
+      if (_preId) {
+        var _pre = allSchools.find(function(e) { return e.school.id === _preId; });
+        if (_pre) state.selectedSchools.push(_pre);
+      }
+    } catch (e) {}
+
     // === EXCHANGE RATES ===
     function fetchRates() {
       var statusEl = document.getElementById('bc-rate-status');

@@ -1,7 +1,7 @@
 // Detail scene renderer (single school or region).
 // Renders the scene's Features onto the map + wires the shared shell controls.
 import { L } from './leaflet-global';
-import { createMap, buildBaseRow, buildSwitcher, wireToggle, attachHoverLabel, disableMapDragOn, esc } from './shell';
+import { createMap, buildBaseRow, buildSwitcher, wireToggle, wireFullscreen, attachHoverLabel, disableMapDragOn, esc, mapsLink } from './shell';
 import type { SchoolsMapScene, CollegeTimelineFeature, PointLayerFeature, ZoneFeature, TransitFeature, CommuteFeature } from '../../data/schools-map/types';
 
 const ERAS = [
@@ -17,6 +17,7 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
   const wrap = $('smap-wrap');
   const { map, setBase } = createMap('smap-map', scene.center, scene.zoom);
   buildSwitcher($('smap-switch'), scenes, scene.id, '/tools/schools-map');
+  wireFullscreen($('smap-fullscreen'), wrap, map);
 
   const colleges = scene.features.find((f) => f.kind === 'collegeTimeline') as CollegeTimelineFeature | undefined;
   const pointLayers = scene.features.filter((f) => f.kind === 'pointLayer') as PointLayerFeature[];
@@ -48,7 +49,7 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       const icon = L.divIcon({ className: 'smap-col-marker', html: `<div class="cm" style="background:${era.color}">${c.rank}</div>`, iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -14] });
       const m = L.marker([c.lat, c.lng], { icon }).addTo(map);
       m.bindTooltip(esc(c.name), { permanent: true, direction: 'right', offset: [15, 0], className: 'smap-mk-label' });
-      m.bindPopup(`<div class="smap-pop-name">${esc(c.name)}</div><div class="smap-pop-cn">${esc(c.nameCn)}</div><div class="smap-pop-tag" style="color:${era.color}">${c.year} · ${era.label}</div><div class="smap-pop-note">${esc(c.note || '')}</div>`);
+      m.bindPopup(`<div class="smap-pop-name">${esc(c.name)}</div><div class="smap-pop-cn">${esc(c.nameCn)}</div><div class="smap-pop-tag" style="color:${era.color}">${c.year} · ${era.label}</div><div class="smap-pop-note">${esc(c.note || '')}</div>${mapsLink(c.lat, c.lng)}`);
       attachHoverLabel(m);
       m.on('mouseover', () => setHot(c.rank, true));
       m.on('mouseout', () => setHot(c.rank, false));
@@ -114,7 +115,7 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
     z.items.forEach((it) => {
       const c = L.circle([it.lat, it.lng], { radius: it.radius || 300, color: z.color, weight: 2, fillColor: z.color, fillOpacity: 0.1 });
       c.bindTooltip(esc(it.nameCn), { direction: 'top' });
-      c.bindPopup(`<div class="smap-pop-name">${esc(it.name)}</div><div class="smap-pop-cn">${esc(it.nameCn)}</div><div class="smap-pop-note">${esc(it.note || '')}</div>`);
+      c.bindPopup(`<div class="smap-pop-name">${esc(it.name)}</div><div class="smap-pop-cn">${esc(it.nameCn)}</div><div class="smap-pop-note">${esc(it.note || '')}</div>${mapsLink(it.lat, it.lng)}`);
       c.addTo(group);
       fitPts.push([it.lat, it.lng]);
     });
@@ -129,7 +130,7 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       const icon = L.divIcon({ className: 'smap-cat-marker', html: `<div class="cp" style="background:${cat.color}"><span class="material-symbols-outlined">${ic}</span></div>`, iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -15] });
       const m = L.marker([p.lat, p.lng], { icon });
       m.bindTooltip(esc(p.nameCn), { permanent: true, direction: 'right', offset: [16, 0], className: 'smap-mk-label' });
-      m.bindPopup(`<div class="smap-pop-name">${esc(p.name)}</div><div class="smap-pop-cn">${esc(p.nameCn)}</div><div class="smap-pop-tag" style="color:${cat.color}"><span class="material-symbols-outlined" style="font-size:14px">${ic}</span>${esc(cat.label)}</div><div class="smap-pop-note">${esc(p.note || '')}</div>`);
+      m.bindPopup(`<div class="smap-pop-name">${esc(p.name)}</div><div class="smap-pop-cn">${esc(p.nameCn)}</div><div class="smap-pop-tag" style="color:${cat.color}"><span class="material-symbols-outlined" style="font-size:14px">${ic}</span>${esc(cat.label)}</div><div class="smap-pop-note">${esc(p.note || '')}</div>${mapsLink(p.lat, p.lng)}`);
       attachHoverLabel(m);
       group.addLayer(m);
       fitPts.push([p.lat, p.lng]);

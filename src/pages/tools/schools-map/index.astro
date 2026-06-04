@@ -4,16 +4,19 @@ export const prerender = true;
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { UNIVERSITIES, RANK_TIERS } from '../../../data/universities/universities';
 import { SCENE_IDS, SCENE_INDEX } from '../../../data/schools-map/registry';
+import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
 
 const lang = 'en';
 const hasDetail = new Set(SCENE_IDS);
+const budgetIds = new Set(budgetData.regions.flatMap((r) => r.schools.map((s) => s.id)));
 
 const uk = UNIVERSITIES
   .filter((u) => u.country === 'UK' && u.lat != null && u.lng != null)
   .map((u) => ({
     id: u.id, name: u.name, nameCn: u.nameCn, city: u.city,
     qsRank: u.qsRank, lat: u.lat, lng: u.lng, hasDetail: hasDetail.has(u.id),
+    inBudget: budgetIds.has(u.id), tags: u.tags || [],
   }));
 
 const tiers = RANK_TIERS.map((t) => ({ key: t.key, label: t.label, color: t.color, max: t.max === Infinity ? 999999 : t.max }));
@@ -48,6 +51,7 @@ const ranksYear = UNIVERSITIES.find((u) => u.country === 'UK')?.ranksYear ?? 202
             <p>{uk.length} 所英国大学按真实位置分布，颜色＝QS 档位（QS{ranksYear}）。点有「精览」的学校进入单校地图。</p>
             <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
             <a class="smap-pill ghost" href="/tools/schools-map/london" style="margin-left:6px">🚇 伦敦地区</a>
+            <button class="smap-pill ghost" id="smap-fullscreen" style="margin-left:6px">⛶ 全屏</button>
           </div>
           <div class="smap-card smap-panel">
             <div class="smap-sec">QS 筛选</div>
@@ -55,6 +59,9 @@ const ranksYear = UNIVERSITIES.find((u) => u.country === 'UK')?.ranksYear ?? 202
             <div class="smap-divider"></div>
             <div class="smap-sec">档位配色</div>
             <div class="smap-legend" id="smap-tier-row"></div>
+            <div class="smap-divider"></div>
+            <div class="smap-sec">标签</div>
+            <div class="smap-filter-row" id="smap-tag-row"></div>
           </div>
         </div>
 

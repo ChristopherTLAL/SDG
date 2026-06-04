@@ -15,6 +15,17 @@ const cambridge: SchoolsMapScene = {
   blurb: '31 所学院按建院先后编号、按年代配色。拖动 / 播放时间轴看七百年扩张；勾选叠加院系、博物馆、图书馆、地标。',
   features: [
     {
+      kind: 'zone',
+      label: '校区 / 区域',
+      color: '#16a34a',
+      items: [
+        { name: 'Central Colleges & The Backs', nameCn: '市中心学院区与剑河后园', lat: 52.205, lng: 0.116, radius: 750, note: '多数历史学院与剑河「后园」集中的核心区。' },
+        { name: 'West Cambridge Site', nameCn: '西剑桥科技园区', lat: 52.2108, lng: 0.09, radius: 600, note: '计算机、卡文迪许物理、材料等理工新区。' },
+        { name: 'Cambridge Biomedical Campus', nameCn: '生物医学园区', lat: 52.1748, lng: 0.1394, radius: 600, note: "临床医学院与 Addenbrooke's 医院，位于城南。" },
+        { name: 'Downing / New Museums Sites', nameCn: '唐宁 / 新博物馆理科区', lat: 52.2028, lng: 0.1208, radius: 260, note: '生命与地球科学等系所集中地。' },
+      ],
+    },
+    {
       kind: 'collegeTimeline',
       label: '学院 Colleges',
       items: [
