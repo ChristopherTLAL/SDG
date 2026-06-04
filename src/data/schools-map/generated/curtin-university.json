@@ -149,6 +149,182 @@
           "note": "接驳Transperth公交，连通坎宁桥火车站"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Coles Village Green",
+          "nameCn": "Coles 超市（Village Green 商场）",
+          "lat": -32.0124,
+          "lng": 115.8909,
+          "note": "紧挨校园南侧 Kent 街的社区商场，主流连锁 Coles，步行可达，日常采购最方便。"
+        },
+        {
+          "name": "Woolworths Bentley Plaza",
+          "nameCn": "Woolworths 超市（Bentley Plaza）",
+          "lat": -32.0018,
+          "lng": 115.9196,
+          "note": "Albany 高速旁的大型商场，Woolworths 主力超市，品类齐全，离校约 3 公里。"
+        },
+        {
+          "name": "Kongs Asian Grocery",
+          "nameCn": "Kongs 亚洲超市",
+          "lat": -31.9966,
+          "lng": 115.9023,
+          "note": "Albany 高速东维多利亚公园段的老牌亚洲杂货店，中式调料、米面、火锅料齐全。"
+        },
+        {
+          "name": "Ying Seng Oriental Merchant",
+          "nameCn": "英盛东方亚超",
+          "lat": -32.0011,
+          "lng": 115.9188,
+          "note": "位于 Bentley Plaza 内的亚洲食材店，距校近，买酱油、老干妈、速食面方便。"
+        },
+        {
+          "name": "Spudshed Victoria Park",
+          "nameCn": "Spudshed 平价生鲜超市",
+          "lat": -31.9889,
+          "lng": 115.9098,
+          "note": "24 小时营业的本地平价生鲜超市，果蔬肉类便宜，适合学生囤货。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Qin's Lanzhou Beef Noodle",
+          "nameCn": "秦师傅兰州牛肉面",
+          "lat": -31.9962,
+          "lng": 115.9021,
+          "note": "东维多利亚公园的兰州拉面馆，现拉牛肉面，留学生想念的中式面食首选。"
+        },
+        {
+          "name": "Good Fortune Roast Duck House",
+          "nameCn": "鸿运烧腊（烧鸭店）",
+          "lat": -31.9959,
+          "lng": 115.9018,
+          "note": "884 Albany Hwy 的广式烧腊店，烧鸭叉烧出名，正宗粤式味道，性价比高。"
+        },
+        {
+          "name": "Yip (Bamboo Noodles)",
+          "nameCn": "Yip 竹升面",
+          "lat": -31.9931,
+          "lng": 115.9009,
+          "note": "884 号一带主打传统竹升面的小店，手工弹牙面条，本地华人推荐。"
+        },
+        {
+          "name": "Frank's Smokehouse",
+          "nameCn": "Frank's 美式烟熏烤肉",
+          "lat": -31.9856,
+          "lng": 115.9118,
+          "note": "维多利亚公园本地名店，14 小时慢熏牛胸肉，体验地道美式 BBQ 必打卡。"
+        },
+        {
+          "name": "Izakaya Tori",
+          "nameCn": "鸟居居酒屋",
+          "lat": -31.9847,
+          "lng": 115.9115,
+          "note": "Albany 高速上人气日式居酒屋，红灯笼下吃烤串喝酒，氛围感强适合聚餐。"
+        },
+        {
+          "name": "The Prophet",
+          "nameCn": "The Prophet 黎巴嫩餐厅",
+          "lat": -31.9802,
+          "lng": 115.9094,
+          "note": "开业逾 20 年的黎巴嫩老店，分量足味道地道，体验中东风味的口碑之选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Curtin University Health Service",
+          "nameCn": "科廷大学校医院（109 号楼）",
+          "lat": -32.0066,
+          "lng": 115.8951,
+          "note": "校内 109 号楼一层的全科医疗中心，仅限师生，看病、打疫苗、心理咨询都在这。"
+        },
+        {
+          "name": "Chemist Warehouse Victoria Park",
+          "nameCn": "Chemist Warehouse 药房",
+          "lat": -31.9783,
+          "lng": 115.9089,
+          "note": "348 Albany Hwy 的连锁折扣药房，处方药、感冒药、保健品价格实惠。"
+        },
+        {
+          "name": "Commonwealth Bank Victoria Park",
+          "nameCn": "联邦银行 维多利亚公园支行",
+          "lat": -31.9852,
+          "lng": 115.9116,
+          "note": "413 Albany Hwy 的 CommBank 实体网点，留学生开户、办银行卡可现场办理。"
+        },
+        {
+          "name": "St John Urgent Care Cannington",
+          "nameCn": "St John 紧急医疗中心（Cannington）",
+          "lat": -32.0167,
+          "lng": 115.9347,
+          "note": "Cannington 的非预约急诊门诊，校医院下班后看急症（崴脚、发烧）的去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "John Curtin Gallery",
+          "nameCn": "约翰·科廷美术馆",
+          "lat": -32.0058,
+          "lng": 115.8945,
+          "note": "校内 200A 楼的西澳重点公共美术馆之一，看当代艺术展、拍照都免费。"
+        },
+        {
+          "name": "Optus Stadium",
+          "nameCn": "Optus 体育场",
+          "lat": -31.951,
+          "lng": 115.889,
+          "note": "Burswood 半岛的地标球场，看 AFL/演唱会的圣地，夜晚灯光与河景出片。"
+        },
+        {
+          "name": "Perth Zoo",
+          "nameCn": "珀斯动物园",
+          "lat": -31.9762,
+          "lng": 115.8541,
+          "note": "南珀斯天鹅河畔的老牌动物园，能看袋鼠、考拉等澳洲特有动物，周末好去处。"
+        },
+        {
+          "name": "Crown Perth",
+          "nameCn": "皇冠珀斯娱乐城",
+          "lat": -31.9606,
+          "lng": 115.893,
+          "note": "Burswood 河畔的综合娱乐城，餐厅、影院、河景步道俱全，离校约 5 公里。"
+        },
+        {
+          "name": "Albany Highway Strip (Victoria Park)",
+          "nameCn": "维多利亚公园美食街（Albany 高速）",
+          "lat": -31.987,
+          "lng": 115.91,
+          "note": "距校最近的网红美食街，全球各国餐厅扎堆，逛吃拍照的日常打卡地。"
+        }
+      ]
     }
   ]
 }

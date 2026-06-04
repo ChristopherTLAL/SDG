@@ -179,6 +179,182 @@
           "note": "北阶地上的城市铁路总站，校区西侧步行可达。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Hong Kong Grocery",
+          "nameCn": "香港超市",
+          "lat": -34.9298,
+          "lng": 138.5969,
+          "note": "阿德莱德最老牌华人超市，已迁至 Grote St 93号，中餐调料、米面、冷冻品、亚洲零食最全，离唐人街一步之遥。"
+        },
+        {
+          "name": "Time Supermarket",
+          "nameCn": "天天亚洲超市",
+          "lat": -34.9302,
+          "lng": 138.5958,
+          "note": "Grote 街上的大型亚超，酱料、火锅底料、方便面、饮料价格实惠，留学生囤货首选。"
+        },
+        {
+          "name": "Adelaide Central Market",
+          "nameCn": "阿德莱德中央市场",
+          "lat": -34.9297,
+          "lng": 138.598,
+          "note": "南半球最大室内生鲜市场之一，70多家摊位卖蔬果、海鲜、肉类、奶酪，紧邻唐人街，性价比高。"
+        },
+        {
+          "name": "Coles Rundle Mall",
+          "nameCn": "Coles 超市（兰朵商业街）",
+          "lat": -34.9226,
+          "lng": 138.6022,
+          "note": "澳洲两大连锁超市之一，离学校步行约10分钟，日常牛奶、面包、生活用品最方便。"
+        },
+        {
+          "name": "Woolworths Adelaide Central",
+          "nameCn": "Woolworths 超市",
+          "lat": -34.9242,
+          "lng": 138.6005,
+          "note": "另一大主流连锁超市，CBD 中心位置，营业到很晚，补货应急都靠它。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Concubine",
+          "nameCn": "Concubine 中餐厅",
+          "lat": -34.9295,
+          "lng": 138.5957,
+          "note": "Gouger 街上的得奖中餐厅，宫保鸡丁、韭菜虾饺口碑极好，请客、聚餐有档次。"
+        },
+        {
+          "name": "Ying Chow",
+          "nameCn": "英州小馆",
+          "lat": -34.9296,
+          "lng": 138.5949,
+          "note": "本地公认最好吃的粤菜小馆之一，茶熏鸭、椒盐鱿鱼、红醋排骨必点，价廉味正人气旺。"
+        },
+        {
+          "name": "Gouger Street Chinatown",
+          "nameCn": "古各街唐人街美食",
+          "lat": -34.9293,
+          "lng": 138.5963,
+          "note": "阿德莱德美食一条街+唐人街，火锅、烧腊、越南粉、马来菜全在这，留学生约饭据点。"
+        },
+        {
+          "name": "Adelaide Central Market Food Stalls",
+          "nameCn": "中央市场美食摊",
+          "lat": -34.9299,
+          "lng": 138.5978,
+          "note": "市场内café与熟食摊，咖啡、芝士、希腊及中东小吃，体验本地慢生活的好去处。"
+        },
+        {
+          "name": "Haigh's Chocolates (Beehive Corner)",
+          "nameCn": "Haigh's 巧克力（蜂巢角店）",
+          "lat": -34.9234,
+          "lng": 138.6004,
+          "note": "1915年创于阿德莱德的澳洲百年巧克力品牌，兰朵街地标蜂巢角旗舰店，伴手礼标配。"
+        },
+        {
+          "name": "Pancake Kitchen",
+          "nameCn": "Pancake Kitchen 煎饼屋",
+          "lat": -34.9286,
+          "lng": 138.5972,
+          "note": "开在老仓库里的24小时煎饼店，本地几十年招牌，宵夜、早午餐都热闹。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Adelaide Hospital",
+          "nameCn": "皇家阿德莱德医院",
+          "lat": -34.922,
+          "lng": 138.5881,
+          "note": "南澳最大公立医院，就在 North Terrace 西段，急诊、专科齐全，紧急就医首选。"
+        },
+        {
+          "name": "Commonwealth Bank Rundle Mall",
+          "nameCn": "联邦银行（兰朵街支行）",
+          "lat": -34.9229,
+          "lng": 138.6017,
+          "note": "澳洲四大行之一，离校近，留学生开户、办卡、汇款都常来这家网点。"
+        },
+        {
+          "name": "Telstra Shop Rundle Mall",
+          "nameCn": "Telstra 电信店（兰朵街）",
+          "lat": -34.9227,
+          "lng": 138.6021,
+          "note": "澳洲第一大运营商门店，Regent Arcade 内，落地后办手机卡、宽带、解约都在这办。"
+        },
+        {
+          "name": "Chemist Warehouse Rundle Mall",
+          "nameCn": "Chemist Warehouse 药房",
+          "lat": -34.9226,
+          "lng": 138.6018,
+          "note": "澳洲最大连锁平价药房，感冒药、保健品、护肤品便宜量大，留学生常逛。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Adelaide Botanic Garden",
+          "nameCn": "阿德莱德植物园",
+          "lat": -34.916,
+          "lng": 138.6086,
+          "note": "校园隔壁的51公顷免费植物园，温室、玫瑰园、莲花池,散步拍照、考试间隙放松的宝地。"
+        },
+        {
+          "name": "Art Gallery of South Australia",
+          "nameCn": "南澳美术馆",
+          "lat": -34.9209,
+          "lng": 138.6048,
+          "note": "就在 North Terrace 文化区，与校园相邻,免费看澳洲及亚欧艺术藏品,雨天好去处。"
+        },
+        {
+          "name": "South Australian Museum",
+          "nameCn": "南澳博物馆",
+          "lat": -34.9207,
+          "lng": 138.6038,
+          "note": "紧挨美术馆的免费博物馆,以原住民文化与自然史藏品闻名,步行即到。"
+        },
+        {
+          "name": "Rundle Mall",
+          "nameCn": "兰朵商业步行街",
+          "lat": -34.9227,
+          "lng": 138.6016,
+          "note": "阿德莱德最热闹的购物步行街,银行、商场、餐饮一站齐全,著名「铜猪」雕塑打卡点。"
+        },
+        {
+          "name": "Adelaide Oval",
+          "nameCn": "阿德莱德椭圆球场",
+          "lat": -34.9156,
+          "lng": 138.5961,
+          "note": "横跨托伦斯河的标志性体育场,可登顶攀爬看城市全景,板球、橄榄球赛季氛围拉满。"
+        }
+      ]
     }
   ]
 }

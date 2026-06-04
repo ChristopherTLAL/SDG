@@ -201,6 +201,182 @@
           "note": "校园北侧学生生活枢纽,餐饮与活动集聚地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "IGA University of Wollongong (UniShop)",
+          "nameCn": "校园 IGA 超市（UniShop）",
+          "lat": -34.4077,
+          "lng": 150.8789,
+          "note": "校内 11 号楼超市，步行即到，日常零食、生鲜、热食都能买，新生最方便的应急补给点。"
+        },
+        {
+          "name": "Coles Wollongong Central",
+          "nameCn": "Coles 超市（卧龙岗中心）",
+          "lat": -34.4247,
+          "lng": 150.8942,
+          "note": "市中心 Crown 街商场内的大型连锁超市，主食、肉菜、生活用品一站买齐，离北卧龙岗站很近。"
+        },
+        {
+          "name": "Wan Long Oriental Supermarket",
+          "nameCn": "万隆东方超市",
+          "lat": -34.4199,
+          "lng": 150.8939,
+          "note": "Campbell 街上的华人超市，酱油、火锅料、米面、亚洲蔬菜调料齐全，留学生采购中餐食材首选。"
+        },
+        {
+          "name": "Wollongong Orient Trading (Dong Phuong)",
+          "nameCn": "东方贸易亚洲超市（Dong Phuong）",
+          "lat": -34.425,
+          "lng": 150.893,
+          "note": "本地规模最大的亚洲超市，越南、日韩、中式食材都有，新鲜蔬果便宜，就在市中心商场内。"
+        },
+        {
+          "name": "Coles Fairy Meadow",
+          "nameCn": "Coles 超市（Fairy Meadow）",
+          "lat": -34.391,
+          "lng": 150.8881,
+          "note": "校园北侧 Fairy Meadow 商圈的大超市，旁边聚集多家亚超和水果市场，适合开车或坐火车一站囤货。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "TaChun Chinese Restaurant",
+          "nameCn": "TaChun 中餐厅",
+          "lat": -34.425,
+          "lng": 150.8912,
+          "note": "市中心 Keira 街的中式与台式餐馆，评价很高，想吃热乎中餐、解乡愁来这家准没错。"
+        },
+        {
+          "name": "Chef's Choice",
+          "nameCn": "厨师之选（中越餐厅）",
+          "lat": -34.4243,
+          "lng": 150.8916,
+          "note": "开了二十多年的老牌中越餐厅，份量足价格实在，是本地华人和学生的常去食堂。"
+        },
+        {
+          "name": "Diggies Cafe",
+          "nameCn": "Diggies 海滩咖啡馆",
+          "lat": -34.415,
+          "lng": 150.8953,
+          "note": "北海滩边 1930 年代 Art Deco 老建筑里的网红早午餐店，看海吃 brunch 的卧龙岗经典打卡点。"
+        },
+        {
+          "name": "Lee & Me",
+          "nameCn": "Lee & Me 咖啡馆",
+          "lat": -34.4267,
+          "lng": 150.8929,
+          "note": "市中心人气咖啡早午餐店，氛围好出片，体验澳洲 brunch 文化的代表小店。"
+        },
+        {
+          "name": "His Boy Elroy",
+          "nameCn": "His Boy Elroy 汉堡店",
+          "lat": -34.4263,
+          "lng": 150.8924,
+          "note": "卧龙岗本地有名的美式汉堡馆，份量大、口味地道，学生聚餐的热门去处。"
+        },
+        {
+          "name": "North Beach Pavilion / Levendi",
+          "nameCn": "北海滩餐厅 Levendi",
+          "lat": -34.4138,
+          "lng": 150.8958,
+          "note": "北卧龙岗海边的地中海风味餐厅，正对海滩落地窗景，适合朋友聚餐或周末改善伙食。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Wollongong Hospital",
+          "nameCn": "卧龙岗医院（公立急诊）",
+          "lat": -34.4263,
+          "lng": 150.8855,
+          "note": "Loftus 街的大型公立医院，设 24 小时急诊，突发疾病或意外就医的主要去处，离校区很近。"
+        },
+        {
+          "name": "UOW Campus Medical & Pharmacy",
+          "nameCn": "校园诊所及药房",
+          "lat": -34.4072,
+          "lng": 150.8782,
+          "note": "校内全科诊所（GP）加药房，看小病、开处方、配药一站搞定，学生看病最省事的第一站。"
+        },
+        {
+          "name": "Commonwealth Bank (Wollongong Central)",
+          "nameCn": "联邦银行（市中心网点）",
+          "lat": -34.4258,
+          "lng": 150.892,
+          "note": "澳洲四大行之一，市中心 Crown 街商场及周边设网点，开学生账户、办银行卡来这里。"
+        },
+        {
+          "name": "Telstra Store Wollongong",
+          "nameCn": "Telstra 电信营业厅",
+          "lat": -34.4262,
+          "lng": 150.8926,
+          "note": "澳洲最大运营商门店，落地办手机卡、选套餐、买配件，新生开通本地号码的去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "North Wollongong Beach",
+          "nameCn": "北卧龙岗海滩",
+          "lat": -34.415,
+          "lng": 150.8965,
+          "note": "离校最近的金沙海滩，夏天游泳冲浪、平日散步看海都很棒，是卧龙岗的日常治愈地。"
+        },
+        {
+          "name": "Wollongong Head Lighthouse (Flagstaff Hill)",
+          "nameCn": "旗杆山灯塔",
+          "lat": -34.4219,
+          "lng": 150.9097,
+          "note": "海角山丘上的标志性灯塔加炮台公园，俯瞰海岸线的绝佳观景与拍照点，看日出超出片。"
+        },
+        {
+          "name": "Wollongong Botanic Garden",
+          "nameCn": "卧龙岗植物园",
+          "lat": -34.4117,
+          "lng": 150.8777,
+          "note": "紧邻校区的免费植物园，27 公顷绿地适合散步野餐、复习放空，是校园旁的天然后花园。"
+        },
+        {
+          "name": "Wollongong Harbour & Belmore Basin",
+          "nameCn": "卧龙岗港口与 Belmore 渔港",
+          "lat": -34.4202,
+          "lng": 150.9035,
+          "note": "历史小渔港带老灯塔，可看渔船、买新鲜海鲜、海边漫步，黄昏景色尤其好。"
+        },
+        {
+          "name": "Mount Keira Lookout",
+          "nameCn": "凯拉山观景台",
+          "lat": -34.4145,
+          "lng": 150.8489,
+          "note": "校区西侧山顶观景台，可俯瞰整个卧龙岗城区与海岸全景，开车上山看夜景的好去处。"
+        }
+      ]
     }
   ]
 }

@@ -209,6 +209,182 @@
           "note": "校区南侧公共绿地广场，连接城市。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Mr Dad Asian Supermarket",
+          "nameCn": "亚洲老爹超级市场",
+          "lat": -37.8016,
+          "lng": 144.9628,
+          "note": "校园南门 557 Swanston St，主打中日韩东南亚食材，营业到晚 11 点，留学生采购中式调料最方便。"
+        },
+        {
+          "name": "Woolworths Melbourne CBD (QV)",
+          "nameCn": "Woolworths 超市（QV 店）",
+          "lat": -37.8101,
+          "lng": 144.9636,
+          "note": "本地两大主流连锁超市之一，QV 中心地下层，日常生鲜、牛奶、肉菜一站买齐。"
+        },
+        {
+          "name": "Coles Carlton (Lygon Court)",
+          "nameCn": "Coles 超市（Lygon Court）",
+          "lat": -37.8001,
+          "lng": 144.9669,
+          "note": "Lygon 街上的主流超市，步行可达，价格平价，学生日用品和速食的首选。"
+        },
+        {
+          "name": "Queen Victoria Market",
+          "nameCn": "维多利亚女王市场",
+          "lat": -37.8076,
+          "lng": 144.9567,
+          "note": "墨尔本最大露天市场，平价果蔬肉禽海鲜，自己做饭比超市更省，周末必逛。"
+        },
+        {
+          "name": "Tang Asian Food Emporium",
+          "nameCn": "Tang 亚洲食品超市",
+          "lat": -37.8112,
+          "lng": 144.9676,
+          "note": "CBD 唐人街旁的大型亚超，中式干货、火锅底料、冷冻饺子齐全，规模比校园店大。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chinatown (Little Bourke St)",
+          "nameCn": "墨尔本唐人街",
+          "lat": -37.8118,
+          "lng": 144.9685,
+          "note": "南半球最老唐人街之一，川菜粤菜火锅港式茶餐厅云集，想家时吃中餐就来这。"
+        },
+        {
+          "name": "Brunetti Classico",
+          "nameCn": "Brunetti 意式咖啡甜品",
+          "lat": -37.7997,
+          "lng": 144.9672,
+          "note": "Lygon 街 1985 年开业的墨尔本咖啡甜品地标，意式蛋糕和 gelato 出名，学生打卡常去。"
+        },
+        {
+          "name": "Tiamo",
+          "nameCn": "Tiamo 意大利餐厅",
+          "lat": -37.7991,
+          "lng": 144.9673,
+          "note": "Lygon 街 70 年代老牌意餐，份量大价格友好，千层面和木火披萨是经典。"
+        },
+        {
+          "name": "Shujinko Ramen",
+          "nameCn": "Shujinko 拉面",
+          "lat": -37.8108,
+          "lng": 144.9669,
+          "note": "24 小时营业的人气日式拉面，CBD 北端，下课晚了也能吃上一碗热汤面。"
+        },
+        {
+          "name": "Tsindos / Greek Precinct (Lonsdale St)",
+          "nameCn": "朗斯代尔街希腊城",
+          "lat": -37.8113,
+          "lng": 144.965,
+          "note": "墨尔本希腊城，正宗地中海菜和 souvlaki，体验本地多元饮食的必尝一站。"
+        },
+        {
+          "name": "Seven Seeds Coffee",
+          "nameCn": "Seven Seeds 精品咖啡",
+          "lat": -37.8016,
+          "lng": 144.9576,
+          "note": "墨尔本精品咖啡名店之一，体验本地引以为傲的咖啡文化，离校园几分钟。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "The Royal Melbourne Hospital",
+          "nameCn": "皇家墨尔本医院",
+          "lat": -37.7994,
+          "lng": 144.957,
+          "note": "300 Grattan St，正对校园北侧的公立大医院，设急诊（Emergency），急病外伤来这。"
+        },
+        {
+          "name": "Commonwealth Bank (Lygon St)",
+          "nameCn": "联邦银行 CBA（Lygon 街）",
+          "lat": -37.8003,
+          "lng": 144.967,
+          "note": "澳洲四大行之一，离校最近的网点，开学生账户、办卡咨询走这家最方便。"
+        },
+        {
+          "name": "Chemist Warehouse Carlton",
+          "nameCn": "Chemist Warehouse 药房",
+          "lat": -37.8006,
+          "lng": 144.9668,
+          "note": "澳洲最大连锁药房，平价药品、保健品、防晒，处方非处方都能配。"
+        },
+        {
+          "name": "Telstra Store Melbourne Central",
+          "nameCn": "Telstra 电信营业厅",
+          "lat": -37.8102,
+          "lng": 144.9628,
+          "note": "澳洲最大电信运营商，办手机卡和套餐、解决信号问题，Melbourne Central 内。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Royal Exhibition Building & Carlton Gardens",
+          "nameCn": "皇家展览馆与卡尔顿花园",
+          "lat": -37.8047,
+          "lng": 144.9712,
+          "note": "墨尔本唯一世界文化遗产建筑，被花园环绕，步行即到，拍照散步绝佳。"
+        },
+        {
+          "name": "Melbourne Museum",
+          "nameCn": "墨尔本博物馆",
+          "lat": -37.8033,
+          "lng": 144.9716,
+          "note": "南半球最大博物馆之一，自然史、原住民文化与恐龙化石，学生票便宜。"
+        },
+        {
+          "name": "University of Melbourne Old Quad",
+          "nameCn": "墨大老方庭 Old Quad",
+          "lat": -37.7975,
+          "lng": 144.9606,
+          "note": "校园最古老的哥特式建筑与回廊，新生入学打卡和毕业照的标志性背景。"
+        },
+        {
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8098,
+          "lng": 144.9652,
+          "note": "壮观的圆顶穹顶阅览室（La Trobe Reading Room），免费开放，自习与拍照都热门。"
+        },
+        {
+          "name": "Lygon Street (Little Italy)",
+          "nameCn": "Lygon 街小意大利",
+          "lat": -37.7998,
+          "lng": 144.9671,
+          "note": "墨尔本小意大利风情街，餐厅咖啡馆林立，紧邻校园，是学生日常吃喝聚会的中心。"
+        }
+      ]
     }
   ]
 }

@@ -163,6 +163,182 @@
           "note": "校区南部运动场、健身房与游泳馆所在。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Daily Market (Kambri, ANU)",
+          "nameCn": "Daily Market 亚洲超市（ANU Kambri 校内）",
+          "lat": -35.2772,
+          "lng": 149.1188,
+          "note": "校内 Kambri 商业区的亚洲超市，中式调料、速食、蔬果一应俱全，下课顺路买，最方便。"
+        },
+        {
+          "name": "Emart Asian Supermarket",
+          "nameCn": "Emart 亚洲超市",
+          "lat": -35.279,
+          "lng": 149.1296,
+          "note": "Civic 市中心 45 West Row，规模大货全，中日韩食材齐，是城里口碑最好的亚超之一。"
+        },
+        {
+          "name": "All in One Asian Grocery",
+          "nameCn": "All in One 亚洲杂货",
+          "lat": -35.2784,
+          "lng": 149.1305,
+          "note": "Civic Alinga 街上的亚超，离校步行十几分钟，补中式米面酱料的备选点。"
+        },
+        {
+          "name": "Coles Canberra Centre",
+          "nameCn": "Coles 超市（堪培拉中心）",
+          "lat": -35.2799,
+          "lng": 149.132,
+          "note": "Civic 大型连锁超市，日常生鲜、牛奶面包、生活用品的主力采购地。"
+        },
+        {
+          "name": "Woolworths Dickson",
+          "nameCn": "Woolworths 超市（Dickson）",
+          "lat": -35.2503,
+          "lng": 149.1389,
+          "note": "Dickson 亚洲美食区旁的主流超市，配合周边亚超一站补齐中西食材。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Wukong Hot Pot",
+          "nameCn": "悟空火锅",
+          "lat": -35.2505,
+          "lng": 149.1393,
+          "note": "Dickson 的正宗重庆火锅，留学生聚餐解馋首选，想吃辣就来这。"
+        },
+        {
+          "name": "Dickson Dumpling House",
+          "nameCn": "Dickson 饺子馆",
+          "lat": -35.25,
+          "lng": 149.1386,
+          "note": "现包现煮饺子，份量实在价格友好，Dickson 中餐老牌之一。"
+        },
+        {
+          "name": "Rasa Sayang",
+          "nameCn": "Rasa Sayang 马来中餐",
+          "lat": -35.2508,
+          "lng": 149.138,
+          "note": "Dickson 的中式/马来菜，叻沙、海南鸡饭等南洋风味，每天营业到晚 10 点。"
+        },
+        {
+          "name": "CBD Dumpling House",
+          "nameCn": "CBD 饺子馆",
+          "lat": -35.2795,
+          "lng": 149.1318,
+          "note": "堪培拉中心地下层，煎饺水饺种类多，进城逛街时的快捷中餐。"
+        },
+        {
+          "name": "Au Lac Dickson",
+          "nameCn": "Au Lac 素食",
+          "lat": -35.2497,
+          "lng": 149.1383,
+          "note": "Dickson 人气越南/东南亚纯素餐厅，吃素或想清淡一顿的好去处。"
+        },
+        {
+          "name": "Brodburger (Lake Burley Griffin)",
+          "nameCn": "Brodburger 汉堡",
+          "lat": -35.289,
+          "lng": 149.1349,
+          "note": "堪培拉本地招牌汉堡店，临湖位置，是必打卡的当地 must-eat。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank — ANU Branch",
+          "nameCn": "联邦银行 ANU 校内支行",
+          "lat": -35.2776,
+          "lng": 149.1197,
+          "note": "校内联邦银行支行，新生开户、办借记卡最方便，澳洲四大行之一。"
+        },
+        {
+          "name": "ANU Medical Centre / Health Service",
+          "nameCn": "ANU 校医院（医疗与健康中心）",
+          "lat": -35.2783,
+          "lng": 149.1175,
+          "note": "校内全科 GP 诊所，看病、开转诊、健康咨询都在这，学生就医第一站。"
+        },
+        {
+          "name": "University Pharmacy (Kambri)",
+          "nameCn": "University 药房（Kambri 校内）",
+          "lat": -35.2771,
+          "lng": 149.1187,
+          "note": "Kambri 校内药房（Joplin Lane 156-B2），取处方药和常用非处方药就近搞定。"
+        },
+        {
+          "name": "Telstra Shop Canberra Centre",
+          "nameCn": "Telstra 营业厅（堪培拉中心）",
+          "lat": -35.2797,
+          "lng": 149.1322,
+          "note": "Civic 的 Telstra 手机营业厅，办澳洲电话卡/套餐，留学生落地必办。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Lake Burley Griffin",
+          "nameCn": "伯利格里芬湖",
+          "lat": -35.292,
+          "lng": 149.13,
+          "note": "紧邻校园南侧的城市中心湖，环湖跑步骑行、看日落,堪培拉地标。"
+        },
+        {
+          "name": "Black Mountain Tower (Telstra Tower)",
+          "nameCn": "黑山电视塔",
+          "lat": -35.2747,
+          "lng": 149.0973,
+          "note": "校园西侧黑山顶的观景塔,360 度俯瞰全城,夜景与拍照绝佳。"
+        },
+        {
+          "name": "Australian National Botanic Gardens",
+          "nameCn": "澳大利亚国家植物园",
+          "lat": -35.2778,
+          "lng": 149.1099,
+          "note": "校园西侧黑山脚下的国家植物园，本土植被丰富，散步亲近自然的好地方。"
+        },
+        {
+          "name": "National Museum of Australia",
+          "nameCn": "澳大利亚国家博物馆",
+          "lat": -35.2926,
+          "lng": 149.1206,
+          "note": "Acton 半岛临湖的国家博物馆，了解澳洲历史文化，免费且离校很近。"
+        },
+        {
+          "name": "National Library of Australia",
+          "nameCn": "澳大利亚国家图书馆",
+          "lat": -35.2966,
+          "lng": 149.1294,
+          "note": "湖畔地标建筑，馆藏丰富、阅览环境好，是查资料与打卡兼得之地。"
+        }
+      ]
     }
   ]
 }

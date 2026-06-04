@@ -141,6 +141,175 @@
           "note": "1500 万澳元职业足球训练场，位于体育公园内。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Woolworths Polaris",
+          "nameCn": "Woolworths 超市（Polaris 店）",
+          "lat": -37.712821,
+          "lng": 145.047595,
+          "note": "距校园步行约10分钟，最近的主流大超市，日常生鲜杂货首选，旁边还有 Dan Murphy's 酒类。"
+        },
+        {
+          "name": "Coles Uni Hill Town Centre",
+          "nameCn": "Coles 超市（Uni Hill 店）",
+          "lat": -37.7255,
+          "lng": 145.028105,
+          "note": "位于 Uni Hill 商业中心，另一大主流超市，常和 Aldi 一起比价采购。"
+        },
+        {
+          "name": "Good N More Asian Grocery",
+          "nameCn": "Good N More 亚洲超市",
+          "lat": -37.712815,
+          "lng": 145.048363,
+          "note": "Polaris 商圈内的亚洲超市，中餐调料、米面、火锅底料、亚洲零食都能买到，离校最近的亚超。"
+        },
+        {
+          "name": "Agora IGA Xpress",
+          "nameCn": "Agora IGA 便利超市",
+          "lat": -37.720637,
+          "lng": 145.048772,
+          "note": "紧邻校园南侧的小型超市，临时缺米缺菜、深夜补货很方便。"
+        },
+        {
+          "name": "ALDI Bundoora",
+          "nameCn": "ALDI 超市（Bundoora 店）",
+          "lat": -37.724802,
+          "lng": 145.028982,
+          "note": "Uni Hill 一带的平价超市，预算党囤货首选，自有品牌便宜量大。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Mimi's / Polaris Dumpling Kitchen",
+          "nameCn": "水饺王（Polaris 饺子馆）",
+          "lat": -37.712815,
+          "lng": 145.048266,
+          "note": "Polaris 商圈高人气中餐饺子馆，手工水饺和家常小炒，留学生食堂级别的存在。"
+        },
+        {
+          "name": "Pho 999",
+          "nameCn": "Pho 999 越南粉",
+          "lat": -37.712918,
+          "lng": 145.048363,
+          "note": "地道越南河粉店，一碗热汤粉性价比高，冬天暖胃刚需。"
+        },
+        {
+          "name": "Mamak Mamak Rice & Noodle",
+          "nameCn": "Mamak 马来风味饭面",
+          "lat": -37.721001,
+          "lng": 145.048297,
+          "note": "紧靠校园的马来西亚/东南亚菜，叻沙、椰浆饭、海南鸡饭，亚洲胃救星。"
+        },
+        {
+          "name": "Myoshi Sushi",
+          "nameCn": "Myoshi 寿司",
+          "lat": -37.71311,
+          "lng": 145.047611,
+          "note": "Polaris 内的日式寿司，午餐便当和寿司卷快捷实惠，适合课间快速解决。"
+        },
+        {
+          "name": "Giorgio's Charcoal Chicken",
+          "nameCn": "Giorgio's 炭烤鸡",
+          "lat": -37.712818,
+          "lng": 145.047807,
+          "note": "澳式炭烤全鸡配薯角，本地人吃法，外带一只全家份量超划算。"
+        },
+        {
+          "name": "Kingsbury Fish Shop",
+          "nameCn": "Kingsbury 炸鱼薯条店",
+          "lat": -37.719272,
+          "lng": 145.038082,
+          "note": "传统澳式 Fish & Chips 老店，体验本地国民快餐就来这儿。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "ANZ Bank / ATM (Polaris)",
+          "nameCn": "ANZ 银行/ATM（Polaris）",
+          "lat": -37.720999,
+          "lng": 145.048195,
+          "note": "紧贴校园边的 ANZ 网点与 ATM，留学生开户、取现、汇款就近办理。"
+        },
+        {
+          "name": "Bank of Melbourne (Uni Hill)",
+          "nameCn": "墨尔本银行（Uni Hill）",
+          "lat": -37.725085,
+          "lng": 145.028164,
+          "note": "Uni Hill 商业中心的银行网点，另一开户选择，旁边即 Commonwealth Bank。"
+        },
+        {
+          "name": "Chemist Warehouse Polaris",
+          "nameCn": "Chemist Warehouse 药房（Polaris）",
+          "lat": -37.712364,
+          "lng": 145.048443,
+          "note": "澳洲最大连锁平价药房，感冒药、处方药、维生素、日用品一站买齐。"
+        },
+        {
+          "name": "La Trobe Private Hospital",
+          "nameCn": "拉筹伯私立医院",
+          "lat": -37.71589,
+          "lng": 145.044497,
+          "note": "校园西侧最近的医院，看急诊/就医方便（校内另设 Medical Centre 学生健康中心）。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Nangak Tamboree Wildlife Sanctuary",
+          "nameCn": "Nangak Tamboree 野生动物保护区（原拉筹伯野生动物园）",
+          "lat": -37.717368,
+          "lng": 145.055318,
+          "note": "校园东侧的湿地野生动物保护区，可看袋鼠、水鸟，散步观鸟拍照的世外桃源。"
+        },
+        {
+          "name": "La Trobe University Museum of Art (LUMA) & Sculpture Park",
+          "nameCn": "拉筹伯大学艺术博物馆（LUMA）与雕塑公园",
+          "lat": -37.720658,
+          "lng": 145.05123,
+          "note": "校内免费艺术博物馆＋户外雕塑公园，看展、晒太阳、出片两不误。"
+        },
+        {
+          "name": "Bundoora Park",
+          "nameCn": "Bundoora 公园（含农场）",
+          "lat": -37.705625,
+          "lng": 145.040023,
+          "note": "大型城市公园带农场体验区，可喂动物、骑行、野餐，周末遛弯好去处。"
+        },
+        {
+          "name": "Mount Cooper Reserve Lookout",
+          "nameCn": "库珀山保护区观景点",
+          "lat": -37.700914,
+          "lng": 145.05066,
+          "note": "附近制高点，可俯瞰墨尔本北郊与远处 CBD 天际线，傍晚看日落很赞。"
+        }
+      ]
     }
   ]
 }

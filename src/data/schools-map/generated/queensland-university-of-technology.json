@@ -177,6 +177,168 @@
           "note": "紧邻主校区的市中心河畔植物园。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Coles Queen Street CBD (QueensPlaza)",
+          "nameCn": "Coles 超市（昆士兰广场店）",
+          "lat": -27.4694,
+          "lng": 153.027,
+          "note": "澳洲两大主流连锁超市之一，位于 Queen Street Mall 旁的 QueensPlaza，离校步行约 15 分钟，日常生鲜采购首选。"
+        },
+        {
+          "name": "Woolworths Metro MacArthur Central",
+          "nameCn": "Woolworths 超市（麦克阿瑟中心店）",
+          "lat": -27.4683,
+          "lng": 153.0282,
+          "note": "另一大主流连锁，259 Queen St，营业时间长，补日用品和速食很方便。"
+        },
+        {
+          "name": "Davely's Asian Supermarket",
+          "nameCn": "大佳亚洲超市",
+          "lat": -27.473,
+          "lng": 153.027,
+          "note": "CBD 内最知名的亚洲超市（119 Charlotte St），中日韩泰货品齐全，老干妈、火锅底料、酱料、米面都能买到，离校最近的中超。"
+        },
+        {
+          "name": "BCC Supermarket (Chinatown, Fortitude Valley)",
+          "nameCn": "BCC 华人超市（唐人街店）",
+          "lat": -27.4576,
+          "lng": 153.0345,
+          "note": "Fortitude Valley 唐人街一带的大型华人超市，中国食材和冻品种类最全，凑单囤货来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chinatown Mall (Duncan Street)",
+          "nameCn": "唐人街美食街（Duncan 街）",
+          "lat": -27.4576,
+          "lng": 153.0344,
+          "note": "布里斯班唐人街核心步行街，整条街中餐、港式、川菜、粤式、火锅扎堆，想吃中餐直接来这里，离校约 2 公里。"
+        },
+        {
+          "name": "Maoz Chinese / Sichuan eateries, Fortitude Valley",
+          "nameCn": "福蒂图德谷川菜馆",
+          "lat": -27.458,
+          "lng": 153.0349,
+          "note": "唐人街周边聚集多家正宗川菜湘菜馆，麻辣口味解馋，留学生聚餐常去。"
+        },
+        {
+          "name": "South Bank dining precinct (Grey Street)",
+          "nameCn": "南岸餐饮区（Grey 街）",
+          "lat": -27.4795,
+          "lng": 153.0215,
+          "note": "过河即到的河畔餐饮带，亚洲菜、西餐、咖啡馆云集，环境好，适合周末和朋友吃饭打卡。"
+        },
+        {
+          "name": "Eagle Street Pier / Howard Smith Wharves dining",
+          "nameCn": "鹰街码头 / 霍华德史密斯码头餐饮区",
+          "lat": -27.4641,
+          "lng": 153.0301,
+          "note": "河边高人气餐饮区，能边吃边看 Story Bridge 夜景，请客或约会的体面之选。"
+        },
+        {
+          "name": "Felons Brewing Co.",
+          "nameCn": "Felons 精酿啤酒花园",
+          "lat": -27.463,
+          "lng": 153.032,
+          "note": "本地标志性河畔精酿酒吧（霍华德史密斯码头内），落地看大桥与河景，是布里斯班必体验的当地玩法。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank, 240 Queen St",
+          "nameCn": "联邦银行（昆士兰街 240 号支行）",
+          "lat": -27.4696,
+          "lng": 153.0258,
+          "note": "澳洲四大行之一，离校最近的大型网点，开学生账户、办卡、咨询都来这里，CBD 核心位置。"
+        },
+        {
+          "name": "Telstra Store Queen St Mall",
+          "nameCn": "Telstra 电信营业厅（昆士兰街步行街店）",
+          "lat": -27.47,
+          "lng": 153.0265,
+          "note": "澳洲最大电信运营商门店（152 Queen St），办手机卡、套餐和宽带，新生落地必办。"
+        },
+        {
+          "name": "QUT Medical Centre, Gardens Point",
+          "nameCn": "QUT 校内医疗中心（花园角校区）",
+          "lat": -27.4775,
+          "lng": 153.0285,
+          "note": "校内 X Block 的 GP 全科诊所，学生可 bulk-bill（OSHC 直付基本免费），看病拿药第一站。"
+        },
+        {
+          "name": "Mater Hospital Brisbane (South Brisbane)",
+          "nameCn": "Mater 公立/私立医院（南布里斯班）",
+          "lat": -27.484,
+          "lng": 153.0245,
+          "note": "过河南岸的大型综合医院，设有急诊，离校最近的住院级医疗机构，遇紧急情况就近就医。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "City Botanic Gardens",
+          "nameCn": "市政植物园",
+          "lat": -27.4747,
+          "lng": 153.0301,
+          "note": "紧挨校区的免费城市绿地，亚热带植被加河景，散步、看书、跑步的后花园，出校门就到。"
+        },
+        {
+          "name": "South Bank Parklands & Streets Beach",
+          "nameCn": "南岸公园与人工沙滩",
+          "lat": -27.4787,
+          "lng": 153.0229,
+          "note": "布里斯班头号城市地标，免费人工沙滩泳池、河岸步道和市集，过 Goodwill 桥步行可达，必去打卡。"
+        },
+        {
+          "name": "Wheel of Brisbane",
+          "nameCn": "布里斯班摩天轮",
+          "lat": -27.4753,
+          "lng": 153.0209,
+          "note": "南岸地标摩天轮，登顶俯瞰 CBD 天际线和河湾，傍晚拍夜景绝佳。"
+        },
+        {
+          "name": "Story Bridge",
+          "nameCn": "故事桥",
+          "lat": -27.4637,
+          "lng": 153.0356,
+          "note": "城市象征性钢桥，夜间亮灯，可远观也可参加攀桥项目，沿河拍照出片率高。"
+        },
+        {
+          "name": "QUT Art Museum",
+          "nameCn": "QUT 艺术博物馆",
+          "lat": -27.4773,
+          "lng": 153.0279,
+          "note": "校内免费艺术馆，常设当代艺术展，雨天或课间逛展放松的好去处。"
+        }
+      ]
     }
   ]
 }

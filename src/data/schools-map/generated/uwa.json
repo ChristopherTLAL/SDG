@@ -185,6 +185,175 @@
           "note": "天鹅河畔标志性蓝白船库与划船基地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tucker Fresh IGA Broadway",
+          "nameCn": "Tucker Fresh IGA 超市（Broadway Fair）",
+          "lat": -31.9837,
+          "lng": 115.8149,
+          "note": "校园西侧 Broadway Fair 购物中心内的主力超市，步行约 8 分钟，日常生鲜采购最方便。"
+        },
+        {
+          "name": "Kong's Oriental Supermarket",
+          "nameCn": "Kong's 东方亚洲超市",
+          "lat": -31.9839,
+          "lng": 115.8146,
+          "note": "就在 Broadway Fair 内的亚超，中式调料、米面、火锅料、亚洲零食都能买到，离校最近的中国货源。"
+        },
+        {
+          "name": "Coles Subiaco",
+          "nameCn": "Coles 超市（Subiaco 店）",
+          "lat": -31.9438,
+          "lng": 115.8229,
+          "note": "Station Street 上的大型 Coles，品类比 IGA 全、价格更实惠，配套大停车场，适合一周大采购。"
+        },
+        {
+          "name": "Pavilion Fresh Markets Subiaco",
+          "nameCn": "Subiaco Pavilion 生鲜市场",
+          "lat": -31.9455,
+          "lng": 115.8246,
+          "note": "Rokeby Road 上的生鲜市场，蔬果、海鲜、肉类新鲜，部分亚洲食材也能淘到。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "China Tang (Dumpling & Noodle House)",
+          "nameCn": "China Tang 中餐馆（饺子面馆）",
+          "lat": -31.9838,
+          "lng": 115.8147,
+          "note": "Broadway Fair 内的人气中餐，饺子和面食出名，午饭挤满 UWA 学生，价格亲民。"
+        },
+        {
+          "name": "Malaysian Gourmet Nedlands",
+          "nameCn": "Malaysian Gourmet 马来西亚餐厅",
+          "lat": -31.9837,
+          "lng": 115.8145,
+          "note": "同在 Broadway Fair，叻沙、海南鸡饭、椰浆饭等南洋口味，想念亚洲味道时的近处选择。"
+        },
+        {
+          "name": "Ohnamiya Japanese Restaurant",
+          "nameCn": "Ohnamiya 日本料理",
+          "lat": -31.9763,
+          "lng": 115.8138,
+          "note": "Hampden Road 上靠近校园的日料店，刺身、定食地道，比市区分店清静，步行可达。"
+        },
+        {
+          "name": "Steve's Fine Wine & Food (Nedlands)",
+          "nameCn": "Steve's 酒馆餐厅（Nedlands）",
+          "lat": -31.9814,
+          "lng": 115.8141,
+          "note": "几代 UWA 学生的传统聚会地标（前 Nedlands Park Hotel），考完试、毕业季都来这庆祝。"
+        },
+        {
+          "name": "Captain Stirling Hotel",
+          "nameCn": "Captain Stirling 酒店餐吧",
+          "lat": -31.9793,
+          "lng": 115.8043,
+          "note": "Stirling Highway 上的本地老牌 pub，澳式酒吧菜和周末氛围，体验当地学生社交文化。"
+        },
+        {
+          "name": "Chutney Mary's Subiaco",
+          "nameCn": "Chutney Mary's 印度餐厅（Subiaco）",
+          "lat": -31.9468,
+          "lng": 115.8254,
+          "note": "Rokeby Road 上招牌粉色门面的人气印度菜，咖喱和午市 Thali 套餐很受欢迎。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank — Claremont Quarter",
+          "nameCn": "联邦银行 Commonwealth Bank（Claremont 分行）",
+          "lat": -31.9825,
+          "lng": 115.7806,
+          "note": "离校最近的大行实体网点之一，可办留学生开户、银行卡，CommBank 是澳洲四大行之一。"
+        },
+        {
+          "name": "Sir Charles Gairdner Hospital",
+          "nameCn": "查尔斯·盖尔德纳爵士医院",
+          "lat": -31.9676,
+          "lng": 115.8153,
+          "note": "距校约 1.3 公里的大型公立教学医院，设急诊（Emergency），紧急就医认准这里。"
+        },
+        {
+          "name": "TerryWhite Chemmart Broadway Fair",
+          "nameCn": "TerryWhite Chemmart 药房（Broadway Fair）",
+          "lat": -31.9836,
+          "lng": 115.8148,
+          "note": "校园旁购物中心内的连锁药房，买药、处方、日用药妆都方便，旁边还有 Nedlands 医疗中心 GP。"
+        },
+        {
+          "name": "Telstra Store — Claremont Quarter",
+          "nameCn": "Telstra 电信营业厅（Claremont Quarter）",
+          "lat": -31.9819,
+          "lng": 115.7798,
+          "note": "Telstra 是澳洲信号覆盖最广的运营商，落地办本地手机卡/套餐可来这家实体店。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Matilda Bay Reserve",
+          "nameCn": "Matilda Bay 河滨保护区",
+          "lat": -31.9805,
+          "lng": 115.8209,
+          "note": "紧挨校园的天鹅河湾，草坪野餐、看帆船日落的好去处，步行几分钟即到。"
+        },
+        {
+          "name": "Kings Park and Botanic Garden",
+          "nameCn": "国王公园与植物园",
+          "lat": -31.9622,
+          "lng": 115.8286,
+          "note": "全球最大的城市公园之一，可俯瞰珀斯天际线与天swan河，赏花、散步、拍照必去。"
+        },
+        {
+          "name": "Cottesloe Beach",
+          "nameCn": "科特斯洛海滩",
+          "lat": -31.9954,
+          "lng": 115.7512,
+          "note": "珀斯最著名的城市海滩，印度洋日落绝美，火车/公交可达，夏天游泳晒太阳的首选。"
+        },
+        {
+          "name": "Lawrence Wilson Art Gallery (UWA)",
+          "nameCn": "劳伦斯·威尔逊艺术馆（UWA 校内）",
+          "lat": -31.9769,
+          "lng": 115.8162,
+          "note": "校园内免费公共美术馆，展澳洲及原住民艺术，课余看展、拍 UWA 经典建筑都顺路。"
+        },
+        {
+          "name": "Claremont Quarter",
+          "nameCn": "Claremont Quarter 购物区",
+          "lat": -31.9823,
+          "lng": 115.7797,
+          "note": "校园西边的高档购物街区，集购物、咖啡、餐厅于一体，周末逛街社交的去处。"
+        }
+      ]
     }
   ]
 }

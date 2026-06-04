@@ -156,6 +156,175 @@
           "note": "迪肯小鸭橄榄球俱乐部主场，吉朗猫队备用训练基地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Box Hill Central (Box Hill Fresh Food Market)",
+          "nameCn": "博士山中央购物中心（生鲜市场）",
+          "lat": -37.8196,
+          "lng": 145.1212,
+          "note": "墨尔本最大华人商圈核心，地下生鲜市场+多家亚超，中餐食材一站买齐，离校约3公里、201校巴/火车直达。"
+        },
+        {
+          "name": "Burwood One Shopping Centre (Coles / ALDI / Kmart)",
+          "nameCn": "Burwood One 购物中心",
+          "lat": -37.8497,
+          "lng": 145.149,
+          "note": "离校最近的大型综合超市群，24小时Coles+ALDI+Kmart+邮局，日常采购最方便，Burwood Hwy上电车可达。"
+        },
+        {
+          "name": "Burwood Brickworks Shopping Centre (Woolworths)",
+          "nameCn": "Burwood Brickworks 购物中心（Woolworths）",
+          "lat": -37.8491,
+          "lng": 145.134,
+          "note": "新建环保社区购物中心，Woolworths超市+屋顶农场，环境好，离校约2公里。"
+        },
+        {
+          "name": "Bennettswood Shopping Centre (Asian groceries)",
+          "nameCn": "Bennettswood 小商圈（亚洲杂货）",
+          "lat": -37.8517,
+          "lng": 145.1064,
+          "note": "步行可达的社区小商圈，含亚洲杂货店与餐馆，补货零食、调料很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "China Bar Signature (Box Hill)",
+          "nameCn": "China Bar 中餐厅（博士山）",
+          "lat": -37.8189,
+          "lng": 145.1221,
+          "note": "博士山地标级中餐，分量大价格友好，深夜营业，留学生聚餐常客。"
+        },
+        {
+          "name": "Dragon Hot Pot (Burwood East)",
+          "nameCn": "龙小火锅（Burwood East）",
+          "lat": -37.8535,
+          "lng": 145.15,
+          "note": "连锁麻辣香锅/串串，离校近、平价管饱，想念川味时的首选。"
+        },
+        {
+          "name": "Little Sichuan Hot Pot (Box Hill Central)",
+          "nameCn": "小四川火锅（博士山中央）",
+          "lat": -37.8198,
+          "lng": 145.121,
+          "note": "博士山中央内的正宗四川火锅，朋友聚会、解馋必去。"
+        },
+        {
+          "name": "Pancake Village / Jianbing (Box Hill)",
+          "nameCn": "煎饼村（博士山）",
+          "lat": -37.8202,
+          "lng": 145.1208,
+          "note": "北京风味煎饼果子，博士山小吃名物，便宜快手的中式早餐。"
+        },
+        {
+          "name": "Roast Duck Inn (Box Hill)",
+          "nameCn": "烧鸭店（博士山 Carrington Rd）",
+          "lat": -37.8185,
+          "lng": 145.1235,
+          "note": "Carrington路上的港式烧腊，烧鸭叉烧地道，打包回宿舍很合适。"
+        },
+        {
+          "name": "Grill'd Burwood (Aussie burgers)",
+          "nameCn": "Grill'd 澳式汉堡（Burwood）",
+          "lat": -37.8493,
+          "lng": 145.1338,
+          "note": "本地人气健康汉堡连锁，想吃西餐/澳式快餐时换换口味。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Box Hill Hospital (Eastern Health)",
+          "nameCn": "博士山医院（东部健康）",
+          "lat": -37.8137,
+          "lng": 145.1198,
+          "note": "区域大型公立医院，含24小时急诊，紧急就医认准这里。"
+        },
+        {
+          "name": "Commonwealth Bank — Box Hill Central",
+          "nameCn": "联邦银行 CBA（博士山中央）",
+          "lat": -37.8193,
+          "lng": 145.1215,
+          "note": "澳洲四大行之一，落地后开户/办卡，网点员工多会中文。"
+        },
+        {
+          "name": "Chemist Warehouse Burwood East",
+          "nameCn": "Chemist Warehouse 药房（Burwood East）",
+          "lat": -37.8496,
+          "lng": 145.1488,
+          "note": "全澳最大平价连锁药房，买药、保健品、日用最划算。"
+        },
+        {
+          "name": "Box Hill Central — Telstra / Optus stores",
+          "nameCn": "电信营业厅 Telstra/Optus（博士山）",
+          "lat": -37.8197,
+          "lng": 145.1214,
+          "note": "主流运营商门店集中，办手机卡/套餐当场搞定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Wattle Park",
+          "nameCn": "金合欢公园（Wattle Park）",
+          "lat": -37.833,
+          "lng": 145.108,
+          "note": "校园北侧大型遗产公园，含9洞高尔夫与70路电车终点，散步野餐看考拉桉树林。"
+        },
+        {
+          "name": "Box Hill Gardens",
+          "nameCn": "博士山花园",
+          "lat": -37.8155,
+          "lng": 145.1238,
+          "note": "博士山医院对面的城市花园，有湖、跑道与超大游乐场，拍照放松好去处。"
+        },
+        {
+          "name": "Burwood Brickworks Rooftop Farm",
+          "nameCn": "Brickworks 屋顶农场",
+          "lat": -37.8489,
+          "lng": 145.1342,
+          "note": "世界级绿色建筑的屋顶都市农场，免费参观、出片，离校仅2公里。"
+        },
+        {
+          "name": "Aqualink Box Hill (Surrey Park)",
+          "nameCn": "Aqualink 水上中心（萨里公园）",
+          "lat": -37.8245,
+          "lng": 145.1115,
+          "note": "建于澳洲首个奥运标准泳池旧址的休闲水上中心，游泳健身，周边公园景色好。"
+        },
+        {
+          "name": "Deakin Burwood Corner / The Hub",
+          "nameCn": "迪肯 Burwood 校园中心广场",
+          "lat": -37.8473,
+          "lng": 145.1148,
+          "note": "校园标志性中庭与现代建筑群，入学打卡、社团活动与日常生活的中心。"
+        }
+      ]
     }
   ]
 }

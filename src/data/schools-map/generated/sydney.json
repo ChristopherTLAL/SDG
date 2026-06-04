@@ -195,6 +195,175 @@
           "note": "校区东南最近火车站，通勤主要门户。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Coles Broadway (Broadway Sydney)",
+          "nameCn": "Coles 超市（Broadway 购物中心）",
+          "lat": -33.8836,
+          "lng": 151.1939,
+          "note": "紧邻校园北侧 Broadway 购物中心内的主流大超市，日常采购最方便，同楼还有 Aldi、药房、美食广场。"
+        },
+        {
+          "name": "Woolworths Town Hall / Broadway area",
+          "nameCn": "Woolworths 超市",
+          "lat": -33.8838,
+          "lng": 151.1955,
+          "note": "Broadway 一带的另一家主流连锁超市，新鲜蔬果和日用品齐全，是 Coles 之外的常用备选。"
+        },
+        {
+          "name": "Miracle Supermarket Newtown",
+          "nameCn": "Miracle 亚洲超市（Newtown 店）",
+          "lat": -33.8965,
+          "lng": 151.18,
+          "note": "King Street 上的亚超，中式日式调料、米面、火锅料、零食齐全，步行可达买中餐食材首选。"
+        },
+        {
+          "name": "Tang's Supermarket / Asian grocer (Ultimo–Chinatown)",
+          "nameCn": "中式亚洲超市（Ultimo 方向）",
+          "lat": -33.881,
+          "lng": 151.199,
+          "note": "靠 Ultimo / 唐人街方向的华人超市，老干妈、酱油、冷冻品和中国零食一站买齐，价格实惠。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Mary's Newtown",
+          "nameCn": "Mary's 汉堡（Newtown）",
+          "lat": -33.8975,
+          "lng": 151.1796,
+          "note": "Newtown 地标级美式汉堡与炸鸡店，本地必吃网红，氛围 chill，适合朋友聚餐。"
+        },
+        {
+          "name": "Rising Sun Workshop",
+          "nameCn": "Rising Sun 拉面工坊",
+          "lat": -33.8959,
+          "lng": 151.1817,
+          "note": "藏在 King Street 旁、拉面+咖啡+摩托车工坊三合一的特色日式拉面店，本地人气很高。"
+        },
+        {
+          "name": "Spice I Am / Thai on King Street",
+          "nameCn": "泰式餐厅（King Street）",
+          "lat": -33.899,
+          "lng": 151.1788,
+          "note": "Newtown King Street 泰餐云集，正宗辣味、价格友好，是学生党高性价比的亚洲菜选择。"
+        },
+        {
+          "name": "Chinese restaurants on King Street, Newtown",
+          "nameCn": "King Street 中餐馆",
+          "lat": -33.897,
+          "lng": 151.1795,
+          "note": "King Street 沿街多家中餐与川菜、火锅、奶茶店，想吃地道中餐解馋走几步就到。"
+        },
+        {
+          "name": "Spice Alley (Kensington Street, Chippendale)",
+          "nameCn": "Spice Alley 亚洲美食巷（Chippendale）",
+          "lat": -33.8855,
+          "lng": 151.1995,
+          "note": "校园东侧 Chippendale 网红亚洲街头美食巷，星马泰越各国小吃集中，环境出片又便宜。"
+        },
+        {
+          "name": "Newtown cafés & brunch",
+          "nameCn": "Newtown 咖啡与早午餐",
+          "lat": -33.898,
+          "lng": 151.179,
+          "note": "Newtown 是悉尼咖啡文化重镇，brunch 和精品咖啡店密集，体验本地生活方式的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Prince Alfred Hospital (RPA)",
+          "nameCn": "皇家阿尔弗雷德王子医院（RPA）",
+          "lat": -33.8892,
+          "lng": 151.1829,
+          "note": "紧邻校园西侧的大型公立教学医院，设急诊（Emergency），突发就医或急诊第一选择。"
+        },
+        {
+          "name": "University of Sydney Health Service (GP)",
+          "nameCn": "悉尼大学校医务室（GP 全科）",
+          "lat": -33.8884,
+          "lng": 151.19,
+          "note": "校内学生全科诊所，看小病、开处方、做体检和疫苗都在这里，凭学生身份预约即可。"
+        },
+        {
+          "name": "Commonwealth Bank — Broadway",
+          "nameCn": "联邦银行 CommBank（Broadway 支行）",
+          "lat": -33.8837,
+          "lng": 151.1942,
+          "note": "Broadway 购物中心一带的主流银行网点，开学生账户、办卡、现金业务方便，留学生常用。"
+        },
+        {
+          "name": "Telco / pharmacy at Broadway Sydney",
+          "nameCn": "电信营业厅与药房（Broadway 中心）",
+          "lat": -33.8835,
+          "lng": 151.194,
+          "note": "Broadway 中心内有 Optus/Telstra/Vodafone 手机营业厅和 Chemist Warehouse 药房，办电话卡、买药一站搞定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "University of Sydney Quadrangle & Great Hall",
+          "nameCn": "悉尼大学方庭与大礼堂",
+          "lat": -33.8866,
+          "lng": 151.1873,
+          "note": "校内标志性砂岩哥特建筑，被称\"霍格沃茨\"，是全校最热门的拍照打卡点。"
+        },
+        {
+          "name": "Victoria Park & Pool",
+          "nameCn": "维多利亚公园与泳池",
+          "lat": -33.8855,
+          "lng": 151.1965,
+          "note": "紧邻校园东南的大公园，有 50 米露天恒温泳池，散步、跑步、晒太阳的日常去处。"
+        },
+        {
+          "name": "Newtown King Street (street art & live music)",
+          "nameCn": "Newtown 国王街（涂鸦与文艺街区）",
+          "lat": -33.898,
+          "lng": 151.179,
+          "note": "悉尼最有个性的文艺街区，涂鸦墙、二手店、酒吧和 livehouse 林立，年轻人最爱逛。"
+        },
+        {
+          "name": "Chinatown & Darling Harbour",
+          "nameCn": "唐人街与达令港",
+          "lat": -33.879,
+          "lng": 151.203,
+          "note": "校园东北步行/轻轨可达的唐人街与达令港滨水区，想家时吃中餐、逛夜市、看海港夜景。"
+        },
+        {
+          "name": "Carriageworks (Eveleigh)",
+          "nameCn": "Carriageworks 艺术中心（Eveleigh）",
+          "lat": -33.897,
+          "lng": 151.186,
+          "note": "由旧火车车厂改造的当代艺术与文化空间，常办周末农夫市集和展览，文艺活动丰富。"
+        }
+      ]
     }
   ]
 }

@@ -171,6 +171,182 @@
           "note": "La Trobe 与 Swanston 街角，校区门口的地铁枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Mr Dad Asian Supermarket",
+          "nameCn": "亚洲老爹超市（卡尔顿店）",
+          "lat": -37.8044,
+          "lng": 144.9632,
+          "note": "离 RMIT 最近的大型亚超，556平方米店面、25国万种亚洲食材，营业到晚11点，买中日韩调料零食首选。"
+        },
+        {
+          "name": "Coles Melbourne Central",
+          "nameCn": "Coles 超市（墨尔本中央店）",
+          "lat": -37.8106,
+          "lng": 144.9626,
+          "note": "主流连锁大超市，就在 Melbourne Central 商场内，步行5分钟，日常蔬果肉蛋牛奶一站采购。"
+        },
+        {
+          "name": "Woolworths QV Melbourne",
+          "nameCn": "Woolworths 超市（QV 店）",
+          "lat": -37.8117,
+          "lng": 144.9654,
+          "note": "另一家全国连锁主流超市，QV 商场地下，价格亲民、自有品牌齐全，和 Coles 比价省钱。"
+        },
+        {
+          "name": "Central Grocery (Melbourne Central)",
+          "nameCn": "中央亚洲杂货（中央车站店）",
+          "lat": -37.8101,
+          "lng": 144.9628,
+          "note": "Melbourne Central 地铁站旁的亚洲杂货店，零食饮料糖果香料多，下了地铁顺手就能逛。"
+        },
+        {
+          "name": "Queen Victoria Market",
+          "nameCn": "维多利亚女王市场",
+          "lat": -37.8076,
+          "lng": 144.9568,
+          "note": "墨尔本地标性露天市场，新鲜蔬果、海鲜、肉类、熟食和便宜杂货，周末必逛、性价比高。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "HuTong Dumpling Bar",
+          "nameCn": "胡同小笼包",
+          "lat": -37.8127,
+          "lng": 144.9683,
+          "note": "唐人街口碑老店，招牌上海小笼包皮薄汁多，留学生聚餐高频之选，建议提前订位。"
+        },
+        {
+          "name": "Tim Ho Wan (Emporium)",
+          "nameCn": "添好运点心（Emporium 店）",
+          "lat": -37.8125,
+          "lng": 144.9646,
+          "note": "香港米其林平价点心连锁，酥皮叉烧包必点，离校步行8分钟，想吃粤式早茶来这。"
+        },
+        {
+          "name": "Shujinko Ramen",
+          "nameCn": "主公拉面",
+          "lat": -37.8108,
+          "lng": 144.9676,
+          "note": "24小时营业的日式拉面店，浓厚豚骨汤底，赶due熬夜或深夜饿了随时能吃。"
+        },
+        {
+          "name": "Stalactites",
+          "nameCn": "Stalactites 希腊餐厅",
+          "lat": -37.8112,
+          "lng": 144.9683,
+          "note": "开了40多年的墨尔本希腊烤肉名店，souvlaki 卷和拼盘份量足，也是24小时营业的当地经典。"
+        },
+        {
+          "name": "Pellegrini's Espresso Bar",
+          "nameCn": "Pellegrini 意式咖啡馆",
+          "lat": -37.8113,
+          "lng": 144.9714,
+          "note": "1954年开业的墨尔本咖啡文化地标，站着喝 espresso、吃手工意面，体验本地老派风味。"
+        },
+        {
+          "name": "Lune Croissanterie (CBD)",
+          "nameCn": "Lune 可颂（CBD 店）",
+          "lat": -37.8167,
+          "lng": 144.9668,
+          "note": "被称为全球最好吃的可颂之一，墨尔本必打卡，常排队，早起来买刚出炉的最香。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank (Swanston St Branch)",
+          "nameCn": "联邦银行（Swanston 街旗舰店）",
+          "lat": -37.8137,
+          "lng": 144.965,
+          "note": "澳洲四大行之一、留学生开户最常选，旗舰大店服务全，凭录取信和护照即可办学生账户。"
+        },
+        {
+          "name": "The Royal Melbourne Hospital (Emergency)",
+          "nameCn": "皇家墨尔本医院（急诊）",
+          "lat": -37.7994,
+          "lng": 144.957,
+          "note": "离校约1.5公里的大型公立医院急诊室，24小时接诊，遇紧急情况打000或直接来这。"
+        },
+        {
+          "name": "Chemist Warehouse (Swanston St)",
+          "nameCn": "Chemist Warehouse 药房",
+          "lat": -37.8118,
+          "lng": 144.9637,
+          "note": "澳洲最大连锁药房，处方药、感冒药、保健品和日用品都便宜，离校步行几分钟。"
+        },
+        {
+          "name": "Telstra Store (Bourke St Mall)",
+          "nameCn": "Telstra 电信营业厅（Bourke 步行街）",
+          "lat": -37.8141,
+          "lng": 144.9645,
+          "note": "澳洲信号最广的运营商门店，办电话卡/套餐认准这家，留学生落地先来开号。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8098,
+          "lng": 144.9648,
+          "note": "紧邻校园的百年地标，圆顶 La Trobe 阅览室是出片圣地，免费自习、躲清静的好去处。"
+        },
+        {
+          "name": "Melbourne Museum & Carlton Gardens",
+          "nameCn": "墨尔本博物馆与卡尔顿花园",
+          "lat": -37.8033,
+          "lng": 144.9717,
+          "note": "步行10分钟即到，博物馆+世界遗产花园连成一片，散步、拍照、看展一举多得。"
+        },
+        {
+          "name": "Old Melbourne Gaol",
+          "nameCn": "墨尔本旧监狱",
+          "lat": -37.8079,
+          "lng": 144.9658,
+          "note": "就在校园旁的历史监狱博物馆，传奇逃犯 Ned Kelly 在此受刑，了解本地历史的网红打卡点。"
+        },
+        {
+          "name": "Royal Exhibition Building",
+          "nameCn": "皇家展览馆",
+          "lat": -37.8047,
+          "lng": 144.9717,
+          "note": "澳洲首个世界文化遗产建筑，宏伟穹顶外观极上镜，就在卡尔顿花园内顺路一起逛。"
+        },
+        {
+          "name": "Federation Square",
+          "nameCn": "联邦广场",
+          "lat": -37.818,
+          "lng": 144.9691,
+          "note": "墨尔本市中心活动地标，紧邻亚拉河与 Flinders 街车站，常有市集和展览，是城市出片必到点。"
+        }
+      ]
     }
   ]
 }

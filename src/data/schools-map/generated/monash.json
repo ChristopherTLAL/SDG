@@ -202,6 +202,168 @@
           "note": "克莱顿体育馆与运动场，校园北侧。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Hong Kong Supermarket (Clayton)",
+          "nameCn": "香港超市（克莱顿店）",
+          "lat": -37.926258,
+          "lng": 145.119094,
+          "note": "克莱顿路上最大的亚洲超市，中餐调料、冷冻点心、米面粮油一站买齐，留学生采购首选。"
+        },
+        {
+          "name": "Top Mart Asian Grocery",
+          "nameCn": "Top Mart 亚洲杂货",
+          "lat": -37.927615,
+          "lng": 145.118925,
+          "note": "克莱顿路另一家亚超，蔬菜生鲜和零食饮料齐全，和香港超市挨着可以一起逛。"
+        },
+        {
+          "name": "Coles Clayton (Centre Road)",
+          "nameCn": "Coles 超市（Centre Road 店）",
+          "lat": -37.92809,
+          "lng": 145.118147,
+          "note": "主流连锁超市，本地日用、面包牛奶、肉类价格实惠，营业到很晚。"
+        },
+        {
+          "name": "Woolworths M-City",
+          "nameCn": "Woolworths 超市（M-City）",
+          "lat": -37.921221,
+          "lng": 145.139927,
+          "note": "离校最近的大型主流超市（约1.2km），在 M-City 购物中心内，逛街买菜一起搞定。"
+        },
+        {
+          "name": "Monash Merchant (on-campus)",
+          "nameCn": "Monash Merchant 校内便利超市",
+          "lat": -37.910776,
+          "lng": 145.134806,
+          "note": "克莱顿校区内的杂货便利店，生鲜、泡面、文具应急都有，下课顺手就能买。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Modu",
+          "nameCn": "Modu 中餐厅",
+          "lat": -37.926414,
+          "lng": 145.119753,
+          "note": "克莱顿路上人气北方菜与江南菜餐厅，环境精致，约会聚餐都合适。"
+        },
+        {
+          "name": "Little Hong Kong House",
+          "nameCn": "小香港茶餐厅",
+          "lat": -37.914554,
+          "lng": 145.121973,
+          "note": "地道港式茶餐厅，烧腊、丝袜奶茶、碟头饭，想吃广式快餐就来这。"
+        },
+        {
+          "name": "Papa's Korean Chicken",
+          "nameCn": "Papa's 韩式炸鸡",
+          "lat": -37.914814,
+          "lng": 145.121867,
+          "note": "离校较近的韩式炸鸡店，分量足价格友好，深受学生欢迎。"
+        },
+        {
+          "name": "Saigon One",
+          "nameCn": "西贡一号越南粉",
+          "lat": -37.928129,
+          "lng": 145.119519,
+          "note": "克莱顿路越南河粉店，一碗热汤粉性价比高，亚洲口味的平价之选。"
+        },
+        {
+          "name": "Notting Hill Hotel (The Nott)",
+          "nameCn": "诺丁山酒馆（The Nott）",
+          "lat": -37.90018,
+          "lng": 145.129624,
+          "note": "1892年的老牌澳式酒吧，招牌鸡排 Parma + 啤酒花园，蒙纳士师生心中的本地必吃。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Monash Medical Centre",
+          "nameCn": "蒙纳士医疗中心",
+          "lat": -37.920885,
+          "lng": 145.120716,
+          "note": "大型公立医院，设24小时急诊（ED），生病或急症首选，离校约1.7km。"
+        },
+        {
+          "name": "Commonwealth Bank (Clayton)",
+          "nameCn": "联邦银行（克莱顿支行）",
+          "lat": -37.926697,
+          "lng": 145.119807,
+          "note": "澳洲四大行之一，克莱顿路上有网点和ATM，落地开户、办卡很方便。"
+        },
+        {
+          "name": "Chemist Warehouse (Clayton Rd)",
+          "nameCn": "Chemist Warehouse 药房",
+          "lat": -37.927915,
+          "lng": 145.118845,
+          "note": "全澳连锁平价药房，感冒药、保健品、日用品都便宜，留学生囤货常去。"
+        },
+        {
+          "name": "Clayton Public Library",
+          "nameCn": "克莱顿公共图书馆",
+          "lat": -37.927746,
+          "lng": 145.117429,
+          "note": "市政图书馆，可办免费借书证、自习和打印，安静学习的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Monash University Clayton Campus (Lemon Scented Lawn)",
+          "nameCn": "蒙纳士克莱顿校园",
+          "lat": -37.910776,
+          "lng": 145.134806,
+          "note": "校园本身就是打卡点，绿地草坪、Robert Blackwood Hall 等标志建筑，开学拍照必去。"
+        },
+        {
+          "name": "Clayton Railway Station",
+          "nameCn": "克莱顿火车站",
+          "lat": -37.924672,
+          "lng": 145.120752,
+          "note": "Pakenham/Cranbourne 线车站，约40分钟直达墨尔本CBD（Flinders St），进城交通枢纽。"
+        },
+        {
+          "name": "Jack Meade Reserve",
+          "nameCn": "Jack Meade 公园",
+          "lat": -37.922482,
+          "lng": 145.116095,
+          "note": "克莱顿本地小公园，绿地步道适合散步放松，离校约2km。"
+        },
+        {
+          "name": "Jells Park",
+          "nameCn": "杰尔斯公园",
+          "lat": -37.900284,
+          "lng": 145.20133,
+          "note": "东南区著名大型自然公园，湖泊、湿地、野餐和骑行步道，周末郊游好去处（约6km，需开车/公交）。"
+        }
+      ]
     }
   ]
 }

@@ -163,6 +163,168 @@
           "note": "1978年建成的校园天文观测台。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Woolworths Macquarie Centre",
+          "nameCn": "Woolworths 超市（麦考瑞中心店）",
+          "lat": -33.7771,
+          "lng": 151.1212,
+          "note": "校园对面 Macquarie Centre 内的大型主流超市，步行约8分钟，日常生鲜采买首选。"
+        },
+        {
+          "name": "Coles Macquarie Centre",
+          "nameCn": "Coles 超市（麦考瑞中心店）",
+          "lat": -33.7773,
+          "lng": 151.1208,
+          "note": "同一商场内另一家主流连锁超市，与 Woolworths 比价方便，营业到晚上。"
+        },
+        {
+          "name": "Miracle Supermarket (Macquarie Centre)",
+          "nameCn": "美而廉亚洲超市（麦考瑞中心店）",
+          "lat": -33.777,
+          "lng": 151.1214,
+          "note": "商场内的亚洲超市，火锅料、酱料、亚洲蔬菜齐全，最近的中餐食材点。"
+        },
+        {
+          "name": "Eastwood Asian groceries (Rowe St)",
+          "nameCn": "伊斯活罗街亚洲超市群",
+          "lat": -33.7916,
+          "lng": 151.0812,
+          "note": "伊斯活是悉尼著名华人/韩国食材区，距校约3公里，地铁/巴士可达，价格更实惠选择更多。"
+        },
+        {
+          "name": "Woolworths Eastwood",
+          "nameCn": "Woolworths 超市（伊斯活店）",
+          "lat": -33.7922,
+          "lng": 151.0815,
+          "note": "伊斯活商业区主流超市，逛完华人街可一并采购，距车站很近。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Taste of Shanghai (Eastwood)",
+          "nameCn": "上海人家（伊斯活店）",
+          "lat": -33.7921,
+          "lng": 151.0799,
+          "note": "伊斯活排队名店，现包小笼包、生煎和上海面，最有人气的中餐之一。"
+        },
+        {
+          "name": "Sea Bay Hand-Made Noodle",
+          "nameCn": "海湾手工面",
+          "lat": -33.7916,
+          "lng": 151.0816,
+          "note": "新疆/西北手工拉面与饺子，分量足价格友好，留学生常去的暖胃面馆。"
+        },
+        {
+          "name": "Macquarie Centre Food Court / 都会区餐饮",
+          "nameCn": "麦考瑞中心美食广场",
+          "lat": -33.7772,
+          "lng": 151.121,
+          "note": "校对面商场美食广场，韩餐、日料、东南亚、奶茶一应俱全，课间最方便的吃饭点。"
+        },
+        {
+          "name": "Eastwood Korean BBQ strip",
+          "nameCn": "伊斯活韩国烤肉街",
+          "lat": -33.7905,
+          "lng": 151.0844,
+          "note": "伊斯活车站东侧韩国城，烤肉、炸鸡、部队锅聚集，朋友聚餐的热门去处。"
+        },
+        {
+          "name": "Guzman y Gomez (Macquarie Centre)",
+          "nameCn": "GYG 墨西哥卷（麦考瑞中心）",
+          "lat": -33.7774,
+          "lng": 151.1213,
+          "note": "澳洲国民级墨西哥快餐连锁，Burrito 和 taco 是本地学生日常快食代表。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank (Macquarie Centre)",
+          "nameCn": "联邦银行 CommBank（麦考瑞中心）",
+          "lat": -33.7773,
+          "lng": 151.1211,
+          "note": "澳洲最大银行之一，校对面商场设网点，新生开学生账户、办卡很方便。"
+        },
+        {
+          "name": "MQ Health General Practice (Macquarie University)",
+          "nameCn": "麦考瑞大学全科诊所 / 大学医院",
+          "lat": -33.7738,
+          "lng": 151.118,
+          "note": "校内 Technology Place 的大学医院与全科门诊（GP），看病、体检就近解决。"
+        },
+        {
+          "name": "Chemist Warehouse (Macquarie Centre)",
+          "nameCn": "Chemist Warehouse 药房（麦考瑞中心）",
+          "lat": -33.777,
+          "lng": 151.1209,
+          "note": "澳洲最大平价连锁药房，处方药、感冒药、保健品都齐，商场内即可买到。"
+        },
+        {
+          "name": "Telstra & Optus (Macquarie Centre)",
+          "nameCn": "Telstra/Optus 电信营业厅（麦考瑞中心）",
+          "lat": -33.7772,
+          "lng": 151.1206,
+          "note": "商场内主流运营商门店，办本地手机卡/流量套餐，落地第一周办号首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Lane Cove National Park",
+          "nameCn": "莱恩湾国家公园",
+          "lat": -33.7895,
+          "lng": 151.1432,
+          "note": "校园东南侧的河谷国家公园，烧烤、划船、徒步，周末亲近自然的好去处。"
+        },
+        {
+          "name": "Macquarie University Central Courtyard & Lake",
+          "nameCn": "麦考瑞大学中央广场与湖区",
+          "lat": -33.7757,
+          "lng": 151.1135,
+          "note": "校园核心绿地与人工湖，建筑与草坪环绕，最具代表性的校园打卡点。"
+        },
+        {
+          "name": "Macquarie University Sport & Aquatic Centre",
+          "nameCn": "麦考瑞大学体育与水上运动中心",
+          "lat": -33.7726,
+          "lng": 151.111,
+          "note": "校内大型健身房与泳池，学生价办卡即可使用，课余运动主场地。"
+        },
+        {
+          "name": "Eastwood Park",
+          "nameCn": "伊斯活公园",
+          "lat": -33.7889,
+          "lng": 151.082,
+          "note": "伊斯活华人区旁的社区公园，逛街吃饭后散步休憩，每年樱花/嘉年华活动热闹。"
+        }
+      ]
     }
   ]
 }

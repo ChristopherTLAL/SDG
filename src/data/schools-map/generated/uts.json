@@ -165,6 +165,182 @@
           "note": "悉尼最大铁路枢纽,步行可达校园东侧,通勤主入口。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Coles Broadway",
+          "nameCn": "Coles 超市（Broadway 购物中心）",
+          "lat": -33.8838,
+          "lng": 151.1948,
+          "note": "离 UTS 步行约 8 分钟，本地最大连锁超市之一，日常生鲜、米面油一站买齐，楼里还有 ALDI。"
+        },
+        {
+          "name": "Woolworths Metro (Central Park Mall)",
+          "nameCn": "Woolworths 超市（Central Park 商场）",
+          "lat": -33.883,
+          "lng": 151.198,
+          "note": "紧邻校园对面的 Central Park 楼下，主流澳洲超市，下课顺路补货最方便。"
+        },
+        {
+          "name": "Thai Kee IGA (Market City)",
+          "nameCn": "泰记亚洲超市（Market City）",
+          "lat": -33.88,
+          "lng": 151.204,
+          "note": "悉尼唐人街最大的亚洲超市，中式调料、火锅料、冷冻饺子、亚洲蔬菜应有尽有，想家就来这。"
+        },
+        {
+          "name": "Burlington Supermarket",
+          "nameCn": "宝灵顿亚洲超市",
+          "lat": -33.8788,
+          "lng": 151.2046,
+          "note": "Dixon 街附近老牌华人超市，肉禽海鲜和南货齐全，价格实惠，老移民常去。"
+        },
+        {
+          "name": "Paddy's Markets Haymarket",
+          "nameCn": "Paddy's 市场（海鲜果蔬）",
+          "lat": -33.8799,
+          "lng": 151.2039,
+          "note": "周三到周日开的大集市，新鲜果蔬海鲜按堆卖，临近收市还能捡便宜，性价比之王。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chat Thai (Thaitown)",
+          "nameCn": "Chat Thai 泰餐（泰国城旗舰店）",
+          "lat": -33.8794,
+          "lng": 151.2068,
+          "note": "Capitol 剧院对面，悉尼最有名的正宗泰餐，常年排队到凌晨两点，泰式船面和咖喱必点。"
+        },
+        {
+          "name": "Spice Alley (Kensington Street)",
+          "nameCn": "Spice Alley 亚洲美食巷",
+          "lat": -33.8845,
+          "lng": 151.1995,
+          "note": "就在校园旁的红灯笼小巷，露天大排档式亚洲快餐（拉面、叻沙、煲仔饭），学生价、灯光出片。"
+        },
+        {
+          "name": "Emperor's Garden Cake & Bakery",
+          "nameCn": "皇庭饼屋（奶油泡芙）",
+          "lat": -33.8793,
+          "lng": 151.2042,
+          "note": "唐人街地标级老店，现做现卖的热奶油泡芙一块多澳币一颗，门口永远在排队。"
+        },
+        {
+          "name": "Mappen Udon",
+          "nameCn": "Mappen 乌冬面",
+          "lat": -33.877,
+          "lng": 151.2055,
+          "note": "George 街上的人气日式自助乌冬，自选天妇罗、价格亲民、出餐快，留学生食堂般的存在。"
+        },
+        {
+          "name": "Golden Century / Chinatown 粤菜",
+          "nameCn": "唐人街粤式海鲜（Dixon 街一带）",
+          "lat": -33.879,
+          "lng": 151.205,
+          "note": "Dixon 步行街聚集大量港式/粤式酒楼，早茶点心、椒盐海鲜，朋友聚餐、家长来访首选。"
+        },
+        {
+          "name": "Central Park Food Court",
+          "nameCn": "Central Park 美食广场",
+          "lat": -33.883,
+          "lng": 151.1982,
+          "note": "校园对面商场内的美食广场，韩餐、越南粉、汉堡、奶茶都有，下课快速解决一餐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank — Broadway",
+          "nameCn": "联邦银行 Broadway 支行（开户）",
+          "lat": -33.8838,
+          "lng": 151.1948,
+          "note": "Broadway 购物中心内的 CBA 网点，留学生落地办银行卡/开户最近的大行，记得带护照和地址证明。"
+        },
+        {
+          "name": "Royal Prince Alfred Hospital (RPA) Emergency",
+          "nameCn": "皇家阿尔弗雷德医院（RPA 急诊）",
+          "lat": -33.8892,
+          "lng": 151.1829,
+          "note": "离校约 2 公里的大型公立医院，24 小时急诊（ED），突发重病或受伤就来这里。"
+        },
+        {
+          "name": "Priceline Pharmacy Broadway",
+          "nameCn": "Priceline 药房（Broadway）",
+          "lat": -33.8837,
+          "lng": 151.195,
+          "note": "购物中心内连锁药妆店，非处方药、感冒药、防晒和日用品都能买，比独立药房选择多。"
+        },
+        {
+          "name": "Telstra / Optus (Broadway Sydney)",
+          "nameCn": "Telstra / Optus 营业厅（Broadway）",
+          "lat": -33.8836,
+          "lng": 151.1949,
+          "note": "Broadway 商场内的电信运营商门店，办本地手机卡和上网套餐，带护照可现场激活。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Chinese Garden of Friendship",
+          "nameCn": "谊园（中国友谊花园）",
+          "lat": -33.877,
+          "lng": 151.2018,
+          "note": "达令港边的苏州式古典园林，亭台流水、旗袍写真热门地，离校步行十多分钟，闹中取静。"
+        },
+        {
+          "name": "Darling Harbour / Tumbalong Park",
+          "nameCn": "达令港 / 通巴龙公园",
+          "lat": -33.8745,
+          "lng": 151.201,
+          "note": "悉尼最热闹的滨水休闲区，餐厅、摩天轮、跨年烟花和周末活动都在这，散步约会必去。"
+        },
+        {
+          "name": "The Goods Line",
+          "nameCn": "The Goods Line 高架绿道",
+          "lat": -33.881,
+          "lng": 151.2,
+          "note": "由旧铁路改造的步行绿道，从校园穿过直通达令港，沿途有座椅和乒乓桌，通勤兼散心。"
+        },
+        {
+          "name": "Victoria Park",
+          "nameCn": "维多利亚公园",
+          "lat": -33.887,
+          "lng": 151.193,
+          "note": "Broadway 尽头紧挨悉尼大学的大草坪公园，带泳池，天气好时野餐晒太阳的好去处。"
+        },
+        {
+          "name": "Capitol Theatre",
+          "nameCn": "国会剧院（Capitol Theatre）",
+          "lat": -33.88,
+          "lng": 151.2065,
+          "note": "海马克特地标级历史剧院，常驻百老汇音乐剧，建筑本身就值得一拍，学生票偶有折扣。"
+        }
+      ]
     }
   ]
 }

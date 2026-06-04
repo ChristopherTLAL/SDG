@@ -207,6 +207,182 @@
           "note": "布里斯班河CityCat渡轮码头，可乘船往返市区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "IGA Marketplace St Lucia",
+          "nameCn": "圣卢西亚 IGA 超市",
+          "lat": -27.4998,
+          "lng": 153.0046,
+          "note": "距校园不到500米、可步行的主力超市，位于Hawken Drive商业街，每天6点至午夜营业，日常采买最方便。"
+        },
+        {
+          "name": "Coles Toowong Village",
+          "nameCn": "Coles 超市（Toowong Village）",
+          "lat": -27.4853,
+          "lng": 152.9924,
+          "note": "距校约2.4公里的大型连锁超市，坐411/412路公交可达，商场内还有Kmart和银行，适合大采购。"
+        },
+        {
+          "name": "Sunlit Asian Supermarket Indooroopilly",
+          "nameCn": "三一亚洲超市（Indooroopilly店）",
+          "lat": -27.4995,
+          "lng": 152.9731,
+          "note": "布里斯班最大的亚超之一，中日韩台食材齐全，店员会讲中文，调料零食火锅料都能买到。"
+        },
+        {
+          "name": "Hanaro Mart Toowong",
+          "nameCn": "Hanaro Mart 韩亚超市（Toowong）",
+          "lat": -27.4849,
+          "lng": 152.9927,
+          "note": "位于Toowong Village的韩式亚超，泡面、冷冻饺子、韩国调料和亚洲蔬菜丰富，离校约2.4公里。"
+        },
+        {
+          "name": "Woolworths Indooroopilly",
+          "nameCn": "Woolworths 超市（Indooroopilly）",
+          "lat": -27.499,
+          "lng": 152.9735,
+          "note": "Westfield Indooroopilly内的另一家主力超市，与Coles同场，生鲜和本地日用品选择多。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "New Silk Road Xinjiang Cuisine",
+          "nameCn": "新疆美食中餐厅（新丝路）",
+          "lat": -27.5005,
+          "lng": 153.0042,
+          "note": "225 Hawken Dr，步行可达的清真新疆菜，大盘鸡、拉条子、烤串很正宗，留学生聚餐热门。"
+        },
+        {
+          "name": "Yum Cha Indooroopilly",
+          "nameCn": "印多罗皮利饮茶（粤式点心）",
+          "lat": -27.4992,
+          "lng": 152.9733,
+          "note": "Westfield内现做粤式点心和烧腊，虾饺叉烧包蒸点齐全，想吃广式早茶来这里。"
+        },
+        {
+          "name": "PappaRich Indooroopilly",
+          "nameCn": "PappaRich 马来西亚餐厅",
+          "lat": -27.4988,
+          "lng": 152.9737,
+          "note": "连锁马来西亚茶餐厅，肉骨茶、海南鸡饭、咖喱叻沙和拉茶，亚洲胃的安心之选。"
+        },
+        {
+          "name": "Hardgrave Road, West End",
+          "nameCn": "West End 哈德格雷夫路（亚洲美食街）",
+          "lat": -27.4828,
+          "lng": 153.0095,
+          "note": "过河约1.6公里的多元美食街，越南粉、泰餐、希腊菜云集，氛围年轻，性价比高。"
+        },
+        {
+          "name": "Saint Lucy Caffé e Cucina",
+          "nameCn": "Saint Lucy 意式餐厅（校内）",
+          "lat": -27.497,
+          "lng": 153.0142,
+          "note": "就在UQ校园内的人气意餐，柴火披萨和手工意面，约朋友或导师吃饭的体面去处。"
+        },
+        {
+          "name": "Merlo Coffee UQ",
+          "nameCn": "Merlo 咖啡（UQ Duhig店）",
+          "lat": -27.4968,
+          "lng": 153.0139,
+          "note": "布里斯班本土精品咖啡品牌的校内门店，昆士兰人从小喝到大，课间补咖啡因首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank, Toowong Village",
+          "nameCn": "联邦银行（Toowong Village 网点）",
+          "lat": -27.4853,
+          "lng": 152.9924,
+          "note": "距校约2.4公里的实体银行网点，CommBank是澳洲学生开户主流之一，办卡和现金业务都方便。"
+        },
+        {
+          "name": "Myhealth Medical Centre, Toowong Village",
+          "nameCn": "Myhealth 全科诊所（Toowong Village）",
+          "lat": -27.4851,
+          "lng": 152.9926,
+          "note": "商场1楼的GP全科诊所（混合收费），看病开药、开转诊单和流感疫苗都在这里，可在线预约。"
+        },
+        {
+          "name": "Hawken Drive Pharmacy",
+          "nameCn": "Hawken Drive 药房",
+          "lat": -27.4999,
+          "lng": 153.0048,
+          "note": "紧邻UQ校园的社区药房，处方药、感冒药和日常保健品就近可取，走路几分钟即到。"
+        },
+        {
+          "name": "Telstra Shop, Toowong Village",
+          "nameCn": "Telstra 营业厅（Toowong Village）",
+          "lat": -27.4852,
+          "lng": 152.9925,
+          "note": "澳洲最大运营商Telstra的门店，办手机卡和套餐、信号覆盖最广，落地办电话卡来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "UQ Great Court",
+          "nameCn": "昆大大court（砂岩中庭）",
+          "lat": -27.4975,
+          "lng": 153.0137,
+          "note": "校园心脏地带的世界级砂岩回廊建筑群，10月蓝花楹盛开时满地紫色花瓣，必拍打卡点。"
+        },
+        {
+          "name": "UQ Lakes",
+          "nameCn": "昆大湖区",
+          "lat": -27.4992,
+          "lng": 153.0146,
+          "note": "校园内的景观湖，黑天鹅和水鸟常驻，旁边就是UQ Lakes公交站和露天剧场，散步休息好去处。"
+        },
+        {
+          "name": "Eleanor Schonell Bridge",
+          "nameCn": "埃莉诺·肖内尔大桥",
+          "lat": -27.4958,
+          "lng": 153.019,
+          "note": "2006年建成的390米斜拉桥，仅供公交、自行车和行人通行，跨布里斯班河看落日风景极佳。"
+        },
+        {
+          "name": "St Lucia (UQ) CityCat Ferry Terminal",
+          "nameCn": "圣卢西亚 CityCat 渡轮码头",
+          "lat": -27.4944,
+          "lng": 153.0178,
+          "note": "校园边的渡轮码头，坐CityCat沿布里斯班河进城既是通勤也是观光，最具布里斯班特色的出行方式。"
+        },
+        {
+          "name": "Guyatt Park, St Lucia",
+          "nameCn": "Guyatt 河滨公园",
+          "lat": -27.492,
+          "lng": 153.009,
+          "note": "步行可达的河边公园，也设有CityCat码头，草坪开阔适合野餐、跑步和拍河景日落。"
+        }
+      ]
     }
   ]
 }
