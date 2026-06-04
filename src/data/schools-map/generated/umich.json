@@ -221,6 +221,161 @@
           "note": "篮球主场馆，紧邻密歇根体育场。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tsai Grocery",
+          "nameCn": "蔡氏亚洲超市",
+          "lat": 42.2409,
+          "lng": -83.7709,
+          "note": "安娜堡老牌亚洲超市，中日韩泰食材齐全，店内还带熟食外带，留学生囤中餐调料的常去处。"
+        },
+        {
+          "name": "Dong Yu China Market",
+          "nameCn": "东屿中国超市",
+          "lat": 42.3026,
+          "lng": -83.7062,
+          "note": "Plymouth Rd 上的华人超市，主打中国食材、冷冻火锅料和零食，离北校区较近。"
+        },
+        {
+          "name": "Whole Foods Market (Cranbrook)",
+          "nameCn": "全食超市（Cranbrook 店）",
+          "lat": 42.2476,
+          "lng": -83.7605,
+          "note": "高端连锁生鲜超市，有机果蔬和现成熟食丰富，校区往南约 3.5 公里。"
+        },
+        {
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 42.2596,
+          "lng": -83.7135,
+          "note": "性价比高的人气连锁超市，自有品牌冷冻食品和零食学生最爱，Stadium Blvd 上。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "TK Wu",
+          "nameCn": "TK Wu 中餐馆",
+          "lat": 42.2794,
+          "lng": -83.7431,
+          "note": "市中心 Liberty 街的正宗川菜/中餐，本地华人公认地道，分量足，步行可达校园。"
+        },
+        {
+          "name": "Tomukun Korean BBQ & Noodle Bar",
+          "nameCn": "Tomukun 韩式烤肉拉面",
+          "lat": 42.2795,
+          "lng": -83.7427,
+          "note": "校园旁人气最高的亚洲餐厅之一，韩式烤肉+拉面/越南粉，适合三五同学聚餐。"
+        },
+        {
+          "name": "No Thai!",
+          "nameCn": "No Thai! 泰式快餐",
+          "lat": 42.275,
+          "lng": -83.733,
+          "note": "South University 学生区的泰式快餐招牌店，份量大价格友好，课间果腹首选。"
+        },
+        {
+          "name": "Zingerman's Delicatessen",
+          "nameCn": "Zingerman's 熟食店",
+          "lat": 42.2843,
+          "lng": -83.7457,
+          "note": "安娜堡地标级美食，1982 年创立的传奇三明治熟食店，来一次必打卡。"
+        },
+        {
+          "name": "Frita Batidos",
+          "nameCn": "Frita Batidos 古巴小馆",
+          "lat": 42.2796,
+          "lng": -83.7407,
+          "note": "State 街上的本地名店，古巴风味汉堡 frita 配奶昔 batido，氛围活泼。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "University Health Service (UHS)",
+          "nameCn": "密大学生健康服务中心",
+          "lat": 42.2802,
+          "lng": -83.737,
+          "note": "校内学生医务中心，含全科门诊、急诊、药房，多数服务对在校生免费，看病第一站。"
+        },
+        {
+          "name": "Bank of America (Main St)",
+          "nameCn": "美国银行（主街支行）",
+          "lat": 42.2804,
+          "lng": -83.7484,
+          "note": "市中心主街的实体银行网点，可办理开户/借记卡，从校园步行约 1 公里。"
+        },
+        {
+          "name": "CVS Pharmacy (S State St)",
+          "nameCn": "CVS 药房（州街店）",
+          "lat": 42.2799,
+          "lng": -83.7407,
+          "note": "就在 State 街校园边的连锁药房，买非处方药、日用品和取处方都方便。"
+        },
+        {
+          "name": "University Hospital (Michigan Medicine)",
+          "nameCn": "密歇根大学医院",
+          "lat": 42.2814,
+          "lng": -83.7268,
+          "note": "密歇根医学中心主院区，设急诊室，遇重症/急症 24 小时就医，紧邻校园东侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "University of Michigan Museum of Art (UMMA)",
+          "nameCn": "密歇根大学艺术博物馆",
+          "lat": 42.2792,
+          "lng": -83.7387,
+          "note": "全美顶尖大学艺术馆之一，藏品横跨三千年，常年免费开放，就在 Diag 南侧。"
+        },
+        {
+          "name": "The Diag",
+          "nameCn": "Diag 中心草坪",
+          "lat": 42.2768,
+          "lng": -83.7382,
+          "note": "中央校区的核心广场与十字步道，学生日常穿行与活动地标，拍校园照必来。"
+        },
+        {
+          "name": "Nichols Arboretum",
+          "nameCn": "尼科尔斯植物园",
+          "lat": 42.2805,
+          "lng": -83.7278,
+          "note": "校园东侧的大型自然林地，春季牡丹园闻名，散步、野餐、看红叶的好去处。"
+        },
+        {
+          "name": "Ann Arbor Farmers Market (Kerrytown)",
+          "nameCn": "安娜堡农夫市集（Kerrytown）",
+          "lat": 42.2834,
+          "lng": -83.7467,
+          "note": "Kerrytown 历史街区的农夫市集，买本地生鲜、奶酪、鲜花，周边小店林立适合逛。"
+        }
+      ]
     }
   ]
 }

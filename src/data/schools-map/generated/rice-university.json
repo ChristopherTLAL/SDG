@@ -177,6 +177,168 @@
           "note": "2008 年中央四方院玻璃咖啡亭，校园社交核心。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H-E-B Buffalo Speedway",
+          "nameCn": "H-E-B 超市（Buffalo Speedway 店）",
+          "lat": 29.72704,
+          "lng": -95.42717,
+          "note": "离校最近的大型综合超市，德州本土连锁，生鲜平价、设国际食品区，留学生日常采购首选。"
+        },
+        {
+          "name": "Whole Foods Market (Kirby)",
+          "nameCn": "全食超市（Kirby 店）",
+          "lat": 29.73948,
+          "lng": -95.41817,
+          "note": "高端有机超市，有机食材、熟食和现成餐区丰富，距校约 3 公里。"
+        },
+        {
+          "name": "Trader Joe's (S Shepherd)",
+          "nameCn": "缺德舅超市（南谢泼德店）",
+          "lat": 29.7392,
+          "lng": -95.41117,
+          "note": "美国人气连锁，自有品牌冷冻食品和零食便宜好吃，性价比高。"
+        },
+        {
+          "name": "99 Ranch Market (Asiatown)",
+          "nameCn": "大华超市（华人城店）",
+          "lat": 29.78568,
+          "lng": -95.52342,
+          "note": "全美最大华人连锁超市，中餐调料、活鲜、亚洲蔬菜最齐全；在 Bellaire 华人城，需开车约 20 分钟，囤中餐货专程一趟。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Tiger Noodle House",
+          "nameCn": "老虎面馆",
+          "lat": 29.71757,
+          "lng": -95.41603,
+          "note": "Rice Village 内的人气中餐面馆，牛肉面、饺子、川味小炒平价管饱，步行可达的中国胃食堂。"
+        },
+        {
+          "name": "Duck N Bao",
+          "nameCn": "鸭与包",
+          "lat": 29.7143,
+          "lng": -95.41718,
+          "note": "Rice Village 网红中餐，招牌烤鸭和小笼包（灌汤包）出名，约会聚餐两宜。"
+        },
+        {
+          "name": "Cooking Girl (West U)",
+          "nameCn": "做饭的姑娘（西大学城店）",
+          "lat": 29.70648,
+          "lng": -95.41518,
+          "note": "颜值与口味俱佳的川菜馆，麻辣鲜香、摆盘讲究，深受华人留学生喜爱。"
+        },
+        {
+          "name": "Hungry's Cafe & Bistro",
+          "nameCn": "Hungry's 美式餐吧",
+          "lat": 29.71782,
+          "lng": -95.41333,
+          "note": "Rice Village 老牌美式餐厅，汉堡沙拉早午餐都有，离校仅 1 公里、是接待来客的方便选择。"
+        },
+        {
+          "name": "Local Foods (Rice Village)",
+          "nameCn": "Local Foods 轻食（米村店）",
+          "lat": 29.71949,
+          "lng": -95.41653,
+          "note": "本地人气三明治/轻食店，主打新鲜健康，适合赶课间快速解决一餐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Kirby & Sunset)",
+          "nameCn": "大通银行（Kirby & Sunset 支行）",
+          "lat": 29.72282,
+          "lng": -95.41815,
+          "note": "离校最近的大型银行网点，开学办美国银行账户（开卡/学生账户）就来这家，步行约 20 分钟。"
+        },
+        {
+          "name": "Memorial Hermann-Texas Medical Center",
+          "nameCn": "纪念赫尔曼医院（德州医学中心院区）",
+          "lat": 29.71339,
+          "lng": -95.39605,
+          "note": "校南即是全球最大医学城，这家是顶级综合医院，急诊/看病就医资源近在咫尺，约 800 米。"
+        },
+        {
+          "name": "CVS Pharmacy (Kirby)",
+          "nameCn": "CVS 药房（Kirby 店）",
+          "lat": 29.72969,
+          "lng": -95.41924,
+          "note": "美国连锁药房，处方药、感冒药、日用品都有，还能打流感疫苗，离校约 2 公里。"
+        },
+        {
+          "name": "Rice Village Shopping District",
+          "nameCn": "米村商业区（含手机营业厅）",
+          "lat": 29.71665,
+          "lng": -95.41666,
+          "note": "步行可达的商业区，AT&T / T-Mobile 等运营商门店集中于此，办美国手机卡很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Hermann Park",
+          "nameCn": "赫尔曼公园",
+          "lat": 29.71482,
+          "lng": -95.38492,
+          "note": "校东紧邻的大型城市公园，有日式花园、小火车和倒影池，散步跑步野餐的好去处。"
+        },
+        {
+          "name": "Museum of Fine Arts, Houston",
+          "nameCn": "休斯顿美术馆",
+          "lat": 29.72513,
+          "lng": -95.38945,
+          "note": "美国最大美术馆之一，藏品横跨古今，学生常有免费日，文艺打卡必去，距校约 1.6 公里。"
+        },
+        {
+          "name": "Houston Zoo",
+          "nameCn": "休斯顿动物园",
+          "lat": 29.71333,
+          "lng": -95.39159,
+          "note": "位于赫尔曼公园内的人气动物园，离校约 1 公里，周末放松遛弯的热门去处。"
+        },
+        {
+          "name": "Houston Museum of Natural Science",
+          "nameCn": "休斯顿自然科学博物馆",
+          "lat": 29.7221,
+          "lng": -95.3899,
+          "note": "恐龙化石、宝石厅和蝴蝶馆都很出名，亲子和拍照都合适，步行即可到达。"
+        },
+        {
+          "name": "The Menil Collection",
+          "nameCn": "梅尼尔收藏馆",
+          "lat": 29.7373,
+          "lng": -95.39847,
+          "note": "免费私人艺术馆，建筑安静优雅、含 Rothko 教堂与 Twombly 展馆，文青最爱，骑车 10 分钟。"
+        }
+      ]
     }
   ]
 }

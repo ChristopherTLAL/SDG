@@ -178,6 +178,161 @@
           "note": "学生活动中心，临市中心，含餐饮、剧场与社团空间。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Oasis World Market",
+          "nameCn": "绿洲世界超市（国际/亚洲食材）",
+          "lat": 37.2159,
+          "lng": -80.3998,
+          "note": "布堡最全的国际/亚洲食杂店，中、日、韩、印食材都有，每周五到新鲜货，留学生采买中餐调料首选。"
+        },
+        {
+          "name": "Lotus Oriental Market",
+          "nameCn": "莲花东方超市（中国/亚洲杂货）",
+          "lat": 37.2243,
+          "lng": -80.4147,
+          "note": "靠近 downtown 的小型中国/亚洲杂货店，米面、酱料、冷冻饺子和速食，离校近、补货方便。"
+        },
+        {
+          "name": "Kroger (Gables Shopping Center)",
+          "nameCn": "Kroger 超市（Gables 店）",
+          "lat": 37.2185,
+          "lng": -80.403,
+          "note": "离校最近的大型连锁超市，生鲜日用一站买齐，营业到午夜，店内还带药房。"
+        },
+        {
+          "name": "Kroger (University City Blvd)",
+          "nameCn": "Kroger 超市（University City 店）",
+          "lat": 37.2335,
+          "lng": -80.4318,
+          "note": "校园西侧的另一家大 Kroger，靠近学生公寓区，开车或公交都方便，同样营业到午夜。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Junzi Kitchen (君子食堂)",
+          "nameCn": "君子食堂（北方面食/盖饭）",
+          "lat": 37.23,
+          "lng": -80.415,
+          "note": "校门口 downtown 的现代中式快餐，主打北方肉夹馍(bing)和面碗，口味正、留学生扎堆。"
+        },
+        {
+          "name": "Happy Wok",
+          "nameCn": "Happy Wok 中餐馆",
+          "lat": 37.2294,
+          "lng": -80.4138,
+          "note": "College Ave 上口碑很高的中餐，被不少人评为布堡最好吃的中国菜，点中文菜单更地道。"
+        },
+        {
+          "name": "Top of the Stairs (TOTS)",
+          "nameCn": "Top of the Stairs（地标酒吧餐厅）",
+          "lat": 37.2245,
+          "lng": -80.4167,
+          "note": "1978 年开业的 VT 学生地标，招牌 loaded tots 薯块和 Rail 饮料，来了至少打卡一次。"
+        },
+        {
+          "name": "Gillie's",
+          "nameCn": "Gillie's（早午餐名店）",
+          "lat": 37.2293,
+          "lng": -80.4148,
+          "note": "1974 年老牌素食/海鲜餐厅，周末 brunch 极火，对素食和无麸质友好，几乎就在校园边。"
+        },
+        {
+          "name": "Benny Marconi's (Benny's Pizza)",
+          "nameCn": "Benny's 披萨（巨型 Virginia Slice）",
+          "lat": 37.23,
+          "lng": -80.414,
+          "note": "downtown 的招牌大披萨，比脸还大的 slice，深夜常常排到门外，学生宵夜经典。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (S Main St)",
+          "nameCn": "美国银行（开户网点）",
+          "lat": 37.212,
+          "lng": -80.396,
+          "note": "大型连锁银行 Blacksburg 实体网点，可办理开户；校内 Squires 学生中心还有其 ATM。"
+        },
+        {
+          "name": "LewisGale Hospital Montgomery",
+          "nameCn": "LewisGale Montgomery 医院（急诊/急救）",
+          "lat": 37.196,
+          "lng": -80.387,
+          "note": "本地综合医院，设 24 小时急诊和三级创伤中心，生病或急症就医的主要去处。"
+        },
+        {
+          "name": "CVS Pharmacy (1775 S Main St)",
+          "nameCn": "CVS 药房",
+          "lat": 37.2122,
+          "lng": -80.397,
+          "note": "连锁药房，可取处方药、买非处方药和日用品，也提供疫苗等基础健康服务。"
+        },
+        {
+          "name": "Verizon (Victra, University City Blvd)",
+          "nameCn": "Verizon 手机营业厅",
+          "lat": 37.233,
+          "lng": -80.43,
+          "note": "主流运营商 Verizon 授权店，办手机卡/套餐、买机或解决信号问题，靠近学生公寓区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Virginia Tech Duck Pond",
+          "nameCn": "弗吉尼亚理工鸭子湖",
+          "lat": 37.221,
+          "lng": -80.429,
+          "note": "校园里 1930 年代人工湖，水鸟成群、绿树环绕，散步、拍照、放松的网红风景点。"
+        },
+        {
+          "name": "War Memorial Chapel & Pylons",
+          "nameCn": "战争纪念教堂与纪念柱",
+          "lat": 37.227,
+          "lng": -80.422,
+          "note": "VT 精神象征，八根 Hokie Stone 纪念柱刻有校训 Ut Prosim，俯瞰 Drillfield 大草坪。"
+        },
+        {
+          "name": "Moss Arts Center (Center for the Arts)",
+          "nameCn": "莫斯艺术中心",
+          "lat": 37.2298,
+          "lng": -80.4155,
+          "note": "校园边的大型艺术中心，1260 座剧院加视觉艺术画廊，常有演出和展览可看。"
+        },
+        {
+          "name": "Hahn Horticulture Garden",
+          "nameCn": "Hahn 园艺花园",
+          "lat": 37.2196,
+          "lng": -80.4248,
+          "note": "校内免费植物园，四季花木和水景，靠近鸭子湖，适合慢逛和出片的安静角落。"
+        }
+      ]
     }
   ]
 }

@@ -207,6 +207,168 @@
           "note": "环路北缘学生服务与餐饮枢纽"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (University Center)",
+          "nameCn": "Trader Joe's 超市（大学城中心店）",
+          "lat": 33.6505,
+          "lng": -117.8419,
+          "note": "离校园北门最近、可步行到的平价超市，4225 Campus Dr，新生采购日常食材和半成品的首选。"
+        },
+        {
+          "name": "H Mart (Diamond Jamboree)",
+          "nameCn": "H Mart 韩亚龙超市（钻石广场店）",
+          "lat": 33.6878,
+          "lng": -117.8351,
+          "note": "钻石广场内的大型韩亚超市（2600 Alton Pkwy），中日韩食材、活海鲜、泡面一应俱全，自带美食广场。"
+        },
+        {
+          "name": "99 Ranch Market (Culver Plaza)",
+          "nameCn": "大华超市 99 Ranch（Culver 店）",
+          "lat": 33.6962,
+          "lng": -117.7988,
+          "note": "华人最熟悉的连锁亚超（15333 Culver Dr），中式酱料、火锅料、青菜豆腐最全，开车约 10 分钟。"
+        },
+        {
+          "name": "Target (University Center)",
+          "nameCn": "Target 百货（大学城中心店）",
+          "lat": 33.651,
+          "lng": -117.8425,
+          "note": "紧邻校园的综合百货，日用品、床品、零食、药妆一站买齐，搬入宿舍当天就用得上。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "BCD Tofu House",
+          "nameCn": "北倉洞嫩豆腐 BCD Tofu House",
+          "lat": 33.6884,
+          "lng": -117.834,
+          "note": "钻石广场内 24 小时营业的韩式嫩豆腐锅名店，留学生深夜和考试季最爱的暖胃去处。"
+        },
+        {
+          "name": "Capital Seafood (Diamond Jamboree)",
+          "nameCn": "海珍轩 Capital Seafood（钻石广场店）",
+          "lat": 33.6882,
+          "lng": -117.8332,
+          "note": "钻石广场内的粤式酒楼，逾百款现做点心和海鲜，约朋友家人饮茶聚餐的体面之选。"
+        },
+        {
+          "name": "85°C Bakery Cafe",
+          "nameCn": "85度C 烘焙咖啡",
+          "lat": 33.6886,
+          "lng": -117.8336,
+          "note": "台式连锁面包店（2700 Alton Pkwy #123），海盐咖啡和台式面包性价比高，是钻石广场的人气打卡点。"
+        },
+        {
+          "name": "In-N-Out Burger (Culver Dr)",
+          "nameCn": "In-N-Out 汉堡（Culver 店）",
+          "lat": 33.6896,
+          "lng": -117.7956,
+          "note": "加州必吃的招牌快餐汉堡，记得点隐藏菜单 Animal Style，体验地道南加州味道。"
+        },
+        {
+          "name": "Class 302",
+          "nameCn": "三年二班 Class 302",
+          "lat": 33.6881,
+          "lng": -117.8345,
+          "note": "钻石广场内主打台式校园风的餐厅，卤肉饭、芒果冰、珍奶解乡愁，氛围怀旧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (University Center)",
+          "nameCn": "大通银行 Chase（大学城中心支行）",
+          "lat": 33.6504,
+          "lng": -117.8414,
+          "note": "校园边可步行到的大行（4249 Campus Dr），新生开美国银行账户、办借记卡常去这家。"
+        },
+        {
+          "name": "Bank of America (UCI / Campus Dr)",
+          "nameCn": "美国银行 BofA（UCI 校区店）",
+          "lat": 33.6508,
+          "lng": -117.841,
+          "note": "另一家紧邻校园的主流银行，留学生开户、电汇学费的备选，校内学生中心还有 ATM。"
+        },
+        {
+          "name": "UCI Health — Irvine (Urgent Care & ER)",
+          "nameCn": "UCI Health 欧文院区（急诊 / 紧急护理）",
+          "lat": 33.676,
+          "lng": -117.8434,
+          "note": "离校最近的校属医院（19200 Jamboree Rd），急诊 24 小时、紧急护理日间开放，突发病痛先来这里。"
+        },
+        {
+          "name": "CVS Pharmacy (Campus Plaza)",
+          "nameCn": "CVS 药房（校园广场店）",
+          "lat": 33.652,
+          "lng": -117.829,
+          "note": "校园附近连锁药房，买非处方药、取处方、打流感疫苗都方便，深夜也能应急。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Aldrich Park",
+          "nameCn": "奥尔德里奇公园 Aldrich Park",
+          "lat": 33.6461,
+          "lng": -117.843,
+          "note": "UCI 校园正中心的环形大草坪和树林，被 Ring Road 环绕，是散步、野餐和拍校园照的标志性地标。"
+        },
+        {
+          "name": "San Joaquin Marsh Wildlife Sanctuary",
+          "nameCn": "圣华金湿地野生动物保护区",
+          "lat": 33.6628,
+          "lng": -117.8455,
+          "note": "步行可达的 300 英亩湿地（5 Riparian View），观鸟、慢跑和看日落的好去处，离校仅约十分钟。"
+        },
+        {
+          "name": "William R. Mason Regional Park",
+          "nameCn": "梅森地区公园 William R. Mason Park",
+          "lat": 33.652,
+          "lng": -117.8265,
+          "note": "校园东侧大型市政公园（18712 University Dr），有湖泊草坪，周末烧烤、骑行、放松的首选。"
+        },
+        {
+          "name": "Irvine Spectrum Center",
+          "nameCn": "欧文光谱中心 Irvine Spectrum",
+          "lat": 33.6506,
+          "lng": -117.7441,
+          "note": "南加州人气露天购物娱乐城，有大摩天轮、电影院和众多餐饮品牌，周末逛街约会的热门去处。"
+        },
+        {
+          "name": "Newport Beach / Balboa Peninsula",
+          "nameCn": "新港海滩 / 巴尔博亚半岛",
+          "lat": 33.6037,
+          "lng": -117.929,
+          "note": "离校约 15 分钟车程的著名海滩，码头、栈桥和冲浪文化，是体验南加州海岸生活的必去之地。"
+        }
+      ]
     }
   ]
 }

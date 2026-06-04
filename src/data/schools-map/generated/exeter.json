@@ -196,6 +196,175 @@
           "note": "最近大型火车站,距主校区步行约15分钟。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "168 Oriental Supermarket (一路發超市)",
+          "nameCn": "168亚洲超市",
+          "lat": 50.72723,
+          "lng": -3.52277,
+          "note": "市中心最大的华人超市，中日韩泰食材、冷冻饺子、火锅底料、调味料齐全，距校园步行约5分钟。"
+        },
+        {
+          "name": "BHL Oriental Food Store",
+          "nameCn": "BHL东方食品店",
+          "lat": 50.72688,
+          "lng": -3.5257,
+          "note": "King William街上的亚超，包子、泡面、酱料、新鲜亚洲蔬菜，凭学生证有折扣，离校近。"
+        },
+        {
+          "name": "Co-op Food (Pennsylvania Road)",
+          "nameCn": "Co-op超市（宾州路店）",
+          "lat": 50.73086,
+          "lng": -3.52585,
+          "note": "离校园最近的英式便利超市，步行约2分钟，买牛奶面包果蔬日用最方便。"
+        },
+        {
+          "name": "Sainsbury's Local (Sidwell Street)",
+          "nameCn": "Sainsbury's便利店（Sidwell街）",
+          "lat": 50.72594,
+          "lng": -3.52631,
+          "note": "英国三大连锁超市之一，自有品牌平价，适合日常采购和即食餐。"
+        },
+        {
+          "name": "Tesco Express (Sidwell Street)",
+          "nameCn": "Tesco便利店（Sidwell街）",
+          "lat": 50.7283,
+          "lng": -3.52228,
+          "note": "英国最大连锁超市，Clubcard会员价划算，营业时间长，应急采购首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Tang Shian (羴湘)",
+          "nameCn": "羴湘中餐厅",
+          "lat": 50.72127,
+          "lng": -3.53133,
+          "note": "南街上口碑很好的港式粤菜与川菜馆，提供点菜和火锅，留学生聚餐常去。"
+        },
+        {
+          "name": "The Dragon's Den Hot Pot",
+          "nameCn": "龙穴火锅",
+          "lat": 50.72727,
+          "lng": -3.52404,
+          "note": "Sidwell街上的下沉式自助火锅，川味锅底加自助蘸料台，离校园仅几分钟。"
+        },
+        {
+          "name": "Comptoir Libanais",
+          "nameCn": "黎巴嫩餐厅",
+          "lat": 50.72388,
+          "lng": -3.53225,
+          "note": "Queen街上的中东风味连锁，烤肉、塔吉锅、薄荷茶，环境出片，换换口味的好选择。"
+        },
+        {
+          "name": "Boston Tea Party",
+          "nameCn": "波士顿茶餐厅",
+          "lat": 50.72457,
+          "lng": -3.53173,
+          "note": "西南本土人气早午餐品牌，英式全早餐和咖啡份量足，是体验当地brunch文化的必去店。"
+        },
+        {
+          "name": "Samuel Jones Ale & Smoke House",
+          "nameCn": "Samuel Jones河畔餐酒馆",
+          "lat": 50.71833,
+          "lng": -3.53183,
+          "note": "运河码头边的英式酒馆餐厅，烤肉与本地啤酒，露台正对水景，是感受Exeter码头风情的必坐之地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "HSBC UK (High Street)",
+          "nameCn": "汇丰银行（高街）",
+          "lat": 50.72531,
+          "lng": -3.52799,
+          "note": "高街上的汇丰网点，留学生开户常用银行，可预约办理账户，距校园步行约8分钟。"
+        },
+        {
+          "name": "Boots Pharmacy (High Street)",
+          "nameCn": "Boots药妆店（高街）",
+          "lat": 50.72542,
+          "lng": -3.52778,
+          "note": "英国最大连锁药房，处方药、常用感冒药、个护和化妆品都有，市中心最方便。"
+        },
+        {
+          "name": "EE Store (High Street)",
+          "nameCn": "EE手机营业厅（高街）",
+          "lat": 50.72417,
+          "lng": -3.52974,
+          "note": "英国主流电信运营商门店，办手机卡/合约套餐，网速覆盖好，开学换卡来这。"
+        },
+        {
+          "name": "Royal Devon & Exeter Hospital (Wonford)",
+          "nameCn": "皇家德文埃克塞特医院（Wonford院区）",
+          "lat": 50.71709,
+          "lng": -3.50627,
+          "note": "本地综合教学医院，设24小时急诊(A&E)，急重症就医认准这个院区，距校约2公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Exeter Cathedral",
+          "nameCn": "埃克塞特大教堂",
+          "lat": 50.72252,
+          "lng": -3.52985,
+          "note": "英格兰哥特式建筑代表作，拥有全球最长的连续哥特拱顶，前方草坪是市中心头号打卡地。"
+        },
+        {
+          "name": "Royal Albert Memorial Museum (RAMM)",
+          "nameCn": "皇家阿尔伯特纪念博物馆",
+          "lat": 50.72523,
+          "lng": -3.53208,
+          "note": "曾获年度博物馆大奖，16个展厅免费参观，雨天和文化补给的好去处，离校近。"
+        },
+        {
+          "name": "Exeter Quay (Historic Quayside)",
+          "nameCn": "埃克塞特历史码头",
+          "lat": 50.71828,
+          "lng": -3.53099,
+          "note": "运河边最上镜的休闲区，可散步、租皮划艇、逛古董店，沿河酒吧咖啡馆林立。"
+        },
+        {
+          "name": "Gandy Street",
+          "nameCn": "甘迪街",
+          "lat": 50.7247,
+          "lng": -3.53135,
+          "note": "中世纪小巷，独立小店与咖啡馆云集，相传是《哈利波特》对角巷灵感来源，校友J.K.罗琳曾在此求学。"
+        },
+        {
+          "name": "Northernhay Gardens",
+          "nameCn": "北郊花园",
+          "lat": 50.7265,
+          "lng": -3.53162,
+          "note": "英格兰最古老的公共园林之一，紧邻罗马城墙遗迹，是校园与市中心之间散步歇脚的绿地。"
+        }
+      ]
     }
   ]
 }

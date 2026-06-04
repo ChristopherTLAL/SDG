@@ -163,6 +163,168 @@
           "note": "校区表演艺术中心主厅。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Target (UT Campus / 2021 Guadalupe)",
+          "nameCn": "Target 塔吉特超市（校园店）",
+          "lat": 30.281,
+          "lng": -97.7415,
+          "note": "就在 Guadalupe 大街（学生口中的 The Drag）上，紧邻西校区，步行可达，买日用品、零食、生鲜、急需药妆最方便。"
+        },
+        {
+          "name": "MT Supermarket (Chinatown Center)",
+          "nameCn": "大中华超市（中国城购物中心）",
+          "lat": 30.3848,
+          "lng": -97.6862,
+          "note": "中德州最大的亚洲超市，位于北 Lamar 的 Chinatown Center，中餐调料、活鲜、肉类、亚洲日用品最全，周末采购大本营。"
+        },
+        {
+          "name": "Han Yang Market",
+          "nameCn": "汉阳韩国超市",
+          "lat": 30.3438,
+          "lng": -97.7106,
+          "note": "北 Lamar 的韩亚超市，离校区比中国城更近，韩式食材、泡面、豆腐、生鲜齐全，应急囤货很方便。"
+        },
+        {
+          "name": "H Mart (South Lamar)",
+          "nameCn": "H Mart 韩国超市（南 Lamar 店）",
+          "lat": 30.2392,
+          "lng": -97.7929,
+          "note": "较新的大型韩亚超市，自带美食广场（含 Tous les Jours 面包房），逛超市顺便吃饭，适合周末开车采购。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chef Hong (Food Trailer)",
+          "nameCn": "Chef Hong 西安小吃车",
+          "lat": 30.2899,
+          "lng": -97.7438,
+          "note": "西校区巷子里的网红中餐车，正宗西安手工拉面、肉夹馍、凉皮，价格学生友好，离课堂几步路，想家时的解馋首选。"
+        },
+        {
+          "name": "Kerbey Lane Cafe (University)",
+          "nameCn": "Kerbey Lane 咖啡馆（大学店）",
+          "lat": 30.2935,
+          "lng": -97.7415,
+          "note": "Austin 本地传奇老店，全天供应招牌松饼和 Queso 芝士酱，离校超近，朋友聚餐和深夜吃饭的经典打卡地。"
+        },
+        {
+          "name": "Tso Chinese Takeout & Delivery",
+          "nameCn": "Tso 中式外卖",
+          "lat": 30.303,
+          "lng": -97.7211,
+          "note": "学生群体超受欢迎的美式中餐外卖／配送，左宗棠鸡、炒饭出品稳定快速，忙起来点外卖的常驻选择。"
+        },
+        {
+          "name": "Qi Austin Modern Asian Kitchen",
+          "nameCn": "启 现代亚洲餐厅",
+          "lat": 30.267,
+          "lng": -97.743,
+          "note": "靠近市中心的现代中餐，点心和小笼包品类丰富，想吃一顿稍正式的中餐、招待家人时合适。"
+        },
+        {
+          "name": "Madam Mam's (Noodles & More)",
+          "nameCn": "Madam Mam's 泰式面馆",
+          "lat": 30.2887,
+          "lng": -97.7416,
+          "note": "Drag 上经营多年的泰餐老店，咖喱、炒河粉、冬阴功平价好吃，是校园周边亚洲菜的常青树。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Guadalupe / UT)",
+          "nameCn": "大通银行（Guadalupe 校园支行）",
+          "lat": 30.292,
+          "lng": -97.7415,
+          "note": "就在 Drag 上的大通支行，办理学生支票账户、存取现金、办借记卡都在这里，是留学生开户最方便的选择之一。"
+        },
+        {
+          "name": "UT University Health Services (UHS)",
+          "nameCn": "UT 学生健康服务中心",
+          "lat": 30.2884,
+          "lng": -97.7375,
+          "note": "校内学生医疗中心（100 W Dean Keeton），看病、急诊小伤、24 小时护士咨询热线 512-475-6877，持学生身份即可就诊。"
+        },
+        {
+          "name": "CVS Pharmacy (2402 Guadalupe)",
+          "nameCn": "CVS 药房（2402 Guadalupe）",
+          "lat": 30.2902,
+          "lng": -97.7417,
+          "note": "步行可达的连锁药房，处方药、感冒药、隐形眼镜护理液和日用品都有，生病时不必跑远。"
+        },
+        {
+          "name": "AT&T Store (2828 Guadalupe)",
+          "nameCn": "AT&T 通讯营业厅",
+          "lat": 30.294,
+          "lng": -97.7415,
+          "note": "Drag 上仍在营业的运营商门店，刚落地办美国电话卡、选套餐、买手机配件可来这里，店员可现场协助开户。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "UT Tower (Main Building) & Observation Deck",
+          "nameCn": "UT 主楼钟塔与观景台",
+          "lat": 30.2862,
+          "lng": -97.7394,
+          "note": "高 307 英尺的校园地标，预约后可登顶观景台 360 度俯瞰 Austin 城市与丘陵，胜利之夜会亮成「德州橙」，必拍。"
+        },
+        {
+          "name": "Blanton Museum of Art",
+          "nameCn": "布兰顿艺术博物馆",
+          "lat": 30.2806,
+          "lng": -97.7374,
+          "note": "全美顶尖大学艺术馆之一，户外 Ellsworth Kelly 的「Austin」彩窗教堂超出片，每周四免费，文艺打卡好去处。"
+        },
+        {
+          "name": "Harry Ransom Center",
+          "nameCn": "哈里·兰瑟姆人文研究中心",
+          "lat": 30.2848,
+          "lng": -97.7414,
+          "note": "校内人文档案馆，常设展示古腾堡圣经和世界第一张照片，免费参观，适合静下心看展。"
+        },
+        {
+          "name": "Texas State Capitol",
+          "nameCn": "德州州议会大厦",
+          "lat": 30.2747,
+          "lng": -97.7404,
+          "note": "从校园沿 Congress 大道南行即到的红色花岗岩州议会大厦，比国会山还高，可免费入内参观，是 Austin 必游地标。"
+        },
+        {
+          "name": "Lady Bird Lake Hike-and-Bike Trail",
+          "nameCn": "伯德湖环湖步道",
+          "lat": 30.264,
+          "lng": -97.746,
+          "note": "市中心湖滨步道，跑步骑行赏天际线，傍晚还能看蝙蝠桥（Congress Ave Bridge）出洞的奇观，放松散心首选。"
+        }
+      ]
     }
   ]
 }

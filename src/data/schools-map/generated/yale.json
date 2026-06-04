@@ -171,6 +171,154 @@
           "note": "哥特式塔楼健身馆，俗称体育大教堂。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Hong Kong Grocery",
+          "nameCn": "香港超市",
+          "lat": 41.3125,
+          "lng": -72.9218,
+          "note": "离主校区步行5分钟最近的华人超市，中式生鲜、鱼、调料和干货齐全，做中餐首选。"
+        },
+        {
+          "name": "Market 360",
+          "nameCn": "Market 360 亚洲超市",
+          "lat": 41.3052,
+          "lng": -72.9236,
+          "note": "Chapel街上的泛亚超市，偏韩国和日韩货，方便面、零食、速食选择多。"
+        },
+        {
+          "name": "Hanmi Oriental Food & Gift Shop",
+          "nameCn": "Hanmi 韩亚食品店",
+          "lat": 41.3159,
+          "lng": -72.9094,
+          "note": "State街上的韩国超市，泡菜、韩式食材和小礼品，耶鲁学生常去。"
+        },
+        {
+          "name": "Stop & Shop (Whalley Ave)",
+          "nameCn": "Stop & Shop 超市（Whalley大道店）",
+          "lat": 41.3149,
+          "lng": -72.9375,
+          "note": "校区以西约1公里的大型美式连锁超市，自带药房和加油站，日常采买最全。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Junzi Kitchen",
+          "nameCn": "君子食堂",
+          "lat": 41.3111,
+          "lng": -72.9304,
+          "note": "耶鲁学生创办的北方中餐快餐，刀削面和卤味，就在Broadway校园商业区，性价比高。"
+        },
+        {
+          "name": "Chef Jiang",
+          "nameCn": "湘渝轩",
+          "lat": 41.3124,
+          "lng": -72.9219,
+          "note": "Whitney大道上的川湘菜馆，剁椒鱼头、水煮鱼地道下饭，留学生评价很高。"
+        },
+        {
+          "name": "Frank Pepe Pizzeria Napoletana",
+          "nameCn": "Frank Pepe 披萨店",
+          "lat": 41.3029,
+          "lng": -72.9166,
+          "note": "1925年创立的纽黑文披萨鼻祖，招牌白蛤披萨，来纽黑文必吃的地标老店。"
+        },
+        {
+          "name": "Modern Apizza",
+          "nameCn": "Modern 披萨店",
+          "lat": 41.3139,
+          "lng": -72.9125,
+          "note": "纽黑文披萨「三巨头」之一，1934年开业仅此一家，碳烤薄脆饼底，本地人最爱。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Yale New Haven Hospital (York Street Campus)",
+          "nameCn": "耶鲁纽黑文医院（York街主院区）",
+          "lat": 41.3033,
+          "lng": -72.9361,
+          "note": "紧邻校园的大型教学医院，含24小时急诊，看病急救认准这里。"
+        },
+        {
+          "name": "Bank of America (New Haven Green)",
+          "nameCn": "美国银行（纽黑文绿地支行）",
+          "lat": 41.3066,
+          "lng": -72.9253,
+          "note": "市中心绿地旁的全功能支行，开户、办借记卡、现金业务都能办，离校园几分钟。"
+        },
+        {
+          "name": "AT&T Store (Chapel St)",
+          "nameCn": "AT&T 手机营业厅（Chapel街店）",
+          "lat": 41.3066,
+          "lng": -72.9274,
+          "note": "Chapel街上的电信运营商门店，办手机卡、套餐和宽带，落地后办号方便。"
+        },
+        {
+          "name": "Apothecary & Wellness Center at YNHH",
+          "nameCn": "耶鲁纽黑文医院药房",
+          "lat": 41.3111,
+          "lng": -72.9441,
+          "note": "医院附属零售药房，凭处方取药、买常用非处方药，配套St. Raphael院区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Yale University Art Gallery",
+          "nameCn": "耶鲁大学美术馆",
+          "lat": 41.3084,
+          "lng": -72.9315,
+          "note": "全美最古老的大学美术馆，藏品从古希腊到现代名作，免费开放，校内必逛。"
+        },
+        {
+          "name": "Beinecke Rare Book & Manuscript Library",
+          "nameCn": "拜内克古籍善本图书馆",
+          "lat": 41.3114,
+          "lng": -72.9277,
+          "note": "标志性大理石半透明外墙建筑，馆内藏古腾堡圣经，是耶鲁最出名的打卡点之一。"
+        },
+        {
+          "name": "New Haven Green",
+          "nameCn": "纽黑文绿地",
+          "lat": 41.308,
+          "lng": -72.927,
+          "note": "市中心16英亩历史公园，三座19世纪教堂和耶鲁老校区相邻，国家历史地标。"
+        },
+        {
+          "name": "East Rock Park Summit",
+          "nameCn": "东岩公园观景台",
+          "lat": 41.33,
+          "lng": -72.9044,
+          "note": "校园东北的悬崖制高点，士兵纪念碑下可俯瞰全城和长岛海湾，看日落绝佳。"
+        }
+      ]
     }
   ]
 }

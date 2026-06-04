@@ -175,6 +175,168 @@
           "note": "校区南端的体育馆与游泳池，校队主场。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (S. Lake Ave)",
+          "nameCn": "Trader Joe's 超市（南湖大道店）",
+          "lat": 34.141,
+          "lng": -118.132,
+          "note": "离校园最近的主流超市之一，性价比高、半成品和零食丰富，345 S Lake Ave，步行/骑车可达。"
+        },
+        {
+          "name": "Ralphs (N. Lake Ave)",
+          "nameCn": "Ralphs 超市（北湖大道店）",
+          "lat": 34.149,
+          "lng": -118.1318,
+          "note": "大型连锁综合超市，生鲜日用一站买齐，校园北侧 160 N Lake Ave，店内带药房。"
+        },
+        {
+          "name": "99 Ranch Market (San Gabriel)",
+          "nameCn": "大华超市 99 大华（圣盖博店）",
+          "lat": 34.0777,
+          "lng": -118.1018,
+          "note": "南加最大华人连锁超市，中餐食材/调料/活海鲜最全，校园南约 6km，是采购中国货的首选。"
+        },
+        {
+          "name": "H Mart (Arcadia)",
+          "nameCn": "H Mart 韩亚龙超市（阿凯迪亚店）",
+          "lat": 34.1356,
+          "lng": -118.0636,
+          "note": "大型韩国/亚洲超市，韩日中食材齐全、自带美食广场，校园以东约 5.5km。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Pie 'n Burger",
+          "nameCn": "Pie 'n Burger 经典美式餐馆",
+          "lat": 34.136,
+          "lng": -118.1315,
+          "note": "1963 年开业的加州理工地标小馆，汉堡和现烤派必点，几乎挨着校园（913 E California Blvd）。"
+        },
+        {
+          "name": "Lunasia Dim Sum House",
+          "nameCn": "六意（粤式茶餐厅/点心）",
+          "lat": 34.1457,
+          "lng": -118.1473,
+          "note": "老城区著名粤式点心，虾饺烧卖港式烤鸭水准高，离校园最近的正经中餐之一。"
+        },
+        {
+          "name": "Din Tai Fung (Arcadia)",
+          "nameCn": "鼎泰丰（阿凯迪亚 Santa Anita 店）",
+          "lat": 34.1308,
+          "lng": -118.051,
+          "note": "世界知名小笼包，台式经典，开在 Westfield Santa Anita 商场内，校园东约 7km，值得专程。"
+        },
+        {
+          "name": "Chengdu Taste (Alhambra)",
+          "nameCn": "成都味道（阿罕布拉店）",
+          "lat": 34.0937,
+          "lng": -118.127,
+          "note": "圣盖博谷川菜名店，担担面、钵钵鸡、辣味地道，想吃正宗川味必来。"
+        },
+        {
+          "name": "Lake Avenue dining cluster",
+          "nameCn": "南湖大道餐饮街区",
+          "lat": 34.1385,
+          "lng": -118.1318,
+          "note": "校园西侧 Lake Ave 一带集中了咖啡、快餐、波霸奶茶和各国小馆，日常解决吃饭最方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (E. Colorado Blvd)",
+          "nameCn": "大通银行 Chase（科罗拉多大道店）",
+          "lat": 34.1458,
+          "lng": -118.1318,
+          "note": "全美最大零售银行之一，新生开户/办借记卡常用，860 E Colorado Blvd，离校园近。"
+        },
+        {
+          "name": "Huntington Hospital",
+          "nameCn": "亨廷顿医院（综合医院/急诊）",
+          "lat": 34.1366,
+          "lng": -118.153,
+          "note": "帕萨迪纳主要综合医院，24 小时急诊，100 W California Blvd，紧急就医的去处。"
+        },
+        {
+          "name": "Exer Urgent Care (S. Lake Ave)",
+          "nameCn": "Exer 紧急护理诊所（南湖店）",
+          "lat": 34.1382,
+          "lng": -118.1318,
+          "note": "离校最近的 urgent care，发烧/小外伤等非急诊问题可直接 walk-in，600 S Lake Ave，每天营业。"
+        },
+        {
+          "name": "CVS Pharmacy (Lake Ave area)",
+          "nameCn": "CVS 药房（湖大道一带）",
+          "lat": 34.1455,
+          "lng": -118.1316,
+          "note": "连锁药房，处方药、常备药和日用品都有，校园附近多家分店，配药/打疫苗方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Huntington Library, Art Museum & Botanical Gardens",
+          "nameCn": "亨廷顿图书馆与植物园（含流芳园中式园林）",
+          "lat": 34.129,
+          "lng": -118.1145,
+          "note": "世界级图书馆+艺术馆+植物园，「流芳园」是海外最大中式园林之一，校园南约 2km，必打卡。"
+        },
+        {
+          "name": "Old Pasadena",
+          "nameCn": "帕萨迪纳老城",
+          "lat": 34.1456,
+          "lng": -118.1503,
+          "note": "Colorado Blvd 与 Fair Oaks 交口的历史街区，购物、餐厅、酒吧和街拍最热闹的地方。"
+        },
+        {
+          "name": "Norton Simon Museum",
+          "nameCn": "诺顿·西蒙美术馆",
+          "lat": 34.1464,
+          "lng": -118.1593,
+          "note": "藏有伦勃朗、梵高、戈雅等大师作品的私人级美术馆，玫瑰花车游行就在门口拐弯。"
+        },
+        {
+          "name": "Caltech campus (Beckman Mall / Throop)",
+          "nameCn": "加州理工校园（贝克曼广场一带）",
+          "lat": 34.137,
+          "lng": -118.1253,
+          "note": "校园本身就是景点：地中海式建筑、橙园和喷泉，适合散步与拍照。"
+        },
+        {
+          "name": "Pasadena City Hall",
+          "nameCn": "帕萨迪纳市政厅",
+          "lat": 34.1477,
+          "lng": -118.1444,
+          "note": "西班牙复兴式穹顶建筑，影视取景常客，是城里最上镜的拍照地标之一。"
+        }
+      ]
     }
   ]
 }

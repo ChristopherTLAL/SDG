@@ -200,6 +200,140 @@
           "note": "最近的城际火车总站,距主校区步行约 10 分钟。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tesco Express (Brownlow Hill / The Foundation)",
+          "nameCn": "乐购便利店（布朗洛山校内店）",
+          "lat": 53.40578,
+          "lng": -2.96758,
+          "note": "就在校园核心区布朗洛山上，步行几分钟，日常采购最方便的英式便利超市。"
+        },
+        {
+          "name": "Sainsbury's (St Johns Centre / Elliot Street)",
+          "nameCn": "桑斯伯里超市（圣约翰中心店）",
+          "lat": 53.40482,
+          "lng": -2.98318,
+          "note": "市中心大型综合超市，生鲜熟食日用品齐全，离校约10分钟。"
+        },
+        {
+          "name": "Chung Wah Supermarket",
+          "nameCn": "中华超市",
+          "lat": 53.39744,
+          "lng": -2.97992,
+          "note": "唐人街老牌华人超市，中餐调料、米面、冷冻饺子火锅料一应俱全。"
+        },
+        {
+          "name": "W H Lung Supermarket",
+          "nameCn": "荣华行亚洲超市",
+          "lat": 53.42492,
+          "lng": -2.99593,
+          "note": "利物浦最大的亚洲批发兼零售超市，约2km，囤货和找小众中国食材的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Yuet Ben",
+          "nameCn": "悦宾酒家",
+          "lat": 53.40006,
+          "lng": -2.97604,
+          "note": "1968年开业、利物浦最老的中餐馆，主打地道北方菜，唐人街必打卡。"
+        },
+        {
+          "name": "Mowgli Street Food",
+          "nameCn": "Mowgli 印度街头小馆",
+          "lat": 53.40283,
+          "lng": -2.97751,
+          "note": "Bold街上的利物浦招牌印度餐厅（创始店），常年排队，小份家常印度菜很出片。"
+        },
+        {
+          "name": "Maray",
+          "nameCn": "Maray 中东小馆",
+          "lat": 53.40245,
+          "lng": -2.97677,
+          "note": "Bold街人气黎巴嫩/中东风味，招牌炸花椰菜，适合朋友分享。"
+        },
+        {
+          "name": "Bold Street Coffee",
+          "nameCn": "Bold街咖啡馆",
+          "lat": 53.40247,
+          "lng": -2.97681,
+          "note": "本地知名独立咖啡馆，写作业、约同学聊天的好地方。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Liverpool University Hospital & City Centre Walk-in Centre",
+          "nameCn": "皇家利物浦大学医院 / 市中心免预约门诊",
+          "lat": 53.40954,
+          "lng": -2.96302,
+          "note": "紧邻校园的大型公立医院，急诊加每天8点至晚8点的免预约门诊(Walk-in)，小病急症看这里。"
+        },
+        {
+          "name": "O2 Shop (Church Street)",
+          "nameCn": "O2 手机营业厅（教堂街店）",
+          "lat": 53.40482,
+          "lng": -2.98318,
+          "note": "教堂街上的O2运营商门店，办英国手机卡/套餐，旁边还有EE、Vodafone可比价。"
+        },
+        {
+          "name": "Barclays Bank (Lord Street)",
+          "nameCn": "巴克莱银行（领主街支行）",
+          "lat": 53.4052,
+          "lng": -2.98755,
+          "note": "市中心主街大行，可办留学生银行账户，附近HSBC/NatWest也都在步行范围。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Liverpool Cathedral",
+          "nameCn": "利物浦座堂（圣公会大教堂）",
+          "lat": 53.39732,
+          "lng": -2.97318,
+          "note": "英国最大教堂、世界第五大，登塔可俯瞰全城，离校南侧步行可达的地标。"
+        },
+        {
+          "name": "Metropolitan Cathedral of Christ the King",
+          "nameCn": "大主教座堂（天主教皇冠教堂）",
+          "lat": 53.40472,
+          "lng": -2.96871,
+          "note": "造型前卫的圆锥形天主教堂，就在校园旁，与圣公会大教堂遥相对望，必拍。"
+        },
+        {
+          "name": "Chinatown Imperial Arch (Nelson Street)",
+          "nameCn": "唐人街帝国牌楼",
+          "lat": 53.39953,
+          "lng": -2.97688,
+          "note": "中国境外最高的传统牌楼（上海赠送），唐人街地标，春节庆典中心，拍照打卡点。"
+        }
+      ]
     }
   ]
 }

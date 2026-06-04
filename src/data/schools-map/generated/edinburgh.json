@@ -222,6 +222,182 @@
           "note": "市中心主火车站,距中心校区步行约15分钟。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Aihua Chinese Supermarket",
+          "nameCn": "爱华中超",
+          "lat": 55.9445,
+          "lng": -3.1843,
+          "note": "离 George Square 主校区步行几分钟最近的中超，老干妈、火锅底料、速冻饺子米面都全，满额还有折扣。"
+        },
+        {
+          "name": "Lang Yu Chinese Supermarket",
+          "nameCn": "朗宇中超",
+          "lat": 55.9455,
+          "lng": -3.1862,
+          "note": "尼科尔森大街上的中超(61-63 Nicolson St)，调料、零食、生鲜齐全，学生宿舍区顺路就能买。"
+        },
+        {
+          "name": "Sainsbury's (Nicolson Street)",
+          "nameCn": "Sainsbury's 超市(尼科尔森店)",
+          "lat": 55.946,
+          "lng": -3.1858,
+          "note": "校区南侧的英国主流连锁超市，日常米油菜肉、面包牛奶一站买齐，营业到很晚。"
+        },
+        {
+          "name": "Tesco (Nicolson Street)",
+          "nameCn": "Tesco 超市(尼科尔森店)",
+          "lat": 55.9468,
+          "lng": -3.1852,
+          "note": "另一家主流大超市，性价比高、自有品牌便宜，办 Clubcard 折扣更划算。"
+        },
+        {
+          "name": "Loon Fung (Warriston Place)",
+          "nameCn": "龙凤行(华人超市/餐厅)",
+          "lat": 55.9608,
+          "lng": -3.1948,
+          "note": "爱丁堡老牌华人字号，北边 Canonmills 一带，活鱼海鲜和粤式食材选择多，可顺带粤菜外卖。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "The Mosque Kitchen",
+          "nameCn": "清真厨房(咖喱食堂)",
+          "lat": 55.9455,
+          "lng": -3.1857,
+          "note": "学生公认的平价咖喱食堂，自助打饭式，咖喱配米饭约 9 镑管饱，校区旁排队也值。"
+        },
+        {
+          "name": "Chez Jules / Southside curry & kebab strip",
+          "nameCn": "南桥咖喱烤肉一条街",
+          "lat": 55.9447,
+          "lng": -3.1875,
+          "note": "Forrest Road / South Bridge 一带聚集大量咖喱、烤肉、披萨小馆，深夜下课觅食首选。"
+        },
+        {
+          "name": "Chop Chop (or central dim sum)",
+          "nameCn": "中餐/点心馆",
+          "lat": 55.9469,
+          "lng": -3.1882,
+          "note": "市中心步行可达的中餐选择，想吃饺子、点心、家常炒菜解馋时来这片找。"
+        },
+        {
+          "name": "Oink Hog Roast (Victoria Street)",
+          "nameCn": "Oink 烤猪肉卷",
+          "lat": 55.9479,
+          "lng": -3.1936,
+          "note": "维多利亚街上的招牌烤猪肉三明治，本地必吃小吃，分量足、出餐快，逛老城顺路。"
+        },
+        {
+          "name": "The Elephant House",
+          "nameCn": "大象咖啡馆",
+          "lat": 55.9472,
+          "lng": -3.1905,
+          "note": "号称《哈利波特》诞生地之一的咖啡馆，打卡兼写论文圣地，靠近 Greyfriars。"
+        },
+        {
+          "name": "Mary's Milk Bar (Grassmarket)",
+          "nameCn": "Mary's 手工冰淇淋",
+          "lat": 55.9472,
+          "lng": -3.1955,
+          "note": "草市集旁的网红手工 gelato，每日限定口味，城堡脚下散步必尝。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of Scotland (The Mound / South Bridge)",
+          "nameCn": "苏格兰银行(开户网点)",
+          "lat": 55.9486,
+          "lng": -3.1903,
+          "note": "苏格兰本地大行，留学生常用来开学生账户，带录取信+地址证明预约即可办理。"
+        },
+        {
+          "name": "Boots Pharmacy (South Bridge)",
+          "nameCn": "Boots 药妆/药房",
+          "lat": 55.9483,
+          "lng": -3.188,
+          "note": "全英连锁药房，处方药、感冒药、日用品都有，还能咨询药剂师，校区步行可达。"
+        },
+        {
+          "name": "Royal Infirmary of Edinburgh (A&E)",
+          "nameCn": "爱丁堡皇家医院(急诊 A&E)",
+          "lat": 55.9214,
+          "lng": -3.1369,
+          "note": "本地 24 小时急诊主力医院(16 岁以上)，遇紧急情况打 999 或前往；非急症先约 GP 或打 NHS 111。"
+        },
+        {
+          "name": "EE / mobile carrier shop (Princes Street)",
+          "nameCn": "EE 等运营商门店(王子街)",
+          "lat": 55.9519,
+          "lng": -3.1956,
+          "note": "王子街购物区集中了 EE、O2、Vodafone、Three 等运营商门店，办手机卡套餐一次比价搞定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Old College (University of Edinburgh)",
+          "nameCn": "爱丁堡大学旧学院",
+          "lat": 55.9472,
+          "lng": -3.1865,
+          "note": "学校最具标志性的新古典主义庭院，圆顶金人雕像，校区核心打卡点。"
+        },
+        {
+          "name": "The Meadows",
+          "nameCn": "梅多斯公园",
+          "lat": 55.9405,
+          "lng": -3.1903,
+          "note": "紧挨校区的大草坪公园，樱花季和野餐、跑步、踢球的学生日常去处。"
+        },
+        {
+          "name": "Arthur's Seat (Holyrood Park)",
+          "nameCn": "亚瑟王座(死火山)",
+          "lat": 55.9444,
+          "lng": -3.1618,
+          "note": "市中心旁的死火山，徒步登顶可俯瞰全城，看日出日落的爱丁堡必爬地标。"
+        },
+        {
+          "name": "Edinburgh Castle",
+          "nameCn": "爱丁堡城堡",
+          "lat": 55.9486,
+          "lng": -3.1999,
+          "note": "矗立在火山岩上的城堡，城市象征，每天 13 点鸣放报时炮，俯瞰老城绝佳。"
+        },
+        {
+          "name": "Royal Mile & Greyfriars Bobby",
+          "nameCn": "皇家英里大道 & 忠犬巴比",
+          "lat": 55.9473,
+          "lng": -3.1903,
+          "note": "老城主轴皇家英里连着圣吉尔斯大教堂，旁边 Greyfriars 墓园有忠犬巴比铜像，传是 J.K. 罗琳取名灵感。"
+        }
+      ]
     }
   ]
 }

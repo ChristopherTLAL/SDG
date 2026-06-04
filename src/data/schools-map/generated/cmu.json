@@ -200,6 +200,182 @@
           "note": "福布斯大道草坪上斜插天际的人像雕塑地标。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Panda Supermarket (熊猫超市)",
+          "nameCn": "熊猫亚洲超市（松鼠山店）",
+          "lat": 40.438,
+          "lng": -79.9223,
+          "note": "松鼠山 Forbes 大道上最近的华人超市，中餐调料、火锅食材、冷冻品、亚洲蔬菜齐全，CMU 中国学生采购首选。"
+        },
+        {
+          "name": "Lotus Food Company",
+          "nameCn": "莲花亚洲食品超市（Strip District）",
+          "lat": 40.4509,
+          "lng": -79.9821,
+          "note": "Strip District 老牌大型亚超，规模大、品类全、价格实惠，周末囤货补给的好去处，距校约 4 公里。"
+        },
+        {
+          "name": "Giant Eagle Market District (Shadyside)",
+          "nameCn": "Giant Eagle 大鹰超市（高端 Market District 店）",
+          "lat": 40.4566,
+          "lng": -79.9298,
+          "note": "匹兹堡本地连锁主力大超市，生鲜熟食烘焙俱全，有 fuelperks 油价积分，日常美式采购主场。"
+        },
+        {
+          "name": "Whole Foods Market (East Liberty)",
+          "nameCn": "全食超市（东自由区店）",
+          "lat": 40.4625,
+          "lng": -79.9248,
+          "note": "高端有机超市，有机蔬果、沙拉吧、热食区品质好，适合买健康食材和现成餐，环境舒适。"
+        },
+        {
+          "name": "Many More Asian Market",
+          "nameCn": "Many More 亚洲市场（Strip District）",
+          "lat": 40.466,
+          "lng": -79.9595,
+          "note": "Strip District 大型亚超，东亚、东南亚食材种类多、性价比高，常和 Lotus 一起逛。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Rose Tea Cafe",
+          "nameCn": "蔷薇茶餐厅（台湾菜）",
+          "lat": 40.438,
+          "lng": -79.9224,
+          "note": "松鼠山经典台湾菜，三杯鸡、卤肉饭、牛肉面口碑炸裂，中国学生解馋的头号食堂。"
+        },
+        {
+          "name": "Chengdu Gourmet (成都味道)",
+          "nameCn": "成都美食（正宗川菜）",
+          "lat": 40.4378,
+          "lng": -79.923,
+          "note": "James Beard 提名的正宗川菜馆，麻辣鲜香、水煮鱼夫妻肺片地道，匹兹堡最强中餐之一。"
+        },
+        {
+          "name": "Everyday Noodles",
+          "nameCn": "天天面（手工小笼包/拉面）",
+          "lat": 40.4381,
+          "lng": -79.9218,
+          "note": "现包小笼包、刀削面、生煎，能隔玻璃看师傅手工制作，松鼠山排队名店。"
+        },
+        {
+          "name": "The Original Hot Dog Shop",
+          "nameCn": "the O 原创热狗店（Oakland 地标）",
+          "lat": 40.4424,
+          "lng": -79.9587,
+          "note": "Oakland 校区门口几十年老店「the O」，巨量薯条配热狗，匹兹堡学生深夜文化符号。"
+        },
+        {
+          "name": "Primanti Brothers (Oakland)",
+          "nameCn": "Primanti 兄弟三明治（匹兹堡名物）",
+          "lat": 40.4429,
+          "lng": -79.9579,
+          "note": "匹兹堡招牌三明治：薯条、卷心菜、肉全夹进面包里，外地人必打卡的本地必吃。"
+        },
+        {
+          "name": "Pamela's Diner (Oakland)",
+          "nameCn": "Pamela's 美式早餐店",
+          "lat": 40.4428,
+          "lng": -79.9573,
+          "note": "匹兹堡最有名的美式 brunch，薄脆可丽饼煎饼一绝，奥巴马都吃过，只收现金。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "PNC Bank (Forbes Ave, Oakland)",
+          "nameCn": "PNC 银行（Oakland 福布斯大道支行）",
+          "lat": 40.4425,
+          "lng": -79.9557,
+          "note": "匹兹堡总部银行，校区附近网点多、对国际学生开户友好，留学生开美国账户的主流选择。"
+        },
+        {
+          "name": "UPMC Presbyterian Hospital",
+          "nameCn": "UPMC 长老会医院（大型综合医院/急诊）",
+          "lat": 40.4419,
+          "lng": -79.9608,
+          "note": "全美顶尖的 UPMC 旗舰医院，24 小时急诊，紧邻校区，重大病情和急救的去处。"
+        },
+        {
+          "name": "CVS Pharmacy (Forbes Ave)",
+          "nameCn": "CVS 药房（福布斯大道店）",
+          "lat": 40.4417,
+          "lng": -79.956,
+          "note": "连锁药房兼便利店，处方药、感冒药、日用品齐全，离校步行可达，配镜疫苗都能办。"
+        },
+        {
+          "name": "Verizon (Oakland / Forbes)",
+          "nameCn": "Verizon 通讯营业厅",
+          "lat": 40.4421,
+          "lng": -79.9551,
+          "note": "美国主流运营商门店，办手机卡和套餐、解决信号问题，新生落地办号方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Carnegie Museum of Art & Natural History",
+          "nameCn": "卡内基艺术与自然历史博物馆",
+          "lat": 40.4434,
+          "lng": -79.9496,
+          "note": "紧贴 CMU 的双馆博物馆，恐龙化石和艺术藏品世界级，CMU 学生常免费入场，周末好去处。"
+        },
+        {
+          "name": "Phipps Conservatory and Botanical Gardens",
+          "nameCn": "菲普斯温室植物园",
+          "lat": 40.4389,
+          "lng": -79.9477,
+          "note": "玻璃温室植物园，四季花展和圣诞灯光秀超出片，就在校旁 Schenley 公园边，约会拍照圣地。"
+        },
+        {
+          "name": "Cathedral of Learning (University of Pittsburgh)",
+          "nameCn": "匹兹堡大学学习大教堂",
+          "lat": 40.4443,
+          "lng": -79.9531,
+          "note": "全美最高的哥特式教学楼，内有各国主题教室，是 Oakland 地标与必拍打卡点。"
+        },
+        {
+          "name": "Schenley Park",
+          "nameCn": "申利公园",
+          "lat": 40.4364,
+          "lng": -79.9419,
+          "note": "校园南侧大型城市公园，步道、网球场、Panther Hollow 湖，跑步散步野餐的后花园。"
+        },
+        {
+          "name": "Cathedral / Schenley Plaza & Fountain",
+          "nameCn": "申利广场与喷泉草坪",
+          "lat": 40.4421,
+          "lng": -79.9534,
+          "note": "Oakland 中心绿地广场，餐车、旋转木马和草坪，天气好时学生聚集晒太阳的好地方。"
+        }
+      ]
     }
   ]
 }

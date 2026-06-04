@@ -185,6 +185,147 @@
           "note": "紧邻校园的历史购物餐饮区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Harris Teeter (Reynolda Manor)",
+          "nameCn": "哈里斯·提特超市（雷诺达店）",
+          "lat": 36.14426,
+          "lng": -80.29982,
+          "note": "离校园最近的主流大型连锁超市（约2公里），生鲜熟食齐全、自带药房，每天营业到很晚，是日常采购首选。"
+        },
+        {
+          "name": "Whole Foods Market",
+          "nameCn": "全食超市",
+          "lat": 36.09535,
+          "lng": -80.27499,
+          "note": "高端有机超市，有机蔬果、进口食材和现成熟食丰富，适合改善伙食或买健康食品。"
+        },
+        {
+          "name": "Lee's Grocery (Asian)",
+          "nameCn": "李氏亚洲杂货店",
+          "lat": 36.15297,
+          "lng": -80.26405,
+          "note": "校园东北约2.4公里的亚洲杂货店，可买到酱油、米面、火锅底料等中式食材，解乡愁好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "May Way Dumplings",
+          "nameCn": "美味饺子馆",
+          "lat": 36.12649,
+          "lng": -80.28514,
+          "note": "就在校园旁雷诺达村，手工水饺、面食和奶茶，价格亲民，是维克森林学生最爱的中餐打卡点。"
+        },
+        {
+          "name": "Mr. Lu's Chinese Restaurant",
+          "nameCn": "卢氏中餐馆",
+          "lat": 36.11744,
+          "lng": -80.31562,
+          "note": "罗宾汉路上的老牌中餐馆，菜量大、口味地道，本地华人和学生常去的中式正餐选择。"
+        },
+        {
+          "name": "Great China Restaurant",
+          "nameCn": "大中华餐厅",
+          "lat": 36.15403,
+          "lng": -80.31452,
+          "note": "雷诺达公地购物中心内的中日料理馆，食材新鲜、选择多，外卖自取都方便。"
+        },
+        {
+          "name": "Village Tavern",
+          "nameCn": "维利奇酒馆",
+          "lat": 36.12653,
+          "lng": -80.28499,
+          "note": "诞生于雷诺达村的本地名店，美式正餐与周末早午餐招牌，适合招待来访家人朋友。"
+        },
+        {
+          "name": "Krispy Kreme (Stratford Rd)",
+          "nameCn": "卡卡圈坊甜甜圈（斯特拉福德店）",
+          "lat": 36.09227,
+          "lng": -80.28069,
+          "note": "Krispy Kreme 1937年创立于温斯顿-塞勒姆，热灯亮起的现炸原味甜甜圈是必尝的城市标志美食。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Truist Bank (Reynolda Rd)",
+          "nameCn": "Truist 银行（雷诺达路支行）",
+          "lat": 36.14378,
+          "lng": -80.29907,
+          "note": "北卡本地大行（原BB&T），离校约2公里，开学生支票账户、办借记卡很方便，建议带护照I-20前往。"
+        },
+        {
+          "name": "Novant Health-GoHealth Urgent Care",
+          "nameCn": "诺万特急诊护理中心",
+          "lat": 36.14281,
+          "lng": -80.29308,
+          "note": "离校最近的紧急护理诊所（约1.5公里），感冒发烧、轻伤可免预约就诊，比急诊室快且便宜。"
+        },
+        {
+          "name": "Walgreens (Reynolda Rd)",
+          "nameCn": "沃尔格林药房（雷诺达路店）",
+          "lat": 36.15554,
+          "lng": -80.31485,
+          "note": "连锁药房，可取处方药、买非处方感冒药和日用品，并提供常见疫苗接种服务。"
+        },
+        {
+          "name": "Verizon / Cellular Sales (Reynolda Rd)",
+          "nameCn": "Verizon 手机营业厅（雷诺达路）",
+          "lat": 36.14488,
+          "lng": -80.3008,
+          "note": "雷诺达路上的Verizon授权店，可办美国手机号和套餐，落地后开通通讯的就近选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Reynolda House Museum of American Art",
+          "nameCn": "雷诺达美国艺术博物馆",
+          "lat": 36.12469,
+          "lng": -80.28473,
+          "note": "紧邻校园的雷诺兹烟草家族旧宅，64间房的历史庄园现为美国艺术馆，学生常凭证免费参观。"
+        },
+        {
+          "name": "Reynolda Gardens",
+          "nameCn": "雷诺达花园",
+          "lat": 36.12643,
+          "lng": -80.28491,
+          "note": "占地百余亩的免费正式花园与林间步道，从校园步行可达，散步、拍照、放松的绝佳去处。"
+        },
+        {
+          "name": "Wait Chapel & Hearn Plaza",
+          "nameCn": "韦特教堂与赫恩广场",
+          "lat": 36.13455,
+          "lng": -80.27513,
+          "note": "校园中心的标志性白色尖顶教堂与主草坪（the Quad），开学典礼和毕业季都在此，是最经典的拍照地标。"
+        }
+      ]
     }
   ]
 }

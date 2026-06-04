@@ -185,6 +185,161 @@
           "note": "「触地耶稣」壁画前的开阔广场"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Martin's Super Market (State Road 23 / Ironwood)",
+          "nameCn": "马丁超市（圣母大学店）",
+          "lat": 41.7008,
+          "lng": -86.2182,
+          "note": "离校园仅约1.5公里的本地连锁大超市，营业到午夜，日常果蔬肉蛋米面一站搞定，是圣母学生最常去的主力超市。"
+        },
+        {
+          "name": "Trader Joe's (Eddy Street Commons)",
+          "nameCn": "缺德舅超市（Eddy街店）",
+          "lat": 41.6878,
+          "lng": -86.235,
+          "note": "就在校园南门Eddy Street Commons商业区内，平价网红超市，冷冻食品、零食和便宜葡萄酒口碑极好，步行可达。"
+        },
+        {
+          "name": "Saigon Market",
+          "nameCn": "西贡亚洲超市",
+          "lat": 41.6775,
+          "lng": -86.2526,
+          "note": "市中心一家家庭经营的亚洲/越南食材店，酱油、米粉、米纸、亚洲蔬菜和冷冻海鲜都能买到，是想做中餐时的亚超之选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "JW Chen's Asian Fusion",
+          "nameCn": "陈氏亚洲料理",
+          "lat": 41.6974,
+          "lng": -86.221,
+          "note": "校园附近最受华人和留学生认可的中餐馆，主打地道、少味精的中式炒菜，步行/短驾即到，解乡愁首选。"
+        },
+        {
+          "name": "Jinya Ramen Bar (Eddy Street Commons)",
+          "nameCn": "Jinya 日式拉面",
+          "lat": 41.6876,
+          "lng": -86.2352,
+          "note": "校园南门商业区里的连锁日式豚骨拉面店，环境干净、出餐快，是想吃亚洲热汤面时的方便选择。"
+        },
+        {
+          "name": "Brother's Bar & Grill (Eddy Street Commons)",
+          "nameCn": "Brother's 美式酒吧餐厅",
+          "lat": 41.6879,
+          "lng": -86.2347,
+          "note": "Eddy街上的人气美式餐吧，汉堡和球赛日氛围拉满，是体验圣母大学生社交与football文化的打卡点。"
+        },
+        {
+          "name": "South Bend Chocolate Café (Downtown)",
+          "nameCn": "南本德巧克力咖啡馆（市中心）",
+          "lat": 41.6756,
+          "lng": -86.2501,
+          "note": "南本德本地传奇巧克力品牌的市中心旗舰咖啡馆，热巧、甜点和早午餐都很出名，是必打卡的城市名片之一。"
+        },
+        {
+          "name": "Bru Burger Bar (Eddy Street Commons)",
+          "nameCn": "Bru 手工汉堡吧",
+          "lat": 41.6877,
+          "lng": -86.2345,
+          "note": "Eddy街商业区里口碑很好的手工汉堡店，是体验美式正餐汉堡的本地必吃，适合朋友聚餐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Ironwood & SR 23)",
+          "nameCn": "大通银行（Ironwood店）",
+          "lat": 41.6995,
+          "lng": -86.2176,
+          "note": "离校园最近的大通银行网点，大型全国性银行,留学生开户、办借记卡和现金存取都方便,中文资料齐全。"
+        },
+        {
+          "name": "CVS Pharmacy (South Bend Ave)",
+          "nameCn": "CVS 药房（South Bend大道店）",
+          "lat": 41.7,
+          "lng": -86.218,
+          "note": "紧邻校园的连锁药房，配感冒药、处方药、生活日用品和打疫苗都可以，是日常买药看小病的首选。"
+        },
+        {
+          "name": "Saint Joseph Health System (University Park area)",
+          "nameCn": "圣约瑟夫医疗系统（急诊/医院）",
+          "lat": 41.7124,
+          "lng": -86.1837,
+          "note": "区域内主要医院系统，提供24小时急诊；突发疾病或受伤需要急诊和住院时来这里，记得带好保险卡。"
+        },
+        {
+          "name": "Walgreens (Wellness Center Dr, Notre Dame)",
+          "nameCn": "Walgreens 药房（校内健康中心旁）",
+          "lat": 41.6987,
+          "lng": -86.2386,
+          "note": "就在圣母大学健康中心旁的连锁药房，离宿舍最近，买药、取处方和日用品最省时间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Basilica of the Sacred Heart",
+          "nameCn": "圣心圣殿大教堂",
+          "lat": 41.7026,
+          "lng": -86.2397,
+          "note": "圣母大学的精神地标，全美最高的大学礼拜堂，哥特式建筑内部极其华美，免费参观，是必去的拍照与静思之地。"
+        },
+        {
+          "name": "Golden Dome (Main Building)",
+          "nameCn": "金色穹顶主楼",
+          "lat": 41.7032,
+          "lng": -86.2386,
+          "note": "贴满真金箔、顶端立着圣母像的标志性金顶主楼，是圣母大学最经典的明信片画面，校园打卡第一站。"
+        },
+        {
+          "name": "Grotto of Our Lady of Lourdes",
+          "nameCn": "露德圣母岩洞",
+          "lat": 41.703,
+          "lng": -86.2401,
+          "note": "仿照法国露德建造的祈祷岩洞，烛光成片、氛围宁静，是校园里最受师生喜爱的祈祷与放空角落。"
+        },
+        {
+          "name": "Hesburgh Library (Touchdown Jesus)",
+          "nameCn": "赫斯堡图书馆（“达阵耶稣”壁画）",
+          "lat": 41.7035,
+          "lng": -86.2344,
+          "note": "图书馆外墙巨幅基督壁画因正对球场被昵称“Touchdown Jesus”，是圣母大学的网红地标，登顶可俯瞰校园。"
+        },
+        {
+          "name": "Notre Dame Stadium",
+          "nameCn": "圣母大学体育场",
+          "lat": 41.6983,
+          "lng": -86.2336,
+          "note": "传奇的“Fighting Irish”橄榄球主场，秋季比赛日全城沸腾，亲历一场美式大学football是必备的留学体验。"
+        }
+      ]
     }
   ]
 }

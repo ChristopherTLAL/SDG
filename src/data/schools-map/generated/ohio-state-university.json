@@ -173,6 +173,161 @@
           "note": "椭圆草坪南侧的历史地质学楼，含钟塔。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "CAM International Market (Olentangy)",
+          "nameCn": "CAM 亚洲国际超市（奥伦坦吉河路店）",
+          "lat": 40.04118,
+          "lng": -83.033,
+          "note": "哥伦布最大的亚洲/中超连锁，中国调料、生鲜、冻品、火锅料齐全，离校约4.7公里，留学生囤中餐食材的首选。"
+        },
+        {
+          "name": "Lucky's Market (Clintonville)",
+          "nameCn": "Lucky's 自然食品超市（Clintonville 店）",
+          "lat": 40.01884,
+          "lng": -83.01243,
+          "note": "沿 High St 往北约2公里的精品/有机食品超市，生鲜熟食酒水齐全，离宿舍区近、步行可达。"
+        },
+        {
+          "name": "Kroger (3417 N High St, University District)",
+          "nameCn": "Kroger 大型连锁超市（大学城店）",
+          "lat": 40.03196,
+          "lng": -83.01603,
+          "note": "校园北侧最近的大型美式连锁超市，接受 BuckID 校园卡，日常采购、配药一站搞定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Tai's Asian Bistro",
+          "nameCn": "泰氏亚洲餐厅",
+          "lat": 40.00696,
+          "lng": -83.04463,
+          "note": "服务 OSU 校区20多年的中餐/亚洲菜老店，川菜、拉面、寿司都有，离校约2公里，华人学生常去。"
+        },
+        {
+          "name": "Panda Express (2044 N High St)",
+          "nameCn": "熊猫快餐（High St 店）",
+          "lat": 40.0039,
+          "lng": -83.00875,
+          "note": "就在 High St 校门口的美式中式快餐，橙皮鸡是招牌，便宜快捷，适合赶课间果腹。"
+        },
+        {
+          "name": "Buckeye Donuts",
+          "nameCn": "Buckeye 甜甜圈",
+          "lat": 40.0031,
+          "lng": -83.00858,
+          "note": "1969年开业的校园地标，24小时营业、手工甜甜圈+希腊卷饼，熬夜赶due的深夜食堂。"
+        },
+        {
+          "name": "Mikey's Late Night Slice (Campus)",
+          "nameCn": "Mikey's 深夜披萨（校园店）",
+          "lat": 40.00037,
+          "lng": -83.00736,
+          "note": "High St 旁的网红披萨，按片卖、营业到凌晨，夜生活和酒后必打卡的本地小吃。"
+        },
+        {
+          "name": "Hang Over Easy",
+          "nameCn": "Hang Over Easy 早午餐馆",
+          "lat": 39.99762,
+          "lng": -83.00766,
+          "note": "Ohio Union 一带广受学生喜爱的美式早午餐（法式吐司、鸡肉华夫饼），周末解宿醉名所。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Huntington Bank (South Campus Gateway)",
+          "nameCn": "Huntington 银行（南校门 Gateway 支行）",
+          "lat": 39.99437,
+          "lng": -83.00686,
+          "note": "Huntington 是 OSU 官方合作银行（Buckeye Banking），学生开户免费免月费，就在 High St 校门口，办卡首选。"
+        },
+        {
+          "name": "CVS Pharmacy (Lane & High)",
+          "nameCn": "CVS 药房（Lane & High 店）",
+          "lat": 40.001,
+          "lng": -83.00817,
+          "note": "校园边 High St 上的连锁药房，处方药、感冒药、日用品齐全，距校约1.3公里。"
+        },
+        {
+          "name": "T-Mobile (High St & 11th Ave)",
+          "nameCn": "T-Mobile 手机营业厅（High St 11街口）",
+          "lat": 39.99489,
+          "lng": -83.00696,
+          "note": "校门口的运营商门店，新生落地办美国手机卡/套餐很方便，步行即到。"
+        },
+        {
+          "name": "OSU Advanced Urgent Care (Martha Morehouse)",
+          "nameCn": "俄州大紧急门诊（Martha Morehouse）",
+          "lat": 40.00129,
+          "lng": -83.03443,
+          "note": "Wexner 医学中心旗下走进式急诊门诊，小病小伤无需预约，离校约1公里，校医院 ER 也在南侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Ohio Stadium (The Shoe)",
+          "nameCn": "俄亥俄体育场（马蹄铁球场）",
+          "lat": 40.00163,
+          "lng": -83.01971,
+          "note": "可容十万人的标志性橄榄球场，秋季 Buckeyes 主场日是全城盛事，校园第一打卡地。"
+        },
+        {
+          "name": "Mirror Lake",
+          "nameCn": "镜湖",
+          "lat": 39.9922,
+          "lng": -83.0087,
+          "note": "校园中心的小湖与 Browning 露天剧场，春夏吊床野餐、拍照散步的网红角落。"
+        },
+        {
+          "name": "Thompson Library & The Oval",
+          "nameCn": "汤普森图书馆与椭圆草坪",
+          "lat": 39.99936,
+          "lng": -83.01481,
+          "note": "校园中轴 The Oval 尽头的主图书馆，11楼可俯瞰全校和市中心天际线，自习+拍照两相宜。"
+        },
+        {
+          "name": "Wexner Center for the Arts",
+          "nameCn": "韦克斯纳艺术中心",
+          "lat": 40.00061,
+          "lng": -83.00824,
+          "note": "校内前卫艺术馆，常设国际级当代艺术、电影与展览，建筑本身就是地标。"
+        },
+        {
+          "name": "Short North Arts District",
+          "nameCn": "Short North 艺术街区",
+          "lat": 39.9779,
+          "lng": -83.005,
+          "note": "校园南侧 High St 上的画廊、餐厅、酒吧聚集区，拱门夜景出名，周末逛吃首选。"
+        }
+      ]
     }
   ]
 }

@@ -186,6 +186,161 @@
           "note": "南校区，国家级聚变激光设施"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Joy Mart (College Town)",
+          "nameCn": "Joy Mart 亚洲超市（College Town 店）",
+          "lat": 43.1235,
+          "lng": -77.6185,
+          "note": "校友开的亚洲超市兼咖啡店，就在 College Town（1347 Mt Hope Ave），步行可达，备齐中日韩泰越食材，离宿舍最近最方便。"
+        },
+        {
+          "name": "Hikari Foods & Grocery",
+          "nameCn": "Hikari 日韩亚洲食品店",
+          "lat": 43.1138,
+          "lng": -77.6152,
+          "note": "Mt Hope Ave 1667 号的日韩亚洲杂货店，沿校园主干道往南，方便补充日料/韩料/中餐调料。"
+        },
+        {
+          "name": "Asian Food Market",
+          "nameCn": "亚洲食品市场（大型亚超）",
+          "lat": 43.0902,
+          "lng": -77.6208,
+          "note": "Henrietta 的大型泛亚连锁超市，新鲜蔬果、活鱼、火锅料一应俱全，留学生采购中国食材的主力点，约 4 公里需开车/公交。"
+        },
+        {
+          "name": "Wegmans (East Avenue)",
+          "nameCn": "Wegmans 超市（East Ave 店）",
+          "lat": 43.1486,
+          "lng": -77.5742,
+          "note": "罗切斯特本土起家、全美口碑顶尖的连锁超市，East Ave 1750 号是离校最近的一家，日用与生鲜一站购齐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Fortune Chinese Restaurant",
+          "nameCn": "福运中餐馆",
+          "lat": 43.1135,
+          "lng": -77.615,
+          "note": "Mt Hope Ave 1681 号的老牌中餐，离校近、价格实惠，留学生常点的家常中餐外卖首选。"
+        },
+        {
+          "name": "Tsingtao House",
+          "nameCn": "青岛饭店（川菜）",
+          "lat": 43.0975,
+          "lng": -77.6388,
+          "note": "W Henrietta Rd 2831 号，被本地公认数一数二的川菜/正宗中餐，UR 学生常说每周必吃，性价比高。"
+        },
+        {
+          "name": "Han Noodle Bar",
+          "nameCn": "韩記面馆",
+          "lat": 43.153,
+          "lng": -77.5907,
+          "note": "Monroe Ave 上的人气面馆，主打中式街头面食与汤面，价格亲民、份量足，留学生口碑店。"
+        },
+        {
+          "name": "Yummy Garden Hot Pot",
+          "nameCn": "美味园火锅",
+          "lat": 43.0918,
+          "lng": -77.6205,
+          "note": "Henrietta 的自助火锅店，可选多种锅底自己涮，另有正宗越南河粉，适合朋友聚餐解馋。"
+        },
+        {
+          "name": "Nick Tahou Hots (Garbage Plate)",
+          "nameCn": "Nick Tahou（垃圾盘发源地）",
+          "lat": 43.1542,
+          "lng": -77.6228,
+          "note": "1918 年创立、罗切斯特城市符号「Garbage Plate（垃圾盘）」的发源地，来 UR 必打卡的本地黑暗料理。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Mt. Hope Financial Center)",
+          "nameCn": "美国银行（Mt Hope 旗舰网点）",
+          "lat": 43.1208,
+          "lng": -77.6166,
+          "note": "Mt Hope Ave 1400 号，带 drive-thru ATM 的全功能网点，离校最近，新生开户/办借记卡来这里最方便。"
+        },
+        {
+          "name": "Strong Memorial Hospital (URMC)",
+          "nameCn": "Strong 纪念医院（罗大医学中心）",
+          "lat": 43.1213,
+          "lng": -77.6293,
+          "note": "601 Elmwood Ave，紧邻 River Campus 的大学附属医院，含急诊/Urgent Care，校医保覆盖，生病就医的主力点。"
+        },
+        {
+          "name": "Walgreens / College Town Pharmacy",
+          "nameCn": "药店（College Town）",
+          "lat": 43.123,
+          "lng": -77.6178,
+          "note": "College Town（约 1431 Mt Hope Ave）的连锁药房，处方药、感冒药、日用品都能买，步行可达。"
+        },
+        {
+          "name": "Advantage Federal Credit Union",
+          "nameCn": "Advantage 联邦信用社",
+          "lat": 43.1148,
+          "lng": -77.6155,
+          "note": "Mt Hope Ave 1625 号本地信用社网点，校内 Wilson Commons/SBA Hall 还有其 ATM，小额取现很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Mount Hope Cemetery",
+          "nameCn": "Mount Hope 公墓",
+          "lat": 43.13,
+          "lng": -77.6188,
+          "note": "紧邻校园的全美首座维多利亚式市政公墓，女权先驱 Susan B. Anthony 与废奴领袖 Frederick Douglass 长眠于此，景致庄严，散步/历史打卡好去处。"
+        },
+        {
+          "name": "Highland Park (Lilac Festival)",
+          "nameCn": "高地公园（丁香花节）",
+          "lat": 43.1318,
+          "lng": -77.6055,
+          "note": "Olmsted 设计的名园，每年 5 月举办北美最大的免费丁香花节（1200+ 株丁香），离校骑行可达，春季赏花必去。"
+        },
+        {
+          "name": "Genesee Valley Park",
+          "nameCn": "杰纳西河谷公园",
+          "lat": 43.1175,
+          "lng": -77.632,
+          "note": "校园南侧、横跨杰纳西河的大型公园，UR 划船队主场，步道与河景适合跑步、骑行、划船放松。"
+        },
+        {
+          "name": "Eastman Museum (George Eastman Museum)",
+          "nameCn": "伊士曼影像博物馆",
+          "lat": 43.1535,
+          "lng": -77.5832,
+          "note": "柯达创始人 George Eastman 故居改建的世界级摄影与电影博物馆，East Ave 上，了解罗切斯特「影像之城」必看。"
+        }
+      ]
     }
   ]
 }

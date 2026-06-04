@@ -207,6 +207,182 @@
           "note": "校园西侧主要轨道交通枢纽，直通旧金山。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Berkeley Bowl",
+          "nameCn": "伯克利碗超市",
+          "lat": 37.8556,
+          "lng": -122.2686,
+          "note": "伯克利传奇平价超市，生鲜果蔬种类全美闻名、价格便宜，留学生采购首选，离校园步行约20分钟或一趟公交。"
+        },
+        {
+          "name": "99 Ranch Market (North Berkeley)",
+          "nameCn": "大华超市（北伯克利）",
+          "lat": 37.8807,
+          "lng": -122.2693,
+          "note": "北美最大华人连锁超市，中式调料、亚洲生鲜、冷冻火锅料一应俱全，离校园最近的华超之一。"
+        },
+        {
+          "name": "99 Ranch Market — Pacific East Mall",
+          "nameCn": "大华超市（太平洋广场店）",
+          "lat": 37.9145,
+          "lng": -122.3035,
+          "note": "里士满太平洋广场内的大型旗舰华超，规模更大且周边有亚洲餐馆和奶茶店，开车约15分钟，适合一次囤货。"
+        },
+        {
+          "name": "Tokyo Fish Market",
+          "nameCn": "东京鱼市（日本食品超市）",
+          "lat": 37.8896,
+          "lng": -122.2952,
+          "note": "1963年开业的老牌日本食品店，新鲜刺身级海鲜、日韩调料和零食齐全，做日料或火锅可以来这采购。"
+        },
+        {
+          "name": "Trader Joe's (University Ave)",
+          "nameCn": "缺德舅超市",
+          "lat": 37.8704,
+          "lng": -122.2895,
+          "note": "美式平价网红超市，自有品牌零食、半成品和冷冻食品高性价比，离校园不远适合日常补货。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Imm Thai Street Food",
+          "nameCn": "Imm 泰式街头料理",
+          "lat": 37.8718,
+          "lng": -122.2691,
+          "note": "校园旁公认最火的泰餐，咖喱和炒粉地道分量足，问任何 Cal 学生吃泰餐都会推荐这家。"
+        },
+        {
+          "name": "Top Dog",
+          "nameCn": "Top Dog 热狗店",
+          "lat": 37.8676,
+          "lng": -122.258,
+          "note": "1966年开业的伯克利地标热狗摊，深夜营业、价格便宜，是 Cal 学生熬夜后的经典宵夜。"
+        },
+        {
+          "name": "Cheese Board Pizza",
+          "nameCn": "Cheese Board 合作社披萨",
+          "lat": 37.88,
+          "lng": -122.2693,
+          "note": "工人合作社经营的网红素食披萨，每天只做一款、常年排队，是北伯克利美食区的招牌。"
+        },
+        {
+          "name": "iSpot Tea (Northside)",
+          "nameCn": "iSpot 奶茶",
+          "lat": 37.8753,
+          "lng": -122.2606,
+          "note": "校园北门留学生扎堆的奶茶店，珍珠奶茶和港式小吃解乡愁，自习累了的回血点。"
+        },
+        {
+          "name": "Great China Restaurant",
+          "nameCn": "兆福楼中餐厅",
+          "lat": 37.8678,
+          "lng": -122.2575,
+          "note": "伯克利老牌正宗中餐馆，北京烤鸭和家常川菜口碑极好，宴请家人或解馋的稳妥之选。"
+        },
+        {
+          "name": "Gypsy's Trattoria Italiana",
+          "nameCn": "Gypsy 意式小馆",
+          "lat": 37.8676,
+          "lng": -122.2588,
+          "note": "Telegraph 大街上学生最爱的意面店，分量大价格友好，是穷学生改善伙食的高性价比选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Tang Center — UC Berkeley University Health Services",
+          "nameCn": "唐氏中心（伯克利校医院 / 急诊）",
+          "lat": 37.8678,
+          "lng": -122.2654,
+          "note": "校园西南角的学生健康中心，含急诊 urgent care、全科门诊和药房，持学生医保看病第一站。"
+        },
+        {
+          "name": "Bank of America (Downtown Berkeley)",
+          "nameCn": "美国银行（伯克利市中心支行）",
+          "lat": 37.87,
+          "lng": -122.268,
+          "note": "市中心大行支行，开通美国银行账户、办理借记卡和换汇方便，离校园和地铁站都近。"
+        },
+        {
+          "name": "CVS Pharmacy (Shattuck Ave)",
+          "nameCn": "CVS 药店",
+          "lat": 37.8687,
+          "lng": -122.2678,
+          "note": "连锁药店兼便利店，处方药、感冒药、日用品齐全，还能打疫苗和买生活急需品。"
+        },
+        {
+          "name": "T-Mobile (Downtown Berkeley)",
+          "nameCn": "T-Mobile 手机营业厅",
+          "lat": 37.8693,
+          "lng": -122.2675,
+          "note": "市中心运营商门店，落地后办手机卡套餐、解决信号和号码问题来这里，留学生常用网络。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Sather Tower (The Campanile)",
+          "nameCn": "萨瑟塔（钟楼）",
+          "lat": 37.8721,
+          "lng": -122.2578,
+          "note": "伯克利地标钟楼，可登顶俯瞰整个校园和旧金山湾,是 Cal 学生必拍的标志性打卡点。"
+        },
+        {
+          "name": "Telegraph Avenue",
+          "nameCn": "电报大道",
+          "lat": 37.8676,
+          "lng": -122.2585,
+          "note": "校园南门外的标志性街区,书店、唱片店、街头摊和小吃聚集,感受伯克利反叛文化的核心。"
+        },
+        {
+          "name": "UC Berkeley Botanical Garden",
+          "nameCn": "加州大学伯克利植物园",
+          "lat": 37.8755,
+          "lng": -122.238,
+          "note": "山坡上的世界级植物园,收藏全球珍稀植物、视野开阔,适合周末散步拍照放松。"
+        },
+        {
+          "name": "Lawrence Hall of Science",
+          "nameCn": "劳伦斯科学馆",
+          "lat": 37.8794,
+          "lng": -122.2459,
+          "note": "山上的科学博物馆与观景台,能眺望旧金山天际线和金门大桥,是看湾区全景的最佳点之一。"
+        },
+        {
+          "name": "Indian Rock Park",
+          "nameCn": "印第安岩公园",
+          "lat": 37.8918,
+          "lng": -122.2723,
+          "note": "北伯克利的天然巨岩攀爬点,日落时俯瞰金门大桥和海湾绝美,是本地人私藏的看落日去处。"
+        }
+      ]
     }
   ]
 }

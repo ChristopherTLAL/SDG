@@ -228,6 +228,182 @@
           "note": "服务东校区的交通枢纽,距 UCL East 约 10 分钟。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tian Tian Market (Brunswick Square)",
+          "nameCn": "天天市场（布伦瑞克广场店）",
+          "lat": 51.5238,
+          "lng": -0.1235,
+          "note": "UCL官方学生指南推荐的现代亚超，步行可达，中日韩东南亚食材齐全，离Russell Square地铁站很近。"
+        },
+        {
+          "name": "Yohome Asian Supermarket",
+          "nameCn": "Yohome 亚洲超市",
+          "lat": 51.5222,
+          "lng": -0.1346,
+          "note": "就在UCL Torrington Place对面，以中国食材为主，还卖热乎的中式早餐和午餐，下课顺路买菜最方便。"
+        },
+        {
+          "name": "Waitrose Brunswick Centre",
+          "nameCn": "Waitrose 超市（布伦瑞克中心店）",
+          "lat": 51.5243,
+          "lng": -0.1228,
+          "note": "步行十分钟的高端英国连锁超市，生鲜和半成品品质好，Brunswick中心内还有电影院和餐厅。"
+        },
+        {
+          "name": "Sainsbury's Local (Tottenham Court Road)",
+          "nameCn": "Sainsbury's 便利超市（TCR店）",
+          "lat": 51.5198,
+          "lng": -0.1306,
+          "note": "价格亲民的主流英超，离校近、营业时间长，适合日常采买和应急补货。"
+        },
+        {
+          "name": "Loon Fung Supermarket (Chinatown)",
+          "nameCn": "龙凤行超市（唐人街店）",
+          "lat": 51.5113,
+          "lng": -0.1316,
+          "note": "伦敦唐人街老牌华人大超市，42-44 Gerrard Street，米面酱料火锅料最全，囤年货必来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "North Sea Fish Restaurant",
+          "nameCn": "北海鱼餐厅（炸鱼薯条）",
+          "lat": 51.5256,
+          "lng": -0.1262,
+          "note": "布卢姆斯伯里1977年开业的炸鱼薯条名店，鱼当天从Billingsgate市场进货，体验地道英式国民美食必打卡。"
+        },
+        {
+          "name": "BAO Noodle Shop",
+          "nameCn": "BAO 刈包面馆",
+          "lat": 51.5258,
+          "lng": -0.1207,
+          "note": "网红台式餐厅BAO在Marchmont街的分店，招牌刈包和牛肉面，离校近、适合和同学聚餐。"
+        },
+        {
+          "name": "Roti King",
+          "nameCn": "Roti King（印度飞饼）",
+          "lat": 51.5295,
+          "lng": -0.1335,
+          "note": "Euston附近排队神店，马来风味咖喱配印度飞饼超平价管饱，留学生圈口碑爆棚。"
+        },
+        {
+          "name": "Honest Burgers (Brunswick)",
+          "nameCn": "Honest Burgers 汉堡（布伦瑞克店）",
+          "lat": 51.524,
+          "lng": -0.1229,
+          "note": "英国本土精品汉堡连锁，迷迭香薯条很出名，Brunswick中心内就餐环境好。"
+        },
+        {
+          "name": "Four Seasons Chinatown",
+          "nameCn": "四季烧腊（唐人街）",
+          "lat": 51.5117,
+          "lng": -0.1306,
+          "note": "唐人街知名粤式烧腊，烧鸭和叉烧饭一绝，想家时来一顿广式快餐很治愈。"
+        },
+        {
+          "name": "Dishoom King's Cross",
+          "nameCn": "Dishoom（国王十字店）",
+          "lat": 51.5344,
+          "lng": -0.1238,
+          "note": "伦敦人气孟买风咖喱餐厅，老德里风装潢出片好看，黑豆咖喱和印度奶茶必点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "University College Hospital (UCLH) A&E",
+          "nameCn": "伦敦大学学院医院（UCLH 急诊）",
+          "lat": 51.5246,
+          "lng": -0.1357,
+          "note": "235 Euston Road的NHS大型公立医院，设24小时急诊A&E，距校步行几分钟，急病重病第一去处。"
+        },
+        {
+          "name": "HSBC Tottenham Court Road",
+          "nameCn": "汇丰银行（TCR支行）",
+          "lat": 51.523,
+          "lng": -0.1345,
+          "note": "156/157 Tottenham Court Road的汇丰支行，离校近，可预约办理留学生开户和大额存取。"
+        },
+        {
+          "name": "Boots Pharmacy (Brunswick Centre)",
+          "nameCn": "Boots 药妆店（布伦瑞克中心）",
+          "lat": 51.5241,
+          "lng": -0.123,
+          "note": "英国最大连锁药房，可买非处方药、配处方、量血压并咨询药剂师，日常小病自购药很方便。"
+        },
+        {
+          "name": "Gower Street Practice (NHS GP)",
+          "nameCn": "高尔街全科诊所（NHS GP）",
+          "lat": 51.5218,
+          "lng": -0.1334,
+          "note": "校园边的NHS全科诊所，注册GP后看小病和开转诊都靠它，建议入学后尽早登记。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The British Museum",
+          "nameCn": "大英博物馆",
+          "lat": 51.5194,
+          "lng": -0.127,
+          "note": "世界顶级博物馆且免费入场，罗塞塔石碑和木乃伊必看，离UCL步行十分钟,周末逛展首选。"
+        },
+        {
+          "name": "Russell Square Gardens",
+          "nameCn": "罗素广场花园",
+          "lat": 51.5219,
+          "lng": -0.1257,
+          "note": "校园旁的经典伦敦园林广场，喷泉草坪适合午休野餐看书，四季都很出片。"
+        },
+        {
+          "name": "British Library",
+          "nameCn": "大英图书馆",
+          "lat": 51.5299,
+          "lng": -0.1276,
+          "note": "英国国家图书馆，藏有《大宪章》和达芬奇手稿等珍品，安静的自习和看展圣地，离校很近。"
+        },
+        {
+          "name": "Wellcome Collection",
+          "nameCn": "惠康博物馆",
+          "lat": 51.526,
+          "lng": -0.1335,
+          "note": "Euston Road上免费的医学与人文主题博物馆，展览脑洞大、咖啡馆和书店都很赞,小众宝藏。"
+        },
+        {
+          "name": "Granary Square & Coal Drops Yard",
+          "nameCn": "谷仓广场与煤滴庭院",
+          "lat": 51.535,
+          "lng": -0.1255,
+          "note": "国王十字改造区的喷泉广场和潮流商业街，运河边咖啡店林立,打卡拍照和周末闲逛都合适。"
+        }
+      ]
     }
   ]
 }

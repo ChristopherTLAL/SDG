@@ -171,6 +171,168 @@
           "note": "可容3500人的冰球馆，奈尔维设计的混凝土拱顶。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Co-op Food Store (Hanover)",
+          "nameCn": "Co-op 合作社超市（汉诺威店）",
+          "lat": 43.6989,
+          "lng": -72.2899,
+          "note": "距校园最近的主力超市，会员制合作社，日用、生鲜、有机食品齐全，步行可达。"
+        },
+        {
+          "name": "Hannaford Supermarket (West Lebanon)",
+          "nameCn": "Hannaford 超市（西黎巴嫩店）",
+          "lat": 43.6356,
+          "lng": -72.3206,
+          "note": "大型连锁超市，价格更实惠、品类更全，适合开车囤货一周食材。"
+        },
+        {
+          "name": "Asian Super Store",
+          "nameCn": "亚洲超市（Asian Super Store）",
+          "lat": 43.6418,
+          "lng": -72.2519,
+          "note": "黎巴嫩镇亚超，备有中、泰、日、印等亚洲调料食材，想买酱油老干妈来这。"
+        },
+        {
+          "name": "Bangkok Asian Market & Cafe",
+          "nameCn": "曼谷亚洲市场（含小食堂）",
+          "lat": 43.6411,
+          "lng": -72.2538,
+          "note": "另一家亚超，覆盖中国、港台、韩、东南亚货品，还能现场吃口热饭。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Han Fusion",
+          "nameCn": "汉福源（Han Fusion 中餐）",
+          "lat": 43.7016,
+          "lng": -72.2884,
+          "note": "达特茅斯学生公认最地道的中餐，台湾主厨，回锅肉、宫保鸡丁解乡愁首选。"
+        },
+        {
+          "name": "Tuk Tuk Thai Cuisine",
+          "nameCn": "嘟嘟泰餐（Tuk Tuk Thai）",
+          "lat": 43.702,
+          "lng": -72.2893,
+          "note": "主街上的人气泰餐，咖喱、炒河粉地道，亚洲口味平价之选。"
+        },
+        {
+          "name": "Lou's Restaurant & Bakery",
+          "nameCn": "Lou's 餐厅烘焙坊",
+          "lat": 43.7008,
+          "lng": -72.2894,
+          "note": "1947 年开业的镇上地标早午餐+烘焙店，全天早餐，有著名的「通宵等 Lou's」传统。"
+        },
+        {
+          "name": "Murphy's on the Green",
+          "nameCn": "Murphy's 酒馆餐厅",
+          "lat": 43.7026,
+          "lng": -72.289,
+          "note": "紧邻校园绿地的老牌美式酒馆，汉堡、芝士通心粉，师生校友聚餐常去。"
+        },
+        {
+          "name": "Molly's Restaurant & Bar",
+          "nameCn": "Molly's 餐厅酒吧",
+          "lat": 43.7011,
+          "lng": -72.2891,
+          "note": "主街热门美式餐厅，常排队，上菜先送现烤面包配蜂蜜黄油，氛围热闹。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Hanover Main)",
+          "nameCn": "美国银行（汉诺威主街支行）",
+          "lat": 43.7011,
+          "lng": -72.2895,
+          "note": "主街上的银行网点，带 ATM，新生办理美国银行账户、存取现金方便。"
+        },
+        {
+          "name": "CVS Pharmacy",
+          "nameCn": "CVS 药房",
+          "lat": 43.7003,
+          "lng": -72.2896,
+          "note": "主街连锁药房，买非处方药、日用、取处方药都在这，营业到晚上 9 点。"
+        },
+        {
+          "name": "Dartmouth Hitchcock Medical Center",
+          "nameCn": "达特茅斯-希区柯克医疗中心",
+          "lat": 43.676,
+          "lng": -72.267,
+          "note": "区域大型综合医院（含急诊、24 小时药房在 Centerra），看大病、急诊来这。"
+        },
+        {
+          "name": "Dick Hall's House (Health Service)",
+          "nameCn": "校医院 Dick Hall's House",
+          "lat": 43.705,
+          "lng": -72.287,
+          "note": "达特茅斯校内健康服务中心，含校园药房，学生看小病、日常问诊第一站。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Dartmouth Green",
+          "nameCn": "达特茅斯中央草坪",
+          "lat": 43.7036,
+          "lng": -72.2887,
+          "note": "校园正中心的标志性大草坪，四季活动与拍照打卡地，周边围着主要学院建筑。"
+        },
+        {
+          "name": "Baker-Berry Library",
+          "nameCn": "贝克-贝里图书馆",
+          "lat": 43.7053,
+          "lng": -72.2887,
+          "note": "仿独立宫钟楼的校园地标图书馆，藏 250 万册书，钟楼在特定活动可登顶俯瞰全镇。"
+        },
+        {
+          "name": "Hood Museum of Art",
+          "nameCn": "胡德艺术博物馆",
+          "lat": 43.7027,
+          "lng": -72.2877,
+          "note": "达特茅斯免费校园美术馆，藏品 7 万件，含奥罗斯科的国家级历史地标壁画。"
+        },
+        {
+          "name": "Hopkins Center for the Arts",
+          "nameCn": "霍普金斯艺术中心（the Hop）",
+          "lat": 43.7022,
+          "lng": -72.2878,
+          "note": "世界级演艺中心，每季上百场演出、电影与展览，学生文艺生活核心场地。"
+        },
+        {
+          "name": "Appalachian Trail (through Hanover)",
+          "nameCn": "阿巴拉契亚步道（穿镇而过）",
+          "lat": 43.7038,
+          "lng": -72.29,
+          "note": "传奇徒步长线正好穿过汉诺威主街，可就近走一段感受新英格兰山林。"
+        }
+      ]
     }
   ]
 }

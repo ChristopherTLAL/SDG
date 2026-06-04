@@ -192,6 +192,168 @@
           "note": "联邦大道上的绿线B支地面轻轨站。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Star Market (1065 Commonwealth Ave)",
+          "nameCn": "Star Market 大型超市（西校区）",
+          "lat": 42.3522,
+          "lng": -71.1235,
+          "note": "紧邻 BU 西校区宿舍的主流大型连锁超市，含药房与星巴克，日常采买最方便。"
+        },
+        {
+          "name": "Hong Kong Supermarket (Super 88)",
+          "nameCn": "香港超市（原 Super 88）",
+          "lat": 42.3519,
+          "lng": -71.1253,
+          "note": "Comm Ave 上的大型华人/亚洲超市，中餐食材、米面酱料、冷冻品齐全，附设亚洲美食广场。"
+        },
+        {
+          "name": "H Mart Cambridge (Central Square)",
+          "nameCn": "H Mart 韩亚超市（剑桥中央广场）",
+          "lat": 42.3649,
+          "lng": -71.1027,
+          "note": "过河约 3 公里的大型韩国超市，泡面、韩日食材和速食最全，红线地铁可直达。"
+        },
+        {
+          "name": "Trader Joe's Brighton (Western Ave)",
+          "nameCn": "Trader Joe's 缺德舅超市",
+          "lat": 42.3608,
+          "lng": -71.1346,
+          "note": "高性价比网红超市，冷冻食品、零食和半成品出名，适合学生快手做饭。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Hokkaido Ramen Santouka",
+          "nameCn": "山头火北海道拉面",
+          "lat": 42.3532,
+          "lng": -71.1329,
+          "note": "Allston Brighton Ave 上的日本连锁名店，招牌豚骨盐味拉面，留学生聚集区代表。"
+        },
+        {
+          "name": "Pho Viet (Super 88 Food Court)",
+          "nameCn": "越南牛肉粉 Pho Viet",
+          "lat": 42.3523,
+          "lng": -71.1253,
+          "note": "亚洲美食广场里的越南粉老铺，一碗热汤粉便宜管饱，冬天救命。"
+        },
+        {
+          "name": "Gyu-Kaku Japanese BBQ (Brookline)",
+          "nameCn": "牛角日式烤肉（Brookline 店）",
+          "lat": 42.3463,
+          "lng": -71.107,
+          "note": "人气日式自助烤肉连锁，朋友聚餐、约饭首选，距校园约 1.5 公里。"
+        },
+        {
+          "name": "Tasty Burger (Fenway)",
+          "nameCn": "Tasty Burger 经典美式汉堡",
+          "lat": 42.3446,
+          "lng": -71.098,
+          "note": "芬威球场旁的本地网红汉堡店，平价美式快餐，看球后必打卡。"
+        },
+        {
+          "name": "Sweet Cheeks Q (Fenway)",
+          "nameCn": "Sweet Cheeks 美式烟熏烤肉",
+          "lat": 42.3445,
+          "lng": -71.101,
+          "note": "芬威区知名南方 BBQ，烟熏猪肉和现烤饼干招牌，体验地道美式风味。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (540 Commonwealth Ave)",
+          "nameCn": "美国银行 BoA（肯莫尔广场店）",
+          "lat": 42.3487,
+          "lng": -71.0966,
+          "note": "校园东侧肯莫尔广场的全国性大行网点，新生开户、办借记卡就近办理。"
+        },
+        {
+          "name": "St. Elizabeth's Medical Center",
+          "nameCn": "圣伊丽莎白医疗中心（含急诊）",
+          "lat": 42.35,
+          "lng": -71.1475,
+          "note": "Brighton 区的综合医院，设 24 小时急诊室，急重病可挂号就医。"
+        },
+        {
+          "name": "CVS Pharmacy (Audubon Circle/Beacon St)",
+          "nameCn": "CVS 连锁药房",
+          "lat": 42.3441,
+          "lng": -71.1148,
+          "note": "全美连锁药房，处方药、感冒药和日用品齐全，可打流感等疫苗。"
+        },
+        {
+          "name": "Verizon (Kenmore/540 Commonwealth Ave)",
+          "nameCn": "Verizon 通信营业厅",
+          "lat": 42.3487,
+          "lng": -71.0966,
+          "note": "主流运营商门店，落地办理美国手机号与套餐，信号覆盖稳定。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "BU Marsh Plaza & Charles River Campus",
+          "nameCn": "BU 马什广场与查尔斯河校区",
+          "lat": 42.3505,
+          "lng": -71.1054,
+          "note": "学校精神地标，哥特式 Marsh 礼拜堂与马丁·路德·金雕像，校园打卡中心点。"
+        },
+        {
+          "name": "Charles River Esplanade / BU Beach",
+          "nameCn": "查尔斯河滨步道（BU Beach）",
+          "lat": 42.3525,
+          "lng": -71.108,
+          "note": "校园北侧河滨绿地，散步跑步看帆船与波士顿天际线，日落超出片。"
+        },
+        {
+          "name": "Fenway Park",
+          "nameCn": "芬威球场",
+          "lat": 42.3467,
+          "lng": -71.0972,
+          "note": "1912 年启用的红袜队主场，全美最老 MLB 球场，看球、拍“Green Monster”必去。"
+        },
+        {
+          "name": "Kenmore Square",
+          "nameCn": "肯莫尔广场",
+          "lat": 42.3489,
+          "lng": -71.0954,
+          "note": "校园门户商圈，标志性 CITGO 霓虹招牌，餐饮购物与地铁绿线枢纽。"
+        },
+        {
+          "name": "Museum of Fine Arts (MFA)",
+          "nameCn": "波士顿美术馆 MFA",
+          "lat": 42.3385,
+          "lng": -71.094,
+          "note": "全美顶级艺术博物馆，藏有大量亚洲与印象派精品，学生票优惠。"
+        }
+      ]
     }
   ]
 }

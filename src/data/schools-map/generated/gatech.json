@@ -148,6 +148,161 @@
           "note": "邻近体育场的学生服务与校友互动中心。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Publix (Plaza Midtown)",
+          "nameCn": "Publix 超市（Plaza Midtown 店）",
+          "lat": 33.7802,
+          "lng": -84.3874,
+          "note": "离校最近的美国主流连锁超市，步行/骑车可达，日常生鲜和生活用品都齐全。"
+        },
+        {
+          "name": "Wagaya Japanese Groceries",
+          "nameCn": "Wagaya 日本/亚洲食品超市",
+          "lat": 33.7862,
+          "lng": -84.3985,
+          "note": "西 Midtown 的日系亚超，泡面、火锅料、亚洲调料和速食一站买齐，离校约 1.2 公里。"
+        },
+        {
+          "name": "H Mart (Doraville flagship)",
+          "nameCn": "H Mart 韩亚超市（Doraville 旗舰店）",
+          "lat": 33.9061,
+          "lng": -84.2787,
+          "note": "大型韩亚超市，米面、肉类、青菜和中餐食材最全，约 20 分钟车程，适合周末大采购。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "The Varsity",
+          "nameCn": "The Varsity 美式快餐",
+          "lat": 33.7716,
+          "lng": -84.389,
+          "note": "1928 年开到现在的亚特兰大地标、全球最大汽车餐厅，chili dog 和橙味冰沙是来 GT 必打卡。"
+        },
+        {
+          "name": "Antico Pizza Napoletana",
+          "nameCn": "Antico 那不勒斯披萨",
+          "lat": 33.7844,
+          "lng": -84.4058,
+          "note": "西区网红柴火窑披萨，米其林推荐、常年排队，正宗那不勒斯口味的本地名店。"
+        },
+        {
+          "name": "Xi'an Gourmet House",
+          "nameCn": "西安美食（Midtown 店）",
+          "lat": 33.7811,
+          "lng": -84.389,
+          "note": "中国胃首选：手工拉面、孜然羊肉、肉夹馍，离校不到 1 公里，午餐性价比高。"
+        },
+        {
+          "name": "Tin Drum Asian Kitchen",
+          "nameCn": "Tin Drum 亚洲料理（Tech Square 店）",
+          "lat": 33.7768,
+          "lng": -84.3901,
+          "note": "就在 Tech Square，泰式/越式/中式快炒加奶茶，GT 学生最常去的平价亚洲餐。"
+        },
+        {
+          "name": "Sweet Hut Bakery & Cafe",
+          "nameCn": "Sweet Hut 台式烘焙奶茶",
+          "lat": 33.7804,
+          "lng": -84.3841,
+          "note": "台式面包房加珍珠奶茶，营业到很晚，赶due熬夜补糖的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Midtown Financial Center)",
+          "nameCn": "美国银行 Midtown 支行",
+          "lat": 33.7842,
+          "lng": -84.3833,
+          "note": "可现场开户办借记卡，美国最大银行之一，离校约 1.5 公里、Peachtree 沿线。"
+        },
+        {
+          "name": "Piedmont Urgent Care (Spring St)",
+          "nameCn": "Piedmont 紧急护理中心（Spring St 店）",
+          "lat": 33.7737,
+          "lng": -84.3889,
+          "note": "离校最近的 urgent care，发烧、外伤等急但不危及生命的情况免预约就诊。"
+        },
+        {
+          "name": "CVS Pharmacy (842 Peachtree)",
+          "nameCn": "CVS 药房（842 Peachtree 店）",
+          "lat": 33.7776,
+          "lng": -84.3845,
+          "note": "连锁药房，处方药、感冒药和日用品都有，营业到午夜，取药很方便。"
+        },
+        {
+          "name": "AT&T Store (West Peachtree)",
+          "nameCn": "AT&T 手机营业厅（West Peachtree 店）",
+          "lat": 33.7823,
+          "lng": -84.3879,
+          "note": "美国主流运营商门店，办手机卡/套餐、买 SIM，刚落地办号码可来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Tech Tower (Georgia Tech)",
+          "nameCn": "Tech Tower 校园钟楼",
+          "lat": 33.7717,
+          "lng": -84.3944,
+          "note": "GT 最标志性的红砖钟楼，刻着 TECH 字样，校园合影第一打卡点。"
+        },
+        {
+          "name": "Georgia Aquarium",
+          "nameCn": "佐治亚水族馆",
+          "lat": 33.7624,
+          "lng": -84.3948,
+          "note": "全美最大水族馆之一，有鲸鲨和白鲸，离校约 1.5 公里，周末遛弯好去处。"
+        },
+        {
+          "name": "World of Coca-Cola",
+          "nameCn": "可口可乐世界博物馆",
+          "lat": 33.7623,
+          "lng": -84.3909,
+          "note": "可口可乐主题馆，可试饮全球上百种口味汽水，亚特兰大经典景点。"
+        },
+        {
+          "name": "High Museum of Art",
+          "nameCn": "高等艺术博物馆",
+          "lat": 33.7894,
+          "lng": -84.3845,
+          "note": "美国东南部最大的艺术博物馆，建筑本身就很出片，学生票优惠。"
+        },
+        {
+          "name": "Centennial Olympic Park",
+          "nameCn": "百年奥林匹克公园",
+          "lat": 33.7601,
+          "lng": -84.3935,
+          "note": "1996 亚特兰大奥运会遗址公园，五环喷泉是市中心地标，散步野餐都合适。"
+        }
+      ]
     }
   ]
 }

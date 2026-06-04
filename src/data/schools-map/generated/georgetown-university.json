@@ -168,6 +168,168 @@
           "note": "医学中心附属教学医院。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market Georgetown",
+          "nameCn": "全食超市（乔治城店）",
+          "lat": 38.9176,
+          "lng": -77.0709,
+          "note": "威斯康星大道上的大型有机超市，从校园往北步行可达，生鲜熟食和日用品齐全。"
+        },
+        {
+          "name": "Safeway (Georgetown North)",
+          "nameCn": "Safeway 超市（乔治城北店）",
+          "lat": 38.9148,
+          "lng": -77.0712,
+          "note": "24 小时营业的主流连锁超市，自带药房，离校最近的大型平价采购点。"
+        },
+        {
+          "name": "Trader Joe's (West End)",
+          "nameCn": "Trader Joe's（西区店）",
+          "lat": 38.9035,
+          "lng": -77.0533,
+          "note": "性价比高的网红超市，自有品牌零食冷冻食品受留学生欢迎，校园东侧约 2 公里。"
+        },
+        {
+          "name": "Hana Japanese Market",
+          "nameCn": "Hana 日本超市",
+          "lat": 38.917,
+          "lng": -77.0383,
+          "note": "17 街/U 街口的日系亚洲食材店，可买到酱料、拉面、米和泡菜，是附近最近的亚超之一。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Reren Lamen & Bar",
+          "nameCn": "人人拉面",
+          "lat": 38.9042,
+          "lng": -77.0628,
+          "note": "威斯康星大道上的手工拉面店，自制面条和饺子，想吃中式面食的首选。"
+        },
+        {
+          "name": "Shanghai Lounge",
+          "nameCn": "上海小馆",
+          "lat": 38.9139,
+          "lng": -77.0712,
+          "note": "沪川风味中餐，主打小笼包和担担面，离 Safeway 很近的解馋去处。"
+        },
+        {
+          "name": "Han Palace",
+          "nameCn": "汉宫（粤式点心）",
+          "lat": 38.9046,
+          "lng": -77.0608,
+          "note": "M 街上的粤菜点心馆，灌汤包和港式茶点，朋友聚餐方便。"
+        },
+        {
+          "name": "Martin's Tavern",
+          "nameCn": "马丁酒馆",
+          "lat": 38.9056,
+          "lng": -77.0628,
+          "note": "1933 年开业的乔治城地标老馆，肯尼迪在此向杰奎琳求婚，经典美式餐厅必打卡。"
+        },
+        {
+          "name": "Georgetown Cupcake",
+          "nameCn": "乔治城纸杯蛋糕",
+          "lat": 38.9047,
+          "lng": -77.064,
+          "note": "因真人秀走红的网红蛋糕店，M 街上常年排队，来乔治城必尝的甜点。"
+        },
+        {
+          "name": "Baked & Wired",
+          "nameCn": "Baked & Wired 咖啡甜点",
+          "lat": 38.9039,
+          "lng": -77.0608,
+          "note": "运河边的本地人气咖啡烘焙店，超大杯子蛋糕和精品咖啡，本地人更爱这家。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "MedStar Georgetown University Hospital",
+          "nameCn": "乔治城大学医院（MedStar）",
+          "lat": 38.9116,
+          "lng": -77.0764,
+          "note": "紧邻校园的综合性大医院，含急诊，生病或急症就医的主要去处。"
+        },
+        {
+          "name": "PNC Bank (M St & Wisconsin Ave)",
+          "nameCn": "PNC 银行（M街/威斯康星大道店）",
+          "lat": 38.9049,
+          "lng": -77.0625,
+          "note": "位于乔治城商业中心十字路口的银行网点，开学办理银行账户很方便。"
+        },
+        {
+          "name": "CVS Pharmacy (Wisconsin Ave)",
+          "nameCn": "CVS 药房（威斯康星大道店）",
+          "lat": 38.907,
+          "lng": -77.0628,
+          "note": "步行可达的连锁药房兼便利店，买常备药、生活用品和处方药都靠它。"
+        },
+        {
+          "name": "Apple Georgetown",
+          "nameCn": "苹果零售店（乔治城店）",
+          "lat": 38.9053,
+          "lng": -77.0629,
+          "note": "M 街附近的苹果直营店，买手机配件、维修设备，旁边即各大运营商门店可办手机卡。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Exorcist Steps",
+          "nameCn": "驱魔人台阶",
+          "lat": 38.905,
+          "lng": -77.0707,
+          "note": "电影《驱魔人》取景的 75 级陡峭石阶，已列入历史地标，热门拍照打卡点。"
+        },
+        {
+          "name": "Georgetown Waterfront Park",
+          "nameCn": "乔治城滨河公园",
+          "lat": 38.9024,
+          "lng": -77.0664,
+          "note": "波托马克河畔的开阔公园，有喷泉和步道，看河景、散步跑步的好去处。"
+        },
+        {
+          "name": "C&O Canal (Georgetown)",
+          "nameCn": "C&O 运河（乔治城段）",
+          "lat": 38.9041,
+          "lng": -77.0625,
+          "note": "1850 年开通的历史运河国家公园，沿河步道贯穿乔治城老城区，氛围感拉满。"
+        },
+        {
+          "name": "Old Stone House",
+          "nameCn": "老石屋",
+          "lat": 38.9047,
+          "lng": -77.0606,
+          "note": "建于 1765 年，华盛顿最古老的建筑，免费参观，了解乔治城早期生活。"
+        }
+      ]
     }
   ]
 }

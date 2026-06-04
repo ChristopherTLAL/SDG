@@ -193,6 +193,182 @@
           "note": "红线地铁站，校区东端门户。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart Central Square",
+          "nameCn": "H Mart 韩亚龙超市（中央广场店）",
+          "lat": 42.3642,
+          "lng": -71.1006,
+          "note": "离 MIT 最近的大型亚洲超市，581 Mass Ave，中日韩食材、生鲜、调料、速食一应俱全，步行可达，留学生采购首选。"
+        },
+        {
+          "name": "Whole Foods Market (River Street)",
+          "nameCn": "全食超市（River Street 店）",
+          "lat": 42.3636,
+          "lng": -71.1062,
+          "note": "340 River St 的大型主流超市，有机生鲜、熟食区齐全，周末 MIT 有免费班车直达。"
+        },
+        {
+          "name": "Star Market (Twin City Plaza)",
+          "nameCn": "Star Market 超市（双城广场）",
+          "lat": 42.3735,
+          "lng": -71.0918,
+          "note": "McGrath Hwy 双城广场内的综合超市，价格亲民、品类全，邻 Cambridge/Somerville 边界，可顺带逛 Marshalls。"
+        },
+        {
+          "name": "Reliable Market",
+          "nameCn": "Reliable 亚洲超市",
+          "lat": 42.3789,
+          "lng": -71.0936,
+          "note": "Union Square 老牌泛亚超市，日韩调料、海苔、火锅料齐全，后厨还卖韩式现做热食，适合补货。"
+        },
+        {
+          "name": "Market Basket (Somerville)",
+          "nameCn": "Market Basket 平价超市",
+          "lat": 42.3796,
+          "lng": -71.0985,
+          "note": "400 Somerville Ave 的本地连锁，全城公认最便宜，囤日用品和米面油的省钱之选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Royal East",
+          "nameCn": "皇朝（Royal East）中餐厅",
+          "lat": 42.3625,
+          "lng": -71.0973,
+          "note": "782 Main St，紧挨 MIT 的老牌中餐馆，中式/马来/泰式合一，价格实惠，是 MIT 学生的日常食堂级选择。"
+        },
+        {
+          "name": "5 Spices House",
+          "nameCn": "五味轩川菜馆",
+          "lat": 42.3744,
+          "lng": -71.1179,
+          "note": "公认 MIT 附近最强川菜之一，麻辣香锅可自选食材，想吃地道辣口必来。"
+        },
+        {
+          "name": "Dumpling House",
+          "nameCn": "饺子馆（Dumpling House）",
+          "lat": 42.3727,
+          "lng": -71.1158,
+          "note": "950 Mass Ave，南北方中式水饺、锅贴、面食，华人聚集的人气小馆，性价比高。"
+        },
+        {
+          "name": "The Mad Monkfish",
+          "nameCn": "疯狂鮟鱇鱼（亚洲融合）",
+          "lat": 42.3636,
+          "lng": -71.101,
+          "note": "中央广场亚洲融合餐厅，日式寿司+泰式咖喱+东南亚菜，环境好，适合朋友聚餐或请客。"
+        },
+        {
+          "name": "Toscanini's Ice Cream",
+          "nameCn": "Toscanini's 冰淇淋",
+          "lat": 42.3636,
+          "lng": -71.0994,
+          "note": "899 Main St，1981 年创立的剑桥传奇冰淇淋店，被《纽约时报》盛赞，口味稀奇古怪，本地必打卡甜点。"
+        },
+        {
+          "name": "Flour Bakery + Cafe",
+          "nameCn": "Flour 烘焙咖啡馆",
+          "lat": 42.3624,
+          "lng": -71.0855,
+          "note": "Kendall 广场人气连锁烘焙店，招牌 sticky bun 和三明治，适合早餐和带电脑自习。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Central Square)",
+          "nameCn": "美国银行（中央广场支行）",
+          "lat": 42.3645,
+          "lng": -71.1014,
+          "note": "727 Mass Ave，离校最近的大行网点，可开学生账户，ATM 支持中文界面，办卡存款方便。"
+        },
+        {
+          "name": "MIT Health (Urgent Care)",
+          "nameCn": "MIT 校医院（紧急门诊）",
+          "lat": 42.3617,
+          "lng": -71.0883,
+          "note": "25 Carleton St (E23)，校内医疗中心，含 24 小时急诊与全科，持学生保险首诊就来这里。"
+        },
+        {
+          "name": "CHA Cambridge Hospital",
+          "nameCn": "剑桥联合医疗医院（CHA）",
+          "lat": 42.3739,
+          "lng": -71.1004,
+          "note": "1493 Cambridge St，24 小时急诊综合医院，校医院处理不了的住院/专科转诊到这里。"
+        },
+        {
+          "name": "CVS Pharmacy (Central Square)",
+          "nameCn": "CVS 药房（中央广场店）",
+          "lat": 42.3651,
+          "lng": -71.1024,
+          "note": "624 Mass Ave，连锁药房，处方药、感冒药、日用品都能买，离校近、营业时间长。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "MIT Great Dome & Killian Court",
+          "nameCn": "MIT 大圆顶与 Killian 草坪",
+          "lat": 42.3601,
+          "lng": -71.0921,
+          "note": "MIT 标志性新古典大圆顶，俯瞰毕业典礼草坪与查尔斯河，校园拍照第一机位，黄昏光线最佳。"
+        },
+        {
+          "name": "Ray and Maria Stata Center",
+          "nameCn": "斯塔塔中心（盖里建筑）",
+          "lat": 42.3617,
+          "lng": -71.0905,
+          "note": "建筑大师 Frank Gehry 设计的歪斜未来派楼，MIT 计算机系所在，本身就是网红打卡建筑。"
+        },
+        {
+          "name": "MIT Museum",
+          "nameCn": "MIT 博物馆",
+          "lat": 42.3625,
+          "lng": -71.088,
+          "note": "314 Main St 新馆，机器人、人工智能、全息与黑科技展品，紧邻 Kendall 地铁站，理工生必逛。"
+        },
+        {
+          "name": "Charles River Esplanade (MIT waterfront)",
+          "nameCn": "查尔斯河滨步道（MIT 河岸）",
+          "lat": 42.3573,
+          "lng": -71.092,
+          "note": "Harvard Bridge 旁的河滨绿道，跑步骑行、看波士顿天际线和帆船，日落与节庆烟花的绝佳视角。"
+        },
+        {
+          "name": "Kendall/MIT Square",
+          "nameCn": "Kendall 广场创新区",
+          "lat": 42.3624,
+          "lng": -71.0862,
+          "note": "号称「地球上最具创新力的一平方英里」，科技公司云集、餐饮咖啡密集，感受 MIT 周边活力的中心。"
+        }
+      ]
     }
   ]
 }

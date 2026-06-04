@@ -208,6 +208,168 @@
           "note": "上马龙体育场内的国际级田径跑道。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Lee Foods Oriental Supermarket",
+          "nameCn": "利食东方超市",
+          "lat": 54.59031,
+          "lng": -5.92769,
+          "note": "离校园最近的华人/亚洲超市，在 Donegall Pass，步行十几分钟，中餐调料、米面、火锅料、亚洲蔬菜齐全，旁边还有几家小亚超可一并逛。"
+        },
+        {
+          "name": "Asia Supermarket",
+          "nameCn": "亚洲超市",
+          "lat": 54.5909676,
+          "lng": -5.912886,
+          "note": "贝尔法斯特最早也是最大的亚洲超市（现位于 Ormeau Embankment），中日韩东南亚货品最全，留学生采购大件、囤货首选，建议结伴或打车去。"
+        },
+        {
+          "name": "Tesco Express (Dublin Road)",
+          "nameCn": "Tesco Express 超市（都柏林路）",
+          "lat": 54.59102,
+          "lng": -5.93275,
+          "note": "离校园最近的英国主流连锁超市之一，日常牛奶面包、生鲜速食随时补给；办 Clubcard 会员卡有折扣。"
+        },
+        {
+          "name": "China Cash & Carry (中国城超市)",
+          "nameCn": "中国城超市 China Cash & Carry",
+          "lat": 54.61496,
+          "lng": -5.91994,
+          "note": "市区北侧的大型华人批发超市，价格实惠、整箱整袋更划算，适合开学囤货或几个人拼单采购。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Lee Garden Restaurant",
+          "nameCn": "利园酒家",
+          "lat": 54.58911,
+          "lng": -5.9332,
+          "note": "Botanic Avenue 上的人气粤式餐厅，主打港式点心（虾饺、烧卖、肠粉），价格亲民、离校园近，想吃中餐解馋的第一站。"
+        },
+        {
+          "name": "The Welcome Restaurant",
+          "nameCn": "迎宾楼",
+          "lat": 54.58082,
+          "lng": -5.93523,
+          "note": "北爱尔兰历史最悠久的中餐厅（始于 1980 年代），地道港式粤菜，就在 Ulster 博物馆和植物园旁，适合家人来访或聚餐。"
+        },
+        {
+          "name": "Boojum",
+          "nameCn": "Boojum 墨西哥卷",
+          "lat": 54.58728,
+          "lng": -5.93281,
+          "note": "源自贝尔法斯特的本土墨西哥卷连锁，大份量 burrito 是学生党高性价比午餐的代名词，Botanic Avenue 店常排队。"
+        },
+        {
+          "name": "Maggie May's Belfast",
+          "nameCn": "Maggie May's 餐馆",
+          "lat": 54.58785,
+          "lng": -5.93263,
+          "note": "Botanic Avenue 老牌平价餐馆，必点经典「Ulster Fry」全套煎早餐，体验北爱本地味道的招牌去处。"
+        },
+        {
+          "name": "The Chip Company",
+          "nameCn": "The Chip Company 炸鱼薯条店",
+          "lat": 54.58768,
+          "lng": -5.93263,
+          "note": "校园旁 Botanic Avenue 的炸鱼薯条店，英式国民美食 Fish & Chips，深夜放学路过来一份很顶饱。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "The University Health Centre at Queen's",
+          "nameCn": "女王大学校医务所（GP 诊所）",
+          "lat": 54.58392,
+          "lng": -5.9375,
+          "note": "女王大学官方合作 GP 诊所，就在校园边 University Road 上，留学生抵英后应尽快在此注册 GP（看病、开药、转诊都靠它）。"
+        },
+        {
+          "name": "Belfast City Hospital",
+          "nameCn": "贝尔法斯特市立医院",
+          "lat": 54.58737,
+          "lng": -5.94167,
+          "note": "Lisburn Road 上的大型教学医院，离校园很近，急诊与专科就医的主要去处（注意 A&E 急诊主要在皇家医院 RVH）。"
+        },
+        {
+          "name": "J McGregor Pharmacy",
+          "nameCn": "McGregor 药房",
+          "lat": 54.58884,
+          "lng": -5.93312,
+          "note": "Botanic Avenue 上的社区药房，凭 GP 处方取药、买非处方感冒药和日用药都方便，离校园步行可达。"
+        },
+        {
+          "name": "Vodafone (Donegall Place)",
+          "nameCn": "Vodafone 手机营业厅（市中心）",
+          "lat": 54.59798,
+          "lng": -5.93019,
+          "note": "市中心 Donegall Place 的运营商门店，办英国手机卡/套餐（SIM）可现场咨询；附近还有 EE、Three、O2 等多家可比价。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Botanic Gardens & Palm House",
+          "nameCn": "贝尔法斯特植物园与棕榈温室",
+          "lat": 54.58062,
+          "lng": -5.93032,
+          "note": "紧邻校园的维多利亚式公园，免费开放，标志性玻璃棕榈温室是热门打卡点，学生散步、野餐、复习的后花园。"
+        },
+        {
+          "name": "Ulster Museum",
+          "nameCn": "阿尔斯特博物馆",
+          "lat": 54.58225,
+          "lng": -5.93532,
+          "note": "北爱最大的综合博物馆，免费参观，藏有恐龙、埃及木乃伊、西班牙无敌舰队宝藏与爱尔兰艺术，就在植物园内。"
+        },
+        {
+          "name": "Queen's University Lanyon Building",
+          "nameCn": "女王大学 Lanyon 主楼",
+          "lat": 54.58442,
+          "lng": -5.93515,
+          "note": "学校地标性的红砖哥特复兴主楼，建于 1849 年，是全校最经典的拍照与开学合影背景。"
+        },
+        {
+          "name": "Queen's Film Theatre (QFT)",
+          "nameCn": "女王电影院 QFT",
+          "lat": 54.58548,
+          "lng": -5.93395,
+          "note": "校园旁的独立艺术影院，放映文艺片与小众佳作，学生有折扣票，适合周末文化消遣。"
+        },
+        {
+          "name": "Lavery's Bar",
+          "nameCn": "Lavery's 酒吧",
+          "lat": 54.58902,
+          "lng": -5.93438,
+          "note": "Bradbury Place 上的百年老字号酒吧，几代学生的社交据点，体验本地 pub 文化、看球、聚会的经典去处。"
+        }
+      ]
     }
   ]
 }

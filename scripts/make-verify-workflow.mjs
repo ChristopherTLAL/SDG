@@ -22,6 +22,7 @@ const SCHOOLS = files.map((f) => {
 
 const ONLY = process.argv[2] ? new Set(process.argv[2].split(',')) : null;
 const USE = ONLY ? SCHOOLS.filter((s) => ONLY.has(s.id)) : SCHOOLS;
+const COUNTRY = process.argv[3] || 'the UK';
 
 const script = `export const meta = {
   name: 'verify-uk-coords',
@@ -53,7 +54,7 @@ phase('Verify');
 const results = await parallel(SCHOOLS.map((s) => () => {
   const lines = s.points.map((p) => '- [' + p.cat + '] ' + p.name + ' @ ' + p.lat + ',' + p.lng).join('\\n');
   const prompt = [
-    'Verify map-pin coordinates for ' + s.name + ' (' + s.nameCn + '), UK. For EACH point below, check the lat/lng truly matches that named building / place / campus in the correct city. Use OpenStreetMap, Wikipedia infoboxes and official campus maps.',
+    'Verify map-pin coordinates for ' + s.name + ' (' + s.nameCn + '), ${COUNTRY}. For EACH point below, check the lat/lng truly matches that named building / place / campus in the correct city. Use OpenStreetMap, Wikipedia infoboxes and official campus maps.',
     '',
     lines,
     '',

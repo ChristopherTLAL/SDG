@@ -207,6 +207,182 @@
           "note": "火车与地铁换乘枢纽,连接市中心与西区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sainsbury's Local (Byres Road)",
+          "nameCn": "Sainsbury's 便利店（拜尔斯路店）",
+          "lat": 55.8736,
+          "lng": -4.2899,
+          "note": "拜尔斯路上离学校最近的英国主流超市之一，日常蔬果、面包、即食餐都有，步行几分钟即到。"
+        },
+        {
+          "name": "Tesco Express (Byres Road)",
+          "nameCn": "Tesco 便利超市（拜尔斯路店）",
+          "lat": 55.8745,
+          "lng": -4.2895,
+          "note": "另一家紧邻校园的连锁超市，营业时间长，适合补日用品和速食，Clubcard 会员价划算。"
+        },
+        {
+          "name": "888 Express (Hong Kong grocery)",
+          "nameCn": "888 港式超市",
+          "lat": 55.8721,
+          "lng": -4.2899,
+          "note": "拜尔斯路上的港式华人超市，老干妈、火锅底料、冷冻点心、亚洲调料齐全，还卖港式小吃。"
+        },
+        {
+          "name": "iMart Oriental Supermarket",
+          "nameCn": "iMart 亚洲东方超市",
+          "lat": 55.8665,
+          "lng": -4.2807,
+          "note": "西区规模较大的亚洲超市，中、日、韩、印食材都有，想囤米面酱料来这里一次买齐。"
+        },
+        {
+          "name": "Lidl (North Woodside Road)",
+          "nameCn": "Lidl 折扣超市（北伍德赛德路店）",
+          "lat": 55.8728,
+          "lng": -4.2697,
+          "note": "靠近 Kelvinbridge 地铁站的平价德国连锁超市，预算有限时采购最省钱。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "OAKA Supercity (Byres Road)",
+          "nameCn": "OAKA 超级城（拜尔斯路店）",
+          "lat": 55.8742,
+          "lng": -4.2896,
+          "note": "距校园步行约3分钟的人气亚洲料理，主打点心和街头小吃，中国留学生扎堆的食堂级选择。"
+        },
+        {
+          "name": "Dumpling Monkey",
+          "nameCn": "饺子猴",
+          "lat": 55.8696,
+          "lng": -4.3094,
+          "note": "西区知名北方菜馆，手工饺子、包子、面食地道，想吃家乡味来这里准没错。"
+        },
+        {
+          "name": "Ramen Dayo!",
+          "nameCn": "Ramen Dayo 日式拉面",
+          "lat": 55.8746,
+          "lng": -4.2902,
+          "note": "西区超火的日式豚骨/味噌拉面店，还有咖喱猪排饭，冬天暖胃的好去处。"
+        },
+        {
+          "name": "Ubiquitous Chip",
+          "nameCn": "Ubiquitous Chip（无处不在薯条）",
+          "lat": 55.8744,
+          "lng": -4.2916,
+          "note": "Ashton Lane 上自1971年的格拉斯哥老牌餐厅，苏格兰菜代表（haggis、鹿肉），请客打卡首选。"
+        },
+        {
+          "name": "Brel (Ashton Lane)",
+          "nameCn": "Brel 比利时餐吧（阿什顿巷）",
+          "lat": 55.8743,
+          "lng": -4.2913,
+          "note": "Ashton Lane 网红石板巷里的比利时餐酒馆，露天花园氛围超出片，奶酪火锅和精酿很受欢迎。"
+        },
+        {
+          "name": "The Wee Curry Shop (Ashton Lane)",
+          "nameCn": "小咖喱店（阿什顿巷）",
+          "lat": 55.8742,
+          "lng": -4.2911,
+          "note": "格拉斯哥是 tikka masala 的发源地，这家咖喱馆性价比高，分量足，留学生常来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Boots Pharmacy (277 Byres Road)",
+          "nameCn": "Boots 药店（拜尔斯路277号）",
+          "lat": 55.8757,
+          "lng": -4.2888,
+          "note": "拜尔斯路大型连锁药妆店，处方药、感冒药、日用品都有，营业到晚上9点，参与 NHS Pharmacy First 免费咨询。"
+        },
+        {
+          "name": "Gartnavel General Hospital",
+          "nameCn": "加特纳维尔综合医院",
+          "lat": 55.8807,
+          "lng": -4.3142,
+          "note": "西区最近的NHS综合医院（1053 Great Western Rd），看急诊或专科去这里；记得先在校医务室注册GP。"
+        },
+        {
+          "name": "Bank of Scotland (Byres Road)",
+          "nameCn": "苏格兰银行（拜尔斯路支行）",
+          "lat": 55.875,
+          "lng": -4.289,
+          "note": "拜尔斯路上的银行网点，新生开学生账户、办理英国本地卡可来此预约办理。"
+        },
+        {
+          "name": "EE Store (Byres Road)",
+          "nameCn": "EE 通讯营业厅（拜尔斯路店）",
+          "lat": 55.8748,
+          "lng": -4.2891,
+          "note": "拜尔斯路上的手机运营商门店，办英国手机卡/合约套餐，也可咨询 SIM 充值。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Kelvingrove Art Gallery and Museum",
+          "nameCn": "凯尔文格罗夫艺术博物馆",
+          "lat": 55.8686,
+          "lng": -4.291,
+          "note": "校园南侧的免费博物馆，22个主题展厅藏品过万（达利名画+史前到现代），格拉斯哥必逛地标。"
+        },
+        {
+          "name": "Glasgow Botanic Gardens",
+          "nameCn": "格拉斯哥植物园",
+          "lat": 55.8796,
+          "lng": -4.2912,
+          "note": "西区免费植物园，维多利亚式 Kibble Palace 温室+河边步道，散步、野餐、拍照的绝佳去处。"
+        },
+        {
+          "name": "Hunterian Museum",
+          "nameCn": "亨特里安博物馆",
+          "lat": 55.8722,
+          "lng": -4.2882,
+          "note": "就在格大主楼内，苏格兰最古老的公共博物馆，免费参观，雨天课间逛展最方便。"
+        },
+        {
+          "name": "University of Glasgow Main Building (Cloisters)",
+          "nameCn": "格拉斯哥大学主楼（回廊）",
+          "lat": 55.8718,
+          "lng": -4.2885,
+          "note": "哈利波特取景同款哥特式回廊与钟楼，全校最出片的打卡点，开学第一张照片就在这里。"
+        },
+        {
+          "name": "Kelvingrove Park",
+          "nameCn": "凯尔文格罗夫公园",
+          "lat": 55.8703,
+          "lng": -4.2855,
+          "note": "紧邻校园的大型城市公园，沿 River Kelvin 跑步骑行，晴天野餐晒太阳的学生后花园。"
+        }
+      ]
     }
   ]
 }

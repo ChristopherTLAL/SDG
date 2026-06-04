@@ -201,6 +201,182 @@
           "note": "Link轻轨车站，校园西北门户。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart UW (University District)",
+          "nameCn": "H Mart 韩亚龙超市（U区店）",
+          "lat": 47.6582,
+          "lng": -122.3134,
+          "note": "校园西侧 the Ave 上的亚洲超市，韩国/中国食材、泡面、速食、地下二层 K-beauty，步行可达，留学生采购最方便。"
+        },
+        {
+          "name": "University Village (QFC flagship)",
+          "nameCn": "大学城购物中心（QFC 旗舰超市）",
+          "lat": 47.6629,
+          "lng": -122.299,
+          "note": "校园东北的露天商场，内有大型 QFC 旗舰超市，生鲜日用一站购齐，旁边就是各类品牌店。"
+        },
+        {
+          "name": "Safeway University District",
+          "nameCn": "Safeway 超市（U区店）",
+          "lat": 47.6657,
+          "lng": -122.314,
+          "note": "U区主流连锁超市，价格亲民、品类全，常有会员折扣，适合日常囤货。"
+        },
+        {
+          "name": "Trader Joe's University District",
+          "nameCn": "Trader Joe's（缺德舅·U区店）",
+          "lat": 47.6614,
+          "lng": -122.317,
+          "note": "网红平价超市，冷冻速食、零食、酒水性价比高，留学生最爱逛的'缺德舅'。"
+        },
+        {
+          "name": "Uwajimaya (Chinatown-ID)",
+          "nameCn": "宇和岛屋亚洲超市（国际区总店）",
+          "lat": 47.5972,
+          "lng": -122.327,
+          "note": "西雅图最大日系亚洲超市，中日韩食材最齐全，坐轻轨 Link 直达国际区，周末囤货可去。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Xi'an Noodles",
+          "nameCn": "西安名吃（油泼面）",
+          "lat": 47.6663,
+          "lng": -122.3134,
+          "note": "the Ave 上的陕西手工 biang biang 面，油泼辣子、肉夹馍正宗管饱，学生党最爱的一碗。"
+        },
+        {
+          "name": "Din Tai Fung (University Village)",
+          "nameCn": "鼎泰丰（大学城店）",
+          "lat": 47.6622,
+          "lng": -122.2985,
+          "note": "大学城内的台式小笼包名店，蟹粉小笼、炒饭稳定好吃，适合家人来访或改善伙食。"
+        },
+        {
+          "name": "Little Duck Organic / 东北菜",
+          "nameCn": "小鸭东北菜",
+          "lat": 47.6618,
+          "lng": -122.3134,
+          "note": "the Ave 附近主打东北家常菜，麻辣炸鸡、猪肉饺子分量足，想家时来一顿。"
+        },
+        {
+          "name": "Thai Tom",
+          "nameCn": "Thai Tom 泰餐",
+          "lat": 47.6601,
+          "lng": -122.3133,
+          "note": "U区开了几十年的明火爆炒泰餐小店，Pad See Ew、咖喱辣得过瘾，本地学生公认必吃。"
+        },
+        {
+          "name": "Shawarma King",
+          "nameCn": "Shawarma King 中东卷",
+          "lat": 47.6606,
+          "lng": -122.3133,
+          "note": "the Ave 上的中东快餐，沙威玛卷、falafel 便宜大份，深夜补给好去处。"
+        },
+        {
+          "name": "Dick's Drive-In (Wallingford)",
+          "nameCn": "Dick's 复古汉堡（Wallingford 店）",
+          "lat": 47.6611,
+          "lng": -122.3327,
+          "note": "西雅图本土汉堡传奇，便宜的 Deluxe 汉堡+奶昔，体验美式快餐文化的打卡点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank — University Way NE",
+          "nameCn": "大通银行（University Way 支行）",
+          "lat": 47.6634,
+          "lng": -122.3134,
+          "note": "the Ave 上的 Chase 支行，留学生开户/办借记卡常去，工作日及周六上午营业。"
+        },
+        {
+          "name": "Bank of America — University Branch",
+          "nameCn": "美国银行（大学支行）",
+          "lat": 47.665,
+          "lng": -122.3134,
+          "note": "距 Chase 两个街区，另一主流大行选择，开户、电汇、ATM 齐全。"
+        },
+        {
+          "name": "Husky Health Center (Hall Health)",
+          "nameCn": "Husky 学生健康中心（原 Hall Health）",
+          "lat": 47.6562,
+          "lng": -122.3036,
+          "note": "校内学生医疗中心，含全科门诊、紧急照护、药房与心理咨询，看病开药第一站。"
+        },
+        {
+          "name": "T-Mobile — NE 45th St",
+          "nameCn": "T-Mobile 通讯店（NE 45th）",
+          "lat": 47.6614,
+          "lng": -122.3128,
+          "note": "校园附近运营商门店，办手机卡/套餐、加 eSIM，新生落地先来开号。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "UW Quad (Cherry Blossoms)",
+          "nameCn": "华大文理学院方庭（樱花大道）",
+          "lat": 47.6571,
+          "lng": -122.308,
+          "note": "校内 30 棵吉野樱，每年三月底至四月初盛开，西雅图最著名赏樱与拍照地标。"
+        },
+        {
+          "name": "Suzzallo Library Reading Room",
+          "nameCn": "苏萨罗图书馆（哈利波特阅览室）",
+          "lat": 47.6557,
+          "lng": -122.3076,
+          "note": "哥特式大阅览室号称'霍格沃茨'，是华大最上镜的建筑，自习+打卡两不误。"
+        },
+        {
+          "name": "Drumheller Fountain & Rainier Vista",
+          "nameCn": "德拉姆海勒喷泉与雷尼尔视廊",
+          "lat": 47.6534,
+          "lng": -122.3076,
+          "note": "喷泉沿草坪望去可远眺雷尼尔雪山，校园经典明信片视角。"
+        },
+        {
+          "name": "Burke Museum of Natural History",
+          "nameCn": "伯克自然史与文化博物馆",
+          "lat": 47.6605,
+          "lng": -122.3115,
+          "note": "校园西北角的自然史博物馆，恐龙化石与西北原住民艺术，UW 学生可免费参观。"
+        },
+        {
+          "name": "Henry Art Gallery",
+          "nameCn": "亨利美术馆",
+          "lat": 47.6586,
+          "lng": -122.3122,
+          "note": "华大当代艺术馆，常设 James Turrell 天光装置，UW 学生免费，雨天好去处。"
+        }
+      ]
     }
   ]
 }

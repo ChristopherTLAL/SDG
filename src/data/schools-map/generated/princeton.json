@@ -200,6 +200,175 @@
           "note": "Dinky 摆渡线终点，连接 NJ Transit 通往纽约费城。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Wegmans Princeton",
+          "nameCn": "Wegmans 超市（Nassau Park）",
+          "lat": 40.2989,
+          "lng": -74.6628,
+          "note": "校区西南约5公里的大型连锁超市，生鲜、日用、平价熟食一站买齐，留学生采购主力店。"
+        },
+        {
+          "name": "McCaffrey's Food Market",
+          "nameCn": "McCaffrey's 食品超市",
+          "lat": 40.3636,
+          "lng": -74.6593,
+          "note": "Princeton Shopping Center 内的本地精品超市，步行/短驳即到，适合日常补货。"
+        },
+        {
+          "name": "Whole Earth Center",
+          "nameCn": "Whole Earth 有机超市",
+          "lat": 40.3528,
+          "lng": -74.6489,
+          "note": "Nassau St 上的有机食品店，离校最近，买健康食材和现成餐食很方便。"
+        },
+        {
+          "name": "Woori Mart",
+          "nameCn": "Woori Mart 韩亚超市",
+          "lat": 40.2935,
+          "lng": -74.6181,
+          "note": "West Windsor 的韩式亚超，泡菜、豆腐、亚洲调料、活鱼俱全，离校约5公里、找中餐食材的首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Tiger Noodles",
+          "nameCn": "老虎面馆（中餐/台式）",
+          "lat": 40.3508,
+          "lng": -74.6535,
+          "note": "Nassau St 上学生最常去的中式面馆，炒面、台式小吃、珍珠奶茶平价管饱。"
+        },
+        {
+          "name": "SCHOUSE Sichuan",
+          "nameCn": "川菜馆（SCHOUSE）",
+          "lat": 40.3511,
+          "lng": -74.6543,
+          "note": "Nassau St 上的家庭式川菜馆，麻辣口味地道，解乡愁的辣味之选。"
+        },
+        {
+          "name": "Tomo Sushi",
+          "nameCn": "Tomo 寿司（日料）",
+          "lat": 40.3511,
+          "lng": -74.6545,
+          "note": "校园旁的 BYO 日料店，刺身寿司新鲜、师傅亲切，亚洲口味聚餐好去处。"
+        },
+        {
+          "name": "Hoagie Haven",
+          "nameCn": "Hoagie Haven 三明治",
+          "lat": 40.3514,
+          "lng": -74.6531,
+          "note": "1974年开业的普林斯顿地标三明治店，巨型 Phat Lady/Sanchez 是必打卡的本地传奇。"
+        },
+        {
+          "name": "The Bent Spoon",
+          "nameCn": "The Bent Spoon 手工冰淇淋",
+          "lat": 40.3494,
+          "lng": -74.6593,
+          "note": "Palmer Square 的网红手工 gelato，口味天天换、热巧克力出名，来普林斯顿必尝。"
+        },
+        {
+          "name": "Jammin' Crepes",
+          "nameCn": "Jammin' Crepes 可丽饼",
+          "lat": 40.3501,
+          "lng": -74.6573,
+          "note": "Nassau St 本地人气可丽饼店，主打本地食材的甜咸 crepe，早午餐打卡热门。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (90 Nassau St)",
+          "nameCn": "美国银行 Nassau 街支行",
+          "lat": 40.3499,
+          "lng": -74.6588,
+          "note": "校门对面 Nassau St 的美银网点，开学办银行账户、存取现金最近的一家。"
+        },
+        {
+          "name": "CVS Pharmacy (172 Nassau St)",
+          "nameCn": "CVS 药房（Nassau 街）",
+          "lat": 40.3501,
+          "lng": -74.6557,
+          "note": "步行可达的连锁药房，处方药、感冒药、日用品和疫苗一站搞定。"
+        },
+        {
+          "name": "Penn Medicine Princeton Medical Center",
+          "nameCn": "宾大医学普林斯顿医疗中心",
+          "lat": 40.3318,
+          "lng": -74.5829,
+          "note": "Plainsboro 的综合医院，带急诊（ER），生病或急症就医的主要去处。"
+        },
+        {
+          "name": "Verizon (Princeton Shopping Center)",
+          "nameCn": "Verizon 通讯营业厅",
+          "lat": 40.3636,
+          "lng": -74.6589,
+          "note": "Princeton Shopping Center 内的运营商门店，办美国手机卡/套餐、买手机很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Nassau Hall",
+          "nameCn": "拿骚厅（Nassau Hall）",
+          "lat": 40.3487,
+          "lng": -74.6593,
+          "note": "1756年建的全校最老建筑，曾短暂作美国国会所在地，校园第一打卡点。"
+        },
+        {
+          "name": "Princeton University Art Museum",
+          "nameCn": "普林斯顿大学艺术博物馆",
+          "lat": 40.3473,
+          "lng": -74.6571,
+          "note": "校园中心的世界级艺术馆，馆藏从古代到当代、免费参观，雨天好去处。"
+        },
+        {
+          "name": "Palmer Square",
+          "nameCn": "Palmer Square 广场",
+          "lat": 40.3497,
+          "lng": -74.6595,
+          "note": "校门旁的殖民复古风商业广场，购物、咖啡、节庆活动云集，拍照逛街首选。"
+        },
+        {
+          "name": "Princeton University Chapel",
+          "nameCn": "普林斯顿大学教堂",
+          "lat": 40.3492,
+          "lng": -74.6566,
+          "note": "哥特式大学教堂，彩窗与高耸拱顶极上镜，是校园出片率最高的建筑之一。"
+        },
+        {
+          "name": "Lake Carnegie",
+          "nameCn": "卡内基湖",
+          "lat": 40.3411,
+          "lng": -74.6396,
+          "note": "校园东南的人工湖，赛艇队训练地，沿岸跑步散步、看日落的放松好去处。"
+        }
+      ]
     }
   ]
 }

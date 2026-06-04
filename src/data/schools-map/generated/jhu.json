@@ -209,6 +209,161 @@
           "note": "1889年标志性穹顶建筑，美国最负盛名医院之一"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Giant Food (601 E 33rd St)",
+          "nameCn": "巨人超市(33街店)",
+          "lat": 39.3277,
+          "lng": -76.608,
+          "note": "离 Homewood 校区最近的大型综合超市,生鲜、日用、店内还带药房,东向步行/校车可达,日常采买首选。"
+        },
+        {
+          "name": "Safeway (Charles Village, 2401 N Charles St)",
+          "nameCn": "Safeway 超市(查尔斯村店)",
+          "lat": 39.3168,
+          "lng": -76.6163,
+          "note": "校区南侧 Charles Village 的主流连锁超市,价格亲民、营业时间长,适合临时补货和周常采购。"
+        },
+        {
+          "name": "Po Tung Oriental Grocery (321 Park Ave)",
+          "nameCn": "宝同东方杂货",
+          "lat": 39.2937,
+          "lng": -76.6179,
+          "note": "巴尔的摩老华埠最全的亚洲杂货店,中式调料/面条/速食/冻品齐全,凭学生证打九折,JHU 中国学生公认补货点。"
+        },
+        {
+          "name": "Eddie's of Charles Village (3100 St Paul St)",
+          "nameCn": "Eddie's 社区超市",
+          "lat": 39.3268,
+          "lng": -76.6159,
+          "note": "紧邻校区、可步行到的本地老牌社区超市,生鲜熟食精致,临时买菜买早餐最方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Lao Sze Chuan (3224 St Paul St)",
+          "nameCn": "老四川",
+          "lat": 39.3279,
+          "lng": -76.6162,
+          "note": "全美连锁正宗川菜,毗邻校区,水煮/麻婆/干锅地道解辣,中国学生聚餐高频选择。"
+        },
+        {
+          "name": "Tamber's (3327 St Paul St)",
+          "nameCn": "Tamber's 五十年代餐厅",
+          "lat": 39.3291,
+          "lng": -76.6157,
+          "note": "距校区两个街区的查尔斯村老字号,印度菜+美式 diner 复古混搭,招牌咖喱和奶昔,深夜也开。"
+        },
+        {
+          "name": "Ekiben (911 W 36th St, Hampden)",
+          "nameCn": "Ekiben 亚洲融合",
+          "lat": 39.3286,
+          "lng": -76.639,
+          "note": "巴尔的摩网红亚洲融合馆,招牌台式咖喱炸鸡刈包(Neighborhood Bird),在 Hampden 的 The Avenue 上,必打卡。"
+        },
+        {
+          "name": "The Charmery (801 W 36th St, Hampden)",
+          "nameCn": "The Charmery 手工冰淇淋",
+          "lat": 39.3285,
+          "lng": -76.6379,
+          "note": "Hampden The Avenue 上的本地超人气手工冰淇淋,季节限定口味多,逛街顺道必吃。"
+        },
+        {
+          "name": "Faidley's Seafood (Lexington Market)",
+          "nameCn": "Faidley 海鲜(蟹饼)",
+          "lat": 39.2919,
+          "lng": -76.6219,
+          "note": "1886 年至今的巴尔的摩海鲜老店,招牌马里兰大块蟹饼(crab cake)是来 Charm City 必尝的本地名物。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (3400 N Charles St)",
+          "nameCn": "美国银行(开户)",
+          "lat": 39.3309,
+          "lng": -76.6202,
+          "note": "位于校区北缘 N Charles 街上的大行网点,JHU 国际学生处推荐的开户银行之一,办卡/开户/ATM 都方便。"
+        },
+        {
+          "name": "MedStar Union Memorial Hospital (201 E University Pkwy)",
+          "nameCn": "联合纪念医院",
+          "lat": 39.3295,
+          "lng": -76.6148,
+          "note": "紧邻校区北侧的综合医院,设急诊室,突发就医或急症送医最近的大医院。"
+        },
+        {
+          "name": "CVS Pharmacy (3200 St Paul St)",
+          "nameCn": "CVS 药房",
+          "lat": 39.3272,
+          "lng": -76.6163,
+          "note": "就在校区旁 3200 St Paul 综合体内的连锁药房,处方药、常备药和日用品随时可买。"
+        },
+        {
+          "name": "Metro by T-Mobile (2440 N Charles St)",
+          "nameCn": "Metro 电话卡门店",
+          "lat": 39.3174,
+          "lng": -76.6172,
+          "note": "校区南侧 N Charles 街上的运营商门店,办手机卡/预付费套餐方便,落地先开通号码可来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Baltimore Museum of Art (10 Art Museum Dr)",
+          "nameCn": "巴尔的摩艺术博物馆",
+          "lat": 39.3258,
+          "lng": -76.6197,
+          "note": "就贴着校区南侧,常年免费入场,藏有北美最大的马蒂斯收藏(Cone 收藏)与雕塑花园,学生消磨周末的好去处。"
+        },
+        {
+          "name": "Sherwood Gardens",
+          "nameCn": "舍伍德花园(郁金香)",
+          "lat": 39.3414,
+          "lng": -76.6142,
+          "note": "校区北侧 Guilford 社区的 6 英亩免费花园,号称北美最有名的郁金香园,每年四月底五月初花海绝佳拍照点。"
+        },
+        {
+          "name": "Homewood Museum",
+          "nameCn": "Homewood 故居博物馆",
+          "lat": 39.3287,
+          "lng": -76.6201,
+          "note": "就在校园内的联邦时期建筑国家历史地标,JHU 校名即源于此宅,免费可参观,顺路打卡校园历史。"
+        },
+        {
+          "name": "Wyman Park Dell",
+          "nameCn": "怀曼公园谷地",
+          "lat": 39.3252,
+          "lng": -76.6242,
+          "note": "校区西南侧的开阔绿地谷地,连接 BMA 与校园,适合散步、野餐和春秋拍照。"
+        }
+      ]
     }
   ]
 }

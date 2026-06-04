@@ -200,6 +200,168 @@
           "note": "伦敦最大广场绿地,环绕LSE北侧多栋楼。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "SeeWoo Supermarket",
+          "nameCn": "泗和行超市",
+          "lat": 51.5117,
+          "lng": -0.1304,
+          "note": "中国城两层大型亚超，从中国到越南、韩国食材齐全，离学校步行约15分钟，是补给中餐食材的首选。"
+        },
+        {
+          "name": "Loon Fung Supermarket",
+          "nameCn": "龙凤行超市",
+          "lat": 51.5119,
+          "lng": -0.1303,
+          "note": "中国城老牌华人超市，1965年开业，鲜活水产、调味料、冷冻点心一应俱全。"
+        },
+        {
+          "name": "New Loon Moon Supermarket",
+          "nameCn": "新龙门超市",
+          "lat": 51.5119,
+          "lng": -0.1311,
+          "note": "位于Gerrard Street 9A，中国城最大三层亚超，3500多种远东商品，找老干妈、火锅底料来这里。"
+        },
+        {
+          "name": "Sainsbury's Local (Kingsway)",
+          "nameCn": "Sainsbury's 本地店（Kingsway店）",
+          "lat": 51.5174,
+          "lng": -0.1206,
+          "note": "英国主流连锁超市，紧邻校园的Kingsway上，日常牛奶面包蔬果的步行5分钟补给点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Four Seasons (Gerrard Street)",
+          "nameCn": "文兴酒家",
+          "lat": 51.5119,
+          "lng": -0.1309,
+          "note": "中国城烧腊名店，招牌脆皮烧鸭被誉为伦敦最好之一，想家时的粤式安慰餐。"
+        },
+        {
+          "name": "Din Tai Fung Covent Garden",
+          "nameCn": "鼎泰丰（柯芬园店）",
+          "lat": 51.5112,
+          "lng": -0.1233,
+          "note": "米其林一星小笼包，离校最近的台式精致点心，约会请客两相宜，步行10分钟。"
+        },
+        {
+          "name": "Plum Valley",
+          "nameCn": "翠园",
+          "lat": 51.5116,
+          "lng": -0.1318,
+          "note": "中国城装修考究的粤菜馆，XO酱炒萝卜糕和咸水角是必点，环境适合聚餐。"
+        },
+        {
+          "name": "Kowloon Restaurant & Bakery",
+          "nameCn": "九龙餐厅面包店",
+          "lat": 51.5116,
+          "lng": -0.1319,
+          "note": "中国城平价港式茶餐厅兼面包房，菠萝包、奶茶和烧味饭便宜管饱，学生党友好。"
+        },
+        {
+          "name": "Rules Restaurant",
+          "nameCn": "Rules 餐厅",
+          "lat": 51.5113,
+          "lng": -0.1228,
+          "note": "伦敦现存最古老餐厅（1798年），柯芬园旁的英式野味与派，体验地道伦敦老味道的打卡地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Metro Bank (High Holborn)",
+          "nameCn": "Metro 银行（高霍本店）",
+          "lat": 51.5177,
+          "lng": -0.1208,
+          "note": "距校步行5分钟，留学生圈口碑最好的开户银行，凭护照+录取信常可当天拿卡。"
+        },
+        {
+          "name": "Boots Pharmacy (Kingsway)",
+          "nameCn": "博姿药房（Kingsway店）",
+          "lat": 51.5172,
+          "lng": -0.1205,
+          "note": "紧邻校园的大型连锁药房，可买非处方药、做流感疫苗和血压检查，还能取处方。"
+        },
+        {
+          "name": "Holborn Medical Centre",
+          "nameCn": "霍本全科诊所",
+          "lat": 51.5222,
+          "lng": -0.1186,
+          "note": "校园附近的NHS全科医生（GP）诊所，注册后看病免费，到校后尽早登记。"
+        },
+        {
+          "name": "EE Store (Strand)",
+          "nameCn": "EE 电信营业厅（河岸街店）",
+          "lat": 51.5097,
+          "lng": -0.1227,
+          "note": "英国主流运营商门店，就在Strand上，办手机卡和套餐方便，信号覆盖好。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Somerset House",
+          "nameCn": "萨默塞特宫",
+          "lat": 51.5099,
+          "lng": -0.1176,
+          "note": "泰晤士河畔新古典宫殿，夏季喷泉冬季溜冰场，内含考陶尔德美术馆，离校仅5分钟。"
+        },
+        {
+          "name": "Covent Garden Market",
+          "nameCn": "柯芬园市集",
+          "lat": 51.512,
+          "lng": -0.1227,
+          "note": "伦敦最热闹的市集广场，街头艺人、精品店和餐厅云集，逛吃拍照的必到地。"
+        },
+        {
+          "name": "Sir John Soane's Museum",
+          "nameCn": "约翰·索恩爵士博物馆",
+          "lat": 51.5171,
+          "lng": -0.1175,
+          "note": "林肯律师学院广场旁的免费博物馆，建筑师故居塞满古董珍藏，小众文艺打卡点。"
+        },
+        {
+          "name": "Royal Courts of Justice",
+          "nameCn": "皇家司法院",
+          "lat": 51.5142,
+          "lng": -0.1132,
+          "note": "哥特式法院建筑群，就在校门口的Strand上，气势恢宏，法学生尤其值得一看。"
+        },
+        {
+          "name": "Lincoln's Inn Fields",
+          "nameCn": "林肯律师学院广场",
+          "lat": 51.5162,
+          "lng": -0.1166,
+          "note": "伦敦最大的公共广场，紧挨校园的大片绿地，晴天午休晒太阳野餐的好去处。"
+        }
+      ]
     }
   ]
 }

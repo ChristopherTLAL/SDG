@@ -193,6 +193,168 @@
           "note": "1.7万座露天场，足球主场，居北校区运动带。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Isla Vista Food Co-op",
+          "nameCn": "Isla Vista 食品合作社超市",
+          "lat": 34.4124,
+          "lng": -119.8557,
+          "note": "Isla Vista 学生区里唯一的社区超市，步行可达，主营有机生鲜，是学生日常采买最近的选择。"
+        },
+        {
+          "name": "Trader Joe's (Goleta)",
+          "nameCn": "缺德舅超市（Goleta店）",
+          "lat": 34.4393,
+          "lng": -119.829,
+          "note": "美国人气连锁超市，性价比高的零食、冷冻食品和日用品，留学生囤货首选，离校约4公里。"
+        },
+        {
+          "name": "Oriental Market",
+          "nameCn": "东方亚洲超市",
+          "lat": 34.4365,
+          "lng": -119.8267,
+          "note": "Goleta 老牌亚超（1991年开业），中、泰、越、日食材齐全，想做中餐买酱料调料来这里。"
+        },
+        {
+          "name": "Indo-China Market",
+          "nameCn": "印支亚洲超市",
+          "lat": 34.44,
+          "lng": -119.821,
+          "note": "Hollister 大道上的另一家老牌亚超，亚洲与欧洲进口食品多，可补 Oriental Market 没有的货。"
+        },
+        {
+          "name": "Nikka Japanese Market",
+          "nameCn": "Nikka 日本超市",
+          "lat": 34.4392,
+          "lng": -119.8292,
+          "note": "Calle Real 购物中心内的日系超市（紧邻 Target），日本米、味噌、便当料和日用品的小众补给点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Freebirds World Burrito",
+          "nameCn": "Freebirds 卷饼店",
+          "lat": 34.4126,
+          "lng": -119.8556,
+          "note": "1987年开在 Isla Vista 的初代店，超大份手卷 burrito 是 UCSB 的标志性深夜食堂，必打卡。"
+        },
+        {
+          "name": "Lao Wang",
+          "nameCn": "老王中式街头小吃",
+          "lat": 34.4122,
+          "lng": -119.8543,
+          "note": "Pardall 路上的中式街头小吃，手工面、麻辣口味，解乡愁的中餐就在学生区步行范围内。"
+        },
+        {
+          "name": "Goleta Sushi House",
+          "nameCn": "Goleta 寿司屋",
+          "lat": 34.436,
+          "lng": -119.8255,
+          "note": "本地高人气日料店，刺身新鲜、唐扬炸鸡和味噌汤口碑好，想吃正经寿司来这里。"
+        },
+        {
+          "name": "Takashi Ramen",
+          "nameCn": "Takashi 拉面",
+          "lat": 34.4404,
+          "lng": -119.8198,
+          "note": "Hollister Village 内的人气拉面店，咖喱拉面和荞麦面适合换换口味，课后吃碗热汤面很治愈。"
+        },
+        {
+          "name": "AI CHA",
+          "nameCn": "AI CHA 手作茶饮",
+          "lat": 34.4123,
+          "lng": -119.8548,
+          "note": "Pardall 路上的现做奶茶店，珍珠奶茶和三明治都有，学生区最方便的 boba 续命点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Isla Vista)",
+          "nameCn": "大通银行（Isla Vista支行）",
+          "lat": 34.4125,
+          "lng": -119.8554,
+          "note": "Isla Vista 唯一全功能银行支行，就在学生区，新生开户、办借记卡走路就能到。"
+        },
+        {
+          "name": "UCSB Student Health Service",
+          "nameCn": "UCSB 学生健康中心",
+          "lat": 34.4136,
+          "lng": -119.8519,
+          "note": "校内学生医疗中心（970 Embarcadero del Mar），普通看病、开药、疫苗的第一站，凭学生保险费用低。"
+        },
+        {
+          "name": "Goleta Valley Cottage Hospital",
+          "nameCn": "Goleta Valley Cottage 医院",
+          "lat": 34.4392,
+          "lng": -119.833,
+          "note": "离校最近的综合医院，急诊科24小时开放（351 S Patterson Ave），遇急症或夜间送医认准这里。"
+        },
+        {
+          "name": "CVS Pharmacy (Hollister Ave)",
+          "nameCn": "CVS 药房（Hollister店）",
+          "lat": 34.4401,
+          "lng": -119.8175,
+          "note": "连锁药房兼便利店（7030 Hollister Ave），处方药、感冒药和日用品都能买，营业时间长。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "UCSB Lagoon & Lagoon Trail",
+          "nameCn": "UCSB 潟湖与环湖步道",
+          "lat": 34.4082,
+          "lng": -119.843,
+          "note": "校园边的潟湖与1.5英里环湖步道，海鸟成群、还有石头摆成的冥想迷宫，散步看海绝佳。"
+        },
+        {
+          "name": "Campus Point Beach",
+          "nameCn": "Campus Point 海滩",
+          "lat": 34.4046,
+          "lng": -119.8425,
+          "note": "校园南端的海滩与冲浪点，海蚀崖和落日是 UCSB 最出片的风景，初学者也能在此学冲浪。"
+        },
+        {
+          "name": "Goleta Beach County Park",
+          "nameCn": "Goleta Beach 县立公园",
+          "lat": 34.4185,
+          "lng": -119.8291,
+          "note": "紧邻校园的县立海滩公园，有钓鱼栈桥、烧烤野餐区和免费停车，周末野餐放松的好去处。"
+        },
+        {
+          "name": "Isla Vista (Del Playa & Pardall)",
+          "nameCn": "Isla Vista 学生社区（DP海崖步道）",
+          "lat": 34.4108,
+          "lng": -119.856,
+          "note": "UCSB 标志性学生聚居区，Del Playa 海崖步道看海、Pardall 路吃喝逛街，校园生活的核心地带。"
+        }
+      ]
     }
   ]
 }

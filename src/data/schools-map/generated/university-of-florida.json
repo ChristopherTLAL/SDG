@@ -200,6 +200,168 @@
           "note": "历史区中心绿地，两侧环绕主图书馆。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Chun Ching Market 重庆超市",
+          "nameCn": "重庆超市（中亚超市）",
+          "lat": 29.6576,
+          "lng": -82.3317,
+          "note": "开了25年的老牌泛亚超市，中日韩越泰食材、生鲜海鲜齐全，价格比连锁便宜，留学生采购中餐配料首选。"
+        },
+        {
+          "name": "Publix at University Village Market",
+          "nameCn": "Publix 超市（大学城店）",
+          "lat": 29.6535,
+          "lng": -82.3393,
+          "note": "离校园最近的主流美式超市，步行可达，日常采购、烘焙熟食、Sub三明治都靠它，佛州人公认的国民超市。"
+        },
+        {
+          "name": "Sohao Street Fare Cafe (grab-and-go)",
+          "nameCn": "Sohao 中式快餐外带",
+          "lat": 29.6321,
+          "lng": -82.3756,
+          "note": "34街上的中餐外带店，热干面、饺子、川味小菜可堂食可打包，想念家乡味又懒得做饭时的备选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Sohao Street Fare Cafe",
+          "nameCn": "Sohao 街边中餐馆",
+          "lat": 29.6321,
+          "lng": -82.3756,
+          "note": "本地评价最高的正宗中餐之一，主打武汉热干面、川味豆角、椒盐茄子，留学生回头率极高。"
+        },
+        {
+          "name": "Ten Seconds Yunnan Rice Noodles",
+          "nameCn": "十秒云南过桥米线",
+          "lat": 29.6118,
+          "lng": -82.3762,
+          "note": "连锁云南米线，过桥米线和小锅米线地道，分量足，是华人学生群里口口相传的中餐据点。"
+        },
+        {
+          "name": "First Wok of Gainesville",
+          "nameCn": "First Wok 中式外卖",
+          "lat": 29.613,
+          "lng": -82.376,
+          "note": "美式中餐外卖老店，左宗棠鸡、炒饭、捞面这类纽约风格快餐做得稳定，赶due熬夜时的省事之选。"
+        },
+        {
+          "name": "Pokebowl Station / NewAsian (Midtown)",
+          "nameCn": "Pokebowl / 新亚洲（Midtown）",
+          "lat": 29.6519,
+          "lng": -82.3478,
+          "note": "正对校门的Midtown，珍珠奶茶、夏威夷poke、亚洲小吃集中地，下课顺路一杯奶茶最方便。"
+        },
+        {
+          "name": "Satchel's Pizza",
+          "nameCn": "Satchel's 披萨（本地必打卡）",
+          "lat": 29.679,
+          "lng": -82.3158,
+          "note": "Gainesville地标级披萨店，在老飞机、复古面包车里用餐，还有现场音乐和玩具店，本地人最爱的网红餐厅。"
+        },
+        {
+          "name": "The Top",
+          "nameCn": "The Top（市中心招牌餐厅）",
+          "lat": 29.6517,
+          "lng": -82.3247,
+          "note": "市中心人气美式餐吧，氛围复古、晚间热闹，是体验Gainesville本地生活和约朋友聚餐的经典去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (University Avenue)",
+          "nameCn": "美国银行（大学大道支行）",
+          "lat": 29.652,
+          "lng": -82.3414,
+          "note": "紧邻校园Midtown的银行网点，可现场开户办卡，新生落地办银行账户、领支票本走这里最近。"
+        },
+        {
+          "name": "UF Health Shands Hospital",
+          "nameCn": "UF Health Shands 医院（含急诊）",
+          "lat": 29.6396,
+          "lng": -82.3438,
+          "note": "校园南侧的大型教学医院，设24小时急诊，是生病或突发状况时的主要就医点。"
+        },
+        {
+          "name": "CVS Pharmacy (SW 13th St)",
+          "nameCn": "CVS 药房（13街店）",
+          "lat": 29.6362,
+          "lng": -82.3392,
+          "note": "离校近的连锁药房，配处方药、买感冒药和日用品都方便，多数美国常用药这里都能买到。"
+        },
+        {
+          "name": "T-Mobile (Butler Plaza, SW Archer Rd)",
+          "nameCn": "T-Mobile 营业厅（Butler 商圈）",
+          "lat": 29.6263,
+          "lng": -82.3766,
+          "note": "Archer路Butler商圈的运营商门店，可现场办美国手机卡和套餐，落地后办号码、配eSIM走这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Ben Hill Griffin Stadium (The Swamp)",
+          "nameCn": "本希尔格里芬体育场（“沼泽”）",
+          "lat": 29.65,
+          "lng": -82.3486,
+          "note": "可容纳近9万人的橄榄球主场，绰号“The Swamp”，秋季Gators主场日全城沸腾，UF精神象征和必看打卡点。"
+        },
+        {
+          "name": "Florida Museum of Natural History & Butterfly Rainforest",
+          "nameCn": "佛罗里达自然历史博物馆 & 蝴蝶雨林",
+          "lat": 29.6356,
+          "lng": -82.3702,
+          "note": "校内免费自然史博物馆，蝴蝶雨林温室可与上百只活蝴蝶同处一室（扩建中，预计2026秋重开）。"
+        },
+        {
+          "name": "Lake Alice & UF Bat Houses",
+          "nameCn": "爱丽丝湖 & 世界最大蝙蝠屋",
+          "lat": 29.6431,
+          "lng": -82.3617,
+          "note": "校内湖区可见野生鳄鱼，对面是世界最大的蝙蝠屋，日落后约50万只蝙蝠成群飞出，黄昏观蝠是经典体验。"
+        },
+        {
+          "name": "Century Tower",
+          "nameCn": "世纪钟塔",
+          "lat": 29.6489,
+          "lng": -82.3434,
+          "note": "校园中心的标志性钟楼，每15分钟报时钟声响彻Turlington广场，是UF最上镜的拍照地标之一。"
+        },
+        {
+          "name": "Downtown Gainesville (Bo Diddley Plaza)",
+          "nameCn": "市中心 Bo Diddley 广场",
+          "lat": 29.6516,
+          "lng": -82.3243,
+          "note": "市中心广场，常办免费音乐会、农夫市集和节庆活动，周边餐吧林立，是感受本地烟火气的去处。"
+        }
+      ]
     }
   ]
 }

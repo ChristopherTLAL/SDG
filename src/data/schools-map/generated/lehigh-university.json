@@ -177,6 +177,154 @@
           "note": "6 千座多功能馆，篮球赛与演唱会场地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Stefko Oriental Market (QQ Asian Market)",
+          "nameCn": "QQ 亚洲超市（Stefko 东方超市）",
+          "lat": 40.6303,
+          "lng": -75.3569,
+          "note": "校园北侧最全的亚洲/中国超市，中餐调料、冷冻饺子、面条、亚洲蔬菜和海鲜都有，开车约10分钟。"
+        },
+        {
+          "name": "C-Town Supermarket",
+          "nameCn": "C-Town 超市",
+          "lat": 40.6122,
+          "lng": -75.369,
+          "note": "南区步行可达的日常美式杂货店，离校约1公里，买生鲜和基础食品最方便。"
+        },
+        {
+          "name": "Giant Food Store (W Union Blvd)",
+          "nameCn": "Giant 大型超市（西联大道店）",
+          "lat": 40.6264,
+          "lng": -75.4198,
+          "note": "最近的大型连锁超市，自带药房和加油站，适合开车囤货采购，约4公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "ShangWei Szechuan",
+          "nameCn": "尚味四川",
+          "lat": 40.612,
+          "lng": -75.3784,
+          "note": "南区E 3rd街上的正宗川菜馆，水煮、宫保鸡丁、担担面分量足，留学生口碑很好，步行可达。"
+        },
+        {
+          "name": "U & Tea",
+          "nameCn": "U & Tea 优茶",
+          "lat": 40.6121,
+          "lng": -75.3769,
+          "note": "E 3rd街上的中餐+奶茶店，芋头珍珠奶茶招牌，离校约5分钟，学生常去。"
+        },
+        {
+          "name": "Wonder Kitchen",
+          "nameCn": "Wonder Kitchen（亚洲料理）",
+          "lat": 40.6104,
+          "lng": -75.377,
+          "note": "E 4th街上的农场到餐桌亚洲菜，距校仅约500米，最近的亚洲餐选择之一。"
+        },
+        {
+          "name": "128 Dim Sum Restaurant",
+          "nameCn": "128 港式点心",
+          "lat": 40.6222,
+          "lng": -75.3743,
+          "note": "想吃港式早茶/点心就来这家，价格实惠，过桥到北区约2公里。"
+        },
+        {
+          "name": "The Goose (Goosey Gander Deli)",
+          "nameCn": "The Goose 三明治店",
+          "lat": 40.6103,
+          "lng": -75.3799,
+          "note": "开了三十多年的Lehigh学生标志性午餐店，三明治种类极多，紧挨校园。"
+        },
+        {
+          "name": "Apollo Grill",
+          "nameCn": "Apollo Grill 美式餐厅",
+          "lat": 40.6223,
+          "lng": -75.3811,
+          "note": "老城区招牌餐厅，融合地中海/亚洲/美式风味，适合家长来访或聚餐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Wells Fargo Bank – Lehigh University Branch",
+          "nameCn": "富国银行 Lehigh 校园支行",
+          "lat": 40.6056,
+          "lng": -75.3782,
+          "note": "就在校园内（Trembley Dr），新生开美国银行账户最方便的网点。"
+        },
+        {
+          "name": "St. Luke's University Hospital – Bethlehem Campus",
+          "nameCn": "圣路加大学医院（伯利恒院区）",
+          "lat": 40.6092,
+          "lng": -75.3921,
+          "note": "离校约1.3公里的综合医院，含急诊和创伤中心，紧急就医首选。"
+        },
+        {
+          "name": "CVS Pharmacy (305 W 4th St)",
+          "nameCn": "CVS 药房（西4街店）",
+          "lat": 40.6104,
+          "lng": -75.3828,
+          "note": "南区主要药房，可取处方药、打疫苗、买日用品，步行可达（原E 3rd街Rite Aid已关）。"
+        },
+        {
+          "name": "PNC Bank – South Bethlehem Branch",
+          "nameCn": "PNC 银行（南伯利恒支行）",
+          "lat": 40.6118,
+          "lng": -75.3662,
+          "note": "南区另一家可办账户的银行网点，离校约1公里，富国之外的备选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "SteelStacks / ArtsQuest Center",
+          "nameCn": "SteelStacks 钢铁厂艺术园区",
+          "lat": 40.6142,
+          "lng": -75.3679,
+          "note": "伯利恒钢铁厂旧址改造的艺术文化园区，巨型高炉是网红打卡点，常有演出和活动，离校约1.2公里。"
+        },
+        {
+          "name": "Wind Creek Bethlehem",
+          "nameCn": "Wind Creek 伯利恒娱乐城（原 Sands 赌场）",
+          "lat": 40.6139,
+          "lng": -75.3588,
+          "note": "钢铁厂区内的赌场+酒店+奥特莱斯，附带购物和餐饮，距校约1.8公里。"
+        },
+        {
+          "name": "Historic Hotel Bethlehem & Main Street",
+          "nameCn": "历史酒店与老城主街",
+          "lat": 40.6185,
+          "lng": -75.3828,
+          "note": "被评为全美第一的主街，摩拉维亚老城（UNESCO遗产），圣诞季「圣诞城」灯饰最出片，约1.5公里。"
+        }
+      ]
     }
   ]
 }

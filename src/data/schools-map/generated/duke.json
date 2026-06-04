@@ -186,6 +186,161 @@
           "note": "55英亩植物园，西校区东侧著名景观。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market (Broad Street)",
+          "nameCn": "全食超市（Broad街店）",
+          "lat": 36.0063,
+          "lng": -78.9199,
+          "note": "离东校区步行可达，杜克学生最常去的高端综合超市，有机食品和熟食区齐全。"
+        },
+        {
+          "name": "Li Ming's Global Mart",
+          "nameCn": "黎明国际超市",
+          "lat": 35.9664,
+          "lng": -78.9611,
+          "note": "校区西南约4公里，三角区最大的亚洲超市之一，中餐调料、冷冻点心、活鲜一应俱全。"
+        },
+        {
+          "name": "Mang's Asian Supermarket",
+          "nameCn": "Mang亚洲超市",
+          "lat": 35.9616,
+          "lng": -78.9771,
+          "note": "Chapel Hill大道上的亚洲超市，东南亚和中式食材丰富，适合补充家乡口味。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Juju Asian Tapas + Bar",
+          "nameCn": "Juju 亚洲小馆",
+          "lat": 36.01,
+          "lng": -78.9221,
+          "note": "九街口的亚洲融合小盘餐酒馆，靠东校区，是学生聚餐和约会的人气地标。"
+        },
+        {
+          "name": "Sister Liu's Kitchen (Cosmic) area dumplings",
+          "nameCn": "刘姐厨房风味饺子（九街可达）",
+          "lat": 36.0076,
+          "lng": -78.9212,
+          "note": "九街一带的家常中餐与手工水饺集中地，想吃东北饺子和中式快餐来这片。"
+        },
+        {
+          "name": "Cosmic Cantina",
+          "nameCn": "Cosmic墨西哥卷",
+          "lat": 36.0076,
+          "lng": -78.9212,
+          "note": "九街老牌墨西哥卷餐厅，营业到凌晨，份大便宜，是杜克学生的深夜食堂。"
+        },
+        {
+          "name": "Vin Rouge",
+          "nameCn": "红酒法式小馆",
+          "lat": 36.0105,
+          "lng": -78.9222,
+          "note": "九街知名法式bistro，多次入选达勒姆最佳餐厅，适合请客或家长来访时正式聚餐。"
+        },
+        {
+          "name": "Guglhupf Bakery & Cafe",
+          "nameCn": "Guglhupf 德式烘焙咖啡馆",
+          "lat": 35.974,
+          "lng": -78.9321,
+          "note": "达勒姆地标级德法手工面包房兼餐厅，带啤酒花园，本地必打卡的早午餐去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Wells Fargo (W Main St / Erwin Square)",
+          "nameCn": "富国银行（西Main街店）",
+          "lat": 36.0066,
+          "lng": -78.9223,
+          "note": "紧邻东校区与九街，新生开美国银行账户、办借记卡最方便的网点。"
+        },
+        {
+          "name": "Duke University Hospital",
+          "nameCn": "杜克大学医院",
+          "lat": 36.0081,
+          "lng": -78.9374,
+          "note": "就在西校区旁的世界级医院，急诊和专科齐全，学生医保多在此体系内就医。"
+        },
+        {
+          "name": "Duke Urgent Care Croasdaile",
+          "nameCn": "杜克Croasdaile紧急护理诊所",
+          "lat": 36.0303,
+          "lng": -78.9359,
+          "note": "校区以北的walk-in急诊诊所，发烧外伤等小病不用挂急诊，当天即可看诊。"
+        },
+        {
+          "name": "CVS Pharmacy (Hillsborough Rd)",
+          "nameCn": "CVS药店（Hillsborough路店）",
+          "lat": 36.0223,
+          "lng": -78.9534,
+          "note": "连锁药房兼便利店，内设MinuteClinic可打疫苗、配处方药和日用品。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Duke University Chapel",
+          "nameCn": "杜克大学教堂",
+          "lat": 36.0017,
+          "lng": -78.9404,
+          "note": "高210英尺的新哥特式教堂，杜克的精神象征与第一打卡地标，可入内参观登塔。"
+        },
+        {
+          "name": "Sarah P. Duke Gardens",
+          "nameCn": "莎拉·杜克花园",
+          "lat": 36.0029,
+          "lng": -78.9301,
+          "note": "55英亩免费校园植物园，含亚洲园林区，四季有花，散步野餐拍照的首选。"
+        },
+        {
+          "name": "Nasher Museum of Art",
+          "nameCn": "纳什艺术博物馆",
+          "lat": 35.9999,
+          "lng": -78.9276,
+          "note": "杜克校内的世界级艺术馆，免费开放，常设当代与古典特展，雨天好去处。"
+        },
+        {
+          "name": "American Tobacco Campus",
+          "nameCn": "美国烟草园区",
+          "lat": 35.9929,
+          "lng": -78.9043,
+          "note": "老烟厂改造的市中心商业文创区，餐厅酒吧林立，旁边就是达勒姆公牛棒球场。"
+        },
+        {
+          "name": "Duke East Campus & Ninth Street",
+          "nameCn": "杜克东校区与九街",
+          "lat": 36.0089,
+          "lng": -78.9165,
+          "note": "大一新生住宿区与相邻的九街商圈，书店咖啡餐馆集中，是日常生活与拍照的核心地带。"
+        }
+      ]
     }
   ]
 }

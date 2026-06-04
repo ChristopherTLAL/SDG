@@ -227,6 +227,168 @@
           "note": "最近的主要铁路枢纽,在伦敦路校区西北约1.5公里。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Co-op Food (Whiteknights Campus)",
+          "nameCn": "Co-op 校内超市",
+          "lat": 51.4403,
+          "lng": -0.944,
+          "note": "就在 Whiteknights 校园里，步行几分钟，平时买牛奶面包饮料零食最方便的应急超市。"
+        },
+        {
+          "name": "Tesco Express (Shinfield Road)",
+          "nameCn": "乐购便利超市（Shinfield Road 店）",
+          "lat": 51.4283,
+          "lng": -0.9456,
+          "note": "距校园约 1.4 公里，每天营业到晚 11 点，是离宿舍最近的大众连锁超市，日常采购首选。"
+        },
+        {
+          "name": "See Woo Reading (泗和全記)",
+          "nameCn": "泗和全記亚洲超市",
+          "lat": 51.4384,
+          "lng": -0.975,
+          "note": "Reading 规模最大的华人/亚洲食材超市，老干妈、火锅底料、粉面酱料、冷冻饺子都能买到。"
+        },
+        {
+          "name": "Cmart Oriental Store",
+          "nameCn": "Cmart 东方超市（市中心店）",
+          "lat": 51.4549,
+          "lng": -0.9766,
+          "note": "市中心 St Mary's Butts 的亚洲杂货店，覆盖中日韩泰等食材，进城逛街时顺便补货很方便。"
+        },
+        {
+          "name": "Sainsbury's Local (Station Road)",
+          "nameCn": "Sainsbury's Local 便利店（火车站店）",
+          "lat": 51.4573,
+          "lng": -0.9723,
+          "note": "火车站旁的连锁便利超市，进城或赶火车前买点东西很顺路，营业到很晚。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Kungfu Kitchen",
+          "nameCn": "功夫厨房（中餐）",
+          "lat": 51.4428,
+          "lng": -0.9559,
+          "note": "离校园最近（约 1 公里）的人气中餐馆，Reading 公认口碑很好，想吃中餐第一站。"
+        },
+        {
+          "name": "Memory of Sichuan",
+          "nameCn": "川忆·正宗川菜",
+          "lat": 51.4565,
+          "lng": -0.9746,
+          "note": "市中心 Friar Street 的川菜馆，被本地华人称为伯克郡最正宗川菜之一，水煮、麻辣口味解馋。"
+        },
+        {
+          "name": "Wagamama (The Oracle)",
+          "nameCn": "Wagamama 亚洲面馆（Oracle 店）",
+          "lat": 51.4524,
+          "lng": -0.9716,
+          "note": "Oracle 河边的连锁日式/亚洲拉面馆，环境干净适合朋友聚餐，英国很常见的入门亚洲菜。"
+        },
+        {
+          "name": "Sweeney & Todd",
+          "nameCn": "Sweeney & Todd 馅饼老店",
+          "lat": 51.4537,
+          "lng": -0.9745,
+          "note": "Castle Street 上的 Reading 老牌馅饼餐厅，招牌英式手工 pie 是本地必吃的地道味道。"
+        },
+        {
+          "name": "Seoul Plaza (Broad Street Mall)",
+          "nameCn": "首尔广场韩餐",
+          "lat": 51.4546,
+          "lng": -0.9745,
+          "note": "Broad Street Mall 里的韩餐，烤肉拌饭部队锅一应俱全，想换换亚洲口味的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Berkshire Hospital (A&E)",
+          "nameCn": "皇家伯克郡医院（含急诊 A&E）",
+          "lat": 51.4492,
+          "lng": -0.9581,
+          "note": "距校园约 1.5 公里的大型公立医院，设 24 小时急诊，生病或紧急就医认准这里。"
+        },
+        {
+          "name": "HSBC UK (Broad Street)",
+          "nameCn": "汇丰银行（Broad Street 支行）",
+          "lat": 51.4558,
+          "lng": -0.9719,
+          "note": "市中心汇丰网点，开学生账户、办英国借记卡可来这里，中国学生熟悉的银行品牌。"
+        },
+        {
+          "name": "Boots (Broad Street)",
+          "nameCn": "Boots 药妆店（Broad Street 店）",
+          "lat": 51.4558,
+          "lng": -0.9731,
+          "note": "英国最大连锁药店，配处方药、买感冒药和日用护理品都靠它，店内常驻药剂师。"
+        },
+        {
+          "name": "Three (Broad Street)",
+          "nameCn": "Three 电信营业厅",
+          "lat": 51.4557,
+          "lng": -0.9714,
+          "note": "市中心 Three 运营商门店，可现场办手机卡和套餐，初到英国开通号码很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "University of Reading – Whiteknights Campus & Lake",
+          "nameCn": "雷丁大学 Whiteknights 校园与校内湖",
+          "lat": 51.4404,
+          "lng": -0.9418,
+          "note": "全英最美校园之一，130 公顷湖泊绿地，散步跑步拍照都很出片，就在你家门口。"
+        },
+        {
+          "name": "Reading Abbey Ruins",
+          "nameCn": "雷丁修道院遗址",
+          "lat": 51.4564,
+          "lng": -0.965,
+          "note": "建于 1121 年的皇家修道院遗迹，是 Reading 的历史地标，免费参观的热门打卡点。"
+        },
+        {
+          "name": "Forbury Gardens",
+          "nameCn": "福伯里花园",
+          "lat": 51.457,
+          "lng": -0.9669,
+          "note": "紧邻修道院遗址的维多利亚式市中心公园，著名的雄狮雕像在此，适合晒太阳与拍照。"
+        },
+        {
+          "name": "The Oracle Shopping Centre",
+          "nameCn": "Oracle 购物中心",
+          "lat": 51.4538,
+          "lng": -0.9708,
+          "note": "市中心临河大型购物中心，品牌店、餐厅、电影院齐全，周末逛街娱乐的主场。"
+        }
+      ]
     }
   ]
 }

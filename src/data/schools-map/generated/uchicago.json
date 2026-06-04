@@ -185,6 +185,182 @@
           "note": "主体育馆与游泳馆，悬索屋顶。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (Hyde Park)",
+          "nameCn": "Trader Joe's 缺德舅超市（海德公园店）",
+          "lat": 41.7955,
+          "lng": -87.5893,
+          "note": "校园北侧 55 街购物中心内，南区第一家 Trader Joe's，平价网红超市，留学生日常采购首选，步行可达。"
+        },
+        {
+          "name": "Whole Foods Market (Hyde Park)",
+          "nameCn": "Whole Foods 全食超市（海德公园店）",
+          "lat": 41.8022,
+          "lng": -87.5879,
+          "note": "53 街 Lake Park 大道，高端有机超市，新鲜果蔬与熟食沙拉吧齐全，离宿舍区很近。"
+        },
+        {
+          "name": "Hyde Park Produce Market",
+          "nameCn": "海德公园生鲜市场",
+          "lat": 41.7995,
+          "lng": -87.5962,
+          "note": "53 街老牌家庭生鲜店，果蔬便宜量大、有少量亚洲食材，性价比之王（如遇火灾整修请先电话确认营业）。"
+        },
+        {
+          "name": "Park to Shop Supermarket",
+          "nameCn": "百佳超市（Bridgeport 店）",
+          "lat": 41.8487,
+          "lng": -87.642,
+          "note": "校园西北约 6 公里、Bridgeport 华人区的大型亚洲超市，中式肉菜冻品调料一站买齐，还有面点档口，开车或公交可达。"
+        },
+        {
+          "name": "Jewel-Osco (61st & Cottage Grove)",
+          "nameCn": "Jewel-Osco 大型连锁超市",
+          "lat": 41.7847,
+          "lng": -87.6055,
+          "note": "校园西南侧的美式平价连锁大超市，品类全、有自营药房，适合一次性大采购。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Nicky's Chinese Food",
+          "nameCn": "Nicky's 中餐",
+          "lat": 41.8001,
+          "lng": -87.5966,
+          "note": "53 街边上的海德公园老牌中餐外卖店，炒饭、炸蟹角口碑极佳，留学生宵夜与外卖刚需。"
+        },
+        {
+          "name": "Jade Court",
+          "nameCn": "翠庭粤菜馆",
+          "lat": 41.8003,
+          "lng": -87.5889,
+          "note": "Harper Court 内的正宗粤菜馆，曾获芝加哥论坛报三星，烧腊点心地道，想吃像样中餐就来这。"
+        },
+        {
+          "name": "Chant",
+          "nameCn": "Chant 泛亚餐厅",
+          "lat": 41.7995,
+          "lng": -87.5888,
+          "note": "53 街上的亚洲融合菜餐厅，环境时尚适合聚餐，鸡尾酒与小食受学生欢迎。"
+        },
+        {
+          "name": "Valois Cafeteria",
+          "nameCn": "Valois 自助餐厅",
+          "lat": 41.7996,
+          "lng": -87.5882,
+          "note": "1921 年开业的现金制老式食堂，奥巴马最爱早餐，墙上有他的点单牌，海德公园必打卡地标美食。"
+        },
+        {
+          "name": "Medici on 57th",
+          "nameCn": "美第奇餐厅（57 街）",
+          "lat": 41.7917,
+          "lng": -87.5935,
+          "note": "57 街上的校园元老级餐厅兼面包房，汉堡披萨和满墙学生涂鸦是几代芝大人的回忆。"
+        },
+        {
+          "name": "Noodles Etc.",
+          "nameCn": "Noodles Etc. 亚洲面馆",
+          "lat": 41.791,
+          "lng": -87.5946,
+          "note": "57 街快捷亚洲面饭馆，泰式、中式炒面盖饭分量足又便宜，课间快速解决一顿。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Hyde Park)",
+          "nameCn": "大通银行（海德公园支行）",
+          "lat": 41.7995,
+          "lng": -87.5965,
+          "note": "53 街上离校最近的大通支行，留学生开美国银行账户、办借记卡的首选大行。"
+        },
+        {
+          "name": "University of Chicago Medicine",
+          "nameCn": "芝加哥大学医学中心",
+          "lat": 41.7888,
+          "lng": -87.6049,
+          "note": "校内 5841 Maryland 大道的全美顶尖医院，24 小时急诊，学生医保对接的主要就医点。"
+        },
+        {
+          "name": "Walgreens (24hr, 55th St)",
+          "nameCn": "Walgreens 24 小时连锁药房",
+          "lat": 41.7955,
+          "lng": -87.5893,
+          "note": "55 街 24 小时连锁药房，处方取药、感冒药、生活日用一应俱全，离校最近最方便。"
+        },
+        {
+          "name": "AT&T Store (Hyde Park / Harper Court)",
+          "nameCn": "AT&T 通讯营业厅",
+          "lat": 41.8003,
+          "lng": -87.589,
+          "note": "Harper Court 商圈附近的主流运营商门店，办手机卡/套餐、解决信号问题来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Griffin Museum of Science and Industry",
+          "nameCn": "格里芬科学与工业博物馆",
+          "lat": 41.7904,
+          "lng": -87.5838,
+          "note": "校园东侧、1893 世博会遗留巨型宫殿建筑，西半球最大科学博物馆，看潜艇与龙卷风的必游打卡地。"
+        },
+        {
+          "name": "Robie House",
+          "nameCn": "罗比之家",
+          "lat": 41.7899,
+          "lng": -87.5963,
+          "note": "校园内赖特草原派建筑代表作、世界遗产，建筑爱好者必看，可预约导览参观。"
+        },
+        {
+          "name": "Rockefeller Memorial Chapel",
+          "nameCn": "洛克菲勒纪念礼拜堂",
+          "lat": 41.7887,
+          "lng": -87.5965,
+          "note": "校园地标哥特式大礼拜堂，可登塔俯瞰校园，毕业典礼与音乐会在此举行，出片圣地。"
+        },
+        {
+          "name": "Promontory Point",
+          "nameCn": "Promontory Point 湖滨岬角",
+          "lat": 41.7959,
+          "lng": -87.5775,
+          "note": "55 街尽头伸入密歇根湖的人工岬角，眺望芝加哥天际线的最佳机位，夏天野餐看湖的好去处。"
+        },
+        {
+          "name": "Garfield Park Conservatory area / Midway Plaisance",
+          "nameCn": "Midway Plaisance 草坪公园",
+          "lat": 41.7884,
+          "lng": -87.5964,
+          "note": "横贯校园的世博会遗留长草坪公园，冬季溜冰、平日散步慢跑，校园南缘的标志性绿带。"
+        }
+      ]
     }
   ]
 }

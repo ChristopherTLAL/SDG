@@ -208,6 +208,168 @@
           "note": "NJ Transit与Amtrak车站，紧邻学院大道校区"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart - Edison",
+          "nameCn": "H Mart 韩亚龙超市（爱迪生店）",
+          "lat": 40.5135,
+          "lng": -74.4079,
+          "note": "距校约5公里的大型亚洲连锁超市，韩日中食材、活鲜与速食齐全，留学生采购主力点。"
+        },
+        {
+          "name": "99 Ranch Market - Edison",
+          "nameCn": "大华99超市（爱迪生店）",
+          "lat": 40.5275,
+          "lng": -74.4185,
+          "note": "北美最大华人连锁超市，中式调味料、米面、火锅料与新鲜蔬果最全，想做中餐必去。"
+        },
+        {
+          "name": "Asian Food Market - Edison",
+          "nameCn": "亚洲食品市场（爱迪生店）",
+          "lat": 40.5142,
+          "lng": -74.3958,
+          "note": "爱迪生华人聚居区的老牌亚超，价格实惠、海鲜与亚洲零食选择多。"
+        },
+        {
+          "name": "Stop & Shop - New Brunswick",
+          "nameCn": "Stop & Shop 美式超市",
+          "lat": 40.4868,
+          "lng": -74.4525,
+          "note": "离校最近的主流美式连锁超市，日常生活用品、面包牛奶一站买齐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Noodle Gourmet (香港麵家)",
+          "nameCn": "香港面家",
+          "lat": 40.5001,
+          "lng": -74.4476,
+          "note": "Easton Ave 上的港式茶餐厅，云吞面、烧腊与煲仔饭地道，留学生想家时的食堂。"
+        },
+        {
+          "name": "Stuff Yer Face",
+          "nameCn": "Stuff Yer Face（招牌 Stromboli）",
+          "lat": 40.5003,
+          "lng": -74.4474,
+          "note": "1977年开业的罗格斯地标餐吧，招牌卷饼 Stromboli 上过《Man v. Food》，必打卡。"
+        },
+        {
+          "name": "Tacoria",
+          "nameCn": "Tacoria 墨西哥街头厨房",
+          "lat": 40.5006,
+          "lng": -74.447,
+          "note": "由罗格斯校友创办的本地 Taco 名店，性价比高，学生宵夜与聚餐热门。"
+        },
+        {
+          "name": "Chef Tan",
+          "nameCn": "陈师傅川菜馆",
+          "lat": 40.4878,
+          "lng": -74.4505,
+          "note": "附近评价很高的正宗川菜馆，麻辣口味解馋，适合多人点菜分享。"
+        },
+        {
+          "name": "Hansel 'n Griddle",
+          "nameCn": "Hansel 'n Griddle 美式快餐",
+          "lat": 40.5008,
+          "lng": -74.4469,
+          "note": "Easton Ave 上深受学生喜爱的汉堡帕尼尼店，份量足、营业到很晚。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Robert Wood Johnson University Hospital",
+          "nameCn": "罗伯特·伍德·约翰逊大学医院",
+          "lat": 40.4928,
+          "lng": -74.4445,
+          "note": "紧邻校园的大型教学医院，设24小时急诊，生病或急症首选就医点。"
+        },
+        {
+          "name": "Bank of America - New Brunswick Main",
+          "nameCn": "美国银行（新布朗斯维克主分行）",
+          "lat": 40.4965,
+          "lng": -74.4445,
+          "note": "市中心 George St 上的大行网点，可办开户、ATM，离校步行可达，适合新生办银行卡。"
+        },
+        {
+          "name": "Walgreens (254 Easton Ave)",
+          "nameCn": "Walgreens 连锁药房",
+          "lat": 40.5028,
+          "lng": -74.4445,
+          "note": "位于圣彼得医院旁的连锁药房，买非处方药、日用品和取处方药都方便。"
+        },
+        {
+          "name": "T-Mobile - New Brunswick",
+          "nameCn": "T-Mobile 手机营业厅",
+          "lat": 40.4958,
+          "lng": -74.4451,
+          "note": "市中心运营商门店，可办美国手机卡与套餐，新生落地后办号的去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Zimmerli Art Museum",
+          "nameCn": "齐默利艺术博物馆",
+          "lat": 40.4985,
+          "lng": -74.4459,
+          "note": "校内大型艺术馆，藏苏联非官方艺术与19世纪法国画作，免费入场，雨天好去处。"
+        },
+        {
+          "name": "Old Queens",
+          "nameCn": "老皇后楼（Old Queens）",
+          "lat": 40.4998,
+          "lng": -74.447,
+          "note": "1809年建、罗格斯最古老的联邦风格建筑，国家历史地标，校园打卡必拍。"
+        },
+        {
+          "name": "Voorhees Mall",
+          "nameCn": "沃里斯草坪（Voorhees Mall）",
+          "lat": 40.4972,
+          "lng": -74.4448,
+          "note": "College Ave 校区的中央绿地草坪，榆树成荫的历史建筑群环绕，散步与拍照圣地。"
+        },
+        {
+          "name": "Rutgers Gardens",
+          "nameCn": "罗格斯植物园",
+          "lat": 40.4731,
+          "lng": -74.4244,
+          "note": "罗格斯的大型公共植物园，四季花木与林间步道免费开放，周末踏青放松好去处。"
+        },
+        {
+          "name": "Buccleuch Park",
+          "nameCn": "巴克卢公园",
+          "lat": 40.5079,
+          "lng": -74.4549,
+          "note": "紧邻校园的大型市政公园，拉里坦河畔绿地宽阔，适合跑步、野餐与放松。"
+        }
+      ]
     }
   ]
 }

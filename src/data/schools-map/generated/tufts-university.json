@@ -164,6 +164,161 @@
           "note": "绿线延伸段终点站，校园东侧门户。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart Somerville (Davis Square)",
+          "nameCn": "H Mart 韩亚龙超市（戴维斯广场店）",
+          "lat": 42.39518,
+          "lng": -71.12194,
+          "note": "2025年新开的大型韩亚超市，距校园步行约15分钟，中日韩食材、生鲜、海鲜、泡面调料最全，留学生采购首选。"
+        },
+        {
+          "name": "Whole Foods Market (Mystic Valley Pkwy)",
+          "nameCn": "Whole Foods 全食超市（神秘谷大道店）",
+          "lat": 42.41711,
+          "lng": -71.12663,
+          "note": "离校最近的主流高端超市，就在校园北侧Mystic Valley大道上，有机食品、果蔬、熟食一应俱全。"
+        },
+        {
+          "name": "Star Market",
+          "nameCn": "Star Market 大众超市",
+          "lat": 42.39003,
+          "lng": -71.11827,
+          "note": "性价比更高的本地主流连锁超市，日常米面油、牛奶鸡蛋囤货方便，离Porter广场也近。"
+        },
+        {
+          "name": "Reliable Market",
+          "nameCn": "Reliable Market 亚洲超市（Union广场）",
+          "lat": 42.38009,
+          "lng": -71.09636,
+          "note": "开了40多年的老牌亚洲超市，位于Union广场，中日韩调料、零食、进口饮料齐全，价格实惠。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Dakzen",
+          "nameCn": "Dakzen 泰式船面",
+          "lat": 42.39335,
+          "lng": -71.12045,
+          "note": "戴维斯广场超人气泰式街头船面，价格学生友好，是Tufts同学常去的亚洲菜门面。"
+        },
+        {
+          "name": "Dragon Pizza",
+          "nameCn": "Dragon Pizza 龙披萨",
+          "lat": 42.39489,
+          "lng": -71.12139,
+          "note": "主厨创意切片披萨，连宫保鸡丁口味都有，是戴维斯广场地标级必吃，自制冰淇淋也好评。"
+        },
+        {
+          "name": "Anna's Taqueria",
+          "nameCn": "Anna's Taqueria 墨西卷饼",
+          "lat": 42.39492,
+          "lng": -71.12174,
+          "note": "波士顿本地墨西哥卷饼连锁鼻祖，份量大又便宜，深夜果腹的学生心头好。"
+        },
+        {
+          "name": "Pho Town VII",
+          "nameCn": "Pho Town 越南河粉七号店",
+          "lat": 42.40601,
+          "lng": -71.0838,
+          "note": "离校园很近的越南河粉店，牛肉河粉、春卷、Banh Mi地道，想喝口热汤面时的好去处。"
+        },
+        {
+          "name": "J.P. Licks",
+          "nameCn": "J.P. Licks 冰淇淋",
+          "lat": 42.39694,
+          "lng": -71.12247,
+          "note": "开了30多年的波士顿本土冰淇淋名店，口味多到挑花眼，戴维斯广场散步必打卡。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Davis Square)",
+          "nameCn": "美国银行（戴维斯广场支行）",
+          "lat": 42.39591,
+          "lng": -71.12131,
+          "note": "离校最近的大行网点，新生开美国银行账户、办借记卡来这里，店内有人工柜台。"
+        },
+        {
+          "name": "CVS Pharmacy (Davis Square)",
+          "nameCn": "CVS 药房（戴维斯广场店）",
+          "lat": 42.39629,
+          "lng": -71.1226,
+          "note": "24小时营业的连锁药房，常用药、生活用品、退烧感冒药都能买，店内还设MinuteClinic小诊所。"
+        },
+        {
+          "name": "MelroseWakefield Urgent Care – Medford",
+          "nameCn": "MelroseWakefield 紧急护理（Medford）",
+          "lat": 42.42583,
+          "lng": -71.11132,
+          "note": "校园北侧Governors大道上的紧急护理中心，属Tufts Medicine体系，头疼脑热、扭伤可直接挂号。"
+        },
+        {
+          "name": "AFC Urgent Care Medford",
+          "nameCn": "AFC 紧急护理（Medford）",
+          "lat": 42.4057,
+          "lng": -71.08382,
+          "note": "神秘谷大道上的连锁急诊门诊，无需预约即可看小病小伤，旁边就有CVS和餐馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Davis Square / Davis MBTA Station",
+          "nameCn": "戴维斯广场 / Davis地铁站",
+          "lat": 42.39674,
+          "lng": -71.12183,
+          "note": "距校园步行约15分钟的核心街区，红线地铁直达波士顿市区与哈佛，餐馆、咖啡、商店云集。"
+        },
+        {
+          "name": "Somerville Theatre",
+          "nameCn": "萨默维尔剧院",
+          "lat": 42.39665,
+          "lng": -71.12303,
+          "note": "戴维斯广场地标老剧院，放电影也办演唱会，楼内还有著名的「烂艺术博物馆」可逛。"
+        },
+        {
+          "name": "Powder House Park (Nathan Tufts Park)",
+          "nameCn": "火药库公园（Nathan Tufts Park）",
+          "lat": 42.40036,
+          "lng": -71.11645,
+          "note": "紧邻校园的小公园，有殖民时期的圆形石制火药塔，绿地拍照、散步休息的好地方。"
+        },
+        {
+          "name": "Mystic River Reservation",
+          "nameCn": "神秘河保护区",
+          "lat": 42.4083,
+          "lng": -71.09714,
+          "note": "校园东北侧的河滨绿地，沿河步道适合跑步骑行，秋天景色尤其上镜。"
+        }
+      ]
     }
   ]
 }

@@ -170,6 +170,182 @@
           "note": "布鲁克林工学院主楼，紧邻 Jay St 地铁站。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (Union Square)",
+          "nameCn": "缺德舅超市(联合广场店)",
+          "lat": 40.7345,
+          "lng": -73.9876,
+          "note": "性价比最高的连锁超市,就在NYU的Palladium宿舍楼里,留学生采购日常食品的首选。"
+        },
+        {
+          "name": "Whole Foods Market (Union Square)",
+          "nameCn": "全食超市(联合广场店)",
+          "lat": 40.734,
+          "lng": -73.9904,
+          "note": "高端有机超市,距校园10分钟,熟食热餐区适合不想做饭时解决一餐。"
+        },
+        {
+          "name": "New Kam Man (Chinatown)",
+          "nameCn": "新金门超市(华埠)",
+          "lat": 40.7185,
+          "lng": -73.9985,
+          "note": "唐人街老牌华人超市三层楼,中式调料、冷冻饺子、米面酱油一站买齐。"
+        },
+        {
+          "name": "Hong Kong Supermarket",
+          "nameCn": "香港超市",
+          "lat": 40.7166,
+          "lng": -73.9938,
+          "note": "华埠大型亚洲超市,生鲜活鱼、亚洲蔬菜和各国零食最全,价格实惠。"
+        },
+        {
+          "name": "Westside Market NYC (8th Ave)",
+          "nameCn": "西区超市",
+          "lat": 40.7398,
+          "lng": -74.0028,
+          "note": "本地连锁生鲜超市,营业时间长、距校园近,临时补货很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Joe's Pizza (Carmine St)",
+          "nameCn": "Joe's披萨(原店)",
+          "lat": 40.7305,
+          "lng": -74.0022,
+          "note": "1975年开业的格林威治村披萨地标,《蜘蛛侠2》取景地,经典纽约街头切片必吃。"
+        },
+        {
+          "name": "Mamoun's Falafel (MacDougal St)",
+          "nameCn": "Mamoun's中东卷",
+          "lat": 40.7301,
+          "lng": -74.0001,
+          "note": "MacDougal街上的平价中东沙拉三明治老店,深夜也开,学生穷游救星。"
+        },
+        {
+          "name": "Joe's Shanghai (Chinatown)",
+          "nameCn": "鹿鸣春(唐人街)",
+          "lat": 40.7152,
+          "lng": -73.997,
+          "note": "唐人街名店,以小笼包闻名,想吃地道上海菜和蟹粉灌汤包来这。"
+        },
+        {
+          "name": "Xi'an Famous Foods (Greenwich Village)",
+          "nameCn": "西安名吃(格村店)",
+          "lat": 40.729,
+          "lng": -73.9988,
+          "note": "知名陕西面食连锁,油泼biangbiang面、肉夹馍解馋又抗饿,价格亲民。"
+        },
+        {
+          "name": "Vanessa's Dumpling House (Lower East Side)",
+          "nameCn": "鹿园饺子馆",
+          "lat": 40.7188,
+          "lng": -73.992,
+          "note": "下东城超人气饺子店,几块钱一大盘煎饺加芝麻饼,留学生公认实惠。"
+        },
+        {
+          "name": "Katz's Delicatessen",
+          "nameCn": "Katz熟食店",
+          "lat": 40.7223,
+          "lng": -73.9874,
+          "note": "1888年开业的纽约熏牛肉三明治圣地,《当哈利遇上莎莉》取景地,打卡必来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Greenwich Village)",
+          "nameCn": "大通银行(格村支行)",
+          "lat": 40.7314,
+          "lng": -73.9985,
+          "note": "美国最大银行之一,校园附近网点多,留学生开户、办借记卡首选。"
+        },
+        {
+          "name": "NYU Student Health Center",
+          "nameCn": "NYU学生健康中心",
+          "lat": 40.7338,
+          "lng": -73.9942,
+          "note": "NYU学生专属校医,看小病、打疫苗、心理咨询都在这,持学生保险便宜。"
+        },
+        {
+          "name": "Mount Sinai Beth Israel Hospital",
+          "nameCn": "西奈山贝斯以色列医院",
+          "lat": 40.733,
+          "lng": -73.982,
+          "note": "距校园最近的综合医院,设急诊室,突发疾病或意外可就近就医。"
+        },
+        {
+          "name": "CVS Pharmacy (6th Ave)",
+          "nameCn": "CVS药房(第六大道)",
+          "lat": 40.7335,
+          "lng": -73.9989,
+          "note": "连锁药房,处方药、感冒药和日用品都有,部分门店24小时营业。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Washington Square Park & Arch",
+          "nameCn": "华盛顿广场公园与凯旋门",
+          "lat": 40.7308,
+          "lng": -73.9973,
+          "note": "NYU校园的心脏,标志性白色凯旋门和喷泉广场,街头艺人聚集,必拍照点。"
+        },
+        {
+          "name": "Union Square Greenmarket",
+          "nameCn": "联合广场农夫市集",
+          "lat": 40.7359,
+          "lng": -73.9911,
+          "note": "纽约最大的农夫市集,周一三五六开,逛吃买当地农产品的好去处。"
+        },
+        {
+          "name": "The High Line",
+          "nameCn": "高线公园",
+          "lat": 40.748,
+          "lng": -74.0048,
+          "note": "废弃高架铁路改建的空中花园步道,城市景观绝佳,散步出片两不误。"
+        },
+        {
+          "name": "SoHo Shopping District",
+          "nameCn": "苏荷购物区",
+          "lat": 40.7233,
+          "lng": -74.003,
+          "note": "铸铁建筑街区,大牌与潮牌云集,周末逛街、看建筑、喝咖啡的热门地。"
+        },
+        {
+          "name": "Chinatown (Manhattan)",
+          "nameCn": "曼哈顿唐人街",
+          "lat": 40.7158,
+          "lng": -73.997,
+          "note": "全美最大华人社区之一,中餐、奶茶、亚超齐全,想家时来这最解乡愁。"
+        }
+      ]
     }
   ]
 }

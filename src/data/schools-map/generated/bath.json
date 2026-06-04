@@ -192,6 +192,168 @@
           "note": "市中心主火车站,毗邻维吉尔楼,通往伦敦与布里斯托。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Fresh (Students' Union shop, on campus)",
+          "nameCn": "校内 Fresh 超市（学生会）",
+          "lat": 51.3796,
+          "lng": -2.3268,
+          "note": "校园在山上、离市区有距离，The Parade 上这家 Co-op 合作的小超市是日常买菜买零食最方便的落脚点，旁边还有邮局。"
+        },
+        {
+          "name": "Sainsbury's (Green Park Station)",
+          "nameCn": "Sainsbury's 超市（绿园站店）",
+          "lat": 51.3811,
+          "lng": -2.3686,
+          "note": "市区最大的综合超市，U1 校巴直达，囤一周食材、买锅碗瓢盆和家居用品都靠它。"
+        },
+        {
+          "name": "Hai Na Oriental Supermarket",
+          "nameCn": "海纳东方超市",
+          "lat": 51.3821,
+          "lng": -2.3604,
+          "note": "市中心 Union Street 上的亚洲超市，老干妈、火锅底料、速冻饺子、亚洲蔬菜都能买到，离罗马浴场几步路。"
+        },
+        {
+          "name": "Hondo Chinese Supermarket",
+          "nameCn": "鸿图中国超市",
+          "lat": 51.3795,
+          "lng": -2.3614,
+          "note": "St James's Parade 上的老牌华人超市，鲜冻肉、海鲜、调味料、米面齐全，想做中餐来这里采购最全。"
+        },
+        {
+          "name": "Banthon Oriental Supermarket",
+          "nameCn": "Banthon 东方超市",
+          "lat": 51.3966,
+          "lng": -2.3929,
+          "note": "Weston 区的东南亚/中日韩食材店，离皇家联合医院很近，看病顺路就能补货，泰韩日料食材选择多。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Peking Restaurant",
+          "nameCn": "北京楼中餐厅",
+          "lat": 51.3813,
+          "lng": -2.3636,
+          "note": "1985 年开到现在的家庭式老字号粤川京菜馆，脆皮鸭、黑椒牛、糖醋系列稳定，想吃顿正经中餐宴客的首选。"
+        },
+        {
+          "name": "Yak Yeti Yak",
+          "nameCn": "Yak Yeti Yak 尼泊尔餐厅",
+          "lat": 51.3803,
+          "lng": -2.3573,
+          "note": "巴斯人气极高的尼泊尔餐厅，咖喱和饺子（momo）口味偏中式、价格友好，学生聚餐常来。"
+        },
+        {
+          "name": "Sally Lunn's Historic Eating House",
+          "nameCn": "Sally Lunn's 历史茶馆",
+          "lat": 51.3808,
+          "lng": -2.3583,
+          "note": "巴斯地标级必吃，招牌 Sally Lunn 大圆面包始于这栋全城最古老的房子之一，下午茶打卡来这家。"
+        },
+        {
+          "name": "Schwartz Brothers",
+          "nameCn": "Schwartz Brothers 汉堡",
+          "lat": 51.3816,
+          "lng": -2.3624,
+          "note": "本地传奇汉堡店，Saw Close 一家就在剧院旁，深夜垫肚子、想吃顿地道英式快餐时学生都认这家。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal United Hospital (RUH) & Urgent Treatment Centre",
+          "nameCn": "皇家联合医院（含紧急医疗中心 UTC）",
+          "lat": 51.3918,
+          "lng": -2.3915,
+          "note": "巴斯主力 NHS 综合医院，设急诊（A&E）和紧急医疗中心；突发伤病、半夜急诊都来这里。"
+        },
+        {
+          "name": "Boots Pharmacy (SouthGate)",
+          "nameCn": "Boots 药房（SouthGate 店）",
+          "lat": 51.3785,
+          "lng": -2.359,
+          "note": "市中心 SouthGate 商场内的大型连锁药房，买非处方药、感冒药、配 NHS 处方、打疫苗都方便。"
+        },
+        {
+          "name": "Lloyds Bank (Milsom Street)",
+          "nameCn": "劳埃德银行（Milsom Street 支行）",
+          "lat": 51.3834,
+          "lng": -2.3611,
+          "note": "Milsom Street 上的实体银行网点，办英国银行账户、存取现金、处理学费汇款可预约面签。"
+        },
+        {
+          "name": "EE Store (Stall Street)",
+          "nameCn": "EE 通讯营业厅（Stall Street）",
+          "lat": 51.3798,
+          "lng": -2.3599,
+          "note": "市中心主街上的英国主流运营商门店，落地办手机卡/合约套餐、解决信号和上网问题。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Roman Baths",
+          "nameCn": "罗马浴场",
+          "lat": 51.381,
+          "lng": -2.3597,
+          "note": "巴斯之所以叫 Bath 的核心地标，两千年历史的罗马温泉遗址，世界遗产，来巴斯第一站。"
+        },
+        {
+          "name": "Bath Abbey",
+          "nameCn": "巴斯修道院教堂",
+          "lat": 51.3815,
+          "lng": -2.3589,
+          "note": "紧挨罗马浴场的哥特式大教堂，扇形拱顶和彩窗极美，可登塔俯瞰全城屋顶。"
+        },
+        {
+          "name": "Pulteney Bridge",
+          "nameCn": "普尔特尼桥",
+          "lat": 51.383,
+          "lng": -2.3579,
+          "note": "桥上盖满商铺的帕拉第奥式古桥，下方雅芳河 V 形堰是全城最出片的取景点。"
+        },
+        {
+          "name": "Royal Crescent",
+          "nameCn": "皇家新月楼",
+          "lat": 51.387,
+          "lng": -2.37,
+          "note": "30 栋连成弧形的乔治时代联排豪宅，配前方大草坪，巴斯最经典的建筑天际线打卡地。"
+        },
+        {
+          "name": "The Pump Room",
+          "nameCn": "矿泉饮泉厅（Pump Room）",
+          "lat": 51.3811,
+          "lng": -2.36,
+          "note": "罗马浴场旁的乔治式礼宴厅，可坐下喝杯温泉水、享受英式下午茶，简·奥斯汀笔下的社交场。"
+        }
+      ]
     }
   ]
 }

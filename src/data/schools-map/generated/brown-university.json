@@ -215,6 +215,168 @@
           "note": "埃里克森体育中心内的冰球场，主场赛事举办地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market (University Heights)",
+          "nameCn": "全食超市（大学城店）",
+          "lat": 41.83772,
+          "lng": -71.40928,
+          "note": "离校园最近的大型综合超市，步行约15分钟，生鲜有机为主，国际货架也有部分亚洲调料。"
+        },
+        {
+          "name": "Stop & Shop (Branch Ave)",
+          "nameCn": "Stop & Shop 超市（Branch Ave 店）",
+          "lat": 41.84829,
+          "lng": -71.41554,
+          "note": "本地连锁大超市，价格比全食实惠，店内带药房和 Citizens 银行网点，适合一次性囤货。"
+        },
+        {
+          "name": "V-Mart International Market",
+          "nameCn": "V-Mart 国际亚洲超市",
+          "lat": 41.7886,
+          "lng": -71.42338,
+          "note": "普罗维登斯主要的亚洲超市，中日韩越食材、活鲜、米面酱料齐全，想做中餐囤货来这里（需开车或公交）。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chinatown on Thayer",
+          "nameCn": "唐人街中餐馆（Thayer 街）",
+          "lat": 41.82994,
+          "lng": -71.40075,
+          "note": "就在 Thayer 主街上的中餐馆，川粤家常菜，离校园几步路，留学生想吃热乎中餐的首选。"
+        },
+        {
+          "name": "Chengdu Taste",
+          "nameCn": "成都味道（川菜）",
+          "lat": 41.83589,
+          "lng": -71.42713,
+          "note": "Yelp 高分正宗四川菜，水煮鱼、麻辣口味地道，被评为新英格兰最佳之一，约15分钟车程。"
+        },
+        {
+          "name": "Heng Thai & Rotisserie",
+          "nameCn": "Heng 泰式餐厅",
+          "lat": 41.82802,
+          "lng": -71.4008,
+          "note": "藏在 Angell 街地下、紧邻 Thayer 的老牌泰餐，喂饱布朗学生多年，份量大价格友好。"
+        },
+        {
+          "name": "Den Den Café Asiana",
+          "nameCn": "Den Den 韩式简餐",
+          "lat": 41.82875,
+          "lng": -71.40811,
+          "note": "校园旁的韩式简餐，石锅拌饭、辣炒年糕、韩式炸鸡，适合快速一餐。"
+        },
+        {
+          "name": "Apsara Palace",
+          "nameCn": "Apsara Palace 亚洲菜（柬越泰中）",
+          "lat": 41.84807,
+          "lng": -71.39539,
+          "note": "Hope 街上的人气亚洲餐厅，柬埔寨/越南/泰/中式都有，份量足、午市套餐划算。"
+        },
+        {
+          "name": "East Side Pockets",
+          "nameCn": "East Side Pockets 中东快餐",
+          "lat": 41.82943,
+          "lng": -71.4009,
+          "note": "Thayer 街地标级小店，1997 年开到现在，falafel 卷和烤肉卷必点，常年排长队的本地必吃。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Thayer St)",
+          "nameCn": "美国银行（Thayer 街支行）",
+          "lat": 41.82923,
+          "lng": -71.40072,
+          "note": "Thayer 主街上的大行网点，开学季办理学生账户/借记卡最方便，离校园步行可达。"
+        },
+        {
+          "name": "Brown University Health Urgent Care (Providence)",
+          "nameCn": "布朗健康紧急护理中心（Branch Ave）",
+          "lat": 41.84329,
+          "lng": -71.40868,
+          "note": "无需预约的急诊/紧急护理点，发烧、外伤、急性小病可直接 walk-in，比去大医院急诊快。"
+        },
+        {
+          "name": "CVS Pharmacy (291 Thayer St)",
+          "nameCn": "CVS 药店（Thayer 街店）",
+          "lat": 41.82994,
+          "lng": -71.40075,
+          "note": "校门口的连锁药妆店，买常用药、日用品、零食最近的一家（注意此店主营便利，处方药需确认）。"
+        },
+        {
+          "name": "Rhode Island Hospital",
+          "nameCn": "罗德岛医院",
+          "lat": 41.81107,
+          "lng": -71.409,
+          "note": "本州最大的综合医院兼布朗医学院教学医院，设24小时急诊，重病或住院来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "RISD Museum",
+          "nameCn": "罗德岛设计学院艺术博物馆",
+          "lat": 41.82652,
+          "lng": -71.4077,
+          "note": "紧邻校园的顶级艺术馆，藏品10万+，周日及周四傍晚免费，布朗学生凭证可免费参观。"
+        },
+        {
+          "name": "Prospect Terrace Park",
+          "nameCn": "Prospect Terrace 观景公园",
+          "lat": 41.83013,
+          "lng": -71.40721,
+          "note": "College Hill 上的小观景台，可俯瞰普罗维登斯天际线和州议会大厦，看日落拍照的好地方。"
+        },
+        {
+          "name": "Providence Athenaeum",
+          "nameCn": "普罗维登斯雅典娜图书馆",
+          "lat": 41.82581,
+          "lng": -71.4063,
+          "note": "Benefit 街上 1838 年的历史会员制图书馆，复古阅览室极出片，爱伦·坡曾在此流连。"
+        },
+        {
+          "name": "John Brown House Museum",
+          "nameCn": "约翰·布朗故居博物馆",
+          "lat": 41.82323,
+          "lng": -71.40331,
+          "note": "Power 街上的18世纪豪宅博物馆，了解布朗家族与本地殖民史，校园南侧步行几分钟。"
+        },
+        {
+          "name": "Roger Williams National Memorial",
+          "nameCn": "罗杰·威廉姆斯国家纪念园",
+          "lat": 41.82899,
+          "lng": -71.40971,
+          "note": "纪念罗德岛创建者、宗教自由倡导者罗杰·威廉姆斯的国家公园，山脚下的绿地与游客中心。"
+        }
+      ]
     }
   ]
 }

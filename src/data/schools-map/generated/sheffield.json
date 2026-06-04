@@ -223,6 +223,182 @@
           "note": "距主校区约1.5公里的城际铁路枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Taste the Orient (Glossop Road)",
+          "nameCn": "东方超市（Glossop Road 店）",
+          "lat": 53.3799,
+          "lng": -1.4815,
+          "note": "离主校区步行几分钟的大型亚洲超市，中餐调料、火锅底料、速食、冷冻饺子和新鲜亚洲蔬菜齐全，是中国学生最常去的采购点。"
+        },
+        {
+          "name": "KH Oriental Supermarket 广兴超市",
+          "nameCn": "广兴亚洲超市（New Era Square）",
+          "lat": 53.3723,
+          "lng": -1.4738,
+          "note": "谢菲尔德最大的华人超市，开了近40年，品类最全、价格实惠，米面酱料海鲜都能囤；位于 New Era Square 华人聚集区。"
+        },
+        {
+          "name": "Tesco Express, West Street",
+          "nameCn": "乐购便利店（West Street 店）",
+          "lat": 53.3805,
+          "lng": -1.476,
+          "note": "校区核心 West Street 上的英国主流连锁超市，日常牛奶面包蔬果和应急采买最方便，营业时间长。"
+        },
+        {
+          "name": "Sainsbury's, The Moor",
+          "nameCn": "森宝利超市（The Moor 店）",
+          "lat": 53.3776,
+          "lng": -1.471,
+          "note": "市中心 The Moor 商业街上的英国大型连锁超市，紧邻 Moor Market 室内菜市场，适合一次性囤货。"
+        },
+        {
+          "name": "Panda Fresh, West Street",
+          "nameCn": "熊猫鲜亚超（West Street 店）",
+          "lat": 53.3808,
+          "lng": -1.4775,
+          "note": "就在 West Street 上的小型东方超市，零食、奶茶原料、泡面随手可买，离教学楼最近，应急补货首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chinatown / Noodle Inn (London Road)",
+          "nameCn": "唐人街·面馆（London Road）",
+          "lat": 53.369,
+          "lng": -1.479,
+          "note": "London Road 是谢菲的中餐一条街，这一带聚集了正宗粤式点心和大份量中餐，是中国学生解乡愁的大本营。"
+        },
+        {
+          "name": "Noodle Inn Centro",
+          "nameCn": "面馆 Centro（市中心店）",
+          "lat": 53.3797,
+          "lng": -1.473,
+          "note": "市中心 Westfield Terrace 的人气中餐馆，川菜面食小炒地道、分量足，离校区很近，朋友聚餐常来。"
+        },
+        {
+          "name": "OISOI Bar & Restaurant",
+          "nameCn": "OISOI 现代中餐酒吧",
+          "lat": 53.376,
+          "lng": -1.469,
+          "note": "Matilda Street 上的现代中式餐酒馆，手工点心、面条和小炒摆盘精致，氛围适合朋友聚会和拍照。"
+        },
+        {
+          "name": "Marmadukes Cafe Deli (Norfolk Row)",
+          "nameCn": "Marmadukes 咖啡馆（Norfolk Row 店）",
+          "lat": 53.3805,
+          "lng": -1.468,
+          "note": "正对天主教堂的本地网红 brunch 咖啡馆，自家烘焙面包和早午餐是谢菲必打卡的英式小资体验。"
+        },
+        {
+          "name": "Forum Kitchen & Bar (Devonshire Green)",
+          "nameCn": "Forum 餐吧（Devonshire Green）",
+          "lat": 53.3793,
+          "lng": -1.4775,
+          "note": "Devonshire Green 旁的本地餐吧，可吃到加了谢菲名产 Henderson's Relish 辣酱的招牌猪肉派，体验地道本地味。"
+        },
+        {
+          "name": "Tamper Coffee (Westfield Terrace)",
+          "nameCn": "Tamper 咖啡（新西兰风）",
+          "lat": 53.3796,
+          "lng": -1.4732,
+          "note": "新西兰风格精品咖啡店，brunch 和咖啡口碑极好，离校区步行可达，是泡馆写论文的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Hallamshire Hospital",
+          "nameCn": "皇家哈勒姆郡医院（NHS）",
+          "lat": 53.3791,
+          "lng": -1.492,
+          "note": "紧邻主校区 Glossop Road 上的 NHS 大型综合教学医院，设有急诊（A&E），生病急症就医首选。"
+        },
+        {
+          "name": "University Health Service (GP)",
+          "nameCn": "谢菲尔德大学校医 GP 诊所",
+          "lat": 53.3818,
+          "lng": -1.4905,
+          "note": "校内的 NHS 注册 GP 全科诊所，落地后第一件事就是来登记 GP，看小病、开处方、打疫苗都靠它。"
+        },
+        {
+          "name": "Boots Pharmacy, West Street",
+          "nameCn": "Boots 药房（West Street 店）",
+          "lat": 53.3807,
+          "lng": -1.4768,
+          "note": "252-254 West Street 上的英国连锁药妆店，取处方药、买感冒药和日用洗护最方便，就在校区主街上。"
+        },
+        {
+          "name": "Barclays Bank, Sheffield City Centre",
+          "nameCn": "巴克莱银行（市中心支行）",
+          "lat": 53.3808,
+          "lng": -1.47,
+          "note": "市中心主流银行支行，留学生可凭录取信和地址证明预约开本地学生账户，方便交房租和日常收付。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Sheffield Winter Garden",
+          "nameCn": "谢菲尔德冬季花园",
+          "lat": 53.3796,
+          "lng": -1.4695,
+          "note": "全欧洲最大的城市温室之一，免费开放，2500多种植物常年苍翠，市中心地标，雨天遛弯拍照的好去处。"
+        },
+        {
+          "name": "Peace Gardens",
+          "nameCn": "和平花园",
+          "lat": 53.38,
+          "lng": -1.4705,
+          "note": "市政厅前的喷泉广场，夏天喷泉是本地人晒太阳野餐的聚集地，谢菲市中心最出片的打卡点之一。"
+        },
+        {
+          "name": "Sheffield Botanical Gardens",
+          "nameCn": "谢菲尔德植物园",
+          "lat": 53.372,
+          "lng": -1.4972,
+          "note": "维多利亚式古典玻璃温室和19英亩花园，免费入园，春夏赏花散步、拍照野餐的绝佳去处，离校区不远。"
+        },
+        {
+          "name": "Crucible Theatre",
+          "nameCn": "坩埚剧院",
+          "lat": 53.381,
+          "lng": -1.4669,
+          "note": "世界斯诺克锦标赛的固定举办地，谢菲的文化名片；看戏看球或感受英国剧院氛围都值得一来。"
+        },
+        {
+          "name": "Kelham Island",
+          "nameCn": "凯勒姆岛文创区",
+          "lat": 53.3892,
+          "lng": -1.4712,
+          "note": "由旧工业区改造的潮流文创街区，精酿酒吧、独立餐厅和周末市集云集，是体验谢菲年轻文化的必逛地。"
+        }
+      ]
     }
   ]
 }

@@ -186,6 +186,182 @@
           "note": "市中心主火车站,距主校区步行约15分钟,通伦敦/曼城等地。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sing-Kee Oriental Supermarket",
+          "nameCn": "成记东方超市",
+          "lat": 53.8013,
+          "lng": -1.5448,
+          "note": "步行可达的老牌华人超市，火锅底料、中式调料、冷冻饺子一应俱全，还附设奶茶和便当外带。"
+        },
+        {
+          "name": "Wing Lee Hong",
+          "nameCn": "荣利行华人超市",
+          "lat": 53.7999,
+          "lng": -1.5388,
+          "note": "利兹历史最久、规模最大的华人超市（爱德华街），中日泰菲食材最全，包饺子煮火锅都能在这囤货。"
+        },
+        {
+          "name": "Taste the Orient (Hang Sing Hong)",
+          "nameCn": "亚洲东方食品店（Blenheim Terrace）",
+          "lat": 53.8073,
+          "lng": -1.5508,
+          "note": "就在校园门口 Blenheim Terrace 这条街上，临时缺老干妈、方便面、酱油拐进来就能买，最方便。"
+        },
+        {
+          "name": "Morrisons (Merrion Centre)",
+          "nameCn": "Morrisons 超市（Merrion 中心）",
+          "lat": 53.8019,
+          "lng": -1.5444,
+          "note": "离校最近的英国大型连锁超市，肉菜蛋奶、日用百货一站买齐，适合每周大采购。"
+        },
+        {
+          "name": "Sainsbury's (Headingley)",
+          "nameCn": "Sainsbury's 超市（Headingley 学生区）",
+          "lat": 53.8204,
+          "lng": -1.581,
+          "note": "通往 Headingley 学生宿舍区路上的主流超市，住北边的同学回家顺路补货很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Home Chinese Restaurant",
+          "nameCn": "家味中餐厅",
+          "lat": 53.8074,
+          "lng": -1.5506,
+          "note": "紧挨校园的人气中餐馆，价格实惠出餐快，被本地学生称作「利兹必去的那家中餐」。"
+        },
+        {
+          "name": "EATiME",
+          "nameCn": "益德食（Merrion 中心）",
+          "lat": 53.8023,
+          "lng": -1.544,
+          "note": "离校超近的港式茶餐厅／中式快餐，烧腊饭、炒面、奶茶，想吃中餐又赶时间的首选。"
+        },
+        {
+          "name": "Tattu Leeds",
+          "nameCn": "Tattu 高级中餐厅",
+          "lat": 53.7981,
+          "lng": -1.5491,
+          "note": "市中心网红高级中餐，樱花造景出片率极高，适合朋友聚会或请客打卡。"
+        },
+        {
+          "name": "Leeds Kirkgate Market",
+          "nameCn": "柯克盖特市场",
+          "lat": 53.7972,
+          "lng": -1.5389,
+          "note": "维多利亚时代室内市场、玛莎百货发源地，平价小吃和各国熟食云集，本地必逛必吃地标。"
+        },
+        {
+          "name": "Bundobust",
+          "nameCn": "Bundobust 印度素食街头小馆",
+          "lat": 53.7955,
+          "lng": -1.5456,
+          "note": "利兹招牌的印度素食街头美食配精酿啤酒，便宜好吃气氛热闹，本地人极力推荐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Leeds Student Medical Practice",
+          "nameCn": "利兹学生全科诊所（GP）",
+          "lat": 53.8074,
+          "lng": -1.5491,
+          "note": "专为本校学生设立的 GP 诊所，就在校园 Blenheim Walk，落地后第一件事就是来这注册 GP。"
+        },
+        {
+          "name": "Leeds General Infirmary (A&E)",
+          "nameCn": "利兹总医院（急诊 A&E）",
+          "lat": 53.8009,
+          "lng": -1.551,
+          "note": "紧邻校园的大型公立医院，设 24 小时急诊，遇紧急情况就近就医的地方。"
+        },
+        {
+          "name": "HSBC (Park Row)",
+          "nameCn": "汇丰银行（Park Row 旗舰行）",
+          "lat": 53.7979,
+          "lng": -1.5473,
+          "note": "市中心主要银行，可预约办理本地学生账户；中国学生熟悉的汇丰，开户沟通更顺。"
+        },
+        {
+          "name": "Boots (Albion Street)",
+          "nameCn": "Boots 药妆店（Albion 街）",
+          "lat": 53.7972,
+          "lng": -1.546,
+          "note": "英国连锁大药房，凭 GP 处方取药、买感冒药和日常护理用品都靠它。"
+        },
+        {
+          "name": "EE (Briggate)",
+          "nameCn": "EE 通讯营业厅（Briggate）",
+          "lat": 53.7972,
+          "lng": -1.5426,
+          "note": "主流手机运营商门店，办英国电话卡／合约套餐，落地办号入网来这。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Brotherton Library & Parkinson Building",
+          "nameCn": "布拉泽顿图书馆与帕金森楼",
+          "lat": 53.8078,
+          "lng": -1.5527,
+          "note": "学校地标钟楼配圆顶古典阅览室，是利兹大学最出片的打卡点，开学典礼也在这。"
+        },
+        {
+          "name": "Leeds Art Gallery",
+          "nameCn": "利兹美术馆",
+          "lat": 53.8,
+          "lng": -1.5481,
+          "note": "离校几步路的免费市立美术馆，英国近现代绘画雕塑收藏一流，下雨天好去处。"
+        },
+        {
+          "name": "Millennium Square & Leeds City Museum",
+          "nameCn": "千禧广场与利兹城市博物馆",
+          "lat": 53.8016,
+          "lng": -1.5469,
+          "note": "市政厅前的活动广场加免费城市博物馆，常办市集与节庆，了解利兹历史的第一站。"
+        },
+        {
+          "name": "Royal Armouries Museum",
+          "nameCn": "皇家军械博物馆",
+          "lat": 53.7918,
+          "lng": -1.5323,
+          "note": "全英顶尖的免费冷兵器与盔甲博物馆，临河而建，常有骑士格斗表演，值得专程一逛。"
+        },
+        {
+          "name": "Hyde Park Picture House & Woodhouse Moor",
+          "nameCn": "海德公园老电影院与伍德豪斯绿地",
+          "lat": 53.8121,
+          "lng": -1.5694,
+          "note": "学生区方向的百年煤气灯老影院＋大片草坪公园，散步晒太阳、看文艺片的惬意去处。"
+        }
+      ]
     }
   ]
 }

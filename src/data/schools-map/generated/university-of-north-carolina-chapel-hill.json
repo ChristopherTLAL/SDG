@@ -171,6 +171,175 @@
           "note": "Tar Heels篮球圣地，可容两万人。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Harris Teeter (Carr Mill Mall)",
+          "nameCn": "Harris Teeter 超市（卡尔磨坊店）",
+          "lat": 35.9156,
+          "lng": -79.0758,
+          "note": "离校园最近的大型连锁超市，位于卡尔磨坊商场，步行/公交可达，生鲜日用一站买齐。"
+        },
+        {
+          "name": "Weaver Street Market",
+          "nameCn": "织工街市集（有机食品超市）",
+          "lat": 35.9105,
+          "lng": -79.0747,
+          "note": "Carrboro 标志性合作社超市，有机食材+熟食+草坪音乐，本地生活感很强。"
+        },
+        {
+          "name": "Trader Joe's (Meadowmont)",
+          "nameCn": "缺德舅超市（Meadowmont 店）",
+          "lat": 35.9,
+          "lng": -79.0205,
+          "note": "性价比高的人气连锁，冷冻速食和零食丰富，留学生囤货首选之一。"
+        },
+        {
+          "name": "Li Ming's Global Mart",
+          "nameCn": "黎明环球超市（华人/亚洲超市）",
+          "lat": 35.9659,
+          "lng": -78.9626,
+          "note": "三角区最大的华人亚洲超市（在 Durham，约 9-10km），中餐食材、调料、活鱼、美食广场齐全，开车采购中国味道的去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Lantern Restaurant",
+          "nameCn": "灯笼餐厅（亚洲融合）",
+          "lat": 35.9106,
+          "lng": -79.0588,
+          "note": "Franklin 街地标级亚洲融合餐厅，曾入选全美 Top 50，用北卡本地食材做亚洲味，约会/请客都体面。"
+        },
+        {
+          "name": "Sutton's Drug Store",
+          "nameCn": "萨顿药房餐吧（百年老店）",
+          "lat": 35.9134,
+          "lng": -79.054,
+          "note": "1923 年开业的 Tar Heel 传统，墙上贴满学生与球星合影，汉堡早餐是教堂山的活历史。"
+        },
+        {
+          "name": "Sup Dogs",
+          "nameCn": "Sup Dogs 热狗汉堡",
+          "lat": 35.9135,
+          "lng": -79.0552,
+          "note": "学生票选人气王，热狗和汉堡分量足价格友好，球赛日气氛热烈。"
+        },
+        {
+          "name": "Mama Dip's Kitchen",
+          "nameCn": "Mama Dip 南方家常菜",
+          "lat": 35.9145,
+          "lng": -79.0623,
+          "note": "教堂山著名的南方灵魂料理（炸鸡、秋葵、玉米面包），体验地道美国南方口味的必去。"
+        },
+        {
+          "name": "Time-Out Restaurant",
+          "nameCn": "Time-Out 南方快餐（24 小时）",
+          "lat": 35.9133,
+          "lng": -79.0543,
+          "note": "1970 年代起守着校园的深夜食堂，炸鸡比士吉是熬夜赶due的灵魂安慰。"
+        },
+        {
+          "name": "Gourmet Kingdom",
+          "nameCn": "美食王国（川菜）",
+          "lat": 35.9152,
+          "lng": -79.0808,
+          "note": "Carrboro 口碑很好的正宗川菜馆，麻辣水煮鱼一解思乡的中国胃。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "UNC Hospitals / UNC Medical Center",
+          "nameCn": "UNC 医院（综合医疗中心）",
+          "lat": 35.9036,
+          "lng": -79.054,
+          "note": "就在校园南侧的千床级大型医院，含急诊，生病或急症的主要去处。"
+        },
+        {
+          "name": "Wells Fargo (Franklin St)",
+          "nameCn": "富国银行（Franklin 街支行）",
+          "lat": 35.9123,
+          "lng": -79.0533,
+          "note": "校门口 Franklin 街的银行网点，开学办理美国银行账户、存取现金方便。"
+        },
+        {
+          "name": "Campus Health (UNC Student Health)",
+          "nameCn": "UNC 学生健康中心（校医院）",
+          "lat": 35.9087,
+          "lng": -79.0476,
+          "note": "在校学生的校内门诊与初级医疗，普通看病、疫苗、心理咨询先来这里，费用走学生保险。"
+        },
+        {
+          "name": "CVS Pharmacy (Carr Mill)",
+          "nameCn": "CVS 药房（卡尔磨坊店）",
+          "lat": 35.9159,
+          "lng": -79.0762,
+          "note": "连锁药房，处方药、感冒药、日用品齐全，紧挨 Harris Teeter 顺路就能买。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Old Well",
+          "nameCn": "老井（UNC 标志）",
+          "lat": 35.912,
+          "lng": -79.0511,
+          "note": "UNC 最经典的校园地标与拍照点，开学第一口井水据说能拿好成绩。"
+        },
+        {
+          "name": "Morehead Planetarium and Science Center",
+          "nameCn": "莫尔黑德天文馆与科学中心",
+          "lat": 35.9135,
+          "lng": -79.0508,
+          "note": "全美首座大学校园天文馆，曾为 NASA 训练登月宇航员，球幕show很值得看。"
+        },
+        {
+          "name": "North Carolina Botanical Garden",
+          "nameCn": "北卡植物园",
+          "lat": 35.8978,
+          "lng": -79.0312,
+          "note": "UNC 运营的自然保护植物园，本土植物步道清幽，免费散步放松的好地方。"
+        },
+        {
+          "name": "Coker Arboretum",
+          "nameCn": "科克尔树木园",
+          "lat": 35.9128,
+          "lng": -79.0487,
+          "note": "紧邻校园的小型树木园，藤架长廊四季有景，课间散步与拍照的隐藏角落。"
+        },
+        {
+          "name": "Ackland Art Museum",
+          "nameCn": "阿克兰艺术博物馆",
+          "lat": 35.9112,
+          "lng": -79.0535,
+          "note": "校内免费艺术博物馆，常设亚洲与欧洲藏品，雨天文艺打卡首选。"
+        }
+      ]
     }
   ]
 }

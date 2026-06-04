@@ -207,6 +207,168 @@
           "note": "盖伊校区旁地标摩天楼,西欧最高建筑之一。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Loon Fung Supermarket",
+          "nameCn": "龙凤行超市",
+          "lat": 51.5113,
+          "lng": -0.1308,
+          "note": "唐人街最大的华人超市之一，1965年开业，中式调料、米面、火锅料、冷冻点心一应俱全，离校步行约10分钟。"
+        },
+        {
+          "name": "SeeWoo Supermarket",
+          "nameCn": "泗和行超市",
+          "lat": 51.5111,
+          "lng": -0.13,
+          "note": "唐人街老牌亚洲超市（Lisle Street），生鲜、酱料、亚洲零食齐全，和龙凤行隔街相望，可一并采买。"
+        },
+        {
+          "name": "Tesco Express (Strand)",
+          "nameCn": "乐购便利店（河岸街店）",
+          "lat": 51.5103,
+          "lng": -0.1182,
+          "note": "校园隔壁的英国主流连锁超市，日常牛奶面包、即食餐和生活用品随手可买，营业时间长。"
+        },
+        {
+          "name": "Sainsbury's (Strand)",
+          "nameCn": "桑斯伯里超市（河岸街店）",
+          "lat": 51.5108,
+          "lng": -0.1153,
+          "note": "另一家主流连锁，离校几步路，自有品牌平价、自助结账快，适合补给日用。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Four Seasons (Gerrard Street)",
+          "nameCn": "四季餐厅（杰拉德街店）",
+          "lat": 51.5114,
+          "lng": -0.1312,
+          "note": "唐人街招牌港式烧鸭，被媒体称\"全球最好吃烤鸭\"之一，想家时来一份脆皮烧鸭饭。"
+        },
+        {
+          "name": "Bao Soho",
+          "nameCn": "包 Soho 店",
+          "lat": 51.5128,
+          "lng": -0.1318,
+          "note": "网红台式刈包小店，常年排队，招牌猪肉刈包和炸鸡，适合和同学打卡。"
+        },
+        {
+          "name": "Din Tai Fung (Covent Garden)",
+          "nameCn": "鼎泰丰（科文特花园店）",
+          "lat": 51.5126,
+          "lng": -0.123,
+          "note": "知名台湾小笼包连锁的伦敦旗舰店，离校近，宴请家人或解馋的稳妥之选。"
+        },
+        {
+          "name": "Rules Restaurant",
+          "nameCn": "Rules 餐厅",
+          "lat": 51.5117,
+          "lng": -0.1224,
+          "note": "1798年开业、伦敦最古老的餐厅，主打英式野味与传统菜，体验地道老伦敦正餐。"
+        },
+        {
+          "name": "Wong Kei",
+          "nameCn": "旺记",
+          "lat": 51.5118,
+          "lng": -0.1308,
+          "note": "唐人街平价老字号粤菜，份量大、出餐快、学生友好，经典的留学生食堂。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Barclays (366 Strand)",
+          "nameCn": "巴克莱银行（河岸街366号）",
+          "lat": 51.5102,
+          "lng": -0.119,
+          "note": "校园同一条街上的主流银行网点，可办理学生账户、咨询开户与汇款，步行可达。"
+        },
+        {
+          "name": "Boots Pharmacy (Strand)",
+          "nameCn": "Boots 药房（河岸街店）",
+          "lat": 51.5108,
+          "lng": -0.116,
+          "note": "全英最大连锁药房，离校几步，备常用药、配处方、买日用护理品，营业到晚上。"
+        },
+        {
+          "name": "University College Hospital (UCLH) A&E",
+          "nameCn": "大学学院医院急诊（UCLH）",
+          "lat": 51.5241,
+          "lng": -0.1343,
+          "note": "离校最近的NHS大型公立医院和24小时急诊（A&E），紧急情况打999或直接前往。"
+        },
+        {
+          "name": "EE Store (Covent Garden)",
+          "nameCn": "EE 营业厅（科文特花园店）",
+          "lat": 51.5135,
+          "lng": -0.1247,
+          "note": "英国主流运营商门店（Long Acre），办手机卡/合约套餐，初到时办本地号码很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Somerset House",
+          "nameCn": "萨默塞特府",
+          "lat": 51.511,
+          "lng": -0.1175,
+          "note": "紧邻校园的新古典主义宫殿庭院，冬季溜冰场、夏季喷泉广场和艺术展，绝佳出片地。"
+        },
+        {
+          "name": "Covent Garden Piazza",
+          "nameCn": "科文特花园广场",
+          "lat": 51.5122,
+          "lng": -0.1234,
+          "note": "步行几分钟即到的历史市集广场，苹果市集、街头艺人、商铺咖啡馆云集，最热闹的打卡地。"
+        },
+        {
+          "name": "Twinings Tea Shop (216 Strand)",
+          "nameCn": "川宁茶叶老店（河岸街216号）",
+          "lat": 51.5132,
+          "lng": -0.1133,
+          "note": "1706年开业、伦敦最古老的茶叶店就在校门口，窄门里挑英式红茶当伴手礼。"
+        },
+        {
+          "name": "Trafalgar Square",
+          "nameCn": "特拉法加广场",
+          "lat": 51.508,
+          "lng": -0.1281,
+          "note": "伦敦地标广场，旁边即国家美术馆（免费），狮子雕像与喷泉是必拍经典。"
+        },
+        {
+          "name": "Sir John Soane's Museum",
+          "nameCn": "约翰·索恩爵士博物馆",
+          "lat": 51.5169,
+          "lng": -0.1175,
+          "note": "离校十分钟、藏品塞满整栋老宅的免费小众博物馆，氛围独特，适合慢慢逛。"
+        }
+      ]
     }
   ]
 }

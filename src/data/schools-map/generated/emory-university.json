@@ -180,6 +180,133 @@
           "note": "音乐厅与舞蹈表演艺术中心。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Your DeKalb Farmers Market",
+          "nameCn": "德卡尔布农贸市场",
+          "lat": 33.786877,
+          "lng": -84.269661,
+          "note": "离校约5公里的传奇国际大市场，被Emory国际学生办公室列为首推；中国/亚洲香料、米面、活鲜、青菜一应俱全，价格实惠。"
+        },
+        {
+          "name": "Publix Super Market at Emory Commons",
+          "nameCn": "Publix超市（Emory Commons店）",
+          "lat": 33.789628,
+          "lng": -84.304398,
+          "note": "距校园最近的主流连锁超市（2155 N Decatur Rd），日常采购首选，店内带药房，每天7点至22点营业。"
+        },
+        {
+          "name": "Kroger (North Decatur Rd)",
+          "nameCn": "Kroger超市（北Decatur路店）",
+          "lat": 33.7935,
+          "lng": -84.3055,
+          "note": "与Publix同片购物区的另一家平价连锁超市，自有品牌便宜、品类全，适合囤货和买生活用品。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "The General Muir",
+          "nameCn": "General Muir纽约犹太熟食餐厅",
+          "lat": 33.801015,
+          "lng": -84.327203,
+          "note": "Emory Point地标餐厅、James Beard提名主厨，招牌pastrami三明治和早午餐是亚特兰大必打卡的本地名店。"
+        },
+        {
+          "name": "Falafel King",
+          "nameCn": "炸豆丸子王（Falafel King）",
+          "lat": 33.7917,
+          "lng": -84.3375,
+          "note": "Emory Village门口的地中海小馆，4.5美元炸豆丸三明治几代学生都吃过，便宜量大、还兼卖寿司拉面。"
+        },
+        {
+          "name": "Doc Chey's Noodle House",
+          "nameCn": "Doc Chey's泛亚面馆",
+          "lat": 33.7855,
+          "lng": -84.3535,
+          "note": "离校约4公里的Morningside社区，泰/中/日/韩/越风味面碗和炒饭，是周边最近能解馋的现炒亚洲面馆。"
+        },
+        {
+          "name": "Fellini's Pizza",
+          "nameCn": "费里尼披萨",
+          "lat": 33.7869,
+          "lng": -84.3245,
+          "note": "亚特兰大本土老牌披萨连锁，纽约风味大片披萨配冰啤酒，价格学生友好，是当地人公认的平民经典。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America – Emory Village",
+          "nameCn": "美国银行（Emory Village支行）",
+          "lat": 33.787813,
+          "lng": -84.324266,
+          "note": "校园旁的全功能银行网点（1615 N Decatur Rd），可现场开户、办借记卡，带步入式ATM，新生办理账户最方便。"
+        },
+        {
+          "name": "CVS Pharmacy – Emory Village",
+          "nameCn": "CVS药房（Emory Village店）",
+          "lat": 33.792,
+          "lng": -84.3372,
+          "note": "Emory Village内24小时营业的连锁药房（1554 N Decatur Rd），处方药、感冒药、日用品随时能买。"
+        },
+        {
+          "name": "Emory University Hospital",
+          "nameCn": "埃默里大学医院",
+          "lat": 33.7883,
+          "lng": -84.3186,
+          "note": "就在校园里（1364 Clifton Rd），全美顶尖教学医院，急诊和专科就医都靠它，步行可达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Michael C. Carlos Museum",
+          "nameCn": "迈克尔·C·卡洛斯博物馆",
+          "lat": 33.79109,
+          "lng": -84.32232,
+          "note": "Emory校内博物馆，收藏古埃及木乃伊、希腊罗马与亚洲文物，是美国东南部最好的古代艺术馆，学生免费。"
+        },
+        {
+          "name": "Lullwater Preserve",
+          "nameCn": "Lullwater自然保护区",
+          "lat": 33.7965,
+          "lng": -84.3225,
+          "note": "Emory自有的185英亩林地（入口1463 Clifton Rd），湖泊、吊桥、步道俱全，散步跑步和拍照的绝佳去处。"
+        },
+        {
+          "name": "Fernbank Museum of Natural History",
+          "nameCn": "费恩班克自然历史博物馆",
+          "lat": 33.774,
+          "lng": -84.3276,
+          "note": "校园南侧的大型自然史博物馆（767 Clifton Rd），有恐龙骨架和巨幕影院，雨天周末好打卡。"
+        }
+      ]
     }
   ]
 }

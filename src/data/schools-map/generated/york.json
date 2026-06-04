@@ -219,6 +219,182 @@
           "note": "东海岸主线大站,距各校区约2-5公里。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Oriental Express",
+          "nameCn": "东方快车亚洲超市",
+          "lat": 53.95428,
+          "lng": -1.05838,
+          "note": "离校区最近的亚洲超市，就在Hull Road上，步行可达，中日韩泰食材齐全，留学生囤货首选。"
+        },
+        {
+          "name": "Thai Supermarket",
+          "nameCn": "泰国超市",
+          "lat": 53.95442,
+          "lng": -1.05982,
+          "note": "同在Hull Road的亚超，泰国及东南亚调料、米面、速食丰富，和东方快车互补。"
+        },
+        {
+          "name": "Red Chilli Supermarket",
+          "nameCn": "红辣椒华人超市",
+          "lat": 53.95789,
+          "lng": -1.08707,
+          "note": "市中心George Hudson街，York规模最大的华人超市，火锅底料、川味调料和冷冻品最全。"
+        },
+        {
+          "name": "Nisa (Market Square)",
+          "nameCn": "Nisa便利超市（校内市集广场）",
+          "lat": 53.9484,
+          "lng": -1.05312,
+          "note": "西校区Market Square内的便利店，应急买牛奶零食饮料最方便，下楼就到。"
+        },
+        {
+          "name": "Morrisons Foss Islands",
+          "nameCn": "Morrisons大超市（Foss Islands）",
+          "lat": 53.96072,
+          "lng": -1.07079,
+          "note": "离学校最近的英国大型连锁超市，学生最常去的正经采购点，公交或骑车约20分钟。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Red Chilli Restaurant",
+          "nameCn": "红辣椒中餐厅",
+          "lat": 53.958,
+          "lng": -1.08682,
+          "note": "York口碑第一的川菜京菜馆，火锅水饺地道，本地华人和留学生扎堆，3人以上才接受预订。"
+        },
+        {
+          "name": "Tang Dynasty",
+          "nameCn": "唐朝中餐厅",
+          "lat": 53.958,
+          "lng": -1.08682,
+          "note": "市中心George Hudson街的老牌中餐，粤式炒菜和点心稳定，想吃热乎中餐的备选。"
+        },
+        {
+          "name": "Bettys Café Tea Rooms",
+          "nameCn": "Bettys下午茶（圣海伦广场）",
+          "lat": 53.96012,
+          "lng": -1.08422,
+          "note": "约克百年招牌，最具仪式感的约克郡下午茶，胖瑞克蛋糕必试，请家长朋友来访打卡地。"
+        },
+        {
+          "name": "Cosy Club",
+          "nameCn": "Cosy Club（Fossgate）",
+          "lat": 53.9584,
+          "lng": -1.07857,
+          "note": "Fossgate美食街上的英式brunch与正餐，装潢复古出片，体验本地餐厅文化的好选择。"
+        },
+        {
+          "name": "Oriental Express (Hull Road eats)",
+          "nameCn": "Hull Road亚洲外卖一条街",
+          "lat": 53.95428,
+          "lng": -1.05838,
+          "note": "Hull Road靠校区一段聚集多家亚洲外卖与小馆，下课顺路解决一顿热饭最省事。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Parkview Surgery",
+          "nameCn": "Parkview全科诊所（GP）",
+          "lat": 53.95457,
+          "lng": -1.05578,
+          "note": "距校区最近的NHS全科诊所，落地后尽快带BRP和住址在此注册GP，日常看病第一站。"
+        },
+        {
+          "name": "York Hospital (A&E)",
+          "nameCn": "约克医院（含急诊A&E）",
+          "lat": 53.97039,
+          "lng": -1.0838,
+          "note": "约克的NHS综合医院和24小时急诊，遇紧急或严重伤病到这里，记住地址Wigginton Road。"
+        },
+        {
+          "name": "Boots (Coney Street)",
+          "nameCn": "Boots药房（Coney街）",
+          "lat": 53.9583,
+          "lng": -1.08317,
+          "note": "市中心连锁药房，凭处方取药、买常备药和个护用品都在这，营业时间长。"
+        },
+        {
+          "name": "Barclays (Parliament Street)",
+          "nameCn": "巴克莱银行（Parliament街）",
+          "lat": 53.95836,
+          "lng": -1.08085,
+          "note": "市中心大银行网点，可预约办理学生账户，带录取信和住址证明开户。"
+        },
+        {
+          "name": "EE Store (Parliament Street)",
+          "nameCn": "EE手机营业厅（Parliament街）",
+          "lat": 53.95909,
+          "lng": -1.08114,
+          "note": "市中心EE运营商门店，办英国手机卡/套餐当面搞定，旁边还有O2、Three、Vodafone可比价。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "York Minster",
+          "nameCn": "约克大教堂",
+          "lat": 53.96236,
+          "lng": -1.08208,
+          "note": "约克地标，英国最大哥特式教堂，登中央塔俯瞰全城，必看必拍的头号景点。"
+        },
+        {
+          "name": "The Shambles",
+          "nameCn": "肉铺街（Shambles）",
+          "lat": 53.9593,
+          "lng": -1.08003,
+          "note": "中世纪窄巷木屋，公认《哈利波特》对角巷原型，约克最出片的网红老街。"
+        },
+        {
+          "name": "Clifford's Tower",
+          "nameCn": "克利福德塔",
+          "lat": 53.95583,
+          "lng": -1.08018,
+          "note": "小山丘上的诺曼城堡遗迹，登顶可环视约克城与城墙，看落日的好地方。"
+        },
+        {
+          "name": "JORVIK Viking Centre",
+          "nameCn": "约维克维京中心",
+          "lat": 53.95739,
+          "lng": -1.08029,
+          "note": "建在维京考古现场上的体验式博物馆，乘车穿越还原的维京街市，了解约克千年历史。"
+        },
+        {
+          "name": "National Railway Museum",
+          "nameCn": "国家铁路博物馆",
+          "lat": 53.9605,
+          "lng": -1.09611,
+          "note": "全球顶级铁路博物馆，蒸汽机车与皇室列车实物免费看，火车迷和遛弯都合适。"
+        }
+      ]
     }
   ]
 }

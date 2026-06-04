@@ -200,6 +200,182 @@
           "note": "1903 年建的马蹄形混凝土体育场。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart Cambridge",
+          "nameCn": "H Mart 韩亚龙超市（中央广场店）",
+          "lat": 42.365,
+          "lng": -71.103,
+          "note": "Central Square 的大型亚洲超市，韩中日食材齐全、带美食广场，是哈佛学生采购中餐配料最近的选择，红线一站直达。"
+        },
+        {
+          "name": "C-Mart Supermarket",
+          "nameCn": "华丰超市（波士顿华埠店）",
+          "lat": 42.3505,
+          "lng": -71.0617,
+          "note": "波士顿华埠老牌华人超市，活鱼海鲜、青菜、各类中式调料价格实惠，红线到 Chinatown/Tufts Medical 即达。"
+        },
+        {
+          "name": "Trader Joe's",
+          "nameCn": "缺德舅超市（Memorial Drive 店）",
+          "lat": 42.3585,
+          "lng": -71.111,
+          "note": "美式平价连锁超市，自有品牌冷冻食品、零食、酒水性价比高，紧邻查尔斯河，适合日常囤货。"
+        },
+        {
+          "name": "Star Market",
+          "nameCn": "Star Market 超市（Porter Square 店）",
+          "lat": 42.3884,
+          "lng": -71.119,
+          "note": "Porter Square 的大型本地连锁超市，生鲜、日用一站购齐，从哈佛沿 Mass Ave 步行或红线一站可达。"
+        },
+        {
+          "name": "Reliable Market",
+          "nameCn": "Reliable 韩亚超市（Union Square）",
+          "lat": 42.3796,
+          "lng": -71.095,
+          "note": "Union Square 的韩式/亚洲超市，泡面、韩式小菜、亚洲蔬菜选择多，本地留学生口碑老店。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Hong Kong Restaurant",
+          "nameCn": "香港楼",
+          "lat": 42.3725,
+          "lng": -71.1185,
+          "note": "1954 年开业的哈佛广场老字号中餐馆，楼上有著名 Scorpion Bowl 调酒，是几代哈佛学生的聚会地标。"
+        },
+        {
+          "name": "Gene's Chinese Flatbread Cafe",
+          "nameCn": "Gene's 西北肉夹馍刀削面",
+          "lat": 42.3735,
+          "lng": -71.12,
+          "note": "主打陕西 biang biang 面、孜然羊肉与肉夹馍，麻辣地道、分量足价格亲民，留学生想吃中国西北味必来。"
+        },
+        {
+          "name": "Koreana",
+          "nameCn": "Koreana 韩餐烤肉",
+          "lat": 42.364,
+          "lng": -71.1018,
+          "note": "剑桥老牌韩式烤肉，桌内炭烤、石锅拌饭与韩式小菜正宗，亚洲学生聚餐热门，离哈佛红线一两站。"
+        },
+        {
+          "name": "Mr. Bartley's Burger Cottage",
+          "nameCn": "Bartley's 汉堡小屋",
+          "lat": 42.3722,
+          "lng": -71.1182,
+          "note": "1960 年起营业的哈佛广场招牌汉堡店，菜单用政治人物命名、墙上贴满海报，本地必打卡的美式经典。"
+        },
+        {
+          "name": "Tatte Bakery & Cafe",
+          "nameCn": "Tatte 烘焙咖啡馆（哈佛广场店）",
+          "lat": 42.3728,
+          "lng": -71.1195,
+          "note": "波士顿人气连锁烘焙店，中东风味糕点、brunch 与咖啡颜值高，适合学习、约见与拍照打卡。"
+        },
+        {
+          "name": "Felipe's Taqueria",
+          "nameCn": "Felipe's 墨西哥卷饼",
+          "lat": 42.3735,
+          "lng": -71.121,
+          "note": "哈佛广场超人气墨西哥餐厅，玉米卷与 burrito 量大味足，楼顶 tiki 酒吧是学生夜晚据点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Harvard Square)",
+          "nameCn": "美国银行（哈佛广场支行）",
+          "lat": 42.373,
+          "lng": -71.1205,
+          "note": "哈佛广场的美国银行网点，带步进式 ATM，新生开美元支票/储蓄账户、办借记卡最方便的大行之一。"
+        },
+        {
+          "name": "CVS Pharmacy (Harvard Square)",
+          "nameCn": "CVS 药房（哈佛广场店）",
+          "lat": 42.3725,
+          "lng": -71.119,
+          "note": "哈佛广场连锁药房，处方药、感冒药、日用品与照片冲印齐全，是留学生买药和应急用品的首选。"
+        },
+        {
+          "name": "Mount Auburn Hospital",
+          "nameCn": "奥本山医院",
+          "lat": 42.376,
+          "lng": -71.133,
+          "note": "距校园最近的综合性医院，含急诊与门诊，哈佛医学院附属教学医院，突发就医或急诊可直接前往。"
+        },
+        {
+          "name": "Cambridge Health Alliance (Cambridge Hospital)",
+          "nameCn": "剑桥医院（CHA）",
+          "lat": 42.3712,
+          "lng": -71.101,
+          "note": "剑桥本地公立医院系统，提供急诊、全科与紧急护理，看普通病与做检查的实惠就近选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Harvard Yard",
+          "nameCn": "哈佛庭院",
+          "lat": 42.3744,
+          "lng": -71.1169,
+          "note": "哈佛主校园核心，红砖教学楼与古树环绕，新生必拍的 John Harvard 雕像就在这里，触摸铜鞋是传统。"
+        },
+        {
+          "name": "Harvard Square",
+          "nameCn": "哈佛广场",
+          "lat": 42.373,
+          "lng": -71.119,
+          "note": "校门口的商业文化中心，书店、咖啡馆、街头艺人与地铁红线交汇，留学生日常逛吃与社交的心脏地带。"
+        },
+        {
+          "name": "Weeks Footbridge & Charles River",
+          "nameCn": "Weeks 人行桥与查尔斯河",
+          "lat": 42.369,
+          "lng": -71.123,
+          "note": "横跨查尔斯河的优雅步行桥，可俯瞰赛艇与波士顿天际线，黄昏散步、跑步与拍照的绝佳地点。"
+        },
+        {
+          "name": "Harvard Art Museums",
+          "nameCn": "哈佛艺术博物馆",
+          "lat": 42.3742,
+          "lng": -71.114,
+          "note": "集 Fogg、Busch-Reisinger、Sackler 三馆于一体，玻璃中庭建筑出片，凭学生证免费看世界级藏品。"
+        },
+        {
+          "name": "Mount Auburn Cemetery",
+          "nameCn": "奥本山墓园",
+          "lat": 42.372,
+          "lng": -71.145,
+          "note": "美国第一座园林式墓园，遍植名木、可登塔观景，是赏秋、观鸟与静心散步的隐藏宝藏。"
+        }
+      ]
     }
   ]
 }

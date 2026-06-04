@@ -199,6 +199,175 @@
           "note": "校区东北门户，Amtrak 与区域铁路枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "ACME Markets (40th & Walnut)",
+          "nameCn": "ACME 超市（40街店）",
+          "lat": 39.9568,
+          "lng": -75.198,
+          "note": "距校园几步、24小时的全美连锁大型超市，宾大学生日常采购首选。"
+        },
+        {
+          "name": "Hung Vuong Food Market",
+          "nameCn": "恒发超市",
+          "lat": 39.9341,
+          "lng": -75.1607,
+          "note": "费城最大的亚洲超市之一，中餐食材、活鱼海鲜、调味料齐全，开车约10分钟。"
+        },
+        {
+          "name": "Trader Joe's (22nd & Market)",
+          "nameCn": "缺德舅超市（市中心店）",
+          "lat": 39.9558,
+          "lng": -75.1738,
+          "note": "性价比高、半成品和零食出名的连锁超市，骑车或地铁一站可达。"
+        },
+        {
+          "name": "Reading Terminal Market",
+          "nameCn": "雷丁车站市场",
+          "lat": 39.9534,
+          "lng": -75.159,
+          "note": "百年室内市集，生鲜、奶酪、香料一站买齐，也能现吃，地铁直达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Han Dynasty (University City)",
+          "nameCn": "汉朝川菜（大学城店）",
+          "lat": 39.956,
+          "lng": -75.1965,
+          "note": "校园旁最有名的川菜馆，麻辣口味地道，宾大中国学生聚餐据点。"
+        },
+        {
+          "name": "Sang Kee Noodle House",
+          "nameCn": "生记面家",
+          "lat": 39.9548,
+          "lng": -75.1938,
+          "note": "就在校园里，港式烧腊、云吞面、点心便宜量足，步行可达。"
+        },
+        {
+          "name": "Fu-Wah Mini Market",
+          "nameCn": "富华小超市",
+          "lat": 39.9483,
+          "lng": -75.217,
+          "note": "西费城传奇越南三明治（豆腐 banh mi 必点），便宜又地道。"
+        },
+        {
+          "name": "Sang Kee Peking Duck House (Chinatown)",
+          "nameCn": "生记烤鸭店（华埠）",
+          "lat": 39.9554,
+          "lng": -75.1556,
+          "note": "费城华埠老字号，招牌北京烤鸭，想吃正宗中餐时值得跑一趟。"
+        },
+        {
+          "name": "Dim Sum Garden",
+          "nameCn": "南方小馆",
+          "lat": 39.9543,
+          "lng": -75.1565,
+          "note": "华埠人气小笼包与点心店，性价比高，常排队。"
+        },
+        {
+          "name": "DiNic's (Reading Terminal)",
+          "nameCn": "DiNic's 烤猪肉三明治",
+          "lat": 39.9533,
+          "lng": -75.1592,
+          "note": "被评全美最佳三明治之一的费城烤猪肉，本地必吃。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Hospital of the University of Pennsylvania (HUP)",
+          "nameCn": "宾夕法尼亚大学医院",
+          "lat": 39.9495,
+          "lng": -75.1928,
+          "note": "校园南侧的顶级综合医院，含急诊，看病就医最近的大医院。"
+        },
+        {
+          "name": "CVS Pharmacy (Shops at Penn)",
+          "nameCn": "CVS 药房（宾大商场店）",
+          "lat": 39.9536,
+          "lng": -75.1981,
+          "note": "校园核心地段连锁药房，可买药、打疫苗、拿处方，最方便。"
+        },
+        {
+          "name": "TD Bank (University City)",
+          "nameCn": "TD 银行（大学城支行）",
+          "lat": 39.953,
+          "lng": -75.1992,
+          "note": "校园旁开户方便的银行，对留学生友好，开户排队短。"
+        },
+        {
+          "name": "Apple Store / Verizon (Shops at Penn)",
+          "nameCn": "苹果店 / Verizon（宾大商场）",
+          "lat": 39.9537,
+          "lng": -75.1979,
+          "note": "3401 Walnut 的宾大商场内有手机店和苹果店，可办美国手机卡。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Penn Museum (Archaeology & Anthropology)",
+          "nameCn": "宾大考古与人类学博物馆",
+          "lat": 39.9493,
+          "lng": -75.1917,
+          "note": "校内世界级博物馆，藏有埃及、亚洲文物与狮身人面像，学生免费。"
+        },
+        {
+          "name": "LOVE Sculpture (36th & Locust Walk)",
+          "nameCn": "LOVE 雕塑（校园版）",
+          "lat": 39.9525,
+          "lng": -75.1947,
+          "note": "校园地标红色 LOVE 雕塑，最热门的打卡拍照点。"
+        },
+        {
+          "name": "Reading Terminal Market",
+          "nameCn": "雷丁车站市场",
+          "lat": 39.9534,
+          "lng": -75.159,
+          "note": "被评全美最佳公共市集，逛吃一体的费城必访地标。"
+        },
+        {
+          "name": "Philadelphia City Hall",
+          "nameCn": "费城市政厅",
+          "lat": 39.9526,
+          "lng": -75.1635,
+          "note": "市中心地标建筑，可登塔俯瞰全城，离校园约2.5公里。"
+        },
+        {
+          "name": "Schuylkill River Trail / Banks",
+          "nameCn": "斯库尔基尔河滨步道",
+          "lat": 39.953,
+          "lng": -75.1832,
+          "note": "校园东侧河滨步道，跑步骑行赏天际线，傍晚散步好去处。"
+        }
+      ]
     }
   ]
 }

@@ -200,6 +200,161 @@
           "note": "五厅剧场综合体，校园文化地标"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart Urbana",
+          "nameCn": "H Mart 韩亚龙超市（乌尔班纳店）",
+          "lat": 40.11484,
+          "lng": -88.20741,
+          "note": "2025年1月开业的大型亚洲连锁超市，海鲜、肉类、蔬果和中日韩调料齐全，是采购中餐食材的首选。"
+        },
+        {
+          "name": "Far East Grocery",
+          "nameCn": "远东超市",
+          "lat": 40.11578,
+          "lng": -88.23218,
+          "note": "校园西侧第五街的老牌亚洲杂货店，中日越印尼食材和新鲜蔬菜都有，步行可达。"
+        },
+        {
+          "name": "Asian Supermarket",
+          "nameCn": "亚洲超市",
+          "lat": 40.12843,
+          "lng": -88.25804,
+          "note": "北Prospect大道上的综合亚超，中式干货、冷冻食品和调味料种类多，开到晚上9点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Golden Harbor Authentic Chinese Cuisine",
+          "nameCn": "金海岸中餐馆",
+          "lat": 40.11153,
+          "lng": -88.24355,
+          "note": "Neil街上的正宗中餐，川菜和小笼包、脆皮豆腐口碑极好，是当地华人学生的聚餐据点。"
+        },
+        {
+          "name": "Dim Sum House",
+          "nameCn": "点心轩",
+          "lat": 40.11032,
+          "lng": -88.23344,
+          "note": "就在校园Green街主街上，主打现做粤式点心和饺子，离教学楼很近。"
+        },
+        {
+          "name": "Peking Garden",
+          "nameCn": "北京花园",
+          "lat": 40.1174,
+          "lng": -88.2451,
+          "note": "深受UIUC学生喜爱的老馆子，锅贴和饺子是招牌。"
+        },
+        {
+          "name": "Golden Wok",
+          "nameCn": "金锅",
+          "lat": 40.11629,
+          "lng": -88.23344,
+          "note": "校园区人气外卖店，炒饭和泰式快炒便宜量足，适合日常吃饭。"
+        },
+        {
+          "name": "Papa Del's Pizza",
+          "nameCn": "Papa Del's 芝加哥深盘披萨",
+          "lat": 40.10339,
+          "lng": -88.24375,
+          "note": "1970年创立的UIUC标志性老店，厚底深盘披萨是必试的本地美食。"
+        },
+        {
+          "name": "Jarling's Custard Cup",
+          "nameCn": "Jarling's 蛋奶冰淇淋",
+          "lat": 40.09803,
+          "lng": -88.2468,
+          "note": "1983年至今的本地手工冰淇淋名店，每周限定口味，是香槟必打卡的甜品。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "U of I Community Credit Union (Illini Union Branch)",
+          "nameCn": "伊利诺伊大学社区信用合作社（Illini Union 校内点）",
+          "lat": 40.11032,
+          "lng": -88.22717,
+          "note": "就在校园中心Illini Union学生中心内，学生可凭学籍开户，办理银行账户最方便。"
+        },
+        {
+          "name": "Carle Foundation Hospital",
+          "nameCn": "Carle 基金会医院",
+          "lat": 40.11733,
+          "lng": -88.21464,
+          "note": "服务校园社区的主要综合医院，含急诊和门诊，生病或急症就医的首选。"
+        },
+        {
+          "name": "Walgreens (Green Street)",
+          "nameCn": "Walgreens 药房（Green街店）",
+          "lat": 40.11021,
+          "lng": -88.23338,
+          "note": "校园主街上的连锁药房，可取处方药、买非处方药和打疫苗，日常买药就近搞定。"
+        },
+        {
+          "name": "AT&T Store (Carriage Center)",
+          "nameCn": "AT&T 手机营业厅（Carriage Center店）",
+          "lat": 40.09178,
+          "lng": -88.2457,
+          "note": "离校园最近的运营商门店，办理美国手机卡和套餐、买手机可来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Alma Mater Statue",
+          "nameCn": "母校女神像（Alma Mater）",
+          "lat": 40.1099,
+          "lng": -88.2284,
+          "note": "Green街与Wright街交口的UIUC标志雕像，毕业照和打卡必到之处。"
+        },
+        {
+          "name": "Main Quad",
+          "nameCn": "中央草坪广场（Main Quad）",
+          "lat": 40.1075,
+          "lng": -88.2272,
+          "note": "校园核心的开阔草坪，被历史建筑环绕，春秋季拍照、晒太阳、活动的中心地带。"
+        },
+        {
+          "name": "Krannert Art Museum",
+          "nameCn": "克兰纳特艺术博物馆",
+          "lat": 40.10153,
+          "lng": -88.23179,
+          "note": "校内免费开放的艺术馆，藏有从古埃及到当代的逾万件作品，含亚洲艺术专区。"
+        },
+        {
+          "name": "Memorial Stadium",
+          "nameCn": "纪念体育场",
+          "lat": 40.10025,
+          "lng": -88.23852,
+          "note": "Fighting Illini橄榄球主场，秋季比赛日体验美式校园文化和氛围的地方。"
+        }
+      ]
     }
   ]
 }

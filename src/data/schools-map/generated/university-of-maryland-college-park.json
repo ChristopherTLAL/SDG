@@ -191,6 +191,140 @@
           "note": "Route 1旁的花坛「M」标志主入口。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market (Riverdale Park Station)",
+          "nameCn": "全食超市（Riverdale Park 店）",
+          "lat": 38.9691,
+          "lng": -76.9374,
+          "note": "校园正南约2.5公里，沿Route 1，最近的高端综合超市，有机生鲜齐全，学生常来；旁边就是Riverdale Park MARC通勤火车站。"
+        },
+        {
+          "name": "Lotte Plaza Market (La Grande)",
+          "nameCn": "乐天广场亚洲超市（La Grande店）",
+          "lat": 38.9583,
+          "lng": -76.9172,
+          "note": "离校最近的大型韩亚超市（约3.5公里），中日韩食材、活鱼、火锅料、亚洲调味品最全，留学生采购大本营。"
+        },
+        {
+          "name": "Lidl",
+          "nameCn": "Lidl 平价超市",
+          "lat": 38.9963,
+          "lng": -76.9311,
+          "note": "校园北侧Route 1上，德国连锁折扣超市，价格便宜，适合预算有限的日常采买。"
+        },
+        {
+          "name": "New Grand Mart",
+          "nameCn": "新大中华国际超市",
+          "lat": 38.9608,
+          "lng": -76.9928,
+          "note": "University Blvd上的国际超市（约5公里），亚洲、拉美、活海鲜区都大，中餐食材选择丰富，适合一次囤货。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Eastern Gourmet 海纳百川",
+          "nameCn": "海纳百川（川菜）",
+          "lat": 38.9909,
+          "lng": -76.9337,
+          "note": "Route 1上口碑最好的正宗川菜，水煮鱼、麻辣香锅地道，被华盛顿人杂志评为年度百佳，想家时的首选。"
+        },
+        {
+          "name": "Honey Pig Korean BBQ",
+          "nameCn": "Honey Pig 韩式烤肉",
+          "lat": 38.9803,
+          "lng": -76.939,
+          "note": "College Park购物中心内的韩式炭火烤肉，桌边现烤、热闹，朋友聚餐性价比高。"
+        },
+        {
+          "name": "Marathon Deli",
+          "nameCn": "马拉松熟食店",
+          "lat": 38.9813,
+          "lng": -76.9381,
+          "note": "1972年开业的校园传奇，希腊式gyro和深夜小吃，满墙Terps球队元素，几乎全天营业，UMD学生必打卡。"
+        },
+        {
+          "name": "Bagel Place",
+          "nameCn": "Bagel Place 贝果店",
+          "lat": 38.9819,
+          "lng": -76.9376,
+          "note": "1983年至今的家族老店，每天现做19种贝果配10种奶酪酱，经典美式早午餐，离校门口几步路。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (College Park)",
+          "nameCn": "美国银行（College Park支行）",
+          "lat": 38.9807,
+          "lng": -76.9382,
+          "note": "校门口College Park购物中心内的实体网点，可现场开学生支票账户、办借记卡，新生落地办银行卡最方便。"
+        },
+        {
+          "name": "CVS Pharmacy (24-hour)",
+          "nameCn": "CVS 药房（24小时）",
+          "lat": 38.9802,
+          "lng": -76.9388,
+          "note": "Route 1上的24小时药房，凭处方取药、买非处方药和日用品，店内MinuteClinic可看小病、打疫苗。"
+        },
+        {
+          "name": "University Health Center (UMD)",
+          "nameCn": "马里兰大学校医院",
+          "lat": 38.9876,
+          "lng": -76.9445,
+          "note": "校内140号楼、学生会对面，看普通门诊、配药、心理咨询，持学生保险费用低，生病第一站。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "McKeldin Mall",
+          "nameCn": "麦凯尔丁大草坪",
+          "lat": 38.986,
+          "lng": -76.942,
+          "note": "全美最大的学术草坪广场，两端连主行政楼与图书馆，中央ODK喷泉，春日樱花、毕业季拍照的标志性地标。"
+        },
+        {
+          "name": "Memorial Chapel",
+          "nameCn": "纪念教堂",
+          "lat": 38.9842,
+          "lng": -76.9412,
+          "note": "校园最高的尖顶建筑，纪念阵亡校友，旁边的冥想花园安静适合散步，也是热门婚礼与打卡点。"
+        },
+        {
+          "name": "College Park Aviation Museum",
+          "nameCn": "帕克航空博物馆",
+          "lat": 38.9788,
+          "lng": -76.9223,
+          "note": "坐落在世界最古老仍运营的机场（1909年莱特兄弟在此训练飞行员），史密森尼附属馆，可看古董飞机，离校约1.5公里。"
+        }
+      ]
     }
   ]
 }

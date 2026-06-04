@@ -192,6 +192,175 @@
           "note": "距主校区最近的铁路站,城市线枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "W.H. Lung Supermarket",
+          "nameCn": "荣华行（华人超市）",
+          "lat": 53.4675,
+          "lng": -2.2291,
+          "note": "曼大学生最常去的大型华人超市，就在 Upper Brook Street、校区马路对面，中餐食材、冷冻点心、亚洲调料齐全。"
+        },
+        {
+          "name": "Hang Won Hong Supermarket",
+          "nameCn": "恒荣行（唐人街华超）",
+          "lat": 53.4788,
+          "lng": -2.2407,
+          "note": "市中心唐人街 George Street 上最大的华人超市，距校区约1.5公里，米面酱料、活鲜与港式食材最全。"
+        },
+        {
+          "name": "Worldwide Foods Rusholme",
+          "nameCn": "世界食品超市（咖喱街）",
+          "lat": 53.4573,
+          "lng": -2.227,
+          "note": "咖喱街旁 Great Western Street 的国际食品超市，南亚、中东、东亚食材便宜量大，离校区步行可达。"
+        },
+        {
+          "name": "Tesco Express (Wilmslow Park)",
+          "nameCn": "乐购便利店（校区店）",
+          "lat": 53.4586,
+          "lng": -2.2269,
+          "note": "紧贴校区的英国主流连锁便利超市，日常牛奶面包速食随手买，营业时间长。"
+        },
+        {
+          "name": "Sainsbury's Fallowfield",
+          "nameCn": "森宝利超市（Fallowfield 大店）",
+          "lat": 53.4408,
+          "lng": -2.2179,
+          "note": "学生宿舍区 Fallowfield 的大型英超，品类比便利店全，沿 Wilmslow Road 公交直达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Mughli Charcoal Pit",
+          "nameCn": "Mughli 炭烤印巴餐厅",
+          "lat": 53.4558,
+          "lng": -2.2256,
+          "note": "咖喱街口碑标杆，1991年创立的炭烤与慢炖咖喱，曼城必吃南亚菜代表。"
+        },
+        {
+          "name": "MyLahore",
+          "nameCn": "MyLahore 巴基斯坦餐厅",
+          "lat": 53.4562,
+          "lng": -2.2258,
+          "note": "咖喱街人气连锁，巴式咖喱、烤肉与奶昔分量足，学生聚餐高性价比之选。"
+        },
+        {
+          "name": "Shere Khan",
+          "nameCn": "Shere Khan 咖喱餐厅",
+          "lat": 53.4553,
+          "lng": -2.2253,
+          "note": "Wilmslow Road 老牌咖喱馆，菜单大、价格亲民，咖喱街经典打卡点。"
+        },
+        {
+          "name": "This & That Cafe",
+          "nameCn": "This & That 三选一咖喱",
+          "lat": 53.4847,
+          "lng": -2.2381,
+          "note": "北区 Soap Street 隐藏小馆，1984年开业的「米饭+三样咖喱（rice and three）」鼻祖，曼城便宜快食传奇。"
+        },
+        {
+          "name": "Manchester Chinatown restaurants",
+          "nameCn": "曼城唐人街中餐区",
+          "lat": 53.4784,
+          "lng": -2.2398,
+          "note": "市中心唐人街聚集粤菜、火锅、港式茶餐厅与亚洲甜品，想吃地道中餐就来这片。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Manchester Royal Infirmary",
+          "nameCn": "曼彻斯特皇家医院",
+          "lat": 53.4629,
+          "lng": -2.2261,
+          "note": "校区东侧的大型公立教学医院，含急诊（A&E），就医、急症首选。"
+        },
+        {
+          "name": "Barclays Bank (Wilmslow Road)",
+          "nameCn": "巴克莱银行（Wilmslow Road）",
+          "lat": 53.4577,
+          "lng": -2.2269,
+          "note": "咖喱街起点的银行网点，离校区近，留学生办本地账户、存取现金方便。"
+        },
+        {
+          "name": "Boots Pharmacy (Oxford Street)",
+          "nameCn": "Boots 药房（Oxford Street）",
+          "lat": 53.4756,
+          "lng": -2.2418,
+          "note": "英国最大连锁药妆店，处方药、感冒药、日用品一站搞定，沿 Oxford Road 往市中心方向。"
+        },
+        {
+          "name": "EE Store (Market Street)",
+          "nameCn": "EE 电信营业厅（Market Street）",
+          "lat": 53.4821,
+          "lng": -2.2398,
+          "note": "市中心主流运营商门店，办手机卡/套餐、咨询合约机，距校区一段公交或步行。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Manchester Museum",
+          "nameCn": "曼彻斯特博物馆",
+          "lat": 53.4664,
+          "lng": -2.2342,
+          "note": "曼大校园内的免费博物馆，埃及木乃伊、自然史与活体爬虫馆，新生必逛且就在校区。"
+        },
+        {
+          "name": "The Whitworth",
+          "nameCn": "惠特沃斯美术馆",
+          "lat": 53.4602,
+          "lng": -2.2295,
+          "note": "紧邻校区、毗邻惠特沃斯公园的免费现代艺术馆，展览+落地窗咖啡厅，拍照与放松好去处。"
+        },
+        {
+          "name": "Chinatown Imperial Arch",
+          "nameCn": "唐人街中华门牌楼",
+          "lat": 53.4784,
+          "lng": -2.2398,
+          "note": "市中心唐人街标志性中式牌楼，欧洲最早的唐人街之一，节庆热闹的打卡地标。"
+        },
+        {
+          "name": "John Rylands Library",
+          "nameCn": "约翰·赖兰兹图书馆",
+          "lat": 53.4804,
+          "lng": -2.2491,
+          "note": "Deansgate 上的新哥特式古典图书馆，建筑华美如教堂，免费参观的网红拍照圣地。"
+        },
+        {
+          "name": "Manchester Oxford Road Station",
+          "nameCn": "牛津路火车站",
+          "lat": 53.4738,
+          "lng": -2.2423,
+          "note": "离校区最近的火车站，去市中心、机场及周边城市出行的主要枢纽。"
+        }
+      ]
     }
   ]
 }

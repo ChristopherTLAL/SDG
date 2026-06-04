@@ -237,6 +237,182 @@
           "note": "最近地铁站,经地下通道直通博物馆区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Waitrose Gloucester Road",
+          "nameCn": "Waitrose 超市（格洛斯特路店）",
+          "lat": 51.4945,
+          "lng": -0.1819,
+          "note": "离校最近的中高端连锁超市，紧邻 Gloucester Road 地铁站，生鲜、烘焙和日用品齐全。"
+        },
+        {
+          "name": "Sainsbury's Cromwell Road",
+          "nameCn": "Sainsbury's 大型超市（克伦威尔路店）",
+          "lat": 51.4949,
+          "lng": -0.1916,
+          "note": "步行可达的大型超市，价格比 Waitrose 实惠，适合一次性囤一周的食材。"
+        },
+        {
+          "name": "Tesco Express Gloucester Road",
+          "nameCn": "Tesco Express 便利超市（格洛斯特路店）",
+          "lat": 51.4942,
+          "lng": -0.1827,
+          "note": "地铁站旁的小型便利店，营业时间长，临时买牛奶零食很方便。"
+        },
+        {
+          "name": "Oriental Supermarket (Fulham Road)",
+          "nameCn": "东方亚洲超市（富勒姆路店）",
+          "lat": 51.4852,
+          "lng": -0.1826,
+          "note": "离校最近的亚洲超市，老干妈、火锅底料、面条米粉等中餐食材都能买到。"
+        },
+        {
+          "name": "Whole Foods Market Kensington",
+          "nameCn": "Whole Foods 有机超市（肯辛顿店）",
+          "lat": 51.5002,
+          "lng": -0.1925,
+          "note": "肯辛顿大街上的大型有机精品超市，进口食材和现成熟食选择多。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "The Bugis",
+          "nameCn": "The Bugis 新加坡/中餐馆",
+          "lat": 51.4939,
+          "lng": -0.1825,
+          "note": "格洛斯特路上的亚洲餐厅，主打新加坡和中式菜，离校近、想吃中餐时的首选。"
+        },
+        {
+          "name": "Daquise",
+          "nameCn": "Daquise 波兰餐厅",
+          "lat": 51.4944,
+          "lng": -0.1734,
+          "note": "South Kensington 站旁 1947 年开业的伦敦最老波兰餐厅，本地经典必体验。"
+        },
+        {
+          "name": "Hǎo Chí (Imperial JCR)",
+          "nameCn": "好吃（帝国理工校内中餐）",
+          "lat": 51.4988,
+          "lng": -0.1766,
+          "note": "帝国理工 JCR 内的中式餐档，课间想吃口热乎中餐最省事的选择。"
+        },
+        {
+          "name": "Comptoir Libanais South Kensington",
+          "nameCn": "Comptoir Libanais 黎巴嫩餐厅",
+          "lat": 51.4945,
+          "lng": -0.1739,
+          "note": "Exhibition Road 上人气中东餐厅，烤肉拼盘和 mezze 份量足、价格友好。"
+        },
+        {
+          "name": "Da Mario",
+          "nameCn": "Da Mario 意大利披萨店",
+          "lat": 51.496,
+          "lng": -0.179,
+          "note": "博物馆区旁的老牌意餐，传说戴安娜王妃常来，那不勒斯披萨地道。"
+        },
+        {
+          "name": "Muriel's Kitchen South Kensington",
+          "nameCn": "Muriel's Kitchen 英式早午餐",
+          "lat": 51.4943,
+          "lng": -0.1741,
+          "note": "校园对面的全天候早午餐店，英式 brunch 和咖啡蛋糕适合复习时泡馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Barclays Bank Gloucester Road",
+          "nameCn": "巴克莱银行（格洛斯特路）",
+          "lat": 51.494,
+          "lng": -0.1822,
+          "note": "离校最近的大行网点，新生开户、办借记卡可现场预约办理。"
+        },
+        {
+          "name": "Boots Pharmacy Gloucester Road",
+          "nameCn": "Boots 药妆店（格洛斯特路）",
+          "lat": 51.4943,
+          "lng": -0.1824,
+          "note": "连锁药房兼日用百货，处方药、感冒药和洗护用品一站搞定。"
+        },
+        {
+          "name": "Imperial College Health Centre",
+          "nameCn": "帝国理工校医务中心（GP 诊所）",
+          "lat": 51.499,
+          "lng": -0.174,
+          "note": "校内 NHS 注册 GP 诊所，注册后看病免费，新生务必尽早登记。"
+        },
+        {
+          "name": "Chelsea and Westminster Hospital",
+          "nameCn": "切尔西-威斯敏斯特医院（含急诊 A&E）",
+          "lat": 51.4847,
+          "lng": -0.1819,
+          "note": "富勒姆路上设 24 小时急诊（A&E）的综合医院，突发情况就近就医。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Natural History Museum",
+          "nameCn": "自然历史博物馆",
+          "lat": 51.4967,
+          "lng": -0.1764,
+          "note": "就在校园对面，蓝鲸骨架和恐龙馆免费参观，伦敦必打卡地标。"
+        },
+        {
+          "name": "Victoria and Albert Museum (V&A)",
+          "nameCn": "维多利亚与艾尔伯特博物馆",
+          "lat": 51.4966,
+          "lng": -0.1722,
+          "note": "全球顶尖艺术设计博物馆，免费入场，雨天泡馆和拍照的绝佳去处。"
+        },
+        {
+          "name": "Science Museum",
+          "nameCn": "科学博物馆",
+          "lat": 51.4978,
+          "lng": -0.1745,
+          "note": "紧挨校园，互动展品和航天飞机模型多，理工生会很喜欢。"
+        },
+        {
+          "name": "Royal Albert Hall",
+          "nameCn": "皇家阿尔伯特音乐厅",
+          "lat": 51.501,
+          "lng": -0.1774,
+          "note": "校园北侧地标音乐厅，夏季 BBC Proms 逍遥音乐节学生票超划算。"
+        },
+        {
+          "name": "Hyde Park & Kensington Gardens",
+          "nameCn": "海德公园与肯辛顿花园",
+          "lat": 51.5074,
+          "lng": -0.1718,
+          "note": "步行可达的市中心大公园，跑步野餐看天鹅，离校最近的绿地。"
+        }
+      ]
     }
   ]
 }

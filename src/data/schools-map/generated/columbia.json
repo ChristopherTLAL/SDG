@@ -201,6 +201,175 @@
           "note": "1号线校门口地铁站，校园西界入口"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "H Mart Morningside Heights",
+          "nameCn": "H Mart 韩亚龙超市（晨边高地店）",
+          "lat": 40.8024,
+          "lng": -73.9676,
+          "note": "距校园最近的大型韩亚超市，2828 Broadway（110街），中日韩调料、泡面、新鲜蔬菜和速食一应俱全，留学生囤货首选。"
+        },
+        {
+          "name": "Morton Williams Supermarket",
+          "nameCn": "Morton Williams 超市",
+          "lat": 40.806,
+          "lng": -73.965,
+          "note": "百老汇115街口的本地连锁超市，紧贴校园，日常牛奶面包果蔬随手就买，营业时间长。"
+        },
+        {
+          "name": "Westside Market NYC",
+          "nameCn": "西区市场",
+          "lat": 40.8035,
+          "lng": -73.9665,
+          "note": "百老汇110-111街的精品食品超市，熟食、沙拉吧和进口食材丰富，适合做饭和加餐。"
+        },
+        {
+          "name": "Hung Ryon Korean Grocery",
+          "nameCn": "Hung Ryon 韩国杂货",
+          "lat": 40.806,
+          "lng": -73.9603,
+          "note": "Amsterdam大道114-115街附近的小型亚洲杂货，离宿舍近，临时买韩式泡面、辣酱和零食很方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Junzi Kitchen (Columbia)",
+          "nameCn": "君子食堂（哥大店）",
+          "lat": 40.8067,
+          "lng": -73.964,
+          "note": "百老汇2896号的快休闲中餐，地道家常拌面饭碗，哥大中国学生的食堂级据点，性价比高。"
+        },
+        {
+          "name": "Tom's Restaurant",
+          "nameCn": "汤姆餐厅",
+          "lat": 40.8055,
+          "lng": -73.9655,
+          "note": "百老汇112街的经典美式diner，《宋飞正传》Monk's咖啡馆原型，打卡兼吃早午餐的地标。"
+        },
+        {
+          "name": "Kitchen 79 Columbia",
+          "nameCn": "Kitchen 79 泰餐",
+          "lat": 40.8072,
+          "lng": -73.9637,
+          "note": "Amsterdam大道115街附近的人气泰国菜，咖喱和泰式炒河粉评价好，校园边换口味的去处。"
+        },
+        {
+          "name": "Mel's Burger Bar",
+          "nameCn": "Mel's 汉堡酒吧",
+          "lat": 40.8068,
+          "lng": -73.9637,
+          "note": "百老汇111街的本地汉堡店，分量足、看球氛围好，适合和同学聚餐放松。"
+        },
+        {
+          "name": "Koronet Pizza",
+          "nameCn": "Koronet 披萨",
+          "lat": 40.8047,
+          "lng": -73.9659,
+          "note": "百老汇111街的哥大老牌披萨，以超大尺寸切片闻名，深夜赶due后的能量补给。"
+        },
+        {
+          "name": "Community Food & Juice",
+          "nameCn": "Community 餐厅",
+          "lat": 40.8073,
+          "lng": -73.9635,
+          "note": "百老汇112-113街的人气早午餐，煎饼和咖啡口碑佳，周末常排队，约朋友吃brunch的经典选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Columbia)",
+          "nameCn": "美国银行（哥大支行）",
+          "lat": 40.8047,
+          "lng": -73.9665,
+          "note": "百老汇110街附近的大行网点，开学生账户、办借记卡很方便，ATM网络覆盖广。"
+        },
+        {
+          "name": "Mount Sinai Morningside",
+          "nameCn": "西奈山晨边医院",
+          "lat": 40.805,
+          "lng": -73.9608,
+          "note": "1111 Amsterdam大道（114街）的综合医院，设24小时急诊，离校园步行可达，看急病的首选。"
+        },
+        {
+          "name": "CVS Pharmacy",
+          "nameCn": "CVS 药房",
+          "lat": 40.8052,
+          "lng": -73.9657,
+          "note": "百老汇111街的连锁药房，处方药、感冒药和日用品齐全，还能打疫苗，留学生常用。"
+        },
+        {
+          "name": "T-Mobile Store",
+          "nameCn": "T-Mobile 手机营业厅",
+          "lat": 40.8044,
+          "lng": -73.9663,
+          "note": "百老汇110街附近的运营商门店，办美国手机卡和套餐，新生落地开号的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Low Memorial Library Steps",
+          "nameCn": "罗氏纪念图书馆台阶",
+          "lat": 40.8086,
+          "lng": -73.9619,
+          "note": "哥大主校园的标志性大台阶与圆顶图书馆，Alma Mater雕像所在，校园打卡和拍毕业照的核心点。"
+        },
+        {
+          "name": "Cathedral of St. John the Divine",
+          "nameCn": "圣约翰神明座堂",
+          "lat": 40.8038,
+          "lng": -73.9626,
+          "note": "Amsterdam大道112街的世界最大哥特式教堂之一，建筑宏伟，步行几分钟即到，值得一看。"
+        },
+        {
+          "name": "Riverside Church",
+          "nameCn": "河滨教堂",
+          "lat": 40.8115,
+          "lng": -73.963,
+          "note": "Riverside大道120街的高耸新哥特式教堂，可登塔俯瞰哈德逊河，校园西北侧的安静地标。"
+        },
+        {
+          "name": "Grant's Tomb (General Grant National Memorial)",
+          "nameCn": "格兰特将军墓",
+          "lat": 40.8133,
+          "lng": -73.9631,
+          "note": "河滨公园内的格兰特总统纪念堂，美国最大陵墓，免费参观，散步遛弯的好去处。"
+        },
+        {
+          "name": "Morningside Park",
+          "nameCn": "晨边公园",
+          "lat": 40.8055,
+          "lng": -73.9588,
+          "note": "校园东侧的崖壁公园，有瀑布、池塘和阶梯步道，春秋景色宜人，适合跑步和放空。"
+        }
+      ]
     }
   ]
 }

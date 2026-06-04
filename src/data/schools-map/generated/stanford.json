@@ -216,6 +216,182 @@
           "note": "环绕式座席音乐厅，校园表演艺术中心。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market (Palo Alto)",
+          "nameCn": "全食超市（帕罗奥图店）",
+          "lat": 37.4425,
+          "lng": -122.1594,
+          "note": "市区主力超市，有机食品和热食吧齐全，离校园约1.5公里，可步行或骑车到。"
+        },
+        {
+          "name": "Trader Joe's (Palo Alto)",
+          "nameCn": "缺德舅超市（帕罗奥图店）",
+          "lat": 37.4383,
+          "lng": -122.161,
+          "note": "性价比最高的日常超市，自有品牌冷冻食品和零食极受学生欢迎，El Camino Real路边。"
+        },
+        {
+          "name": "Mollie Stone's Market",
+          "nameCn": "莫莉斯通超市",
+          "lat": 37.4289,
+          "lng": -122.1428,
+          "note": "加州大道（California Ave）上的精品超市，国际食材区有部分亚洲调料，离校园约2.5公里。"
+        },
+        {
+          "name": "Sigona's Farmers Market",
+          "nameCn": "西戈纳农夫市场",
+          "lat": 37.4424,
+          "lng": -122.1718,
+          "note": "就在斯坦福购物中心内的生鲜市场，加州当季果蔬和坚果干货很出名，离校园最近。"
+        },
+        {
+          "name": "99 Ranch Market (Mountain View)",
+          "nameCn": "大华超市（山景城店）",
+          "lat": 37.3888,
+          "lng": -122.0897,
+          "note": "湾区华人采购中餐食材的首选，活海鲜调料齐全；距校园约8公里需开车，但最值得专程一趟。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Taste (Chinese Cuisine)",
+          "nameCn": "鄉味居中餐厅",
+          "lat": 37.4474,
+          "lng": -122.1602,
+          "note": "University Ave上口碑很好的中餐，主打川菜和北方菜，是当地华人和留学生解馋首选。"
+        },
+        {
+          "name": "P.F. Chang's",
+          "nameCn": "华馆（美式中餐）",
+          "lat": 37.4442,
+          "lng": -122.1702,
+          "note": "斯坦福购物中心内的连锁亚洲菜，环境好适合招待家人，离校园近。"
+        },
+        {
+          "name": "Oren's Hummus",
+          "nameCn": "Oren's 鹰嘴豆泥（地中海菜）",
+          "lat": 37.4455,
+          "lng": -122.1621,
+          "note": "University Ave招牌以色列地中海菜，斯坦福学生和本地人都爱的必吃店。"
+        },
+        {
+          "name": "Coupa Cafe (Stanford Y2E2)",
+          "nameCn": "Coupa 咖啡（校内店）",
+          "lat": 37.4282,
+          "lng": -122.1735,
+          "note": "校内人气咖啡馆，委内瑞拉风味咖啡和可丽饼，学生写作业泡馆首选。"
+        },
+        {
+          "name": "The Old Pro",
+          "nameCn": "The Old Pro 运动酒吧餐厅",
+          "lat": 37.4429,
+          "lng": -122.1606,
+          "note": "市中心经典美式运动酒吧，看球聚餐氛围足，是体验本地大学城文化的去处。"
+        },
+        {
+          "name": "Tin Pot Creamery (Stanford Shopping Center)",
+          "nameCn": "Tin Pot 手工冰淇淋（购物中心店）",
+          "lat": 37.4435,
+          "lng": -122.1712,
+          "note": "本地手工冰淇淋名店，伯爵茶、咸焦糖等特色口味，逛完购物中心来一支。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Palo Alto Main)",
+          "nameCn": "美国银行（帕罗奥图主行）",
+          "lat": 37.4496,
+          "lng": -122.1598,
+          "note": "市中心实体网点，可现场办理开户和借记卡，新生落地办银行卡来这里。"
+        },
+        {
+          "name": "Stanford Express Care (Hoover Pavilion)",
+          "nameCn": "斯坦福快速门诊（胡佛馆）",
+          "lat": 37.4395,
+          "lng": -122.1711,
+          "note": "紧邻购物中心的紧急门诊，晚间和周末也开，看小病/急诊比挂大医院快。"
+        },
+        {
+          "name": "Vaden Health Center",
+          "nameCn": "Vaden 学生健康中心",
+          "lat": 37.4272,
+          "lng": -122.1617,
+          "note": "斯坦福校内学生健康中心，看病、配药、心理咨询一站式，学生看病第一站。"
+        },
+        {
+          "name": "T-Mobile (University Ave)",
+          "nameCn": "T-Mobile 营业厅（University大道）",
+          "lat": 37.4443,
+          "lng": -122.1633,
+          "note": "市中心手机营业厅，落地后办美国号码和套餐，可现场激活SIM卡。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Hoover Tower",
+          "nameCn": "胡佛塔",
+          "lat": 37.4275,
+          "lng": -122.1668,
+          "note": "斯坦福地标高塔，可登顶俯瞰整个校园和湾区，新生打卡必去。"
+        },
+        {
+          "name": "Stanford Memorial Church",
+          "nameCn": "斯坦福纪念教堂",
+          "lat": 37.4268,
+          "lng": -122.1705,
+          "note": "主方院中心的马赛克立面教堂，校园最上镜的建筑（注：2026年6-10月施工关闭）。"
+        },
+        {
+          "name": "Cantor Arts Center & Rodin Sculpture Garden",
+          "nameCn": "坎特艺术中心与罗丹雕塑花园",
+          "lat": 37.4326,
+          "lng": -122.1707,
+          "note": "免费的艺术博物馆，藏有巴黎之外最大的罗丹青铜雕塑群，文艺打卡地。"
+        },
+        {
+          "name": "The Main Quad",
+          "nameCn": "主方院",
+          "lat": 37.4274,
+          "lng": -122.1701,
+          "note": "斯坦福的心脏地带，砂岩拱廊和棕榈大道，开学典礼和合影的标志性场所。"
+        },
+        {
+          "name": "The Dish (Stanford foothills trail)",
+          "nameCn": "天线锅徒步道",
+          "lat": 37.4087,
+          "lng": -122.1779,
+          "note": "校园后山的射电望远镜环形步道，看日落和锻炼的本地热门路线，约5.6公里。"
+        }
+      ]
     }
   ]
 }

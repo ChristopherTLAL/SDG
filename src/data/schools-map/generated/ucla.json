@@ -180,6 +180,182 @@
           "note": "学生活动中心，紧邻保利体育馆。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "99 Ranch Market (Westwood)",
+          "nameCn": "大华超市（西木店）",
+          "lat": 34.0497,
+          "lng": -118.4438,
+          "note": "离校最近的大型华人超市，中餐食材、亚洲蔬菜海鲜、二楼亚洲美食广场一应俱全，步行/公交即达。"
+        },
+        {
+          "name": "Trader Joe's (Westwood Village)",
+          "nameCn": "缺德舅超市（西木村店）",
+          "lat": 34.0608,
+          "lng": -118.4445,
+          "note": "村里最受欢迎的平价超市，冷冻食品、零食、半成品丰富，性价比高，几乎是留学生标配。"
+        },
+        {
+          "name": "Ralphs (Westwood Village)",
+          "nameCn": "Ralphs 超市（西木村店）",
+          "lat": 34.0617,
+          "lng": -118.4459,
+          "note": "24 小时营业的美式大超市，紧邻校园，日常采购、深夜补货都方便。"
+        },
+        {
+          "name": "Whole Foods Market (Westwood)",
+          "nameCn": "全食超市（西木店）",
+          "lat": 34.0588,
+          "lng": -118.4434,
+          "note": "主打有机生鲜与现成热食的高端超市，沙拉吧和熟食区适合临时解决一餐。"
+        },
+        {
+          "name": "Nijiya Market (Sawtelle)",
+          "nameCn": "Nijiya 日本超市（Sawtelle 店）",
+          "lat": 34.0349,
+          "lng": -118.4459,
+          "note": "小东京街区的日系超市，新鲜刺身、便当、日本调料齐全，想做日料或买亚洲食材的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "In-N-Out Burger (Westwood)",
+          "nameCn": "In-N-Out 汉堡（西木店）",
+          "lat": 34.0626,
+          "lng": -118.449,
+          "note": "加州必吃的国民汉堡，紧邻校园南侧，记得点隐藏菜单 Animal Style，几乎是来洛杉矶的打卡仪式。"
+        },
+        {
+          "name": "Tsujita LA Artisan Noodle",
+          "nameCn": "Tsujita 拉面（Sawtelle 旗舰店）",
+          "lat": 34.0337,
+          "lng": -118.4459,
+          "note": "全美闻名的蘸面（つけ麺）名店，60 小时熬制豚骨汤，常年排队；近期翻修临时搬到对街 2050/2006 号。"
+        },
+        {
+          "name": "Tatsu Ramen (Sawtelle)",
+          "nameCn": "Tatsu 拉面（Sawtelle 店）",
+          "lat": 34.0356,
+          "lng": -118.4459,
+          "note": "小东京街上人气豚骨拉面，平板点单、营业到很晚，适合上完晚自习去吃一碗。"
+        },
+        {
+          "name": "Yang Chow Westwood",
+          "nameCn": "扬州饭店（西木店）",
+          "lat": 34.0593,
+          "lng": -118.4432,
+          "note": "老牌川粤中餐馆，招牌 Slippery Shrimp（脆皮虾）很受欢迎，想吃中式正餐时的稳妥选择。"
+        },
+        {
+          "name": "BCD Tofu House (Sawtelle)",
+          "nameCn": "北仓洞豆腐（Sawtelle 店）",
+          "lat": 34.042,
+          "lng": -118.4459,
+          "note": "24 小时韩式嫩豆腐锅连锁，热汤暖胃、分量足，赶论文的深夜食堂。"
+        },
+        {
+          "name": "Diddy Riese",
+          "nameCn": "Diddy Riese 饼干冰淇淋",
+          "lat": 34.0628,
+          "lng": -118.447,
+          "note": "西木村平价网红甜品，现烤曲奇夹冰淇淋只要几美元，UCLA 学生几十年的甜点据点。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Ronald Reagan UCLA Medical Center",
+          "nameCn": "罗纳德·里根 UCLA 医学中心",
+          "lat": 34.0653,
+          "lng": -118.4466,
+          "note": "全美顶尖的校内综合医院，含急诊（ER），突发重病或意外第一去处；日常小病可先用校内 Ashe 学生健康中心。"
+        },
+        {
+          "name": "Chase Bank (Westwood Village)",
+          "nameCn": "大通银行（西木村支行）",
+          "lat": 34.0621,
+          "lng": -118.4458,
+          "note": "村里的摩根大通网点，开学生支票/借记账户、办理转账方便，是中国学生常用的大行之一。"
+        },
+        {
+          "name": "CVS Pharmacy (Westwood)",
+          "nameCn": "CVS 药房（西木店）",
+          "lat": 34.0612,
+          "lng": -118.4456,
+          "note": "连锁药房兼便利店，处方药、感冒药、日用品都能买，紧邻校园取药方便。"
+        },
+        {
+          "name": "T-Mobile (Westwood Village)",
+          "nameCn": "T-Mobile 营业厅（西木村店）",
+          "lat": 34.0625,
+          "lng": -118.4467,
+          "note": "村里手机运营商门店，办美国手机号/套餐、配 SIM 卡，新生落地后办卡的去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Royce Hall (UCLA)",
+          "nameCn": "罗伊斯礼堂（UCLA 地标）",
+          "lat": 34.0723,
+          "lng": -118.442,
+          "note": "UCLA 最经典的罗曼式红砖双塔建筑，正对 Dickson 草坪，是全校第一打卡点和毕业拍照圣地。"
+        },
+        {
+          "name": "Hammer Museum",
+          "nameCn": "哈默艺术博物馆",
+          "lat": 34.059,
+          "lng": -118.4438,
+          "note": "UCLA 旗下免费当代艺术馆，位于西木村 Wilshire 与 Westwood 路口，常办展览与公共讲座。"
+        },
+        {
+          "name": "The Getty Center",
+          "nameCn": "盖蒂中心",
+          "lat": 34.078,
+          "lng": -118.4741,
+          "note": "山顶上的世界级艺术博物馆，免费入场（仅停车收费），缆车上山可俯瞰全城与海景，必去。"
+        },
+        {
+          "name": "Westwood Village",
+          "nameCn": "西木村商业街",
+          "lat": 34.061,
+          "lng": -118.446,
+          "note": "紧邻校门的核心生活商圈，餐厅、咖啡、电影院、书店云集，含 1931 年的地标 Fox 剧院塔楼。"
+        },
+        {
+          "name": "Glen Bearie / Janss Steps",
+          "nameCn": "Janss 台阶",
+          "lat": 34.0712,
+          "lng": -118.4445,
+          "note": "UCLA 历史最悠久的 87 级红砖大台阶，连接山顶老校区，俯拍校园与日落的人气取景地。"
+        }
+      ]
     }
   ]
 }

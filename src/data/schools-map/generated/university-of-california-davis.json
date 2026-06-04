@@ -191,6 +191,182 @@
           "note": "市区西班牙式火车站，连通萨克拉门托与湾区。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's",
+          "nameCn": "缺德舅超市",
+          "lat": 38.5403,
+          "lng": -121.7656,
+          "note": "校园正西、Russell Blvd 上，留学生最爱的高性价比超市，自有品牌冷冻食品和零食一站买齐。"
+        },
+        {
+          "name": "Davis Food Co-op",
+          "nameCn": "戴维斯食品合作社",
+          "lat": 38.5455,
+          "lng": -121.743,
+          "note": "市中心 G 街老牌社区超市，有机食材和散装区丰富，每天 7 点开到晚 10 点，走路即到。"
+        },
+        {
+          "name": "Kim's Mart Asian Food",
+          "nameCn": "金氏亚洲食品超市",
+          "lat": 38.544,
+          "lng": -121.7415,
+          "note": "市中心 4th St 上的亚超，韩日中泰调料、泡面、速冻饺子和米都有，离校最近的亚洲杂货。"
+        },
+        {
+          "name": "International Food Market",
+          "nameCn": "国际食品市场",
+          "lat": 38.5475,
+          "lng": -121.7295,
+          "note": "8th St 上的国际杂货店，印度、中东、亚洲香料和清真冻肉齐全，找特殊食材来这儿。"
+        },
+        {
+          "name": "Safeway",
+          "nameCn": "西夫韦超市",
+          "lat": 38.5546,
+          "lng": -121.7388,
+          "note": "Covell Blvd 上的大型连锁超市，生鲜、药房、面包房俱全，开车几分钟、采购量大首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Dumpling House",
+          "nameCn": "饺子馆",
+          "lat": 38.5438,
+          "lng": -121.7405,
+          "note": "市中心 E 街的人气中餐，手工饺子便宜量大，停业四年后回归，学生扎堆。"
+        },
+        {
+          "name": "Davis Noodle City",
+          "nameCn": "戴维斯面城",
+          "lat": 38.5438,
+          "lng": -121.7406,
+          "note": "E 街上的中式面馆，牛肉面、炒菜地道实惠，想吃热乎中餐的稳妥之选。"
+        },
+        {
+          "name": "Sit Lo Saigon",
+          "nameCn": "西贡越南粉",
+          "lat": 38.5443,
+          "lng": -121.7418,
+          "note": "市中心越南餐厅，pho 河粉、越式三明治和春卷新鲜，柠檬草牛肉粉招牌。"
+        },
+        {
+          "name": "Burgers and Brew",
+          "nameCn": "汉堡精酿餐吧",
+          "lat": 38.5435,
+          "lng": -121.739,
+          "note": "3rd St 上的戴维斯标志性汉堡店，本地学生公认必吃，露天座位氛围好。"
+        },
+        {
+          "name": "Mishka's Cafe",
+          "nameCn": "米什卡咖啡馆",
+          "lat": 38.543,
+          "lng": -121.7398,
+          "note": "2nd St 上的本地老牌咖啡馆，自家烘焙豆子，学习写作业泡一下午的好去处。"
+        },
+        {
+          "name": "KetMoRee Thai Restaurant",
+          "nameCn": "KetMoRee 泰餐酒吧",
+          "lat": 38.5445,
+          "lng": -121.7424,
+          "note": "G 街上的泰餐+酒吧，咖喱和炒河粉地道，晚上还有现场音乐，约朋友聚餐热门。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (Davis Downtown)",
+          "nameCn": "美国银行（戴维斯市中心支行）",
+          "lat": 38.544,
+          "lng": -121.744,
+          "note": "市中心 G 街附近的大行网点，开学季办理学生账户、存现金、领银行卡都在这。"
+        },
+        {
+          "name": "CVS Pharmacy",
+          "nameCn": "CVS 药房",
+          "lat": 38.5571,
+          "lng": -121.7232,
+          "note": "连锁药房，处方药、感冒药和日用品都有，配套药剂师可咨询，生病时常去。"
+        },
+        {
+          "name": "Sutter Davis Hospital",
+          "nameCn": "萨特戴维斯医院",
+          "lat": 38.564,
+          "lng": -121.761,
+          "note": "戴维斯本地正规医院，设急诊，遇到急病或需要看医生时的主要就医点。"
+        },
+        {
+          "name": "AT&T Store",
+          "nameCn": "AT&T 通讯营业厅",
+          "lat": 38.5552,
+          "lng": -121.7378,
+          "note": "运营商门店，办手机卡、选套餐、激活号码，刚落地办美国电话号来这儿最方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "UC Davis Arboretum & Public Garden",
+          "nameCn": "加州大学戴维斯植物园",
+          "lat": 38.5345,
+          "lng": -121.751,
+          "note": "贯穿校园南缘的百亩植物园，沿水道散步跑步、看花拍照，校内最受欢迎的休闲地。"
+        },
+        {
+          "name": "Jan Shrem and Maria Manetti Shrem Museum of Art",
+          "nameCn": "曼内蒂·施雷姆艺术博物馆",
+          "lat": 38.5345,
+          "lng": -121.756,
+          "note": "校园入口的现代艺术馆，标志性铝制大顶棚，免费参观，看展拍照两相宜。"
+        },
+        {
+          "name": "Mondavi Center for the Performing Arts",
+          "nameCn": "蒙达维表演艺术中心",
+          "lat": 38.5358,
+          "lng": -121.753,
+          "note": "校园里的顶级演出场馆，交响乐、舞蹈、名人讲座常驻，学生票价友好。"
+        },
+        {
+          "name": "Central Park & Davis Farmers Market",
+          "nameCn": "中央公园与戴维斯农夫市集",
+          "lat": 38.5455,
+          "lng": -121.74,
+          "note": "市中心公园，常年周三周六办农夫市集，本地果蔬小吃，体验小城生活的窗口。"
+        },
+        {
+          "name": "U.S. Bicycling Hall of Fame",
+          "nameCn": "美国自行车名人堂",
+          "lat": 38.5447,
+          "lng": -121.7411,
+          "note": "市中心的自行车主题博物馆，戴维斯是全美自行车之城，骑行文化的趣味打卡点。"
+        }
+      ]
     }
   ]
 }

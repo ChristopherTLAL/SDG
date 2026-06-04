@@ -228,6 +228,175 @@
           "note": "西海岸主线车站,距校园约 3 英里、巴士直达。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Spar (Lancaster University Central)",
+          "nameCn": "Spar 校园超市",
+          "lat": 54.0099,
+          "lng": -2.7864,
+          "note": "校园中心 Alexandra Square 附近的便利超市，买日用品和应急食材最方便，营业到很晚。"
+        },
+        {
+          "name": "KF Oriental Foods",
+          "nameCn": "KF 东方亚洲超市",
+          "lat": 54.0475,
+          "lng": -2.8007,
+          "note": "市中心老牌华人/亚洲超市，中式调料、冷冻食品和新鲜蔬果齐全，楼上还有熟食。"
+        },
+        {
+          "name": "Taste the Orient",
+          "nameCn": "东方味道亚洲超市",
+          "lat": 54.0453,
+          "lng": -2.7998,
+          "note": "Penny Street 上的亚洲超市，供应八个亚洲国家的食材，肉类米面酱料零食都有。"
+        },
+        {
+          "name": "Mung Mee Oriental Supermarket",
+          "nameCn": "Mung Mee 东方超市",
+          "lat": 54.0505,
+          "lng": -2.7997,
+          "note": "Chapel Street 上的亚洲超市，价格实惠，中泰日韩食材都能买到。"
+        },
+        {
+          "name": "Sainsbury's Lancaster",
+          "nameCn": "Sainsbury's 大型超市",
+          "lat": 54.0419,
+          "lng": -2.7976,
+          "note": "市中心大型连锁超市，生鲜、烘焙和生活用品一站式采购，离火车站很近。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Guan Zi Chinese Restaurant",
+          "nameCn": "冠子中餐厅（校内）",
+          "lat": 54.0103,
+          "lng": -2.7858,
+          "note": "开在校园内、深受学生喜爱的中餐厅，想家时步行可达的地道家常味。"
+        },
+        {
+          "name": "Sultans of Lancaster",
+          "nameCn": "Sultans 烤肉店",
+          "lat": 54.0096,
+          "lng": -2.7869,
+          "note": "校内学生票选第一的小吃店，咖喱汉堡披萨烤肉都有，夜宵必去的传奇。"
+        },
+        {
+          "name": "SeaSound Chinese Restaurant",
+          "nameCn": "海之声中餐厅",
+          "lat": 54.0493,
+          "lng": -2.802,
+          "note": "市中心口碑最好的地道中餐之一，分量大、菜式正宗，约朋友聚餐首选。"
+        },
+        {
+          "name": "Full House Noodle Bar",
+          "nameCn": "满堂面馆",
+          "lat": 54.0476,
+          "lng": -2.8016,
+          "note": "主打各式中式面食的人气小馆，想吃一碗热汤面解馋来这里。"
+        },
+        {
+          "name": "Greggs (Alexandra Square)",
+          "nameCn": "Greggs 烘焙快餐（校内）",
+          "lat": 54.01,
+          "lng": -2.7862,
+          "note": "英国国民连锁，香肠卷和酥皮派是日常快餐，中午常排长队的校园地标。"
+        },
+        {
+          "name": "The Borough",
+          "nameCn": "The Borough 英式餐酒馆",
+          "lat": 54.0455,
+          "lng": -2.7977,
+          "note": "市中心知名英式 gastropub，体验本地周日烤肉和精酿氛围的好去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Lancaster University Medical Centre",
+          "nameCn": "兰卡斯特大学校医院 (GP)",
+          "lat": 54.0085,
+          "lng": -2.7853,
+          "note": "校内 GP 诊所，注册后看病、开药、健康咨询都在这里，留学生务必先注册。"
+        },
+        {
+          "name": "Royal Lancaster Infirmary",
+          "nameCn": "皇家兰卡斯特医院",
+          "lat": 54.0426,
+          "lng": -2.7998,
+          "note": "本地综合医院，设有 24 小时 A&E 急诊，紧急或重病就医到这里。"
+        },
+        {
+          "name": "Boots Pharmacy (Lancaster)",
+          "nameCn": "Boots 药房",
+          "lat": 54.047,
+          "lng": -2.8001,
+          "note": "市中心大型连锁药房，买非处方药、日用护理品和取药都方便。"
+        },
+        {
+          "name": "NatWest Bank (Lancaster)",
+          "nameCn": "NatWest 银行",
+          "lat": 54.0473,
+          "lng": -2.8009,
+          "note": "市中心主要银行网点，办理英国本地银行账户和现场咨询可来这里预约。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Ashton Memorial & Williamson Park",
+          "nameCn": "阿什顿纪念堂与威廉森公园",
+          "lat": 54.0453,
+          "lng": -2.7819,
+          "note": "兰卡斯特地标圆顶建筑，54英亩公园视野极佳，能远眺海湾与湖区，拍照散步首选。"
+        },
+        {
+          "name": "Lancaster Castle",
+          "nameCn": "兰卡斯特城堡",
+          "lat": 54.0499,
+          "lng": -2.8053,
+          "note": "千年历史古堡，曾是法庭与监狱，市中心最具代表性的历史打卡地。"
+        },
+        {
+          "name": "Lancaster Priory",
+          "nameCn": "兰卡斯特修道院教堂",
+          "lat": 54.0503,
+          "lng": -2.8047,
+          "note": "紧邻城堡的古老教堂，建筑庄严，可登高俯瞰城市与河谷。"
+        },
+        {
+          "name": "Lancaster Canal",
+          "nameCn": "兰卡斯特运河",
+          "lat": 54.044,
+          "lng": -2.796,
+          "note": "穿城而过的运河步道，适合跑步、骑行和傍晚散步的安静风景线。"
+        }
+      ]
     }
   ]
 }

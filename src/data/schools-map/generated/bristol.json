@@ -227,6 +227,168 @@
           "note": "布里斯托主火车站,城市铁路门户。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "168 Oriental Supermarket",
+          "nameCn": "168亚洲超市",
+          "lat": 51.45654,
+          "lng": -2.59441,
+          "note": "市中心小唐人街最大的亚超，中日韩泰食材、整排泡面和冷冻区一应俱全，从校园步行可达。"
+        },
+        {
+          "name": "Wai Yee Hong (Eastgate Oriental City)",
+          "nameCn": "伟义行华人超市",
+          "lat": 51.47312,
+          "lng": -2.56942,
+          "note": "Eastgate东门亚洲城内的大型华人批发超市，中餐食材最齐全，适合一次性囤货采购。"
+        },
+        {
+          "name": "Sainsbury's (The Triangle)",
+          "nameCn": "Sainsbury's超市（三角广场店）",
+          "lat": 51.45688,
+          "lng": -2.60673,
+          "note": "紧邻校园的英国主流大型超市，就在Queens Road上，日常采购最方便。"
+        },
+        {
+          "name": "Bristol Sweet Mart",
+          "nameCn": "布里斯托甜品集市（南亚食材）",
+          "lat": 51.46766,
+          "lng": -2.56469,
+          "note": "Easton老牌南亚/中东杂货铺，香料、米面、亚洲调料种类极多，价格实惠。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "BrisNoodles",
+          "nameCn": "BrisNoodles面馆",
+          "lat": 51.45532,
+          "lng": -2.60044,
+          "note": "Park Row上温州师傅开的中式面馆，现做面食和街头小吃口味地道，留学生最爱（仅收现金）。"
+        },
+        {
+          "name": "Beijing Cooking Pot",
+          "nameCn": "北京砂锅居",
+          "lat": 51.45689,
+          "lng": -2.59782,
+          "note": "Perry Road上离校园很近的中餐砂锅店，主打煲汤和轻食，适合一人食。"
+        },
+        {
+          "name": "Wagamama (Clifton Triangle)",
+          "nameCn": "Wagamama日式拉面（三角店）",
+          "lat": 51.4565,
+          "lng": -2.60702,
+          "note": "校园对面的连锁亚洲面馆，拉面咖喱出餐快，是同学聚餐的稳妥之选。"
+        },
+        {
+          "name": "Eat a Pitta",
+          "nameCn": "Eat a Pitta中东口袋饼",
+          "lat": 51.45477,
+          "lng": -2.61913,
+          "note": "Clifton村里超人气的法拉费口袋饼，本地学生公认的平价快餐打卡店。"
+        },
+        {
+          "name": "St Nicholas Market",
+          "nameCn": "圣尼古拉斯市集",
+          "lat": 51.45433,
+          "lng": -2.59305,
+          "note": "市中心标志性美食市集，几十家小摊从咖喱到鸡肉卷，本地必吃午餐圣地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bristol Royal Infirmary (BRI)",
+          "nameCn": "布里斯托皇家医院",
+          "lat": 51.45837,
+          "lng": -2.59646,
+          "note": "校园旁的大型NHS公立医院，设有急诊（A&E），突发疾病或受伤就近就医。"
+        },
+        {
+          "name": "Boots Pharmacy (Queen's Road)",
+          "nameCn": "Boots药房（女王路店）",
+          "lat": 51.4571,
+          "lng": -2.60736,
+          "note": "校园门口Queens Road上的连锁药房，买非处方药、感冒药和日用品都靠它。"
+        },
+        {
+          "name": "EE Store (Cabot Circus)",
+          "nameCn": "EE手机营业厅（Cabot Circus店）",
+          "lat": 51.45843,
+          "lng": -2.58596,
+          "note": "Cabot Circus商场内的EE运营商门店，办手机卡和套餐，附近还有Three/Vodafone。"
+        },
+        {
+          "name": "Lloyds Bank (Cabot Circus)",
+          "nameCn": "劳埃德银行（Cabot Circus店）",
+          "lat": 51.45846,
+          "lng": -2.5858,
+          "note": "购物中心附近的主流银行网点，可预约开户；Queens Road三角区还有HSBC等多家银行。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Cabot Tower & Brandon Hill",
+          "nameCn": "卡伯特塔与布兰登山",
+          "lat": 51.45403,
+          "lng": -2.60682,
+          "note": "校园后山的城市绿洲，登塔可俯瞰全城，步行几分钟即到，看日落的最佳免费观景点。"
+        },
+        {
+          "name": "Clifton Suspension Bridge",
+          "nameCn": "克利夫顿悬索桥",
+          "lat": 51.45495,
+          "lng": -2.62786,
+          "note": "布里斯托第一地标，横跨Avon峡谷的百年吊桥，免费步行通过，必去拍照打卡。"
+        },
+        {
+          "name": "Bristol Museum & Art Gallery",
+          "nameCn": "布里斯托博物馆与美术馆",
+          "lat": 51.45649,
+          "lng": -2.60504,
+          "note": "就在校园旁Queens Road上的免费博物馆，自然史与艺术藏品丰富，雨天好去处。"
+        },
+        {
+          "name": "We The Curious",
+          "nameCn": "We The Curious科学馆",
+          "lat": 51.45036,
+          "lng": -2.60051,
+          "note": "海港边的互动科学中心，含天文馆，适合放松散心，周边Harbourside咖啡酒吧林立。"
+        },
+        {
+          "name": "Clifton Village",
+          "nameCn": "克利夫顿村",
+          "lat": 51.45528,
+          "lng": -2.61934,
+          "note": "乔治王朝风格的精致老街区，独立小店、咖啡馆和酒吧云集，周末闲逛首选。"
+        }
+      ]
     }
   ]
 }

@@ -200,6 +200,175 @@
           "note": "学生活动中心与餐饮社团枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Asian Market (亚洲超市)",
+          "nameCn": "亚洲超市",
+          "lat": 38.0561,
+          "lng": -78.4966,
+          "note": "校园北侧 Emmet St 上最近的综合亚超，中日韩泰食材齐全，周五到货最新鲜，骑车/公交 10 分钟可达。"
+        },
+        {
+          "name": "C'ville Oriental",
+          "nameCn": "夏村东方亚超",
+          "lat": 38.0688,
+          "lng": -78.4853,
+          "note": "本地老牌华人亚超，中式调料、米面、火锅料和新鲜亚洲蔬菜最全，想做正经中餐来这里囤货。"
+        },
+        {
+          "name": "Foods of All Nations",
+          "nameCn": "万国食品超市",
+          "lat": 38.0434,
+          "lng": -78.5128,
+          "note": "离学校仅 1.2km 的精品国际超市，亚洲调味料、酱油鱼露、香茅等难买食材都有，还带熟食热餐。"
+        },
+        {
+          "name": "Harris Teeter (Barracks Road)",
+          "nameCn": "哈里斯蒂特超市（兵营路店）",
+          "lat": 38.0503,
+          "lng": -78.5019,
+          "note": "Barracks Road 购物中心内的主流大型连锁超市，日常米面果蔬肉蛋一站式采购，步行约 20 分钟。"
+        },
+        {
+          "name": "Kroger (Barracks Road)",
+          "nameCn": "克罗格超市（兵营路店）",
+          "lat": 38.0512,
+          "lng": -78.5031,
+          "note": "兵营路上的平价大型超市，分量大价格友好，和 Harris Teeter 一条街，开学采买大件首选。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Marco & Luca Dumpling Store (Got Dumplings)",
+          "nameCn": "马可与卢卡饺子馆",
+          "lat": 38.0361,
+          "lng": -78.5004,
+          "note": "Corner 街上的传奇小店，手工水饺加招牌辣酱便宜管饱，是 UVA 学生公认的中式深夜食堂。"
+        },
+        {
+          "name": "Bodo's Bagels (UVA Corner)",
+          "nameCn": "Bodo's 贝果（校角店）",
+          "lat": 38.0355,
+          "lng": -78.501,
+          "note": "1988 年至今的夏村招牌，现烤纽约水煮贝果三明治，5 美元搞定一顿，UVA 必打卡早午餐。"
+        },
+        {
+          "name": "Take It Away Sandwich Shop",
+          "nameCn": "Take It Away 三明治店",
+          "lat": 38.0362,
+          "lng": -78.5003,
+          "note": "Elliewood 巷里的几代 UVA 学生情怀三明治店，招牌 House Dressing 酱汁是灵魂，主打外带。"
+        },
+        {
+          "name": "Peter Chang (Downtown)",
+          "nameCn": "张鹏亮中餐（市区店）",
+          "lat": 38.0299,
+          "lng": -78.4849,
+          "note": "名厨 Peter Chang 的正宗川菜，干煸豆角和鸡蛋泡饼出名（Barracks 老店已关，认准市区店）。"
+        },
+        {
+          "name": "Mochiko Cville",
+          "nameCn": "Mochiko 夏威夷亚洲快餐",
+          "lat": 38.0357,
+          "lng": -78.5006,
+          "note": "Corner 上人气夏威夷-亚洲风味快餐，炸鸡饭和 poke 碗份量足，学生午餐高频选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (University Branch)",
+          "nameCn": "美国银行（大学支行）",
+          "lat": 38.0355,
+          "lng": -78.501,
+          "note": "就在 Corner 上 1619 University Ave，新生开户、办借记卡最方便的大行网点，紧邻校园。"
+        },
+        {
+          "name": "UVA Health University Hospital (ER)",
+          "nameCn": "UVA 大学医院（急诊）",
+          "lat": 38.026,
+          "lng": -78.4925,
+          "note": "校园南侧的大学附属医院，24 小时急诊，离主校区仅约 1.4km，突发就医的兜底去处。"
+        },
+        {
+          "name": "CVS Pharmacy (The Corner)",
+          "nameCn": "CVS 药房（校角店）",
+          "lat": 38.0345,
+          "lng": -78.5002,
+          "note": "Corner 上的连锁药房，处方药、感冒药、日用品一应俱全，营业到晚上 11 点很救急。"
+        },
+        {
+          "name": "Student Health & Wellness (UVA)",
+          "nameCn": "UVA 学生健康中心",
+          "lat": 38.0312,
+          "lng": -78.5096,
+          "note": "校内学生健康与心理咨询中心，看普通门诊（GP）、打疫苗、开转诊，持学生医保即可使用。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "The Rotunda & The Lawn (UVA)",
+          "nameCn": "圆顶大厅与草坪（UVA 学术村）",
+          "lat": 38.0356,
+          "lng": -78.5034,
+          "note": "Jefferson 设计的校园心脏，UNESCO 世界遗产，免费参观，是 UVA 最经典的拍照与散步地标。"
+        },
+        {
+          "name": "UVA Chapel",
+          "nameCn": "UVA 教堂",
+          "lat": 38.0364,
+          "lng": -78.5046,
+          "note": "紧邻圆顶大厅的哥特式石砌小教堂，建筑与彩窗很美，是校园里安静的出片角落。"
+        },
+        {
+          "name": "Historic Downtown Mall",
+          "nameCn": "历史步行街",
+          "lat": 38.0304,
+          "lng": -78.4799,
+          "note": "离校约 2km 的砖砌步行街，餐厅、书店、电影院和市集云集，周末逛吃、看演出的好去处。"
+        },
+        {
+          "name": "Monticello",
+          "nameCn": "蒙蒂塞洛庄园",
+          "lat": 38.0052,
+          "lng": -78.4563,
+          "note": "Jefferson 故居、UNESCO 世界遗产（驾车约 15 分钟），与 UVA 同列名录，最值得一去的人文景点。"
+        },
+        {
+          "name": "Carter Mountain Orchard",
+          "nameCn": "卡特山果园",
+          "lat": 37.979,
+          "lng": -78.4897,
+          "note": "山顶果园（驾车约 15 分钟），秋季摘苹果、喝苹果酒，俯瞰夏村与蓝岭山脉的绝佳观景台。"
+        }
+      ]
     }
   ]
 }

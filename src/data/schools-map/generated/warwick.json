@@ -243,6 +243,182 @@
           "note": "邻 Tocil Wood 树林,近艺术中心与运动场。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tesco Superstore (Cannon Park)",
+          "nameCn": "乐购大型超市（坎农公园店）",
+          "lat": 52.3871,
+          "lng": -1.5544,
+          "note": "离校园步行可达的大型综合超市，营业到午夜，留学生采买日用与食材的首选。"
+        },
+        {
+          "name": "Seoul Plaza (Korean & Asian grocery)",
+          "nameCn": "首尔广场亚洲超市",
+          "lat": 52.3868,
+          "lng": -1.5549,
+          "note": "坎农公园内的韩亚超市，备有韩日中泰食材、泡面、饺子和酱料，想做中餐就来这。"
+        },
+        {
+          "name": "Iceland (Cannon Park)",
+          "nameCn": "Iceland 冷冻食品超市",
+          "lat": 52.3867,
+          "lng": -1.5546,
+          "note": "同在坎农公园，主打平价冷冻食品和速食，预算有限时很实用。"
+        },
+        {
+          "name": "Wah Yan Hong Chinese Supermarket",
+          "nameCn": "华人行中超（考文垂店）",
+          "lat": 52.4072,
+          "lng": -1.5106,
+          "note": "市中心赫特福德街上当地最大的中超，2000+种商品，米面调料一站买齐。"
+        },
+        {
+          "name": "China Mini Market (Fresh Oriental)",
+          "nameCn": "中国小超市（东方生鲜）",
+          "lat": 52.4085,
+          "lng": -1.5095,
+          "note": "市中心家庭经营的东方杂货店，主打新鲜亚洲果蔬和东南亚食材，价格实惠。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Seoul Plaza Kitchen / Asian takeaway (Cannon Park)",
+          "nameCn": "坎农公园亚洲简餐",
+          "lat": 52.3869,
+          "lng": -1.5548,
+          "note": "紧挨校园的购物中心，韩亚现成熟食与简餐，下课顺路就能解决一顿亚洲胃。"
+        },
+        {
+          "name": "Greggs (Cannon Park)",
+          "nameCn": "Greggs 英式连锁烘焙",
+          "lat": 52.3866,
+          "lng": -1.5545,
+          "note": "英国国民级平价面包房，香肠卷（sausage roll）是必尝的本地日常快餐。"
+        },
+        {
+          "name": "Noodle Bar Coventry",
+          "nameCn": "面吧（考文垂）",
+          "lat": 52.4079,
+          "lng": -1.5099,
+          "note": "市中心老牌粤式中餐，价廉味正、出餐快，是华人和留学生的常去食堂。"
+        },
+        {
+          "name": "Chi-Bar",
+          "nameCn": "Chi-Bar 亚洲面馆",
+          "lat": 52.4081,
+          "lng": -1.5118,
+          "note": "市中心 Lady Godiva 雕像旁的潮流面馆，粤川韩日口味都有，学生气氛浓。"
+        },
+        {
+          "name": "Kayal (South Indian) / city-centre curry",
+          "nameCn": "市中心印度咖喱餐厅",
+          "lat": 52.4071,
+          "lng": -1.5135,
+          "note": "英国必体验的咖喱文化，市中心多家印度餐厅，想换换口味时值得一试。"
+        },
+        {
+          "name": "Fish & chips (local chippy)",
+          "nameCn": "本地炸鱼薯条店",
+          "lat": 52.4076,
+          "lng": -1.5102,
+          "note": "英国头号国民美食，市中心多处可买，来英国一定要吃一次的地道炸鱼薯条。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Coventry Building Society (Cannon Park)",
+          "nameCn": "考文垂房屋互助会（坎农公园支行）",
+          "lat": 52.3867,
+          "lng": -1.555,
+          "note": "校园旁购物中心内的本地金融机构，可办储蓄账户，距学生会最近的银行点。"
+        },
+        {
+          "name": "University of Warwick Health Centre (NHS GP)",
+          "nameCn": "华威大学校内 NHS 全科诊所",
+          "lat": 52.3805,
+          "lng": -1.5663,
+          "note": "校内 NHS 全科诊所（GP），到校后先在此注册，日常看病开药都靠它。"
+        },
+        {
+          "name": "Boots Pharmacy (Cannon Park)",
+          "nameCn": "Boots 药妆店（坎农公园）",
+          "lat": 52.3867,
+          "lng": -1.5547,
+          "note": "校园旁的连锁药房，处方取药、常用药和个护用品，留学生最常用的药店。"
+        },
+        {
+          "name": "University Hospital Coventry (UHCW A&E)",
+          "nameCn": "考文垂大学医院（急诊 A&E）",
+          "lat": 52.4216,
+          "lng": -1.436,
+          "note": "本地大型医院和 24 小时急诊（A&E），突发重病或意外受伤来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Warwick Arts Centre",
+          "nameCn": "华威艺术中心",
+          "lat": 52.3796,
+          "lng": -1.5614,
+          "note": "就在校园核心，伦敦以外英国最大的多艺术形式中心，看戏看电影听音乐会全在此。"
+        },
+        {
+          "name": "Kenilworth Castle & Elizabethan Garden",
+          "nameCn": "凯尼尔沃思城堡与伊丽莎白花园",
+          "lat": 52.3486,
+          "lng": -1.5871,
+          "note": "校园南侧约 4 英里的中世纪红砂岩城堡遗址，英格兰遗产名胜，绝佳出片打卡地。"
+        },
+        {
+          "name": "War Memorial Park",
+          "nameCn": "战争纪念公园",
+          "lat": 52.3901,
+          "lng": -1.5231,
+          "note": "校园与市区之间凯尼尔沃思路上的大型城市公园，跑步、野餐、散心的好去处。"
+        },
+        {
+          "name": "Coventry Cathedral (ruins + new)",
+          "nameCn": "考文垂大教堂（旧址废墟与新堂）",
+          "lat": 52.4083,
+          "lng": -1.5071,
+          "note": "市中心地标，二战被炸的旧堂废墟与现代新堂并立，是和平与重生的象征，必看。"
+        },
+        {
+          "name": "Coventry Transport Museum",
+          "nameCn": "考文垂交通博物馆",
+          "lat": 52.4093,
+          "lng": -1.5103,
+          "note": "市中心免费博物馆，藏有全英最大的英国汽车收藏，对车迷和拍照都很友好。"
+        }
+      ]
     }
   ]
 }

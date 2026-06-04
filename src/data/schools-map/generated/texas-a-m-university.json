@@ -185,6 +185,168 @@
           "note": "西校区 Aggies 棒球队主场。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "BCS Asian Market",
+          "nameCn": "BCS 亚洲超市",
+          "lat": 30.59977,
+          "lng": -96.30445,
+          "note": "布莱恩-大学城地区最大的亚洲/中国超市，速冻饺子、火锅料、老干妈、奶茶原料和亚洲蔬菜肉类都能买到，留学生囤中餐食材首选。"
+        },
+        {
+          "name": "H-E-B (Texas Avenue)",
+          "nameCn": "H-E-B 超市（德州大道店）",
+          "lat": 30.61262,
+          "lng": -96.3189,
+          "note": "德州本土连锁大型超市，离校约2公里、营业到午夜，自带药房和加油站，日常采购最方便的主力超市。"
+        },
+        {
+          "name": "Walmart Supercenter",
+          "nameCn": "沃尔玛超级购物中心",
+          "lat": 30.59717,
+          "lng": -96.30008,
+          "note": "一站式大卖场，食品、日用品、家居、电子产品齐全，新生开学采购床品锅具等大件的去处。"
+        },
+        {
+          "name": "Brookshire Brothers",
+          "nameCn": "Brookshire Brothers 超市",
+          "lat": 30.60026,
+          "lng": -96.34217,
+          "note": "离校最近的本地连锁生鲜超市（约1.4公里），临时补货、买牛奶鸡蛋果蔬步行可达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Chef Cao's Chinese Restaurant",
+          "nameCn": "曹师傅中餐厅",
+          "lat": 30.63085,
+          "lng": -96.33149,
+          "note": "当地公认最地道的中餐馆之一，川菜湘菜为主，午市套餐实惠，离北门和校园都近，思乡时的食堂。"
+        },
+        {
+          "name": "Tanaka Ramen",
+          "nameCn": "田中拉面",
+          "lat": 30.61852,
+          "lng": -96.32058,
+          "note": "人气日式拉面店，豚骨拉面和小食评价高，离德州大道商圈近，想吃热汤面的好选择。"
+        },
+        {
+          "name": "Aji Sushi",
+          "nameCn": "Aji 寿司（越南/日料）",
+          "lat": 30.61423,
+          "lng": -96.31706,
+          "note": "供应寿司与越南粉，亚洲口味聚餐选择，价格亲民、份量足。"
+        },
+        {
+          "name": "Dixie Chicken",
+          "nameCn": "Dixie Chicken 酒吧餐厅",
+          "lat": 30.61781,
+          "lng": -96.34631,
+          "note": "北门最具传统的Aggie地标，著名的毕业戒指啤酒礼（Ring Dunk）发源地，炸鸡、汉堡配啤酒，必须打卡感受校园文化。"
+        },
+        {
+          "name": "Layne's Chicken Fingers",
+          "nameCn": "Layne's 炸鸡条",
+          "lat": 30.62335,
+          "lng": -96.32941,
+          "note": "College Station 本地起家的炸鸡条名店，招牌秘制蘸酱，几美元一份，被Aggie视为成人礼般的必吃。"
+        },
+        {
+          "name": "Fuego Tortilla Grill",
+          "nameCn": "Fuego 墨西哥卷餅",
+          "lat": 30.62737,
+          "lng": -96.33411,
+          "note": "学生最爱的德州墨西哥风味taco/breakfast burrito，常24小时营业，宵夜和早餐人气爆棚。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (University Drive)",
+          "nameCn": "大通银行（University Dr 网点）",
+          "lat": 30.63333,
+          "lng": -96.3289,
+          "note": "离校约2.5公里的全国性大行网点，可办理学生支票账户、Debit卡和现金存取，开户首选。"
+        },
+        {
+          "name": "CVS Pharmacy (University Drive)",
+          "nameCn": "CVS 药房（University Dr 店）",
+          "lat": 30.62125,
+          "lng": -96.34249,
+          "note": "离校最近的连锁药房（约1公里），处方药、感冒药、日用品都有，生病时步行可达。"
+        },
+        {
+          "name": "CHI St. Joseph Health Regional Hospital",
+          "nameCn": "圣约瑟夫地区医院（CHI）",
+          "lat": 30.65572,
+          "lng": -96.34688,
+          "note": "地区主要综合医院，设24小时急诊（ER），突发重病或受伤就近就医的去处；校内另有学生健康中心看小病。"
+        },
+        {
+          "name": "Cricket Wireless (Texas Avenue)",
+          "nameCn": "Cricket Wireless 通讯营业厅",
+          "lat": 30.61455,
+          "lng": -96.31906,
+          "note": "手机卡/套餐营业厅，落地后办美国号码、预付费套餐和实体SIM卡可来这里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Kyle Field",
+          "nameCn": "凯尔球场",
+          "lat": 30.6099,
+          "lng": -96.34039,
+          "note": "可容纳十万人的Aggie橄榄球圣地、全美最大的大学球场之一，秋季比赛日的「第12人」氛围必体验，紧邻校园核心。"
+        },
+        {
+          "name": "George H.W. Bush Presidential Library & Museum",
+          "nameCn": "老布什总统图书馆暨博物馆",
+          "lat": 30.59631,
+          "lng": -96.35312,
+          "note": "美国第41任总统纪念馆，含椭圆形办公室复制场景和一段真实柏林墙，校园西侧步行/骑行可达的必看人文景点。"
+        },
+        {
+          "name": "Memorial Student Center (MSC)",
+          "nameCn": "纪念学生中心（MSC）",
+          "lat": 30.61223,
+          "lng": -96.34122,
+          "note": "校园地标性学生活动中心，兼为阵亡校友纪念馆（进门需脱帽以示敬意），书店、餐饮、艺术展一应俱全。"
+        },
+        {
+          "name": "Northgate District",
+          "nameCn": "北门街区",
+          "lat": 30.62089,
+          "lng": -96.34987,
+          "note": "紧邻校园北侧的餐饮娱乐一条街，酒吧、夜店、小吃和咖啡聚集，是Aggie夜生活与朋友聚会的中心。"
+        }
+      ]
     }
   ]
 }

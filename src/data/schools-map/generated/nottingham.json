@@ -238,6 +238,154 @@
           "note": "市中心铁路枢纽,有轨电车直达University Park校区"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sainsbury's Beeston Superstore",
+          "nameCn": "Sainsbury's 比斯顿超市",
+          "lat": 52.9288,
+          "lng": -1.2147,
+          "note": "距校园西南约2公里、比斯顿镇中心的大型综合超市，日用百货和生鲜一站买齐，留学生最常去的主力超市之一。"
+        },
+        {
+          "name": "Tesco Extra Beeston",
+          "nameCn": "Tesco Extra 比斯顿店",
+          "lat": 52.9262,
+          "lng": -1.2131,
+          "note": "比斯顿火车站旁的特大Tesco，价格亲民、营业时间长，电锅锅碗瓢盆等开学装备也能在这买。"
+        },
+        {
+          "name": "Oriental Mart",
+          "nameCn": "东方超市",
+          "lat": 52.9553,
+          "lng": -1.1524,
+          "note": "市中心Goldsmith Street的老牌亚超，老干妈、火锅底料、生鲜冻品和中日韩泰货齐全，比斯顿高街也新开了分店。"
+        },
+        {
+          "name": "Asiana Hypermarket",
+          "nameCn": "Asiana 亚洲大卖场",
+          "lat": 52.9623,
+          "lng": -1.1467,
+          "note": "诺丁汉规模最大的亚洲超市，中港台日韩越货品最全，想囤大批中餐食材来这准没错。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Nosh Restaurant",
+          "nameCn": "Nosh 中餐馆",
+          "lat": 52.9281,
+          "lng": -1.2129,
+          "note": "藏在比斯顿高街小巷里的地道川菜小店，招牌四川汤面口碑极好，离校近、性价比高。"
+        },
+        {
+          "name": "Shanghai Shanghai",
+          "nameCn": "上海上海",
+          "lat": 52.9538,
+          "lng": -1.1431,
+          "note": "被东米德兰华人圈公认数一数二的中餐厅，250多道菜、川菜麻辣到位，宴请聚餐首选。"
+        },
+        {
+          "name": "Annie's Burger Shack",
+          "nameCn": "Annie's 美式汉堡",
+          "lat": 52.9505,
+          "lng": -1.1448,
+          "note": "花边市场区的网红美式汉堡店，30多款汉堡且都可做素食版，本地必打卡的地标级馆子。"
+        },
+        {
+          "name": "Wagamama Nottingham",
+          "nameCn": "Wagamama 亚洲面屋",
+          "lat": 52.9559,
+          "lng": -1.1506,
+          "note": "市中心的连锁日式亚洲料理，拉面、咖喱饭份量足，一个人快食或同学小聚都合适。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Queen's Medical Centre (QMC)",
+          "nameCn": "女王医学中心（QMC）",
+          "lat": 52.9436,
+          "lng": -1.1859,
+          "note": "紧邻校园、有人行天桥直达的大型NHS医院，含急诊A&E，是看病急诊的第一去处。"
+        },
+        {
+          "name": "Boots Pharmacy Beeston",
+          "nameCn": "Boots 药房（比斯顿）",
+          "lat": 52.9249,
+          "lng": -1.2164,
+          "note": "比斯顿镇中心的连锁药房，感冒药、处方取药和常用日化都有，离学生宿舍区很近。"
+        },
+        {
+          "name": "Lloyds Bank Beeston",
+          "nameCn": "劳埃德银行（比斯顿）",
+          "lat": 52.9265,
+          "lng": -1.2165,
+          "note": "比斯顿高街的大行网点，可预约办理开户，留学生落地后办英国银行卡的方便选择。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Highfields Park",
+          "nameCn": "海菲尔兹公园",
+          "lat": 52.9361,
+          "lng": -1.1935,
+          "note": "就在大学正门口的湖畔公园，可划船散步，是校园同款明信片风景、最近的遛弯拍照地。"
+        },
+        {
+          "name": "Wollaton Hall & Deer Park",
+          "nameCn": "沃拉顿庄园与鹿园",
+          "lat": 52.948,
+          "lng": -1.2098,
+          "note": "伊丽莎白时期庄园配500英亩鹿园，蝙蝠侠电影韦恩庄园取景地，离校步行可达的遛弯打卡圣地。"
+        },
+        {
+          "name": "Nottingham Castle",
+          "nameCn": "诺丁汉城堡",
+          "lat": 52.9494,
+          "lng": -1.1543,
+          "note": "罗宾汉传说所在地，翻修后的城堡可看展、逛地下洞穴、登台俯瞰全城。"
+        },
+        {
+          "name": "Old Market Square",
+          "nameCn": "老市场广场",
+          "lat": 52.9534,
+          "lng": -1.1499,
+          "note": "英国仅次于伦敦特拉法加的第二大城市广场，市中心地标，逛街约人和节庆活动都在这。"
+        },
+        {
+          "name": "City of Caves",
+          "nameCn": "洞穴之城",
+          "lat": 52.9503,
+          "lng": -1.146,
+          "note": "市中心地下的人工砂岩洞穴群，曾作住所与防空洞，是体验诺丁汉历史的特色景点。"
+        }
+      ]
     }
   ]
 }

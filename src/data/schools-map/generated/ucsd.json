@@ -186,6 +186,168 @@
           "note": "校园标志性图腾雕塑与节庆地标。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (La Jolla Village Square)",
+          "nameCn": "缺德舅超市（La Jolla Village Square 店）",
+          "lat": 32.8703,
+          "lng": -117.2275,
+          "note": "离校最近的主流超市，平价半成品和零食，UCSD 学生日常采购首选，步行/校巴可达。"
+        },
+        {
+          "name": "Whole Foods Market La Jolla",
+          "nameCn": "全食超市 La Jolla 店",
+          "lat": 32.8718,
+          "lng": -117.227,
+          "note": "与缺德舅同一片商业区，有机食品和现成熟食，价格偏高但品质好。"
+        },
+        {
+          "name": "99 Ranch Market (Clairemont Mesa)",
+          "nameCn": "大华超市（Clairemont Mesa 店）",
+          "lat": 32.8235,
+          "lng": -117.1632,
+          "note": "离校最近的大型华人超市，中式调料、活鲜、亚洲蔬果齐全，需开车约15分钟，内含三和粥粉面和奶茶店。"
+        },
+        {
+          "name": "Nijiya Market (Convoy St)",
+          "nameCn": "二木日本超市（Convoy 街店）",
+          "lat": 32.8163,
+          "lng": -117.156,
+          "note": "Convoy 亚洲美食区的日系超市，日韩食材、便当和刺身，与大华同一带可一起逛。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Din Tai Fung (Westfield UTC)",
+          "nameCn": "鼎泰丰（UTC 商场店）",
+          "lat": 32.8716,
+          "lng": -117.211,
+          "note": "UTC 商场内的台式名店，小笼包招牌，离校开车几分钟，请客和想家时的稳妥之选。"
+        },
+        {
+          "name": "Haidilao Hotpot San Diego (UTC)",
+          "nameCn": "海底捞火锅（UTC 店）",
+          "lat": 32.871,
+          "lng": -117.2103,
+          "note": "UTC 商场内的海底捞，正宗川式火锅和贴心服务，适合朋友聚餐解馋。"
+        },
+        {
+          "name": "Tasty Noodle House (Convoy)",
+          "nameCn": "美味小厨（Convoy 街店）",
+          "lat": 32.819,
+          "lng": -117.156,
+          "note": "Convoy 亚洲美食区的人气江浙沪小馆，小笼、生煎和家常菜，分量足价格实在。"
+        },
+        {
+          "name": "Shan Xi Magic Kitchen (Convoy)",
+          "nameCn": "西安魔法厨房（Convoy 街店）",
+          "lat": 32.8193,
+          "lng": -117.156,
+          "note": "主打陕西手工面和肉夹馍的北方菜馆，想吃面食时值得专程一去。"
+        },
+        {
+          "name": "George's at the Cove",
+          "nameCn": "George's 海景餐厅（La Jolla Cove）",
+          "lat": 32.85,
+          "lng": -117.2722,
+          "note": "La Jolla Cove 旁的招牌海景餐厅，加州海鲜，本地必打卡的高人气地标。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (La Jolla Village Square)",
+          "nameCn": "美国银行（La Jolla Village Square 支行）",
+          "lat": 32.8707,
+          "lng": -117.2278,
+          "note": "离校最近的大行网点，可现场预约开户办借记卡，带护照和 I-20 即可办理。"
+        },
+        {
+          "name": "UC San Diego Health Urgent Care – Villa La Jolla",
+          "nameCn": "UCSD 健康急诊护理中心（Villa La Jolla）",
+          "lat": 32.8709,
+          "lng": -117.2305,
+          "note": "校属急诊护理点，发烧外伤等非急症免预约就诊，学生保险通常可直付。"
+        },
+        {
+          "name": "CVS Pharmacy / MinuteClinic (Villa La Jolla Dr)",
+          "nameCn": "CVS 药房 / MinuteClinic（Villa La Jolla 路）",
+          "lat": 32.8714,
+          "lng": -117.23,
+          "note": "连锁药房可取处方药和买非处方药，附设 MinuteClinic 能打疫苗做小病问诊。"
+        },
+        {
+          "name": "T-Mobile (UTC Mall)",
+          "nameCn": "T-Mobile 营业厅（UTC 商场店）",
+          "lat": 32.8709,
+          "lng": -117.2105,
+          "note": "运营商门店，落地后办美国手机卡套餐，店员可协助开通和转网。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Birch Aquarium at Scripps",
+          "nameCn": "斯克里普斯伯奇水族馆",
+          "lat": 32.8658,
+          "lng": -117.2506,
+          "note": "UCSD 斯克里普斯海洋研究所旗下水族馆，能看小蓝企鹅和海龙，俯瞰太平洋景观绝佳。"
+        },
+        {
+          "name": "La Jolla Cove",
+          "nameCn": "拉霍亚海湾",
+          "lat": 32.8506,
+          "lng": -117.2722,
+          "note": "圣迭戈最经典的海湾，礁石上常有海狮海豹，浮潜和看日落的头号打卡点。"
+        },
+        {
+          "name": "La Jolla Shores Beach",
+          "nameCn": "拉霍亚海滩",
+          "lat": 32.8569,
+          "lng": -117.2566,
+          "note": "离校最近的沙滩，平缓海浪适合新手冲浪和皮划艇，周末散步晒太阳好去处。"
+        },
+        {
+          "name": "Sunny Jim Sea Cave",
+          "nameCn": "阳光吉姆海蚀洞",
+          "lat": 32.85,
+          "lng": -117.2708,
+          "note": "拉霍亚唯一可从陆上进入的海蚀洞，下145级台阶穿过百年人工隧道，独特探险体验。"
+        },
+        {
+          "name": "Geisel Library (UCSD)",
+          "nameCn": "盖泽尔图书馆（UCSD 地标）",
+          "lat": 32.8811,
+          "lng": -117.2376,
+          "note": "校园中央的飞碟形未来主义建筑，UCSD 最出名的地标，新生必拍的标志性背景。"
+        }
+      ]
     }
   ]
 }

@@ -214,6 +214,175 @@
           "note": "与 Old Joe 同风格的音乐厅,2012 年落成。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "University Superstore (Asian Supermarket)",
+          "nameCn": "大学亚洲超市",
+          "lat": 52.4396,
+          "lng": -1.9347,
+          "note": "Bristol Road 上的亚洲超市，离校园最近的中日韩调料、米面、火锅底料采购点，步行可达。"
+        },
+        {
+          "name": "Sainsbury's Selly Oak Shopping Park",
+          "nameCn": "Sainsbury's 超市（塞利奥克购物公园）",
+          "lat": 52.4419,
+          "lng": -1.9398,
+          "note": "校园南侧大型主流超市，生鲜日用一站式补给，购物公园内还有多家连锁店。"
+        },
+        {
+          "name": "Aldi Selly Oak (Battery Retail Park)",
+          "nameCn": "Aldi 平价超市（Battery 购物公园）",
+          "lat": 52.4408,
+          "lng": -1.9322,
+          "note": "德国平价连锁，蔬果、面包、日用品价格实惠，留学生省钱首选。"
+        },
+        {
+          "name": "Wing Yip Birmingham Superstore",
+          "nameCn": "荣业行华人超市（伯明翰旗舰店）",
+          "lat": 52.4912,
+          "lng": -1.8718,
+          "note": "英国老牌大型华人超市，中餐食材、冷冻点心、亚洲百货最齐全，建议囤货时专程前往。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Kimchi Korean Restaurant",
+          "nameCn": "Kimchi 韩国餐厅",
+          "lat": 52.4404,
+          "lng": -1.9376,
+          "note": "Selly Oak 学生区人气韩餐，部队锅、烤肉份量足价格友好，留学生聚餐常去。"
+        },
+        {
+          "name": "Cocobab",
+          "nameCn": "Cocobab 韩式拌饭",
+          "lat": 52.4399,
+          "lng": -1.9358,
+          "note": "韩式石锅拌饭与小吃，快捷实惠，适合上课间隙一个人吃饭。"
+        },
+        {
+          "name": "Yakinori Selly Oak",
+          "nameCn": "Yakinori 日式料理",
+          "lat": 52.4401,
+          "lng": -1.9362,
+          "note": "类似 Wagamama 的快捷日料，拉面、咖喱、寿司都有，常有学生折扣。"
+        },
+        {
+          "name": "Golden City Chinese Restaurant",
+          "nameCn": "金城中餐馆",
+          "lat": 52.4395,
+          "lng": -1.9349,
+          "note": "Bristol Road 老牌粤式中餐与外卖，想吃炒菜、烧腊解馋的近处选择。"
+        },
+        {
+          "name": "The Bristol Pear",
+          "nameCn": "Bristol Pear 英式酒馆",
+          "lat": 52.4407,
+          "lng": -1.9368,
+          "note": "学生区经典英式 pub，炸鱼薯条、周日烤肉 (Sunday Roast) 必体验的本地味道。"
+        },
+        {
+          "name": "Birmingham Chinatown (Arcadian / Hurst Street)",
+          "nameCn": "伯明翰唐人街（Arcadian 美食区）",
+          "lat": 52.4757,
+          "lng": -1.8957,
+          "note": "市中心唐人街，川菜、火锅、港式茶餐厅、奶茶云集，想吃地道中餐就来这片。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Queen Elizabeth Hospital Birmingham",
+          "nameCn": "伊丽莎白女王医院",
+          "lat": 52.4528,
+          "lng": -1.942,
+          "note": "紧邻校园的大型 NHS 医院，设有 A&E 急诊，突发疾病或意外就医的首选。"
+        },
+        {
+          "name": "University Medical Practice (校园 GP)",
+          "nameCn": "校园全科诊所 GP",
+          "lat": 52.4502,
+          "lng": -1.9298,
+          "note": "服务在校学生的 NHS 注册全科诊所，入学后先在此登记 GP 看小病开药。"
+        },
+        {
+          "name": "Boots Pharmacy Selly Oak",
+          "nameCn": "Boots 药妆店（Selly Oak）",
+          "lat": 52.4413,
+          "lng": -1.9389,
+          "note": "英国最大连锁药房，购物公园内可买非处方药、日用品并取处方。"
+        },
+        {
+          "name": "Bullring & Grand Central (Banks & EE/Apple)",
+          "nameCn": "Bullring 商场（银行 + 手机营业厅）",
+          "lat": 52.4775,
+          "lng": -1.894,
+          "note": "市中心商圈，集中了各大银行网点(开户)、EE/O2 等运营商门店和 Apple Store。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Old Joe (Joseph Chamberlain Memorial Clock Tower)",
+          "nameCn": "Old Joe 钟楼",
+          "lat": 52.4508,
+          "lng": -1.9305,
+          "note": "世界最高独立钟楼、伯大地标，绿心校园打卡必拍，毕业照经典背景。"
+        },
+        {
+          "name": "The Barber Institute of Fine Arts",
+          "nameCn": "巴伯美术馆",
+          "lat": 52.4502,
+          "lng": -1.9276,
+          "note": "校园内免费艺术馆，藏有莫奈、梵高等大师作品，雨天看展的好去处。"
+        },
+        {
+          "name": "Winterbourne House and Garden",
+          "nameCn": "温特本庄园花园",
+          "lat": 52.454,
+          "lng": -1.9258,
+          "note": "爱德华时代历史宅邸与七英亩植物花园，离校园几步路的静谧拍照地。"
+        },
+        {
+          "name": "Cadbury World",
+          "nameCn": "吉百利巧克力世界",
+          "lat": 52.4108,
+          "lng": -1.9333,
+          "note": "Bournville 的吉百利巧克力工厂主题馆，免费试吃，伯明翰最热门的亲子游景点。"
+        },
+        {
+          "name": "Bullring & Selfridges",
+          "nameCn": "Bullring 购物中心 / 塞尔福里奇",
+          "lat": 52.4775,
+          "lng": -1.894,
+          "note": "市中心地标商场，波浪形 Selfridges 银色外墙是伯明翰最出片的现代建筑。"
+        }
+      ]
     }
   ]
 }

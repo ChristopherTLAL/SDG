@@ -229,6 +229,182 @@
           "note": "伊丽莎白线/区域线/Overground,医学院Whitechapel校区最近车站。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "China Ark Supermarket 方舟超市",
+          "nameCn": "方舟中国超市",
+          "lat": 51.5219,
+          "lng": -0.0454,
+          "note": "校门外步行就到的华人超市，中日韩泰食材齐全，营业到晚上九点半，是最近的买中国调料、速食、火锅料的地方。"
+        },
+        {
+          "name": "Shop&Go (快易行)",
+          "nameCn": "快易行亚洲超市",
+          "lat": 51.5224,
+          "lng": -0.0429,
+          "note": "Mile End Road 上的亚洲杂货店，离教学楼很近，临时缺米、面、酱料随时能补。"
+        },
+        {
+          "name": "Sainsbury's Superstore Whitechapel",
+          "nameCn": "Sainsbury's 白教堂大型超市",
+          "lat": 51.5199,
+          "lng": -0.0617,
+          "note": "走路或一站地铁可达的英国主流大超市，生鲜、日用、自有品牌最全，还带 Argos，适合一周一次的大采购。"
+        },
+        {
+          "name": "Tesco Express Mile End",
+          "nameCn": "Tesco 便利超市（Mile End）",
+          "lat": 51.5251,
+          "lng": -0.0339,
+          "note": "紧挨 Mile End 地铁站的英国连锁便利店，办张 Clubcard 会员卡折扣明显，日常牛奶面包随手买。"
+        },
+        {
+          "name": "Sainsbury's Local Mile End Road",
+          "nameCn": "Sainsbury's 社区店（Mile End Road）",
+          "lat": 51.5235,
+          "lng": -0.0382,
+          "note": "Mile End Road 上的小型便利超市，早七点到晚十一点营业，下课顺路就能补给。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Tian Tian",
+          "nameCn": "天天川菜馆",
+          "lat": 51.5227,
+          "lng": -0.0461,
+          "note": "校园旁口碑很好的中餐馆，主打川菜与新加坡风味（孜然羊肉、麦片虾），是东区少有的正经中餐，想家时的首选。"
+        },
+        {
+          "name": "Mr Wong's Wok & Box",
+          "nameCn": "Mr Wong 中式快炒",
+          "lat": 51.5225,
+          "lng": -0.0432,
+          "note": "Mile End Road 上的清真认证（HMC）中式炒饭炒面店，现炒现做、价格亲民，回民同学也能放心吃。"
+        },
+        {
+          "name": "Tayyabs",
+          "nameCn": "Tayyabs 巴基斯坦烤肉馆",
+          "lat": 51.5165,
+          "lng": -0.0648,
+          "note": "白教堂一带的传奇餐厅，1972 年开业，招牌炭烤羊排是全伦敦必吃，常年排队，约同学聚餐的热门地。"
+        },
+        {
+          "name": "Lahore Kebab House",
+          "nameCn": "拉合尔烤肉馆",
+          "lat": 51.5146,
+          "lng": -0.063,
+          "note": "白教堂另一家老牌巴基斯坦餐厅，羊排和咖喱扁豆出名，空间大、适合多人聚餐，分量足又实惠。"
+        },
+        {
+          "name": "Beigel Bake (Brick Lane)",
+          "nameCn": "Brick Lane 24 小时贝果店",
+          "lat": 51.5246,
+          "lng": -0.0716,
+          "note": "Brick Lane 上 1974 年创立的伦敦地标，24 小时供应盐腌牛肉贝果，深夜赶完 due 来一个是东伦敦的经典体验。"
+        },
+        {
+          "name": "Brick Lane Curry Houses",
+          "nameCn": "红砖巷咖喱一条街",
+          "lat": 51.5205,
+          "lng": -0.0719,
+          "note": "Brick Lane（孟加拉城）整条街都是咖喱餐厅与街头小吃，英式南亚美食的发源地，逛吃打卡两不误。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "The Royal London Hospital",
+          "nameCn": "皇家伦敦医院",
+          "lat": 51.5189,
+          "lng": -0.0593,
+          "note": "白教堂的大型 NHS 综合医院，设有 24 小时急诊（A&E），离校近，突发急病或受伤直接来这里。"
+        },
+        {
+          "name": "Globe Town Pharmacy / Boots (Mile End)",
+          "nameCn": "Boots 药房（Mile End）",
+          "lat": 51.5252,
+          "lng": -0.0336,
+          "note": "Mile End 站附近的连锁药房，可买常用药、咨询药剂师，凭 NHS 处方也能在此取药。"
+        },
+        {
+          "name": "Barclays Bank (Whitechapel/Mile End)",
+          "nameCn": "巴克莱银行",
+          "lat": 51.5197,
+          "lng": -0.0598,
+          "note": "白教堂方向的英国主流银行网点，凭录取信和签证可预约办理学生账户，开户后才方便交房租、收奖学金。"
+        },
+        {
+          "name": "Three / EE Store (Whitechapel)",
+          "nameCn": "Three/EE 手机营业厅（白教堂）",
+          "lat": 51.5174,
+          "lng": -0.0608,
+          "note": "Whitechapel 一带的手机运营商门店，办英国本地 SIM 卡和合约套餐，初到落地办号、保号必去。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Mile End Park & The Green Bridge",
+          "nameCn": "Mile End 公园与绿桥",
+          "lat": 51.5237,
+          "lng": -0.0331,
+          "note": "紧邻校园、横跨 Mile End Road 的「绿桥」（俗称香蕉桥），桥上长满草木，是周边散步、跑步、拍照的标志性景观。"
+        },
+        {
+          "name": "Regent's Canal towpath",
+          "nameCn": "摄政运河步道",
+          "lat": 51.5256,
+          "lng": -0.0428,
+          "note": "校园西侧紧贴运河，沿纤道可一路走到维多利亚公园，水边咖啡船和船屋很出片，是日常放松的最佳路线。"
+        },
+        {
+          "name": "Victoria Park",
+          "nameCn": "维多利亚公园",
+          "lat": 51.5392,
+          "lng": -0.0386,
+          "note": "东伦敦最大的公园（人称 People's Park），有湖泊、划船和大片草坪，沿运河步行约 20 分钟可达，野餐遛弯的好去处。"
+        },
+        {
+          "name": "Genesis Cinema",
+          "nameCn": "Genesis 独立影院",
+          "lat": 51.5212,
+          "lng": -0.049,
+          "note": "Mile End Road 上东伦敦最老的独立电影院，含沙发厅与鸡尾酒吧，深受玛丽女王学生喜爱，看冷门片和约会的去处。"
+        },
+        {
+          "name": "Brick Lane",
+          "nameCn": "红砖巷",
+          "lat": 51.5215,
+          "lng": -0.0716,
+          "note": "东伦敦最有名的街区，周日有古着市集、街头涂鸦和咖喱馆，文艺潮流氛围浓，是周末逛街拍照的必打卡地。"
+        }
+      ]
     }
   ]
 }

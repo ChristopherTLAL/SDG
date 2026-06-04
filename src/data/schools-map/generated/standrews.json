@@ -235,6 +235,182 @@
           "note": "最近铁路站,距城约8公里,东海岸干线。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Tesco Express (Market Street)",
+          "nameCn": "乐购便利店（市场街店）",
+          "lat": 56.3404,
+          "lng": -2.7945,
+          "note": "市中心步行可达的主力连锁超市，日常买菜、面包、牛奶最方便，营业时间长。"
+        },
+        {
+          "name": "Aldi St Andrews (Tom Stewart Lane)",
+          "nameCn": "阿尔迪超市（圣安店）",
+          "lat": 56.3322,
+          "lng": -2.8118,
+          "note": "镇南的平价大型超市，价格便宜、适合周末囤货，留学生省钱首选。"
+        },
+        {
+          "name": "Morrisons (Largo Road)",
+          "nameCn": "莫里森超市（拉戈路店）",
+          "lat": 56.3369,
+          "lng": -2.8001,
+          "note": "本地综合大超市，蔬果肉类齐全，离医院和学生宿舍区都很近。"
+        },
+        {
+          "name": "Oriental House (Asian grocery counter)",
+          "nameCn": "东方行（亚洲食材店）",
+          "lat": 56.3402,
+          "lng": -2.7958,
+          "note": "镇上最主要的中亚食材来源，能买到酱油、米、面条、火锅料等中餐必备品。"
+        },
+        {
+          "name": "Sainsbury's Local (Market Street)",
+          "nameCn": "桑斯伯里便利店（市场街店）",
+          "lat": 56.3406,
+          "lng": -2.796,
+          "note": "市中心另一家便利连锁，临时补货、买三明治和饮料很顺手。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Oriental House",
+          "nameCn": "东方行中餐馆",
+          "lat": 56.3402,
+          "lng": -2.7958,
+          "note": "圣安最知名的中餐厅兼外卖，想家时吃中餐的首选，可堂食可打包。"
+        },
+        {
+          "name": "Maxin Chinese Takeaway",
+          "nameCn": "美心中式外卖",
+          "lat": 56.333,
+          "lng": -2.8085,
+          "note": "镇南的中式外卖店，咖喱炒饭、香酥鸭、麻婆豆腐等家常菜实惠管饱。"
+        },
+        {
+          "name": "Cromars Classic Fish & Chips",
+          "nameCn": "Cromars 炸鱼薯条",
+          "lat": 56.3407,
+          "lng": -2.7948,
+          "note": "曾两度获评全苏格兰最佳炸鱼薯条，来圣安必吃的本地国民美食。"
+        },
+        {
+          "name": "Jannettas Gelateria",
+          "nameCn": "Jannettas 意式冰淇淋",
+          "lat": 56.3398,
+          "lng": -2.7921,
+          "note": "1908年创立的百年冰淇淋老店，几十种口味，是圣安的甜品地标。"
+        },
+        {
+          "name": "Northpoint Cafe",
+          "nameCn": "北角咖啡馆",
+          "lat": 56.3414,
+          "lng": -2.7912,
+          "note": "威廉王子与凯特当年喝咖啡的网红咖啡馆，早餐和打卡都合适。"
+        },
+        {
+          "name": "Mitchell's St Andrews",
+          "nameCn": "Mitchell's 餐厅熟食店",
+          "lat": 56.3401,
+          "lng": -2.7952,
+          "note": "主打苏格兰本地食材的brunch与熟食店，环境精致适合周末小聚。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Royal Bank of Scotland (South Street)",
+          "nameCn": "苏格兰皇家银行（南街支行）",
+          "lat": 56.3396,
+          "lng": -2.7931,
+          "note": "市中心银行网点，办理英国本地银行账户、现金业务可在此办理。"
+        },
+        {
+          "name": "St Andrews Community Hospital & Health Centre",
+          "nameCn": "圣安社区医院及健康中心",
+          "lat": 56.3361,
+          "lng": -2.8024,
+          "note": "镇上的医院与GP全科诊所所在地，看病、注册家庭医生都来这里。"
+        },
+        {
+          "name": "Boots Pharmacy (Market Street)",
+          "nameCn": "Boots 药房（市场街店）",
+          "lat": 56.3405,
+          "lng": -2.7937,
+          "note": "市中心连锁药房，买常用药、感冒药和日用品最方便。"
+        },
+        {
+          "name": "Lloyds Pharmacy (Community Hospital)",
+          "nameCn": "劳埃德药房（社区医院店）",
+          "lat": 56.336,
+          "lng": -2.8023,
+          "note": "设在社区医院内的药房，凭处方取药、配处方药在此完成。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "St Andrews Cathedral",
+          "nameCn": "圣安德鲁斯大教堂",
+          "lat": 56.34,
+          "lng": -2.7875,
+          "note": "12世纪修建、曾是苏格兰最大的教堂遗址，可登塔俯瞰全镇与海岸。"
+        },
+        {
+          "name": "St Andrews Castle",
+          "nameCn": "圣安德鲁斯城堡",
+          "lat": 56.3419,
+          "lng": -2.7901,
+          "note": "海边的中世纪城堡遗迹，有著名的地牢与攻城地道，临海风景极佳。"
+        },
+        {
+          "name": "The Old Course & R&A Clubhouse",
+          "nameCn": "老球场与R&A高尔夫俱乐部",
+          "lat": 56.3485,
+          "lng": -2.8024,
+          "note": "高尔夫运动的发源地、世界最著名的球场，门口拍照是经典打卡点。"
+        },
+        {
+          "name": "West Sands Beach",
+          "nameCn": "西沙滩",
+          "lat": 56.3528,
+          "lng": -2.8086,
+          "note": "电影《烈火战车》开场奔跑的两英里长沙滩，看海、散步、看日落的胜地。"
+        },
+        {
+          "name": "University of St Andrews – St Salvator's Quad",
+          "nameCn": "圣安德鲁斯大学圣萨尔瓦多学院方庭",
+          "lat": 56.3406,
+          "lng": -2.7955,
+          "note": "大学最古老的主校园中庭，哥特式钟楼是学校的标志性建筑。"
+        }
+      ]
     }
   ]
 }

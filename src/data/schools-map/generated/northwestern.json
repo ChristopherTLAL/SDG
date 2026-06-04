@@ -178,6 +178,182 @@
           "note": "校园西南通勤铁路与紫线枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Whole Foods Market (Evanston)",
+          "nameCn": "全食超市（埃文斯顿店）",
+          "lat": 42.047585,
+          "lng": -87.679603,
+          "note": "市中心主力超市，步行约1公里可达，有机食品和日常生鲜最全，离校最近的大超市。"
+        },
+        {
+          "name": "Trader Joe's (Evanston)",
+          "nameCn": "缺德舅超市",
+          "lat": 42.039799,
+          "lng": -87.68008,
+          "note": "美国学生最爱的平价精品超市，自有品牌零食、冷冻速食和酒水性价比高。"
+        },
+        {
+          "name": "Jewel-Osco (Chicago Ave)",
+          "nameCn": "Jewel-Osco 超市",
+          "lat": 42.039478,
+          "lng": -87.680816,
+          "note": "本地大型连锁超市，品类齐全、价格实惠，常有打折，适合一站式囤货。"
+        },
+        {
+          "name": "Valli Produce International Fresh Market",
+          "nameCn": "Valli 国际生鲜超市",
+          "lat": 42.038704,
+          "lng": -87.700098,
+          "note": "大型国际超市，亚洲/中餐调料、米面、冷冻品和亚洲蔬菜区很全，找中国食材首选。"
+        },
+        {
+          "name": "Sea Ranch Fish Market",
+          "nameCn": "Sea Ranch 日式生鲜超市",
+          "lat": 42.041031,
+          "lng": -87.680093,
+          "note": "日式食品杂货店，卖刺身级鲜鱼、日韩零食和亚洲调料，想做日料或买亚洲零嘴可来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Joy Yee Noodle",
+          "nameCn": "乐怡面馆",
+          "lat": 42.046252,
+          "lng": -87.679273,
+          "note": "校区附近人气亚洲面馆，菜单巨大、泡面奶茶都有，学生聚餐常来。"
+        },
+        {
+          "name": "Koi Fine Asian Cuisine & Lounge",
+          "nameCn": "锦鲤亚洲料理",
+          "lat": 42.046413,
+          "lng": -87.681043,
+          "note": "市中心中日泰融合餐厅，环境时髦，川菜寿司都能点，适合朋友家庭聚餐。"
+        },
+        {
+          "name": "Mt. Everest Restaurant",
+          "nameCn": "珠峰印度尼泊尔餐厅",
+          "lat": 42.047983,
+          "lng": -87.680347,
+          "note": "市中心印度/尼泊尔老店，周末自助午餐超划算，想换口味吃咖喱来这。"
+        },
+        {
+          "name": "Tapas Barcelona",
+          "nameCn": "巴塞罗那西班牙小吃",
+          "lat": 42.046641,
+          "lng": -87.679192,
+          "note": "1995年开业的西班牙Tapas名店，本地约会和家长来访的招牌打卡餐厅。"
+        },
+        {
+          "name": "Evanston Chicken Shack",
+          "nameCn": "埃文斯顿炸鸡屋",
+          "lat": 42.052798,
+          "lng": -87.687416,
+          "note": "本地传奇炸鸡店，2026年被校报评为最佳深夜美食，深夜赶due的必备能量站。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Chase Bank (Orrington Plaza)",
+          "nameCn": "大通银行（市中心支行）",
+          "lat": 42.046973,
+          "lng": -87.680594,
+          "note": "市中心主力银行网点，新生开户、办借记卡走这里，离校步行可达。"
+        },
+        {
+          "name": "CVS Pharmacy (Sherman Ave)",
+          "nameCn": "CVS 药房",
+          "lat": 42.04896,
+          "lng": -87.681565,
+          "note": "市中心连锁药房，感冒药、处方药、日用品和打疫苗都能搞定。"
+        },
+        {
+          "name": "Endeavor Health Evanston Hospital",
+          "nameCn": "埃文斯顿医院（急诊）",
+          "lat": 42.065915,
+          "lng": -87.684352,
+          "note": "离校最近的综合医院，设24小时急诊室，生病或急症第一去处。"
+        },
+        {
+          "name": "AT&T Store (Chicago Ave)",
+          "nameCn": "AT&T 手机营业厅",
+          "lat": 42.046779,
+          "lng": -87.679639,
+          "note": "运营商门店，落地后办美国手机卡/套餐、买手机配件可来这。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Dearborn Observatory",
+          "nameCn": "迪尔伯恩天文台",
+          "lat": 42.056672,
+          "lng": -87.675068,
+          "note": "校内1888年历史天文台，周五晚可预约用古董望远镜观星，校园地标。"
+        },
+        {
+          "name": "Shakespeare Garden",
+          "nameCn": "莎士比亚花园",
+          "lat": 42.056814,
+          "lng": -87.675977,
+          "note": "校内百年历史花园，种满莎剧里提到的花草，安静拍照和散步的好去处。"
+        },
+        {
+          "name": "Northwestern Lakefill",
+          "nameCn": "西北大学湖滨填地",
+          "lat": 42.054477,
+          "lng": -87.673824,
+          "note": "校园东侧密歇根湖填地，能远眺芝加哥天际线，跑步看日出和拍照绝佳。"
+        },
+        {
+          "name": "The Block Museum of Art",
+          "nameCn": "布洛克艺术博物馆",
+          "lat": 42.052232,
+          "lng": -87.672715,
+          "note": "校内免费艺术博物馆，常设和特展都有，雨天或想看展时步行即到。"
+        },
+        {
+          "name": "Grosse Point Lighthouse",
+          "nameCn": "格罗斯角灯塔",
+          "lat": 42.0639,
+          "lng": -87.676021,
+          "note": "1873年湖畔灯塔历史地标，旁边有海滩和公园，傍晚看湖拍照很出片。"
+        },
+        {
+          "name": "Baha'i House of Worship",
+          "nameCn": "巴哈伊灵曦堂",
+          "lat": 42.074435,
+          "lng": -87.6843,
+          "note": "邻镇Wilmette的白色穹顶圣殿，全美唯一，建筑精美、花园开放，值得专程一去。"
+        }
+      ]
     }
   ]
 }

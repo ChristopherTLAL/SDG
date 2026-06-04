@@ -186,6 +186,154 @@
           "note": "主校区南侧40英亩低年级住宿学院区"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Olive Supermarket",
+          "nameCn": "Olive 亚洲超市",
+          "lat": 38.6724,
+          "lng": -90.3382,
+          "note": "University City「中国城」Olive 大道上最老牌的亚洲超市，2006 年开业，中餐食材、肉类海鲜最全，留学生采购首选。"
+        },
+        {
+          "name": "China Town Market",
+          "nameCn": "中国城超市",
+          "lat": 38.6726,
+          "lng": -90.3434,
+          "note": "Olive 大道上另一家中式超市，调料、冷冻食品、速食面齐全，离 Olive 超市步行可达，可两家一起逛。"
+        },
+        {
+          "name": "Seafood City",
+          "nameCn": "海鲜城亚超",
+          "lat": 38.6725,
+          "lng": -90.339,
+          "note": "Olive 中国城片区的亚洲超市，主打活鲜海鲜与生鲜，想吃鱼虾蟹时来这里。"
+        },
+        {
+          "name": "Schnucks University City",
+          "nameCn": "Schnucks 超市（大学城店）",
+          "lat": 38.6722,
+          "lng": -90.3175,
+          "note": "圣路易斯本地连锁大超市，离校最近的美式综合超市，日常生鲜、日用品一站买齐。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Cate Zone Chinese Cafe",
+          "nameCn": "家乡味东北菜",
+          "lat": 38.6726,
+          "lng": -90.343,
+          "note": "Olive 中国城里人气东北菜馆，孜然烤串和家常菜出名，2016 年起本地华人最爱排队的店。"
+        },
+        {
+          "name": "Corner 17",
+          "nameCn": "拐角 17 号",
+          "lat": 38.6558,
+          "lng": -90.3093,
+          "note": "Delmar Loop 上的网红中餐，手工拉面、馄饨和奶茶招牌，离校步行可达，WashU 学生聚餐常去。"
+        },
+        {
+          "name": "Wonton King",
+          "nameCn": "馄饨大王",
+          "lat": 38.6727,
+          "lng": -90.347,
+          "note": "圣路易斯最地道的港式中餐之一，点心、馄饨、烧腊正宗，想吃粤式时来这家。"
+        },
+        {
+          "name": "Blueberry Hill",
+          "nameCn": "蓝莓山餐厅",
+          "lat": 38.6558,
+          "lng": -90.3076,
+          "note": "Delmar Loop 地标老店（1972 年开业），汉堡和现场音乐出名，Chuck Berry 曾常驻 Duck Room，必打卡美式餐厅。"
+        },
+        {
+          "name": "Fitz's Root Beer",
+          "nameCn": "Fitz's 手工汽水餐厅",
+          "lat": 38.6558,
+          "lng": -90.3081,
+          "note": "Loop 上的本地手工根汁汽水厂兼餐厅，现灌瓶汽水配汉堡薯条，体验圣路易斯特色甜饮。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Barnes-Jewish Hospital",
+          "nameCn": "Barnes-Jewish 医院",
+          "lat": 38.636,
+          "lng": -90.264,
+          "note": "WashU 医学院附属顶级综合医院，含急诊创伤中心，校东侧 Forest Park 旁，看病急诊的主力医院。"
+        },
+        {
+          "name": "CVS Pharmacy (Delmar Loop)",
+          "nameCn": "CVS 药房（Loop 店）",
+          "lat": 38.6558,
+          "lng": -90.3015,
+          "note": "Delmar Loop 上的连锁药房，可取处方药、买常备药和日用品，离校最近的药店。"
+        },
+        {
+          "name": "Metro by T-Mobile (Delmar)",
+          "nameCn": "T-Mobile 手机店（Delmar）",
+          "lat": 38.6557,
+          "lng": -90.2876,
+          "note": "Delmar 大道上的 T-Mobile/Metro 门店，办手机卡、选套餐，新生落地办号可来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Forest Park",
+          "nameCn": "森林公园",
+          "lat": 38.6357,
+          "lng": -90.2854,
+          "note": "全美最大城市公园之一（1300 英亩），紧邻校园南侧，跑步野餐遛弯的日常去处，多个景点都在园内。"
+        },
+        {
+          "name": "Saint Louis Art Museum",
+          "nameCn": "圣路易斯艺术博物馆",
+          "lat": 38.639,
+          "lng": -90.2946,
+          "note": "森林公园内的全美一流综合艺术馆，3 万多件藏品且常设展免费，周末看展好去处。"
+        },
+        {
+          "name": "Saint Louis Zoo",
+          "nameCn": "圣路易斯动物园",
+          "lat": 38.6351,
+          "lng": -90.2916,
+          "note": "森林公园内的世界知名动物园，600 多种动物且免费入园，离校骑车即到的热门打卡地。"
+        },
+        {
+          "name": "Delmar Loop",
+          "nameCn": "Delmar Loop 商业街",
+          "lat": 38.6558,
+          "lng": -90.3034,
+          "note": "WashU 北侧的文化娱乐街区，餐厅、唱片店、影院、Walk of Fame 星光大道云集，学生日常逛吃首选。"
+        }
+      ]
     }
   ]
 }

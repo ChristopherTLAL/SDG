@@ -200,6 +200,175 @@
           "note": "E线轻轨车站，校区南门通勤枢纽。"
         }
       ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Trader Joe's (USC Village)",
+          "nameCn": "Trader Joe's 超市（USC Village 店）",
+          "lat": 34.0235,
+          "lng": -118.2861,
+          "note": "USC Village 内步行可达的主流连锁超市，性价比高、半成品和零食丰富，是 USC 学生日常采买首选。"
+        },
+        {
+          "name": "Target (USC Village)",
+          "nameCn": "Target 塔吉特（USC Village 店）",
+          "lat": 34.0238,
+          "lng": -118.2857,
+          "note": "校内 USC Village 的小型 Target，生鲜杂货、日用百货、文具和药妆一站买齐，还带星巴克和药房。"
+        },
+        {
+          "name": "Ralphs (Renaissance Plaza)",
+          "nameCn": "Ralphs 大型超市（Vermont 店）",
+          "lat": 34.0337,
+          "lng": -118.2916,
+          "note": "距校约 1.5 公里的大型美式超市，品类齐全价格实惠，适合周采购囤货。"
+        },
+        {
+          "name": "Galleria Market (Koreatown)",
+          "nameCn": "Galleria Market 韩亚超市（韩国城）",
+          "lat": 34.0524,
+          "lng": -118.3088,
+          "note": "校北约 4-5 公里韩国城最大的亚洲超市，韩国、中式调料、冻品、活海鲜和小菜齐全，补货中餐食材来这里最近。"
+        },
+        {
+          "name": "H Mart Koreatown (Madang Plaza)",
+          "nameCn": "H Mart 韩亚龙超市（韩国城 Madang 广场）",
+          "lat": 34.0626,
+          "lng": -118.301,
+          "note": "连锁亚超 H Mart 的韩国城店，亚洲蔬果、即食便当、腌切肉和海鲜种类多，开车十几分钟可达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Northern Cafe",
+          "nameCn": "北方咖啡（手工面点中餐）",
+          "lat": 34.0247,
+          "lng": -118.2789,
+          "note": "USC 旁人气最高的正宗北方中餐馆，手工水饺、拉面和川菜都地道，留学生想家时的食堂。"
+        },
+        {
+          "name": "Kobunga Korean Grill (USC Village)",
+          "nameCn": "Kobunga 韩式烤肉（USC Village 店）",
+          "lat": 34.0256,
+          "lng": -118.2848,
+          "note": "开在 USC Village 里的快捷韩式烤肉，自助小菜口碑好，适合和同学聚餐。"
+        },
+        {
+          "name": "Lotus Vietnamese Kitchen",
+          "nameCn": "莲花越南厨房",
+          "lat": 34.0185,
+          "lng": -118.281,
+          "note": "校园南侧的越南餐馆，越式法包、河粉和春卷份量足又便宜，学生常点。"
+        },
+        {
+          "name": "Chichen Itza (Mercado La Paloma)",
+          "nameCn": "Chichen Itza 尤卡坦墨西哥菜（La Paloma 市集内）",
+          "lat": 34.0173,
+          "lng": -118.2783,
+          "note": "校东 Mercado La Paloma 美食市集里的招牌墨西哥馆，招牌烤猪肉夹饼屡获 LA Times 推荐，本地必吃。"
+        },
+        {
+          "name": "The Lab Gastropub",
+          "nameCn": "The Lab 餐酒馆",
+          "lat": 34.0156,
+          "lng": -118.279,
+          "note": "Figueroa 街上靠近校园的美式餐酒馆，露台带火炉，是 USC 师生小聚和看球的人气地标。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Bank of America (University Village)",
+          "nameCn": "美国银行（USC Village 支行）",
+          "lat": 34.0228,
+          "lng": -118.2861,
+          "note": "校内 USC Village 的美国银行实体网点，新生办理美国银行账户、存取现金最方便的一家。"
+        },
+        {
+          "name": "USC Engemann Student Health Center",
+          "nameCn": "USC Engemann 学生健康中心",
+          "lat": 34.0234,
+          "lng": -118.2889,
+          "note": "校内学生健康中心，提供全科门诊、急症处理和心理咨询，生病第一站、多数费用学生保险覆盖。"
+        },
+        {
+          "name": "CVS Pharmacy (3335 S Figueroa)",
+          "nameCn": "CVS 药房（Figueroa 街店）",
+          "lat": 34.0204,
+          "lng": -118.2793,
+          "note": "紧邻 Jefferson/USC 地铁站的 CVS，处方药、感冒药和日用品齐全，还设 MinuteClinic 步入式诊所。"
+        },
+        {
+          "name": "T-Mobile (Figueroa & Adams)",
+          "nameCn": "T-Mobile 手机营业厅（Figueroa & Adams）",
+          "lat": 34.0297,
+          "lng": -118.2784,
+          "note": "校北 Figueroa 街上的 T-Mobile 门店，到店即可办美国手机卡和套餐，新生落地办号常来。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "California Science Center",
+          "nameCn": "加州科学中心",
+          "lat": 34.0156,
+          "lng": -118.2862,
+          "note": "紧邻校园的 Exposition Park 内，常设展免费，镇馆之宝是真实的奋进号航天飞机，必看。"
+        },
+        {
+          "name": "Natural History Museum of Los Angeles County",
+          "nameCn": "洛杉矶自然历史博物馆",
+          "lat": 34.0173,
+          "lng": -118.2884,
+          "note": "校南步行可达，恐龙化石厅和宝石厅有名，门口的玫瑰花园是热门拍照点。"
+        },
+        {
+          "name": "Los Angeles Memorial Coliseum",
+          "nameCn": "洛杉矶纪念体育场",
+          "lat": 34.0141,
+          "lng": -118.2879,
+          "note": "USC 橄榄球主场、两届奥运主场馆，比赛日气氛炸裂，是体验美式校园文化的地标。"
+        },
+        {
+          "name": "Exposition Park Rose Garden",
+          "nameCn": "Exposition Park 玫瑰花园",
+          "lat": 34.0163,
+          "lng": -118.2876,
+          "note": "校园南侧的免费玫瑰园，上百品种春夏盛开，散步、野餐和出片的好去处。"
+        },
+        {
+          "name": "USC Village (McCarthy Quad area)",
+          "nameCn": "USC Village 哈利波特风学生村",
+          "lat": 34.0249,
+          "lng": -118.2857,
+          "note": "哥特风的校内生活区，拱廊、喷泉和钟楼像霍格沃茨，吃喝购物加拍照一站搞定。"
+        }
+      ]
     }
   ]
 }
