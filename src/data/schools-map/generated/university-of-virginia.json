@@ -1,0 +1,205 @@
+{
+  "id": "university-of-virginia",
+  "type": "school",
+  "name": "University of Virginia",
+  "nameCn": "弗吉尼亚大学",
+  "city": "Charlottesville, VA",
+  "center": [
+    38.0356,
+    -78.5033
+  ],
+  "zoom": 14,
+  "blurb": "杰斐逊亲手设计的\"学术村\"以圆顶大厅与草坪为核心，红砖白柱的联邦古典建筑群被列为世界文化遗产，散落于夏洛茨维尔起伏的绿丘之间。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central Grounds (Academical Village)",
+          "nameCn": "中央校区（学术村）",
+          "lat": 38.0356,
+          "lng": -78.5033,
+          "radius": 900,
+          "note": "圆顶大厅与草坪核心区，本科教学与历史地标所在。"
+        },
+        {
+          "name": "North Grounds",
+          "nameCn": "北校区",
+          "lat": 38.0492,
+          "lng": -78.5128,
+          "radius": 600,
+          "note": "法学院、达顿商学院与体育馆集中的专业学院区。"
+        },
+        {
+          "name": "UVA Health / University Medical Center",
+          "nameCn": "弗大医疗中心",
+          "lat": 38.0324,
+          "lng": -78.4991,
+          "radius": 600,
+          "note": "教学医院与医学院临床区，紧邻中央校区东侧。"
+        },
+        {
+          "name": "Fontaine Research Park",
+          "nameCn": "方丹研究园",
+          "lat": 38.0261,
+          "lng": -78.5265,
+          "radius": 500,
+          "note": "校区西南的医学与生物研究园，含门诊与实验楼。"
+        },
+        {
+          "name": "North Fork Discovery Park",
+          "nameCn": "北叉研究园",
+          "lat": 38.1502,
+          "lng": -78.4343,
+          "radius": 1200,
+          "note": "城北约9英里的560英亩研究科技园区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "School of Law",
+          "nameCn": "法学院",
+          "lat": 38.05,
+          "lng": -78.5135,
+          "note": "北校区，全美顶尖法学院之一。"
+        },
+        {
+          "name": "Darden School of Business",
+          "nameCn": "达顿商学院",
+          "lat": 38.0518,
+          "lng": -78.5108,
+          "note": "案例教学闻名的研究生商学院。"
+        },
+        {
+          "name": "School of Engineering (Thornton Hall)",
+          "nameCn": "工程学院（桑顿楼）",
+          "lat": 38.0331,
+          "lng": -78.5103,
+          "note": "中央校区西侧的工程与应用科学学院。"
+        },
+        {
+          "name": "McIntire School of Commerce",
+          "nameCn": "麦金太尔商学院",
+          "lat": 38.0364,
+          "lng": -78.5057,
+          "note": "本科商科名校，临近圆顶大厅。"
+        },
+        {
+          "name": "School of Medicine",
+          "nameCn": "医学院",
+          "lat": 38.0315,
+          "lng": -78.4997,
+          "note": "与医疗中心一体的临床医学教学区。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Shannon Library (Alderman)",
+          "nameCn": "香农图书馆（原奥尔德曼）",
+          "lat": 38.0364,
+          "lng": -78.5048,
+          "note": "翻新重启的主图书馆，人文社科馆藏中枢。"
+        },
+        {
+          "name": "Clemons Library",
+          "nameCn": "克莱蒙斯图书馆",
+          "lat": 38.0359,
+          "lng": -78.5055,
+          "note": "24小时学习空间与多媒体资源。"
+        },
+        {
+          "name": "Albert and Shirley Small Special Collections Library",
+          "nameCn": "斯莫尔特藏图书馆",
+          "lat": 38.0368,
+          "lng": -78.5043,
+          "note": "珍本手稿与杰斐逊相关特藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Fralin Museum of Art",
+          "nameCn": "弗拉林艺术博物馆",
+          "lat": 38.0372,
+          "lng": -78.5028,
+          "note": "校园美术馆，藏古今与亚洲艺术。"
+        },
+        {
+          "name": "Kluge-Ruhe Aboriginal Art Collection",
+          "nameCn": "克鲁格-鲁厄澳洲原住民艺术馆",
+          "lat": 38.0388,
+          "lng": -78.531,
+          "note": "美国唯一专藏澳洲原住民艺术的博物馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Rotunda",
+          "nameCn": "圆顶大厅",
+          "lat": 38.0356,
+          "lng": -78.5033,
+          "note": "杰斐逊设计的校园象征与世界遗产核心。"
+        },
+        {
+          "name": "The Lawn & Pavilions",
+          "nameCn": "草坪与亭阁",
+          "lat": 38.0348,
+          "lng": -78.5036,
+          "note": "梯台绿地两侧的列柱教授亭与学生宿舍。"
+        },
+        {
+          "name": "Scott Stadium",
+          "nameCn": "斯科特体育场",
+          "lat": 38.0312,
+          "lng": -78.5135,
+          "note": "可容六万人的橄榄球主场。"
+        },
+        {
+          "name": "John Paul Jones Arena",
+          "nameCn": "约翰·保罗·琼斯球馆",
+          "lat": 38.046,
+          "lng": -78.5066,
+          "note": "篮球主场与大型演出场馆。"
+        },
+        {
+          "name": "Newcomb Hall",
+          "nameCn": "纽科姆学生中心",
+          "lat": 38.0356,
+          "lng": -78.5061,
+          "note": "学生活动中心与餐饮社团枢纽。"
+        }
+      ]
+    }
+  ]
+}

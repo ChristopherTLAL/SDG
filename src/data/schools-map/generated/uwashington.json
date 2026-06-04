@@ -1,0 +1,206 @@
+{
+  "id": "uwashington",
+  "type": "school",
+  "name": "University of Washington",
+  "nameCn": "华盛顿大学",
+  "city": "Seattle, WA",
+  "center": [
+    47.6553,
+    -122.3035
+  ],
+  "zoom": 14,
+  "blurb": "华盛顿大学主校区坐落于西雅图华盛顿湖与波蒂奇湾之间，以红场、苏萨洛图书馆的哥特式立面和樱花盛开的方庭闻名，是一所学科齐全的公立旗舰研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Seattle Main Campus",
+          "nameCn": "西雅图主校区",
+          "lat": 47.6553,
+          "lng": -122.3035,
+          "radius": 1200,
+          "note": "旗舰主校区，红场与方庭为核心，临华盛顿湖。"
+        },
+        {
+          "name": "UW Medical Center – Montlake",
+          "nameCn": "华大医学中心（蒙特莱克）",
+          "lat": 47.65,
+          "lng": -122.3081,
+          "radius": 450,
+          "note": "主校区南端旗舰教学医院，紧邻医学院。"
+        },
+        {
+          "name": "South Lake Union Research Campus",
+          "nameCn": "南联合湖研究园区",
+          "lat": 47.624,
+          "lng": -122.3375,
+          "radius": 400,
+          "note": "市区生物医学研究基地，五栋实验楼。"
+        },
+        {
+          "name": "UW Tower",
+          "nameCn": "华大行政塔楼",
+          "lat": 47.6608,
+          "lng": -122.3147,
+          "radius": 250,
+          "note": "大学城内的行政办公主楼。"
+        },
+        {
+          "name": "UW Bothell",
+          "nameCn": "博塞尔分校",
+          "lat": 47.7594,
+          "lng": -122.1911,
+          "radius": 700,
+          "note": "西雅图东北约20公里的卫星校区，与卡斯凯迪亚学院共址。"
+        },
+        {
+          "name": "UW Tacoma",
+          "nameCn": "塔科马分校",
+          "lat": 47.2446,
+          "lng": -122.4385,
+          "radius": 500,
+          "note": "塔科马市中心校区，由旧仓库改造。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Paul G. Allen Center for Computer Science & Engineering",
+          "nameCn": "保罗·艾伦计算机科学与工程中心",
+          "lat": 47.6533,
+          "lng": -122.3055,
+          "note": "艾伦计算机学院主楼，位于下校区工科群。"
+        },
+        {
+          "name": "Bill & Melinda Gates Center",
+          "nameCn": "盖茨计算机科学与工程中心",
+          "lat": 47.6529,
+          "lng": -122.3045,
+          "note": "与艾伦中心隔路相望的第二座CSE楼。"
+        },
+        {
+          "name": "Mary Gates Hall",
+          "nameCn": "玛丽·盖茨楼",
+          "lat": 47.6555,
+          "lng": -122.3068,
+          "note": "信息学院与本科学术中心所在。"
+        },
+        {
+          "name": "Health Sciences Building (Magnuson)",
+          "nameCn": "健康科学大楼",
+          "lat": 47.6497,
+          "lng": -122.3095,
+          "note": "医学、护理、药学等学院的庞大综合体。"
+        },
+        {
+          "name": "Kane Hall",
+          "nameCn": "凯恩楼",
+          "lat": 47.6566,
+          "lng": -122.3091,
+          "note": "红场西侧大讲堂与文理学院核心教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Suzzallo Library",
+          "nameCn": "苏萨洛图书馆",
+          "lat": 47.6557,
+          "lng": -122.3084,
+          "note": "哥特式中央图书馆，校园最具标志性建筑。"
+        },
+        {
+          "name": "Odegaard Undergraduate Library",
+          "nameCn": "奥德加德本科图书馆",
+          "lat": 47.6566,
+          "lng": -122.3099,
+          "note": "红场旁24小时本科学习中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Burke Museum of Natural History and Culture",
+          "nameCn": "伯克自然历史与文化博物馆",
+          "lat": 47.661,
+          "lng": -122.3098,
+          "note": "华盛顿州自然史与原住民文化馆。"
+        },
+        {
+          "name": "Henry Art Gallery",
+          "nameCn": "亨利美术馆",
+          "lat": 47.6564,
+          "lng": -122.3117,
+          "note": "15大道旁的当代艺术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Red Square (Central Plaza)",
+          "nameCn": "红场（中央广场）",
+          "lat": 47.6562,
+          "lng": -122.3089,
+          "note": "红砖铺面的校园中枢广场。"
+        },
+        {
+          "name": "Husky Union Building (HUB)",
+          "nameCn": "哈士奇学生活动中心",
+          "lat": 47.6554,
+          "lng": -122.305,
+          "note": "学生会与餐饮活动中心。"
+        },
+        {
+          "name": "Husky Stadium",
+          "nameCn": "哈士奇体育场",
+          "lat": 47.6502,
+          "lng": -122.301,
+          "note": "临湖橄榄球场，东校区体育核心。"
+        },
+        {
+          "name": "Drumheller Fountain",
+          "nameCn": "德拉姆海勒喷泉",
+          "lat": 47.6536,
+          "lng": -122.3076,
+          "note": "雷尼尔景观轴线上的喷泉，可远眺雷尼尔山。"
+        },
+        {
+          "name": "U District Station (Link)",
+          "nameCn": "大学区轻轨站",
+          "lat": 47.6604,
+          "lng": -122.3137,
+          "note": "Link轻轨车站，校园西北门户。"
+        }
+      ]
+    }
+  ]
+}

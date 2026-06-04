@@ -1,0 +1,176 @@
+{
+  "id": "university-of-north-carolina-chapel-hill",
+  "type": "school",
+  "name": "University of North Carolina, Chapel Hill",
+  "nameCn": "北卡罗来纳大学教堂山分校",
+  "city": "Chapel Hill, NC",
+  "center": [
+    35.90861,
+    -79.04917
+  ],
+  "zoom": 14,
+  "blurb": "北卡罗来纳大学教堂山分校是美国最古老的公立大学，校园以McCorkle与Polk两片绿地为核心，红砖乔治亚式建筑沿山坡铺展，南端连接医学中心与体育场，北郊另辟Carolina North卫星新校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (North & Central)",
+          "nameCn": "主校区（北/中区）",
+          "lat": 35.9105,
+          "lng": -79.0497,
+          "radius": 700,
+          "note": "历史核心，含老井、Polk Place与各文理学院。"
+        },
+        {
+          "name": "South Campus & Medical Center",
+          "nameCn": "南校区与医学中心",
+          "lat": 35.902,
+          "lng": -79.049,
+          "radius": 800,
+          "note": "医院、医药公卫学院、体育场与学生宿舍区。"
+        },
+        {
+          "name": "Carolina North (Horace Williams)",
+          "nameCn": "卡罗来纳北校区",
+          "lat": 35.935,
+          "lng": -79.0658,
+          "radius": 900,
+          "note": "原Horace Williams机场旧址，规划中的科研新城。"
+        },
+        {
+          "name": "William & Ida Friday Center",
+          "nameCn": "弗莱迪继续教育中心",
+          "lat": 35.8939,
+          "lng": -79.0144,
+          "radius": 300,
+          "note": "校东南继续教育与会议中心，近NC-54。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "South Building (Administration)",
+          "nameCn": "南楼（行政中心）",
+          "lat": 35.9107,
+          "lng": -79.051,
+          "note": "校长办公室所在，建于1798年。"
+        },
+        {
+          "name": "UNC School of Medicine / Medical Center",
+          "nameCn": "医学院与医学中心",
+          "lat": 35.9047,
+          "lng": -79.054,
+          "note": "南校区医疗与生命科学集群。"
+        },
+        {
+          "name": "Kenan-Flagler Business School (McColl)",
+          "nameCn": "凯南-弗拉格勒商学院",
+          "lat": 35.9012,
+          "lng": -79.0457,
+          "note": "南校区McColl大楼，紧邻Smith体育馆。"
+        },
+        {
+          "name": "Gillings School of Global Public Health",
+          "nameCn": "吉灵斯全球公共卫生学院",
+          "lat": 35.9055,
+          "lng": -79.0517,
+          "note": "全美顶尖公卫学院，邻医学中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Davis Library",
+          "nameCn": "戴维斯图书馆",
+          "lat": 35.9105,
+          "lng": -79.0479,
+          "note": "全校最大主图书馆，七层藏书。"
+        },
+        {
+          "name": "Louis Round Wilson Library",
+          "nameCn": "威尔逊图书馆",
+          "lat": 35.9097,
+          "lng": -79.0497,
+          "note": "圆顶地标，珍本与南方历史特藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Ackland Art Museum",
+          "nameCn": "阿克兰艺术博物馆",
+          "lat": 35.9124,
+          "lng": -79.053,
+          "note": "校园西缘综合艺术馆，免费开放。"
+        },
+        {
+          "name": "Morehead Planetarium & Science Center",
+          "nameCn": "莫尔黑德天文馆",
+          "lat": 35.9135,
+          "lng": -79.0494,
+          "note": "曾训练NASA宇航员的天象馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Old Well",
+          "nameCn": "老井",
+          "lat": 35.9117,
+          "lng": -79.051,
+          "note": "新古典圆亭，UNC的象征地标。"
+        },
+        {
+          "name": "Morehead-Patterson Bell Tower",
+          "nameCn": "莫尔黑德钟楼",
+          "lat": 35.9092,
+          "lng": -79.0476,
+          "note": "172英尺钟楼，校园天际线标志。"
+        },
+        {
+          "name": "Kenan Memorial Stadium",
+          "nameCn": "凯南纪念体育场",
+          "lat": 35.9072,
+          "lng": -79.047,
+          "note": "橄榄球主场，嵌于林木山谷。"
+        },
+        {
+          "name": "Dean E. Smith Center",
+          "nameCn": "迪恩·史密斯篮球馆",
+          "lat": 35.8997,
+          "lng": -79.044,
+          "note": "Tar Heels篮球圣地，可容两万人。"
+        }
+      ]
+    }
+  ]
+}

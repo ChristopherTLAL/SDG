@@ -1,0 +1,205 @@
+{
+  "id": "university-of-florida",
+  "type": "school",
+  "name": "University of Florida",
+  "nameCn": "佛罗里达大学",
+  "city": "Gainesville, FL",
+  "center": [
+    29.6475,
+    -82.345
+  ],
+  "zoom": 14,
+  "blurb": "佛罗里达大学坐落于盖恩斯维尔，是一所占地约2000英亩的公立常春藤旗舰大学，校园绿树成荫、红砖历史建筑与现代医学科研中心交织，以\"沼泽\"橄榄球场和六大健康学院同处一址而闻名。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Historic Core)",
+          "nameCn": "主校区（历史核心区）",
+          "lat": 29.6494,
+          "lng": -82.3426,
+          "radius": 700,
+          "note": "美洲广场、世纪钟楼与红砖历史建筑群所在的学术中心。"
+        },
+        {
+          "name": "Health Science Center & UF Health Shands",
+          "nameCn": "健康科学中心与Shands医院",
+          "lat": 29.6396,
+          "lng": -82.3447,
+          "radius": 650,
+          "note": "六大健康学院与教学医院同处一址的医学科研区。"
+        },
+        {
+          "name": "College of Veterinary Medicine",
+          "nameCn": "兽医学院",
+          "lat": 29.6385,
+          "lng": -82.3568,
+          "radius": 400,
+          "note": "SW 16th大道上的兽医院与教学区。"
+        },
+        {
+          "name": "Cultural Plaza (Harn & Florida Museum)",
+          "nameCn": "文化广场（哈恩与自然史博物馆）",
+          "lat": 29.6366,
+          "lng": -82.3702,
+          "radius": 450,
+          "note": "校园西南角的艺术与自然史博物馆文化区。"
+        },
+        {
+          "name": "UF Innovate / Innovation Square",
+          "nameCn": "创新广场科研园",
+          "lat": 29.6512,
+          "lng": -82.3375,
+          "radius": 550,
+          "note": "校园东侧连接市中心的创业孵化与研究园区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Reitz Union (J. Wayne Reitz)",
+          "nameCn": "莱兹学生活动中心",
+          "lat": 29.6463,
+          "lng": -82.3479,
+          "note": "校园主学生中心，餐饮、活动与服务枢纽。"
+        },
+        {
+          "name": "Turlington Hall",
+          "nameCn": "特灵顿楼",
+          "lat": 29.6486,
+          "lng": -82.3438,
+          "note": "文理学院核心教学楼，前广场人流最密集。"
+        },
+        {
+          "name": "Herbert Wertheim College of Engineering",
+          "nameCn": "韦特海姆工程学院",
+          "lat": 29.6433,
+          "lng": -82.3475,
+          "note": "工程学院主楼群，紧邻马斯顿科学图书馆。"
+        },
+        {
+          "name": "Warrington College of Business (Heavener Hall)",
+          "nameCn": "沃灵顿商学院",
+          "lat": 29.651,
+          "lng": -82.3429,
+          "note": "商学院教学区，靠近历史区北缘。"
+        },
+        {
+          "name": "College of Medicine",
+          "nameCn": "医学院",
+          "lat": 29.6404,
+          "lng": -82.3438,
+          "note": "健康科学中心内的医学院主体建筑。"
+        },
+        {
+          "name": "Levin College of Law",
+          "nameCn": "莱文法学院",
+          "lat": 29.6451,
+          "lng": -82.3593,
+          "note": "校园西侧独立的法学院园区。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Library West",
+          "nameCn": "西图书馆",
+          "lat": 29.6516,
+          "lng": -82.3429,
+          "note": "Smathers图书馆系统最大馆，人文社科主馆。"
+        },
+        {
+          "name": "Marston Science Library",
+          "nameCn": "马斯顿科学图书馆",
+          "lat": 29.648,
+          "lng": -82.3438,
+          "note": "理工农与自然科学馆，位于特灵顿广场旁。"
+        },
+        {
+          "name": "Smathers Library (Library East)",
+          "nameCn": "Smathers图书馆（东馆）",
+          "lat": 29.6511,
+          "lng": -82.3414,
+          "note": "校园最古老的图书馆，馆藏特藏与档案。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Samuel P. Harn Museum of Art",
+          "nameCn": "哈恩艺术博物馆",
+          "lat": 29.6369,
+          "lng": -82.37,
+          "note": "佛州最大的大学艺术馆之一，免费开放。"
+        },
+        {
+          "name": "Florida Museum of Natural History",
+          "nameCn": "佛罗里达自然史博物馆",
+          "lat": 29.6357,
+          "lng": -82.3704,
+          "note": "蝴蝶雨林馆闻名，州立自然史研究馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Ben Hill Griffin Stadium (The Swamp)",
+          "nameCn": "本·希尔·格里芬体育场（沼泽）",
+          "lat": 29.6499,
+          "lng": -82.3488,
+          "note": "Gators橄榄球主场，可容近九万人。"
+        },
+        {
+          "name": "Century Tower",
+          "nameCn": "世纪钟楼",
+          "lat": 29.6481,
+          "lng": -82.3461,
+          "note": "157英尺高的钟琴塔，校园地标中心。"
+        },
+        {
+          "name": "Stephen C. O'Connell Center",
+          "nameCn": "奥康奈尔中心",
+          "lat": 29.6493,
+          "lng": -82.3502,
+          "note": "篮球与多功能室内体育馆。"
+        },
+        {
+          "name": "Plaza of the Americas",
+          "nameCn": "美洲广场",
+          "lat": 29.6505,
+          "lng": -82.3424,
+          "note": "历史区中心绿地，两侧环绕主图书馆。"
+        }
+      ]
+    }
+  ]
+}

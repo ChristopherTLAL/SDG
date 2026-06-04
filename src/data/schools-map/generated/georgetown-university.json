@@ -1,0 +1,173 @@
+{
+  "id": "georgetown-university",
+  "type": "school",
+  "name": "Georgetown University",
+  "nameCn": "乔治城大学",
+  "city": "Washington, DC",
+  "center": [
+    38.9079,
+    -77.0722
+  ],
+  "zoom": 13,
+  "blurb": "乔治城大学坐落于华盛顿特区波托马克河畔的乔治城高地，是美国最古老的天主教耶稣会大学，融历史石砌学院与首都政治脉络于一体。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Hilltop Campus (Main Campus)",
+          "nameCn": "高地主校区",
+          "lat": 38.9079,
+          "lng": -77.0722,
+          "radius": 700,
+          "note": "本科及多数学院所在，104英亩、坐拥波托马克河景的核心校园。"
+        },
+        {
+          "name": "Georgetown University Medical Center",
+          "nameCn": "乔治城大学医学中心",
+          "lat": 38.9117,
+          "lng": -77.0758,
+          "radius": 450,
+          "note": "主校区西北侧 Reservoir Road 沿线，含医院与隆巴迪癌症中心。"
+        },
+        {
+          "name": "Capitol Campus (Law Center)",
+          "nameCn": "国会校区（法学院）",
+          "lat": 38.8985,
+          "lng": -77.0095,
+          "radius": 350,
+          "note": "市中心联合车站与国会山旁，法学院与继续教育学院在此。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Healy Hall",
+          "nameCn": "希利楼",
+          "lat": 38.9078,
+          "lng": -77.0723,
+          "note": "1879年新中世纪式地标，校园象征，内含加斯顿礼堂。"
+        },
+        {
+          "name": "Rafik B. Hariri Building (McDonough School of Business)",
+          "nameCn": "哈里里楼（麦克多诺商学院）",
+          "lat": 38.9069,
+          "lng": -77.0746,
+          "note": "麦克多诺商学院主楼，2009年落成。"
+        },
+        {
+          "name": "Edmund A. Walsh School of Foreign Service (ICC)",
+          "nameCn": "沃尔什外交学院（ICC楼）",
+          "lat": 38.9062,
+          "lng": -77.0729,
+          "note": "顶尖国际关系学院，设于校际交流中心 ICC。"
+        },
+        {
+          "name": "Regents Hall",
+          "nameCn": "摄政科学楼",
+          "lat": 38.9085,
+          "lng": -77.0739,
+          "note": "2012年启用的六层 LEED 认证理科中心。"
+        },
+        {
+          "name": "McDonough Hall (Georgetown Law)",
+          "nameCn": "麦克多诺楼（法学院）",
+          "lat": 38.8983,
+          "lng": -77.0092,
+          "note": "国会校区法学院主教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Joseph Mark Lauinger Memorial Library",
+          "nameCn": "劳因格纪念图书馆",
+          "lat": 38.9075,
+          "lng": -77.0717,
+          "note": "主校区最大图书馆，藏书逾350万册。"
+        },
+        {
+          "name": "Riggs Library",
+          "nameCn": "里格斯图书馆",
+          "lat": 38.9079,
+          "lng": -77.0721,
+          "note": "希利楼内的铸铁书阁古典图书馆，今作活动空间。"
+        },
+        {
+          "name": "Dahlgren Memorial Library",
+          "nameCn": "达尔格伦纪念医学图书馆",
+          "lat": 38.9114,
+          "lng": -77.0755,
+          "note": "医学中心的医学健康科学图书馆。"
+        },
+        {
+          "name": "Edward Bennett Williams Law Library",
+          "nameCn": "威廉姆斯法律图书馆",
+          "lat": 38.8987,
+          "lng": -77.0089,
+          "note": "国会校区，全美最大法律研究图书馆之一。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Healy Gates (Main Entrance, 37th & O Sts NW)",
+          "nameCn": "希利校门",
+          "lat": 38.9082,
+          "lng": -77.072,
+          "note": "37街与O街交口的主校门入口。"
+        },
+        {
+          "name": "Dahlgren Chapel of the Sacred Heart",
+          "nameCn": "达尔格伦圣心礼拜堂",
+          "lat": 38.9077,
+          "lng": -77.0726,
+          "note": "校园主要天主教礼拜堂，四方庭院中心。"
+        },
+        {
+          "name": "Leavey Center & Healey Family Student Center",
+          "nameCn": "利维中心与希利家庭学生中心",
+          "lat": 38.9089,
+          "lng": -77.0729,
+          "note": "学生活动、餐饮与酒店所在的校园枢纽。"
+        },
+        {
+          "name": "McDonough Arena",
+          "nameCn": "麦克多诺体育馆",
+          "lat": 38.907,
+          "lng": -77.0735,
+          "note": "1951年建成的校内体育馆。"
+        },
+        {
+          "name": "Georgetown University Hospital",
+          "nameCn": "乔治城大学医院",
+          "lat": 38.9121,
+          "lng": -77.0762,
+          "note": "医学中心附属教学医院。"
+        }
+      ]
+    }
+  ]
+}

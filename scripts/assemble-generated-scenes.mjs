@@ -30,10 +30,10 @@ const decode = (s) => typeof s === 'string'
   ? s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim()
   : s;
 
-// generous campus radius + UK bounding box
+// generous campus/metro radius (keeps satellite campuses) + global sanity box
 const near = (anchor, lat, lng) =>
-  Math.abs(lat - anchor[0]) < 0.6 && Math.abs(lng - anchor[1]) < 1.0 &&
-  lat > 49 && lat < 61 && lng > -9 && lng < 2;
+  Math.abs(lat - anchor[0]) < 1.6 && Math.abs(lng - anchor[1]) < 2.2 &&
+  lat > -60 && lat < 72 && lng > -180 && lng < 180;
 
 mkdirSync(here('../src/data/schools-map/generated'), { recursive: true });
 

@@ -1,0 +1,214 @@
+{
+  "id": "jhu",
+  "type": "school",
+  "name": "Johns Hopkins University",
+  "nameCn": "约翰斯·霍普金斯大学",
+  "city": "Baltimore, MD",
+  "center": [
+    39.3289,
+    -76.6203
+  ],
+  "zoom": 15,
+  "blurb": "约翰斯·霍普金斯大学以北巴尔的摩140英亩的红砖乔治亚风格Homewood主校区为核心，并散布于东巴尔的摩医学城、Mount Vernon的Peabody音乐学院、内港East的商学院等多个分址，是美国研究型大学的标杆。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Homewood Campus",
+          "nameCn": "Homewood 主校区",
+          "lat": 39.3289,
+          "lng": -76.6203,
+          "radius": 700,
+          "note": "本科主校区，文理学院与工程学院所在，红砖乔治亚式建筑群"
+        },
+        {
+          "name": "East Baltimore Medical Campus",
+          "nameCn": "东巴尔的摩医学城",
+          "lat": 39.2963,
+          "lng": -76.5929,
+          "radius": 700,
+          "note": "霍普金斯医院、医学院、护理学院与彭博公共卫生学院"
+        },
+        {
+          "name": "Peabody Institute (Mount Vernon)",
+          "nameCn": "Peabody 音乐学院",
+          "lat": 39.2972,
+          "lng": -76.6152,
+          "radius": 250,
+          "note": "Mount Vernon街区，美国最古老的音乐学院，1977年并入"
+        },
+        {
+          "name": "Carey Business School (Harbor East)",
+          "nameCn": "Carey 商学院（内港East）",
+          "lat": 39.2826,
+          "lng": -76.6016,
+          "radius": 250,
+          "note": "Legg Mason大厦，内港East商业区，2011年迁入"
+        },
+        {
+          "name": "Johns Hopkins at Mount Washington",
+          "nameCn": "Mount Washington 校区",
+          "lat": 39.3725,
+          "lng": -76.6565,
+          "radius": 350,
+          "note": "西北郊行政办公与会议中心，5801 Smith Ave"
+        },
+        {
+          "name": "Johns Hopkins Bayview Medical Center",
+          "nameCn": "Bayview 医学中心",
+          "lat": 39.2929,
+          "lng": -76.5513,
+          "radius": 600,
+          "note": "东南巴尔的摩教学医院，含全马里兰唯一成人烧伤中心"
+        },
+        {
+          "name": "Applied Physics Laboratory (Laurel)",
+          "nameCn": "应用物理实验室（Laurel）",
+          "lat": 39.1592,
+          "lng": -76.8917,
+          "radius": 1200,
+          "note": "Laurel镇，全美最大大学附属研究中心，承担国防与NASA项目"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Gilman Hall",
+          "nameCn": "Gilman 楼",
+          "lat": 39.329,
+          "lng": -76.6207,
+          "note": "主校区学术核心，人文学科与上区四方院头部地标"
+        },
+        {
+          "name": "Krieger Hall",
+          "nameCn": "Krieger 楼",
+          "lat": 39.3284,
+          "lng": -76.6213,
+          "note": "文理学院主教学楼，社科与理科课堂"
+        },
+        {
+          "name": "Hackerman Hall",
+          "nameCn": "Hackerman 楼",
+          "lat": 39.3299,
+          "lng": -76.6201,
+          "note": "Decker四方院，计算科学与工程研究"
+        },
+        {
+          "name": "Maryland Hall",
+          "nameCn": "Maryland 楼",
+          "lat": 39.3286,
+          "lng": -76.6222,
+          "note": "工程学院核心教学楼之一"
+        },
+        {
+          "name": "School of Medicine",
+          "nameCn": "医学院",
+          "lat": 39.2972,
+          "lng": -76.5925,
+          "note": "东巴尔的摩医学城，全美顶尖医学院"
+        },
+        {
+          "name": "Bloomberg School of Public Health",
+          "nameCn": "彭博公共卫生学院",
+          "lat": 39.298,
+          "lng": -76.5905,
+          "note": "全球规模最大的公共卫生学院，紧邻医院"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Milton S. Eisenhower Library",
+          "nameCn": "艾森豪威尔图书馆",
+          "lat": 39.3287,
+          "lng": -76.6199,
+          "note": "主研究图书馆，地下多层采光设计，藏书逾380万册"
+        },
+        {
+          "name": "Brody Learning Commons",
+          "nameCn": "Brody 学习共享空间",
+          "lat": 39.3285,
+          "lng": -76.6196,
+          "note": "2012年启用，与主图书馆相连的协作学习楼"
+        },
+        {
+          "name": "George Peabody Library",
+          "nameCn": "George Peabody 图书馆",
+          "lat": 39.2974,
+          "lng": -76.6149,
+          "note": "Mount Vernon街区，19世纪铸铁书廊，被誉最美图书馆之一"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Homewood Museum",
+          "nameCn": "Homewood 博物馆",
+          "lat": 39.3279,
+          "lng": -76.6188,
+          "note": "1801年Carroll家族联邦式宅邸，校园同名来源"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Shriver Hall",
+          "nameCn": "Shriver 礼堂",
+          "lat": 39.3294,
+          "lng": -76.6195,
+          "note": "主校区演讲与音乐会场，霍普金斯交响乐团驻地"
+        },
+        {
+          "name": "Mason Hall (Admissions)",
+          "nameCn": "Mason 招生楼",
+          "lat": 39.3301,
+          "lng": -76.6205,
+          "note": "Decker四方院，招生办与访客中心"
+        },
+        {
+          "name": "Homewood Field",
+          "nameCn": "Homewood 体育场",
+          "lat": 39.3312,
+          "lng": -76.6182,
+          "note": "长曲棍球主场，沿San Martin Dr东北侧"
+        },
+        {
+          "name": "The Johns Hopkins Hospital (Dome)",
+          "nameCn": "霍普金斯医院（穹顶楼）",
+          "lat": 39.2965,
+          "lng": -76.593,
+          "note": "1889年标志性穹顶建筑，美国最负盛名医院之一"
+        }
+      ]
+    }
+  ]
+}

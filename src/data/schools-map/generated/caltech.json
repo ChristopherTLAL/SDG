@@ -1,0 +1,180 @@
+{
+  "id": "caltech",
+  "type": "school",
+  "name": "California Institute of Technology",
+  "nameCn": "加州理工学院",
+  "city": "Pasadena, CA",
+  "center": [
+    34.137,
+    -118.1253
+  ],
+  "zoom": 15,
+  "blurb": "加州理工学院主校区紧凑精致，沿南北向的 Beckman 中庭与 Olive Walk 轴线铺展，棕榈成行、橄榄树掩映西班牙复兴式红瓦建筑，是世界顶尖的理工科研重镇。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Caltech Main Campus",
+          "nameCn": "加州理工主校区",
+          "lat": 34.137,
+          "lng": -118.1253,
+          "radius": 650,
+          "note": "约 50 公顷的核心学术校区，位于帕萨迪纳，含理学院、工程院系与七座本科宿舍。"
+        },
+        {
+          "name": "Jet Propulsion Laboratory (JPL)",
+          "nameCn": "喷气推进实验室",
+          "lat": 34.2015,
+          "lng": -118.173,
+          "radius": 900,
+          "note": "由加州理工为 NASA 运营的联邦研发中心，位于校区西北约 11 公里的拉卡尼亚达。"
+        },
+        {
+          "name": "Tournament Park Athletics",
+          "nameCn": "锦标赛公园运动场",
+          "lat": 34.1329,
+          "lng": -118.1255,
+          "radius": 250,
+          "note": "校区南侧的运动草坪与田径场，是早年玫瑰碗橄榄球赛的发源地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Beckman Institute",
+          "nameCn": "贝克曼研究所",
+          "lat": 34.1384,
+          "lng": -118.1259,
+          "note": "化学与生物交叉研究中心，坐落 Beckman 中庭北端。"
+        },
+        {
+          "name": "Cahill Center for Astronomy and Astrophysics",
+          "nameCn": "卡希尔天文与天体物理中心",
+          "lat": 34.1356,
+          "lng": -118.1263,
+          "note": "南校区的天文台系科楼，外立面色带醒目。"
+        },
+        {
+          "name": "Annenberg Center (Computing & Mathematical Sciences)",
+          "nameCn": "安纳伯格计算与数学科学中心",
+          "lat": 34.1398,
+          "lng": -118.1238,
+          "note": "计算机科学与应用数学的现代教研楼。"
+        },
+        {
+          "name": "Moore Laboratory of Engineering",
+          "nameCn": "摩尔工程实验楼",
+          "lat": 34.1398,
+          "lng": -118.1247,
+          "note": "电子工程系所在地，临 Moore Walk。"
+        },
+        {
+          "name": "Guggenheim Aeronautical Laboratory (GALCIT)",
+          "nameCn": "古根海姆航空实验室",
+          "lat": 34.1366,
+          "lng": -118.1245,
+          "note": "航空航天系 GALCIT 的发源楼，钱学森曾在此求学任教。"
+        },
+        {
+          "name": "Linde Hall of Mathematics and Physics",
+          "nameCn": "林德数学与物理楼",
+          "lat": 34.1364,
+          "lng": -118.1254,
+          "note": "数学与物理共用的西班牙复兴式核心教学楼。"
+        },
+        {
+          "name": "Bridge Laboratory of Physics",
+          "nameCn": "布里奇物理实验楼",
+          "lat": 34.1364,
+          "lng": -118.1261,
+          "note": "历史悠久的物理系实验楼群，分东、西与附楼。"
+        },
+        {
+          "name": "Crellin & Church Laboratories of Chemistry",
+          "nameCn": "克雷林与丘奇化学实验楼",
+          "lat": 34.1374,
+          "lng": -118.1267,
+          "note": "化学系核心实验楼，鲍林曾长期在此工作。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Caltech Hall (formerly Millikan Library)",
+          "nameCn": "加州理工楼（原密立根图书馆）",
+          "lat": 34.1369,
+          "lng": -118.1261,
+          "note": "校园最高建筑，九层塔楼，曾为主图书馆与地标。"
+        },
+        {
+          "name": "Sherman Fairchild Library",
+          "nameCn": "谢尔曼·费尔柴尔德图书馆",
+          "lat": 34.1378,
+          "lng": -118.1248,
+          "note": "工程与应用科学主图书馆，全天候开放的自习中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Beckman Auditorium",
+          "nameCn": "贝克曼礼堂",
+          "lat": 34.1392,
+          "lng": -118.1255,
+          "note": "标志性圆形白色穹顶礼堂，号称『婚礼蛋糕』，位于校区北端。"
+        },
+        {
+          "name": "The Athenaeum",
+          "nameCn": "雅典娜俱乐部",
+          "lat": 34.1372,
+          "lng": -118.1224,
+          "note": "校区东南角的教职员俱乐部，多位诺奖得主在此庆功。"
+        },
+        {
+          "name": "Hameetman Center (Student Center)",
+          "nameCn": "哈米特曼学生中心",
+          "lat": 34.1373,
+          "lng": -118.1239,
+          "note": "学生活动与餐饮中心，毗邻 Winnett 学生会。"
+        },
+        {
+          "name": "Beckman Mall & Olive Walk",
+          "nameCn": "贝克曼中庭与橄榄步道",
+          "lat": 34.1384,
+          "lng": -118.1255,
+          "note": "贯穿校园南北的绿化主轴与橄榄树步道。"
+        },
+        {
+          "name": "Braun Athletic Center",
+          "nameCn": "布劳恩体育中心",
+          "lat": 34.1339,
+          "lng": -118.1275,
+          "note": "校区南端的体育馆与游泳池，校队主场。"
+        }
+      ]
+    }
+  ]
+}

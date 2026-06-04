@@ -1,0 +1,213 @@
+{
+  "id": "rutgers-university-new-brunswick",
+  "type": "school",
+  "name": "Rutgers University-New Brunswick",
+  "nameCn": "罗格斯大学新布朗斯维克分校",
+  "city": "New Brunswick, NJ",
+  "center": [
+    40.5017,
+    -74.4481
+  ],
+  "zoom": 13,
+  "blurb": "罗格斯新布朗斯维克分校横跨拉里坦河，由五大风格迥异的校区组成——历史悠久的学院大道、理工与医学重镇布什、商学院所在的利文斯顿、田园农场的库克与女子学院道格拉斯，再加上市中心的医学创新区，校车串联成一座大学城。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "College Avenue Campus",
+          "nameCn": "学院大道校区",
+          "lat": 40.5017,
+          "lng": -74.4481,
+          "radius": 700,
+          "note": "市中心历史核心，含老皇后楼与荣誉学院"
+        },
+        {
+          "name": "Busch Campus",
+          "nameCn": "布什校区",
+          "lat": 40.5215,
+          "lng": -74.4625,
+          "radius": 1100,
+          "note": "皮斯卡塔韦，理工医学与橄榄球场所在地"
+        },
+        {
+          "name": "Livingston Campus",
+          "nameCn": "利文斯顿校区",
+          "lat": 40.523,
+          "lng": -74.438,
+          "radius": 900,
+          "note": "皮斯卡塔韦，商学院与篮球馆，配大型太阳能阵列"
+        },
+        {
+          "name": "Cook Campus",
+          "nameCn": "库克校区",
+          "lat": 40.4795,
+          "lng": -74.429,
+          "radius": 900,
+          "note": "农业生态校区，有农场、有机园与情侣池"
+        },
+        {
+          "name": "Douglass Campus",
+          "nameCn": "道格拉斯校区",
+          "lat": 40.4865,
+          "lng": -74.4375,
+          "radius": 700,
+          "note": "与库克相连，殖民式建筑的女子住宿学院"
+        },
+        {
+          "name": "HELIX / Medical District",
+          "nameCn": "市中心医学创新区",
+          "lat": 40.4945,
+          "lng": -74.444,
+          "radius": 450,
+          "note": "罗伯特·伍德·约翰逊医学院与生命科学交流中心"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Rutgers Business School (Livingston)",
+          "nameCn": "罗格斯商学院",
+          "lat": 40.5232,
+          "lng": -74.4366,
+          "note": "利文斯顿校区地标教学楼"
+        },
+        {
+          "name": "Hill Center for Mathematical Sciences",
+          "nameCn": "希尔数学科学中心",
+          "lat": 40.5218,
+          "lng": -74.4717,
+          "note": "布什校区数学与计算机科学楼"
+        },
+        {
+          "name": "Robert Wood Johnson Medical School",
+          "nameCn": "罗伯特·伍德·约翰逊医学院",
+          "lat": 40.4942,
+          "lng": -74.4435,
+          "note": "市中心医学院，含HELIX新教学楼"
+        },
+        {
+          "name": "School of Environmental and Biological Sciences",
+          "nameCn": "环境与生物科学学院",
+          "lat": 40.4805,
+          "lng": -74.4335,
+          "note": "库克校区，农业与生态研究"
+        },
+        {
+          "name": "Mason Gross School of the Arts",
+          "nameCn": "梅森·格罗斯艺术学院",
+          "lat": 40.4865,
+          "lng": -74.4365,
+          "note": "道格拉斯校区表演与视觉艺术"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Archibald S. Alexander Library",
+          "nameCn": "亚历山大图书馆",
+          "lat": 40.5042,
+          "lng": -74.4475,
+          "note": "学院大道主研究图书馆"
+        },
+        {
+          "name": "Library of Science and Medicine",
+          "nameCn": "科学与医学图书馆",
+          "lat": 40.523,
+          "lng": -74.4655,
+          "note": "布什校区，165 Bevier Road"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Jane Voorhees Zimmerli Art Museum",
+          "nameCn": "齐默利艺术博物馆",
+          "lat": 40.5,
+          "lng": -74.446,
+          "note": "学院大道，馆藏俄苏非官方艺术著称"
+        },
+        {
+          "name": "Rutgers Geology Museum",
+          "nameCn": "罗格斯地质博物馆",
+          "lat": 40.5012,
+          "lng": -74.447,
+          "note": "学院大道，馆内有乳齿象骨架"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Old Queens",
+          "nameCn": "老皇后楼",
+          "lat": 40.4998,
+          "lng": -74.4463,
+          "note": "1809年奠基，国家级历史地标，校长办公室所在"
+        },
+        {
+          "name": "Kirkpatrick Chapel",
+          "nameCn": "柯克帕特里克礼拜堂",
+          "lat": 40.5003,
+          "lng": -74.447,
+          "note": "学院大道历史礼拜堂"
+        },
+        {
+          "name": "SHI Stadium",
+          "nameCn": "SHI体育场",
+          "lat": 40.5136,
+          "lng": -74.4653,
+          "note": "布什校区，红骑士橄榄球主场"
+        },
+        {
+          "name": "Jersey Mike's Arena (RAC)",
+          "nameCn": "泽西麦克球馆",
+          "lat": 40.5212,
+          "lng": -74.4393,
+          "note": "利文斯顿校区篮球馆，83 Rockafeller Road"
+        },
+        {
+          "name": "Passion Puddle",
+          "nameCn": "情侣池",
+          "lat": 40.481,
+          "lng": -74.436,
+          "note": "库克/道格拉斯之间的浪漫地标小池塘"
+        },
+        {
+          "name": "New Brunswick Station",
+          "nameCn": "新布朗斯维克火车站",
+          "lat": 40.4973,
+          "lng": -74.4458,
+          "note": "NJ Transit与Amtrak车站，紧邻学院大道校区"
+        }
+      ]
+    }
+  ]
+}

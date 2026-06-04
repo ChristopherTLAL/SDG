@@ -1,0 +1,206 @@
+{
+  "id": "columbia",
+  "type": "school",
+  "name": "Columbia University",
+  "nameCn": "哥伦比亚大学",
+  "city": "New York, NY",
+  "center": [
+    40.8079,
+    -73.9624
+  ],
+  "zoom": 12,
+  "blurb": "哥伦比亚大学主校区坐落于曼哈顿晨边高地，以麦金-米德-怀特设计的古典学院广场（Low图书馆为核心）为标志，并在曼哈顿维尔、华盛顿高地及哈德逊河沿岸延伸出多个卫星校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Morningside Heights Campus",
+          "nameCn": "晨边高地主校区",
+          "lat": 40.8075,
+          "lng": -73.9619,
+          "radius": 450,
+          "note": "历史主校区，本科生与多数文理学院所在地"
+        },
+        {
+          "name": "Manhattanville Campus",
+          "nameCn": "曼哈顿维尔校区",
+          "lat": 40.817,
+          "lng": -73.9594,
+          "radius": 400,
+          "note": "2017年启用的新校区，商学院与脑科学研究所在此"
+        },
+        {
+          "name": "Columbia University Irving Medical Center",
+          "nameCn": "欧文医学中心",
+          "lat": 40.8404,
+          "lng": -73.9419,
+          "radius": 500,
+          "note": "华盛顿高地医学城，医学院与护理学院所在地"
+        },
+        {
+          "name": "Baker Athletics Complex",
+          "nameCn": "贝克体育中心",
+          "lat": 40.8716,
+          "lng": -73.9172,
+          "radius": 500,
+          "note": "曼哈顿最北端因伍德的体育场与运动场"
+        },
+        {
+          "name": "Lamont-Doherty Earth Observatory",
+          "nameCn": "拉蒙特-多尔蒂地球观测站",
+          "lat": 41.004,
+          "lng": -73.907,
+          "radius": 700,
+          "note": "帕利塞兹的地球科学研究园区，气候学院所在"
+        },
+        {
+          "name": "Nevis Laboratories",
+          "nameCn": "内维斯实验室",
+          "lat": 41.0273,
+          "lng": -73.8723,
+          "radius": 400,
+          "note": "欧文顿的高能物理实验研究站"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Low Memorial Library (Administration)",
+          "nameCn": "洛氏纪念图书馆（行政中心）",
+          "lat": 40.8079,
+          "lng": -73.9624,
+          "note": "校园中轴标志性穹顶建筑，现为行政中心"
+        },
+        {
+          "name": "Hamilton Hall",
+          "nameCn": "汉密尔顿楼",
+          "lat": 40.8071,
+          "lng": -73.9615,
+          "note": "哥伦比亚学院本科教学主楼"
+        },
+        {
+          "name": "Pulitzer Hall (Journalism School)",
+          "nameCn": "普利策楼（新闻学院）",
+          "lat": 40.8069,
+          "lng": -73.9633,
+          "note": "新闻学院与普利策奖所在地"
+        },
+        {
+          "name": "Pupin Physics Laboratories",
+          "nameCn": "普平物理实验楼",
+          "lat": 40.8099,
+          "lng": -73.9609,
+          "note": "曼哈顿计划诞生地之一，物理与天文系"
+        },
+        {
+          "name": "Columbia Business School (Henry R. Kravis & Geffen Hall)",
+          "nameCn": "商学院（曼哈顿维尔新址）",
+          "lat": 40.8186,
+          "lng": -73.9603,
+          "note": "曼哈顿维尔校区的商学院双子楼"
+        },
+        {
+          "name": "Vagelos College of Physicians and Surgeons",
+          "nameCn": "瓦杰洛斯内外科医学院",
+          "lat": 40.841,
+          "lng": -73.9425,
+          "note": "医学中心核心教学楼"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Butler Library",
+          "nameCn": "巴特勒图书馆",
+          "lat": 40.8063,
+          "lng": -73.963,
+          "note": "全校最大图书馆，人文与社科主馆"
+        },
+        {
+          "name": "Augustus C. Long Health Sciences Library",
+          "nameCn": "朗氏健康科学图书馆",
+          "lat": 40.8408,
+          "lng": -73.9413,
+          "note": "医学中心的健康科学主图书馆"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Wallach Art Gallery",
+          "nameCn": "瓦拉赫艺术馆",
+          "lat": 40.8166,
+          "lng": -73.9596,
+          "note": "迁入曼哈顿维尔的校属艺术展馆"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Alma Mater Statue & Low Steps",
+          "nameCn": "母校女神像与洛氏台阶",
+          "lat": 40.8076,
+          "lng": -73.9623,
+          "note": "校园象征，学生聚集的标志性台阶"
+        },
+        {
+          "name": "St. Paul's Chapel",
+          "nameCn": "圣保罗教堂",
+          "lat": 40.8073,
+          "lng": -73.9608,
+          "note": "校园内罗马式礼拜堂与音乐厅"
+        },
+        {
+          "name": "Jerome L. Greene Science Center",
+          "nameCn": "格林科学中心",
+          "lat": 40.817,
+          "lng": -73.9594,
+          "note": "皮亚诺设计的玻璃塔，脑科学研究所"
+        },
+        {
+          "name": "Lawrence A. Wien Stadium",
+          "nameCn": "维恩体育场",
+          "lat": 40.8732,
+          "lng": -73.9165,
+          "note": "贝克体育中心的橄榄球主场"
+        },
+        {
+          "name": "116th Street–Columbia University Subway Station",
+          "nameCn": "116街—哥大地铁站",
+          "lat": 40.8076,
+          "lng": -73.9641,
+          "note": "1号线校门口地铁站，校园西界入口"
+        }
+      ]
+    }
+  ]
+}

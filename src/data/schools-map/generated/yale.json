@@ -1,0 +1,176 @@
+{
+  "id": "yale",
+  "type": "school",
+  "name": "Yale University",
+  "nameCn": "耶鲁大学",
+  "city": "New Haven, CT",
+  "center": [
+    41.311,
+    -72.927
+  ],
+  "zoom": 14,
+  "blurb": "耶鲁大学坐落于康涅狄格州纽黑文市中心，以哥特式与乔治亚式建筑、住宿学院制和顶尖图书馆群著称，校园与城市街区交织融为一体。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central Campus",
+          "nameCn": "中央校区（主校区）",
+          "lat": 41.311,
+          "lng": -72.927,
+          "radius": 700,
+          "note": "Old Campus、住宿学院与十字校园所在的历史核心区。"
+        },
+        {
+          "name": "Medical Campus",
+          "nameCn": "医学校区",
+          "lat": 41.3045,
+          "lng": -72.9355,
+          "radius": 600,
+          "note": "纽黑文绿地西南，医学院与耶鲁纽黑文医院聚集地。"
+        },
+        {
+          "name": "Athletics Complex (Yale Bowl)",
+          "nameCn": "体育校区（耶鲁碗）",
+          "lat": 41.3132,
+          "lng": -72.96,
+          "radius": 700,
+          "note": "纽黑文西部，含耶鲁碗体育场与大片运动场地。"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 41.2708,
+          "lng": -72.9982,
+          "radius": 900,
+          "note": "西黑文/奥兰治交界，由原制药园区改建的科研校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Connecticut Hall (Old Campus)",
+          "nameCn": "康涅狄格楼（旧校园）",
+          "lat": 41.3088,
+          "lng": -72.9285,
+          "note": "校内现存最古老建筑，本科生历史核心区。"
+        },
+        {
+          "name": "Yale School of Medicine",
+          "nameCn": "耶鲁医学院",
+          "lat": 41.3042,
+          "lng": -72.9352,
+          "note": "医学校区主体，毗邻公共卫生学院。"
+        },
+        {
+          "name": "Yale School of Management (Evans Hall)",
+          "nameCn": "耶鲁管理学院（埃文斯楼）",
+          "lat": 41.3185,
+          "lng": -72.9215,
+          "note": "惠特尼大道沿线的现代玻璃庭院式商学院。"
+        },
+        {
+          "name": "Yale Law School (Sterling Law Building)",
+          "nameCn": "耶鲁法学院（斯特林法律楼）",
+          "lat": 41.3122,
+          "lng": -72.9293,
+          "note": "顶尖法学院，哥特式四方院建筑。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Sterling Memorial Library",
+          "nameCn": "斯特林纪念图书馆",
+          "lat": 41.3115,
+          "lng": -72.9277,
+          "note": "1931 年哥特式主馆，藏书逾三百万册。"
+        },
+        {
+          "name": "Beinecke Rare Book & Manuscript Library",
+          "nameCn": "拜内克古籍善本图书馆",
+          "lat": 41.3116,
+          "lng": -72.9282,
+          "note": "半透明大理石外墙，藏古登堡圣经等珍本。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Yale University Art Gallery",
+          "nameCn": "耶鲁大学美术馆",
+          "lat": 41.3083,
+          "lng": -72.9314,
+          "note": "全美最古老的大学美术馆，免费开放。"
+        },
+        {
+          "name": "Yale Peabody Museum of Natural History",
+          "nameCn": "皮博迪自然历史博物馆",
+          "lat": 41.316,
+          "lng": -72.9219,
+          "note": "惠特尼大道上的恐龙化石名馆，新近翻修。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Harkness Tower",
+          "nameCn": "哈克尼斯塔",
+          "lat": 41.3105,
+          "lng": -72.929,
+          "note": "耶鲁地标钟楼，哥特式校园象征。"
+        },
+        {
+          "name": "Woolsey Hall",
+          "nameCn": "伍尔西厅",
+          "lat": 41.3117,
+          "lng": -72.9259,
+          "note": "大型音乐厅与典礼场馆，含纪念门厅。"
+        },
+        {
+          "name": "Yale Bowl",
+          "nameCn": "耶鲁碗体育场",
+          "lat": 41.313,
+          "lng": -72.96,
+          "note": "1914 年落成的碗形橄榄球场，可容七万人。"
+        },
+        {
+          "name": "Payne Whitney Gymnasium",
+          "nameCn": "佩恩·惠特尼体育馆",
+          "lat": 41.314,
+          "lng": -72.932,
+          "note": "哥特式塔楼健身馆，俗称体育大教堂。"
+        }
+      ]
+    }
+  ]
+}

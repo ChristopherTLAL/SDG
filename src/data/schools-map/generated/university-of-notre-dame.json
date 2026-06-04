@@ -1,0 +1,190 @@
+{
+  "id": "university-of-notre-dame",
+  "type": "school",
+  "name": "University of Notre Dame",
+  "nameCn": "圣母大学",
+  "city": "Notre Dame, IN",
+  "center": [
+    41.7022,
+    -86.2353
+  ],
+  "zoom": 15,
+  "blurb": "圣母大学是美国顶尖天主教研究型大学，校园以金色穹顶主楼、圣心大教堂和两座湖泊环绕的哥特式古典建筑群闻名，氛围庄重而充满橄榄球传统。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus",
+          "nameCn": "主校区",
+          "lat": 41.7022,
+          "lng": -86.2353,
+          "radius": 1100,
+          "note": "金色穹顶、双湖与四方院构成的核心校园"
+        },
+        {
+          "name": "Athletics & Stadium District",
+          "nameCn": "体育场片区",
+          "lat": 41.6982,
+          "lng": -86.234,
+          "radius": 500,
+          "note": "橄榄球场、乔伊斯中心与冰球馆所在南缘"
+        },
+        {
+          "name": "Innovation Park",
+          "nameCn": "创新园区",
+          "lat": 41.6913,
+          "lng": -86.2393,
+          "radius": 350,
+          "note": "校园南端科研成果转化孵化基地"
+        },
+        {
+          "name": "Eddy Street Commons",
+          "nameCn": "艾迪街商业区",
+          "lat": 41.6912,
+          "lng": -86.2416,
+          "radius": 300,
+          "note": "校园南侧混合用途大学城与商住区"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Main Building (Golden Dome)",
+          "nameCn": "主楼（金色穹顶）",
+          "lat": 41.7031,
+          "lng": -86.2353,
+          "note": "校政中枢，穹顶圣母像为校园象征"
+        },
+        {
+          "name": "DeBartolo Hall",
+          "nameCn": "德巴托洛教学楼",
+          "lat": 41.7008,
+          "lng": -86.233,
+          "note": "全校最大公共教室楼"
+        },
+        {
+          "name": "Jordan Hall of Science",
+          "nameCn": "乔丹科学楼",
+          "lat": 41.7008,
+          "lng": -86.2315,
+          "note": "理学院核心教学实验楼"
+        },
+        {
+          "name": "Mendoza College of Business",
+          "nameCn": "门多萨商学院",
+          "lat": 41.6997,
+          "lng": -86.2304,
+          "note": "知名本科商学院所在地"
+        },
+        {
+          "name": "Walsh Family Hall of Architecture",
+          "nameCn": "沃尔什建筑学院",
+          "lat": 41.6968,
+          "lng": -86.236,
+          "note": "古典主义建筑学院新楼"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Hesburgh Library",
+          "nameCn": "赫斯伯格图书馆",
+          "lat": 41.7022,
+          "lng": -86.2342,
+          "note": "14层主图书馆，外墙「触地耶稣」壁画"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Raclin Murphy Museum of Art",
+          "nameCn": "拉克林·墨菲艺术博物馆",
+          "lat": 41.6938,
+          "lng": -86.2351,
+          "note": "2023年开放的新艺术馆，藏品原属斯奈特馆"
+        },
+        {
+          "name": "DeBartolo Performing Arts Center",
+          "nameCn": "德巴托洛表演艺术中心",
+          "lat": 41.6988,
+          "lng": -86.2299,
+          "note": "校园东南角的剧院与音乐厅"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Basilica of the Sacred Heart",
+          "nameCn": "圣心大教堂",
+          "lat": 41.7026,
+          "lng": -86.2363,
+          "note": "校园主教堂，法式新哥特建筑"
+        },
+        {
+          "name": "Grotto of Our Lady of Lourdes",
+          "nameCn": "露德圣母山洞",
+          "lat": 41.703,
+          "lng": -86.2372,
+          "note": "1896年仿法国露德建造的祈祷圣地"
+        },
+        {
+          "name": "Notre Dame Stadium",
+          "nameCn": "圣母大学体育场",
+          "lat": 41.6984,
+          "lng": -86.234,
+          "note": "可容八万人的橄榄球圣殿「The House」"
+        },
+        {
+          "name": "Joyce Center",
+          "nameCn": "乔伊斯中心",
+          "lat": 41.6975,
+          "lng": -86.235,
+          "note": "篮球与排球室内场馆"
+        },
+        {
+          "name": "Compton Family Ice Arena",
+          "nameCn": "康普顿家族冰球馆",
+          "lat": 41.696,
+          "lng": -86.233,
+          "note": "双冰场冰球主场"
+        },
+        {
+          "name": "Hesburgh Library Reflecting Pool",
+          "nameCn": "图书馆倒影池广场",
+          "lat": 41.7016,
+          "lng": -86.2342,
+          "note": "「触地耶稣」壁画前的开阔广场"
+        }
+      ]
+    }
+  ]
+}

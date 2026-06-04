@@ -1,0 +1,183 @@
+{
+  "id": "virginia-tech",
+  "type": "school",
+  "name": "Virginia Tech",
+  "nameCn": "弗吉尼亚理工大学",
+  "city": "Blacksburg, VA",
+  "center": [
+    37.2284,
+    -80.422
+  ],
+  "zoom": 14,
+  "blurb": "弗吉尼亚理工以中央椭圆草坪 Drillfield 为核心、霍基石灰岩建筑环绕的大型工科公立校园，向东南延伸出企业研究园，并在罗阿诺克设有医学与生物医学研究分校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Blacksburg)",
+          "nameCn": "布莱克斯堡主校区",
+          "lat": 37.2284,
+          "lng": -80.422,
+          "radius": 1200,
+          "note": "2600英亩主校区，以 Drillfield 草坪为中心，霍基石灰岩建筑群环绕。"
+        },
+        {
+          "name": "Corporate Research Center",
+          "nameCn": "企业研究园",
+          "lat": 37.207,
+          "lng": -80.408,
+          "radius": 700,
+          "note": "主校区东南侧科技园，Kraft Drive 沿线，含 ICTAS 实验室与创业企业。"
+        },
+        {
+          "name": "VT Health Sciences Campus (Roanoke)",
+          "nameCn": "罗阿诺克健康科学校区",
+          "lat": 37.266,
+          "lng": -79.945,
+          "radius": 500,
+          "note": "Riverside Circle，卡里恩医学院与 Fralin 生物医学研究所所在地。"
+        },
+        {
+          "name": "Virginia Tech Montgomery Executive Airport",
+          "nameCn": "弗吉尼亚理工机场",
+          "lat": 37.2076,
+          "lng": -80.408,
+          "radius": 600,
+          "note": "校属公务机场，位于主校区西南，服务教学与科研航空。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Burruss Hall",
+          "nameCn": "伯鲁斯楼",
+          "lat": 37.2275,
+          "lng": -80.4232,
+          "note": "标志性行政主楼，含3000座礼堂，建筑与城市研究学院办公区。"
+        },
+        {
+          "name": "Torgersen Hall",
+          "nameCn": "托格森楼",
+          "lat": 37.2295,
+          "lng": -80.4224,
+          "note": "工程与信息学楼，跨桥连接图书馆，含先进通信实验室。"
+        },
+        {
+          "name": "Goodwin Hall",
+          "nameCn": "古德温楼",
+          "lat": 37.2316,
+          "lng": -80.4243,
+          "note": "工程学院旗舰楼，遍布振动传感器的「智慧楼宇」。"
+        },
+        {
+          "name": "Davidson Hall (Chemistry)",
+          "nameCn": "戴维森化学楼",
+          "lat": 37.2288,
+          "lng": -80.4242,
+          "note": "化学系所在地，临 Drillfield 西北侧。"
+        },
+        {
+          "name": "Pamplin Hall (Business)",
+          "nameCn": "潘普林商学楼",
+          "lat": 37.2269,
+          "lng": -80.4248,
+          "note": "潘普林商学院主楼，位于 Drillfield 西南。"
+        },
+        {
+          "name": "Holden Hall (Geosciences/Mining)",
+          "nameCn": "霍尔登地学楼",
+          "lat": 37.2304,
+          "lng": -80.4226,
+          "note": "地球科学与采矿工程系，校区北侧。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Carol M. Newman Library",
+          "nameCn": "纽曼图书馆",
+          "lat": 37.2287,
+          "lng": -80.4216,
+          "note": "中央主图书馆，临 Drillfield 北缘，校园学术中枢。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Moss Arts Center",
+          "nameCn": "莫斯艺术中心",
+          "lat": 37.2302,
+          "lng": -80.4185,
+          "note": "演艺与视觉艺术中心，含 Street and Davis 美术馆，临市中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Drillfield",
+          "nameCn": "Drillfield 草坪",
+          "lat": 37.2281,
+          "lng": -80.4225,
+          "note": "校园中央椭圆大草坪，所有主要学楼环绕，集会与活动中心。"
+        },
+        {
+          "name": "War Memorial Chapel & Pylons",
+          "nameCn": "战争纪念礼拜堂与石柱",
+          "lat": 37.2271,
+          "lng": -80.4217,
+          "note": "Drillfield 南侧八根石柱与纪念礼拜堂，校园精神象征。"
+        },
+        {
+          "name": "Lane Stadium",
+          "nameCn": "莱恩体育场",
+          "lat": 37.22,
+          "lng": -80.4185,
+          "note": "橄榄球主场，号称全美最强主场氛围，「Enter Sandman」入场。"
+        },
+        {
+          "name": "Cassell Coliseum",
+          "nameCn": "卡塞尔体育馆",
+          "lat": 37.2215,
+          "lng": -80.4192,
+          "note": "1万座综合体育馆，篮球主场，紧邻莱恩体育场。"
+        },
+        {
+          "name": "Squires Student Center",
+          "nameCn": "斯夸尔斯学生中心",
+          "lat": 37.2295,
+          "lng": -80.4179,
+          "note": "学生活动中心，临市中心，含餐饮、剧场与社团空间。"
+        }
+      ]
+    }
+  ]
+}

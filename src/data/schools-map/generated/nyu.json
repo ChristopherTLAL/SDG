@@ -1,0 +1,175 @@
+{
+  "id": "nyu",
+  "type": "school",
+  "name": "New York University",
+  "nameCn": "纽约大学",
+  "city": "New York, NY",
+  "center": [
+    40.7295,
+    -73.9965
+  ],
+  "zoom": 13,
+  "blurb": "纽约大学没有围墙，主校区融入格林威治村，以华盛顿广场公园为心脏，沿曼哈顿第一大道延伸出医学走廊，又跨河在布鲁克林设有 Tandon 工学院，是典型的\"城市即校园\"。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Washington Square Campus",
+          "nameCn": "华盛顿广场主校区",
+          "lat": 40.7295,
+          "lng": -73.9965,
+          "radius": 700,
+          "note": "格林威治村核心，文理与商科主体所在，无围墙融入街区。"
+        },
+        {
+          "name": "NYU Langone Health / Medical Corridor",
+          "nameCn": "朗格尼健康医学走廊",
+          "lat": 40.7412,
+          "lng": -73.9745,
+          "radius": 600,
+          "note": "第一大道医学走廊，医、牙、护学院与教学医院聚集。"
+        },
+        {
+          "name": "Tandon School of Engineering (Brooklyn)",
+          "nameCn": "Tandon 工学院（布鲁克林）",
+          "lat": 40.6942,
+          "lng": -73.9865,
+          "radius": 450,
+          "note": "布鲁克林 MetroTech 学术工业园，跨河工程主校。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Silver Center for Arts and Science",
+          "nameCn": "Silver 文理学院主楼",
+          "lat": 40.7305,
+          "lng": -73.9958,
+          "note": "百年纪念馆，文理学院核心教学楼。"
+        },
+        {
+          "name": "Stern School of Business",
+          "nameCn": "Stern 商学院",
+          "lat": 40.729,
+          "lng": -73.9961,
+          "note": "西四街 Tisch Hall，全美顶尖商学院。"
+        },
+        {
+          "name": "Tisch School of the Arts",
+          "nameCn": "Tisch 艺术学院",
+          "lat": 40.7287,
+          "lng": -73.9937,
+          "note": "百老汇 721 号，电影戏剧名校。"
+        },
+        {
+          "name": "Courant Institute (Warren Weaver Hall)",
+          "nameCn": "Courant 数学科学研究所",
+          "lat": 40.7286,
+          "lng": -73.9956,
+          "note": "数学与计算机重镇 Warren Weaver Hall。"
+        },
+        {
+          "name": "NYU Grossman School of Medicine",
+          "nameCn": "Grossman 医学院",
+          "lat": 40.7423,
+          "lng": -73.9743,
+          "note": "第一大道医学走廊核心，全额奖学金著称。"
+        },
+        {
+          "name": "College of Dentistry & Rory Meyers Nursing",
+          "nameCn": "牙学院与护理学院",
+          "lat": 40.7393,
+          "lng": -73.9772,
+          "note": "第一大道 433 号跨学科楼，牙护与生物工程共用。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Elmer Holmes Bobst Library",
+          "nameCn": "Bobst 图书馆",
+          "lat": 40.7295,
+          "lng": -73.9971,
+          "note": "华盛顿广场南 70 号，主图书馆与红砂岩中庭。"
+        },
+        {
+          "name": "Bern Dibner Library (Tandon)",
+          "nameCn": "Dibner 图书馆",
+          "lat": 40.6945,
+          "lng": -73.9858,
+          "note": "布鲁克林工学院科学与工程主图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Grey Art Museum",
+          "nameCn": "Grey 艺术博物馆",
+          "lat": 40.73,
+          "lng": -73.9962,
+          "note": "华盛顿广场东 18 号，纽大公共美术馆。"
+        },
+        {
+          "name": "80WSE Gallery",
+          "nameCn": "80WSE 画廊",
+          "lat": 40.7321,
+          "lng": -73.9954,
+          "note": "Steinhardt 旗下当代艺术展廊。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Washington Square Arch & Park",
+          "nameCn": "华盛顿广场拱门与公园",
+          "lat": 40.7308,
+          "lng": -73.9973,
+          "note": "校园象征地标，师生集会与活动中心。"
+        },
+        {
+          "name": "Kimmel Center for University Life",
+          "nameCn": "Kimmel 学生活动中心",
+          "lat": 40.7293,
+          "lng": -73.9978,
+          "note": "华盛顿广场南 60 号，学生中心与餐饮。"
+        },
+        {
+          "name": "6 MetroTech Center (Tandon Main)",
+          "nameCn": "MetroTech 6 号工学院主楼",
+          "lat": 40.6942,
+          "lng": -73.9865,
+          "note": "布鲁克林工学院主楼，紧邻 Jay St 地铁站。"
+        }
+      ]
+    }
+  ]
+}

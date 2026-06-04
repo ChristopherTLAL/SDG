@@ -1,0 +1,169 @@
+{
+  "id": "tufts-university",
+  "type": "school",
+  "name": "Tufts University",
+  "nameCn": "塔夫茨大学",
+  "city": "Medford, MA",
+  "center": [
+    42.4075,
+    -71.119
+  ],
+  "zoom": 12,
+  "blurb": "塔夫茨大学主校区坐落在波士顿西北约8公里的Medford与Somerville交界的Walnut Hill山丘上，绿树成荫、红砖学院风浓厚，并在波士顿市区设有医学、艺术与兽医三处卫星校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Medford/Somerville Campus",
+          "nameCn": "Medford/Somerville主校区",
+          "lat": 42.4075,
+          "lng": -71.119,
+          "radius": 900,
+          "note": "本部，跨Medford与Somerville两市的山顶学院校园。"
+        },
+        {
+          "name": "Boston Health Sciences Campus",
+          "nameCn": "波士顿健康科学校区",
+          "lat": 42.35,
+          "lng": -71.0622,
+          "radius": 350,
+          "note": "唐人街，医学院、牙学院与公共卫生所在地。"
+        },
+        {
+          "name": "SMFA at Tufts (Fenway)",
+          "nameCn": "美术馆学院校区（Fenway）",
+          "lat": 42.3375,
+          "lng": -71.0955,
+          "radius": 300,
+          "note": "Fenway艺术区，紧邻波士顿美术馆的艺术学院。"
+        },
+        {
+          "name": "Cummings School / Grafton Campus",
+          "nameCn": "Cummings兽医学院（Grafton校区）",
+          "lat": 42.2445,
+          "lng": -71.6789,
+          "radius": 1200,
+          "note": "North Grafton，近240公顷的兽医学院乡村校园。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Ballou Hall",
+          "nameCn": "Ballou Hall（行政楼）",
+          "lat": 42.4072,
+          "lng": -71.1196,
+          "note": "校内最古老建筑，校长办公室与行政中枢。"
+        },
+        {
+          "name": "Joyce Cummings Center",
+          "nameCn": "Joyce Cummings中心",
+          "lat": 42.4045,
+          "lng": -71.1148,
+          "note": "新建STEM教学楼，邻近绿线地铁站。"
+        },
+        {
+          "name": "Granoff Music Center",
+          "nameCn": "Granoff音乐中心",
+          "lat": 42.4053,
+          "lng": -71.1205,
+          "note": "20 Talbot Ave，音乐系与音乐图书馆所在。"
+        },
+        {
+          "name": "Cummings School of Veterinary Medicine",
+          "nameCn": "Cummings兽医学院",
+          "lat": 42.2447,
+          "lng": -71.6783,
+          "note": "新英格兰唯一兽医学院，含动物教学医院。"
+        },
+        {
+          "name": "Tufts University School of Medicine",
+          "nameCn": "塔夫茨医学院",
+          "lat": 42.3501,
+          "lng": -71.0623,
+          "note": "145 Harrison Ave，唐人街医学教育楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Tisch Library",
+          "nameCn": "Tisch图书馆",
+          "lat": 42.4071,
+          "lng": -71.1188,
+          "note": "主图书馆，位于学术草坪旁的校园核心。"
+        },
+        {
+          "name": "Hirsh Health Sciences Library",
+          "nameCn": "Hirsh健康科学图书馆",
+          "lat": 42.35,
+          "lng": -71.0621,
+          "note": "波士顿校区，服务医、牙及生物医学。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Tufts University Art Galleries (Aidekman)",
+          "nameCn": "塔夫茨大学美术馆（Aidekman）",
+          "lat": 42.4078,
+          "lng": -71.1208,
+          "note": "Aidekman艺术中心内的校园美术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Mayer Campus Center",
+          "nameCn": "Mayer学生活动中心",
+          "lat": 42.4067,
+          "lng": -71.1201,
+          "note": "学生中心，校园生活与餐饮枢纽。"
+        },
+        {
+          "name": "Gantcher Family Sports Center",
+          "nameCn": "Gantcher体育中心",
+          "lat": 42.4093,
+          "lng": -71.1175,
+          "note": "室内体育馆，邻Boston Ave北侧运动区。"
+        },
+        {
+          "name": "Medford/Tufts MBTA Station",
+          "nameCn": "Medford/Tufts地铁站",
+          "lat": 42.4078,
+          "lng": -71.1138,
+          "note": "绿线延伸段终点站，校园东侧门户。"
+        }
+      ]
+    }
+  ]
+}

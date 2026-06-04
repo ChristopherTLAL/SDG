@@ -1,0 +1,176 @@
+{
+  "id": "dartmouth-college",
+  "type": "school",
+  "name": "Dartmouth College",
+  "nameCn": "达特茅斯学院",
+  "city": "Hanover, NH",
+  "center": [
+    43.7035,
+    -72.2875
+  ],
+  "zoom": 14,
+  "blurb": "达特茅斯学院坐落在新罕布什尔州康涅狄格河畔的小镇汉诺威，以历史悠久的绿地广场为核心、常春藤名校中规模最小、本科教学与户外氛围浓厚。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (The Green)",
+          "nameCn": "主校区（绿地广场）",
+          "lat": 43.7025,
+          "lng": -72.287,
+          "radius": 700,
+          "note": "以绿地为中心的历史主校区，文理学院与多数教学楼所在。"
+        },
+        {
+          "name": "West End District",
+          "nameCn": "西区（工程与商学院）",
+          "lat": 43.7048,
+          "lng": -72.2935,
+          "radius": 450,
+          "note": "塔克商学院、塞耶工程学院与盖泽尔医学院集中的河畔西端。"
+        },
+        {
+          "name": "Athletics Complex",
+          "nameCn": "体育运动区",
+          "lat": 43.7008,
+          "lng": -72.281,
+          "radius": 450,
+          "note": "纪念球场、汤普森冰球馆等运动场馆所在的校区东南角。"
+        },
+        {
+          "name": "Dartmouth Hitchcock Medical Center",
+          "nameCn": "达特茅斯-希区柯克医学中心",
+          "lat": 43.6761,
+          "lng": -72.2733,
+          "radius": 800,
+          "note": "位于黎巴嫩市的教学医院，盖泽尔医学院主要临床基地，距主校区约3公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Geisel School of Medicine",
+          "nameCn": "盖泽尔医学院",
+          "lat": 43.7062,
+          "lng": -72.289,
+          "note": "校园北端的医学院教学楼群，临床部分设于黎巴嫩医学中心。"
+        },
+        {
+          "name": "Thayer School of Engineering",
+          "nameCn": "塞耶工程学院",
+          "lat": 43.7053,
+          "lng": -72.294,
+          "note": "西区河畔的工程学院，含2022年新落成的工程与计算机中心。"
+        },
+        {
+          "name": "Tuck School of Business",
+          "nameCn": "塔克商学院",
+          "lat": 43.7041,
+          "lng": -72.2948,
+          "note": "全美历史最悠久的研究生商学院，位于塔克草坪西端近河处。"
+        },
+        {
+          "name": "Dartmouth Hall",
+          "nameCn": "达特茅斯楼",
+          "lat": 43.7034,
+          "lng": -72.288,
+          "note": "面向绿地的标志性白色殿堂，校园最古老建筑群之一。"
+        },
+        {
+          "name": "Fairchild Physical Sciences Center",
+          "nameCn": "费尔柴尔德理科中心",
+          "lat": 43.7048,
+          "lng": -72.2862,
+          "note": "理学与自然科学院系所在的科研教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Baker-Berry Library",
+          "nameCn": "贝克-贝里图书馆",
+          "lat": 43.7048,
+          "lng": -72.2885,
+          "note": "校园主图书馆，钟楼俯瞰绿地，是达特茅斯地标。"
+        },
+        {
+          "name": "Dana Biomedical Library",
+          "nameCn": "达纳生物医学图书馆",
+          "lat": 43.706,
+          "lng": -72.2895,
+          "note": "服务医学院与生命科学的专业图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Hood Museum of Art",
+          "nameCn": "胡德艺术博物馆",
+          "lat": 43.7013,
+          "lng": -72.2862,
+          "note": "学院艺术博物馆，馆藏逾6.5万件，2019年扩建重开。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Baker Tower & The Green",
+          "nameCn": "贝克钟楼与绿地广场",
+          "lat": 43.7022,
+          "lng": -72.2872,
+          "note": "校园几何与精神中心，重大庆典与篝火夜在此举行。"
+        },
+        {
+          "name": "Hopkins Center for the Arts",
+          "nameCn": "霍普金斯艺术中心",
+          "lat": 43.7016,
+          "lng": -72.2858,
+          "note": "学院表演艺术中心，外形据传启发了林肯中心设计。"
+        },
+        {
+          "name": "Memorial Field",
+          "nameCn": "纪念球场",
+          "lat": 43.7005,
+          "lng": -72.2818,
+          "note": "1923年建成的橄榄球与田径主场。"
+        },
+        {
+          "name": "Thompson Arena",
+          "nameCn": "汤普森冰球馆",
+          "lat": 43.7011,
+          "lng": -72.2803,
+          "note": "可容3500人的冰球馆，奈尔维设计的混凝土拱顶。"
+        }
+      ]
+    }
+  ]
+}

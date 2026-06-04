@@ -1,0 +1,185 @@
+{
+  "id": "ucla",
+  "type": "school",
+  "name": "University of California, Los Angeles",
+  "nameCn": "加州大学洛杉矶分校",
+  "city": "Los Angeles, CA",
+  "center": [
+    34.0709,
+    -118.4441
+  ],
+  "zoom": 15,
+  "blurb": "加州大学洛杉矶分校坐落于洛杉矶西木区圣莫尼卡山脚下，419英亩主校区分北校区（人文社科）、南校区（理工医学）和山坡宿舍区，距太平洋仅约8公里。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Westwood Main Campus",
+          "nameCn": "西木主校区",
+          "lat": 34.0709,
+          "lng": -118.4441,
+          "radius": 900,
+          "note": "419英亩主校区，含北校区人文社科与南校区理工医学。"
+        },
+        {
+          "name": "Ronald Reagan UCLA Medical Center",
+          "nameCn": "罗纳德·里根医学中心",
+          "lat": 34.0664,
+          "lng": -118.4452,
+          "radius": 350,
+          "note": "南校区主教学医院，含马特尔儿童医院。"
+        },
+        {
+          "name": "UCLA Research Park",
+          "nameCn": "UCLA研究园区",
+          "lat": 34.0404,
+          "lng": -118.4269,
+          "radius": 400,
+          "note": "前Westside Pavilion商场改建，主校区以南约3公里。"
+        },
+        {
+          "name": "UCLA Santa Monica Medical Center",
+          "nameCn": "圣莫尼卡医学中心",
+          "lat": 34.0276,
+          "lng": -118.4836,
+          "radius": 350,
+          "note": "圣莫尼卡16街分院，含骨科医院。"
+        },
+        {
+          "name": "UCLA West Valley Medical Center",
+          "nameCn": "西谷医学中心",
+          "lat": 34.2002,
+          "lng": -118.6383,
+          "radius": 400,
+          "note": "西希尔斯14英亩院区，圣费尔南多谷分院。"
+        },
+        {
+          "name": "Hannah Carter Japanese Garden",
+          "nameCn": "汉娜·卡特日本庭园",
+          "lat": 34.0825,
+          "lng": -118.449,
+          "radius": 200,
+          "note": "贝莱尔社区，主校区以北约1.6公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Royce Hall",
+          "nameCn": "罗伊斯楼",
+          "lat": 34.0728,
+          "lng": -118.4419,
+          "note": "1929年罗马砖建筑，北校区四方庭院地标。"
+        },
+        {
+          "name": "Henry Samueli School of Engineering",
+          "nameCn": "塞缪里工程学院",
+          "lat": 34.069,
+          "lng": -118.4434,
+          "note": "南校区工程与应用科学院。"
+        },
+        {
+          "name": "David Geffen School of Medicine (CHS)",
+          "nameCn": "盖芬医学院（CHS楼）",
+          "lat": 34.0668,
+          "lng": -118.4423,
+          "note": "南校区医学院与健康科学中心。"
+        },
+        {
+          "name": "Anderson School of Management",
+          "nameCn": "安德森商学院",
+          "lat": 34.0742,
+          "lng": -118.4435,
+          "note": "北校区商学院综合楼群。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Powell Library",
+          "nameCn": "鲍威尔图书馆",
+          "lat": 34.0719,
+          "lng": -118.4421,
+          "note": "本科生主图书馆，对望罗伊斯楼。"
+        },
+        {
+          "name": "Charles E. Young Research Library",
+          "nameCn": "杨氏研究图书馆",
+          "lat": 34.075,
+          "lng": -118.4413,
+          "note": "北校区研究型主图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Fowler Museum",
+          "nameCn": "福勒博物馆",
+          "lat": 34.0703,
+          "lng": -118.4392,
+          "note": "全球艺术与文化博物馆，紧邻罗伊斯楼。"
+        },
+        {
+          "name": "Hammer Museum",
+          "nameCn": "哈默博物馆",
+          "lat": 34.0593,
+          "lng": -118.4435,
+          "note": "威尔希尔大道艺术馆，校区南缘。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Pauley Pavilion",
+          "nameCn": "保利体育馆",
+          "lat": 34.0702,
+          "lng": -118.4468,
+          "note": "篮球主场馆，伍登传奇之地。"
+        },
+        {
+          "name": "Drake Stadium",
+          "nameCn": "德雷克体育场",
+          "lat": 34.072,
+          "lng": -118.4483,
+          "note": "田径与足球场，约11700座。"
+        },
+        {
+          "name": "Ackerman Union",
+          "nameCn": "阿克曼学生会馆",
+          "lat": 34.0707,
+          "lng": -118.4438,
+          "note": "学生活动中心，紧邻保利体育馆。"
+        }
+      ]
+    }
+  ]
+}

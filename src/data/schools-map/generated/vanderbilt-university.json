@@ -1,0 +1,184 @@
+{
+  "id": "vanderbilt-university",
+  "type": "school",
+  "name": "Vanderbilt University",
+  "nameCn": "范德堡大学",
+  "city": "Nashville, TN",
+  "center": [
+    36.1475,
+    -86.8025
+  ],
+  "zoom": 14,
+  "blurb": "坐落于纳什维尔市中心西南的中城区，330英亩绿树成荫的统一校园与周边都市景观形成鲜明对比，融历史核心、医学中心与体育区于一体。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus",
+          "nameCn": "主校区",
+          "lat": 36.1475,
+          "lng": -86.8025,
+          "radius": 900,
+          "note": "中城区核心校园，含柯克兰大厅、文理学院与本科住宿区。"
+        },
+        {
+          "name": "Peabody College Campus",
+          "nameCn": "皮博迪学院校区",
+          "lat": 36.1413,
+          "lng": -86.7995,
+          "radius": 450,
+          "note": "21街以东53英亩，教育与人类发展学院，国家历史地标。"
+        },
+        {
+          "name": "Athletics District",
+          "nameCn": "体育区",
+          "lat": 36.1442,
+          "lng": -86.8085,
+          "radius": 500,
+          "note": "校园最西端，含橄榄球场、纪念体育馆与棒球场。"
+        },
+        {
+          "name": "Vanderbilt University Medical Center",
+          "nameCn": "范德堡大学医学中心",
+          "lat": 36.1418,
+          "lng": -86.801,
+          "radius": 600,
+          "note": "校园东南缘，2016年起法律独立但学术关联紧密。"
+        },
+        {
+          "name": "Dyer Observatory",
+          "nameCn": "戴尔天文台",
+          "lat": 36.0513,
+          "lng": -86.803,
+          "radius": 400,
+          "note": "布伦特伍德山顶卫星站，校园以南约11公里。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Kirkland Hall",
+          "nameCn": "柯克兰大厅",
+          "lat": 36.1481,
+          "lng": -86.8035,
+          "note": "1874年建校首楼，今为校行政中枢与地标钟塔。"
+        },
+        {
+          "name": "Stevenson Center (Science)",
+          "nameCn": "史蒂文森科学中心",
+          "lat": 36.1455,
+          "lng": -86.805,
+          "note": "理学院综合楼群，含物理、化学、数学系。"
+        },
+        {
+          "name": "Featheringill Hall (Engineering)",
+          "nameCn": "工程学院楼",
+          "lat": 36.1445,
+          "lng": -86.8045,
+          "note": "工程学院主楼，电子与计算机工程所在地。"
+        },
+        {
+          "name": "Wyatt Center (Peabody)",
+          "nameCn": "怀亚特中心",
+          "lat": 36.1418,
+          "lng": -86.799,
+          "note": "皮博迪学院标志性圆顶楼，教育学科核心。"
+        },
+        {
+          "name": "Owen Graduate School of Management",
+          "nameCn": "欧文管理研究生院",
+          "lat": 36.143,
+          "lng": -86.802,
+          "note": "范德堡商学院，颁授MBA等学位。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Central Library",
+          "nameCn": "中央图书馆",
+          "lat": 36.1463,
+          "lng": -86.8033,
+          "note": "Heard图书馆系统主馆，人文与社科藏书核心。"
+        },
+        {
+          "name": "Eskind Biomedical Library",
+          "nameCn": "埃斯坎德生物医学图书馆",
+          "lat": 36.143,
+          "lng": -86.8,
+          "note": "医学中心区图书馆，服务临床与生物医学研究。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Vanderbilt Fine Arts Gallery",
+          "nameCn": "范德堡美术馆",
+          "lat": 36.147,
+          "lng": -86.8013,
+          "note": "校内艺术馆，藏古典至现当代作品。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "FirstBank Stadium",
+          "nameCn": "第一银行体育场",
+          "lat": 36.1439,
+          "lng": -86.809,
+          "note": "橄榄球队Commodores主场，约3.5万座。"
+        },
+        {
+          "name": "Memorial Gymnasium",
+          "nameCn": "纪念体育馆",
+          "lat": 36.1445,
+          "lng": -86.8075,
+          "note": "篮球主场，独特两端球员席布局闻名。"
+        },
+        {
+          "name": "Sarratt Student Center",
+          "nameCn": "萨拉特学生中心",
+          "lat": 36.1473,
+          "lng": -86.8045,
+          "note": "学生活动中心，含剧院、影院与餐饮。"
+        },
+        {
+          "name": "Monroe Carell Jr. Children's Hospital",
+          "nameCn": "门罗·卡雷尔儿童医院",
+          "lat": 36.1388,
+          "lng": -86.8015,
+          "note": "彩色立面儿童医院，美国顶尖儿科机构之一。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "id": "university-of-california-davis",
+  "type": "school",
+  "name": "University of California, Davis",
+  "nameCn": "加州大学戴维斯分校",
+  "city": "Davis, CA",
+  "center": [
+    38.5395,
+    -121.7497
+  ],
+  "zoom": 12,
+  "blurb": "加州大学戴维斯分校坐落于萨克拉门托河谷的大学城戴维斯，拥有全美最大的校园之一（5300英亩），以农业、葡萄酒酿造、兽医与环境科学闻名，自行车穿行的开阔田园校园延伸至萨克拉门托的医学中心。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "UC Davis Main Campus (Core)",
+          "nameCn": "戴维斯主校区（核心教学区）",
+          "lat": 38.5395,
+          "lng": -121.7497,
+          "radius": 1100,
+          "note": "核心教学区，环绕中央草坪 Quad，紧邻戴维斯市区。"
+        },
+        {
+          "name": "West Campus & UC Davis West Village",
+          "nameCn": "西校区与西村社区",
+          "lat": 38.5395,
+          "lng": -121.782,
+          "radius": 1200,
+          "note": "西侧农业试验田、葡萄园与零能耗学生社区西村。"
+        },
+        {
+          "name": "UC Davis Health (Sacramento Campus)",
+          "nameCn": "戴维斯健康中心（萨克拉门托医学校区）",
+          "lat": 38.5549,
+          "lng": -121.4565,
+          "radius": 900,
+          "note": "约26公里外的萨克拉门托医学院与附属医院，医学/护理院所在地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Robert Mondavi Institute for Wine and Food Science",
+          "nameCn": "罗伯特·蒙达维葡萄酒与食品科学研究院",
+          "lat": 38.536,
+          "lng": -121.753,
+          "note": "葡萄栽培与酿酒、食品科学的旗舰研究院，含教学酒厂。"
+        },
+        {
+          "name": "School of Veterinary Medicine",
+          "nameCn": "兽医学院",
+          "lat": 38.53,
+          "lng": -121.761,
+          "note": "全球顶尖兽医学院，含教学动物医院。"
+        },
+        {
+          "name": "Kemper Hall (College of Engineering)",
+          "nameCn": "肯珀楼（工程学院）",
+          "lat": 38.5384,
+          "lng": -121.7536,
+          "note": "工程学院主楼，计算机与电气工程系所在。"
+        },
+        {
+          "name": "Mrak Hall (Administration)",
+          "nameCn": "姆拉克楼（行政楼）",
+          "lat": 38.5378,
+          "lng": -121.7492,
+          "note": "校级行政与研究生院办公所在地。"
+        },
+        {
+          "name": "Wellman Hall",
+          "nameCn": "韦尔曼楼",
+          "lat": 38.5417,
+          "lng": -121.7488,
+          "note": "人文社科核心教学楼，紧邻中央草坪。"
+        },
+        {
+          "name": "Sciences Laboratory Building",
+          "nameCn": "理科实验楼",
+          "lat": 38.5388,
+          "lng": -121.7547,
+          "note": "化学、物理与生命科学实验教学中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Peter J. Shields Library",
+          "nameCn": "彼得·J·希尔兹图书馆",
+          "lat": 38.5397,
+          "lng": -121.7492,
+          "note": "主图书馆，藏书量与馆藏特藏居前列。"
+        },
+        {
+          "name": "Carlson Health Sciences Library",
+          "nameCn": "卡尔森健康科学图书馆",
+          "lat": 38.5333,
+          "lng": -121.7587,
+          "note": "服务兽医与生物医学的健康科学分馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Jan Shrem and Maria Manetti Shrem Museum of Art",
+          "nameCn": "马内蒂·施雷姆艺术博物馆",
+          "lat": 38.5335,
+          "lng": -121.7478,
+          "note": "校园南门标志性当代艺术馆，波浪形铝制天篷。"
+        },
+        {
+          "name": "UC Davis Arboretum and Public Garden",
+          "nameCn": "戴维斯植物园与公共花园",
+          "lat": 38.535,
+          "lng": -121.752,
+          "note": "百英亩沿溪植物园，贯穿校园南缘。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Memorial Union",
+          "nameCn": "纪念学生会馆",
+          "lat": 38.5421,
+          "lng": -121.7493,
+          "note": "学生活动中心，校园社交与餐饮枢纽。"
+        },
+        {
+          "name": "Mondavi Center for the Performing Arts",
+          "nameCn": "蒙达维表演艺术中心",
+          "lat": 38.5337,
+          "lng": -121.7493,
+          "note": "1800座顶级音乐厅，校园南门文化地标。"
+        },
+        {
+          "name": "UC Davis Health Stadium (Aggie Stadium)",
+          "nameCn": "戴维斯健康球场（阿吉橄榄球场）",
+          "lat": 38.5365,
+          "lng": -121.7628,
+          "note": "万余座橄榄球场，Aggies 校队主场。"
+        },
+        {
+          "name": "Activities and Recreation Center (ARC)",
+          "nameCn": "活动与娱乐中心（ARC）",
+          "lat": 38.5419,
+          "lng": -121.7585,
+          "note": "大型学生健身娱乐中心。"
+        },
+        {
+          "name": "The Silo",
+          "nameCn": "筒仓餐饮广场",
+          "lat": 38.5384,
+          "lng": -121.7522,
+          "note": "标志性筒仓改建的餐饮集市。"
+        },
+        {
+          "name": "Davis Amtrak Station",
+          "nameCn": "戴维斯火车站",
+          "lat": 38.5443,
+          "lng": -121.7373,
+          "note": "市区西班牙式火车站，连通萨克拉门托与湾区。"
+        }
+      ]
+    }
+  ]
+}

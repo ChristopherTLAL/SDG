@@ -1,0 +1,178 @@
+{
+  "id": "ohio-state-university",
+  "type": "school",
+  "name": "Ohio State University",
+  "nameCn": "俄亥俄州立大学",
+  "city": "Columbus, OH",
+  "center": [
+    39.9994,
+    -83.0227
+  ],
+  "zoom": 14,
+  "blurb": "俄亥俄州立大学是美国最大的公立大学之一，主校区坐落于哥伦布市北郊，以标志性椭圆草坪 The Oval、巨型橄榄球场和南缘庞大的韦克斯纳医学中心著称。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (The Oval)",
+          "nameCn": "主校区（椭圆草坪）",
+          "lat": 39.9994,
+          "lng": -83.0227,
+          "radius": 1200,
+          "note": "1764英亩主校区，核心为椭圆草坪 The Oval。"
+        },
+        {
+          "name": "Wexner Medical Center",
+          "nameCn": "韦克斯纳医学中心",
+          "lat": 39.9956,
+          "lng": -83.0174,
+          "radius": 600,
+          "note": "主校区南缘的学术医疗中心，含多家教学医院。"
+        },
+        {
+          "name": "West Campus Innovation District (Carmenton)",
+          "nameCn": "西校区创新区（Carmenton）",
+          "lat": 40.015,
+          "lng": -83.042,
+          "radius": 800,
+          "note": "Kenny 路以西的270英亩科研与产学研新区。"
+        },
+        {
+          "name": "OSU Airport (Don Scott Field)",
+          "nameCn": "俄州大机场（唐·斯科特机场）",
+          "lat": 40.0797,
+          "lng": -83.0731,
+          "radius": 1000,
+          "note": "校方自营机场，位于市区西北约10公里。"
+        },
+        {
+          "name": "Outpatient Care Dublin",
+          "nameCn": "都柏林门诊中心",
+          "lat": 40.098,
+          "lng": -83.134,
+          "radius": 350,
+          "note": "都柏林卫星医疗站，临近33号公路。"
+        },
+        {
+          "name": "Outpatient Care New Albany",
+          "nameCn": "新奥尔巴尼门诊中心",
+          "lat": 40.066,
+          "lng": -82.887,
+          "radius": 350,
+          "note": "东北郊门诊站，位于161号公路与汉密尔顿路口。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Fisher College of Business",
+          "nameCn": "费雪商学院",
+          "lat": 40.003,
+          "lng": -83.0175,
+          "note": "校区东北角的商学院建筑群。"
+        },
+        {
+          "name": "Wexner Medical Center – Doan Hall",
+          "nameCn": "医学中心多恩楼",
+          "lat": 39.9956,
+          "lng": -83.0174,
+          "note": "大学医院核心住院楼。"
+        },
+        {
+          "name": "Knowlton School of Architecture",
+          "nameCn": "诺尔顿建筑学院",
+          "lat": 40.0035,
+          "lng": -83.021,
+          "note": "校区北部的建筑与城市规划学院。"
+        },
+        {
+          "name": "Dreese Laboratories (Engineering)",
+          "nameCn": "德雷斯工程实验楼",
+          "lat": 40.0021,
+          "lng": -83.0148,
+          "note": "电气与计算机工程系所在。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Thompson Library",
+          "nameCn": "汤普森图书馆",
+          "lat": 39.9995,
+          "lng": -83.015,
+          "note": "椭圆草坪东端的主图书馆地标。"
+        },
+        {
+          "name": "18th Avenue Library",
+          "nameCn": "第18大道图书馆",
+          "lat": 40.0008,
+          "lng": -83.012,
+          "note": "理工与科学馆藏分馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Wexner Center for the Arts",
+          "nameCn": "韦克斯纳艺术中心",
+          "lat": 40.0011,
+          "lng": -83.0082,
+          "note": "高街入口处的当代艺术馆，解构主义建筑。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Ohio Stadium (The Horseshoe)",
+          "nameCn": "俄亥俄体育场（马蹄铁）",
+          "lat": 40.0016,
+          "lng": -83.0197,
+          "note": "可容十万人的标志性橄榄球场。"
+        },
+        {
+          "name": "Ohio Union",
+          "nameCn": "俄州联合学生中心",
+          "lat": 39.9966,
+          "lng": -83.0085,
+          "note": "高街旁的学生活动中心。"
+        },
+        {
+          "name": "Orton Hall",
+          "nameCn": "奥顿楼",
+          "lat": 39.9982,
+          "lng": -83.0145,
+          "note": "椭圆草坪南侧的历史地质学楼，含钟塔。"
+        }
+      ]
+    }
+  ]
+}

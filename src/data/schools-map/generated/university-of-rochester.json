@@ -1,0 +1,191 @@
+{
+  "id": "university-of-rochester",
+  "type": "school",
+  "name": "University of Rochester",
+  "nameCn": "罗切斯特大学",
+  "city": "Rochester, NY",
+  "center": [
+    43.1285,
+    -77.6287
+  ],
+  "zoom": 13,
+  "blurb": "罗切斯特大学主校区临热内西河而建，以哥特式的拉什里斯图书馆塔楼为核心，医学中心、伊士曼音乐学院与南校区激光实验室散布城南各处。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "River Campus",
+          "nameCn": "河滨校区（主校区）",
+          "lat": 43.1285,
+          "lng": -77.6287,
+          "radius": 700,
+          "note": "本科与文理核心，临热内西河"
+        },
+        {
+          "name": "Medical Center (URMC / Strong Memorial)",
+          "nameCn": "医学中心",
+          "lat": 43.1229,
+          "lng": -77.6254,
+          "radius": 600,
+          "note": "紧邻主校区南侧，医学院与教学医院"
+        },
+        {
+          "name": "South Campus",
+          "nameCn": "南校区",
+          "lat": 43.1108,
+          "lng": -77.6313,
+          "radius": 450,
+          "note": "布莱顿镇，研究生宿舍与实验设施"
+        },
+        {
+          "name": "Eastman School of Music",
+          "nameCn": "伊士曼音乐学院",
+          "lat": 43.1578,
+          "lng": -77.6008,
+          "radius": 350,
+          "note": "市中心东区，独立音乐校园"
+        },
+        {
+          "name": "Prince Street Campus (Memorial Art Gallery)",
+          "nameCn": "王子街校区",
+          "lat": 43.1577,
+          "lng": -77.5883,
+          "radius": 300,
+          "note": "纪念美术馆所在的老校址"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Eastman Quadrangle",
+          "nameCn": "伊士曼方庭",
+          "lat": 43.129,
+          "lng": -77.6299,
+          "note": "主校区学术核心广场"
+        },
+        {
+          "name": "School of Medicine and Dentistry",
+          "nameCn": "医学与牙医学院",
+          "lat": 43.1218,
+          "lng": -77.6276,
+          "note": "医学中心主教学楼"
+        },
+        {
+          "name": "Hajim School of Engineering",
+          "nameCn": "哈吉姆工程学院",
+          "lat": 43.1303,
+          "lng": -77.6262,
+          "note": "工程与应用科学"
+        },
+        {
+          "name": "Simon Business School",
+          "nameCn": "西蒙商学院",
+          "lat": 43.1278,
+          "lng": -77.6258,
+          "note": "Schlegel Hall 商学院"
+        },
+        {
+          "name": "School of Nursing (Helen Wood Hall)",
+          "nameCn": "护理学院",
+          "lat": 43.1235,
+          "lng": -77.624,
+          "note": "医学中心护理学院"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Rush Rhees Library",
+          "nameCn": "拉什里斯图书馆",
+          "lat": 43.1285,
+          "lng": -77.6287,
+          "note": "标志性钟楼，主图书馆"
+        },
+        {
+          "name": "Sibley Music Library",
+          "nameCn": "西布利音乐图书馆",
+          "lat": 43.1576,
+          "lng": -77.6002,
+          "note": "伊士曼校园，全美最大音乐馆藏之一"
+        },
+        {
+          "name": "Edward G. Miner Medical Library",
+          "nameCn": "迈纳医学图书馆",
+          "lat": 43.1224,
+          "lng": -77.6268,
+          "note": "医学中心图书馆"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Memorial Art Gallery",
+          "nameCn": "纪念美术馆",
+          "lat": 43.1577,
+          "lng": -77.5883,
+          "note": "校属公共美术馆，年访客近30万"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Eastman Theatre (Kodak Hall)",
+          "nameCn": "伊士曼剧院",
+          "lat": 43.1573,
+          "lng": -77.601,
+          "note": "市中心地标音乐厅"
+        },
+        {
+          "name": "Wilson Commons",
+          "nameCn": "威尔逊学生活动中心",
+          "lat": 43.1283,
+          "lng": -77.63,
+          "note": "贝聿铭设计的学生中心"
+        },
+        {
+          "name": "Strong Memorial Hospital",
+          "nameCn": "斯特朗纪念医院",
+          "lat": 43.1229,
+          "lng": -77.6254,
+          "note": "大学主教学医院"
+        },
+        {
+          "name": "Laboratory for Laser Energetics",
+          "nameCn": "激光能量学实验室",
+          "lat": 43.1131,
+          "lng": -77.6326,
+          "note": "南校区，国家级聚变激光设施"
+        }
+      ]
+    }
+  ]
+}

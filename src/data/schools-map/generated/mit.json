@@ -1,0 +1,198 @@
+{
+  "id": "mit",
+  "type": "school",
+  "name": "Massachusetts Institute of Technology",
+  "nameCn": "麻省理工学院",
+  "city": "Cambridge, MA",
+  "center": [
+    42.3591,
+    -71.0934
+  ],
+  "zoom": 15,
+  "blurb": "麻省理工学院主校区沿查尔斯河北岸在剑桥铺开，以贯穿东西的\"无尽长廊\"串起新古典大穹顶与盖里设计的解构主义斯塔塔中心，理工气质与先锋建筑并存。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "MIT Main Campus",
+          "nameCn": "主校区",
+          "lat": 42.3591,
+          "lng": -71.0934,
+          "radius": 700,
+          "note": "查尔斯河北岸核心学术区，无尽长廊为主轴。"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 42.3585,
+          "lng": -71.1008,
+          "radius": 450,
+          "note": "马萨诸塞大道以西，宿舍、体育馆与克雷斯吉礼堂所在。"
+        },
+        {
+          "name": "Kendall Square / East Campus",
+          "nameCn": "肯德尔广场（东校区）",
+          "lat": 42.3625,
+          "lng": -71.0862,
+          "radius": 500,
+          "note": "媒体实验室、研究生宿舍与创业生态，校区最东端。"
+        },
+        {
+          "name": "MIT Lincoln Laboratory",
+          "nameCn": "林肯实验室",
+          "lat": 42.459,
+          "lng": -71.2674,
+          "radius": 800,
+          "note": "莱克星顿汉斯科姆空军基地内的国防研发联邦中心。"
+        },
+        {
+          "name": "MIT Haystack Observatory",
+          "nameCn": "干草堆天文台",
+          "lat": 42.6233,
+          "lng": -71.4882,
+          "radius": 1000,
+          "note": "韦斯特福德的射电科学与大气观测站，含密尔斯通雷达。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Building 10 & Great Dome",
+          "nameCn": "10号楼与大穹顶",
+          "lat": 42.3601,
+          "lng": -71.092,
+          "note": "校园象征性穹顶，俯瞰基利安庭院。"
+        },
+        {
+          "name": "Ray and Maria Stata Center (Bldg 32)",
+          "nameCn": "斯塔塔中心",
+          "lat": 42.3617,
+          "lng": -71.0902,
+          "note": "盖里设计，计算机科学与人工智能实验室所在。"
+        },
+        {
+          "name": "MIT Media Lab (Bldg E14/E15)",
+          "nameCn": "媒体实验室",
+          "lat": 42.3608,
+          "lng": -71.0875,
+          "note": "跨学科科技与设计前沿研究中心。"
+        },
+        {
+          "name": "MIT.nano (Lisa T. Su Building)",
+          "nameCn": "纳米科学楼",
+          "lat": 42.3606,
+          "lng": -71.091,
+          "note": "纳米尺度研究的洁净室与表征设施。"
+        },
+        {
+          "name": "Sloan School of Management (E62)",
+          "nameCn": "斯隆管理学院",
+          "lat": 42.3608,
+          "lng": -71.0838,
+          "note": "肯德尔一侧的商学院主楼，临查尔斯河。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Hayden Library",
+          "nameCn": "海登图书馆",
+          "lat": 42.3585,
+          "lng": -71.0897,
+          "note": "理学与人文主馆，临河重装后开放。"
+        },
+        {
+          "name": "Barker Engineering Library",
+          "nameCn": "巴克工程图书馆",
+          "lat": 42.36,
+          "lng": -71.0917,
+          "note": "位于大穹顶下圆形阅览室的工程藏书。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "MIT Museum (Gambrill Center)",
+          "nameCn": "麻省理工博物馆",
+          "lat": 42.3624,
+          "lng": -71.0886,
+          "note": "2022年迁至肯德尔广场新馆，科技与艺术互动展。"
+        },
+        {
+          "name": "List Visual Arts Center",
+          "nameCn": "李斯特视觉艺术中心",
+          "lat": 42.3604,
+          "lng": -71.0875,
+          "note": "媒体实验室楼内的当代艺术画廊。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Killian Court",
+          "nameCn": "基利安庭院",
+          "lat": 42.3588,
+          "lng": -71.0917,
+          "note": "面向查尔斯河的草坪，毕业典礼举办地。"
+        },
+        {
+          "name": "MIT Chapel & Kresge Auditorium",
+          "nameCn": "小教堂与克雷斯吉礼堂",
+          "lat": 42.358,
+          "lng": -71.095,
+          "note": "沙里宁设计的圆形教堂与薄壳礼堂。"
+        },
+        {
+          "name": "Stratton Student Center (W20)",
+          "nameCn": "斯特拉顿学生中心",
+          "lat": 42.3592,
+          "lng": -71.0945,
+          "note": "马萨诸塞大道西侧的学生活动中心。"
+        },
+        {
+          "name": "Z Center (Zesiger Sports Center)",
+          "nameCn": "泽西格体育中心",
+          "lat": 42.3578,
+          "lng": -71.0973,
+          "note": "西校区主体育与游泳健身设施。"
+        },
+        {
+          "name": "Kendall/MIT MBTA Station",
+          "nameCn": "肯德尔/MIT 地铁站",
+          "lat": 42.3625,
+          "lng": -71.0862,
+          "note": "红线地铁站，校区东端门户。"
+        }
+      ]
+    }
+  ]
+}

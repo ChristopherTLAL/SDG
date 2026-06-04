@@ -1,0 +1,212 @@
+{
+  "id": "university-of-california-irvine",
+  "type": "school",
+  "name": "University of California, Irvine",
+  "nameCn": "加州大学欧文分校",
+  "city": "Irvine, CA",
+  "center": [
+    33.6459,
+    -117.8427
+  ],
+  "zoom": 14,
+  "blurb": "加州大学欧文分校以阿尔德里奇公园（Aldrich Park）为核心呈同心圆环路布局，各学院沿环路放射状排开，是一座绿意盎然、规划严整的南加州研究型大学校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Aldrich Park core)",
+          "nameCn": "主校区（阿尔德里奇公园核心）",
+          "lat": 33.6459,
+          "lng": -117.8427,
+          "radius": 1100,
+          "note": "环路环绕中央公园，各学院放射状分布"
+        },
+        {
+          "name": "UCI Health — Irvine Medical Campus",
+          "nameCn": "欧文医学校区（UCI Health）",
+          "lat": 33.6592,
+          "lng": -117.8369,
+          "radius": 500,
+          "note": "2025年底启用的新医学城，俯瞰圣华金湿地"
+        },
+        {
+          "name": "UCI Medical Center, Orange",
+          "nameCn": "奥兰治医学中心（主院）",
+          "lat": 33.7873,
+          "lng": -117.8876,
+          "radius": 700,
+          "note": "校本部以北的旗舰教学医院与急诊中心"
+        },
+        {
+          "name": "North Campus & UCI Arboretum",
+          "nameCn": "北校区与植物园",
+          "lat": 33.665,
+          "lng": -117.8512,
+          "radius": 500,
+          "note": "后勤管理与植物园，距主校区约1英里"
+        },
+        {
+          "name": "University Research Park",
+          "nameCn": "大学研究园区",
+          "lat": 33.6502,
+          "lng": -117.829,
+          "radius": 600,
+          "note": "158英亩产研园区，Broadcom等企业入驻"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Henry Samueli School of Engineering",
+          "nameCn": "塞缪利工程学院",
+          "lat": 33.6433,
+          "lng": -117.8407,
+          "note": "环路东南侧的工程教学与实验楼群"
+        },
+        {
+          "name": "School of Physical Sciences (Rowland Hall)",
+          "nameCn": "物理科学学院（罗兰楼）",
+          "lat": 33.6471,
+          "lng": -117.8447,
+          "note": "化学物理与地球系统科学所在"
+        },
+        {
+          "name": "School of Biological Sciences",
+          "nameCn": "生物科学学院",
+          "lat": 33.6447,
+          "lng": -117.8443,
+          "note": "环路西侧生命科学楼群"
+        },
+        {
+          "name": "School of Social Sciences",
+          "nameCn": "社会科学学院",
+          "lat": 33.6443,
+          "lng": -117.8418,
+          "note": "经济、政治学等社科核心"
+        },
+        {
+          "name": "School of Humanities (Humanities Gateway)",
+          "nameCn": "人文学院（人文门楼）",
+          "lat": 33.6481,
+          "lng": -117.843,
+          "note": "环路北侧文史哲教学区"
+        },
+        {
+          "name": "Claire Trevor School of the Arts",
+          "nameCn": "克莱尔·特雷弗艺术学院",
+          "lat": 33.6487,
+          "lng": -117.8458,
+          "note": "含Maya Lin设计的艺术广场"
+        },
+        {
+          "name": "Calit2 Building",
+          "nameCn": "Calit2 研究大楼",
+          "lat": 33.6438,
+          "lng": -117.8392,
+          "note": "信息技术与通信跨学科研究中心"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Langson Library",
+          "nameCn": "兰森图书馆（主馆）",
+          "lat": 33.6464,
+          "lng": -117.8409,
+          "note": "人文社科主馆，紧邻环路"
+        },
+        {
+          "name": "Science Library",
+          "nameCn": "科学图书馆",
+          "lat": 33.6437,
+          "lng": -117.8424,
+          "note": "理工与生命科学藏书中心"
+        },
+        {
+          "name": "Grunigen Medical Library",
+          "nameCn": "格鲁尼根医学图书馆",
+          "lat": 33.7878,
+          "lng": -117.8889,
+          "note": "位于奥兰治医学中心内"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Beall Center for Art + Technology",
+          "nameCn": "比尔艺术与科技中心",
+          "lat": 33.6487,
+          "lng": -117.8462,
+          "note": "艺术广场上的艺术与科技展厅"
+        },
+        {
+          "name": "UCI Langson IMCA (Costa Mesa)",
+          "nameCn": "兰森加州艺术博物馆（科斯塔梅萨）",
+          "lat": 33.6727,
+          "lng": -117.8849,
+          "note": "永久馆址在Segerstrom艺术中心园区"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Bren Events Center",
+          "nameCn": "布伦活动中心",
+          "lat": 33.6488,
+          "lng": -117.842,
+          "note": "5500座体育馆，篮球与活动主场"
+        },
+        {
+          "name": "Anteater Recreation Center (ARC)",
+          "nameCn": "食蚁兽康体中心",
+          "lat": 33.651,
+          "lng": -117.827,
+          "note": "8.9万平方英尺学生健身设施"
+        },
+        {
+          "name": "Anteater Stadium & Crawford Athletics Complex",
+          "nameCn": "食蚁兽体育场与克劳福德运动综合体",
+          "lat": 33.6498,
+          "lng": -117.8389,
+          "note": "棒球、田径与校队训练基地"
+        },
+        {
+          "name": "Student Center & Title IX Plaza",
+          "nameCn": "学生活动中心",
+          "lat": 33.6486,
+          "lng": -117.8443,
+          "note": "环路北缘学生服务与餐饮枢纽"
+        }
+      ]
+    }
+  ]
+}

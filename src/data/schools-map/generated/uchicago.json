@@ -1,0 +1,190 @@
+{
+  "id": "uchicago",
+  "type": "school",
+  "name": "University of Chicago",
+  "nameCn": "芝加哥大学",
+  "city": "Chicago, IL",
+  "center": [
+    41.78972,
+    -87.59972
+  ],
+  "zoom": 14,
+  "blurb": "芝加哥大学坐落于芝加哥南部海德公园街区，以哥特式四方庭院、洛克菲勒教堂和浓厚的学术钻研氛围著称，并向北延伸出医学中心与市中心商学院校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Hyde Park Main Campus",
+          "nameCn": "海德公园主校区",
+          "lat": 41.78972,
+          "lng": -87.59972,
+          "radius": 900,
+          "note": "核心四方庭院，217 英亩主校区，被中途广场公园一分为二。"
+        },
+        {
+          "name": "University of Chicago Medical Center",
+          "nameCn": "芝加哥大学医学中心",
+          "lat": 41.7887,
+          "lng": -87.6045,
+          "radius": 450,
+          "note": "海德公园医疗园区，含护理与发现中心。"
+        },
+        {
+          "name": "Hyde Park Labs / Innovation District",
+          "nameCn": "海德公园实验楼（创新区）",
+          "lat": 41.7993,
+          "lng": -87.5884,
+          "radius": 300,
+          "note": "53 街科研孵化楼，含量子计算与药物研发。"
+        },
+        {
+          "name": "Gleacher Center (Downtown Campus)",
+          "nameCn": "格里彻中心（市中心校区）",
+          "lat": 41.8895,
+          "lng": -87.6205,
+          "radius": 350,
+          "note": "壮丽大道旁，布斯商学院晚间/周末 MBA 与高管教育。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Charles M. Harper Center (Booth School of Business)",
+          "nameCn": "哈珀中心（布斯商学院）",
+          "lat": 41.789,
+          "lng": -87.5956,
+          "note": "布斯商学院本部，全日制 MBA 与博士项目所在地。"
+        },
+        {
+          "name": "Pritzker School of Molecular Engineering",
+          "nameCn": "普利兹克分子工程学院",
+          "lat": 41.7908,
+          "lng": -87.6013,
+          "note": "工程与材料科研楼，靠近医学中心。"
+        },
+        {
+          "name": "Saieh Hall for Economics",
+          "nameCn": "赛义经济学楼",
+          "lat": 41.7876,
+          "lng": -87.5983,
+          "note": "经济系大楼，前神学院改建，中途广场北侧。"
+        },
+        {
+          "name": "Eckhardt Research Center",
+          "nameCn": "埃克哈特研究中心",
+          "lat": 41.7915,
+          "lng": -87.601,
+          "note": "物理与天文研究中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Joseph Regenstein Library",
+          "nameCn": "雷根斯坦图书馆",
+          "lat": 41.7922,
+          "lng": -87.5998,
+          "note": "校内最大建筑，野兽派人文社科主馆。"
+        },
+        {
+          "name": "Joe and Rika Mansueto Library",
+          "nameCn": "曼苏埃托图书馆",
+          "lat": 41.7918,
+          "lng": -87.5988,
+          "note": "玻璃穹顶阅览室，地下自动取书系统。"
+        },
+        {
+          "name": "Harper Memorial Library",
+          "nameCn": "哈珀纪念图书馆",
+          "lat": 41.7884,
+          "lng": -87.5976,
+          "note": "校园首座图书馆，现为哥特式阅览大厅。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Smart Museum of Art",
+          "nameCn": "斯马特艺术博物馆",
+          "lat": 41.7943,
+          "lng": -87.6003,
+          "note": "校方艺术博物馆，古今藏品并陈。"
+        },
+        {
+          "name": "ISAC Museum (Oriental Institute)",
+          "nameCn": "近东古文化研究所博物馆（东方研究所）",
+          "lat": 41.789,
+          "lng": -87.5977,
+          "note": "古代近东文物馆，原东方研究所。"
+        },
+        {
+          "name": "Robie House (Frank Lloyd Wright)",
+          "nameCn": "罗比之家（赖特设计）",
+          "lat": 41.7899,
+          "lng": -87.596,
+          "note": "草原派建筑杰作，联合国教科文世界遗产。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Rockefeller Memorial Chapel",
+          "nameCn": "洛克菲勒纪念教堂",
+          "lat": 41.7884,
+          "lng": -87.5963,
+          "note": "新哥特式地标教堂，校园最高建筑。"
+        },
+        {
+          "name": "Reynolds Club & Mandel Hall",
+          "nameCn": "雷诺兹俱乐部与曼德尔礼堂",
+          "lat": 41.7909,
+          "lng": -87.5973,
+          "note": "学生活动中心与演出礼堂。"
+        },
+        {
+          "name": "Reva and David Logan Center for the Arts",
+          "nameCn": "洛根艺术中心",
+          "lat": 41.7847,
+          "lng": -87.6008,
+          "note": "中途广场南侧艺术塔楼。"
+        },
+        {
+          "name": "Gerald Ratner Athletics Center",
+          "nameCn": "拉特纳体育中心",
+          "lat": 41.7914,
+          "lng": -87.6029,
+          "note": "主体育馆与游泳馆，悬索屋顶。"
+        }
+      ]
+    }
+  ]
+}

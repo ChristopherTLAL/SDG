@@ -1,0 +1,205 @@
+{
+  "id": "harvard",
+  "type": "school",
+  "name": "Harvard University",
+  "nameCn": "哈佛大学",
+  "city": "Cambridge, MA",
+  "center": [
+    42.3744,
+    -71.1169
+  ],
+  "zoom": 14,
+  "blurb": "哈佛大学以剑桥的哈佛庭院红砖学府为核心，沿查尔斯河向 Allston 商学院与体育园延展，并在波士顿 Longwood 设医学院、牙学院与公卫学院，是一所历史厚重又横跨双城的常春藤名校。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Cambridge Campus (Harvard Yard)",
+          "nameCn": "剑桥主校区（哈佛庭院）",
+          "lat": 42.3744,
+          "lng": -71.1169,
+          "radius": 900,
+          "note": "本科核心与文理学院所在，红砖庭院与古树。"
+        },
+        {
+          "name": "Allston Campus (HBS & SEAS)",
+          "nameCn": "Allston 校区（商学院与工程学院）",
+          "lat": 42.3645,
+          "lng": -71.1245,
+          "radius": 800,
+          "note": "查尔斯河南岸，商学院与新建工程科学综合体。"
+        },
+        {
+          "name": "Athletics Complex (Harvard Stadium)",
+          "nameCn": "体育园区（哈佛体育场）",
+          "lat": 42.3672,
+          "lng": -71.1262,
+          "radius": 500,
+          "note": "Allston 体育园，含马蹄形混凝土体育场。"
+        },
+        {
+          "name": "Longwood Medical Campus",
+          "nameCn": "Longwood 医学校区",
+          "lat": 42.3357,
+          "lng": -71.1051,
+          "radius": 600,
+          "note": "波士顿医学区，医学院、牙学院与公卫学院。"
+        },
+        {
+          "name": "Arnold Arboretum",
+          "nameCn": "阿诺德树木园",
+          "lat": 42.2983,
+          "lng": -71.124,
+          "radius": 1200,
+          "note": "牙买加平原的植物研究园兼公共绿地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "University Hall",
+          "nameCn": "大学楼",
+          "lat": 42.3742,
+          "lng": -71.1167,
+          "note": "庭院中心行政楼，文理学院院部。"
+        },
+        {
+          "name": "Sever Hall",
+          "nameCn": "塞弗楼",
+          "lat": 42.3745,
+          "lng": -71.1149,
+          "note": "Richardson 设计的红砖教学楼。"
+        },
+        {
+          "name": "Science Center",
+          "nameCn": "科学中心",
+          "lat": 42.3766,
+          "lng": -71.1158,
+          "note": "庭院北侧理科教学与计算枢纽。"
+        },
+        {
+          "name": "Harvard Law School (Langdell)",
+          "nameCn": "哈佛法学院（兰德尔楼）",
+          "lat": 42.3792,
+          "lng": -71.1196,
+          "note": "庭院西北的法学院核心建筑群。"
+        },
+        {
+          "name": "Harvard Business School (Baker Hall)",
+          "nameCn": "哈佛商学院（贝克楼）",
+          "lat": 42.3661,
+          "lng": -71.1226,
+          "note": "Allston 河岸的商学院标志性主楼。"
+        },
+        {
+          "name": "Harvard Medical School (Gordon Hall)",
+          "nameCn": "哈佛医学院（戈登楼）",
+          "lat": 42.3352,
+          "lng": -71.1041,
+          "note": "Longwood 大理石列柱主楼。"
+        },
+        {
+          "name": "Harvard Kennedy School",
+          "nameCn": "哈佛肯尼迪政府学院",
+          "lat": 42.3716,
+          "lng": -71.1213,
+          "note": "查尔斯河畔的公共政策学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Widener Library",
+          "nameCn": "怀德纳图书馆",
+          "lat": 42.3736,
+          "lng": -71.1165,
+          "note": "庭院南侧总馆，藏书与列柱台阶地标。"
+        },
+        {
+          "name": "Lamont Library",
+          "nameCn": "拉蒙特图书馆",
+          "lat": 42.3727,
+          "lng": -71.115,
+          "note": "全美首座本科生专用图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Harvard Art Museums",
+          "nameCn": "哈佛艺术博物馆",
+          "lat": 42.3742,
+          "lng": -71.1141,
+          "note": "皮亚诺加建玻璃中庭的三馆合一。"
+        },
+        {
+          "name": "Harvard Museum of Natural History",
+          "nameCn": "哈佛自然历史博物馆",
+          "lat": 42.3786,
+          "lng": -71.1153,
+          "note": "玻璃花与动物标本闻名的公众馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Memorial Hall",
+          "nameCn": "纪念堂",
+          "lat": 42.376,
+          "lng": -71.1148,
+          "note": "维多利亚哥特地标，含 Sanders 剧场。"
+        },
+        {
+          "name": "Memorial Church",
+          "nameCn": "纪念教堂",
+          "lat": 42.3749,
+          "lng": -71.1163,
+          "note": "新庭院白色尖塔教堂。"
+        },
+        {
+          "name": "Harvard Square Station",
+          "nameCn": "哈佛广场地铁站",
+          "lat": 42.3732,
+          "lng": -71.119,
+          "note": "红线地铁口，校园门户广场。"
+        },
+        {
+          "name": "Harvard Stadium",
+          "nameCn": "哈佛体育场",
+          "lat": 42.3672,
+          "lng": -71.1262,
+          "note": "1903 年建的马蹄形混凝土体育场。"
+        }
+      ]
+    }
+  ]
+}

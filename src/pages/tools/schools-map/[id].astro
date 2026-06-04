@@ -3,6 +3,7 @@ export const prerender = true;
 // Schools map — detail / region scene (Cambridge, Oxford, London, …).
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { SCENE_IDS, getScene, SCENE_INDEX } from '../../../data/schools-map/registry';
+import { UNIVERSITIES } from '../../../data/universities/universities';
 import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
 
@@ -13,6 +14,9 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 const scene = getScene(id!)!;
 const inBudget = budgetData.regions.some((r) => r.schools.some((s) => s.id === scene.id));
+const isUS = UNIVERSITIES.find((u) => u.id === scene.id)?.country === 'US';
+const overviewHref = isUS ? '/tools/schools-map/us' : '/tools/schools-map';
+const overviewLabel = isUS ? '美国总览' : '英国总览';
 const lang = 'en';
 ---
 
@@ -22,9 +26,9 @@ const lang = 'en';
 
   <main class="pt-24 md:pt-28 pb-10">
     <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <a href="/tools/schools-map" class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-5">
+      <a href={overviewHref} class="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors mb-5">
         <span class="material-symbols-outlined text-lg">arrow_back</span>
-        返回英国总览
+        返回{overviewLabel}
       </a>
 
       <div class="smap-wrap" id="smap-wrap">
@@ -32,7 +36,7 @@ const lang = 'en';
 
         <!-- top-center nav -->
         <div class="smap-card smap-nav">
-          <a class="smap-nav-home" href="/tools/schools-map"><span class="material-symbols-outlined" style="font-size:16px">map</span>英国总览</a>
+          <a class="smap-nav-home" href={overviewHref}><span class="material-symbols-outlined" style="font-size:16px">map</span>{overviewLabel}</a>
           <span class="smap-nav-sep">▸</span>
           <span class="smap-nav-cur">{scene.nameCn}</span>
           <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>

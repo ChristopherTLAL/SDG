@@ -1,0 +1,205 @@
+{
+  "id": "university-of-southern-california",
+  "type": "school",
+  "name": "University of Southern California",
+  "nameCn": "南加州大学",
+  "city": "Los Angeles, CA",
+  "center": [
+    34.0206,
+    -118.2848
+  ],
+  "zoom": 15,
+  "blurb": "南加州大学坐落于洛杉矶市中心西南的University Park，红砖罗马式建筑群与棕榈大道交织，毗邻博览公园博物馆区，是一所充满阳光与体育精神的私立研究型名校。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "University Park Campus",
+          "nameCn": "大学公园主校区",
+          "lat": 34.0206,
+          "lng": -118.2848,
+          "radius": 700,
+          "note": "226英亩主校区，本科与多数学院所在地，红砖建筑核心区。"
+        },
+        {
+          "name": "Health Sciences Campus",
+          "nameCn": "健康科学校区",
+          "lat": 34.0606,
+          "lng": -118.2078,
+          "radius": 650,
+          "note": "洛杉矶东北部，Keck医学院与三大医院及生物医学研究中心。"
+        },
+        {
+          "name": "USC Village",
+          "nameCn": "USC村",
+          "lat": 34.0258,
+          "lng": -118.2855,
+          "radius": 250,
+          "note": "2017年建成的住宿与商业综合体，位于Jefferson大道以北。"
+        },
+        {
+          "name": "Wrigley Marine Science Center",
+          "nameCn": "瑞格利海洋科学中心",
+          "lat": 33.4448,
+          "lng": -118.4836,
+          "radius": 400,
+          "note": "卡特琳娜岛Two Harbors附近，环境与海洋科学野外研究站。"
+        },
+        {
+          "name": "USC Alhambra Campus",
+          "nameCn": "阿罕布拉校区",
+          "lat": 34.0793,
+          "lng": -118.1376,
+          "radius": 300,
+          "note": "阿罕布拉行政与医师助理等项目办公地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Marshall School of Business (Bridge Hall)",
+          "nameCn": "马歇尔商学院",
+          "lat": 34.0188,
+          "lng": -118.2854,
+          "note": "顶尖商学院，Bridge Hall与Popovich Hall一带。"
+        },
+        {
+          "name": "Viterbi School of Engineering (RTH/EEB)",
+          "nameCn": "维特比工程学院",
+          "lat": 34.0205,
+          "lng": -118.2898,
+          "note": "工程学院教学楼群，靠校区西侧。"
+        },
+        {
+          "name": "Gould School of Law",
+          "nameCn": "古尔德法学院",
+          "lat": 34.0182,
+          "lng": -118.2837,
+          "note": "法学院，位于校区东南。"
+        },
+        {
+          "name": "Annenberg School for Communication",
+          "nameCn": "安纳伯格传播学院",
+          "lat": 34.0224,
+          "lng": -118.2868,
+          "note": "传播与新闻学院，新闻传播领域强势。"
+        },
+        {
+          "name": "Wallis Annenberg Hall",
+          "nameCn": "瓦利斯·安纳伯格楼",
+          "lat": 34.0229,
+          "lng": -118.2873,
+          "note": "传播学院数字新闻教学楼。"
+        },
+        {
+          "name": "Keck School of Medicine",
+          "nameCn": "凯克医学院",
+          "lat": 34.0613,
+          "lng": -118.2065,
+          "note": "健康科学校区核心，1975 Zonal Ave。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Doheny Memorial Library",
+          "nameCn": "多希尼纪念图书馆",
+          "lat": 34.0202,
+          "lng": -118.2837,
+          "note": "1932年罗马式主馆，校区标志性图书馆。"
+        },
+        {
+          "name": "Leavey Library",
+          "nameCn": "利维图书馆",
+          "lat": 34.0214,
+          "lng": -118.2826,
+          "note": "24小时开放的本科生学习图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "USC Fisher Museum of Art",
+          "nameCn": "费舍尔艺术博物馆",
+          "lat": 34.0197,
+          "lng": -118.2867,
+          "note": "校园内艺术博物馆，馆藏欧美绘画。"
+        },
+        {
+          "name": "Natural History Museum of L.A. County",
+          "nameCn": "洛杉矶自然历史博物馆",
+          "lat": 34.0173,
+          "lng": -118.2887,
+          "note": "毗邻校区南侧博览公园，邻近地标。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Tommy Trojan (Trojan Shrine)",
+          "nameCn": "特洛伊战士雕像",
+          "lat": 34.0205,
+          "lng": -118.2855,
+          "note": "校园中心地标，特洛伊精神象征。"
+        },
+        {
+          "name": "Bovard Auditorium",
+          "nameCn": "博瓦德礼堂",
+          "lat": 34.0209,
+          "lng": -118.2851,
+          "note": "1921年礼堂兼行政楼，校区门面建筑。"
+        },
+        {
+          "name": "Galen Center",
+          "nameCn": "盖伦体育中心",
+          "lat": 34.022,
+          "lng": -118.2797,
+          "note": "Jefferson与Figueroa东南角，篮球排球主场。"
+        },
+        {
+          "name": "Los Angeles Memorial Coliseum",
+          "nameCn": "洛杉矶纪念体育场",
+          "lat": 34.0141,
+          "lng": -118.2879,
+          "note": "博览公园内，特洛伊橄榄球主场及奥运场馆。"
+        },
+        {
+          "name": "Expo Park / USC Metro Station",
+          "nameCn": "博览公园/USC地铁站",
+          "lat": 34.0182,
+          "lng": -118.286,
+          "note": "E线轻轨车站，校区南门通勤枢纽。"
+        }
+      ]
+    }
+  ]
+}

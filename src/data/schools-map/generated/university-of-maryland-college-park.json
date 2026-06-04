@@ -1,0 +1,196 @@
+{
+  "id": "university-of-maryland-college-park",
+  "type": "school",
+  "name": "University of Maryland, College Park",
+  "nameCn": "马里兰大学帕克分校",
+  "city": "College Park, MD",
+  "center": [
+    38.9881,
+    -76.9425
+  ],
+  "zoom": 14,
+  "blurb": "马里兰大学帕克分校坐落于华盛顿特区东北郊，拥有全美最大的学术草坪 McKeldin Mall，是一座红砖乔治亚式建筑环抱、公立研究型旗舰大学的开阔校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (College Park)",
+          "nameCn": "帕克主校区",
+          "lat": 38.9881,
+          "lng": -76.9425,
+          "radius": 1200,
+          "note": "占地约1340英亩，核心为McKeldin Mall草坪轴线。"
+        },
+        {
+          "name": "Discovery District (M Square Research Park)",
+          "nameCn": "探索区研究园（原M Square）",
+          "lat": 38.9787,
+          "lng": -76.9276,
+          "radius": 700,
+          "note": "校东约2英里的150英亩科研创新园，紧邻College Park地铁站。"
+        },
+        {
+          "name": "Universities at Shady Grove",
+          "nameCn": "谢迪格罗夫大学城",
+          "lat": 39.0932,
+          "lng": -77.1998,
+          "radius": 600,
+          "note": "位于罗克维尔的区域校区，提供大三大四阶段本科课程。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Glenn L. Martin Hall (Clark School of Engineering)",
+          "nameCn": "马丁工程楼（克拉克工程学院）",
+          "lat": 38.9912,
+          "lng": -76.9367,
+          "note": "A. James Clark工程学院核心楼，位于工程象限。"
+        },
+        {
+          "name": "Brendan Iribe Center for Computer Science",
+          "nameCn": "Iribe 计算机科学中心",
+          "lat": 38.9899,
+          "lng": -76.9362,
+          "note": "校东北的计算机与创新中心，临体育场大道。"
+        },
+        {
+          "name": "Morrill Hall",
+          "nameCn": "莫里尔楼",
+          "lat": 38.9847,
+          "lng": -76.9419,
+          "note": "1898年建，校内最古老的学术楼。"
+        },
+        {
+          "name": "Van Munching Hall (Smith School of Business)",
+          "nameCn": "范蒙钦楼（史密斯商学院）",
+          "lat": 38.9897,
+          "lng": -76.9461,
+          "note": "Robert H. Smith商学院所在地。"
+        },
+        {
+          "name": "Knight Hall (Merrill College of Journalism)",
+          "nameCn": "Knight 楼（梅里尔新闻学院）",
+          "lat": 38.9907,
+          "lng": -76.9437,
+          "note": "2010年LEED金级新闻学院楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "McKeldin Library",
+          "nameCn": "麦凯尔丁图书馆",
+          "lat": 38.9858,
+          "lng": -76.9444,
+          "note": "校内主图书馆，位于McKeldin Mall西端。"
+        },
+        {
+          "name": "STEM Library (Math Building)",
+          "nameCn": "STEM 图书馆",
+          "lat": 38.9905,
+          "lng": -76.9384,
+          "note": "理工科分馆，服务工程与数学院系。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The David C. Driskell Center Gallery",
+          "nameCn": "德里斯克尔中心画廊",
+          "lat": 38.9858,
+          "lng": -76.9419,
+          "note": "非裔美国艺术与文化研究展廊，位于Cole学生活动楼。"
+        },
+        {
+          "name": "Art-Sociology Gallery",
+          "nameCn": "艺术社会学画廊",
+          "lat": 38.9853,
+          "lng": -76.9437,
+          "note": "艺术系教学画廊，临McKeldin Mall南侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Adele H. Stamp Student Union",
+          "nameCn": "斯坦普学生会馆",
+          "lat": 38.9883,
+          "lng": -76.9447,
+          "note": "校园学生活动与餐饮中心。"
+        },
+        {
+          "name": "SECU Stadium (Maryland Stadium)",
+          "nameCn": "SECU 体育场（马里兰橄榄球场）",
+          "lat": 38.9907,
+          "lng": -76.9472,
+          "note": "原Byrd体育场，Terrapins橄榄球主场。"
+        },
+        {
+          "name": "Xfinity Center",
+          "nameCn": "Xfinity 中心",
+          "lat": 38.9961,
+          "lng": -76.9494,
+          "note": "篮球馆，位于校园西北角。"
+        },
+        {
+          "name": "Memorial Chapel",
+          "nameCn": "纪念礼拜堂",
+          "lat": 38.9866,
+          "lng": -76.9412,
+          "note": "标志性钟楼礼拜堂，校园东侧地标。"
+        },
+        {
+          "name": "The Clarice Smith Performing Arts Center",
+          "nameCn": "克拉丽斯·史密斯表演艺术中心",
+          "lat": 38.9897,
+          "lng": -76.9499,
+          "note": "校园西侧综合表演艺术场馆。"
+        },
+        {
+          "name": "College Park – UMD Metro Station",
+          "nameCn": "College Park–UMD 地铁站",
+          "lat": 38.9786,
+          "lng": -76.9286,
+          "note": "华盛顿地铁绿线/MARC站，连接探索区与主校区。"
+        },
+        {
+          "name": "The 'M' Circle / Main Gate",
+          "nameCn": "「M」环岛主校门",
+          "lat": 38.9819,
+          "lng": -76.9407,
+          "note": "Route 1旁的花坛「M」标志主入口。"
+        }
+      ]
+    }
+  ]
+}

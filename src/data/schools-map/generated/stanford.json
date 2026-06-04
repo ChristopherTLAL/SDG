@@ -1,0 +1,221 @@
+{
+  "id": "stanford",
+  "type": "school",
+  "name": "Stanford University",
+  "nameCn": "斯坦福大学",
+  "city": "Stanford, CA",
+  "center": [
+    37.4275,
+    -122.1697
+  ],
+  "zoom": 14,
+  "blurb": "坐落于硅谷腹地的超大尺度学府，以红砂岩拱廊、棕榈大道与开阔草坪串联起学术、医学与科研多个园区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (The Farm)",
+          "nameCn": "主校区（农场）",
+          "lat": 37.4275,
+          "lng": -122.1697,
+          "radius": 1500,
+          "note": "8000余英亩主校园，核心为中央方庭与棕榈大道。"
+        },
+        {
+          "name": "Stanford University Medical Center",
+          "nameCn": "斯坦福大学医学中心",
+          "lat": 37.4337,
+          "lng": -122.1755,
+          "radius": 500,
+          "note": "校园北端 Pasteur Drive，含医学院与附属医院。"
+        },
+        {
+          "name": "Lucile Packard Children's Hospital",
+          "nameCn": "露西尔·帕卡德儿童医院",
+          "lat": 37.4348,
+          "lng": -122.1789,
+          "radius": 300,
+          "note": "Welch Road 旁，斯坦福儿科与妇产专科医院。"
+        },
+        {
+          "name": "Stanford Research Park",
+          "nameCn": "斯坦福研究园",
+          "lat": 37.4108,
+          "lng": -122.1469,
+          "radius": 1200,
+          "note": "帕罗奥图境内科技园区，惠普等企业发源地。"
+        },
+        {
+          "name": "Stanford Redwood City Campus",
+          "nameCn": "斯坦福红木城校区",
+          "lat": 37.4856,
+          "lng": -122.2294,
+          "radius": 400,
+          "note": "2019 年启用的行政办公园区，Broadway 街沿线。"
+        },
+        {
+          "name": "SLAC National Accelerator Laboratory",
+          "nameCn": "SLAC 国家加速器实验室",
+          "lat": 37.4188,
+          "lng": -122.203,
+          "radius": 1000,
+          "note": "门洛帕克 Sand Hill Road，能源部直线加速器国家实验室。"
+        },
+        {
+          "name": "Stanford Shopping Center & Dish Hills",
+          "nameCn": "斯坦福购物中心与天线山",
+          "lat": 37.4226,
+          "lng": -122.173,
+          "radius": 700,
+          "note": "校园西北的零售区与起伏的徒步山地保留区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Main Quad",
+          "nameCn": "中央方庭",
+          "lat": 37.4275,
+          "lng": -122.1703,
+          "note": "红砂岩拱廊围合的标志性历史核心庭院。"
+        },
+        {
+          "name": "School of Engineering (Huang/Jen-Hsun)",
+          "nameCn": "工程学院（黄仁勋楼）",
+          "lat": 37.4279,
+          "lng": -122.1735,
+          "note": "工程方庭，计算机与电子工程重镇。"
+        },
+        {
+          "name": "Stanford Graduate School of Business",
+          "nameCn": "斯坦福商学院",
+          "lat": 37.4318,
+          "lng": -122.1602,
+          "note": "Knight 管理中心，全球顶尖 MBA 项目所在。"
+        },
+        {
+          "name": "Stanford Law School",
+          "nameCn": "斯坦福法学院",
+          "lat": 37.4225,
+          "lng": -122.168,
+          "note": "Crown Quadrangle，校园东南的法学园区。"
+        },
+        {
+          "name": "School of Medicine (Li Ka Shing)",
+          "nameCn": "医学院（李嘉诚中心）",
+          "lat": 37.4327,
+          "lng": -122.1742,
+          "note": "Li Ka Shing 学习中心，临床教学核心。"
+        },
+        {
+          "name": "School of Humanities & Sciences (Quad)",
+          "nameCn": "人文与科学学院",
+          "lat": 37.4271,
+          "lng": -122.1696,
+          "note": "依托中央方庭，文理基础学科聚集。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Cecil H. Green Library",
+          "nameCn": "格林图书馆",
+          "lat": 37.4269,
+          "lng": -122.1668,
+          "note": "校园主图书馆，人文社科馆藏中心。"
+        },
+        {
+          "name": "Lathrop Library",
+          "nameCn": "拉斯洛普图书馆",
+          "lat": 37.428,
+          "lng": -122.1675,
+          "note": "24 小时学习空间与多媒体技术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Cantor Arts Center",
+          "nameCn": "坎托艺术中心",
+          "lat": 37.4324,
+          "lng": -122.1707,
+          "note": "校园艺术博物馆，藏罗丹雕塑园。"
+        },
+        {
+          "name": "Anderson Collection",
+          "nameCn": "安德森收藏馆",
+          "lat": 37.4329,
+          "lng": -122.1714,
+          "note": "美国战后与现代艺术专题馆，毗邻坎托。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Hoover Tower",
+          "nameCn": "胡佛塔",
+          "lat": 37.4274,
+          "lng": -122.1664,
+          "note": "285 英尺地标钟塔，设观景台与胡佛研究所。"
+        },
+        {
+          "name": "Stanford Memorial Church",
+          "nameCn": "斯坦福纪念教堂",
+          "lat": 37.4268,
+          "lng": -122.1705,
+          "note": "方庭尽端的马赛克立面纪念教堂。"
+        },
+        {
+          "name": "Stanford Stadium",
+          "nameCn": "斯坦福体育场",
+          "lat": 37.4347,
+          "lng": -122.1614,
+          "note": "5 万座橄榄球主场，大对决赛事举办地。"
+        },
+        {
+          "name": "Tresidder Memorial Union",
+          "nameCn": "特雷西德学生活动中心",
+          "lat": 37.4242,
+          "lng": -122.1701,
+          "note": "学生活动与餐饮枢纽，靠近研究生宿舍区。"
+        },
+        {
+          "name": "Bing Concert Hall",
+          "nameCn": "冰音乐厅",
+          "lat": 37.4318,
+          "lng": -122.1683,
+          "note": "环绕式座席音乐厅，校园表演艺术中心。"
+        }
+      ]
+    }
+  ]
+}

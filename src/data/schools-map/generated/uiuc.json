@@ -1,0 +1,205 @@
+{
+  "id": "uiuc",
+  "type": "school",
+  "name": "University of Illinois at Urbana-Champaign",
+  "nameCn": "伊利诺伊大学厄巴纳-香槟分校",
+  "city": "Champaign, IL",
+  "center": [
+    40.1066,
+    -88.2272
+  ],
+  "zoom": 14,
+  "blurb": "伊利诺伊大学厄巴纳-香槟分校横跨厄巴纳与香槟两座姊妹城，以中央方庭（Main Quad）为核心向北接工程方庭、向南连农学方庭，是一所空间舒展、学术重镇林立的旗舰公立研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus Core (Main Quad)",
+          "nameCn": "主校区核心（中央方庭）",
+          "lat": 40.1066,
+          "lng": -88.2272,
+          "radius": 600,
+          "note": "历史中轴方庭，北起伊利尼联合会、南至福林格礼堂"
+        },
+        {
+          "name": "Bardeen Engineering Quad (North Campus)",
+          "nameCn": "巴丁工程方庭（北校区）",
+          "lat": 40.1126,
+          "lng": -88.227,
+          "radius": 550,
+          "note": "格林街以北的格兰杰工程学院聚集区"
+        },
+        {
+          "name": "South Quad / ACES Campus",
+          "nameCn": "南方庭 / 农学校区",
+          "lat": 40.1018,
+          "lng": -88.2235,
+          "radius": 500,
+          "note": "格雷戈里路以南，农业、消费与环境科学学院所在"
+        },
+        {
+          "name": "Athletics District (First Street)",
+          "nameCn": "体育园区（第一街）",
+          "lat": 40.0975,
+          "lng": -88.236,
+          "radius": 600,
+          "note": "纪念体育场与州立农场中心所在的赛事区"
+        },
+        {
+          "name": "Research Park at Illinois",
+          "nameCn": "伊利诺伊研究园",
+          "lat": 40.0928,
+          "lng": -88.2356,
+          "radius": 550,
+          "note": "120余家企业入驻的产学研科技园区"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Grainger College of Engineering (Engineering Hall)",
+          "nameCn": "格兰杰工程学院（工程大楼）",
+          "lat": 40.1115,
+          "lng": -88.2273,
+          "note": "工程方庭主楼，标志性穹顶建筑"
+        },
+        {
+          "name": "Lincoln Hall (Liberal Arts & Sciences)",
+          "nameCn": "林肯楼（文理学院）",
+          "lat": 40.1057,
+          "lng": -88.2293,
+          "note": "中央方庭西侧人文社科教学楼"
+        },
+        {
+          "name": "Gies College of Business (Wohlers Hall)",
+          "nameCn": "吉斯商学院（沃勒斯楼）",
+          "lat": 40.1019,
+          "lng": -88.2284,
+          "note": "南方庭商科核心楼"
+        },
+        {
+          "name": "Siebel Center for Computer Science",
+          "nameCn": "西贝尔计算机科学中心",
+          "lat": 40.1138,
+          "lng": -88.2249,
+          "note": "工程区计算机系所在地"
+        },
+        {
+          "name": "Coordinated Science Laboratory / Beckman Institute",
+          "nameCn": "贝克曼研究院",
+          "lat": 40.1159,
+          "lng": -88.2278,
+          "note": "北校区跨学科尖端科研中心"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Main Library (Funk ACES adjacent)",
+          "nameCn": "主图书馆",
+          "lat": 40.1046,
+          "lng": -88.2287,
+          "note": "全美最大公立研究图书馆之一"
+        },
+        {
+          "name": "Grainger Engineering Library Information Center",
+          "nameCn": "格兰杰工程图书馆",
+          "lat": 40.1124,
+          "lng": -88.2266,
+          "note": "工程方庭北侧，斯普林菲尔德大道旁"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Krannert Art Museum",
+          "nameCn": "克兰纳特美术馆",
+          "lat": 40.1037,
+          "lng": -88.231,
+          "note": "第六街与皮博迪路口，校内主美术馆"
+        },
+        {
+          "name": "Spurlock Museum of World Cultures",
+          "nameCn": "斯珀洛克世界文化博物馆",
+          "lat": 40.1076,
+          "lng": -88.2208,
+          "note": "厄巴纳一侧，世界文化与考古藏品"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Illini Union",
+          "nameCn": "伊利尼联合会",
+          "lat": 40.1093,
+          "lng": -88.2272,
+          "note": "方庭北端学生活动中心地标"
+        },
+        {
+          "name": "Altgeld Hall",
+          "nameCn": "阿尔特盖尔德楼",
+          "lat": 40.109,
+          "lng": -88.2287,
+          "note": "钟楼地标，数学系所在"
+        },
+        {
+          "name": "Foellinger Auditorium",
+          "nameCn": "福林格礼堂",
+          "lat": 40.1047,
+          "lng": -88.2272,
+          "note": "方庭南端圆顶礼堂"
+        },
+        {
+          "name": "Memorial Stadium",
+          "nameCn": "纪念体育场",
+          "lat": 40.0997,
+          "lng": -88.2362,
+          "note": "伊利尼橄榄球队主场"
+        },
+        {
+          "name": "State Farm Center",
+          "nameCn": "州立农场中心",
+          "lat": 40.095,
+          "lng": -88.236,
+          "note": "篮球馆与大型活动场馆"
+        },
+        {
+          "name": "Krannert Center for the Performing Arts",
+          "nameCn": "克兰纳特表演艺术中心",
+          "lat": 40.1082,
+          "lng": -88.2218,
+          "note": "五厅剧场综合体，校园文化地标"
+        }
+      ]
+    }
+  ]
+}

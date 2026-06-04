@@ -1,0 +1,182 @@
+{
+  "id": "lehigh-university",
+  "type": "school",
+  "name": "Lehigh University",
+  "nameCn": "理海大学",
+  "city": "Bethlehem, PA",
+  "center": [
+    40.6061,
+    -75.3772
+  ],
+  "zoom": 14,
+  "blurb": "理海大学坐落于宾州伯利恒南山北坡的林地之上，由历史悠久的阿萨·帕克主校区、山顶研究校区与南侧古德曼体育校区三处组成，工程与商科见长。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Asa Packer Campus",
+          "nameCn": "阿萨·帕克校区（主校区）",
+          "lat": 40.6061,
+          "lng": -75.3772,
+          "radius": 750,
+          "note": "学校最初的核心校区，依南山北坡而建，多数教学楼与宿舍所在。"
+        },
+        {
+          "name": "Mountaintop Campus",
+          "nameCn": "山顶校区",
+          "lat": 40.6012,
+          "lng": -75.3625,
+          "radius": 900,
+          "note": "1986 年购自伯利恒钢铁，山巅研究与孵化区，标志塔楼远眺可见。"
+        },
+        {
+          "name": "Murray H. Goodman Campus",
+          "nameCn": "古德曼体育校区",
+          "lat": 40.5818,
+          "lng": -75.359,
+          "radius": 800,
+          "note": "位于南侧下索肯镇的体育校区，主场馆球场集中于此。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Packard Laboratory",
+          "nameCn": "帕卡德实验楼",
+          "lat": 40.6066,
+          "lng": -75.376,
+          "note": "罗辛工程学院核心楼，机械与电气工程所在。"
+        },
+        {
+          "name": "Maginnes Hall",
+          "nameCn": "马金尼斯楼",
+          "lat": 40.6069,
+          "lng": -75.3779,
+          "note": "文理学院人文社科系办公与教学主楼。"
+        },
+        {
+          "name": "Rauch Business Center",
+          "nameCn": "劳赫商学院楼",
+          "lat": 40.6055,
+          "lng": -75.3748,
+          "note": "商学院主楼，金融与管理课程基地。"
+        },
+        {
+          "name": "Health, Science & Technology Building",
+          "nameCn": "健康·科学·技术楼",
+          "lat": 40.6076,
+          "lng": -75.374,
+          "note": "2022 年启用，健康学院所在，位于主校区东北角。"
+        },
+        {
+          "name": "Iacocca Hall",
+          "nameCn": "艾柯卡楼",
+          "lat": 40.6018,
+          "lng": -75.362,
+          "note": "山顶校区主楼，生物科学与教育学院驻地。"
+        },
+        {
+          "name": "STEPS Building",
+          "nameCn": "STEPS 楼",
+          "lat": 40.6072,
+          "lng": -75.3752,
+          "note": "地球环境与可持续科学教学研究楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Linderman Library",
+          "nameCn": "林德曼图书馆",
+          "lat": 40.6058,
+          "lng": -75.3766,
+          "note": "1878 年圆顶人文图书馆，校园地标性老馆。"
+        },
+        {
+          "name": "Fairchild-Martindale Library",
+          "nameCn": "费尔柴尔德-马丁戴尔图书馆",
+          "lat": 40.6076,
+          "lng": -75.3758,
+          "note": "理工与综合资源主馆，藏书与数据中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Lehigh University Art Galleries (Zoellner)",
+          "nameCn": "理海大学艺术馆（佐尔纳）",
+          "lat": 40.6072,
+          "lng": -75.3735,
+          "note": "佐尔纳艺术中心内，含多间艺术展廊与音乐剧场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Packer Memorial Church",
+          "nameCn": "帕克纪念教堂",
+          "lat": 40.6063,
+          "lng": -75.3758,
+          "note": "校园中心哥特式教堂，纪念创校人阿萨·帕克。"
+        },
+        {
+          "name": "Alumni Memorial Building",
+          "nameCn": "校友纪念楼",
+          "lat": 40.606,
+          "lng": -75.377,
+          "note": "行政办公主楼，临帕克大道的标志立面。"
+        },
+        {
+          "name": "University Center (UC)",
+          "nameCn": "大学中心",
+          "lat": 40.6068,
+          "lng": -75.3768,
+          "note": "学生活动与餐饮中心，校园社交枢纽。"
+        },
+        {
+          "name": "Goodman Stadium",
+          "nameCn": "古德曼橄榄球场",
+          "lat": 40.5818,
+          "lng": -75.3585,
+          "note": "1.6 万座橄榄球主场，古德曼校区核心场馆。"
+        },
+        {
+          "name": "Stabler Arena",
+          "nameCn": "斯塔布勒体育馆",
+          "lat": 40.5828,
+          "lng": -75.36,
+          "note": "6 千座多功能馆，篮球赛与演唱会场地。"
+        }
+      ]
+    }
+  ]
+}

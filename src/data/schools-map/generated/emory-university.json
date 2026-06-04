@@ -1,0 +1,185 @@
+{
+  "id": "emory-university",
+  "type": "school",
+  "name": "Emory University",
+  "nameCn": "埃默里大学",
+  "city": "Atlanta, GA",
+  "center": [
+    33.79111,
+    -84.32333
+  ],
+  "zoom": 14,
+  "blurb": "埃默里大学主校区坐落于亚特兰大东郊德鲁伊山的林荫住宅区，以霍恩博斯特尔设计的意大利文艺复兴风格大理石建筑群与绿意盎然的方庭著称，与全美顶尖的克利夫顿路医学健康中心融为一体。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Druid Hills)",
+          "nameCn": "主校区（德鲁伊山）",
+          "lat": 33.79111,
+          "lng": -84.32333,
+          "radius": 1000,
+          "note": "600英亩历史主校区，方庭、文理学院与图书馆群所在地。"
+        },
+        {
+          "name": "Clifton Road / Woodruff Health Sciences",
+          "nameCn": "克利夫顿路医学健康中心",
+          "lat": 33.79215,
+          "lng": -84.32208,
+          "radius": 600,
+          "note": "埃默里大学医院、医学院与公共卫生学院聚集区。"
+        },
+        {
+          "name": "Clairmont Campus",
+          "nameCn": "克莱蒙特住宿校区",
+          "lat": 33.79749,
+          "lng": -84.30848,
+          "radius": 500,
+          "note": "高年级本科与研究生宿舍、SAAC体育馆所在的卫星校区。"
+        },
+        {
+          "name": "Wesley Woods Campus",
+          "nameCn": "卫斯理伍兹校区",
+          "lat": 33.80482,
+          "lng": -84.33117,
+          "radius": 450,
+          "note": "老年医学与康复医疗园区，林木掩映。"
+        },
+        {
+          "name": "Emory Point",
+          "nameCn": "埃默里坊",
+          "lat": 33.80137,
+          "lng": -84.32827,
+          "radius": 350,
+          "note": "校园北侧的零售餐饮与公寓混合街区。"
+        },
+        {
+          "name": "Oxford College",
+          "nameCn": "牛津学院",
+          "lat": 33.61994,
+          "lng": -83.87149,
+          "radius": 600,
+          "note": "1836年建校原址，东向61公里的两年制文理学院。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Goizueta Business School",
+          "nameCn": "戈伊苏埃塔商学院",
+          "lat": 33.78996,
+          "lng": -84.32125,
+          "note": "本科与MBA商科教学楼，临克利夫顿路。"
+        },
+        {
+          "name": "Emory School of Medicine",
+          "nameCn": "埃默里医学院",
+          "lat": 33.7925,
+          "lng": -84.3225,
+          "note": "医学院教学科研中心，紧邻附属医院。"
+        },
+        {
+          "name": "Candler School of Theology (Rollins Bldg)",
+          "nameCn": "坎德勒神学院",
+          "lat": 33.7903,
+          "lng": -84.3215,
+          "note": "卫理公会神学院，方庭东南侧。"
+        },
+        {
+          "name": "Rollins School of Public Health",
+          "nameCn": "罗林斯公共卫生学院",
+          "lat": 33.79468,
+          "lng": -84.32177,
+          "note": "全美顶尖公共卫生学院，邻近CDC。"
+        },
+        {
+          "name": "Atwood Chemistry Center",
+          "nameCn": "阿特伍德化学中心",
+          "lat": 33.7918,
+          "lng": -84.3245,
+          "note": "理学院化学系核心实验楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Robert W. Woodruff Library",
+          "nameCn": "罗伯特·伍德拉夫图书馆",
+          "lat": 33.7906,
+          "lng": -84.3233,
+          "note": "主图书馆，藏罗斯珍本档案与商科图书。"
+        },
+        {
+          "name": "Woodruff Health Sciences Center Library",
+          "nameCn": "健康科学图书馆",
+          "lat": 33.7931,
+          "lng": -84.3218,
+          "note": "医学健康学科专业图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Michael C. Carlos Museum",
+          "nameCn": "迈克尔·卡洛斯博物馆",
+          "lat": 33.79109,
+          "lng": -84.32231,
+          "note": "美国东南部最大古代艺术藏馆，立于历史方庭。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Emory Student Center",
+          "nameCn": "学生中心",
+          "lat": 33.79361,
+          "lng": -84.32401,
+          "note": "学生生活与餐饮枢纽。"
+        },
+        {
+          "name": "Glenn Memorial United Methodist Church",
+          "nameCn": "格伦纪念教堂",
+          "lat": 33.7903,
+          "lng": -84.3242,
+          "note": "校园地标礼拜堂兼大型活动场地。"
+        },
+        {
+          "name": "Schwartz Center for Performing Arts",
+          "nameCn": "施瓦茨表演艺术中心",
+          "lat": 33.7929,
+          "lng": -84.325,
+          "note": "音乐厅与舞蹈表演艺术中心。"
+        }
+      ]
+    }
+  ]
+}

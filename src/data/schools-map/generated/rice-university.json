@@ -1,0 +1,182 @@
+{
+  "id": "rice-university",
+  "type": "school",
+  "name": "Rice University",
+  "nameCn": "莱斯大学",
+  "city": "Houston, TX",
+  "center": [
+    29.71694,
+    -95.40278
+  ],
+  "zoom": 15,
+  "blurb": "莱斯大学坐落于休斯顿博物馆区，是一座约 290 英亩、林木葱郁的封闭式校园，以拜占庭式建筑、住宿学院制和顶尖的工程与科学研究著称。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Rice University Main Campus",
+          "nameCn": "莱斯大学主校区",
+          "lat": 29.71694,
+          "lng": -95.40278,
+          "radius": 900,
+          "note": "五边形封闭校园，约 50 栋建筑环绕内环路与学术四方院。"
+        },
+        {
+          "name": "BioScience Research Collaborative (TMC)",
+          "nameCn": "生物科学协作研究中心",
+          "lat": 29.7096,
+          "lng": -95.3998,
+          "radius": 250,
+          "note": "校园北侧德州医学中心内，莱斯史上最大学术楼，与医学中心机构合研。"
+        },
+        {
+          "name": "Rice Village Apartments (Graduate Housing)",
+          "nameCn": "莱斯村研究生公寓",
+          "lat": 29.7156,
+          "lng": -95.4156,
+          "radius": 200,
+          "note": "校外莱斯村商圈的研究生公寓，LEED 认证中层楼。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Lovett Hall",
+          "nameCn": "洛维特楼",
+          "lat": 29.718,
+          "lng": -95.399,
+          "note": "1912 年原行政楼，拜占庭风格地标，校园东侧正门所在。"
+        },
+        {
+          "name": "Duncan Hall (Computational Engineering)",
+          "nameCn": "邓肯楼（计算工程）",
+          "lat": 29.7204,
+          "lng": -95.3984,
+          "note": "工程四方院，色彩绚丽的中庭天花板著称。"
+        },
+        {
+          "name": "Brockman Hall for Physics",
+          "nameCn": "布罗克曼物理楼",
+          "lat": 29.7166,
+          "lng": -95.3995,
+          "note": "2011 年落成，物理与天文系，跨越通道架于水景之上。"
+        },
+        {
+          "name": "Shepherd School of Music (Alice Pratt Brown Hall)",
+          "nameCn": "谢泼德音乐学院",
+          "lat": 29.7156,
+          "lng": -95.4019,
+          "note": "西四方院，全美顶尖音乐学院之一。"
+        },
+        {
+          "name": "Anderson Biological Laboratories",
+          "nameCn": "安德森生物实验楼",
+          "lat": 29.7174,
+          "lng": -95.4019,
+          "note": "学术四方院西北侧，生物科学教学与研究。"
+        },
+        {
+          "name": "Jesse H. Jones Graduate School of Business",
+          "nameCn": "琼斯商学院",
+          "lat": 29.7211,
+          "lng": -95.3996,
+          "note": "McNair Hall，校园北部商科教学楼。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Fondren Library",
+          "nameCn": "方德仁图书馆",
+          "lat": 29.7176,
+          "lng": -95.4003,
+          "note": "1949 年主图书馆，正对洛维特楼，镇守学术四方院西侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Moody Center for the Arts",
+          "nameCn": "穆迪艺术中心",
+          "lat": 29.716,
+          "lng": -95.4008,
+          "note": "2017 年开放的现代艺术展演空间，串联音乐学院与天光屋。"
+        },
+        {
+          "name": "Twilight Epiphany Skyspace (James Turrell)",
+          "nameCn": "天光顿悟（特瑞尔天空之境）",
+          "lat": 29.7152,
+          "lng": -95.4012,
+          "note": "特瑞尔光影艺术装置，日落 LED 灯光秀，邻近音乐学院。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Rice Stadium",
+          "nameCn": "莱斯体育场",
+          "lat": 29.7164,
+          "lng": -95.4092,
+          "note": "1950 年橄榄球场，校园西北端，曾办 1974 超级碗。"
+        },
+        {
+          "name": "Tudor Fieldhouse",
+          "nameCn": "都铎体育馆",
+          "lat": 29.7151,
+          "lng": -95.4039,
+          "note": "篮球与排球主场馆。"
+        },
+        {
+          "name": "Reckling Park",
+          "nameCn": "雷克林棒球场",
+          "lat": 29.708,
+          "lng": -95.4025,
+          "note": "校园西南角棒球场，可容 7000 余人。"
+        },
+        {
+          "name": "Rice Memorial Center (RMC)",
+          "nameCn": "莱斯纪念学生中心",
+          "lat": 29.7167,
+          "lng": -95.3998,
+          "note": "学生活动中心，沿内环路而立。"
+        },
+        {
+          "name": "Brochstein Pavilion",
+          "nameCn": "布罗赫斯坦玻璃亭",
+          "lat": 29.7178,
+          "lng": -95.3996,
+          "note": "2008 年中央四方院玻璃咖啡亭，校园社交核心。"
+        }
+      ]
+    }
+  ]
+}

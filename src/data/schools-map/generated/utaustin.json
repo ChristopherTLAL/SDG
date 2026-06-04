@@ -1,0 +1,168 @@
+{
+  "id": "utaustin",
+  "type": "school",
+  "name": "University of Texas at Austin",
+  "nameCn": "德克萨斯大学奥斯汀分校",
+  "city": "Austin, TX",
+  "center": [
+    30.2849,
+    -97.7341
+  ],
+  "zoom": 14,
+  "blurb": "坐落于奥斯汀市中心以北的\"四十英亩\"老校区，以标志性的钟楼和橙白配色闻名，是一座融研究、体育与文化于一体的特大型公立旗舰校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Forty Acres)",
+          "nameCn": "主校区（四十英亩）",
+          "lat": 30.2849,
+          "lng": -97.7341,
+          "radius": 1100,
+          "note": "核心教学区，以UT钟楼为中心，紧邻州议会大厦。"
+        },
+        {
+          "name": "Dell Medical School / Health District",
+          "nameCn": "戴尔医学院 / 健康区",
+          "lat": 30.2755,
+          "lng": -97.7329,
+          "radius": 450,
+          "note": "校区东南缘的医学与医院聚集区。"
+        },
+        {
+          "name": "J.J. Pickle Research Campus",
+          "nameCn": "皮克尔研究园区",
+          "lat": 30.3866,
+          "lng": -97.7269,
+          "radius": 1200,
+          "note": "西北约15公里的475英亩科研园，含超算中心TACC。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "McCombs School of Business",
+          "nameCn": "麦库姆斯商学院",
+          "lat": 30.284,
+          "lng": -97.7383,
+          "note": "全美顶尖商学院，位于校区西南。"
+        },
+        {
+          "name": "Cockrell School of Engineering (EER)",
+          "nameCn": "科克雷尔工程学院",
+          "lat": 30.2886,
+          "lng": -97.7363,
+          "note": "工程教育与研究中心，校区北部。"
+        },
+        {
+          "name": "Gates-Dell Complex (Computer Science)",
+          "nameCn": "盖茨-戴尔楼（计算机科学）",
+          "lat": 30.2861,
+          "lng": -97.7366,
+          "note": "计算机科学系所在地。"
+        },
+        {
+          "name": "Welch Hall (Chemistry)",
+          "nameCn": "韦尔奇化学楼",
+          "lat": 30.2862,
+          "lng": -97.7387,
+          "note": "化学系主楼。"
+        },
+        {
+          "name": "Texas Advanced Computing Center (TACC)",
+          "nameCn": "德州先进计算中心",
+          "lat": 30.388,
+          "lng": -97.7261,
+          "note": "皮克尔园区内，运营Frontera超算。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Perry-Castañeda Library (PCL)",
+          "nameCn": "佩里-卡斯塔涅达图书馆",
+          "lat": 30.2824,
+          "lng": -97.7379,
+          "note": "中央主图书馆，北美最大学术馆之一。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Blanton Museum of Art",
+          "nameCn": "布兰顿艺术博物馆",
+          "lat": 30.2808,
+          "lng": -97.7373,
+          "note": "校区南缘，藏品丰富的大学美术馆。"
+        },
+        {
+          "name": "LBJ Presidential Library",
+          "nameCn": "约翰逊总统图书馆",
+          "lat": 30.2858,
+          "lng": -97.7292,
+          "note": "东校区，纪念第36任总统。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "UT Tower / Main Building",
+          "nameCn": "UT钟楼 / 主楼",
+          "lat": 30.2857,
+          "lng": -97.7392,
+          "note": "校园象征，登顶可俯瞰奥斯汀。"
+        },
+        {
+          "name": "Darrell K Royal-Texas Memorial Stadium",
+          "nameCn": "德州纪念体育场",
+          "lat": 30.2836,
+          "lng": -97.7325,
+          "note": "可容十万人的橄榄球主场。"
+        },
+        {
+          "name": "Texas Union",
+          "nameCn": "德州学生会馆",
+          "lat": 30.2866,
+          "lng": -97.7412,
+          "note": "学生活动与餐饮中心。"
+        },
+        {
+          "name": "Bass Concert Hall",
+          "nameCn": "巴斯音乐厅",
+          "lat": 30.2841,
+          "lng": -97.7301,
+          "note": "校区表演艺术中心主厅。"
+        }
+      ]
+    }
+  ]
+}

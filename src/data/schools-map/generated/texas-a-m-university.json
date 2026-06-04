@@ -1,0 +1,190 @@
+{
+  "id": "texas-a-m-university",
+  "type": "school",
+  "name": "Texas A&M University",
+  "nameCn": "德州农工大学",
+  "city": "College Station, TX",
+  "center": [
+    30.6128,
+    -96.3406
+  ],
+  "zoom": 13,
+  "blurb": "德州农工大学坐落于学院城，是一所拥有超大尺度橄榄球文化与浓厚军校（Corps of Cadets）传统的赠地式公立旗舰大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus",
+          "nameCn": "主校区",
+          "lat": 30.6155,
+          "lng": -96.3406,
+          "radius": 1200,
+          "note": "铁路以东的核心学术区，含学术楼、纪念学生中心与各宿舍。"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 30.6065,
+          "lng": -96.3475,
+          "radius": 1000,
+          "note": "铁路以西，兽医学院、Mays 商学院与体育场馆聚集地。"
+        },
+        {
+          "name": "Research Park",
+          "nameCn": "研究园区",
+          "lat": 30.602,
+          "lng": -96.358,
+          "radius": 700,
+          "note": "Kimbrough 大道沿线的研究设施群，紧邻布什图书馆。"
+        },
+        {
+          "name": "RELLIS Campus",
+          "nameCn": "RELLIS 校区",
+          "lat": 30.625,
+          "lng": -96.477,
+          "radius": 1500,
+          "note": "西北约16公里布莱恩市的研发与测试园区，前身 Riverside 校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Academic Building",
+          "nameCn": "学术楼",
+          "lat": 30.6155,
+          "lng": -96.3401,
+          "note": "1914 年建成的标志性绿铜穹顶教学楼。"
+        },
+        {
+          "name": "College of Veterinary Medicine",
+          "nameCn": "兽医学院",
+          "lat": 30.6092,
+          "lng": -96.349,
+          "note": "西校区，全美顶尖的兽医与生物医学学院。"
+        },
+        {
+          "name": "Mays Business School",
+          "nameCn": "梅斯商学院",
+          "lat": 30.6122,
+          "lng": -96.3445,
+          "note": "Wehner 楼，商科教学与研究中心。"
+        },
+        {
+          "name": "Zachry Engineering Education Complex",
+          "nameCn": "扎克里工程教育大楼",
+          "lat": 30.621,
+          "lng": -96.3415,
+          "note": "全美最大工程学院之一的主教学楼。"
+        },
+        {
+          "name": "Bush School of Government & Public Service",
+          "nameCn": "布什政府与公共事务学院",
+          "lat": 30.598,
+          "lng": -96.351,
+          "note": "毗邻布什图书馆的公共政策学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Sterling C. Evans Library",
+          "nameCn": "埃文斯图书馆",
+          "lat": 30.6168,
+          "lng": -96.3388,
+          "note": "主校区中央图书馆，含 Annex 附楼。"
+        },
+        {
+          "name": "George H.W. Bush Presidential Library",
+          "nameCn": "老布什总统图书馆",
+          "lat": 30.5966,
+          "lng": -96.3534,
+          "note": "西校区边缘，收藏老布什总统档案。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "George H.W. Bush Presidential Museum",
+          "nameCn": "老布什总统博物馆",
+          "lat": 30.597,
+          "lng": -96.3528,
+          "note": "与总统图书馆同址的史料展馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Kyle Field",
+          "nameCn": "凯尔球场",
+          "lat": 30.6102,
+          "lng": -96.3398,
+          "note": "可容纳逾10万人的橄榄球圣地「第12人」主场。"
+        },
+        {
+          "name": "Memorial Student Center",
+          "nameCn": "纪念学生中心",
+          "lat": 30.6122,
+          "lng": -96.3406,
+          "note": "被誉为「德州的客厅」的学生活动核心。"
+        },
+        {
+          "name": "Albritton Bell Tower",
+          "nameCn": "奥尔布里顿钟楼",
+          "lat": 30.6112,
+          "lng": -96.343,
+          "note": "高约42米、含49口钟的校园地标钟塔。"
+        },
+        {
+          "name": "Century Tree",
+          "nameCn": "百年橡树",
+          "lat": 30.6148,
+          "lng": -96.3409,
+          "note": "1898 年栽种、承载求婚传统的学术广场橡树。"
+        },
+        {
+          "name": "Reed Arena",
+          "nameCn": "里德体育馆",
+          "lat": 30.6058,
+          "lng": -96.3462,
+          "note": "西校区近1.3万座的篮球与活动场馆。"
+        },
+        {
+          "name": "Olsen Field at Blue Bell Park",
+          "nameCn": "奥尔森棒球场",
+          "lat": 30.6045,
+          "lng": -96.3478,
+          "note": "西校区 Aggies 棒球队主场。"
+        }
+      ]
+    }
+  ]
+}

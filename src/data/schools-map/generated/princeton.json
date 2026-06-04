@@ -1,0 +1,205 @@
+{
+  "id": "princeton",
+  "type": "school",
+  "name": "Princeton University",
+  "nameCn": "普林斯顿大学",
+  "city": "Princeton, NJ",
+  "center": [
+    40.3478,
+    -74.6572
+  ],
+  "zoom": 13,
+  "blurb": "普林斯顿大学是常春藤盟校，主校区以哥特复兴式建筑和宽阔绿地著称，从历史悠久的拿骚厅向南延伸至卡内基湖畔的体育带，并在三英里外的福雷斯特尔园区设有等离子体物理实验室等研究设施。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus",
+          "nameCn": "主校区",
+          "lat": 40.3489,
+          "lng": -74.6593,
+          "radius": 900,
+          "note": "拿骚厅、费尔斯通图书馆、礼拜堂所在的历史核心，哥特式建筑群与绿地。"
+        },
+        {
+          "name": "Graduate College",
+          "nameCn": "研究生院",
+          "lat": 40.3447,
+          "lng": -74.6657,
+          "radius": 350,
+          "note": "主校区西南、克利夫兰塔所在的独立研究生住宿区。"
+        },
+        {
+          "name": "Athletics Belt / Lake Carnegie",
+          "nameCn": "体育区／卡内基湖",
+          "lat": 40.3444,
+          "lng": -74.6486,
+          "radius": 700,
+          "note": "校区南缘体育带：贾德温体育馆、普林斯顿体育场、卡内基湖赛艇中心。"
+        },
+        {
+          "name": "Meadows Neighborhood (Lake Campus)",
+          "nameCn": "草甸区（湖滨校区）",
+          "lat": 40.3331,
+          "lng": -74.6361,
+          "radius": 600,
+          "note": "卡内基湖南岸西温莎，研究生公寓、球拍与康体馆等扩展区。"
+        },
+        {
+          "name": "Forrestal Campus & PPPL",
+          "nameCn": "福雷斯特尔园区与等离子体实验室",
+          "lat": 40.3488,
+          "lng": -74.6022,
+          "radius": 1000,
+          "note": "1号公路畔普兰斯伯勒，等离子体物理实验室等能源与环境研究中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "School of Public and International Affairs (Robertson Hall)",
+          "nameCn": "公共与国际事务学院",
+          "lat": 40.3486,
+          "lng": -74.6555,
+          "note": "罗伯逊楼，前身为威尔逊学院的政策与国际关系重镇。"
+        },
+        {
+          "name": "Frick Chemistry Laboratory",
+          "nameCn": "弗里克化学实验室",
+          "lat": 40.3437,
+          "lng": -74.6557,
+          "note": "校区南部理科带，现代化学教研主楼。"
+        },
+        {
+          "name": "Princeton Plasma Physics Laboratory",
+          "nameCn": "等离子体物理实验室",
+          "lat": 40.3488,
+          "lng": -74.6022,
+          "note": "美国能源部核聚变国家实验室，位于福雷斯特尔园区。"
+        },
+        {
+          "name": "Friend Center (Engineering)",
+          "nameCn": "弗兰德工程中心",
+          "lat": 40.3505,
+          "lng": -74.6519,
+          "note": "工程与应用科学学院核心，邻近东北部理工区。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Firestone Library",
+          "nameCn": "费尔斯通图书馆",
+          "lat": 40.3496,
+          "lng": -74.6573,
+          "note": "校区主图书馆，馆藏数百万册，紧邻拿骚厅。"
+        },
+        {
+          "name": "Lewis Science Library",
+          "nameCn": "刘易斯科学图书馆",
+          "lat": 40.3464,
+          "lng": -74.6539,
+          "note": "盖里设计的理科图书馆，服务理工科师生。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Princeton University Art Museum",
+          "nameCn": "普林斯顿大学艺术博物馆",
+          "lat": 40.3475,
+          "lng": -74.6581,
+          "note": "馆藏逾十万件，2025年新馆落成于校园核心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Nassau Hall",
+          "nameCn": "拿骚厅",
+          "lat": 40.3489,
+          "lng": -74.6593,
+          "note": "1756年建成的最古老建筑，曾短暂作为美国国会会址。"
+        },
+        {
+          "name": "Princeton University Chapel",
+          "nameCn": "大学礼拜堂",
+          "lat": 40.3497,
+          "lng": -74.6587,
+          "note": "1928年落成的大型哥特式礼拜堂，可容约两千人。"
+        },
+        {
+          "name": "Frist Campus Center",
+          "nameCn": "弗里斯特学生中心",
+          "lat": 40.3466,
+          "lng": -74.6549,
+          "note": "由老物理楼改建的学生活动与餐饮中心。"
+        },
+        {
+          "name": "Cleveland Tower (Graduate College)",
+          "nameCn": "克利夫兰塔",
+          "lat": 40.3447,
+          "lng": -74.6657,
+          "note": "研究生院173英尺地标钟塔，藏有大型钟琴。"
+        },
+        {
+          "name": "Princeton Stadium / Powers Field",
+          "nameCn": "普林斯顿体育场",
+          "lat": 40.3459,
+          "lng": -74.65,
+          "note": "鲍尔斯球场，老虎队橄榄球与田径主场。"
+        },
+        {
+          "name": "Jadwin Gymnasium",
+          "nameCn": "贾德温体育馆",
+          "lat": 40.3434,
+          "lng": -74.6486,
+          "note": "25万平方英尺综合体育馆，篮球与室内运动主场。"
+        },
+        {
+          "name": "McCarter Theatre Center",
+          "nameCn": "麦卡特剧院中心",
+          "lat": 40.3441,
+          "lng": -74.6608,
+          "note": "校区西南、获托尼奖的专业剧院，91 University Place。"
+        },
+        {
+          "name": "Princeton Station (Dinky)",
+          "nameCn": "普林斯顿火车站",
+          "lat": 40.3438,
+          "lng": -74.6618,
+          "note": "Dinky 摆渡线终点，连接 NJ Transit 通往纽约费城。"
+        }
+      ]
+    }
+  ]
+}

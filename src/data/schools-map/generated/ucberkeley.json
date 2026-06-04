@@ -1,0 +1,212 @@
+{
+  "id": "ucberkeley",
+  "type": "school",
+  "name": "University of California, Berkeley",
+  "nameCn": "加州大学伯克利分校",
+  "city": "Berkeley, CA",
+  "center": [
+    37.8719,
+    -122.2585
+  ],
+  "zoom": 15,
+  "blurb": "坐落于旧金山湾东岸山坡上的顶尖公立研究型大学，以钟楼、学运圣地斯普劳尔广场和浓厚的学术抗争氛围闻名。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Central Campus)",
+          "nameCn": "主校区（中央校区）",
+          "lat": 37.8719,
+          "lng": -122.2585,
+          "radius": 850,
+          "note": "178英亩核心校园，钟楼与斯特劳贝里溪贯穿其间。"
+        },
+        {
+          "name": "Lawrence Berkeley National Laboratory",
+          "nameCn": "劳伦斯伯克利国家实验室",
+          "lat": 37.8757,
+          "lng": -122.2528,
+          "radius": 700,
+          "note": "山坡之上的国家级科研机构，由伯克利管理运营。"
+        },
+        {
+          "name": "Clark Kerr Campus",
+          "nameCn": "克拉克·克尔校区",
+          "lat": 37.8636,
+          "lng": -122.2476,
+          "radius": 400,
+          "note": "东南侧住宿与会议校区，原为加州聋盲学校。"
+        },
+        {
+          "name": "University Village (Albany)",
+          "nameCn": "大学村（奥尔巴尼）",
+          "lat": 37.8896,
+          "lng": -122.2985,
+          "radius": 500,
+          "note": "奥尔巴尼的研究生与教职工家庭公寓。"
+        },
+        {
+          "name": "Richmond Field Station",
+          "nameCn": "里士满野外实验站",
+          "lat": 37.915,
+          "lng": -122.335,
+          "radius": 900,
+          "note": "里士满湾畔175英亩应用工程与地震研究基地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Wheeler Hall",
+          "nameCn": "惠勒楼",
+          "lat": 37.8716,
+          "lng": -122.2589,
+          "note": "文理学院核心教学楼，英文系所在地。"
+        },
+        {
+          "name": "Hearst Memorial Mining Building",
+          "nameCn": "赫斯特纪念矿业楼",
+          "lat": 37.874,
+          "lng": -122.2575,
+          "note": "工程学院地标，新古典主义建筑杰作。"
+        },
+        {
+          "name": "Soda Hall (Computer Science)",
+          "nameCn": "苏打楼（计算机系）",
+          "lat": 37.8755,
+          "lng": -122.2588,
+          "note": "电子工程与计算机科学系（EECS）大楼。"
+        },
+        {
+          "name": "Haas School of Business",
+          "nameCn": "哈斯商学院",
+          "lat": 37.8718,
+          "lng": -122.2535,
+          "note": "校园东南角顶尖商学院建筑群。"
+        },
+        {
+          "name": "Valley Life Sciences Building",
+          "nameCn": "山谷生命科学楼",
+          "lat": 37.8714,
+          "lng": -122.2625,
+          "note": "生命科学综合楼，门厅立有霸王龙化石。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Doe Memorial Library",
+          "nameCn": "杜氏纪念图书馆",
+          "lat": 37.8722,
+          "lng": -122.2592,
+          "note": "主图书馆，宏伟的北读览阅览室与玫瑰阅览室。"
+        },
+        {
+          "name": "Moffitt Library",
+          "nameCn": "莫菲特图书馆",
+          "lat": 37.8728,
+          "lng": -122.2603,
+          "note": "本科生主用图书馆，24小时学习空间。"
+        },
+        {
+          "name": "Bancroft Library",
+          "nameCn": "班克罗夫特图书馆",
+          "lat": 37.872,
+          "lng": -122.2587,
+          "note": "珍本与西部史特藏馆，藏马克·吐温档案。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Berkeley Art Museum & Pacific Film Archive (BAMPFA)",
+          "nameCn": "伯克利艺术博物馆与太平洋电影资料馆",
+          "lat": 37.8703,
+          "lng": -122.2667,
+          "note": "市中心当代艺术与电影机构，钢制波浪外立面。"
+        },
+        {
+          "name": "UC Botanical Garden",
+          "nameCn": "加州大学植物园",
+          "lat": 37.8758,
+          "lng": -122.2382,
+          "note": "草莓峡谷内34英亩活体植物收藏。"
+        },
+        {
+          "name": "Phoebe A. Hearst Museum of Anthropology",
+          "nameCn": "菲比·赫斯特人类学博物馆",
+          "lat": 37.8703,
+          "lng": -122.2557,
+          "note": "克勒伯楼内的西半球最大人类学藏品之一。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Sather Tower (The Campanile)",
+          "nameCn": "萨瑟塔（钟楼）",
+          "lat": 37.8721,
+          "lng": -122.2578,
+          "note": "307英尺校园象征，仿威尼斯圣马可钟楼。"
+        },
+        {
+          "name": "Sproul Plaza & Sproul Hall",
+          "nameCn": "斯普劳尔广场与斯普劳尔楼",
+          "lat": 37.8696,
+          "lng": -122.2592,
+          "note": "言论自由运动发源地，校园南门主入口。"
+        },
+        {
+          "name": "California Memorial Stadium",
+          "nameCn": "加州纪念体育场",
+          "lat": 37.8713,
+          "lng": -122.2508,
+          "note": "横跨海沃断层的金熊队橄榄球主场。"
+        },
+        {
+          "name": "Sather Gate",
+          "nameCn": "萨瑟门",
+          "lat": 37.8701,
+          "lng": -122.2592,
+          "note": "通往历史核心校园的标志性铁艺大门。"
+        },
+        {
+          "name": "Downtown Berkeley BART Station",
+          "nameCn": "伯克利市中心捷运站",
+          "lat": 37.87,
+          "lng": -122.268,
+          "note": "校园西侧主要轨道交通枢纽，直通旧金山。"
+        }
+      ]
+    }
+  ]
+}

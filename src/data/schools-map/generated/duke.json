@@ -1,0 +1,191 @@
+{
+  "id": "duke",
+  "type": "school",
+  "name": "Duke University",
+  "nameCn": "杜克大学",
+  "city": "Durham, NC",
+  "center": [
+    36.0017,
+    -78.9398
+  ],
+  "zoom": 14,
+  "blurb": "杜克大学坐落于北卡罗来纳州达勒姆，以哥特式石砌建筑群与高耸的杜克礼拜堂闻名，西校区学术气息浓厚、东校区古典宁静，紧邻全美顶尖的杜克医学中心。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 36.0017,
+          "lng": -78.9398,
+          "radius": 900,
+          "note": "主校区，哥特式建筑群核心，礼拜堂与多数院系所在地。"
+        },
+        {
+          "name": "East Campus",
+          "nameCn": "东校区",
+          "lat": 36.0066,
+          "lng": -78.9175,
+          "radius": 600,
+          "note": "新生住宿校区，乔治亚红砖风格，距西校区约1.5英里。"
+        },
+        {
+          "name": "Central Campus",
+          "nameCn": "中央校区",
+          "lat": 36.0035,
+          "lng": -78.9285,
+          "radius": 500,
+          "note": "介于东西校区之间，曾为研究生与专业学生区。"
+        },
+        {
+          "name": "Duke University Medical Center",
+          "nameCn": "杜克大学医学中心",
+          "lat": 36.0072,
+          "lng": -78.9373,
+          "radius": 700,
+          "note": "西校区北侧的医学院与医院综合体，全美顶级。"
+        },
+        {
+          "name": "Duke Athletics District",
+          "nameCn": "体育场馆区",
+          "lat": 35.9962,
+          "lng": -78.942,
+          "radius": 450,
+          "note": "西校区西南角，集中坎伦室内球馆与华莱士韦德橄榄球场。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Allen Building",
+          "nameCn": "艾伦行政楼",
+          "lat": 36.001,
+          "lng": -78.9385,
+          "note": "西校区主行政楼，校长办公室所在。"
+        },
+        {
+          "name": "Pratt School of Engineering (Fitzpatrick CIEMAS)",
+          "nameCn": "普拉特工程学院",
+          "lat": 36.0028,
+          "lng": -78.941,
+          "note": "西校区工程学科与跨学科研究中心。"
+        },
+        {
+          "name": "Levine Science Research Center",
+          "nameCn": "莱文科学研究中心",
+          "lat": 36.003,
+          "lng": -78.942,
+          "note": "全美最大单体科研楼之一，跨学科实验室集群。"
+        },
+        {
+          "name": "Fuqua School of Business",
+          "nameCn": "福库商学院",
+          "lat": 36.0058,
+          "lng": -78.943,
+          "note": "西校区北缘的商学院，紧邻医学中心。"
+        },
+        {
+          "name": "Duke Law School",
+          "nameCn": "杜克法学院",
+          "lat": 36.0042,
+          "lng": -78.9438,
+          "note": "西校区西北侧的法学院。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Perkins & Bostock Library",
+          "nameCn": "珀金斯与博斯托克图书馆",
+          "lat": 36.002,
+          "lng": -78.9387,
+          "note": "西校区主图书馆群，馆藏与学习核心。"
+        },
+        {
+          "name": "Rubenstein Rare Book & Manuscript Library",
+          "nameCn": "鲁宾斯坦珍本与手稿图书馆",
+          "lat": 36.0023,
+          "lng": -78.9382,
+          "note": "特藏与档案库，与珀金斯相连。"
+        },
+        {
+          "name": "Lilly Library",
+          "nameCn": "莉莉图书馆",
+          "lat": 36.0076,
+          "lng": -78.9153,
+          "note": "东校区人文艺术图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Nasher Museum of Art",
+          "nameCn": "纳什艺术博物馆",
+          "lat": 35.999,
+          "lng": -78.9291,
+          "note": "校园大道旁的当代艺术馆，藏品逾1.3万件。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Duke University Chapel",
+          "nameCn": "杜克礼拜堂",
+          "lat": 36.0017,
+          "lng": -78.9398,
+          "note": "210英尺哥特式塔楼，校园地标与精神中心。"
+        },
+        {
+          "name": "Cameron Indoor Stadium",
+          "nameCn": "坎伦室内球馆",
+          "lat": 35.997,
+          "lng": -78.9421,
+          "note": "蓝魔篮球主场，NCAA最具传奇色彩的球馆之一。"
+        },
+        {
+          "name": "Wallace Wade Stadium",
+          "nameCn": "华莱士韦德体育场",
+          "lat": 35.9953,
+          "lng": -78.9417,
+          "note": "1929年启用的橄榄球场，西校区首座设施。"
+        },
+        {
+          "name": "Sarah P. Duke Gardens",
+          "nameCn": "莎拉·杜克花园",
+          "lat": 36.0015,
+          "lng": -78.9333,
+          "note": "55英亩植物园，西校区东侧著名景观。"
+        }
+      ]
+    }
+  ]
+}

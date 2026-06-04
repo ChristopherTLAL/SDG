@@ -1,0 +1,191 @@
+{
+  "id": "washington-university-in-st-louis",
+  "type": "school",
+  "name": "Washington University in St. Louis",
+  "nameCn": "圣路易斯华盛顿大学",
+  "city": "St. Louis, MO",
+  "center": [
+    38.648,
+    -90.305
+  ],
+  "zoom": 13,
+  "blurb": "坐落于圣路易斯西郊、紧邻森林公园的私立研究型名校，以哥特式红砖建筑群的丹佛斯主校区为核心，医学院、克莱顿西校区与城北后勤区分布于大都会区各处。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Danforth Campus (Main)",
+          "nameCn": "丹佛斯主校区",
+          "lat": 38.6488,
+          "lng": -90.3052,
+          "radius": 800,
+          "note": "169英亩本科与研究生核心，曾名 Hilltop，国家历史地标"
+        },
+        {
+          "name": "Medical Campus",
+          "nameCn": "医学院校区",
+          "lat": 38.636,
+          "lng": -90.264,
+          "radius": 700,
+          "note": "中央西区，含医学院、巴恩斯-犹太医院与儿童医院"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 38.6477,
+          "lng": -90.3235,
+          "radius": 350,
+          "note": "克莱顿，行政办公、大学档案馆与西校区图书馆"
+        },
+        {
+          "name": "North Campus",
+          "nameCn": "北校区",
+          "lat": 38.6565,
+          "lng": -90.2952,
+          "radius": 350,
+          "note": "西端社区，停车交通与后勤行政办公，临 Delmar 地铁站"
+        },
+        {
+          "name": "Tyson Research Center",
+          "nameCn": "泰森研究中心",
+          "lat": 38.5091,
+          "lng": -90.5724,
+          "radius": 1500,
+          "note": "尤里卡，2000英亩野外环境实验站，临梅勒梅克河（西南远郊）"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Brookings Hall",
+          "nameCn": "布鲁金斯楼",
+          "lat": 38.6489,
+          "lng": -90.3055,
+          "note": "1900年代哥特式标志主楼，曾用于1904世博会"
+        },
+        {
+          "name": "Olin Business School (Simon & Knight Hall)",
+          "nameCn": "奥林商学院",
+          "lat": 38.6475,
+          "lng": -90.3043,
+          "note": "主校区东南，2019年 Simon Hall 新址"
+        },
+        {
+          "name": "McKelvey School of Engineering",
+          "nameCn": "麦凯尔维工程学院",
+          "lat": 38.6485,
+          "lng": -90.3085,
+          "note": "主校区西侧工程建筑群（Whitaker/Green Hall 等）"
+        },
+        {
+          "name": "School of Medicine",
+          "nameCn": "医学院",
+          "lat": 38.6347,
+          "lng": -90.2638,
+          "note": "医学院校区核心，全美顶尖医研重镇"
+        },
+        {
+          "name": "Sam Fox School of Design & Visual Arts",
+          "nameCn": "山姆福克斯设计与视觉艺术学院",
+          "lat": 38.6478,
+          "lng": -90.3068,
+          "note": "含建筑与艺术系，Steinberg Hall 一带"
+        },
+        {
+          "name": "Brown School (Social Work & Public Health)",
+          "nameCn": "布朗社会工作与公共卫生学院",
+          "lat": 38.65,
+          "lng": -90.304,
+          "note": "主校区东北 Brauer/Goldfarb Hall"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "John M. Olin Library",
+          "nameCn": "奥林图书馆",
+          "lat": 38.6483,
+          "lng": -90.3062,
+          "note": "主校区中央总馆，人文社科理工综合馆藏"
+        },
+        {
+          "name": "Bernard Becker Medical Library",
+          "nameCn": "贝克尔医学图书馆",
+          "lat": 38.6353,
+          "lng": -90.2648,
+          "note": "医学院校区主图书馆"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Mildred Lane Kemper Art Museum",
+          "nameCn": "肯珀艺术博物馆",
+          "lat": 38.6479,
+          "lng": -90.3073,
+          "note": "山姆福克斯学院旗下，临 Skinker 大道"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Francis Olympic Field",
+          "nameCn": "弗朗西斯奥林匹克体育场",
+          "lat": 38.642,
+          "lng": -90.3082,
+          "note": "主校区西缘，1904年夏季奥运会主场馆"
+        },
+        {
+          "name": "Danforth University Center",
+          "nameCn": "丹佛斯学生中心",
+          "lat": 38.6486,
+          "lng": -90.3048,
+          "note": "学生活动与餐饮枢纽，临 Brookings 庭院"
+        },
+        {
+          "name": "Graham Chapel",
+          "nameCn": "格雷厄姆礼拜堂",
+          "lat": 38.6492,
+          "lng": -90.3065,
+          "note": "哥特式礼拜堂，校园典礼与音乐会场地"
+        },
+        {
+          "name": "South 40 Residential Area",
+          "nameCn": "South 40 学生宿舍区",
+          "lat": 38.6455,
+          "lng": -90.3035,
+          "note": "主校区南侧40英亩低年级住宿学院区"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "ucsd",
+  "type": "school",
+  "name": "University of California, San Diego",
+  "nameCn": "加州大学圣迭戈分校",
+  "city": "San Diego, CA",
+  "center": [
+    32.8801,
+    -117.234
+  ],
+  "zoom": 13,
+  "blurb": "加州大学圣迭戈分校坐落于拉霍亚太平洋海崖之上，以吉塞尔图书馆为中心、八大住宿学院环绕，融研究型校园、海洋科学与生物医药园区于一体。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (La Jolla)",
+          "nameCn": "拉霍亚主校区",
+          "lat": 32.8801,
+          "lng": -117.234,
+          "radius": 1500,
+          "note": "1152英亩主校区，八大住宿学院环绕吉塞尔图书馆。"
+        },
+        {
+          "name": "Scripps Institution of Oceanography",
+          "nameCn": "斯克里普斯海洋研究所",
+          "lat": 32.867,
+          "lng": -117.253,
+          "radius": 700,
+          "note": "滨海海洋科学校区，含科考码头与伯奇水族馆。"
+        },
+        {
+          "name": "East Campus Medical Center (Jacobs/Moores)",
+          "nameCn": "东校区医学中心",
+          "lat": 32.881,
+          "lng": -117.2215,
+          "radius": 650,
+          "note": "I-5以东，雅各布斯医院与摩尔斯癌症中心所在。"
+        },
+        {
+          "name": "Hillcrest Medical Center",
+          "nameCn": "希尔克雷斯特医学中心",
+          "lat": 32.7565,
+          "lng": -117.1665,
+          "radius": 450,
+          "note": "市区急救与教学医院，距主校区约14公里。"
+        },
+        {
+          "name": "Park & Market (Downtown)",
+          "nameCn": "市中心Park & Market中心",
+          "lat": 32.7138,
+          "lng": -117.1565,
+          "radius": 300,
+          "note": "东村市中心延伸教育与文化枢纽。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Jacobs School of Engineering",
+          "nameCn": "雅各布斯工程学院",
+          "lat": 32.8817,
+          "lng": -117.2342,
+          "note": "主校区北侧工程学院群，工学顶尖。"
+        },
+        {
+          "name": "Revelle College",
+          "nameCn": "瑞威尔学院",
+          "lat": 32.8745,
+          "lng": -117.241,
+          "note": "最早设立的住宿学院，居校区西南。"
+        },
+        {
+          "name": "Muir College",
+          "nameCn": "缪尔学院",
+          "lat": 32.879,
+          "lng": -117.2415,
+          "note": "西侧Ridge Walk沿线住宿学院。"
+        },
+        {
+          "name": "Warren College",
+          "nameCn": "沃伦学院",
+          "lat": 32.8825,
+          "lng": -117.233,
+          "note": "图书馆东北，邻近工程与理学楼。"
+        },
+        {
+          "name": "School of Global Policy and Strategy",
+          "nameCn": "全球政策与战略学院",
+          "lat": 32.8855,
+          "lng": -117.2415,
+          "note": "校区西北的国际政策研究院。"
+        },
+        {
+          "name": "Moores Cancer Center",
+          "nameCn": "摩尔斯癌症中心",
+          "lat": 32.8825,
+          "lng": -117.2228,
+          "note": "东校区NCI认证综合癌症中心。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Geisel Library",
+          "nameCn": "吉塞尔图书馆",
+          "lat": 32.8812,
+          "lng": -117.2377,
+          "note": "悬臂玻璃地标，校区视觉与地理中心。"
+        },
+        {
+          "name": "Biomedical Library",
+          "nameCn": "生物医学图书馆",
+          "lat": 32.8772,
+          "lng": -117.236,
+          "note": "服务理学与医学院的专科馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Birch Aquarium at Scripps",
+          "nameCn": "斯克里普斯伯奇水族馆",
+          "lat": 32.8658,
+          "lng": -117.2506,
+          "note": "海洋研究所公共水族馆，俯瞰太平洋。"
+        },
+        {
+          "name": "Stuart Collection (outdoor art)",
+          "nameCn": "斯图尔特户外艺术收藏",
+          "lat": 32.88,
+          "lng": -117.236,
+          "note": "散布校园的site-specific公共艺术装置。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Price Center",
+          "nameCn": "普莱斯中心",
+          "lat": 32.8796,
+          "lng": -117.236,
+          "note": "学生活动中心，餐饮书店枢纽。"
+        },
+        {
+          "name": "RIMAC Arena",
+          "nameCn": "RIMAC体育馆",
+          "lat": 32.8873,
+          "lng": -117.2396,
+          "note": "北校区主体育与赛事场馆。"
+        },
+        {
+          "name": "Sun God statue",
+          "nameCn": "太阳神雕塑",
+          "lat": 32.8775,
+          "lng": -117.2375,
+          "note": "校园标志性图腾雕塑与节庆地标。"
+        }
+      ]
+    }
+  ]
+}

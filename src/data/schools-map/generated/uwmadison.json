@@ -1,0 +1,176 @@
+{
+  "id": "uwmadison",
+  "type": "school",
+  "name": "University of Wisconsin-Madison",
+  "nameCn": "威斯康星大学麦迪逊分校",
+  "city": "Madison, WI",
+  "center": [
+    43.0753,
+    -89.4041
+  ],
+  "zoom": 13,
+  "blurb": "坐落于门多塔湖南岸的公立旗舰研究型大学，主校区沿州街向州议会大厦延伸，融湖滨风光与城市街区于一体，并向西、向南延展出医学中心、研究园与树木园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Bascom Hill)",
+          "nameCn": "主校区（巴斯科姆山）",
+          "lat": 43.0753,
+          "lng": -89.4041,
+          "radius": 1400,
+          "note": "门多塔湖南岸核心校区，沿州街展开"
+        },
+        {
+          "name": "University of Wisconsin Hospital & Clinics",
+          "nameCn": "威斯康星大学医院与诊所",
+          "lat": 43.0779,
+          "lng": -89.4317,
+          "radius": 700,
+          "note": "西侧医学中心，含医学与公共卫生学院"
+        },
+        {
+          "name": "University Research Park",
+          "nameCn": "大学研究园",
+          "lat": 43.0537,
+          "lng": -89.4575,
+          "radius": 900,
+          "note": "主校区西约3英里，含精神病学诊所与百余家企业"
+        },
+        {
+          "name": "UW Arboretum",
+          "nameCn": "威斯康星大学树木园",
+          "lat": 43.0414,
+          "lng": -89.4307,
+          "radius": 1500,
+          "note": "主校区南约4英里，约1200英亩生态保护地"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Bascom Hall",
+          "nameCn": "巴斯科姆楼",
+          "lat": 43.0753,
+          "lng": -89.4041,
+          "note": "山顶行政主楼，校园精神地标"
+        },
+        {
+          "name": "College of Engineering (Engineering Hall)",
+          "nameCn": "工程学院（工程楼）",
+          "lat": 43.0722,
+          "lng": -89.4104,
+          "note": "工程学科主楼群所在"
+        },
+        {
+          "name": "School of Medicine and Public Health (HSLC)",
+          "nameCn": "医学与公共卫生学院",
+          "lat": 43.0766,
+          "lng": -89.4297,
+          "note": "西侧健康科学学习中心，邻大学医院"
+        },
+        {
+          "name": "Babcock Hall (Dairy Science)",
+          "nameCn": "巴布科克楼（乳品科学）",
+          "lat": 43.076,
+          "lng": -89.4116,
+          "note": "农学院乳品科学楼，附设冰淇淋店"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Memorial Library",
+          "nameCn": "纪念图书馆",
+          "lat": 43.0762,
+          "lng": -89.3996,
+          "note": "人文社科主图书馆，馆藏规模最大"
+        },
+        {
+          "name": "Steenbock Memorial Library",
+          "nameCn": "斯滕博克纪念图书馆",
+          "lat": 43.0735,
+          "lng": -89.4147,
+          "note": "农业生命与自然科学图书馆"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Chazen Museum of Art",
+          "nameCn": "查岑艺术博物馆",
+          "lat": 43.0723,
+          "lng": -89.3997,
+          "note": "州内规模最大的艺术博物馆，免费开放"
+        },
+        {
+          "name": "Geology Museum",
+          "nameCn": "地质博物馆",
+          "lat": 43.0719,
+          "lng": -89.4072,
+          "note": "韦克斯曼楼内，藏恐龙与矿物标本"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Memorial Union & Terrace",
+          "nameCn": "纪念学生会与湖滨平台",
+          "lat": 43.0763,
+          "lng": -89.4001,
+          "note": "门多塔湖畔标志性学生活动中心"
+        },
+        {
+          "name": "Camp Randall Stadium",
+          "nameCn": "兰德营体育场",
+          "lat": 43.0687,
+          "lng": -89.4077,
+          "note": "獾队橄榄球主场，约8万座"
+        },
+        {
+          "name": "Kohl Center",
+          "nameCn": "科尔中心",
+          "lat": 43.0694,
+          "lng": -89.3967,
+          "note": "篮球与冰球室内场馆"
+        },
+        {
+          "name": "Union South",
+          "nameCn": "南区学生会",
+          "lat": 43.0716,
+          "lng": -89.4079,
+          "note": "西南侧第二学生活动中心，邻工程区"
+        }
+      ]
+    }
+  ]
+}

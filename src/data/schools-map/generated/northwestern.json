@@ -1,0 +1,183 @@
+{
+  "id": "northwestern",
+  "type": "school",
+  "name": "Northwestern University",
+  "nameCn": "西北大学",
+  "city": "Evanston, IL",
+  "center": [
+    42.05583,
+    -87.67472
+  ],
+  "zoom": 14,
+  "blurb": "坐落于密歇根湖畔的常春藤级名校，主校区沿著名的「湖滨填湖地」(Lakefill)铺展，哥特式与现代建筑交织，距芝加哥市区约20公里。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Evanston Campus (Main)",
+          "nameCn": "埃文斯顿主校区",
+          "lat": 42.05583,
+          "lng": -87.67472,
+          "radius": 1100,
+          "note": "本科与多数文理工科核心，沿密歇根湖填湖地展开。"
+        },
+        {
+          "name": "Ryan Field Athletics Complex",
+          "nameCn": "瑞安体育场运动区",
+          "lat": 42.0656,
+          "lng": -87.692,
+          "radius": 450,
+          "note": "橄榄球场与威尔什-瑞安球馆，位于主校区西北。"
+        },
+        {
+          "name": "Chicago Campus (Streeterville)",
+          "nameCn": "芝加哥校区（斯特里特维尔）",
+          "lat": 41.896,
+          "lng": -87.621,
+          "radius": 500,
+          "note": "医学院、法学院与凯洛格部分项目，紧邻西北纪念医院。"
+        },
+        {
+          "name": "Northwestern University Research Park",
+          "nameCn": "西北大学研究园",
+          "lat": 42.049,
+          "lng": -87.6815,
+          "radius": 350,
+          "note": "创业孵化与产学研基地，位于主校区西南。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Technological Institute",
+          "nameCn": "技术学院（工程楼）",
+          "lat": 42.0578,
+          "lng": -87.6757,
+          "note": "麦考密克工程学院主楼，校内最大建筑之一。"
+        },
+        {
+          "name": "Kellogg Global Hub",
+          "nameCn": "凯洛格全球枢纽",
+          "lat": 42.0511,
+          "lng": -87.6723,
+          "note": "凯洛格商学院2017年新楼，湖滨地标。"
+        },
+        {
+          "name": "Annenberg Hall (School of Education)",
+          "nameCn": "安南伯格楼（教育学院）",
+          "lat": 42.0542,
+          "lng": -87.6773,
+          "note": "社会政策与教育学院所在。"
+        },
+        {
+          "name": "Feinberg School of Medicine (Rubloff/Ward)",
+          "nameCn": "范伯格医学院",
+          "lat": 41.8957,
+          "lng": -87.6205,
+          "note": "芝加哥校区，750 N Lake Shore Dr。"
+        },
+        {
+          "name": "Pritzker School of Law",
+          "nameCn": "普利兹克法学院",
+          "lat": 41.8968,
+          "lng": -87.6215,
+          "note": "375 E Chicago Ave，芝加哥校区东缘。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "University Library (Charles Deering McCormick)",
+          "nameCn": "大学图书馆",
+          "lat": 42.0531,
+          "lng": -87.6741,
+          "note": "北美第14大高校图书馆，主馆。"
+        },
+        {
+          "name": "Deering Library",
+          "nameCn": "迪林图书馆",
+          "lat": 42.0535,
+          "lng": -87.675,
+          "note": "哥特式老馆，仿剑桥国王学院礼拜堂。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Mary and Leigh Block Museum of Art",
+          "nameCn": "布洛克艺术博物馆",
+          "lat": 42.0518,
+          "lng": -87.6735,
+          "note": "永久馆藏逾4000件，免费开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Norris University Center",
+          "nameCn": "诺里斯学生活动中心",
+          "lat": 42.053,
+          "lng": -87.672,
+          "note": "湖滨学生中心，俯瞰密歇根湖。"
+        },
+        {
+          "name": "Ryan Field",
+          "nameCn": "瑞安橄榄球场",
+          "lat": 42.0656,
+          "lng": -87.692,
+          "note": "Wildcats 主场，Central St 与 Ashland Ave 交口。"
+        },
+        {
+          "name": "Welsh-Ryan Arena",
+          "nameCn": "威尔什-瑞安球馆",
+          "lat": 42.0665,
+          "lng": -87.6912,
+          "note": "篮球主场，紧邻瑞安体育场北侧。"
+        },
+        {
+          "name": "The Arch (Weber Arch)",
+          "nameCn": "韦伯拱门",
+          "lat": 42.0543,
+          "lng": -87.6767,
+          "note": "Sheridan Rd 主入口标志性拱门。"
+        },
+        {
+          "name": "Davis Street Metra/CTA Station",
+          "nameCn": "戴维斯街车站",
+          "lat": 42.0464,
+          "lng": -87.6815,
+          "note": "校园西南通勤铁路与紫线枢纽。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "id": "university-of-california-santa-barbara",
+  "type": "school",
+  "name": "University of California, Santa Barbara",
+  "nameCn": "加州大学圣巴巴拉分校",
+  "city": "Santa Barbara, CA",
+  "center": [
+    34.414,
+    -119.8489
+  ],
+  "zoom": 14,
+  "blurb": "加州大学圣巴巴拉分校坐落于太平洋海崖之上、环抱学生社区 Isla Vista，是一所以海洋科学、理论物理与冲浪文化闻名的海滨研究型大学。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main (East) Campus",
+          "nameCn": "主校区（东校区）",
+          "lat": 34.414,
+          "lng": -119.8479,
+          "radius": 900,
+          "note": "约287公顷的学术与本科住宿核心，临海而建，环绕泻湖与 Campus Point。"
+        },
+        {
+          "name": "Storke Campus",
+          "nameCn": "斯托克校区",
+          "lat": 34.4135,
+          "lng": -119.8525,
+          "radius": 500,
+          "note": "以斯托克钟塔为中心，含运动场、家庭住宿与媒体设施。"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 34.409,
+          "lng": -119.872,
+          "radius": 800,
+          "note": "教职工与研究生住宿区，含 Coal Oil Point 海岸自然保护区。"
+        },
+        {
+          "name": "North Campus",
+          "nameCn": "北校区",
+          "lat": 34.4195,
+          "lng": -119.854,
+          "radius": 600,
+          "note": "运动场带，设 Harder 体育场与教职工住宅。"
+        },
+        {
+          "name": "Coal Oil Point Reserve",
+          "nameCn": "煤油角自然保护区",
+          "lat": 34.408,
+          "lng": -119.878,
+          "radius": 600,
+          "note": "西校区滨海湿地与 Sands Beach，雪鸻栖息地，属 UC 自然保护系统。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Cheadle Hall",
+          "nameCn": "奇德尔行政楼",
+          "lat": 34.4148,
+          "lng": -119.8465,
+          "note": "校级行政中枢，位于东入口 Henley Gate 内侧。"
+        },
+        {
+          "name": "College of Engineering",
+          "nameCn": "工程学院",
+          "lat": 34.414,
+          "lng": -119.8418,
+          "note": "Harold Frank Hall 等工程与计算机楼群，居校区东端。"
+        },
+        {
+          "name": "Bren School of Environmental Science & Management",
+          "nameCn": "布伦环境科学与管理学院",
+          "lat": 34.413,
+          "lng": -119.843,
+          "note": "环境政策与可持续研究重镇，近海岸。"
+        },
+        {
+          "name": "Marine Science Institute",
+          "nameCn": "海洋科学研究所",
+          "lat": 34.4123,
+          "lng": -119.8413,
+          "note": "临海科研机构，UCSB 海洋研究的核心。"
+        },
+        {
+          "name": "Kohn Hall (Kavli Institute for Theoretical Physics)",
+          "nameCn": "科恩楼（卡弗里理论物理研究所）",
+          "lat": 34.4144,
+          "lng": -119.843,
+          "note": "世界顶尖理论物理研究所，I.M. Pei 设计。"
+        },
+        {
+          "name": "Campbell Hall",
+          "nameCn": "坎贝尔礼堂",
+          "lat": 34.4156,
+          "lng": -119.847,
+          "note": "全校最大讲堂，862座，常办讲座与演出。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Davidson Library",
+          "nameCn": "戴维森图书馆",
+          "lat": 34.4138,
+          "lng": -119.8455,
+          "note": "全校中央图书馆，2016年扩建，藏特藏与综合馆藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Art, Design & Architecture Museum",
+          "nameCn": "艺术、设计与建筑博物馆",
+          "lat": 34.415,
+          "lng": -119.848,
+          "note": "建于1959年，藏建筑图档与区域艺术。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Storke Tower",
+          "nameCn": "斯托克钟塔",
+          "lat": 34.4126,
+          "lng": -119.84825,
+          "note": "175英尺校园钟塔，全县最高，内设61钟编钟与学生电台。"
+        },
+        {
+          "name": "University Center (UCen)",
+          "nameCn": "大学中心",
+          "lat": 34.4128,
+          "lng": -119.8455,
+          "note": "学生活动枢纽，含书店、餐饮与活动空间。"
+        },
+        {
+          "name": "Henley Gate",
+          "nameCn": "亨利门",
+          "lat": 34.415,
+          "lng": -119.845,
+          "note": "校区东入口标志性大门。"
+        },
+        {
+          "name": "Campus Lagoon",
+          "nameCn": "校园泻湖",
+          "lat": 34.4108,
+          "lng": -119.8445,
+          "note": "校区最南端的咸水泻湖，环湖步道临海。"
+        },
+        {
+          "name": "Events Center (Thunderdome)",
+          "nameCn": "活动中心（雷霆穹顶）",
+          "lat": 34.4163,
+          "lng": -119.8495,
+          "note": "5000座室内场馆，男女篮球主场。"
+        },
+        {
+          "name": "Harder Stadium",
+          "nameCn": "Harder 体育场",
+          "lat": 34.42,
+          "lng": -119.854,
+          "note": "1.7万座露天场，足球主场，居北校区运动带。"
+        }
+      ]
+    }
+  ]
+}

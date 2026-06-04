@@ -1,0 +1,204 @@
+{
+  "id": "upenn",
+  "type": "school",
+  "name": "University of Pennsylvania",
+  "nameCn": "宾夕法尼亚大学",
+  "city": "Philadelphia, PA",
+  "center": [
+    39.9522,
+    -75.1932
+  ],
+  "zoom": 15,
+  "blurb": "宾大坐落于费城斯古吉尔河西岸的\"大学城\"，是常春藤盟校中典型的城市型校园，以连贯的洛克斯特步道、红砖学院风建筑与紧邻的世界级医疗中心著称。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "University City Campus",
+          "nameCn": "大学城主校区",
+          "lat": 39.9522,
+          "lng": -75.1932,
+          "radius": 1000,
+          "note": "本部核心，洛克斯特步道串联各学院与四方院。"
+        },
+        {
+          "name": "Penn Medicine / Health System Campus",
+          "nameCn": "宾大医学院与附属医院区",
+          "lat": 39.9492,
+          "lng": -75.1922,
+          "radius": 600,
+          "note": "本部南缘，HUP 医院、佩雷尔曼医学院与研究大楼聚集地。"
+        },
+        {
+          "name": "Pennovation Works",
+          "nameCn": "Pennovation 创新园区",
+          "lat": 39.9381,
+          "lng": -75.1939,
+          "radius": 500,
+          "note": "斯古吉尔河南岸 23 英亩科技转化与创业孵化园。"
+        },
+        {
+          "name": "New Bolton Center (Penn Vet)",
+          "nameCn": "新博尔顿中心兽医校区",
+          "lat": 39.8689,
+          "lng": -75.7548,
+          "radius": 1200,
+          "note": "肯尼特广场 700 英亩大型动物兽医教学与医院校区。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "The Wharton School (Jon M. Huntsman Hall)",
+          "nameCn": "沃顿商学院（亨茨曼楼）",
+          "lat": 39.953,
+          "lng": -75.198,
+          "note": "全球顶尖商学院主楼，本科与 MBA 核心。"
+        },
+        {
+          "name": "School of Engineering (Towne Building)",
+          "nameCn": "工程与应用科学学院（汤恩楼）",
+          "lat": 39.952,
+          "lng": -75.1907,
+          "note": "SEAS 历史主楼，机械与系统工程所在。"
+        },
+        {
+          "name": "Levine Hall (Computer & Information Science)",
+          "nameCn": "莱文楼（计算机与信息科学）",
+          "lat": 39.9524,
+          "lng": -75.1908,
+          "note": "CIS 系教研中心，玻璃幕墙现代楼。"
+        },
+        {
+          "name": "Perelman School of Medicine (BRB II/III)",
+          "nameCn": "佩雷尔曼医学院（生物医学研究楼）",
+          "lat": 39.9499,
+          "lng": -75.1955,
+          "note": "全美最早医学院，生物医学研究主楼。"
+        },
+        {
+          "name": "Penn Carey Law School",
+          "nameCn": "凯里法学院",
+          "lat": 39.9536,
+          "lng": -75.1942,
+          "note": "本部西北角，法学院主楼与图书馆。"
+        },
+        {
+          "name": "Annenberg School for Communication",
+          "nameCn": "安南伯格传播学院",
+          "lat": 39.9529,
+          "lng": -75.1965,
+          "note": "传播学研究重镇，邻沃顿。"
+        },
+        {
+          "name": "Stuart Weitzman School of Design (Meyerson Hall)",
+          "nameCn": "魏茨曼设计学院（迈耶森楼）",
+          "lat": 39.9514,
+          "lng": -75.1922,
+          "note": "建筑、城市规划与美术学院所在。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Van Pelt-Dietrich Library Center",
+          "nameCn": "范佩尔特图书馆",
+          "lat": 39.9521,
+          "lng": -75.1932,
+          "note": "校主馆，人文社科藏书与学习中心。"
+        },
+        {
+          "name": "Biomedical Library (Johnson Pavilion)",
+          "nameCn": "生物医学图书馆",
+          "lat": 39.95,
+          "lng": -75.1948,
+          "note": "服务医学院与医院的专科馆。"
+        },
+        {
+          "name": "Fisher Fine Arts Library",
+          "nameCn": "费舍尔美术图书馆",
+          "lat": 39.9516,
+          "lng": -75.1928,
+          "note": "弗内斯设计的哥特红砖地标建筑。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Penn Museum (Archaeology & Anthropology)",
+          "nameCn": "宾大考古与人类学博物馆",
+          "lat": 39.9496,
+          "lng": -75.1917,
+          "note": "世界级考古藏品，含埃及与近东文物。"
+        },
+        {
+          "name": "Institute of Contemporary Art (ICA)",
+          "nameCn": "当代艺术学院（ICA）",
+          "lat": 39.9554,
+          "lng": -75.1981,
+          "note": "免费当代艺术展馆，邻 36 街地铁。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "College Hall",
+          "nameCn": "学院厅",
+          "lat": 39.9518,
+          "lng": -75.1944,
+          "note": "本部标志性绿砂岩主楼，校长办公所在。"
+        },
+        {
+          "name": "Franklin Field",
+          "nameCn": "富兰克林球场",
+          "lat": 39.95,
+          "lng": -75.19,
+          "note": "全美最古老双层体育场，宾大接力赛主场。"
+        },
+        {
+          "name": "Perelman Quadrangle / Houston Hall",
+          "nameCn": "佩雷尔曼四方院（休斯顿厅）",
+          "lat": 39.9513,
+          "lng": -75.1937,
+          "note": "全美首座学生活动中心，校园社交核心。"
+        },
+        {
+          "name": "30th Street Station",
+          "nameCn": "30 街车站",
+          "lat": 39.9566,
+          "lng": -75.182,
+          "note": "校区东北门户，Amtrak 与区域铁路枢纽。"
+        }
+      ]
+    }
+  ]
+}

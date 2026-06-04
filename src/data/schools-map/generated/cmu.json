@@ -1,0 +1,205 @@
+{
+  "id": "cmu",
+  "type": "school",
+  "name": "Carnegie Mellon University",
+  "nameCn": "卡内基梅隆大学",
+  "city": "Pittsburgh, PA",
+  "center": [
+    40.4427,
+    -79.9433
+  ],
+  "zoom": 15,
+  "blurb": "卡内基梅隆大学坐落于匹兹堡奥克兰区，主校区紧凑而充满工科与艺术气息，以\"The Cut\"草坪为中轴串起计算机、工程与美术学院，并在拉链谷与城东延伸出多个科研卫星。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus",
+          "nameCn": "主校区",
+          "lat": 40.4427,
+          "lng": -79.9433,
+          "radius": 700,
+          "note": "157英亩主校区，介于申利公园、松鼠山与谢迪赛德之间，以The Cut草坪为脊。"
+        },
+        {
+          "name": "Mellon Institute",
+          "nameCn": "梅隆研究院",
+          "lat": 40.4461,
+          "lng": -79.951,
+          "radius": 220,
+          "note": "1913年立柱新古典建筑，理学院生物系所在，1967合并入CMU。"
+        },
+        {
+          "name": "Software Engineering Institute",
+          "nameCn": "软件工程研究所",
+          "lat": 40.4466,
+          "lng": -79.9521,
+          "radius": 220,
+          "note": "第五大道4500号，联邦资助研发中心，与梅隆研究院相邻。"
+        },
+        {
+          "name": "National Robotics Engineering Center",
+          "nameCn": "国家机器人工程中心",
+          "lat": 40.4683,
+          "lng": -79.9646,
+          "radius": 250,
+          "note": "拉链谷40街旧铸造厂改建，机器人研究所应用工程基地。"
+        },
+        {
+          "name": "Robert Mehrabian Collaborative Innovation Center",
+          "nameCn": "梅赫拉比安协同创新中心",
+          "lat": 40.4438,
+          "lng": -79.9461,
+          "radius": 200,
+          "note": "校区西南福布斯大道，产学研办公楼，曾入驻Google匹兹堡。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Gates and Hillman Centers",
+          "nameCn": "盖茨-希尔曼计算机中心",
+          "lat": 40.4434,
+          "lng": -79.9447,
+          "note": "计算机科学学院主楼，蜿蜒玻璃幕墙地标。"
+        },
+        {
+          "name": "Hamerschlag Hall",
+          "nameCn": "哈默施拉格楼",
+          "lat": 40.4438,
+          "lng": -79.9443,
+          "note": "工程学院老牌建筑，电气与计算机工程系所在。"
+        },
+        {
+          "name": "Wean Hall",
+          "nameCn": "维恩楼",
+          "lat": 40.4435,
+          "lng": -79.9456,
+          "note": "巨型混凝土科研楼，数学、物理与计算机课程集中地。"
+        },
+        {
+          "name": "Doherty Hall",
+          "nameCn": "多尔蒂楼",
+          "lat": 40.4431,
+          "lng": -79.9452,
+          "note": "理学院化学与材料系教学楼，临The Cut。"
+        },
+        {
+          "name": "Tepper Quad",
+          "nameCn": "泰珀商学院庭院",
+          "lat": 40.4444,
+          "lng": -79.9425,
+          "note": "横跨福布斯大道的泰珀商学院新园区。"
+        },
+        {
+          "name": "College of Fine Arts",
+          "nameCn": "美术学院",
+          "lat": 40.4432,
+          "lng": -79.9415,
+          "note": "宏伟Beaux-Arts建筑，建筑、戏剧与音乐学院所在。"
+        },
+        {
+          "name": "Margaret Morrison Carnegie Hall",
+          "nameCn": "玛格丽特·莫里森楼",
+          "lat": 40.4429,
+          "lng": -79.9412,
+          "note": "半圆柱廊立面，设计学院使用。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Hunt Library",
+          "nameCn": "亨特图书馆",
+          "lat": 40.4424,
+          "lng": -79.9442,
+          "note": "CMU主图书馆，位于The Cut南侧。"
+        },
+        {
+          "name": "Sorrells Engineering & Science Library",
+          "nameCn": "索雷尔斯工程科学图书馆",
+          "lat": 40.4435,
+          "lng": -79.945,
+          "note": "维恩楼内工程与科学专业馆藏。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Miller Institute for Contemporary Art",
+          "nameCn": "米勒当代艺术馆",
+          "lat": 40.4431,
+          "lng": -79.9417,
+          "note": "美术学院旁的当代艺术展廊（原Miller Gallery）。"
+        },
+        {
+          "name": "Posner Center",
+          "nameCn": "波斯纳珍本中心",
+          "lat": 40.4438,
+          "lng": -79.942,
+          "note": "波斯纳家族珍稀书籍与艺术收藏馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Jared L. Cohon University Center",
+          "nameCn": "科恩学生中心",
+          "lat": 40.4428,
+          "lng": -79.9426,
+          "note": "学生活动中心，含健身馆、泳池与餐饮。"
+        },
+        {
+          "name": "Purnell Center for the Arts",
+          "nameCn": "珀内尔艺术中心",
+          "lat": 40.443,
+          "lng": -79.942,
+          "note": "戏剧学院剧场与表演空间。"
+        },
+        {
+          "name": "Gesling Stadium",
+          "nameCn": "格斯林体育场",
+          "lat": 40.4425,
+          "lng": -79.9404,
+          "note": "校区东端橄榄球与田径主场。"
+        },
+        {
+          "name": "Walking to the Sky",
+          "nameCn": "《走向天空》雕塑",
+          "lat": 40.4441,
+          "lng": -79.943,
+          "note": "福布斯大道草坪上斜插天际的人像雕塑地标。"
+        }
+      ]
+    }
+  ]
+}

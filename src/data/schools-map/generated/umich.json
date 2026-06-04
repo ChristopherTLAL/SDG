@@ -1,0 +1,226 @@
+{
+  "id": "umich",
+  "type": "school",
+  "name": "University of Michigan, Ann Arbor",
+  "nameCn": "密歇根大学安娜堡分校",
+  "city": "Ann Arbor, MI",
+  "center": [
+    42.2767,
+    -83.7387
+  ],
+  "zoom": 13,
+  "blurb": "密歇根大学安娜堡分校横跨安娜堡市区，以中央校区古典学术核心、北校区工程艺术新区与跨胡伦河的大学城气质著称，是全美顶尖公立研究型大学之一。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central Campus",
+          "nameCn": "中央校区",
+          "lat": 42.2767,
+          "lng": -83.7387,
+          "radius": 800,
+          "note": "历史核心，文理学院、本科教学楼与图书馆群环绕标志性大草坪 The Diag。"
+        },
+        {
+          "name": "Medical Campus",
+          "nameCn": "医学校区",
+          "lat": 42.2835,
+          "lng": -83.7322,
+          "radius": 600,
+          "note": "紧邻中央校区东北，密歇根医学院与大学医院、医疗中心聚集地。"
+        },
+        {
+          "name": "North Campus",
+          "nameCn": "北校区",
+          "lat": 42.2898,
+          "lng": -83.712,
+          "radius": 900,
+          "note": "跨胡伦河约2.5公里，工程、建筑、艺术与音乐学院所在的现代化校区。"
+        },
+        {
+          "name": "North Campus Research Complex (NCRC)",
+          "nameCn": "北校区研究综合体",
+          "lat": 42.2995,
+          "lng": -83.7065,
+          "radius": 700,
+          "note": "原辉瑞园区改建，校方最大的生物医学与跨学科研究基地。"
+        },
+        {
+          "name": "South / Athletic Campus",
+          "nameCn": "南校区（体育校区）",
+          "lat": 42.2658,
+          "lng": -83.747,
+          "radius": 700,
+          "note": "中央校区以南约1.5公里，密歇根体育场等狼獾军团主场所在。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Angell Hall",
+          "nameCn": "安吉尔楼",
+          "lat": 42.2769,
+          "lng": -83.7408,
+          "note": "文理学院主教学楼，临 The Diag 西侧的标志性列柱建筑。"
+        },
+        {
+          "name": "Mason Hall",
+          "nameCn": "梅森楼",
+          "lat": 42.2773,
+          "lng": -83.7401,
+          "note": "中央校区核心教学楼，与安吉尔楼相连。"
+        },
+        {
+          "name": "Ross School of Business",
+          "nameCn": "罗斯商学院",
+          "lat": 42.2735,
+          "lng": -83.738,
+          "note": "全美顶尖商学院，位于中央校区东南。"
+        },
+        {
+          "name": "University of Michigan Law School",
+          "nameCn": "法学院",
+          "lat": 42.2747,
+          "lng": -83.7378,
+          "note": "哥特式四方庭院 Law Quad，校园最具古典气质的建筑群。"
+        },
+        {
+          "name": "Bob and Betty Beyster Building",
+          "nameCn": "贝斯特楼",
+          "lat": 42.293,
+          "lng": -83.7159,
+          "note": "北校区计算机科学与工程系所在地。"
+        },
+        {
+          "name": "G.G. Brown Laboratory",
+          "nameCn": "布朗工程实验楼",
+          "lat": 42.2908,
+          "lng": -83.7137,
+          "note": "北校区机械工程与多学科工程实验大楼。"
+        },
+        {
+          "name": "University Hospital",
+          "nameCn": "大学医院",
+          "lat": 42.2845,
+          "lng": -83.7305,
+          "note": "密歇根医学旗舰医院，1500 East Medical Center Drive。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Harlan Hatcher Graduate Library",
+          "nameCn": "哈彻研究生图书馆",
+          "lat": 42.2724,
+          "lng": -83.7362,
+          "note": "校图书馆系统核心，临 The Diag 东侧的研究生主馆。"
+        },
+        {
+          "name": "Shapiro Undergraduate Library",
+          "nameCn": "夏皮罗本科图书馆",
+          "lat": 42.2755,
+          "lng": -83.7367,
+          "note": "本科生主图书馆，俗称 UgLi，24小时学习空间。"
+        },
+        {
+          "name": "Art, Architecture and Engineering Library",
+          "nameCn": "艺术建筑与工程图书馆",
+          "lat": 42.292,
+          "lng": -83.7165,
+          "note": "位于北校区 Duderstadt 中心，服务工程与艺术学科。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "University of Michigan Museum of Art (UMMA)",
+          "nameCn": "密歇根大学艺术博物馆",
+          "lat": 42.275,
+          "lng": -83.7383,
+          "note": "中央校区免费开放的综合艺术馆，藏品逾两万件。"
+        },
+        {
+          "name": "Museum of Natural History",
+          "nameCn": "自然历史博物馆",
+          "lat": 42.2783,
+          "lng": -83.7349,
+          "note": "位于 Biological Sciences Building，恐龙化石与天文馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "The Diag",
+          "nameCn": "中央草坪",
+          "lat": 42.2767,
+          "lng": -83.7387,
+          "note": "中央校区交叉步道大草坪，铜质校徽 'M' 嵌于地面。"
+        },
+        {
+          "name": "Burton Memorial Tower",
+          "nameCn": "伯顿纪念钟楼",
+          "lat": 42.2768,
+          "lng": -83.7381,
+          "note": "中央校区地标钟楼，内藏 Baird 排钟。"
+        },
+        {
+          "name": "Michigan Union",
+          "nameCn": "密歇根学生会堂",
+          "lat": 42.2752,
+          "lng": -83.7412,
+          "note": "历史悠久的学生活动中心，肯尼迪在此宣布和平队构想。"
+        },
+        {
+          "name": "Lurie Tower",
+          "nameCn": "卢里钟楼",
+          "lat": 42.2885,
+          "lng": -83.7097,
+          "note": "北校区地标钟楼，与伯顿钟楼遥相呼应。"
+        },
+        {
+          "name": "Michigan Stadium (The Big House)",
+          "nameCn": "密歇根体育场（大房子）",
+          "lat": 42.2658,
+          "lng": -83.7487,
+          "note": "全美最大体育场，可容逾十万观众的狼獾橄榄球主场。"
+        },
+        {
+          "name": "Crisler Center",
+          "nameCn": "克莱斯勒中心",
+          "lat": 42.2653,
+          "lng": -83.7483,
+          "note": "篮球主场馆，紧邻密歇根体育场。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "id": "cornell",
+  "type": "school",
+  "name": "Cornell University",
+  "nameCn": "康奈尔大学",
+  "city": "Ithaca, NY",
+  "center": [
+    42.4492,
+    -76.4839
+  ],
+  "zoom": 14,
+  "blurb": "坐落于纽约州伊萨卡东山之上、俯瞰卡尤加湖的常春藤名校，校园依山就势、瀑布峡谷穿行，建筑风格从石砌古典到现代实验室兼收并蓄。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Central Campus (Main)",
+          "nameCn": "中央校区（主校区）",
+          "lat": 42.4492,
+          "lng": -76.4839,
+          "radius": 700,
+          "note": "学术与行政核心，含艺术、农学、工程三大方庭。"
+        },
+        {
+          "name": "North Campus",
+          "nameCn": "北校区",
+          "lat": 42.456,
+          "lng": -76.479,
+          "radius": 500,
+          "note": "一二年级新生住宿区，宿舍楼集中。"
+        },
+        {
+          "name": "West Campus",
+          "nameCn": "西校区",
+          "lat": 42.447,
+          "lng": -76.49,
+          "radius": 400,
+          "note": "哥特式住宿学院群「The Gothics」所在。"
+        },
+        {
+          "name": "Collegetown",
+          "nameCn": "大学城",
+          "lat": 42.442,
+          "lng": -76.484,
+          "radius": 400,
+          "note": "校园南侧混合商住区，公寓与餐饮聚集。"
+        },
+        {
+          "name": "College of Veterinary Medicine",
+          "nameCn": "兽医学院",
+          "lat": 42.448,
+          "lng": -76.472,
+          "radius": 350,
+          "note": "366号公路与Tower路交汇，全美顶尖兽医院。"
+        },
+        {
+          "name": "Cornell Botanic Gardens",
+          "nameCn": "康奈尔植物园",
+          "lat": 42.4513,
+          "lng": -76.47,
+          "radius": 600,
+          "note": "校园东北Comstock Knoll，含植物园与自然保护区。"
+        },
+        {
+          "name": "Cornell Lab of Ornithology (Sapsucker Woods)",
+          "nameCn": "鸟类学实验室（啄木鸟林）",
+          "lat": 42.479,
+          "lng": -76.451,
+          "radius": 600,
+          "note": "校园东北约5公里，全球鸟类研究重镇与森林保护区。"
+        },
+        {
+          "name": "Cornell Business & Technology Park",
+          "nameCn": "康奈尔商业科技园",
+          "lat": 42.4855,
+          "lng": -76.4663,
+          "radius": 700,
+          "note": "主校区以北约6公里，研发与企业孵化园区。"
+        },
+        {
+          "name": "East Hill Plaza",
+          "nameCn": "东山广场",
+          "lat": 42.441,
+          "lng": -76.464,
+          "radius": 300,
+          "note": "校园东南零售中心，兼作部分大学办公空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Goldwin Smith Hall",
+          "nameCn": "戈德温·史密斯楼",
+          "lat": 42.4497,
+          "lng": -76.4823,
+          "note": "艺术方庭新古典主义文科核心楼。"
+        },
+        {
+          "name": "Sage Hall (Johnson School of Business)",
+          "nameCn": "塞奇楼（约翰逊商学院）",
+          "lat": 42.4456,
+          "lng": -76.483,
+          "note": "SC约翰逊商学院研究生院所在。"
+        },
+        {
+          "name": "Duffield Hall (Engineering)",
+          "nameCn": "达菲尔德楼（工程）",
+          "lat": 42.4445,
+          "lng": -76.4843,
+          "note": "工程方庭现代纳米与协作研究中心。"
+        },
+        {
+          "name": "Statler Hall & Hotel (Hotel School)",
+          "nameCn": "斯塔特勒楼及酒店（酒店管理学院）",
+          "lat": 42.4459,
+          "lng": -76.481,
+          "note": "全美顶尖酒店管理学院兼教学型酒店。"
+        },
+        {
+          "name": "Klarman Hall",
+          "nameCn": "克拉曼楼",
+          "lat": 42.4495,
+          "lng": -76.4817,
+          "note": "2016年落成的人文学科新楼，连接戈德温·史密斯。"
+        },
+        {
+          "name": "Bailey Hall (Ag Quad)",
+          "nameCn": "贝利楼（农学方庭）",
+          "lat": 42.4486,
+          "lng": -76.4775,
+          "note": "1912年落成，校园最大礼堂。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Olin Library",
+          "nameCn": "奥林图书馆",
+          "lat": 42.448,
+          "lng": -76.4838,
+          "note": "艺术方庭主研究图书馆，地下连克罗赫馆。"
+        },
+        {
+          "name": "Uris Library",
+          "nameCn": "尤里斯图书馆",
+          "lat": 42.4478,
+          "lng": -76.4847,
+          "note": "1891年罗马复兴式，McGraw钟塔即附其上。"
+        },
+        {
+          "name": "Mann Library",
+          "nameCn": "曼恩图书馆",
+          "lat": 42.4489,
+          "lng": -76.4763,
+          "note": "农学与生命科学图书馆，装饰艺术风格。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Herbert F. Johnson Museum of Art",
+          "nameCn": "赫伯特·F·约翰逊艺术博物馆",
+          "lat": 42.4508,
+          "lng": -76.4847,
+          "note": "贝聿铭设计，俯瞰卡尤加湖的艺术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "McGraw Tower (Cornell Chimes)",
+          "nameCn": "麦格劳钟塔（康奈尔钟琴）",
+          "lat": 42.4476,
+          "lng": -76.4848,
+          "note": "校园地标钟塔，每日鸣奏康奈尔钟琴。"
+        },
+        {
+          "name": "Willard Straight Hall",
+          "nameCn": "威拉德·斯特雷特楼",
+          "lat": 42.447,
+          "lng": -76.4855,
+          "note": "学生活动中心，含Okenshields餐厅。"
+        },
+        {
+          "name": "Schoellkopf Field",
+          "nameCn": "舍尔科普夫体育场",
+          "lat": 42.4441,
+          "lng": -76.4787,
+          "note": "大红队主场，橄榄球与田径运动场。"
+        }
+      ]
+    }
+  ]
+}

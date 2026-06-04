@@ -1,0 +1,153 @@
+{
+  "id": "gatech",
+  "type": "school",
+  "name": "Georgia Institute of Technology",
+  "nameCn": "佐治亚理工学院",
+  "city": "Atlanta, GA",
+  "center": [
+    33.7756,
+    -84.3963
+  ],
+  "zoom": 14,
+  "blurb": "佐治亚理工学院坐落于亚特兰大市中心 Midtown，是一座以工程与计算机见长的研究型理工名校，主校区红砖与现代实验楼交错，并向东跨过高速连接线延伸出科技广场创新区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (Central / West / East)",
+          "nameCn": "主校区（中央/西/东区）",
+          "lat": 33.7756,
+          "lng": -84.3963,
+          "radius": 900,
+          "note": "约400英亩主体校园，教学科研在中央区，宿舍在东西两侧。"
+        },
+        {
+          "name": "Technology Square",
+          "nameCn": "科技广场",
+          "lat": 33.7768,
+          "lng": -84.3892,
+          "radius": 400,
+          "note": "跨越市中心连接线高速的创新区，商学院与计算机研究楼聚集。"
+        },
+        {
+          "name": "North Avenue / Athletics District",
+          "nameCn": "北大道体育区",
+          "lat": 33.7805,
+          "lng": -84.3928,
+          "radius": 350,
+          "note": "校区北端，麦卡米什篮球馆与运动设施所在。"
+        },
+        {
+          "name": "Science Square",
+          "nameCn": "科学广场",
+          "lat": 33.7698,
+          "lng": -84.4013,
+          "radius": 350,
+          "note": "主校区西南新建生物医药研究区，2024年启用。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Christopher W. Klaus Advanced Computing Building",
+          "nameCn": "克劳斯先进计算楼",
+          "lat": 33.7772,
+          "lng": -84.3962,
+          "note": "计算机学院核心，41万平方英尺研究楼。"
+        },
+        {
+          "name": "Scheller College of Business",
+          "nameCn": "舍勒商学院",
+          "lat": 33.7763,
+          "lng": -84.3879,
+          "note": "位于科技广场的商学院主楼。"
+        },
+        {
+          "name": "Technology Square Research Building (TSRB)",
+          "nameCn": "科技广场研究楼",
+          "lat": 33.7774,
+          "lng": -84.3901,
+          "note": "电气与计算机工程及计算机学院的教研办公楼。"
+        },
+        {
+          "name": "Science Square Labs",
+          "nameCn": "科学广场实验楼",
+          "lat": 33.7698,
+          "lng": -84.4013,
+          "note": "13层湿/干实验室与洁净室的生物医药研究塔。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Price Gilbert Memorial Library",
+          "nameCn": "普赖斯·吉尔伯特纪念图书馆",
+          "lat": 33.7744,
+          "lng": -84.3958,
+          "note": "校园主图书馆，与克罗斯兰塔相连。"
+        },
+        {
+          "name": "G. Wayne Clough Undergraduate Learning Commons",
+          "nameCn": "克拉夫本科学习中心",
+          "lat": 33.7746,
+          "lng": -84.3964,
+          "note": "本科生学习与协作空间，紧邻主图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Tech Tower (Evans Administration Building)",
+          "nameCn": "科技塔（埃文斯行政楼）",
+          "lat": 33.7724,
+          "lng": -84.3948,
+          "note": "1888年落成，校园现存最古老建筑与精神地标。"
+        },
+        {
+          "name": "Bobby Dodd Stadium at Historic Grant Field",
+          "nameCn": "鲍比·多德体育场",
+          "lat": 33.7725,
+          "lng": -84.393,
+          "note": "1913年建成，全美最古老的在校橄榄球场。"
+        },
+        {
+          "name": "McCamish Pavilion",
+          "nameCn": "麦卡米什篮球馆",
+          "lat": 33.7806,
+          "lng": -84.3928,
+          "note": "黄夹克队篮球主场，原亚历山大纪念馆。"
+        },
+        {
+          "name": "Bill Moore Student Success Center",
+          "nameCn": "比尔·摩尔学生成功中心",
+          "lat": 33.7724,
+          "lng": -84.394,
+          "note": "邻近体育场的学生服务与校友互动中心。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": "brown-university",
+  "type": "school",
+  "name": "Brown University",
+  "nameCn": "布朗大学",
+  "city": "Providence, RI",
+  "center": [
+    41.8262,
+    -71.403
+  ],
+  "zoom": 14,
+  "blurb": "布朗大学坐落于普罗维登斯历史悠久的学院山（College Hill），红砖学院建筑与绿荫步道交织，主校区之外还散布着珠宝区医学院、北郊体育场与塞康克河畔船库等多处场地。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Main Campus (College Hill)",
+          "nameCn": "主校区（学院山）",
+          "lat": 41.8262,
+          "lng": -71.403,
+          "radius": 700,
+          "note": "核心学院山校园，约143英亩、235栋建筑，本科教学与行政中枢。"
+        },
+        {
+          "name": "Pembroke Campus",
+          "nameCn": "彭布罗克校区",
+          "lat": 41.8305,
+          "lng": -71.4022,
+          "radius": 350,
+          "note": "主校区北侧，原彭布罗克女子学院旧址，现为住宿与文理学院区。"
+        },
+        {
+          "name": "Warren Alpert Medical School / Jewelry District",
+          "nameCn": "沃伦·阿尔珀特医学院（珠宝区）",
+          "lat": 41.8196,
+          "lng": -71.4106,
+          "radius": 500,
+          "note": "珠宝区医学与生命科学校区，222 Richmond St，紧邻教学医院。"
+        },
+        {
+          "name": "Erickson Athletic Complex",
+          "nameCn": "埃里克森体育中心",
+          "lat": 41.8338,
+          "lng": -71.397,
+          "radius": 450,
+          "note": "Hope St 与 Lloyd Ave 路口，含米汉冰场、尼尔森健身馆与多片运动场。"
+        },
+        {
+          "name": "Brown Stadium",
+          "nameCn": "布朗体育场",
+          "lat": 41.8423,
+          "lng": -71.3938,
+          "radius": 300,
+          "note": "主校区以北约1英里，400 Elmgrove Ave，橄榄球与田径主场。"
+        },
+        {
+          "name": "Marston Boathouse",
+          "nameCn": "马斯顿船库",
+          "lat": 41.8176,
+          "lng": -71.3963,
+          "radius": 250,
+          "note": "塞康克河畔、印度角公园旁，布朗赛艇队基地。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "University Hall",
+          "nameCn": "大学楼",
+          "lat": 41.8262,
+          "lng": -71.404,
+          "note": "1770年建成的最古老建筑，曾用作独立战争兵营，今为校长办公地。"
+        },
+        {
+          "name": "Sayles Hall",
+          "nameCn": "塞尔斯楼",
+          "lat": 41.826,
+          "lng": -71.403,
+          "note": "主草坪东侧礼堂，重要典礼与音乐演出场所。"
+        },
+        {
+          "name": "Sciences Library (SciLi)",
+          "nameCn": "科学图书馆楼",
+          "lat": 41.827,
+          "lng": -71.4001,
+          "note": "14层混凝土塔楼，理工科地标，亦设实验与学习空间。"
+        },
+        {
+          "name": "Barus & Holley",
+          "nameCn": "巴鲁斯-霍利楼",
+          "lat": 41.8273,
+          "lng": -71.4005,
+          "note": "工程与物理学院主楼，毗邻科学图书馆。"
+        },
+        {
+          "name": "Engineering Research Center",
+          "nameCn": "工程研究中心",
+          "lat": 41.8276,
+          "lng": -71.4012,
+          "note": "2017年启用的工程学院新楼，实验室与净化间集中地。"
+        },
+        {
+          "name": "Stephen Robert '62 Hall (Watson Institute)",
+          "nameCn": "沃森国际与公共事务研究所",
+          "lat": 41.8281,
+          "lng": -71.4011,
+          "note": "国际关系与公共政策研究重镇。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "John D. Rockefeller Jr. Library",
+          "nameCn": "洛克菲勒图书馆",
+          "lat": 41.8256,
+          "lng": -71.4024,
+          "note": "1964年起的主图书馆，人文社科馆藏中心，俗称 The Rock。"
+        },
+        {
+          "name": "John Hay Library",
+          "nameCn": "约翰·海图书馆",
+          "lat": 41.8262,
+          "lng": -71.404,
+          "note": "范威克尔门对面，珍本与特藏馆，校内第二古老图书馆。"
+        },
+        {
+          "name": "Sciences Library",
+          "nameCn": "科学图书馆",
+          "lat": 41.827,
+          "lng": -71.4001,
+          "note": "理工医学科馆藏，标志性高塔可俯瞰全城。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "RISD Museum (adjacent)",
+          "nameCn": "罗德岛设计学院博物馆（邻近）",
+          "lat": 41.8255,
+          "lng": -71.407,
+          "note": "学院山西坡的综合艺术博物馆，与布朗共享街区。"
+        },
+        {
+          "name": "Haffenreffer Museum (Manning Hall)",
+          "nameCn": "哈芬雷弗人类学博物馆",
+          "lat": 41.8259,
+          "lng": -71.4033,
+          "note": "人类学博物馆校园展厅，设于曼宁楼。"
+        },
+        {
+          "name": "Bell Gallery (List Art Center)",
+          "nameCn": "贝尔美术馆（李斯特艺术中心）",
+          "lat": 41.825,
+          "lng": -71.4036,
+          "note": "校内当代艺术展览空间，位于李斯特艺术中心。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Van Wickle Gates",
+          "nameCn": "范威克尔门",
+          "lat": 41.8263,
+          "lng": -71.4044,
+          "note": "学院山正门铁门，开学与毕业仪式穿门而过的传统象征。"
+        },
+        {
+          "name": "Carrie Tower",
+          "nameCn": "凯莉钟楼",
+          "lat": 41.8265,
+          "lng": -71.4037,
+          "note": "1904年砖石钟塔，校园标志性轮廓之一。"
+        },
+        {
+          "name": "Stephen Robert '62 Campus Center (Faunce House)",
+          "nameCn": "校园中心（方斯楼）",
+          "lat": 41.8259,
+          "lng": -71.4028,
+          "note": "主草坪东侧学生活动中心，餐饮与社团聚集地。"
+        },
+        {
+          "name": "Meehan Auditorium",
+          "nameCn": "米汉冰球馆",
+          "lat": 41.834,
+          "lng": -71.3972,
+          "note": "埃里克森体育中心内的冰球场，主场赛事举办地。"
+        }
+      ]
+    }
+  ]
+}

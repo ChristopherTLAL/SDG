@@ -1,0 +1,197 @@
+{
+  "id": "boston-university",
+  "type": "school",
+  "name": "Boston University",
+  "nameCn": "波士顿大学",
+  "city": "Chestnut Hill, MA",
+  "center": [
+    42.3505,
+    -71.1054
+  ],
+  "zoom": 14,
+  "blurb": "波士顿大学没有传统校门，整座校园沿查尔斯河畔的联邦大道延展约2.5公里，与城市街区、绿线地铁和河滨步道交织成开放式都市校园。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Charles River Campus",
+          "nameCn": "查尔斯河主校区",
+          "lat": 42.3505,
+          "lng": -71.1054,
+          "radius": 1200,
+          "note": "沿联邦大道铺开的核心校区，文理学院与图书馆均在此。"
+        },
+        {
+          "name": "West Campus / Student Village",
+          "nameCn": "西校区·学生村",
+          "lat": 42.3528,
+          "lng": -71.1172,
+          "radius": 500,
+          "note": "校区最西端，体育馆、宿舍与运动场聚集区。"
+        },
+        {
+          "name": "East Campus",
+          "nameCn": "东校区",
+          "lat": 42.349,
+          "lng": -71.0975,
+          "radius": 450,
+          "note": "靠近肯莫尔广场一侧，商学院与沃伦塔宿舍所在。"
+        },
+        {
+          "name": "Medical Campus (BUMC)",
+          "nameCn": "医学院校区",
+          "lat": 42.3357,
+          "lng": -71.0723,
+          "radius": 500,
+          "note": "南区卫星校区，医、牙、公卫三院与波士顿医疗中心相邻。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "College of Arts & Sciences",
+          "nameCn": "文理学院",
+          "lat": 42.3506,
+          "lng": -71.1059,
+          "note": "725联邦大道，校园学术心脏。"
+        },
+        {
+          "name": "Questrom School of Business (Hariri Bldg)",
+          "nameCn": "奎斯特罗姆商学院",
+          "lat": 42.3489,
+          "lng": -71.0997,
+          "note": "595联邦大道，东校区地标商学院楼。"
+        },
+        {
+          "name": "Center for Computing & Data Sciences",
+          "nameCn": "计算与数据科学中心",
+          "lat": 42.3496,
+          "lng": -71.1024,
+          "note": "层叠错落的「叠叠乐」塔楼，2022年启用。"
+        },
+        {
+          "name": "College of Engineering (Photonics Center)",
+          "nameCn": "工程学院·光子学中心",
+          "lat": 42.3491,
+          "lng": -71.1041,
+          "note": "圣玛丽街8号，工程与光子学研究重镇。"
+        },
+        {
+          "name": "Chobanian & Avedisian School of Medicine",
+          "nameCn": "乔巴尼安医学院",
+          "lat": 42.3356,
+          "lng": -71.0726,
+          "note": "南区医学院校区主楼，东康科德街72号。"
+        },
+        {
+          "name": "School of Public Health",
+          "nameCn": "公共卫生学院",
+          "lat": 42.3349,
+          "lng": -71.073,
+          "note": "塔波特楼，医学院校区内。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Mugar Memorial Library",
+          "nameCn": "穆加纪念图书馆",
+          "lat": 42.351,
+          "lng": -71.108,
+          "note": "771联邦大道，主校区中央总馆。"
+        },
+        {
+          "name": "Alumni Medical Library",
+          "nameCn": "校友医学图书馆",
+          "lat": 42.336,
+          "lng": -71.072,
+          "note": "医学院校区图书馆，服务医牙公卫师生。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Stone Gallery (CFA)",
+          "nameCn": "斯通画廊",
+          "lat": 42.3517,
+          "lng": -71.1129,
+          "note": "855联邦大道艺术学院一层展厅。"
+        },
+        {
+          "name": "808 Gallery",
+          "nameCn": "808画廊",
+          "lat": 42.3514,
+          "lng": -71.1108,
+          "note": "富勒楼内，校园主要当代艺术展空间。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Marsh Chapel",
+          "nameCn": "马什教堂",
+          "lat": 42.3505,
+          "lng": -71.1066,
+          "note": "735联邦大道哥特式教堂，校园精神象征。"
+        },
+        {
+          "name": "Agganis Arena",
+          "nameCn": "阿加尼斯体育馆",
+          "lat": 42.3524,
+          "lng": -71.117,
+          "note": "学生村内冰球与大型活动场馆。"
+        },
+        {
+          "name": "Nickerson Field",
+          "nameCn": "尼克森体育场",
+          "lat": 42.3535,
+          "lng": -71.1185,
+          "note": "西校区足球与曲棍球主场。"
+        },
+        {
+          "name": "Warren Towers",
+          "nameCn": "沃伦塔宿舍",
+          "lat": 42.3494,
+          "lng": -71.1003,
+          "note": "联邦大道三塔大型本科生宿舍。"
+        },
+        {
+          "name": "BU Central / BU East (Green Line)",
+          "nameCn": "BU绿线轻轨站",
+          "lat": 42.3499,
+          "lng": -71.1037,
+          "note": "联邦大道上的绿线B支地面轻轨站。"
+        }
+      ]
+    }
+  ]
+}

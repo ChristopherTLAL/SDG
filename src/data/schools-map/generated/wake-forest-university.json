@@ -1,0 +1,190 @@
+{
+  "id": "wake-forest-university",
+  "type": "school",
+  "name": "Wake Forest University",
+  "nameCn": "维克森林大学",
+  "city": "Winston-Salem, NC",
+  "center": [
+    36.13508,
+    -80.27885
+  ],
+  "zoom": 13,
+  "blurb": "维克森林大学坐落于北卡州温斯顿-塞勒姆，以雷诺达庄园改建的乔治亚风格主校区为核心，并在市中心创新区与阿德莫尔医学城设有研究与医学卫星校区。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "defaultOn": true,
+      "items": [
+        {
+          "name": "Reynolda Campus (Main)",
+          "nameCn": "雷诺达主校区",
+          "lat": 36.1351,
+          "lng": -80.2789,
+          "radius": 1000,
+          "note": "本科生与多数研究生院所在，市区以北的核心校园。"
+        },
+        {
+          "name": "Wake Forest Innovation Quarter / Wake Downtown",
+          "nameCn": "创新区 / 市中心校区",
+          "lat": 36.0975,
+          "lng": -80.2372,
+          "radius": 700,
+          "note": "市中心生物医药与工程园区，含 Wake Downtown 本科基地。"
+        },
+        {
+          "name": "Bowman Gray Medical Campus",
+          "nameCn": "鲍曼·格雷医学校区",
+          "lat": 36.0913,
+          "lng": -80.262,
+          "radius": 800,
+          "note": "阿德莫尔医学院与亚特利恩浸信医疗中心所在地。"
+        },
+        {
+          "name": "Athletics Complex (Allegacy Stadium)",
+          "nameCn": "体育园区（阿勒加西球场）",
+          "lat": 36.133,
+          "lng": -80.2538,
+          "radius": 500,
+          "note": "主校区以东的橄榄球场、棒球场与退伍军人纪念馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Reynolda Hall",
+          "nameCn": "雷诺达楼",
+          "lat": 36.1339,
+          "lng": -80.2785,
+          "note": "主校区标志性行政与餐饮中心，正对维特礼拜堂。"
+        },
+        {
+          "name": "Wait Chapel & Wingate Hall",
+          "nameCn": "维特礼拜堂",
+          "lat": 36.1352,
+          "lng": -80.2786,
+          "note": "可容 2227 人的礼拜堂，赫恩广场北端地标。"
+        },
+        {
+          "name": "School of Business (Farrell Hall)",
+          "nameCn": "商学院（法雷尔楼）",
+          "lat": 36.1361,
+          "lng": -80.2762,
+          "note": "主校区商学院教学楼。"
+        },
+        {
+          "name": "Wake Forest School of Law",
+          "nameCn": "法学院",
+          "lat": 36.1336,
+          "lng": -80.2806,
+          "note": "主校区西侧法学院。"
+        },
+        {
+          "name": "Wake Downtown (455 Vine St)",
+          "nameCn": "市中心教学楼",
+          "lat": 36.0978,
+          "lng": -80.2375,
+          "note": "创新区内的工程与生化本科教学楼。"
+        },
+        {
+          "name": "Bowman Gray Center for Medical Education",
+          "nameCn": "鲍曼·格雷医学教育中心",
+          "lat": 36.0968,
+          "lng": -80.2362,
+          "note": "由旧烟厂改建的医学院主教学楼（475 Vine St）。"
+        },
+        {
+          "name": "Atrium Health Wake Forest Baptist Medical Center",
+          "nameCn": "浸信医疗中心",
+          "lat": 36.0913,
+          "lng": -80.262,
+          "note": "皮埃蒙特地区最大综合医院与临床教学基地。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Z. Smith Reynolds Library",
+          "nameCn": "Z. 史密斯·雷诺兹图书馆",
+          "lat": 36.1321,
+          "lng": -80.2781,
+          "note": "主校区中央图书馆，赫恩广场南侧。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Reynolda House Museum of American Art",
+          "nameCn": "雷诺达美国艺术博物馆",
+          "lat": 36.1396,
+          "lng": -80.2846,
+          "note": "雷诺兹家族故居改建的美国艺术博物馆。"
+        },
+        {
+          "name": "Charlotte and Philip Hanes Art Gallery",
+          "nameCn": "哈尼斯艺术画廊",
+          "lat": 36.1346,
+          "lng": -80.2779,
+          "note": "斯卡尔斯艺术中心内的校园美术馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Benson University Center",
+          "nameCn": "本森学生中心",
+          "lat": 36.133,
+          "lng": -80.2776,
+          "note": "学生活动中心，含餐饮与礼堂。"
+        },
+        {
+          "name": "Hearn Plaza (The Quad)",
+          "nameCn": "赫恩广场",
+          "lat": 36.1344,
+          "lng": -80.2784,
+          "note": "主校区中轴草坪广场，校园核心。"
+        },
+        {
+          "name": "Allegacy Federal Credit Union Stadium",
+          "nameCn": "阿勒加西球场",
+          "lat": 36.133,
+          "lng": -80.2538,
+          "note": "可容 31500 人的恶魔执事队橄榄球主场。"
+        },
+        {
+          "name": "Reynolda Village",
+          "nameCn": "雷诺达村",
+          "lat": 36.1372,
+          "lng": -80.281,
+          "note": "紧邻校园的历史购物餐饮区。"
+        }
+      ]
+    }
+  ]
+}
