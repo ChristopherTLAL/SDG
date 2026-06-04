@@ -4,6 +4,7 @@ export const prerender = true;
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { SCENE_IDS, getScene, SCENE_INDEX } from '../../../data/schools-map/registry';
 import { UNIVERSITIES } from '../../../data/universities/universities';
+import { countryByCode } from '../../../data/schools-map/countries';
 import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
 
@@ -14,13 +15,13 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 const scene = getScene(id!)!;
 const inBudget = budgetData.regions.some((r) => r.schools.some((s) => s.id === scene.id));
-const isUS = UNIVERSITIES.find((u) => u.id === scene.id)?.country === 'US';
-const overviewHref = isUS ? '/tools/schools-map/us' : '/tools/schools-map';
-const overviewLabel = isUS ? '美国总览' : '英国总览';
+const country = countryByCode(UNIVERSITIES.find((u) => u.id === scene.id)?.country);
+const overviewHref = country.href;
+const overviewLabel = `${country.label}总览`;
 const lang = 'en';
 ---
 
-<MainLayout title={`${scene.name} 地图 | Chinese SDGs Institute`} description={scene.blurb || `${scene.name} interactive campus map`} lang={lang}>
+<MainLayout title={`留学地图 · ${scene.nameCn} | Chinese SDGs Institute`} description={scene.blurb || `${scene.name} interactive campus map`} lang={lang}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -34,9 +35,11 @@ const lang = 'en';
       <div class="smap-wrap" id="smap-wrap">
         <div class="smap-map" id="smap-map"></div>
 
-        <!-- top-center nav -->
+        <!-- top-center nav: breadcrumb 留学地图 ▸ 国家 ▸ 学校 -->
         <div class="smap-card smap-nav">
-          <a class="smap-nav-home" href={overviewHref}><span class="material-symbols-outlined" style="font-size:16px">map</span>{overviewLabel}</a>
+          <a class="smap-nav-home" href="/tools/schools-map"><span class="material-symbols-outlined" style="font-size:16px">map</span>留学地图</a>
+          <span class="smap-nav-sep">▸</span>
+          <a class="smap-nav-home" href={overviewHref}>{country.flag} {country.label}</a>
           <span class="smap-nav-sep">▸</span>
           <span class="smap-nav-cur">{scene.nameCn}</span>
           <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>

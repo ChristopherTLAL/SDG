@@ -4,6 +4,7 @@ export const prerender = true;
 import MainLayout from '../../../layouts/MainLayout.astro';
 import { UNIVERSITIES, RANK_TIERS } from '../../../data/universities/universities';
 import { SCENE_IDS, SCENE_INDEX } from '../../../data/schools-map/registry';
+import { COUNTRIES } from '../../../data/schools-map/countries';
 import budgetData from '../../../data/budget-data.json';
 import '../../../styles/schools-map.css';
 
@@ -29,7 +30,7 @@ const ukOpts = {
 };
 ---
 
-<MainLayout title="英国院校地图 · QS 分布 | Chinese SDGs Institute" description="英国大学按真实位置与 QS 排名分档展示，可筛选、搜索、点击进入单校精览。" lang={lang}>
+<MainLayout title="留学地图 · 英国（QS） | Chinese SDGs Institute" description="留学地图：英国大学按真实位置与 QS 排名分档展示，可筛选、搜索、点击进入单校精览。" lang={lang}>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -43,9 +44,13 @@ const ukOpts = {
       <div class="smap-wrap" id="smap-wrap">
         <div class="smap-map" id="smap-map"></div>
 
-        <!-- top-center nav -->
+        <!-- top-center nav: 留学地图 + country tabs -->
         <div class="smap-card smap-nav">
-          <span class="smap-nav-home"><span class="material-symbols-outlined" style="font-size:16px">map</span>英国院校总览</span>
+          <a class="smap-nav-home" href="/tools/schools-map"><span class="material-symbols-outlined" style="font-size:16px">map</span>留学地图</a>
+          <span class="smap-nav-sep">·</span>
+          <div class="smap-nav-tabs">
+            {COUNTRIES.map((c) => <a class:list={['smap-nav-tab', { active: c.code === 'UK' }]} href={c.href}>{c.flag} {c.label}</a>)}
+          </div>
           <select class="smap-switch" id="smap-switch" aria-label="跳转到学校或地区"></select>
         </div>
 
@@ -57,7 +62,6 @@ const ukOpts = {
             <button class="smap-pill" id="smap-fit">⤢ 缩放到全部</button>
             <a class="smap-pill ghost" href="/tools/schools-map/london" style="margin-left:6px">🚇 伦敦地区</a>
             <button class="smap-pill ghost" id="smap-fullscreen" style="margin-left:6px">⛶ 全屏</button>
-            <a class="smap-pill ghost" href="/tools/schools-map/us" style="margin-left:6px">🇺🇸 美国</a>
           </div>
           <div class="smap-card smap-panel">
             <div class="smap-sec">QS 筛选</div>
