@@ -75,16 +75,19 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       e.m.setZIndexOffset(on ? 1000 : 0);
     };
     // when ranked POI groups will also fill the list, label the colleges as their own group
+    let collegeHeader: any = null;
     if (listEl && hasRanked) {
-      const ch = document.createElement('div');
-      ch.className = 'smap-list-grp';
-      ch.innerHTML = `<span class="smap-grp-dot" style="background:#4338ca"></span>${esc(colleges.label || '学院 Colleges')}`;
-      listEl.appendChild(ch);
+      collegeHeader = document.createElement('div');
+      collegeHeader.className = 'smap-list-grp';
+      collegeHeader.innerHTML = `<span class="smap-grp-dot" style="background:#4338ca"></span>${esc(colleges.label || '学院 Colleges')}`;
+      listEl.appendChild(collegeHeader);
     }
+    const collegeGroup = L.layerGroup();
     items.forEach((c) => {
       const era = eraOf(c.year);
       const icon = L.divIcon({ className: 'smap-col-marker', html: `<div class="cm" style="background:${era.color}">${c.rank}</div>`, iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -14] });
-      const m = L.marker([c.lat, c.lng], { icon }).addTo(map);
+      const m = L.marker([c.lat, c.lng], { icon });
+      collegeGroup.addLayer(m);
       m.bindTooltip(esc(c.name), { permanent: true, direction: 'right', offset: [15, 0], className: 'smap-mk-label' });
       m.bindPopup(`<div class="smap-pop-name">${esc(c.name)}</div><div class="smap-pop-cn">${esc(c.nameCn)}</div><div class="smap-pop-tag" style="color:${era.color}">${c.year} · ${era.label}</div><div class="smap-pop-note">${esc(c.note || '')}</div>${mapsLink(c.lat, c.lng)}`);
       attachHoverLabel(m);
@@ -138,6 +141,21 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
     function stopPlay() { playing = false; if (rafId) cancelAnimationFrame(rafId); rafId = null; if (playIcon) playIcon.textContent = '▶'; if (playTxt) playTxt.textContent = '播放建院顺序'; }
     if (playBtn) playBtn.addEventListener('click', () => { playing ? stopPlay() : startPlay(); });
     applyYear(maxY);
+
+    // colleges are a normal toggleable layer (default on) — switching off hides the markers,
+    // their list rows + group header, and the era legend + timeline (which only make sense with them)
+    collegeGroup.addTo(map);
+    const eraSec = $('smap-era-sec'), tlSec = $('smap-timeline');
+    const setCollegesOn = (on: boolean) => {
+      if (on) collegeGroup.addTo(map); else map.removeLayer(collegeGroup);
+      byRank.forEach(({ row }) => { row.style.display = on ? '' : 'none'; });
+      if (collegeHeader) collegeHeader.style.display = on ? '' : 'none';
+      if (eraSec) eraSec.style.display = on ? '' : 'none';
+      if (tlSec) tlSec.style.display = on ? '' : 'none';
+      if (on && slider) applyYear(+slider.value);
+    };
+    const collegeRows = $('smap-cat-rows');
+    if (collegeRows) collegeRows.appendChild(makeToggleRow('#4338ca', '<span class="material-symbols-outlined">castle</span>', colleges.label || '学院 Colleges', String(items.length), true, setCollegesOn, toggleRegistry));
   } else {
     // no colleges → hide era section + timeline
     ['smap-timeline', 'smap-era-sec'].forEach((id) => { const el = $(id); if (el) el.style.display = 'none'; });
