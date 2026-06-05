@@ -1,0 +1,1150 @@
+{
+  "id": "oxford",
+  "type": "school",
+  "name": "University of Oxford",
+  "nameCn": "牛津大学",
+  "city": "Oxford",
+  "center": [
+    51.7548,
+    -1.2543
+  ],
+  "zoom": 15,
+  "blurb": "38 所学院按建院先后编号、按年代配色。拖动 / 播放时间轴看近八百年扩张；勾选叠加院系、博物馆、图书馆、地标。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "items": [
+        {
+          "name": "City-Centre Colleges",
+          "nameCn": "市中心学院区",
+          "lat": 51.754,
+          "lng": -1.2545,
+          "radius": 700,
+          "note": "绝大多数学院与博德利、拉德克利夫聚集的历史核心。"
+        },
+        {
+          "name": "Science Area",
+          "nameCn": "科学区",
+          "lat": 51.7588,
+          "lng": -1.2565,
+          "radius": 340,
+          "note": "Parks Road 一带的理科系所与实验室。"
+        },
+        {
+          "name": "Radcliffe Observatory Quarter",
+          "nameCn": "拉德克利夫天文台区",
+          "lat": 51.7598,
+          "lng": -1.2638,
+          "radius": 300,
+          "note": "数学、人文与医学新建筑群。"
+        },
+        {
+          "name": "Headington Medical Campuses",
+          "nameCn": "Headington 医学校区",
+          "lat": 51.764,
+          "lng": -1.2185,
+          "radius": 700,
+          "note": "约翰·拉德克利夫等教学医院与临床医学校区（城东）。"
+        }
+      ]
+    },
+    {
+      "kind": "collegeTimeline",
+      "label": "学院 Colleges",
+      "items": [
+        {
+          "rank": 1,
+          "name": "University College",
+          "nameCn": "大学学院",
+          "year": 1249,
+          "lat": 51.7522,
+          "lng": -1.2516,
+          "note": "常被视为牛津最古老的学院之一，1249 年。"
+        },
+        {
+          "rank": 2,
+          "name": "Balliol College",
+          "nameCn": "贝利奥尔学院",
+          "year": 1263,
+          "lat": 51.7548,
+          "lng": -1.2565,
+          "note": "1263 年创办；牛津最古老的学院之一。"
+        },
+        {
+          "rank": 3,
+          "name": "Merton College",
+          "nameCn": "默顿学院",
+          "year": 1264,
+          "lat": 51.751,
+          "lng": -1.252,
+          "note": "1264 年创办；最早确立学院章程，Mob Quad 为最古老方庭。"
+        },
+        {
+          "rank": 4,
+          "name": "St Edmund Hall",
+          "nameCn": "圣埃德蒙学堂",
+          "year": 1278,
+          "lat": 51.753,
+          "lng": -1.2495,
+          "note": "源自中世纪学术堂，1957 年成为正式学院。"
+        },
+        {
+          "rank": 5,
+          "name": "Exeter College",
+          "nameCn": "埃克塞特学院",
+          "year": 1314,
+          "lat": 51.754,
+          "lng": -1.2548,
+          "note": "1314 年创办；Turl Street。"
+        },
+        {
+          "rank": 6,
+          "name": "Oriel College",
+          "nameCn": "奥里尔学院",
+          "year": 1326,
+          "lat": 51.7515,
+          "lng": -1.2533,
+          "note": "1326 年由爱德华二世特许创办。"
+        },
+        {
+          "rank": 7,
+          "name": "Queen's College",
+          "nameCn": "王后学院",
+          "year": 1341,
+          "lat": 51.7525,
+          "lng": -1.2505,
+          "note": "1341 年创办；High Street 上的巴洛克立面。"
+        },
+        {
+          "rank": 8,
+          "name": "New College",
+          "nameCn": "新学院",
+          "year": 1379,
+          "lat": 51.7546,
+          "lng": -1.2505,
+          "note": "1379 年由 William of Wykeham 创办；中世纪回廊与城墙。"
+        },
+        {
+          "rank": 9,
+          "name": "Lincoln College",
+          "nameCn": "林肯学院",
+          "year": 1427,
+          "lat": 51.7528,
+          "lng": -1.2548,
+          "note": "1427 年创办；保存完好的中世纪学院。"
+        },
+        {
+          "rank": 10,
+          "name": "All Souls College",
+          "nameCn": "万灵学院",
+          "year": 1438,
+          "lat": 51.7536,
+          "lng": -1.253,
+          "note": "1438 年创办；仅有院士、无本科生，极负盛名。"
+        },
+        {
+          "rank": 11,
+          "name": "Magdalen College",
+          "nameCn": "抹大拉学院",
+          "year": 1458,
+          "lat": 51.7522,
+          "lng": -1.247,
+          "note": "1458 年创办；钟楼与鹿园著称，校友众多。"
+        },
+        {
+          "rank": 12,
+          "name": "Brasenose College",
+          "nameCn": "布雷齐诺斯学院",
+          "year": 1509,
+          "lat": 51.7535,
+          "lng": -1.254,
+          "note": "1509 年创办；Radcliffe Square 旁。"
+        },
+        {
+          "rank": 13,
+          "name": "Corpus Christi College",
+          "nameCn": "基督圣体学院",
+          "year": 1517,
+          "lat": 51.7508,
+          "lng": -1.253,
+          "note": "1517 年创办；规模小、学术声誉高。"
+        },
+        {
+          "rank": 14,
+          "name": "Christ Church",
+          "nameCn": "基督教会学院",
+          "year": 1546,
+          "lat": 51.7503,
+          "lng": -1.2557,
+          "note": "1546 年由亨利八世创办；含牛津座堂，出过多位首相。"
+        },
+        {
+          "rank": 15,
+          "name": "Trinity College",
+          "nameCn": "三一学院",
+          "year": 1555,
+          "lat": 51.7556,
+          "lng": -1.2556,
+          "note": "1555 年创办；Broad Street，开阔草坪。"
+        },
+        {
+          "rank": 16,
+          "name": "St John's College",
+          "nameCn": "圣约翰学院",
+          "year": 1555,
+          "lat": 51.7575,
+          "lng": -1.2585,
+          "note": "1555 年创办；财力雄厚，园林优美。"
+        },
+        {
+          "rank": 17,
+          "name": "Jesus College",
+          "nameCn": "耶稣学院",
+          "year": 1571,
+          "lat": 51.7535,
+          "lng": -1.2557,
+          "note": "1571 年由伊丽莎白一世创办；与威尔士渊源深。"
+        },
+        {
+          "rank": 18,
+          "name": "Wadham College",
+          "nameCn": "沃德姆学院",
+          "year": 1610,
+          "lat": 51.7558,
+          "lng": -1.2535,
+          "note": "1610 年创办；皇家学会起源相关。"
+        },
+        {
+          "rank": 19,
+          "name": "Pembroke College",
+          "nameCn": "彭布罗克学院",
+          "year": 1624,
+          "lat": 51.75,
+          "lng": -1.257,
+          "note": "1624 年创办；St Aldate's。"
+        },
+        {
+          "rank": 20,
+          "name": "Worcester College",
+          "nameCn": "伍斯特学院",
+          "year": 1714,
+          "lat": 51.7548,
+          "lng": -1.2638,
+          "note": "1714 年创办；以园林与湖泊著称。"
+        },
+        {
+          "rank": 21,
+          "name": "Hertford College",
+          "nameCn": "赫特福德学院",
+          "year": 1740,
+          "lat": 51.7542,
+          "lng": -1.2531,
+          "note": "1740 年；以「叹息桥」连接两栋楼闻名。"
+        },
+        {
+          "rank": 22,
+          "name": "Harris Manchester College",
+          "nameCn": "哈里斯曼彻斯特学院",
+          "year": 1786,
+          "lat": 51.7565,
+          "lng": -1.2525,
+          "note": "面向成年学生（21 岁以上）。"
+        },
+        {
+          "rank": 23,
+          "name": "Keble College",
+          "nameCn": "基布尔学院",
+          "year": 1870,
+          "lat": 51.7585,
+          "lng": -1.2575,
+          "note": "1870 年创办；维多利亚红砖建筑标志。"
+        },
+        {
+          "rank": 24,
+          "name": "Lady Margaret Hall",
+          "nameCn": "玛格丽特夫人学堂",
+          "year": 1878,
+          "lat": 51.7635,
+          "lng": -1.259,
+          "note": "牛津首座女子学院。"
+        },
+        {
+          "rank": 25,
+          "name": "Somerville College",
+          "nameCn": "萨默维尔学院",
+          "year": 1879,
+          "lat": 51.7585,
+          "lng": -1.262,
+          "note": "女子学院起源；撒切尔等校友。"
+        },
+        {
+          "rank": 26,
+          "name": "Mansfield College",
+          "nameCn": "曼斯菲尔德学院",
+          "year": 1886,
+          "lat": 51.7573,
+          "lng": -1.254,
+          "note": "1886 年；国际化氛围。"
+        },
+        {
+          "rank": 27,
+          "name": "St Hugh's College",
+          "nameCn": "圣休学院",
+          "year": 1886,
+          "lat": 51.764,
+          "lng": -1.264,
+          "note": "1886 年创办的（原）女子学院。"
+        },
+        {
+          "rank": 28,
+          "name": "St Hilda's College",
+          "nameCn": "圣希尔达学院",
+          "year": 1893,
+          "lat": 51.7488,
+          "lng": -1.244,
+          "note": "牛津最后一所招收女生的女子学院（2008 起男女兼收）。"
+        },
+        {
+          "rank": 29,
+          "name": "St Peter's College",
+          "nameCn": "圣彼得学院",
+          "year": 1929,
+          "lat": 51.7532,
+          "lng": -1.26,
+          "note": "1929 年创办。"
+        },
+        {
+          "rank": 30,
+          "name": "Nuffield College",
+          "nameCn": "纳菲尔德学院",
+          "year": 1937,
+          "lat": 51.753,
+          "lng": -1.264,
+          "note": "社会科学研究生学院。"
+        },
+        {
+          "rank": 31,
+          "name": "St Antony's College",
+          "nameCn": "圣安东尼学院",
+          "year": 1950,
+          "lat": 51.7615,
+          "lng": -1.2625,
+          "note": "国际关系与区域研究的研究生学院。"
+        },
+        {
+          "rank": 32,
+          "name": "St Anne's College",
+          "nameCn": "圣安妮学院",
+          "year": 1952,
+          "lat": 51.7615,
+          "lng": -1.2615,
+          "note": "由女子学堂发展而来。"
+        },
+        {
+          "rank": 33,
+          "name": "St Catherine's College",
+          "nameCn": "圣凯瑟琳学院",
+          "year": 1962,
+          "lat": 51.756,
+          "lng": -1.244,
+          "note": "现代主义建筑名作（Arne Jacobsen 设计）。"
+        },
+        {
+          "rank": 34,
+          "name": "Linacre College",
+          "nameCn": "利纳克学院",
+          "year": 1962,
+          "lat": 51.76,
+          "lng": -1.2505,
+          "note": "纯研究生学院，重可持续。"
+        },
+        {
+          "rank": 35,
+          "name": "Wolfson College",
+          "nameCn": "沃尔夫森学院",
+          "year": 1966,
+          "lat": 51.768,
+          "lng": -1.253,
+          "note": "研究生学院，河畔。"
+        },
+        {
+          "rank": 36,
+          "name": "Kellogg College",
+          "nameCn": "凯洛格学院",
+          "year": 1990,
+          "lat": 51.7605,
+          "lng": -1.266,
+          "note": "继续教育与在职研究生最大学院。"
+        },
+        {
+          "rank": 37,
+          "name": "Green Templeton College",
+          "nameCn": "格林坦普顿学院",
+          "year": 2008,
+          "lat": 51.7625,
+          "lng": -1.2655,
+          "note": "2008 年由两院合并；医学与管理。"
+        },
+        {
+          "rank": 38,
+          "name": "Reuben College",
+          "nameCn": "鲁本学院",
+          "year": 2019,
+          "lat": 51.7558,
+          "lng": -1.2505,
+          "note": "牛津最新学院，2019 年成立。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Department of Physics – Clarendon Laboratory & Beecroft Building",
+          "nameCn": "物理系——克拉伦登实验室及比克罗夫特楼",
+          "lat": 51.7588,
+          "lng": -1.262,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球顶尖物理系，比克罗夫特楼地下16米超低振动量子实验室为牛津最深，2018年由Berners-Lee揭幕"
+        },
+        {
+          "name": "Department of Chemistry – South Parks Road Complex",
+          "nameCn": "化学系——南帕克斯路综合楼群",
+          "lat": 51.7581,
+          "lng": -1.2531,
+          "rank": 2,
+          "tier": "必去",
+          "note": "牛津化学系位居全球前5，含有机化学、无机化学、物理化学等多栋实验楼，诺贝尔奖得主辈出"
+        },
+        {
+          "name": "Mathematical Institute – Andrew Wiles Building",
+          "nameCn": "数学研究所——安德鲁·怀尔斯楼",
+          "lat": 51.7586,
+          "lng": -1.2618,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2013年建成，入口铺有彭罗斯（Roger Penrose）设计的非周期铺砌图案，英国最大数学系之一"
+        },
+        {
+          "name": "Saïd Business School – Park End Street",
+          "nameCn": "赛德商学院",
+          "lat": 51.7536,
+          "lng": -1.2706,
+          "rank": 4,
+          "tier": "必去",
+          "note": "牛津MBA旗舰院校，紧邻火车站，全球排名前20，建筑由英国知名建筑师Jeremy Dixon设计"
+        },
+        {
+          "name": "Faculty of Law – St Cross Building",
+          "nameCn": "法学院——圣十字楼",
+          "lat": 51.7557,
+          "lng": -1.2494,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "牛津法学院主楼，位于芒斯路，培养出众多英国首相和最高法院法官"
+        },
+        {
+          "name": "Schwarzman Centre for the Humanities",
+          "nameCn": "施瓦茨曼人文研究中心",
+          "lat": 51.7582,
+          "lng": -1.2622,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2025年10月落成，七大人文学院（英语、历史、哲学等）首次同栋，含电影院、展览厅及新人文图书馆"
+        },
+        {
+          "name": "Blavatnik School of Government",
+          "nameCn": "布拉瓦特尼克政府学院",
+          "lat": 51.7578,
+          "lng": -1.263,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2015年开放，Radcliffe Observatory Quarter内，专注公共政策与领导力，建筑由Herzog & de Meuron设计"
+        },
+        {
+          "name": "Oxford University Museum of Natural History",
+          "nameCn": "牛津大学自然历史博物馆（学术楼）",
+          "lat": 51.7601,
+          "lng": -1.2564,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "维多利亚哥特风铁骨玻璃穹顶建筑，同时作为地球科学、动物学系教学场地，标志性学术地标"
+        },
+        {
+          "name": "Department of Engineering Science – Thom Building",
+          "nameCn": "工程科学系——汤姆楼",
+          "lat": 51.76,
+          "lng": -1.2552,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "牛津工科核心教学楼，位于科学区南帕克斯路，涵盖信息工程、生物医学工程等多学科"
+        },
+        {
+          "name": "Social Science Library / Manor Road Building",
+          "nameCn": "社会科学图书馆暨芒斯路楼（社科系）",
+          "lat": 51.7558,
+          "lng": -1.2469,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "经济系、政治学系、国际关系系主要教学楼及图书馆，是PPE专业学生的学术中心"
+        },
+        {
+          "name": "Examination Schools",
+          "nameCn": "考试学校（大礼堂）",
+          "lat": 51.7521,
+          "lng": -1.25,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "高街上壮观的维多利亚建筑，是全校最终考试（Finals）举办地，也举办毕业典礼等重大活动"
+        },
+        {
+          "name": "Radcliffe Observatory Quarter",
+          "nameCn": "拉德克利夫天文台区",
+          "lat": 51.7595,
+          "lng": -1.2625,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "旧医院改造的10英亩校园新区，汇聚数学、政府、人文等新建学术楼，是牛津近年最大校园扩建"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Bodleian Old Library (Bodleian Libraries – Main Complex)",
+          "nameCn": "博德利图书馆（主馆）",
+          "lat": 51.7541,
+          "lng": -1.254,
+          "rank": 1,
+          "tier": "必去",
+          "note": "欧洲最古老大学图书馆之一，1602年正式开放，Duke Humfrey's Library和学校四合院是哈利·波特取景地，需读者证方可入馆阅览"
+        },
+        {
+          "name": "Radcliffe Camera",
+          "nameCn": "拉德克利夫阅览室",
+          "lat": 51.7534,
+          "lng": -1.254,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1749年建成的圆形巴洛克建筑，牛津最具代表性的地标之一，现为博德利图书馆阅览室，凭学生证免费阅览"
+        },
+        {
+          "name": "Weston Library",
+          "nameCn": "韦斯顿图书馆",
+          "lat": 51.7545,
+          "lng": -1.2554,
+          "rank": 3,
+          "tier": "必去",
+          "note": "博德利主馆旁的现代展览中心，珍藏古代手稿及珍本，设有对公众免费的展览，周一至周六开放"
+        },
+        {
+          "name": "Radcliffe Science Library",
+          "nameCn": "拉德克利夫科学图书馆",
+          "lat": 51.7595,
+          "lng": -1.2564,
+          "rank": 4,
+          "tier": "必去",
+          "note": "牛津理工科核心图书馆，位于科学区帕克斯路，馆藏涵盖物理、化学、生物、工程，24小时学生阅览区"
+        },
+        {
+          "name": "Social Science Library",
+          "nameCn": "社会科学图书馆",
+          "lat": 51.7558,
+          "lng": -1.2469,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于芒斯路大楼，馆藏涵盖经济学、政治学、社会学、法律，是PPE及社科研究生的主要学习空间"
+        },
+        {
+          "name": "Taylor Institution Library",
+          "nameCn": "泰勒研究所图书馆",
+          "lat": 51.7543,
+          "lng": -1.2588,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "欧洲大陆语言及文学专科图书馆，位于圣吉尔斯街，是现代语言及中文研究必备参考资源"
+        },
+        {
+          "name": "Vere Harmsworth Library (Rothermere American Institute)",
+          "nameCn": "维尔·哈姆斯沃思图书馆",
+          "lat": 51.756,
+          "lng": -1.2492,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "美国研究专科馆，位于曼斯菲尔德路，馆藏完善，研究生亦可申请借阅权"
+        },
+        {
+          "name": "Schwarzman Centre Humanities Library",
+          "nameCn": "施瓦茨曼人文图书馆",
+          "lat": 51.7582,
+          "lng": -1.2622,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "2025年新建，整合人文学院七大学科资源，馆藏超百万册，拥有最先进的数字研究设施"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Ashmolean Museum of Art and Archaeology",
+          "nameCn": "阿什莫尔博物馆",
+          "lat": 51.7543,
+          "lng": -1.2602,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1683年建立，英国第一座公共博物馆，免费入场，馆藏从古埃及木乃伊到印象派绘画，必看拉斐尔素描和中国陶瓷"
+        },
+        {
+          "name": "Oxford University Museum of Natural History",
+          "nameCn": "牛津大学自然历史博物馆",
+          "lat": 51.7601,
+          "lng": -1.2564,
+          "rank": 2,
+          "tier": "必去",
+          "note": "免费入场，维多利亚哥特铁骨玻璃建筑，展有牛津渡渡鸟标本和霸王龙化石，是当年达尔文进化论大辩论发生地"
+        },
+        {
+          "name": "Pitt Rivers Museum",
+          "nameCn": "皮特·里弗斯博物馆",
+          "lat": 51.7596,
+          "lng": -1.2551,
+          "rank": 3,
+          "tier": "必去",
+          "note": "免费入场，藏有逾50万件全球文物，昏暗陈列柜充满探险感，从自然历史博物馆后门直接进入"
+        },
+        {
+          "name": "Museum of the History of Science",
+          "nameCn": "科学史博物馆",
+          "lat": 51.7543,
+          "lng": -1.2553,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "免费入场，位于宽街，馆藏包含爱因斯坦亲用黑板、刘易斯·卡罗尔相机等稀世科学仪器，规模小而精"
+        },
+        {
+          "name": "Modern Art Oxford",
+          "nameCn": "牛津现代艺术馆",
+          "lat": 51.7508,
+          "lng": -1.2567,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于彭布罗克街，展览常换新，展示当代实验艺术，免费入场，是牛津艺术圈的活跃据点"
+        },
+        {
+          "name": "Christ Church Picture Gallery",
+          "nameCn": "基督堂学院画廊",
+          "lat": 51.7498,
+          "lng": -1.2548,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "珍藏达·芬奇、米开朗基罗等大师真迹与素描，入场费约5镑，需从奥里尔广场旁坎特伯雷门进入"
+        },
+        {
+          "name": "Museum of Oxford",
+          "nameCn": "牛津博物馆",
+          "lat": 51.7515,
+          "lng": -1.2575,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于市政厅内，免费入场，讲述牛津城市发展史和市民生活，了解本地人视角的好去处"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "Radcliffe Camera",
+          "nameCn": "拉德克利夫相机楼（地标）",
+          "lat": 51.7534,
+          "lng": -1.254,
+          "rank": 1,
+          "tier": "必去",
+          "note": "牛津最具辨识度的圆形图书馆，詹姆斯·吉布斯1749年设计，拍照打卡首选，是一切牛津明信片上的主角"
+        },
+        {
+          "name": "Bodleian Library & Schools Quadrangle",
+          "nameCn": "博德利图书馆四合院",
+          "lat": 51.7541,
+          "lng": -1.2543,
+          "rank": 2,
+          "tier": "必去",
+          "note": "《哈利·波特》霍格沃茨取景地，导览票约15镑可进入Duke Humfrey's Library，提前在官网预购"
+        },
+        {
+          "name": "Sheldonian Theatre",
+          "nameCn": "谢尔登尼安剧场",
+          "lat": 51.7543,
+          "lng": -1.255,
+          "rank": 3,
+          "tier": "必去",
+          "note": "克里斯托弗·雷恩设计，1669年建成，是牛津颁授学位典礼的官方场所，屋顶露台可俯瞰历史街区"
+        },
+        {
+          "name": "Carfax Tower",
+          "nameCn": "卡法克斯塔",
+          "lat": 51.752,
+          "lng": -1.2578,
+          "rank": 4,
+          "tier": "必去",
+          "note": "12世纪圣马丁教堂遗留塔楼，爬99级台阶可360度俯瞰牛津全景，门票约5镑，位于城市中心十字路口"
+        },
+        {
+          "name": "Bridge of Sighs (Hertford Bridge)",
+          "nameCn": "叹息桥（赫特福德桥）",
+          "lat": 51.7545,
+          "lng": -1.2538,
+          "rank": 5,
+          "tier": "必去",
+          "note": "横跨新学院路的天桥，仿威尼斯叹息桥造型，是新学院路步行时最受欢迎的拍照打卡点"
+        },
+        {
+          "name": "Oxford Union Society",
+          "nameCn": "牛津大学学生辩论会",
+          "lat": 51.7538,
+          "lng": -1.2628,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "创立于1823年，全球最负盛名的学生辩论社，前来演讲者包括多位美国总统和诺贝尔奖得主，会员可参加全部活动"
+        },
+        {
+          "name": "Oxford University Students' Union (Oxford SU)",
+          "nameCn": "牛津大学学生会",
+          "lat": 51.7533,
+          "lng": -1.2628,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于伍斯特街4号，紧邻格洛斯特绿车站，提供法律建议、心理辅导、签证协助等学生服务，是国际生必知资源"
+        },
+        {
+          "name": "Oxford Covered Market",
+          "nameCn": "牛津室内市场",
+          "lat": 51.7525,
+          "lng": -1.2558,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "1774年开业至今，共130余个商铺，有奶酪摊、肉铺、花店、咖啡馆，是牛津人日常购物的市井空间，A Taste of China也在此"
+        },
+        {
+          "name": "Gloucester Green Market & Bus Station",
+          "nameCn": "格洛斯特绿广场暨市集",
+          "lat": 51.7535,
+          "lng": -1.2631,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "周三及周六有露天市集，长途巴士站在此，是前往伦敦维多利亚（National Express/Oxford Tube）的出发点"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sainsbury's – Westgate Shopping Centre",
+          "nameCn": "塞恩斯伯里——韦斯特盖特购物中心",
+          "lat": 51.751,
+          "lng": -1.2618,
+          "rank": 1,
+          "tier": "必去",
+          "note": "城中心最近的大型超市，西盖特购物中心内，食材齐全，学生证可申请Nectar积分，步行可达"
+        },
+        {
+          "name": "Lung Wah Chong Chinese Supermarket",
+          "nameCn": "龙华昌中国超市",
+          "lat": 51.7533,
+          "lng": -1.2663,
+          "rank": 2,
+          "tier": "必去",
+          "note": "牛津第一家东方超市（1987年），41-42 Hythe Bridge Street，食材品类最全，酱料、米面、冻品应有尽有，中国留学生首选"
+        },
+        {
+          "name": "Jiamart Asian Supermarket",
+          "nameCn": "佳超市（Jiamart亚洲超市）",
+          "lat": 51.7531,
+          "lng": -1.2613,
+          "rank": 3,
+          "tier": "必去",
+          "note": "18 New Inn Hall Street，步行至博德利仅3分钟，生鲜蔬菜种类较多，价格实惠，中式食材补给便利"
+        },
+        {
+          "name": "Waitrose – Botley Road",
+          "nameCn": "维特罗斯——博特利路",
+          "lat": 51.7511,
+          "lng": -1.279,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "110-120 Botley Road，优质品牌超市，熟食、奶酪、葡萄酒选择丰富，骑车约10分钟，适合周末采购"
+        },
+        {
+          "name": "Tesco Express – Cowley Road",
+          "nameCn": "特易购便利店——考利路",
+          "lat": 51.7465,
+          "lng": -1.2392,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "159-161 Cowley Road，考利路上开至深夜，是东区学生日常补给的便利首选，价格亲民"
+        },
+        {
+          "name": "Jing Jing Oriental Food Store",
+          "nameCn": "晶晶东方食品店",
+          "lat": 51.7468,
+          "lng": -1.239,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "188 Cowley Road，东南亚食材和冷冻海鲜品类好，是考利路一带学生获取亚洲食材的常去之处"
+        },
+        {
+          "name": "M&S Simply Food – Oxford Station",
+          "nameCn": "玛莎百货食品区——牛津火车站",
+          "lat": 51.7537,
+          "lng": -1.2693,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "牛津火车站旁，营业时间长，熟食沙拉三明治品质高，进出城时补给方便"
+        },
+        {
+          "name": "Thong Heng Asian Supermarket",
+          "nameCn": "通兴亚洲超市（黑丁顿）",
+          "lat": 51.7619,
+          "lng": -1.2143,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于黑丁顿（Headington），东亚食材品类丰富，适合住在东区或John Radcliffe医院附近的学生"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Zheng Chinese Restaurant",
+          "nameCn": "郑——中马来融合中餐厅",
+          "lat": 51.7562,
+          "lng": -1.267,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "82 Walton Street，被美食评论家Giles Coren及名厨Ken Hom点名推荐，融合川、粤、马来风味，点心出色，牛津华人留学生公认中餐No.1"
+        },
+        {
+          "name": "Sichuan Grand",
+          "nameCn": "四川大酒楼",
+          "lat": 51.7534,
+          "lng": -1.2629,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "格洛斯特绿旧校舍内，正宗四川菜，麻辣锅底和水煮鱼受中国留学生强烈推荐，价格学生友好（人均约15镑）"
+        },
+        {
+          "name": "A Taste of China (三秦百味)",
+          "nameCn": "三秦百味（室内市场内）",
+          "lat": 51.7525,
+          "lng": -1.2556,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "室内市场51号摊位，陕西Biangbiang面和肉夹馍，是中国学生解乡愁首选，座位极少以外卖为主，人均约8镑"
+        },
+        {
+          "name": "Zhang Ji (章记)",
+          "nameCn": "章记美食",
+          "lat": 51.7469,
+          "lng": -1.2392,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "170 Cowley Road，北方手工拉面、猪蹄正宗，是留学生圈口耳相传的家常味道，Uber Eats亦可点"
+        },
+        {
+          "name": "New Dancing Dragon Bar & Restaurant",
+          "nameCn": "新舞龙餐厅",
+          "lat": 51.7463,
+          "lng": -1.234,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "北京街头风味，辣牛肉麻辣红油等招牌菜受好评，食材多样含内脏类，是探索正宗中式口味的好选择"
+        },
+        {
+          "name": "Jin Jin Chinese Restaurant",
+          "nameCn": "金金中餐厅",
+          "lat": 51.7472,
+          "lng": -1.2379,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "考利路O2学院对面，粤菜炒饭外卖便宜实惠，双人套餐约20镑，是预算有限时的中餐好选择"
+        },
+        {
+          "name": "Oli's Thai",
+          "nameCn": "奥利泰国餐厅",
+          "lat": 51.7471,
+          "lng": -1.2363,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "考利路最受推崇的亚洲餐厅之一，鸭肉Penang咖喱和清蒸海鲈获赞，供应正宗泰式料理，价格合理"
+        },
+        {
+          "name": "Arbequina",
+          "nameCn": "阿尔贝基纳西班牙小馆",
+          "lat": 51.7474,
+          "lng": -1.2368,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "考利路被誉为牛津最佳餐厅之一，西班牙Tapas风格，食材当季，人均约25镑，适合庆祝特殊场合"
+        },
+        {
+          "name": "Sasi's Thai – Covered Market",
+          "nameCn": "莎西泰国菜（室内市场）",
+          "lat": 51.7523,
+          "lng": -1.256,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "室内市场内的学生最爱，价格极为实惠（人均约8镑），供应正宗泰式咖喱，周一至周六午市"
+        },
+        {
+          "name": "The Coconut Tree",
+          "nameCn": "椰子树斯里兰卡餐厅",
+          "lat": 51.7468,
+          "lng": -1.2361,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "考利路的斯里兰卡风情餐厅，椰奶咖喱以海鲜和蔬菜为主，口味浓郁，亚洲饮食爱好者必访"
+        },
+        {
+          "name": "Xi'An Restaurant",
+          "nameCn": "西安餐厅（萨默敦）",
+          "lat": 51.772,
+          "lng": -1.262,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "位于Summertown的西安风味小馆，柠檬鸡和脆皮鸭最受欢迎，菜单精简而品质稳定"
+        },
+        {
+          "name": "Delhish Vegan Indian Street Food",
+          "nameCn": "德利什印度素食街头小吃",
+          "lat": 51.747,
+          "lng": -1.2355,
+          "rank": 12,
+          "tier": "一般",
+          "note": "考利路的全素印度街头小吃，口味独特，素食/纯素学生友好，是中式外的亚洲风味代表之一"
+        },
+        {
+          "name": "Lula's Ethiopian Restaurant",
+          "nameCn": "露拉埃塞俄比亚餐厅",
+          "lat": 51.7475,
+          "lng": -1.2362,
+          "rank": 13,
+          "tier": "一般",
+          "note": "考利路上的埃塞俄比亚风味，份量足价格低，是感受牛津多元文化饮食的典型体验"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Barclays Bank – Cornmarket Street",
+          "nameCn": "巴克莱银行——玉米市街",
+          "lat": 51.7525,
+          "lng": -1.2568,
+          "rank": 1,
+          "tier": "必去",
+          "note": "54 Cornmarket Street，设有学生专属顾问，可开设国际生银行账户，是中国留学生开户最推荐的银行之一"
+        },
+        {
+          "name": "HSBC – Cornmarket Street",
+          "nameCn": "汇丰银行——玉米市街",
+          "lat": 51.7524,
+          "lng": -1.2572,
+          "rank": 2,
+          "tier": "必去",
+          "note": "65 Cornmarket Street，对中国学生较为友好，HSBC全球账户互通，周一至周六有学生顾问，开户所需文件较少"
+        },
+        {
+          "name": "John Radcliffe Hospital – Emergency Department",
+          "nameCn": "约翰·拉德克利夫医院——急诊",
+          "lat": 51.7633,
+          "lng": -1.2208,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Headley Way, Headington，牛津最主要的NHS医院，24小时急诊，医院内设药房，乘11/U1路公交约25分钟可达"
+        },
+        {
+          "name": "Jericho Health Centre (Observatory Medical Practice)",
+          "nameCn": "杰里科健康中心（GP诊所）",
+          "lat": 51.758,
+          "lng": -1.267,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于北牛津，是多所学院的指定GP，可通过CampusDoctor在线注册（campusdoctor.co.uk/oxford），强烈建议开学第一周完成注册"
+        },
+        {
+          "name": "Boots Pharmacy – Cornmarket Street",
+          "nameCn": "博姿药房——玉米市街",
+          "lat": 51.7523,
+          "lng": -1.257,
+          "rank": 5,
+          "tier": "必去",
+          "note": "6-8 Cornmarket Street，城中心最大连锁药房，周一至周六8am-8pm，处方药平取、OTC药品和护理用品齐全"
+        },
+        {
+          "name": "Vodafone – Cornmarket Street",
+          "nameCn": "Vodafone手机运营商——玉米市街",
+          "lat": 51.7524,
+          "lng": -1.2573,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "11-12 Cornmarket Street，Vodafone信号覆盖广，SIM卡套餐灵活，是留学生到英第一张SIM的热门选择"
+        },
+        {
+          "name": "EE (Mobile) – Cornmarket / Clarendon Centre",
+          "nameCn": "EE手机运营商——克拉伦登购物中心",
+          "lat": 51.7527,
+          "lng": -1.2575,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "42 Cornmarket Street，EE是英国网速最快的4G/5G运营商，学生套餐性价比高，推荐要求流量的同学"
+        },
+        {
+          "name": "Lloyds Bank – High Street",
+          "nameCn": "劳埃德银行——高街",
+          "lat": 51.7521,
+          "lng": -1.2548,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1-5 High Street，设专属学生团队，国际生可开基本账户再升级，开户接受大学录取通知书作为地址证明"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Punting on the River Cherwell (Magdalen Bridge Boathouse)",
+          "nameCn": "切韦尔河撑篙游船",
+          "lat": 51.7514,
+          "lng": -1.2459,
+          "rank": 1,
+          "tier": "必去",
+          "note": "牛津留学生必体验！从莫德林桥出发可沿河欣赏植物园、基督堂草地，租船约£25/小时，春夏必玩"
+        },
+        {
+          "name": "Oxford Botanic Garden",
+          "nameCn": "牛津植物园",
+          "lat": 51.7502,
+          "lng": -1.2476,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英国最古老植物园（1621年），高街尽头，门票约6镑，《黑质》（His Dark Materials）原著取景地，春天尤为美丽"
+        },
+        {
+          "name": "Blenheim Palace (Woodstock)",
+          "nameCn": "布莱尼姆宫（伍德斯托克）",
+          "lat": 51.8414,
+          "lng": -1.3617,
+          "rank": 3,
+          "tier": "必去",
+          "note": "世界文化遗产，丘吉尔出生地，距牛津约13公里，乘S3巴士30-40分钟，宫殿+公园门票约28镑，乘巴士可享8折"
+        },
+        {
+          "name": "University Parks",
+          "nameCn": "大学公园",
+          "lat": 51.7614,
+          "lng": -1.254,
+          "rank": 4,
+          "tier": "必去",
+          "note": "70英亩开阔绿地，紧邻科学区，是学生野餐、跑步和板球赛的常去之处，全年免费开放"
+        },
+        {
+          "name": "Cowley Road",
+          "nameCn": "考利路多元文化街区",
+          "lat": 51.7469,
+          "lng": -1.237,
+          "rank": 5,
+          "tier": "必去",
+          "note": "牛津最多元的街道，聚集十余种国籍餐厅、二手店、O2学院演出场所和亚洲超市，被称为「牛津的波西米亚心脏」"
+        },
+        {
+          "name": "Christ Church College & Meadow",
+          "nameCn": "基督堂学院及草地",
+          "lat": 51.7496,
+          "lng": -1.2557,
+          "rank": 6,
+          "tier": "必去",
+          "note": "《爱丽丝梦游仙境》诞生地、哈利·波特大礼堂原型，草地漫步免费，学院需买票入场（约10镑），必拍玫瑰花境"
+        },
+        {
+          "name": "Port Meadow",
+          "nameCn": "港口草甸",
+          "lat": 51.7695,
+          "lng": -1.2779,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "泰晤士河畔数千年历史的古老牧场，牛羊自由漫步，骑车15分钟可达，是逃离校园压力的解压绝佳去处"
+        },
+        {
+          "name": "Oxford Castle & Prison",
+          "nameCn": "牛津城堡与监狱",
+          "lat": 51.7518,
+          "lng": -1.2631,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "千年历史的诺曼城堡，现可参加导览游览监狱旧址，成人票约15镑，含地道牛津历史故事"
+        },
+        {
+          "name": "Bodleian Library Tour (inside access)",
+          "nameCn": "博德利图书馆内部导览",
+          "lat": 51.7541,
+          "lng": -1.2543,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "购票约£15可进入平时不对外开放的Duke Humfrey's Library，是Harry Potter场景原址，需提前在官网预订"
+        },
+        {
+          "name": "Abingdon Town Centre",
+          "nameCn": "阿宾顿古城中心",
+          "lat": 51.6737,
+          "lng": -1.2826,
+          "rank": 10,
+          "tier": "可选",
+          "note": "距牛津约20分钟巴士（X13路），英国最古老的镇之一，有中世纪市场大厅和泰晤士河畔漫步，适合悠闲半日游"
+        }
+      ]
+    }
+  ]
+}

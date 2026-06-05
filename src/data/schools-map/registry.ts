@@ -1,13 +1,13 @@
 // Registry of detail/region scenes for the schools map.
 //
-// Architecture = one base + several specials:
-//   • SPECIAL (hand-written TS): collegiate timelines (cambridge, oxford), region scenes (london).
-//   • BASE (generated JSON): generic campus scenes under ./generated/*.json — drop a file to add a
-//     school; it is auto-discovered here. Produced by the uk-school-scenes workflow.
+// Architecture = one base + one special (functionalist: same scene model, features toggled on/off):
+//   • BASE (generated JSON): EVERY school scene under ./generated/*.json — auto-discovered here.
+//     Cambridge/Oxford are ordinary generated scenes that simply ALSO carry a `collegeTimeline`
+//     feature on top of the usual zones + ranked pointLayers — the timeline is just a feature that
+//     happens to be "on" for them. Drop a JSON to add a school.
+//   • SPECIAL (hand-written TS): only the region scene (london), which carries transit + commute.
 
 import type { SchoolsMapScene } from './types';
-import cambridge from './detail/cambridge';
-import oxford from './detail/oxford';
 import london from './detail/london';
 
 const generatedModules = import.meta.glob('./generated/*.json', { eager: true }) as Record<string, any>;
@@ -17,8 +17,8 @@ for (const path in generatedModules) {
   if (scene && scene.id) generated[scene.id] = scene;
 }
 
-// Hand-written specials win over generated if an id ever collides.
-export const SCENES: Record<string, SchoolsMapScene> = { ...generated, cambridge, oxford, london };
+// The region special (london) is merged on top of the generated scenes.
+export const SCENES: Record<string, SchoolsMapScene> = { ...generated, london };
 
 export const SCENE_IDS = Object.keys(SCENES);
 

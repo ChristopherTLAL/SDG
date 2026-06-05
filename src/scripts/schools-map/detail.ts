@@ -37,7 +37,7 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
   const toggleRegistry: { input: HTMLInputElement; cb: (on: boolean) => void; defaultOn: boolean }[] = [];
   let topN = DEFAULT_TOPN;
   const hasRanked = pointLayers.some(isRankedLayer);
-  const useRankedList = !colleges && hasRanked; // colleges keep the list when present
+  const useRankedList = hasRanked; // ranked POI groups feed the list — alongside colleges when present
 
   // Recompute visibility for every ranked entry from (toggleOn && rank <= topN). Pure style
   // flips (opacity/pointer-events/tooltip/list-row) — no add/removeLayer, no DOM rebuild.
@@ -74,6 +74,13 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       e.row.classList.toggle('hot', on);
       e.m.setZIndexOffset(on ? 1000 : 0);
     };
+    // when ranked POI groups will also fill the list, label the colleges as their own group
+    if (listEl && hasRanked) {
+      const ch = document.createElement('div');
+      ch.className = 'smap-list-grp';
+      ch.innerHTML = `<span class="smap-grp-dot" style="background:#4338ca"></span>${esc(colleges.label || '学院 Colleges')}`;
+      listEl.appendChild(ch);
+    }
     items.forEach((c) => {
       const era = eraOf(c.year);
       const icon = L.divIcon({ className: 'smap-col-marker', html: `<div class="cm" style="background:${era.color}">${c.rank}</div>`, iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -14] });
@@ -153,7 +160,10 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
     if (catRows) catRows.appendChild(makeToggleRow(z.color, '<span class="material-symbols-outlined">workspaces</span>', z.label, String(z.items.length), z.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }, toggleRegistry));
   });
 
-  if (useRankedList) {
+  if (colleges && hasRanked) {
+    if (listTitle) listTitle.textContent = '清单';
+    if (listSub) listSub.textContent = '学院按建院年代 · 其余按热度 · 点击定位';
+  } else if (useRankedList) {
     if (listTitle) listTitle.textContent = '推荐清单';
     if (listSub) listSub.textContent = '按热度排序 · 点击在地图上定位';
   }

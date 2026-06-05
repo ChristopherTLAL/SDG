@@ -1,0 +1,1069 @@
+{
+  "id": "cambridge",
+  "type": "school",
+  "name": "University of Cambridge",
+  "nameCn": "剑桥大学",
+  "city": "Cambridge",
+  "center": [
+    52.2045,
+    0.118
+  ],
+  "zoom": 15,
+  "blurb": "31 所学院按建院先后编号、按年代配色。拖动 / 播放时间轴看七百年扩张；勾选叠加院系、博物馆、图书馆、地标。",
+  "features": [
+    {
+      "kind": "zone",
+      "label": "校区 / 区域",
+      "color": "#16a34a",
+      "items": [
+        {
+          "name": "Central Colleges & The Backs",
+          "nameCn": "市中心学院区与剑河后园",
+          "lat": 52.205,
+          "lng": 0.116,
+          "radius": 750,
+          "note": "多数历史学院与剑河「后园」集中的核心区。"
+        },
+        {
+          "name": "West Cambridge Site",
+          "nameCn": "西剑桥科技园区",
+          "lat": 52.2108,
+          "lng": 0.09,
+          "radius": 600,
+          "note": "计算机、卡文迪许物理、材料等理工新区。"
+        },
+        {
+          "name": "Cambridge Biomedical Campus",
+          "nameCn": "生物医学园区",
+          "lat": 52.1748,
+          "lng": 0.1394,
+          "radius": 600,
+          "note": "临床医学院与 Addenbrooke's 医院，位于城南。"
+        },
+        {
+          "name": "Downing / New Museums Sites",
+          "nameCn": "唐宁 / 新博物馆理科区",
+          "lat": 52.2028,
+          "lng": 0.1208,
+          "radius": 260,
+          "note": "生命与地球科学等系所集中地。"
+        }
+      ]
+    },
+    {
+      "kind": "collegeTimeline",
+      "label": "学院 Colleges",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Peterhouse",
+          "nameCn": "彼得学院",
+          "year": 1284,
+          "lat": 52.2008,
+          "lng": 0.117,
+          "note": "剑桥最古老的学院，1284 年由伊利主教 Hugh de Balsham 创办。"
+        },
+        {
+          "rank": 2,
+          "name": "Clare College",
+          "nameCn": "克莱尔学院",
+          "year": 1326,
+          "lat": 52.2049,
+          "lng": 0.1157,
+          "note": "1326 年创办，原名 University Hall；剑河畔的古老学院。"
+        },
+        {
+          "rank": 3,
+          "name": "Pembroke College",
+          "nameCn": "彭布罗克学院",
+          "year": 1347,
+          "lat": 52.2018,
+          "lng": 0.1184,
+          "note": "1347 年由 Marie de St Pol 创办；礼拜堂为 Christopher Wren 早期作品。"
+        },
+        {
+          "rank": 4,
+          "name": "Gonville & Caius",
+          "nameCn": "冈维尔与凯斯学院",
+          "year": 1348,
+          "lat": 52.2061,
+          "lng": 0.1174,
+          "note": "1348 年创办，1557 年由医师 John Caius 重建；医学与诺奖传统深厚。"
+        },
+        {
+          "rank": 5,
+          "name": "Trinity Hall",
+          "nameCn": "三一学堂",
+          "year": 1350,
+          "lat": 52.2056,
+          "lng": 0.1161,
+          "note": "1350 年创办；以法律传统著称。"
+        },
+        {
+          "rank": 6,
+          "name": "Corpus Christi",
+          "nameCn": "基督圣体学院",
+          "year": 1352,
+          "lat": 52.2031,
+          "lng": 0.118,
+          "note": "1352 年由市民行会创办；藏有著名的 Parker Library。"
+        },
+        {
+          "rank": 7,
+          "name": "King's College",
+          "nameCn": "国王学院",
+          "year": 1441,
+          "lat": 52.2044,
+          "lng": 0.1164,
+          "note": "1441 年由亨利六世创办；国王学院礼拜堂与圣诞颂歌闻名世界。"
+        },
+        {
+          "rank": 8,
+          "name": "Queens' College",
+          "nameCn": "女王学院",
+          "year": 1448,
+          "lat": 52.2025,
+          "lng": 0.1158,
+          "note": "1448 年创办；横跨剑河，以「数学桥」著称。"
+        },
+        {
+          "rank": 9,
+          "name": "St Catharine's",
+          "nameCn": "圣凯瑟琳学院",
+          "year": 1473,
+          "lat": 52.2035,
+          "lng": 0.1174,
+          "note": "1473 年创办；坐落于国王大道旁。"
+        },
+        {
+          "rank": 10,
+          "name": "Jesus College",
+          "nameCn": "耶稣学院",
+          "year": 1496,
+          "lat": 52.2095,
+          "lng": 0.1228,
+          "note": "1496 年创办；园林开阔，运动传统强。"
+        },
+        {
+          "rank": 11,
+          "name": "Christ's College",
+          "nameCn": "基督学院",
+          "year": 1505,
+          "lat": 52.2058,
+          "lng": 0.1223,
+          "note": "1505 年创办；校友包括达尔文与弥尔顿。"
+        },
+        {
+          "rank": 12,
+          "name": "St John's College",
+          "nameCn": "圣约翰学院",
+          "year": 1511,
+          "lat": 52.2088,
+          "lng": 0.1173,
+          "note": "1511 年创办；以「叹息桥」闻名，规模庞大而富有。"
+        },
+        {
+          "rank": 13,
+          "name": "Magdalene",
+          "nameCn": "抹大拉学院",
+          "year": 1542,
+          "lat": 52.2103,
+          "lng": 0.1164,
+          "note": "1542 年创办；藏有 Pepys Library。"
+        },
+        {
+          "rank": 14,
+          "name": "Trinity College",
+          "nameCn": "三一学院",
+          "year": 1546,
+          "lat": 52.2069,
+          "lng": 0.1173,
+          "note": "1546 年由亨利八世创办；规模最大、最富有，诺奖得主最多。"
+        },
+        {
+          "rank": 15,
+          "name": "Emmanuel College",
+          "nameCn": "以马内利学院",
+          "year": 1584,
+          "lat": 52.2037,
+          "lng": 0.124,
+          "note": "1584 年创办；校友 John Harvard 为哈佛大学命名来源。"
+        },
+        {
+          "rank": 16,
+          "name": "Sidney Sussex",
+          "nameCn": "西德尼·苏塞克斯学院",
+          "year": 1596,
+          "lat": 52.2074,
+          "lng": 0.1192,
+          "note": "1596 年创办；克伦威尔曾在此就读。"
+        },
+        {
+          "rank": 17,
+          "name": "Downing College",
+          "nameCn": "唐宁学院",
+          "year": 1800,
+          "lat": 52.2016,
+          "lng": 0.1234,
+          "note": "1800 年创办；19 世纪首座新学院，法律与医学见长。"
+        },
+        {
+          "rank": 18,
+          "name": "Fitzwilliam",
+          "nameCn": "菲茨威廉学院",
+          "year": 1869,
+          "lat": 52.2129,
+          "lng": 0.1097,
+          "note": "1869 年设立，1966 年取得正式学院地位。"
+        },
+        {
+          "rank": 19,
+          "name": "Girton College",
+          "nameCn": "格顿学院",
+          "year": 1869,
+          "lat": 52.2398,
+          "lng": 0.0822,
+          "note": "1869 年创办，剑桥首座女子学院；位于西北郊约 4 公里。"
+        },
+        {
+          "rank": 20,
+          "name": "Newnham College",
+          "nameCn": "纽纳姆学院",
+          "year": 1871,
+          "lat": 52.2016,
+          "lng": 0.1096,
+          "note": "1871 年创办的女子学院。"
+        },
+        {
+          "rank": 21,
+          "name": "Selwyn College",
+          "nameCn": "塞尔温学院",
+          "year": 1882,
+          "lat": 52.2028,
+          "lng": 0.1084,
+          "note": "1882 年创办；纪念主教 George Selwyn。"
+        },
+        {
+          "rank": 22,
+          "name": "Hughes Hall",
+          "nameCn": "休斯学堂",
+          "year": 1885,
+          "lat": 52.2019,
+          "lng": 0.1267,
+          "note": "1885 年创办的研究生学院，邻 Parker's Piece。"
+        },
+        {
+          "rank": 23,
+          "name": "St Edmund's",
+          "nameCn": "圣埃德蒙学院",
+          "year": 1896,
+          "lat": 52.2103,
+          "lng": 0.1068,
+          "note": "1896 年创办；国际化的研究生学院。"
+        },
+        {
+          "rank": 24,
+          "name": "Murray Edwards",
+          "nameCn": "默里·爱德华兹学院",
+          "year": 1954,
+          "lat": 52.2138,
+          "lng": 0.1088,
+          "note": "1954 年创办（原 New Hall）；女子学院。"
+        },
+        {
+          "rank": 25,
+          "name": "Churchill College",
+          "nameCn": "丘吉尔学院",
+          "year": 1960,
+          "lat": 52.2126,
+          "lng": 0.1003,
+          "note": "1960 年创办；偏重理工，纪念丘吉尔。"
+        },
+        {
+          "rank": 26,
+          "name": "Darwin College",
+          "nameCn": "达尔文学院",
+          "year": 1964,
+          "lat": 52.201,
+          "lng": 0.1148,
+          "note": "1964 年创办；剑桥首座纯研究生学院，坐落剑河小岛。"
+        },
+        {
+          "rank": 27,
+          "name": "Lucy Cavendish",
+          "nameCn": "露西·卡文迪许学院",
+          "year": 1965,
+          "lat": 52.2122,
+          "lng": 0.1055,
+          "note": "1965 年创办的研究生学院。"
+        },
+        {
+          "rank": 28,
+          "name": "Wolfson College",
+          "nameCn": "沃尔森学院",
+          "year": 1965,
+          "lat": 52.1969,
+          "lng": 0.1043,
+          "note": "1965 年创办的研究生学院，位于 Barton Road。"
+        },
+        {
+          "rank": 29,
+          "name": "Clare Hall",
+          "nameCn": "克莱尔学堂",
+          "year": 1966,
+          "lat": 52.2095,
+          "lng": 0.1048,
+          "note": "1966 年创办；以研究著称的研究生学院。"
+        },
+        {
+          "rank": 30,
+          "name": "Robinson College",
+          "nameCn": "罗宾逊学院",
+          "year": 1977,
+          "lat": 52.2098,
+          "lng": 0.1058,
+          "note": "1977 年创办；由 David Robinson 捐建，最年轻的本科学院之一。"
+        },
+        {
+          "rank": 31,
+          "name": "Homerton College",
+          "nameCn": "荷默顿学院",
+          "year": 2010,
+          "lat": 52.1908,
+          "lng": 0.1372,
+          "note": "源起 1768 年，2010 年取得正式学院地位；教育学见长，位于城南。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "department",
+      "label": "院系 / 教学楼",
+      "color": "#2563eb",
+      "icon": "school",
+      "items": [
+        {
+          "name": "Department of Engineering (James Dyson Building)",
+          "nameCn": "工程系（詹姆斯·戴森楼）",
+          "lat": 52.2003,
+          "lng": 0.1185,
+          "rank": 1,
+          "tier": "必去",
+          "note": "剑桥最大系之一，詹姆斯·戴森楼是标志性建筑，主要校区在Trumpington Street。"
+        },
+        {
+          "name": "Cavendish Laboratory (Ray Dolby Centre)",
+          "nameCn": "卡文迪什实验室（雷·杜比中心）",
+          "lat": 52.2111,
+          "lng": 0.0892,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2025年新开的顶级物理研究大楼，32900平方米含173个实验室，展有DNA双螺旋模型原件。"
+        },
+        {
+          "name": "Centre for Mathematical Sciences",
+          "nameCn": "数学科学中心",
+          "lat": 52.2102,
+          "lng": 0.101,
+          "rank": 3,
+          "tier": "必去",
+          "note": "包含纯数学系(DPMMS)和应用数学与理论物理系(DAMTP)，圆形大草坪和玻璃幕墙极具标志性。"
+        },
+        {
+          "name": "William Gates Building (Computer Lab)",
+          "nameCn": "威廉·盖茨楼（计算机实验室）",
+          "lat": 52.2109,
+          "lng": 0.091,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于West Campus，比尔·盖茨父亲捐资建造，是全球顶级的计算机科学系所在地。"
+        },
+        {
+          "name": "Yusuf Hamied Department of Chemistry",
+          "nameCn": "尤素福·哈米德化学系",
+          "lat": 52.2003,
+          "lng": 0.1198,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于Lensfield Road，是世界顶级化学研究中心，以诺奖得主云集著称。"
+        },
+        {
+          "name": "Cambridge Judge Business School",
+          "nameCn": "剑桥大学贾吉商学院",
+          "lat": 52.2015,
+          "lng": 0.1188,
+          "rank": 6,
+          "tier": "必去",
+          "note": "位于Trumpington Street，全球顶尖商学院，提供MBA及多个管理硕士项目。"
+        },
+        {
+          "name": "Faculty of Law (David Williams Building)",
+          "nameCn": "法学院（大卫·威廉斯楼）",
+          "lat": 52.205,
+          "lng": 0.1068,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "诺曼·福斯特爵士设计，位于Sidgwick Site核心，是人文社科区的地标建筑。"
+        },
+        {
+          "name": "History Faculty Building (Stirling Building)",
+          "nameCn": "历史学院楼（斯特林楼）",
+          "lat": 52.2044,
+          "lng": 0.1069,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "詹姆斯·斯特林设计的二级保护建筑，因红色玻璃幕墙极具视觉冲击，内有Seeley图书馆。"
+        },
+        {
+          "name": "Faculty of Economics (Sidgwick Site)",
+          "nameCn": "经济学院（Sidgwick校区）",
+          "lat": 52.2046,
+          "lng": 0.1072,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "位于Sidgwick校区，是剑桥人文社科精华聚集地，众多诺奖经济学家曾在此执教。"
+        },
+        {
+          "name": "Downing Site (Museum of Zoology / Chemistry / Genetics)",
+          "nameCn": "唐宁校区（生命与理化实验楼群）",
+          "lat": 52.2015,
+          "lng": 0.1228,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "城中心理科楼群，涵盖动物学、生物化学等多个院系，David Attenborough Building为核心。"
+        },
+        {
+          "name": "New Museums Site",
+          "nameCn": "新博物馆校区",
+          "lat": 52.2025,
+          "lng": 0.1225,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "Pembroke Street旁理科历史老楼群，容纳Whipple博物馆、科学史系、物理化学等约15个系所。"
+        }
+      ],
+      "defaultOn": true
+    },
+    {
+      "kind": "pointLayer",
+      "key": "library",
+      "label": "图书馆",
+      "color": "#0891b2",
+      "icon": "local_library",
+      "items": [
+        {
+          "name": "Cambridge University Library (UL)",
+          "nameCn": "剑桥大学图书馆（UL）",
+          "lat": 52.2031,
+          "lng": 0.1048,
+          "rank": 1,
+          "tier": "必去",
+          "note": "法定送缴图书馆，馆藏逾1600万册，主阅览室192席，是英国最重要的学术图书馆之一。"
+        },
+        {
+          "name": "Wren Library, Trinity College",
+          "nameCn": "雷恩图书馆（三一学院）",
+          "lat": 52.2064,
+          "lng": 0.1164,
+          "rank": 2,
+          "tier": "必去",
+          "note": "克里斯托弗·雷恩1695年设计，藏有弥尔顿手稿和牛顿笔记原件，视觉极为震撼，游客须查询开放时段。"
+        },
+        {
+          "name": "Betty & Gordon Moore Library",
+          "nameCn": "贝蒂·戈登·摩尔图书馆",
+          "lat": 52.2103,
+          "lng": 0.1007,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于数学科学中心，覆盖数学、物理、计算机科学，是西校区理科学生的核心学习场所。"
+        },
+        {
+          "name": "Seeley Historical Library",
+          "nameCn": "西利历史图书馆",
+          "lat": 52.2044,
+          "lng": 0.1069,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于历史学院斯特林楼内，藏书约12万册，340个座位，是人文学生最受欢迎的学习空间。"
+        },
+        {
+          "name": "Squire Law Library",
+          "nameCn": "斯奎尔法学图书馆",
+          "lat": 52.205,
+          "lng": 0.1068,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "法学院专属图书馆，馆藏丰富，座位充裕，法学生首选学习场所。"
+        },
+        {
+          "name": "Haddon Library (Archaeology & Social Anthropology)",
+          "nameCn": "哈顿图书馆",
+          "lat": 52.2043,
+          "lng": 0.1068,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Sidgwick Site，以宽大桌面和轻松学术氛围著称，是人文学生口碑极高的图书馆。"
+        },
+        {
+          "name": "Pepys Library, Magdalene College",
+          "nameCn": "佩皮斯图书馆（莫格达伦学院）",
+          "lat": 52.2107,
+          "lng": 0.1169,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "保存日记作家塞缪尔·佩皮斯捐赠的约3000册珍本古籍，原装橡木书柜是一级保护文物。"
+        },
+        {
+          "name": "Whipple Library (History of Science)",
+          "nameCn": "惠普尔图书馆（科学史）",
+          "lat": 52.2026,
+          "lng": 0.1218,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于Free School Lane，45个座位，含豆袋椅和沙发，是新博物馆校区最具特色的小型图书馆。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Fitzwilliam Museum",
+          "nameCn": "菲茨威廉博物馆",
+          "lat": 52.2002,
+          "lng": 0.1195,
+          "rank": 1,
+          "tier": "必去",
+          "note": "剑桥最重要的博物馆，藏品超50万件，含古埃及文物、印象派油画、珍稀硬币，免费入场。"
+        },
+        {
+          "name": "Museum of Zoology (David Attenborough Building)",
+          "nameCn": "动物学博物馆（大卫·爱登堡楼）",
+          "lat": 52.2013,
+          "lng": 0.1236,
+          "rank": 2,
+          "tier": "必去",
+          "note": "翻新后令人惊艳，展有巨型抹香鲸骨架，免费入场，周二至周日开放。"
+        },
+        {
+          "name": "Whipple Museum of the History of Science",
+          "nameCn": "惠普尔科学史博物馆",
+          "lat": 52.2026,
+          "lng": 0.1218,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "免费参观，展示望远镜、显微镜等历史科学仪器珍品，是了解科学史的绝佳场所。"
+        },
+        {
+          "name": "Sedgwick Museum of Earth Sciences",
+          "nameCn": "塞奇威克地球科学博物馆",
+          "lat": 52.2023,
+          "lng": 0.1222,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "藏有约200万件岩石、矿物和化石，达尔文曾在此学习，免费入场，是地质爱好者必选。"
+        },
+        {
+          "name": "The Polar Museum (Scott Polar Research Institute)",
+          "nameCn": "极地博物馆（斯科特极地研究所）",
+          "lat": 52.2009,
+          "lng": 0.1209,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Lensfield Road，展有斯科特探险队最后手稿及极地探险珍贵文物，独一无二。"
+        },
+        {
+          "name": "Museum of Archaeology and Anthropology (MAA)",
+          "nameCn": "考古学与人类学博物馆",
+          "lat": 52.2016,
+          "lng": 0.1225,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Downing Street，收藏全球原住民文物与考古珍品，免费开放，周二至周六可参观。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "landmark",
+      "label": "地标 / 学生中心",
+      "color": "#64748b",
+      "icon": "place",
+      "items": [
+        {
+          "name": "King's College Chapel",
+          "nameCn": "国王学院礼拜堂",
+          "lat": 52.2045,
+          "lng": 0.1164,
+          "rank": 1,
+          "tier": "必去",
+          "note": "剑桥最具标志性的建筑，哥特式扇形拱顶举世无双，每年圣诞节国际直播合唱团演出。"
+        },
+        {
+          "name": "Cambridge Market Square",
+          "nameCn": "剑桥市集广场",
+          "lat": 52.2055,
+          "lng": 0.1198,
+          "rank": 2,
+          "tier": "必去",
+          "note": "中世纪以来的露天集市，每天开放售卖蔬果、书籍、衣物等，是剑桥城市生活中心。"
+        },
+        {
+          "name": "The Backs (River Cam College Backs)",
+          "nameCn": "剑桥大学「后花园」（河畔草坪）",
+          "lat": 52.2055,
+          "lng": 0.1127,
+          "rank": 3,
+          "tier": "必去",
+          "note": "沿Cam河的学院背面草坪，国王学院、三一学院等倒影美景尽收眼底，撑篙游览必经之地。"
+        },
+        {
+          "name": "Senate House",
+          "nameCn": "参议院大楼",
+          "lat": 52.2053,
+          "lng": 0.1182,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "大学举行毕业典礼的礼仪中心，18世纪古典建筑，正对国王大道，是剑桥权威与传统的象征。"
+        },
+        {
+          "name": "Parker's Piece",
+          "nameCn": "帕克草坪",
+          "lat": 52.1997,
+          "lng": 0.1293,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "剑桥最大公园绿地，现代足球规则的发源地，中心路灯\"Reality Checkpoint\"是学生传统打卡点。"
+        },
+        {
+          "name": "Cambridge Union Society",
+          "nameCn": "剑桥大学辩论联合会",
+          "lat": 52.2082,
+          "lng": 0.1192,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "建于1815年的著名辩论社，9a Bridge Street，众多政要和诺奖得主曾在此演讲，是学生政治文化圣地。"
+        },
+        {
+          "name": "Grand Arcade Shopping Centre",
+          "nameCn": "大拱廊购物中心",
+          "lat": 52.2045,
+          "lng": 0.1207,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "剑桥最大现代购物中心，位于市中心St Andrew's Street，含John Lewis等60家品牌，逛街购物首选。"
+        },
+        {
+          "name": "ADC Theatre",
+          "nameCn": "剑桥大学业余戏剧俱乐部剧场",
+          "lat": 52.2083,
+          "lng": 0.1201,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "英国最古老的大学剧场，位于Park Street，Footlights等著名喜剧团体在此表演，票价亲民。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Sainsbury's Sidney Street",
+          "nameCn": "塞恩斯伯里超市（锡德尼街店）",
+          "lat": 52.2075,
+          "lng": 0.1227,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于市中心42-45 Sidney Street，离各学院步行距离最近，日常购物首选，选品丰富。"
+        },
+        {
+          "name": "Sainsbury's Coldhams Lane",
+          "nameCn": "塞恩斯伯里超市（科尔德哈姆斯巷大店）",
+          "lat": 52.2012,
+          "lng": 0.1431,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于Brooks Road/Coldhams Lane，大型超市全品类齐全，价格实惠，有自助结账，骑车约15分钟。"
+        },
+        {
+          "name": "Cho Mee Chinese Supermarket",
+          "nameCn": "超美中国超市",
+          "lat": 52.2003,
+          "lng": 0.1345,
+          "rank": 3,
+          "tier": "必去",
+          "note": "108-110 Mill Road，1989年开业，剑桥最老牌中国超市，供应中式食材、冻品、调料和东南亚进口食品。"
+        },
+        {
+          "name": "Seoul Plaza",
+          "nameCn": "首尔广场亚洲超市",
+          "lat": 52.2004,
+          "lng": 0.1344,
+          "rank": 4,
+          "tier": "必去",
+          "note": "91-93 Mill Road，韩日中泰食材一站式，新鲜蔬果、泡菜、拉面应有尽有，每天9am-8pm。"
+        },
+        {
+          "name": "Waitrose (Hauxton Road, Trumpington)",
+          "nameCn": "维特罗斯超市（特朗平顿店）",
+          "lat": 52.188,
+          "lng": 0.1174,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "50 Hauxton Road，品质食材首选，有机产品丰富，适合周末采购或特殊食材补给。"
+        },
+        {
+          "name": "Tesco Express (East Road)",
+          "nameCn": "乐购便利店（东路店）",
+          "lat": 52.2041,
+          "lng": 0.1308,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "172 East Road，营业时间长，城东区学生便利采购点，位置接近Kelsey Kerridge运动中心。"
+        },
+        {
+          "name": "Ocean Supermarket",
+          "nameCn": "海洋亚洲超市",
+          "lat": 52.2001,
+          "lng": 0.1341,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "58 Mill Road，中日韩食材选择丰富，鲜鱼及冷藏区受中国学生好评，与Cho Mee相邻。"
+        },
+        {
+          "name": "Tesco Superstore (Yarrow Road)",
+          "nameCn": "乐购超市（亚罗路大店）",
+          "lat": 52.1968,
+          "lng": 0.1372,
+          "rank": 8,
+          "tier": "可选",
+          "note": "靠近Cambridge South，品类齐全，停车方便，适合囤货大采购或骑车前往。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Noodles Plus (八方小厨)",
+          "nameCn": "八方小厨",
+          "lat": 52.2013,
+          "lng": 0.1339,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "24a Mill Road，现做小笼包被Tripadvisor誉为英国最佳，仅20席、不接受预订、只收现金，必须排队。"
+        },
+        {
+          "name": "Zhonghua Traditional Snacks",
+          "nameCn": "中华传统小吃",
+          "lat": 52.2007,
+          "lng": 0.1295,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "13 Norfolk Street，剑桥最正宗的手工饺子、包子、馄饨，价格极低，中国留学生强力推荐。"
+        },
+        {
+          "name": "1+1 Rougamo",
+          "nameCn": "1+1 肉夹馍",
+          "lat": 52.2009,
+          "lng": 0.1308,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "84 Regent Street，正宗西安肉夹馍和Biangbiang面，被称为英国最好的肉夹馍，学生食客络绎不绝。"
+        },
+        {
+          "name": "The Dumpling Tree",
+          "nameCn": "饺子树云南餐厅",
+          "lat": 52.1967,
+          "lng": 0.1444,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "59 Perne Road，主打云南菜，手工饺子和米线地道，是剑桥少见的西南中国菜代表。"
+        },
+        {
+          "name": "Mr Wang Hot Pot (王贵仁砂锅麻辣烫)",
+          "nameCn": "王贵仁砂锅麻辣烫",
+          "lat": 52.2007,
+          "lng": 0.1308,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "94 Regent Street，自选食材称重计价，个人砂锅麻辣烫，被Varsity誉为剑桥最具创意的中餐馆。"
+        },
+        {
+          "name": "Seven Days (四川餐厅)",
+          "nameCn": "七天川菜",
+          "lat": 52.2006,
+          "lng": 0.1303,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "66 Regent Street，剑桥首屈一指的四川及东北菜，麻辣鲜香，学生聚餐热选。"
+        },
+        {
+          "name": "Yori Korean BBQ",
+          "nameCn": "Yori韩式烤肉",
+          "lat": 52.2066,
+          "lng": 0.1216,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "38-39 Green Street，每桌配烤炉的正宗韩式烤肉，空间宽敞，适合朋友聚会，剑桥韩餐人气第一。"
+        },
+        {
+          "name": "Fitzbillies",
+          "nameCn": "菲茨比利斯咖啡馆",
+          "lat": 52.201,
+          "lng": 0.1197,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "51-52 Trumpington Street，1920年开业的剑桥传奇老店，Chelsea Bun（黏糕甜面包）是百年不变的名片。"
+        },
+        {
+          "name": "Golden House",
+          "nameCn": "金屋中式外卖",
+          "lat": 52.2004,
+          "lng": 0.1265,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Lensfield Road附近，主餐约£5超值，烤排骨和沙爹鸡串是学生外卖最爱，性价比极高。"
+        },
+        {
+          "name": "Mercado Central",
+          "nameCn": "中央市场餐厅",
+          "lat": 52.2068,
+          "lng": 0.122,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "位于Green Street，主打海鲜和融合料理，选址优越风景好，是Timeout推荐的剑桥必吃餐厅。"
+        },
+        {
+          "name": "Midsummer House",
+          "nameCn": "仲夏之屋（米其林二星）",
+          "lat": 52.2134,
+          "lng": 0.1291,
+          "rank": 11,
+          "tier": "一般",
+          "note": "Midsummer Common河边，英国东部唯一米其林二星，节日庆典或纪念日值得一试，需提前订位。"
+        },
+        {
+          "name": "Kimchili Korean Restaurant",
+          "nameCn": "Kimchili韩式餐厅",
+          "lat": 52.2083,
+          "lng": 0.1197,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "King Street新开韩式餐厅，辣猪肋骨和烤五花肉是招牌，2025年底开业广受好评。"
+        },
+        {
+          "name": "The Old Bicycle Shop",
+          "nameCn": "老自行车店餐厅",
+          "lat": 52.2007,
+          "lng": 0.1198,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Trumpington Street旁，由历史自行车修理铺改建，本地食材新英格兰料理，Timeout剑桥必吃榜上榜。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "HSBC Cambridge",
+          "nameCn": "汇丰银行剑桥支行",
+          "lat": 52.2043,
+          "lng": 0.1223,
+          "rank": 1,
+          "tier": "必去",
+          "note": "63-64 St Andrews Street，提供国际学生银行账户服务，是中国留学生最常用的开户银行之一。"
+        },
+        {
+          "name": "Barclays Cambridge",
+          "nameCn": "巴克莱银行剑桥支行",
+          "lat": 52.2044,
+          "lng": 0.1221,
+          "rank": 2,
+          "tier": "必去",
+          "note": "9-11 St Andrews Street，提供学生账户，申请开户需预约，距离市中心步行可达。"
+        },
+        {
+          "name": "Addenbrooke's Hospital (A&E / Urgent Treatment Centre)",
+          "nameCn": "阿登布鲁克斯医院（急诊/紧急治疗中心）",
+          "lat": 52.1754,
+          "lng": 0.1414,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Hills Road, CB2 0QQ，剑桥唯一大型NHS教学医院，含急诊室和紧急治疗中心（Clinic 9，8am-11pm）。"
+        },
+        {
+          "name": "Boots Pharmacy (City Centre)",
+          "nameCn": "Boots药店（市中心店）",
+          "lat": 52.2052,
+          "lng": 0.1225,
+          "rank": 4,
+          "tier": "必去",
+          "note": "28 Petty Cury / 65-67 Sidney Street，城内最大药店，提供NHS Pharmacy First服务，无需GP预约可处理小病。"
+        },
+        {
+          "name": "NatWest Cambridge",
+          "nameCn": "英国国民西敏斯特银行剑桥支行",
+          "lat": 52.2043,
+          "lng": 0.122,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "56 St Andrews Street，学生账户可免月费，窗口服务完善，适合需要线下服务的新生开户。"
+        },
+        {
+          "name": "EE Mobile Store (Grand Arcade)",
+          "nameCn": "EE手机店（大拱廊购物中心）",
+          "lat": 52.2045,
+          "lng": 0.1207,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于Grand Arcade购物中心内，EE是英国信号覆盖最广的运营商，留学生购买本地SIM卡首选。"
+        },
+        {
+          "name": "Superdrug (Sidney Street)",
+          "nameCn": "Superdrug药妆店（锡德尼街）",
+          "lat": 52.2075,
+          "lng": 0.1226,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Sidney Street，日化用品和药品一站购齐，价格比Boots更低，美妆健康产品选择丰富。"
+        },
+        {
+          "name": "Bridge Street Medical Centre (Boots GP, 1st Floor)",
+          "nameCn": "桥街医疗中心（Boots楼上GP诊所）",
+          "lat": 52.2093,
+          "lng": 0.1204,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Bridge Street Boots一楼上方的GP诊所，是Wolfson等学院推荐的学生注册GP，网上注册即可。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Punting on the River Cam (Scudamore's, Mill Lane)",
+          "nameCn": "Cam河撑篙游览",
+          "lat": 52.2022,
+          "lng": 0.117,
+          "rank": 1,
+          "tier": "必去",
+          "note": "剑桥最标志性体验，从Mill Lane码头出发游览各学院背面河景，Scudamore's是最老牌的运营商。"
+        },
+        {
+          "name": "Cambridge University Botanic Garden",
+          "nameCn": "剑桥大学植物园",
+          "lat": 52.194,
+          "lng": 0.1265,
+          "rank": 2,
+          "tier": "必去",
+          "note": "40英亩、8000种植物，四季皆美，含热带温室和岩石园，门票约£8，是身心放松的绝佳去处。"
+        },
+        {
+          "name": "The Orchard Tea Garden, Grantchester",
+          "nameCn": "格兰切斯特果园茶园",
+          "lat": 52.1851,
+          "lng": 0.1039,
+          "rank": 3,
+          "tier": "必去",
+          "note": "可从Cambridge撑篙或骑车约3英里抵达，弗吉尼亚·伍尔夫和凯恩斯曾常来，英式下午茶体验无可替代。"
+        },
+        {
+          "name": "Mathematical Bridge (Queens' College)",
+          "nameCn": "数学桥（皇后学院）",
+          "lat": 52.2033,
+          "lng": 0.1157,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Silver Street旁的木制拱桥，建于1749年，牛顿设计的传说虽是谣言，仍是剑桥最具故事性的打卡地。"
+        },
+        {
+          "name": "Bridge of Sighs (St John's College)",
+          "nameCn": "叹息桥（圣约翰学院）",
+          "lat": 52.2081,
+          "lng": 0.1165,
+          "rank": 5,
+          "tier": "必去",
+          "note": "1831年建造的有顶石拱桥，是剑桥最美桥梁之一，撑篙游览必经，可远眺并拍摄最佳角度。"
+        },
+        {
+          "name": "Mill Road",
+          "nameCn": "磨坊路美食文化街",
+          "lat": 52.2003,
+          "lng": 0.1338,
+          "rank": 6,
+          "tier": "必去",
+          "note": "剑桥最多元的街道，聚集中韩日亚洲超市、咖啡馆、独立书店和国际餐厅，外国学生必逛。"
+        },
+        {
+          "name": "Ely Cathedral",
+          "nameCn": "伊利大教堂",
+          "lat": 52.3994,
+          "lng": 0.2638,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "从剑桥火车站15分钟车程，11世纪诺曼风格大教堂，被称为「沼泽中的船」，值得一日游。"
+        },
+        {
+          "name": "IWM Duxford (Imperial War Museum)",
+          "nameCn": "杜克斯福德帝国战争博物馆",
+          "lat": 52.0914,
+          "lng": 0.1324,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "剑桥南10英里，英国最大航空战争博物馆，含二战原版喷火式战机和协和客机，适合半日游。"
+        },
+        {
+          "name": "King's Parade & Great St Mary's Church",
+          "nameCn": "国王大道与大圣玛丽教堂",
+          "lat": 52.2054,
+          "lng": 0.1182,
+          "rank": 9,
+          "tier": "必去",
+          "note": "剑桥最具代表性的街道，一侧是国王学院，另一侧是大学教堂，节日时有钟声演奏和摆摊。"
+        },
+        {
+          "name": "Parker's Piece & Reality Checkpoint",
+          "nameCn": "帕克草坪与「现实检查点」路灯",
+          "lat": 52.1997,
+          "lng": 0.1293,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "城区最大绿地，中央1893年维多利亚路灯被学生命名为Reality Checkpoint，是学生野餐和踢球的圣地。"
+        },
+        {
+          "name": "Cambridge Arts Picturehouse",
+          "nameCn": "剑桥艺术文艺电影院",
+          "lat": 52.2044,
+          "lng": 0.1222,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "38-39 St Andrew's Street，三厅艺术独立电影院，含咖啡酒吧，举办剑桥电影节，学生票价优惠。"
+        }
+      ]
+    }
+  ]
+}
