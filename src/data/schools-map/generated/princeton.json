@@ -67,32 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "School of Public and International Affairs (Robertson Hall)",
-          "nameCn": "公共与国际事务学院",
-          "lat": 40.3486,
+          "name": "Robertson Hall (Princeton School of Public & International Affairs)",
+          "nameCn": "罗伯逊厅（公共与国际事务学院）",
+          "lat": 40.3464,
+          "lng": -74.6528,
+          "rank": 1,
+          "tier": "必去",
+          "note": "普林斯顿最负盛名的政策学院，由 Minoru Yamasaki 设计，是研究国际关系与公共政策的核心殿堂。"
+        },
+        {
+          "name": "Engineering Quadrangle (E-Quad)",
+          "nameCn": "工程四方院",
+          "lat": 40.3502,
+          "lng": -74.6525,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程与应用科学学院核心楼群，涵盖电气、计算机、机械、化工等七大工程系。"
+        },
+        {
+          "name": "Fine Hall (Mathematics & Computer Science)",
+          "nameCn": "Fine Hall（数学与计算机科学）",
+          "lat": 40.3461,
+          "lng": -74.6512,
+          "rank": 3,
+          "tier": "必去",
+          "note": "普林斯顿数学系与计算机科学系所在地，爱因斯坦曾在此工作，学术氛围深厚。"
+        },
+        {
+          "name": "Jadwin Hall (Physics Department)",
+          "nameCn": "Jadwin 大厅（物理系）",
+          "lat": 40.3471,
+          "lng": -74.6503,
+          "rank": 4,
+          "tier": "必去",
+          "note": "物理系主楼，诺奖级研究重镇，与数学系 Fine Hall 相邻，形成普林斯顿理科核心区。"
+        },
+        {
+          "name": "Guyot Hall (Geosciences & Natural History Museum)",
+          "nameCn": "Guyot 大厅（地质科学与自然历史博物馆）",
+          "lat": 40.3473,
+          "lng": -74.6542,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地质科学系所在地，内含自然历史博物馆，珍藏数十万地质、生物及考古标本。"
+        },
+        {
+          "name": "McCormick Hall (Art & Archaeology Dept)",
+          "nameCn": "麦考密克厅（艺术与考古学系）",
+          "lat": 40.3456,
           "lng": -74.6555,
-          "note": "罗伯逊楼，前身为威尔逊学院的政策与国际关系重镇。"
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "艺术与考古学系主楼，紧邻新建的普林斯顿大学艺术博物馆，学术与展览资源高度集中。"
+        },
+        {
+          "name": "Peyton Hall (Astrophysics Department)",
+          "nameCn": "Peyton 天文台大楼（天体物理系）",
+          "lat": 40.3465,
+          "lng": -74.649,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "天体物理系本部，世界顶尖天文学研究中心，屋顶天文台常举办公众观星活动。"
+        },
+        {
+          "name": "Nassau Hall (University Administration)",
+          "nameCn": "拿骚大厅（校行政总部）",
+          "lat": 40.3487,
+          "lng": -74.6593,
+          "rank": 8,
+          "tier": "必去",
+          "note": "1756年建成，校园最古老建筑，曾作美国国会临时会址，是学校精神象征与行政中枢。"
+        },
+        {
+          "name": "McCosh Hall (Humanities Lecture Hall)",
+          "nameCn": "麦科什讲堂（人文大讲堂）",
+          "lat": 40.3473,
+          "lng": -74.6566,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "全校最重要的人文讲座大楼，数十个教室与礼堂，普林斯顿人文名课几乎都在此开讲。"
         },
         {
           "name": "Frick Chemistry Laboratory",
           "nameCn": "弗里克化学实验室",
-          "lat": 40.344,
-          "lng": -74.6507,
-          "note": "校区南部理科带，现代化学教研主楼。"
+          "lat": 40.3444,
+          "lng": -74.6522,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "化学系旗舰实验楼，设备世界一流，是普林斯顿化学与化学生物学研究的核心场所。"
         },
         {
-          "name": "Princeton Plasma Physics Laboratory",
-          "nameCn": "等离子体物理实验室",
-          "lat": 40.3488,
-          "lng": -74.6022,
-          "note": "美国能源部核聚变国家实验室，位于福雷斯特尔园区。"
+          "name": "Whitman College",
+          "nameCn": "惠特曼学院（学生住宿区）",
+          "lat": 40.3447,
+          "lng": -74.653,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "由 Meg Whitman 捐资3000万美元兴建的学生住宿学院，哥特式建筑群，是新生必见地标。"
         },
         {
-          "name": "Friend Center (Engineering)",
-          "nameCn": "弗兰德工程中心",
-          "lat": 40.3505,
-          "lng": -74.6519,
-          "note": "工程与应用科学学院核心，邻近东北部理工区。"
+          "name": "Lewis Science Library (Gehry Building)",
+          "nameCn": "路易斯科学图书馆（盖里楼）",
+          "lat": 40.3467,
+          "lng": -74.6494,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "Frank Gehry 设计的解构主义地标建筑，兼作理工科图书馆，是全校最具视觉冲击力的建筑之一。"
         }
       ],
       "defaultOn": true
@@ -105,18 +185,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Firestone Library",
-          "nameCn": "费尔斯通图书馆",
-          "lat": 40.3496,
-          "lng": -74.6573,
-          "note": "校区主图书馆，馆藏数百万册，紧邻拿骚厅。"
+          "name": "Harvey S. Firestone Memorial Library",
+          "nameCn": "哈维·费尔斯通图书馆（主图书馆）",
+          "lat": 40.3495,
+          "lng": -74.6574,
+          "rank": 1,
+          "tier": "必去",
+          "note": "普林斯顿大学主图书馆，馆藏逾700万册，地下楼层24小时开放，是学生备考与深度研究的首选。"
         },
         {
           "name": "Lewis Science Library",
-          "nameCn": "刘易斯科学图书馆",
-          "lat": 40.3464,
-          "lng": -74.6539,
-          "note": "盖里设计的理科图书馆，服务理工科师生。"
+          "nameCn": "路易斯科学图书馆",
+          "lat": 40.3467,
+          "lng": -74.6494,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Frank Gehry 设计，收藏天文、物理、化学、数学等理工科文献，建筑本身即是艺术展品。"
+        },
+        {
+          "name": "Marquand Library of Art and Archaeology",
+          "nameCn": "马昆德艺术与考古图书馆",
+          "lat": 40.3453,
+          "lng": -74.6555,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全美最重要的大学艺术图书馆之一，馆藏超50万册艺术史与考古学资料，艺术系学生常驻地。"
+        },
+        {
+          "name": "East Asian Library",
+          "nameCn": "东亚图书馆",
+          "lat": 40.349,
+          "lng": -74.6568,
+          "rank": 4,
+          "tier": "必去",
+          "note": "收藏中文、日文、韩文文献的专业图书馆，是华人留学生查阅汉语资料、感受母语学术环境的宝地。"
+        },
+        {
+          "name": "Seeley G. Mudd Manuscript Library",
+          "nameCn": "穆德手稿图书馆",
+          "lat": 40.3482,
+          "lng": -74.6501,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "普林斯顿大学档案馆，珍藏20世纪公共政策原始手稿及校史档案，预约制开放。"
+        },
+        {
+          "name": "Princeton Public Library",
+          "nameCn": "普林斯顿公共图书馆",
+          "lat": 40.3517,
+          "lng": -74.6603,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "市立公共图书馆，位于 Witherspoon 街，对所有居民免费开放，常举办社区文化活动。"
+        },
+        {
+          "name": "Engineering Library (in E-Quad)",
+          "nameCn": "工程图书馆",
+          "lat": 40.3502,
+          "lng": -74.6525,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于工程四方院内，专供工程与应用科学文献，提供大量技术期刊和专利数据库访问。"
         }
       ]
     },
@@ -130,9 +259,47 @@
         {
           "name": "Princeton University Art Museum",
           "nameCn": "普林斯顿大学艺术博物馆",
-          "lat": 40.3475,
-          "lng": -74.6581,
-          "note": "馆藏逾十万件，2025年新馆落成于校园核心。"
+          "lat": 40.3457,
+          "lng": -74.6556,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2025年10月以全新大卫·阿贾耶设计建筑重开，馆藏逾11.7万件，从古代文明到当代艺术，免费入场。"
+        },
+        {
+          "name": "Natural History Museum at Guyot Hall",
+          "nameCn": "Guyot Hall 自然历史博物馆",
+          "lat": 40.3473,
+          "lng": -74.6542,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "收藏数十万件地质、古生物及考古标本，对游客开放，是了解地球科学的绝佳入门处。"
+        },
+        {
+          "name": "Putnam Collection of Sculpture (campus-wide)",
+          "nameCn": "Putnam 户外雕塑群",
+          "lat": 40.3478,
+          "lng": -74.6572,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "遍布全校园的22件大师级户外雕塑，包含毕加索、亨利·摩尔、Isamu Noguchi等人作品，随时免费欣赏。"
+        },
+        {
+          "name": "Princetoniana Museum",
+          "nameCn": "普林斯顿历史博物馆",
+          "lat": 40.358,
+          "lng": -74.658,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "展示普林斯顿大学270年历史文物与建筑档案，适合新生了解校园人文底蕴。"
+        },
+        {
+          "name": "Grounds for Sculpture",
+          "nameCn": "雕塑公园（哈密尔顿）",
+          "lat": 40.236,
+          "lng": -74.717,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距校区约15分钟车程，42英亩园区内陈列300余件大型当代雕塑，被誉为全美最佳户外艺术目的地之一。"
         }
       ]
     },
@@ -144,60 +311,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Nassau Hall",
-          "nameCn": "拿骚厅",
-          "lat": 40.3489,
+          "name": "Nassau Hall & FitzRandolph Gate",
+          "nameCn": "拿骚大厅与菲茨兰道夫大门",
+          "lat": 40.3487,
           "lng": -74.6593,
-          "note": "1756年建成的最古老建筑，曾短暂作为美国国会会址。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园正门与最古老建筑，毕业典礼传统从此门「走出」，是普林斯顿最具代表性的打卡地标。"
+        },
+        {
+          "name": "Blair Arch",
+          "nameCn": "布莱尔拱门",
+          "lat": 40.3499,
+          "lng": -74.6596,
+          "rank": 2,
+          "tier": "必去",
+          "note": "哥特复兴式标志性拱门，连接两座最古老的宿舍楼，是学生聚集唱歌、拍毕业照的传统圣地。"
         },
         {
           "name": "Princeton University Chapel",
-          "nameCn": "大学礼拜堂",
-          "lat": 40.3489,
-          "lng": -74.6569,
-          "note": "1928年落成的大型哥特式礼拜堂，可容约两千人。"
+          "nameCn": "普林斯顿大学礼拜堂",
+          "lat": 40.3487,
+          "lng": -74.6568,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1928年建成的哥特式大教堂，全美第三大大学礼拜堂，建筑与彩色玻璃窗令人叹为观止，全天对外开放。"
         },
         {
           "name": "Frist Campus Center",
-          "nameCn": "弗里斯特学生中心",
-          "lat": 40.3466,
-          "lng": -74.6549,
-          "note": "由老物理楼改建的学生活动与餐饮中心。"
+          "nameCn": "弗里斯特校园中心",
+          "lat": 40.3467,
+          "lng": -74.6553,
+          "rank": 4,
+          "tier": "必去",
+          "note": "学生生活核心枢纽，含邮局、咖啡厅、影院、展览空间与社团办公室，新生入学后必访之地。"
         },
         {
-          "name": "Cleveland Tower (Graduate College)",
-          "nameCn": "克利夫兰塔",
-          "lat": 40.3406,
-          "lng": -74.6646,
-          "note": "研究生院173英尺地标钟塔，藏有大型钟琴。"
+          "name": "Palmer Square",
+          "nameCn": "帕尔默广场",
+          "lat": 40.351,
+          "lng": -74.66,
+          "rank": 5,
+          "tier": "必去",
+          "note": "紧邻校门的历史购物广场，集中了普林斯顿最佳餐厅、精品店与拿骚旅馆，是校外社交生活中心。"
         },
         {
-          "name": "Princeton Stadium / Powers Field",
-          "nameCn": "普林斯顿体育场",
-          "lat": 40.3459,
-          "lng": -74.65,
-          "note": "鲍尔斯球场，老虎队橄榄球与田径主场。"
+          "name": "Prospect Avenue (The Street / Eating Clubs)",
+          "nameCn": "展望大道（精英饮食俱乐部一条街）",
+          "lat": 40.3445,
+          "lng": -74.654,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "11家普林斯顿独有的精英饮食俱乐部（Eating Clubs）汇聚于此，大三大四学生社交生活核心，文化奇观。"
         },
         {
           "name": "Jadwin Gymnasium",
           "nameCn": "贾德温体育馆",
-          "lat": 40.3434,
-          "lng": -74.6486,
-          "note": "25万平方英尺综合体育馆，篮球与室内运动主场。"
+          "lat": 40.3476,
+          "lng": -74.6477,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "全校最大室内运动场馆，设有游泳池、篮球馆、健身房，对在读学生全部免费开放。"
         },
         {
-          "name": "McCarter Theatre Center",
-          "nameCn": "麦卡特剧院中心",
-          "lat": 40.3441,
-          "lng": -74.6608,
-          "note": "校区西南、获托尼奖的专业剧院，91 University Place。"
-        },
-        {
-          "name": "Princeton Station (Dinky)",
-          "nameCn": "普林斯顿火车站",
-          "lat": 40.3421,
-          "lng": -74.6589,
-          "note": "Dinky 摆渡线终点，连接 NJ Transit 通往纽约费城。"
+          "name": "Institute for Advanced Study (IAS)",
+          "nameCn": "普林斯顿高等研究院",
+          "lat": 40.3329,
+          "lng": -74.67,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "爱因斯坦晚年工作之地，学术殿堂级机构，园区内森林与池塘向公众开放，是散步冥想的绝佳去处。"
         }
       ]
     },
@@ -209,32 +392,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Wegmans Princeton",
-          "nameCn": "Wegmans 超市（Nassau Park）",
-          "lat": 40.2989,
-          "lng": -74.6628,
-          "note": "校区西南约5公里的大型连锁超市，生鲜、日用、平价熟食一站买齐，留学生采购主力店。"
-        },
-        {
           "name": "McCaffrey's Food Market",
-          "nameCn": "McCaffrey's 食品超市",
-          "lat": 40.3636,
-          "lng": -74.6593,
-          "note": "Princeton Shopping Center 内的本地精品超市，步行/短驳即到，适合日常补货。"
+          "nameCn": "麦卡弗里超市（本地精品超市）",
+          "lat": 40.3569,
+          "lng": -74.663,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Princeton Shopping Center，家族经营的本地高品质超市，生鲜肉类齐全，距校步行可达，学生最常去。"
         },
         {
-          "name": "Whole Earth Center",
-          "nameCn": "Whole Earth 有机超市",
-          "lat": 40.3528,
-          "lng": -74.6489,
-          "note": "Nassau St 上的有机食品店，离校最近，买健康食材和现成餐食很方便。"
+          "name": "Whole Foods Market",
+          "nameCn": "全食超市",
+          "lat": 40.311,
+          "lng": -74.662,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于US-1公路旁，有机食品与进口食材丰富，品质高但价格偏贵，适合追求食材质量的留学生。"
         },
         {
-          "name": "Woori Mart",
-          "nameCn": "Woori Mart 韩亚超市",
-          "lat": 40.2935,
-          "lng": -74.6181,
-          "note": "West Windsor 的韩式亚超，泡菜、豆腐、亚洲调料、活鱼俱全，离校约5公里、找中餐食材的首选。"
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 40.327,
+          "lng": -74.656,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Brunswick Pike，性价比极高的连锁超市，自有品牌零食与冷冻食品深受学生欢迎，强烈推荐。"
+        },
+        {
+          "name": "Asian Food Market (Plainsboro)",
+          "nameCn": "亚洲食品超市（Plainsboro）",
+          "lat": 40.3277,
+          "lng": -74.5877,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于10 Schalks Crossing Rd，中国大陆、台湾食材最全的本地华人超市，内含美食广场，车程约10分钟。"
+        },
+        {
+          "name": "Woori Mart Princeton",
+          "nameCn": "Woori Mart 韩亚超市（Princeton Junction）",
+          "lat": 40.307,
+          "lng": -74.6234,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Princeton Junction，韩日食材丰富，酱料、年糕、泡菜、新鲜刺身均有售，亚洲留学生必备。"
+        },
+        {
+          "name": "H Mart (Edison)",
+          "nameCn": "H Mart 韩亚超市（爱迪生）",
+          "lat": 40.5168,
+          "lng": -74.362,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于爱迪生市，全美最大韩亚超市之一，中日韩食材应有尽有，车程约25分钟，值得专程前往采购。"
+        },
+        {
+          "name": "Stop & Shop (Princeton)",
+          "nameCn": "Stop & Shop 连锁超市",
+          "lat": 40.321,
+          "lng": -74.66,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "普林斯顿本地连锁平价超市，日常食材与生活用品一站购齐，价格实惠，适合日常采购。"
         }
       ]
     },
@@ -246,46 +464,139 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "SCHOUSE (锦里 Sichuan Cuisine)",
+          "nameCn": "锦里川菜 SCHOUSE",
+          "lat": 40.3507,
+          "lng": -74.6588,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "238 Nassau St，普林斯顿口碑最佳川菜馆，川式烤鸭饭、炒菜与芝士果茶极受中国留学生追捧，必吃。"
+        },
+        {
           "name": "Tiger Noodles",
-          "nameCn": "老虎面馆（中餐/台式）",
+          "nameCn": "老虎面馆",
+          "lat": 40.3509,
+          "lng": -74.6583,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "252 Nassau St，紧邻校门的中式炒面专门店，分量大价格亲民，留学生、本地人双双追捧的学生食堂替代选。"
+        },
+        {
+          "name": "Lan Ramen (Lanzhou Beef Noodles)",
+          "nameCn": "兰拉面（兰州拉面）",
+          "lat": 40.3513,
+          "lng": -74.6598,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "4 Hulfish St，正宗兰州牛肉手拉面，清汤醇厚，面条筋道，深受中国留学生思乡时强烈推荐。"
+        },
+        {
+          "name": "Shu House Restaurant",
+          "nameCn": "蜀居川菜馆",
+          "lat": 40.3803,
+          "lng": -74.551,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "3132 Route 27, Kendall Park，车程约15分钟，正宗四川家常菜，烤鱼、毛式红烧肉分量足、价格实惠，华人圈口碑极佳。"
+        },
+        {
+          "name": "Hunan Chinese Restaurant",
+          "nameCn": "湖南中餐馆",
           "lat": 40.3508,
-          "lng": -74.6535,
-          "note": "Nassau St 上学生最常去的中式面馆，炒面、台式小吃、珍珠奶茶平价管饱。"
+          "lng": -74.6561,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "157 Witherspoon St，经营多年的本地湖南菜老店，价格亲民，是普林斯顿华人学生解馋的传统去处。"
         },
         {
-          "name": "SCHOUSE Sichuan",
-          "nameCn": "川菜馆（SCHOUSE）",
-          "lat": 40.3511,
-          "lng": -74.6543,
-          "note": "Nassau St 上的家庭式川菜馆，麻辣口味地道，解乡愁的辣味之选。"
+          "name": "Maruichi Japanese Food & Deli",
+          "nameCn": "丸一日式食品超市",
+          "lat": 40.3505,
+          "lng": -74.6593,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "136 Nassau St，校门口的日式食品店兼熟食台，新鲜寿司、刺身、日式便当与零食一应俱全，亚裔学生最爱。"
         },
         {
-          "name": "Tomo Sushi",
-          "nameCn": "Tomo 寿司（日料）",
-          "lat": 40.3511,
-          "lng": -74.6545,
-          "note": "校园旁的 BYO 日料店，刺身寿司新鲜、师傅亲切，亚洲口味聚餐好去处。"
+          "name": "Thai Village",
+          "nameCn": "泰式村庄泰国餐厅",
+          "lat": 40.3509,
+          "lng": -74.6582,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "235 Nassau St，普林斯顿最受好评的泰国餐厅之一，Pad Thai 经典，口味正宗，亚洲留学生常选之地。"
+        },
+        {
+          "name": "Nassau Sushi Cafe",
+          "nameCn": "拿骚寿司咖啡厅",
+          "lat": 40.3506,
+          "lng": -74.6577,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "179 Nassau St，BYOB政策，日韩融合菜单，性价比高，是普林斯顿学生聚餐庆祝的热门选择。"
+        },
+        {
+          "name": "Agricola Eatery",
+          "nameCn": "Agricola 农场餐厅",
+          "lat": 40.3513,
+          "lng": -74.658,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "11 Witherspoon St，普林斯顿最知名的农场直供餐厅，木火烹调，菜单随季节更换，Yelp 4.5星，约会首选。"
+        },
+        {
+          "name": "Witherspoon Grill",
+          "nameCn": "威瑟斯彭烤肉馆",
+          "lat": 40.3505,
+          "lng": -74.6562,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "57 Witherspoon St，普林斯顿顶级牛排馆，高质牛排与新鲜海鲜塔，TripAdvisor 4.1/5，正式庆祝晚宴首选。"
+        },
+        {
+          "name": "Conte's Pizza and Bar",
+          "nameCn": "孔特意式披萨吧",
+          "lat": 40.3477,
+          "lng": -74.6503,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "339 Witherspoon St，经营数十年的普林斯顿元老披萨店，薄脆饼底与自制酱料令人难忘，学生深夜首选。"
         },
         {
           "name": "Hoagie Haven",
-          "nameCn": "Hoagie Haven 三明治",
-          "lat": 40.3514,
-          "lng": -74.6531,
-          "note": "1974年开业的普林斯顿地标三明治店，巨型 Phat Lady/Sanchez 是必打卡的本地传奇。"
+          "nameCn": "Hoagie 天堂三明治店",
+          "lat": 40.3508,
+          "lng": -74.6583,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "242 Nassau St，普林斯顿最著名的快餐三明治店，历史悠久，深夜营业，是普林斯顿学生文化的一部分。"
         },
         {
           "name": "The Bent Spoon",
-          "nameCn": "The Bent Spoon 手工冰淇淋",
-          "lat": 40.3494,
-          "lng": -74.6593,
-          "note": "Palmer Square 的网红手工 gelato，口味天天换、热巧克力出名，来普林斯顿必尝。"
+          "nameCn": "弯勺冰淇淋店",
+          "lat": 40.3517,
+          "lng": -74.6607,
+          "rank": 13,
+          "tier": "绝对必吃",
+          "note": "35 Palmer Square West，农场直供的手工冰淇淋名店，获奖无数，口味独特且随季节更换，必吃经典甜品。"
         },
         {
           "name": "Jammin' Crepes",
-          "nameCn": "Jammin' Crepes 可丽饼",
-          "lat": 40.3501,
-          "lng": -74.6573,
-          "note": "Nassau St 本地人气可丽饼店，主打本地食材的甜咸 crepe，早午餐打卡热门。"
+          "nameCn": "果酱可丽饼",
+          "lat": 40.3509,
+          "lng": -74.66,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "20 Nassau St，Food Network《疯狂美食》上过镜的本地网红可丽饼店，食材有机、果酱自制，早午餐必选。"
+        },
+        {
+          "name": "Ajihei",
+          "nameCn": "味兵卫日式料理",
+          "lat": 40.352,
+          "lng": -74.6602,
+          "rank": 15,
+          "tier": "推荐",
+          "note": "11 Chambers St，普林斯顿隐藏版日式居酒屋，炭火烤物与下酒小食备受好评，常需提前预约。"
         }
       ]
     },
@@ -297,32 +608,85 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (90 Nassau St)",
-          "nameCn": "美国银行 Nassau 街支行",
-          "lat": 40.3499,
-          "lng": -74.6588,
-          "note": "校门对面 Nassau St 的美银网点，开学办银行账户、存取现金最近的一家。"
+          "name": "PNC Bank (76 Nassau St)",
+          "nameCn": "PNC 银行（Nassau 街校门口分行）",
+          "lat": 40.3508,
+          "lng": -74.6608,
+          "rank": 1,
+          "tier": "必去",
+          "note": "普林斯顿官方推荐国际学生开户首选银行，步行即达，国际生入学周会有校内专场开户活动。"
         },
         {
-          "name": "CVS Pharmacy (172 Nassau St)",
-          "nameCn": "CVS 药房（Nassau 街）",
-          "lat": 40.3501,
-          "lng": -74.6557,
-          "note": "步行可达的连锁药房，处方药、感冒药、日用品和疫苗一站搞定。"
+          "name": "Chase Bank (16 Nassau St)",
+          "nameCn": "大通银行（Nassau 街分行）",
+          "lat": 40.3512,
+          "lng": -74.6604,
+          "rank": 2,
+          "tier": "必去",
+          "note": "美国第一大银行，网点与ATM遍布全美，开户方便，留学生建议与国内银行互联互通后优先选用。"
+        },
+        {
+          "name": "Wells Fargo Bank (194 Nassau St)",
+          "nameCn": "富国银行（Nassau 街分行）",
+          "lat": 40.3515,
+          "lng": -74.6568,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "全美第四大银行，Campus Card 与银行卡绑定方便，留学生账户免月费，转账手续费有优惠。"
+        },
+        {
+          "name": "Princeton University Health Services (Frist Health Center)",
+          "nameCn": "普林斯顿大学健康服务中心",
+          "lat": 40.347,
+          "lng": -74.6556,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2025年1月迁入 Frist Campus Center 附近新址，提供初级医疗、心理咨询、疫苗接种，在读生可直接就诊。"
         },
         {
           "name": "Penn Medicine Princeton Medical Center",
-          "nameCn": "宾大医学普林斯顿医疗中心",
-          "lat": 40.3318,
-          "lng": -74.5829,
-          "note": "Plainsboro 的综合医院，带急诊（ER），生病或急症就医的主要去处。"
+          "nameCn": "宾夕法尼亚医学中心普林斯顿医院",
+          "lat": 40.3162,
+          "lng": -74.5948,
+          "rank": 5,
+          "tier": "必去",
+          "note": "1 Plainsboro Rd，普林斯顿地区最主要综合医院，24小时急诊，车程约10分钟，重症与急救首选。"
         },
         {
-          "name": "Verizon (Princeton Shopping Center)",
-          "nameCn": "Verizon 通讯营业厅",
-          "lat": 40.3636,
-          "lng": -74.6589,
-          "note": "Princeton Shopping Center 内的运营商门店，办美国手机卡/套餐、买手机很方便。"
+          "name": "CVS Pharmacy (172 Nassau St)",
+          "nameCn": "CVS 药店（Nassau 街分行）",
+          "lat": 40.351,
+          "lng": -74.6591,
+          "rank": 6,
+          "tier": "必去",
+          "note": "步行可达的24小时药店，处方药、OTC常备药、生活用品一站购齐，含 MinuteClinic 小型诊所。"
+        },
+        {
+          "name": "Walgreens (301 N Harrison St)",
+          "nameCn": "沃尔格林药店（Harrison 街）",
+          "lat": 40.3569,
+          "lng": -74.663,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Princeton Shopping Center 内，处方药与日用品丰富，含 Photo Print 冲印服务，距校 10 分钟步行。"
+        },
+        {
+          "name": "T-Mobile (Nassau Park Blvd)",
+          "nameCn": "T-Mobile 手机店",
+          "lat": 40.328,
+          "lng": -74.652,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "普林斯顿地区覆盖最广的运营商门店，留学生可办免合同预付卡，入学定向周 T-Mobile 会到校办理业务。"
+        },
+        {
+          "name": "AT&T Store (3716 US Highway 1)",
+          "nameCn": "AT&T 手机店（US-1公路）",
+          "lat": 40.31,
+          "lng": -74.663,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于 US-1 公路商圈，AT&T 国际漫游与留学生套餐种类丰富，可带护照和签证现场激活。"
         }
       ]
     },
@@ -334,39 +698,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Nassau Hall",
-          "nameCn": "拿骚厅（Nassau Hall）",
-          "lat": 40.3487,
-          "lng": -74.6593,
-          "note": "1756年建的全校最老建筑，曾短暂作美国国会所在地，校园第一打卡点。"
+          "name": "Princeton Battlefield State Park",
+          "nameCn": "普林斯顿古战场州立公园",
+          "lat": 40.3315,
+          "lng": -74.6752,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1777年美国独立战争重要战场，85英亩绿地含历史陈列馆与纪念碑，步行或骑车可达，秋日尤美。"
         },
         {
-          "name": "Princeton University Art Museum",
-          "nameCn": "普林斯顿大学艺术博物馆",
-          "lat": 40.3473,
-          "lng": -74.6571,
-          "note": "校园中心的世界级艺术馆，馆藏从古代到当代、免费参观，雨天好去处。"
+          "name": "Grounds for Sculpture (Hamilton, NJ)",
+          "nameCn": "雕塑公园（哈密尔顿市）",
+          "lat": 40.236,
+          "lng": -74.717,
+          "rank": 2,
+          "tier": "必去",
+          "note": "42英亩、300余件世界顶级当代雕塑散落于精心园艺之中，全美独一无二的艺术圣地，周末必打卡。"
         },
         {
-          "name": "Palmer Square",
-          "nameCn": "Palmer Square 广场",
-          "lat": 40.3497,
-          "lng": -74.6595,
-          "note": "校门旁的殖民复古风商业广场，购物、咖啡、节庆活动云集，拍照逛街首选。"
-        },
-        {
-          "name": "Princeton University Chapel",
-          "nameCn": "普林斯顿大学教堂",
-          "lat": 40.3492,
-          "lng": -74.6566,
-          "note": "哥特式大学教堂，彩窗与高耸拱顶极上镜，是校园出片率最高的建筑之一。"
-        },
-        {
-          "name": "Lake Carnegie",
+          "name": "Carnegie Lake",
           "nameCn": "卡内基湖",
-          "lat": 40.3411,
-          "lng": -74.6396,
-          "note": "校园东南的人工湖，赛艇队训练地，沿岸跑步散步、看日落的放松好去处。"
+          "lat": 40.349,
+          "lng": -74.629,
+          "rank": 3,
+          "tier": "必去",
+          "note": "安德鲁·卡内基1906年捐建，全长8公里，可钓鱼、划船、跑步骑行，是校园内最美自然风光带。"
+        },
+        {
+          "name": "Delaware and Raritan Canal State Park",
+          "nameCn": "特拉华-拉里坦运河州立公园",
+          "lat": 40.3687,
+          "lng": -74.6156,
+          "rank": 4,
+          "tier": "必去",
+          "note": "73英里历史运河步道穿越普林斯顿，骑行、慢跑、皮划艇均宜，是留学生放松减压的自然走廊。"
+        },
+        {
+          "name": "Institute for Advanced Study Woods",
+          "nameCn": "高等研究院森林步道",
+          "lat": 40.3329,
+          "lng": -74.67,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "爱因斯坦生前常散步的森林公园，连接古战场公园，四季景色宜人，免费开放，冥想散步绝佳去处。"
+        },
+        {
+          "name": "Terhune Orchards",
+          "nameCn": "特尔侯内果园",
+          "lat": 40.331,
+          "lng": -74.7252,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "330 Cold Soil Rd，家族经营250英亩有机农场，苹果季自摘体验、自酿葡萄酒与面包坊，秋季必去活动。"
+        },
+        {
+          "name": "New Hope & Lambertville (PA/NJ)",
+          "nameCn": "新望小镇与兰伯特维尔",
+          "lat": 40.3618,
+          "lng": -74.9479,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "距普林斯顿30分钟车程，横跨宾州与新泽西的文艺小镇双子星，古董店、艺廊、独立餐厅与河边徒步皆宜。"
+        },
+        {
+          "name": "Palmer Square & Nassau Street Shopping",
+          "nameCn": "帕尔默广场购物区",
+          "lat": 40.351,
+          "lng": -74.66,
+          "rank": 8,
+          "tier": "必去",
+          "note": "紧邻校门的历史购物广场，品牌店、独立书店与精品餐饮聚集，节假日常设市集，逛街首选目的地。"
+        },
+        {
+          "name": "Princeton University Chapel (interior tour)",
+          "nameCn": "普林斯顿大学礼拜堂（室内参观）",
+          "lat": 40.3487,
+          "lng": -74.6568,
+          "rank": 9,
+          "tier": "必去",
+          "note": "仅进入室内感受哥特式建筑的彩色玻璃与管风琴气势，每日7am-11pm开放，周末有管风琴演奏。"
+        },
+        {
+          "name": "Six Flags Great Adventure (Jackson, NJ)",
+          "nameCn": "六旗大冒险乐园",
+          "lat": 40.1379,
+          "lng": -74.4373,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "距普林斯顿约40分钟车程，全美最大主题公园之一，学生持ID享折扣，周末半日游的减压最佳选择。"
         }
       ]
     }

@@ -67,46 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Marshall School of Business (Bridge Hall)",
+          "name": "USC Viterbi School of Engineering (OHE)",
+          "nameCn": "维特比工学院",
+          "lat": 34.0191,
+          "lng": -118.2893,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖工学院之一，计算机、电气、航空等多个专业全美排名前十，工科生的学术中心。"
+        },
+        {
+          "name": "USC Marshall School of Business (HOH)",
           "nameCn": "马歇尔商学院",
-          "lat": 34.0188,
-          "lng": -118.2854,
-          "note": "顶尖商学院，Bridge Hall与Popovich Hall一带。"
+          "lat": 34.0192,
+          "lng": -118.2851,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美知名商学院，Hoffman Hall 为主楼，由 I.M. 贝聿铭设计，MBA 及本科商科项目均享誉全球。"
         },
         {
-          "name": "Viterbi School of Engineering (RTH/EEB)",
-          "nameCn": "维特比工程学院",
-          "lat": 34.0205,
-          "lng": -118.2898,
-          "note": "工程学院教学楼群，靠校区西侧。"
+          "name": "USC Annenberg School for Communication and Journalism (ASC)",
+          "nameCn": "安纳伯格传播与新闻学院",
+          "lat": 34.0223,
+          "lng": -118.2866,
+          "rank": 3,
+          "tier": "必去",
+          "note": "新闻传播领域名校，Wallis Annenberg Hall 为标志性新楼，有全美一流的传媒实习资源。"
         },
         {
-          "name": "Gould School of Law",
-          "nameCn": "古尔德法学院",
-          "lat": 34.0182,
-          "lng": -118.2837,
-          "note": "法学院，位于校区东南。"
+          "name": "USC School of Cinematic Arts (SCA Complex)",
+          "nameCn": "电影艺术学院",
+          "lat": 34.0233,
+          "lng": -118.2895,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美排名第一的电影学院，乔治·卢卡斯等大导演母校，2009 年建成四英亩六栋楼的专用园区。"
         },
         {
-          "name": "Annenberg School for Communication",
-          "nameCn": "安纳伯格传播学院",
-          "lat": 34.0224,
-          "lng": -118.2868,
-          "note": "传播与新闻学院，新闻传播领域强势。"
+          "name": "USC Dornsife College of Letters, Arts and Sciences (GFS)",
+          "nameCn": "多恩赛弗文理学院",
+          "lat": 34.02,
+          "lng": -118.2845,
+          "rank": 5,
+          "tier": "必去",
+          "note": "USC 最大的学院，涵盖理学、文学、社会科学，Grant Hall 为行政主楼，人文课程核心所在。"
         },
         {
-          "name": "Wallis Annenberg Hall",
-          "nameCn": "瓦利斯·安纳伯格楼",
-          "lat": 34.0208,
-          "lng": -118.28705,
-          "note": "传播学院数字新闻教学楼。"
+          "name": "USC Gould School of Law (Musick Law Building)",
+          "nameCn": "高德法学院",
+          "lat": 34.0168,
+          "lng": -118.2862,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于校园南端，毗邻 Exposition Park，全美排名前二十五法学院，校区环境幽静适合备考。"
         },
         {
-          "name": "Keck School of Medicine",
+          "name": "USC Sol Price School of Public Policy (Lewis Hall)",
+          "nameCn": "普莱斯公共政策学院",
+          "lat": 34.0181,
+          "lng": -118.2843,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "城市规划与公共政策领域排名全美前五，Ralph and Goldy Lewis Hall 是学院主楼。"
+        },
+        {
+          "name": "USC Keck School of Medicine",
           "nameCn": "凯克医学院",
-          "lat": 34.0613,
-          "lng": -118.2065,
-          "note": "健康科学校区核心，1975 Zonal Ave。"
+          "lat": 34.0614,
+          "lng": -118.2014,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "位于健康科学校区（非主校区），全美顶尖医学院之一，与凯克医院共址于 1975 Zonal Ave。"
+        },
+        {
+          "name": "USC Roski School of Art and Design (Watt Hall)",
+          "nameCn": "罗斯基艺术与设计学院",
+          "lat": 34.0185,
+          "lng": -118.29,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Watt Hall 是艺设系主楼，内设 Helen Lindhurst Fine Arts Gallery 展览空间，艺术专业必来。"
+        },
+        {
+          "name": "USC Thornton School of Music (Alfred Newman Recital Hall)",
+          "nameCn": "桑顿音乐学院",
+          "lat": 34.0195,
+          "lng": -118.2875,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全美历史最悠久音乐学院之一，校内 Newman Recital Hall 常年举办免费演奏会，值得常去。"
+        },
+        {
+          "name": "Kaprielian Hall (KAP) - Viterbi Engineering",
+          "nameCn": "卡普里利安工程楼",
+          "lat": 34.0209,
+          "lng": -118.289,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "土木、计算机等多个工学院系的主要教学楼，位于 Vermont Ave，工科生几乎每天必经之地。"
+        },
+        {
+          "name": "Bovard Administration Building (ADM)",
+          "nameCn": "博瓦德行政楼",
+          "lat": 34.0202,
+          "lng": -118.2854,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "1921 年建成的罗曼式风格地标，是 USC 最具代表性的历史建筑，学生入学典礼等重大仪式在此举行。"
         }
       ],
       "defaultOn": true
@@ -119,18 +185,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Doheny Memorial Library",
-          "nameCn": "多希尼纪念图书馆",
-          "lat": 34.0202,
-          "lng": -118.2837,
-          "note": "1932年罗马式主馆，校区标志性图书馆。"
+          "name": "Doheny Memorial Library (DML)",
+          "nameCn": "多赫尼纪念图书馆",
+          "lat": 34.0203,
+          "lng": -118.2839,
+          "rank": 1,
+          "tier": "必去",
+          "note": "USC 主图书馆，建于 1932 年，馆藏丰富，一楼设东亚图书馆（含中文/日文/韩文资料），校园中心地标。"
         },
         {
-          "name": "Leavey Library",
+          "name": "Leavey Library (LVL)",
           "nameCn": "利维图书馆",
-          "lat": 34.0214,
-          "lng": -118.2826,
-          "note": "24小时开放的本科生学习图书馆。"
+          "lat": 34.0224,
+          "lng": -118.2843,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全校唯一 24/7 开放（学期间）的图书馆，自习座位充裕，有大量电脑，本科生最常去。"
+        },
+        {
+          "name": "East Asian Library (DML 1F)",
+          "nameCn": "东亚图书馆",
+          "lat": 34.0203,
+          "lng": -118.2839,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于 Doheny 一楼，馆藏中文、日文、韩文资料逾 30 万册，设有韩国文化遗产馆，中国留学生强烈推荐。"
+        },
+        {
+          "name": "Science & Engineering Library (SSL)",
+          "nameCn": "理工图书馆",
+          "lat": 34.0226,
+          "lng": -118.2862,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "工科、理科学生的学术资源中心，提供个人与协作学习空间，工程类数据库资源最全。"
+        },
+        {
+          "name": "Hoose Library of Philosophy (MHP 2F)",
+          "nameCn": "胡斯哲学图书馆",
+          "lat": 34.0178,
+          "lng": -118.2846,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于 1929 年建成的 Mudd Hall 二楼，是 USC 最美的图书馆之一，曾在电影《心中永远》中亮相。"
+        },
+        {
+          "name": "Cinematic Arts Library",
+          "nameCn": "电影艺术图书馆",
+          "lat": 34.0233,
+          "lng": -118.2895,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专为影视、编剧、制作学生提供剧本、影视档案与珍稀电影周边资料，电影学院园区内。"
+        },
+        {
+          "name": "Architecture and Fine Arts Library",
+          "nameCn": "建筑与美术图书馆",
+          "lat": 34.0187,
+          "lng": -118.29,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "收藏建筑、城市规划、艺术设计类专业资料，毗邻 Watt Hall，设计系学生必备资源。"
         }
       ]
     },
@@ -142,18 +257,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "USC Fisher Museum of Art",
-          "nameCn": "费舍尔艺术博物馆",
-          "lat": 34.0197,
-          "lng": -118.2867,
-          "note": "校园内艺术博物馆，馆藏欧美绘画。"
+          "name": "Natural History Museum of Los Angeles County",
+          "nameCn": "洛杉矶自然历史博物馆",
+          "lat": 34.0169,
+          "lng": -118.2888,
+          "rank": 1,
+          "tier": "必去",
+          "note": "USC 对面步行可达，恐龙化石馆、宝石矿物馆、蜘蛛馆闻名全美，学生凭 USC ID 可享折扣。"
         },
         {
-          "name": "Natural History Museum of L.A. County",
-          "nameCn": "洛杉矶自然历史博物馆",
-          "lat": 34.0173,
-          "lng": -118.2887,
-          "note": "毗邻校区南侧博览公园，邻近地标。"
+          "name": "California Science Center",
+          "nameCn": "加州科学中心",
+          "lat": 34.0155,
+          "lng": -118.2853,
+          "rank": 2,
+          "tier": "必去",
+          "note": "永久展览免费参观，收藏真实航天飞机「挑战者号」，七层 IMAX 影院，理工科学生必打卡。"
+        },
+        {
+          "name": "USC Fisher Museum of Art",
+          "nameCn": "费希尔艺术博物馆",
+          "lat": 34.0188,
+          "lng": -118.2871,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1939 年洛杉矶首座艺术博物馆，常年免费入场，常设西方古典与当代艺术展览，在 USC 校园内。"
+        },
+        {
+          "name": "California African American Museum (CAAM)",
+          "nameCn": "加州非裔美国人博物馆",
+          "lat": 34.0178,
+          "lng": -118.2831,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Exposition Park 内，常年免费，专注非裔美国人历史文化艺术，展览质量高且有强烈社会议题视角。"
+        },
+        {
+          "name": "USC Pacific Asia Museum",
+          "nameCn": "太平洋亚洲博物馆",
+          "lat": 34.1481,
+          "lng": -118.1503,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于帕萨迪纳市，距 USC 约 14 英里，专注亚洲及太平洋地区艺术品，馆藏超 1.7 万件，中国留学生强烈推荐。"
         }
       ]
     },
@@ -166,38 +312,75 @@
       "items": [
         {
           "name": "Tommy Trojan (Trojan Shrine)",
-          "nameCn": "特洛伊战士雕像",
+          "nameCn": "特洛伊勇士铜像",
           "lat": 34.0205,
-          "lng": -118.2855,
-          "note": "校园中心地标，特洛伊精神象征。"
+          "lng": -118.2856,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1930 年落成的 USC 精神象征，位于校园核心，是学生集会打卡、毕业照必拍地标，入学第一天必来。"
         },
         {
-          "name": "Bovard Auditorium",
-          "nameCn": "博瓦德礼堂",
-          "lat": 34.0209,
-          "lng": -118.2851,
-          "note": "1921年礼堂兼行政楼，校区门面建筑。"
+          "name": "USC Village",
+          "nameCn": "USC 村",
+          "lat": 34.0251,
+          "lng": -118.2848,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2017 年落成的 15 英亩综合商业区，含 Trader Joe's、Target、餐厅和宿舍，是学生日常生活枢纽。"
         },
         {
-          "name": "Galen Center",
-          "nameCn": "盖伦体育中心",
-          "lat": 34.022,
-          "lng": -118.2797,
-          "note": "Jefferson与Figueroa东南角，篮球排球主场。"
+          "name": "Ronald Tutor Campus Center (TCC)",
+          "nameCn": "罗纳德·图特学生中心",
+          "lat": 34.0207,
+          "lng": -118.284,
+          "rank": 3,
+          "tier": "必去",
+          "note": "五层楼、19.2 万平方英尺的学生活动中心，含餐厅、社团办公室、会议室，Steps of Troy 是网红打卡楼梯。"
         },
         {
           "name": "Los Angeles Memorial Coliseum",
           "nameCn": "洛杉矶纪念体育场",
-          "lat": 34.0141,
+          "lat": 34.0136,
           "lng": -118.2879,
-          "note": "博览公园内，特洛伊橄榄球主场及奥运场馆。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "USC 橄榄球主场，1923 年建成，两届奥运会场馆，观看 USC 主场比赛是大学生活重要仪式。"
         },
         {
-          "name": "Expo Park / USC Metro Station",
-          "nameCn": "博览公园/USC地铁站",
-          "lat": 34.0182,
-          "lng": -118.286,
-          "note": "E线轻轨车站，校区南门通勤枢纽。"
+          "name": "Widney Alumni House",
+          "nameCn": "威德尼校友楼",
+          "lat": 34.0192,
+          "lng": -118.2845,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1880 年建成的南加州历史最悠久大学建筑，USC 第一栋楼，是校史上不可错过的文化地标。"
+        },
+        {
+          "name": "Galen Center",
+          "nameCn": "盖伦中心体育馆",
+          "lat": 34.0215,
+          "lng": -118.2798,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "USC 室内体育馆，容纳 1 万余人，举办篮球赛、排球赛及大型演唱会，学生凭 ID 有优惠票。"
+        },
+        {
+          "name": "Exposition Park Rose Garden",
+          "nameCn": "世博公园玫瑰花园",
+          "lat": 34.018,
+          "lng": -118.2861,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "7 英亩、200 多个品种的玫瑰园，每年 3 月中旬至年底免费开放，花季拍照极美，是校园附近放松胜地。"
+        },
+        {
+          "name": "Mudd Memorial Hall of Philosophy",
+          "nameCn": "穆德哲学楼",
+          "lat": 34.0178,
+          "lng": -118.2846,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1929 年建成的罗曼式珍宝，获洛杉矶艺术协会金奖，是 USC 校园最上镜的历史建筑之一。"
         }
       ]
     },
@@ -210,38 +393,66 @@
       "items": [
         {
           "name": "Trader Joe's (USC Village)",
-          "nameCn": "Trader Joe's 超市（USC Village 店）",
-          "lat": 34.0235,
-          "lng": -118.2861,
-          "note": "USC Village 内步行可达的主流连锁超市，性价比高、半成品和零食丰富，是 USC 学生日常采买首选。"
+          "nameCn": "乔氏超市（USC 村店）",
+          "lat": 34.0252,
+          "lng": -118.2843,
+          "rank": 1,
+          "tier": "必去",
+          "note": "USC 村内，步行即达，主流食品、有机零食、冷冻餐价格实惠，是留学生日常采购首选。"
         },
         {
           "name": "Target (USC Village)",
-          "nameCn": "Target 塔吉特（USC Village 店）",
-          "lat": 34.0238,
-          "lng": -118.2857,
-          "note": "校内 USC Village 的小型 Target，生鲜杂货、日用百货、文具和药妆一站买齐，还带星巴克和药房。"
+          "nameCn": "塔吉特超市（USC 村店）",
+          "lat": 34.025,
+          "lng": -118.2845,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与 Trader Joe's 相邻，销售日用百货、电子产品、食品及床上用品，开学置物首选。"
         },
         {
-          "name": "Ralphs (Renaissance Plaza)",
-          "nameCn": "Ralphs 大型超市（Vermont 店）",
-          "lat": 34.0337,
-          "lng": -118.2916,
-          "note": "距校约 1.5 公里的大型美式超市，品类齐全价格实惠，适合周采购囤货。"
+          "name": "Ralphs (2600 S Vermont Ave)",
+          "nameCn": "拉尔夫斯超市",
+          "lat": 34.0233,
+          "lng": -118.2917,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "USC 附近最近的全服务超市（Kroger 旗下），生鲜、熟食、自有品牌齐全，有药房，步行约 10 分钟。"
         },
         {
-          "name": "Galleria Market (Koreatown)",
-          "nameCn": "Galleria Market 韩亚超市（韩国城）",
-          "lat": 34.0524,
-          "lng": -118.3088,
-          "note": "校北约 4-5 公里韩国城最大的亚洲超市，韩国、中式调料、冻品、活海鲜和小菜齐全，补货中餐食材来这里最近。"
+          "name": "H Mart (Koreatown Plaza, 928 S Western Ave)",
+          "nameCn": "H Mart 韩国超市（韩国城店）",
+          "lat": 34.0571,
+          "lng": -118.3089,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "韩国城内，韩、日、中、东南亚食材一站齐备，泡菜、年糕、海鲜选择多，Uber 约 15 分钟可达。"
         },
         {
-          "name": "H Mart Koreatown (Madang Plaza)",
-          "nameCn": "H Mart 韩亚龙超市（韩国城 Madang 广场）",
+          "name": "Hannam Chain Supermarket (2740 W Olympic Blvd)",
+          "nameCn": "汉南超市",
+          "lat": 34.0516,
+          "lng": -118.3119,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "韩国城综合亚洲超市，中韩日食材丰富，自制熟食区备受好评，离 USC 约 4 英里。"
+        },
+        {
+          "name": "99 Ranch Market (Monterey Park, 771 W Garvey Ave)",
+          "nameCn": "大华超市（蒙特利公园店）",
           "lat": 34.0626,
-          "lng": -118.301,
-          "note": "连锁亚超 H Mart 的韩国城店，亚洲蔬果、即食便当、腌切肉和海鲜种类多，开车十几分钟可达。"
+          "lng": -118.1411,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "华人社区最知名中式超市，中文标牌、中国调味料及冷冻食品应有尽有，开车约 20 分钟，周末采购推荐。"
+        },
+        {
+          "name": "CVS Pharmacy / Grocery (3335 S Figueroa St)",
+          "nameCn": "CVS 便利药妆店（菲格罗亚街店）",
+          "lat": 34.0213,
+          "lng": -118.2798,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距 USC 步行 5 分钟，应急零食、日用品及非处方药采购，营业时间长，紧急购物首选。"
         }
       ]
     },
@@ -253,39 +464,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Northern Cafe",
-          "nameCn": "北方咖啡（手工面点中餐）",
-          "lat": 34.0247,
-          "lng": -118.2789,
-          "note": "USC 旁人气最高的正宗北方中餐馆，手工水饺、拉面和川菜都地道，留学生想家时的食堂。"
+          "name": "Northern Cafe (2904 S Figueroa St)",
+          "nameCn": "北方咖啡馆（北方中餐）",
+          "lat": 34.0228,
+          "lng": -118.2797,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "USC 附近口碑最佳中餐馆，手擀面、煎饺、酸辣汤、猪肉水饺是招牌，中国留学生聚餐首选。"
         },
         {
-          "name": "Kobunga Korean Grill (USC Village)",
-          "nameCn": "Kobunga 韩式烤肉（USC Village 店）",
+          "name": "YGF Malatang (2526 S Figueroa St)",
+          "nameCn": "YGF 麻辣烫",
+          "lat": 34.025,
+          "lng": -118.2805,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "USC 附近最人气麻辣烫，可自选食材按重计价，番茄汤底超推荐，开放至深夜，学生评价「十年来最好的新店」。"
+        },
+        {
+          "name": "Holbox at Mercado La Paloma (3655 S Grand Ave)",
+          "nameCn": "Holbox 墨西哥海鲜餐厅",
+          "lat": 34.0229,
+          "lng": -118.272,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Michelin 推荐，贝克塔尔家族主理，招牌龙虾塔可与海鲜腌生鱼闻名全城，是 USC 附近最具格调的饮食体验。"
+        },
+        {
+          "name": "Kobunga Korean Grill (929 W Jefferson Blvd)",
+          "nameCn": "Kobunga 韩国烤肉",
+          "lat": 34.0264,
+          "lng": -118.2843,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "USC 村内韩式烤肉，桌上自助烤，性价比高，是学生请客和聚会最受欢迎的选择之一。"
+        },
+        {
+          "name": "Ramen Kenjo (929 W Jefferson Blvd)",
+          "nameCn": "剑城拉面",
+          "lat": 34.0264,
+          "lng": -118.2843,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "USC 村内正宗日式拉面，豚骨、辣味噌口味均受好评，餐后加饺子或唐扬鸡必点，学生超推荐。"
+        },
+        {
+          "name": "Qin West Noodles (2520 S Figueroa St)",
+          "nameCn": "秦西面馆",
+          "lat": 34.0253,
+          "lng": -118.2805,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "手工现拉西北风味面条，凉皮、牛肉面、葱油饼是招牌，对北方饮食的留学生来说极度治愈。"
+        },
+        {
+          "name": "Jacks N Joe (2498 S Figueroa St)",
+          "nameCn": "杰克与乔早午餐",
           "lat": 34.0256,
-          "lng": -118.2848,
-          "note": "开在 USC Village 里的快捷韩式烤肉，自助小菜口碑好，适合和同学聚餐。"
+          "lng": -118.2808,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "USC 附近最受学生喜爱的早午餐，招牌厚松饼与夏威夷风味早餐，周末排队必须早去，含创始人是 USC 校友。"
         },
         {
-          "name": "Lotus Vietnamese Kitchen",
+          "name": "Park's BBQ (955 S Vermont Ave, Koreatown)",
+          "nameCn": "朴氏韩国烤肉（韩国城）",
+          "lat": 34.057,
+          "lng": -118.2918,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "洛杉矶韩国烤肉金标准，「花肉」高度大理石花纹牛肋肉是招牌，价格偏高但体验无与伦比。"
+        },
+        {
+          "name": "Thai by Trio (2700 S Figueroa St)",
+          "nameCn": "三重奏泰国菜",
+          "lat": 34.024,
+          "lng": -118.2805,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "USC 附近平价正宗泰国菜，泰式炒米粉、咖喱、冬阴功汤均出色，学生朋友圈高频推荐。"
+        },
+        {
+          "name": "La Barca Restaurant (2414 S Vermont Ave)",
+          "nameCn": "La Barca 墨西哥餐厅",
+          "lat": 34.0278,
+          "lng": -118.2914,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "USC 附近墨西哥餐馆标杆，玛格丽特酒足量、墨西哥主食分量大，是学生庆祝聚餐的经典之选。"
+        },
+        {
+          "name": "Chinese Street Food (USC Village)",
+          "nameCn": "中国街头小吃（USC 村）",
+          "lat": 34.0251,
+          "lng": -118.2847,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "USC 村内正宗中式小吃专门店，每日手工现做猪肉包子，逾 20 年经验厨师主理，上课间隙必吃。"
+        },
+        {
+          "name": "Kyochon Chicken (3833 W 6th St, Koreatown)",
+          "nameCn": "教村炸鸡（韩国城）",
+          "lat": 34.061,
+          "lng": -118.3041,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "韩国最正宗炸鸡连锁，蜂蜜蒜香与酱油原味两款经典，外皮酥薄，学生对比测评中常排第一。"
+        },
+        {
+          "name": "Lotus Vietnamese Kitchen (358 W 38th St)",
           "nameCn": "莲花越南厨房",
-          "lat": 34.0185,
-          "lng": -118.281,
-          "note": "校园南侧的越南餐馆，越式法包、河粉和春卷份量足又便宜，学生常点。"
+          "lat": 34.0165,
+          "lng": -118.2868,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "越南河粉、越式三明治、春卷口味正宗，紧邻 USC，价格亲民，是 USC 附近最推荐的东南亚餐馆。"
         },
         {
-          "name": "Chichen Itza (Mercado La Paloma)",
-          "nameCn": "Chichen Itza 尤卡坦墨西哥菜（La Paloma 市集内）",
-          "lat": 34.0173,
-          "lng": -118.2783,
-          "note": "校东 Mercado La Paloma 美食市集里的招牌墨西哥馆，招牌烤猪肉夹饼屡获 LA Times 推荐，本地必吃。"
-        },
-        {
-          "name": "The Lab Gastropub",
-          "nameCn": "The Lab 餐酒馆",
-          "lat": 34.0156,
-          "lng": -118.279,
-          "note": "Figueroa 街上靠近校园的美式餐酒馆，露台带火炉，是 USC 师生小聚和看球的人气地标。"
+          "name": "Bacari W. Adams (2308 S Union Ave)",
+          "nameCn": "Bacari 地中海小食餐厅",
+          "lat": 34.0289,
+          "lng": -118.2779,
+          "rank": 14,
+          "tier": "一般",
+          "note": "USC 校友联合创办，威尼斯风格地中海 tapas，氛围精致，$25 开放式酒水，适合庆祝或约会。"
         }
       ]
     },
@@ -297,32 +599,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (University Village)",
-          "nameCn": "美国银行（USC Village 支行）",
-          "lat": 34.0228,
-          "lng": -118.2861,
-          "note": "校内 USC Village 的美国银行实体网点，新生办理美国银行账户、存取现金最方便的一家。"
+          "name": "Bank of America (USC Village, 3201 S Hoover St)",
+          "nameCn": "美国银行（USC 村网点）",
+          "lat": 34.0251,
+          "lng": -118.2843,
+          "rank": 1,
+          "tier": "必去",
+          "note": "USC 村内，对国际学生友好，凭护照+I-20 即可开户，学生免月费，是留学生开户首选。"
         },
         {
-          "name": "USC Engemann Student Health Center",
-          "nameCn": "USC Engemann 学生健康中心",
-          "lat": 34.0234,
-          "lng": -118.2889,
-          "note": "校内学生健康中心，提供全科门诊、急症处理和心理咨询，生病第一站、多数费用学生保险覆盖。"
+          "name": "Engemann Student Health Center",
+          "nameCn": "恩格曼学生健康中心",
+          "lat": 34.0232,
+          "lng": -118.2842,
+          "rank": 2,
+          "tier": "必去",
+          "note": "USC 官方学生诊所，提供初级保健、心理咨询及急诊转介，凭学生 SHIP 保险可大幅减免费用。"
         },
         {
-          "name": "CVS Pharmacy (3335 S Figueroa)",
-          "nameCn": "CVS 药房（Figueroa 街店）",
-          "lat": 34.0204,
-          "lng": -118.2793,
-          "note": "紧邻 Jefferson/USC 地铁站的 CVS，处方药、感冒药和日用品齐全，还设 MinuteClinic 步入式诊所。"
+          "name": "USC Credit Union (Campus Center Branch)",
+          "nameCn": "USC 信用合作社",
+          "lat": 34.0207,
+          "lng": -118.284,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "学生中心一楼，利率优惠，提供支票/储蓄账户，USC 在校生专属，适合深度理财需求。"
         },
         {
-          "name": "T-Mobile (Figueroa & Adams)",
-          "nameCn": "T-Mobile 手机营业厅（Figueroa & Adams）",
-          "lat": 34.0297,
-          "lng": -118.2784,
-          "note": "校北 Figueroa 街上的 T-Mobile 门店，到店即可办美国手机卡和套餐，新生落地办号常来。"
+          "name": "Chase Bank (3335 S Figueroa St)",
+          "nameCn": "摩根大通银行（菲格罗亚街店）",
+          "lat": 34.0213,
+          "lng": -118.2798,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "USC 步行圈内，大学生在校期间免月费账户，ATM 网络广，手机 App 体验佳，国际汇款便利。"
+        },
+        {
+          "name": "CVS Pharmacy (3335 S Figueroa St)",
+          "nameCn": "CVS 药店（菲格罗亚街店）",
+          "lat": 34.0213,
+          "lng": -118.2798,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "USC 步行圈内，每日 7am-10pm，非处方药、保健品、日用品齐全，含 MinuteClinic 快速就医服务。"
+        },
+        {
+          "name": "T-Mobile (2510 S Figueroa St)",
+          "nameCn": "T-Mobile 电话营业厅",
+          "lat": 34.0256,
+          "lng": -118.2805,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "USC 正南方步行 5 分钟，国际学生常用运营商，凭护照即可激活预付卡，无限流量套餐约 $50/月。"
+        },
+        {
+          "name": "Wells Fargo Bank (141 W Adams Blvd)",
+          "nameCn": "富国银行（亚当斯大道店）",
+          "lat": 34.0335,
+          "lng": -118.2836,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "USC 北侧约 1 英里，大型银行网点，周一至五 9am-5pm，周六 9am-12pm，有 5 台 24 小时 ATM。"
+        },
+        {
+          "name": "Keck Medicine of USC (1031 W 34th St, Suite 430)",
+          "nameCn": "凯克医学中心（大学公园门诊）",
+          "lat": 34.0232,
+          "lng": -118.2856,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "USC 主校区内 Keck 医学专科门诊，接受 SHIP/Aetna，涵盖全科、皮肤科等多科室，学生就医最便捷选择之一。"
         }
       ]
     },
@@ -334,39 +680,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "California Science Center",
-          "nameCn": "加州科学中心",
-          "lat": 34.0156,
-          "lng": -118.2862,
-          "note": "紧邻校园的 Exposition Park 内，常设展免费，镇馆之宝是真实的奋进号航天飞机，必看。"
+          "name": "Exposition Park (Natural History Museum + Science Center + CAAM)",
+          "nameCn": "世博公园（博物馆群）",
+          "lat": 34.0162,
+          "lng": -118.286,
+          "rank": 1,
+          "tier": "必去",
+          "note": "USC 正对面，集自然历史博物馆、科学中心、非裔美国人博物馆、玫瑰花园于一园，半天可游遍，留学生必打卡。"
         },
         {
-          "name": "Natural History Museum of Los Angeles County",
-          "nameCn": "洛杉矶自然历史博物馆",
-          "lat": 34.0173,
-          "lng": -118.2884,
-          "note": "校南步行可达，恐龙化石厅和宝石厅有名，门口的玫瑰花园是热门拍照点。"
+          "name": "Griffith Observatory",
+          "nameCn": "格里菲斯天文台",
+          "lat": 34.1184,
+          "lng": -118.3004,
+          "rank": 2,
+          "tier": "必去",
+          "note": "俯瞰好莱坞标志与洛杉矶全貌，入场免费，天气好时可看 Hollywood 标志，周末人多建议提前出发。"
         },
         {
-          "name": "Los Angeles Memorial Coliseum",
-          "nameCn": "洛杉矶纪念体育场",
-          "lat": 34.0141,
-          "lng": -118.2879,
-          "note": "USC 橄榄球主场、两届奥运主场馆，比赛日气氛炸裂，是体验美式校园文化的地标。"
+          "name": "Santa Monica Pier",
+          "nameCn": "圣莫尼卡海滩栈桥",
+          "lat": 34.0052,
+          "lng": -118.4925,
+          "rank": 3,
+          "tier": "必去",
+          "note": "洛杉矶必打卡海滩地标，太平洋摩天轮日落时分极美，距 USC 约 30 分钟车程，周末骑行路线终点。"
         },
         {
-          "name": "Exposition Park Rose Garden",
-          "nameCn": "Exposition Park 玫瑰花园",
-          "lat": 34.0163,
-          "lng": -118.2876,
-          "note": "校园南侧的免费玫瑰园，上百品种春夏盛开，散步、野餐和出片的好去处。"
+          "name": "Venice Beach Boardwalk",
+          "nameCn": "威尼斯海滩木栈道",
+          "lat": 33.985,
+          "lng": -118.473,
+          "rank": 4,
+          "tier": "必去",
+          "note": "街头艺人、肌肉沙滩、滑板公园一应俱全，与圣莫尼卡海滩相连，是体验南加州 beach culture 的标志地。"
         },
         {
-          "name": "USC Village (McCarthy Quad area)",
-          "nameCn": "USC Village 哈利波特风学生村",
-          "lat": 34.0249,
-          "lng": -118.2857,
-          "note": "哥特风的校内生活区，拱廊、喷泉和钟楼像霍格沃茨，吃喝购物加拍照一站搞定。"
+          "name": "Koreatown (K-Town)",
+          "nameCn": "洛杉矶韩国城",
+          "lat": 34.0596,
+          "lng": -118.3006,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距 USC 约 3 英里，深夜烤肉、KTV 包间、24 小时汤饭馆密度全美最高，是留学生周末夜生活首选区域。"
+        },
+        {
+          "name": "Little Tokyo",
+          "nameCn": "小东京日本城",
+          "lat": 34.0498,
+          "lng": -118.2401,
+          "rank": 6,
+          "tier": "必去",
+          "note": "北美最大日本文化区，漫画店、日本杂货、正宗拉面与日式甜点聚集，Metro E 线可直达，约 15 分钟车程。"
+        },
+        {
+          "name": "Grand Central Market (317 S Broadway, DTLA)",
+          "nameCn": "中央市场（市中心）",
+          "lat": 34.0509,
+          "lng": -118.2492,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1917 年开业的洛杉矶标志性美食市场，汇集墨西哥、中东、美式多国料理，离 USC 约 10 分钟车程。"
+        },
+        {
+          "name": "The Broad (221 S Grand Ave, DTLA)",
+          "nameCn": "博罗德当代艺术博物馆",
+          "lat": 34.0544,
+          "lng": -118.2503,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "常设展永久免费，草间弥生无限镜室与 Jeff Koons 等当代艺术大作为镇馆之宝，预约后排队较短。"
+        },
+        {
+          "name": "BMO Stadium",
+          "nameCn": "BMO 球场（LAFC 主场）",
+          "lat": 34.0127,
+          "lng": -118.2858,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "USC 步行可达的 MLS 职业足球场，洛杉矶 FC（LAFC）与天使城 FC 主场，观赛氛围极好，学生票有折扣。"
+        },
+        {
+          "name": "Mercado La Paloma (3655 S Grand Ave)",
+          "nameCn": "帕洛玛市集",
+          "lat": 34.0229,
+          "lng": -118.272,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "USC 附近多文化美食市集，含 Michelin 餐厅 Holbox，同时设有非营利组织、手工艺品区，多元文化氛围浓厚。"
         }
       ]
     }

@@ -67,46 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Cheadle Hall",
-          "nameCn": "奇德尔行政楼",
+          "name": "Davidson Library (Main Library)",
+          "nameCn": "戴维森图书馆（主图书馆）",
+          "lat": 34.4143,
+          "lng": -119.8459,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最核心的学术地标，也是院系建筑区地理中轴，位于两个主要广场之间"
+        },
+        {
+          "name": "Harold Frank Hall (Computer Science & ECE)",
+          "nameCn": "哈罗德·弗兰克楼（计算机科学与电气工程）",
           "lat": 34.4163,
-          "lng": -119.8466,
-          "note": "校级行政中枢，位于东入口 Henley Gate 内侧。"
+          "lng": -119.8461,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "容纳CS和ECE系办公室与实验室，工程学院行政办公室设于一楼，是理工科学生的核心据点"
         },
         {
-          "name": "College of Engineering",
-          "nameCn": "工程学院",
-          "lat": 34.414,
-          "lng": -119.8418,
-          "note": "Harold Frank Hall 等工程与计算机楼群，居校区东端。"
+          "name": "Bren Hall (Bren School of Environmental Science)",
+          "nameCn": "布伦楼（布伦环境科学与管理学院）",
+          "lat": 34.4161,
+          "lng": -119.8434,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全美最绿色实验室楼之一，三次荣获LEED铂金认证，紧邻海岸线，是UCSB环境学的标志性建筑"
         },
         {
-          "name": "Bren School of Environmental Science & Management",
-          "nameCn": "布伦环境科学与管理学院",
-          "lat": 34.413,
-          "lng": -119.843,
-          "note": "环境政策与可持续研究重镇，近海岸。"
+          "name": "Cheadle Hall (Administration)",
+          "nameCn": "奇德楼（行政中心）",
+          "lat": 34.4145,
+          "lng": -119.8481,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1960年建成的行政主楼，招生、注册、财务援助等核心行政部门均在此办公，新生必访之处"
         },
         {
-          "name": "Marine Science Institute",
-          "nameCn": "海洋科学研究所",
-          "lat": 34.4079,
-          "lng": -119.8436,
-          "note": "临海科研机构，UCSB 海洋研究的核心。"
+          "name": "Henley Hall (Institute for Energy Efficiency)",
+          "nameCn": "亨利楼（能源效率研究所）",
+          "lat": 34.4171,
+          "lng": -119.8435,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "包含124座讲堂、湿实验室及干实验室，是能源效率研究所的旗舰楼，2019年落成，设施最新"
+        },
+        {
+          "name": "Elings Hall (Engineering Sciences)",
+          "nameCn": "伊林斯楼（工程科学楼）",
+          "lat": 34.4168,
+          "lng": -119.845,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "约6.1万平方英尺，设有教室、办公室和实验室，以物理学荣誉教授Virgil Elings命名"
         },
         {
           "name": "Kohn Hall (Kavli Institute for Theoretical Physics)",
           "nameCn": "科恩楼（卡弗里理论物理研究所）",
-          "lat": 34.414,
-          "lng": -119.8409,
-          "note": "世界顶尖理论物理研究所，I.M. Pei 设计。"
+          "lat": 34.4148,
+          "lng": -119.8416,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "由著名建筑师Michael Graves设计，是国际顶级理论物理研究中心，汇聚多位诺贝尔奖得主"
         },
         {
-          "name": "Campbell Hall",
-          "nameCn": "坎贝尔礼堂",
-          "lat": 34.4163,
-          "lng": -119.8453,
-          "note": "全校最大讲堂，862座，常办讲座与演出。"
+          "name": "Girvetz Hall (Social Sciences & Humanities)",
+          "nameCn": "吉维茨楼（社会科学与人文学院）",
+          "lat": 34.414,
+          "lng": -119.8486,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "社会科学与人文学科的主要教学楼，是UCSB最早的永久性学术建筑之一"
+        },
+        {
+          "name": "Marine Science Research Building (MSI)",
+          "nameCn": "海洋科学研究楼（海洋科学研究所）",
+          "lat": 34.4098,
+          "lng": -119.8432,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "俯瞰圣巴巴拉海峡，6.5万平方英尺，汇聚14个学科的海洋研究人员，是UCSB海洋科学的旗舰设施"
+        },
+        {
+          "name": "Buchanan Hall (Humanities)",
+          "nameCn": "布坎南楼（人文学院）",
+          "lat": 34.4135,
+          "lng": -119.8492,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "人文学科主要教室楼，靠近西广场，是文科学生最常上课的场所之一"
+        },
+        {
+          "name": "Psychology East & West Buildings",
+          "nameCn": "心理学楼（东西两栋）",
+          "lat": 34.4107,
+          "lng": -119.8459,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "紧邻海岸悬崖，步行两分钟即达海滩，是心理与脑科学系的主要科研和教学场所"
         }
       ],
       "defaultOn": true
@@ -119,11 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Davidson Library",
-          "nameCn": "戴维森图书馆",
-          "lat": 34.4138,
-          "lng": -119.8455,
-          "note": "全校中央图书馆，2016年扩建，藏特藏与综合馆藏。"
+          "name": "Davidson Library (Main Library)",
+          "nameCn": "戴维森图书馆（主馆）",
+          "lat": 34.4143,
+          "lng": -119.8459,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCSB最主要图书馆，馆藏涵盖理工、人文、社科，含东亚图书馆（有中文馆藏）和地图影像实验室"
+        },
+        {
+          "name": "East Asian Library (within Davidson)",
+          "nameCn": "东亚图书馆（戴维森主馆内）",
+          "lat": 34.4143,
+          "lng": -119.8458,
+          "rank": 2,
+          "tier": "必去",
+          "note": "提供中文、日文、韩文藏书，是中国留学生查阅母语文献的重要资源，位于主馆内"
+        },
+        {
+          "name": "Music Library (Music Building 2nd Floor)",
+          "nameCn": "音乐图书馆（音乐楼二楼）",
+          "lat": 34.4145,
+          "lng": -119.8471,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于音乐楼2400区二楼，紧邻Storke Tower，收藏乐谱、录音及音乐相关文献"
+        },
+        {
+          "name": "Library Annex I",
+          "nameCn": "图书馆附楼一",
+          "lat": 34.415,
+          "lng": -119.853,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "存放非常规藏书和档案材料，需预约取阅，适合深度学术研究使用"
+        },
+        {
+          "name": "Library Annex II",
+          "nameCn": "图书馆附楼二",
+          "lat": 34.4155,
+          "lng": -119.8535,
+          "rank": 5,
+          "tier": "可选",
+          "note": "存放补充馆藏与档案，供研究者按需调取，同样需要预约使用"
+        },
+        {
+          "name": "Special Collections & University Archives",
+          "nameCn": "特藏与大学档案室（主馆内）",
+          "lat": 34.4143,
+          "lng": -119.8459,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "收藏表演艺术、摄影及大学历史原始档案，适合人文社科类研究型学生"
         }
       ]
     },
@@ -135,11 +239,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Art, Design & Architecture Museum",
-          "nameCn": "艺术、设计与建筑博物馆",
-          "lat": 34.412,
-          "lng": -119.8492,
-          "note": "建于1959年，藏建筑图档与区域艺术。"
+          "name": "Art, Design & Architecture Museum (AD&A)",
+          "nameCn": "艺术、设计与建筑博物馆（AD&A馆）",
+          "lat": 34.4148,
+          "lng": -119.8469,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1959年创立，收藏逾10,000件艺术品和100万件建筑图纸，紧邻UCen，免费入场，是UCSB的视觉艺术核心"
+        },
+        {
+          "name": "Santa Barbara Museum of Natural History",
+          "nameCn": "圣巴巴拉自然历史博物馆",
+          "lat": 34.4434,
+          "lng": -119.7098,
+          "rank": 2,
+          "tier": "必去",
+          "note": "馆内有加州本土原住民考古、恐龙化石和天文馆，距校园约15分钟车程，适合周末出游"
+        },
+        {
+          "name": "Santa Barbara Museum of Natural History Sea Center",
+          "nameCn": "圣巴巴拉自然历史博物馆海洋中心",
+          "lat": 34.4064,
+          "lng": -119.686,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Stearns Wharf码头上，可近距离观察海洋生物触碰水槽，是圣巴巴拉最受学生欢迎的博物馆之一"
+        },
+        {
+          "name": "Santa Barbara History Museum",
+          "nameCn": "圣巴巴拉历史博物馆",
+          "lat": 34.4236,
+          "lng": -119.7018,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "展示圣巴巴拉从西班牙殖民到现代的地方历史与文化，位于市区，免费入场"
+        },
+        {
+          "name": "Gladwin Planetarium (SBMNH)",
+          "nameCn": "格拉德温天文馆（自然历史博物馆内）",
+          "lat": 34.4434,
+          "lng": -119.7099,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于自然历史博物馆内，定期放映天象节目，适合对天文感兴趣的学生"
         }
       ]
     },
@@ -152,45 +294,75 @@
       "items": [
         {
           "name": "Storke Tower",
-          "nameCn": "斯托克钟塔",
-          "lat": 34.4126,
-          "lng": -119.84825,
-          "note": "175英尺校园钟塔，全县最高，内设61钟编钟与学生电台。"
+          "nameCn": "斯托克塔楼",
+          "lat": 34.4147,
+          "lng": -119.8478,
+          "rank": 1,
+          "tier": "必去",
+          "note": "高53米，是圣巴巴拉县最高钢筋水泥建筑，61铃编钟每小时报时，是UCSB最具辨识度的地标"
         },
         {
-          "name": "University Center (UCen)",
-          "nameCn": "大学中心",
-          "lat": 34.4116,
-          "lng": -119.8479,
-          "note": "学生活动枢纽，含书店、餐饮与活动空间。"
-        },
-        {
-          "name": "Henley Gate",
-          "nameCn": "亨利门",
-          "lat": 34.4153,
-          "lng": -119.8385,
-          "note": "校区东入口标志性大门。"
+          "name": "UCen (University Center)",
+          "nameCn": "大学中心（UCen）",
+          "lat": 34.4142,
+          "lng": -119.8471,
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生生活核心，设有书店、邮局、餐厅、The Hub演出场地和多元文化中心，是校园最热闹的地方"
         },
         {
           "name": "Campus Lagoon",
           "nameCn": "校园泻湖",
-          "lat": 34.4108,
-          "lng": -119.8445,
-          "note": "校区最南端的咸水泻湖，环湖步道临海。"
+          "lat": 34.4121,
+          "lng": -119.8437,
+          "rank": 3,
+          "tier": "必去",
+          "note": "约25-30英亩的微咸水湖，紧邻太平洋，是鸟类观察圣地，徒步、跑步、皮划艇均热门"
         },
         {
-          "name": "Events Center (Thunderdome)",
-          "nameCn": "活动中心（雷霆穹顶）",
-          "lat": 34.4138,
-          "lng": -119.8514,
-          "note": "5000座室内场馆，男女篮球主场。"
+          "name": "Recreation Center (Rec Cen)",
+          "nameCn": "娱乐中心（Rec Cen）",
+          "lat": 34.4127,
+          "lng": -119.8494,
+          "rank": 4,
+          "tier": "必去",
+          "note": "学生最常去的健身中心，设有健身房、游泳池、攀岩墙、户外冒险项目，学生凭ID免费使用"
+        },
+        {
+          "name": "Storke Plaza",
+          "nameCn": "斯托克广场",
+          "lat": 34.4148,
+          "lng": -119.8479,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Storke Tower南侧广场，校内集会、演出、集市的核心场所，Daily Nexus校报和KCSB电台均设于此"
+        },
+        {
+          "name": "Campus Point Beach",
+          "nameCn": "校园角海滩",
+          "lat": 34.409,
+          "lng": -119.8444,
+          "rank": 6,
+          "tier": "必去",
+          "note": "校园内直接步行可达的冲浪点和潮汐池，UCSB学生最引以为傲的独特资源，日落景色壮观"
+        },
+        {
+          "name": "Coal Oil Point Natural Reserve",
+          "nameCn": "煤油点自然保护区",
+          "lat": 34.4133,
+          "lng": -119.8785,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于西校区，约170英亩海岸湿地，每年冬季是南加州最佳赏蝴蝶（黑脉金斑蝶）地点之一"
         },
         {
           "name": "Harder Stadium",
-          "nameCn": "Harder 体育场",
-          "lat": 34.42,
-          "lng": -119.854,
-          "note": "1.7万座露天场，足球主场，居北校区运动带。"
+          "nameCn": "哈德体育场",
+          "lat": 34.4153,
+          "lng": -119.8508,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1.7万座室外多功能体育场，是足球、田径赛事的主场，也是大型户外活动举办场所"
         }
       ]
     },
@@ -202,39 +374,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Isla Vista Food Co-op",
-          "nameCn": "Isla Vista 食品合作社超市",
-          "lat": 34.4124,
-          "lng": -119.8557,
-          "note": "Isla Vista 学生区里唯一的社区超市，步行可达，主营有机生鲜，是学生日常采买最近的选择。"
-        },
-        {
-          "name": "Trader Joe's (Goleta)",
-          "nameCn": "缺德舅超市（Goleta店）",
+          "name": "Trader Joe's Goleta",
+          "nameCn": "缺德舅（哥莱塔店）",
           "lat": 34.4393,
-          "lng": -119.829,
-          "note": "美国人气连锁超市，性价比高的零食、冷冻食品和日用品，留学生囤货首选，离校约4公里。"
-        },
-        {
-          "name": "Oriental Market",
-          "nameCn": "东方亚洲超市",
-          "lat": 34.4365,
-          "lng": -119.8267,
-          "note": "Goleta 老牌亚超（1991年开业），中、泰、越、日食材齐全，想做中餐买酱料调料来这里。"
+          "lng": -119.8241,
+          "rank": 1,
+          "tier": "必去",
+          "note": "性价比极高的连锁超市，距UCSB约5分钟车程，是学生购买即食食品、冷冻餐和零食的首选"
         },
         {
           "name": "Indo-China Market",
           "nameCn": "印支亚洲超市",
-          "lat": 34.44,
-          "lng": -119.821,
-          "note": "Hollister 大道上的另一家老牌亚超，亚洲与欧洲进口食品多，可补 Oriental Market 没有的货。"
+          "lat": 34.4418,
+          "lng": -119.8218,
+          "rank": 2,
+          "tier": "必去",
+          "note": "经营40余年的家庭式亚洲超市，距Isla Vista最近，中式、越南、东南亚食材一应俱全，中国留学生必去"
         },
         {
           "name": "Nikka Japanese Market",
-          "nameCn": "Nikka 日本超市",
-          "lat": 34.4392,
-          "lng": -119.8292,
-          "note": "Calle Real 购物中心内的日系超市（紧邻 Target），日本米、味噌、便当料和日用品的小众补给点。"
+          "nameCn": "日加亚洲食品超市",
+          "lat": 34.4391,
+          "lng": -119.8261,
+          "rank": 3,
+          "tier": "必去",
+          "note": "圣巴巴拉地区唯一日式超市，位于Calle Real，日本、亚洲食材选择丰富，新鲜食材和熟食也有售"
+        },
+        {
+          "name": "Oriental Market Goleta",
+          "nameCn": "东方亚洲超市（哥莱塔）",
+          "lat": 34.4378,
+          "lng": -119.8283,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1991年开业，供应泰国、中国、越南、菲律宾、日本、印度等多国食材，价格亲民"
+        },
+        {
+          "name": "Albertsons Goleta (Calle Real)",
+          "nameCn": "Albertsons超市（哥莱塔Calle Real店）",
+          "lat": 34.4395,
+          "lng": -119.8245,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "大型连锁超市，与Nikka和Trader Joe's相邻，一站式采购生鲜、日用品，24小时药房"
+        },
+        {
+          "name": "Ralphs Goleta",
+          "nameCn": "Ralph's超市（哥莱塔店）",
+          "lat": 34.4355,
+          "lng": -119.8156,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "大型连锁超市，位于Hollister Ave，品种全面，Kroger积分通用，适合一周大采购"
+        },
+        {
+          "name": "Albertsons Goleta (Hollister Ave)",
+          "nameCn": "Albertsons超市（哥莱塔Hollister店）",
+          "lat": 34.4425,
+          "lng": -119.8193,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "第二家Albertsons，位于Hollister Ave，与Cottage Urgent Care同一购物中心，取药购物两不误"
         }
       ]
     },
@@ -246,39 +446,130 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "Lao Wang Noodle Bar",
+          "nameCn": "老王面馆",
+          "lat": 34.4114,
+          "lng": -119.8582,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Isla Vista最受欢迎的亚洲餐厅之一，可自定义拌面/米饭碗，深夜营业，是中国留学生的晚饭圣地"
+        },
+        {
+          "name": "Pang Zi Noodle Shop",
+          "nameCn": "胖子面馆",
+          "lat": 34.4471,
+          "lng": -119.8103,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "供应越式河粉和中式炒面，位于Hollister Ave，口碑极佳，是圣巴巴拉华人最常光顾的中式面店"
+        },
+        {
+          "name": "Meet Up Chinese Cuisine",
+          "nameCn": "遇见音乐餐厅",
+          "lat": 34.4438,
+          "lng": -119.7283,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "圣巴巴拉最受好评的正宗中餐厅，供应鱼香肉丝、红烧茄子等家常菜，336条Yelp评论均称赞"
+        },
+        {
+          "name": "Shang Hai Restaurant",
+          "nameCn": "上海饭店",
+          "lat": 34.4241,
+          "lng": -119.6944,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于Milpas街的家庭中餐馆，以实惠价格供应正宗中菜，自制辣椒油和包子，308条Yelp高分评价"
+        },
+        {
+          "name": "China King",
+          "nameCn": "中国皇帝餐厅",
+          "lat": 34.4391,
+          "lng": -119.8236,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "哥莱塔Calle Real上的小型正宗中餐馆，仅10张桌，由华裔夫妇经营，是本地学生公认的高性价比中餐"
+        },
+        {
+          "name": "Szechuan Restaurant",
+          "nameCn": "四川饭店",
+          "lat": 34.4279,
+          "lng": -119.7158,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "圣巴巴拉经典川菜馆，位于Cliff Dr，麻辣口味地道，是喜欢辣味中餐的留学生的必访之所"
+        },
+        {
+          "name": "Woodstock's Pizza Isla Vista",
+          "nameCn": "伍德斯托克比萨（Isla Vista店）",
+          "lat": 34.4118,
+          "lng": -119.8601,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "UCSB学生传奇级比萨店，1982年创立，以独特厚底披萨著称，668条Yelp评论，必吃本地学生经典"
+        },
+        {
           "name": "Freebirds World Burrito",
-          "nameCn": "Freebirds 卷饼店",
-          "lat": 34.4126,
-          "lng": -119.8556,
-          "note": "1987年开在 Isla Vista 的初代店，超大份手卷 burrito 是 UCSB 的标志性深夜食堂，必打卡。"
+          "nameCn": "自由鸟墨西哥卷",
+          "lat": 34.4115,
+          "lng": -119.8601,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "1987年诞生于IV的巨型墨西哥卷餐厅，24小时营业，是UCSB学生深夜解馋的传统之选"
         },
         {
-          "name": "Lao Wang",
-          "nameCn": "老王中式街头小吃",
-          "lat": 34.4122,
-          "lng": -119.8543,
-          "note": "Pardall 路上的中式街头小吃，手工面、麻辣口味，解乡愁的中餐就在学生区步行范围内。"
+          "name": "Cajé Coffee Roasters (Isla Vista)",
+          "nameCn": "卡杰咖啡烘焙（IV店）",
+          "lat": 34.4118,
+          "lng": -119.86,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "IV最受欢迎的精品咖啡馆，全有机公平贸易咖啡，提供贝果、冰沙碗，352条Yelp好评，有免费WiFi"
         },
         {
-          "name": "Goleta Sushi House",
-          "nameCn": "Goleta 寿司屋",
-          "lat": 34.436,
-          "lng": -119.8255,
-          "note": "本地高人气日料店，刺身新鲜、唐扬炸鸡和味噌汤口碑好，想吃正经寿司来这里。"
+          "name": "Hummus Republic",
+          "nameCn": "鹰嘴豆泥共和国",
+          "lat": 34.4113,
+          "lng": -119.8581,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "地中海风味餐厅，供应可自选配料的鹰嘴豆泥碗和皮塔饼，健康实惠，深受素食学生喜爱"
         },
         {
-          "name": "Takashi Ramen",
-          "nameCn": "Takashi 拉面",
-          "lat": 34.4404,
-          "lng": -119.8198,
-          "note": "Hollister Village 内的人气拉面店，咖喱拉面和荞麦面适合换换口味，课后吃碗热汤面很治愈。"
+          "name": "Sizzling Lunch",
+          "nameCn": "嗞嗞午餐日式铁板烧",
+          "lat": 34.4112,
+          "lng": -119.858,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "IV的日式街头铁板烧，可自己动手烤食材，套餐约$15-16，份量大，是最有趣的独特用餐体验"
         },
         {
-          "name": "AI CHA",
-          "nameCn": "AI CHA 手作茶饮",
-          "lat": 34.4123,
-          "lng": -119.8548,
-          "note": "Pardall 路上的现做奶茶店，珍珠奶茶和三明治都有，学生区最方便的 boba 续命点。"
+          "name": "Sam's To Go",
+          "nameCn": "山姆外卖三明治",
+          "lat": 34.4116,
+          "lng": -119.8584,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "IV的三明治经典老店，新鲜食材，价格亲民（约$7-8），是IV历史最悠久的学生食堂之一"
+        },
+        {
+          "name": "Secret Bao",
+          "nameCn": "秘密包子",
+          "lat": 34.4211,
+          "lng": -119.7011,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "圣巴巴拉市区的泛亚洲小吃餐厅，韩式炸鸡包、烤章鱼包等创意菜颇受好评，适合周末进城"
+        },
+        {
+          "name": "Noodle City",
+          "nameCn": "面条城（越南河粉）",
+          "lat": 34.4241,
+          "lng": -119.7055,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "圣巴巴拉为数不多供应越南河粉的餐厅，骨汤浓郁，米粉嫩滑，是思念亚洲口味时的暖心选择"
         }
       ]
     },
@@ -290,32 +581,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Isla Vista)",
-          "nameCn": "大通银行（Isla Vista支行）",
-          "lat": 34.4125,
-          "lng": -119.8554,
-          "note": "Isla Vista 唯一全功能银行支行，就在学生区，新生开户、办借记卡走路就能到。"
+          "name": "Wells Fargo Bank – Goleta Branch",
+          "nameCn": "富国银行（哥莱塔支行）",
+          "lat": 34.4396,
+          "lng": -119.8291,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UCSB最近的完整银行网点，位于N Fairview Ave，可在UCen校内ATM存取款，是留学生开户首选"
+        },
+        {
+          "name": "Bank of America – Goleta Branch",
+          "nameCn": "美国银行（哥莱塔支行）",
+          "lat": 34.4385,
+          "lng": -119.8245,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Calle Real，支持Zelle转账，ATM网络广，学生借记账户免月费，是常用的开户选择"
         },
         {
           "name": "UCSB Student Health Service",
-          "nameCn": "UCSB 学生健康中心",
-          "lat": 34.4136,
-          "lng": -119.8519,
-          "note": "校内学生医疗中心（970 Embarcadero del Mar），普通看病、开药、疫苗的第一站，凭学生保险费用低。"
+          "nameCn": "UCSB学生健康服务中心",
+          "lat": 34.411,
+          "lng": -119.8465,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内门诊，提供基础医疗、心理咨询、疫苗接种和处方药服务，50英里内就医须凭此转诊"
         },
         {
-          "name": "Goleta Valley Cottage Hospital",
-          "nameCn": "Goleta Valley Cottage 医院",
-          "lat": 34.4392,
-          "lng": -119.833,
-          "note": "离校最近的综合医院，急诊科24小时开放（351 S Patterson Ave），遇急症或夜间送医认准这里。"
+          "name": "Cottage Urgent Care – Goleta (Hollister Village)",
+          "nameCn": "科特急诊诊所（哥莱塔Hollister店）",
+          "lat": 34.4421,
+          "lng": -119.8195,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全年365天，每天8am-8pm营业的急诊中心，无需预约，是校外最近且便捷的急诊选择"
         },
         {
-          "name": "CVS Pharmacy (Hollister Ave)",
-          "nameCn": "CVS 药房（Hollister店）",
-          "lat": 34.4401,
-          "lng": -119.8175,
-          "note": "连锁药房兼便利店（7030 Hollister Ave），处方药、感冒药和日用品都能买，营业时间长。"
+          "name": "Walgreens Pharmacy – Goleta",
+          "nameCn": "沃尔格林药房（哥莱塔Calle Real店）",
+          "lat": 34.4396,
+          "lng": -119.8254,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Calle Real 5900号，有药房和日用品，可凭学生健康中心处方取药，24小时药房部分有效"
+        },
+        {
+          "name": "CVS Pharmacy – Goleta",
+          "nameCn": "CVS药房（哥莱塔Hollister店）",
+          "lat": 34.4426,
+          "lng": -119.8193,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于7030 Hollister Ave，设有得来速药房，与Cottage Urgent Care相邻，便于取药"
+        },
+        {
+          "name": "T-Mobile – Goleta (Hollister & Storke)",
+          "nameCn": "T-Mobile门店（哥莱塔Hollister店）",
+          "lat": 34.4423,
+          "lng": -119.8196,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "最推荐留学生的运营商门店，T-Mobile对留学生无需SSN即可办卡，国际数据套餐覆盖中国"
+        },
+        {
+          "name": "AT&T Store – Goleta (Camino Real Marketplace)",
+          "nameCn": "AT&T门店（哥莱塔Camino Real购物中心）",
+          "lat": 34.443,
+          "lng": -119.8188,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于Marketplace Dr 7060号，预付费卡无需信用记录，是留学生购买美国号码的另一主流选择"
         }
       ]
     },
@@ -327,32 +662,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "UCSB Lagoon & Lagoon Trail",
-          "nameCn": "UCSB 潟湖与环湖步道",
-          "lat": 34.4082,
-          "lng": -119.843,
-          "note": "校园边的潟湖与1.5英里环湖步道，海鸟成群、还有石头摆成的冥想迷宫，散步看海绝佳。"
+          "name": "Stearns Wharf",
+          "nameCn": "斯特恩斯码头",
+          "lat": 34.4064,
+          "lng": -119.6857,
+          "rank": 1,
+          "tier": "必去",
+          "note": "加州历史最悠久的木质工作码头（建于1872年），可步行至尽头俯瞰大海，有餐厅、海洋中心和观景台"
         },
         {
-          "name": "Campus Point Beach",
-          "nameCn": "Campus Point 海滩",
-          "lat": 34.4046,
-          "lng": -119.8425,
-          "note": "校园南端的海滩与冲浪点，海蚀崖和落日是 UCSB 最出片的风景，初学者也能在此学冲浪。"
+          "name": "Old Mission Santa Barbara",
+          "nameCn": "圣巴巴拉老传教所",
+          "lat": 34.4363,
+          "lng": -119.7083,
+          "rank": 2,
+          "tier": "必去",
+          "note": "建于1820年代，是圣巴巴拉的精神地标，双钟楼西班牙风格建筑是城市标志，被称为「传教所女王」"
+        },
+        {
+          "name": "Santa Barbara County Courthouse",
+          "nameCn": "圣巴巴拉县法院",
+          "lat": 34.424,
+          "lng": -119.7021,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1929年建的西班牙摩尔复兴式建筑，内有手绘天花板和突尼斯瓷砖，钟楼可俯瞰全城，免费参观"
+        },
+        {
+          "name": "State Street Promenade",
+          "nameCn": "国家街步行街",
+          "lat": 34.4208,
+          "lng": -119.702,
+          "rank": 4,
+          "tier": "必去",
+          "note": "圣巴巴拉最繁华的购物和餐饮主街，全段禁车，延伸至Stearns Wharf，餐厅、精品店、画廊林立"
         },
         {
           "name": "Goleta Beach County Park",
-          "nameCn": "Goleta Beach 县立公园",
-          "lat": 34.4185,
-          "lng": -119.8291,
-          "note": "紧邻校园的县立海滩公园，有钓鱼栈桥、烧烤野餐区和免费停车，周末野餐放松的好去处。"
+          "nameCn": "哥莱塔海滩县立公园",
+          "lat": 34.4172,
+          "lng": -119.8296,
+          "rank": 5,
+          "tier": "必去",
+          "note": "紧邻UCSB的海滩公园，设有BBQ设施、钓鱼码头、沙滩排球，是学生周末最常去的休闲海滩"
         },
         {
-          "name": "Isla Vista (Del Playa & Pardall)",
-          "nameCn": "Isla Vista 学生社区（DP海崖步道）",
-          "lat": 34.4108,
-          "lng": -119.856,
-          "note": "UCSB 标志性学生聚居区，Del Playa 海崖步道看海、Pardall 路吃喝逛街，校园生活的核心地带。"
+          "name": "Santa Barbara Botanic Garden",
+          "nameCn": "圣巴巴拉植物园",
+          "lat": 34.4424,
+          "lng": -119.7126,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "78英亩本土植物园，收藏1000余种加州稀有植物，位于传教所峡谷，徒步道景色迷人"
+        },
+        {
+          "name": "Santa Barbara Urban Wine Trail (Funk Zone)",
+          "nameCn": "圣巴巴拉城市葡萄酒小径（Funk Zone）",
+          "lat": 34.412,
+          "lng": -119.6894,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "20余家品酒室集中的创意街区，紧邻Stearns Wharf，是圣巴巴拉最具特色的下午活动之一"
+        },
+        {
+          "name": "Santa Ynez Valley Wine Country",
+          "nameCn": "圣伊内斯山谷葡萄酒乡",
+          "lat": 34.6097,
+          "lng": -120.0782,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "电影《杯酒人生》取景地，距UCSB约45分钟车程，100余家酒庄，Los Olivos小镇周末一日游首选"
+        },
+        {
+          "name": "Butterfly Beach (Montecito)",
+          "nameCn": "蝴蝶海滩（蒙特西托）",
+          "lat": 34.4198,
+          "lng": -119.6485,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "圣巴巴拉少数面西海滩，可看日落入海，对面是豪华四季酒店，以犬友好和名人出没著称"
+        },
+        {
+          "name": "Inspiration Point Trail",
+          "nameCn": "灵感山眺望台步道",
+          "lat": 34.4617,
+          "lng": -119.7218,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "全程约5.6公里，可俯瞰圣巴巴拉市区和海峡群岛的经典徒步路线，难度适中，是最常推荐的健行选择"
         }
       ]
     }

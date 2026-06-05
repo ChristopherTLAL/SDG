@@ -99,67 +99,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Faculty of Humanities (Avenue Campus)",
-          "nameCn": "人文学院",
-          "lat": 50.9294,
-          "lng": -1.403,
-          "note": "历史、哲学、考古、英语等人文学科教学楼。"
+          "name": "Hartley Library & Social Sciences Buildings (B37/44)",
+          "nameCn": "哈特利图书馆及社会科学楼群",
+          "lat": 50.9342,
+          "lng": -1.3963,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哈特利图书馆是校园核心地标，周边集中了法学、社科、人文等主要教学楼，是学习生活的绝对中心。"
         },
         {
-          "name": "Boldrewood Engineering & Maritime Building (Building 176)",
-          "nameCn": "博德伍德工程海事楼",
-          "lat": 50.93667,
-          "lng": -1.40466,
-          "note": "工程与海事学科主教学楼,含大型船模水池实验室。"
+          "name": "EEE Building (Building 32) – Electronics & Computer Science",
+          "nameCn": "电子电气与计算机科学大楼（B32）",
+          "lat": 50.9358,
+          "lng": -1.3972,
+          "rank": 2,
+          "tier": "必去",
+          "note": "ECS（电子与计算机科学）系所在地，是南安普顿大学最顶尖的院系之一，世界光纤发明地在此。"
         },
         {
-          "name": "South Academic Block, Southampton General Hospital",
-          "nameCn": "医院南学术楼",
-          "lat": 50.93236,
-          "lng": -1.43644,
-          "note": "医学院临床教学主楼,位于大学医院院区内。"
+          "name": "Mountbatten Building (Building 53) – Zepler Institute",
+          "nameCn": "蒙巴顿楼（B53）/蔡普勒研究院",
+          "lat": 50.9363,
+          "lng": -1.3985,
+          "rank": 3,
+          "tier": "必去",
+          "note": "世界级光子学与纳米电子学研究中心，内有英国高校最大洁净室，理工科研究生必了解的标志建筑。"
         },
         {
-          "name": "National Oceanography Centre Southampton",
-          "nameCn": "国家海洋中心",
-          "lat": 50.8928,
-          "lng": -1.3948,
-          "note": "海洋与地球科学教学研究主楼,码头海滨校区。"
-        },
-        {
-          "name": "Winchester School of Art Main Building",
-          "nameCn": "温切斯特艺术学院主楼",
-          "lat": 51.0657,
-          "lng": -1.3097,
-          "note": "艺术与纺织设计工作室,温切斯特公园大道。"
-        },
-        {
-          "name": "Building 67 — Mathematical Sciences",
-          "nameCn": "数学科学楼",
-          "lat": 50.93628,
-          "lng": -1.39884,
-          "note": "高田校区数学与统计科学院系楼。"
-        },
-        {
-          "name": "Murray Building (Building 58) — Social Sciences",
-          "nameCn": "默里社会科学楼",
-          "lat": 50.93662,
-          "lng": -1.39864,
-          "note": "高田校区社会科学与经济学院教学楼。"
-        },
-        {
-          "name": "Mountbatten Building (Building 53) — Electronics & Computer Science",
-          "nameCn": "蒙巴顿电子计算机楼",
-          "lat": 50.93739,
-          "lng": -1.39862,
-          "note": "高田校区电子与计算机科学院、纳米中心。"
+          "name": "Life Sciences Building (Building 85)",
+          "nameCn": "生命科学大楼（B85）",
+          "lat": 50.935,
+          "lng": -1.398,
+          "rank": 4,
+          "tier": "必去",
+          "note": "获奖建筑，容纳生物科学与医学预科教学，外形现代，自然采光极佳，是理科生主要活动场所。"
         },
         {
           "name": "Physics & Astronomy (Building 46)",
-          "nameCn": "物理与天文楼",
-          "lat": 50.93486,
-          "lng": -1.39961,
-          "note": "高田校区物理与天文学院、光电子研究中心(ORC)。"
+          "nameCn": "物理与天文系大楼（B46）",
+          "lat": 50.9345,
+          "lng": -1.399,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "物理与天文学系所在地，与蔡普勒研究院紧邻，理工科学生上课和实验的主要场所。"
+        },
+        {
+          "name": "Chemistry Complex (Buildings 27/29/30)",
+          "nameCn": "化学楼群（B27/29/30）",
+          "lat": 50.9332,
+          "lng": -1.3978,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "由三栋楼组成的化学系综合体，包括Graham Hills楼和合成化学楼，是化学专业学生日常出入的核心区域。"
+        },
+        {
+          "name": "Avenue Campus – School of Humanities & Archaeology",
+          "nameCn": "大道校区（人文与考古学院）",
+          "lat": 50.9303,
+          "lng": -1.3895,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "人文学院、考古系所在的独立校区，Taunton历史建筑加现代扩建，设有360度沉浸式视听中心，步行可达主校区。"
+        },
+        {
+          "name": "Boldrewood Innovation Campus – Engineering & Maritime",
+          "nameCn": "博尔德伍德创新校区（工程与海洋）",
+          "lat": 50.9275,
+          "lng": -1.414,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "航海工程旗舰校区，含英国高校最大拖曳水槽（138米）和国家基础设施实验室，与劳氏船级社共建。"
+        },
+        {
+          "name": "Southampton Management School (Building 2)",
+          "nameCn": "管理学院（B2）",
+          "lat": 50.932,
+          "lng": -1.3945,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "商学院主楼，位于校园南侧入口附近，提供MBA及各类管理类课程，留学生集中度高。"
+        },
+        {
+          "name": "National Oceanography Centre Southampton (NOC/Waterfront Campus)",
+          "nameCn": "国家海洋学中心（NOC水岸校区）",
+          "lat": 50.8989,
+          "lng": -1.3923,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "英国最重要的海洋与地球科学研究机构，位于码头4号，每年6月举办对外开放日，是地球科学专业的核心基地。"
         }
       ],
       "defaultOn": true
@@ -172,11 +199,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Hartley Library (Building 36)",
-          "nameCn": "哈特利图书馆",
-          "lat": 50.93504,
-          "lng": -1.39531,
-          "note": "高田校区主图书馆,藏大学档案与特藏。"
+          "name": "Hartley Library (Building 40)",
+          "nameCn": "哈特利图书馆（主图书馆）",
+          "lat": 50.9342,
+          "lng": -1.396,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校最大图书馆，位于Highfield校园正中心，备有海量纸质/电子资源，考试期间24小时开放，是刷题自习圣地。"
+        },
+        {
+          "name": "Hartley Library – Level 5 (Silent Study Zone)",
+          "nameCn": "哈特利图书馆五楼（安静自习区）",
+          "lat": 50.9342,
+          "lng": -1.396,
+          "rank": 2,
+          "tier": "必去",
+          "note": "五楼全程安静区，视野开阔，座位宽敞，是赶deadline和期末备考的首选楼层，占座需趁早。"
+        },
+        {
+          "name": "Hartley Library – Group Study Rooms",
+          "nameCn": "哈特利图书馆小组讨论室",
+          "lat": 50.9343,
+          "lng": -1.3959,
+          "rank": 3,
+          "tier": "必去",
+          "note": "可提前两周在线预约，每次最多2小时，非常适合小组Project讨论，抢手程度极高，务必提前预约。"
+        },
+        {
+          "name": "University Health Service Library (Health Sciences Library, SGH)",
+          "nameCn": "健康科学图书馆（南安普顿综合医院）",
+          "lat": 50.9264,
+          "lng": -1.4349,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于南安普顿综合医院内，专供医学与健康科学学生使用，馆藏以临床、护理类文献为主。"
+        },
+        {
+          "name": "National Oceanographic Library (NOC)",
+          "nameCn": "国家海洋学图书馆（NOC）",
+          "lat": 50.8989,
+          "lng": -1.3923,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专业海洋与地球科学图书馆，馆藏国际一流，是地球海洋系学生必用的专业资料库。"
+        },
+        {
+          "name": "Winchester School of Art Library",
+          "nameCn": "温彻斯特艺术学院图书馆",
+          "lat": 51.0622,
+          "lng": -1.316,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于温彻斯特分校区，艺术与设计专业专项馆藏丰富，艺术系在读生可前往使用。"
         }
       ]
     },
@@ -188,18 +262,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "John Hansard Gallery (Studio 144)",
-          "nameCn": "约翰·汉萨德美术馆",
-          "lat": 50.9079,
-          "lng": -1.4044,
-          "note": "大学当代艺术馆,2018 年迁入市中心市政广场文化区。"
+          "name": "SeaCity Museum",
+          "nameCn": "海洋城市博物馆",
+          "lat": 50.9072,
+          "lng": -1.4055,
+          "rank": 1,
+          "tier": "必去",
+          "note": "南安普顿最值得一逛的博物馆，以泰坦尼克号与城市历史为核心，有互动装置和珍贵原件，免费/低价入场。"
         },
         {
-          "name": "Turner Sims Concert Hall (Building 52)",
-          "nameCn": "特纳·西姆斯音乐厅",
-          "lat": 50.93587,
-          "lng": -1.3988,
-          "note": "高田校区室内乐演出厅,声学设计出自声振研究所。"
+          "name": "Southampton City Art Gallery",
+          "nameCn": "南安普顿市立艺术画廊",
+          "lat": 50.9082,
+          "lng": -1.4043,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英格兰南部最佳艺术收藏之一，超过5300件作品，从文艺复兴到当代均有覆盖，完全免费入场。"
+        },
+        {
+          "name": "Tudor House and Garden",
+          "nameCn": "都铎屋与花园",
+          "lat": 50.9032,
+          "lng": -1.404,
+          "rank": 3,
+          "tier": "必去",
+          "note": "800年历史的都铎风格老宅，保存完好，室内复原了都铎与维多利亚时代生活场景，附有宁静围墙花园。"
+        },
+        {
+          "name": "John Hansard Gallery",
+          "nameCn": "约翰·汉萨德当代艺术画廊",
+          "lat": 50.9097,
+          "lng": -1.4042,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "南安普顿大学旗下的当代艺术画廊，2018年迁至市中心，展览新锐且多元，完全免费，非常适合打卡。"
+        },
+        {
+          "name": "Medieval Merchant's House",
+          "nameCn": "中世纪商人之屋（英国遗产）",
+          "lat": 50.902,
+          "lng": -1.4043,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "英格兰遗产管理的14世纪老宅，内部按复原陈设布置，展现中世纪商贸生活，门票低廉。"
         }
       ]
     },
@@ -211,32 +316,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "University of Southampton Students' Union (SUSU, Building 42)",
-          "nameCn": "南安学生会",
-          "lat": 50.93418,
-          "lng": -1.39755,
-          "note": "高田校区学生会大楼,含 The Cube 夜店与活动空间。"
+          "name": "Students' Union (SUSU, Building 42)",
+          "nameCn": "学生会大楼（SUSU）",
+          "lat": 50.934,
+          "lng": -1.3951,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园社交核心，内有咖啡厅、夜店、电影院、攀岩墙等，社团活动在此集中，是每位新生必探的第一站。"
         },
         {
-          "name": "Nuffield Theatre (Building 6)",
-          "nameCn": "纳菲尔德剧院",
-          "lat": 50.9357,
-          "lng": -1.3964,
-          "note": "英国首座建于大学内的剧院,1964 年启用。"
+          "name": "The Bargate",
+          "nameCn": "巴盖特城门",
+          "lat": 50.9077,
+          "lng": -1.4031,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英国保存最完好的中世纪城门之一，1180年建造，是南安普顿的城市象征和必拍打卡地标。"
         },
         {
-          "name": "Swaythling Railway Station",
-          "nameCn": "斯韦斯林火车站",
-          "lat": 50.9411,
-          "lng": -1.3765,
-          "note": "距高田校区最近的火车站,步行约 20 分钟。"
+          "name": "Southampton Common",
+          "nameCn": "南安普顿公共绿地",
+          "lat": 50.9285,
+          "lng": -1.3975,
+          "rank": 3,
+          "tier": "必去",
+          "note": "紧邻Highfield校区的大片城市绿地，含鸭塘、装饰湖、战争墓地，夏季有音乐会和美食车，是学生下课放松首选。"
         },
         {
-          "name": "Southampton Airport Parkway Station",
-          "nameCn": "南安机场火车站",
-          "lat": 50.9503,
-          "lng": -1.3634,
-          "note": "邻近机场与宽巷体育场,经高田换乘站直达主校区。"
+          "name": "WestQuay Shopping Centre",
+          "nameCn": "西码头购物中心",
+          "lat": 50.9068,
+          "lng": -1.4122,
+          "rank": 4,
+          "tier": "必去",
+          "note": "南安普顿最大购物中心，超130家品牌店和50多家餐厅，Apple Store、John Lewis均在此，是购物和餐饮一站式目的地。"
+        },
+        {
+          "name": "Turner Sims Concert Hall (Building 52)",
+          "nameCn": "特纳·西姆斯音乐厅（B52）",
+          "lat": 50.9347,
+          "lng": -1.3993,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "南安普顿大学校内世界级音乐厅，全年演出古典、爵士、世界音乐，学生票价优惠，文艺氛围浓厚。"
+        },
+        {
+          "name": "Mayflower Park & Waterfront",
+          "nameCn": "五月花公园与海滨步道",
+          "lat": 50.9008,
+          "lng": -1.4148,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "俯瞰测试河口的历史公园，可近距离观赏大型邮轮进出港，是城市最具震撼感的景观打卡点。"
+        },
+        {
+          "name": "Jubilee Sports Centre",
+          "nameCn": "禧年体育中心",
+          "lat": 50.936,
+          "lng": -1.3943,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校内综合体育设施，含25米六泳道游泳池、160台健身器械和8块球场，学生持证可低价使用。"
         }
       ]
     },
@@ -248,32 +388,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Sainsbury's Superstore (Portswood)",
-          "nameCn": "Sainsbury's 超市（Portswood 大店）",
-          "lat": 50.9267582,
-          "lng": -1.3896009,
-          "note": "离高地校区最近的大型连锁超市，224 Portswood Road，营业到晚上10点，日常采买首选。"
+          "name": "Sainsbury's Portswood",
+          "nameCn": "森宝利（波茨伍德店）",
+          "lat": 50.9262,
+          "lng": -1.3862,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Highfield校区步行约20分钟，是南安普顿学生最常用的大型超市，品种齐全，自有品牌性价比高。"
         },
         {
-          "name": "Aldi (Portswood Road)",
-          "nameCn": "Aldi 平价超市",
-          "lat": 50.9239343,
-          "lng": -1.394605,
-          "note": "Portswood Road 上的德国平价超市，蔬果肉蛋比 Sainsbury's 便宜，留学生省钱囤货好去处。"
+          "name": "Sukee Food – Asian Grocery (Burgess Road)",
+          "nameCn": "Sukee东方食品（Burgess路店）",
+          "lat": 50.9328,
+          "lng": -1.3858,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距Highfield校区最近的亚洲超市，主营日韩东亚食材，新鲜豆腐和特色食用油种类丰富，是华人留学生的日常补给点。"
+        },
+        {
+          "name": "Aldi Bevois Valley",
+          "nameCn": "奥乐齐（Bevois Valley店）",
+          "lat": 50.9218,
+          "lng": -1.3912,
+          "rank": 3,
+          "tier": "必去",
+          "note": "德国折扣超市，价格全城最低，基础食材和日用品性价比极高，预算有限的学生强烈推荐。"
+        },
+        {
+          "name": "Hai Bao Supermarket 海宝超市",
+          "nameCn": "海宝超市（市中心）",
+          "lat": 50.9075,
+          "lng": -1.4047,
+          "rank": 4,
+          "tier": "必去",
+          "note": "市中心最醒目的中国超市，位于市政厅路，每天10:30–21:30营业，火锅食材、中式调料、零食应有尽有。"
+        },
+        {
+          "name": "No.5 Chinese Supermarket",
+          "nameCn": "5号中国超市（巴盖特）",
+          "lat": 50.9073,
+          "lng": -1.4028,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "巴盖特附近，开到晚上9:30，还提供向中国寄快递服务，是中国留学生的一站式中式食材补给站。"
         },
         {
           "name": "Song Oriental Chinese Supermarket",
-          "nameCn": "颂记中超（Song Oriental）",
-          "lat": 50.9271582,
-          "lng": -1.3914801,
-          "note": "136 Highfield Lane，紧贴校区与学生宿舍区，老牌中超，老干妈、火锅底料、米面酱料一站买齐。"
+          "nameCn": "蜀香居东方超市（Highfield Lane）",
+          "lat": 50.9315,
+          "lng": -1.387,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "紧邻波茨伍德和校区，专营中式食材，位置最便利，是宿舍附近随手购买川菜调料的好去处。"
         },
         {
-          "name": "T-Rex Supermarket & Bubble Tea",
-          "nameCn": "T-Rex 亚超 + 奶茶",
-          "lat": 50.9256,
-          "lng": -1.393,
-          "note": "172 Portswood Road，2024 年新开的亚洲超市，集合中日韩马来越南食材，店内还有奶茶吧，HRA 会员有折扣。"
+          "name": "Yau Brothers Asian Wholesale (Northam)",
+          "nameCn": "邱氏兄弟亚洲批发超市（Northam）",
+          "lat": 50.9113,
+          "lng": -1.3985,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "南安普顿最大亚洲超市，按批发量经营，新鲜蔬菜和冷冻食品种类无与伦比，适合大量采购和囤货。"
         }
       ]
     },
@@ -285,39 +460,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Xiongqi Hot Pot (雄柒火锅)",
-          "nameCn": "雄柒火锅 Xiongqi Hotpot",
-          "lat": 50.9258,
-          "lng": -1.3925,
-          "note": "186-188 Portswood Road，川渝手工锅底的正宗中式火锅，自助调料台，留学生圈口碑爆棚的聚餐据点。"
+          "name": "Xiongqi Hotpot (雄柒火锅)",
+          "nameCn": "雄柒火锅（波茨伍德）",
+          "lat": 50.926,
+          "lng": -1.3862,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "南安普顿口碑最好的中式火锅，TripAdvisor评分4.4，位于Portswood Road，服务热情汤底正宗，中国留学生必去。"
+        },
+        {
+          "name": "Shanghai 1814 Restaurant & Bar",
+          "nameCn": "上海1814餐厅酒吧（市中心）",
+          "lat": 50.9038,
+          "lng": -1.4038,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "最上档次的广式中餐厅，改建自历史保护建筑银行，三层奢华内饰，配备完整素食和无麸质菜单，适合宴请重要访客。"
+        },
+        {
+          "name": "Yang Guo Fu Malatang (杨国福麻辣烫)",
+          "nameCn": "杨国福麻辣烫（市中心）",
+          "lat": 50.9072,
+          "lng": -1.4025,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "全球最大麻辣烫连锁品牌，2024年登陆南安普顿，可自选食材定制麻辣烫，国内留学生到来必吃。"
+        },
+        {
+          "name": "Wagamama Southampton (West Quay)",
+          "nameCn": "Wagamama（西码头）",
+          "lat": 50.9065,
+          "lng": -1.4118,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "英国连锁日式拉面&亚洲风味餐厅，TripAdvisor评分4.0，价格亲民，西码头美食层标志性用餐地。"
+        },
+        {
+          "name": "COSMO All You Can Eat Buffet",
+          "nameCn": "COSMO世界自助餐（西码头）",
+          "lat": 50.9065,
+          "lng": -1.4115,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "150道全球菜品任吃，含中式、日式铁板烧、意式等，晚餐约£19，留学生聚餐、生日宴的超高性价比之选。"
         },
         {
           "name": "Shanghai Bay",
-          "nameCn": "上海湾粤式酒楼",
-          "lat": 50.9077443,
-          "lng": -1.4046325,
-          "note": "市中心 Above Bar Street，广式茶点与现做点心，想吃虾饺、流沙包、烧腊正餐时进城来这家。"
+          "nameCn": "上海湾广式餐厅（市中心）",
+          "lat": 50.9085,
+          "lng": -1.404,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "口碑极佳的正宗广东点心餐厅（4.4分/283条评价），鲜制虾饺、流沙包令人印象深刻，是港式早茶爱好者首选。"
         },
         {
-          "name": "COSMO World Buffet (Portswood)",
-          "nameCn": "COSMO 世界自助餐",
-          "lat": 50.9263334,
-          "lng": -1.3909122,
-          "note": "Portswood Broadway 上的全球自助餐，中餐、日料、印度菜、英式现切肉应有尽有，学生党性价比之选。"
+          "name": "Garden Restaurant (Sichuan/Hunan)",
+          "nameCn": "花园餐厅（川湘菜）",
+          "lat": 50.94,
+          "lng": -1.4,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "经营10年的川湘菜馆，菜品涵盖多个中国区域风味，同时有花园室外区，环境整洁价格合理，4.4分好评如潮。"
         },
         {
-          "name": "Mettricks (Southampton Common)",
-          "nameCn": "Mettricks 公园咖啡馆",
-          "lat": 50.9216,
-          "lng": -1.4072,
-          "note": "南安普顿公园南侧的人气独立咖啡馆，英式早午餐 brunch + 司康下午茶，本地必打卡的悠闲一餐。"
+          "name": "Fusion Noodle Bar",
+          "nameCn": "Fusion面馆（马来西亚菜）",
+          "lat": 50.9025,
+          "lng": -1.403,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "正宗马来西亚菜专门店，招牌新加坡炒饭、椰浆鸡咖喱和胡椒排骨深受好评，满足想换换口味的留学生。"
         },
         {
-          "name": "Bournemouth Road Fish & Chips area (Portswood)",
-          "nameCn": "Portswood 炸鱼薯条店",
-          "lat": 50.9248515,
-          "lng": -1.3937655,
-          "note": "Portswood 大街沿线的传统英式 fish & chips，来英国必尝的国民快餐，炸鱼配 mushy peas。"
+          "name": "Mango Thai Tapas (Above Bar)",
+          "nameCn": "芒果泰式小碟餐厅（Above Bar街）",
+          "lat": 50.9085,
+          "lng": -1.4048,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "南安普顿知名泰式小碟连锁，位于历史都铎建筑内，鸡尾酒搭配泰式小碟，适合与同学聚会小酌。"
+        },
+        {
+          "name": "Turtle Bay Southampton",
+          "nameCn": "Turtle Bay加勒比餐厅（市中心）",
+          "lat": 50.9077,
+          "lng": -1.4022,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "活力加勒比风格餐厅，Jerk鸡和蘸烤肉炒很受欢迎，Happy Hour特饮半价，留学生社交聚餐热门之选。"
+        },
+        {
+          "name": "Mike's Fish & Chips",
+          "nameCn": "迈克鱼薯店",
+          "lat": 50.9105,
+          "lng": -1.3998,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "南安普顿本地口碑最好的传统炸鱼薯条，用料新鲜，炸制火候到位，英式饮食文化体验必选。"
+        },
+        {
+          "name": "The Blue Room Restaurant (University of Southampton)",
+          "nameCn": "蓝房子餐厅（南安校内）",
+          "lat": 50.9335,
+          "lng": -1.3948,
+          "rank": 12,
+          "tier": "一般",
+          "note": "校内评级最高餐厅，荣获AA双玫瑰奖，是南安普顿唯一入选美食权威评选的校园餐厅，价格实惠。"
         }
       ]
     },
@@ -329,32 +577,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "NatWest Bank (Portswood Road)",
-          "nameCn": "NatWest 银行（Portswood 支行）",
-          "lat": 50.9255876,
-          "lng": -1.3929741,
-          "note": "189 Portswood Road，离校最近的实体银行网点，可办理开户与现金业务，工作日午间开放（10:30-14:30）。"
+          "name": "University Health Service (Building 48, Highfield Campus)",
+          "nameCn": "南安大学医疗中心（B48）",
+          "lat": 50.9347,
+          "lng": -1.3996,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内NHS诊所，服务约1.7万名学生和教职员，紧邻Turner Sims音乐厅，新生入学后应第一时间在此注册GP。"
         },
         {
-          "name": "Day Lewis Pharmacy (Portswood)",
-          "nameCn": "Day Lewis 药房",
-          "lat": 50.9252,
-          "lng": -1.3932,
-          "note": "195 Portswood Road，社区连锁药房，可取 NHS 处方药、买感冒药与常用药，紧急避孕等服务也有。"
+          "name": "HSBC Southampton (55 Above Bar Street)",
+          "nameCn": "汇丰银行（南安普顿市中心支行）",
+          "lat": 50.9092,
+          "lng": -1.4041,
+          "rank": 2,
+          "tier": "必去",
+          "note": "汇丰在华留学生中认知度最高，国际学生专属账户便于中英双向转账，市中心支行最便于线下开户办理。"
         },
         {
-          "name": "University Hospital Southampton (General Hospital)",
-          "nameCn": "南安普顿大学医院（综合医院）",
-          "lat": 50.9325418,
-          "lng": -1.435113,
-          "note": "Tremona Road，本地最大的 NHS 医院，设 24 小时急诊 A&E，重病急症去这里，Unilink 巴士直达。"
+          "name": "Boots Pharmacy – Portswood Road",
+          "nameCn": "Boots药房（波茨伍德路）",
+          "lat": 50.9258,
+          "lng": -1.3857,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距Highfield校区最近的大型连锁药房，含药剂师咨询服务，OTC药品、护肤品和女性用品应有尽有，最常用药店。"
         },
         {
-          "name": "Phone shop, Portswood Broadway",
-          "nameCn": "Portswood 手机/电话卡店",
-          "lat": 50.9264487,
-          "lng": -1.391999,
-          "note": "Portswood Broadway 步行街上的手机店，可办英国手机卡/合约套餐，落地后就近搞定通讯（大牌 EE/O2/Vodafone 在市中心 Westquay）。"
+          "name": "NatWest Southampton (43-49 London Road)",
+          "nameCn": "NatWest银行（伦敦路支行）",
+          "lat": 50.9058,
+          "lng": -1.4005,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "国民西敏寺银行，学生账户首年免息透支最高£2000，伦敦路支行交通便利，英籍和留学生均可办理。"
+        },
+        {
+          "name": "EE Store – WestQuay",
+          "nameCn": "EE电信门店（西码头）",
+          "lat": 50.9068,
+          "lng": -1.412,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "英国最大4G/5G网络运营商，留学生常购SIM-Only套餐，西码头店可当场激活、迁号，信号覆盖优质。"
+        },
+        {
+          "name": "Three Mobile – WestQuay",
+          "nameCn": "Three电信门店（西码头）",
+          "lat": 50.9066,
+          "lng": -1.4118,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Three的无限流量套餐价格极具竞争力，是预算敏感型留学生的热门选择，西码头店可直接办理。"
+        },
+        {
+          "name": "Southampton General Hospital (A&E & Out-patient)",
+          "nameCn": "南安普顿综合医院（急诊/门诊）",
+          "lat": 50.9264,
+          "lng": -1.4349,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "最近的大型NHS医院急诊，Tremona路，可乘Unilink公交直达，严重病症、急症必去，也是医学院教学基地。"
+        },
+        {
+          "name": "Barclays Bank Southampton (70 Above Bar Street)",
+          "nameCn": "巴克莱银行（Above Bar街支行）",
+          "lat": 50.909,
+          "lng": -1.404,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "英国本土大行，与HSBC紧邻，学生账户首年免息透支£1000，有些学生偏好巴克莱的App和网银体验。"
         }
       ]
     },
@@ -366,32 +658,94 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "Southampton Medieval City Walls & Towers",
+          "nameCn": "南安普顿中世纪城墙与塔楼",
+          "lat": 50.905,
+          "lng": -1.4038,
+          "rank": 1,
+          "tier": "必去",
+          "note": "英国保存最完整的中世纪城墙之一，全程1.6英里，沿途经过十余座古塔与城门，免费散步体验厚重历史感。"
+        },
+        {
           "name": "Southampton Common",
-          "nameCn": "南安普顿公园（Southampton Common）",
-          "lat": 50.9283066,
-          "lng": -1.4103651,
-          "note": "紧邻校区的 365 英亩大型城市公园，林地、湖泊与跑步道，散步遛弯、野餐、看松鼠的日常去处。"
+          "nameCn": "南安普顿公共绿地",
+          "lat": 50.9285,
+          "lng": -1.3975,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻校园的城市绿肺，夏季有冰淇淋车、音乐会和嘉年华，四季皆宜，是学生最常去的户外放松场所。"
+        },
+        {
+          "name": "New Forest National Park (Lyndhurst / Brockenhurst)",
+          "nameCn": "新森林国家公园（林德赫斯特/布罗肯赫斯特）",
+          "lat": 50.883,
+          "lng": -1.577,
+          "rank": 3,
+          "tier": "必去",
+          "note": "从南安普顿中央站乘火车仅20分钟，野马自由漫步，是英国最著名国家公园之一，周末一日游必选。"
+        },
+        {
+          "name": "Winchester Cathedral",
+          "nameCn": "温彻斯特大教堂",
+          "lat": 51.0598,
+          "lng": -1.313,
+          "rank": 4,
+          "tier": "必去",
+          "note": "英国最长的中世纪大教堂，从南安普顿乘火车约20分钟可达，圣诞集市享誉全国，是华人学生打卡英格兰古典建筑的首选。"
+        },
+        {
+          "name": "Royal Victoria Country Park",
+          "nameCn": "皇家维多利亚乡村公园",
+          "lat": 50.8853,
+          "lng": -1.3268,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "维多利亚时代最大军医院旧址改建的200英亩滨海公园，可欣赏南安普顿水道和巨轮，有微型小火车，周末家庭出游胜地。"
+        },
+        {
+          "name": "Mayflower Park & Waterfront",
+          "nameCn": "五月花公园与港口海滨",
+          "lat": 50.9008,
+          "lng": -1.4148,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "港口边的历史公园，可近距离目睹全球最大邮轮出入港壮景，是南安普顿最具视觉冲击力的免费景点。"
+        },
+        {
+          "name": "The Bargate & Old Town Walk",
+          "nameCn": "巴盖特城门与老城区漫步",
+          "lat": 50.9077,
+          "lng": -1.4031,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "南安普顿的精神地标，800年历史的城门加上老城区徒步路线，集历史、建筑、街头艺术于一体，必拍照打卡。"
+        },
+        {
+          "name": "Beaulieu (National Motor Museum & Abbey)",
+          "nameCn": "博利厄（国家汽车博物馆与修道院）",
+          "lat": 50.8161,
+          "lng": -1.4537,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "新森林中的世界级汽车博物馆+中世纪修道院，从南安普顿自驾约30分钟，集汽车迷圣地与自然风光于一身。"
         },
         {
           "name": "SeaCity Museum",
-          "nameCn": "海洋城市博物馆（泰坦尼克号）",
-          "lat": 50.9081893,
-          "lng": -1.4075203,
-          "note": "市中心文化区，讲述泰坦尼克号从南安出发的历史，城市必看博物馆，凭学生证常有优惠。"
+          "nameCn": "海洋城市博物馆（泰坦尼克）",
+          "lat": 50.9072,
+          "lng": -1.4055,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "南安普顿最著名博物馆，泰坦尼克号故事与城市海洋史双线并行，互动体验丰富，强烈推荐带家人来访时参观。"
         },
         {
-          "name": "WestQuay Shopping Centre",
-          "nameCn": "WestQuay 购物中心",
-          "lat": 50.903689,
-          "lng": -1.4066729,
-          "note": "市中心最大商场，紧邻中世纪古城墙，逛街购物、看电影、各大手机运营商门店都在这一带。"
-        },
-        {
-          "name": "Old Town & Town Walls",
-          "nameCn": "老城区与中世纪城墙",
-          "lat": 50.898,
-          "lng": -1.4075,
-          "note": "保存完好的中世纪城墙、Bargate 城门与都铎老宅，海边古城拍照打卡的历史地标。"
+          "name": "River Hamble Country Park",
+          "nameCn": "汉布尔河乡村公园",
+          "lat": 50.8795,
+          "lng": -1.2975,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "蓝铃花林与秋叶著名，可在此皮划艇、捉螃蟹、野餐，适合春秋季郊游，离南安普顿约20分钟车程。"
         }
       ]
     }

@@ -83,46 +83,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Main Quad",
-          "nameCn": "中央方庭",
-          "lat": 37.4275,
-          "lng": -122.1703,
-          "note": "红砂岩拱廊围合的标志性历史核心庭院。"
+          "name": "Gates Computer Science Building",
+          "nameCn": "盖茨计算机科学楼",
+          "lat": 37.4303,
+          "lng": -122.1732,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球顶级CS系所在地，Google、Yahoo创始人等斯坦福校友在此求学，硅谷创新的摇篮。"
         },
         {
-          "name": "School of Engineering (Huang/Jen-Hsun)",
-          "nameCn": "工程学院（黄仁勋楼）",
-          "lat": 37.4279,
-          "lng": -122.1735,
-          "note": "工程方庭，计算机与电子工程重镇。"
+          "name": "Stanford Graduate School of Business (Knight Management Center)",
+          "nameCn": "斯坦福商学院（骑士管理中心）",
+          "lat": 37.4268,
+          "lng": -122.166,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美排名最顶尖的商学院之一，MBA课程极具盛名，校园建筑设计感十足。"
         },
         {
-          "name": "Stanford Graduate School of Business",
-          "nameCn": "斯坦福商学院",
-          "lat": 37.428,
-          "lng": -122.1622,
-          "note": "Knight 管理中心，全球顶尖 MBA 项目所在。"
+          "name": "Stanford School of Medicine (Medical Center)",
+          "nameCn": "斯坦福医学院",
+          "lat": 37.4329,
+          "lng": -122.1751,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美顶尖医学院，毗邻斯坦福医院，研究实力雄厚，附属Lucile Packard儿童医院。"
         },
         {
-          "name": "Stanford Law School",
-          "nameCn": "斯坦福法学院",
+          "name": "Hasso Plattner Institute of Design (d.school)",
+          "nameCn": "哈索·普拉特纳设计学院（d.school）",
+          "lat": 37.4282,
+          "lng": -122.1717,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全球设计思维发源地，Building 550，跨学科协作氛围浓厚，是创业者必打卡之地。"
+        },
+        {
+          "name": "Department of Electrical Engineering (David Packard Building)",
+          "nameCn": "电气工程系（大卫·帕卡德楼）",
+          "lat": 37.4296,
+          "lng": -122.1738,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "EE系与CS系相邻，惠普创始人David Packard冠名，是斯坦福工科核心区域。"
+        },
+        {
+          "name": "Stanford Law School (Crown Quadrangle)",
+          "nameCn": "斯坦福法学院（皇冠四合院）",
           "lat": 37.4241,
-          "lng": -122.1676,
-          "note": "Crown Quadrangle，校园东南的法学园区。"
+          "lng": -122.1682,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全美顶三法学院，皇冠四合院建筑典雅，法律+科技交叉研究独具特色。"
         },
         {
-          "name": "School of Medicine (Li Ka Shing)",
-          "nameCn": "医学院（李嘉诚中心）",
-          "lat": 37.4327,
+          "name": "Stanford Doerr School of Sustainability",
+          "nameCn": "斯坦福多尔可持续发展学院",
+          "lat": 37.4262,
+          "lng": -122.1706,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2022年成立的斯坦福最新学院，专注气候与可持续发展，75年来首个新学院。"
+        },
+        {
+          "name": "Mechanical Engineering (Building 530)",
+          "nameCn": "机械工程系（530号楼）",
+          "lat": 37.4272,
           "lng": -122.1742,
-          "note": "Li Ka Shing 学习中心，临床教学核心。"
+          "rank": 8,
+          "tier": "推荐",
+          "note": "斯坦福机械工程系所在地，440 Escondido Mall附近，机器人、制造等前沿研究聚集地。"
         },
         {
-          "name": "School of Humanities & Sciences (Quad)",
-          "nameCn": "人文与科学学院",
-          "lat": 37.4271,
-          "lng": -122.1696,
-          "note": "依托中央方庭，文理基础学科聚集。"
+          "name": "Main Quadrangle (Inner Quad)",
+          "nameCn": "主四合院（内院）",
+          "lat": 37.4272,
+          "lng": -122.1688,
+          "rank": 9,
+          "tier": "必去",
+          "note": "斯坦福学术心脏，内院廊柱刻有各学科浮雕，是最具代表性的历史建筑群。"
+        },
+        {
+          "name": "Encina Hall (Freeman Spogli Institute for International Studies)",
+          "nameCn": "恩西纳楼（国际研究弗里曼-斯波利学院）",
+          "lat": 37.4265,
+          "lng": -122.1679,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "国际关系研究重镇，多位前国务卿和政策顾问在此工作，全球政策研究的核心。"
         }
       ],
       "defaultOn": true
@@ -135,18 +183,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Cecil H. Green Library",
-          "nameCn": "格林图书馆",
-          "lat": 37.4269,
-          "lng": -122.1668,
-          "note": "校园主图书馆，人文社科馆藏中心。"
+          "name": "Cecil H. Green Library (Main Library)",
+          "nameCn": "塞西尔·H·格林图书馆（主馆）",
+          "lat": 37.4264,
+          "lng": -122.1673,
+          "rank": 1,
+          "tier": "必去",
+          "note": "斯坦福最核心的人文社科主馆，藏书逾百万册，阅览室庄严典雅，是最受欢迎的学习场所。"
         },
         {
-          "name": "Lathrop Library",
-          "nameCn": "拉斯洛普图书馆",
-          "lat": 37.428,
-          "lng": -122.1675,
-          "note": "24 小时学习空间与多媒体技术馆。"
+          "name": "Lane Medical Library",
+          "nameCn": "莱恩医学图书馆",
+          "lat": 37.4345,
+          "lng": -122.1753,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "斯坦福医学院专属图书馆，位于Pasteur Drive旁，医学资源全美最丰富之一。"
+        },
+        {
+          "name": "Branner Earth Sciences Library & Map Collections",
+          "nameCn": "布兰纳地球科学与地图图书馆",
+          "lat": 37.4251,
+          "lng": -122.1716,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "藏有大量历史地图和地理信息资料，David Rumsey地图中心是全球罕见的地图珍藏库。"
+        },
+        {
+          "name": "Art & Architecture Library (McMurtry Building)",
+          "nameCn": "艺术与建筑图书馆（麦克默特里楼）",
+          "lat": 37.432,
+          "lng": -122.1666,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "斯坦福艺术区的核心图书馆，馆藏丰富的艺术史与建筑设计文献，建筑本身也值得一看。"
+        },
+        {
+          "name": "Lathrop Library (Undergraduate Library)",
+          "nameCn": "拉斯洛普图书馆（本科生图书馆）",
+          "lat": 37.4261,
+          "lng": -122.168,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2014年替代原本科图书馆重建，是本科生日常自习最常去的场所之一，设备现代。"
+        },
+        {
+          "name": "Science Library (SAL3 / Science and Engineering)",
+          "nameCn": "科学与工程图书馆",
+          "lat": 37.4258,
+          "lng": -122.1695,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "理工科学生常用馆，收藏STEM各学科期刊和电子资源，位于校园中心地带。"
         }
       ]
     },
@@ -159,17 +247,48 @@
       "items": [
         {
           "name": "Cantor Arts Center",
-          "nameCn": "坎托艺术中心",
-          "lat": 37.4324,
-          "lng": -122.1707,
-          "note": "校园艺术博物馆，藏罗丹雕塑园。"
+          "nameCn": "坎特艺术中心",
+          "lat": 37.4323,
+          "lng": -122.1706,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球最大罗丹青铜雕塑群之一（近200件），24个展厅，免费入场，是斯坦福必打卡文化地标。"
         },
         {
-          "name": "Anderson Collection",
-          "nameCn": "安德森收藏馆",
-          "lat": 37.4329,
-          "lng": -122.1714,
-          "note": "美国战后与现代艺术专题馆，毗邻坎托。"
+          "name": "Anderson Collection at Stanford University",
+          "nameCn": "安德森藏品馆",
+          "lat": 37.4316,
+          "lng": -122.167,
+          "rank": 2,
+          "tier": "必去",
+          "note": "世界级战后美国现代艺术收藏，波洛克、德·库宁等大师真迹，2014年开放，免费入场。"
+        },
+        {
+          "name": "B. Gerald Cantor Rodin Sculpture Garden",
+          "nameCn": "坎特罗丹雕塑花园",
+          "lat": 37.4325,
+          "lng": -122.1709,
+          "rank": 3,
+          "tier": "必去",
+          "note": "巴黎以外最大的罗丹户外雕塑群，365天24小时免费开放，著名的《思想者》就在此。"
+        },
+        {
+          "name": "Computer History Museum",
+          "nameCn": "计算机历史博物馆",
+          "lat": 37.4143,
+          "lng": -122.0771,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "全球最大计算机历史博物馆，距斯坦福约10分钟车程，硅谷科技文化必访，门票$15。"
+        },
+        {
+          "name": "Hanna House (Frank Lloyd Wright)",
+          "nameCn": "汉娜故居（赖特设计）",
+          "lat": 37.418,
+          "lng": -122.1887,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "弗兰克·劳埃德·赖特蜂巢屋杰作，位于校园西南737 Frenchmans Rd，可预约导览参观。"
         }
       ]
     },
@@ -183,37 +302,65 @@
         {
           "name": "Hoover Tower",
           "nameCn": "胡佛塔",
+          "lat": 37.4271,
+          "lng": -122.1666,
+          "rank": 1,
+          "tier": "必去",
+          "note": "斯坦福标志性钟楼，高87米，登顶观光台可俯瞰整个校园与硅谷，门票$8（学生免费）。"
+        },
+        {
+          "name": "Memorial Church",
+          "nameCn": "纪念教堂",
           "lat": 37.4274,
-          "lng": -122.1664,
-          "note": "285 英尺地标钟塔，设观景台与胡佛研究所。"
+          "lng": -122.168,
+          "rank": 2,
+          "tier": "必去",
+          "note": "斯坦福最著名建筑，主四合院正中心，马赛克壁画金碧辉煌，1903年由简·斯坦福为纪念丈夫所建。"
         },
         {
-          "name": "Stanford Memorial Church",
-          "nameCn": "斯坦福纪念教堂",
-          "lat": 37.4268,
-          "lng": -122.1705,
-          "note": "方庭尽端的马赛克立面纪念教堂。"
-        },
-        {
-          "name": "Stanford Stadium",
-          "nameCn": "斯坦福体育场",
-          "lat": 37.4347,
-          "lng": -122.1614,
-          "note": "5 万座橄榄球主场，大对决赛事举办地。"
+          "name": "The Oval (Main Oval Lawn)",
+          "nameCn": "椭圆草坪（校门主轴）",
+          "lat": 37.428,
+          "lng": -122.1671,
+          "rank": 3,
+          "tier": "必去",
+          "note": "从Palm Drive校门延伸至主四合院的宏伟草坪轴线，开学典礼等重要活动举办地，拍照首选。"
         },
         {
           "name": "Tresidder Memorial Union",
-          "nameCn": "特雷西德学生活动中心",
-          "lat": 37.4242,
-          "lng": -122.1701,
-          "note": "学生活动与餐饮枢纽，靠近研究生宿舍区。"
+          "nameCn": "特雷西德学生中心",
+          "lat": 37.425,
+          "lng": -122.1697,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "学生日常聚集中心，内设Wells Fargo银行、餐饮、会议室，459 Lagunita Dr，是校园心脏。"
         },
         {
-          "name": "Bing Concert Hall",
-          "nameCn": "冰音乐厅",
-          "lat": 37.4319,
-          "lng": -122.1661,
-          "note": "环绕式座席音乐厅，校园表演艺术中心。"
+          "name": "White Plaza",
+          "nameCn": "白色广场",
+          "lat": 37.4254,
+          "lng": -122.1704,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园露天广场，学生社团招募、集会、表演的核心场地，连接图书馆区与学生中心。"
+        },
+        {
+          "name": "Frost Amphitheater",
+          "nameCn": "弗罗斯特露天剧场",
+          "lat": 37.4238,
+          "lng": -122.1682,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "斯坦福露天音乐剧场，351 Lasuen St，举办过众多知名演唱会，自然环境与表演完美结合。"
+        },
+        {
+          "name": "Stanford Shopping Center",
+          "nameCn": "斯坦福购物中心",
+          "lat": 37.4432,
+          "lng": -122.1617,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园旁的高端露天购物中心，Neiman Marcus、Apple Store等140余家品牌，也是周边生活便利核心。"
         }
       ]
     },
@@ -225,39 +372,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market (Palo Alto)",
-          "nameCn": "全食超市（帕罗奥图店）",
-          "lat": 37.4425,
-          "lng": -122.1594,
-          "note": "市区主力超市，有机食品和热食吧齐全，离校园约1.5公里，可步行或骑车到。"
-        },
-        {
-          "name": "Trader Joe's (Palo Alto)",
-          "nameCn": "缺德舅超市（帕罗奥图店）",
-          "lat": 37.4383,
-          "lng": -122.161,
-          "note": "性价比最高的日常超市，自有品牌冷冻食品和零食极受学生欢迎，El Camino Real路边。"
-        },
-        {
-          "name": "Mollie Stone's Market",
-          "nameCn": "莫莉斯通超市",
-          "lat": 37.4289,
-          "lng": -122.1428,
-          "note": "加州大道（California Ave）上的精品超市，国际食材区有部分亚洲调料，离校园约2.5公里。"
-        },
-        {
-          "name": "Sigona's Farmers Market",
-          "nameCn": "西戈纳农夫市场",
-          "lat": 37.4424,
-          "lng": -122.1718,
-          "note": "就在斯坦福购物中心内的生鲜市场，加州当季果蔬和坚果干货很出名，离校园最近。"
-        },
-        {
           "name": "99 Ranch Market (Mountain View)",
           "nameCn": "大华超市（山景城店）",
-          "lat": 37.3888,
-          "lng": -122.0897,
-          "note": "湾区华人采购中餐食材的首选，活海鲜调料齐全；距校园约8公里需开车，但最值得专程一趟。"
+          "lat": 37.3978,
+          "lng": -122.0789,
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "离斯坦福最近的大型华人超市，1350 Grant Rd，中式食材、生鲜、熟食齐全，华人学生首选。"
+        },
+        {
+          "name": "Nijiya Market (Mountain View)",
+          "nameCn": "日本超市Nijiya（山景城店）",
+          "lat": 37.3906,
+          "lng": -122.0769,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "143 E El Camino Real，品质最佳的日系超市，日式零食、刺身、日本进口食材一应俱全。"
+        },
+        {
+          "name": "Trader Joe's (Town & Country Village, Palo Alto)",
+          "nameCn": "乔氏超市（帕洛阿尔托城镇乡村店）",
+          "lat": 37.439,
+          "lng": -122.1595,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "El Camino Real与Embarcadero交汇处，价格亲民、自有品牌性价比高，是学生日常购物热门选择。"
+        },
+        {
+          "name": "Whole Foods Market (Palo Alto)",
+          "nameCn": "全食超市（帕洛阿尔托店）",
+          "lat": 37.4434,
+          "lng": -122.1604,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "774 Emerson St，有机食品及高品质食材，熟食区和寿司很受欢迎，适合周末购物。"
+        },
+        {
+          "name": "Safeway (Palo Alto)",
+          "nameCn": "Safeway超市（帕洛阿尔托店）",
+          "lat": 37.4187,
+          "lng": -122.1259,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2811 Middlefield Rd，美国传统连锁超市，24小时营业，日用品齐全，自带药房方便取药。"
+        },
+        {
+          "name": "Sprouts Farmers Market (Palo Alto)",
+          "nameCn": "Sprouts天然食品超市（帕洛阿尔托）",
+          "lat": 37.4222,
+          "lng": -122.1438,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "3 143 El Camino Real，有机蔬果和散装食品性价比优于Whole Foods，深受健康饮食爱好者青睐。"
+        },
+        {
+          "name": "Ranch 99 Supermarket (Cupertino/Sunnyvale)",
+          "nameCn": "大华超市（库比蒂诺/森尼维尔）",
+          "lat": 37.354,
+          "lng": -122.0282,
+          "rank": 7,
+          "tier": "可选",
+          "note": "Sunnyvale/Cupertino方向约20分钟车程，与Mountain View店同品牌，食材更丰富，值得专程前往。"
         }
       ]
     },
@@ -269,46 +444,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Taste (Chinese Cuisine)",
-          "nameCn": "鄉味居中餐厅",
-          "lat": 37.4474,
-          "lng": -122.1602,
-          "note": "University Ave上口碑很好的中餐，主打川菜和北方菜，是当地华人和留学生解馋首选。"
+          "name": "Taste (鄉味居)",
+          "nameCn": "鄉味居",
+          "lat": 37.4463,
+          "lng": -122.1613,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "423 University Ave，川菜、鲁菜、湘菜多省融汇，被众多华人学生评为帕洛阿尔托最正宗中餐厅。"
         },
         {
-          "name": "P.F. Chang's",
-          "nameCn": "华馆（美式中餐）",
-          "lat": 37.4442,
-          "lng": -122.1702,
-          "note": "斯坦福购物中心内的连锁亚洲菜，环境好适合招待家人，离校园近。"
+          "name": "Tai Pan (太平)",
+          "nameCn": "太平餐厅",
+          "lat": 37.4456,
+          "lng": -122.1625,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "560 Waverley St，正宗港式点心与粤菜，周末推车点心极受欢迎，评价逾700条，超高口碑。"
         },
         {
-          "name": "Oren's Hummus",
-          "nameCn": "Oren's 鹰嘴豆泥（地中海菜）",
-          "lat": 37.4455,
+          "name": "Dumpling Hours (小笼馆)",
+          "nameCn": "Dumpling Hours 小笼馆",
+          "lat": 37.4445,
           "lng": -122.1621,
-          "note": "University Ave招牌以色列地中海菜，斯坦福学生和本地人都爱的必吃店。"
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "530 Bryant St，沪式小笼包名店，汤汁饱满、皮薄馅鲜，在斯坦福留学生群体中口口相传。"
         },
         {
-          "name": "Coupa Cafe (Stanford Y2E2)",
-          "nameCn": "Coupa 咖啡（校内店）",
-          "lat": 37.4282,
-          "lng": -122.1735,
-          "note": "校内人气咖啡馆，委内瑞拉风味咖啡和可丽饼，学生写作业泡馆首选。"
+          "name": "Chef Zhao Kitchen (赵师傅厨房)",
+          "nameCn": "赵师傅厨房",
+          "lat": 37.4568,
+          "lng": -122.1399,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "2180 W Bayshore Rd，沪菜精品，红烧肉、本帮狮子头等经典菜品地道，深受华人学生推崇。"
         },
         {
-          "name": "The Old Pro",
-          "nameCn": "The Old Pro 运动酒吧餐厅",
-          "lat": 37.4429,
-          "lng": -122.1606,
-          "note": "市中心经典美式运动酒吧，看球聚餐氛围足，是体验本地大学城文化的去处。"
+          "name": "Ramen Nagi (凪拉面)",
+          "nameCn": "凪拉面 Palo Alto",
+          "lat": 37.4447,
+          "lng": -122.1622,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "541 Bryant St，日本知名连锁首家美国分店，豚骨汤底煮20小时，四种口味可选，长期排队。"
         },
         {
-          "name": "Tin Pot Creamery (Stanford Shopping Center)",
-          "nameCn": "Tin Pot 手工冰淇淋（购物中心店）",
-          "lat": 37.4435,
-          "lng": -122.1712,
-          "note": "本地手工冰淇淋名店，伯爵茶、咸焦糖等特色口味，逛完购物中心来一支。"
+          "name": "Joyous Cuisine 花溪王 (Mountain View)",
+          "nameCn": "花溪王·山野美食（山景城）",
+          "lat": 37.3909,
+          "lng": -122.0797,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "124 Castro St，贵州特色菜，香辣牛杂、手工面条原汁原味，小红书上华人留学生好评如潮。"
+        },
+        {
+          "name": "Queen House (女王阁)",
+          "nameCn": "女王阁",
+          "lat": 37.3921,
+          "lng": -122.0804,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "273 Castro St，Mountain View，川菜+新加坡菜双料餐厅，麻辣鱼头等招牌菜评价极高。"
+        },
+        {
+          "name": "Dumpling Time (Palo Alto)",
+          "nameCn": "Dumpling Time 饺子时光",
+          "lat": 37.4446,
+          "lng": -122.1598,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "180 El Camino Real，日式饺子与中式饺子结合，主打精致手工饺，用料新鲜，网红打卡地。"
+        },
+        {
+          "name": "Tamarine (Vietnamese Fine Dining)",
+          "nameCn": "Tamarine越南精品菜",
+          "lat": 37.4461,
+          "lng": -122.1613,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "546 University Ave，Forbes全球十大权力餐厅之一，将越南菜提升至精品级别，氛围绝佳。"
+        },
+        {
+          "name": "Ramen Izakaya Yu-Gen (Mountain View)",
+          "nameCn": "幽玄拉面居酒屋（山景城）",
+          "lat": 37.3913,
+          "lng": -122.0805,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "152 Castro St，正宗豚骨拉面煮16小时，居酒屋风格，Castro Street上人气最旺的日本餐厅。"
+        },
+        {
+          "name": "Fu Lam Mum (富临门)",
+          "nameCn": "富临门粤式点心",
+          "lat": 37.3918,
+          "lng": -122.0792,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Mountain View的港式点心老字号，推车服务地道，周末早茶人气爆棚，性价比极高。"
+        },
+        {
+          "name": "Evvia Estiatorio",
+          "nameCn": "Evvia希腊餐厅",
+          "lat": 37.4453,
+          "lng": -122.1609,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "420 Emerson St，正宗希腊烧烤，Michelin推荐，是帕洛阿尔托本地最受欢迎的高档餐厅之一。"
+        },
+        {
+          "name": "Protégé",
+          "nameCn": "Protégé新美式餐厅",
+          "lat": 37.4243,
+          "lng": -122.1463,
+          "rank": 13,
+          "tier": "一般",
+          "note": "250 S California Ave，Michelin星级新美式，主厨曾在法国精品餐厅历练，适合重要场合宴请。"
         }
       ]
     },
@@ -320,32 +570,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Palo Alto Main)",
-          "nameCn": "美国银行（帕罗奥图主行）",
-          "lat": 37.4496,
-          "lng": -122.1598,
-          "note": "市中心实体网点，可现场办理开户和借记卡，新生落地办银行卡来这里。"
+          "name": "Wells Fargo Bank (Tresidder Union, Stanford Campus)",
+          "nameCn": "富国银行（校内特雷西德分行）",
+          "lat": 37.425,
+          "lng": -122.1697,
+          "rank": 1,
+          "tier": "必去",
+          "note": "459 Lagunita Dr（Tresidder Union内），校园内唯一银行分支，可开美国银行账户，方便学生日常金融需求。"
         },
         {
-          "name": "Stanford Express Care (Hoover Pavilion)",
-          "nameCn": "斯坦福快速门诊（胡佛馆）",
-          "lat": 37.4395,
-          "lng": -122.1711,
-          "note": "紧邻购物中心的紧急门诊，晚间和周末也开，看小病/急诊比挂大医院快。"
+          "name": "Bank of America (Quarry Road, Palo Alto)",
+          "nameCn": "美国银行（帕洛阿尔托夸里路店）",
+          "lat": 37.44,
+          "lng": -122.1607,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "395 Quarry Rd，靠近Stanford Shopping Center，全美最大银行之一，适合留学生开户首选。"
         },
         {
-          "name": "Vaden Health Center",
-          "nameCn": "Vaden 学生健康中心",
-          "lat": 37.4272,
-          "lng": -122.1617,
-          "note": "斯坦福校内学生健康中心，看病、配药、心理咨询一站式，学生看病第一站。"
+          "name": "Vaden Health Center (Student Health)",
+          "nameCn": "维登学生健康中心",
+          "lat": 37.4229,
+          "lng": -122.1706,
+          "rank": 3,
+          "tier": "必去",
+          "note": "866 Campus Drive，斯坦福学生专属医疗中心，24小时电话咨询，内设Walgreens药房，就医首选。"
         },
         {
-          "name": "T-Mobile (University Ave)",
-          "nameCn": "T-Mobile 营业厅（University大道）",
-          "lat": 37.4443,
-          "lng": -122.1633,
-          "note": "市中心手机营业厅，落地后办美国号码和套餐，可现场激活SIM卡。"
+          "name": "Stanford Hospital (Emergency & Specialist Care)",
+          "nameCn": "斯坦福医院（急诊及专科）",
+          "lat": 37.4345,
+          "lng": -122.1757,
+          "rank": 4,
+          "tier": "必去",
+          "note": "300 Pasteur Drive，顶级教学医院，提供24小时急诊，学生若有重症应优先前往。"
+        },
+        {
+          "name": "Stanford Express Care (Urgent Care)",
+          "nameCn": "斯坦福快捷门诊（紧急护理）",
+          "lat": 37.4433,
+          "lng": -122.1608,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "211 Quarry Rd，Vaden关门后的紧急医疗选择，接受无预约就诊，傍晚及周末均开放。"
+        },
+        {
+          "name": "Walgreens @ Vaden (Campus Pharmacy)",
+          "nameCn": "Walgreens校内药房（维登健康中心）",
+          "lat": 37.4229,
+          "lng": -122.1706,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "866 Campus Drive，Vaden内，专为学生配药，医生开方可当场取药，是校园内唯一药房。"
+        },
+        {
+          "name": "T-Mobile (Palo Alto University Ave Store)",
+          "nameCn": "T-Mobile帕洛阿尔托大学大道店",
+          "lat": 37.4468,
+          "lng": -122.1611,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "165 University Ave，留学生常见首选运营商，价格合理，有国际漫游套餐，覆盖硅谷全区。"
+        },
+        {
+          "name": "Verizon (Palo Alto)",
+          "nameCn": "威瑞森电话营业厅（帕洛阿尔托）",
+          "lat": 37.4464,
+          "lng": -122.1612,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "222 University Ave，美国信号覆盖最广运营商，斯坦福IT部门与Verizon有折扣合作协议。"
         }
       ]
     },
@@ -357,39 +651,67 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Hoover Tower",
-          "nameCn": "胡佛塔",
-          "lat": 37.4275,
-          "lng": -122.1668,
-          "note": "斯坦福地标高塔，可登顶俯瞰整个校园和湾区，新生打卡必去。"
+          "name": "Stanford Dish Trail",
+          "nameCn": "斯坦福碟形天线越野步道",
+          "lat": 37.4038,
+          "lng": -122.1786,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2390 Stanford Ave入口，3.7英里环形步道，俯瞰硅谷全景，是学生跑步、散步的人气圣地。"
         },
         {
-          "name": "Stanford Memorial Church",
-          "nameCn": "斯坦福纪念教堂",
-          "lat": 37.4268,
-          "lng": -122.1705,
-          "note": "主方院中心的马赛克立面教堂，校园最上镜的建筑（注：2026年6-10月施工关闭）。"
+          "name": "Computer History Museum",
+          "nameCn": "计算机历史博物馆",
+          "lat": 37.4143,
+          "lng": -122.0771,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1401 N Shoreline Blvd，山景城，全球最完整的计算机发展史展览，对CS学生极具意义。"
         },
         {
-          "name": "Cantor Arts Center & Rodin Sculpture Garden",
-          "nameCn": "坎特艺术中心与罗丹雕塑花园",
-          "lat": 37.4326,
-          "lng": -122.1707,
-          "note": "免费的艺术博物馆，藏有巴黎之外最大的罗丹青铜雕塑群，文艺打卡地。"
+          "name": "Half Moon Bay (Pacific Coast)",
+          "nameCn": "半月湾（太平洋海岸）",
+          "lat": 37.4636,
+          "lng": -122.4286,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "距斯坦福约35分钟车程，太平洋海浪壮观，秋季南瓜节闻名全美，是减压放松的首选目的地。"
         },
         {
-          "name": "The Main Quad",
-          "nameCn": "主方院",
-          "lat": 37.4274,
-          "lng": -122.1701,
-          "note": "斯坦福的心脏地带，砂岩拱廊和棕榈大道，开学典礼和合影的标志性场所。"
+          "name": "Filoli Historic House & Garden",
+          "nameCn": "菲洛利历史庄园与花园",
+          "lat": 37.4869,
+          "lng": -122.3098,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "86 Canada Rd, Woodside，1917年英式豪宅与16英亩正式花园，春秋两季花开最美，距校约20分钟。"
         },
         {
-          "name": "The Dish (Stanford foothills trail)",
-          "nameCn": "天线锅徒步道",
-          "lat": 37.4087,
-          "lng": -122.1779,
-          "note": "校园后山的射电望远镜环形步道，看日落和锻炼的本地热门路线，约5.6公里。"
+          "name": "SLAC National Accelerator Laboratory",
+          "nameCn": "SLAC国家加速器实验室",
+          "lat": 37.4169,
+          "lng": -122.203,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全球最长直线加速器（3.2km），隶属斯坦福管理，提供定期公众参观，理工科学生必访。"
+        },
+        {
+          "name": "Hakone Estate and Gardens (Saratoga)",
+          "nameCn": "箱根日式花园（萨拉托加）",
+          "lat": 37.2523,
+          "lng": -122.0418,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "21000 Big Basin Way，美国最古老的日式花园，锦鲤、竹林、茶室，驾车约25分钟，心静疗愈。"
+        },
+        {
+          "name": "Lake Lagunita (Campus Recreation)",
+          "nameCn": "拉古尼塔湖（校内自然湖）",
+          "lat": 37.4143,
+          "lng": -122.177,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园西南的季节性湖泊，干季成草甸，是跑步、野餐、学生放松的天然场所，校园独特风景。"
         }
       ]
     }

@@ -67,39 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Wheeler Hall",
-          "nameCn": "惠勒楼",
-          "lat": 37.8716,
-          "lng": -122.2589,
-          "note": "文理学院核心教学楼，英文系所在地。"
-        },
-        {
-          "name": "Hearst Memorial Mining Building",
-          "nameCn": "赫斯特纪念矿业楼",
-          "lat": 37.874,
-          "lng": -122.2575,
-          "note": "工程学院地标，新古典主义建筑杰作。"
-        },
-        {
-          "name": "Soda Hall (Computer Science)",
-          "nameCn": "苏打楼（计算机系）",
-          "lat": 37.8755,
-          "lng": -122.2588,
-          "note": "电子工程与计算机科学系（EECS）大楼。"
+          "name": "Soda Hall (CS Division, EECS)",
+          "nameCn": "Soda Hall（计算机科学楼）",
+          "lat": 37.8757,
+          "lng": -122.2595,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖CS系所在，EECS计算机方向核心教学与研究楼，伯克利CS名声的象征。"
         },
         {
           "name": "Haas School of Business",
           "nameCn": "哈斯商学院",
-          "lat": 37.8718,
-          "lng": -122.2535,
-          "note": "校园东南角顶尖商学院建筑群。"
+          "lat": 37.8717,
+          "lng": -122.2527,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美顶级商学院之一，MBA与本科商科项目闻名，建筑群现代开阔，校友网络极强。"
         },
         {
-          "name": "Valley Life Sciences Building",
-          "nameCn": "山谷生命科学楼",
-          "lat": 37.8714,
-          "lng": -122.2625,
-          "note": "生命科学综合楼，门厅立有霸王龙化石。"
+          "name": "Cory Hall (EE Division, EECS)",
+          "nameCn": "Cory Hall（电气工程楼）",
+          "lat": 37.8752,
+          "lng": -122.2585,
+          "rank": 3,
+          "tier": "必去",
+          "note": "EECS电气工程方向主楼，与Soda Hall并肩，两栋合称伯克利工程皇冠。"
+        },
+        {
+          "name": "Stanley Hall (Bioengineering)",
+          "nameCn": "斯坦利楼（生物工程）",
+          "lat": 37.8745,
+          "lng": -122.2565,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "生物工程系现代旗舰楼，跨学科研究重镇，内有多个前沿实验室。"
+        },
+        {
+          "name": "Li Ka Shing Center for Biomedical and Health Sciences",
+          "nameCn": "李嘉诚生物医学中心",
+          "lat": 37.8731,
+          "lng": -122.2601,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "李嘉诚捐资兴建的顶级生物医学研究楼，干细胞、癌症与传染病研究中心。"
+        },
+        {
+          "name": "Bauer Wurster Hall (College of Environmental Design)",
+          "nameCn": "鲍尔·沃斯特楼（环境设计学院）",
+          "lat": 37.87,
+          "lng": -122.2544,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "建筑、景观和城市规划学院所在，粗野主义建筑风格本身即是教学样本。"
+        },
+        {
+          "name": "Dwinelle Hall (Humanities & Social Sciences)",
+          "nameCn": "德温内尔楼（人文社科大楼）",
+          "lat": 37.8718,
+          "lng": -122.2609,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全校最大建筑之一，汇聚历史、语言、文学等系，迷宫式走廊是伯克利特色。"
+        },
+        {
+          "name": "Valley Life Sciences Building (VLSB)",
+          "nameCn": "生命科学楼",
+          "lat": 37.8736,
+          "lng": -122.2623,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "生物学、古生物学与地球科学聚集地，楼内常设恐龙化石展示，气势恢宏。"
+        },
+        {
+          "name": "Wheeler Hall (English & Rhetoric)",
+          "nameCn": "惠勒楼（英语与修辞系）",
+          "lat": 37.8724,
+          "lng": -122.26,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "英语系核心教学楼，古典气派建筑，UCB本科大课常在此举行。"
+        },
+        {
+          "name": "Hearst Memorial Mining Building",
+          "nameCn": "赫斯特矿冶纪念楼",
+          "lat": 37.875,
+          "lng": -122.2607,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "1907年建成的宏伟Beaux-Arts建筑，材料与土木工程系驻扎，建筑本身是校园珍宝。"
+        },
+        {
+          "name": "Evans Hall (Mathematics & Statistics)",
+          "nameCn": "埃文斯楼（数学与统计系）",
+          "lat": 37.8732,
+          "lng": -122.2573,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "数学、统计和经济学系高层建筑，顶层景观极佳，也是学生最常自嘲「最丑楼」。"
+        },
+        {
+          "name": "Berkeley Way West (Psychology, Education, Public Health)",
+          "nameCn": "伯克利路西楼（心理/教育/公共卫生）",
+          "lat": 37.8769,
+          "lng": -122.2658,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "2019年落成的新校区，心理学、教育学院与公卫系新家，设施一流。"
         }
       ],
       "defaultOn": true
@@ -113,24 +186,75 @@
       "items": [
         {
           "name": "Doe Memorial Library",
-          "nameCn": "杜氏纪念图书馆",
-          "lat": 37.8722,
+          "nameCn": "多伊纪念图书馆（主馆）",
+          "lat": 37.8723,
+          "lng": -122.2599,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCB最核心的图书馆，气势磅礴的古典圆柱大厅是全校学生的精神殿堂。"
+        },
+        {
+          "name": "The Bancroft Library",
+          "nameCn": "班克罗夫特图书馆（特藏）",
+          "lat": 37.8724,
           "lng": -122.2592,
-          "note": "主图书馆，宏伟的北读览阅览室与玫瑰阅览室。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "西部最重要的特藏与手稿图书馆，收藏加州与美洲史珍贵原始文献，紧邻Doe主馆。"
         },
         {
-          "name": "Moffitt Library",
-          "nameCn": "莫菲特图书馆",
-          "lat": 37.8728,
-          "lng": -122.2603,
-          "note": "本科生主用图书馆，24小时学习空间。"
+          "name": "Gardner (Main) Stacks",
+          "nameCn": "加德纳地下书库（主书库）",
+          "lat": 37.8722,
+          "lng": -122.26,
+          "rank": 3,
+          "tier": "必去",
+          "note": "连通Doe图书馆的地下超大书库，藏书数百万册，是全美最大书库之一，深夜独自漫步别有氛围。"
         },
         {
-          "name": "Bancroft Library",
-          "nameCn": "班克罗夫特图书馆",
-          "lat": 37.872,
-          "lng": -122.2587,
-          "note": "珍本与西部史特藏馆，藏马克·吐温档案。"
+          "name": "Moffitt Undergraduate Library",
+          "nameCn": "莫菲特本科图书馆",
+          "lat": 37.8727,
+          "lng": -122.2606,
+          "rank": 4,
+          "tier": "必去",
+          "note": "本科生首选学习空间，含自习区、咖啡馆（FSM Café）及专属24小时阅览楼层（2026秋季重开）。"
+        },
+        {
+          "name": "Bioscience & Natural Resources Library",
+          "nameCn": "生物与自然资源图书馆",
+          "lat": 37.8737,
+          "lng": -122.2621,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "生命科学楼内的专业图书馆，生物、生态及农学专业学生的学术基地。"
+        },
+        {
+          "name": "Engineering Library (Kresge Engineering Library)",
+          "nameCn": "克雷斯吉工程图书馆",
+          "lat": 37.8754,
+          "lng": -122.2583,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "理工科学生最常用的专业图书馆，靠近EECS楼群，深夜依然灯火通明。"
+        },
+        {
+          "name": "Morrison Library",
+          "nameCn": "莫里森阅览室",
+          "lat": 37.8723,
+          "lng": -122.2599,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于Doe主馆一楼的精致人文阅览室，沙发椅与壁炉氛围极佳，是逃离压力的绝佳去处。"
+        },
+        {
+          "name": "Environmental Design Library",
+          "nameCn": "环境设计图书馆",
+          "lat": 37.87,
+          "lng": -122.2545,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Wurster Hall内，建筑与城规专业珍贵图档与模型收藏，专业氛围浓厚。"
         }
       ]
     },
@@ -142,25 +266,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Berkeley Art Museum & Pacific Film Archive (BAMPFA)",
-          "nameCn": "伯克利艺术博物馆与太平洋电影资料馆",
-          "lat": 37.8703,
-          "lng": -122.2667,
-          "note": "市中心当代艺术与电影机构，钢制波浪外立面。"
+          "name": "Berkeley Art Museum and Pacific Film Archive (BAMPFA)",
+          "nameCn": "伯克利艺术博物馆暨太平洋电影档案馆",
+          "lat": 37.8692,
+          "lng": -122.2661,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶级大学艺术馆，当代艺术与亚裔艺术收藏丰富，学生免费入场，每月首个周四向公众免费。"
         },
         {
-          "name": "UC Botanical Garden",
-          "nameCn": "加州大学植物园",
-          "lat": 37.8758,
-          "lng": -122.2382,
-          "note": "草莓峡谷内34英亩活体植物收藏。"
+          "name": "Lawrence Hall of Science",
+          "nameCn": "劳伦斯科学馆",
+          "lat": 37.8796,
+          "lng": -122.2434,
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落山顶的公众科学中心，互动展览与天文馆，视野俯瞰全湾区，家庭与学生必打卡。"
         },
         {
           "name": "Phoebe A. Hearst Museum of Anthropology",
           "nameCn": "菲比·赫斯特人类学博物馆",
-          "lat": 37.8703,
-          "lng": -122.2557,
-          "note": "克勒伯楼内的西半球最大人类学藏品之一。"
+          "lat": 37.8717,
+          "lng": -122.2576,
+          "rank": 3,
+          "tier": "必去",
+          "note": "西美规模最大的人类学研究收藏（逾400万件），含大量中国与亚洲文物，学生免费。"
+        },
+        {
+          "name": "UC Botanical Garden at Berkeley",
+          "nameCn": "加大伯克利植物园",
+          "lat": 37.8751,
+          "lng": -122.2386,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "34英亩山地植物园，收藏全球1.3万余种植物，是UCB学生周末放松与科研的秘境。"
+        },
+        {
+          "name": "The Magnes Collection of Jewish Art and Life",
+          "nameCn": "马格尼斯犹太艺术与生活收藏馆",
+          "lat": 37.871,
+          "lng": -122.2676,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "班克罗夫特图书馆分支，全球犹太文化艺术珍藏，展览视野开阔，校外难见。"
         }
       ]
     },
@@ -173,38 +321,75 @@
       "items": [
         {
           "name": "Sather Tower (The Campanile)",
-          "nameCn": "萨瑟塔（钟楼）",
-          "lat": 37.8721,
+          "nameCn": "萨瑟钟楼（大钟楼）",
+          "lat": 37.8724,
           "lng": -122.2578,
-          "note": "307英尺校园象征，仿威尼斯圣马可钟楼。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "307英尺高、全球第二高独立钟楼，观景台俯瞰湾区全景，是UCB最具标志性的地标，来了必上。"
         },
         {
-          "name": "Sproul Plaza & Sproul Hall",
-          "nameCn": "斯普劳尔广场与斯普劳尔楼",
-          "lat": 37.8696,
-          "lng": -122.2592,
-          "note": "言论自由运动发源地，校园南门主入口。"
-        },
-        {
-          "name": "California Memorial Stadium",
-          "nameCn": "加州纪念体育场",
-          "lat": 37.8713,
-          "lng": -122.2508,
-          "note": "横跨海沃断层的金熊队橄榄球主场。"
+          "name": "Sproul Plaza",
+          "nameCn": "斯普劳尔广场",
+          "lat": 37.8692,
+          "lng": -122.2597,
+          "rank": 2,
+          "tier": "必去",
+          "note": "伯克利学生运动精神发源地，1960年代自由言论运动核心，至今仍是活动、演讲与社团摆摊的心脏地带。"
         },
         {
           "name": "Sather Gate",
           "nameCn": "萨瑟门",
-          "lat": 37.8701,
-          "lng": -122.2592,
-          "note": "通往历史核心校园的标志性铁艺大门。"
+          "lat": 37.8699,
+          "lng": -122.2598,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1910年的铸铜拱门，是UCB南侧标志入口，拍照打卡首选，毕业照必备背景。"
         },
         {
-          "name": "Downtown Berkeley BART Station",
-          "nameCn": "伯克利市中心捷运站",
-          "lat": 37.87,
-          "lng": -122.268,
-          "note": "校园西侧主要轨道交通枢纽，直通旧金山。"
+          "name": "Martin Luther King Jr. Student Union (MLK)",
+          "nameCn": "马丁·路德·金学生中心",
+          "lat": 37.8693,
+          "lng": -122.26,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园「客厅」，汇集餐饮、活动空间、学生组织办公室和Bear's Lair酒吧，学生社交中枢。"
+        },
+        {
+          "name": "California Memorial Stadium",
+          "nameCn": "加州纪念体育场",
+          "lat": 37.8709,
+          "lng": -122.2504,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1923年建成的经典体育场，依山而建、坐落海沃德断层上，Cal橄榄球季氛围极其热烈。"
+        },
+        {
+          "name": "Hearst Greek Theatre",
+          "nameCn": "赫斯特希腊剧场",
+          "lat": 37.875,
+          "lng": -122.2528,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "露天圆形剧场，顶级演唱会与毕业典礼举办地，夏夜听演出是伯克利最美体验之一。"
+        },
+        {
+          "name": "Recreational Sports Facility (RSF)",
+          "nameCn": "综合运动健身中心（RSF）",
+          "lat": 37.8685,
+          "lng": -122.2619,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全校最大的健身房与运动设施中心，含泳池、攀岩墙、篮球场，学生缴费即可使用。"
+        },
+        {
+          "name": "Free Speech Movement Café (FSM Café)",
+          "nameCn": "自由言论运动咖啡馆",
+          "lat": 37.8728,
+          "lng": -122.2606,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于莫菲特图书馆内，纪念1964年学生运动，是写论文、发呆、感受伯克利精神的好地方。"
         }
       ]
     },
@@ -216,39 +401,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Berkeley Bowl",
-          "nameCn": "伯克利碗超市",
-          "lat": 37.8556,
-          "lng": -122.2686,
-          "note": "伯克利传奇平价超市，生鲜果蔬种类全美闻名、价格便宜，留学生采购首选，离校园步行约20分钟或一趟公交。"
+          "name": "Berkeley Bowl Marketplace",
+          "nameCn": "伯克利碗超市（Oregon店）",
+          "lat": 37.8573,
+          "lng": -122.2726,
+          "rank": 1,
+          "tier": "必去",
+          "note": "伯克利最有特色的独立超市，有机蔬果种类全美第一，本地学生和居民的最爱，性价比高。"
         },
         {
-          "name": "99 Ranch Market (North Berkeley)",
-          "nameCn": "大华超市（北伯克利）",
-          "lat": 37.8807,
-          "lng": -122.2693,
-          "note": "北美最大华人连锁超市，中式调料、亚洲生鲜、冷冻火锅料一应俱全，离校园最近的华超之一。"
+          "name": "Berkeley Bowl West",
+          "nameCn": "伯克利碗超市（西店）",
+          "lat": 37.8571,
+          "lng": -122.2936,
+          "rank": 2,
+          "tier": "必去",
+          "note": "伯克利碗西区分店，规模更大更新，停车方便，备货充足，距西伯克利更近。"
         },
         {
-          "name": "99 Ranch Market — Pacific East Mall",
-          "nameCn": "大华超市（太平洋广场店）",
-          "lat": 37.9145,
-          "lng": -122.3035,
-          "note": "里士满太平洋广场内的大型旗舰华超，规模更大且周边有亚洲餐馆和奶茶店，开车约15分钟，适合一次囤货。"
-        },
-        {
-          "name": "Tokyo Fish Market",
-          "nameCn": "东京鱼市（日本食品超市）",
-          "lat": 37.8896,
-          "lng": -122.2952,
-          "note": "1963年开业的老牌日本食品店，新鲜刺身级海鲜、日韩调料和零食齐全，做日料或火锅可以来这采购。"
+          "name": "99 Ranch Market (Pacific East Mall, Richmond)",
+          "nameCn": "大华超市（太平洋东方广场，列治文）",
+          "lat": 37.9061,
+          "lng": -122.315,
+          "rank": 3,
+          "tier": "必去",
+          "note": "湾区最大中国及亚洲超市，中式食材、活海鲜、熟食一站购齐，是中国留学生买食材的首选，BART+步行可达。"
         },
         {
           "name": "Trader Joe's (University Ave)",
-          "nameCn": "缺德舅超市",
-          "lat": 37.8704,
-          "lng": -122.2895,
-          "note": "美式平价网红超市，自有品牌零食、半成品和冷冻食品高性价比，离校园不远适合日常补货。"
+          "nameCn": "乔氏超市（大学大道店）",
+          "lat": 37.8793,
+          "lng": -122.2734,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "性价比超高的特色连锁超市，冷冻食品和自有品牌零食深受学生追捧，步行可达。"
+        },
+        {
+          "name": "Whole Foods Market (Telegraph Ave)",
+          "nameCn": "全食超市（电报大道店）",
+          "lat": 37.852,
+          "lng": -122.2646,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "高端有机超市，有机食材选择丰富，熟食区品质高，价格偏贵但质量有保障。"
+        },
+        {
+          "name": "Safeway (Shattuck Place)",
+          "nameCn": "西夫韦超市（夏图克广场店）",
+          "lat": 37.8822,
+          "lng": -122.2685,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "24小时大型连锁超市，日常食材采购主力，位置便利，学生常用。"
+        },
+        {
+          "name": "Yasai Produce Market",
+          "nameCn": "Yasai蔬菜市场",
+          "lat": 37.8648,
+          "lng": -122.2586,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "南伯克利平价亚洲蔬菜集市，蔬菜水果种类多、价格便宜，中日韩食材齐全。"
+        },
+        {
+          "name": "Tokyo Fish Market",
+          "nameCn": "东京鱼市",
+          "lat": 37.873,
+          "lng": -122.2992,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "老牌日系海鲜与亚洲杂货店，鱼类新鲜，日韩食材齐全，是做日料的好去处。"
         }
       ]
     },
@@ -260,46 +482,130 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "Great China",
+          "nameCn": "大中华（北方菜）",
+          "lat": 37.8684,
+          "lng": -122.2605,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "伯克利口碑最高的中餐厅，米其林推荐，北京烤鸭与东坡肉是招牌，中国学生必访。"
+        },
+        {
+          "name": "Cheese Board Pizza Collective",
+          "nameCn": "芝士板披萨合作社",
+          "lat": 37.8799,
+          "lng": -122.2694,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "工人合作社运营的标志性薄底素食披萨，每天只卖一种口味，常年排长队，是伯克利饮食文化符号。"
+        },
+        {
+          "name": "Ox9 Lanzhou Handpulled Noodles",
+          "nameCn": "Ox9 兰州手拉面",
+          "lat": 37.8647,
+          "lng": -122.2593,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "北加州首家正宗兰州手拉面，28种香料炖制牛骨汤，中国学生心中的家乡味，性价比超高。"
+        },
+        {
+          "name": "Ippudo Berkeley",
+          "nameCn": "一风堂拉面（伯克利店）",
+          "lat": 37.8699,
+          "lng": -122.2685,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "日本名牌拉面，博多猪骨浓汤细面，在伯克利学生中人气极高，周末等位是常态。"
+        },
+        {
+          "name": "Li's Knife Cut Noodle",
+          "nameCn": "李氏刀削面",
+          "lat": 37.8694,
+          "lng": -122.2683,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "正宗山西刀削面，有免费无限续面政策，中国学生常聚的口碑面馆。"
+        },
+        {
+          "name": "Sichuan Style Restaurant",
+          "nameCn": "四川风味餐厅",
+          "lat": 37.8926,
+          "lng": -122.2824,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "Solano大道上的正宗川菜馆，麻辣烫锅与水煮鱼号称湾区最佳，Yelp评分极高。"
+        },
+        {
+          "name": "Wojia Hunan Cuisine",
+          "nameCn": "我家湘菜",
+          "lat": 37.8907,
+          "lng": -122.2998,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "奥尔巴尼正宗湖南家常菜，辣椒炒肉和剁椒鱼头备受中国学生好评，比邻伯克利。"
+        },
+        {
+          "name": "Da Lian Restaurant",
+          "nameCn": "大连酒家",
+          "lat": 37.88,
+          "lng": -122.2693,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "北方海鲜中餐，大连风味饺子与海鲜备受推崇，性价比高，深受华人学生欢迎。"
+        },
+        {
           "name": "Imm Thai Street Food",
           "nameCn": "Imm 泰式街头料理",
-          "lat": 37.8718,
-          "lng": -122.2691,
-          "note": "校园旁公认最火的泰餐，咖喱和炒粉地道分量足，问任何 Cal 学生吃泰餐都会推荐这家。"
+          "lat": 37.8672,
+          "lng": -122.2583,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "泰国家传秘方，炒河粉（Pad See Ew）堪称湾区最佳，份量足、价格亲民，学生常来。"
         },
         {
           "name": "Top Dog",
-          "nameCn": "Top Dog 热狗店",
-          "lat": 37.8676,
-          "lng": -122.258,
-          "note": "1966年开业的伯克利地标热狗摊，深夜营业、价格便宜，是 Cal 学生熬夜后的经典宵夜。"
+          "nameCn": "顶狗热狗",
+          "lat": 37.8692,
+          "lng": -122.2683,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "伯克利传奇热狗店，1966年开业，超过20种德式香肠可选，深夜仍营业，是大考后的犒劳首选。"
         },
         {
-          "name": "Cheese Board Pizza",
-          "nameCn": "Cheese Board 合作社披萨",
-          "lat": 37.88,
-          "lng": -122.2693,
-          "note": "工人合作社经营的网红素食披萨，每天只做一款、常年排队，是北伯克利美食区的招牌。"
+          "name": "Gordo Taqueria",
+          "nameCn": "戈多墨西哥卷饼",
+          "lat": 37.8695,
+          "lng": -122.2644,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "伯克利最受学生喜爱的墨西哥卷饼店，超大份量、价格实惠，是穷学生的救星。"
         },
         {
-          "name": "iSpot Tea (Northside)",
-          "nameCn": "iSpot 奶茶",
-          "lat": 37.8753,
-          "lng": -122.2606,
-          "note": "校园北门留学生扎堆的奶茶店，珍珠奶茶和港式小吃解乡愁，自习累了的回血点。"
+          "name": "Bongo Burger (Dwight Way)",
+          "nameCn": "笨哥汉堡（德怀特路店）",
+          "lat": 37.8657,
+          "lng": -122.259,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "1968年创立的伯克利本土汉堡店，用料扎实、价格公道，是紧邻校园的快餐经典。"
         },
         {
-          "name": "Great China Restaurant",
-          "nameCn": "兆福楼中餐厅",
-          "lat": 37.8678,
-          "lng": -122.2575,
-          "note": "伯克利老牌正宗中餐馆，北京烤鸭和家常川菜口碑极好，宴请家人或解馋的稳妥之选。"
+          "name": "Oakland Chinatown (Shan Dong Restaurant)",
+          "nameCn": "奥克兰中国城（山东餐厅）",
+          "lat": 37.7986,
+          "lng": -122.2654,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "奥克兰唐人街代表，手拉面与煎饺享誉湾区，是中国学生遣愁解乡愁的必去之地，BART直达。"
         },
         {
-          "name": "Gypsy's Trattoria Italiana",
-          "nameCn": "Gypsy 意式小馆",
-          "lat": 37.8676,
-          "lng": -122.2588,
-          "note": "Telegraph 大街上学生最爱的意面店，分量大价格友好，是穷学生改善伙食的高性价比选择。"
+          "name": "Yali's Cafe (Qualcomm Café)",
+          "nameCn": "Yali咖啡馆（高通咖啡）",
+          "lat": 37.8759,
+          "lng": -122.2582,
+          "rank": 14,
+          "tier": "一般",
+          "note": "紧邻工程楼的校园咖啡馆，三明治与咖啡品质好，是EECS学生课间补血首选。"
         }
       ]
     },
@@ -311,32 +617,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Tang Center — UC Berkeley University Health Services",
-          "nameCn": "唐氏中心（伯克利校医院 / 急诊）",
-          "lat": 37.8678,
-          "lng": -122.2654,
-          "note": "校园西南角的学生健康中心，含急诊 urgent care、全科门诊和药房，持学生医保看病第一站。"
+          "name": "UHS Tang Center (University Health Services)",
+          "nameCn": "唐中心（校医院）",
+          "lat": 37.8683,
+          "lng": -122.2619,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCB官方学生医疗中心，提供急诊、全科、药房、心理咨询等，学生就医首站，持SHIP保险$35起。"
+        },
+        {
+          "name": "Chase Bank (Telegraph & Bancroft)",
+          "nameCn": "摩根大通银行（电报大道与班克罗夫特路口）",
+          "lat": 37.8681,
+          "lng": -122.2598,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距校门最近的银行，国际学生开户首选，Chase对学生账户友好，免月费，ATM众多。"
         },
         {
           "name": "Bank of America (Downtown Berkeley)",
-          "nameCn": "美国银行（伯克利市中心支行）",
-          "lat": 37.87,
-          "lng": -122.268,
-          "note": "市中心大行支行，开通美国银行账户、办理借记卡和换汇方便，离校园和地铁站都近。"
+          "nameCn": "美国银行（市中心伯克利）",
+          "lat": 37.8694,
+          "lng": -122.2681,
+          "rank": 3,
+          "tier": "必去",
+          "note": "大型商业银行，国际学生开户接受度高，Zelle转账方便，Shattuck Ave分支靠近BART站。"
         },
         {
-          "name": "CVS Pharmacy (Shattuck Ave)",
-          "nameCn": "CVS 药店",
-          "lat": 37.8687,
-          "lng": -122.2678,
-          "note": "连锁药店兼便利店，处方药、感冒药、日用品齐全，还能打疫苗和买生活急需品。"
+          "name": "CVS Pharmacy (Telegraph Ave)",
+          "nameCn": "CVS药房（电报大道店）",
+          "lat": 37.8606,
+          "lng": -122.2592,
+          "rank": 4,
+          "tier": "必去",
+          "note": "营业至深夜11点的连锁药房，OTC药品、日用品齐全，可配处方药，是学生日常医药站。"
         },
         {
-          "name": "T-Mobile (Downtown Berkeley)",
-          "nameCn": "T-Mobile 手机营业厅",
+          "name": "Walgreens Pharmacy (Shattuck Ave)",
+          "nameCn": "沃尔格林药房（夏图克大道）",
           "lat": 37.8693,
-          "lng": -122.2675,
-          "note": "市中心运营商门店，落地后办手机卡套餐、解决信号和号码问题来这里，留学生常用网络。"
+          "lng": -122.2681,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "市中心连锁药房，24小时营业，处方药快速取药，与CVS互为补充。"
+        },
+        {
+          "name": "T-Mobile Store (Downtown Berkeley)",
+          "nameCn": "T-Mobile手机店（市中心）",
+          "lat": 37.8695,
+          "lng": -122.2687,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "国际学生开通美国号码首选，T-Mobile覆盖好、套餐灵活，到店即可激活SIM或eSIM。"
+        },
+        {
+          "name": "AT&T Store (Shattuck Ave)",
+          "nameCn": "AT&T手机店（夏图克大道）",
+          "lat": 37.8691,
+          "lng": -122.268,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "另一大电信运营商选择，预付费套餐对国际学生友好，紧靠Downtown BART站。"
+        },
+        {
+          "name": "Alta Bates Summit Medical Center (Emergency)",
+          "nameCn": "阿尔塔-贝茨医院（急症）",
+          "lat": 37.8636,
+          "lng": -122.2556,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "伯克利最大的区域医院，24小时急诊，UCB学生校外重大伤病就医的主要选择。"
         }
       ]
     },
@@ -348,39 +698,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Sather Tower (The Campanile)",
-          "nameCn": "萨瑟塔（钟楼）",
-          "lat": 37.8721,
-          "lng": -122.2578,
-          "note": "伯克利地标钟楼，可登顶俯瞰整个校园和旧金山湾,是 Cal 学生必拍的标志性打卡点。"
+          "name": "Tilden Regional Park",
+          "nameCn": "蒂尔登区域公园",
+          "lat": 37.8984,
+          "lng": -122.243,
+          "rank": 1,
+          "tier": "必去",
+          "note": "伯克利山上2000英亩的城市绿肺，登山、烧烤、骑马，含植物园与百年旋转木马，是学生周末必去的逃离地。"
         },
         {
           "name": "Telegraph Avenue",
           "nameCn": "电报大道",
-          "lat": 37.8676,
-          "lng": -122.2585,
-          "note": "校园南门外的标志性街区,书店、唱片店、街头摊和小吃聚集,感受伯克利反叛文化的核心。"
+          "lat": 37.8647,
+          "lng": -122.2593,
+          "rank": 2,
+          "tier": "必去",
+          "note": "60年代嬉皮文化遗产街区，书店（Amoeba二手唱片）、文身店、街头艺人、平价餐厅云集，是伯克利最有灵魂的街道。"
         },
         {
-          "name": "UC Berkeley Botanical Garden",
-          "nameCn": "加州大学伯克利植物园",
-          "lat": 37.8755,
+          "name": "San Francisco (via BART)",
+          "nameCn": "旧金山（BART直达）",
+          "lat": 37.7749,
+          "lng": -122.4194,
+          "rank": 3,
+          "tier": "必去",
+          "note": "20分钟BART直抵旧金山，金门大桥、渔人码头、唐人街、博物馆一日游，是国际学生必打卡的标志性目的地。"
+        },
+        {
+          "name": "Berkeley Marina",
+          "nameCn": "伯克利码头",
+          "lat": 37.8619,
+          "lng": -122.3136,
+          "rank": 4,
+          "tier": "必去",
+          "note": "俯瞰旧金山湾和金门大桥的绝佳观景点，放风筝、骑行、日落散步，是校内压力释放最佳地点之一。"
+        },
+        {
+          "name": "Grizzly Peak Boulevard (Panoramic Vista)",
+          "nameCn": "灰熊峰大道（湾区全景观景台）",
+          "lat": 37.8817,
           "lng": -122.238,
-          "note": "山坡上的世界级植物园,收藏全球珍稀植物、视野开阔,适合周末散步拍照放松。"
+          "rank": 5,
+          "tier": "必去",
+          "note": "从伯克利山顶俯瞰整个旧金山湾的最佳观景道路，日落时金光万道，是伯克利最美秘密景点。"
+        },
+        {
+          "name": "North Shattuck Avenue ('Gourmet Ghetto')",
+          "nameCn": "夏图克北大道「美食天堂」",
+          "lat": 37.8799,
+          "lng": -122.2694,
+          "rank": 6,
+          "tier": "必去",
+          "note": "孕育了Chez Panisse（美国农场到餐桌料理圣地）的美食街区，芝士店、面包店、餐厅林立，是伯克利饮食文化精华。"
+        },
+        {
+          "name": "Oakland Chinatown",
+          "nameCn": "奥克兰唐人街",
+          "lat": 37.7986,
+          "lng": -122.2654,
+          "rank": 7,
+          "tier": "必去",
+          "note": "BART直达，中越泰韩食材应有尽有，周末有热闹集市，是湾区最有活力的亚裔社区之一。"
+        },
+        {
+          "name": "UC Botanical Garden at Berkeley",
+          "nameCn": "加大伯克利植物园",
+          "lat": 37.8751,
+          "lng": -122.2386,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "校园内山地植物园，学生凭证可免费或优惠入场，适合压力大时一人漫步减压。"
+        },
+        {
+          "name": "Fourth Street Shopping District",
+          "nameCn": "第四街购物区",
+          "lat": 37.8679,
+          "lng": -122.302,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "设计感十足的西伯克利露天购物街，文具、家居、咖啡、瑜伽用品汇聚，是搬来后置办家居的好去处。"
         },
         {
           "name": "Lawrence Hall of Science",
           "nameCn": "劳伦斯科学馆",
-          "lat": 37.8794,
-          "lng": -122.2459,
-          "note": "山上的科学博物馆与观景台,能眺望旧金山天际线和金门大桥,是看湾区全景的最佳点之一。"
-        },
-        {
-          "name": "Indian Rock Park",
-          "nameCn": "印第安岩公园",
-          "lat": 37.8918,
-          "lng": -122.2723,
-          "note": "北伯克利的天然巨岩攀爬点,日落时俯瞰金门大桥和海湾绝美,是本地人私藏的看落日去处。"
+          "lat": 37.8796,
+          "lng": -122.2434,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "山顶的公众科学中心，天文馆与互动展览、视野绝佳，科研学生和家长带访客必去。"
         }
       ]
     }

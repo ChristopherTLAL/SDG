@@ -51,39 +51,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Healy Hall",
-          "nameCn": "希利楼",
-          "lat": 38.9078,
-          "lng": -77.0723,
-          "note": "1879年新中世纪式地标，校园象征，内含加斯顿礼堂。"
-        },
-        {
-          "name": "Rafik B. Hariri Building (McDonough School of Business)",
-          "nameCn": "哈里里楼（麦克多诺商学院）",
-          "lat": 38.9091,
-          "lng": -77.0755,
-          "note": "麦克多诺商学院主楼，2009年落成。"
-        },
-        {
           "name": "Edmund A. Walsh School of Foreign Service (ICC)",
-          "nameCn": "沃尔什外交学院（ICC楼）",
-          "lat": 38.9088,
-          "lng": -77.0734,
-          "note": "顶尖国际关系学院，设于校际交流中心 ICC。"
+          "nameCn": "沃尔什外交学院（ICC大楼）",
+          "lat": 38.9073,
+          "lng": -77.0716,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖外交与国际关系学院，位于ICC大楼，是乔治城标志性学术重镇"
         },
         {
-          "name": "Regents Hall",
-          "nameCn": "摄政科学楼",
-          "lat": 38.9085,
-          "lng": -77.0739,
-          "note": "2012年启用的六层 LEED 认证理科中心。"
+          "name": "Robert E. McDonough School of Business (Hariri Building)",
+          "nameCn": "麦克多诺商学院（哈里里大楼）",
+          "lat": 38.9057,
+          "lng": -77.073,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美顶尖商学院，2009年落成的哈里里大楼是校园最现代化的教学楼之一"
         },
         {
-          "name": "McDonough Hall (Georgetown Law)",
-          "nameCn": "麦克多诺楼（法学院）",
-          "lat": 38.8978,
-          "lng": -77.0129,
-          "note": "国会校区法学院主教学楼。"
+          "name": "Healy Hall",
+          "nameCn": "希利大厅",
+          "lat": 38.9076,
+          "lng": -77.0722,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1877年建成的国家历史地标建筑，哥特式钟楼是全校最具标志性的景观，内含加斯顿礼堂"
+        },
+        {
+          "name": "Regents Hall (Science Center)",
+          "nameCn": "摄政厅（理科中心）",
+          "lat": 38.9065,
+          "lng": -77.0718,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2012年建成的现代化生物、化学、物理研究与教学综合楼，设备先进"
+        },
+        {
+          "name": "White-Gravenor Hall",
+          "nameCn": "怀特-格雷文诺大厅",
+          "lat": 38.9078,
+          "lng": -77.0718,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1933年建成的人文学院核心教学楼，外墙雕刻着耶稣会学者象征，是学院精神的「石头讲道」"
+        },
+        {
+          "name": "Georgetown Law Center",
+          "nameCn": "乔治城法学院",
+          "lat": 38.9013,
+          "lng": -77.0037,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于国会山脚下的独立法学园区，全美最大法学院之一，步行可达联合车站"
+        },
+        {
+          "name": "Dahlgren Chapel of the Sacred Heart",
+          "nameCn": "达尔格伦圣心小堂",
+          "lat": 38.9074,
+          "lng": -77.0726,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1893年建成的罗马天主教小堂，是校园历史最悠久的礼拜场所，周围形成静谧的达尔格伦广场"
+        },
+        {
+          "name": "Old North Building",
+          "nameCn": "旧北楼",
+          "lat": 38.908,
+          "lng": -77.0724,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1794年动工，是乔治城大学最古老的建筑，现仍用于教学与行政，承载200余年历史"
+        },
+        {
+          "name": "McCourt School of Public Policy",
+          "nameCn": "麦考特公共政策学院",
+          "lat": 38.8977,
+          "lng": -77.016,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于市中心125 E Street NW的新园区，专注政策分析与公共管理，招收大量国际学生"
+        },
+        {
+          "name": "Reiss Science Building",
+          "nameCn": "赖斯科学楼",
+          "lat": 38.9066,
+          "lng": -77.072,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "1962年建成的原理科楼，现与摄政厅相连，内含布洛默科学图书馆，化学生物课在此上课"
         }
       ],
       "defaultOn": true
@@ -97,31 +152,111 @@
       "items": [
         {
           "name": "Joseph Mark Lauinger Memorial Library",
-          "nameCn": "劳因格纪念图书馆",
-          "lat": 38.9075,
-          "lng": -77.0717,
-          "note": "主校区最大图书馆，藏书逾350万册。"
+          "nameCn": "劳英格纪念图书馆",
+          "lat": 38.9071,
+          "lng": -77.0713,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校主图书馆，藏书超350万册，5楼为贵重古籍中心，是最主要的学习与研究空间"
+        },
+        {
+          "name": "Booth Family Center for Special Collections",
+          "nameCn": "布斯家族特藏中心",
+          "lat": 38.9071,
+          "lng": -77.0713,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于劳英格图书馆5楼，收藏珍本古籍、手稿及校史档案，学术研究者必访"
         },
         {
           "name": "Riggs Library",
           "nameCn": "里格斯图书馆",
-          "lat": 38.9079,
-          "lng": -77.0721,
-          "note": "希利楼内的铸铁书阁古典图书馆，今作活动空间。"
+          "lat": 38.9076,
+          "lng": -77.0722,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于希利大厅内，铸铁回廊书架堪称全美最美图书馆之一，1891-1970年曾是主图书馆"
         },
         {
-          "name": "Dahlgren Memorial Library",
-          "nameCn": "达尔格伦纪念医学图书馆",
-          "lat": 38.9114,
-          "lng": -77.0755,
-          "note": "医学中心的医学健康科学图书馆。"
+          "name": "Blommer Science Library",
+          "nameCn": "布洛默科学图书馆",
+          "lat": 38.9066,
+          "lng": -77.072,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于赖斯科学楼302室，服务理工科学生，周末开放时间较短，上课前记得确认"
         },
         {
-          "name": "Edward Bennett Williams Law Library",
-          "nameCn": "威廉姆斯法律图书馆",
-          "lat": 38.8987,
-          "lng": -77.0131,
-          "note": "国会校区，全美最大法律研究图书馆之一。"
+          "name": "Georgetown Law Library (Edward Bennett Williams Library)",
+          "nameCn": "爱德华·本内特·威廉斯法律图书馆",
+          "lat": 38.9009,
+          "lng": -77.0041,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于法学院园区111 G Street NW，全美规模最大的法学图书馆之一"
+        },
+        {
+          "name": "Bioethics Research Library",
+          "nameCn": "生物伦理研究图书馆",
+          "lat": 38.9076,
+          "lng": -77.0722,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于希利大厅102室，是全美生命伦理领域最专业的图书馆，资料独特稀缺"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Dumbarton Oaks Research Library and Collection",
+          "nameCn": "敦巴顿橡树园博物馆",
+          "lat": 38.9147,
+          "lng": -77.0638,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哈佛大学附属博物馆，收藏拜占庭与哥伦布前美洲艺术珍品，春夏花园尤为惊艳，门票15美元"
+        },
+        {
+          "name": "Georgetown University Art Galleries (de la Cruz Gallery)",
+          "nameCn": "乔治城大学德拉克鲁兹艺术画廊",
+          "lat": 38.9063,
+          "lng": -77.0722,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "校内免费当代艺术画廊，全年展出知名艺术家作品，关注社会公正与跨文化议题"
+        },
+        {
+          "name": "Tudor Place Historic House and Garden",
+          "nameCn": "都铎广场历史名居",
+          "lat": 38.912,
+          "lng": -77.0636,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "华盛顿家族后人故居，收藏200余件来自弗农山庄的华盛顿总统遗物，花园免费开放"
+        },
+        {
+          "name": "Old Stone House (NPS)",
+          "nameCn": "老石屋（国家公园）",
+          "lat": 38.9051,
+          "lng": -77.0613,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "建于1765年，DC现存最古老的原始建筑，免费参观，内有殖民时期家具陈设与花园"
+        },
+        {
+          "name": "Dumbarton House",
+          "nameCn": "敦巴顿故居",
+          "lat": 38.9128,
+          "lng": -77.0627,
+          "rank": 5,
+          "tier": "可选",
+          "note": "联邦时期建筑风格的历史名居，1799年建成，展示美国早期共和时代的室内陈设"
         }
       ]
     },
@@ -133,39 +268,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Healy Gates (Main Entrance, 37th & O Sts NW)",
-          "nameCn": "希利校门",
-          "lat": 38.9082,
-          "lng": -77.072,
-          "note": "37街与O街交口的主校门入口。"
-        },
-        {
-          "name": "Dahlgren Chapel of the Sacred Heart",
-          "nameCn": "达尔格伦圣心礼拜堂",
-          "lat": 38.9077,
-          "lng": -77.0726,
-          "note": "校园主要天主教礼拜堂，四方庭院中心。"
-        },
-        {
-          "name": "Leavey Center & Healey Family Student Center",
-          "nameCn": "利维中心与希利家庭学生中心",
-          "lat": 38.91,
-          "lng": -77.0749,
-          "note": "学生活动、餐饮与酒店所在的校园枢纽。"
-        },
-        {
-          "name": "McDonough Arena",
-          "nameCn": "麦克多诺体育馆",
+          "name": "Healy Hall & Gaston Hall",
+          "nameCn": "希利大厅与加斯顿礼堂",
           "lat": 38.9076,
-          "lng": -77.0774,
-          "note": "1951年建成的校内体育馆。"
+          "lng": -77.0722,
+          "rank": 1,
+          "tier": "必去",
+          "note": "乔治城最具标志性的建筑，国家历史地标，加斯顿礼堂700座位是全校最重要的演讲场所"
         },
         {
-          "name": "Georgetown University Hospital",
-          "nameCn": "乔治城大学医院",
-          "lat": 38.9121,
-          "lng": -77.0762,
-          "note": "医学中心附属教学医院。"
+          "name": "Healey Family Student Center (HFSC)",
+          "nameCn": "希利家族学生活动中心",
+          "lat": 38.9056,
+          "lng": -77.0728,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2014年开放的现代学生中心，设有多功能活动室、冥想室与学生组织办公室，是校园生活核心"
+        },
+        {
+          "name": "Leavey Center",
+          "nameCn": "利维中心",
+          "lat": 38.9059,
+          "lng": -77.074,
+          "rank": 3,
+          "tier": "必去",
+          "note": "含酒店、书店、便利店与美食广场的综合楼，24小时可进入，是最常用的日常生活枢纽"
+        },
+        {
+          "name": "Georgetown Waterfront Park",
+          "nameCn": "乔治城滨水公园",
+          "lat": 38.9022,
+          "lng": -77.0611,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "10英亩波托马克河滨公园，可慢跑、野餐或欣赏基桥夜景，是留学生减压首选"
+        },
+        {
+          "name": "John Carroll Statue (Main Gates)",
+          "nameCn": "约翰·卡罗尔雕像（正门）",
+          "lat": 38.9079,
+          "lng": -77.0722,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "乔治城创校人卡罗尔主教雕像矗立于37街与O街交汇处正门，是校园最经典的打卡点"
+        },
+        {
+          "name": "Dahlgren Quadrangle",
+          "nameCn": "达尔格伦广场",
+          "lat": 38.9074,
+          "lng": -77.0725,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "由最古老建筑围成的历史广场，喷泉草坪是学生课间聚集、晒太阳、思考人生的最佳场所"
+        },
+        {
+          "name": "The Exorcist Steps",
+          "nameCn": "驱魔师台阶",
+          "lat": 38.9042,
+          "lng": -77.0661,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1973年电影《驱魔人》取景地，共75级台阶，2019年被列为历史地标，是DC著名打卡点"
+        },
+        {
+          "name": "Key Bridge (Francis Scott Key Bridge)",
+          "nameCn": "基桥",
+          "lat": 38.903,
+          "lng": -77.0697,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "连接乔治城与弗吉尼亚州的历史大桥，桥上可俯瞰波托马克河两岸全景，日落尤美"
         }
       ]
     },
@@ -177,32 +349,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market Georgetown",
-          "nameCn": "全食超市（乔治城店）",
-          "lat": 38.9176,
-          "lng": -77.0709,
-          "note": "威斯康星大道上的大型有机超市，从校园往北步行可达，生鲜熟食和日用品齐全。"
+          "name": "Whole Foods Market (Glover Park)",
+          "nameCn": "全食超市（格洛弗公园店）",
+          "lat": 38.9207,
+          "lng": -77.072,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的大型有机超市，品质有保障，价格偏高，位于2323 Wisconsin Ave NW"
         },
         {
-          "name": "Safeway (Georgetown North)",
-          "nameCn": "Safeway 超市（乔治城北店）",
-          "lat": 38.9148,
-          "lng": -77.0712,
-          "note": "24 小时营业的主流连锁超市，自带药房，离校最近的大型平价采购点。"
+          "name": "Trader Joe's (Glover Park)",
+          "nameCn": "乔氏超市（格洛弗公园店）",
+          "lat": 38.9188,
+          "lng": -77.0721,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于2101 Wisconsin Ave NW，性价比极高，自有品牌食品受学生强烈推荐，可购葡萄酒"
         },
         {
-          "name": "Trader Joe's (West End)",
-          "nameCn": "Trader Joe's（西区店）",
-          "lat": 38.9035,
-          "lng": -77.0533,
-          "note": "性价比高的网红超市，自有品牌零食冷冻食品受留学生欢迎，校园东侧约 2 公里。"
+          "name": "Safeway (Wisconsin Ave)",
+          "nameCn": "赛福威超市（威斯康星大道店）",
+          "lat": 38.9174,
+          "lng": -77.0721,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于1855 Wisconsin Ave NW，品种齐全价格适中，是附近学生日常采购最常用的主流超市"
         },
         {
-          "name": "Hana Japanese Market",
-          "nameCn": "Hana 日本超市",
-          "lat": 38.917,
-          "lng": -77.0383,
-          "note": "17 街/U 街口的日系亚洲食材店，可买到酱料、拉面、米和泡菜，是附近最近的亚超之一。"
+          "name": "H Mart (Wheaton)",
+          "nameCn": "H Mart韩国超市（惠顿店）",
+          "lat": 39.0387,
+          "lng": -77.0534,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地铁红线Wheaton站附近，韩国超市但中日食材极丰富，新鲜食材、即食小吃一网打尽"
+        },
+        {
+          "name": "Great Wall Supermarket (Falls Church)",
+          "nameCn": "大中华超市（费尔斯彻奇店）",
+          "lat": 38.8641,
+          "lng": -77.176,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于弗吉尼亚州Falls Church，2982 Gallows Rd，DC地区最大中国超市，中式食材应有尽有"
+        },
+        {
+          "name": "Lotte Plaza Market (Chantilly / Rockville)",
+          "nameCn": "乐天广场超市",
+          "lat": 39.0845,
+          "lng": -77.1528,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "韩国乐天旗下亚洲超市，中韩日食材齐全，蔬菜水产品质好，适合周末集中采购"
+        },
+        {
+          "name": "Streets Market Georgetown",
+          "nameCn": "Streets Market（乔治城店）",
+          "lat": 38.9049,
+          "lng": -77.0608,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于M Street附近的精品便利超市，适合急购日用品，营业到深夜，选品偏向有机与熟食"
         }
       ]
     },
@@ -214,46 +421,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Reren Lamen & Bar",
-          "nameCn": "人人拉面",
-          "lat": 38.9042,
-          "lng": -77.0628,
-          "note": "威斯康星大道上的手工拉面店，自制面条和饺子，想吃中式面食的首选。"
+          "name": "Han Palace",
+          "nameCn": "汉宫中餐厅",
+          "lat": 38.9138,
+          "lng": -77.0673,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Georgetown首屈一指的中餐厅，位于1728 Wisconsin Ave NW，北京烤鸭与小笼包口碑极佳，中国留学生强烈推荐"
         },
         {
           "name": "Shanghai Lounge",
-          "nameCn": "上海小馆",
+          "nameCn": "上海阁",
           "lat": 38.9139,
-          "lng": -77.0712,
-          "note": "沪川风味中餐，主打小笼包和担担面，离 Safeway 很近的解馋去处。"
+          "lng": -77.0674,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于1734 Wisconsin Ave NW，手工汤饺和孜然羊肉广受好评，是乔治城最受认可的正宗中餐"
         },
         {
-          "name": "Han Palace",
-          "nameCn": "汉宫（粤式点心）",
-          "lat": 38.9046,
-          "lng": -77.0608,
-          "note": "M 街上的粤菜点心馆，灌汤包和港式茶点，朋友聚餐方便。"
+          "name": "Reren Lamen & Bar",
+          "nameCn": "热热拉面",
+          "lat": 38.9059,
+          "lng": -77.064,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "位于1073 Wisconsin Ave NW 2楼，手工现拉面条+精心熬制汤底，牛肉葱油饼和虾饺尤佳"
         },
         {
           "name": "Martin's Tavern",
           "nameCn": "马丁酒馆",
-          "lat": 38.9056,
-          "lng": -77.0628,
-          "note": "1933 年开业的乔治城地标老馆，肯尼迪在此向杰奎琳求婚，经典美式餐厅必打卡。"
+          "lat": 38.9119,
+          "lng": -77.0654,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "1933年开业的乔治城传奇餐厅，肯尼迪曾在此向杰克琳求婚，汉堡与牛排是必点，体验老DC精髓"
+        },
+        {
+          "name": "Farmers Fishers Bakers",
+          "nameCn": "农夫渔夫面包师",
+          "lat": 38.9027,
+          "lng": -77.0601,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "位于Georgetown Harbour滨水区，菜单极其多元，早午餐特别受欢迎，水景座位一位难求"
+        },
+        {
+          "name": "Chaia Tacos",
+          "nameCn": "恰亚素食玉米饼",
+          "lat": 38.9059,
+          "lng": -77.0637,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "全素食玉米饼专门店，使用当季本地食材，蘑菇+莎莎酱口味为招牌，适合素食与健康饮食者"
+        },
+        {
+          "name": "Fiola Mare",
+          "nameCn": "菲奥拉海鲜餐厅",
+          "lat": 38.9028,
+          "lng": -77.0604,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "米其林星级意大利海鲜餐厅，俯瞰波托马克河，适合庆典或家长来访，提前一个月预订"
+        },
+        {
+          "name": "Oki Shoten",
+          "nameCn": "冲商店日泰拉面",
+          "lat": 38.9145,
+          "lng": -77.0677,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于1614 Wisconsin Ave NW，将日式拉面与泰式香料融合，网红店，配泡沫奶茶别有风味"
+        },
+        {
+          "name": "Baked & Wired",
+          "nameCn": "烘焙有线咖啡馆",
+          "lat": 38.9038,
+          "lng": -77.0625,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "紧邻C&O运河的网红咖啡烘焙店，纸杯蛋糕超大份且每日口味不同，是乔治城下午茶首选"
+        },
+        {
+          "name": "CHIKO (Capitol Hill)",
+          "nameCn": "CHIKO中韩创意餐厅",
+          "lat": 38.8847,
+          "lng": -76.9953,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "位于国会山423 8th St SE，中韩菜融合创意菜，橙子鸡翅与孜然羊肉极受好评，口碑超高"
+        },
+        {
+          "name": "Mai Thai Restaurant",
+          "nameCn": "迈泰泰国餐厅",
+          "lat": 38.9065,
+          "lng": -77.0633,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "距校园最近的亚洲餐厅之一，泰国菜正宗，冬阴功汤与泰式炒河粉是学生课后必打卡"
+        },
+        {
+          "name": "Patisserie Poupon",
+          "nameCn": "普庞法式糕点铺",
+          "lat": 38.9123,
+          "lng": -77.0658,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Georgetown经典法式面包甜点店，法棍三明治、可颂和挞类甜点品质上乘，适合轻食午餐"
         },
         {
           "name": "Georgetown Cupcake",
           "nameCn": "乔治城纸杯蛋糕",
-          "lat": 38.9047,
-          "lng": -77.064,
-          "note": "因真人秀走红的网红蛋糕店，M 街上常年排队，来乔治城必尝的甜点。"
+          "lat": 38.9117,
+          "lng": -77.065,
+          "rank": 13,
+          "tier": "一般",
+          "note": "乔治城网红甜品店，曾登上TLC真人秀，每日口味限量，排队是常态，适合打卡拍照"
         },
         {
-          "name": "Baked & Wired",
-          "nameCn": "Baked & Wired 咖啡甜点",
-          "lat": 38.9039,
-          "lng": -77.0608,
-          "note": "运河边的本地人气咖啡烘焙店，超大杯子蛋糕和精品咖啡，本地人更爱这家。"
+          "name": "BIBIBOP Asian Grill (Georgetown)",
+          "nameCn": "BIBIBOP亚洲米碗",
+          "lat": 38.9051,
+          "lng": -77.062,
+          "rank": 14,
+          "tier": "一般",
+          "note": "M Street上的快餐亚洲碗，全菜单无麸质，性价比高，是学生快速饱腹的日常之选"
         }
       ]
     },
@@ -265,32 +556,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "MedStar Georgetown University Hospital",
-          "nameCn": "乔治城大学医院（MedStar）",
-          "lat": 38.9116,
-          "lng": -77.0764,
-          "note": "紧邻校园的综合性大医院，含急诊，生病或急症就医的主要去处。"
-        },
-        {
-          "name": "PNC Bank (M St & Wisconsin Ave)",
-          "nameCn": "PNC 银行（M街/威斯康星大道店）",
-          "lat": 38.9049,
-          "lng": -77.0625,
-          "note": "位于乔治城商业中心十字路口的银行网点，开学办理银行账户很方便。"
-        },
-        {
-          "name": "CVS Pharmacy (Wisconsin Ave)",
-          "nameCn": "CVS 药房（威斯康星大道店）",
-          "lat": 38.907,
-          "lng": -77.0628,
-          "note": "步行可达的连锁药房兼便利店，买常备药、生活用品和处方药都靠它。"
-        },
-        {
-          "name": "Apple Georgetown",
-          "nameCn": "苹果零售店（乔治城店）",
+          "name": "Chase Bank (Georgetown M Street Branch)",
+          "nameCn": "大通银行（乔治城M街支行）",
           "lat": 38.9053,
-          "lng": -77.0629,
-          "note": "M 街附近的苹果直营店，买手机配件、维修设备，旁边即各大运营商门店可办手机卡。"
+          "lng": -77.0608,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于3140 M St NW，国际学生开户最常选择，持护照+I-20可开账户，ATM 24小时"
+        },
+        {
+          "name": "Bank of America (Georgetown Branch)",
+          "nameCn": "美国银行（乔治城支行）",
+          "lat": 38.9142,
+          "lng": -77.0674,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于1339 Wisconsin Ave NW，ATM网点密，与全球多国银行有合作，适合中国留学生开户"
+        },
+        {
+          "name": "MedStar Georgetown University Hospital (Emergency Dept)",
+          "nameCn": "麦德斯塔乔治城大学医院（急诊）",
+          "lat": 38.9122,
+          "lng": -77.0795,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于3800 Reservoir Rd NW，校园北侧步行可达，24小时急诊，是校内学生就医首选医院"
+        },
+        {
+          "name": "Georgetown University Student Health Center",
+          "nameCn": "乔治城大学学生健康中心",
+          "lat": 38.9062,
+          "lng": -77.074,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于Darnall Hall，面向在校生，周一至五9am-5pm，普通门诊、疫苗接种均在此办理"
+        },
+        {
+          "name": "CVS Pharmacy (1403 Wisconsin Ave NW)",
+          "nameCn": "CVS药房（威斯康星大道1403号）",
+          "lat": 38.9097,
+          "lng": -77.0637,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距校最近的CVS药房，营业至午夜，含药房取药窗口与MinuteClinic诊所，备药齐全"
+        },
+        {
+          "name": "Georgetown University Alumni & Student Federal Credit Union",
+          "nameCn": "乔治城大学校友学生联邦信用合作社",
+          "lat": 38.9059,
+          "lng": -77.074,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Leavey Center 1328室，在校生可加入，提供学生友好的储蓄与贷款服务，免年费"
+        },
+        {
+          "name": "Wells Fargo Bank (Georgetown)",
+          "nameCn": "富国银行（乔治城店）",
+          "lat": 38.9051,
+          "lng": -77.0613,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于2901 M St NW，跨国汇款方便，对国际学生友好，ATM24小时，国际手续费注意确认"
+        },
+        {
+          "name": "T-Mobile (Georgetown / DC Downtown)",
+          "nameCn": "T-Mobile电信（华盛顿DC市中心）",
+          "lat": 38.9003,
+          "lng": -77.0468,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "国际学生办理美国手机卡首选，无限流量套餐价格合理，凭护照+签证即可办理预付卡"
         }
       ]
     },
@@ -302,32 +637,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "The Exorcist Steps",
-          "nameCn": "驱魔人台阶",
-          "lat": 38.905,
-          "lng": -77.0707,
-          "note": "电影《驱魔人》取景的 75 级陡峭石阶，已列入历史地标，热门拍照打卡点。"
+          "name": "C&O Canal National Historical Park",
+          "nameCn": "C&O运河国家历史公园",
+          "lat": 38.9038,
+          "lng": -77.062,
+          "rank": 1,
+          "tier": "必去",
+          "note": "从Georgetown出发延伸300公里至马里兰州的历史运河，沿途骑行与徒步是DC最经典的户外体验"
         },
         {
-          "name": "Georgetown Waterfront Park",
-          "nameCn": "乔治城滨河公园",
-          "lat": 38.9024,
-          "lng": -77.0664,
-          "note": "波托马克河畔的开阔公园，有喷泉和步道，看河景、散步跑步的好去处。"
+          "name": "John F. Kennedy Center for the Performing Arts",
+          "nameCn": "肯尼迪表演艺术中心",
+          "lat": 38.8956,
+          "lng": -77.0556,
+          "rank": 2,
+          "tier": "必去",
+          "note": "步行约20分钟可达，美国国家级文化殿堂，每日傍晚在顶层有免费露台演出，留学生必打卡"
         },
         {
-          "name": "C&O Canal (Georgetown)",
-          "nameCn": "C&O 运河（乔治城段）",
-          "lat": 38.9041,
-          "lng": -77.0625,
-          "note": "1850 年开通的历史运河国家公园，沿河步道贯穿乔治城老城区，氛围感拉满。"
+          "name": "Lincoln Memorial & National Mall",
+          "nameCn": "林肯纪念堂与国家广场",
+          "lat": 38.8893,
+          "lng": -77.0502,
+          "rank": 3,
+          "tier": "必去",
+          "note": "步行或骑车约30分钟，美国最重要的纪念性公共空间，史密森尼系列博物馆均免费开放"
         },
         {
-          "name": "Old Stone House",
+          "name": "Dumbarton Oaks Gardens",
+          "nameCn": "敦巴顿橡树园花园",
+          "lat": 38.9147,
+          "lng": -77.0638,
+          "rank": 4,
+          "tier": "必去",
+          "note": "哈佛大学维护的顶级私家园林，春季樱花与玫瑰盛开时极美，门票约15美元，需网上预约"
+        },
+        {
+          "name": "Georgetown Waterfront & Key Bridge Boathouse",
+          "nameCn": "乔治城滨水区与基桥船坞",
+          "lat": 38.9022,
+          "lng": -77.0622,
+          "rank": 5,
+          "tier": "必去",
+          "note": "可租皮划艇、独木舟与SUP桨板，在波托马克河上看Washington天际线，是留学生放松必选"
+        },
+        {
+          "name": "Blues Alley Jazz Club",
+          "nameCn": "蓝调小巷爵士俱乐部",
+          "lat": 38.9061,
+          "lng": -77.0641,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1965年创立，全美历史最悠久的爵士演出场所，学生持证享5折优惠，每晚两场演出"
+        },
+        {
+          "name": "Old Stone House (NPS)",
           "nameCn": "老石屋",
-          "lat": 38.9047,
-          "lng": -77.0606,
-          "note": "建于 1765 年，华盛顿最古老的建筑，免费参观，了解乔治城早期生活。"
+          "lat": 38.9051,
+          "lng": -77.0613,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "建于1765年DC现存最古老完整建筑，免费参观，后院花园幽静，是M街购物后的休息绿洲"
+        },
+        {
+          "name": "M Street NW Shopping District",
+          "nameCn": "M街购物区",
+          "lat": 38.9055,
+          "lng": -77.0622,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "乔治城主商业街，Apple Store、Zara等品牌云集，也有众多本地独立餐厅与咖啡馆，周末人声鼎沸"
+        },
+        {
+          "name": "Tudor Place Historic House & Garden",
+          "nameCn": "都铎广场历史名居与花园",
+          "lat": 38.912,
+          "lng": -77.0636,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "华盛顿总统遗物展览馆，花园可免费漫步，是感受Georgetown高端历史文化氛围的好去处"
+        },
+        {
+          "name": "Capital Crescent Trail",
+          "nameCn": "首都新月步道",
+          "lat": 38.903,
+          "lng": -77.069,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "从Georgetown延伸至马里兰州Bethesda的11英里绿道，骑行与慢跑爱好者的天堂，景色优美"
+        },
+        {
+          "name": "Washington National Cathedral",
+          "nameCn": "华盛顿国家大教堂",
+          "lat": 38.9305,
+          "lng": -77.0706,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "距校园约2公里的哥特式大教堂，建筑宏伟，有俯瞰整个DC的塔楼观景台，可购票参观"
         }
       ]
     }

@@ -75,46 +75,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Low Memorial Library (Administration)",
-          "nameCn": "洛氏纪念图书馆（行政中心）",
+          "name": "Pupin Physics Laboratories",
+          "nameCn": "普平物理实验楼",
+          "lat": 40.8121,
+          "lng": -73.9626,
+          "rank": 1,
+          "tier": "必去",
+          "note": "国家历史地标，核物理圣地，费米于1939年在此首次完成铀裂变实验，产出10余位诺贝尔奖，物理+天文系所在地。"
+        },
+        {
+          "name": "Havemeyer Hall (Chemistry)",
+          "nameCn": "哈弗迈耶大厅（化学系）",
+          "lat": 40.8096,
+          "lng": -73.9611,
+          "rank": 2,
+          "tier": "必去",
+          "note": "美国化学协会认证的国家历史化学地标，化学系所在地，共出7位诺贝尔化学奖得主，由McKim, Mead & White于1897年设计。"
+        },
+        {
+          "name": "Schermerhorn Hall",
+          "nameCn": "斯格梅豪尔大厅",
           "lat": 40.8079,
-          "lng": -73.9624,
-          "note": "校园中轴标志性穹顶建筑，现为行政中心"
+          "lng": -73.9594,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "心理学、艺术史与考古学、地球与环境科学三系所在地，位于Amsterdam大道旁，建筑风格精美。"
+        },
+        {
+          "name": "Schapiro CEPSR (CS & EE)",
+          "nameCn": "夏皮罗工程与物理研究中心",
+          "lat": 40.8117,
+          "lng": -73.9617,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "计算机科学系（6-7层）和电气工程系（Mudd大楼13层）核心研究楼，位于120街，连接Pupin与Mudd，科研氛围浓厚。"
+        },
+        {
+          "name": "International Affairs Building (SIPA)",
+          "nameCn": "国际事务大楼（SIPA）",
+          "lat": 40.8095,
+          "lng": -73.958,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "哥大国际公共事务学院（SIPA）主楼，420 W 118th St，中国留学生聚集度最高的院系之一，同楼设有Lehman社科图书馆。"
         },
         {
           "name": "Hamilton Hall",
-          "nameCn": "汉密尔顿楼",
-          "lat": 40.8071,
-          "lng": -73.9615,
-          "note": "哥伦比亚学院本科教学主楼"
+          "nameCn": "汉密尔顿大厅",
+          "lat": 40.8075,
+          "lng": -73.9605,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "哥伦比亚学院（本科）标志性行政教学楼，1907年由McKim, Mead & White设计，是多次学生抗议运动的历史见证地。"
         },
         {
-          "name": "Pulitzer Hall (Journalism School)",
-          "nameCn": "普利策楼（新闻学院）",
-          "lat": 40.8069,
-          "lng": -73.9633,
-          "note": "新闻学院与普利策奖所在地"
+          "name": "Jerome Greene Hall (Law School)",
+          "nameCn": "杰罗姆·格林大厅（法学院）",
+          "lat": 40.8077,
+          "lng": -73.9597,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "哥大法学院主楼，435 W 116th St，由联合国总部设计师Wallace Harrison操刀，法学院全美排名前五，值得到访。"
         },
         {
-          "name": "Pupin Physics Laboratories",
-          "nameCn": "普平物理实验楼",
-          "lat": 40.8099,
-          "lng": -73.9609,
-          "note": "曼哈顿计划诞生地之一，物理与天文系"
+          "name": "Henry R. Kravis Hall (Business School)",
+          "nameCn": "克拉维斯大厅（商学院）",
+          "lat": 40.8175,
+          "lng": -73.9578,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "哥大商学院（CBS）曼哈顿维尔新校区主楼，2022年开放，Diller Scofidio+Renfro设计，与David Geffen Hall相对，建筑壮观。"
         },
         {
-          "name": "Columbia Business School (Henry R. Kravis & Geffen Hall)",
-          "nameCn": "商学院（曼哈顿维尔新址）",
-          "lat": 40.8186,
-          "lng": -73.9603,
-          "note": "曼哈顿维尔校区的商学院双子楼"
+          "name": "Seeley W. Mudd Building (Engineering)",
+          "nameCn": "马德工程大楼",
+          "lat": 40.8115,
+          "lng": -73.9606,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "工程学院核心教学楼，120街与Amsterdam大道交口，电气工程、生物医学工程等系设于此，有通天桥连接CEPSR。"
         },
         {
-          "name": "Vagelos College of Physicians and Surgeons",
-          "nameCn": "瓦杰洛斯内外科医学院",
-          "lat": 40.841,
-          "lng": -73.9425,
-          "note": "医学中心核心教学楼"
+          "name": "Teachers College (TC)",
+          "nameCn": "教育学院",
+          "lat": 40.8127,
+          "lng": -73.9599,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全美顶尖教育学院，与哥大附属但独立，大量来自中国的教育学研究生就读于此，位于120街与Broadway交口附近。"
         }
       ],
       "defaultOn": true
@@ -129,16 +177,56 @@
         {
           "name": "Butler Library",
           "nameCn": "巴特勒图书馆",
-          "lat": 40.8063,
-          "lng": -73.963,
-          "note": "全校最大图书馆，人文与社科主馆"
+          "lat": 40.8067,
+          "lng": -73.9629,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哥大最大图书馆，藏书逾200万册，学期间24小时开放，位于114街与Broadway交口，是本科生最重要的学习中心。"
         },
         {
-          "name": "Augustus C. Long Health Sciences Library",
-          "nameCn": "朗氏健康科学图书馆",
-          "lat": 40.8408,
-          "lng": -73.9413,
-          "note": "医学中心的健康科学主图书馆"
+          "name": "Avery Architectural & Fine Arts Library",
+          "nameCn": "艾弗里建筑与美术图书馆",
+          "lat": 40.8094,
+          "lng": -73.9591,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "全球最大建筑图书馆，藏书逾40万册，收藏逾200万张建筑图纸，是建筑、艺术史和城市规划专业学生必访之地。"
+        },
+        {
+          "name": "Lehman Social Sciences Library",
+          "nameCn": "雷曼社会科学图书馆",
+          "lat": 40.8094,
+          "lng": -73.9577,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于SIPA楼3楼（地下层），专注政治学、社会学、人类学等社科文献，是SIPA及文科研究生的核心资源库。"
+        },
+        {
+          "name": "Science & Engineering Library (NWC)",
+          "nameCn": "理工图书馆（西北角大楼）",
+          "lat": 40.8116,
+          "lng": -73.9638,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "哥大最新图书馆，2011年开放，位于550 W 120th St西北角大楼401室，专攻理科与工程文献，仅Columbia affiliates使用。"
+        },
+        {
+          "name": "Burke Library at Union Theological Seminary",
+          "nameCn": "伯克神学图书馆",
+          "lat": 40.8125,
+          "lng": -73.9638,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于3041 Broadway联合神学院内，收藏宗教、神学与宗教史文献，馆内老式建筑氛围静谧，是人文类研究的特色馆。"
+        },
+        {
+          "name": "Milstein Family College Library (inside Butler)",
+          "nameCn": "米尔斯坦本科图书馆",
+          "lat": 40.8067,
+          "lng": -73.9628,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Butler图书馆内，收藏约5万册本科通识藏书，提供24小时自习区、充电座位和分组学习室，是大一新生首选。"
         }
       ]
     },
@@ -150,11 +238,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Wallach Art Gallery",
-          "nameCn": "瓦拉赫艺术馆",
-          "lat": 40.8166,
-          "lng": -73.9596,
-          "note": "迁入曼哈顿维尔的校属艺术展馆"
+          "name": "Miriam and Ira D. Wallach Art Gallery",
+          "nameCn": "瓦拉赫艺术画廊",
+          "lat": 40.8178,
+          "lng": -73.9561,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哥大主要公共艺术馆，位于曼哈顿维尔新校区Lenfest中心6楼（Renzo Piano设计），周三至周日12-18点免费开放，展览由艺术史系师生策划。"
+        },
+        {
+          "name": "Columbia University Museum of Natural History Access",
+          "nameCn": "美国自然历史博物馆（校外联票）",
+          "lat": 40.7814,
+          "lng": -73.9741,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "哥大学生凭校园博物馆通行证（Museum Passport）可免费进入全市30+博物馆，距校园约20分钟地铁，世界级自然历史展览。"
+        },
+        {
+          "name": "Italian Academy (Casa Italiana Zerilli-Marimò)",
+          "nameCn": "意大利学院画廊",
+          "lat": 40.8091,
+          "lng": -73.9598,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于campus内1161 Amsterdam Ave，一楼画廊周一至周五10:00-16:00对外免费开放，展出意大利艺术与文化主题作品。"
+        },
+        {
+          "name": "Barnard College's Undergraduate Exhibition Space (The Diana Center)",
+          "nameCn": "巴纳德学院戴安娜中心展览空间",
+          "lat": 40.8097,
+          "lng": -73.9638,
+          "rank": 4,
+          "tier": "可选",
+          "note": "巴纳德女子学院创意中心，常设学生及当代艺术展览，毗邻哥大主校园，免费入场，是了解女性艺术视角的好去处。"
         }
       ]
     },
@@ -166,39 +283,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Alma Mater Statue & Low Steps",
-          "nameCn": "母校女神像与洛氏台阶",
-          "lat": 40.8076,
-          "lng": -73.9623,
-          "note": "校园象征，学生聚集的标志性台阶"
+          "name": "Low Memorial Library & Alma Mater Steps",
+          "nameCn": "洛氏图书馆与校母雕像台阶",
+          "lat": 40.808,
+          "lng": -73.9617,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哥大最标志性地点，国家历史地标，校母（Alma Mater）铜像由Daniel Chester French于1903年铸造，Low台阶是学生聚会与拍照打卡圣地。"
         },
         {
-          "name": "St. Paul's Chapel",
-          "nameCn": "圣保罗教堂",
+          "name": "College Walk (116th Street Pedestrian Mall)",
+          "nameCn": "学院大道（116街步行区）",
+          "lat": 40.8079,
+          "lng": -73.9615,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贯穿校园的主步行道，Broadway至Amsterdam之间的116街行人专区，是哥大校园生活的日常轴心，秋季银杏景色极美。"
+        },
+        {
+          "name": "Alfred J. Lerner Hall (Student Center)",
+          "nameCn": "勒纳大厅（学生中心）",
           "lat": 40.8073,
-          "lng": -73.9608,
-          "note": "校园内罗马式礼拜堂与音乐厅"
+          "lng": -73.964,
+          "rank": 3,
+          "tier": "必去",
+          "note": "哥大学生中心，Bernard Tschumi设计，25万平尺，内设7000个学生信箱、餐厅、1500座礼堂、自习室及学生组织办公室。"
         },
         {
-          "name": "Jerome L. Greene Science Center",
-          "nameCn": "格林科学中心",
-          "lat": 40.817,
-          "lng": -73.9594,
-          "note": "皮亚诺设计的玻璃塔，脑科学研究所"
+          "name": "Riverside Church",
+          "nameCn": "河畔教堂",
+          "lat": 40.8107,
+          "lng": -73.9638,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "哥特复兴式巨型教堂，由洛克菲勒赞助，1930年建成，拥有世界最重的74口钟楼大钟，观景台可俯瞰哈德逊河，步行可达。"
         },
         {
-          "name": "Lawrence A. Wien Stadium",
-          "nameCn": "维恩体育场",
-          "lat": 40.8732,
-          "lng": -73.9165,
-          "note": "贝克体育中心的橄榄球主场"
+          "name": "Tom's Restaurant",
+          "nameCn": "汤姆餐厅（宋飞正传取景地）",
+          "lat": 40.8059,
+          "lng": -73.9647,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2880 Broadway，美剧《宋飞正传》外景地，哥大学生经典早午餐打卡点，也是追剧迷的朝圣地，复古美式装潢。"
         },
         {
-          "name": "116th Street–Columbia University Subway Station",
-          "nameCn": "116街—哥大地铁站",
-          "lat": 40.8076,
-          "lng": -73.9641,
-          "note": "1号线校门口地铁站，校园西界入口"
+          "name": "Barnard College Campus",
+          "nameCn": "巴纳德女子学院",
+          "lat": 40.8097,
+          "lng": -73.9635,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "与哥大相邻的顶尖女子学院，Broadway西侧独立校园，景色优美，学生可交叉选课，建筑融合古典与现代。"
+        },
+        {
+          "name": "Manhattanville Campus (New Expansion)",
+          "nameCn": "曼哈顿维尔新校区",
+          "lat": 40.8175,
+          "lng": -73.9575,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "哥大125街以北正在发展的新校区，已建成商学院Kravis/Geffen大楼与Lenfest艺术中心，是Renzo Piano等名建筑师作品集中地。"
         }
       ]
     },
@@ -210,32 +355,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "H Mart Morningside Heights",
-          "nameCn": "H Mart 韩亚龙超市（晨边高地店）",
-          "lat": 40.8024,
-          "lng": -73.9676,
-          "note": "距校园最近的大型韩亚超市，2828 Broadway（110街），中日韩调料、泡面、新鲜蔬菜和速食一应俱全，留学生囤货首选。"
+          "name": "H Mart (Columbia University)",
+          "nameCn": "H Mart韩国/亚洲超市（哥大店）",
+          "lat": 40.8038,
+          "lng": -73.9666,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2828 Broadway（110街），距校园步行10分钟，提供完整亚洲食材（韩系为主，兼有中日东南亚），备有熟食区，营业至晚11点，中国留学生必备。"
         },
         {
           "name": "Morton Williams Supermarket",
-          "nameCn": "Morton Williams 超市",
-          "lat": 40.806,
-          "lng": -73.965,
-          "note": "百老汇115街口的本地连锁超市，紧贴校园，日常牛奶面包果蔬随手就买，营业时间长。"
+          "nameCn": "莫顿·威廉姆斯超市",
+          "lat": 40.8083,
+          "lng": -73.9649,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2941 Broadway，正对College Walk校门，是哥大学生最常用的日常超市，品种齐全，价格中等，营业至午夜。"
         },
         {
-          "name": "Westside Market NYC",
+          "name": "Westside Market",
           "nameCn": "西区市场",
-          "lat": 40.8035,
+          "lat": 40.804,
           "lng": -73.9665,
-          "note": "百老汇110-111街的精品食品超市，熟食、沙拉吧和进口食材丰富，适合做饭和加餐。"
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "2840 Broadway（110街和Broadway），提供新鲜农产品、有机食材及熟食，与H Mart同街，采购亚洲蔬菜的好补充。"
         },
         {
-          "name": "Hung Ryon Korean Grocery",
-          "nameCn": "Hung Ryon 韩国杂货",
-          "lat": 40.806,
-          "lng": -73.9603,
-          "note": "Amsterdam大道114-115街附近的小型亚洲杂货，离宿舍近，临时买韩式泡面、辣酱和零食很方便。"
+          "name": "Trader Joe's (125th Street)",
+          "nameCn": "乔氏超市（125街）",
+          "lat": 40.8163,
+          "lng": -73.9564,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "123 W 125th St，哥大北边5分钟，价格亲民，有机食品、速食、零食种类丰富，留学生预算购物首选。"
+        },
+        {
+          "name": "Appletree Market",
+          "nameCn": "苹果树市场",
+          "lat": 40.81,
+          "lng": -73.9598,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Amsterdam大道与120街交口，主营健康食品和日常蔬果，位于校园正中位置，适合课间顺路采购。"
+        },
+        {
+          "name": "C-Town Supermarket",
+          "nameCn": "C城超市",
+          "lat": 40.8155,
+          "lng": -73.957,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于125街附近，是价格实惠的街区超市，提供日常食杂品，适合预算有限的研究生和住在哈莱姆方向的同学。"
         }
       ]
     },
@@ -247,46 +418,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Junzi Kitchen (Columbia)",
+          "name": "Junzi Kitchen 君子食堂 (Columbia)",
           "nameCn": "君子食堂（哥大店）",
-          "lat": 40.8067,
-          "lng": -73.964,
-          "note": "百老汇2896号的快休闲中餐，地道家常拌面饭碗，哥大中国学生的食堂级据点，性价比高。"
+          "lat": 40.8061,
+          "lng": -73.9648,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "2896 Broadway，创始人来自中国的快餐中餐品牌，主打拌面+米饭碗，Yelp评分4.8/5近千条，是哥大中国留学生最频繁光顾的餐厅，每天11-22点。"
+        },
+        {
+          "name": "La Salle Dumpling Room",
+          "nameCn": "拉萨尔饺子店",
+          "lat": 40.8154,
+          "lng": -73.9663,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "3141 Broadway，哥大学生钟爱的正宗中式饺子馆，小笼包皮薄汤足、锅贴外焦里嫩，Yelp评分高，是附近最受推荐的中餐之一。"
+        },
+        {
+          "name": "West Place Chinese Restaurant",
+          "nameCn": "西洋餐厅（平价中餐外卖）",
+          "lat": 40.8115,
+          "lng": -73.9597,
+          "rank": 3,
+          "tier": "很推荐",
+          "note": "1288 Amsterdam Ave，老牌本地中餐外卖，午餐特价约$7（附炒饭+汤），哥大学生和周边居民中午必排队，性价比极高。"
+        },
+        {
+          "name": "Roti Roll (Bombay Frankie)",
+          "nameCn": "Roti Roll印度街头卷饼",
+          "lat": 40.8059,
+          "lng": -73.9607,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "994 Amsterdam Ave，哥大20年老店，主打孟买街头Frankie卷饼（$4-8），周末营业至凌晨4点，是深夜买醉后的救命神器。"
+        },
+        {
+          "name": "Community Food & Juice",
+          "nameCn": "社区食物与果汁（周末早午餐必去）",
+          "lat": 40.806,
+          "lng": -73.9646,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "2893 Broadway，哥大周边评价最好的早午餐餐厅，蓝莓薄饼是招牌，不接受预订常需排队，The Infatuation强烈推荐。"
+        },
+        {
+          "name": "Koronet Pizza",
+          "nameCn": "科罗内特披萨（巨型披萨）",
+          "lat": 40.805,
+          "lng": -73.9653,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "2848 Broadway，以超大纽约风格pizza闻名，一片宽达32英寸，仅$5.5，深受哥大学生喜爱，尤其是深夜归校后的宵夜首选。"
         },
         {
           "name": "Tom's Restaurant",
           "nameCn": "汤姆餐厅",
-          "lat": 40.8055,
-          "lng": -73.9655,
-          "note": "百老汇112街的经典美式diner，《宋飞正传》Monk's咖啡馆原型，打卡兼吃早午餐的地标。"
+          "lat": 40.8059,
+          "lng": -73.9647,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "2880 Broadway，《宋飞正传》外景地，经典美式早餐与汉堡，价格亲民，是哥大老生带新生必去的「仪式感」打卡餐厅。"
         },
         {
-          "name": "Kitchen 79 Columbia",
-          "nameCn": "Kitchen 79 泰餐",
-          "lat": 40.8072,
-          "lng": -73.9637,
-          "note": "Amsterdam大道115街附近的人气泰国菜，咖喱和泰式炒河粉评价好，校园边换口味的去处。"
-        },
-        {
-          "name": "Mel's Burger Bar",
-          "nameCn": "Mel's 汉堡酒吧",
+          "name": "Hungarian Pastry Shop",
+          "nameCn": "匈牙利糕点店",
           "lat": 40.8068,
-          "lng": -73.9637,
-          "note": "百老汇111街的本地汉堡店，分量足、看球氛围好，适合和同学聚餐放松。"
+          "lng": -73.9609,
+          "rank": 8,
+          "tier": "绝对必吃",
+          "note": "1030 Amsterdam Ave，创于1960年代，哥大文化地标级咖啡馆，许多学者在此写书，提供手工糕点与咖啡，无Wi-Fi限时，适合安静阅读。"
         },
         {
-          "name": "Koronet Pizza",
-          "nameCn": "Koronet 披萨",
-          "lat": 40.8047,
-          "lng": -73.9659,
-          "note": "百老汇111街的哥大老牌披萨，以超大尺寸切片闻名，深夜赶due后的能量补给。"
+          "name": "Saiguette (Vietnamese Bánh Mì)",
+          "nameCn": "赛盖特越南三明治",
+          "lat": 40.7984,
+          "lng": -73.9623,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "935 Columbus Ave，The Infatuation评为上西区最好的越南外卖，Bánh Mì超大分量，pho与米饭碗同样出色，步行约20分钟或坐地铁。"
         },
         {
-          "name": "Community Food & Juice",
-          "nameCn": "Community 餐厅",
-          "lat": 40.8073,
-          "lng": -73.9635,
-          "note": "百老汇112-113街的人气早午餐，煎饼和咖啡口碑佳，周末常排队，约朋友吃brunch的经典选择。"
+          "name": "Symposium Greek Restaurant",
+          "nameCn": "苏波西安希腊餐厅",
+          "lat": 40.8012,
+          "lng": -73.9631,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "44 W 113th St，1969年创立，正宗希腊菜（苏武拉基、慕萨卡），地下室与庭院用餐，哲学系教授和老炮学生最爱的聚餐地。"
+        },
+        {
+          "name": "Sushi W",
+          "nameCn": "W寿司（平价Omakase）",
+          "lat": 40.8046,
+          "lng": -73.9656,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "百元内Omakase，基础12贯+2手卷仅$53，高阶15贯$68，深受哥大学生和本地情侣欢迎，建议提前预约。"
+        },
+        {
+          "name": "South of the Clouds (Yunnan Noodles)",
+          "nameCn": "云上之南（云南米线）",
+          "lat": 40.8115,
+          "lng": -73.9602,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "哥大附近Morningside Heights内的云南米线馆，主打过桥米线与云南风味，深受中国留学生喜爱，是思念家乡味道的好去处。"
+        },
+        {
+          "name": "Absolute Bagels (已关闭，推荐替代：Columbia Bagels)",
+          "nameCn": "哥大百吉饼（本地贝果）",
+          "lat": 40.805,
+          "lng": -73.964,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Absolute Bagels已于2024年末因卫生违规关闭，可至附近Columbia Bagels或Westside Bakery购买纽约风格贝果，仍是典型早餐体验。"
         }
       ]
     },
@@ -298,32 +544,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Columbia)",
-          "nameCn": "美国银行（哥大支行）",
-          "lat": 40.8047,
-          "lng": -73.9665,
-          "note": "百老汇110街附近的大行网点，开学生账户、办借记卡很方便，ATM网络覆盖广。"
+          "name": "Chase Bank (Columbia University Branch)",
+          "nameCn": "大通银行（哥大支行）",
+          "lat": 40.8038,
+          "lng": -73.9666,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2824-26 Broadway（109街），步行至哥大5分钟，是国际学生开户最常用银行，提供学生账户无最低余额要求，支持线上中文客服。"
         },
         {
-          "name": "Mount Sinai Morningside",
-          "nameCn": "西奈山晨边医院",
-          "lat": 40.805,
-          "lng": -73.9608,
-          "note": "1111 Amsterdam大道（114街）的综合医院，设24小时急诊，离校园步行可达，看急病的首选。"
+          "name": "Citibank (Broadway & 111th St)",
+          "nameCn": "花旗银行（111街Broadway）",
+          "lat": 40.8017,
+          "lng": -73.9668,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2861 Broadway，哥大官方合作银行，校园ATM最多，国际学生持护照+I-20可开通账户，银联/境外转账手续费较低。"
         },
         {
-          "name": "CVS Pharmacy",
-          "nameCn": "CVS 药房",
+          "name": "Columbia Health (Student Medical Services)",
+          "nameCn": "哥大学生医疗中心",
+          "lat": 40.8065,
+          "lng": -73.9617,
+          "rank": 3,
+          "tier": "必去",
+          "note": "519 W 114th St（John Jay Hall内），哥大在读学生免费就诊，提供急诊分诊、常规检查及心理咨询，急诊电话212-854-7426全天候。"
+        },
+        {
+          "name": "NewYork-Presbyterian / Columbia University Medical Center (ER)",
+          "nameCn": "纽约长老会/哥大医疗中心（急诊）",
+          "lat": 40.8415,
+          "lng": -73.9421,
+          "rank": 4,
+          "tier": "必去",
+          "note": "630 W 168th St，华盛顿高地，全美顶尖医院，哥大医学院附属医院，急诊室24小时开放，持学生保险可大幅减少自付费用。"
+        },
+        {
+          "name": "CVS Pharmacy (Broadway)",
+          "nameCn": "CVS药店（Broadway店）",
           "lat": 40.8052,
-          "lng": -73.9657,
-          "note": "百老汇111街的连锁药房，处方药、感冒药和日用品齐全，还能打疫苗，留学生常用。"
+          "lng": -73.9655,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2833 Broadway，距哥大步行5分钟，可凭处方取药，提供流感疫苗、OTC药品及日用品，营业至午夜，是最便利的校园药店。"
         },
         {
-          "name": "T-Mobile Store",
-          "nameCn": "T-Mobile 手机营业厅",
-          "lat": 40.8044,
-          "lng": -73.9663,
-          "note": "百老汇110街附近的运营商门店，办美国手机卡和套餐，新生落地开号的好去处。"
+          "name": "Duane Reade Pharmacy",
+          "nameCn": "杜安里德药店",
+          "lat": 40.8082,
+          "lng": -73.9648,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "2864 Broadway，NYC本土连锁药店，可填处方、购买日用品与美妆产品，营业时间长，校园最近的处方取药备选点。"
+        },
+        {
+          "name": "T-Mobile (125th Street)",
+          "nameCn": "T-Mobile电话运营商（125街）",
+          "lat": 40.8155,
+          "lng": -73.9508,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "125街附近，T-Mobile是留学生最常选择的运营商之一（预付套餐$25-50/月），无需SSN即可办理，国际通话套餐有优势。"
+        },
+        {
+          "name": "Bank of America (Broadway & 107th)",
+          "nameCn": "美国银行（107街Broadway）",
+          "lat": 40.7992,
+          "lng": -73.9672,
+          "rank": 8,
+          "tier": "可选",
+          "note": "2770 Broadway，国际学生开户友好，提供学生免费账户，ATM网络覆盖全美，适合需要经常在美国各城市取现的同学。"
         }
       ]
     },
@@ -335,39 +625,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Low Memorial Library Steps",
-          "nameCn": "罗氏纪念图书馆台阶",
-          "lat": 40.8086,
-          "lng": -73.9619,
-          "note": "哥大主校园的标志性大台阶与圆顶图书馆，Alma Mater雕像所在，校园打卡和拍毕业照的核心点。"
+          "name": "Riverside Park & Grant's Tomb",
+          "nameCn": "河畔公园与格兰特将军墓",
+          "lat": 40.8112,
+          "lng": -73.9763,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哈德逊河畔4英里绿地，Frederick Law Olmsted设计，格兰特总统墓地庄严宏伟，晨跑、骑行、傍晚看落日均为学生日常，步行可达。"
         },
         {
-          "name": "Cathedral of St. John the Divine",
-          "nameCn": "圣约翰神明座堂",
-          "lat": 40.8038,
-          "lng": -73.9626,
-          "note": "Amsterdam大道112街的世界最大哥特式教堂之一，建筑宏伟，步行几分钟即到，值得一看。"
-        },
-        {
-          "name": "Riverside Church",
-          "nameCn": "河滨教堂",
-          "lat": 40.8115,
-          "lng": -73.963,
-          "note": "Riverside大道120街的高耸新哥特式教堂，可登塔俯瞰哈德逊河，校园西北侧的安静地标。"
-        },
-        {
-          "name": "Grant's Tomb (General Grant National Memorial)",
-          "nameCn": "格兰特将军墓",
-          "lat": 40.8133,
-          "lng": -73.9631,
-          "note": "河滨公园内的格兰特总统纪念堂，美国最大陵墓，免费参观，散步遛弯的好去处。"
+          "name": "Cathedral Church of St. John the Divine",
+          "nameCn": "圣约翰大教堂",
+          "lat": 40.8039,
+          "lng": -73.9592,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1892年开建，全球最大哥特复兴式教堂之一，距哥大步行5分钟，罗马式与哥特式混合建筑令人叹为观止，常举办音乐会。"
         },
         {
           "name": "Morningside Park",
-          "nameCn": "晨边公园",
-          "lat": 40.8055,
-          "lng": -73.9588,
-          "note": "校园东侧的崖壁公园，有瀑布、池塘和阶梯步道，春秋景色宜人，适合跑步和放空。"
+          "nameCn": "晨曦公园",
+          "lat": 40.8073,
+          "lng": -73.955,
+          "rank": 3,
+          "tier": "必去",
+          "note": "哥大东侧紧邻校园，Olmsted设计的丘陵景观公园，哈莱姆一侧入口有瀑布景观，是散步减压的最近绿色空间。"
+        },
+        {
+          "name": "Central Park (North End)",
+          "nameCn": "中央公园（北端）",
+          "lat": 40.7968,
+          "lng": -73.9573,
+          "rank": 4,
+          "tier": "必去",
+          "note": "步行或地铁15分钟，北端Harlem Meer较安静，The Meer湖畔划船、北方草地（Great Hill）适合野餐，逃离书本的最佳去处。"
+        },
+        {
+          "name": "The Metropolitan Museum of Art",
+          "nameCn": "大都会艺术博物馆",
+          "lat": 40.7794,
+          "lng": -73.9632,
+          "rank": 5,
+          "tier": "必去",
+          "note": "搭地铁4/5/6线30分钟可达，哥大学生凭校ID可免费入场，全球顶级艺术博物馆，中国古董馆藏丰富，来纽约必打卡。"
+        },
+        {
+          "name": "Columbia University Farmers Market",
+          "nameCn": "哥大农贸市集",
+          "lat": 40.8079,
+          "lng": -73.9615,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "每周四上午（学期中）在116街College Walk举办，售卖本地有机农产品、蜂蜜、奶酪等，是感受纽约慢生活的校园打卡体验。"
+        },
+        {
+          "name": "The Cloisters (Fort Tryon Park)",
+          "nameCn": "修道院博物馆（都会博物馆分馆）",
+          "lat": 40.8647,
+          "lng": -73.9317,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "大都会博物馆中世纪分馆，A线地铁30分钟，真实移建欧洲修道院建筑至曼哈顿最北端，俯瞰哈德逊峡谷，人少景美，强烈推荐。"
+        },
+        {
+          "name": "Harlem (125th Street & Food Scene)",
+          "nameCn": "哈莱姆街区（125街美食与文化）",
+          "lat": 40.8082,
+          "lng": -73.9459,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "哥大北邻社区，125街是哈莱姆文化轴心，Apollo剧院、正宗灵魂料理（Sylvia's等）、街头音乐，Trader Joe's也在此，文化多元必体验。"
+        },
+        {
+          "name": "Washington Heights & Hudson River Greenway",
+          "nameCn": "华盛顿高地与哈德逊河绿道",
+          "lat": 40.8415,
+          "lng": -73.9452,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "乔治华盛顿大桥桥头公园及哈德逊绿道骑行路线，一处欣赏曼哈顿天际线与新泽西悬崖景观的好去处，距哥大医学院毗邻。"
+        },
+        {
+          "name": "Apollo Theater",
+          "nameCn": "阿波罗剧院",
+          "lat": 40.8098,
+          "lng": -73.9497,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "253 W 125th St，哈莱姆文化地标，非裔美国音乐与文化圣地，周三Amateur Night是最具活力的现场表演，票价约$15起。"
         }
       ]
     }

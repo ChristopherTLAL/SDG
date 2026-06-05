@@ -83,53 +83,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Palatine Centre",
-          "nameCn": "帕拉丁中心",
-          "lat": 54.7676,
-          "lng": -1.5728,
-          "note": "蒙乔伊校区的中央行政楼与法学院所在。"
-        },
-        {
-          "name": "Calman Learning Centre",
-          "nameCn": "卡尔曼教学中心",
-          "lat": 54.7674,
-          "lng": -1.572,
-          "note": "理科校区主教学楼,大讲堂与公共课集中地。"
-        },
-        {
-          "name": "Ogden Centre for Fundamental Physics",
-          "nameCn": "奥格登基础物理中心",
-          "lat": 54.7672,
-          "lng": -1.5763,
-          "note": "2017 年开放,Libeskind 设计,理论物理与宇宙学研究楼。"
-        },
-        {
           "name": "Durham University Business School (Mill Hill Lane)",
-          "nameCn": "杜伦商学院",
-          "lat": 54.7642,
-          "lng": -1.5863,
-          "note": "城南磨坊山巷,会计、经济与金融系所在。"
+          "nameCn": "杜伦大学商学院（米尔山路校区）",
+          "lat": 54.7645,
+          "lng": -1.5862,
+          "rank": 1,
+          "tier": "核心院系",
+          "note": "QS商科全球百强，会计/经济/金融系主楼，是最常被中国留学生选择的院系之一。"
         },
         {
-          "name": "Al-Qasimi Building (Government & International Affairs)",
-          "nameCn": "卡西米楼(政府与国际事务)",
-          "lat": 54.7657,
-          "lng": -1.5817,
-          "note": "埃尔维特山,政府与国际事务学院所在。"
+          "name": "Durham Law School (Palatine Centre)",
+          "nameCn": "杜伦大学法学院（帕拉廷中心）",
+          "lat": 54.7751,
+          "lng": -1.5747,
+          "rank": 2,
+          "tier": "核心院系",
+          "note": "英国顶尖法学院之一，位于帕拉廷中心，与法律系教学楼紧邻，毕业生律师就业率极高。"
         },
         {
-          "name": "Teaching and Learning Centre (Lower Mountjoy)",
-          "nameCn": "下蒙乔伊教学中心",
+          "name": "Department of Physics / Ogden Centre",
+          "nameCn": "物理学系/奥格登基础物理中心",
+          "lat": 54.768,
+          "lng": -1.576,
+          "rank": 3,
+          "tier": "核心院系",
+          "note": "世界级宇宙学研究重镇，设有专属Ogden天体物理研究中心，罗切斯特楼（Rochester Building）是主楼。"
+        },
+        {
+          "name": "School of Government and International Affairs (Al-Qasimi Building)",
+          "nameCn": "政府与国际事务学院（阿尔卡西米楼）",
+          "lat": 54.7615,
+          "lng": -1.579,
+          "rank": 4,
+          "tier": "核心院系",
+          "note": "SGIA是杜伦最受国际生欢迎的社科院系，位于Elvet Hill Road，研究中东、全球治理与外交政策。"
+        },
+        {
+          "name": "Mathematical Sciences and Computer Science Building",
+          "nameCn": "数学与计算机科学楼",
+          "lat": 54.767,
+          "lng": -1.5785,
+          "rank": 5,
+          "tier": "核心院系",
+          "note": "数学系与计算机系合用，位于Upper Mountjoy，是理工科学生日常上课的核心建筑之一。"
+        },
+        {
+          "name": "Department of Earth Sciences (Arthur Holmes Building)",
+          "nameCn": "地球科学系（阿瑟·霍姆斯楼）",
           "lat": 54.7672,
-          "lng": -1.5762,
-          "note": "下蒙乔伊新建的大型公共教学与考试空间。"
+          "lng": -1.5758,
+          "rank": 6,
+          "tier": "重点院系",
+          "note": "以地质学家Arthur Holmes命名，2003年建成，是英国最好的地球科学系之一，科研实力极强。"
         },
         {
-          "name": "Dunelm House (Students' Union)",
-          "nameCn": "邓内尔姆楼(学生会)",
-          "lat": 54.7733,
-          "lng": -1.5719,
-          "note": "粗野主义学生会大楼,经金斯盖特桥连接半岛区。"
+          "name": "Department of Psychology (Psychology Building, Science Site)",
+          "nameCn": "心理学系（科学园区心理学楼）",
+          "lat": 54.7668,
+          "lng": -1.5752,
+          "rank": 7,
+          "tier": "重点院系",
+          "note": "英国REF排名靠前的心理学系，科学园区南路，研究方向涵盖认知神经科学与临床心理。"
+        },
+        {
+          "name": "Elvet Riverside Building (Humanities Hub)",
+          "nameCn": "艾尔维特河畔楼（人文学科中心）",
+          "lat": 54.7738,
+          "lng": -1.5723,
+          "rank": 8,
+          "tier": "重点院系",
+          "note": "英语、哲学、现代语言等多个人文系在此授课，位于River Wear河边，学院氛围极佳。"
+        },
+        {
+          "name": "Calman Learning Centre (TLC)",
+          "nameCn": "卡尔曼学习中心",
+          "lat": 54.7662,
+          "lng": -1.5789,
+          "rank": 9,
+          "tier": "重点建筑",
+          "note": "Lower Mountjoy科学园区的主教学楼群，拥有400座大讲堂，是全校最繁忙的讲课场所。"
+        },
+        {
+          "name": "Palatine Centre (University Administration)",
+          "nameCn": "帕拉廷中心（大学行政总部）",
+          "lat": 54.765,
+          "lng": -1.5782,
+          "rank": 10,
+          "tier": "重点建筑",
+          "note": "大学行政、学生服务与注册办公室所在地，Stockton Road路旁玻璃幕墙建筑，新生报到必经之处。"
         }
       ],
       "defaultOn": true
@@ -145,15 +186,55 @@
           "name": "Bill Bryson Library",
           "nameCn": "比尔·布莱森图书馆",
           "lat": 54.7683,
-          "lng": -1.5731,
-          "note": "蒙乔伊校区的主图书馆,馆藏与自习核心。"
+          "lng": -1.573,
+          "rank": 1,
+          "tier": "必去",
+          "note": "杜伦大学主图书馆，1750个自习座位，24小时在线咨询，2012年由前校长比尔·布莱森揭幕扩建，是全校最大最全的资源中心。"
         },
         {
-          "name": "Palace Green Library",
-          "nameCn": "宫廷草坪图书馆",
-          "lat": 54.7746,
-          "lng": -1.5766,
-          "note": "半岛区特藏与珍本图书馆,毗邻大教堂。"
+          "name": "Barker Research Library at Palace Green",
+          "nameCn": "巴克研究图书馆（宫殿绿地）",
+          "lat": 54.7742,
+          "lng": -1.5762,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "收藏古典手稿与特藏文献，位于UNESCO世界遗产地宫殿绿地，需预约使用，适合做历史类深度研究。"
+        },
+        {
+          "name": "Durham Cathedral Library",
+          "nameCn": "杜伦大教堂图书馆",
+          "lat": 54.7708,
+          "lng": -1.5773,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "收藏中世纪珍贵手稿与诺曼文献，是英格兰现存最古老的图书馆之一，仅限预约研究使用。"
+        },
+        {
+          "name": "Durham University Business School Library (Mill Hill Lane)",
+          "nameCn": "商学院图书馆（米尔山路分馆）",
+          "lat": 54.7645,
+          "lng": -1.5862,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "商学院专属自习和参考书中心，主要服务会计、经济、金融系学生，核心教材收藏齐全。"
+        },
+        {
+          "name": "Dunelm House (DSU) Study Space",
+          "nameCn": "敦内尔姆学生会自习区",
+          "lat": 54.7733,
+          "lng": -1.5733,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "学生会大楼内设非正式自习区，Kingsgate桥旁，氛围轻松，适合小组讨论，不同于安静图书馆。"
+        },
+        {
+          "name": "Teaching and Learning Centre (TLC) Library Floor",
+          "nameCn": "教学与学习中心图书馆层",
+          "lat": 54.7655,
+          "lng": -1.5775,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "TLC二楼设有专属图书馆区，靠近科学园区，可获参考书籍与电子资源，课间就近自习的好地方。"
         }
       ]
     },
@@ -165,18 +246,31 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Oriental Museum",
-          "nameCn": "东方博物馆",
-          "lat": 54.7639,
-          "lng": -1.5814,
-          "note": "英国唯一专攻东方艺术的博物馆,埃尔维特山上。"
+          "name": "Durham University Oriental Museum",
+          "nameCn": "杜伦大学东方博物馆",
+          "lat": 54.762,
+          "lng": -1.5792,
+          "rank": 1,
+          "tier": "必去",
+          "note": "英国专门展示东方艺术与考古的顶级博物馆，馆藏超4万件，中国瓷器与玉器收藏尤为丰富，中国留学生必去打卡。"
         },
         {
-          "name": "Durham University Botanic Garden",
-          "nameCn": "杜伦大学植物园",
-          "lat": 54.7624,
-          "lng": -1.5751,
-          "note": "城南 10 公顷植物园,温室与林地。"
+          "name": "Palace Green Library Exhibitions & Museum of Archaeology",
+          "nameCn": "宫殿绿地图书馆展馆与考古博物馆",
+          "lat": 54.7742,
+          "lng": -1.5762,
+          "rank": 2,
+          "tier": "必去",
+          "note": "收藏古罗马、维京、中世纪文物，位于世界遗产地，免费入场，常设精彩临时展览，距大教堂步行1分钟。"
+        },
+        {
+          "name": "Durham Castle Museum (University College)",
+          "nameCn": "杜伦城堡博物馆（大学学院）",
+          "lat": 54.7754,
+          "lng": -1.5768,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "诺曼城堡内的博物馆，收藏500年盔甲与都铎雕刻，需随导览参观，也是University College学生的宿舍楼。"
         }
       ]
     },
@@ -188,39 +282,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Durham Castle (University College)",
-          "nameCn": "杜伦城堡(大学学院)",
-          "lat": 54.7745,
-          "lng": -1.5762,
-          "note": "诺曼城堡,大学学院驻地,世界遗产组成部分。"
-        },
-        {
           "name": "Durham Cathedral",
           "nameCn": "杜伦大教堂",
-          "lat": 54.7736,
-          "lng": -1.5761,
-          "note": "半岛区地标,与城堡同列世界文化遗产。"
+          "lat": 54.7708,
+          "lng": -1.5773,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UNESCO世界遗产，全球最壮观的诺曼式建筑之一，《哈利·波特》取景地，新生必打卡的杜伦象征。"
+        },
+        {
+          "name": "Durham Castle (University College)",
+          "nameCn": "杜伦城堡（大学学院）",
+          "lat": 54.7754,
+          "lng": -1.5768,
+          "rank": 2,
+          "tier": "必去",
+          "note": "威廉征服者1072年所建，与大教堂共同列入UNESCO，城堡内至今仍有学生居住，是杜伦最具代表性的地标。"
         },
         {
           "name": "Kingsgate Bridge",
           "nameCn": "金斯盖特桥",
-          "lat": 54.7731,
-          "lng": -1.5726,
-          "note": "一级保护人行桥,连接半岛 Bailey 与学生会。"
+          "lat": 54.7733,
+          "lng": -1.5729,
+          "rank": 3,
+          "tier": "必去",
+          "note": "由Ove Arup设计的1965年英国一级保护建筑，连接学生会与半岛区，俯瞰Wear河景色绝美，是最具学院气息的地标。"
         },
         {
-          "name": "Durham Railway Station",
-          "nameCn": "杜伦火车站",
-          "lat": 54.7794,
-          "lng": -1.5818,
-          "note": "东海岸干线车站,城西高地俯瞰大教堂景观。"
+          "name": "Dunelm House (Durham Students' Union)",
+          "nameCn": "敦内尔姆学生会大楼",
+          "lat": 54.7733,
+          "lng": -1.5733,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1966年建成的粗野主义地标，2021年评为英格兰战后最重要学生会建筑，是全校200多个学生社团的活动中心。"
         },
         {
-          "name": "Graham Sports Centre, Maiden Castle",
-          "nameCn": "格雷厄姆体育中心",
-          "lat": 54.7665,
-          "lng": -1.5588,
-          "note": "梅登堡运动园主馆,健身、球馆与人工草场。"
+          "name": "Palace Green",
+          "nameCn": "宫殿绿地",
+          "lat": 54.7745,
+          "lng": -1.5765,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "大教堂与城堡之间的历史草坪，是学生野餐与毕业典礼的核心场所，也是杜伦最常被拍照的城市地标。"
+        },
+        {
+          "name": "The Riverwalk",
+          "nameCn": "滨河步行区购物中心",
+          "lat": 54.7768,
+          "lng": -1.5788,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "翻新自旧盖茨购物中心，含Odeon Luxe影院、Lane 7保龄球馆、亚洲超市和多家餐厅，是学生娱乐首选目的地。"
+        },
+        {
+          "name": "Durham Market Place",
+          "nameCn": "杜伦市集广场",
+          "lat": 54.7759,
+          "lng": -1.5773,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "城市历史中心，银行、咖啡馆与独立商店林立，周末市集热闹非凡，各大银行网点均在此集中。"
+        },
+        {
+          "name": "Wharton Park",
+          "nameCn": "沃顿公园",
+          "lat": 54.7791,
+          "lng": -1.5854,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "火车站旁高地公园，可俯瞰大教堂与城市全景，是学生散步与缓解压力的热门绿地，春季山丘花卉盛开。"
         }
       ]
     },
@@ -232,39 +363,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Taste the Orient",
-          "nameCn": "恒昇行（亚洲超市）",
-          "lat": 54.7768,
-          "lng": -1.5789,
-          "note": "英国最大华人超市之一，在 Riverwalk 商场内，中日韩泰食材、火锅料、冷冻点心一应俱全，离学校步行约10分钟。"
-        },
-        {
-          "name": "Oriental Food Collection",
-          "nameCn": "梵集中国超市",
-          "lat": 54.7776,
-          "lng": -1.5817,
-          "note": "北路（North Road）57号，价格实惠，是杜伦中国留学生最常去的采购点，靠近巴士站。"
-        },
-        {
-          "name": "Everyday Oriental Food",
-          "nameCn": "万利行",
-          "lat": 54.7763,
-          "lng": -1.5767,
-          "note": "位于市中心 Silver Street，紧邻 Tesco，地理位置最便利，咸蛋黄、肠粉等中式食材都能买到。"
+          "name": "Tesco Express (North Road)",
+          "nameCn": "乐购便利店（北路）",
+          "lat": 54.7782,
+          "lng": -1.5812,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "北路18号，距公交总站最近的超市，是绝大多数学生每日采购日用品的首选，营业时间长。"
         },
         {
           "name": "Tesco Express (Market Place)",
           "nameCn": "乐购便利店（市集广场）",
-          "lat": 54.7764,
-          "lng": -1.576,
-          "note": "市中心主力英国连锁超市，离主校区最近，日用品和速食随时补货，晚上和周末较挤。"
+          "lat": 54.7759,
+          "lng": -1.577,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "市集广场17号，城市中心最方便的超市，适合在市区逛完后顺路补货，也有DVD与日用品。"
         },
         {
-          "name": "Sainsbury's Local (North Road)",
-          "nameCn": "森宝利便利店（北路）",
-          "lat": 54.7765,
-          "lng": -1.5796,
-          "note": "北路上的英国连锁超市，靠近巴士站，与 Tesco、Iceland 扎堆，日常买菜方便。"
+          "name": "Taste the Orient (Durham Riverwalk)",
+          "nameCn": "恒昇行东方超市（杜伦滨河购物中心）",
+          "lat": 54.7768,
+          "lng": -1.5788,
+          "rank": 3,
+          "tier": "绝对必逛",
+          "note": "滨河购物中心Unit 9，英国规模最大的中国/亚洲食材连锁之一，螺蛳粉、食材、酱料应有尽有，中国留学生必备。"
+        },
+        {
+          "name": "Oriental Food Collection (梵集中国超市)",
+          "nameCn": "梵集中国超市（北路）",
+          "lat": 54.7788,
+          "lng": -1.581,
+          "rank": 4,
+          "tier": "绝对必逛",
+          "note": "北路57号，紧对公交站，价格全城最实惠，供应螺蛳粉、咸蛋黄、即食肠粉等中式食材，学生口碑最好。"
+        },
+        {
+          "name": "Everyday Oriental Food (万利行)",
+          "nameCn": "万利行东方食品（市中心）",
+          "lat": 54.7762,
+          "lng": -1.5775,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "靠近乐购Metro，供应新鲜杏鲍菇、柚子、韩式饺子和台湾香肠，品类丰富但价格略高。"
+        },
+        {
+          "name": "Golden Pearl (North Road)",
+          "nameCn": "金珠亚洲超市（北路）",
+          "lat": 54.779,
+          "lng": -1.5808,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "北路另一家亚洲超市，主打泰式食材、烹调清酒和日本气泡饮料珠蜡糖，是购买东南亚食材的好去处。"
+        },
+        {
+          "name": "Sainsbury's (Arnison Retail Centre)",
+          "nameCn": "森斯伯里超市（阿尼森零售中心）",
+          "lat": 54.8068,
+          "lng": -1.5803,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "城市北部Pity Me地区大型超市，品类最全，距市中心约3公里，适合周末大批量采购，有Nectar积分。"
+        },
+        {
+          "name": "Iceland (North Road area)",
+          "nameCn": "冰岛超市（北路一带）",
+          "lat": 54.7785,
+          "lng": -1.5814,
+          "rank": 8,
+          "tier": "一般",
+          "note": "北路一带的平价冷冻食品超市，适合购买冷冻肉类、薯条、现成餐食，是学生最省钱的购物选项之一。"
         }
       ]
     },
@@ -276,46 +444,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Sense",
-          "nameCn": "Sense 中餐厅",
-          "lat": 54.7782,
-          "lng": -1.5723,
-          "note": "市中心 Claypath 上口碑很好的正宗中餐馆，人均12-20镑、性价比高，旺季建议提前订位。"
+          "name": "Inshanghai",
+          "nameCn": "在上海中餐厅",
+          "lat": 54.7768,
+          "lng": -1.5787,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "盖茨购物中心30b，正宗中式料理加自助餐，可俯瞰Wear河与城堡，是Durham最受中国留学生推荐的中餐厅。"
         },
         {
-          "name": "Inshanghai",
-          "nameCn": "尚海餐厅",
-          "lat": 54.7765,
-          "lng": -1.5783,
-          "note": "河畔的现代中餐厅，提供经典菜与自助餐，用餐时能看到杜伦城堡景观，适合朋友聚餐。"
+          "name": "Sense Chinese Restaurant",
+          "nameCn": "Sense中餐厅",
+          "lat": 54.7753,
+          "lng": -1.57,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Claypath 80号，正宗中式菜肴，价格实惠（人均12-20镑），经常爆满需提前预订，好评率极高。"
+        },
+        {
+          "name": "Zaap Thai Street Food",
+          "nameCn": "Zaap泰国街头美食",
+          "lat": 54.7762,
+          "lng": -1.5785,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Riverwalk Unit 21，连锁泰式街头小吃馆，价格亲民、份量足，俯瞰Wear河，是学生聚餐的热门去处。"
+        },
+        {
+          "name": "Zen",
+          "nameCn": "禅泰式餐厅",
+          "lat": 54.7748,
+          "lng": -1.5728,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "Court Lane，高档泰式餐厅，樱花树装饰、弧形卡座，是Durham评分最高的亚洲餐厅之一，适合庆祝场合。"
         },
         {
           "name": "The Rabbit Hole",
-          "nameCn": "兔子洞（粤式融合）",
-          "lat": 54.772,
-          "lng": -1.57,
-          "note": "1920年代上海风情的粤式融合餐厅，主打点心与精致菜，晚间有现场爵士乐，适合约会或庆祝。"
+          "nameCn": "兔子洞亚洲融合餐厅",
+          "lat": 54.775,
+          "lng": -1.578,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "上海1920年代风格的Supper Club，提供点心与亚洲融合菜肴，氛围独特，是Durham网红级亚洲餐厅。"
         },
         {
-          "name": "Zen Asian Dining",
-          "nameCn": "Zen 泛亚餐厅",
+          "name": "Flat White Kitchen",
+          "nameCn": "Flat White咖啡厨房",
+          "lat": 54.7741,
+          "lng": -1.5756,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "Saddler Street 40号，17世纪古宅改建，Durham最受欢迎的brunch咖啡馆，本地学生与游客均强烈推荐，常需排队。"
+        },
+        {
+          "name": "Cellar Door",
+          "nameCn": "酒窖门餐厅",
+          "lat": 54.7741,
+          "lng": -1.5758,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Saddler Street 41号，13世纪石窖改建，俯瞰River Wear，可持续食材精致料理，Durham最佳约会餐厅之一。"
+        },
+        {
+          "name": "Fat Hippo",
+          "nameCn": "肥河马汉堡",
           "lat": 54.7742,
-          "lng": -1.57,
-          "note": "城东 Court Lane 的泰式与泛亚餐厅，炒菜、烧腊、面食、咖喱选择丰富，份量足。"
+          "lng": -1.5757,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Saddler Street 36号，Durham最著名的创意汉堡店，厚实美味，价格学生可接受，经常登上本地美食榜首。"
         },
         {
-          "name": "Kung Fu Noodles",
-          "nameCn": "功夫面馆",
-          "lat": 54.777,
-          "lng": -1.5814,
-          "note": "Neville Street 上的中式面馆，主打现做拉面/盖饭，价格亲民，是想吃一碗热汤面时的快手之选。"
+          "name": "Turtle Bay",
+          "nameCn": "龟湾加勒比餐厅",
+          "lat": 54.7763,
+          "lng": -1.5784,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Riverwalk内的加勒比风味餐厅，鸡尾酒丰富实惠，学生Happy Hour极受欢迎，聚会首选之一。"
         },
         {
-          "name": "Bells Fish and Chips",
-          "nameCn": "Bells 炸鱼薯条",
-          "lat": 54.7767,
-          "lng": -1.5755,
-          "note": "市集广场上的本地老牌炸鱼薯条店，是来英国必试的英式国民美食，离主校区几步路。"
+          "name": "Vennels Café",
+          "nameCn": "文内尔斯咖啡馆",
+          "lat": 54.774,
+          "lng": -1.5754,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Saddler Street旁小巷深处，供应英式午餐与厚切蛋糕，气氛古朴，是学生午间小憩的秘密好去处。"
+        },
+        {
+          "name": "Bells Fish & Chips",
+          "nameCn": "贝尔斯炸鱼薯条",
+          "lat": 54.776,
+          "lng": -1.5772,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "市集广场旁，Durham获奖炸鱼薯条名店，份量超大、价格实惠，是体验英国最正宗本地食物的不二之选。"
+        },
+        {
+          "name": "Akarsu Turkish Restaurant",
+          "nameCn": "阿卡苏土耳其烤肉餐厅",
+          "lat": 54.7755,
+          "lng": -1.5763,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "城堡附近，家庭式土耳其小馆，提供烤肉拼盘与各式馅饼，性价比极高，是想换口味时的好选择。"
+        },
+        {
+          "name": "Undercroft Restaurant at Durham Cathedral",
+          "nameCn": "大教堂地下室餐厅",
+          "lat": 54.7706,
+          "lng": -1.5769,
+          "rank": 13,
+          "tier": "推荐",
+          "note": "UNESCO世界遗产建筑内用餐，提供获奖三明治与精致轻食，地点独特，适合游览大教堂时休息就餐。"
+        },
+        {
+          "name": "Isla by Coarse (North Road)",
+          "nameCn": "Isla小馆（北路）",
+          "lat": 54.7782,
+          "lng": -1.581,
+          "rank": 14,
+          "tier": "推荐",
+          "note": "北路新锐小馆，主打精致小份餐盘与升级版brunch，松露味噌黄油炒菌菇配荷包蛋广受好评。"
         }
       ]
     },
@@ -327,32 +579,76 @@
       "icon": "account_balance",
       "items": [
         {
+          "name": "HSBC Bank (1 Saddler Street)",
+          "nameCn": "汇丰银行（萨德勒街1号）",
+          "lat": 54.7743,
+          "lng": -1.5752,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "Saddler Street 1号，DH1 3NR，汇丰为国际留学生开户最友好的银行之一，无需繁琐证明，强烈推荐优先开户。"
+        },
+        {
+          "name": "NatWest Bank (12 Market Place)",
+          "nameCn": "英国国民西敏寺银行（市集广场12号）",
+          "lat": 54.7757,
+          "lng": -1.5769,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Market Place 12号，提供最高1000镑免息透支的国际学生账户，杜伦城区最重要的银行网点之一。"
+        },
+        {
+          "name": "Lloyds Bank (19 Market Place)",
+          "nameCn": "劳埃德银行（市集广场19号）",
+          "lat": 54.7758,
+          "lng": -1.5771,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "Market Place 19号，国际学生开户手续较简便，两种无月费账户可选，与Halifax同集团。"
+        },
+        {
+          "name": "Claypath & University Medical Group (University Health Centre)",
+          "nameCn": "克莱帕斯大学医疗中心（学生GP诊所）",
+          "lat": 54.773,
+          "lng": -1.572,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Green Lane, Old Elvet，专为杜伦学生服务的NHS家庭医生诊所，入学前可在线预注册，新生必须完成注册。"
+        },
+        {
           "name": "University Hospital of North Durham",
-          "nameCn": "北杜伦大学医院（含急诊）",
-          "lat": 54.7887,
-          "lng": -1.5932,
-          "note": "本地综合医院，设24小时急诊（A&E），急重病或意外就医到这里，距校区约1.5公里。"
+          "nameCn": "北杜伦大学医院（急诊/A&E）",
+          "lat": 54.788,
+          "lng": -1.5855,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "North Road DH1 5TW，县内最大NHS医院，设急诊室（A&E）、外科与产科，紧急情况可直接前往。"
         },
         {
-          "name": "HSBC Durham",
-          "nameCn": "汇丰银行杜伦支行",
-          "lat": 54.7735,
-          "lng": -1.5711,
-          "note": "New Elvet 上的汇丰网点，靠近校区，可办理英国本地银行账户，留学生开户的常见选择。"
+          "name": "Boots Pharmacy (2-5 Market Place)",
+          "nameCn": "博姿药房（市集广场）",
+          "lat": 54.7758,
+          "lng": -1.5772,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Market Place 2-5号，Durham最中心的大型药房，提供处方药、OTC药品及简单卫生咨询，营业至晚间。"
         },
         {
-          "name": "Boots (Market Place)",
-          "nameCn": "Boots 药房（市集广场）",
-          "lat": 54.777,
+          "name": "O2 Store (Arnison Centre)",
+          "nameCn": "O2手机运营商门店（阿尼森中心）",
+          "lat": 54.8068,
+          "lng": -1.5803,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Arnison Centre Unit 6b，O2为英国主流运营商，新生到达后建议购买SIM卡并绑定学生优惠套餐。"
+        },
+        {
+          "name": "Vodafone (33 Silver Street)",
+          "nameCn": "沃达丰手机运营商（银街33号）",
+          "lat": 54.7745,
           "lng": -1.5748,
-          "note": "英国最大连锁药妆店，市中心店可买非处方药、配处方、买日用洗护，感冒发烧先来这里。"
-        },
-        {
-          "name": "Vodafone (Silver Street)",
-          "nameCn": "Vodafone 营业厅",
-          "lat": 54.7765,
-          "lng": -1.5767,
-          "note": "市中心 Silver Street 的英国主流运营商门店，办手机卡、套餐和充值，刚落地办号很方便。"
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Silver Street 33号 DH1 3RD，城市中心最近的电话运营商门店，国际学生可即时购买SIM卡，信号覆盖良好。"
         }
       ]
     },
@@ -364,39 +660,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Durham Cathedral",
-          "nameCn": "杜伦大教堂",
-          "lat": 54.7733,
-          "lng": -1.5763,
-          "note": "世界文化遗产，诺曼式建筑杰作，也是《哈利·波特》取景地，就在校区旁的半岛上，必打卡。"
+          "name": "Durham Cathedral (Interior & Tower)",
+          "nameCn": "杜伦大教堂（内部与高塔）",
+          "lat": 54.7708,
+          "lng": -1.5773,
+          "rank": 1,
+          "tier": "必去",
+          "note": "《哈利·波特》取景地，可登顶俯瞰全城，是英国最伟大的中世纪建筑，每位到访杜伦的学生必须进入参观一次。"
         },
         {
-          "name": "Durham Castle",
-          "nameCn": "杜伦城堡",
-          "lat": 54.7755,
-          "lng": -1.5769,
-          "note": "同属世界遗产，现为杜伦大学 University College 所在地，可预约导览参观，与大教堂隔绿地相望。"
+          "name": "Durham Castle Guided Tour",
+          "nameCn": "杜伦城堡导览游",
+          "lat": 54.7754,
+          "lng": -1.5768,
+          "rank": 2,
+          "tier": "必去",
+          "note": "含500年盔甲与都铎雕刻的导览，是深入了解杜伦大学历史的最佳方式，导览员多为本校学生。"
         },
         {
-          "name": "Palace Green",
-          "nameCn": "宫殿绿地",
-          "lat": 54.7745,
-          "lng": -1.5759,
-          "note": "夹在大教堂与城堡之间的开阔草坪，是世界遗产核心区，拍照、晒太阳、感受古城氛围的好地方。"
+          "name": "Beamish, The Living Museum of the North",
+          "nameCn": "比米什北方生活博物馆",
+          "lat": 54.882,
+          "lng": -1.6504,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距杜伦约15公里，英国最负盛名的露天博物馆，完整重现1820年代矿村与维多利亚市镇，强烈推荐周末前往。"
+        },
+        {
+          "name": "Durham University Botanic Garden",
+          "nameCn": "杜伦大学植物园",
+          "lat": 54.7618,
+          "lng": -1.58,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "South Road旁10英亩植物园，竹林、高山花圃、冬季花园一应俱全，免费入园，是读书、散步、减压的静谧天地。"
+        },
+        {
+          "name": "Prebends Bridge & River Wear Walk",
+          "nameCn": "普雷本兹桥与Wear河步道",
+          "lat": 54.7695,
+          "lng": -1.577,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "18世纪优雅石桥，俯瞰大教堂与金秋河岸，附近有诗歌石凳，8公里环线步道是最受学生推崇的放松路线。"
+        },
+        {
+          "name": "Raby Castle",
+          "nameCn": "拉比城堡",
+          "lat": 54.5938,
+          "lng": -1.8081,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "距杜伦约30分钟车程，200英亩鹿苑中的中世纪城堡，内有法兰德斯挂毯与梅森瓷器，是最值得一日游的周边景点。"
         },
         {
           "name": "Wharton Park",
           "nameCn": "沃顿公园",
-          "lat": 54.7801,
-          "lng": -1.5833,
-          "note": "火车站旁的山顶公园，是俯瞰大教堂与古城天际线的最佳观景点之一，散步看日落很惬意。"
+          "lat": 54.7791,
+          "lng": -1.5854,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "火车站上方小山公园，可360度俯瞰大教堂全景，春季野花烂漫，是学生免费散步解压的最佳城内绿地。"
         },
         {
-          "name": "Crook Hall Gardens",
-          "nameCn": "克鲁克庄园花园",
-          "lat": 54.7826,
-          "lng": -1.5745,
-          "note": "国民信托管理的中世纪庄园与花园，距城中心步行可达，春夏赏花、喝下午茶的清静去处。"
+          "name": "Gala Theatre & Cinema",
+          "nameCn": "盖拉剧院与电影院",
+          "lat": 54.7764,
+          "lng": -1.5717,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Millennium Place，Durham市内唯一专业剧院，学生戏剧社每年在此公演，话剧、音乐剧、喜剧演出丰富。"
+        },
+        {
+          "name": "Odeon Luxe Cinema (Riverwalk)",
+          "nameCn": "Odeon Luxe影院（滨河购物中心）",
+          "lat": 54.7768,
+          "lng": -1.5787,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Riverwalk内豪华电影院，含高档座椅与酒吧，是学生观影娱乐的首选，周三学生票价最优惠。"
+        },
+        {
+          "name": "Durham Market (Saturday Market)",
+          "nameCn": "杜伦周末集市",
+          "lat": 54.7759,
+          "lng": -1.5773,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Market Place每周六举办集市，新鲜农产品、手工食品与本地工艺品齐全，是体验英国地方文化的好机会。"
         }
       ]
     }

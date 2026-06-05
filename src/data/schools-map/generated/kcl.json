@@ -67,46 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "King's Building",
-          "nameCn": "国王楼",
+          "name": "King's Building (Strand Campus)",
+          "nameCn": "国王楼（斯特兰德校区）",
           "lat": 51.5116,
-          "lng": -0.1157,
-          "note": "斯特兰德校区一级保护建筑,1831年创校原始教学楼。"
+          "lng": -0.1163,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1831年落成的一级保护建筑，校园核心，内设大礼堂与教堂，是KCL最具历史代表性的建筑。"
         },
         {
-          "name": "Bush House",
-          "nameCn": "布什楼",
+          "name": "Bush House (KCLSU & King's Business School)",
+          "nameCn": "布什楼（学生会与商学院）",
+          "lat": 51.5126,
+          "lng": -0.1185,
+          "rank": 2,
+          "tier": "必去",
+          "note": "前BBC世界广播大楼，现为学生会KCLSU总部、商学院及信息学系，八楼可俯瞰伦敦全景。"
+        },
+        {
+          "name": "Somerset House East Wing (School of Law)",
+          "nameCn": "萨默塞特府东翼（法学院）",
+          "lat": 51.5113,
+          "lng": -0.1171,
+          "rank": 3,
+          "tier": "必去",
+          "note": "法学院所在地，兼有Inigo Rooms公共展览空间，建筑本身是伦敦最美新古典主义庭院之一。"
+        },
+        {
+          "name": "Guy's Campus – Hodgkin Building",
+          "nameCn": "盖伊校区霍奇金楼",
+          "lat": 51.5037,
+          "lng": -0.0878,
+          "rank": 4,
+          "tier": "必去",
+          "note": "毗邻The Shard，生命科学与医学院、牙科学院主楼，内含全英最大病理博物馆Gordon Museum。"
+        },
+        {
+          "name": "Waterloo Campus – Franklin-Wilkins Building",
+          "nameCn": "滑铁卢校区弗兰克林-威尔金斯楼",
+          "lat": 51.5021,
+          "lng": -0.1148,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "伦敦最大高校楼宇之一，护理与助产学院、法律及生物医学藏书均在此，临近南岸文化区。"
+        },
+        {
+          "name": "Strand Building",
+          "nameCn": "斯特兰德大楼",
+          "lat": 51.5115,
+          "lng": -0.117,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1972年建成，连接国王楼与泰晤士河畔，艺术与人文学院、自然与数学科学学院均在此办公。"
+        },
+        {
+          "name": "Denmark Hill Campus – IoPPN",
+          "nameCn": "丹麦山校区精神病学心理学与神经科学研究所",
+          "lat": 51.4677,
+          "lng": -0.0936,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全球顶尖精神医学研究机构，诺贝尔奖级研究中心，对读心理/神经科学方向的学生是学术圣地。"
+        },
+        {
+          "name": "St Thomas' Campus",
+          "nameCn": "圣托马斯校区",
+          "lat": 51.4987,
+          "lng": -0.1187,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "正对议会大厦，依托圣托马斯医院开展医学与牙科继续教育培训，内含南丁格尔博物馆。"
+        },
+        {
+          "name": "King's College London Chapel",
+          "nameCn": "国王学院小教堂",
+          "lat": 51.5117,
+          "lng": -0.1162,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "由Sir George Gilbert Scott于1864年重建，位于国王楼二楼，是校内举办学术仪式的传统场所。"
+        },
+        {
+          "name": "Macadam Building",
+          "nameCn": "麦卡当楼",
           "lat": 51.5127,
-          "lng": -0.1172,
-          "note": "原 BBC 世界服务总部,2015年起并入主校区,现为多学院教学楼。"
-        },
-        {
-          "name": "Somerset House East Wing",
-          "nameCn": "萨默塞特府东翼",
-          "lat": 51.5108,
-          "lng": -0.1175,
-          "note": "主校区扩建并入的河畔历史建筑,法学院等所在。"
-        },
-        {
-          "name": "Franklin-Wilkins Building",
-          "nameCn": "富兰克林-威尔金斯楼",
-          "lat": 51.5058,
-          "lng": -0.1125,
-          "note": "滑铁卢校区主楼,含图书馆与伦敦牙科教育中心。"
-        },
-        {
-          "name": "Institute of Psychiatry, Psychology & Neuroscience",
-          "nameCn": "精神病学心理学与神经科学研究所",
-          "lat": 51.47,
-          "lng": -0.0894,
-          "note": "丹麦山校区核心,欧洲领先的精神健康研究机构。"
-        },
-        {
-          "name": "New Hunt's House",
-          "nameCn": "亨特楼",
-          "lat": 51.5036,
-          "lng": -0.0875,
-          "note": "盖伊校区医学与生命科学主要教学楼。"
+          "lng": -0.1155,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "学生服务中心所在地，含露台咖啡厅，是斯特兰德校区与布什楼之间的重要学生活动连接点。"
         }
       ],
       "defaultOn": true
@@ -121,16 +169,56 @@
         {
           "name": "Maughan Library",
           "nameCn": "莫恩图书馆",
-          "lat": 51.5152,
-          "lng": -0.1111,
-          "note": "钱瑟里巷新哥特式主图书馆,原英国公共档案馆,十二边形阅览室。"
+          "lat": 51.5151,
+          "lng": -0.1108,
+          "rank": 1,
+          "tier": "必去",
+          "note": "KCL主研究图书馆，前公共档案馆，藏书75万册，设1369个自习座位，圆形阅览室宏伟壮观，最受学生推崇。"
         },
         {
-          "name": "Guy's Campus Library (New Hunt's House)",
-          "nameCn": "盖伊校区图书馆",
-          "lat": 51.5031,
-          "lng": -0.087,
-          "note": "盖伊校区医学与牙科专业图书馆。"
+          "name": "New Hunt's House Library",
+          "nameCn": "新亨茨楼图书馆",
+          "lat": 51.5039,
+          "lng": -0.088,
+          "rank": 2,
+          "tier": "必去",
+          "note": "盖伊校区医学生首选，含两层自习空间、小组讨论室及视频通话舱，距伦敦桥站步行数分钟。"
+        },
+        {
+          "name": "Franklin-Wilkins Library",
+          "nameCn": "弗兰克林-威尔金斯图书馆",
+          "lat": 51.5021,
+          "lng": -0.1148,
+          "rank": 3,
+          "tier": "必去",
+          "note": "滑铁卢校区图书馆，护理助产、法律、生物医学藏书丰富，临近南岸，学习环境安静。"
+        },
+        {
+          "name": "IoPPN Library (Denmark Hill)",
+          "nameCn": "IoPPN图书馆（丹麦山）",
+          "lat": 51.4679,
+          "lng": -0.0942,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "西欧最大精神病学图书馆之一，两层阅览空间，是心理/神经科学专业学生不可或缺的资源中心。"
+        },
+        {
+          "name": "Wills Library",
+          "nameCn": "威尔斯图书馆",
+          "lat": 51.5037,
+          "lng": -0.0879,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "盖伊校区静默自习空间，前身为盖伊医院图书馆，氛围庄重，适合需要高度专注的研究生。"
+        },
+        {
+          "name": "Senate House Library",
+          "nameCn": "参议院图书馆（伦敦大学）",
+          "lat": 51.5208,
+          "lng": -0.1301,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "KCL学生凭校园卡可免费使用的伦敦大学联合图书馆，人文社科藏书顶级，步行40分钟可达。"
         }
       ]
     },
@@ -142,18 +230,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Florence Nightingale Museum",
-          "nameCn": "南丁格尔博物馆",
-          "lat": 51.5003,
-          "lng": -0.1175,
-          "note": "圣托马斯校区内,纪念现代护理奠基人南丁格尔。"
+          "name": "Courtauld Gallery",
+          "nameCn": "科陶德画廊",
+          "lat": 51.5113,
+          "lng": -0.1172,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于萨默塞特府内，珍藏印象派与后印象派名作（含莫奈、马奈、梵高原作），与KCL共址，几乎就在校园里。"
         },
         {
           "name": "Gordon Museum of Pathology",
-          "nameCn": "戈登病理学博物馆",
-          "lat": 51.5031,
-          "lng": -0.0899,
-          "note": "盖伊校区,英国最大的医学病理标本馆(仅限医学相关人士)。"
+          "nameCn": "戈登病理博物馆",
+          "lat": 51.5038,
+          "lng": -0.0878,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英国最大医学博物馆，约8000件病理标本，最早可追溯至1608年，医学生必访但须提前预约。"
+        },
+        {
+          "name": "Florence Nightingale Museum",
+          "nameCn": "南丁格尔博物馆",
+          "lat": 51.4988,
+          "lng": -0.119,
+          "rank": 3,
+          "tier": "必去",
+          "note": "圣托马斯医院内，展示护理学创始人弗洛伦斯·南丁格尔生平与克里米亚战争文物，向公众开放。"
+        },
+        {
+          "name": "Museum of Life Sciences (Guy's Campus)",
+          "nameCn": "生命科学博物馆",
+          "lat": 51.5038,
+          "lng": -0.0879,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "KCL盖伊校区内，展示动植物多样性与生物健康科学，主要面向医学与理科学生开放。"
+        },
+        {
+          "name": "Hunterian Museum (Royal College of Surgeons)",
+          "nameCn": "亨特医学博物馆",
+          "lat": 51.5152,
+          "lng": -0.1132,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "林肯律师学院广场旁，皇家外科医学院内，英国顶级解剖与外科历史藏品，步行至莫恩图书馆仅5分钟。"
         }
       ]
     },
@@ -165,46 +284,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Temple Underground Station",
-          "nameCn": "圣殿地铁站",
-          "lat": 51.511,
-          "lng": -0.1143,
-          "note": "主校区最近地铁站,Circle/District 线,河岸边。"
+          "name": "Somerset House",
+          "nameCn": "萨默塞特府",
+          "lat": 51.5113,
+          "lng": -0.1172,
+          "rank": 1,
+          "tier": "必去",
+          "note": "KCL法学院与科陶德画廊所在地，新古典主义庭院标志性广场，冬季溜冰场与夏季喷泉均享誉全伦敦。"
         },
         {
-          "name": "London Bridge Station",
-          "nameCn": "伦敦桥车站",
-          "lat": 51.5052,
-          "lng": -0.0864,
-          "note": "盖伊校区最近的国铁与地铁大站。"
+          "name": "Bush House 8th Floor Terrace & The Meadow",
+          "nameCn": "布什楼8楼露台与草地休闲区",
+          "lat": 51.5126,
+          "lng": -0.1185,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全伦敦少有的高校顶层观景台，可俯瞰圣保罗大教堂与泰晤士河，内有Nap Pod放松舱，学生必打卡。"
         },
         {
-          "name": "Waterloo Station",
-          "nameCn": "滑铁卢车站",
-          "lat": 51.5031,
-          "lng": -0.1132,
-          "note": "服务滑铁卢与圣托马斯校区的英国最繁忙车站之一。"
+          "name": "KCLSU (King's College London Students' Union)",
+          "nameCn": "国王学院学生会",
+          "lat": 51.5126,
+          "lng": -0.1187,
+          "rank": 3,
+          "tier": "必去",
+          "note": "布什楼内，含学生会酒吧The Vault、咖啡厅The Shack、台球室及学生组织注册中心，社团活动中枢。"
         },
         {
-          "name": "Denmark Hill Station",
-          "nameCn": "丹麦山车站",
-          "lat": 51.4682,
-          "lng": -0.0894,
-          "note": "丹麦山校区最近的国铁/地上铁车站。"
+          "name": "King's College London Chapel & Great Hall",
+          "nameCn": "国王学院礼拜堂与大礼堂",
+          "lat": 51.5117,
+          "lng": -0.1162,
+          "rank": 4,
+          "tier": "必去",
+          "note": "维多利亚哥特式礼拜堂，大礼堂承办毕业典礼与学术讲座，是KCL最具仪式感的核心建筑空间。"
         },
         {
-          "name": "KCLSU Strand (Students' Union)",
-          "nameCn": "学生会(斯特兰德)",
-          "lat": 51.5119,
-          "lng": -0.1164,
-          "note": "国王学院学生会主校区据点,Macadam 楼。"
+          "name": "Strand Building Riverside Terrace",
+          "nameCn": "斯特兰德楼河畔露台",
+          "lat": 51.5105,
+          "lng": -0.1163,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "临泰晤士河，可远眺南岸，是学生课间放松、拍照留念的热门地点。"
         },
         {
-          "name": "The Shard",
-          "nameCn": "碎片大厦",
-          "lat": 51.5045,
-          "lng": -0.0865,
-          "note": "盖伊校区旁地标摩天楼,西欧最高建筑之一。"
+          "name": "Lincoln's Inn Fields",
+          "nameCn": "林肯律师学院广场",
+          "lat": 51.5157,
+          "lng": -0.1161,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "紧邻莫恩图书馆，伦敦最大公共广场之一，午餐外带野餐、打网球的理想绿洲。"
+        },
+        {
+          "name": "Waterloo Campus James Clerk Maxwell Building",
+          "nameCn": "滑铁卢校区麦克斯韦楼",
+          "lat": 51.5024,
+          "lng": -0.114,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "护理学院与大学行政总部，紧邻南岸文化区，是KCL五个校区中距Tate Modern最近的建筑。"
         }
       ]
     },
@@ -216,32 +356,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Loon Fung Supermarket",
-          "nameCn": "龙凤行超市",
-          "lat": 51.5113,
-          "lng": -0.1308,
-          "note": "唐人街最大的华人超市之一，1965年开业，中式调料、米面、火锅料、冷冻点心一应俱全，离校步行约10分钟。"
+          "name": "Tesco Express (232 Strand)",
+          "nameCn": "特易购便利店（斯特兰德232号）",
+          "lat": 51.5127,
+          "lng": -0.1218,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距KCL斯特兰德主楼步行5分钟，每天6:00–23:00，日常购买食材饮料最方便的主流超市。"
         },
         {
-          "name": "SeeWoo Supermarket",
-          "nameCn": "泗和行超市",
-          "lat": 51.5111,
-          "lng": -0.13,
-          "note": "唐人街老牌亚洲超市（Lisle Street），生鲜、酱料、亚洲零食齐全，和龙凤行隔街相望，可一并采买。"
+          "name": "Sainsbury's Local (36–37 Strand)",
+          "nameCn": "塞恩斯伯里便利店（斯特兰德36–37号）",
+          "lat": 51.508,
+          "lng": -0.1256,
+          "rank": 2,
+          "tier": "必去",
+          "note": "靠近Embankment地铁站，品类比Tesco略丰富，自有品牌Taste the Difference熟食颇受好评。"
         },
         {
-          "name": "Tesco Express (Strand)",
-          "nameCn": "乐购便利店（河岸街店）",
-          "lat": 51.5103,
-          "lng": -0.1182,
-          "note": "校园隔壁的英国主流连锁超市，日常牛奶面包、即食餐和生活用品随手可买，营业时间长。"
+          "name": "Sainsbury's Waterloo Station",
+          "nameCn": "塞恩斯伯里本地超市（滑铁卢站）",
+          "lat": 51.5029,
+          "lng": -0.1136,
+          "rank": 3,
+          "tier": "必去",
+          "note": "滑铁卢站东出口，营业6:00–24:00，是滑铁卢校区学生最顺手的日常采购地点。"
         },
         {
-          "name": "Sainsbury's (Strand)",
-          "nameCn": "桑斯伯里超市（河岸街店）",
-          "lat": 51.5108,
-          "lng": -0.1153,
-          "note": "另一家主流连锁，离校几步路，自有品牌平价、自助结账快，适合补给日用。"
+          "name": "Loon Fung Chinese Supermarket",
+          "nameCn": "龙凤中国超市（唐人街）",
+          "lat": 51.5119,
+          "lng": -0.1317,
+          "rank": 4,
+          "tier": "必去",
+          "note": "唐人街核心，42–44 Gerrard Street，猪骨、豆腐、酱料、冻货一应俱全，中国留学生的\"家乡味\"补给站。"
+        },
+        {
+          "name": "New Loon Moon Supermarket",
+          "nameCn": "新龙门超市（唐人街）",
+          "lat": 51.5117,
+          "lng": -0.132,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Gerrard Street 9号，新鲜豆腐、亚洲蔬菜、各类调味料种类繁多，价格实惠，距斯特兰德校区约15分钟步行。"
+        },
+        {
+          "name": "Yohome Asian Supermarket (Elephant & Castle)",
+          "nameCn": "Yohome亚洲超市（大象城堡）",
+          "lat": 51.4937,
+          "lng": -0.1002,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Castle Square内，品类涵盖中日韩东南亚食材，附带珍珠奶茶和日式甜点，深受KCL学生喜爱。"
+        },
+        {
+          "name": "Longdan (Elephant & Castle)",
+          "nameCn": "龙蛋亚洲超市（大象城堡）",
+          "lat": 51.4938,
+          "lng": -0.1003,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "越南华人经营的大型亚洲食材超市，越中日韩泰菲全覆盖，附设珍珠奶茶吧，北线地铁直达。"
+        },
+        {
+          "name": "Tesco Express (Waterloo Road SE1)",
+          "nameCn": "特易购便利店（滑铁卢路）",
+          "lat": 51.501,
+          "lng": -0.1138,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "103–107 Waterloo Road，营业6:00–24:00，滑铁卢校区附近最便捷的深夜购物选择。"
         }
       ]
     },
@@ -253,39 +437,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Four Seasons (Gerrard Street)",
-          "nameCn": "四季餐厅（杰拉德街店）",
-          "lat": 51.5114,
-          "lng": -0.1312,
-          "note": "唐人街招牌港式烧鸭，被媒体称\"全球最好吃烤鸭\"之一，想家时来一份脆皮烧鸭饭。"
-        },
-        {
-          "name": "Bao Soho",
-          "nameCn": "包 Soho 店",
-          "lat": 51.5128,
-          "lng": -0.1318,
-          "note": "网红台式刈包小店，常年排队，招牌猪肉刈包和炸鸡，适合和同学打卡。"
-        },
-        {
           "name": "Din Tai Fung (Covent Garden)",
-          "nameCn": "鼎泰丰（科文特花园店）",
-          "lat": 51.5126,
-          "lng": -0.123,
-          "note": "知名台湾小笼包连锁的伦敦旗舰店，离校近，宴请家人或解馋的稳妥之选。"
+          "nameCn": "鼎泰丰（柯芬园）",
+          "lat": 51.5127,
+          "lng": -0.1233,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "欧洲首店，5 Henrietta Street，小笼包皮薄汁多，价格偏高但品质稳定，中国留学生庆祝生日首选。"
         },
         {
-          "name": "Rules Restaurant",
-          "nameCn": "Rules 餐厅",
+          "name": "Four Seasons Chinese Restaurant (Chinatown)",
+          "nameCn": "四季中餐厅（唐人街）",
+          "lat": 51.5119,
+          "lng": -0.1316,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "12 Gerrard Street，被《金融时报》评为\"全球最佳烤鸭\"，港式叉烧、脆皮猪肚同样惊艳，性价比极高。"
+        },
+        {
+          "name": "Haidilao Hot Pot (Piccadilly)",
+          "nameCn": "海底捞火锅（皮卡迪利）",
+          "lat": 51.5097,
+          "lng": -0.1328,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "5 Coventry Street，营业至凌晨3点，服务极佳附舞面表演，中国留学生聚餐必去，建议提前订位。"
+        },
+        {
+          "name": "Poon's at Somerset House",
+          "nameCn": "潘氏中餐厅（萨默塞特府）",
+          "lat": 51.5113,
+          "lng": -0.1172,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "就在KCL法学院旁，1973年米其林星级餐厅传承，主打广式家常菜，扎肉饭与砂锅饭是招牌。"
+        },
+        {
+          "name": "BAO Soho",
+          "nameCn": "包（台式）",
+          "lat": 51.5131,
+          "lng": -0.1377,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "53 Lexington Street，米其林Bib Gourmand，台湾包子与炸鸡腿堡令人惊艳，性价比佳，建议早点排队。"
+        },
+        {
+          "name": "Leong's Legend",
+          "nameCn": "梁记（台式）",
+          "lat": 51.512,
+          "lng": -0.1319,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "39 Gerrard Street，台湾小吃正宗，牛肉汤面、牡蛎煎蛋卷、汤包均出色，性价比高且常被华人推荐。"
+        },
+        {
+          "name": "XU Teahouse & Restaurant",
+          "nameCn": "XU台湾茶馆",
           "lat": 51.5117,
-          "lng": -0.1224,
-          "note": "1798年开业、伦敦最古老的餐厅，主打英式野味与传统菜，体验地道老伦敦正餐。"
+          "lng": -0.1341,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "30 Rupert Street，BAO团队出品，复古1930年代台湾风格，台式烤鸭与乌龙茶配对体验独特。"
         },
         {
-          "name": "Wong Kei",
-          "nameCn": "旺记",
+          "name": "Shu Xiang Ge Hotpot (Chinatown)",
+          "nameCn": "蜀香阁火锅（唐人街）",
           "lat": 51.5118,
-          "lng": -0.1308,
-          "note": "唐人街平价老字号粤菜，份量大、出餐快、学生友好，经典的留学生食堂。"
+          "lng": -0.1319,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "10 Gerrard Street，正宗四川火锅，自选汤底与食材，价格比海底捞实惠，辣味十足深受川渝学生喜爱。"
+        },
+        {
+          "name": "Imperial China Restaurant",
+          "nameCn": "皇朝酒家",
+          "lat": 51.5116,
+          "lng": -0.1318,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "唐人街老牌粤式餐厅，60余款点心经港厨制作，午市点心性价比极佳，团餐首选。"
+        },
+        {
+          "name": "Mamalan (Brixton Village)",
+          "nameCn": "妈妈兰（北京街头小吃）",
+          "lat": 51.4628,
+          "lng": -0.1138,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Brixton Village内，纯正北京街头风，炸酱面与红烧肉夹馍份量实在，价格亲民，下午茶时段常爆满。"
+        },
+        {
+          "name": "Borough Market",
+          "nameCn": "博罗市场",
+          "lat": 51.5053,
+          "lng": -0.091,
+          "rank": 11,
+          "tier": "绝对必吃",
+          "note": "伦敦桥旁千年食市，周四至周六人流最旺，英式烤奶酪、生蚝、精酿啤酒等本地特色食品必须一一尝遍。"
+        },
+        {
+          "name": "Parsons (Covent Garden)",
+          "nameCn": "帕森斯海鲜餐厅（柯芬园）",
+          "lat": 51.5127,
+          "lng": -0.1231,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "大理石吧台配维多利亚白瓷砖，海鲜拼盘与炸鱼薯条是英式本地必吃代表，气氛复古热闹。"
+        },
+        {
+          "name": "The Anchor & Hope (Waterloo)",
+          "nameCn": "锚与希望酒馆（滑铁卢）",
+          "lat": 51.5039,
+          "lng": -0.1126,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "South Bank经典英式酒馆，七小时慢炖羊肩与地中海风拼盘令人难忘，周日不接受订位先到先得。"
+        },
+        {
+          "name": "Neal's Yard (Covent Garden)",
+          "nameCn": "尼尔庭院（柯芬园）",
+          "lat": 51.5147,
+          "lng": -0.1265,
+          "rank": 14,
+          "tier": "一般",
+          "note": "色彩缤纷的隐秘小院，有机咖啡、可持续素食餐厅与精品奶酪铺聚集，拍照与用餐两不误。"
         }
       ]
     },
@@ -297,32 +572,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Barclays (366 Strand)",
-          "nameCn": "巴克莱银行（河岸街366号）",
-          "lat": 51.5102,
-          "lng": -0.119,
-          "note": "校园同一条街上的主流银行网点，可办理学生账户、咨询开户与汇款，步行可达。"
+          "name": "KCL NHS Health Centre (Bush House)",
+          "nameCn": "国王学院NHS健康中心（布什楼）",
+          "lat": 51.5126,
+          "lng": -0.1185,
+          "rank": 1,
+          "tier": "必去",
+          "note": "300 Strand（布什楼三楼），KCL学生专属全科诊所，入学后凭学生证即可注册，免费享受NHS医疗服务。"
         },
         {
-          "name": "Boots Pharmacy (Strand)",
-          "nameCn": "Boots 药房（河岸街店）",
-          "lat": 51.5108,
-          "lng": -0.116,
-          "note": "全英最大连锁药房，离校几步，备常用药、配处方、买日用护理品，营业到晚上。"
+          "name": "St Thomas' Hospital A&E",
+          "nameCn": "圣托马斯医院急诊",
+          "lat": 51.4987,
+          "lng": -0.1187,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Westminster Bridge Road SE1 7EH，24小时急诊，正对议会大厦，是KCL学生最近的公立大医院急救点。"
         },
         {
-          "name": "University College Hospital (UCLH) A&E",
-          "nameCn": "大学学院医院急诊（UCLH）",
-          "lat": 51.5241,
-          "lng": -0.1343,
-          "note": "离校最近的NHS大型公立医院和24小时急诊（A&E），紧急情况打999或直接前往。"
+          "name": "HSBC Bank (455 Strand)",
+          "nameCn": "汇丰银行（斯特兰德455号）",
+          "lat": 51.5117,
+          "lng": -0.1215,
+          "rank": 3,
+          "tier": "必去",
+          "note": "KCL斯特兰德校区旁，汇丰面向国际学生提供开户服务，有中文接待员，是中国留学生开设英国账户首选。"
         },
         {
-          "name": "EE Store (Covent Garden)",
-          "nameCn": "EE 营业厅（科文特花园店）",
-          "lat": 51.5135,
+          "name": "Barclays Bank (366 Strand)",
+          "nameCn": "巴克莱银行（斯特兰德366号）",
+          "lat": 51.5115,
+          "lng": -0.1198,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距KCL步行5分钟，巴克莱学生账户可免年费，网银体验好，支持Apple Pay，新生办理流程顺畅。"
+        },
+        {
+          "name": "Boots Pharmacy (105–109 Strand)",
+          "nameCn": "博姿药店（斯特兰德105–109号）",
+          "lat": 51.5118,
           "lng": -0.1247,
-          "note": "英国主流运营商门店（Long Acre），办手机卡/合约套餐，初到时办本地号码很方便。"
+          "rank": 5,
+          "tier": "必去",
+          "note": "步行至KCL约5分钟，OTC药品、感冒药、维生素、隐形眼镜液一应俱全，可凭NHS处方取药。"
+        },
+        {
+          "name": "O2 Store (The Strand)",
+          "nameCn": "O2电话营业厅（斯特兰德）",
+          "lat": 51.5122,
+          "lng": -0.1216,
+          "rank": 6,
+          "tier": "必去",
+          "note": "65–72 The Strand，O2学生SIM卡网络覆盖伦敦最全，新生最先去办理电话卡的首选运营商门店。"
+        },
+        {
+          "name": "Three Mobile (436 Strand)",
+          "nameCn": "Three运营商门店（斯特兰德436号）",
+          "lat": 51.5112,
+          "lng": -0.1205,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "主打无限数据套餐且价格低廉，留学生常与O2对比后选择Three，门店可现场帮助激活国际漫游套餐。"
+        },
+        {
+          "name": "Boots Pharmacy (Waterloo Station)",
+          "nameCn": "博姿药店（滑铁卢站）",
+          "lat": 51.5028,
+          "lng": -0.1132,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "滑铁卢站内，营业时间与火车班次同步，是滑铁卢校区学生最就近的急用药购买点。"
         }
       ]
     },
@@ -334,39 +653,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Somerset House",
-          "nameCn": "萨默塞特府",
-          "lat": 51.511,
-          "lng": -0.1175,
-          "note": "紧邻校园的新古典主义宫殿庭院，冬季溜冰场、夏季喷泉广场和艺术展，绝佳出片地。"
+          "name": "Tate Modern",
+          "nameCn": "泰特现代艺术馆",
+          "lat": 51.5076,
+          "lng": -0.0994,
+          "rank": 1,
+          "tier": "必去",
+          "note": "前发电厂改建，全球最受欢迎的现代艺术馆之一，永久藏品免费，Turbine Hall超大装置必看，南岸散步必经。"
         },
         {
-          "name": "Covent Garden Piazza",
-          "nameCn": "科文特花园广场",
+          "name": "Borough Market",
+          "nameCn": "博罗市场",
+          "lat": 51.5053,
+          "lng": -0.091,
+          "rank": 2,
+          "tier": "必去",
+          "note": "伦敦最古老食品市场，千年历史，生蚝、奶酪、德式猪肘应有尽有，周四至周六全天开放，美食朝圣地。"
+        },
+        {
+          "name": "Covent Garden",
+          "nameCn": "柯芬园",
           "lat": 51.5122,
-          "lng": -0.1234,
-          "note": "步行几分钟即到的历史市集广场，苹果市集、街头艺人、商铺咖啡馆云集，最热闹的打卡地。"
+          "lng": -0.1232,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距KCL步行5分钟，街头艺人、Apple Market手工集市、皇家歌剧院云集，是KCL周边最热闹的打卡地标。"
         },
         {
-          "name": "Twinings Tea Shop (216 Strand)",
-          "nameCn": "川宁茶叶老店（河岸街216号）",
-          "lat": 51.5132,
-          "lng": -0.1133,
-          "note": "1706年开业、伦敦最古老的茶叶店就在校门口，窄门里挑英式红茶当伴手礼。"
+          "name": "South Bank Riverside Walk",
+          "nameCn": "南岸滨河步道",
+          "lat": 51.5055,
+          "lng": -0.1145,
+          "rank": 4,
+          "tier": "必去",
+          "note": "从Westminster Bridge延伸至Tower Bridge，沿途经过London Eye、国家剧院、Tate Modern，是伦敦最美徒步路线。"
         },
         {
-          "name": "Trafalgar Square",
-          "nameCn": "特拉法加广场",
+          "name": "London Eye",
+          "nameCn": "伦敦眼",
+          "lat": 51.5033,
+          "lng": -0.1196,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于南岸，距KCL步行约15分钟，135米高空俯瞰伦敦全景，是最知名的伦敦地标，建议提前购票。"
+        },
+        {
+          "name": "Shakespeare's Globe Theatre",
+          "nameCn": "莎士比亚环球剧场",
+          "lat": 51.5081,
+          "lng": -0.0972,
+          "rank": 6,
+          "tier": "必去",
+          "note": "南岸复原的莎士比亚时代圆形剧场，站票仅£5起，夏季演出氛围震撼，KCL学生持KCLSU可享折扣。"
+        },
+        {
+          "name": "Trafalgar Square & National Gallery",
+          "nameCn": "特拉法加广场与国家美术馆",
           "lat": 51.508,
           "lng": -0.1281,
-          "note": "伦敦地标广场，旁边即国家美术馆（免费），狮子雕像与喷泉是必拍经典。"
+          "rank": 7,
+          "tier": "必去",
+          "note": "距KCL步行15分钟，达芬奇、伦勃朗、梵高原作免费参观，广场节庆活动频繁，是伦敦公共空间中心。"
         },
         {
-          "name": "Sir John Soane's Museum",
-          "nameCn": "约翰·索恩爵士博物馆",
-          "lat": 51.5169,
-          "lng": -0.1175,
-          "note": "离校十分钟、藏品塞满整栋老宅的免费小众博物馆，氛围独特，适合慢慢逛。"
+          "name": "National Theatre",
+          "nameCn": "国家剧院",
+          "lat": 51.5073,
+          "lng": -0.1149,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "南岸野兽派建筑地标，每周常驻演出水准极高，25岁以下青年票£20起，KCL学生文化生活必选项。"
+        },
+        {
+          "name": "Chinatown (Gerrard Street)",
+          "nameCn": "伦敦唐人街（Gerrard街）",
+          "lat": 51.5119,
+          "lng": -0.1319,
+          "rank": 9,
+          "tier": "必去",
+          "note": "欧洲最活跃的唐人街之一，春节舞龙灯会全球华人聚集地，中国超市、餐厅、美甲、亚洲杂货密集分布。"
+        },
+        {
+          "name": "180 The Strand",
+          "nameCn": "斯特兰德180号文化中心",
+          "lat": 51.5118,
+          "lng": -0.1181,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "KCL校区对面的独立艺术文化空间，长期举办前卫沉浸式展览，伦敦当代艺术圈重要据点，学生票价友好。"
+        },
+        {
+          "name": "Southbank Centre (Royal Festival Hall)",
+          "nameCn": "南岸文化中心（皇家节日大厅）",
+          "lat": 51.5051,
+          "lng": -0.1162,
+          "rank": 11,
+          "tier": "强烈推荐",
+          "note": "紧邻KCL滑铁卢校区，古典音乐、爵士、现代舞演出年历丰富，大堂可免费进入，附近书市全年开放。"
         }
       ]
     }

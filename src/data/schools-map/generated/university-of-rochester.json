@@ -67,39 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Eastman Quadrangle",
-          "nameCn": "伊士曼方庭",
-          "lat": 43.129,
-          "lng": -77.6299,
-          "note": "主校区学术核心广场"
+          "name": "Hajim School of Engineering & Applied Sciences (Wegmans Hall / Goergen Hall)",
+          "nameCn": "哈吉姆工程与应用科学学院",
+          "lat": 43.1262,
+          "lng": -77.6305,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖工程学院，含计算机科学、生物医学工程、光学研究所（全球最顶级光学项目）；Wegmans Hall是CS/数据科学中心，Goergen Hall是光学与生物医学工程核心楼。"
         },
         {
-          "name": "School of Medicine and Dentistry",
-          "nameCn": "医学与牙医学院",
-          "lat": 43.1231,
-          "lng": -77.6269,
-          "note": "医学中心主教学楼"
+          "name": "School of Medicine and Dentistry (URMC)",
+          "nameCn": "医学与牙科学院（医学中心）",
+          "lat": 43.1243,
+          "lng": -77.6197,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UR核心医学院，与Strong Memorial Hospital同址，是全美生物医学研究重镇，拥有32个科系，强烈推荐生物医学/公卫方向学生参观。"
         },
         {
-          "name": "Hajim School of Engineering",
-          "nameCn": "哈吉姆工程学院",
-          "lat": 43.1256,
-          "lng": -77.63,
-          "note": "工程与应用科学"
+          "name": "Bausch & Lomb Hall",
+          "nameCn": "博士伦大厅",
+          "lat": 43.1284,
+          "lng": -77.6294,
+          "rank": 3,
+          "tier": "必去",
+          "note": "河岸校区标志性1930年代学术楼，容纳物理、化学等核心理工课程，位于东曼四合院（Eastman Quadrangle）核心，是UR学术氛围最浓的建筑之一。"
         },
         {
-          "name": "Simon Business School",
-          "nameCn": "西蒙商学院",
-          "lat": 43.1271,
-          "lng": -77.6301,
-          "note": "Schlegel Hall 商学院"
+          "name": "Rush Rhees Library Tower & Eastman Quadrangle",
+          "nameCn": "拉什·里斯图书馆塔楼与东曼四合院",
+          "lat": 43.1286,
+          "lng": -77.6285,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园地标中心，四合院由Rush Rhees Library、Morey Hall、Bausch & Lomb、Lattimore和Dewey Hall围合，是UR最上镜的学术核心地带。"
         },
         {
-          "name": "School of Nursing (Helen Wood Hall)",
-          "nameCn": "护理学院",
-          "lat": 43.1214,
-          "lng": -77.6259,
-          "note": "医学中心护理学院"
+          "name": "Simon Business School (Schlegel Hall)",
+          "nameCn": "西蒙商学院（施莱格尔大厅）",
+          "lat": 43.1278,
+          "lng": -77.6277,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美知名MBA商学院，Schlegel Hall内有9个阶梯教室和21个小组研习室；位于Interfaith Chapel对面，学术氛围浓厚。"
+        },
+        {
+          "name": "Warner School of Education (LeChase Hall)",
+          "nameCn": "华纳教育学院（勒蔡斯大厅）",
+          "lat": 43.1272,
+          "lng": -77.6265,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2013年新建的教育学院，LeChase Hall建筑现代，是教育政策/心理方向研究生的主要活动场所。"
+        },
+        {
+          "name": "Meliora Hall (Brain & Cognitive Sciences / Psychology)",
+          "nameCn": "梅利奥拉大厅（脑认知科学与心理系）",
+          "lat": 43.128,
+          "lng": -77.6275,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "容纳大脑与认知科学系、视觉科学中心及心理学系，是UR认知神经科学研究核心楼，也与校名格言「Meliora（追求更好）」同名。"
+        },
+        {
+          "name": "Hutchison Hall (Chemistry & Earth Sciences)",
+          "nameCn": "哈奇森大厅（化学与地球科学）",
+          "lat": 43.1265,
+          "lng": -77.6295,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "工程四合院内的化学与地球环境科学楼，1972年接收了原来Lattimore Hall的化学实验室，是理工科学生重要的实验教学中心。"
+        },
+        {
+          "name": "Lattimore Hall (Humanities & Social Sciences)",
+          "nameCn": "拉蒂莫尔大厅（人文与社会科学）",
+          "lat": 43.1287,
+          "lng": -77.6282,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1930年建成的历史建筑，是人文社科课程的主要教学楼，毗邻Rush Rhees Library，位于东曼四合院西翼。"
+        },
+        {
+          "name": "Eastman School of Music (26 Gibbs St, Downtown)",
+          "nameCn": "伊士曼音乐学院（市区校区）",
+          "lat": 43.1552,
+          "lng": -77.6061,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "乔治·伊士曼创办，位于市区，是全美最顶尖音乐学院之一；内含2326座伊士曼剧院和Kilbourn Hall，音乐爱好者必访。"
+        },
+        {
+          "name": "Sloan Performing Arts Center",
+          "nameCn": "斯隆表演艺术中心",
+          "lat": 43.1277,
+          "lng": -77.6261,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "2021年新建的表演艺术综合楼，为戏剧、舞蹈和音乐演出提供现代化场地，是文艺类学生的主要活动中心。"
+        },
+        {
+          "name": "Laboratory for Laser Energetics (South Campus)",
+          "nameCn": "激光能量学实验室（南校区）",
+          "lat": 43.1195,
+          "lng": -77.6348,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "美国能源部资助的国家级激光核聚变实验室，UR独有的世界级科研设施，物理/工程方向学生的骄傲所在。"
         }
       ],
       "defaultOn": true
@@ -113,24 +186,66 @@
       "items": [
         {
           "name": "Rush Rhees Library",
-          "nameCn": "拉什里斯图书馆",
-          "lat": 43.1285,
-          "lng": -77.6287,
-          "note": "标志性钟楼，主图书馆"
+          "nameCn": "拉什·里斯图书馆",
+          "lat": 43.1286,
+          "lng": -77.6285,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UR主图书馆，1930年建成，馆内有罕见书籍与特藏部、iZone创新空间、24小时Gleason阅览室；标志性19层塔楼装有纽约州最大钟琴，是全校最具代表性的建筑。"
         },
         {
-          "name": "Sibley Music Library",
-          "nameCn": "西布利音乐图书馆",
-          "lat": 43.1576,
-          "lng": -77.6002,
-          "note": "伊士曼校园，全美最大音乐馆藏之一"
+          "name": "Gleason Library (24/7 Study Space, inside Rush Rhees)",
+          "nameCn": "格里森图书馆（24小时自习室）",
+          "lat": 43.1286,
+          "lng": -77.6284,
+          "rank": 2,
+          "tier": "必去",
+          "note": "河岸校区唯一24小时开放的空间，位于Rush Rhees内，考试季/夜猫学生的首选自习地，提供独立安静区与协作区。"
         },
         {
-          "name": "Edward G. Miner Medical Library",
-          "nameCn": "迈纳医学图书馆",
-          "lat": 43.1224,
-          "lng": -77.6268,
-          "note": "医学中心图书馆"
+          "name": "Carlson Science & Engineering Library",
+          "nameCn": "卡尔森理工图书馆",
+          "lat": 43.1265,
+          "lng": -77.63,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Computer Studies Building内，专为理工科生服务，收藏生物、化学、CS、工程及地球科学资源；Mary Ann Mavrinac Studio X提供VR/AR体验。"
+        },
+        {
+          "name": "Sibley Music Library (Eastman School of Music)",
+          "nameCn": "西布利音乐图书馆（伊士曼校区）",
+          "lat": 43.1553,
+          "lng": -77.6058,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "北美最大的学术音乐图书馆，馆藏近75万件乐谱、书籍、手稿及音响档案，是全球音乐学者的重要资源宝库。"
+        },
+        {
+          "name": "Art & Music Library (inside Rush Rhees)",
+          "nameCn": "艺术与音乐图书馆",
+          "lat": 43.1286,
+          "lng": -77.6286,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Rush Rhees Library内，专注艺术史、音乐学等人文艺术资源，是视觉艺术和音乐理论学生的专项馆藏。"
+        },
+        {
+          "name": "Rare Books, Special Collections & Preservation (RBSCP)",
+          "nameCn": "珍本特藏与保护部（Rush Rhees楼内）",
+          "lat": 43.1286,
+          "lng": -77.6285,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "UR大学档案馆及珍本收藏部，含Rossell Hope Robbins英文文学研究中心，研究历史文学的学生或文献爱好者不可错过。"
+        },
+        {
+          "name": "Edward G. Miner Library (URMC Medical Center)",
+          "nameCn": "迈纳医学图书馆（医学中心）",
+          "lat": 43.1243,
+          "lng": -77.6198,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于大学医学中心的医学专业图书馆，为医学院、护理学院学生及临床研究人员提供专业医学资源和文献服务。"
         }
       ]
     },
@@ -142,11 +257,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Memorial Art Gallery",
+          "name": "Memorial Art Gallery (MAG)",
           "nameCn": "纪念美术馆",
-          "lat": 43.1577,
-          "lng": -77.5883,
-          "note": "校属公共美术馆，年访客近30万"
+          "lat": 43.1398,
+          "lng": -77.6108,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UR附属市立艺术博物馆，1913年建成，收藏逾13000件跨越5000年的艺术珍品，周三至周日开放；距河岸校区约20分钟步行，门票有学生优惠。"
+        },
+        {
+          "name": "George Eastman Museum",
+          "nameCn": "乔治·伊士曼博物馆",
+          "lat": 43.1544,
+          "lng": -77.5958,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球最古老的摄影博物馆（1947年），位于柯达创始人的豪宅旧址，收藏数百万件摄影与电影藏品，是世界文化遗产级景点，罗切斯特必游之地。"
+        },
+        {
+          "name": "The Strong National Museum of Play",
+          "nameCn": "强国家玩具博物馆",
+          "lat": 43.15,
+          "lng": -77.605,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美唯一以「玩耍」为主题的国家级博物馆，收藏世界最大规模的玩具、桌游和电子游戏藏品，有视频游戏名人堂，寓教于乐，留学生周末放松好去处。"
+        },
+        {
+          "name": "National Susan B. Anthony Museum & House",
+          "nameCn": "苏珊·B·安东尼故居博物馆",
+          "lat": 43.1532,
+          "lng": -77.6281,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "美国女权运动先驱苏珊·B·安东尼晚年居所，1872年她在此家中被捕（因参与投票），是国家历史地标，了解美国社会史不可错过。"
+        },
+        {
+          "name": "Rochester Museum & Science Center",
+          "nameCn": "罗切斯特博物馆与科学中心",
+          "lat": 43.1446,
+          "lng": -77.594,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "综合性自然历史与科学博物馆，馆内有天文馆（Strasenburgh Planetarium），涵盖区域自然地理、考古和科技展览，适合理工科学生探索。"
         }
       ]
     },
@@ -158,32 +311,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Eastman Theatre (Kodak Hall)",
-          "nameCn": "伊士曼剧院",
-          "lat": 43.1573,
-          "lng": -77.601,
-          "note": "市中心地标音乐厅"
+          "name": "Wilson Commons Student Center",
+          "nameCn": "威尔逊公共学生中心",
+          "lat": 43.1282,
+          "lng": -77.6283,
+          "rank": 1,
+          "tier": "必去",
+          "note": "贝聿铭事务所设计（1976年），是校园社交核心，五层综合楼容纳餐饮、会议、休闲和社团活动；标志性蜂巢状窗户与梯形建筑外观是UR最著名的打卡地标。"
         },
         {
-          "name": "Wilson Commons",
-          "nameCn": "威尔逊学生活动中心",
-          "lat": 43.1283,
-          "lng": -77.63,
-          "note": "贝聿铭设计的学生中心"
+          "name": "Interfaith Chapel",
+          "nameCn": "校园宗教礼拜堂",
+          "lat": 43.1278,
+          "lng": -77.6277,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "校园精神信仰中心，容纳12个宗教团体，建筑优美典雅，无论是否有宗教信仰，都是心情静谧时值得前往的安静空间。"
         },
         {
-          "name": "Strong Memorial Hospital",
-          "nameCn": "斯特朗纪念医院",
-          "lat": 43.1229,
-          "lng": -77.6254,
-          "note": "大学主教学医院"
+          "name": "Genesee River Walkway (near Fraternity Row)",
+          "nameCn": "吉尼西河畔步道（河岸）",
+          "lat": 43.1305,
+          "lng": -77.627,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园紧邻吉尼西河弯道，沿河步道是UR学生晨跑、骑行和散步的热门路线，秋季树叶变色时风景绝美，是放松减压的绿色空间。"
         },
         {
-          "name": "Laboratory for Laser Energetics",
-          "nameCn": "激光能量学实验室",
-          "lat": 43.1131,
-          "lng": -77.6326,
-          "note": "南校区，国家级聚变激光设施"
+          "name": "College Town (Mt. Hope Ave Development)",
+          "nameCn": "大学城商圈",
+          "lat": 43.137,
+          "lng": -77.6238,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "紧邻南校门的综合商业区，聚集餐厅（包括JoyMart亚洲超市）、咖啡厅、健身房和商铺；接受Rocky Bucks校园消费券，是UR学生日常出行最频繁的校外区域。"
+        },
+        {
+          "name": "Todd Union",
+          "nameCn": "托德联合大厅",
+          "lat": 43.1281,
+          "lng": -77.6276,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "1930年建成，是推荐加入纽约州历史名录的历史建筑，内设Chase Bank校园支行，是河岸校区建筑历史的重要组成部分。"
+        },
+        {
+          "name": "Fauver Stadium & Athletic Complex",
+          "nameCn": "福弗体育场与运动综合体",
+          "lat": 43.1255,
+          "lng": -77.6255,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "包含Fauver Stadium（足球/田径）、Goergen Athletic Center（综合室内体育馆）和游泳馆，是UR体育活动的核心，国际生也可持学生证使用健身设施。"
+        },
+        {
+          "name": "Prince Athletic Complex / Bloch Fitness Center",
+          "nameCn": "普林斯运动场与布洛赫健身中心",
+          "lat": 43.1266,
+          "lng": -77.6248,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "河岸校区南侧运动设施群，Bloch Fitness Center是学生日常健身的主要场所，设有现代化器械区和有氧运动区，免费对注册学生开放。"
         }
       ]
     },
@@ -195,32 +383,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Joy Mart (College Town)",
-          "nameCn": "Joy Mart 亚洲超市（College Town 店）",
-          "lat": 43.1235,
-          "lng": -77.6185,
-          "note": "校友开的亚洲超市兼咖啡店，就在 College Town（1347 Mt Hope Ave），步行可达，备齐中日韩泰越食材，离宿舍最近最方便。"
+          "name": "JoyMart Asian Grocery & Cafe (College Town)",
+          "nameCn": "JoyMart亚洲超市与咖啡（大学城）",
+          "lat": 43.137,
+          "lng": -77.624,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2024年1月开业，由UR博士校友创办，位于大学城，步行可达校园；超过3000种亚洲食品及新鲜外卖（饺子、饭团、拉面），接受Rocky Bucks且有学生折扣，是留学生最近最便利的亚洲食材站。"
         },
         {
-          "name": "Hikari Foods & Grocery",
-          "nameCn": "Hikari 日韩亚洲食品店",
-          "lat": 43.1138,
-          "lng": -77.6152,
-          "note": "Mt Hope Ave 1667 号的日韩亚洲杂货店，沿校园主干道往南，方便补充日料/韩料/中餐调料。"
+          "name": "Wegmans (Monroe Ave, Pittsford) – 3195 Monroe Ave",
+          "nameCn": "韦格曼斯超市（门罗大道，罗切斯特旗舰店）",
+          "lat": 43.1208,
+          "lng": -77.5623,
+          "rank": 2,
+          "tier": "必去",
+          "note": "韦格曼斯是纽约州最受爱戴的本地超市品牌，门罗大道旗舰店规模宏大，备有寿司、中式、意式等各类现制熟食，品质远超普通超市，UR学生每周必去。"
         },
         {
-          "name": "Asian Food Market",
-          "nameCn": "亚洲食品市场（大型亚超）",
-          "lat": 43.0902,
-          "lng": -77.6208,
-          "note": "Henrietta 的大型泛亚连锁超市，新鲜蔬果、活鱼、火锅料一应俱全，留学生采购中国食材的主力点，约 4 公里需开车/公交。"
+          "name": "Wegmans (West Henrietta Rd) – 2599 W Henrietta Rd",
+          "nameCn": "韦格曼斯超市（西亨利耶塔路店）",
+          "lat": 43.0978,
+          "lng": -77.6553,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距河岸校区最近的韦格曼斯大型门店，绿色班车（Green Line）周六中午开始运行至此，是UR学生购买一周食材的首选补给站。"
         },
         {
-          "name": "Wegmans (East Avenue)",
-          "nameCn": "Wegmans 超市（East Ave 店）",
-          "lat": 43.1486,
-          "lng": -77.5742,
-          "note": "罗切斯特本土起家、全美口碑顶尖的连锁超市，East Ave 1750 号是离校最近的一家，日用与生鲜一站购齐。"
+          "name": "Asia Food Market – 1885 Brighton Henrietta Town Line Rd",
+          "nameCn": "亚洲食品超市（布莱顿/亨利耶塔镇界路）",
+          "lat": 43.0995,
+          "lng": -77.6482,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "纽约上州最全面的亚洲食品超市之一，备有中国、日本、韩国、越南、东南亚等各类食材，中国留学生购买米、酱料、火锅底料等原材料的必备去处。"
+        },
+        {
+          "name": "Chang's Oriental Food Store – 1867 Mt. Hope Ave",
+          "nameCn": "张氏东方食品店（希望山大道）",
+          "lat": 43.131,
+          "lng": -77.621,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Mt. Hope Ave，距校园步行15分钟，是附近最方便的中式食材小超市，常规中国调料、米面、零食均有，性价比高。"
+        },
+        {
+          "name": "Hikari Foods & Grocery – 1667 Mt. Hope Ave",
+          "nameCn": "光食品杂货店（希望山大道）",
+          "lat": 43.133,
+          "lng": -77.6216,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "中日韩混合食品小超市，位于Mt. Hope Ave商业带，食材种类较Chang's更偏日韩，配送较方便，适合喜欢日韩食材的留学生。"
+        },
+        {
+          "name": "Tops Friendly Markets – 1900 Clinton Ave S (Brighton)",
+          "nameCn": "Tops友好超市（南克林顿大道，布莱顿）",
+          "lat": 43.1248,
+          "lng": -77.5867,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "24小时营业的本地连锁超市，价格亲民，生鲜、日用品齐全，适合没有汽车的学生快速采购，搭乘公交可达。"
+        },
+        {
+          "name": "ALDI – 615 Jefferson Rd, Henrietta",
+          "nameCn": "奥乐齐折扣超市（杰弗逊路，亨利耶塔）",
+          "lat": 43.0917,
+          "lng": -77.6328,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "德国折扣超市，价格全罗切斯特最低，主打基础食材，非常适合预算有限的研究生/博士生，无需追求品牌时的最优性价比选择。"
         }
       ]
     },
@@ -232,39 +464,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Fortune Chinese Restaurant",
-          "nameCn": "福运中餐馆",
-          "lat": 43.1135,
-          "lng": -77.615,
-          "note": "Mt Hope Ave 1681 号的老牌中餐，离校近、价格实惠，留学生常点的家常中餐外卖首选。"
+          "name": "Han Noodle Bar – 600 Monroe Ave",
+          "nameCn": "寒面馆（门罗大道）",
+          "lat": 43.1432,
+          "lng": -77.605,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "罗切斯特最受推崇的中式面馆，口号「无融合、无噱头」，拉面/担担面/红烧肉包正宗，CITY Reader's Choice多次获评最佳中餐，留学生首选，已营业逾十年。"
         },
         {
-          "name": "Tsingtao House",
-          "nameCn": "青岛饭店（川菜）",
-          "lat": 43.0975,
-          "lng": -77.6388,
-          "note": "W Henrietta Rd 2831 号，被本地公认数一数二的川菜/正宗中餐，UR 学生常说每周必吃，性价比高。"
+          "name": "Szechuan Opera – 630 Park Ave",
+          "nameCn": "四川戏院（公园大道）",
+          "lat": 43.1533,
+          "lng": -77.6016,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "罗切斯特最正宗的四川菜馆（2019年开业），园林装修风格，麻辣菜品地道，TripAdvisor整体排名靠前，被众多评论称为「全罗切斯特最佳中餐」，周末需提前订位。"
         },
         {
-          "name": "Han Noodle Bar",
-          "nameCn": "韩記面馆",
-          "lat": 43.153,
-          "lng": -77.5907,
-          "note": "Monroe Ave 上的人气面馆，主打中式街头面食与汤面，价格亲民、份量足，留学生口碑店。"
+          "name": "JoyMart Cafe & Kitchen (College Town) – 1347 Mt. Hope Ave",
+          "nameCn": "JoyMart亚洲咖啡厨房（大学城）",
+          "lat": 43.137,
+          "lng": -77.624,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "校门口步行可达的亚洲食堂，现做饺子、包子、饭团、乌冬面，是UR中国留学生日常解馋神器，接受Rocky Bucks学生优惠，早八点开门超方便。"
         },
         {
-          "name": "Yummy Garden Hot Pot",
-          "nameCn": "美味园火锅",
-          "lat": 43.0918,
-          "lng": -77.6205,
-          "note": "Henrietta 的自助火锅店，可选多种锅底自己涮，另有正宗越南河粉，适合朋友聚餐解馋。"
-        },
-        {
-          "name": "Nick Tahou Hots (Garbage Plate)",
-          "nameCn": "Nick Tahou（垃圾盘发源地）",
+          "name": "Furoshiki – 682 Park Ave",
+          "nameCn": "风呂敷日式拉面（公园大道）",
           "lat": 43.1542,
-          "lng": -77.6228,
-          "note": "1918 年创立、罗切斯特城市符号「Garbage Plate（垃圾盘）」的发源地，来 UR 必打卡的本地黑暗料理。"
+          "lng": -77.6008,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "公园大道最受追捧的日式拉面亚洲融合餐厅，招牌浓郁汤底+自制面条，炸鸡、泡菜薯条同样热销，391条Yelp评论超高分，留学生聚餐必备。"
+        },
+        {
+          "name": "SEA Restaurant – 1675 Mt. Hope Ave",
+          "nameCn": "SEA越南餐厅（希望山大道）",
+          "lat": 43.1332,
+          "lng": -77.6218,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "距UR步行约10分钟的越南料理店，正宗河粉（pho）、春卷、班米备受好评，被UR官方推荐页收录，价格亲民，口味正，是亚洲留学生日常高频光顾的餐厅。"
+        },
+        {
+          "name": "Plum House – 686 Monroe Ave",
+          "nameCn": "梅园日本料理（门罗大道）",
+          "lat": 43.1432,
+          "lng": -77.6049,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Monroe Ave上的日式餐厅，提供高性价比的寿司和套餐，午市$17套餐尤受学生欢迎，与Han Noodle Bar比邻，是Monroe Village亚洲美食带的组成部分。"
+        },
+        {
+          "name": "E Suki – 1370 Mt. Hope Ave",
+          "nameCn": "E Suki寿司（希望山大道）",
+          "lat": 43.1355,
+          "lng": -77.6225,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "位于Mt. Hope Ave的自选式寿司小馆，食材新鲜，点餐后现做，性价比高，UR方向推荐清单收录，喜欢日料但不想大消费的学生轻松之选。"
+        },
+        {
+          "name": "Seoul House Korean Restaurant – 2805 W Henrietta Rd",
+          "nameCn": "首尔韩国料理（西亨利耶塔路）",
+          "lat": 43.0975,
+          "lng": -77.6555,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "韩国烤肉+料理餐厅，提供桌边烤肉，泡菜汤、石锅拌饭味道正宗，距Wegmans亨利耶塔路店步行可达，适合韩国料理爱好者光顾。"
+        },
+        {
+          "name": "Tran Huy Garden – Mt. Hope Ave",
+          "nameCn": "陈惠花园中餐（希望山大道）",
+          "lat": 43.132,
+          "lng": -77.6213,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "UR周边的中式餐馆，菜单丰富、份量大，性价比高，受中国留学生群体推荐，是不想远行时校区附近最快捷的中餐选项之一。"
+        },
+        {
+          "name": "Aladdin's Natural Eatery – 646 Monroe Ave",
+          "nameCn": "阿拉丁天然地中海餐厅（门罗大道）",
+          "lat": 43.143,
+          "lng": -77.6052,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Monroe Ave上广受好评的地中海健康餐厅，皮塔饼、沙拉、Moussaka种类丰富，价格亲民，素食选项充足，是UR学生午饭/晚饭高频去处。"
+        },
+        {
+          "name": "Dinosaur Bar-B-Que – 99 Court St (Downtown)",
+          "nameCn": "恐龙烤肉（市中心法院街）",
+          "lat": 43.162,
+          "lng": -77.6166,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Good Morning America评出的全美第一BBQ餐厅，1998年开业，位于老火车站内，俯瞰吉尼西河，是罗切斯特的文化地标级美食，来Rochester必尝本地BBQ。"
+        },
+        {
+          "name": "Nosh – Neighborhood of the Arts",
+          "nameCn": "Nosh美式餐吧（艺术区）",
+          "lat": 43.1517,
+          "lng": -77.6023,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "美式精致便餐，位于艺术区，菜单随季节更新，口碑稳定，UR官方推荐列表收录，适合正餐约会或需要体面用餐的场合。"
+        },
+        {
+          "name": "Mandarin Court – Henrietta",
+          "nameCn": "满满中餐（亨利耶塔）",
+          "lat": 43.0935,
+          "lng": -77.6378,
+          "rank": 13,
+          "tier": "一般",
+          "note": "亨利耶塔购物区内的中餐馆，以美式中餐为主，份量大价格低，搭乘公交可达，适合临时解馋或家人探访时的方便中餐选择。"
+        },
+        {
+          "name": "Genesee Brew House – Upper Falls",
+          "nameCn": "吉尼西啤酒厂餐吧（瀑布区）",
+          "lat": 43.1608,
+          "lng": -77.6148,
+          "rank": 14,
+          "tier": "一般",
+          "note": "美国历史最悠久的大型啤酒厂之一，可在此品尝Genesee小批次精酿啤酒并俯瞰高瀑，适合喜欢啤酒文化和工业历史的学生探访。"
         }
       ]
     },
@@ -276,32 +599,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Mt. Hope Financial Center)",
-          "nameCn": "美国银行（Mt Hope 旗舰网点）",
-          "lat": 43.1208,
-          "lng": -77.6166,
-          "note": "Mt Hope Ave 1400 号，带 drive-thru ATM 的全功能网点，离校最近，新生开户/办借记卡来这里最方便。"
+          "name": "Chase Bank – River Campus Branch (Todd Union)",
+          "nameCn": "摩根大通银行（河岸校区托德联合大厅支行）",
+          "lat": 43.1281,
+          "lng": -77.6276,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内唯一银行支行，位于Todd Union，Rush Rhees Library后方亦设ATM；国际学生抵校后首要任务是开立美国银行账户，Chase无需SSN即可凭护照+I-20开户。"
         },
         {
-          "name": "Strong Memorial Hospital (URMC)",
-          "nameCn": "Strong 纪念医院（罗大医学中心）",
-          "lat": 43.1213,
-          "lng": -77.6293,
-          "note": "601 Elmwood Ave，紧邻 River Campus 的大学附属医院，含急诊/Urgent Care，校医保覆盖，生病就医的主力点。"
+          "name": "University Health Service (UHS) – 738 Library Rd",
+          "nameCn": "大学健康服务（校园医疗诊所）",
+          "lat": 43.1285,
+          "lng": -77.626,
+          "rank": 2,
+          "tier": "必去",
+          "note": "河岸校区官方学生健康门诊，提供初级医疗、疫苗接种和心理咨询服务；国际生持UR学生健康保险（SHIP）可免费或低价就诊，是在校生的首选医疗入口。"
         },
         {
-          "name": "Walgreens / College Town Pharmacy",
-          "nameCn": "药店（College Town）",
-          "lat": 43.123,
-          "lng": -77.6178,
-          "note": "College Town（约 1431 Mt Hope Ave）的连锁药房，处方药、感冒药、日用品都能买，步行可达。"
+          "name": "Strong Memorial Hospital – 601 Elmwood Ave",
+          "nameCn": "斯特朗纪念医院（急诊/专科）",
+          "lat": 43.1245,
+          "lng": -77.62,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UR附属897床位大学医院，是纽约州西部最大Level 1创伤和烧伤中心；急诊24小时，专科门诊齐全，国际学生遇严重伤病首选。"
         },
         {
-          "name": "Advantage Federal Credit Union",
-          "nameCn": "Advantage 联邦信用社",
-          "lat": 43.1148,
-          "lng": -77.6155,
-          "note": "Mt Hope Ave 1625 号本地信用社网点，校内 Wilson Commons/SBA Hall 还有其 ATM，小额取现很方便。"
+          "name": "CVS Pharmacy – 1431 Mt. Hope Ave",
+          "nameCn": "CVS药房（希望山大道，最近分店）",
+          "lat": 43.1342,
+          "lng": -77.6221,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距校园最近的CVS药房，距大学城步行约10分钟，营业至晚11点，感冒药、维生素、日常药品和美妆一站购齐，是学生常备健康用品的首选药房。"
+        },
+        {
+          "name": "UR Medicine Urgent Care – Henrietta, 1300 Jefferson Rd",
+          "nameCn": "UR医学急诊护理中心（亨利耶塔快诊）",
+          "lat": 43.0918,
+          "lng": -77.6325,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "无需预约的快诊中心，每日9am-9pm，处理非重症急诊（发烧、扭伤、轻伤等），持UR学生保险费用合理，是避开Strong急诊漫长等候的好选择。"
+        },
+        {
+          "name": "Advantage Federal Credit Union – 1625 Mt. Hope Ave (Main Branch)",
+          "nameCn": "优势联邦信用合作社（希望山大道主支行）",
+          "lat": 43.1318,
+          "lng": -77.6215,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "UR合作信用合作社，在Susan B. Anthony Hall和医学中心均设ATM；账户维护费低，适合长期在读学生作为主账户，校内ATM免手续费。"
+        },
+        {
+          "name": "T-Mobile – 1373 Mt. Hope Ave",
+          "nameCn": "T-Mobile手机门店（希望山大道）",
+          "lat": 43.1355,
+          "lng": -77.6225,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距校园最近的T-Mobile门店，国际学生推荐使用T-Mobile预付费（无合同、无SSN要求）；Magenta套餐覆盖全美，性价比高，是新生办理手机卡的首选运营商门店。"
+        },
+        {
+          "name": "Verizon – 1190 University Ave",
+          "nameCn": "Verizon手机门店（大学大道）",
+          "lat": 43.1385,
+          "lng": -77.6082,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于大学大道上，是距UR最近的Verizon门店；Verizon信号覆盖全美最广，适合需要出行美国各地的学生，价格略高但网络质量稳定。"
         }
       ]
     },
@@ -313,32 +680,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Mount Hope Cemetery",
-          "nameCn": "Mount Hope 公墓",
-          "lat": 43.13,
-          "lng": -77.6188,
-          "note": "紧邻校园的全美首座维多利亚式市政公墓，女权先驱 Susan B. Anthony 与废奴领袖 Frederick Douglass 长眠于此，景致庄严，散步/历史打卡好去处。"
+          "name": "High Falls (Genesee River, Downtown)",
+          "nameCn": "高瀑（吉尼西河市中心）",
+          "lat": 43.1627,
+          "lng": -77.6155,
+          "rank": 1,
+          "tier": "必去",
+          "note": "市中心95英尺高的城市瀑布，是罗切斯特最标志性的自然景观，夜间有灯光秀，步行可达Genesee Brew House，是留学生打卡罗切斯特的第一站。"
         },
         {
-          "name": "Highland Park (Lilac Festival)",
-          "nameCn": "高地公园（丁香花节）",
-          "lat": 43.1318,
-          "lng": -77.6055,
-          "note": "Olmsted 设计的名园，每年 5 月举办北美最大的免费丁香花节（1200+ 株丁香），离校骑行可达，春季赏花必去。"
+          "name": "George Eastman Museum – 900 East Ave",
+          "nameCn": "乔治·伊士曼博物馆（东大道）",
+          "lat": 43.1544,
+          "lng": -77.5958,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球最古老的摄影博物馆，柯达创始人豪宅改建，馆内珍藏数百万件摄影和电影藏品；国家历史地标，摄影/电影专业学生必游，UR学生凭证享折扣。"
         },
         {
-          "name": "Genesee Valley Park",
-          "nameCn": "杰纳西河谷公园",
-          "lat": 43.1175,
-          "lng": -77.632,
-          "note": "校园南侧、横跨杰纳西河的大型公园，UR 划船队主场，步道与河景适合跑步、骑行、划船放松。"
+          "name": "The Strong National Museum of Play – 1 Manhattan Sq",
+          "nameCn": "强国家玩具博物馆（曼哈顿广场）",
+          "lat": 43.15,
+          "lng": -77.605,
+          "rank": 3,
+          "tier": "必去",
+          "note": "罗切斯特最热门的家庭/学生景点，视频游戏名人堂、全美最大玩具收藏，互动展览极多，朋友来访时的首选娱乐场所，TripAdvisor370+条五星好评。"
         },
         {
-          "name": "Eastman Museum (George Eastman Museum)",
-          "nameCn": "伊士曼影像博物馆",
-          "lat": 43.1535,
-          "lng": -77.5832,
-          "note": "柯达创始人 George Eastman 故居改建的世界级摄影与电影博物馆，East Ave 上，了解罗切斯特「影像之城」必看。"
+          "name": "Highland Park & Lilac Festival",
+          "nameCn": "高地公园与紫丁香节",
+          "lat": 43.1285,
+          "lng": -77.5942,
+          "rank": 4,
+          "tier": "必去",
+          "note": "奥姆斯特德设计的百年公园，每年5月中旬举办「紫丁香节」（北美最大紫丁香节），1200棵丁香500种品种同时开花，是罗切斯特春季最壮观的打卡景点。"
+        },
+        {
+          "name": "Park Avenue Neighborhood (Park Ave & Monroe Ave Strip)",
+          "nameCn": "公园大道街区（独立餐厅与精品店聚集地）",
+          "lat": 43.1542,
+          "lng": -77.6015,
+          "rank": 5,
+          "tier": "必去",
+          "note": "罗切斯特最有活力的街区，独立餐厅、咖啡馆、黑胶唱片店云集；距UR约20分钟步行，Szechuan Opera/Furoshiki等热门中日餐厅均在此区，每年8月有公园大道艺术节。"
+        },
+        {
+          "name": "Memorial Art Gallery – 500 University Ave",
+          "nameCn": "纪念美术馆（大学大道）",
+          "lat": 43.1398,
+          "lng": -77.6108,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UR附属的市级艺术博物馆，1913年建成，收藏5000年艺术史，步行可进入，周三-周日开放，学生票价优惠；历史与当代展览并重，是艺术放松的好地方。"
+        },
+        {
+          "name": "Rochester Public Market – 280 N Union St",
+          "nameCn": "罗切斯特公共市集（北联合街）",
+          "lat": 43.1623,
+          "lng": -77.594,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "始建于1905年的百年公共市集，每周二、四、六开放，周六摊位超300个，新鲜农产品、异国食材、烘焙品应有尽有，是体验本地市井文化和购买价廉食材的好去处。"
+        },
+        {
+          "name": "Ontario Beach Park (Charlotte Beach) – 4800 Lake Ave",
+          "nameCn": "安大略海滩公园（夏洛特海滩）",
+          "lat": 43.258,
+          "lng": -77.605,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "安大略湖畔天然沙滩，夏季游泳/排球，可骑行进入，1905年转盘木马和1822年灯塔是历史地标，吉尼西河入湖口处日落壮观，适合夏季放松一日游。"
+        },
+        {
+          "name": "Cobbs Hill Park & Reservoir",
+          "nameCn": "科布斯山公园与水库",
+          "lat": 43.1445,
+          "lng": -77.5785,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "109英亩的城市公园，跑步环水库一圈深受UR学生喜爱，山顶有罗切斯特城市全景，攀爬后日落风景绝美，是健身+赏景的双重优选。"
+        },
+        {
+          "name": "Seneca Park Zoo – 2222 St. Paul St",
+          "nameCn": "塞内卡公园动物园（圣保罗街）",
+          "lat": 43.19,
+          "lng": -77.61,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "建于奥姆斯特德设计公园内的20英亩城市动物园（1894年开放），适合压力大时来散散心，门票价格亲民，有大猩猩、海豹、北极熊等特色动物。"
         }
       ]
     }

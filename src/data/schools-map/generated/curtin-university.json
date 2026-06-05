@@ -51,32 +51,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Chancellery (Building 100)",
-          "nameCn": "校长办公楼",
-          "lat": -32.0053,
-          "lng": 115.8926,
-          "note": "校级行政与校长办公室所在"
-        },
-        {
-          "name": "Curtin Business & Law (Building 408)",
-          "nameCn": "商学院与法学院楼",
-          "lat": -32.0026,
+          "name": "TL Robertson Library & Learning Hub (Building 105)",
+          "nameCn": "罗伯逊图书馆兼科技学习中心（105楼）",
+          "lat": -32.0055,
           "lng": 115.894,
-          "note": "本特利商科与法学教学楼"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园中心最大教学楼之一，同时是主图书馆所在地，含大型自习空间与电脑室。"
         },
         {
-          "name": "Engineering Precinct (Building 204)",
-          "nameCn": "工程学院区",
-          "lat": -32.0066,
-          "lng": 115.895,
-          "note": "工程与科学学科核心教学区"
+          "name": "Curtin Business School (Building 402 / 407)",
+          "nameCn": "科廷商学院（402/407楼）",
+          "lat": -32.0065,
+          "lng": 115.8955,
+          "rank": 2,
+          "tier": "必去",
+          "note": "商学院主楼，含会计、金融、市场营销、管理等热门本硕专业，国际生比例极高。"
         },
         {
-          "name": "Health Sciences (Building 400)",
-          "nameCn": "健康科学楼",
+          "name": "Engineering Pavilion (Building 215/216)",
+          "nameCn": "工程馆（215/216楼）",
           "lat": -32.003,
+          "lng": 115.892,
+          "rank": 3,
+          "tier": "必去",
+          "note": "理工学院与工程学院总部，容纳土木、机械、电气、计算机等专业，Pro-VC办公室也在此。"
+        },
+        {
+          "name": "School of Pharmacy & Biomedical Sciences (Building 306/310)",
+          "nameCn": "药学与生物医学院（306/310楼）",
+          "lat": -32.0045,
+          "lng": 115.8912,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "西澳顶级药学专业所在地，含教学实验室、教学楼和学生自习室。"
+        },
+        {
+          "name": "Curtin Medical School (Building 410)",
+          "nameCn": "科廷医学院（410楼）",
+          "lat": -32.007,
+          "lng": 115.8948,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2017年新设医学院，MBBS课程与健康科学类专业的核心教学楼。"
+        },
+        {
+          "name": "School of Molecular & Life Sciences (Building 220)",
+          "nameCn": "分子与生命科学学院（220楼）",
+          "lat": -32.0037,
+          "lng": 115.8928,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "生物化学、环境科学、遗传学等理科专业的实验与教学中心。"
+        },
+        {
+          "name": "Chancellery (Building 100)",
+          "nameCn": "校长楼（100楼）",
+          "lat": -32.0048,
+          "lng": 115.8935,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "大学行政总部，副校长、国际办公室及重要会议室所在地，是校园权力与政务中心。"
+        },
+        {
+          "name": "Hayman Theatre / Davis Building (Building 302)",
+          "nameCn": "海曼剧院（302楼）",
+          "lat": -32.0022,
+          "lng": 115.894,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "校内专业剧院，开放式演出空间，设传媒与创意艺术专业课程，对外公演票价亲民。"
+        },
+        {
+          "name": "Curtin Connect / Student Hub (Building 102)",
+          "nameCn": "学生服务中心（102楼）",
+          "lat": -32.0052,
           "lng": 115.8933,
-          "note": "护理、药学与联合健康教学区"
+          "rank": 9,
+          "tier": "推荐",
+          "note": "新生报到、选课变更、国际学生签证咨询等行政服务一站式窗口，开学前后必来。"
+        },
+        {
+          "name": "Centre for Aboriginal Studies (Building 209)",
+          "nameCn": "澳洲原住民研究中心（209楼）",
+          "lat": -32.0042,
+          "lng": 115.8924,
+          "rank": 10,
+          "tier": "可选",
+          "note": "专注原住民文化与政策研究的特色学术机构，举办公开活动与文化沙龙，体验澳洲本土文化的重要窗口。"
         }
       ],
       "defaultOn": true
@@ -92,15 +154,55 @@
           "name": "TL Robertson Library (Building 105)",
           "nameCn": "TL罗伯逊图书馆",
           "lat": -32.0055,
-          "lng": 115.8938,
-          "note": "1972年启用的主图书馆，校园学习中心"
+          "lng": 115.894,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内主图书馆，7层楼含安静自习区、24小时学习舱（The Lantern）、高速WiFi与海量学术数据库，中文留学生最常使用的学习场所。"
         },
         {
-          "name": "John Curtin Prime Ministerial Library",
-          "nameCn": "约翰·科廷总理图书馆",
-          "lat": -32.0063,
-          "lng": 115.8923,
-          "note": "二战总理约翰·科廷档案与史料专藏"
+          "name": "John Curtin Prime Ministerial Library (Building 200A, Level 1)",
+          "nameCn": "约翰·科廷总理纪念图书馆",
+          "lat": -32.006,
+          "lng": 115.8946,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "存放澳大利亚第14任总理约翰·科廷档案与历史文献，对历史、政治学专业学生极具价值，同时提供安静阅览室。"
+        },
+        {
+          "name": "Curtin Guild Library / Resource Centre (Building 106)",
+          "nameCn": "学生会资源中心（106楼）",
+          "lat": -32.0058,
+          "lng": 115.8936,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "由学生会管理，提供课程资料、二手教材借阅与社团活动资讯，是下课后打发时间的轻松去处。"
+        },
+        {
+          "name": "Health Sciences Library Resources (Building 400 area)",
+          "nameCn": "健康科学学院资料室（400区域）",
+          "lat": -32.0068,
+          "lng": 115.8952,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "医学、护理与公共卫生专业专属参考资料室，含专业期刊与临床案例数据库。"
+        },
+        {
+          "name": "State Library of Western Australia",
+          "nameCn": "西澳州立图书馆",
+          "lat": -31.95,
+          "lng": 115.8602,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于珀斯CBD文化中心内，馆藏丰富含澳洲原住民档案，周末亦开放，适合需要宽敞安静空间做论文的学生。"
+        },
+        {
+          "name": "Curtin Library Online (OPUS / Summon)",
+          "nameCn": "科廷图书馆线上数据库",
+          "lat": -32.0055,
+          "lng": 115.894,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "涵盖数万份电子期刊与论文，校内外均可通过VPN访问，是深夜赶论文不可或缺的数字资源。"
         }
       ]
     },
@@ -113,10 +215,48 @@
       "items": [
         {
           "name": "John Curtin Gallery (Building 200A)",
-          "nameCn": "约翰·科廷美术馆",
-          "lat": -32.0052,
-          "lng": 115.8924,
-          "note": "聚焦当代艺术的校园美术馆"
+          "nameCn": "约翰·科廷当代艺术馆",
+          "lat": -32.006,
+          "lng": 115.8946,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内当代艺术展览馆，常设本地及国际艺术家作品展，免费入场，是周末休闲打卡热门地。"
+        },
+        {
+          "name": "WA Museum Boola Bardip (Perth Cultural Centre)",
+          "nameCn": "西澳博物馆·布拉巴尔迪普",
+          "lat": -31.9487,
+          "lng": 115.8599,
+          "rank": 2,
+          "tier": "必去",
+          "note": "西澳最大的综合博物馆，免费入场，展出自然史、原住民文化、海洋探险等，是了解西澳历史文化的No.1去处。"
+        },
+        {
+          "name": "WA Maritime Museum (Fremantle)",
+          "nameCn": "西澳海事博物馆",
+          "lat": -32.0544,
+          "lng": 115.7464,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "展出澳洲帆船比赛历史及沉船打捞文物，可登上真实潜水艇参观，位于弗里曼特尔港口边，风景极佳。"
+        },
+        {
+          "name": "Fremantle Prison",
+          "nameCn": "弗里曼特尔监狱",
+          "lat": -32.053,
+          "lng": 115.7522,
+          "rank": 4,
+          "tier": "必去",
+          "note": "世界文化遗产，建于1850年代的历史监狱，提供地下隧道探险游、烛光夜游等特色项目，留学生必打卡。"
+        },
+        {
+          "name": "Art Gallery of Western Australia",
+          "nameCn": "西澳美术馆",
+          "lat": -31.9497,
+          "lng": 115.8592,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "毗邻WA博物馆，珍藏澳洲本土及国际艺术精品，常举办免费公众展览，是珀斯文化中心的组成部分。"
         }
       ]
     },
@@ -130,23 +270,65 @@
         {
           "name": "Curtin Stadium (Building 111)",
           "nameCn": "科廷体育馆",
-          "lat": -32.0029,
-          "lng": 115.8907,
-          "note": "综合健身、运动与活动场馆"
+          "lat": -32.003,
+          "lng": 115.8903,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内综合运动中心，健身房、室内球场、瑜伽课等一应俱全，学生凭学生证可享优惠会籍，是结交朋友的好地方。"
         },
         {
-          "name": "Curtin Student Guild",
-          "nameCn": "科廷学生会",
-          "lat": -32.0047,
-          "lng": 115.8931,
-          "note": "学生会与校园生活中心，毗邻Hayman Theatre"
+          "name": "Curtin Student Guild (Building 106F)",
+          "nameCn": "科廷学生会大楼",
+          "lat": -32.0058,
+          "lng": 115.8936,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内学生自治中心，办理学生证优惠、社团注册、活动报名，内有超过200个社团，是融入校园生活的第一站。"
         },
         {
-          "name": "Curtin Bus Station",
-          "nameCn": "科廷巴士总站",
-          "lat": -32.0022,
-          "lng": 115.8904,
-          "note": "接驳Transperth公交，连通坎宁桥火车站"
+          "name": "Exchange Precinct (Dining & Retail Hub)",
+          "nameCn": "Exchange综合生活区",
+          "lat": -32.0072,
+          "lng": 115.894,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内价值3亿澳元的新城区，集餐饮、零售、学生公寓于一体，Banh Mizzle越南碗、Seoul Bros韩国街食等均在此。"
+        },
+        {
+          "name": "Main Cafe & Common Ground (Building 104)",
+          "nameCn": "中央咖啡厅·Common Ground（104楼）",
+          "lat": -32.0052,
+          "lng": 115.893,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校内最热闹的咖啡聚集地，也是中午最常见同学集合点，提供澳式早午餐，适合约会面谈。"
+        },
+        {
+          "name": "Curtin University Main Entrance (Kent Street Gate)",
+          "nameCn": "科廷大学正门（肯特街大门）",
+          "lat": -32.0049,
+          "lng": 115.8937,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "校园地标性入口，多条公交线在此设站，是接送友人和拍照打卡的经典位置。"
+        },
+        {
+          "name": "Curtin University Amphitheatre & Central Lawn",
+          "nameCn": "校园中心草坪与圆形剧场",
+          "lat": -32.0048,
+          "lng": 115.8942,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园绿化最美区域，O-Week迎新、周市集、户外电影等活动常在此举办，是感受校园文化的核心场所。"
+        },
+        {
+          "name": "Perth Train Station & Elizabeth Quay Waterfront",
+          "nameCn": "珀斯火车站·伊丽莎白码头",
+          "lat": -31.9521,
+          "lng": 115.8575,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "珀斯市中心交通枢纽与天鹅河畔网红打卡地，周末购物娱乐、节日烟火的聚集地，从科廷乘公交约20分钟可达。"
         }
       ]
     },
@@ -158,39 +340,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Coles Village Green",
-          "nameCn": "Coles 超市（Village Green 商场）",
-          "lat": -32.0124,
-          "lng": 115.8909,
-          "note": "紧挨校园南侧 Kent 街的社区商场，主流连锁 Coles，步行可达，日常采购最方便。"
-        },
-        {
-          "name": "Woolworths Bentley Plaza",
-          "nameCn": "Woolworths 超市（Bentley Plaza）",
+          "name": "Woolworths Bentley (Bentley Plaza, 1140 Albany Hwy)",
+          "nameCn": "Woolworths伍尔沃斯·本特利店",
           "lat": -32.0018,
           "lng": 115.9196,
-          "note": "Albany 高速旁的大型商场，Woolworths 主力超市，品类齐全，离校约 3 公里。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园最近的主流超市之一，步行/骑车可达，生鲜、日用品一站购齐，学生最常用的日常采购地。"
         },
         {
-          "name": "Kongs Asian Grocery",
-          "nameCn": "Kongs 亚洲超市",
-          "lat": -31.9966,
-          "lng": 115.9023,
-          "note": "Albany 高速东维多利亚公园段的老牌亚洲杂货店，中式调料、米面、火锅料齐全。"
+          "name": "Coles Bentley (Bentley Plaza, 1128-1132 Albany Hwy)",
+          "nameCn": "Coles科尔斯·本特利店",
+          "lat": -32.0016,
+          "lng": 115.9192,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与Woolworths比邻而居，价格略有差异，自有品牌商品性价比高，是学生每周采购的第一选择。"
         },
         {
-          "name": "Ying Seng Oriental Merchant",
-          "nameCn": "英盛东方亚超",
-          "lat": -32.0011,
-          "lng": 115.9188,
-          "note": "位于 Bentley Plaza 内的亚洲食材店，距校近，买酱油、老干妈、速食面方便。"
+          "name": "NP Carousel Supermarket (45 Cecil Ave, Cannington)",
+          "nameCn": "NP Carousel亚洲超市·坎宁顿",
+          "lat": -32.0151,
+          "lng": 115.9401,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "离科廷最近的大型亚洲超市，猪肉松、火锅底料、豆腐、方便面、进口零食一应俱全，中国留学生最爱的货仓。"
         },
         {
-          "name": "Spudshed Victoria Park",
-          "nameCn": "Spudshed 平价生鲜超市",
-          "lat": -31.9889,
-          "lng": 115.9098,
-          "note": "24 小时营业的本地平价生鲜超市，果蔬肉类便宜，适合学生囤货。"
+          "name": "Kongs Oriental Supermarket (784 Albany Hwy, East Victoria Park)",
+          "nameCn": "Kongs东方超市·东维多利亚公园",
+          "lat": -31.986,
+          "lng": 115.898,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "沿Albany Highway乘公车可达，品种丰富含冷冻食品、韩式食材、日式酱料，新鲜蔬菜品质好。"
+        },
+        {
+          "name": "VHT Perth (410-412 William St, Northbridge)",
+          "nameCn": "VHT越兴盛亚洲超市·北桥",
+          "lat": -31.9436,
+          "lng": 115.8555,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "珀斯北桥最老牌的亚洲食品超市兼批发商，进口食品最齐全，同时提供酒类，逛完北桥顺路采购。"
+        },
+        {
+          "name": "Aldi Bentley (1383 Albany Hwy)",
+          "nameCn": "Aldi奥乐齐折扣超市·本特利",
+          "lat": -32.003,
+          "lng": 115.924,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "德国折扣超市，面包、奶酪、红酒、坚果等欧式食品价格极低，预算有限的学生首选省钱选项。"
+        },
+        {
+          "name": "Westfield Carousel (Coles + Woolworths inside, 1382 Albany Hwy, Cannington)",
+          "nameCn": "Westfield Carousel购物中心超市区",
+          "lat": -32.02,
+          "lng": 115.9328,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "西澳最大购物中心内同时驻有Coles与Woolworths，顺便可购物看电影，是周末一站式出行首选。"
         }
       ]
     },
@@ -202,46 +412,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Qin's Lanzhou Beef Noodle",
-          "nameCn": "秦师傅兰州牛肉面",
-          "lat": -31.9962,
-          "lng": 115.9021,
-          "note": "东维多利亚公园的兰州拉面馆，现拉牛肉面，留学生想念的中式面食首选。"
+          "name": "Qin's Lanzhou Beef Noodle (873 Albany Hwy, East Victoria Park)",
+          "nameCn": "秦兰州牛肉面·东维多利亚公园",
+          "lat": -31.9885,
+          "lng": 115.9012,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "珀斯评价最高的兰州拉面馆，手拉面劲道、牛骨汤浓郁，中国留学生从全市专程赶来，务必尝一碗。"
         },
         {
-          "name": "Good Fortune Roast Duck House",
-          "nameCn": "鸿运烧腊（烧鸭店）",
-          "lat": -31.9959,
-          "lng": 115.9018,
-          "note": "884 Albany Hwy 的广式烧腊店，烧鸭叉烧出名，正宗粤式味道，性价比高。"
+          "name": "Authentic Bites Dumpling House (145 Newcastle St, Northbridge)",
+          "nameCn": "真真小笼包·北桥",
+          "lat": -31.9426,
+          "lng": 115.856,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "珀斯小笼包第一名，皮薄汤鲜，周末排队长达一条街，早到才有位，中国学生必打卡的饺子店。"
         },
         {
-          "name": "Yip (Bamboo Noodles)",
-          "nameCn": "Yip 竹升面",
-          "lat": -31.9931,
-          "lng": 115.9009,
-          "note": "884 号一带主打传统竹升面的小店，手工弹牙面条，本地华人推荐。"
+          "name": "Fortune Five (108A James St, Northbridge)",
+          "nameCn": "Fortune Five点心楼·北桥",
+          "lat": -31.946,
+          "lng": 115.8597,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "珀斯最受认可的粤式点心餐厅之一，蒸虾饺、叉烧包、肠粉均出色，1998年开业至今，是华人圈周末饮茶首选。"
         },
         {
-          "name": "Frank's Smokehouse",
-          "nameCn": "Frank's 美式烟熏烤肉",
-          "lat": -31.9856,
-          "lng": 115.9118,
-          "note": "维多利亚公园本地名店，14 小时慢熏牛胸肉，体验地道美式 BBQ 必打卡。"
+          "name": "Good Fortune Roast Duck House (884 Albany Hwy, East Victoria Park)",
+          "nameCn": "好运烤鸭坊·东维多利亚公园",
+          "lat": -31.9893,
+          "lng": 115.903,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "珀斯最有名的广式烤鸭和叉烧店，烤鸭皮脆肉嫩，家庭式用餐，与科廷同在Albany Highway沿线，极为便捷。"
         },
         {
-          "name": "Izakaya Tori",
-          "nameCn": "鸟居居酒屋",
-          "lat": -31.9847,
-          "lng": 115.9115,
-          "note": "Albany 高速上人气日式居酒屋，红灯笼下吃烤串喝酒，氛围感强适合聚餐。"
+          "name": "Shanghai Street (63 James St, Northbridge)",
+          "nameCn": "上海街·北桥",
+          "lat": -31.9458,
+          "lng": 115.8594,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "来自墨尔本的人气小笼包品牌，现点现做、窗口可见包饺过程，生煎包底部酥脆，是北桥夜晚最热门的中式餐厅之一。"
         },
         {
-          "name": "The Prophet",
-          "nameCn": "The Prophet 黎巴嫩餐厅",
-          "lat": -31.9802,
-          "lng": 115.9094,
-          "note": "开业逾 20 年的黎巴嫩老店，分量足味道地道，体验中东风味的口碑之选。"
+          "name": "Chilli Panda (137 Newcastle St, Northbridge)",
+          "nameCn": "辣熊猫湘菜馆·北桥",
+          "lat": -31.943,
+          "lng": 115.8557,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "珀斯唯一专注湖南菜的餐厅，辣鱼、炒臭豆腐、剁椒鱼头，能吃辣的同学必去，很多中国学生觉得解乡愁。"
+        },
+        {
+          "name": "Red Chilli Sichuan Restaurant (191 James St, Northbridge)",
+          "nameCn": "红辣椒川菜馆·北桥",
+          "lat": -31.9455,
+          "lng": 115.8603,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "珀斯评价最高的川菜馆之一，干辣子鸡、水煮鱼、麻婆豆腐正宗，花椒香气十足，Tripadvisor好评如潮。"
+        },
+        {
+          "name": "Baozi King (413 William St, Northbridge)",
+          "nameCn": "叮叮包子铺·北桥",
+          "lat": -31.9435,
+          "lng": 115.854,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "中式早点专门店，豆浆油条、包子馒头、葱油饼，早上8点就排队，是想吃中式早餐的留学生必去地。"
+        },
+        {
+          "name": "Hello Spice (280 Bannister Rd, Canning Vale)",
+          "nameCn": "好味道香料中餐·坎宁维尔",
+          "lat": -32.0684,
+          "lng": 115.9244,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于Market City内，担担面、手工饺子、炸鸡饭均不超过15澳元，被Broadsheet誉为珀斯最佳经济实惠中餐，学生预算首选。"
+        },
+        {
+          "name": "Viet Hoa (259 William St, Northbridge)",
+          "nameCn": "越华越南餐厅·北桥",
+          "lat": -31.9432,
+          "lng": 115.8534,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "北桥最老牌的越南餐厅，牛肉河粉汤底浓郁，春卷皮薄脆，价格亲民，长期是留学生东南亚美食首选。"
+        },
+        {
+          "name": "On-Campus Exchange: Seoul Bros / Banh Mizzle / Hee Sushi",
+          "nameCn": "校内Exchange区：韩式/越南碗/寿司",
+          "lat": -32.0072,
+          "lng": 115.894,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "校内Exchange区三家最受欢迎的亚洲餐饮：韩式炸鸡、越南牛肉碗、日式便当，不出校门解决午餐，方便又实惠。"
+        },
+        {
+          "name": "Fremantle Fish Market & Fishing Boat Harbour",
+          "nameCn": "弗里曼特尔渔船港鱼市",
+          "lat": -32.0545,
+          "lng": 115.749,
+          "rank": 12,
+          "tier": "绝对必吃",
+          "note": "现捞现炸的海鲜炸鱼薯条（fish and chips），坐在海边吃澳式经典本地美食，是本地文化体验中不能错过的一顿。"
         }
       ]
     },
@@ -253,32 +529,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Curtin University Health Service",
-          "nameCn": "科廷大学校医院（109 号楼）",
-          "lat": -32.0066,
-          "lng": 115.8951,
-          "note": "校内 109 号楼一层的全科医疗中心，仅限师生，看病、打疫苗、心理咨询都在这。"
+          "name": "Curtin University Health Service (Building 109, Level 1)",
+          "nameCn": "科廷大学校医中心（109楼一层）",
+          "lat": -32.005,
+          "lng": 115.893,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内全科诊所，在读学生享受优惠诊费，周一至周五8:30-16:30，电话预约(08)9266 7345，国际生首要健康保障。"
         },
         {
-          "name": "Chemist Warehouse Victoria Park",
-          "nameCn": "Chemist Warehouse 药房",
-          "lat": -31.9783,
-          "lng": 115.9089,
-          "note": "348 Albany Hwy 的连锁折扣药房，处方药、感冒药、保健品价格实惠。"
+          "name": "Pharmacy 777 – On Campus (Building 106, Shop 155)",
+          "nameCn": "Pharmacy 777校内药房（106楼）",
+          "lat": -32.0057,
+          "lng": 115.8935,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内唯一药房，配药、OTC药品、基础医疗用品均有售，不需出校门即可买药，周一至周五8:30-17:00。"
         },
         {
-          "name": "Commonwealth Bank Victoria Park",
-          "nameCn": "联邦银行 维多利亚公园支行",
-          "lat": -31.9852,
-          "lng": 115.9116,
-          "note": "413 Albany Hwy 的 CommBank 实体网点，留学生开户、办银行卡可现场办理。"
+          "name": "Commonwealth Bank – Cannington (Shop 1112, Westfield Carousel, 1382 Albany Hwy)",
+          "nameCn": "联邦银行·坎宁顿Carousel分行",
+          "lat": -32.02,
+          "lng": 115.932,
+          "rank": 3,
+          "tier": "必去",
+          "note": "最推荐国际生开户的银行之一，学生免月费账户，Carousel购物中心内可预约当日开户。"
         },
         {
-          "name": "St John Urgent Care Cannington",
-          "nameCn": "St John 紧急医疗中心（Cannington）",
-          "lat": -32.0167,
-          "lng": 115.9347,
-          "note": "Cannington 的非预约急诊门诊，校医院下班后看急症（崴脚、发烧）的去处。"
+          "name": "ANZ Bank ATM – On Campus (210 Hayman Rd, Bentley)",
+          "nameCn": "ANZ澳新银行ATM·校内",
+          "lat": -32.0035,
+          "lng": 115.8905,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "24小时校内ATM，支持国际银联卡取款，同时ANZ银行提供国际学生开户服务。"
+        },
+        {
+          "name": "Telstra Store – Carousel (Shop 1114, Westfield Carousel, 1382 Albany Hwy)",
+          "nameCn": "Telstra电信·Carousel店",
+          "lat": -32.02,
+          "lng": 115.933,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "澳大利亚最大运营商门店，可办理SIM卡、预付费套餐，国际生落地第一步推荐来此激活手机号。"
+        },
+        {
+          "name": "Optus Store – Carousel (Shop 1083, Westfield Carousel, 1382 Albany Hwy)",
+          "nameCn": "Optus·Carousel店",
+          "lat": -32.02,
+          "lng": 115.9325,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "第二大运营商，学生专属套餐性价比极高（$39/月含200GB），与Telstra相邻可货比三家。"
+        },
+        {
+          "name": "Bentley Plaza Medical Centre (1140 Albany Hwy, Bentley)",
+          "nameCn": "本特利广场医疗中心",
+          "lat": -32.0018,
+          "lng": 115.9192,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "紧邻Woolworths的社区诊所，无需预约的Walk-in全科门诊，下课后可直接前往，适合轻症就医。"
+        },
+        {
+          "name": "Bankwest ATM – On Campus (Building 408, Kent St)",
+          "nameCn": "Bankwest ATM·校内（408楼）",
+          "lat": -32.0062,
+          "lng": 115.895,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Bankwest是西澳本地最大银行，校内ATM方便取现，建议同时去Westfield分行开户获免费学生账户。"
         }
       ]
     },
@@ -290,39 +610,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "John Curtin Gallery",
-          "nameCn": "约翰·科廷美术馆",
-          "lat": -32.0058,
-          "lng": 115.8945,
-          "note": "校内 200A 楼的西澳重点公共美术馆之一，看当代艺术展、拍照都免费。"
+          "name": "Kings Park & Botanic Garden",
+          "nameCn": "国王公园与植物园",
+          "lat": -31.9609,
+          "lng": 115.8322,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球最大城市中心公园之一，俯瞰珀斯CBD与天鹅河全景，9月澳洲野花季更是美不胜收，留学期间必去一次。"
         },
         {
-          "name": "Optus Stadium",
-          "nameCn": "Optus 体育场",
-          "lat": -31.951,
-          "lng": 115.889,
-          "note": "Burswood 半岛的地标球场，看 AFL/演唱会的圣地，夜晚灯光与河景出片。"
+          "name": "Fremantle – Historic Port City",
+          "nameCn": "弗里曼特尔港口历史城",
+          "lat": -32.0569,
+          "lng": 115.7439,
+          "rank": 2,
+          "tier": "必去",
+          "note": "保留完整殖民时期建筑、周末跳蚤市集、涂鸦街区与海边餐厅，是珀斯最有人文气息的目的地，距科廷约25分钟车程。"
         },
         {
-          "name": "Perth Zoo",
+          "name": "Cottesloe Beach",
+          "nameCn": "科特斯洛海滩",
+          "lat": -31.993,
+          "lng": 115.757,
+          "rank": 3,
+          "tier": "必去",
+          "note": "珀斯最经典的城市海滩，印度洋清澈见底，适合游泳、日落烧烤；3月Sculpture by the Sea艺术节举办地。"
+        },
+        {
+          "name": "Fremantle Markets (74 South Terrace, Fremantle)",
+          "nameCn": "弗里曼特尔市集",
+          "lat": -32.0563,
+          "lng": 115.749,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1897年始建的历史市集，周五至周日开放，手工艺品、新鲜农产品、各国小吃一应俱全，是体验当地生活的绝佳场所。"
+        },
+        {
+          "name": "Perth Zoo (20 Labouchere Rd, South Perth)",
           "nameCn": "珀斯动物园",
-          "lat": -31.9762,
-          "lng": 115.8541,
-          "note": "南珀斯天鹅河畔的老牌动物园，能看袋鼠、考拉等澳洲特有动物，周末好去处。"
+          "lat": -31.9726,
+          "lng": 115.8576,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "拥有百年历史，袋鼠、袋熊、树袋熊近距离互动，从Elizabeth Quay乘渡轮过河即到，与市区观光完美结合。"
         },
         {
-          "name": "Crown Perth",
-          "nameCn": "皇冠珀斯娱乐城",
-          "lat": -31.9606,
-          "lng": 115.893,
-          "note": "Burswood 河畔的综合娱乐城，餐厅、影院、河景步道俱全，离校约 5 公里。"
+          "name": "Northbridge – Chinatown & Nightlife Precinct",
+          "nameCn": "北桥中国城及夜生活区",
+          "lat": -31.9446,
+          "lng": 115.8578,
+          "rank": 6,
+          "tier": "必去",
+          "note": "珀斯唐人街所在地，中餐厅、亚洲超市、酒吧、小剧院云集，周末到此吃饭购物是中国留学生最高频活动。"
         },
         {
-          "name": "Albany Highway Strip (Victoria Park)",
-          "nameCn": "维多利亚公园美食街（Albany 高速）",
-          "lat": -31.987,
-          "lng": 115.91,
-          "note": "距校最近的网红美食街，全球各国餐厅扎堆，逛吃拍照的日常打卡地。"
+          "name": "Caversham Wildlife Park (Whiteman Park, Swan Valley)",
+          "nameCn": "卡弗舍姆野生动物公园",
+          "lat": -31.8339,
+          "lng": 115.9505,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "可与袋鼠、树袋熊、袋獾近距离互动喂食，距珀斯市区约30分钟车程，是和访客家人同游的必备景点。"
+        },
+        {
+          "name": "Swan Valley Wine & Food Trail",
+          "nameCn": "天鹅谷美酒美食游",
+          "lat": -31.86,
+          "lng": 116,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "珀斯近郊最受欢迎的一日游，40余家酒庄、巧克力工厂、蜂蜜农场一路串联，9月起葡萄园景色最美。"
+        },
+        {
+          "name": "Victoria Park & Albany Highway Food Strip",
+          "nameCn": "维多利亚公园美食街",
+          "lat": -31.984,
+          "lng": 115.898,
+          "rank": 9,
+          "tier": "必去",
+          "note": "Albany Highway沿线聚集了中餐、日料、越南菜、精酿酒吧等数十家餐厅，是科廷学生周末美食探索的核心地带。"
+        },
+        {
+          "name": "Scitech Discovery Centre",
+          "nameCn": "科技探索中心",
+          "lat": -31.9481,
+          "lng": 115.8535,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "互动式科学博物馆，适合理工科学生周末放松，天文馆球幕电影值得体验，位于城西区Railway St。"
         }
       ]
     }

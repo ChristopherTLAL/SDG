@@ -59,39 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Hackett Hall & Arts Building",
-          "nameCn": "哈克特楼与文学院楼",
-          "lat": -31.9769,
-          "lng": 115.8175,
-          "note": "围合大庭院的砂岩文学院核心建筑群。"
-        },
-        {
-          "name": "UWA Business School",
-          "nameCn": "UWA商学院",
-          "lat": -31.98587,
-          "lng": 115.82082,
-          "note": "校区南侧河畔，三个圆形容器外观极具辨识度。"
-        },
-        {
-          "name": "Bayliss Building (Chemistry)",
-          "nameCn": "贝利斯楼（化学）",
-          "lat": -31.98195,
-          "lng": 115.81832,
-          "note": "化学与分子科学教学楼。"
-        },
-        {
           "name": "UWA Medical School",
-          "nameCn": "UWA医学院",
-          "lat": -31.9681,
-          "lng": 115.8159,
-          "note": "位于QEII健康校区的临床医学教学楼。"
+          "nameCn": "西澳大学医学院",
+          "lat": -31.9805,
+          "lng": 115.818,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全澳顶尖医学院，Nobel奖得主Barry Marshall与Robin Warren（幽门螺杆菌发现者）均出自此校，声誉极高。"
         },
         {
-          "name": "Law School",
+          "name": "Reid Library (M208)",
+          "nameCn": "Reid图书馆",
+          "lat": -31.9782,
+          "lng": 115.8181,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园中心最大图书馆，建于1964年，荣获RIBA铜牌，是学生借阅与自习的首选核心场所。"
+        },
+        {
+          "name": "EZONE UWA Student Hub",
+          "nameCn": "EZONE工程与数学学生中心",
+          "lat": -31.9816,
+          "lng": 115.8168,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全新工程与数学科学旗舰教学楼，设有行业合作空间与Makerspace，是工程专业学生日常核心地点。"
+        },
+        {
+          "name": "Bayliss Building (F202)",
+          "nameCn": "Bayliss大楼（分子科学学院）",
+          "lat": -31.9801,
+          "lng": 115.8163,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园最大最复杂的单体建筑，容纳分子科学学院，配备全套先进实验室设施，以Bayliss教授命名。"
+        },
+        {
+          "name": "Business School (UWA)",
+          "nameCn": "商学院",
+          "lat": -31.9788,
+          "lng": 115.8196,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "AACSB认证商学院，紧邻Swan River，提供MBA及本科商科课程，视野开阔、资源丰富。"
+        },
+        {
+          "name": "Hackett Hall (103)",
+          "nameCn": "Hackett大厅（文学院区）",
+          "lat": -31.9764,
+          "lng": 115.8182,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "建于1932年的地中海式历史建筑，是文学院核心教学楼，也是校园最具代表性的学术建筑之一。"
+        },
+        {
+          "name": "Law School (338)",
           "nameCn": "法学院",
-          "lat": -31.97959,
-          "lng": 115.81981,
-          "note": "大庭院西侧的法学院建筑。"
+          "lat": -31.9772,
+          "lng": 115.8175,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "西澳最具声望的法律教育机构，拥有专业法学图书馆（Beasley Law Library），培养大量本地顶尖律师。"
+        },
+        {
+          "name": "Oral Health Centre of WA (500)",
+          "nameCn": "西澳口腔健康中心（牙科学院）",
+          "lat": -31.9833,
+          "lng": 115.8192,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "西澳唯一提供牙医本科教育的机构，学生可预约低价口腔治疗，是国际生的实用医疗资源。"
+        },
+        {
+          "name": "Arts Building (214)",
+          "nameCn": "艺术学院大楼",
+          "lat": -31.9778,
+          "lng": 115.8198,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "人文社科系的主要教学楼，汇聚哲学、历史、语言及社会学等多个院系，校园学术氛围浓厚。"
+        },
+        {
+          "name": "UWA Science Library / Barry J. Marshall Library",
+          "nameCn": "Barry J. Marshall图书馆（医学/科学）",
+          "lat": -31.9797,
+          "lng": 115.8178,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "以Nobel奖得主Barry Marshall命名的医学与生命科学专业图书馆，配备先进研究数据库，24小时对学生开放。"
         }
       ],
       "defaultOn": true
@@ -104,18 +159,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Reid Library",
-          "nameCn": "里德图书馆",
-          "lat": -31.97894,
-          "lng": 115.81782,
-          "note": "俯瞰大庭院的全校最大图书馆。"
+          "name": "Reid Library (M208)",
+          "nameCn": "Reid图书馆",
+          "lat": -31.9782,
+          "lng": 115.8181,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最大核心图书馆，近4000个自习座位，含特藏（Special Collections），是自习首选，24小时研究生专区。"
         },
         {
-          "name": "Barry J Marshall Library",
-          "nameCn": "巴里·马歇尔图书馆",
-          "lat": -31.9829,
-          "lng": 115.81841,
-          "note": "科学与生物医学馆藏图书馆。"
+          "name": "Barry J. Marshall Library",
+          "nameCn": "Barry J. Marshall图书馆",
+          "lat": -31.9797,
+          "lng": 115.8178,
+          "rank": 2,
+          "tier": "必去",
+          "note": "以Nobel奖得主命名，专注医学与生命科学，配备研究支持服务，24小时学生专区，设有可预约小组讨论室。"
+        },
+        {
+          "name": "Beasley Law Library",
+          "nameCn": "Beasley法学图书馆",
+          "lat": -31.9772,
+          "lng": 115.8176,
+          "rank": 3,
+          "tier": "必去",
+          "note": "法学院专属图书馆，24小时对UWA学生开放，馆藏法律文献齐全，深受法学生和研究者欢迎。"
+        },
+        {
+          "name": "J. Robin Warren Library",
+          "nameCn": "J. Robin Warren图书馆",
+          "lat": -31.9802,
+          "lng": 115.8185,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "以另一Nobel奖得主命名，24小时开放，是STEM学科学生的重要学习空间，服务周到。"
+        },
+        {
+          "name": "EDFAA Library (Nedlands)",
+          "nameCn": "教育·美术·建筑图书馆（Nedlands校区）",
+          "lat": -31.9762,
+          "lng": 115.8121,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专服务于教育、美术与建筑专业的图书馆，位于Nedlands校区，馆藏艺术和视觉设计资料丰富。"
+        },
+        {
+          "name": "Reid Library Special Collections",
+          "nameCn": "Reid图书馆特藏室",
+          "lat": -31.9782,
+          "lng": 115.8181,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于Reid图书馆内，收藏珍稀手稿、历史档案与古籍，需预约参观，是研究西澳历史的宝贵资源。"
         }
       ]
     },
@@ -127,18 +222,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Lawrence Wilson Art Gallery",
-          "nameCn": "劳伦斯·威尔逊美术馆",
-          "lat": -31.9772,
-          "lng": 115.8173,
-          "note": "紧邻下沉花园的校园美术馆。"
+          "name": "Berndt Museum of Anthropology",
+          "nameCn": "Berndt人类学博物馆",
+          "lat": -31.9775,
+          "lng": 115.8158,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球最重要的澳洲原住民文化收藏之一，馆藏12000件文物及35000张照片，需预约参观，意义深远。"
         },
         {
-          "name": "Berndt Museum of Anthropology",
-          "nameCn": "伯恩特人类学博物馆",
-          "lat": -31.977,
-          "lng": 115.817,
-          "note": "收藏丰富的原住民艺术与人类学博物馆。"
+          "name": "Lawrence Wilson Art Gallery",
+          "nameCn": "Lawrence Wilson艺术画廊",
+          "lat": -31.9773,
+          "lng": 115.8157,
+          "rank": 2,
+          "tier": "必去",
+          "note": "澳洲最佳大学画廊之一，展出UWA馆藏与当代艺术，免费对外开放，是UWA艺术文化的核心展示空间。"
+        },
+        {
+          "name": "UWA Geology Museum",
+          "nameCn": "西澳大学地质博物馆",
+          "lat": -31.9798,
+          "lng": 115.8188,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "收藏超13.6万件矿物、岩石、化石与陨石标本，入口有始新世植物群展，工作日及周六免费开放。"
+        },
+        {
+          "name": "Cullity Gallery (Nedlands)",
+          "nameCn": "Cullity画廊",
+          "lat": -31.976,
+          "lng": 115.8118,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于Nedlands校区Stirling Highway对面，专注建筑、景观及视觉艺术设计，每年举办学生展览，每周五天开放。"
         }
       ]
     },
@@ -150,39 +267,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Winthrop Hall",
-          "nameCn": "温斯洛普礼堂",
-          "lat": -31.977,
-          "lng": 115.8181,
-          "note": "罗马复兴风格钟楼，全校地标。"
-        },
-        {
-          "name": "The Great Court",
-          "nameCn": "大庭院",
-          "lat": -31.9769,
-          "lng": 115.8179,
-          "note": "砂岩拱廊环抱的历史中心广场。"
+          "name": "Winthrop Hall & Clock Tower",
+          "nameCn": "Winthrop大厅与钟楼",
+          "lat": -31.9778,
+          "lng": 115.8175,
+          "rank": 1,
+          "tier": "必去",
+          "note": "建于1932年的UWA地标性建筑，也是校园最具辨识度的象征，举办毕业典礼及重要文艺活动，必拍打卡点。"
         },
         {
           "name": "Sunken Garden",
           "nameCn": "下沉花园",
-          "lat": -31.9774,
-          "lng": 115.8177,
-          "note": "由施工沙坑改造的热门婚礼与演出场地。"
+          "lat": -31.9783,
+          "lng": 115.8172,
+          "rank": 2,
+          "tier": "必去",
+          "note": "建于1930年的露天花园，嵌于校园中心，四季鲜花盛开，是学生休憩、野餐和拍照的热门场所。"
         },
         {
-          "name": "Octagon Theatre",
-          "nameCn": "八角剧院",
-          "lat": -31.97725,
-          "lng": 115.81929,
-          "note": "校园主要演出与活动剧场。"
+          "name": "Crawley Edge Boatshed (Blue Boat House)",
+          "nameCn": "克劳利蓝色船屋",
+          "lat": -31.9736,
+          "lng": 115.8205,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Perth最具标志性的网红打卡点，建于1930年代，蔚蓝色木屋倒映在Swan River上，是全Perth最多照片的景点之一。"
         },
         {
-          "name": "UWA Boatshed (Matilda Bay)",
-          "nameCn": "UWA船库（玛蒂尔达湾）",
-          "lat": -31.97637,
-          "lng": 115.82201,
-          "note": "天鹅河畔标志性蓝白船库与划船基地。"
+          "name": "UWA Student Guild Village",
+          "nameCn": "学生公会商业街（Guild Village）",
+          "lat": -31.979,
+          "lng": 115.8195,
+          "rank": 4,
+          "tier": "必去",
+          "note": "学生生活中心，汇聚餐饮、书店、社团活动空间及各类服务，是国际生融入校园社区的核心场所。"
+        },
+        {
+          "name": "Matilda Bay Reserve",
+          "nameCn": "Matilda Bay水岸公园",
+          "lat": -31.9735,
+          "lng": 115.821,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "紧邻校园的Swan River岸边绿地，可散步、野餐、观看日落，是UWA学生放松减压的最近绿洲。"
+        },
+        {
+          "name": "Oak Lawn & Great Court",
+          "nameCn": "橡树草坪与大院",
+          "lat": -31.9775,
+          "lng": 115.818,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UWA中心草坪广场，被历史建筑环抱，是校园集会、市集和学生社交的核心户外空间，氛围极好。"
+        },
+        {
+          "name": "New Fortune Theatre",
+          "nameCn": "新福运剧场",
+          "lat": -31.9769,
+          "lng": 115.8186,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "全澳唯一按16世纪伊丽莎白时代风格建造的露天剧场，经常上演莎士比亚戏剧，是UWA独特的文化地标。"
         }
       ]
     },
@@ -194,32 +339,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tucker Fresh IGA Broadway",
-          "nameCn": "Tucker Fresh IGA 超市（Broadway Fair）",
-          "lat": -31.9837,
-          "lng": 115.8149,
-          "note": "校园西侧 Broadway Fair 购物中心内的主力超市，步行约 8 分钟，日常生鲜采购最方便。"
+          "name": "Tucker Fresh IGA Broadway (Broadway Fair)",
+          "nameCn": "IGA百老汇超市（Broadway Fair）",
+          "lat": -31.9832,
+          "lng": 115.8165,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UWA步行约5分钟的最近超市，位于Broadway Fair购物中心，营业时间较长，是学生日常采购首选。"
         },
         {
-          "name": "Kong's Oriental Supermarket",
-          "nameCn": "Kong's 东方亚洲超市",
-          "lat": -31.9839,
-          "lng": 115.8146,
-          "note": "就在 Broadway Fair 内的亚超，中式调料、米面、火锅料、亚洲零食都能买到，离校最近的中国货源。"
+          "name": "Kong's Oriental Supermarket (Broadway Fair)",
+          "nameCn": "Kong's东方超市（Broadway Fair）",
+          "lat": -31.9832,
+          "lng": 115.8165,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Broadway Fair内的亚洲食材超市，出售中日韩各类酱料、米面、零食，是UWA中国留学生最近的亚超。"
+        },
+        {
+          "name": "Woolworths Subiaco",
+          "nameCn": "Woolworths超市（Subiaco）",
+          "lat": -31.9513,
+          "lng": 115.8273,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "距UWA约3公里，澳洲主流连锁大超市，商品齐全价格实惠，坐公交10分钟可达，是周末大采购常选。"
         },
         {
           "name": "Coles Subiaco",
-          "nameCn": "Coles 超市（Subiaco 店）",
-          "lat": -31.9438,
-          "lng": 115.8229,
-          "note": "Station Street 上的大型 Coles，品类比 IGA 全、价格更实惠，配套大停车场，适合一周大采购。"
+          "nameCn": "Coles超市（Subiaco）",
+          "lat": -31.9508,
+          "lng": 115.8268,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Subiaco另一家主流连锁超市，位于44 Station St，与Woolworths相近，自有品牌产品性价比高。"
         },
         {
-          "name": "Pavilion Fresh Markets Subiaco",
-          "nameCn": "Subiaco Pavilion 生鲜市场",
-          "lat": -31.9455,
-          "lng": 115.8246,
-          "note": "Rokeby Road 上的生鲜市场，蔬果、海鲜、肉类新鲜，部分亚洲食材也能淘到。"
+          "name": "Trans Asian Food Centre",
+          "nameCn": "Trans亚洲食品中心（Northbridge）",
+          "lat": -31.9432,
+          "lng": 115.8575,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Perth最大的亚洲食材专营商，位于Northbridge 358 Newcastle St，直接进口超10个国家食材，中国留学生必逛。"
+        },
+        {
+          "name": "Kai Supermarket",
+          "nameCn": "Kai超市（海亚洲超市，Victoria Park）",
+          "lat": -31.9757,
+          "lng": 115.8822,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "维多利亚公园422 Albany Hwy，专注台湾、中国、越南等亚洲食材，品类丰富，是不怕远的中餐食材首选。"
         }
       ]
     },
@@ -231,46 +402,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "China Tang (Dumpling & Noodle House)",
-          "nameCn": "China Tang 中餐馆（饺子面馆）",
-          "lat": -31.9838,
-          "lng": 115.8147,
-          "note": "Broadway Fair 内的人气中餐，饺子和面食出名，午饭挤满 UWA 学生，价格亲民。"
+          "name": "China Tang Authentic Chinese Cuisine",
+          "nameCn": "中唐正宗中餐馆（Crawley）",
+          "lat": -31.9832,
+          "lng": 115.8165,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "位于Broadway Fair内，每日现包饺子、馄饨，价格亲民，午餐时间挤满UWA学生，是校园边最热门的中餐。"
+        },
+        {
+          "name": "Authentic Bites Dumpling House",
+          "nameCn": "真真小笼北桥店（Northbridge）",
+          "lat": -31.9441,
+          "lng": 115.8582,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于145 Newcastle St，小笼包（XLB）全Perth最正宗之一，排队是常态，是中国留学生聚会必去。"
+        },
+        {
+          "name": "Sunflowers Chinese Restaurant",
+          "nameCn": "向日葵中餐厅（Nedlands）",
+          "lat": -31.9841,
+          "lng": 115.8152,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "步行5分钟即达，17 Broadway，提供外卖和堂食，菜品实惠，长期受UWA学生好评，是周边最稳定的中餐。"
+        },
+        {
+          "name": "Hong Kong BBQ House",
+          "nameCn": "香港烧腊（Northbridge）",
+          "lat": -31.9444,
+          "lng": 115.859,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "76 Francis St，港式烧腊叉烧与脆皮烧鸭闻名Perth，现场可见活海鲜水缸，是渴望港式中餐时的首选。"
+        },
+        {
+          "name": "Old Shanghai Food Hall",
+          "nameCn": "老上海美食广场（Northbridge）",
+          "lat": -31.9449,
+          "lng": 115.8599,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "123 James St，Perth最知名的亚洲美食广场，经营逾30年，汇聚中餐、日料、马来西亚、韩国等多国档口。"
+        },
+        {
+          "name": "Matilda Bay Restaurant",
+          "nameCn": "Matilda Bay餐厅（Crawley）",
+          "lat": -31.974,
+          "lng": 115.8215,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "3 Hackett Dr，Swan River岸边的标志性海鲜餐厅，风景绝佳，适合特殊场合或招待家长，本地人强推。"
+        },
+        {
+          "name": "Canton Bay Chinese Restaurant",
+          "nameCn": "广东湾中餐（Perth CBD）",
+          "lat": -31.9595,
+          "lng": 115.86,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "130 Mounts Bay Rd，Perth人气最旺的港式点心（Yum Cha）之一，周末常需排队，适合呼朋唤友聚餐。"
+        },
+        {
+          "name": "Fortune Five Chinese Restaurant",
+          "nameCn": "五福粤菜（Northbridge）",
+          "lat": -31.9452,
+          "lng": 115.8602,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "108A James St，传统粤菜与点心，提供雪蟹、龙虾等海鲜，环境适合多人聚餐，广受中国社区认可。"
         },
         {
           "name": "Malaysian Gourmet Nedlands",
-          "nameCn": "Malaysian Gourmet 马来西亚餐厅",
-          "lat": -31.9837,
-          "lng": 115.8145,
-          "note": "同在 Broadway Fair，叻沙、海南鸡饭、椰浆饭等南洋口味，想念亚洲味道时的近处选择。"
+          "nameCn": "马来西亚美食（Nedlands）",
+          "lat": -31.9832,
+          "lng": 115.8165,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于Broadway Fair内，提供叻沙、虾面等马来西亚风味，是喜爱东南亚口味学生的便捷选择。"
         },
         {
-          "name": "Ohnamiya Japanese Restaurant",
-          "nameCn": "Ohnamiya 日本料理",
-          "lat": -31.9763,
-          "lng": 115.8138,
-          "note": "Hampden Road 上靠近校园的日料店，刺身、定食地道，比市区分店清静，步行可达。"
+          "name": "Nagano Sushi Nedlands",
+          "nameCn": "长野寿司（Nedlands）",
+          "lat": -31.9832,
+          "lng": 115.8165,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "位于Broadway Fair内，性价比高的日式寿司外卖，套餐丰富，是赶论文时的快速填肚好选择。"
         },
         {
-          "name": "Steve's Fine Wine & Food (Nedlands)",
-          "nameCn": "Steve's 酒馆餐厅（Nedlands）",
-          "lat": -31.9814,
-          "lng": 115.8141,
-          "note": "几代 UWA 学生的传统聚会地标（前 Nedlands Park Hotel），考完试、毕业季都来这庆祝。"
+          "name": "Lulu La Delizia",
+          "nameCn": "Lulu La Delizia意大利餐（Subiaco）",
+          "lat": -31.9505,
+          "lng": 115.8278,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Subiaco热门意式餐厅，菜单精致兼顾北意风格舒适感，是犒赏自己或与朋友庆祝的不错选择。"
         },
         {
-          "name": "Captain Stirling Hotel",
-          "nameCn": "Captain Stirling 酒店餐吧",
-          "lat": -31.9793,
-          "lng": 115.8043,
-          "note": "Stirling Highway 上的本地老牌 pub，澳式酒吧菜和周末氛围，体验当地学生社交文化。"
-        },
-        {
-          "name": "Chutney Mary's Subiaco",
-          "nameCn": "Chutney Mary's 印度餐厅（Subiaco）",
-          "lat": -31.9468,
-          "lng": 115.8254,
-          "note": "Rokeby Road 上招牌粉色门面的人气印度菜，咖喱和午市 Thali 套餐很受欢迎。"
+          "name": "Lady of Ro",
+          "nameCn": "Lady of Ro希腊餐（Subiaco）",
+          "lat": -31.9508,
+          "lng": 115.8271,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Subiaco风味独特的希腊小酒馆，炭烤章鱼、慢炖羊肉口碑极佳，装修有腔调，适合放松约饭。"
         }
       ]
     },
@@ -282,32 +519,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank — Claremont Quarter",
-          "nameCn": "联邦银行 Commonwealth Bank（Claremont 分行）",
-          "lat": -31.9825,
-          "lng": 115.7806,
-          "note": "离校最近的大行实体网点之一，可办留学生开户、银行卡，CommBank 是澳洲四大行之一。"
+          "name": "UWA Medical Centre",
+          "nameCn": "UWA学生医疗中心",
+          "lat": -31.9817,
+          "lng": 115.8172,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于35 Stirling Hwy M319，专为UWA学生服务的GP诊所，留学生持OSHC保险可就诊，建议提前预约。"
         },
         {
-          "name": "Sir Charles Gairdner Hospital",
+          "name": "Nedlands Family General Practice",
+          "nameCn": "Nedlands家庭全科诊所",
+          "lat": -31.9842,
+          "lng": 115.8152,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Broadway购物中心内，Bulk billing（Medicare报销）诊所，工作日及周末提供延伸服务，步行可达。"
+        },
+        {
+          "name": "Sir Charles Gairdner Hospital (QEII Medical Centre)",
           "nameCn": "查尔斯·盖尔德纳爵士医院",
-          "lat": -31.9676,
-          "lng": 115.8153,
-          "note": "距校约 1.3 公里的大型公立教学医院，设急诊（Emergency），紧急就医认准这里。"
+          "lat": -31.9789,
+          "lng": 115.814,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Nedlands的三甲级公立医院，紧急情况24小时急诊，距UWA仅约1公里，是最近的大型医院。"
         },
         {
-          "name": "TerryWhite Chemmart Broadway Fair",
-          "nameCn": "TerryWhite Chemmart 药房（Broadway Fair）",
-          "lat": -31.9836,
-          "lng": 115.8148,
-          "note": "校园旁购物中心内的连锁药房，买药、处方、日用药妆都方便，旁边还有 Nedlands 医疗中心 GP。"
+          "name": "Matilda Bay Pharmacy",
+          "nameCn": "Matilda Bay药房（校园内）",
+          "lat": -31.9785,
+          "lng": 115.8197,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于Forrest Hall 35 Stirling Hwy附近，校园最近药房，处方药与OTC常备药购买方便，开学季必知。"
         },
         {
-          "name": "Telstra Store — Claremont Quarter",
-          "nameCn": "Telstra 电信营业厅（Claremont Quarter）",
-          "lat": -31.9819,
-          "lng": 115.7798,
-          "note": "Telstra 是澳洲信号覆盖最广的运营商，落地办本地手机卡/套餐可来这家实体店。"
+          "name": "Westpac Branch (on campus / Subiaco)",
+          "nameCn": "Westpac银行（校园ATM / Subiaco支行）",
+          "lat": -31.9793,
+          "lng": 115.8196,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园内有Westpac ATM，最近支行在Subiaco 130 Rokeby Rd，Westpac提供国际学生专属银行账户，开户便捷。"
+        },
+        {
+          "name": "Optus Store (Subiaco)",
+          "nameCn": "Optus电信门店（Subiaco）",
+          "lat": -31.9512,
+          "lng": 115.8274,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Subiaco购物区内，可购买预付SIM卡及月租套餐，Optus 4G/5G覆盖Perth全域，适合国际生首选运营商。"
+        },
+        {
+          "name": "Commonwealth Bank (Nedlands, UWA Branch)",
+          "nameCn": "联邦银行（Nedlands/UWA支行）",
+          "lat": -31.9818,
+          "lng": 115.8162,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "原4 Stirling Hwy Nedlands支行已关闭，但校园内有CBA ATM，最近营业支行在Subiaco，可网上开户无需到店。"
         }
       ]
     },
@@ -319,39 +591,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Matilda Bay Reserve",
-          "nameCn": "Matilda Bay 河滨保护区",
-          "lat": -31.9805,
-          "lng": 115.8209,
-          "note": "紧挨校园的天鹅河湾，草坪野餐、看帆船日落的好去处，步行几分钟即到。"
-        },
-        {
           "name": "Kings Park and Botanic Garden",
           "nameCn": "国王公园与植物园",
-          "lat": -31.9622,
-          "lng": 115.8286,
-          "note": "全球最大的城市公园之一，可俯瞰珀斯天际线与天swan河，赏花、散步、拍照必去。"
+          "lat": -31.9628,
+          "lng": 115.8327,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UWA约2公里，全球最大的市内城市公园之一，400公顷，俯瞰Swan River与Perth CBD全景，西澳花卉壮观。"
+        },
+        {
+          "name": "Rottnest Island",
+          "nameCn": "罗特内斯特岛（松鼠岛）",
+          "lat": -31.9935,
+          "lng": 115.521,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Perth必游的日游岛屿，约1万只quokka（短尾袋鼠）在此栖居，可租单车环岛，从Fremantle乘轮渡约25分钟。"
+        },
+        {
+          "name": "Crawley Edge Boatshed (Blue Boat House)",
+          "nameCn": "克劳利蓝色船屋",
+          "lat": -31.9736,
+          "lng": 115.8205,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Perth最著名的网红打卡地标，CNN认证Perth第一摄影景点，就在UWA校门口步行可达，留学生必打卡。"
         },
         {
           "name": "Cottesloe Beach",
-          "nameCn": "科特斯洛海滩",
-          "lat": -31.9954,
-          "lng": 115.7512,
-          "note": "珀斯最著名的城市海滩，印度洋日落绝美，火车/公交可达，夏天游泳晒太阳的首选。"
+          "nameCn": "科茨斯洛海滩",
+          "lat": -31.9958,
+          "lng": 115.7506,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Perth最具代表性的海滩，透明海水与白沙滩，夕阳绝美，距UWA约15分钟车程，夏季冲浪游泳胜地。"
         },
         {
-          "name": "Lawrence Wilson Art Gallery (UWA)",
-          "nameCn": "劳伦斯·威尔逊艺术馆（UWA 校内）",
-          "lat": -31.9769,
-          "lng": 115.8162,
-          "note": "校园内免费公共美术馆，展澳洲及原住民艺术，课余看展、拍 UWA 经典建筑都顺路。"
+          "name": "Fremantle",
+          "nameCn": "弗里曼特尔港口城",
+          "lat": -32.0569,
+          "lng": 115.7477,
+          "rank": 5,
+          "tier": "必去",
+          "note": "充满维多利亚时代建筑与文化气息的港口小城，弗里曼特尔监狱（世遗）、市场、渔人码头构成经典一日游。"
         },
         {
-          "name": "Claremont Quarter",
-          "nameCn": "Claremont Quarter 购物区",
-          "lat": -31.9823,
-          "lng": 115.7797,
-          "note": "校园西边的高档购物街区，集购物、咖啡、餐厅于一体，周末逛街社交的去处。"
+          "name": "Fremantle Markets",
+          "nameCn": "弗里曼特尔市场",
+          "lat": -32.0562,
+          "lng": 115.7467,
+          "rank": 6,
+          "tier": "必去",
+          "note": "74 South Terrace，建于1897年的历史市场，周末开放，超150家小店含手工艺、美食与新鲜农产品，周末必逛。"
+        },
+        {
+          "name": "Fremantle Prison",
+          "nameCn": "弗里曼特尔监狱（世界遗产）",
+          "lat": -32.0543,
+          "lng": 115.7506,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "澳洲唯一世界文化遗产级监狱，1 The Terrace，每天9am-5pm开放，内有各类主题导览，参观价值极高。"
+        },
+        {
+          "name": "Elizabeth Quay",
+          "nameCn": "伊丽莎白码头（Perth CBD滨水区）",
+          "lat": -31.9617,
+          "lng": 115.853,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Perth CBD标志性滨水广场，有Swan Bells铃塔，周边餐厅、咖啡和艺术装置密集，乘火车20分钟可达。"
+        },
+        {
+          "name": "Northbridge Precinct",
+          "nameCn": "北桥娱乐区（Perth华人街区）",
+          "lat": -31.9449,
+          "lng": 115.8591,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "Perth最热闹的夜生活与美食区，同时也是Perth华人聚集的核心区域，亚洲餐馆、小吃和中国超市林立。"
+        },
+        {
+          "name": "Matilda Bay Reserve & Swan River",
+          "nameCn": "Matilda Bay水岸公园",
+          "lat": -31.9735,
+          "lng": 115.821,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "UWA步行即达的Swan River岸边，可散步、划船、看日落，与著名蓝色船屋相邻，是校内学生最爱的休闲绿地。"
         }
       ]
     }

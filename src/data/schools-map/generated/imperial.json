@@ -83,74 +83,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Imperial College Business School",
-          "nameCn": "帝国理工商学院",
-          "lat": 51.4988,
-          "lng": -0.1746,
-          "note": "展览路口诺曼·福斯特设计的现代商学院大楼。"
+          "name": "Huxley Building — Dept of Computing & Mathematics",
+          "nameCn": "赫胥黎楼（计算机系 & 数学系）",
+          "lat": 51.4987,
+          "lng": -0.1791,
+          "rank": 1,
+          "tier": "必去",
+          "note": "计算机系与数学系所在地，帝国理工最顶尖的理工学科楼，地址180 Queen's Gate，是全球排名前列的CS系。"
         },
         {
-          "name": "Sherfield Building",
-          "nameCn": "Sherfield 行政楼",
+          "name": "Blackett Laboratory — Dept of Physics",
+          "nameCn": "布莱克特实验室（物理系）",
+          "lat": 51.499,
+          "lng": -0.1793,
+          "rank": 2,
+          "tier": "必去",
+          "note": "物理系旗舰楼，1961年建成，拥有粒子物理与光学等顶级研究设施，出过多位诺贝尔奖得主。"
+        },
+        {
+          "name": "Royal School of Mines — Dept of Earth Science & Materials",
+          "nameCn": "皇家矿业学院楼（地球科学 & 材料系）",
+          "lat": 51.4995,
+          "lng": -0.1742,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Edwardian风格历史建筑，Grade II保护，地球科学与材料科学系主楼，Prince Consort Road正门，是帝国理工最具历史感的院楼。"
+        },
+        {
+          "name": "Imperial College Business School (Tanaka Building)",
+          "nameCn": "帝国理工商学院（田中楼，诺曼·福斯特设计）",
           "lat": 51.4986,
-          "lng": -0.1759,
-          "note": "校区中央行政与服务枢纽,大礼堂所在。"
-        },
-        {
-          "name": "Blackett Laboratory (Physics)",
-          "nameCn": "Blackett 物理楼",
-          "lat": 51.4988,
-          "lng": -0.1773,
-          "note": "物理系所在,以诺奖得主 Blackett 命名。"
-        },
-        {
-          "name": "Huxley Building (Computing & Mathematics)",
-          "nameCn": "Huxley 楼(计算机与数学)",
-          "lat": 51.4989,
-          "lng": -0.1792,
-          "note": "皇后门路上的计算机系与数学系大楼。"
-        },
-        {
-          "name": "Skempton Building (Civil Engineering)",
-          "nameCn": "Skempton 土木工程楼",
-          "lat": 51.4984,
-          "lng": -0.1758,
-          "note": "土木与环境工程系所在大楼。"
-        },
-        {
-          "name": "Royal School of Mines",
-          "nameCn": "皇家矿业学院楼",
-          "lat": 51.4994,
           "lng": -0.1771,
-          "note": "爱德华时代地标建筑,材料系与地球科学系所在。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "诺曼·福斯特爵士设计的标志性玻璃幕墙建筑，2004年开幕，商学院MBA/MSc项目主场，位于Exhibition Road校园正门入口处。"
         },
         {
-          "name": "Sir Alexander Fleming Building",
-          "nameCn": "亚历山大·弗莱明楼",
+          "name": "Sherfield Building — Student Hub & Registry",
+          "nameCn": "谢菲尔德楼（学生中心 & 教务处）",
+          "lat": 51.4984,
+          "lng": -0.1775,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园最大单体楼，Student Hub国际生注册、签证支持、考务均在此，也有Rasa Kitchen和Pizza Pi等食堂。"
+        },
+        {
+          "name": "Roderic Hill Building — Aeronautics & Chemical Engineering",
+          "nameCn": "罗德里克·希尔楼（航空系 & 化工系）",
+          "lat": 51.4993,
+          "lng": -0.1799,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "航空工程系与化学工程系联合主楼，以前任校长命名，是帝国顶牌工程专业的教学科研核心楼。"
+        },
+        {
+          "name": "Sir Alexander Fleming Building (SAF) — Life Sciences & Bioengineering",
+          "nameCn": "亚历山大·弗莱明爵士楼（生命科学 & 生物工程系）",
           "lat": 51.498,
-          "lng": -0.1755,
-          "note": "生命科学与医学院核心实验楼。"
+          "lng": -0.1762,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "生命科学与生物工程系所在地，以青霉素发现者命名，Norman Foster设计，曾荣获英国皇家建筑师学会大奖。"
         },
         {
-          "name": "City and Guilds Building",
-          "nameCn": "City and Guilds 工程楼",
+          "name": "Skempton Building — Dept of Civil & Environmental Engineering",
+          "nameCn": "斯肯普顿楼（土木与环境工程系）",
+          "lat": 51.4982,
+          "lng": -0.1795,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "土木与环境工程系主楼，帝国理工第一个获得碳中和认证的教学楼，位于Imperial College Road沿线。"
+        },
+        {
+          "name": "Electrical Engineering Building — Dept of EEE",
+          "nameCn": "电气工程楼（电气与电子工程系）",
+          "lat": 51.4985,
+          "lng": -0.1806,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "电气电子工程系主楼，EEE是帝国理工录取竞争最激烈的本科专业之一，楼内有著名的阻抗测量实验室。"
+        },
+        {
+          "name": "Chemistry Building — Dept of Chemistry",
+          "nameCn": "化学楼（化学系）",
+          "lat": 51.4976,
+          "lng": -0.178,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "化学系主楼，紧邻Abdus Salam Library，帝国理工化学方向在全英及全球均名列前茅，大量实验室研究在此进行。"
+        },
+        {
+          "name": "Mechanical Engineering Building",
+          "nameCn": "机械工程楼",
+          "lat": 51.4989,
+          "lng": -0.1804,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "机械工程系主楼，包括热力学、流体力学、制造工程等核心实验室，与航空系共享部分研究设施。"
+        },
+        {
+          "name": "Faculty Building (Dyson School of Design Engineering)",
+          "nameCn": "学院大楼（戴森设计工程学院）",
           "lat": 51.4983,
-          "lng": -0.1748,
-          "note": "机械与航空工程系所在大楼。"
-        },
-        {
-          "name": "Molecular Sciences Research Hub (White City)",
-          "nameCn": "分子科学研究中心(白城)",
-          "lat": 51.5163,
-          "lng": -0.2244,
-          "note": "白城校区化学系主楼,82 Wood Lane。"
-        },
-        {
-          "name": "Sir Michael Uren Hub (White City)",
-          "nameCn": "Michael Uren 研究中心(白城)",
-          "lat": 51.5157,
-          "lng": -0.2251,
-          "note": "白城校区生物医学工程与转化研究大楼。"
+          "lng": -0.1768,
+          "rank": 12,
+          "tier": "可选",
+          "note": "戴森设计工程学院独特之处在于同时涵盖工程与设计，由詹姆斯·戴森爵士赞助，2016年成立。"
         }
       ],
       "defaultOn": true
@@ -163,11 +201,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Imperial College Central Library",
-          "nameCn": "中央图书馆",
-          "lat": 51.4985,
-          "lng": -0.1763,
-          "note": "主校区核心图书馆,位于 Sherfield 楼旁。"
+          "name": "Abdus Salam Library",
+          "nameCn": "阿卜杜斯·萨拉姆中央图书馆",
+          "lat": 51.4981,
+          "lng": -0.1773,
+          "rank": 1,
+          "tier": "必去",
+          "note": "帝国理工主图书馆，24小时开放（周五23点至周六10点除外），5层楼，250+台电脑，有可预约讨论室和图书馆咖啡厅，是主校区自习圣地。"
+        },
+        {
+          "name": "Central Library (Science) — Level 3 Sherfield",
+          "nameCn": "中央科学图书馆（谢菲尔德楼3层）",
+          "lat": 51.4984,
+          "lng": -0.1775,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "谢菲尔德楼内的二级馆，以理工科短期借阅教材和考试复习资料为主，临近教室，白天利用率极高。"
+        },
+        {
+          "name": "Student Space (GoStudy)",
+          "nameCn": "学生自习空间（GoStudy）",
+          "lat": 51.4984,
+          "lng": -0.1776,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "每天08:00–23:00开放的延伸自习区，考试季座位紧张，含分区静音区和小组讨论区，图书馆爆满时的替补首选。"
+        },
+        {
+          "name": "Hammersmith Campus Library",
+          "nameCn": "汉默史密斯校区图书馆",
+          "lat": 51.5144,
+          "lng": -0.2349,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "医学院汉默史密斯校区图书馆（Du Cane Road, W12），主要服务医学生，有大量临床与基础医学数据库。"
+        },
+        {
+          "name": "Chelsea and Westminster Campus Library",
+          "nameCn": "切尔西–西敏斯特医院校区图书馆",
+          "lat": 51.4832,
+          "lng": -0.1818,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于切尔西–西敏斯特医院内（369 Fulham Road），专供医学生及医疗实习使用，馆藏侧重临床医学与护理。"
+        },
+        {
+          "name": "St Mary's Campus Library",
+          "nameCn": "圣玛丽医院校区图书馆",
+          "lat": 51.5178,
+          "lng": -0.1737,
+          "rank": 6,
+          "tier": "可选",
+          "note": "帝国理工圣玛丽医学院所在（Paddington），弗莱明发现青霉素的医院，图书馆侧重感染与免疫学文献。"
         }
       ]
     },
@@ -179,25 +264,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Natural History Museum",
-          "nameCn": "自然历史博物馆",
-          "lat": 51.4967,
-          "lng": -0.1765,
-          "note": "毗邻南肯辛顿校区南侧,世界级自然史馆藏。"
-        },
-        {
-          "name": "Victoria and Albert Museum",
-          "nameCn": "维多利亚与艾伯特博物馆",
-          "lat": 51.4966,
-          "lng": -0.1722,
-          "note": "展览路东侧艺术与设计博物馆,校区紧邻。"
-        },
-        {
           "name": "Science Museum",
           "nameCn": "科学博物馆",
           "lat": 51.4978,
           "lng": -0.1745,
-          "note": "校区南缘的国家科学博物馆,展览路上。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻帝国理工校门，展示航空、太空、工业革命等科技史，对理工科学生尤具意义，免费入场，每周可去打卡。"
+        },
+        {
+          "name": "Natural History Museum",
+          "nameCn": "自然历史博物馆",
+          "lat": 51.4967,
+          "lng": -0.1764,
+          "rank": 2,
+          "tier": "必去",
+          "note": "帝国理工步行5分钟，恐龙化石、地球演化展览世界顶级，哥特式建筑本身即壁纸级打卡地，常年免费入场。"
+        },
+        {
+          "name": "Victoria and Albert Museum (V&A)",
+          "nameCn": "维多利亚和阿尔伯特博物馆（V&A）",
+          "lat": 51.4966,
+          "lng": -0.1722,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全球最大装饰艺术与设计博物馆，馆藏500年人类创作精品，时装、陶瓷、首饰、家具无所不包，免费入场。"
+        },
+        {
+          "name": "Serpentine Galleries (South + North)",
+          "nameCn": "蛇形画廊（南馆 + 北馆）",
+          "lat": 51.5046,
+          "lng": -0.1751,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "世界级当代艺术画廊，坐落于肯辛顿花园，每年夏季委托知名建筑师设计临时展亭是全球建筑界大事，免费入场。"
+        },
+        {
+          "name": "Royal College of Music Museum",
+          "nameCn": "皇家音乐学院博物馆",
+          "lat": 51.4994,
+          "lng": -0.1778,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "收藏欧洲古典乐器，含斯特拉迪瓦里名琴，帝国理工步行2分钟即到，是探访邻校RCM文化的好去处。"
         }
       ]
     },
@@ -211,30 +320,65 @@
         {
           "name": "Queen's Tower",
           "nameCn": "女王塔",
-          "lat": 51.4983,
+          "lat": 51.4984,
           "lng": -0.1769,
-          "note": "校区中央地标钟塔,原帝国理工学院学院旧建筑唯一遗存。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "帝国理工最标志性地标，87米高铜顶钟楼，2026年4月刚完成3年修缮重新开放，是全校最具辨识度的打卡地。"
         },
         {
-          "name": "Imperial College Union (Beit Quadrangle)",
-          "nameCn": "帝国理工学生会",
-          "lat": 51.499,
-          "lng": -0.1781,
-          "note": "Beit 庭院内的学生会大楼,社团与学生生活中心。"
-        },
-        {
-          "name": "Main Entrance, Exhibition Road",
-          "nameCn": "展览路主入口",
-          "lat": 51.4986,
+          "name": "Imperial College Union (Beit Quad)",
+          "nameCn": "帝国理工学生会（贝特庭院）",
+          "lat": 51.4987,
           "lng": -0.1745,
-          "note": "校区东侧展览路主入口,毗邻各大博物馆。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生社团、酒吧（dB's Bar）、活动中心均在此，社团注册、选举、体育赛事的核心，是学生课外生活的枢纽。"
         },
         {
-          "name": "South Kensington Underground Station",
-          "nameCn": "南肯辛顿地铁站",
-          "lat": 51.4941,
-          "lng": -0.1739,
-          "note": "最近地铁站,经地下通道直通博物馆区。"
+          "name": "Queen's Lawn",
+          "nameCn": "女王草坪",
+          "lat": 51.4983,
+          "lng": -0.177,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园中央绿地，女王塔前方，天气好时学生晒太阳、野餐的首选；每周二Imperial农夫市集也在此举行。"
+        },
+        {
+          "name": "Royal Albert Hall",
+          "nameCn": "皇家阿尔伯特音乐厅",
+          "lat": 51.5009,
+          "lng": -0.1775,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "步行5分钟即达的世界著名音乐厅，学生持身份证可购买廉价站票欣赏BBC Proms、演唱会等，是伦敦必去地标。"
+        },
+        {
+          "name": "Ethos Sports Centre",
+          "nameCn": "Ethos体育中心",
+          "lat": 51.4976,
+          "lng": -0.1797,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校内健身房、25米泳池、9米攀岩墙，学生年卡性价比高，Imperial College Road入口，日常锻炼首选。"
+        },
+        {
+          "name": "Exhibition Road Cultural Corridor",
+          "nameCn": "展览路文化长廊",
+          "lat": 51.498,
+          "lng": -0.1743,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "连接Science Museum、Natural History Museum、V&A及帝国理工的步行文化街，是全英最密集的学术文化走廊，走一遍感受南肯辛顿精华。"
+        },
+        {
+          "name": "Prince's Gardens Accommodation & Common Rooms",
+          "nameCn": "王子花园宿舍区",
+          "lat": 51.4974,
+          "lng": -0.1795,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "帝国理工主要学生宿舍群（Weeks Hall、Garden Hall、Eastside等），宿舍楼之间有公共休息室，是认识新室友的社交起点。"
         }
       ]
     },
@@ -246,39 +390,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Waitrose Gloucester Road",
-          "nameCn": "Waitrose 超市（格洛斯特路店）",
+          "name": "Sainsbury's Superstore — 158a Cromwell Road",
+          "nameCn": "塞恩斯伯里大型超市（克伦威尔路）",
+          "lat": 51.4938,
+          "lng": -0.1951,
+          "rank": 1,
+          "tier": "必去",
+          "note": "帝国理工最近的大型超市（步行约12分钟），周一至周五07:00–23:00，品类齐全，是日常采购首选。"
+        },
+        {
+          "name": "Waitrose — Gloucester Road (Gloucester Arcade)",
+          "nameCn": "维特罗斯超市（格洛斯特路）",
           "lat": 51.4945,
-          "lng": -0.1819,
-          "note": "离校最近的中高端连锁超市，紧邻 Gloucester Road 地铁站，生鲜、烘焙和日用品齐全。"
+          "lng": -0.1835,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Gloucester Road地铁站旁（128 Gloucester Rd），食材品质高，有机产品齐全，步行约10分钟，是学生日常买菜的高频选择。"
         },
         {
-          "name": "Sainsbury's Cromwell Road",
-          "nameCn": "Sainsbury's 大型超市（克伦威尔路店）",
-          "lat": 51.4949,
-          "lng": -0.1916,
-          "note": "步行可达的大型超市，价格比 Waitrose 实惠，适合一次性囤一周的食材。"
+          "name": "Tesco Express — Gloucester Road",
+          "nameCn": "乐购特快（格洛斯特路）",
+          "lat": 51.4951,
+          "lng": -0.1836,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "87–93 Gloucester Road，紧邻地铁站，深夜也能补给零食熟食，价格较Waitrose实惠，适合随买随走。"
         },
         {
-          "name": "Tesco Express Gloucester Road",
-          "nameCn": "Tesco Express 便利超市（格洛斯特路店）",
-          "lat": 51.4942,
-          "lng": -0.1827,
-          "note": "地铁站旁的小型便利店，营业时间长，临时买牛奶零食很方便。"
+          "name": "Whole Foods Market — Kensington High Street",
+          "nameCn": "全食超市（肯辛顿高街）",
+          "lat": 51.5009,
+          "lng": -0.1914,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "63–97 Kensington High Street，有机健康食品超市，楼上有Bone Daddies拉面可顺道吃，是生活质量型采购地。"
         },
         {
-          "name": "Oriental Supermarket (Fulham Road)",
-          "nameCn": "东方亚洲超市（富勒姆路店）",
-          "lat": 51.4852,
-          "lng": -0.1826,
-          "note": "离校最近的亚洲超市，老干妈、火锅底料、面条米粉等中餐食材都能买到。"
+          "name": "Loon Fung Supermarket — Chinatown Gerrard Street",
+          "nameCn": "龙凤超市（唐人街）",
+          "lat": 51.5129,
+          "lng": -0.1309,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "42–44 Gerrard Street，1965年开业的唐人街标志性中国超市，有自带屠宰档和鱼档，是购买中式食材最靠谱的去处。"
         },
         {
-          "name": "Whole Foods Market Kensington",
-          "nameCn": "Whole Foods 有机超市（肯辛顿店）",
-          "lat": 51.5002,
-          "lng": -0.1925,
-          "note": "肯辛顿大街上的大型有机精品超市，进口食材和现成熟食选择多。"
+          "name": "SeeWoo Supermarket — Chinatown Lisle Street",
+          "nameCn": "泗和行（唐人街莱尔街）",
+          "lat": 51.5127,
+          "lng": -0.1311,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "18–21 Lisle Street，两层楼8000+亚洲商品，蔬菜、调料、冻品一站购齐，是伦敦华人学生公认的中式食材大本营。"
+        },
+        {
+          "name": "New Loon Moon Supermarket — Chinatown",
+          "nameCn": "新龙门超市（唐人街）",
+          "lat": 51.513,
+          "lng": -0.1311,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "9A Gerrard Street，中型唐人街中超，3500+商品，偶有港式零食和特色腌制食品，价格比龙凤稍实惠。"
+        },
+        {
+          "name": "Marks & Spencer Food Hall — Kensington High Street",
+          "nameCn": "马莎百货食品厅（肯辛顿高街）",
+          "lat": 51.5009,
+          "lng": -0.1929,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "M&S食品厅以半成品料理包和高品质熟食著称，学习繁忙时懒人饭首选，距校约15分钟步行。"
         }
       ]
     },
@@ -290,46 +471,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "The Bugis",
-          "nameCn": "The Bugis 新加坡/中餐馆",
-          "lat": 51.4939,
-          "lng": -0.1825,
-          "note": "格洛斯特路上的亚洲餐厅，主打新加坡和中式菜，离校近、想吃中餐时的首选。"
+          "name": "Four Seasons Chinese Restaurant",
+          "nameCn": "四季中餐厅（Queensway）",
+          "lat": 51.5128,
+          "lng": -0.1888,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "84 Queensway，伦敦公认最佳烤鸭之一，1990年营业至今，皮脆肉嫩，华人学生和食评人一致推崇，地铁Bayswater站步行即到。"
         },
         {
-          "name": "Daquise",
-          "nameCn": "Daquise 波兰餐厅",
-          "lat": 51.4944,
-          "lng": -0.1734,
-          "note": "South Kensington 站旁 1947 年开业的伦敦最老波兰餐厅，本地经典必体验。"
+          "name": "Mandarin Kitchen",
+          "nameCn": "满大人厨房（Queensway）",
+          "lat": 51.5131,
+          "lng": -0.1882,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "14–16 Queensway，1978年开业，发明了伦敦招牌菜「龙虾炒蛋面」，是伦敦华人学生必带父母来吃的地方。"
         },
         {
-          "name": "Hǎo Chí (Imperial JCR)",
-          "nameCn": "好吃（帝国理工校内中餐）",
-          "lat": 51.4988,
-          "lng": -0.1766,
-          "note": "帝国理工 JCR 内的中式餐档，课间想吃口热乎中餐最省事的选择。"
+          "name": "Gold Mine Restaurant",
+          "nameCn": "金山楼（Queensway）",
+          "lat": 51.5126,
+          "lng": -0.1893,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "102 Queensway，Time Out伦敦最佳中餐推荐，烤鸭可去骨，烧肉和叉烧亦是招牌，午市点心物美价廉。"
         },
         {
-          "name": "Comptoir Libanais South Kensington",
-          "nameCn": "Comptoir Libanais 黎巴嫩餐厅",
-          "lat": 51.4945,
-          "lng": -0.1739,
-          "note": "Exhibition Road 上人气中东餐厅，烤肉拼盘和 mezze 份量足、价格友好。"
+          "name": "Min Jiang — Royal Garden Hotel",
+          "nameCn": "岷江（皇家花园酒店10楼）",
+          "lat": 51.5014,
+          "lng": -0.194,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "2–24 Kensington High Street皇家花园酒店顶楼，俯瞰海德公园，正宗北京片皮鸭，接待家长或正式聚餐的不二之选。"
         },
         {
-          "name": "Da Mario",
-          "nameCn": "Da Mario 意大利披萨店",
-          "lat": 51.496,
-          "lng": -0.179,
-          "note": "博物馆区旁的老牌意餐，传说戴安娜王妃常来，那不勒斯披萨地道。"
+          "name": "Pearl Liang",
+          "nameCn": "漂亮（Paddington）",
+          "lat": 51.5198,
+          "lng": -0.178,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "8 Sheldon Square, Paddington，广受好评的广式海鲜和点心餐厅，扇贝蒸饺和北京鸭均出色，午间点心大推。"
         },
         {
-          "name": "Muriel's Kitchen South Kensington",
-          "nameCn": "Muriel's Kitchen 英式早午餐",
-          "lat": 51.4943,
-          "lng": -0.1741,
-          "note": "校园对面的全天候早午餐店，英式 brunch 和咖啡蛋糕适合复习时泡馆。"
+          "name": "Bone Daddies — High Street Kensington (Whole Foods)",
+          "nameCn": "骨爸爸拉面（肯辛顿高街全食超市内）",
+          "lat": 51.5009,
+          "lng": -0.1914,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "全食超市1楼，20小时熬制猪骨浓汤拉面，汤底浓郁，份量大，是日本拉面爱好者在帝国理工周边最常提到的店。"
+        },
+        {
+          "name": "Dishoom Kensington",
+          "nameCn": "Dishoom（肯辛顿，孟买风格印度餐厅）",
+          "lat": 51.5006,
+          "lng": -0.1938,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "4 Derry Street，Kensington High Street步行90秒，Bombay 1940年代复古风，招牌黑扁豆咖喱和bacon naan是伦敦留学生最爱之一。"
+        },
+        {
+          "name": "Kokoro at h-bar (On Campus)",
+          "nameCn": "Kokoro日料（帝国理工校园内谢菲尔德楼）",
+          "lat": 51.4984,
+          "lng": -0.1775,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "谢菲尔德楼底层，日式寿司+热亚洲料理盖饭，周一至周五11:00–21:00，校内最受国际生欢迎的正餐档。"
+        },
+        {
+          "name": "Rasa Kitchen (On Campus)",
+          "nameCn": "Rasa厨房（校园内，马来西亚风味）",
+          "lat": 51.4984,
+          "lng": -0.1775,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "谢菲尔德楼二层，马来风味街头小吃，肉骨茶、椰浆饭风格餐食，是帝国理工东南亚和华人学生的午间食堂。"
+        },
+        {
+          "name": "Chinatown London — Gerrard Street",
+          "nameCn": "伦敦唐人街（杰拉德街）",
+          "lat": 51.5131,
+          "lng": -0.1312,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "从帝国理工地铁约20分钟，集广式烧腊、台湾饮品、川湘菜、泡泡茶于一街，来伦敦一定要逛一次。"
+        },
+        {
+          "name": "Pizza Pi (On Campus)",
+          "nameCn": "Pizza Pi披萨店（校园内JCR）",
+          "lat": 51.4984,
+          "lng": -0.1775,
+          "rank": 11,
+          "tier": "一般",
+          "note": "谢菲尔德楼学生公共区，平价披萨和意面，11:45–14:30和16:00–20:00，适合预算有限的学期内日常午餐。"
+        },
+        {
+          "name": "Exhibition Road street food & cafes",
+          "nameCn": "展览路周边咖啡馆与街头小吃",
+          "lat": 51.498,
+          "lng": -0.1743,
+          "rank": 12,
+          "tier": "一般",
+          "note": "展览路沿线散布多家咖啡馆和简餐，可萨和法棍三明治约£7，适合逛博物馆间歇补充能量，帝国理工农夫市集（周二）亦在附近。"
         }
       ]
     },
@@ -341,32 +588,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Barclays Bank Gloucester Road",
-          "nameCn": "巴克莱银行（格洛斯特路）",
-          "lat": 51.494,
-          "lng": -0.1822,
-          "note": "离校最近的大行网点，新生开户、办借记卡可现场预约办理。"
+          "name": "HSBC Bank — 95 Gloucester Road",
+          "nameCn": "汇丰银行（格洛斯特路支行）",
+          "lat": 51.4951,
+          "lng": -0.1836,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "95 Gloucester Road SW7，华人留学生开户首选，汇丰国际学生账户可凭offer letter提前申请，是帝国理工最近的汇丰支行。"
         },
         {
-          "name": "Boots Pharmacy Gloucester Road",
-          "nameCn": "Boots 药妆店（格洛斯特路）",
-          "lat": 51.4943,
-          "lng": -0.1824,
-          "note": "连锁药房兼日用百货，处方药、感冒药和洗护用品一站搞定。"
+          "name": "Barclays Bank — 114 Gloucester Road",
+          "nameCn": "巴克莱银行（格洛斯特路支行）",
+          "lat": 51.495,
+          "lng": -0.1837,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "114 Gloucester Road SW7，英国本地主流银行，可开学生账户，周一至周五09:30–16:30开放，与汇丰相距不足100米。"
         },
         {
-          "name": "Imperial College Health Centre",
-          "nameCn": "帝国理工校医务中心（GP 诊所）",
-          "lat": 51.499,
-          "lng": -0.174,
-          "note": "校内 NHS 注册 GP 诊所，注册后看病免费，新生务必尽早登记。"
+          "name": "Imperial College Health Centre (NHS GP)",
+          "nameCn": "帝国理工学院NHS全科诊所",
+          "lat": 51.4986,
+          "lng": -0.1752,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内NHS全科诊所，帝国理工及RCA/RCM学生均可注册为患者，到校后第一时间完成注册，可预约家庭医生、心理咨询等。"
         },
         {
-          "name": "Chelsea and Westminster Hospital",
-          "nameCn": "切尔西-威斯敏斯特医院（含急诊 A&E）",
-          "lat": 51.4847,
-          "lng": -0.1819,
-          "note": "富勒姆路上设 24 小时急诊（A&E）的综合医院，突发情况就近就医。"
+          "name": "Boots Pharmacy — 128 Gloucester Road",
+          "nameCn": "Boots药房（格洛斯特路）",
+          "lat": 51.4945,
+          "lng": -0.1835,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Gloucester Arcade, 128 Gloucester Road，英国最大连锁药房，处方药、成药、护肤品一站购齐，帝国理工学生高频使用。"
+        },
+        {
+          "name": "EE Store — 135 Kensington High Street",
+          "nameCn": "EE电话营业厅（肯辛顿高街）",
+          "lat": 51.5007,
+          "lng": -0.1918,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "135 Kensington High Street，英国最大移动运营商EE直营店，到英后购买SIM卡和手机套餐的高频选择，信号覆盖南肯辛顿最佳。"
+        },
+        {
+          "name": "Three Store — 161 Kensington High Street",
+          "nameCn": "Three移动营业厅（肯辛顿高街）",
+          "lat": 51.5004,
+          "lng": -0.1936,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "161 Kensington High Street，Three以不限流量套餐受留学生欢迎，含国内漫游，性价比高，适合刚到英国需要大流量的新生。"
+        },
+        {
+          "name": "Chelsea & Westminster Hospital A&E",
+          "nameCn": "切尔西-西敏斯特医院急诊",
+          "lat": 51.484,
+          "lng": -0.1817,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "369 Fulham Road，帝国理工直属附属医院，步行约20分钟，急诊及专科门诊均在此，严重病情首选。"
         }
       ]
     },
@@ -378,39 +660,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Natural History Museum",
-          "nameCn": "自然历史博物馆",
-          "lat": 51.4967,
-          "lng": -0.1764,
-          "note": "就在校园对面，蓝鲸骨架和恐龙馆免费参观，伦敦必打卡地标。"
+          "name": "Hyde Park & Kensington Gardens",
+          "nameCn": "海德公园 & 肯辛顿花园",
+          "lat": 51.5073,
+          "lng": -0.1657,
+          "rank": 1,
+          "tier": "必去",
+          "note": "帝国理工步行10分钟，350英亩皇家公园，有Serpentine湖可划船、Diana喷泉、Speakers' Corner，是压力释放和周末郊游的城市绿肺。"
         },
         {
-          "name": "Victoria and Albert Museum (V&A)",
-          "nameCn": "维多利亚与艾尔伯特博物馆",
-          "lat": 51.4966,
-          "lng": -0.1722,
-          "note": "全球顶尖艺术设计博物馆，免费入场，雨天泡馆和拍照的绝佳去处。"
-        },
-        {
-          "name": "Science Museum",
-          "nameCn": "科学博物馆",
-          "lat": 51.4978,
-          "lng": -0.1745,
-          "note": "紧挨校园，互动展品和航天飞机模型多，理工生会很喜欢。"
+          "name": "Kensington Palace",
+          "nameCn": "肯辛顿宫",
+          "lat": 51.5051,
+          "lng": -0.1876,
+          "rank": 2,
+          "tier": "必去",
+          "note": "维多利亚女王出生地、戴安娜前居所，开放参观，花园免费入场，是南肯辛顿最具皇室气质的历史地标。"
         },
         {
           "name": "Royal Albert Hall",
           "nameCn": "皇家阿尔伯特音乐厅",
-          "lat": 51.501,
-          "lng": -0.1774,
-          "note": "校园北侧地标音乐厅，夏季 BBC Proms 逍遥音乐节学生票超划算。"
+          "lat": 51.5009,
+          "lng": -0.1775,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Kensington Gore，步行5分钟，每年举办350+场演出，BBC Proms学生站票最低£6，强烈建议至少看一场现场演出。"
         },
         {
-          "name": "Hyde Park & Kensington Gardens",
-          "nameCn": "海德公园与肯辛顿花园",
-          "lat": 51.5074,
-          "lng": -0.1718,
-          "note": "步行可达的市中心大公园，跑步野餐看天鹅，离校最近的绿地。"
+          "name": "Portobello Road Market — Notting Hill",
+          "nameCn": "波托贝洛路跳蚤市场（诺丁山）",
+          "lat": 51.5155,
+          "lng": -0.2041,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "全球最大古董市场，周六最热闹，古董家具、黑胶唱片、复古服装、特色街食，帝国理工学生周末最爱逛的市集。"
+        },
+        {
+          "name": "Chelsea Physic Garden",
+          "nameCn": "切尔西药用植物园",
+          "lat": 51.4845,
+          "lng": -0.1623,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "66 Royal Hospital Road，1673年创立，英国最古老植物园之一，4英亩内4500种药用植物，是理工科学生认识生物多样性的宝地。"
+        },
+        {
+          "name": "Tate Modern",
+          "nameCn": "泰特现代美术馆",
+          "lat": 51.5076,
+          "lng": -0.0994,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "South Bank泰晤士河畔，地铁约25分钟，全球最具影响力的当代艺术馆，免费入场，千禧桥和视角绝佳，周末出行首选。"
+        },
+        {
+          "name": "Royal College of Art (RCA)",
+          "nameCn": "皇家艺术学院",
+          "lat": 51.5014,
+          "lng": -0.1786,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Kensington Gore，帝国理工隔壁邻居，全球排名第一的艺术与设计大学，常有免费展览和跨校合作项目，与帝国理工学生有共同课程。"
+        },
+        {
+          "name": "South Bank & Borough Market",
+          "nameCn": "南岸 & 伦敦桥波罗市场",
+          "lat": 51.5055,
+          "lng": -0.091,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "地铁约25分钟，波罗市场是伦敦最知名的食材集市，周末人山人海；沿Thames漫步，大伦敦标志建筑一览无余。"
+        },
+        {
+          "name": "King's Road, Chelsea",
+          "nameCn": "国王路（切尔西购物街）",
+          "lat": 51.4864,
+          "lng": -0.1634,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "伦敦高端购物街，独立精品店与连锁名牌并存，步行约20分钟可达，是帝国理工学生放松购物和感受伦敦时尚的去处。"
+        },
+        {
+          "name": "Chinatown London",
+          "nameCn": "伦敦唐人街（Leicester Square）",
+          "lat": 51.5129,
+          "lng": -0.1308,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Leicester Square步行区，中文招牌密集，餐厅、超市、港式甜品、奶茶店聚集，是思乡时找家乡口味的必去地。"
+        },
+        {
+          "name": "Notting Hill & Westbourne Grove",
+          "nameCn": "诺丁山 & 韦斯特伯恩·格罗夫",
+          "lat": 51.5138,
+          "lng": -0.1977,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "诺丁山电影取景地，餐厅和咖啡馆格调高，每年8月的嘉年华是全欧最大街头派对，帝国理工学生必来打卡。"
         }
       ]
     }

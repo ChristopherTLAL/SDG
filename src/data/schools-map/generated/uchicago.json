@@ -59,32 +59,103 @@
       "icon": "school",
       "items": [
         {
+          "name": "Regenstein Library Building / Dept of Economics (Saieh Hall)",
+          "nameCn": "萨耶经济学大楼（Saieh Hall）",
+          "lat": 41.7922,
+          "lng": -87.5994,
+          "rank": 1,
+          "tier": "必去",
+          "note": "经济系（芝大最著名学科之一）所在地，Becker Friedman经济研究所驻地，曾培育众多诺奖得主"
+        },
+        {
           "name": "Charles M. Harper Center (Booth School of Business)",
           "nameCn": "哈珀中心（布斯商学院）",
-          "lat": 41.789,
-          "lng": -87.5956,
-          "note": "布斯商学院本部，全日制 MBA 与博士项目所在地。"
+          "lat": 41.7888,
+          "lng": -87.5996,
+          "rank": 2,
+          "tier": "必去",
+          "note": "布斯商学院全球总部，由Rafael Viñoly设计，全球顶尖MBA项目之一，建筑本身亦值得一游"
         },
         {
-          "name": "Pritzker School of Molecular Engineering",
-          "nameCn": "普利兹克分子工程学院",
-          "lat": 41.7908,
-          "lng": -87.6013,
-          "note": "工程与材料科研楼，靠近医学中心。"
+          "name": "University of Chicago Law School (1111 E 60th)",
+          "nameCn": "芝大法学院",
+          "lat": 41.7878,
+          "lng": -87.5997,
+          "rank": 3,
+          "tier": "必去",
+          "note": "常年全美法学院前3，Eero Saarinen设计的Laird Bell四合院为其标志性建筑群"
         },
         {
-          "name": "Saieh Hall for Economics",
-          "nameCn": "赛义经济学楼",
-          "lat": 41.78983,
-          "lng": -87.59745,
-          "note": "经济系大楼，前神学院改建，中途广场北侧。"
+          "name": "Harris School of Public Policy (Keller Center, 1307 E 60th)",
+          "nameCn": "哈里斯公共政策学院（凯勒中心）",
+          "lat": 41.7875,
+          "lng": -87.5975,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全球顶尖公共政策学院，毗邻法学院，有大量国际学生，开放式学习空间广受好评"
         },
         {
-          "name": "Eckhardt Research Center",
-          "nameCn": "埃克哈特研究中心",
-          "lat": 41.7915,
-          "lng": -87.601,
-          "note": "物理与天文研究中心。"
+          "name": "Pritzker School of Medicine (BSLC, 924 E 57th)",
+          "nameCn": "普利兹克医学院（生物科学学习中心）",
+          "lat": 41.7916,
+          "lng": -87.6022,
+          "rank": 5,
+          "tier": "必去",
+          "note": "芝大医学院主楼，与UCMC医学中心紧邻，是北美顶尖医学研究机构之一"
+        },
+        {
+          "name": "Pritzker School of Molecular Engineering (PME)",
+          "nameCn": "普利兹克分子工程学院（Eckhardt研究中心）",
+          "lat": 41.7903,
+          "lng": -87.6018,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "芝大最新专业学院，全美首个分子工程学院，位于Woodlawn Avenue校园南端"
+        },
+        {
+          "name": "Cobb Hall (Dept of Social Sciences, 5811 S Ellis Ave)",
+          "nameCn": "科布厅（社会科学系）",
+          "lat": 41.7906,
+          "lng": -87.6001,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "建于1892年，校园最古老建筑之一，哥特式外观，社会科学院课程与讲座常在此举行"
+        },
+        {
+          "name": "Crerar Library Building / Dept of Computer Science",
+          "nameCn": "克雷拉图书馆楼（计算机科学系）",
+          "lat": 41.7921,
+          "lng": -87.6022,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "计算机科学系与理科图书馆所在，现代化建筑风格，是CS/统计学学生的核心活动场所"
+        },
+        {
+          "name": "Eckhart Hall (Dept of Mathematics, 5734 S University)",
+          "nameCn": "埃克哈特厅（数学系）",
+          "lat": 41.7919,
+          "lng": -87.5989,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "数学系与统计系所在地，内有Eckhart图书馆，哥特式老楼氛围浓厚"
+        },
+        {
+          "name": "Reynolds Club & Hutchinson Commons (5706 S University)",
+          "nameCn": "雷诺兹俱乐部与哈钦森公共大厅",
+          "lat": 41.7928,
+          "lng": -87.5993,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校园最核心的学生活动中心，仿牛津基督学院大厅风格，是学生日常聚集与用餐地标"
+        },
+        {
+          "name": "Social Sciences Research Building (SSRB, 1126 E 59th)",
+          "nameCn": "社会科学研究楼",
+          "lat": 41.7888,
+          "lng": -87.5998,
+          "rank": 11,
+          "tier": "可选",
+          "note": "政治学、社会学、人类学核心研究楼，芝加哥社会学派重要历史场所"
         }
       ],
       "defaultOn": true
@@ -97,25 +168,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Joseph Regenstein Library",
-          "nameCn": "雷根斯坦图书馆",
+          "name": "Joseph Regenstein Library (1100 E 57th St)",
+          "nameCn": "约瑟夫·雷根斯坦图书馆",
+          "lat": 41.7924,
+          "lng": -87.6003,
+          "rank": 1,
+          "tier": "必去",
+          "note": "芝大主图书馆，馆藏逾500万册，全美最大学术图书馆之一，24/7自习空间极受欢迎"
+        },
+        {
+          "name": "Joe and Rika Mansueto Library (1100 E 57th St)",
+          "nameCn": "曼苏托图书馆",
           "lat": 41.7922,
+          "lng": -87.6001,
+          "rank": 2,
+          "tier": "必去",
+          "note": "标志性玻璃穹顶大阅览厅，地下自动存取系统可调取350万册，全球最具建筑美感的图书馆之一"
+        },
+        {
+          "name": "John Crerar Library (5730 S Ellis Ave)",
+          "nameCn": "约翰·克雷拉图书馆",
+          "lat": 41.7921,
+          "lng": -87.602,
+          "rank": 3,
+          "tier": "必去",
+          "note": "理工医领域专业图书馆，馆藏自然科学、技术、医学文献，计算机系学生常驻研究重地"
+        },
+        {
+          "name": "D'Angelo Law Library (1121 E 60th St)",
+          "nameCn": "德安杰洛法律图书馆",
+          "lat": 41.7876,
           "lng": -87.5998,
-          "note": "校内最大建筑，野兽派人文社科主馆。"
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "法学院Laird Bell四合院核心，法律文献馆藏丰富，建筑由Eero Saarinen设计"
         },
         {
-          "name": "Joe and Rika Mansueto Library",
-          "nameCn": "曼苏埃托图书馆",
-          "lat": 41.79197,
-          "lng": -87.60089,
-          "note": "玻璃穹顶阅览室，地下自动取书系统。"
-        },
-        {
-          "name": "Harper Memorial Library",
+          "name": "Harper Memorial Library (1116 E 59th St)",
           "nameCn": "哈珀纪念图书馆",
-          "lat": 41.78798,
-          "lng": -87.59959,
-          "note": "校园首座图书馆，现为哥特式阅览大厅。"
+          "lat": 41.7896,
+          "lng": -87.5993,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园最具历史感的阅览室之一，哥特式老图书馆，现主要用作自习与考场，Snapchat滤镜打卡圣地"
+        },
+        {
+          "name": "Eckhart Library (Eckhart Hall Rm 217, 5734 S University)",
+          "nameCn": "埃克哈特数学图书馆",
+          "lat": 41.7919,
+          "lng": -87.5989,
+          "rank": 6,
+          "tier": "可选",
+          "note": "数学与统计专业图书馆，约1.3万册研究级藏书，环境安静是理科生最爱的小众自习点"
         }
       ]
     },
@@ -127,25 +231,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Smart Museum of Art",
+          "name": "Griffin Museum of Science and Industry (5700 S DuSable Lake Shore Dr)",
+          "nameCn": "格里芬科学工业博物馆",
+          "lat": 41.7906,
+          "lng": -87.5833,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西半球最大科学博物馆，展品逾2000件含U-505潜艇与IMAX巨幕，步行15分钟即可抵达"
+        },
+        {
+          "name": "ISAC Museum (Institute for the Study of Ancient Cultures, 1155 E 58th)",
+          "nameCn": "古代文化研究所博物馆（前东方学院）",
+          "lat": 41.7902,
+          "lng": -87.5993,
+          "rank": 2,
+          "tier": "必去",
+          "note": "前身为赫赫有名的东方学院，馆藏来自波斯波利斯的浮雕与古近东文物，免费入场"
+        },
+        {
+          "name": "Smart Museum of Art (5550 S Greenwood Ave)",
           "nameCn": "斯马特艺术博物馆",
-          "lat": 41.7943,
-          "lng": -87.6003,
-          "note": "校方艺术博物馆，古今藏品并陈。"
+          "lat": 41.7936,
+          "lng": -87.6005,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园内免费美术馆，常设展涵盖古典到当代艺术，是下午放松与文艺打卡的首选"
         },
         {
-          "name": "ISAC Museum (Oriental Institute)",
-          "nameCn": "近东古文化研究所博物馆（东方研究所）",
-          "lat": 41.789,
-          "lng": -87.5977,
-          "note": "古代近东文物馆，原东方研究所。"
+          "name": "Obama Presidential Center (6001 S Stony Island Ave)",
+          "nameCn": "奥巴马总统图书馆暨文化中心",
+          "lat": 41.784,
+          "lng": -87.5836,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2026年6月刚开放，位于杰克逊公园内，奥巴马时代历史文物与社区文化空间，步行可达"
         },
         {
-          "name": "Robie House (Frank Lloyd Wright)",
-          "nameCn": "罗比之家（赖特设计）",
+          "name": "Rockefeller Memorial Chapel (5850 S Woodlawn Ave)",
+          "nameCn": "洛克菲勒纪念礼拜堂",
           "lat": 41.7899,
-          "lng": -87.596,
-          "note": "草原派建筑杰作，联合国教科文世界遗产。"
+          "lng": -87.5999,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "校园最高建筑，哥特式大教堂，世界级管风琴与钟琴演出，是来芝大必拍的标志性建筑"
         }
       ]
     },
@@ -157,32 +285,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Rockefeller Memorial Chapel",
-          "nameCn": "洛克菲勒纪念教堂",
-          "lat": 41.7884,
-          "lng": -87.5963,
-          "note": "新哥特式地标教堂，校园最高建筑。"
+          "name": "Main Quadrangles (Main Quads, between 57th-59th & Ellis-University)",
+          "nameCn": "主四合院广场",
+          "lat": 41.7912,
+          "lng": -87.5997,
+          "rank": 1,
+          "tier": "必去",
+          "note": "芝大标志性维多利亚哥特式六联四合院，校园心脏地带，开学/毕业季布置绝美，必拍背景"
         },
         {
-          "name": "Reynolds Club & Mandel Hall",
-          "nameCn": "雷诺兹俱乐部与曼德尔礼堂",
-          "lat": 41.7909,
-          "lng": -87.5973,
-          "note": "学生活动中心与演出礼堂。"
+          "name": "Rockefeller Memorial Chapel (5850 S Woodlawn Ave)",
+          "nameCn": "洛克菲勒纪念礼拜堂",
+          "lat": 41.7899,
+          "lng": -87.5999,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园制高点与最具代表性建筑，每逢毕业典礼与大型演出均在此举行，是学生身份认同的象征"
         },
         {
-          "name": "Reva and David Logan Center for the Arts",
-          "nameCn": "洛根艺术中心",
-          "lat": 41.78536,
-          "lng": -87.60393,
-          "note": "中途广场南侧艺术塔楼。"
+          "name": "Frank Lloyd Wright Robie House (5757 S Woodlawn Ave)",
+          "nameCn": "弗兰克·劳埃德·赖特罗比故居",
+          "lat": 41.7938,
+          "lng": -87.5999,
+          "rank": 3,
+          "tier": "必去",
+          "note": "联合国教科文组织世界遗产，草原派建筑经典，芝大收购保存，每周开放导览参观"
         },
         {
-          "name": "Gerald Ratner Athletics Center",
-          "nameCn": "拉特纳体育中心",
-          "lat": 41.79413,
-          "lng": -87.6018,
-          "note": "主体育馆与游泳馆，悬索屋顶。"
+          "name": "Midway Plaisance (between 59th & 60th St, Ellis-Cottage Grove)",
+          "nameCn": "中途游乐场公园（Midway）",
+          "lat": 41.7878,
+          "lng": -87.5992,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1893年世博会遗留的标志性长形公园，将校园一分为二，冬季有溜冰场，是日常遛弯首选"
+        },
+        {
+          "name": "Harper Court (5235 S Harper Ave)",
+          "nameCn": "哈珀庭院购物中心",
+          "lat": 41.7993,
+          "lng": -87.5862,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "53街核心商业区，集餐饮零售于一体，农夫市集与露天活动常在此举行，是学生课外生活中心"
+        },
+        {
+          "name": "57th Street Books (1301 E 57th St)",
+          "nameCn": "57街书店",
+          "lat": 41.7929,
+          "lng": -87.5974,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "藏于地下的独立书店，芝大学术文化气息的代表，逛书店是融入校园文化的最佳方式之一"
+        },
+        {
+          "name": "Ida Noyes Hall (1212 E 59th St)",
+          "nameCn": "艾达·诺伊斯大厅",
+          "lat": 41.7887,
+          "lng": -87.5988,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "哥特式风格学生中心，内有游泳池、剧院与活动大厅，芝大历史上女生专属场所，现对全体开放"
+        },
+        {
+          "name": "Mitchell Tower & Mandel Hall (1131 E 57th St)",
+          "nameCn": "米切尔塔与曼德尔音乐厅",
+          "lat": 41.7928,
+          "lng": -87.5993,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "仿牛津大学模型铸造的钟楼，内含芝大主要音乐演出场所Mandel Hall，是四合院最具仪式感的入口"
         }
       ]
     },
@@ -194,39 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Trader Joe's (Hyde Park)",
-          "nameCn": "Trader Joe's 缺德舅超市（海德公园店）",
-          "lat": 41.7955,
-          "lng": -87.5893,
-          "note": "校园北侧 55 街购物中心内，南区第一家 Trader Joe's，平价网红超市，留学生日常采购首选，步行可达。"
+          "name": "Trader Joe's Hyde Park (1528 E 55th St)",
+          "nameCn": "乔氏超市（海德公园店）",
+          "lat": 41.795,
+          "lng": -87.5938,
+          "rank": 1,
+          "tier": "必去",
+          "note": "学生最常光顾的平价优质超市，步行可从校园抵达，自有品牌零食与冷冻食品极受欢迎"
         },
         {
-          "name": "Whole Foods Market (Hyde Park)",
-          "nameCn": "Whole Foods 全食超市（海德公园店）",
-          "lat": 41.8022,
-          "lng": -87.5879,
-          "note": "53 街 Lake Park 大道，高端有机超市，新鲜果蔬与熟食沙拉吧齐全，离宿舍区很近。"
+          "name": "Whole Foods Market Hyde Park (5118 S Lake Park Ave)",
+          "nameCn": "全食超市（海德公园店）",
+          "lat": 41.8003,
+          "lng": -87.5864,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "有机食材齐全，含热食自取区，门店设计向芝大致敬（书房主题），品质最高但价格偏贵"
         },
         {
-          "name": "Hyde Park Produce Market",
-          "nameCn": "海德公园生鲜市场",
-          "lat": 41.7995,
-          "lng": -87.5962,
-          "note": "53 街老牌家庭生鲜店，果蔬便宜量大、有少量亚洲食材，性价比之王（如遇火灾整修请先电话确认营业）。"
+          "name": "Jewel-Osco (6014 S Cottage Grove Ave)",
+          "nameCn": "Jewel-Osco超市（科蒂奇格罗夫店）",
+          "lat": 41.7849,
+          "lng": -87.6062,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "中西部主流大超市，日常品类最齐全，含内置药房，营业时间长，是补货大件生活用品的首选"
         },
         {
-          "name": "Park to Shop Supermarket",
-          "nameCn": "百佳超市（Bridgeport 店）",
-          "lat": 41.8487,
-          "lng": -87.642,
-          "note": "校园西北约 6 公里、Bridgeport 华人区的大型亚洲超市，中式肉菜冻品调料一站买齐，还有面点档口，开车或公交可达。"
+          "name": "Tai Wah Grocery Store (2226 S Wentworth Ave, Chinatown)",
+          "nameCn": "大华食品（唐人街）",
+          "lat": 41.8558,
+          "lng": -87.6321,
+          "rank": 4,
+          "tier": "绝对必买",
+          "note": "唐人街最老牌中国食材店，有新鲜肉类、腊肉烤鸭、酱料与中式蔬菜，解乡愁必逛"
         },
         {
-          "name": "Jewel-Osco (61st & Cottage Grove)",
-          "nameCn": "Jewel-Osco 大型连锁超市",
-          "lat": 41.7847,
-          "lng": -87.6055,
-          "note": "校园西南侧的美式平价连锁大超市，品类全、有自营药房，适合一次性大采购。"
+          "name": "Best Choice Oriental Grocery (2403 S Wentworth Ave, Chinatown)",
+          "nameCn": "佳选东方食品（唐人街）",
+          "lat": 41.8527,
+          "lng": -87.6319,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "唐人街南侧的小型中国杂货铺，专卖调味料、干货与进口零食，价格实惠深受中国留学生推荐"
+        },
+        {
+          "name": "H Mart Chicago (711 W Jackson Blvd, West Loop)",
+          "nameCn": "H Mart韩国超市（芝加哥西区）",
+          "lat": 41.8779,
+          "lng": -87.6453,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "全美最大韩国连锁超市，品类含中日韩食材、熟食、海鲜，需乘CTA前往但值得定期囤货"
+        },
+        {
+          "name": "Hyde Park Produce (1226 E 53rd St)",
+          "nameCn": "海德公园果蔬市场",
+          "lat": 41.7996,
+          "lng": -87.5978,
+          "rank": 7,
+          "tier": "可选",
+          "note": "53街社区蔬果小店，新鲜蔬果价格便宜，步行即达，是日常买菜的便利补充选项"
         }
       ]
     },
@@ -238,46 +438,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Nicky's Chinese Food",
-          "nameCn": "Nicky's 中餐",
-          "lat": 41.8001,
-          "lng": -87.5966,
-          "note": "53 街边上的海德公园老牌中餐外卖店，炒饭、炸蟹角口碑极佳，留学生宵夜与外卖刚需。"
+          "name": "MingHin Cuisine (2168 S Archer Ave, Chinatown)",
+          "nameCn": "名轩海鲜酒家（唐人街）",
+          "lat": 41.8545,
+          "lng": -87.6342,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "芝加哥唐人街最受推荐的粤式点心与海鲜酒家，周末早茶排队盛况空前，必点：虾饺、叉烧肠粉"
         },
         {
-          "name": "Jade Court",
-          "nameCn": "翠庭粤菜馆",
-          "lat": 41.8003,
-          "lng": -87.5889,
-          "note": "Harper Court 内的正宗粤菜馆，曾获芝加哥论坛报三星，烧腊点心地道，想吃像样中餐就来这。"
+          "name": "Qing Xiang Yuan Dumplings (2002 S Wentworth Ave, Chinatown)",
+          "nameCn": "清香园饺子馆（唐人街）",
+          "lat": 41.8552,
+          "lng": -87.632,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "手工现包饺子，猪肉韭菜/白菜馅口碑最佳，Michelin推荐，Yelp近2000条五星好评，留学生食堂"
         },
         {
-          "name": "Chant",
-          "nameCn": "Chant 泛亚餐厅",
+          "name": "Xi'an Cuisine (225 W Cermak Rd, Chinatown)",
+          "nameCn": "西安美食（唐人街西Cermak路）",
+          "lat": 41.8527,
+          "lng": -87.6353,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "手扯面与臊子面一绝，现场可见手工拉面，芝大UChicago Bite年度力推，陕西味道最正"
+        },
+        {
+          "name": "Dolo Restaurant & Bar (2222 S Archer Ave, Chinatown)",
+          "nameCn": "多乐餐厅（唐人街）",
+          "lat": 41.8526,
+          "lng": -87.6361,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Esquire杂志年度最佳新餐厅上榜，精品粤式小吃加创意鸡尾酒，是唐人街最时髦的中餐选择"
+        },
+        {
+          "name": "Valois Restaurant (1518 E 53rd St, Hyde Park)",
+          "nameCn": "瓦鲁瓦餐厅（海德公园）",
+          "lat": 41.7993,
+          "lng": -87.5942,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "开业1921年的老式美式自助餐厅，奥巴马总统最爱早餐地，周末大排长龙，必点：牛排蛋"
+        },
+        {
+          "name": "Medici on 57th (1327 E 57th St, Hyde Park)",
+          "nameCn": "美第奇餐厅（57街）",
+          "lat": 41.7929,
+          "lng": -87.5968,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "开业1962年的芝大标志性咖啡馆餐厅，桌椅上刻满历代学生名字，必点：招牌奶昔与披萨"
+        },
+        {
+          "name": "Virtue Restaurant (1462 E 53rd St, Hyde Park)",
+          "nameCn": "美德餐厅（海德公园）",
+          "lat": 41.7994,
+          "lng": -87.5938,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "米其林推荐黑人主厨南方菜，炸鸡与黑眼豆绝品，芝加哥美食媒体年度力推，需提前预约"
+        },
+        {
+          "name": "Cedar's Mediterranean Kitchen (1206 E 53rd St, Hyde Park)",
+          "nameCn": "雪松地中海厨房（海德公园）",
+          "lat": 41.7997,
+          "lng": -87.5981,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "海德公园最受好评的地中海快餐，法拉费尔与烤肉塔可是学生最爱，价格实惠份量大"
+        },
+        {
+          "name": "Cai (2100 S Archer Ave, Chinatown)",
+          "nameCn": "采粤式餐厅（唐人街）",
+          "lat": 41.8544,
+          "lng": -87.6341,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "二楼精品粤菜，环境雅致，适合家长探望时宴请，粤式炒菜与点心质量均一"
+        },
+        {
+          "name": "Strings Ramen Shop (1211 S Canal St, Chinatown area)",
+          "nameCn": "丝绳拉面（唐人街区）",
+          "lat": 41.8659,
+          "lng": -87.6406,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "芝加哥最受好评的日式拉面店之一，汤头浓郁，留学生中圈子里口耳相传的拉面地标"
+        },
+        {
+          "name": "Chant (1509 E 53rd St, Hyde Park)",
+          "nameCn": "颂歌餐厅（海德公园）",
           "lat": 41.7995,
-          "lng": -87.5888,
-          "note": "53 街上的亚洲融合菜餐厅，环境时尚适合聚餐，鸡尾酒与小食受学生欢迎。"
+          "lng": -87.5944,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "亚洲融合创意菜加调酒与现场音乐，适合周末晚餐聚会，芝大学生夜生活首选之一"
         },
         {
-          "name": "Valois Cafeteria",
-          "nameCn": "Valois 自助餐厅",
-          "lat": 41.7996,
-          "lng": -87.5882,
-          "note": "1921 年开业的现金制老式食堂，奥巴马最爱早餐，墙上有他的点单牌，海德公园必打卡地标美食。"
+          "name": "Daisy's Po' Boy & Tavern (1341 E 43rd St, Bronzeville)",
+          "nameCn": "黛西波比三明治小馆",
+          "lat": 41.8171,
+          "lng": -87.5969,
+          "rank": 12,
+          "tier": "一般",
+          "note": "新奥尔良风格Po'boy三明治，是海德公园附近最具特色的南方风味小馆，午餐人气很旺"
         },
         {
-          "name": "Medici on 57th",
-          "nameCn": "美第奇餐厅（57 街）",
-          "lat": 41.7917,
-          "lng": -87.5935,
-          "note": "57 街上的校园元老级餐厅兼面包房，汉堡披萨和满墙学生涂鸦是几代芝大人的回忆。"
-        },
-        {
-          "name": "Noodles Etc.",
-          "nameCn": "Noodles Etc. 亚洲面馆",
-          "lat": 41.791,
-          "lng": -87.5946,
-          "note": "57 街快捷亚洲面饭馆，泰式、中式炒面盖饭分量足又便宜，课间快速解决一顿。"
+          "name": "Triple Crown Restaurant (2217 S Wentworth Ave, Chinatown)",
+          "nameCn": "三冠王（唐人街）",
+          "lat": 41.856,
+          "lng": -87.6319,
+          "rank": 13,
+          "tier": "一般",
+          "note": "唐人街老牌港式茶餐厅，24小时营业，炒河粉与叉烧饭性价比极高，深夜加餐最佳选择"
         }
       ]
     },
@@ -289,32 +564,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Hyde Park)",
-          "nameCn": "大通银行（海德公园支行）",
-          "lat": 41.7995,
-          "lng": -87.5965,
-          "note": "53 街上离校最近的大通支行，留学生开美国银行账户、办借记卡的首选大行。"
+          "name": "Chase Bank Hyde Park (1204 E 53rd St)",
+          "nameCn": "大通银行（海德公园53街分行）",
+          "lat": 41.7997,
+          "lng": -87.5982,
+          "rank": 1,
+          "tier": "必去",
+          "note": "国际学生开户首选，Chase在全美ATM覆盖最广，学生账户免月费，步行5分钟可达"
         },
         {
-          "name": "University of Chicago Medicine",
-          "nameCn": "芝加哥大学医学中心",
-          "lat": 41.7888,
-          "lng": -87.6049,
-          "note": "校内 5841 Maryland 大道的全美顶尖医院，24 小时急诊，学生医保对接的主要就医点。"
+          "name": "UChicago Medicine (UCMC, 5841 S Maryland Ave)",
+          "nameCn": "芝大医学中心（UCMC）",
+          "lat": 41.7878,
+          "lng": -87.6039,
+          "rank": 2,
+          "tier": "必知",
+          "note": "世界顶级综合医院，全美顶尖，校园旁即可就医，学生医保可直接使用，急诊24小时"
         },
         {
-          "name": "Walgreens (24hr, 55th St)",
-          "nameCn": "Walgreens 24 小时连锁药房",
-          "lat": 41.7955,
-          "lng": -87.5893,
-          "note": "55 街 24 小时连锁药房，处方取药、感冒药、生活日用一应俱全，离校最近最方便。"
+          "name": "UChicago Student Wellness Center (840 E 59th St)",
+          "nameCn": "芝大学生健康中心",
+          "lat": 41.7882,
+          "lng": -87.6019,
+          "rank": 3,
+          "tier": "必知",
+          "note": "校内一站式学生健康服务，含全科、心理咨询与保险服务，首次就医必先来此注册"
         },
         {
-          "name": "AT&T Store (Hyde Park / Harper Court)",
-          "nameCn": "AT&T 通讯营业厅",
-          "lat": 41.8003,
-          "lng": -87.589,
-          "note": "Harper Court 商圈附近的主流运营商门店，办手机卡/套餐、解决信号问题来这里。"
+          "name": "Midwest Express Clinic Hyde Park (1236 E 53rd St)",
+          "nameCn": "中西部速诊诊所（海德公园）",
+          "lat": 41.7996,
+          "lng": -87.5979,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "步行可达的急诊诊所，每天8am-8pm，无需预约，适合小病小伤快速就医，费用低于急诊室"
+        },
+        {
+          "name": "CVS Pharmacy (1228 E 53rd St, Hyde Park)",
+          "nameCn": "CVS药房（53街）",
+          "lat": 41.7998,
+          "lng": -87.598,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "海德公园最近的全服务药房，可凭处方取药、购买非处方药和日常药妆，营业时间长"
+        },
+        {
+          "name": "Walgreens (1554 E 55th St, Hyde Park)",
+          "nameCn": "沃尔格林药房（55街）",
+          "lat": 41.795,
+          "lng": -87.5933,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "24小时CVS替代选项，含药房与日常杂货，夜间急需药品或生活用品的首选"
+        },
+        {
+          "name": "T-Mobile Store 53rd Street Hyde Park (1406 E 53rd St)",
+          "nameCn": "T-Mobile门店（海德公园53街）",
+          "lat": 41.7996,
+          "lng": -87.5961,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "学生最推荐的手机套餐，T-Mobile国际留学生方案有免费加拿大墨西哥漫游，可刷大陆银行卡"
+        },
+        {
+          "name": "Hyde Park Bank / Wintrust (1525 E 53rd St)",
+          "nameCn": "海德公园银行（Wintrust）",
+          "lat": 41.7994,
+          "lng": -87.5935,
+          "rank": 8,
+          "tier": "可选",
+          "note": "社区本地银行，利率有竞争力，有中文服务选项，适合初期无信用记录时的备选开户银行"
         }
       ]
     },
@@ -326,39 +645,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Griffin Museum of Science and Industry",
-          "nameCn": "格里芬科学与工业博物馆",
-          "lat": 41.7904,
-          "lng": -87.5838,
-          "note": "校园东侧、1893 世博会遗留巨型宫殿建筑，西半球最大科学博物馆，看潜艇与龙卷风的必游打卡地。"
+          "name": "Griffin Museum of Science and Industry (5700 S DuSable Lake Shore Dr)",
+          "nameCn": "格里芬科学工业博物馆",
+          "lat": 41.7906,
+          "lng": -87.5833,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西半球最大科学博物馆，必看U-505德国潜艇、芝加哥火灾模拟和IMAX巨幕，学生门票有折扣"
         },
         {
-          "name": "Robie House",
-          "nameCn": "罗比之家",
-          "lat": 41.7899,
-          "lng": -87.5963,
-          "note": "校园内赖特草原派建筑代表作、世界遗产，建筑爱好者必看，可预约导览参观。"
+          "name": "Osaka Garden / Garden of the Phoenix (Jackson Park, 6300 S Cornell Ave)",
+          "nameCn": "大阪园·凤凰庭园（杰克逊公园）",
+          "lat": 41.7792,
+          "lng": -87.5795,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1893年世博会创建的日式庭园，锦鲤池与石灯笼环绕，是离校最近的免费放松静心胜地"
         },
         {
-          "name": "Rockefeller Memorial Chapel",
-          "nameCn": "洛克菲勒纪念礼拜堂",
-          "lat": 41.7887,
-          "lng": -87.5965,
-          "note": "校园地标哥特式大礼拜堂，可登塔俯瞰校园，毕业典礼与音乐会在此举行，出片圣地。"
-        },
-        {
-          "name": "Promontory Point",
-          "nameCn": "Promontory Point 湖滨岬角",
+          "name": "Promontory Point (5491 S DuSable Lake Shore Dr)",
+          "nameCn": "普罗蒙托里角（湖边公园）",
           "lat": 41.7959,
           "lng": -87.5775,
-          "note": "55 街尽头伸入密歇根湖的人工岬角，眺望芝加哥天际线的最佳机位，夏天野餐看湖的好去处。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "密歇根湖伸入湖中的小半岛，可360度眺望湖景与芝加哥天际线，是学生约会与静思的网红打卡点"
         },
         {
-          "name": "Garfield Park Conservatory area / Midway Plaisance",
-          "nameCn": "Midway Plaisance 草坪公园",
-          "lat": 41.7884,
-          "lng": -87.5964,
-          "note": "横贯校园的世博会遗留长草坪公园，冬季溜冰、平日散步慢跑，校园南缘的标志性绿带。"
+          "name": "Obama Presidential Center (6001 S Stony Island Ave)",
+          "nameCn": "奥巴马总统中心",
+          "lat": 41.7841,
+          "lng": -87.5836,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2026年6月盛大开幕，含博物馆、公共图书馆新分馆与运动中心，是海德公园新地标"
+        },
+        {
+          "name": "57th Street Beach (5700 S DuSable Lake Shore Dr)",
+          "nameCn": "57街海滩（密歇根湖）",
+          "lat": 41.7891,
+          "lng": -87.582,
+          "rank": 5,
+          "tier": "必去",
+          "note": "校园步行可达的湖边沙滩，夏季游泳戏水，秋冬可在湖边散步，是减压放松的日常圣地"
+        },
+        {
+          "name": "Chicago Chinatown (Cermak & Wentworth Ave, 2200 S Wentworth)",
+          "nameCn": "芝加哥唐人街（韦特沃思大道）",
+          "lat": 41.8532,
+          "lng": -87.6327,
+          "rank": 6,
+          "tier": "必去",
+          "note": "CTA 55路转红线可达，吃喝购物一条街，解乡愁必去，逢春节、中秋有大型活动"
+        },
+        {
+          "name": "Jackson Park (6401 S Stony Island Ave)",
+          "nameCn": "杰克逊公园",
+          "lat": 41.7798,
+          "lng": -87.5842,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1893世博会举办地，含高尔夫球场、网球场、田径场与湖滩，是海德公园最大的开放绿地"
+        },
+        {
+          "name": "Midway Plaisance Ice Rink (between 59th & 60th, Ellis to Cottage Grove)",
+          "nameCn": "中途公园溜冰场",
+          "lat": 41.7878,
+          "lng": -87.601,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "冬季免费室外溜冰场，就在校园旁，是芝大冬季最具人气的社交活动场所之一"
+        },
+        {
+          "name": "Powell's Books Chicago (1501 E 57th St)",
+          "nameCn": "鲍威尔二手书店",
+          "lat": 41.7929,
+          "lng": -87.5939,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1970年创立的学术二手书店，藏书逾25万册，廉价淘原版英文书的宝库，芝大人文气质代表"
+        },
+        {
+          "name": "Court Theatre (5535 S Ellis Ave)",
+          "nameCn": "考特剧院",
+          "lat": 41.7943,
+          "lng": -87.601,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "芝大附属专业剧场，常演莎士比亚与当代经典，学生票价低廉，是感受校园文化生活的好去处"
+        },
+        {
+          "name": "Robie House Tours (5757 S Woodlawn Ave)",
+          "nameCn": "罗比故居导览参观",
+          "lat": 41.7938,
+          "lng": -87.5999,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "每周末开放Frank Lloyd Wright草原派世遗建筑导览，是建筑爱好者与人文游客的必打卡行程"
         }
       ]
     }

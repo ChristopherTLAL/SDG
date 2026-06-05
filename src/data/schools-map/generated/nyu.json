@@ -51,46 +51,112 @@
       "icon": "school",
       "items": [
         {
+          "name": "Elmer Holmes Bobst Library (Silver Center Neighbor / CAS Hub)",
+          "nameCn": "银色文理学院大楼",
+          "lat": 40.7295,
+          "lng": -73.9975,
+          "rank": 1,
+          "tier": "必去",
+          "note": "NYU文理学院（CAS）核心行政与教学楼，哲学、古典、艺术史等众多文理科系所在地，毗邻华盛顿广场。"
+        },
+        {
           "name": "Silver Center for Arts and Science",
-          "nameCn": "Silver 文理学院主楼",
-          "lat": 40.7305,
-          "lng": -73.9958,
-          "note": "百年纪念馆，文理学院核心教学楼。"
+          "nameCn": "银色文理中心（100 WSE）",
+          "lat": 40.7294,
+          "lng": -73.9963,
+          "rank": 2,
+          "tier": "必去",
+          "note": "NYU最大文理学院教学楼，众多本科必修课在此上课，也是学生平时最常出没的学术建筑。"
         },
         {
-          "name": "Stern School of Business",
-          "nameCn": "Stern 商学院",
+          "name": "Henry Kaufman Management Center / Tisch Hall — NYU Stern",
+          "nameCn": "斯特恩商学院（44-40 West 4th St）",
+          "lat": 40.7296,
+          "lng": -73.9982,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全球顶尖商学院之一，MBA和本科商科生的主要教学楼，对华人学生申请热度极高。"
+        },
+        {
+          "name": "Warren Weaver Hall — Courant Institute",
+          "nameCn": "考朗特数学与计算科学研究所（251 Mercer St）",
           "lat": 40.729,
-          "lng": -73.9961,
-          "note": "西四街 Tisch Hall，全美顶尖商学院。"
+          "lng": -73.9983,
+          "rank": 4,
+          "tier": "必去",
+          "note": "世界顶级数学与计算机科学研究机构，数学和CS系在此，是理工科学生的学术核心。"
         },
         {
-          "name": "Tisch School of the Arts",
-          "nameCn": "Tisch 艺术学院",
-          "lat": 40.7287,
-          "lng": -73.9937,
-          "note": "百老汇 721 号，电影戏剧名校。"
+          "name": "NYU Tisch School of the Arts (721 Broadway)",
+          "nameCn": "蒂施艺术学院（721 百老汇大道）",
+          "lat": 40.7299,
+          "lng": -73.994,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美最知名的影视与表演艺术学院，培养了无数好莱坞导演和演员，艺术专业首选院校。"
         },
         {
-          "name": "Courant Institute (Warren Weaver Hall)",
-          "nameCn": "Courant 数学科学研究所",
-          "lat": 40.7286,
-          "lng": -73.9956,
-          "note": "数学与计算机重镇 Warren Weaver Hall。"
+          "name": "NYU Center for Data Science (60 Fifth Avenue)",
+          "nameCn": "数据科学中心（60 第五大道）",
+          "lat": 40.7353,
+          "lng": -73.9957,
+          "rank": 6,
+          "tier": "必去",
+          "note": "NYU数据科学与AI研究重镇，Yann LeCun等顶尖学者在此任职，AI/ML方向学生必须了解。"
         },
         {
-          "name": "NYU Grossman School of Medicine",
-          "nameCn": "Grossman 医学院",
-          "lat": 40.7423,
-          "lng": -73.9743,
-          "note": "第一大道医学走廊核心，全额奖学金著称。"
+          "name": "NYU School of Law — Vanderbilt Hall",
+          "nameCn": "法学院（40 Washington Square South）",
+          "lat": 40.7288,
+          "lng": -73.9986,
+          "rank": 7,
+          "tier": "必去",
+          "note": "全美排名前五的法学院，毗邻华盛顿广场，历史建筑内部庄重典雅，亦面向公众开放。"
         },
         {
-          "name": "College of Dentistry & Rory Meyers Nursing",
-          "nameCn": "牙学院与护理学院",
-          "lat": 40.7393,
-          "lng": -73.9772,
-          "note": "第一大道 433 号跨学科楼，牙护与生物工程共用。"
+          "name": "Steinhardt School of Culture, Education & Human Development",
+          "nameCn": "斯坦哈特文化教育与人类发展学院（82 WSE）",
+          "lat": 40.7298,
+          "lng": -73.9959,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "教育、音乐、媒体、营养等方向的顶尖学院，华人学生比例较高，多媒体和音乐设施完善。"
+        },
+        {
+          "name": "NYU Gallatin School of Individualized Study",
+          "nameCn": "盖勒廷跨学科学院（1 Washington Place）",
+          "lat": 40.73,
+          "lng": -73.9945,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "NYU独具特色的自设专业学院，学生自行设计课程，适合跨学科探索，紧邻Tisch。"
+        },
+        {
+          "name": "NYU Global Center for Academic and Spiritual Life (GCASL)",
+          "nameCn": "全球学术与精神生活中心（238 Thompson St）",
+          "lat": 40.7283,
+          "lng": -73.9991,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "含多宗教礼拜空间、音乐练习室和自习室，每周提供免费冥想和瑜伽课，国际学生必知。"
+        },
+        {
+          "name": "Kimmel Center for University Life",
+          "nameCn": "基梅尔学生生活中心（60 Washington Square South）",
+          "lat": 40.7289,
+          "lng": -73.9982,
+          "rank": 11,
+          "tier": "强烈推荐",
+          "note": "NYU最核心的学生活动中心，汇聚学生组织、多元文化教育中心、LGBT+中心与Skirball演出厅。"
+        },
+        {
+          "name": "NYU Institute of Fine Arts (Duke House)",
+          "nameCn": "美术学院（1 East 78th St，上东区）",
+          "lat": 40.7762,
+          "lng": -73.9654,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "全球顶级艺术史和文物保护研究机构，坐落于上东区豪宅区，藏有珍贵艺术史文献。"
         }
       ],
       "defaultOn": true
@@ -104,17 +170,66 @@
       "items": [
         {
           "name": "Elmer Holmes Bobst Library",
-          "nameCn": "Bobst 图书馆",
-          "lat": 40.7295,
-          "lng": -73.9971,
-          "note": "华盛顿广场南 70 号，主图书馆与红砂岩中庭。"
+          "nameCn": "鲍勃斯特图书馆（70 Washington Square South）",
+          "lat": 40.7291,
+          "lng": -73.9977,
+          "rank": 1,
+          "tier": "必去",
+          "note": "NYU旗舰图书馆，全天候24小时对持NYU ID学生开放，藏书390万册，俯瞰华盛顿广场的阅读位超2900席，是NYU学生最爱的自习圣地。"
         },
         {
-          "name": "Bern Dibner Library (Tandon)",
-          "nameCn": "Dibner 图书馆",
-          "lat": 40.6945,
-          "lng": -73.9858,
-          "note": "布鲁克林工学院科学与工程主图书馆。"
+          "name": "Avery Fisher Center for Music and Media (inside Bobst, Floor 7)",
+          "nameCn": "艾弗里·费舍尔音乐与媒体中心（Bobst图书馆7层）",
+          "lat": 40.7291,
+          "lng": -73.9977,
+          "rank": 2,
+          "tier": "必去",
+          "note": "馆内提供大量影音资料、乐谱和视听设备，音乐和媒体专业学生必备资源。"
+        },
+        {
+          "name": "Bern Dibner Library of Science and Technology",
+          "nameCn": "伯恩·迪布纳科技图书馆（5 MetroTech Center, Brooklyn）",
+          "lat": 40.6928,
+          "lng": -73.9866,
+          "rank": 3,
+          "tier": "必去",
+          "note": "NYU Tandon工程学院附属图书馆，工科和理工科学生的核心资源，馆内还有休闲阅读专区。"
+        },
+        {
+          "name": "Institute of Fine Arts Library (Stephen Chan Library)",
+          "nameCn": "美术学院图书馆（14 East 78th St）",
+          "lat": 40.7762,
+          "lng": -73.965,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "专攻艺术史、考古学与文物保护的非流通研究馆，逾10万卷藏书，艺术史方向学生的学术宝库。"
+        },
+        {
+          "name": "Sid and Ruth Lapidus Health Sciences Library",
+          "nameCn": "拉皮杜斯健康科学图书馆（550 First Ave）",
+          "lat": 40.7421,
+          "lng": -73.9741,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "NYU朗格尼医学院附属图书馆，医学、公共卫生方向学生的重要学术资源。"
+        },
+        {
+          "name": "NYU Libraries — Jack Brause Library (School of Professional Studies)",
+          "nameCn": "布劳斯图书馆（专业研究学院）",
+          "lat": 40.7355,
+          "lng": -73.9916,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "服务于NYU专业研究学院学生，专注商业、房地产、传播等实践性学科的参考资源。"
+        },
+        {
+          "name": "Institute for the Study of the Ancient World Library",
+          "nameCn": "古代世界研究所图书馆（15 East 84th St）",
+          "lat": 40.7789,
+          "lng": -73.9624,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "专注古代地中海与近东世界研究的小型精品图书馆，上东区，考古和古典研究爱好者的安静天地。"
         }
       ]
     },
@@ -126,18 +241,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Grey Art Museum",
-          "nameCn": "Grey 艺术博物馆",
-          "lat": 40.7279,
-          "lng": -73.9913,
-          "note": "华盛顿广场东 18 号，纽大公共美术馆。"
+          "name": "Grey Art Museum (18 Cooper Square)",
+          "nameCn": "格雷艺术博物馆（18 Cooper Square）",
+          "lat": 40.7288,
+          "lng": -73.9919,
+          "rank": 1,
+          "tier": "必去",
+          "note": "NYU官方艺术博物馆，2024年迁至全新更大场馆，收藏近7000件藏品，对NYU师生免费，步行即达。"
         },
         {
-          "name": "80WSE Gallery",
-          "nameCn": "80WSE 画廊",
-          "lat": 40.7298,
-          "lng": -73.9964,
-          "note": "Steinhardt 旗下当代艺术展廊。"
+          "name": "Whitney Museum of American Art",
+          "nameCn": "惠特尼美国艺术博物馆（99 Gansevoort St）",
+          "lat": 40.7396,
+          "lng": -74.0089,
+          "rank": 2,
+          "tier": "必去",
+          "note": "专注20世纪以来美国艺术的顶级博物馆，坐落于肉库区与高线公园入口，建筑本身也是一大看点。"
+        },
+        {
+          "name": "New Museum of Contemporary Art",
+          "nameCn": "新当代艺术博物馆（235 Bowery）",
+          "lat": 40.7222,
+          "lng": -73.9926,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美最重要的当代艺术机构之一，从Bowery街出发步行可达，专注前沿实验性当代艺术。"
+        },
+        {
+          "name": "NYU Institute of Fine Arts — The Duke House",
+          "nameCn": "纽约大学美术学院（公爵之家，1 East 78th St）",
+          "lat": 40.7762,
+          "lng": -73.9654,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "NYU艺术史研究重镇，历史建筑内部精美，不定期对外开放讲座和展览，艺术爱好者值得一去。"
+        },
+        {
+          "name": "Museum of the City of New York (MCNY)",
+          "nameCn": "纽约市博物馆（1220 Fifth Ave）",
+          "lat": 40.7928,
+          "lng": -73.9517,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "收藏纽约城市发展史的权威博物馆，老照片和城市规划展品丰富，了解纽约历史的绝佳去处。"
+        },
+        {
+          "name": "Lower East Side Tenement Museum",
+          "nameCn": "下东区移民公寓博物馆（103 Orchard St）",
+          "lat": 40.7188,
+          "lng": -73.99,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "真实还原19-20世纪移民生活的国家历史地标，对于了解纽约华人移民史极具意义，需预约导览。"
         }
       ]
     },
@@ -149,25 +304,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Washington Square Arch & Park",
-          "nameCn": "华盛顿广场拱门与公园",
+          "name": "Washington Square Park & Arch",
+          "nameCn": "华盛顿广场公园与凯旋门",
           "lat": 40.7308,
           "lng": -73.9973,
-          "note": "校园象征地标，师生集会与活动中心。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "NYU校园的精神核心，标志性的白色大理石拱门是纽约格林威治村最具代表性的地标，周末常有街头表演。"
         },
         {
           "name": "Kimmel Center for University Life",
-          "nameCn": "Kimmel 学生活动中心",
-          "lat": 40.7293,
-          "lng": -73.9978,
-          "note": "华盛顿广场南 60 号，学生中心与餐饮。"
+          "nameCn": "基梅尔大学生活中心（60 Washington Square South）",
+          "lat": 40.7289,
+          "lng": -73.9982,
+          "rank": 2,
+          "tier": "必去",
+          "note": "NYU学生社团、餐饮、票务和文化活动的一站式中心，刚入学必须来此了解学生组织资源。"
         },
         {
-          "name": "6 MetroTech Center (Tandon Main)",
-          "nameCn": "MetroTech 6 号工学院主楼",
-          "lat": 40.6942,
-          "lng": -73.9865,
-          "note": "布鲁克林工学院主楼，紧邻 Jay St 地铁站。"
+          "name": "NYU Skirball Center for the Performing Arts",
+          "nameCn": "斯克尔鲍演艺中心（566 LaGuardia Place）",
+          "lat": 40.7287,
+          "lng": -73.9987,
+          "rank": 3,
+          "tier": "必去",
+          "note": "850座的专业演出厅，是下曼哈顿最大的表演艺术场馆之一，NYU各类演出和校内外活动的舞台。"
+        },
+        {
+          "name": "Gould Plaza (between Bobst & Silver Center)",
+          "nameCn": "古尔德广场（Bobst与银色中心之间）",
+          "lat": 40.7293,
+          "lng": -73.9971,
+          "rank": 4,
+          "tier": "必去",
+          "note": "NYU核心户外广场，连接Bobst图书馆、Silver Center和法学院，是学生课间集会和晒太阳的默认场所。"
+        },
+        {
+          "name": "Washington Mews",
+          "nameCn": "华盛顿台阶巷（Washington Square North旁）",
+          "lat": 40.7323,
+          "lng": -73.9971,
+          "rank": 5,
+          "tier": "必去",
+          "note": "鹅卵石铺就的幽静小巷，NYU亚太研究、非洲研究等国际文化中心所在地，拍照绝佳，中国学生必打卡。"
+        },
+        {
+          "name": "The High Line",
+          "nameCn": "高线公园（入口：Gansevoort St）",
+          "lat": 40.748,
+          "lng": -74.0048,
+          "rank": 6,
+          "tier": "必去",
+          "note": "由废弃铁路改建的空中线性公园，长约2.3公里，沿途可俯瞰哈德逊河，是纽约最受欢迎的步道之一。"
+        },
+        {
+          "name": "Stonewall Inn (National Monument)",
+          "nameCn": "石墙酒吧（53 Christopher St）",
+          "lat": 40.7335,
+          "lng": -74.0024,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1969年石墙事件发生地，美国LGBT+权利运动的发源地，被列为国家历史纪念地，格林威治村必到之处。"
+        },
+        {
+          "name": "NYU Student Health Center (726 Broadway)",
+          "nameCn": "NYU学生健康中心（726 Broadway）",
+          "lat": 40.7295,
+          "lng": -73.9935,
+          "rank": 8,
+          "tier": "必去",
+          "note": "NYU学生专属医疗服务中心，含诊所、内置药房和心理健康咨询，国际学生报到后第一件事就是在此登记。"
         }
       ]
     },
@@ -179,39 +385,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Trader Joe's (Union Square)",
-          "nameCn": "缺德舅超市(联合广场店)",
-          "lat": 40.7345,
-          "lng": -73.9876,
-          "note": "性价比最高的连锁超市,就在NYU的Palladium宿舍楼里,留学生采购日常食品的首选。"
+          "name": "Morton Williams Supermarket",
+          "nameCn": "莫顿威廉超市（130 Bleecker St）",
+          "lat": 40.7278,
+          "lng": -74.0006,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距NYU步行5分钟的社区超市，NYU为其续约至2036年，日均3000顾客，是校区内最近、最方便的全品类超市。"
         },
         {
-          "name": "Whole Foods Market (Union Square)",
-          "nameCn": "全食超市(联合广场店)",
-          "lat": 40.734,
-          "lng": -73.9904,
-          "note": "高端有机超市,距校园10分钟,熟食热餐区适合不想做饭时解决一餐。"
+          "name": "Trader Joe's — Union Square",
+          "nameCn": "乔氏超市（142 E 14th St，Union Square）",
+          "lat": 40.7344,
+          "lng": -73.9894,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美最受欢迎的性价比连锁超市，就在NYU宿舍楼Palladium楼下，价格亲民，冷冻食品和自有品牌深受学生喜爱。"
         },
         {
-          "name": "New Kam Man (Chinatown)",
-          "nameCn": "新金门超市(华埠)",
+          "name": "Whole Foods Market — Tribeca",
+          "nameCn": "全食超市（270 Greenwich St，翠贝卡）",
+          "lat": 40.7175,
+          "lng": -74.0107,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "NYU附近最大的高端有机超市，品类齐全含熟食区，适合偶尔改善生活品质，也有大量素食和有机选择。"
+        },
+        {
+          "name": "Hong Kong Supermarket 香港超级市场",
+          "nameCn": "香港超级市场（157 Hester St，唐人街）",
+          "lat": 40.7164,
+          "lng": -73.9971,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距NYU地铁10分钟的华人超市首选，活鲜海鲜、亚洲调味品、港式零食应有尽有，是中国留学生采购家乡食材的必去地。"
+        },
+        {
+          "name": "Tan Tin-Hung Supermarket 信兴超级市场",
+          "nameCn": "信兴超级市场（121 Bowery，唐人街）",
           "lat": 40.7185,
-          "lng": -73.9985,
-          "note": "唐人街老牌华人超市三层楼,中式调料、冷冻饺子、米面酱油一站买齐。"
+          "lng": -73.9952,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "唐人街历史悠久的亚洲食材超市，越南和东南亚食材种类丰富，价格低廉，华人学生购买河粉米线等食材的好去处。"
         },
         {
-          "name": "Hong Kong Supermarket",
-          "nameCn": "香港超市",
-          "lat": 40.7166,
-          "lng": -73.9938,
-          "note": "华埠大型亚洲超市,生鲜活鱼、亚洲蔬菜和各国零食最全,价格实惠。"
-        },
-        {
-          "name": "Westside Market NYC (8th Ave)",
-          "nameCn": "西区超市",
-          "lat": 40.7398,
-          "lng": -74.0028,
-          "note": "本地连锁生鲜超市,营业时间长、距校园近,临时补货很方便。"
+          "name": "Sunrise Mart (Japanese grocery, SoHo)",
+          "nameCn": "Sunrise日系超市（494 Broome St，SoHo）",
+          "lat": 40.7243,
+          "lng": -74.0013,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "纽约知名日系超市，精选日本零食、生鲜食材、泡面和酱料，喜欢日料的中国学生必逛。"
         }
       ]
     },
@@ -223,46 +448,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Joe's Pizza (Carmine St)",
-          "nameCn": "Joe's披萨(原店)",
+          "name": "Nom Wah Tea Parlor",
+          "nameCn": "南华茶室（13 Doyers St，唐人街）",
+          "lat": 40.7147,
+          "lng": -73.999,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "1920年创立的纽约最古老点心店，猪肉虾仁烧卖和炸春卷是招牌，周末排队是常态，是中国留学生带家长必来的港式正宗dim sum。"
+        },
+        {
+          "name": "Joe's Shanghai (46 Bowery, Chinatown)",
+          "nameCn": "乔氏上海（46 Bowery，唐人街）",
+          "lat": 40.7155,
+          "lng": -73.9977,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "纽约最著名的小笼包餐厅，汤汁饱满、皮薄肉鲜，每逢周末需排队，是中国留学生心目中的必吃经典。"
+        },
+        {
+          "name": "Peking Duck House",
+          "nameCn": "北京烤鸭屋（28 Mott St，唐人街）",
+          "lat": 40.7148,
+          "lng": -73.998,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "1978年创立的纽约老字号北京烤鸭馆，桌边片鸭表演是亮点，适合与家人聚餐，是华人社区公认的仪式感餐厅。"
+        },
+        {
+          "name": "Tim Ho Wan — East Village",
+          "nameCn": "添好运（85 4th Ave，东村）",
+          "lat": 40.7315,
+          "lng": -73.9892,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "源自香港的米其林星级点心餐厅平民化支线，其叉烧包被誉为全港最好吃，NYU校区步行10分钟即达。"
+        },
+        {
+          "name": "Ippudo NY — East Village",
+          "nameCn": "一风堂（65 4th Ave，东村）",
+          "lat": 40.7308,
+          "lng": -73.9895,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "日本博多豚骨拉面在纽约的旗舰店，开业以来始终是纽约最受好评的拉面店之一，NYU学生最爱的深夜食堂。"
+        },
+        {
+          "name": "Xi'an Famous Foods — East Village",
+          "nameCn": "西安名吃（139 4th Ave，东村）",
+          "lat": 40.7327,
+          "lng": -73.9897,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "源自纽约唐人街的正宗西北面食连锁，裤带面和羊肉拌面是招牌，口味地道，价格学生友好，华人学生解馋首选。"
+        },
+        {
+          "name": "Han Dynasty — East Village",
+          "nameCn": "汉朝川菜馆（90 3rd Ave，东村）",
+          "lat": 40.7316,
+          "lng": -73.9883,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "东村最受好评的正宗四川菜馆，担担面、麻辣口水鸡和干锅鱼是招牌，是NYU中国留学生最常光顾的川菜首选。"
+        },
+        {
+          "name": "Momofuku Noodle Bar — East Village",
+          "nameCn": "Momofuku面馆（171 1st Ave，东村）",
+          "lat": 40.7283,
+          "lng": -73.9836,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "David Chang的美食帝国发源地，创意日韩融合拉面和猪肉包闻名全球，在NYU学生中口碑极佳。"
+        },
+        {
+          "name": "Vanessa's Dumpling House — Lower East Side",
+          "nameCn": "瓦内萨饺子屋（118A Eldridge St）",
+          "lat": 40.7183,
+          "lng": -73.9909,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "价格超亲民的华人饺子馆，4个饺子仅需$1起，煎饺和麻辣馄饨深受学生喜爱，紧邻唐人街。"
+        },
+        {
+          "name": "Joe's Pizza",
+          "nameCn": "乔氏披萨（7 Carmine St，格林威治村）",
           "lat": 40.7305,
-          "lng": -74.0022,
-          "note": "1975年开业的格林威治村披萨地标,《蜘蛛侠2》取景地,经典纽约街头切片必吃。"
+          "lng": -74.0021,
+          "rank": 10,
+          "tier": "绝对必吃",
+          "note": "纽约最经典的街头披萨店，1975年创立，纽约style薄脆大片，口味纯正，被无数媒体评为NYC最佳纽约派。"
         },
         {
-          "name": "Mamoun's Falafel (MacDougal St)",
-          "nameCn": "Mamoun's中东卷",
-          "lat": 40.7301,
-          "lng": -74.0001,
-          "note": "MacDougal街上的平价中东沙拉三明治老店,深夜也开,学生穷游救星。"
+          "name": "John's of Bleecker Street",
+          "nameCn": "布利克街约翰斯披萨（278 Bleecker St）",
+          "lat": 40.7296,
+          "lng": -74.0044,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1929年创立的煤炭窑烤整块披萨专门店，纽约格林威治村的地标餐厅，饼底焦脆烟熏香气独特，不卖单片只卖整块。"
         },
         {
-          "name": "Joe's Shanghai (Chinatown)",
-          "nameCn": "鹿鸣春(唐人街)",
-          "lat": 40.7152,
-          "lng": -73.997,
-          "note": "唐人街名店,以小笼包闻名,想吃地道上海菜和蟹粉灌汤包来这。"
+          "name": "Minetta Tavern",
+          "nameCn": "米内塔小馆（113 MacDougal St）",
+          "lat": 40.7294,
+          "lng": -74.0005,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "格林威治村经典法式小馆，黑安格斯汉堡和牛排在纽约榜单常年上榜，适合与家人庆祝场合。"
         },
         {
-          "name": "Xi'an Famous Foods (Greenwich Village)",
-          "nameCn": "西安名吃(格村店)",
-          "lat": 40.729,
-          "lng": -73.9988,
-          "note": "知名陕西面食连锁,油泼biangbiang面、肉夹馍解馋又抗饿,价格亲民。"
+          "name": "Artichoke Basille's Pizza",
+          "nameCn": "朝鲜蓟披萨（111 MacDougal St）",
+          "lat": 40.7291,
+          "lng": -73.9993,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "以奶油朝鲜蓟披萨闻名全纽约，厚重浓郁口味是纽约原创，深夜营业是NYU学生派对后必打卡的宵夜地标。"
         },
         {
-          "name": "Vanessa's Dumpling House (Lower East Side)",
-          "nameCn": "鹿园饺子馆",
-          "lat": 40.7188,
-          "lng": -73.992,
-          "note": "下东城超人气饺子店,几块钱一大盘煎饺加芝麻饼,留学生公认实惠。"
+          "name": "Mamoun's Falafel",
+          "nameCn": "马蒙法拉费尔（119 MacDougal St）",
+          "lat": 40.7292,
+          "lng": -73.9997,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "纽约历史最悠久的中东法拉费尔连锁，价格极低、全天候营业，是NYU学生课间最快最省的填饱肚子选择。"
         },
         {
-          "name": "Katz's Delicatessen",
-          "nameCn": "Katz熟食店",
-          "lat": 40.7223,
-          "lng": -73.9874,
-          "note": "1888年开业的纽约熏牛肉三明治圣地,《当哈利遇上莎莉》取景地,打卡必来。"
+          "name": "Chelsea Market",
+          "nameCn": "切尔西市场（75 Ninth Ave）",
+          "lat": 40.7424,
+          "lng": -74.0044,
+          "rank": 15,
+          "tier": "很推荐",
+          "note": "由饼干工厂改建的室内美食市集，汇聚龙虾卷、墨西哥卷饼、日式拉面等数十个餐饮摊位，是下午闲逛和觅食的好去处。"
         }
       ]
     },
@@ -274,32 +592,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Greenwich Village)",
-          "nameCn": "大通银行(格村支行)",
-          "lat": 40.7314,
-          "lng": -73.9985,
-          "note": "美国最大银行之一,校园附近网点多,留学生开户、办借记卡首选。"
+          "name": "Chase Bank — Greenwich Village Branch",
+          "nameCn": "摩根大通银行格林威治村支行（340 Ave of the Americas）",
+          "lat": 40.7329,
+          "lng": -74.0003,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距NYU步行10分钟的Chase分行，国际学生开户方便，接受护照+I-20+录取通知书，是到美后第一个开户的首选银行之一。"
         },
         {
           "name": "NYU Student Health Center",
-          "nameCn": "NYU学生健康中心",
-          "lat": 40.7338,
-          "lng": -73.9942,
-          "note": "NYU学生专属校医,看小病、打疫苗、心理咨询都在这,持学生保险便宜。"
+          "nameCn": "NYU学生健康中心（726 Broadway）",
+          "lat": 40.7295,
+          "lng": -73.9935,
+          "rank": 2,
+          "tier": "必去",
+          "note": "NYU学生专属医疗机构，含全科、急诊、心理健康咨询和内置药房，支持NYU学生医疗保险，国际学生看诊首选。"
         },
         {
-          "name": "Mount Sinai Beth Israel Hospital",
-          "nameCn": "西奈山贝斯以色列医院",
-          "lat": 40.733,
-          "lng": -73.982,
-          "note": "距校园最近的综合医院,设急诊室,突发疾病或意外可就近就医。"
+          "name": "ICBC (USA) — Canal Street Branch 中国工商银行美国分行",
+          "nameCn": "中国工商银行美国分行（202 Canal St，唐人街）",
+          "lat": 40.7176,
+          "lng": -74.0005,
+          "rank": 3,
+          "tier": "必去",
+          "note": "中国国有银行在纽约唐人街的主要分行，支持国内工行账户无手续费汇款，国际学生开户可与国内账户联动，留学生常用。"
         },
         {
-          "name": "CVS Pharmacy (6th Ave)",
-          "nameCn": "CVS药房(第六大道)",
-          "lat": 40.7335,
-          "lng": -73.9989,
-          "note": "连锁药房,处方药、感冒药和日用品都有,部分门店24小时营业。"
+          "name": "CVS Pharmacy — 360 Sixth Avenue",
+          "nameCn": "CVS药房（360 Avenue of the Americas）",
+          "lat": 40.7325,
+          "lng": -74.0005,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距NYU步行5分钟的连锁大药房，营业时间7:00am-午夜，含基础处方药和OTC药品，是NYU学生最近的24小时便民药房。"
+        },
+        {
+          "name": "T-Mobile — Greenwich Street Store",
+          "nameCn": "T-Mobile电话营业厅（270 Greenwich St）",
+          "lat": 40.7175,
+          "lng": -74.0108,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "距NYU较近的T-Mobile实体店，T-Mobile是国际学生最常选择的运营商（无需SSN开预付卡），办理SIM卡和学生优惠套餐的好去处。"
+        },
+        {
+          "name": "NYU Langone Health — Urgent Care (Ambulatory Care West Side)",
+          "nameCn": "NYU朗格尼健康紧急门诊（西侧门诊）",
+          "lat": 40.7459,
+          "lng": -73.9939,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "NYU朗格尼旗下紧急门诊，提供工作日和周末延时急诊服务，可接待无需预约的急症患者，较学生健康中心更全面。"
+        },
+        {
+          "name": "Bank of America — Greenwich Village",
+          "nameCn": "美国银行格林威治村支行（Ave of Americas & W 11th）",
+          "lat": 40.7343,
+          "lng": -74.0008,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "美国最大银行之一，校区附近设有多台ATM，学生开户可豁免月费，也是国际汇款的重要渠道。"
+        },
+        {
+          "name": "Walgreens (Duane Reade) — 352 Greenwich St",
+          "nameCn": "Walgreens药房（352 Greenwich St，翠贝卡）",
+          "lat": 40.7198,
+          "lng": -74.0103,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "离NYU较近的另一大连锁药房品牌，含药剂师咨询和常用OTC药品，Duane Reade是其纽约本地子品牌。"
         }
       ]
     },
@@ -311,39 +673,121 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Washington Square Park & Arch",
-          "nameCn": "华盛顿广场公园与凯旋门",
+          "name": "Washington Square Park",
+          "nameCn": "华盛顿广场公园",
           "lat": 40.7308,
           "lng": -73.9973,
-          "note": "NYU校园的心脏,标志性白色凯旋门和喷泉广场,街头艺人聚集,必拍照点。"
-        },
-        {
-          "name": "Union Square Greenmarket",
-          "nameCn": "联合广场农夫市集",
-          "lat": 40.7359,
-          "lng": -73.9911,
-          "note": "纽约最大的农夫市集,周一三五六开,逛吃买当地农产品的好去处。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "NYU的灵魂所在，著名的73英尺白色大理石凯旋门是纽约最具代表性的地标之一，周末有街头音乐表演和跳棋爱好者汇集。"
         },
         {
           "name": "The High Line",
           "nameCn": "高线公园",
           "lat": 40.748,
           "lng": -74.0048,
-          "note": "废弃高架铁路改建的空中花园步道,城市景观绝佳,散步出片两不误。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "由废弃铁路改建的空中线性公园，2.3公里全程可俯瞰哈德逊河和西区天际线，也是户外艺术装置的展示平台。"
         },
         {
-          "name": "SoHo Shopping District",
-          "nameCn": "苏荷购物区",
-          "lat": 40.7233,
-          "lng": -74.003,
-          "note": "铸铁建筑街区,大牌与潮牌云集,周末逛街、看建筑、喝咖啡的热门地。"
-        },
-        {
-          "name": "Chinatown (Manhattan)",
-          "nameCn": "曼哈顿唐人街",
+          "name": "Manhattan Chinatown",
+          "nameCn": "曼哈顿唐人街（Canal St区域）",
           "lat": 40.7158,
           "lng": -73.997,
-          "note": "全美最大华人社区之一,中餐、奶茶、亚超齐全,想家时来这最解乡愁。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "美国规模最大的华人聚居地之一，正宗粤菜、港式茶餐厅、中国超市和中药材店一应俱全，是中国留学生最有归属感的街区。"
+        },
+        {
+          "name": "Stonewall Inn & Christopher Street",
+          "nameCn": "石墙酒吧与克里斯托弗街",
+          "lat": 40.7335,
+          "lng": -74.0024,
+          "rank": 4,
+          "tier": "必去",
+          "note": "美国LGBT+权利运动的发源地，整条克里斯托弗街充满彩虹旗和文化气息，是格林威治村最有历史意义的街区。"
+        },
+        {
+          "name": "Blue Note Jazz Club",
+          "nameCn": "蓝音爵士俱乐部（131 W 3rd St）",
+          "lat": 40.7296,
+          "lng": -74.0009,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全球最著名的爵士乐表演场地之一，每周七天有顶级爵士演出，距NYU步行3分钟，留学纽约必体验一次的文化洗礼。"
+        },
+        {
+          "name": "Comedy Cellar",
+          "nameCn": "喜剧地下室（117 MacDougal St）",
+          "lat": 40.7292,
+          "lng": -74.0004,
+          "rank": 6,
+          "tier": "必去",
+          "note": "全纽约最知名的脱口秀喜剧俱乐部，Jerry Seinfeld、Dave Chappelle等大咖均曾惊喜现身，是感受美式幽默文化的最佳场所。"
+        },
+        {
+          "name": "Chelsea Market",
+          "nameCn": "切尔西市场（75 Ninth Ave）",
+          "lat": 40.7424,
+          "lng": -74.0044,
+          "rank": 7,
+          "tier": "必去",
+          "note": "由前纳贝斯克饼干工厂改建的室内美食与购物市集，集合了各色小吃、特色餐厅和创意小店，适合下午探索。"
+        },
+        {
+          "name": "Whitney Museum of American Art",
+          "nameCn": "惠特尼美国艺术博物馆（99 Gansevoort St）",
+          "lat": 40.7396,
+          "lng": -74.0089,
+          "rank": 8,
+          "tier": "必去",
+          "note": "位于高线公园南端的顶级美国当代艺术博物馆，建筑设计本身就是一件艺术品，室外露台可俯瞰哈德逊河。"
+        },
+        {
+          "name": "Brooklyn Bridge & DUMBO",
+          "nameCn": "布鲁克林大桥与丹波区",
+          "lat": 40.7061,
+          "lng": -73.9969,
+          "rank": 9,
+          "tier": "必去",
+          "note": "步行或骑行过布鲁克林大桥是纽约最经典的体验，桥上可同时看到曼哈顿天际线和自由女神，丹波区打卡照片必拍。"
+        },
+        {
+          "name": "Little Island (Pier 55)",
+          "nameCn": "小岛公园（Hudson River, West 13th St）",
+          "lat": 40.7412,
+          "lng": -74.0094,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "2021年新开放的漂浮人工公园，形如蘑菇群的独特造型是纽约新晋网红打卡地，有草坪剧场和美丽水景。"
+        },
+        {
+          "name": "West Village & Bleecker Street",
+          "nameCn": "西村与布利克街",
+          "lat": 40.7333,
+          "lng": -74.0055,
+          "rank": 11,
+          "tier": "必去",
+          "note": "纽约最具文艺气息的街区，鹅卵石街道两旁是独立书店、精品咖啡馆和百年老饭馆，漫步拍照是留学生周末的保留节目。"
+        },
+        {
+          "name": "Vessel & Edge — Hudson Yards",
+          "nameCn": "蜂巢装置与Edge观景台（哈德逊广场）",
+          "lat": 40.7536,
+          "lng": -74.0022,
+          "rank": 12,
+          "tier": "强烈推荐",
+          "note": "哈德逊广场标志性的蜂巢形雕塑和全球最高户外观景台（100层，可斜立玻璃地板），是现代纽约的视觉奇观。"
+        },
+        {
+          "name": "New Museum of Contemporary Art",
+          "nameCn": "新当代艺术博物馆（235 Bowery）",
+          "lat": 40.7222,
+          "lng": -73.9926,
+          "rank": 13,
+          "tier": "强烈推荐",
+          "note": "Bowery街上标志性的白色叠楼建筑，展出全球最前沿的当代艺术，距NYU步行约15分钟，艺术生必去。"
         }
       ]
     }

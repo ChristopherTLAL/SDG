@@ -67,53 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Angell Hall",
-          "nameCn": "安吉尔楼",
-          "lat": 42.2769,
-          "lng": -83.7408,
-          "note": "文理学院主教学楼，临 The Diag 西侧的标志性列柱建筑。"
-        },
-        {
-          "name": "Mason Hall",
-          "nameCn": "梅森楼",
-          "lat": 42.2773,
-          "lng": -83.7401,
-          "note": "中央校区核心教学楼，与安吉尔楼相连。"
-        },
-        {
           "name": "Ross School of Business",
           "nameCn": "罗斯商学院",
-          "lat": 42.2735,
+          "lat": 42.2736,
+          "lng": -83.7418,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖商学院之一，MBA/BBA项目极具声望，与法学院相邻"
+        },
+        {
+          "name": "College of Engineering / EECS Building",
+          "nameCn": "工学院 / 电气与计算机工程楼",
+          "lat": 42.2929,
+          "lng": -83.7154,
+          "rank": 2,
+          "tier": "必去",
+          "note": "北校区核心，EECS专业全美前十，中国留学生聚集的重要学术场所"
+        },
+        {
+          "name": "Angell Hall",
+          "nameCn": "安吉尔礼堂",
+          "lat": 42.2768,
           "lng": -83.738,
-          "note": "全美顶尖商学院，位于中央校区东南。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "中央校区最具代表性的学术建筑，LSA学院主楼，地标级课堂，Diag正对面"
         },
         {
-          "name": "University of Michigan Law School",
-          "nameCn": "法学院",
-          "lat": 42.2747,
-          "lng": -83.7378,
-          "note": "哥特式四方庭院 Law Quad，校园最具古典气质的建筑群。"
+          "name": "University of Michigan Law School (Law Quad)",
+          "nameCn": "密歇根大学法学院（法学四合院）",
+          "lat": 42.2741,
+          "lng": -83.7426,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美前五法学院，哥特式建筑群堪称校园最美庭院，必须一游"
         },
         {
-          "name": "Bob and Betty Beyster Building",
-          "nameCn": "贝斯特楼",
-          "lat": 42.293,
-          "lng": -83.7159,
-          "note": "北校区计算机科学与工程系所在地。"
+          "name": "Gerald R. Ford School of Public Policy (Weill Hall)",
+          "nameCn": "福特公共政策学院（威尔楼）",
+          "lat": 42.2735,
+          "lng": -83.7382,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "以前总统命名的顶级公共政策学院，政治学与国际关系学生的重要去处"
         },
         {
-          "name": "G.G. Brown Laboratory",
-          "nameCn": "布朗工程实验楼",
-          "lat": 42.2933,
-          "lng": -83.71399,
-          "note": "北校区机械工程与多学科工程实验大楼。"
+          "name": "Stamps School of Art & Design (Art & Architecture Building)",
+          "nameCn": "斯坦普斯艺术与设计学院",
+          "lat": 42.2916,
+          "lng": -83.72,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "北校区艺术与建筑专业大楼，同时是建筑与城市规划学院所在地"
         },
         {
-          "name": "University Hospital",
-          "nameCn": "大学医院",
-          "lat": 42.2845,
-          "lng": -83.7305,
-          "note": "密歇根医学旗舰医院，1500 East Medical Center Drive。"
+          "name": "School of Music, Theatre & Dance (Earl V. Moore Building)",
+          "nameCn": "音乐、戏剧与舞蹈学院（摩尔楼）",
+          "lat": 42.2939,
+          "lng": -83.7135,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "北校区顶级艺术表演学院，定期对外开放音乐会和表演，免费入场"
+        },
+        {
+          "name": "Rackham Graduate School",
+          "nameCn": "拉克汉研究生院",
+          "lat": 42.2813,
+          "lng": -83.7336,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "研究生院行政总部，1938年竣工的Art Deco地标，内有宏伟礼堂"
+        },
+        {
+          "name": "University of Michigan Medical School (Michigan Medicine)",
+          "nameCn": "密歇根大学医学院",
+          "lat": 42.284,
+          "lng": -83.7275,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "全美顶级医学院之一，与大学医院一体，医学生及相关研究生必了解"
+        },
+        {
+          "name": "Duderstadt Center (North Campus)",
+          "nameCn": "杜德斯塔特中心（北校区）",
+          "lat": 42.2914,
+          "lng": -83.7162,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "北校区综合枢纽，包含工程图书馆、数字媒体工作室和24小时学习空间"
+        },
+        {
+          "name": "School of Public Health",
+          "nameCn": "公共卫生学院",
+          "lat": 42.2821,
+          "lng": -83.7343,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "全美排名前三的公共卫生学院，与医学院毗邻，MPH项目国际生众多"
+        },
+        {
+          "name": "School of Social Work",
+          "nameCn": "社会工作学院",
+          "lat": 42.2742,
+          "lng": -83.7363,
+          "rank": 12,
+          "tier": "可选",
+          "note": "位于1080 S University Ave，全美知名社工和社会政策项目"
         }
       ],
       "defaultOn": true
@@ -126,25 +185,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Harlan Hatcher Graduate Library",
+          "name": "Hatcher Graduate Library",
           "nameCn": "哈彻研究生图书馆",
-          "lat": 42.27622,
-          "lng": -83.73819,
-          "note": "校图书馆系统核心，临 The Diag 东侧的研究生主馆。"
+          "lat": 42.2762,
+          "lng": -83.7375,
+          "rank": 1,
+          "tier": "必去",
+          "note": "密大最大最核心图书馆，壮观的阅览室和百年历史建筑，紧邻Diag"
         },
         {
-          "name": "Shapiro Undergraduate Library",
-          "nameCn": "夏皮罗本科图书馆",
-          "lat": 42.2755,
-          "lng": -83.7367,
-          "note": "本科生主图书馆，俗称 UgLi，24小时学习空间。"
+          "name": "Shapiro Undergraduate Library (UGLI)",
+          "nameCn": "夏皮罗本科图书馆（丑陋图书馆）",
+          "lat": 42.2758,
+          "lng": -83.7378,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与哈彻相连，本科生24小时学习圣地，外号「UGLI」，期末最拥挤"
         },
         {
-          "name": "Art, Architecture and Engineering Library",
-          "nameCn": "艺术建筑与工程图书馆",
-          "lat": 42.292,
-          "lng": -83.7165,
-          "note": "位于北校区 Duderstadt 中心，服务工程与艺术学科。"
+          "name": "Duderstadt Center Art, Architecture & Engineering Library",
+          "nameCn": "杜德斯塔特工程艺术图书馆",
+          "lat": 42.2914,
+          "lng": -83.7162,
+          "rank": 3,
+          "tier": "必去",
+          "note": "北校区标志性图书馆，工科、建筑、艺术专业学生首选，24小时开放"
+        },
+        {
+          "name": "Taubman Health Sciences Library",
+          "nameCn": "陶布曼健康科学图书馆",
+          "lat": 42.2829,
+          "lng": -83.7295,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2023年翻修后的顶级医学图书馆，内含大型学习空间，对公众部分开放"
+        },
+        {
+          "name": "Bentley Historical Library",
+          "nameCn": "本特利历史图书馆",
+          "lat": 42.2939,
+          "lng": -83.7148,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "密大官方档案馆，收藏密歇根州和密大历史珍贵文献，研究者必访"
+        },
+        {
+          "name": "Fine Arts Library (Buhr Building)",
+          "nameCn": "布尔艺术图书馆",
+          "lat": 42.2761,
+          "lng": -83.7402,
+          "rank": 6,
+          "tier": "可选",
+          "note": "收藏艺术史、音乐和表演艺术资料，Shapiro楼内可通往，人文学科学生常用"
         }
       ]
     },
@@ -158,16 +250,38 @@
         {
           "name": "University of Michigan Museum of Art (UMMA)",
           "nameCn": "密歇根大学艺术博物馆",
-          "lat": 42.275,
-          "lng": -83.7383,
-          "note": "中央校区免费开放的综合艺术馆，藏品逾两万件。"
+          "lat": 42.2758,
+          "lng": -83.7399,
+          "rank": 1,
+          "tier": "必去",
+          "note": "密大最重要博物馆，馆藏东西方艺术品超2万件，学生免费入场，常有特展"
         },
         {
-          "name": "Museum of Natural History",
-          "nameCn": "自然历史博物馆",
-          "lat": 42.2783,
-          "lng": -83.7349,
-          "note": "位于 Biological Sciences Building，恐龙化石与天文馆。"
+          "name": "University of Michigan Museum of Natural History",
+          "nameCn": "密歇根大学自然历史博物馆",
+          "lat": 42.2793,
+          "lng": -83.734,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2019年迁入生物科学楼，密歇根州最大恐龙骨架收藏，含天象馆免费参观"
+        },
+        {
+          "name": "Kelsey Museum of Archaeology",
+          "nameCn": "凯尔西考古博物馆",
+          "lat": 42.2769,
+          "lng": -83.7389,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "坐落于国家历史建筑内，收藏古罗马、希腊、埃及文物，免费且鲜有人知"
+        },
+        {
+          "name": "Museum of Anthropological Archaeology (UMMAA)",
+          "nameCn": "人类考古学博物馆",
+          "lat": 42.2786,
+          "lng": -83.7382,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "收藏全球各地考古标本，Ruthven楼内，人类学与历史学研究生常用"
         }
       ]
     },
@@ -179,46 +293,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "The Diag",
-          "nameCn": "中央草坪",
-          "lat": 42.2767,
-          "lng": -83.7387,
-          "note": "中央校区交叉步道大草坪，铜质校徽 'M' 嵌于地面。"
-        },
-        {
-          "name": "Burton Memorial Tower",
-          "nameCn": "伯顿纪念钟楼",
-          "lat": 42.27942,
-          "lng": -83.73871,
-          "note": "中央校区地标钟楼，内藏 Baird 排钟。"
+          "name": "The Diag (The Diagonal",
+          "nameCn": "对角广场（The Diag）",
+          "lat": 42.2769,
+          "lng": -83.7381,
+          "rank": 1,
+          "tier": "必去",
+          "note": "密大中央草坪，地面嵌有「M」标志，校园心脏地带，新生必踩一次"
         },
         {
           "name": "Michigan Union",
-          "nameCn": "密歇根学生会堂",
-          "lat": 42.2752,
-          "lng": -83.7412,
-          "note": "历史悠久的学生活动中心，肯尼迪在此宣布和平队构想。"
-        },
-        {
-          "name": "Lurie Tower",
-          "nameCn": "卢里钟楼",
-          "lat": 42.292,
-          "lng": -83.71618,
-          "note": "北校区地标钟楼，与伯顿钟楼遥相呼应。"
+          "nameCn": "密歇根学生会大楼",
+          "lat": 42.2751,
+          "lng": -83.7401,
+          "rank": 2,
+          "tier": "必去",
+          "note": "中央校区学生活动中心，餐厅、自习室、社团办公室一应俱全，肯尼迪曾在此演讲"
         },
         {
           "name": "Michigan Stadium (The Big House)",
           "nameCn": "密歇根体育场（大房子）",
-          "lat": 42.2658,
-          "lng": -83.7487,
-          "note": "全美最大体育场，可容逾十万观众的狼獾橄榄球主场。"
+          "lat": 42.2659,
+          "lng": -83.7486,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美最大体育场，可容纳10万+观众，秋季主场比赛是密大最盛大的社交活动"
         },
         {
-          "name": "Crisler Center",
-          "nameCn": "克莱斯勒中心",
-          "lat": 42.2653,
-          "lng": -83.7483,
-          "note": "篮球主场馆，紧邻密歇根体育场。"
+          "name": "Burton Memorial Tower",
+          "nameCn": "伯顿纪念钟楼",
+          "lat": 42.279,
+          "lng": -83.738,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园53米高地标钟楼，收藏55口编钟，每日正午报时，密大的精神象征"
+        },
+        {
+          "name": "Michigan League",
+          "nameCn": "密歇根联盟楼",
+          "lat": 42.2791,
+          "lng": -83.7381,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "北校区入口附近的优雅学生活动建筑，举办各类讲座和文化活动"
+        },
+        {
+          "name": "Pierpont Commons (North Campus)",
+          "nameCn": "皮尔庞特公共活动中心（北校区）",
+          "lat": 42.291,
+          "lng": -83.716,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "北校区学生中心，餐饮、邮政和社交空间集中地，工程、艺术学生日常去处"
+        },
+        {
+          "name": "Nichols Arcade (Nickels Arcade)",
+          "nameCn": "尼克尔斯拱廊",
+          "lat": 42.2781,
+          "lng": -83.7384,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1918年建造的玻璃顶购物拱廊（326 S State St），历史感十足，适合打卡"
         }
       ]
     },
@@ -230,32 +365,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tsai Grocery",
-          "nameCn": "蔡氏亚洲超市",
-          "lat": 42.2409,
-          "lng": -83.7709,
-          "note": "安娜堡老牌亚洲超市，中日韩泰食材齐全，店内还带熟食外带，留学生囤中餐调料的常去处。"
+          "name": "Kroger (Plymouth Road)",
+          "nameCn": "克罗格超市（普利茅斯路店）",
+          "lat": 42.3031,
+          "lng": -83.711,
+          "rank": 1,
+          "tier": "必去",
+          "note": "最近北校区的大型综合超市，有药房，公交可达，学生日常采购首选"
         },
         {
-          "name": "Dong Yu China Market",
-          "nameCn": "东屿中国超市",
-          "lat": 42.3026,
-          "lng": -83.7062,
-          "note": "Plymouth Rd 上的华人超市，主打中国食材、冷冻火锅料和零食，离北校区较近。"
+          "name": "Meijer (Ann Arbor-Saline Rd)",
+          "nameCn": "迈耶超市（安娜堡-塞林路店）",
+          "lat": 42.2499,
+          "lng": -83.755,
+          "rank": 2,
+          "tier": "必去",
+          "note": "密歇根本土大型超市，24小时营业，生鲜、家电、日用品一站购齐，价格实惠"
         },
         {
-          "name": "Whole Foods Market (Cranbrook)",
-          "nameCn": "全食超市（Cranbrook 店）",
-          "lat": 42.2476,
-          "lng": -83.7605,
-          "note": "高端连锁生鲜超市，有机果蔬和现成熟食丰富，校区往南约 3.5 公里。"
+          "name": "Hua Xing Asia Market",
+          "nameCn": "华兴亚洲超市",
+          "lat": 42.2607,
+          "lng": -83.6769,
+          "rank": 3,
+          "tier": "必去",
+          "note": "安娜堡地区最大亚洲超市（Ypsilanti），4万余种中日韩商品，中国食材最全"
         },
         {
-          "name": "Trader Joe's",
-          "nameCn": "乔氏超市",
-          "lat": 42.2596,
-          "lng": -83.7135,
-          "note": "性价比高的人气连锁超市，自有品牌冷冻食品和零食学生最爱，Stadium Blvd 上。"
+          "name": "Whole Foods Market (Washtenaw Ave)",
+          "nameCn": "全食超市（华胜顿大道店）",
+          "lat": 42.2614,
+          "lng": -83.6974,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "有机食品和进口食材丰富，适合购买西式食材，价格较高但品质好"
+        },
+        {
+          "name": "Galleria Asian Market",
+          "nameCn": "亚洲超市（盖勒丽亚）",
+          "lat": 42.2531,
+          "lng": -83.7017,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Packard路上的韩中日混合亚超，附设现做热食区，距中央校区约5公里"
+        },
+        {
+          "name": "Orange Market",
+          "nameCn": "橙色市集",
+          "lat": 42.2843,
+          "lng": -83.7385,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "紧靠医院区的韩式便利店风亚洲小超市（1118 Broadway），泡面零食应急首选"
+        },
+        {
+          "name": "Kroger (Maple Road)",
+          "nameCn": "克罗格超市（枫树路店）",
+          "lat": 42.2765,
+          "lng": -83.7712,
+          "rank": 7,
+          "tier": "可选",
+          "note": "西安娜堡大型连锁超市（400 S Maple Rd），车程约10分钟，品类齐全"
         }
       ]
     },
@@ -267,39 +437,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "TK Wu",
-          "nameCn": "TK Wu 中餐馆",
-          "lat": 42.2794,
-          "lng": -83.7431,
-          "note": "市中心 Liberty 街的正宗川菜/中餐，本地华人公认地道，分量足，步行可达校园。"
-        },
-        {
-          "name": "Tomukun Korean BBQ & Noodle Bar",
-          "nameCn": "Tomukun 韩式烤肉拉面",
-          "lat": 42.2795,
-          "lng": -83.7427,
-          "note": "校园旁人气最高的亚洲餐厅之一，韩式烤肉+拉面/越南粉，适合三五同学聚餐。"
-        },
-        {
-          "name": "No Thai!",
-          "nameCn": "No Thai! 泰式快餐",
-          "lat": 42.275,
-          "lng": -83.733,
-          "note": "South University 学生区的泰式快餐招牌店，份量大价格友好，课间果腹首选。"
-        },
-        {
           "name": "Zingerman's Delicatessen",
-          "nameCn": "Zingerman's 熟食店",
-          "lat": 42.2843,
-          "lng": -83.7457,
-          "note": "安娜堡地标级美食，1982 年创立的传奇三明治熟食店，来一次必打卡。"
+          "nameCn": "津格曼熟食店",
+          "lat": 42.2864,
+          "lng": -83.7437,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "安娜堡最具传奇地位的老牌熟食店（422 Detroit St），来密大必吃，三明治份量巨大"
         },
         {
-          "name": "Frita Batidos",
-          "nameCn": "Frita Batidos 古巴小馆",
-          "lat": 42.2796,
+          "name": "Lan City Noodle Bar",
+          "nameCn": "兰州拉面·兰城面馆",
+          "lat": 42.2735,
+          "lng": -83.737,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "正宗手拉兰州风味面条（1235 S University Ave），中国留学生最爱，口味正宗"
+        },
+        {
+          "name": "TK Wu Fine Chinese Restaurant",
+          "nameCn": "TK吴中餐厅",
+          "lat": 42.2803,
           "lng": -83.7407,
-          "note": "State 街上的本地名店，古巴风味汉堡 frita 配奶昔 batido，氛围活泼。"
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "市中心平价正宗中餐（510 E Liberty St），口碑极好，适合解馋，外卖方便"
+        },
+        {
+          "name": "Miss Kim",
+          "nameCn": "金小姐韩国料理",
+          "lat": 42.2869,
+          "lng": -83.7448,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "James Beard提名主厨，结合韩国传统与密歇根本地食材，是安娜堡最受赞誉的亚洲餐厅"
+        },
+        {
+          "name": "Tomukun Korean Barbeque",
+          "nameCn": "东木韩国烤肉",
+          "lat": 42.2803,
+          "lng": -83.7413,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "校区附近最受欢迎的韩国烤肉（505 E Liberty St），桌边自烤，适合聚餐"
+        },
+        {
+          "name": "Slurping Turtle",
+          "nameCn": "滑滑龟亚洲餐厅",
+          "lat": 42.2801,
+          "lng": -83.7395,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "人气亚洲融合料理（608 E Liberty St），拉面、日式小吃，Yelp高评分"
+        },
+        {
+          "name": "Tomukun Noodle Bar",
+          "nameCn": "东木面馆",
+          "lat": 42.2803,
+          "lng": -83.741,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "与韩国烤肉同品牌，专做拉面、越南河粉、乌冬，价格亲民，适合日常"
+        },
+        {
+          "name": "Zingerman's Roadhouse",
+          "nameCn": "津格曼公路餐厅",
+          "lat": 42.2798,
+          "lng": -83.7756,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "美式灵魂食物标杆（2501 Jackson Ave），炸鸡、六种Mac&Cheese，体验美国南方菜必去"
+        },
+        {
+          "name": "Evergreen Restaurant",
+          "nameCn": "长青中餐厅",
+          "lat": 42.2788,
+          "lng": -83.7358,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "安娜堡中餐界老字号，提供川湘台等多种菜系，被老留学生强烈推荐"
+        },
+        {
+          "name": "Chia Shiang Restaurant",
+          "nameCn": "佳香中餐馆",
+          "lat": 42.2621,
+          "lng": -83.7285,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "南校区Packard路附近（2016 Packard St），北方菜+川菜，价格实惠，留学生口碑老店"
+        },
+        {
+          "name": "Möge Tee",
+          "nameCn": "茉歌茶（奶茶）",
+          "lat": 42.3031,
+          "lng": -83.711,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "北校区附近（2603 Plymouth Rd）正宗台湾奶茶品牌，中国学生解乡愁首选"
+        },
+        {
+          "name": "Bellflower",
+          "nameCn": "贝尔弗劳尔餐厅",
+          "lat": 42.2821,
+          "lng": -83.7466,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "2024年James Beard提名，以中西部食材为核心，被评为瓦什特诺县最佳餐厅"
+        },
+        {
+          "name": "Gandy Dancer",
+          "nameCn": "甘迪丹瑟餐厅",
+          "lat": 42.2891,
+          "lng": -83.749,
+          "rank": 13,
+          "tier": "一般",
+          "note": "1886年老火车站改建的高档餐厅，新鲜海鲜与牛排，适合特殊场合或接待父母"
+        },
+        {
+          "name": "King Shing Restaurant",
+          "nameCn": "经城中餐馆",
+          "lat": 42.2789,
+          "lng": -83.7391,
+          "rank": 14,
+          "tier": "一般",
+          "note": "市中心平价中餐外卖店，分量大、价格便宜，赶作业时点外卖的救星"
         }
       ]
     },
@@ -313,30 +574,74 @@
         {
           "name": "University Health Service (UHS)",
           "nameCn": "密大学生健康服务中心",
-          "lat": 42.2802,
-          "lng": -83.737,
-          "note": "校内学生医务中心，含全科门诊、急诊、药房，多数服务对在校生免费，看病第一站。"
+          "lat": 42.2805,
+          "lng": -83.7357,
+          "rank": 1,
+          "tier": "必去",
+          "note": "在读学生首选医疗机构（207 Fletcher St），提供门诊、心理咨询、药房、疫苗接种"
         },
         {
-          "name": "Bank of America (Main St)",
-          "nameCn": "美国银行（主街支行）",
-          "lat": 42.2804,
-          "lng": -83.7484,
-          "note": "市中心主街的实体银行网点，可办理开户/借记卡，从校园步行约 1 公里。"
+          "name": "Michigan Medicine / University Hospital",
+          "nameCn": "密歇根医学中心 / 大学医院",
+          "lat": 42.284,
+          "lng": -83.7275,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美顶级医院（1500 E Medical Center Dr），急诊24小时，复杂医疗问题首选"
         },
         {
-          "name": "CVS Pharmacy (S State St)",
-          "nameCn": "CVS 药房（州街店）",
-          "lat": 42.2799,
-          "lng": -83.7407,
-          "note": "就在 State 街校园边的连锁药房，买非处方药、日用品和取处方都方便。"
+          "name": "Chase Bank (Main & Huron Branch)",
+          "nameCn": "大通银行（Main街与Huron街口）",
+          "lat": 42.281,
+          "lng": -83.7481,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距校区最近的大型银行（100 S Main St），国际留学生开户方便，接受护照开户"
         },
         {
-          "name": "University Hospital (Michigan Medicine)",
-          "nameCn": "密歇根大学医院",
-          "lat": 42.2814,
-          "lng": -83.7268,
-          "note": "密歇根医学中心主院区，设急诊室，遇重症/急症 24 小时就医，紧邻校园东侧。"
+          "name": "CVS Pharmacy (South State St)",
+          "nameCn": "CVS药店（州街店）",
+          "lat": 42.2796,
+          "lng": -83.739,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校区步行可达药店（209 S State St），OTC药品、日用品，含小型药房柜台"
+        },
+        {
+          "name": "Walgreens (South State St)",
+          "nameCn": "沃尔格林药店（州街店）",
+          "lat": 42.2784,
+          "lng": -83.7388,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "与CVS相近（317 S State St），营业至8pm，照片冲印、药品、美妆一站解决"
+        },
+        {
+          "name": "T-Mobile (Washtenaw Ave Store)",
+          "nameCn": "T-Mobile电话营业厅",
+          "lat": 42.2659,
+          "lng": -83.7071,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Washtenaw路营业厅，留学生首选运营商，月付预付套餐灵活，无需SSN"
+        },
+        {
+          "name": "AT&T Store (West Stadium Blvd)",
+          "nameCn": "AT&T电话营业厅",
+          "lat": 42.2712,
+          "lng": -83.7659,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "西安娜堡AT&T门店（2275 W Stadium Blvd），信号覆盖好，iPhone用户常选"
+        },
+        {
+          "name": "Ann Arbor Urgent Care (a2urgentcare)",
+          "nameCn": "安娜堡急诊快诊中心",
+          "lat": 42.2812,
+          "lng": -83.7348,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "非UHS学生使用的急诊步入诊所，无需预约，候诊时间短，费用低于ER"
         }
       ]
     },
@@ -348,32 +653,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "University of Michigan Museum of Art (UMMA)",
-          "nameCn": "密歇根大学艺术博物馆",
-          "lat": 42.2792,
-          "lng": -83.7387,
-          "note": "全美顶尖大学艺术馆之一，藏品横跨三千年，常年免费开放，就在 Diag 南侧。"
+          "name": "Nichols Arboretum (The Arb)",
+          "nameCn": "尼科尔斯植物园（树园）",
+          "lat": 42.2815,
+          "lng": -83.7268,
+          "rank": 1,
+          "tier": "必去",
+          "note": "密大学生最爱的自然散步地（1610 Washington Hts），123英亩，春天丁香花绝美"
         },
         {
-          "name": "The Diag",
-          "nameCn": "Diag 中心草坪",
-          "lat": 42.2768,
-          "lng": -83.7382,
-          "note": "中央校区的核心广场与十字步道，学生日常穿行与活动地标，拍校园照必来。"
-        },
-        {
-          "name": "Nichols Arboretum",
-          "nameCn": "尼科尔斯植物园",
-          "lat": 42.2805,
-          "lng": -83.7278,
-          "note": "校园东侧的大型自然林地，春季牡丹园闻名，散步、野餐、看红叶的好去处。"
+          "name": "Graffiti Alley",
+          "nameCn": "涂鸦巷",
+          "lat": 42.2801,
+          "lng": -83.7393,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Liberty街521号后的巷子，全年涂鸦不断更新，安娜堡最火的打卡地"
         },
         {
           "name": "Ann Arbor Farmers Market (Kerrytown)",
-          "nameCn": "安娜堡农夫市集（Kerrytown）",
-          "lat": 42.2834,
-          "lng": -83.7467,
-          "note": "Kerrytown 历史街区的农夫市集，买本地生鲜、奶酪、鲜花，周边小店林立适合逛。"
+          "nameCn": "安娜堡农贸市场（凯里镇）",
+          "lat": 42.2868,
+          "lng": -83.7456,
+          "rank": 3,
+          "tier": "必去",
+          "note": "周三周六开市，密歇根州本地农产品、手工制品，Zingerman's 就在隔壁"
+        },
+        {
+          "name": "Michigan Theater",
+          "nameCn": "密歇根大剧院",
+          "lat": 42.2801,
+          "lng": -83.7428,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1928年开业的百年电影宫（603 E Liberty St），放映独立电影，票价便宜，氛围超好"
+        },
+        {
+          "name": "Gallup Park",
+          "nameCn": "盖洛普公园",
+          "lat": 42.2879,
+          "lng": -83.7078,
+          "rank": 5,
+          "tier": "必去",
+          "note": "沿胡伦河的3.25英里步行/骑行道（3000 Fuller Rd），夏季可租划艇，是放松首选"
+        },
+        {
+          "name": "Matthaei Botanical Gardens",
+          "nameCn": "马塞艾植物园",
+          "lat": 42.298,
+          "lng": -83.6702,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "300英亩大型植物园（1800 N Dixboro Rd），含热带温室，冬天也可参观，免费入场"
+        },
+        {
+          "name": "Kerrytown District",
+          "nameCn": "凯里镇历史街区",
+          "lat": 42.2865,
+          "lng": -83.746,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "安娜堡最具特色的历史街区，汇集精品店、餐厅和市集，步行即达市中心"
+        },
+        {
+          "name": "State Street / Liberty Street Shopping District",
+          "nameCn": "州街 / 自由街商业区",
+          "lat": 42.2783,
+          "lng": -83.7388,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "密大学生最集中的商业街，书店、咖啡馆、二手店和餐厅密集，日常溜达必选"
+        },
+        {
+          "name": "Argo Canoe Livery / Argo Cascades",
+          "nameCn": "阿尔戈皮划艇出租 / 激流段",
+          "lat": 42.2916,
+          "lng": -83.7531,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "胡伦河激流段旁的皮划艇出租点（1055 Longshore Dr），夏季体验密歇根户外必选"
+        },
+        {
+          "name": "Ann Arbor District Library (Downtown Branch)",
+          "nameCn": "安娜堡公共图书馆（市区馆）",
+          "lat": 42.2793,
+          "lng": -83.7468,
+          "rank": 10,
+          "tier": "可选",
+          "note": "343 S Fifth Ave，免费WiFi和自习室，开放时间长，可借书和使用数字资源"
         }
       ]
     }

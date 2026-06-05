@@ -75,46 +75,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Computer Science Building (CSB)",
-          "nameCn": "计算机科学楼",
-          "lat": 54.5818,
-          "lng": -5.9374,
-          "note": "电子电气工程与计算机科学学院主楼,位于马龙路。"
+          "name": "Lanyon Building (Main Building)",
+          "nameCn": "拉尼恩主楼",
+          "lat": 54.5842,
+          "lng": -5.9345,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1849年由Charles Lanyon设计的维多利亚哥特主楼，内设Naughton画廊与大厅，是女王大学最具代表性的地标建筑，出现在北爱尔兰钞票上。"
         },
         {
-          "name": "Ashby Building",
-          "nameCn": "阿什比工程楼",
-          "lat": 54.5801,
-          "lng": -5.9366,
-          "note": "斯特兰米利斯路上的工程学科教学楼。"
+          "name": "Peter Froggatt Centre / School of Law (Main Site Tower)",
+          "nameCn": "法学院/彼得·弗罗加特中心",
+          "lat": 54.583,
+          "lng": -5.932,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "由TODD Architects设计的现代法学院大楼，获RIBA区域奖，包含大讲堂与研究生院，是EPS与法学学生的日常学习中心。"
         },
         {
-          "name": "Riddel Hall",
-          "nameCn": "里德尔楼",
-          "lat": 54.5763,
-          "lng": -5.9351,
-          "note": "管理学院与企业研究中心所在地。"
+          "name": "School of Electronics, Electrical Engineering & Computer Science (EEECS)",
+          "nameCn": "电子电气与计算机科学学院",
+          "lat": 54.576,
+          "lng": -5.939,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Malone Road 16A的独立楼宇，是QUB理工科最热门院系之一，网络安全和AI方向全英知名。"
         },
         {
-          "name": "Medical Biology Centre (MBC)",
-          "nameCn": "医学生物中心",
-          "lat": 54.5858,
-          "lng": -5.9426,
-          "note": "利斯本路医学园主体,生物医学科学教学核心。"
+          "name": "Queen's Business School (Riddel Hall)",
+          "nameCn": "女王商学院（里德尔大厅）",
+          "lat": 54.574,
+          "lng": -5.939,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Stranmillis Road 185号，AACSB认证商学院，提供MBA、金融与管理硕士，国际留学生众多。"
         },
         {
-          "name": "Centre for Cancer Research and Cell Biology",
-          "nameCn": "癌症研究与细胞生物学中心",
-          "lat": 54.586,
-          "lng": -5.9447,
-          "note": "邓卢斯大道的肿瘤研究机构,属医学园。"
+          "name": "Medical Biology Centre (MBC) / School of Medicine",
+          "nameCn": "医学生物中心/医学院",
+          "lat": 54.58,
+          "lng": -5.944,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Lisburn Road 97号，紧邻贝尔法斯特城市医院，是医学与生命科学本硕博学生的核心教学科研基地。"
         },
         {
-          "name": "Institute of Pathology",
-          "nameCn": "病理学研究所",
-          "lat": 54.5946,
-          "lng": -5.9516,
-          "note": "皇家维多利亚医院旁的临床病理教学与研究楼。"
+          "name": "Sonic Arts Research Centre (SARC)",
+          "nameCn": "声音艺术研究中心",
+          "lat": 54.5815,
+          "lng": -5.931,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专为音乐、声学与人机交互研究而建的目的性建筑，汇聚全球顶尖作曲家与信号处理学者，在音乐科技圈颇具声誉。"
+        },
+        {
+          "name": "School of Arts, English & Languages (University Square buildings)",
+          "nameCn": "艺术、英语与语言学院",
+          "lat": 54.5848,
+          "lng": -5.9355,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "坐落于University Square历史建筑群，内含Queen's Film Theatre和Brian Friel剧场，是人文艺术学生日常上课与演出场所。"
+        },
+        {
+          "name": "School of Mathematics & Physics",
+          "nameCn": "数学与物理学院",
+          "lat": 54.5826,
+          "lng": -5.9331,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于主校区核心，理论物理与纯数学研究实力强劲，部分课程与EEECS及工程学院交叉合作。"
+        },
+        {
+          "name": "School of Chemistry & Chemical Engineering",
+          "nameCn": "化学与化工学院",
+          "lat": 54.582,
+          "lng": -5.934,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "提供化学工程本硕博多个项目，工业与制药方向就业良好，科研设施完善。"
+        },
+        {
+          "name": "School of Natural & Built Environment",
+          "nameCn": "自然与建成环境学院",
+          "lat": 54.5836,
+          "lng": -5.9328,
+          "rank": 10,
+          "tier": "可选",
+          "note": "涵盖地理、考古与城市规划，历史学和人类学系也在此，人文社科学生选课常用。"
         }
       ],
       "defaultOn": true
@@ -127,11 +175,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "The McClay Library",
+          "name": "McClay Library",
           "nameCn": "麦克莱图书馆",
-          "lat": 54.5836,
-          "lng": -5.9318,
-          "note": "2009年启用的中央图书馆,藏有C.S.刘易斯阅览室。"
+          "lat": 54.5843,
+          "lng": -5.936,
+          "rank": 1,
+          "tier": "必去",
+          "note": "QUB主校区旗舰图书馆，10 College Park，藏书超百万册，有静音区、讨论室、电脑工作站及24小时学习楼层，国际学生必须注册的主库。"
+        },
+        {
+          "name": "Biomedical Library (Medical Biology Centre)",
+          "nameCn": "生物医学图书馆",
+          "lat": 54.58,
+          "lng": -5.944,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于Lisburn Road 97号MBC大楼内，专供医学、护理与生命科学学生，收藏临床与基础医学核心期刊及教材。"
+        },
+        {
+          "name": "Medical Library (Royal Victoria Hospital)",
+          "nameCn": "皇家维多利亚医院医学图书馆",
+          "lat": 54.5973,
+          "lng": -5.9695,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于Mulhouse Road RVH院区内，供临床实习医学生使用，临床参考书和循证医学数据库资源丰富。"
+        },
+        {
+          "name": "QUB Special Collections & Archives",
+          "nameCn": "麦克莱特藏与档案室",
+          "lat": 54.5843,
+          "lng": -5.936,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于McClay图书馆底层，收藏北爱尔兰稀有手稿、早期印刷品及历史地图，论文研究与历史学研究必访。"
+        },
+        {
+          "name": "Seamus Heaney Reading Room (One Elmwood)",
+          "nameCn": "谢默斯·希尼阅览室",
+          "lat": 54.5838,
+          "lng": -5.935,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "One Elmwood学生中心内的安静阅览空间，以诺贝尔文学奖诗人命名，适合自习与小型讨论，氛围现代。"
+        },
+        {
+          "name": "Belfast Central Library",
+          "nameCn": "贝尔法斯特中央图书馆",
+          "lat": 54.5997,
+          "lng": -5.9279,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于Royal Avenue市中心，公共图书馆，免费办卡借书，期末复习季学生常来此占座，离校区步行约20分钟。"
         }
       ]
     },
@@ -143,11 +238,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The Naughton Gallery at Queen's",
+          "name": "Ulster Museum",
+          "nameCn": "阿尔斯特博物馆",
+          "lat": 54.582,
+          "lng": -5.9368,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻校园的国家级博物馆，免费入场，藏有真实木乃伊、西班牙无敌舰队黄金、爱尔兰唯一恐龙骨骸及大量艺术品，北爱留学必刷。"
+        },
+        {
+          "name": "Titanic Belfast",
+          "nameCn": "泰坦尼克贝尔法斯特博物馆",
+          "lat": 54.6081,
+          "lng": -5.9103,
+          "rank": 2,
+          "tier": "必去",
+          "note": "建于原哈兰与沃尔夫造船厂，九大沉浸式展厅讲述造船与沉船全史，全球最佳旅游景点之一，提前网购票更便宜。"
+        },
+        {
+          "name": "Naughton Gallery at Queen's",
           "nameCn": "诺顿美术馆",
-          "lat": 54.5844,
-          "lng": -5.9351,
-          "note": "设于莱尼恩楼内的注册美术馆,免费向公众开放。"
+          "lat": 54.5842,
+          "lng": -5.9345,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于拉尼恩主楼一楼，全年轮换展览，免费入场，融合当代艺术与大学馆藏，是校园内文艺打卡首选。"
+        },
+        {
+          "name": "The MAC (Metropolitan Arts Centre)",
+          "nameCn": "大都会艺术中心",
+          "lat": 54.6034,
+          "lng": -5.9275,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Cathedral Quarter的Exchange Street West 10号，集当代艺术展览、剧场与音乐演出于一体，学生票价亲民，是贝尔法斯特文艺新地标。"
+        },
+        {
+          "name": "Crumlin Road Gaol",
+          "nameCn": "克伦林路监狱博物馆",
+          "lat": 54.6094,
+          "lng": -5.9423,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "北爱唯一保存完好的维多利亚式监狱，导览含牢房、地下隧道与北爱政治动乱历史，适合对政治历史有兴趣的学生。"
         }
       ]
     },
@@ -159,53 +292,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "The Lanyon Building",
-          "nameCn": "莱尼恩楼",
-          "lat": 54.5844,
-          "lng": -5.9351,
-          "note": "查尔斯·莱尼恩设计的维多利亚哥特式标志建筑,大学象征。"
+          "name": "One Elmwood Student Centre",
+          "nameCn": "One Elmwood学生中心",
+          "lat": 54.5838,
+          "lng": -5.9352,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2022年开放的£4180万学生中心，含学生会、学生事务指导、Mandela Hall演出场地及各类支持服务，是QUB学生日常生活核心。"
         },
         {
-          "name": "One Elmwood Student Centre (Students' Union)",
-          "nameCn": "榆园一号学生中心(学生会)",
-          "lat": 54.5847,
-          "lng": -5.9369,
-          "note": "2022年启用的学生会大楼,含曼德拉厅,正对莱尼恩楼。"
+          "name": "Lanyon Building & Great Hall",
+          "nameCn": "拉尼恩楼与大厅",
+          "lat": 54.5842,
+          "lng": -5.9345,
+          "rank": 2,
+          "tier": "必去",
+          "note": "标志性维多利亚哥特主楼，大厅用于学位典礼与正式宴会，加拿大室与议事厅开放导览参观，是来QUB打卡的必选。"
         },
         {
-          "name": "Sir William Whitla Hall",
-          "nameCn": "惠特拉大礼堂",
-          "lat": 54.5837,
-          "lng": -5.936,
-          "note": "校内主要典礼与音乐会礼堂。"
+          "name": "Belfast Botanic Gardens & Palm House",
+          "nameCn": "贝尔法斯特植物园与棕榈屋",
+          "lat": 54.5817,
+          "lng": -5.9363,
+          "rank": 3,
+          "tier": "必去",
+          "note": "紧邻校园的28英亩免费公园，内有1839年建成的铸铁玻璃棕榈屋与热带峡谷温室，是学生散步、野餐和放松的首选去处。"
         },
         {
           "name": "Queen's Film Theatre (QFT)",
           "nameCn": "女王电影院",
-          "lat": 54.5855,
-          "lng": -5.934,
-          "note": "大学广场旁的独立艺术电影院。"
+          "lat": 54.5848,
+          "lng": -5.9355,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "University Square 20号，学生票仅£5的独立艺术影院，常映国际获奖影片与经典重映，节日期间有电影节专题放映。"
         },
         {
-          "name": "Queen's Physical Education Centre (PEC)",
-          "nameCn": "体育运动中心",
-          "lat": 54.5807,
-          "lng": -5.9306,
-          "note": "植物园路上的综合体育馆,含攀岩墙与泳池。"
+          "name": "Elmwood Hall",
+          "nameCn": "埃尔姆伍德大厅",
+          "lat": 54.5844,
+          "lng": -5.935,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "由维多利亚式教堂改建的多功能厅，承接管弦乐演出、学术会议和文化活动，音响出色，是校园演出的重要场地。"
         },
         {
-          "name": "Botanic Railway Station",
-          "nameCn": "植物园火车站",
-          "lat": 54.5884,
-          "lng": -5.9329,
-          "note": "距主校区最近的火车站,步行可达学生区。"
+          "name": "Whitla Hall",
+          "nameCn": "惠特拉大厅",
+          "lat": 54.584,
+          "lng": -5.9342,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "可容纳约1250人的大型演出厅，是QUB主要管弦乐演奏、大型讲座和毕业典礼举办场地，音乐生与学生会活动常在此举行。"
         },
         {
-          "name": "Mary Peters Track",
-          "nameCn": "玛丽·彼得斯田径场",
-          "lat": 54.5486,
-          "lng": -5.9674,
-          "note": "上马龙体育场内的国际级田径跑道。"
+          "name": "Belfast City Hall",
+          "nameCn": "贝尔法斯特市政厅",
+          "lat": 54.5965,
+          "lng": -5.9303,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "市中心Donegall广场的文艺复兴式穹顶地标，提供免费导览，圆形大厅和玫瑰园值得一游，周边是购物与交通中心。"
         }
       ]
     },
@@ -217,32 +364,67 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Tesco Express (University Road)",
+          "nameCn": "乐购便利店（大学路店）",
+          "lat": 54.5856,
+          "lng": -5.9353,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于University Road 32-36号，步行2分钟即达，24小时营业，是校区内最近的主流超市，适合随手购买日用品和食材。"
+        },
+        {
           "name": "Lee Foods Oriental Supermarket",
-          "nameCn": "利食东方超市",
-          "lat": 54.59031,
-          "lng": -5.92769,
-          "note": "离校园最近的华人/亚洲超市，在 Donegall Pass，步行十几分钟，中餐调料、米面、火锅料、亚洲蔬菜齐全，旁边还有几家小亚超可一并逛。"
+          "nameCn": "李氏东方超市",
+          "lat": 54.5888,
+          "lng": -5.928,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Donegall Pass 98-108号，步行约10分钟，是离校区最近的亚洲超市，有中式食材、米面酱料、调味品及亚洲零食，凭学生证可享5%折扣。"
         },
         {
-          "name": "Asia Supermarket",
-          "nameCn": "亚洲超市",
-          "lat": 54.5909676,
-          "lng": -5.912886,
-          "note": "贝尔法斯特最早也是最大的亚洲超市（现位于 Ormeau Embankment），中日韩东南亚货品最全，留学生采购大件、囤货首选，建议结伴或打车去。"
+          "name": "Lidl (Belfast City Centre)",
+          "nameCn": "利德尔超市（市中心店）",
+          "lat": 54.5995,
+          "lng": -5.928,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于High Street市中心，步行约20分钟，是北爱尔兰最平价的大型超市（无Aldi），蔬果肉类性价比极高，学生周购首选。"
         },
         {
-          "name": "Tesco Express (Dublin Road)",
-          "nameCn": "Tesco Express 超市（都柏林路）",
-          "lat": 54.59102,
-          "lng": -5.93275,
-          "note": "离校园最近的英国主流连锁超市之一，日常牛奶面包、生鲜速食随时补给；办 Clubcard 会员卡有折扣。"
+          "name": "Camseng International Food Distributors",
+          "nameCn": "金星国际食品超市",
+          "lat": 54.5782,
+          "lng": -5.9395,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Lisburn Road 131号，品类丰富的亚洲食品批发兼零售店，中式、东南亚、韩国食材均有，价格比市区更实惠。"
         },
         {
-          "name": "China Cash & Carry (中国城超市)",
-          "nameCn": "中国城超市 China Cash & Carry",
-          "lat": 54.61496,
-          "lng": -5.91994,
-          "note": "市区北侧的大型华人批发超市，价格实惠、整箱整袋更划算，适合开学囤货或几个人拼单采购。"
+          "name": "Marks & Spencer Food Hall (Donegall Place)",
+          "nameCn": "马莎百货食品厅（市中心）",
+          "lat": 54.5988,
+          "lng": -5.9298,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Donegall Place 48号，品质较高的食品厅，主打现成餐食、熟食和优质食材，发薪日或家长来访时的好选择。"
+        },
+        {
+          "name": "Asia Supermarket Belfast",
+          "nameCn": "亚洲超市（奥莫路店）",
+          "lat": 54.5842,
+          "lng": -5.9184,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Ormeau Embankment 40号，提供更广泛的东南亚食材，附设亚洲餐厅小吃，距校区约20分钟公交，购物可享学生折扣。"
+        },
+        {
+          "name": "OYE Asian Supermarket",
+          "nameCn": "OYE亚洲超市",
+          "lat": 54.5841,
+          "lng": -5.9586,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于Boucher Place Meadow Centre，中韩日食材相对齐全，可网上订购配送，但位置偏西需乘车，适合集中采购。"
         }
       ]
     },
@@ -255,38 +437,120 @@
       "items": [
         {
           "name": "Lee Garden Restaurant",
-          "nameCn": "利园酒家",
-          "lat": 54.58911,
-          "lng": -5.9332,
-          "note": "Botanic Avenue 上的人气粤式餐厅，主打港式点心（虾饺、烧卖、肠粉），价格亲民、离校园近，想吃中餐解馋的第一站。"
+          "nameCn": "李园餐厅（粤式点心）",
+          "lat": 54.5881,
+          "lng": -5.928,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Botanic Avenue 14-18号，北爱最佳点心餐厅，香港马来西亚师傅主理，午市点心£6起，虾饺烧卖、叉烧肠粉应有尽有，下午5点前供应。"
         },
         {
           "name": "The Welcome Restaurant",
-          "nameCn": "迎宾楼",
-          "lat": 54.58082,
-          "lng": -5.93523,
-          "note": "北爱尔兰历史最悠久的中餐厅（始于 1980 年代），地道港式粤菜，就在 Ulster 博物馆和植物园旁，适合家人来访或聚餐。"
+          "nameCn": "迎宾港式餐厅",
+          "lat": 54.5803,
+          "lng": -5.9368,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Stranmillis Road 22号，1982年开业的粤菜名店，荣获Good Food Awards金章及北爱最佳东方餐厅奖，经典港式菜式正宗地道。"
         },
         {
-          "name": "Boojum",
-          "nameCn": "Boojum 墨西哥卷",
-          "lat": 54.58728,
-          "lng": -5.93281,
-          "note": "源自贝尔法斯特的本土墨西哥卷连锁，大份量 burrito 是学生党高性价比午餐的代名词，Botanic Avenue 店常排队。"
+          "name": "3 Levels Asian Fusion / Teppan 3",
+          "nameCn": "三层亚洲融合铁板烧",
+          "lat": 54.586,
+          "lng": -5.9348,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "University Road 31号，贝尔法斯特首家铁板烧餐厅，三楼分设铁板、日式和中式区域，视觉体验感十足，聚会必选。"
         },
         {
-          "name": "Maggie May's Belfast",
-          "nameCn": "Maggie May's 餐馆",
-          "lat": 54.58785,
-          "lng": -5.93263,
-          "note": "Botanic Avenue 老牌平价餐馆，必点经典「Ulster Fry」全套煎早餐，体验北爱本地味道的招牌去处。"
+          "name": "Cafe Arirang",
+          "nameCn": "阿里郎韩国咖啡厅",
+          "lat": 54.5882,
+          "lng": -5.9276,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Botanic Avenue 32号，贝尔法斯特韩国料理标杆，泡菜炒饭、石锅拌饭、韩式炸鸡皆受好评，周一至六营业，价格亲民。"
         },
         {
-          "name": "The Chip Company",
-          "nameCn": "The Chip Company 炸鱼薯条店",
-          "lat": 54.58768,
-          "lng": -5.93263,
-          "note": "校园旁 Botanic Avenue 的炸鱼薯条店，英式国民美食 Fish & Chips，深夜放学路过来一份很顶饱。"
+          "name": "Steamboat Oriental BBQ",
+          "nameCn": "蒸汽船韩式火锅烤肉",
+          "lat": 54.5888,
+          "lng": -5.928,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Donegall Pass 15号，贝尔法斯特首家韩式烤肉火锅，桌装炭炉自烤牛羊猪肉，人均£25，聚餐体验感极强，营业十余年口碑稳定。"
+        },
+        {
+          "name": "Madame Pho",
+          "nameCn": "越南河粉夫人",
+          "lat": 54.5882,
+          "lng": -5.9275,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "Botanic Avenue 17号，招牌越南河粉汤底鲜浓，越式三明治（bánh mì）也广受好评，天气寒冷时最暖身，学生常光顾。"
+        },
+        {
+          "name": "BaoBun Street Food (Botanic)",
+          "nameCn": "包包台式街头小吃（植物园店）",
+          "lat": 54.588,
+          "lng": -5.9277,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Botanic Avenue 48号，台式割包（刈包）专门店，猪肉/鸡肉/豆腐多款馅料，另有越南河粉，每日11:30营业，快餐价位。"
+        },
+        {
+          "name": "House of Zen",
+          "nameCn": "禅园中式料理",
+          "lat": 54.603,
+          "lng": -5.9276,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Cathedral Quarter圣安妮广场3号，精致中餐厅，宫灯装饰氛围佳，套餐从£23.50起，适合特殊场合或家长来访时的正餐。"
+        },
+        {
+          "name": "Kamakura Sushi & Ramen",
+          "nameCn": "镰仓寿司拉面",
+          "lat": 54.5895,
+          "lng": -5.9277,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Donegall Pass 69号，日式寿司卷与拉面结合，环境轻松，菜品新鲜，价格适中，是学生日常日料解馋首选。"
+        },
+        {
+          "name": "Bo Tree Kitchen",
+          "nameCn": "菩提树泰式厨房",
+          "lat": 54.587,
+          "lng": -5.934,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "University Avenue 65-67号，正宗泰国家庭料理，可自带酒水，绿咖喱和泰式炒饭评价极高，适合校区步行5分钟内就餐。"
+        },
+        {
+          "name": "Dumpling Library",
+          "nameCn": "饺子图书馆（全亚洲风味）",
+          "lat": 54.6015,
+          "lng": -5.9258,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "St Anne's Square Edward Street，手工中式/日式/韩式饺子，午餐晚餐均有套餐，市中心位置便于逛街后就餐。"
+        },
+        {
+          "name": "Ginza Kitchen",
+          "nameCn": "银座日式料理",
+          "lat": 54.579,
+          "lng": -5.9392,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Lisburn Road 245号，艺术装饰风日本料理，提供寿司刺身及精致日本料理，适合想吃正式日餐的留学生。"
+        },
+        {
+          "name": "Mandarin City",
+          "nameCn": "满都城中餐厅",
+          "lat": 54.5895,
+          "lng": -5.8965,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Upper Newtownards Road 273-275号，主营粤菜与北京烤鸭，被部分人称为贝尔法斯特最佳中餐，但需乘车前往，口碑有所分化。"
         }
       ]
     },
@@ -298,32 +562,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "The University Health Centre at Queen's",
-          "nameCn": "女王大学校医务所（GP 诊所）",
-          "lat": 54.58392,
-          "lng": -5.9375,
-          "note": "女王大学官方合作 GP 诊所，就在校园边 University Road 上，留学生抵英后应尽快在此注册 GP（看病、开药、转诊都靠它）。"
+          "name": "University Health Centre at Queen's",
+          "nameCn": "女王大学学生健康中心（GP诊所）",
+          "lat": 54.5835,
+          "lng": -5.9348,
+          "rank": 1,
+          "tier": "必去",
+          "note": "University Terrace 7号，距One Elmwood步行1分钟，专为QUB学生提供NHS全科医疗服务，入学后应尽早注册（覆盖BT1-BT12及BT17邮编）。"
         },
         {
-          "name": "Belfast City Hospital",
-          "nameCn": "贝尔法斯特市立医院",
-          "lat": 54.58737,
-          "lng": -5.94167,
-          "note": "Lisburn Road 上的大型教学医院，离校园很近，急诊与专科就医的主要去处（注意 A&E 急诊主要在皇家医院 RVH）。"
+          "name": "Kensington Medical Centre",
+          "nameCn": "肯辛顿全科诊所（备选GP）",
+          "lat": 54.588,
+          "lng": -5.9295,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Bradbury Place 30-44号，紧邻学生公寓，适合不在大学健康中心覆盖区内的学生注册，同样提供NHS免费看诊。"
         },
         {
-          "name": "J McGregor Pharmacy",
-          "nameCn": "McGregor 药房",
-          "lat": 54.58884,
-          "lng": -5.93312,
-          "note": "Botanic Avenue 上的社区药房，凭 GP 处方取药、买非处方感冒药和日用药都方便，离校园步行可达。"
+          "name": "Halifax Bank (Donegall Square North)",
+          "nameCn": "哈利法克斯银行（市中心）",
+          "lat": 54.5968,
+          "lng": -5.9296,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Donegall Square North 11-15号，北爱仍活跃运营的主要零售银行，提供学生账户开户服务，国际学生开户须带护照和在读证明。"
         },
         {
-          "name": "Vodafone (Donegall Place)",
-          "nameCn": "Vodafone 手机营业厅（市中心）",
-          "lat": 54.59798,
-          "lng": -5.93019,
-          "note": "市中心 Donegall Place 的运营商门店，办英国手机卡/套餐（SIM）可现场咨询；附近还有 EE、Three、O2 等多家可比价。"
+          "name": "Barclays Bank (Belfast)",
+          "nameCn": "巴克莱银行（贝尔法斯特）",
+          "lat": 54.599,
+          "lng": -5.9302,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "Castle Place 17号，巴克莱在北爱的主要分行，提供国际学生账户开户，需提前预约，适合持有HSBC/Barclays母行关联的学生。"
+        },
+        {
+          "name": "Boots Pharmacy (Botanic Avenue)",
+          "nameCn": "博姿药房（植物园大道）",
+          "lat": 54.5884,
+          "lng": -5.9278,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Botanic Avenue路段，最近校区的连锁药房，可凭NHS处方免费取药（北爱尔兰处方免费），也售OTC非处方药与日用护理品。"
+        },
+        {
+          "name": "EE Store (Victoria Square)",
+          "nameCn": "EE电信门店（维多利亚广场）",
+          "lat": 54.5996,
+          "lng": -5.9258,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Ann Street 1-3号维多利亚广场内，英国信号覆盖最广的运营商，可办理SIM卡及学生优惠套餐，建议到店激活并选含通话的月租套餐。"
+        },
+        {
+          "name": "Belfast City Hospital (A&E)",
+          "nameCn": "贝尔法斯特城市医院（急诊）",
+          "lat": 54.5837,
+          "lng": -5.9445,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Lisburn Road上，距主校区步行15分钟，提供急诊服务，非紧急情况请先联系GP或拨打NHS 111热线，避免急诊室长时间等候。"
         }
       ]
     },
@@ -335,39 +634,67 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Botanic Gardens & Palm House",
-          "nameCn": "贝尔法斯特植物园与棕榈温室",
-          "lat": 54.58062,
-          "lng": -5.93032,
-          "note": "紧邻校园的维多利亚式公园，免费开放，标志性玻璃棕榈温室是热门打卡点，学生散步、野餐、复习的后花园。"
+          "name": "Belfast Botanic Gardens",
+          "nameCn": "贝尔法斯特植物园",
+          "lat": 54.5817,
+          "lng": -5.9363,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻校园的28英亩免费公园，棕榈屋和热带峡谷是维多利亚建筑珍品，春夏花海美不胜收，是学生放松减压的日常打卡圣地。"
+        },
+        {
+          "name": "Titanic Belfast",
+          "nameCn": "泰坦尼克博物馆",
+          "lat": 54.6081,
+          "lng": -5.9103,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球最大泰坦尼克主题博物馆，九大沉浸式展厅震撼人心，建于原造船厂遗址，是贝尔法斯特留学生必打卡的No.1景点。"
+        },
+        {
+          "name": "Cave Hill Country Park & McArt's Fort",
+          "nameCn": "洞山郊野公园与麦克阿特要塞",
+          "lat": 54.6377,
+          "lng": -5.9638,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "贝尔法斯特市内徒步圣地，拿破仑的鼻子悬崖俯瞰全城，据说是格列佛游记灵感来源，爬至山顶景色极佳且免费。"
+        },
+        {
+          "name": "Cathedral Quarter & St Anne's Cathedral",
+          "nameCn": "教堂区与圣安妮大教堂",
+          "lat": 54.6017,
+          "lng": -5.9277,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "贝尔法斯特文化艺术中心区，圣安妮大教堂马赛克镶嵌精美，周边聚集画廊、精酿酒吧和美食餐厅，夜生活与文艺活动集中地。"
+        },
+        {
+          "name": "Queen's Film Theatre (QFT)",
+          "nameCn": "女王电影院",
+          "lat": 54.5848,
+          "lng": -5.9355,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "University Square 20号，学生票仅£5的独立艺术影院，常映国际获奖影片与经典重映，节日期间有电影节专题放映。"
+        },
+        {
+          "name": "Crumlin Road Gaol",
+          "nameCn": "克伦林路监狱",
+          "lat": 54.6094,
+          "lng": -5.9423,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "北爱唯一维多利亚式监狱遗址改造景区，地下隧道与牢房导览揭示北爱麻烦时代历史，适合对政治历史有兴趣的学生。"
         },
         {
           "name": "Ulster Museum",
           "nameCn": "阿尔斯特博物馆",
-          "lat": 54.58225,
-          "lng": -5.93532,
-          "note": "北爱最大的综合博物馆，免费参观，藏有恐龙、埃及木乃伊、西班牙无敌舰队宝藏与爱尔兰艺术，就在植物园内。"
-        },
-        {
-          "name": "Queen's University Lanyon Building",
-          "nameCn": "女王大学 Lanyon 主楼",
-          "lat": 54.58442,
-          "lng": -5.93515,
-          "note": "学校地标性的红砖哥特复兴主楼，建于 1849 年，是全校最经典的拍照与开学合影背景。"
-        },
-        {
-          "name": "Queen's Film Theatre (QFT)",
-          "nameCn": "女王电影院 QFT",
-          "lat": 54.58548,
-          "lng": -5.93395,
-          "note": "校园旁的独立艺术影院，放映文艺片与小众佳作，学生有折扣票，适合周末文化消遣。"
-        },
-        {
-          "name": "Lavery's Bar",
-          "nameCn": "Lavery's 酒吧",
-          "lat": 54.58902,
-          "lng": -5.93438,
-          "note": "Bradbury Place 上的百年老字号酒吧，几代学生的社交据点，体验本地 pub 文化、看球、聚会的经典去处。"
+          "lat": 54.582,
+          "lng": -5.9368,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园旁的免费国家博物馆，从恐龙骨骼到无敌舰队黄金一网打尽，阴雨天的最佳消遣，刚入学时的首周必去。"
         }
       ]
     }

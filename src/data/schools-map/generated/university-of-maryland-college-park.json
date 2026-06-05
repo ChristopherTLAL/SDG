@@ -51,39 +51,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Glenn L. Martin Hall (Clark School of Engineering)",
-          "nameCn": "马丁工程楼（克拉克工程学院）",
-          "lat": 38.98893,
-          "lng": -76.93796,
-          "note": "A. James Clark工程学院核心楼，位于工程象限。"
+          "name": "Brendan Iribe Center for Computer Science and Engineering",
+          "nameCn": "Iribe计算机与工程中心",
+          "lat": 38.9889,
+          "lng": -76.9369,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UMD计算机科学系旗舰楼，6层21.5万平方英尺，含VR/AR实验室、robotics研究室，QS全美CS研究排名前12"
         },
         {
-          "name": "Brendan Iribe Center for Computer Science",
-          "nameCn": "Iribe 计算机科学中心",
-          "lat": 38.9899,
-          "lng": -76.9362,
-          "note": "校东北的计算机与创新中心，临体育场大道。"
+          "name": "A. James Clark School of Engineering (Glenn L. Martin Hall)",
+          "nameCn": "克拉克工学院（马丁厅）",
+          "lat": 38.9892,
+          "lng": -76.9399,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美工程学院排名第18，航空航天、机械、电子等强势专业所在地，是UMD工科生的核心学术地带"
         },
         {
-          "name": "Morrill Hall",
-          "nameCn": "莫里尔楼",
-          "lat": 38.98431,
-          "lng": -76.94421,
-          "note": "1898年建，校内最古老的学术楼。"
+          "name": "Van Munching Hall – Robert H. Smith School of Business",
+          "nameCn": "范蒙钦楼——史密斯商学院",
+          "lat": 38.9851,
+          "lng": -76.9374,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美商学院知名度极高，供应链管理全美Top30，MBA/金融/商业分析项目均受好评，是华人留学生热门去处"
         },
         {
-          "name": "Van Munching Hall (Smith School of Business)",
-          "nameCn": "范蒙钦楼（史密斯商学院）",
-          "lat": 38.98306,
-          "lng": -76.9474,
-          "note": "Robert H. Smith商学院所在地。"
+          "name": "Jeong H. Kim Engineering Building (KEB)",
+          "nameCn": "金成镐工程楼（KEB）",
+          "lat": 38.9876,
+          "lng": -76.9356,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "韩裔校友捐款建造，汇聚电气、生物医学工程系，设施现代，是工科研究生上课和实验的重要场所"
         },
         {
-          "name": "Knight Hall (Merrill College of Journalism)",
-          "nameCn": "Knight 楼（梅里尔新闻学院）",
-          "lat": 38.98679,
-          "lng": -76.94855,
-          "note": "2010年LEED金级新闻学院楼。"
+          "name": "Parren J. Mitchell Art-Sociology Building",
+          "nameCn": "米切尔艺术社会学楼",
+          "lat": 38.9865,
+          "lng": -76.9452,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "艺术系与社会学系所在地，同时是UMD Art Gallery入驻楼，免费画廊展览对外开放"
+        },
+        {
+          "name": "Cole Student Activities Building / Driskell Center",
+          "nameCn": "科尔学生活动楼/德里斯科尔中心",
+          "lat": 38.9869,
+          "lng": -76.9436,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "David C. Driskell非洲裔艺术研究中心所在地，全球非洲离散艺术收藏最重要的学术机构之一"
+        },
+        {
+          "name": "Samuel Riggs IV Alumni Center",
+          "nameCn": "里格斯校友中心",
+          "lat": 38.984,
+          "lng": -76.9408,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "主要举办校友网络、招聘、信息宣讲活动，内有一座Testudo铜像，也是各类签约/宣讲会的热门场地"
+        },
+        {
+          "name": "College of Information Studies (iSchool) – Hornbake Building",
+          "nameCn": "信息学院（iSchool）——霍恩贝克楼",
+          "lat": 38.9855,
+          "lng": -76.9433,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "全美图书馆与信息学全美排名长期Top5，同时是大学档案馆Special Collections所在地"
+        },
+        {
+          "name": "Jimenez Hall – Department of Linguistics",
+          "nameCn": "希门尼斯楼——语言学系",
+          "lat": 38.9877,
+          "lng": -76.9459,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "UMD语言学系全美知名，专注语言习得、计算语言学；大楼离STAMP仅5分钟步行"
+        },
+        {
+          "name": "Edward St. John Learning & Teaching Center (ESJ)",
+          "nameCn": "圣约翰学习教学中心",
+          "lat": 38.987,
+          "lng": -76.9419,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "2019年新建的多功能主动学习教学中心，大量合作学习空间，是UMD近年建筑质量最高的教学楼之一"
+        },
+        {
+          "name": "School of Public Policy – Van Munching Hall Annex",
+          "nameCn": "公共政策学院",
+          "lat": 38.9848,
+          "lng": -76.938,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "全美公共政策研究生院排名第25，靠近Smith商学院，国际关系与政策分析华人学生较多"
+        },
+        {
+          "name": "Physical Sciences Complex (PSC)",
+          "nameCn": "物理科学综合楼",
+          "lat": 38.9911,
+          "lng": -76.9418,
+          "rank": 12,
+          "tier": "可选",
+          "note": "物理、数学、天文系聚集地，内含先进研究实验室，物理系在全美基础科学研究中排名靠前"
         }
       ],
       "defaultOn": true
@@ -97,17 +170,57 @@
       "items": [
         {
           "name": "McKeldin Library",
-          "nameCn": "麦凯尔丁图书馆",
-          "lat": 38.9858,
-          "lng": -76.9444,
-          "note": "校内主图书馆，位于McKeldin Mall西端。"
+          "nameCn": "麦克尔丁图书馆",
+          "lat": 38.9861,
+          "lng": -76.9447,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UMD主图书馆，馆藏最丰富，含Terrapin Learning Commons、MakerSpace、研究咨询中心，24小时自习室极受欢迎"
         },
         {
-          "name": "STEM Library (Math Building)",
-          "nameCn": "STEM 图书馆",
-          "lat": 38.98862,
-          "lng": -76.93926,
-          "note": "理工科分馆，服务工程与数学院系。"
+          "name": "Hornbake Library",
+          "nameCn": "霍恩贝克图书馆",
+          "lat": 38.9855,
+          "lng": -76.9433,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "珍本与大学档案馆所在地，典藏吉姆·汉森（Muppets创始人）资料、马里兰历史文献，适合人文研究者"
+        },
+        {
+          "name": "STEM Library (A.V. Williams Building)",
+          "nameCn": "STEM图书馆",
+          "lat": 38.989,
+          "lng": -76.938,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "专为工程、计算机、数学、自然科学生设计，毗邻Iribe中心，3D打印设备和技术期刊资源齐全"
+        },
+        {
+          "name": "Michelle Smith Performing Arts Library",
+          "nameCn": "米歇尔·史密斯表演艺术图书馆",
+          "lat": 38.994,
+          "lng": -76.9499,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "藏有大量乐谱、演出录影、声乐资料，与Clarice表演艺术中心紧邻，供音乐和戏剧学生使用"
+        },
+        {
+          "name": "Architecture Library (Kibel Gallery / Architecture Building)",
+          "nameCn": "建筑学院图书馆",
+          "lat": 38.9832,
+          "lng": -76.9378,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专为建筑与城市规划专业服务，内设Kibel Gallery展览空间，经常展出建筑环境相关作品"
+        },
+        {
+          "name": "University of Maryland Libraries – Shady Grove Campus Branch",
+          "nameCn": "谢迪格罗夫分馆（马里兰大学）",
+          "lat": 39.084,
+          "lng": -77.2037,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于Rockville郊区分校区，服务Part-time及远程研究生，持有College Park图书证可借阅"
         }
       ]
     },
@@ -119,18 +232,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The David C. Driskell Center Gallery",
-          "nameCn": "德里斯克尔中心画廊",
-          "lat": 38.98785,
-          "lng": -76.94613,
-          "note": "非裔美国艺术与文化研究展廊，位于Cole学生活动楼。"
+          "name": "The Art Gallery at the University of Maryland",
+          "nameCn": "马里兰大学艺术画廊",
+          "lat": 38.9865,
+          "lng": -76.9452,
+          "rank": 1,
+          "tier": "必去",
+          "note": "免费入场，馆藏近3000件，含伦勃朗、安迪·沃霍尔等大师原作，每年5至8个特展，是华盛顿DC地区重要学术美术馆"
         },
         {
-          "name": "Art-Sociology Gallery",
-          "nameCn": "艺术社会学画廊",
-          "lat": 38.98525,
-          "lng": -76.94771,
-          "note": "艺术系教学画廊，临McKeldin Mall南侧。"
+          "name": "David C. Driskell Center",
+          "nameCn": "德里斯科尔非洲离散艺术中心",
+          "lat": 38.9869,
+          "lng": -76.9436,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "全美非裔美国人及非洲离散艺术研究最权威机构之一，长期举办免费展览，艺术史爱好者不可错过"
+        },
+        {
+          "name": "College Park Aviation Museum",
+          "nameCn": "科利奇帕克航空博物馆",
+          "lat": 38.9797,
+          "lng": -76.9228,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全球最古老持续运营机场遗址上的史密森尼学会附属馆，1909年莱特兄弟曾在此训练军事飞行员，历史感极强"
+        },
+        {
+          "name": "Stamp Student Union Gallery / Contemporary Art Space",
+          "nameCn": "Stamp学生会当代艺术展览空间",
+          "lat": 38.9869,
+          "lng": -76.9441,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "学生主导购买和策展的当代艺术作品，免费对外，展品遍布Stamp各楼层，兼具学习与观赏功能"
+        },
+        {
+          "name": "National Archives at College Park (Archives II)",
+          "nameCn": "国家档案馆二馆（大学城分馆）",
+          "lat": 38.9645,
+          "lng": -76.8713,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "联邦政府文件和照片的最大实物档案库，二战、越战历史文献研究圣地，向公众开放阅览室"
         }
       ]
     },
@@ -142,53 +286,76 @@
       "icon": "place",
       "items": [
         {
+          "name": "Testudo Statue at McKeldin Library",
+          "nameCn": "麦克尔丁图书馆前特斯托多铜像",
+          "lat": 38.9862,
+          "lng": -76.9446,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UMD最具代表性的地标，1933年铸造的钻石龟铜像，传统上考前摸鼻子可带来好运，全校共有7座复制品"
+        },
+        {
           "name": "Adele H. Stamp Student Union",
-          "nameCn": "斯坦普学生会馆",
-          "lat": 38.9883,
-          "lng": -76.9447,
-          "note": "校园学生活动与餐饮中心。"
+          "nameCn": "斯坦普学生活动中心",
+          "lat": 38.9869,
+          "lng": -76.9441,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园生活中枢：内含Maryland Dairy冰淇淋、各类快餐、社团办公室、银行ATM、邮局和艺术展厅，日均人流量极大"
         },
         {
-          "name": "SECU Stadium (Maryland Stadium)",
-          "nameCn": "SECU 体育场（马里兰橄榄球场）",
-          "lat": 38.9903,
-          "lng": -76.94734,
-          "note": "原Byrd体育场，Terrapins橄榄球主场。"
+          "name": "Jim Henson & Kermit the Frog Statue",
+          "nameCn": "吉姆·汉森与科米蛙铜像",
+          "lat": 38.9871,
+          "lng": -76.9442,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Muppets创始人汉森是UMD60届校友，校外最知名打卡地标，雕像位于Stamp门口，毕业照必拍景点"
         },
         {
-          "name": "Xfinity Center",
-          "nameCn": "Xfinity 中心",
-          "lat": 38.99563,
-          "lng": -76.94127,
-          "note": "篮球馆，位于校园西北角。"
-        },
-        {
-          "name": "Memorial Chapel",
-          "nameCn": "纪念礼拜堂",
-          "lat": 38.98416,
-          "lng": -76.94091,
-          "note": "标志性钟楼礼拜堂，校园东侧地标。"
+          "name": "McKeldin Mall",
+          "nameCn": "麦克尔丁大草坪",
+          "lat": 38.9863,
+          "lng": -76.9456,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美最大学术广场之一，节日集会、毕业典礼、户外活动核心场地，被图书馆和各学院建筑环抱"
         },
         {
           "name": "The Clarice Smith Performing Arts Center",
-          "nameCn": "克拉丽斯·史密斯表演艺术中心",
-          "lat": 38.9897,
-          "lng": -76.9499,
-          "note": "校园西侧综合表演艺术场馆。"
+          "nameCn": "克拉里斯·史密斯表演艺术中心",
+          "lat": 38.9936,
+          "lng": -76.95,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "马里兰州有史以来最大单体建筑，共10个相互连通的表演空间，舞蹈、音乐剧、室内乐等演出质量极高"
         },
         {
-          "name": "College Park – UMD Metro Station",
-          "nameCn": "College Park–UMD 地铁站",
-          "lat": 38.9786,
-          "lng": -76.9286,
-          "note": "华盛顿地铁绿线/MARC站，连接探索区与主校区。"
+          "name": "The Floral M",
+          "nameCn": "校徽花坛M标志",
+          "lat": 38.9877,
+          "lng": -76.9426,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UMD标志性红白花卉M字型花坛，原建于1976年，2020年迁至Mitchell楼前，毕业照经典背景"
         },
         {
-          "name": "The 'M' Circle / Main Gate",
-          "nameCn": "「M」环岛主校门",
-          "lat": 38.9876,
-          "lng": -76.94,
-          "note": "Route 1旁的花坛「M」标志主入口。"
+          "name": "Xfinity Center",
+          "nameCn": "Xfinity体育馆",
+          "lat": 38.9958,
+          "lng": -76.945,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UMD主要室内体育场馆，篮球赛季（11月至3月）气氛极热烈，门口另有一座Testudo铜像"
+        },
+        {
+          "name": "Rossborough Inn",
+          "nameCn": "罗斯伯勒旅馆（历史建筑）",
+          "lat": 38.9845,
+          "lng": -76.9485,
+          "rank": 8,
+          "tier": "可选",
+          "note": "建于约1803年，是校园内最古老的建筑，被列为历史地标，如今用作宴会和接待场所"
         }
       ]
     },
@@ -200,32 +367,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market (Riverdale Park Station)",
-          "nameCn": "全食超市（Riverdale Park 店）",
-          "lat": 38.9691,
-          "lng": -76.9374,
-          "note": "校园正南约2.5公里，沿Route 1，最近的高端综合超市，有机生鲜齐全，学生常来；旁边就是Riverdale Park MARC通勤火车站。"
+          "name": "Trader Joe's – College Park",
+          "nameCn": "乔氏超市（科利奇帕克店）",
+          "lat": 38.9994,
+          "lng": -76.9402,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UMD约1英里，性价比极高的有机超市，冷冻食品、零食、葡萄酒深受学生喜爱，步行或骑车可达"
         },
         {
-          "name": "Lotte Plaza Market (La Grande)",
-          "nameCn": "乐天广场亚洲超市（La Grande店）",
-          "lat": 38.9583,
-          "lng": -76.9172,
-          "note": "离校最近的大型韩亚超市（约3.5公里），中日韩食材、活鱼、火锅料、亚洲调味品最全，留学生采购大本营。"
+          "name": "Whole Foods Market – Riverdale Park Station",
+          "nameCn": "全食超市（里弗代尔公园店）",
+          "lat": 38.9683,
+          "lng": -76.9287,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "距UMD2英里，有机食品齐全，热食吧和烘焙部受欢迎，位于Riverdale Park新兴商业区"
         },
         {
-          "name": "Lidl",
-          "nameCn": "Lidl 平价超市",
-          "lat": 38.9963,
-          "lng": -76.9311,
-          "note": "校园北侧Route 1上，德国连锁折扣超市，价格便宜，适合预算有限的日常采买。"
+          "name": "New Grand Mart – Langley Park",
+          "nameCn": "新大西洋亚洲超市（朗利公园店）",
+          "lat": 38.9904,
+          "lng": -76.985,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "距UMD约3英里，韩/中/越/拉美食材应有尽有，生鲜活海鲜、中式调料、米面丰富，华人学生首选亚超"
         },
         {
-          "name": "New Grand Mart",
-          "nameCn": "新大中华国际超市",
-          "lat": 38.9608,
-          "lng": -76.9928,
-          "note": "University Blvd上的国际超市（约5公里），亚洲、拉美、活海鲜区都大，中餐食材选择丰富，适合一次囤货。"
+          "name": "Lidl – College Park",
+          "nameCn": "利德尔折扣超市（科利奇帕克店）",
+          "lat": 38.9769,
+          "lng": -76.9407,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "德国折扣连锁，距UMD步行15分钟，蔬果肉类价格低廉，适合预算有限的研究生日常采购"
+        },
+        {
+          "name": "ALDI – College Park",
+          "nameCn": "奥乐齐折扣超市",
+          "lat": 38.9737,
+          "lng": -76.9267,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "另一德国折扣连锁，位于8904 62nd Ave，价格与Lidl相当，自有品牌食品质量稳定"
+        },
+        {
+          "name": "Giant Food – Greenbelt",
+          "nameCn": "Giant食品超市（格林贝尔特店）",
+          "lat": 38.9958,
+          "lng": -76.9133,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地区连锁大型综合超市，品类齐全，距Green Line地铁站极近，外卖/送货上门服务覆盖College Park"
+        },
+        {
+          "name": "H Mart – Rockville",
+          "nameCn": "韩亚超市H-Mart（罗克维尔店）",
+          "lat": 39.0826,
+          "lng": -77.1313,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距UMD约40分钟车程（I-495），韩国/日本/中国食材最全，熟食区有韩式炸鸡、泡菜、寿司，是华人学生熟知的采购目的地"
         }
       ]
     },
@@ -237,32 +439,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Eastern Gourmet 海纳百川",
-          "nameCn": "海纳百川（川菜）",
-          "lat": 38.9909,
-          "lng": -76.9337,
-          "note": "Route 1上口碑最好的正宗川菜，水煮鱼、麻辣香锅地道，被华盛顿人杂志评为年度百佳，想家时的首选。"
+          "name": "Northwest Chinese Food",
+          "nameCn": "西北中国美食",
+          "lat": 38.9962,
+          "lng": -76.9388,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "华盛顿邮报和Washingtonian年度最佳榜单常客，供应罕见的陕西/山西风味手工面条、肉夹馍、酸汤饺子，被称为DC地区最佳中餐之一（注：2025年底因房东拆建暂迁，建议出发前确认营业地址）"
         },
         {
           "name": "Honey Pig Korean BBQ",
-          "nameCn": "Honey Pig 韩式烤肉",
-          "lat": 38.9803,
+          "nameCn": "蜂蜜猪韩式烤肉",
+          "lat": 38.994,
+          "lng": -76.9398,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于7326 Baltimore Ave，全程自助烤肉，五花肉、牛小排、bulgogi口碑极佳，华人聚餐首选，晚间等位常见"
+        },
+        {
+          "name": "Jumbo Jumbo Cafe",
+          "nameCn": "肥肥台湾咖啡馆",
+          "lat": 38.9905,
+          "lng": -76.951,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "3711 Campus Drive，正宗台湾卤肉饭、牛肉面、盐酥鸡，是UMD华人学生口碑最高的台式餐厅，价格亲民"
+        },
+        {
+          "name": "Pho Thom Vietnamese & Thai",
+          "nameCn": "馥香越泰餐厅",
+          "lat": 39.0017,
+          "lng": -76.9391,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "4340 Knox Rd，越南河粉和泰式炒米粉均获好评，分量大，价格实惠，深受留学生喜爱，Yelp评分4.4"
+        },
+        {
+          "name": "Qu Japan",
+          "nameCn": "Qu日本拉面屋",
+          "lat": 38.997,
           "lng": -76.939,
-          "note": "College Park购物中心内的韩式炭火烤肉，桌边现烤、热闹，朋友聚餐性价比高。"
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "7406 Baltimore Ave，Yelp 4.6星，猪骨汤浓郁，叉烧软嫩，搭配铁板饭套餐，是Route 1上最受欢迎的亚餐"
+        },
+        {
+          "name": "Onikama Ramen Bar",
+          "nameCn": "鬼釜拉面酒吧",
+          "lat": 38.9905,
+          "lng": -76.951,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "3711 Campus Drive，冲绳风格拉面搭配饭团和炸猪排，是校园附近少有的精品拉面店，环境适合朋友聚餐"
+        },
+        {
+          "name": "Ledo Pizza",
+          "nameCn": "Ledo比萨（老字号）",
+          "lat": 38.9993,
+          "lng": -76.9403,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "4509 Knox Rd，创立于1955年的马里兰传奇比萨，长方形薄脆饼底，配料丰富，是UMD几代学生的集体记忆"
         },
         {
           "name": "Marathon Deli",
-          "nameCn": "马拉松熟食店",
-          "lat": 38.9813,
-          "lng": -76.9381,
-          "note": "1972年开业的校园传奇，希腊式gyro和深夜小吃，满墙Terps球队元素，几乎全天营业，UMD学生必打卡。"
+          "nameCn": "马拉松希腊熟食",
+          "lat": 38.9972,
+          "lng": -76.9391,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "7412 Baltimore Ave，正宗希腊gyro、kotopita鸡肉馅饼、深夜营业，是学生在Route 1消夜的首选之一"
+        },
+        {
+          "name": "Maryland Dairy at Stamp",
+          "nameCn": "Stamp学生中心马里兰冰淇淋站",
+          "lat": 38.9869,
+          "lng": -76.9441,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "1924年就已营业，UMD自制冰淇淋，口味轮换，每学期必有限定款，接受dining dollars，校园仪式感打卡点"
+        },
+        {
+          "name": "Shake Shack – College Park",
+          "nameCn": "Shake Shack奶昔汉堡",
+          "lat": 39.0012,
+          "lng": -76.9397,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "4354 Knox Rd，知名连锁但College Park店品控稳定，ShackBurger + 奶昔是学生庆祝考试后的常见选择"
+        },
+        {
+          "name": "The Spot Mini – Asian Food Court",
+          "nameCn": "小角落亚洲美食广场",
+          "lat": 39.0014,
+          "lng": -76.9406,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "4207 Knox Rd，含Tamashi寿司/乌冬、珍珠奶茶、波奇碗（poke）等多个亚洲档口，一站式解决各种想法"
+        },
+        {
+          "name": "Seoul Spice",
+          "nameCn": "首尔香料韩式快餐",
+          "lat": 39.0012,
+          "lng": -76.94,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "4200 Guilford Rd，韩式Chipotle风格，石锅拌饭/炸鸡饭碗自选配料，快速健康，深受学生欢迎"
         },
         {
           "name": "Bagel Place",
-          "nameCn": "Bagel Place 贝果店",
-          "lat": 38.9819,
-          "lng": -76.9376,
-          "note": "1983年至今的家族老店，每天现做19种贝果配10种奶酪酱，经典美式早午餐，离校门口几步路。"
+          "nameCn": "百吉饼小馆",
+          "lat": 38.9949,
+          "lng": -76.9385,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Route 1上的经典早餐站，手工百吉饼搭配各种奶油芝士或三明治夹料，是UMD学生评选多年的早餐首选"
+        },
+        {
+          "name": "RJ Bentley's Restaurant & Bar",
+          "nameCn": "RJ宾特利餐吧",
+          "lat": 38.9938,
+          "lng": -76.9382,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Knox Rd经典校边餐吧，汉堡、鸡翅、生啤，UMD游泳/篮球赛后聚会热门，马里兰学生社交生活场所"
+        },
+        {
+          "name": "Cava Mezze",
+          "nameCn": "卡瓦地中海快餐",
+          "lat": 38.9944,
+          "lng": -76.9393,
+          "rank": 15,
+          "tier": "一般",
+          "note": "7350 Baltimore Ave，地中海风沙拉碗/皮塔饼，健康又快，素食/纯素选项多，是留学生午饭轻食首选"
         }
       ]
     },
@@ -274,25 +583,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (College Park)",
-          "nameCn": "美国银行（College Park支行）",
-          "lat": 38.9807,
-          "lng": -76.9382,
-          "note": "校门口College Park购物中心内的实体网点，可现场开学生支票账户、办借记卡，新生落地办银行卡最方便。"
-        },
-        {
-          "name": "CVS Pharmacy (24-hour)",
-          "nameCn": "CVS 药房（24小时）",
-          "lat": 38.9802,
-          "lng": -76.9388,
-          "note": "Route 1上的24小时药房，凭处方取药、买非处方药和日用品，店内MinuteClinic可看小病、打疫苗。"
-        },
-        {
-          "name": "University Health Center (UMD)",
-          "nameCn": "马里兰大学校医院",
+          "name": "University Health Center (UHC)",
+          "nameCn": "大学健康中心（学生医务室）",
           "lat": 38.9876,
-          "lng": -76.9445,
-          "note": "校内140号楼、学生会对面，看普通门诊、配药、心理咨询，持学生保险费用低，生病第一站。"
+          "lng": -76.9438,
+          "rank": 1,
+          "tier": "必去",
+          "note": "3983 Campus Drive，校内急诊、全科门诊、疫苗接种、心理咨询一站式，全体注册学生可用，24小时护士热线301-314-9386"
+        },
+        {
+          "name": "University Health Center Pharmacy",
+          "nameCn": "大学健康中心药房",
+          "lat": 38.9876,
+          "lng": -76.9438,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于UHC大楼内，学生凭处方可在此取药，接受学生保险，价格通常低于校外药房，是最便捷的校内取药点"
+        },
+        {
+          "name": "Bank of America – College Park Branch",
+          "nameCn": "美国银行（科利奇帕克支行）",
+          "lat": 38.9945,
+          "lng": -76.9392,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "7370 Baltimore Ave，国际学生开户友好，可凭护照+签证+I-20开立支票账户，校园附近ATM密度高"
+        },
+        {
+          "name": "Chase Bank – College Park Branch",
+          "nameCn": "摩根大通银行（科利奇帕克支行）",
+          "lat": 38.9947,
+          "lng": -76.939,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "7417 Baltimore Ave Suite B，全美ATM网络最广的银行之一，在线App功能完善，转账/直接存款方便"
+        },
+        {
+          "name": "CVS Pharmacy – 7300 Baltimore Ave",
+          "nameCn": "CVS药妆店（Route 1店）",
+          "lat": 38.9949,
+          "lng": -76.939,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "24小时营业，距校门步行10分钟，处方药、非处方药、日用品、零食齐全，MinuteClinic可做基础体检"
+        },
+        {
+          "name": "AT&T Store – College Park",
+          "nameCn": "AT&T电信门店",
+          "lat": 38.9948,
+          "lng": -76.939,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "7300 Baltimore Ave，美国三大运营商之一，留学生常选预付费计划，可激活SIM卡和办理手机套餐"
+        },
+        {
+          "name": "Verizon – College Park",
+          "nameCn": "Verizon电信门店",
+          "lat": 38.9631,
+          "lng": -76.8837,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "10250 Baltimore Ave Suite A，信号覆盖全美最广的运营商，套餐价格稍高但网络质量稳定"
+        },
+        {
+          "name": "College Park Medical Center (MedPark)",
+          "nameCn": "科利奇帕克医疗中心",
+          "lat": 38.9774,
+          "lng": -76.9321,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "4701 Melbourne Place，提供急症及家庭医生服务，无需预约可直接walk-in，旁边有独立药房可快速取药"
         }
       ]
     },
@@ -304,25 +664,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "McKeldin Mall",
-          "nameCn": "麦凯尔丁大草坪",
-          "lat": 38.986,
-          "lng": -76.942,
-          "note": "全美最大的学术草坪广场，两端连主行政楼与图书馆，中央ODK喷泉，春日樱花、毕业季拍照的标志性地标。"
+          "name": "National Mall & Smithsonian Museums (Washington D.C.)",
+          "nameCn": "华盛顿国家广场与史密森尼博物馆群",
+          "lat": 38.8895,
+          "lng": -77.0353,
+          "rank": 1,
+          "tier": "必去",
+          "note": "乘Green Line约35分钟直达，19座世界级博物馆全部免费开放，含国家航空航天馆、自然历史馆、美国历史馆，是UMD留学生周末必访之地"
         },
         {
-          "name": "Memorial Chapel",
-          "nameCn": "纪念教堂",
-          "lat": 38.9842,
-          "lng": -76.9412,
-          "note": "校园最高的尖顶建筑，纪念阵亡校友，旁边的冥想花园安静适合散步，也是热门婚礼与打卡点。"
+          "name": "College Park–University of Maryland Metro Station (Green Line)",
+          "nameCn": "UMD绿线地铁站（通往DC的门户）",
+          "lat": 38.9946,
+          "lng": -76.9316,
+          "rank": 2,
+          "tier": "必去",
+          "note": "4931 Calvert Rd，绿线/黄线地铁+MARC铁路双联站，35分钟可达DC市中心，是进城最快捷的公共交通方式"
         },
         {
           "name": "College Park Aviation Museum",
-          "nameCn": "帕克航空博物馆",
-          "lat": 38.9788,
-          "lng": -76.9223,
-          "note": "坐落在世界最古老仍运营的机场（1909年莱特兄弟在此训练飞行员），史密森尼附属馆，可看古董飞机，离校约1.5公里。"
+          "nameCn": "科利奇帕克航空博物馆",
+          "lat": 38.9797,
+          "lng": -76.9228,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1985 Corporal Frank Scott Dr，建于全球最古老持续运营机场，史密森尼附属馆，莱特兄弟1909年军事飞行训练地"
+        },
+        {
+          "name": "Lake Artemesia",
+          "nameCn": "阿特米西亚湖（自然公园）",
+          "lat": 38.9886,
+          "lng": -76.9252,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距UMD步行20分钟，38英亩湖泊，设钓鱼平台、2英里环湖步道和水生植物园，春秋景色优美，适合散步减压"
+        },
+        {
+          "name": "NASA Goddard Space Flight Center Visitor Center",
+          "nameCn": "NASA戈达德航天中心访客馆",
+          "lat": 38.9952,
+          "lng": -76.8481,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "8800 Greenbelt Rd，距校约10分钟车程，免费入场，含月球样本、詹姆斯·韦伯望远镜模型、太阳观测站，理工科学生强烈推荐"
+        },
+        {
+          "name": "National Archives at College Park (Archives II)",
+          "nameCn": "国家档案馆二馆",
+          "lat": 38.9645,
+          "lng": -76.8713,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "8601 Adelphi Rd，美国联邦政府最大文件实物库，向公众开放，含二战、冷战珍贵影像档案，历史专业必访"
+        },
+        {
+          "name": "Greenbelt Park",
+          "nameCn": "格林贝尔特国家公园",
+          "lat": 38.9951,
+          "lng": -76.9005,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距UMD约3英里，国家公园管理局管辖，林间步道网络、野营地、野餐区，秋叶季尤为壮观，免费入园"
+        },
+        {
+          "name": "Hyattsville Arts District (Route 1 Corridor)",
+          "nameCn": "海茨维尔艺术区（1号公路走廊）",
+          "lat": 38.9559,
+          "lng": -76.9452,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "距UMD约3英里，沿Baltimore Ave分布的壁画、独立画廊、咖啡馆，是华盛顿DC郊区新兴文创社区，周末市集氛围佳"
+        },
+        {
+          "name": "Busboys and Poets – Hyattsville",
+          "nameCn": "工人与诗人（海茨维尔店）",
+          "lat": 38.9562,
+          "lng": -76.9449,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "5331 Baltimore Ave，结合书店、餐厅、社区活动的文化地标，常举办朗读会、音乐演出，是了解DC进步文化的窗口"
+        },
+        {
+          "name": "Herbert Wells Ice Rink",
+          "nameCn": "赫伯特·韦尔斯冰场",
+          "lat": 38.9945,
+          "lng": -76.935,
+          "rank": 10,
+          "tier": "可选",
+          "note": "位于College Park市内，冬季开放的半室内冰场，设租冰鞋服务，费用低廉，是秋冬学期学生休闲好去处"
         }
       ]
     }

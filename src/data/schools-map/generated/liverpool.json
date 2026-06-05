@@ -67,46 +67,112 @@
       "icon": "school",
       "items": [
         {
+          "name": "Victoria Building (Victoria Gallery & Museum)",
+          "nameCn": "维多利亚大楼（维多利亚艺廊与博物馆）",
+          "lat": 53.4062,
+          "lng": -2.9665,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1892年由Alfred Waterhouse设计的红砖建筑，是\"红砖大学\"的命名由来，现为校内博物馆。"
+        },
+        {
           "name": "Foundation Building",
-          "nameCn": "基础楼",
-          "lat": 53.4047,
-          "lng": -2.9659,
-          "note": "Brownlow Hill 上的行政与综合教学楼。"
+          "nameCn": "基础楼（主行政楼）",
+          "lat": 53.4048,
+          "lng": -2.9653,
+          "rank": 2,
+          "tier": "必去",
+          "note": "利物浦大学主行政中心，新生注册和各类证明均在此办理。"
+        },
+        {
+          "name": "Harold Cohen Library",
+          "nameCn": "哈罗德·科恩图书馆",
+          "lat": 53.4055,
+          "lng": -2.9657,
+          "rank": 3,
+          "tier": "必去",
+          "note": "理工科核心图书馆，24/7开放，涵盖工程、医学、科学等馆藏。"
+        },
+        {
+          "name": "Sydney Jones Library",
+          "nameCn": "悉尼·琼斯图书馆",
+          "lat": 53.4008,
+          "lng": -2.9662,
+          "rank": 4,
+          "tier": "必去",
+          "note": "人文社科核心图书馆，藏有科幻小说基金会珍贵藏本及特藏档案馆。"
+        },
+        {
+          "name": "Yoko Ono Lennon Centre (Tung Auditorium)",
+          "nameCn": "小野洋子·列侬中心（东氏礼堂）",
+          "lat": 53.3985,
+          "lng": -2.9632,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2022年开放的全新文化中心，含400座交响乐厅Tung Auditorium及600座演讲厅。"
+        },
+        {
+          "name": "Liverpool Guild of Students (Reilly Building)",
+          "nameCn": "利物浦学生会（莱利大楼）",
+          "lat": 53.405,
+          "lng": -2.9658,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "学生社团、选课、权益咨询的核心枢纽，内设酒吧、剧院、演出场馆等。"
+        },
+        {
+          "name": "Liverpool Management School (Chatham Building)",
+          "nameCn": "管理学院（查塔姆大楼）",
+          "lat": 53.4016,
+          "lng": -2.9633,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1860年代的威尔士卫理公会礼拜堂改建，是管理、商科及经济学专业的大本营。"
+        },
+        {
+          "name": "School of Law and Social Justice",
+          "nameCn": "法学与社会正义学院",
+          "lat": 53.401,
+          "lng": -2.963,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于Chatham Street，提供英国国际知名的法律及社会政策课程。"
+        },
+        {
+          "name": "Sherrington Buildings (Medicine / Life Sciences)",
+          "nameCn": "谢灵顿大楼（医学与生命科学）",
+          "lat": 53.4078,
+          "lng": -2.9628,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1951年落成，是医学院与生命科学的核心教学楼，临近利物浦皇家医院。"
+        },
+        {
+          "name": "Ashton Building (Computer Science)",
+          "nameCn": "阿什顿大楼（计算机科学）",
+          "lat": 53.4055,
+          "lng": -2.9645,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "计算机科学与信息学院所在地，拥有60余位科研活跃教职人员。"
         },
         {
           "name": "Central Teaching Hub",
-          "nameCn": "中央教学中心",
-          "lat": 53.4052,
-          "lng": -2.9648,
-          "note": "2012 年建成的共享大型讲堂与教学楼。"
+          "nameCn": "中央教学枢纽楼",
+          "lat": 53.4058,
+          "lng": -2.9665,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "2012年建成，涵盖化学、物理、地球科学的实验室和多个大型讲堂，是理工课程主要授课地。"
         },
         {
-          "name": "School of Engineering (Brodie Tower / Harrison Hughes)",
-          "nameCn": "工程学院",
-          "lat": 53.4064,
-          "lng": -2.968,
-          "note": "校区北部理工区的工程系教学与实验楼群。"
-        },
-        {
-          "name": "Liverpool Management School",
-          "nameCn": "管理学院",
-          "lat": 53.4015,
-          "lng": -2.9633,
-          "note": "Chatham Street 一带的商科与管理学院。"
-        },
-        {
-          "name": "School of Law and Social Justice (Eleanor Rathbone Building)",
-          "nameCn": "法学与社会公正学院",
-          "lat": 53.4013,
-          "lng": -2.9659,
-          "note": "Bedford Street South 的法学与社会科学楼。"
-        },
-        {
-          "name": "School of Veterinary Science (Liverpool teaching)",
-          "nameCn": "兽医学院(市区教学楼)",
-          "lat": 53.407,
-          "lng": -2.9698,
-          "note": "市区校园内的兽医学院基础教学与小动物教学医院。"
+          "name": "School of Architecture (Abercromby Square)",
+          "nameCn": "建筑学院（阿伯克隆比广场）",
+          "lat": 53.4028,
+          "lng": -2.965,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "坐落于1820年代乔治亚风格广场，建筑学院自1933年在此扎根，获RIBA高度认可。"
         }
       ],
       "defaultOn": true
@@ -119,18 +185,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Sydney Jones Library",
-          "nameCn": "Sydney Jones 图书馆",
-          "lat": 53.4025,
-          "lng": -2.9635,
-          "note": "人文社科主图书馆,24 小时开放,毗邻新公共广场。"
+          "name": "Harold Cohen Library",
+          "nameCn": "哈罗德·科恩图书馆",
+          "lat": 53.4055,
+          "lng": -2.9657,
+          "rank": 1,
+          "tier": "必去",
+          "note": "理工医学主馆，全年24/7开放（学期及考试季），是备考熬夜学习的首选。"
         },
         {
-          "name": "Harold Cohen Library",
-          "nameCn": "Harold Cohen 图书馆",
-          "lat": 53.406,
-          "lng": -2.967,
-          "note": "Ashton Street 的理工与健康科学图书馆,1938 年开放。"
+          "name": "Sydney Jones Library",
+          "nameCn": "悉尼·琼斯图书馆",
+          "lat": 53.4008,
+          "lng": -2.9662,
+          "rank": 2,
+          "tier": "必去",
+          "note": "人文社科主馆，藏有特藏档案与世界著名科幻小说基金会馆藏，设有独立学习舱。"
+        },
+        {
+          "name": "Special Collections & Archives",
+          "nameCn": "特藏档案馆",
+          "lat": 53.4008,
+          "lng": -2.9662,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Sydney Jones Library内，保存大学历史珍贵档案及稀有善本，需预约进入。"
+        },
+        {
+          "name": "Leahurst Campus Library",
+          "nameCn": "利赫斯特校区图书馆",
+          "lat": 53.302,
+          "lng": -3.06,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于Wirral半岛的兽医学院图书馆，服务兽医专业学生。"
+        },
+        {
+          "name": "Liverpool Central Library",
+          "nameCn": "利物浦中央图书馆",
+          "lat": 53.4075,
+          "lng": -2.9785,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "市立中央公共图书馆，位于William Brown Street，对公众免费开放，馆藏丰富。"
+        },
+        {
+          "name": "Liverpool John Lennon Airport Library",
+          "nameCn": "利物浦约翰列侬机场候机图书室",
+          "lat": 53.4008,
+          "lng": -2.9662,
+          "rank": 6,
+          "tier": "可选",
+          "note": "备选学习空间，如需额外读书场所，可使用大学附近各公共分馆。"
         }
       ]
     },
@@ -142,11 +248,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Victoria Gallery & Museum (Victoria Building)",
-          "nameCn": "维多利亚美术馆与博物馆",
-          "lat": 53.4061,
-          "lng": -2.9664,
-          "note": "1892 年红砖维多利亚楼,大学博物馆与美术馆,'红砖大学'一词的由来。"
+          "name": "Victoria Gallery & Museum",
+          "nameCn": "维多利亚艺廊与博物馆",
+          "lat": 53.4062,
+          "lng": -2.9665,
+          "rank": 1,
+          "tier": "必去",
+          "note": "大学直属博物馆，免费入场，馆藏超6500件，含特纳、卢西安·弗洛伊德及全美最大奥杜邦原作展。"
+        },
+        {
+          "name": "Walker Art Gallery",
+          "nameCn": "沃克艺术画廊",
+          "lat": 53.4075,
+          "lng": -2.9791,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英格兰伦敦以外最大艺术画廊之一，免费入场，藏品跨越7个世纪，是城市文化名片。"
+        },
+        {
+          "name": "Museum of Liverpool",
+          "nameCn": "利物浦博物馆",
+          "lat": 53.4014,
+          "lng": -2.9963,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Pier Head，免费，讲述利物浦城市史与全球影响，是来利物浦必打卡地点。"
+        },
+        {
+          "name": "Merseyside Maritime Museum & International Slavery Museum",
+          "nameCn": "默西赛德海事博物馆及国际奴隶制博物馆",
+          "lat": 53.4003,
+          "lng": -2.9927,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Albert Dock内，免费，涵盖泰坦尼克号、大西洋奴隶贸易及移民史的震撼展览。"
+        },
+        {
+          "name": "World Museum Liverpool",
+          "nameCn": "利物浦世界博物馆",
+          "lat": 53.408,
+          "lng": -2.979,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "William Brown Street，免费，跨越自然史、古埃及、太空科学等多元主题。"
+        },
+        {
+          "name": "Beatles Story Museum",
+          "nameCn": "披头士故事博物馆",
+          "lat": 53.4003,
+          "lng": -2.9927,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全球最大披头士专题博物馆，位于Albert Dock，需购票，含乐队原版乐器与手稿。"
         }
       ]
     },
@@ -159,45 +312,66 @@
       "items": [
         {
           "name": "Liverpool Guild of Students",
-          "nameCn": "利物浦学生会",
-          "lat": 53.4053,
-          "lng": -2.9664,
-          "note": "Mount Pleasant 160 号的学生会(Reilly 楼),社团与活动中心。"
+          "nameCn": "利物浦学生会大楼",
+          "lat": 53.405,
+          "lng": -2.9658,
+          "rank": 1,
+          "tier": "必去",
+          "note": "学生生活核心地标，内设电影院、剧院、2300人演出场馆，是各类社团和活动的集散地。"
         },
         {
-          "name": "Yoko Ono Lennon Centre (Tung Auditorium)",
-          "nameCn": "小野洋子列侬中心",
-          "lat": 53.4027,
-          "lng": -2.9626,
-          "note": "Oxford Street 与 Grove Street 交口,含 399 座 Tung 音乐厅,2022 年启用。"
+          "name": "Victoria Building",
+          "nameCn": "维多利亚大楼",
+          "lat": 53.4062,
+          "lng": -2.9665,
+          "rank": 2,
+          "tier": "必去",
+          "note": "利物浦大学的象征性红砖建筑，\"红砖大学\"命名起源地，也是来此留念打卡的首选。"
         },
         {
           "name": "Liverpool Metropolitan Cathedral",
-          "nameCn": "利物浦大都会主教座堂",
-          "lat": 53.4046,
-          "lng": -2.9668,
-          "note": "校区旁标志性现代天主教堂,俗称'Paddy's Wigwam'。"
+          "nameCn": "利物浦都主教座堂",
+          "lat": 53.4062,
+          "lng": -2.9677,
+          "rank": 3,
+          "tier": "必去",
+          "note": "紧邻校园，绰号\"帕迪的帐篷\"，是学生日常经过的城市地标，夜晚灯光格外壮观。"
         },
         {
-          "name": "Crown Place Student Accommodation",
-          "nameCn": "Crown Place 学生公寓",
-          "lat": 53.4058,
-          "lng": -2.9636,
-          "note": "Brownlow Hill 202 号的大型市区学生公寓(约 1259 床)。"
+          "name": "Liverpool Anglican Cathedral",
+          "nameCn": "利物浦圣公会主教座堂",
+          "lat": 53.3976,
+          "lng": -2.9733,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "英格兰最大的大教堂，步行可达，内部宏伟，提供免费参观，俯瞰全城视野绝佳。"
         },
         {
-          "name": "Vine Court Halls",
-          "nameCn": "Vine Court 宿舍",
-          "lat": 53.4009,
-          "lng": -2.9628,
-          "note": "Myrtle Street 的市区学生宿舍,靠校区东南缘。"
+          "name": "Royal Liver Building (Pier Head)",
+          "nameCn": "皇家利物大楼（Pier Head）",
+          "lat": 53.4036,
+          "lng": -2.9959,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "利物浦城市的灵魂标志，两座塔顶的利物鸟是城市符号，UNESCO世界遗产景区中心。"
         },
         {
-          "name": "Liverpool Lime Street Railway Station",
-          "nameCn": "利物浦莱姆街火车站",
-          "lat": 53.4075,
-          "lng": -2.9784,
-          "note": "最近的城际火车总站,距主校区步行约 10 分钟。"
+          "name": "Liverpool ONE Shopping Centre",
+          "nameCn": "利物浦ONE购物中心",
+          "lat": 53.4036,
+          "lng": -2.9868,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "英国第五大购物中心，H&M、苹果旗舰等170余店，日常购物最便利的去处。"
+        },
+        {
+          "name": "Yoko Ono Lennon Centre",
+          "nameCn": "小野洋子·列侬中心",
+          "lat": 53.3985,
+          "lng": -2.9632,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2022年新地标，含东氏礼堂音乐厅，校园最新、设施最先进的综合文化建筑。"
         }
       ]
     },
@@ -209,32 +383,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tesco Express (Brownlow Hill / The Foundation)",
-          "nameCn": "乐购便利店（布朗洛山校内店）",
-          "lat": 53.40578,
-          "lng": -2.96758,
-          "note": "就在校园核心区布朗洛山上，步行几分钟，日常采购最方便的英式便利超市。"
+          "name": "Lidl (London Road)",
+          "nameCn": "利德超市（伦敦路店）",
+          "lat": 53.4073,
+          "lng": -2.9693,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距离北校区步行5分钟，是校区最近的德系折扣超市，蔬果价格实惠，留学生首选之一。"
         },
         {
-          "name": "Sainsbury's (St Johns Centre / Elliot Street)",
-          "nameCn": "桑斯伯里超市（圣约翰中心店）",
-          "lat": 53.40482,
-          "lng": -2.98318,
-          "note": "市中心大型综合超市，生鲜熟食日用品齐全，离校约10分钟。"
+          "name": "Tesco Superstore (Hanover Street)",
+          "nameCn": "特易购大超市（汉诺威街）",
+          "lat": 53.4018,
+          "lng": -2.9804,
+          "rank": 2,
+          "tier": "必去",
+          "note": "市中心最大Tesco，品类齐全，包括烘焙、熟食、生鲜，自有品牌性价比高。"
         },
         {
-          "name": "Chung Wah Supermarket",
-          "nameCn": "中华超市",
-          "lat": 53.39744,
-          "lng": -2.97992,
-          "note": "唐人街老牌华人超市，中餐调料、米面、冷冻饺子火锅料一应俱全。"
+          "name": "Wang Wang Supermarket",
+          "nameCn": "旺旺中国超市",
+          "lat": 53.4005,
+          "lng": -2.9793,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Bold Street 49号，中文商品齐全，是购买调料、零食、方便面的首选亚洲超市。"
         },
         {
-          "name": "W H Lung Supermarket",
-          "nameCn": "荣华行亚洲超市",
-          "lat": 53.42492,
-          "lng": -2.99593,
-          "note": "利物浦最大的亚洲批发兼零售超市，约2km，囤货和找小众中国食材的好去处。"
+          "name": "Chung Wah Supermarket (中华行)",
+          "nameCn": "中华行超市",
+          "lat": 53.402,
+          "lng": -2.9787,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Hardy Street，利物浦最大华人超市兼批发商，食材种类最全，中国学生强烈推荐。"
+        },
+        {
+          "name": "eJoy Asian Foods",
+          "nameCn": "依乐亚洲食品",
+          "lat": 53.407,
+          "lng": -2.969,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "South Campus附近，内设小餐馆（火锅、米线），超市加美食广场，生活感十足。"
+        },
+        {
+          "name": "Aldi (St John's Centre)",
+          "nameCn": "奥乐齐超市（圣约翰中心）",
+          "lat": 53.4076,
+          "lng": -2.9799,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "市中心折扣超市，价格全市最低之一，日常采购的省钱利器。"
+        },
+        {
+          "name": "SIDA Asian Supermarket",
+          "nameCn": "思达亚洲超市",
+          "lat": 53.406,
+          "lng": -2.965,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校区附近，中韩食品专营，接受支付宝，满45镑免费配送，适合不愿出远门的同学。"
+        },
+        {
+          "name": "WH Lung Chinese Supermarket",
+          "nameCn": "永隆中国超市",
+          "lat": 53.42,
+          "lng": -2.993,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Great Howard Street，大型中式批发兼零售超市，适合大批量囤货，价格实惠。"
         }
       ]
     },
@@ -246,32 +464,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Yuet Ben",
-          "nameCn": "悦宾酒家",
-          "lat": 53.40006,
-          "lng": -2.97604,
-          "note": "1968年开业、利物浦最老的中餐馆，主打地道北方菜，唐人街必打卡。"
+          "name": "Man Tsuen Ho's Restaurant",
+          "nameCn": "文全豪餐厅",
+          "lat": 53.402,
+          "lng": -2.9791,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Nelson Street 18号，装修翻新后五星好评涌现，烧味叉烧和点心是招牌，Chinatown首推。"
         },
         {
-          "name": "Mowgli Street Food",
-          "nameCn": "Mowgli 印度街头小馆",
-          "lat": 53.40283,
-          "lng": -2.97751,
-          "note": "Bold街上的利物浦招牌印度餐厅（创始店），常年排队，小份家常印度菜很出片。"
+          "name": "Mei Mei (Berry Street)",
+          "nameCn": "美美点心餐厅",
+          "lat": 53.3993,
+          "lng": -2.9793,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Berry Street 9-13号，点心菜单最丰富，凤爪、肠粉、虾饺应有尽有，中国学生口碑极佳。"
         },
         {
-          "name": "Maray",
-          "nameCn": "Maray 中东小馆",
-          "lat": 53.40245,
-          "lng": -2.97677,
-          "note": "Bold街人气黎巴嫩/中东风味，招牌炸花椰菜，适合朋友分享。"
+          "name": "North Garden Chinese Restaurant",
+          "nameCn": "北园中餐厅",
+          "lat": 53.402,
+          "lng": -2.9793,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Nelson Street 30号，经营逾30年的家庭式粤菜馆，正宗广式料理，中文服务。"
         },
         {
-          "name": "Bold Street Coffee",
-          "nameCn": "Bold街咖啡馆",
-          "lat": 53.40247,
-          "lng": -2.97681,
-          "note": "本地知名独立咖啡馆，写作业、约同学聊天的好地方。"
+          "name": "Big Bowl Noodle Bar",
+          "nameCn": "大碗面馆",
+          "lat": 53.3992,
+          "lng": -2.9793,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Berry Street 12-14号，平价港式面食宵夜圣地，10-20镑吃饱，留学生深夜食堂。"
+        },
+        {
+          "name": "New Capital Chinese Restaurant",
+          "nameCn": "新都中餐厅",
+          "lat": 53.4021,
+          "lng": -2.979,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Nelson Street 5-9号，价格亲民的传统粤菜，有丰富素食选项，纯正中国味道。"
+        },
+        {
+          "name": "Tiger Rock (Smithdown Road)",
+          "nameCn": "虎岩东南亚料理",
+          "lat": 53.379,
+          "lng": -2.947,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Smithdown Road，集泰式、马来、新加坡、越南、中国五大风味，被誉为利物浦最佳亚洲餐厅之一。"
+        },
+        {
+          "name": "Chamber 36 (Berry Street)",
+          "nameCn": "36号腔室泛亚洲料理",
+          "lat": 53.3992,
+          "lng": -2.9792,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Berry Street 45-49号，紧邻唐人街，现代港式Tapas风格，东亚融合菜品质稳定。"
+        },
+        {
+          "name": "Pho (Bold Street)",
+          "nameCn": "Pho越南河粉（Bold Street店）",
+          "lat": 53.3997,
+          "lng": -2.9798,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Bold Street 79号，正宗越南河粉及春卷，学生折扣15%，性价比高。"
+        },
+        {
+          "name": "Ma Bo Restaurant",
+          "nameCn": "马宝餐厅",
+          "lat": 53.4021,
+          "lng": -2.9793,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Nelson Street 16号，提供香港风味中式料理，辣味与清淡均有，位于唐人街核心区。"
+        },
+        {
+          "name": "Spice Thai (Bold Street)",
+          "nameCn": "Spice Thai泰式餐厅",
+          "lat": 53.3998,
+          "lng": -2.9798,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Bold Street，招牌哭泣老虎牛排配自制酱汁，是利物浦泰餐中口碑最稳定的一家。"
+        },
+        {
+          "name": "Mowgli Street Food (Bold Street)",
+          "nameCn": "Mowgli印度街头小食",
+          "lat": 53.4003,
+          "lng": -2.98,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Bold Street 69号，品牌发源地，家常印度风味，份量实在，学生党与美食爱好者必吃。"
+        },
+        {
+          "name": "Mee Thai",
+          "nameCn": "Mee泰餐",
+          "lat": 53.3997,
+          "lng": -2.9796,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Bold Street，泰式咖喱与日式炸猪排双拼，有APP双人折扣，性价比超高。"
+        },
+        {
+          "name": "Maray (Bold Street)",
+          "nameCn": "Maray中东小食",
+          "lat": 53.4002,
+          "lng": -2.98,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Bold Street，中东风味拼盘小食，植物性选项丰富，氛围时髦，适合和朋友聚餐。"
+        },
+        {
+          "name": "Bundobust",
+          "nameCn": "Bundobust印度啤酒花园",
+          "lat": 53.4058,
+          "lng": -2.987,
+          "rank": 14,
+          "tier": "一般",
+          "note": "印度街头素食+精酿啤酒组合，适合大堂聚餐，价格公道，氛围轻松。"
         }
       ]
     },
@@ -283,25 +599,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Royal Liverpool University Hospital & City Centre Walk-in Centre",
-          "nameCn": "皇家利物浦大学医院 / 市中心免预约门诊",
-          "lat": 53.40954,
-          "lng": -2.96302,
-          "note": "紧邻校园的大型公立医院，急诊加每天8点至晚8点的免预约门诊(Walk-in)，小病急症看这里。"
+          "name": "Brownlow Health @ Student Health Centre",
+          "nameCn": "布朗洛健康·学生医疗中心（GP）",
+          "lat": 53.4048,
+          "lng": -2.9659,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Peach Street，利物浦大学指定学生GP，入学后务必第一时间注册，免费NHS服务。"
         },
         {
-          "name": "O2 Shop (Church Street)",
-          "nameCn": "O2 手机营业厅（教堂街店）",
-          "lat": 53.40482,
-          "lng": -2.98318,
-          "note": "教堂街上的O2运营商门店，办英国手机卡/套餐，旁边还有EE、Vodafone可比价。"
+          "name": "Royal Liverpool University Hospital (A&E)",
+          "nameCn": "利物浦皇家大学医院（急诊）",
+          "lat": 53.4005,
+          "lng": -2.966,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Mount Vernon Street，最近的NHS急诊医院，距校区步行15分钟，24小时急救。"
+        },
+        {
+          "name": "Boots Pharmacy (Church Street)",
+          "nameCn": "博姿药房（Church Street店）",
+          "lat": 53.405,
+          "lng": -2.9828,
+          "rank": 3,
+          "tier": "必去",
+          "note": "市中心最大的Boots，处方药、非处方药及日常护理用品一站齐备，营业时间长。"
+        },
+        {
+          "name": "HSBC Bank (Lord Street)",
+          "nameCn": "汇丰银行（Lord Street支行）",
+          "lat": 53.4042,
+          "lng": -2.988,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Lord Street 99号，提供国际学生账户，中文服务友好，留学生开户首推。"
+        },
+        {
+          "name": "NatWest (Liverpool One)",
+          "nameCn": "英国国家西敏寺银行（利物浦ONE）",
+          "lat": 53.4041,
+          "lng": -2.987,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "South John Street 49号，国际学生开户便捷，预约制服务，靠近购物中心。"
         },
         {
           "name": "Barclays Bank (Lord Street)",
-          "nameCn": "巴克莱银行（领主街支行）",
-          "lat": 53.4052,
-          "lng": -2.98755,
-          "note": "市中心主街大行，可办留学生银行账户，附近HSBC/NatWest也都在步行范围。"
+          "nameCn": "巴克莱银行（Lord Street）",
+          "lat": 53.4042,
+          "lng": -2.9878,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Lord Street 48-50号，提供国际学生基础账户，手机银行功能完善。"
+        },
+        {
+          "name": "EE Store (Liverpool ONE)",
+          "nameCn": "EE手机店（利物浦ONE）",
+          "lat": 53.404,
+          "lng": -2.9865,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Liverpool ONE内，购买英国本地SIM卡、办理套餐，留学生到达后优先解决通讯问题。"
+        },
+        {
+          "name": "Three Store (South John Street)",
+          "nameCn": "Three手机店（South John Street）",
+          "lat": 53.404,
+          "lng": -2.9858,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "South John Street 43B，Three号卡国际流量套餐性价比高，深受留学生欢迎。"
         }
       ]
     },
@@ -313,25 +680,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Liverpool Cathedral",
-          "nameCn": "利物浦座堂（圣公会大教堂）",
-          "lat": 53.39732,
-          "lng": -2.97318,
-          "note": "英国最大教堂、世界第五大，登塔可俯瞰全城，离校南侧步行可达的地标。"
+          "name": "Royal Albert Dock & Waterfront",
+          "nameCn": "皇家阿尔伯特船坞及滨水区",
+          "lat": 53.4003,
+          "lng": -2.9927,
+          "rank": 1,
+          "tier": "必去",
+          "note": "利物浦最标志性的打卡地，UNESCO世界遗产，集博物馆、餐厅、酒吧于一体，必游。"
         },
         {
-          "name": "Metropolitan Cathedral of Christ the King",
-          "nameCn": "大主教座堂（天主教皇冠教堂）",
-          "lat": 53.40472,
-          "lng": -2.96871,
-          "note": "造型前卫的圆锥形天主教堂，就在校园旁，与圣公会大教堂遥相对望，必拍。"
+          "name": "Pier Head & The Three Graces",
+          "nameCn": "Pier Head及三美神建筑群",
+          "lat": 53.4036,
+          "lng": -2.996,
+          "rank": 2,
+          "tier": "必去",
+          "note": "皇家利物大楼、卡纳沃冯城堡及默西道克大楼三座地标，城市标志性全景打卡地。"
         },
         {
-          "name": "Chinatown Imperial Arch (Nelson Street)",
-          "nameCn": "唐人街帝国牌楼",
-          "lat": 53.39953,
-          "lng": -2.97688,
-          "note": "中国境外最高的传统牌楼（上海赠送），唐人街地标，春节庆典中心，拍照打卡点。"
+          "name": "The Cavern Club (Mathew Street)",
+          "nameCn": "洞穴俱乐部（马修街）",
+          "lat": 53.4037,
+          "lng": -2.9857,
+          "rank": 3,
+          "tier": "必去",
+          "note": "披头士出道地，现仍是顶级现场音乐场所，马修街是流行音乐朝圣的必到之地。"
+        },
+        {
+          "name": "Anfield Stadium (Liverpool FC)",
+          "nameCn": "安菲尔德球场（利物浦足球俱乐部）",
+          "lat": 53.4309,
+          "lng": -2.9609,
+          "rank": 4,
+          "tier": "必去",
+          "note": "利物浦FC主场，容纳5.4万人，可参加球场博物馆导览，是球迷和游客的热门目的地。"
+        },
+        {
+          "name": "Sefton Park",
+          "nameCn": "塞夫顿公园",
+          "lat": 53.3833,
+          "lng": -2.9333,
+          "rank": 5,
+          "tier": "必去",
+          "note": "200英亩的郁金香园林，英格兰最美城市公园之一，春季樱花盛开，是散步野餐首选。"
+        },
+        {
+          "name": "Liverpool Anglican Cathedral",
+          "nameCn": "利物浦圣公会主教座堂",
+          "lat": 53.3976,
+          "lng": -2.9733,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "英格兰面积最大的大教堂，内部宏伟，登塔可俯瞰利物浦全景，免费参观。"
+        },
+        {
+          "name": "Bold Street & Ropewalks",
+          "nameCn": "Bold Street及Ropewalks区",
+          "lat": 53.3997,
+          "lng": -2.98,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "利物浦最热闹的文艺街区，集中了独立餐厅、咖啡馆、二手书店和涂鸦，是学生日常聚集地。"
+        },
+        {
+          "name": "Liverpool Chinatown (Nelson Street Arch)",
+          "nameCn": "利物浦唐人街（Nelson Street牌楼）",
+          "lat": 53.4021,
+          "lng": -2.9791,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "欧洲最古老华人社区之一，Nelson Street红色牌楼是标志，华人超市、餐厅密集，必逛。"
+        },
+        {
+          "name": "Penny Lane",
+          "nameCn": "便士街",
+          "lat": 53.3829,
+          "lng": -2.9292,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "披头士歌曲命名的真实街道，遗存理发店、候车亭等歌词场景，音乐粉丝不可错过。"
+        },
+        {
+          "name": "Mersey Ferry Cruise",
+          "nameCn": "默西渡轮河上游览",
+          "lat": 53.4018,
+          "lng": -2.995,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "从Pier Head出发的观光渡轮，船上可欣赏利物浦港口全景，是感受城市魅力最佳方式。"
+        },
+        {
+          "name": "Liverpool One & Chavasse Park",
+          "nameCn": "利物浦ONE及查瓦斯公园",
+          "lat": 53.4036,
+          "lng": -2.9868,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "购物之余的5英亩绿地公园，露天广场常有集市和活动，逛街与休闲两不误。"
         }
       ]
     }

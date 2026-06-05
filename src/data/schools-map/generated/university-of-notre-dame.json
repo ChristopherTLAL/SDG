@@ -59,39 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Main Building (Golden Dome)",
-          "nameCn": "主楼（金色穹顶）",
-          "lat": 41.7031,
-          "lng": -86.2389,
-          "note": "校政中枢，穹顶圣母像为校园象征"
+          "name": "Mendoza College of Business",
+          "nameCn": "门多萨商学院",
+          "lat": 41.6978,
+          "lng": -86.2331,
+          "rank": 1,
+          "tier": "核心院系",
+          "note": "全美顶级商学院之一，本科/MBA均享盛誉，主楼 Mendoza Hall 位于校园南端"
+        },
+        {
+          "name": "Notre Dame Law School (Eck Hall of Law)",
+          "nameCn": "法学院（埃克法律大楼）",
+          "lat": 41.7003,
+          "lng": -86.2344,
+          "rank": 2,
+          "tier": "核心院系",
+          "note": "全美顶20法学院，埃克大楼2009年落成，位于校园中心十字路口，设麦卡坦模拟法庭"
+        },
+        {
+          "name": "College of Engineering (Fitzpatrick Hall)",
+          "nameCn": "工程学院（菲茨帕特里克大楼）",
+          "lat": 41.6995,
+          "lng": -86.2369,
+          "rank": 3,
+          "tier": "核心院系",
+          "note": "拥有电气、机械、化学、土木等多个热门工程专业，菲茨帕特里克大楼是主要教学楼"
+        },
+        {
+          "name": "Keough School of Global Affairs (Jenkins Hall)",
+          "nameCn": "全球事务学院（詹金斯大楼）",
+          "lat": 41.7016,
+          "lng": -86.2368,
+          "rank": 4,
+          "tier": "核心院系",
+          "note": "ND近百年来新设的首个学院，汇聚凯洛格国际研究所、和平研究所等国际知名智库"
         },
         {
           "name": "DeBartolo Hall",
-          "nameCn": "德巴托洛教学楼",
-          "lat": 41.6984,
-          "lng": -86.2362,
-          "note": "全校最大公共教室楼"
+          "nameCn": "德巴特洛教学楼",
+          "lat": 41.7014,
+          "lng": -86.2346,
+          "rank": 5,
+          "tier": "重要教学楼",
+          "note": "1992年建成，全校最大教学楼，可同时容纳半数学生上课，是大多数本科生必经之地"
+        },
+        {
+          "name": "Nanovic Hall",
+          "nameCn": "纳诺维奇大楼",
+          "lat": 41.7019,
+          "lng": -86.2368,
+          "rank": 6,
+          "tier": "核心院系",
+          "note": "经济学、政治学、社会学系所在地，同时设有纳诺维奇欧洲研究所"
         },
         {
           "name": "Jordan Hall of Science",
-          "nameCn": "乔丹科学楼",
-          "lat": 41.7008,
-          "lng": -86.2315,
-          "note": "理学院核心教学实验楼"
+          "nameCn": "乔丹科学大楼",
+          "lat": 41.7036,
+          "lng": -86.2344,
+          "rank": 7,
+          "tier": "核心院系",
+          "note": "2006年建成，造价逾7000万美元，设40间实验室及天文台，是理科学生的日常重地"
         },
         {
-          "name": "Mendoza College of Business",
-          "nameCn": "门多萨商学院",
-          "lat": 41.6969,
-          "lng": -86.2363,
-          "note": "知名本科商学院所在地"
+          "name": "Nieuwland Science Hall",
+          "nameCn": "纽兰科学馆",
+          "lat": 41.7012,
+          "lng": -86.2353,
+          "rank": 8,
+          "tier": "核心院系",
+          "note": "物理与天文、化学与生化系共同所在地，是ND理工科最历史悠久的教学实验楼之一"
         },
         {
-          "name": "Walsh Family Hall of Architecture",
-          "nameCn": "沃尔什建筑学院",
-          "lat": 41.6948,
-          "lng": -86.2347,
-          "note": "古典主义建筑学院新楼"
+          "name": "Corbett Family Hall",
+          "nameCn": "科贝特家族大楼",
+          "lat": 41.699,
+          "lng": -86.2325,
+          "rank": 9,
+          "tier": "重要教学楼",
+          "note": "人类学、心理学系及数字媒体中心所在地，LEED金级认证，Stadium Complex三建筑之一"
+        },
+        {
+          "name": "O'Neill Hall (Music)",
+          "nameCn": "奥尼尔大楼（音乐系）",
+          "lat": 41.7032,
+          "lng": -86.2378,
+          "rank": 10,
+          "tier": "重要教学楼",
+          "note": "音乐系及圣乐项目所在地，含多功能演奏排练空间"
+        },
+        {
+          "name": "School of Architecture (Bond Hall)",
+          "nameCn": "建筑学院（邦德楼）",
+          "lat": 41.7002,
+          "lng": -86.2373,
+          "rank": 11,
+          "tier": "核心院系",
+          "note": "ND建筑学院以古典主义传统著称，全美排名前列，邦德楼是主要工作室和教学楼"
+        },
+        {
+          "name": "College of Arts and Letters (O'Shaughnessy Hall)",
+          "nameCn": "文理学院（奥肖内西大楼）",
+          "lat": 41.7006,
+          "lng": -86.2362,
+          "rank": 12,
+          "tier": "核心院系",
+          "note": "全校最大学院，涵盖人文、社科、语言等众多专业，奥肖内西大楼是其标志性建筑"
         }
       ],
       "defaultOn": true
@@ -106,9 +179,56 @@
         {
           "name": "Hesburgh Library",
           "nameCn": "赫斯伯格图书馆",
-          "lat": 41.7022,
+          "lat": 41.7024,
           "lng": -86.2342,
-          "note": "14层主图书馆，外墙「触地耶稣」壁画"
+          "rank": 1,
+          "tier": "必去",
+          "note": "ND主图书馆，南墙即「Touchdown Jesus」马赛克壁画，馆藏逾300万册，是全校最重要的学术与打卡圣地"
+        },
+        {
+          "name": "O'Meara Mathematics Library",
+          "nameCn": "奥米拉数学图书馆",
+          "lat": 41.701,
+          "lng": -86.2375,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "赫斯伯格图书馆地下层，专门收藏数学、应用数学、概率统计资料，数学系学生必用"
+        },
+        {
+          "name": "Kresge Law Library",
+          "nameCn": "克雷斯基法律图书馆",
+          "lat": 41.7003,
+          "lng": -86.2344,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于埃克法学院内，馆藏丰富的法律文献及数据库，法学院学生核心学习空间"
+        },
+        {
+          "name": "Architecture Library (Bond Hall)",
+          "nameCn": "建筑学院图书馆",
+          "lat": 41.7002,
+          "lng": -86.2373,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于邦德大楼内，专注建筑设计与历史文献，收藏历史建筑图纸与模型参考资料"
+        },
+        {
+          "name": "Business Information Center (Mendoza)",
+          "nameCn": "商学院信息中心",
+          "lat": 41.6978,
+          "lng": -86.2331,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "门多萨商学院内的专业资料中心，提供Bloomberg终端、商业数据库及研究支持"
+        },
+        {
+          "name": "Rare Books & Special Collections (Hesburgh)",
+          "nameCn": "珍本与特藏室",
+          "lat": 41.7024,
+          "lng": -86.2342,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "赫斯伯格图书馆内，收藏中世纪手稿、早期印刷本及ND历史档案，可预约参观"
         }
       ]
     },
@@ -122,16 +242,38 @@
         {
           "name": "Raclin Murphy Museum of Art",
           "nameCn": "拉克林·墨菲艺术博物馆",
-          "lat": 41.6938,
-          "lng": -86.2351,
-          "note": "2023年开放的新艺术馆，藏品原属斯奈特馆"
+          "lat": 41.6975,
+          "lng": -86.233,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2023年12月新建成，前身为Snite博物馆，70,000平方英尺新馆，逾3万件藏品含欧洲、美洲、非洲、亚洲艺术，免费入场"
         },
         {
-          "name": "DeBartolo Performing Arts Center",
-          "nameCn": "德巴托洛表演艺术中心",
-          "lat": 41.6947,
-          "lng": -86.2368,
-          "note": "校园东南角的剧院与音乐厅"
+          "name": "Studebaker National Museum",
+          "nameCn": "斯图贝克国家汽车博物馆",
+          "lat": 41.6777,
+          "lng": -86.2564,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于市中心，展示斯图贝克汽车品牌150年历史与120余辆经典车，含林肯遇刺当晚所乘马车"
+        },
+        {
+          "name": "South Bend Museum of Art",
+          "nameCn": "南本德艺术博物馆",
+          "lat": 41.6768,
+          "lng": -86.2559,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于圣约瑟夫河畔Century Center内，免费入场，展示当代美国艺术，常设临时展览"
+        },
+        {
+          "name": "The History Museum South Bend",
+          "nameCn": "南本德历史博物馆",
+          "lat": 41.6778,
+          "lng": -86.2562,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "毗邻斯图贝克博物馆，展示南本德及印第安纳州地区历史，含原住民与移民文化展厅"
         }
       ]
     },
@@ -143,46 +285,76 @@
       "icon": "place",
       "items": [
         {
+          "name": "Main Building (Golden Dome)",
+          "nameCn": "主楼（金色圆顶）",
+          "lat": 41.7024,
+          "lng": -86.2374,
+          "rank": 1,
+          "tier": "必去",
+          "note": "ND最标志性建筑，23K金箔圆顶顶立圣母玛利亚雕像，是全美最知名天主教地标，必拍打卡点"
+        },
+        {
+          "name": "Hesburgh Library 'Touchdown Jesus' Mural",
+          "nameCn": "「Touchdown Jesus」壁画",
+          "lat": 41.7024,
+          "lng": -86.2342,
+          "rank": 2,
+          "tier": "必去",
+          "note": "赫斯伯格图书馆南墙132英尺高石马赛克，耶稣举臂向体育场，外号「Touchdown Jesus」，是ND最具辨识度的景观"
+        },
+        {
           "name": "Basilica of the Sacred Heart",
           "nameCn": "圣心大教堂",
-          "lat": 41.7026,
-          "lng": -86.2397,
-          "note": "校园主教堂，法式新哥特建筑"
+          "lat": 41.7014,
+          "lng": -86.2372,
+          "rank": 3,
+          "tier": "必去",
+          "note": "ND主教堂，哥特式建筑，建于1871年，彩绘玻璃精美绝伦，是校园最神圣庄严的历史建筑"
         },
         {
           "name": "Grotto of Our Lady of Lourdes",
-          "nameCn": "露德圣母山洞",
-          "lat": 41.703,
-          "lng": -86.2404,
-          "note": "1896年仿法国露德建造的祈祷圣地"
+          "nameCn": "露德圣母岩洞",
+          "lat": 41.7018,
+          "lng": -86.2381,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1896年建成，法国露德岩洞的1/3等比复制品，夜晚烛光点点，是学生考前许愿的传统圣地"
         },
         {
           "name": "Notre Dame Stadium",
           "nameCn": "圣母大学体育场",
-          "lat": 41.6984,
-          "lng": -86.234,
-          "note": "可容八万人的橄榄球圣殿「The House」"
+          "lat": 41.6994,
+          "lng": -86.2339,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1930年建成，「House That Rockne Built」，容量约80,000人，主场橄榄球赛是ND最大集体仪式"
         },
         {
-          "name": "Joyce Center",
-          "nameCn": "乔伊斯中心",
-          "lat": 41.6984,
-          "lng": -86.2313,
-          "note": "篮球与排球室内场馆"
+          "name": "Duncan Student Center",
+          "nameCn": "邓肯学生中心",
+          "lat": 41.6993,
+          "lng": -86.2334,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于体育场旁，集餐饮、健身、娱乐于一体，是学生日常休闲与社交的核心枢纽"
         },
         {
-          "name": "Compton Family Ice Arena",
-          "nameCn": "康普顿家族冰球馆",
-          "lat": 41.6938,
-          "lng": -86.2311,
-          "note": "双冰场冰球主场"
+          "name": "LaFortune Student Center",
+          "nameCn": "拉福图纳学生中心（LaFun）",
+          "lat": 41.7012,
+          "lng": -86.2353,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "老校学生中心，拥有咖啡厅、游戏室、会议室，是课间聚集聊天的传统中心地带"
         },
         {
-          "name": "Hesburgh Library Reflecting Pool",
-          "nameCn": "图书馆倒影池广场",
-          "lat": 41.7016,
-          "lng": -86.2342,
-          "note": "「触地耶稣」壁画前的开阔广场"
+          "name": "The Lakes (St. Mary & St. Joseph)",
+          "nameCn": "校园双湖（圣玛丽湖和圣约瑟夫湖）",
+          "lat": 41.7052,
+          "lng": -86.239,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "两座天然泉水湖泊环绕校园北部，是散步、跑步、钓鱼的绝佳去处，四季风光各异"
         }
       ]
     },
@@ -194,25 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Martin's Super Market (State Road 23 / Ironwood)",
-          "nameCn": "马丁超市（圣母大学店）",
-          "lat": 41.7008,
-          "lng": -86.2182,
-          "note": "离校园仅约1.5公里的本地连锁大超市，营业到午夜，日常果蔬肉蛋米面一站搞定，是圣母学生最常去的主力超市。"
+          "name": "Martin's Super Market (South Bend Ave)",
+          "nameCn": "马丁超市（南本德大道店）",
+          "lat": 41.7102,
+          "lng": -86.2261,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "距校园最近的大型超市（约1.2英里），营业至午夜，品类齐全，是大多数学生首选的日常采购地"
         },
         {
-          "name": "Trader Joe's (Eddy Street Commons)",
-          "nameCn": "缺德舅超市（Eddy街店）",
-          "lat": 41.6878,
-          "lng": -86.235,
-          "note": "就在校园南门Eddy Street Commons商业区内，平价网红超市，冷冻食品、零食和便宜葡萄酒口碑极好，步行可达。"
+          "name": "Meijer (Grape Rd, Mishawaka)",
+          "nameCn": "迈耶超市（葡萄路店）",
+          "lat": 41.698,
+          "lng": -86.1737,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "类似Target+超市的大型综合零售店，品类极全，生鲜、家居、服装一站购齐，营业至凌晨"
+        },
+        {
+          "name": "Whole Foods Market (Grape Rd)",
+          "nameCn": "全食超市（葡萄路）",
+          "lat": 41.6956,
+          "lng": -86.1745,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "有机食品超市，熟食区、外带午餐丰富，也可购买进口食材，适合注重饮食质量的学生"
+        },
+        {
+          "name": "Fruit Mountain Asian Oriental Food Market",
+          "nameCn": "果山亚洲东方食品市场",
+          "lat": 41.7255,
+          "lng": -86.2378,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于IN-23沿线，南本德地区最常被推荐的亚洲超市，备有中式食材、酱料、豆腐、冷冻水饺等"
         },
         {
           "name": "Saigon Market",
-          "nameCn": "西贡亚洲超市",
-          "lat": 41.6775,
-          "lng": -86.2526,
-          "note": "市中心一家家庭经营的亚洲/越南食材店，酱油、米粉、米纸、亚洲蔬菜和冷冻海鲜都能买到，是想做中餐时的亚超之选。"
+          "nameCn": "西贡市场",
+          "lat": 41.6755,
+          "lng": -86.259,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于市中心Colfax大道，越南华人家庭经营，新鲜海鲜、东南亚食材、河粉原料应有尽有"
+        },
+        {
+          "name": "Aldi (South Bend)",
+          "nameCn": "奥乐齐折扣超市",
+          "lat": 41.7132,
+          "lng": -86.2441,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "德资折扣超市，价格极为实惠，食品质量有保障，预算有限的留学生必逛"
+        },
+        {
+          "name": "Kroger (South Bend)",
+          "nameCn": "克罗格超市",
+          "lat": 41.685,
+          "lng": -86.274,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "美国主流连锁超市，自有品牌性价比高，生鲜蔬果丰富，可办会员卡享折扣"
         }
       ]
     },
@@ -224,39 +438,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "JW Chen's Asian Fusion",
-          "nameCn": "陈氏亚洲料理",
-          "lat": 41.6974,
-          "lng": -86.221,
-          "note": "校园附近最受华人和留学生认可的中餐馆，主打地道、少味精的中式炒菜，步行/短驾即到，解乡愁首选。"
+          "name": "Ichiban Golden Dragon",
+          "nameCn": "一番金龙（中日料）",
+          "lat": 41.7108,
+          "lng": -86.2266,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "南本德最知名的中日料理馆，炒饭、炒面、寿司均有，是ND华人留学生圈最常光顾的一家"
         },
         {
-          "name": "Jinya Ramen Bar (Eddy Street Commons)",
-          "nameCn": "Jinya 日式拉面",
-          "lat": 41.6876,
-          "lng": -86.2352,
-          "note": "校园南门商业区里的连锁日式豚骨拉面店，环境干净、出餐快，是想吃亚洲热汤面时的方便选择。"
+          "name": "Woochi Japanese Fusion & Bar",
+          "nameCn": "物知日式融合酒吧",
+          "lat": 41.677,
+          "lng": -86.2523,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "市中心地标级日式餐厅，寿司、刺身、天妇罗精致出品，氛围时尚，本地评分最高亚洲餐厅"
         },
         {
-          "name": "Brother's Bar & Grill (Eddy Street Commons)",
-          "nameCn": "Brother's 美式酒吧餐厅",
-          "lat": 41.6879,
-          "lng": -86.2347,
-          "note": "Eddy街上的人气美式餐吧，汉堡和球赛日氛围拉满，是体验圣母大学生社交与football文化的打卡点。"
+          "name": "JINYA Ramen Bar (Eddy Street Commons)",
+          "nameCn": "JINYA拉面（爱迪街商区）",
+          "lat": 41.6943,
+          "lng": -86.2341,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "2025年7月在校门口爱迪街商区开业，前ND橄榄球明星加持，豚骨浓汤拉面口碑绝佳，步行即达"
         },
         {
-          "name": "South Bend Chocolate Café (Downtown)",
-          "nameCn": "南本德巧克力咖啡馆（市中心）",
-          "lat": 41.6756,
-          "lng": -86.2501,
-          "note": "南本德本地传奇巧克力品牌的市中心旗舰咖啡馆，热巧、甜点和早午餐都很出名，是必打卡的城市名片之一。"
+          "name": "Nom Nom Pho Asian Kitchen",
+          "nameCn": "喃喃越南厨（河粉/亚洲料理）",
+          "lat": 41.677,
+          "lng": -86.2537,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "市中心越南河粉及亚洲街头料理，素食/纯素友好，分量足、价格实惠，学生好评率极高"
         },
         {
-          "name": "Bru Burger Bar (Eddy Street Commons)",
-          "nameCn": "Bru 手工汉堡吧",
-          "lat": 41.6877,
-          "lng": -86.2345,
-          "note": "Eddy街商业区里口碑很好的手工汉堡店，是体验美式正餐汉堡的本地必吃，适合朋友聚餐。"
+          "name": "Cre-Asian",
+          "nameCn": "创亚越南中餐馆",
+          "lat": 41.7088,
+          "lng": -86.2245,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "越南与中国菜兼营，春卷、河粉、炒饭均有，价格平民，距校较近，是学生常点外卖的选择"
+        },
+        {
+          "name": "Cambodian Thai Restaurant",
+          "nameCn": "柬泰餐厅",
+          "lat": 41.6762,
+          "lng": -86.2535,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "2005年开业，柬埔寨裔老板娘做的正宗泰式马萨曼咖喱、泰式炒面，被本地食客誉为隐藏宝藏"
+        },
+        {
+          "name": "Corndance Tavern",
+          "nameCn": "科恩丹斯酒馆",
+          "lat": 41.6925,
+          "lng": -86.1738,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Mishawaka农场直供美式餐厅，干式熟成牛排、特色意面口碑极佳，是南本德公认的精致用餐首选"
+        },
+        {
+          "name": "Roselily",
+          "nameCn": "玫瑰百合（本地精致餐厅）",
+          "lat": 41.6762,
+          "lng": -86.2513,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "南本德近年口碑最高的本地精致餐厅，菜单随季节变化，注重本地食材，适合庆祝特殊场合"
+        },
+        {
+          "name": "O'Rourke's Public House (Eddy Street)",
+          "nameCn": "奥鲁尔克爱尔兰酒吧",
+          "lat": 41.6944,
+          "lng": -86.2343,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "爱迪街商区的爱尔兰风情酒吧餐厅，炸鱼薯条、汉堡出色，球赛夜气氛热烈，ND学生聚会首选"
+        },
+        {
+          "name": "Cascade",
+          "nameCn": "卡斯卡德（河景餐厅）",
+          "lat": 41.6758,
+          "lng": -86.254,
+          "rank": 10,
+          "tier": "一般",
+          "note": "圣约瑟夫河畔全景落地窗，主打海鲜、牛排，酒单逾400款，适合高档宴请"
+        },
+        {
+          "name": "The Lauber",
+          "nameCn": "劳伯酒吧餐厅",
+          "lat": 41.676,
+          "lng": -86.2518,
+          "rank": 11,
+          "tier": "一般",
+          "note": "市中心本地受推餐厅，美式菜肴加精酿啤酒，常出现在ND学生推荐的「毕业前必吃」名单"
+        },
+        {
+          "name": "Star Ginger (Duncan Student Center)",
+          "nameCn": "星姜亚洲厨房（学生中心内）",
+          "lat": 41.6993,
+          "lng": -86.2334,
+          "rank": 12,
+          "tier": "一般",
+          "note": "邓肯学生中心内的亚洲快餐，提供炒面、炒饭、寿司卷等，是校内最便捷的亚洲口味选项"
+        },
+        {
+          "name": "Fatbird",
+          "nameCn": "胖鸟炸鸡",
+          "lat": 41.6757,
+          "lng": -86.2516,
+          "rank": 13,
+          "tier": "一般",
+          "note": "南本德热门炸鸡三明治餐厅，Yelp高分，口味辣度可选，是下午饥肠辘辘时的解馋利器"
         }
       ]
     },
@@ -268,32 +564,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Ironwood & SR 23)",
-          "nameCn": "大通银行（Ironwood店）",
-          "lat": 41.6995,
-          "lng": -86.2176,
-          "note": "离校园最近的大通银行网点，大型全国性银行,留学生开户、办借记卡和现金存取都方便,中文资料齐全。"
+          "name": "University Health Services (Saint Liam Hall)",
+          "nameCn": "大学卫生服务中心（圣利亚姆楼）",
+          "lat": 41.7042,
+          "lng": -86.2338,
+          "rank": 1,
+          "tier": "必去",
+          "note": "ND在校学生首选医疗机构，提供全科、心理咨询、妇健等服务，强制医保已覆盖，免预约急症可当天就诊"
         },
         {
-          "name": "CVS Pharmacy (South Bend Ave)",
-          "nameCn": "CVS 药房（South Bend大道店）",
-          "lat": 41.7,
-          "lng": -86.218,
-          "note": "紧邻校园的连锁药房，配感冒药、处方药、生活日用品和打疫苗都可以，是日常买药看小病的首选。"
+          "name": "Memorial Hospital of South Bend (Beacon Health)",
+          "nameCn": "南本德纪念医院（信标医疗）",
+          "lat": 41.6846,
+          "lng": -86.2493,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "南本德最大三甲医院，急诊24小时，提供心脏、肿瘤等专科，距校约3英里，是紧急就医的首选"
         },
         {
-          "name": "Saint Joseph Health System (University Park area)",
-          "nameCn": "圣约瑟夫医疗系统（急诊/医院）",
-          "lat": 41.7124,
-          "lng": -86.1837,
-          "note": "区域内主要医院系统，提供24小时急诊；突发疾病或受伤需要急诊和住院时来这里，记得带好保险卡。"
+          "name": "Chase Bank (2101 S Bend Ave)",
+          "nameCn": "大通银行（南本德大道分行）",
+          "lat": 41.7108,
+          "lng": -86.2263,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "距ND最近的大通银行，留学生开户需带护照+I-20，校内LaFortune中心也设有ATM"
         },
         {
-          "name": "Walgreens (Wellness Center Dr, Notre Dame)",
-          "nameCn": "Walgreens 药房（校内健康中心旁）",
-          "lat": 41.6987,
-          "lng": -86.2386,
-          "note": "就在圣母大学健康中心旁的连锁药房，离宿舍最近，买药、取处方和日用品最省时间。"
+          "name": "CVS Pharmacy (2051 S Bend Ave)",
+          "nameCn": "CVS药房（南本德大道店）",
+          "lat": 41.7105,
+          "lng": -86.2261,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距校最近的大型连锁药房，提供处方药、OTC药品、疫苗接种，距校约1.5英里"
+        },
+        {
+          "name": "Walgreens (N Ironwood Dr)",
+          "nameCn": "沃尔格林药店（艾罗伍德路）",
+          "lat": 41.7057,
+          "lng": -86.22,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "距ND较近的连锁药店，含处方药服务，另有24小时沃尔格林位于爱尔兰路，急需时可使用"
+        },
+        {
+          "name": "T-Mobile (State Road 933 & Cleveland)",
+          "nameCn": "T-Mobile手机运营商（933号州道店）",
+          "lat": 41.7284,
+          "lng": -86.2416,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "距ND较近的T-Mobile门店，留学生常用的手机运营商之一，可办理Prepaid月租套餐"
+        },
+        {
+          "name": "AT&T Store (54600 Ironwood Rd)",
+          "nameCn": "AT&T手机运营商（艾罗伍德路店）",
+          "lat": 41.7253,
+          "lng": -86.2215,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "AT&T直营门店，提供手机卡实名办理，国际学生凭护照+学生证即可开通预付费套餐"
+        },
+        {
+          "name": "Med-Point Urgent Care (Ireland Rd)",
+          "nameCn": "麦德波因特急诊中心（爱尔兰路）",
+          "lat": 41.66,
+          "lng": -86.2416,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "大学卫生服务下班后或周末的替代选择，无需预约，覆盖骨折、发烧、缝合等急症"
         }
       ]
     },
@@ -305,39 +645,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Basilica of the Sacred Heart",
-          "nameCn": "圣心圣殿大教堂",
-          "lat": 41.7026,
-          "lng": -86.2397,
-          "note": "圣母大学的精神地标，全美最高的大学礼拜堂，哥特式建筑内部极其华美，免费参观，是必去的拍照与静思之地。"
+          "name": "Notre Dame Football Game (Notre Dame Stadium)",
+          "nameCn": "圣母橄榄球主场比赛",
+          "lat": 41.6994,
+          "lng": -86.2339,
+          "rank": 1,
+          "tier": "必去",
+          "note": "秋季赛季主场比赛票价高但气氛无可复制，「12th Man」全场金绿海洋，是ND文化的核心仪式，留学生必须经历一次"
         },
         {
-          "name": "Golden Dome (Main Building)",
-          "nameCn": "金色穹顶主楼",
-          "lat": 41.7032,
-          "lng": -86.2386,
-          "note": "贴满真金箔、顶端立着圣母像的标志性金顶主楼，是圣母大学最经典的明信片画面，校园打卡第一站。"
+          "name": "Studebaker National Museum",
+          "nameCn": "斯图贝克国家汽车博物馆",
+          "lat": 41.6777,
+          "lng": -86.2564,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "市中心的工业文化地标，展示美国汽车工业黄金年代，含林肯遇刺马车实物，历史价值极高"
         },
         {
-          "name": "Grotto of Our Lady of Lourdes",
-          "nameCn": "露德圣母岩洞",
-          "lat": 41.703,
-          "lng": -86.2401,
-          "note": "仿照法国露德建造的祈祷岩洞，烛光成片、氛围宁静，是校园里最受师生喜爱的祈祷与放空角落。"
+          "name": "Potawatomi Zoo",
+          "nameCn": "波瓦托米动物园",
+          "lat": 41.6782,
+          "lng": -86.2374,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "印第安纳州历史最悠久的动物园，逾400种动物，含孟加拉虎、长颈鹿、红熊猫，圣诞灯光节超受欢迎"
         },
         {
-          "name": "Hesburgh Library (Touchdown Jesus)",
-          "nameCn": "赫斯堡图书馆（“达阵耶稣”壁画）",
-          "lat": 41.7035,
-          "lng": -86.2344,
-          "note": "图书馆外墙巨幅基督壁画因正对球场被昵称“Touchdown Jesus”，是圣母大学的网红地标，登顶可俯瞰校园。"
+          "name": "East Race Waterway",
+          "nameCn": "东赛河道（城市激流皮划艇）",
+          "lat": 41.6748,
+          "lng": -86.2517,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "北美唯一城市激流漂流赛道，夏季可体验皮划艇激流，是南本德最独特的户外运动景点"
         },
         {
-          "name": "Notre Dame Stadium",
-          "nameCn": "圣母大学体育场",
-          "lat": 41.6983,
-          "lng": -86.2336,
-          "note": "传奇的“Fighting Irish”橄榄球主场，秋季比赛日全城沸腾，亲历一场美式大学football是必备的留学体验。"
+          "name": "Eddy Street Commons",
+          "nameCn": "爱迪街商区",
+          "lat": 41.6944,
+          "lng": -86.2343,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "紧邻ND校门的综合商业街区，集餐厅、咖啡厅、零售于一体，是学生日常外出就餐和休闲的首选区域"
+        },
+        {
+          "name": "DeBartolo Performing Arts Center",
+          "nameCn": "德巴特洛表演艺术中心",
+          "lat": 41.6999,
+          "lng": -86.2388,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校内顶级演艺场所，设5个剧场，全年音乐、舞蹈、话剧演出不断，学生凭证通常可享折扣票"
+        },
+        {
+          "name": "South Bend Museum of Art",
+          "nameCn": "南本德艺术博物馆",
+          "lat": 41.6768,
+          "lng": -86.2559,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "免费入场，位于河畔建筑内，展示当代美国艺术，风格清新，是周末漫步市中心的好去处"
+        },
+        {
+          "name": "Howard Park (Ice Rink & River Trail)",
+          "nameCn": "霍华德公园（溜冰场与河滨步道）",
+          "lat": 41.6735,
+          "lng": -86.2514,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "冬季设户外溜冰场，春夏秋三季可沿圣约瑟夫河慢跑、骑行，是南本德最受欢迎的城市公园"
+        },
+        {
+          "name": "Indiana Dinosaur Museum",
+          "nameCn": "印第安纳恐龙博物馆",
+          "lat": 41.6743,
+          "lng": -86.2378,
+          "rank": 9,
+          "tier": "可选",
+          "note": "展示19亿年地球史与恐龙化石标本，室内外结合，带小朋友或对古生物感兴趣的同学可前往"
         }
       ]
     }

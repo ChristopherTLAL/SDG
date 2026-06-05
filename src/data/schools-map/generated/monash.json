@@ -83,46 +83,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Robert Menzies Building",
-          "nameCn": "孟席斯楼",
-          "lat": -37.9117,
-          "lng": 145.1338,
-          "note": "克莱顿地标高塔，文学院与社科系所所在。"
-        },
-        {
-          "name": "Woodside Building for Technology and Design",
-          "nameCn": "伍德赛德科技与设计楼",
-          "lat": -37.9098,
-          "lng": 145.1352,
-          "note": "工程与信息技术学院的跨学科绿色建筑。"
-        },
-        {
-          "name": "Learning and Teaching Building",
-          "nameCn": "教学楼",
-          "lat": -37.9128,
+          "name": "Faculty of Engineering (Building 72 / 14 Alliance Lane)",
+          "nameCn": "工程学院",
+          "lat": -37.9105,
           "lng": 145.1318,
-          "note": "克莱顿现代化通用教学与协作空间。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "蒙纳士最顶尖学院之一，设机械、航空、电气、化工等专业，是 QS 工程排名支柱。"
         },
         {
-          "name": "Monash Art Design & Architecture (MADA)",
-          "nameCn": "艺术设计与建筑学院",
-          "lat": -37.8766,
-          "lng": 145.0455,
-          "note": "考菲尔德校区，设计与建筑教学核心。"
+          "name": "Faculty of Medicine, Nursing and Health Sciences (27 Rainforest Walk)",
+          "nameCn": "医学、护理与健康科学学院",
+          "lat": -37.911,
+          "lng": 145.1355,
+          "rank": 2,
+          "tier": "必去",
+          "note": "澳洲顶尖医学院，本科与研究生医学项目世界排名前50，紧邻 Monash Medical Centre。"
         },
         {
-          "name": "Faculty of Pharmacy and Pharmaceutical Sciences",
-          "nameCn": "药学与药剂科学学院",
-          "lat": -37.7844,
-          "lng": 144.9586,
-          "note": "帕克维尔校区，全澳顶尖药学研究基地。"
+          "name": "Monash Business School (Locations building / 26 Innovation Walk)",
+          "nameCn": "蒙纳士商学院",
+          "lat": -37.91,
+          "lng": 145.1345,
+          "rank": 3,
+          "tier": "必去",
+          "note": "AACSB & EQUIS 双认证，商科、经济与金融专业人气最旺，留学生比例极高。"
         },
         {
-          "name": "Central Clinical School",
-          "nameCn": "中央临床学院",
-          "lat": -37.8462,
-          "lng": 144.9845,
-          "note": "依托阿尔弗雷德医院的临床医学与研究。"
+          "name": "Faculty of Law (15 Ancora Imparo Way)",
+          "nameCn": "法学院",
+          "lat": -37.909,
+          "lng": 145.133,
+          "rank": 4,
+          "tier": "必去",
+          "note": "澳洲顶五法学院，建筑现代宽敞，含独立法律图书馆，紧邻 Learning and Teaching Building。"
+        },
+        {
+          "name": "Faculty of IT (Building 63, 25 Exhibition Walk)",
+          "nameCn": "信息技术学院",
+          "lat": -37.9078,
+          "lng": 145.1322,
+          "rank": 5,
+          "tier": "必去",
+          "note": "计算机科学、网络安全与数据科学专业大本营，毗邻主图书馆，学习氛围浓厚。"
+        },
+        {
+          "name": "Central Science Block / School of Chemistry (19 Rainforest Walk)",
+          "nameCn": "中心科学楼 / 化学学院",
+          "lat": -37.9115,
+          "lng": 145.136,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "化学与生物化学核心实验楼，毗邻物理与生物科学楼，科研设施完备。"
+        },
+        {
+          "name": "Biology / Psychological Sciences Building (18 Innovation Walk)",
+          "nameCn": "生命科学 / 心理学院楼",
+          "lat": -37.9095,
+          "lng": 145.135,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "生物学与心理科学系共用的现代教学楼，设有多个研究型实验室。"
+        },
+        {
+          "name": "Learning and Teaching Building (19 Ancora Imparo Way)",
+          "nameCn": "教学楼（LTB）",
+          "lat": -37.9085,
+          "lng": 145.1325,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "2014 年建成的标志性现代教学楼，容纳教育学院，设有大型阶梯教室和协作学习空间。"
+        },
+        {
+          "name": "STRIP 1 / Biomedical Research (15 Innovation Walk)",
+          "nameCn": "科技创新园区（STRIP）",
+          "lat": -37.9098,
+          "lng": 145.1342,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Monash 科技研究与创新园，汇聚生物医学、制药等企业与实验室，校企合作核心区。"
+        },
+        {
+          "name": "New Horizons Research Facility (20 Research Way)",
+          "nameCn": "新地平线研究大楼",
+          "lat": -37.9125,
+          "lng": 145.13,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "工程与科技研究核心楼，设有风洞实验室（南半球最大）等顶尖科研设备。"
+        },
+        {
+          "name": "Engineering E1-E3 Lecture Theatres (21 College Walk)",
+          "nameCn": "工程讲堂楼（建筑32号）",
+          "lat": -37.9108,
+          "lng": 145.1315,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "工程系核心授课楼，内含多个大型阶梯教室，工科新生上课的第一站。"
+        },
+        {
+          "name": "Australian Synchrotron (800 Blackburn Road)",
+          "nameCn": "澳大利亚同步辐射装置",
+          "lat": -37.9143,
+          "lng": 145.1398,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "毗邻校园的国际级科研设施，每年六次对公众开放免费参观，理工科学生必打卡。"
         }
       ],
       "defaultOn": true
@@ -135,25 +201,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Sir Louis Matheson Library",
-          "nameCn": "马西森图书馆",
-          "lat": -37.913,
-          "lng": 145.1343,
-          "note": "克莱顿主图书馆，文商人文藏书中心。"
+          "name": "Sir Louis Matheson Library (40 Exhibition Walk)",
+          "nameCn": "马西森图书馆（主图书馆）",
+          "lat": -37.9082,
+          "lng": 145.1328,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Clayton 最大综合图书馆，藏书丰富、24小时开放（考试期），人文社科资料最全，全校最热门自习地。"
         },
         {
-          "name": "Hargrave-Andrew Library",
+          "name": "Hargrave-Andrew Library (13 College Walk)",
           "nameCn": "哈格雷夫-安德鲁图书馆",
-          "lat": -37.9095,
-          "lng": 145.1319,
-          "note": "克莱顿工程理工科学图书馆。"
+          "lat": -37.9112,
+          "lng": 145.131,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程、科学与技术专业图书馆，安静宽敞，设有独立静音区和小组讨论室，工科生首选。"
         },
         {
-          "name": "Caulfield Library",
-          "nameCn": "考菲尔德图书馆",
-          "lat": -37.8776,
-          "lng": 145.0455,
-          "note": "考菲尔德校区图书馆，服务艺术与商科。"
+          "name": "Law Library (15 Ancora Imparo Way)",
+          "nameCn": "法学图书馆",
+          "lat": -37.909,
+          "lng": 145.133,
+          "rank": 3,
+          "tier": "必去",
+          "note": "法律专业馆藏齐全，订阅主要法律数据库（LexisNexis、Westlaw），法学生主要学习场所。"
+        },
+        {
+          "name": "Monash Health Library (Monash Medical Centre, 246 Clayton Road)",
+          "nameCn": "蒙纳士健康图书馆（医学院附属）",
+          "lat": -37.9208,
+          "lng": 145.1248,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "与 Monash Medical Centre 共建，专注医学与护理资源，实习医学生必备学习据点。"
+        },
+        {
+          "name": "MSA Recreational Library (Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "学生会休闲图书馆（SURLY）",
+          "lat": -37.908,
+          "lng": 145.1335,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于学生活动中心二楼，提供漫画、游戏、小说及笔记本电脑借阅，是放松减压的好去处。"
+        },
+        {
+          "name": "Matheson Library Learning Commons (40 Exhibition Walk, Level 1)",
+          "nameCn": "马西森图书馆学习共享空间",
+          "lat": -37.9082,
+          "lng": 145.1328,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "主图书馆内独立划分的多媒体学习区，配备高规格电脑工作站和数字制作设备。"
         }
       ]
     },
@@ -165,11 +264,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Monash University Museum of Art (MUMA)",
-          "nameCn": "蒙纳士大学艺术博物馆",
-          "lat": -37.8771,
-          "lng": 145.0447,
-          "note": "考菲尔德校区，专注澳洲当代艺术收藏。"
+          "name": "Monash Gallery of Art / Museum of Australian Photography (MAPh, 860 Ferntree Gully Road, Wheelers Hill)",
+          "nameCn": "蒙纳士澳大利亚摄影博物馆（MAPh）",
+          "lat": -37.8989,
+          "lng": 145.1978,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳大利亚唯一专注本土摄影艺术的公共美术馆，馆藏逾3600件，距校区约15分钟车程，免费入场。"
+        },
+        {
+          "name": "Monash University Museum of Art (MUMA, Caulfield Campus, 900 Dandenong Road)",
+          "nameCn": "蒙纳士大学当代艺术博物馆（MUMA）",
+          "lat": -37.8775,
+          "lng": 145.0453,
+          "rank": 2,
+          "tier": "必去",
+          "note": "蒙纳士大学 Caulfield 校区的当代艺术旗舰馆，定期举办国际级展览，乘火车可直达。"
+        },
+        {
+          "name": "Moorabbin Air Museum (Moorabbin Airport, First St & Second Ave)",
+          "nameCn": "莫拉宾航空博物馆",
+          "lat": -37.9769,
+          "lng": 145.1025,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "澳洲最大航空博物馆之一，收藏50余架飞机，允许坐入驾驶舱，门票仅10澳元，航空迷必逛。"
+        },
+        {
+          "name": "Monash University Public Art Collection (Clayton Campus, across campus)",
+          "nameCn": "蒙纳士校园公共艺术群",
+          "lat": -37.9105,
+          "lng": 145.134,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "分布在 Clayton 校园各处的雕塑与壁画，可结合自导游览地图 走完整个校园艺术路线，免费。"
         }
       ]
     },
@@ -181,25 +309,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Campus Centre",
-          "nameCn": "校园中心",
-          "lat": -37.9108,
+          "name": "Campus Centre (21 Chancellors Walk)",
+          "nameCn": "校园中心（学生活动中心）",
+          "lat": -37.908,
           "lng": 145.1335,
-          "note": "克莱顿学生生活枢纽，餐饮与社团聚集地。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "Clayton 核心地标，集银行、药房、医务室、学生会、餐厅、酒吧、书店于一身，一站式解决新生大部分需求。"
         },
         {
-          "name": "Robert Blackwood Hall",
+          "name": "Robert Blackwood Hall (49 Scenic Boulevard)",
           "nameCn": "罗伯特·布莱克伍德音乐厅",
-          "lat": -37.9128,
-          "lng": 145.1353,
-          "note": "可容1600人的演出与典礼场馆。"
+          "lat": -37.9073,
+          "lng": 145.1312,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1600座的大型演奏厅，毕业典礼和世界级音乐会均在此举行，是全校最具标志性的建筑之一。"
         },
         {
-          "name": "Monash Sport (Clayton)",
-          "nameCn": "蒙纳士体育中心",
-          "lat": -37.9127,
-          "lng": 145.1365,
-          "note": "克莱顿体育馆与运动场，校园北侧。"
+          "name": "Alexander Theatre (48 Exhibition Walk)",
+          "nameCn": "亚历山大剧院",
+          "lat": -37.9077,
+          "lng": 145.132,
+          "rank": 3,
+          "tier": "必去",
+          "note": "560座镜框式舞台剧院，常年上演戏剧、脱口秀和电影放映，是学生文化生活中心。"
+        },
+        {
+          "name": "Jock Marshall Reserve & Nature Walk (Eastern boundary, near Blackburn Road)",
+          "nameCn": "乔克·马歇尔自然保护区与步道",
+          "lat": -37.9135,
+          "lng": 145.1395,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校内唯一自然保护区，获国际景观奖的高架木栈道穿越原生林，是备考减压的绝佳去处。"
+        },
+        {
+          "name": "Monash Sport (42 Scenic Boulevard)",
+          "nameCn": "蒙纳士运动中心",
+          "lat": -37.907,
+          "lng": 145.1305,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "综合体育设施，含健身房、游泳池、网球场、壁球馆，学生持优惠价入会，是社交好去处。"
+        },
+        {
+          "name": "Campus Green / Chancellors Walk central spine",
+          "nameCn": "校园中央草坪与校长步道",
+          "lat": -37.9083,
+          "lng": 145.1338,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "连接各大院楼的中轴林荫道，午间学生聚集聊天，是认识新朋友的天然聚集地。"
+        },
+        {
+          "name": "Monash Connect Hub (Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "蒙纳士学生服务中心（Monash Connect）",
+          "lat": -37.908,
+          "lng": 145.1335,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "学生一站式服务窗口，处理选课、学费、国际生事务、心理辅导转介等，新生入学第一周必来。"
         }
       ]
     },
@@ -211,39 +381,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Hong Kong Supermarket (Clayton)",
-          "nameCn": "香港超市（克莱顿店）",
-          "lat": -37.926258,
-          "lng": 145.119094,
-          "note": "克莱顿路上最大的亚洲超市，中餐调料、冷冻点心、米面粮油一站买齐，留学生采购首选。"
+          "name": "Hong Kong Supermarket (359-365 Clayton Road, Clayton)",
+          "nameCn": "香港超市（亚洲食材首选）",
+          "lat": -37.9218,
+          "lng": 145.1178,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1989年开业的大型亚洲超市，中港台日韩东南亚食材一网打尽，距校园步行约20分钟或骑车5分钟。"
         },
         {
-          "name": "Top Mart Asian Grocery",
-          "nameCn": "Top Mart 亚洲杂货",
-          "lat": -37.927615,
-          "lng": 145.118925,
-          "note": "克莱顿路另一家亚超，蔬菜生鲜和零食饮料齐全，和香港超市挨着可以一起逛。"
+          "name": "Hanaro Mart (393 Clayton Road, Clayton)",
+          "nameCn": "韩国超市 Hanaro Mart",
+          "lat": -37.9238,
+          "lng": 145.118,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Clayton 最大的韩国超市，韩式食品及零食、泡菜、饺子皮齐全，紧邻 Clayton 火车站。"
         },
         {
-          "name": "Coles Clayton (Centre Road)",
-          "nameCn": "Coles 超市（Centre Road 店）",
-          "lat": -37.92809,
-          "lng": 145.118147,
-          "note": "主流连锁超市，本地日用、面包牛奶、肉类价格实惠，营业到很晚。"
+          "name": "Woolworths M-City (2107 Dandenong Road, Clayton)",
+          "nameCn": "Woolworths 超市（M-City 购物中心）",
+          "lat": -37.9155,
+          "lng": 145.1285,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园10分钟车程内最大的主流超市，品类全、停车免费、附有Kmart，日常采购首选。"
         },
         {
-          "name": "Woolworths M-City",
-          "nameCn": "Woolworths 超市（M-City）",
-          "lat": -37.921221,
-          "lng": 145.139927,
-          "note": "离校最近的大型主流超市（约1.2km），在 M-City 购物中心内，逛街买菜一起搞定。"
+          "name": "Coles Clayton (2-4 Cooke Street / Centre Road)",
+          "nameCn": "Coles 超市（Clayton）",
+          "lat": -37.925,
+          "lng": 145.1188,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园南边约1.5公里，靠近 Monash Medical Centre，生鲜与熟食品质稳定，自有品牌性价比高。"
         },
         {
-          "name": "Monash Merchant (on-campus)",
-          "nameCn": "Monash Merchant 校内便利超市",
-          "lat": -37.910776,
-          "lng": 145.134806,
-          "note": "克莱顿校区内的杂货便利店，生鲜、泡面、文具应急都有，下课顺手就能买。"
+          "name": "ALDI M-City (Shop T02, 2107-2125 Dandenong Road, Clayton)",
+          "nameCn": "ALDI 超市（M-City）",
+          "lat": -37.9155,
+          "lng": 145.1283,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "德国折扣超市，主食、零食、乳制品比 Woolworths 便宜30%，留学生省钱神器。"
+        },
+        {
+          "name": "The Monash Merchant (Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "蒙纳士校内小超市",
+          "lat": -37.908,
+          "lng": 145.1337,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园中心楼内的便利超市，解决下课后零食、日用品急需，不用出校门。"
+        },
+        {
+          "name": "Asian Grocery Store (Clayton Campus, Wellington Road area)",
+          "nameCn": "校园周边亚洲杂货铺",
+          "lat": -37.9142,
+          "lng": 145.1295,
+          "rank": 7,
+          "tier": "可选",
+          "note": "Wellington Road 附近的小型亚洲杂货便利店，购买酱料、速食和泡面的应急选择。"
         }
       ]
     },
@@ -255,39 +453,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Modu",
-          "nameCn": "Modu 中餐厅",
-          "lat": -37.926414,
-          "lng": 145.119753,
-          "note": "克莱顿路上人气北方菜与江南菜餐厅，环境精致，约会聚餐都合适。"
+          "name": "Ping's Dumpling Kitchen (330 Clayton Road, Clayton)",
+          "nameCn": "Ping's 饺子厨房",
+          "lat": -37.917,
+          "lng": 145.1168,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Monash 学生口耳相传的经典，15个锅贴只需10澳元，全天排队，是留学生初来乍到必吃的第一顿。"
         },
         {
-          "name": "Little Hong Kong House",
-          "nameCn": "小香港茶餐厅",
-          "lat": -37.914554,
-          "lng": 145.121973,
-          "note": "地道港式茶餐厅，烧腊、丝袜奶茶、碟头饭，想吃广式快餐就来这。"
+          "name": "Choi Palace BBQ Restaurant (387 Clayton Road, Clayton)",
+          "nameCn": "蔡宫烧味餐厅",
+          "lat": -37.9235,
+          "lng": 145.1175,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Clayton 最受好评的粤式烧味店，烤鸭、叉烧、脆皮猪腩堪称一绝，Tripadvisor Clayton 排名前列。"
         },
         {
-          "name": "Papa's Korean Chicken",
-          "nameCn": "Papa's 韩式炸鸡",
-          "lat": -37.914814,
-          "lng": 145.121867,
-          "note": "离校较近的韩式炸鸡店，分量足价格友好，深受学生欢迎。"
+          "name": "Malaysia Garden Restaurant (4/317-319 Clayton Road, Clayton)",
+          "nameCn": "马来花园餐厅",
+          "lat": -37.9175,
+          "lng": 145.1165,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "正宗马来西亚菜，椰浆饭、炒粿条和沙爹远近闻名，价格亲民，Google 4.3分，是华人留学生最爱之一。"
         },
         {
-          "name": "Saigon One",
-          "nameCn": "西贡一号越南粉",
-          "lat": -37.928129,
-          "lng": 145.119519,
-          "note": "克莱顿路越南河粉店，一碗热汤粉性价比高，亚洲口味的平价之选。"
+          "name": "#HKFOODIE (T30, M-City, 2107 Dandenong Road, Clayton)",
+          "nameCn": "HKFOODIE 港式茶餐厅",
+          "lat": -37.9156,
+          "lng": 145.128,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "正宗港式茶餐厅，鸡蛋仔、猪扒焗饭和丝袜奶茶受华人学生追捧，营业至10:30pm。"
         },
         {
-          "name": "Notting Hill Hotel (The Nott)",
-          "nameCn": "诺丁山酒馆（The Nott）",
-          "lat": -37.90018,
-          "lng": 145.129624,
-          "note": "1892年的老牌澳式酒吧，招牌鸡排 Parma + 啤酒花园，蒙纳士师生心中的本地必吃。"
+          "name": "Dumpling Empire (106 Kingsway, Glen Waverley)",
+          "nameCn": "饺子帝国",
+          "lat": -37.8798,
+          "lng": 145.1608,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Glen Waverley 人气最旺的中式饺子馆，小笼包、沪式锅贴和四川拌面评分4.3，周末需提前订位。"
+        },
+        {
+          "name": "Dainty Sichuan Food (25-27 Railway Parade N, Glen Waverley)",
+          "nameCn": "雅品四川（Glen Waverley 店）",
+          "lat": -37.879,
+          "lng": 145.162,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "墨尔本四川菜扛把子，开业20余年，麻辣火锅和干锅宽粉征服无数华人，工作日需提前预约。"
+        },
+        {
+          "name": "Chong Qing Hot Pot (52 Montclair Ave, Glen Waverley)",
+          "nameCn": "重庆火锅",
+          "lat": -37.8805,
+          "lng": 145.16,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "藏在 Village Walk 巷子里的地道重庆火锅，汤底浓郁地道，深受华人留学生团体用餐偏爱。"
+        },
+        {
+          "name": "Alleyway Kitchen M-City (GF, 2107 Dandenong Road, Clayton)",
+          "nameCn": "小巷厨房（M-City）",
+          "lat": -37.9157,
+          "lng": 145.1282,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "M-City 美食广场内的中式快餐，慢炖猪肚、麻辣拌面和香锅鸡腿广受好评，性价比极高。"
+        },
+        {
+          "name": "PappaRich M-City (Shop 35, 2107 Dandenong Road, Clayton)",
+          "nameCn": "PappaRich 马来餐厅（M-City）",
+          "lat": -37.9156,
+          "lng": 145.1281,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "连锁马来餐厅，椰浆饭和牛肉仁当深受亚洲学生喜爱，距校园步行10分钟，价格合理。"
+        },
+        {
+          "name": "Meat Me Souvlakeri (24 Eaton Mall, Oakleigh)",
+          "nameCn": "Meat Me 希腊烤肉",
+          "lat": -37.8995,
+          "lng": 145.0888,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Oakleigh 希腊美食街核心餐厅，脆皮猪肉串配手工皮塔饼，是体验墨尔本希腊文化的必吃推荐。"
+        },
+        {
+          "name": "Wholefoods @ MSA (Level 1, Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "学生会全素食堂",
+          "lat": -37.908,
+          "lng": 145.1336,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1977年至今的学生自营素食餐厅，主打亚洲素食料理，价格极低，是素食主义者在校用餐首选。"
+        },
+        {
+          "name": "Grafali's Coffee Roasters (Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "Grafali's 精品咖啡",
+          "lat": -37.9081,
+          "lng": 145.1336,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "校内最受好评的咖啡馆，新鲜烘焙咖啡豆、手工三明治，是课间加油充电的首选小站。"
+        },
+        {
+          "name": "Sir John's Bar (Level 1, Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "Sir John's 学生酒吧",
+          "lat": -37.908,
+          "lng": 145.1336,
+          "rank": 13,
+          "tier": "一般",
+          "note": "校内唯一持牌酒吧，澳式汉堡配生啤，周四是传统学生社交夜，认识新朋友的最佳场所。"
+        },
+        {
+          "name": "The Notting Hill Hotel (260-262 Ferntree Gully Road, Notting Hill)",
+          "nameCn": "诺丁山酒店酒吧（Nott）",
+          "lat": -37.9148,
+          "lng": 145.1127,
+          "rank": 14,
+          "tier": "一般",
+          "note": "1870年创立的百年老酒吧，距校园6分钟车程，周四全是蒙纳士学生，烤肉配啤酒是经典之选。"
         }
       ]
     },
@@ -299,32 +588,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Monash Medical Centre",
-          "nameCn": "蒙纳士医疗中心",
-          "lat": -37.920885,
-          "lng": 145.120716,
-          "note": "大型公立医院，设24小时急诊（ED），生病或急症首选，离校约1.7km。"
+          "name": "Commonwealth Bank – Monash Clayton (Building 10 / 21 Chancellors Walk)",
+          "nameCn": "澳联邦银行（校内分行）",
+          "lat": -37.908,
+          "lng": 145.1337,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内最方便的银行网点，留学生开户首选，支持护照开户，柜台人员熟悉学生需求。"
         },
         {
-          "name": "Commonwealth Bank (Clayton)",
-          "nameCn": "联邦银行（克莱顿支行）",
-          "lat": -37.926697,
-          "lng": 145.119807,
-          "note": "澳洲四大行之一，克莱顿路上有网点和ATM，落地开户、办卡很方便。"
+          "name": "Westpac Bank – Monash Clayton (Campus Centre, Wellington Road)",
+          "nameCn": "西太平洋银行（校内分行）",
+          "lat": -37.908,
+          "lng": 145.1337,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内西太分行，提供学生账户套餐，免月租，ATM 24小时可用，四大行之一。"
         },
         {
-          "name": "Chemist Warehouse (Clayton Rd)",
-          "nameCn": "Chemist Warehouse 药房",
-          "lat": -37.927915,
-          "lng": 145.118845,
-          "note": "全澳连锁平价药房，感冒药、保健品、日用品都便宜，留学生囤货常去。"
+          "name": "Monash Medical Centre Emergency (246 Clayton Road, Clayton)",
+          "nameCn": "蒙纳士医疗中心（公立急症医院）",
+          "lat": -37.9208,
+          "lng": 145.1248,
+          "rank": 3,
+          "tier": "必去",
+          "note": "最近的公立急诊医院，有ICU、心脏科、新生儿重症等完整急救体系，紧急情况拨 000。"
         },
         {
-          "name": "Clayton Public Library",
-          "nameCn": "克莱顿公共图书馆",
-          "lat": -37.927746,
-          "lng": 145.117429,
-          "note": "市政图书馆，可办免费借书证、自习和打印，安静学习的好去处。"
+          "name": "Monash University Health Service – GP Clinic (Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "校内全科医生诊所（UHS）",
+          "lat": -37.9081,
+          "lng": 145.1335,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校内官方全科诊所，提供预约制GP看诊、心理咨询和牙科，持 Medicare 或 OSHC 可报销。"
+        },
+        {
+          "name": "Campus Pharmacy (GF, Campus Centre, 21 Chancellors Walk)",
+          "nameCn": "校内药房",
+          "lat": -37.9081,
+          "lng": 145.1335,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于诊所旁边，取药、购买非处方药和常规健康产品，学期内周一至周五8:30am-5:30pm。"
+        },
+        {
+          "name": "Optus Store – Monash Clayton (near Campus Centre entrance)",
+          "nameCn": "Optus 手机运营商门店（校内）",
+          "lat": -37.9082,
+          "lng": 145.1333,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园内 Optus 专营店，帮助新生办理澳洲 SIM 卡和手机套餐，到达当天即可激活。"
+        },
+        {
+          "name": "MyHealth Medical Centre – M-City (2107 Dandenong Road, Clayton)",
+          "nameCn": "MyHealth 全科诊所（M-City）",
+          "lat": -37.9155,
+          "lng": 145.1285,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "M-City 购物中心夹层的私人全科诊所，接受 Walk-in（无需预约），诊后旁边即有 Pharmacy 4 Less 药店。"
+        },
+        {
+          "name": "Bank of Melbourne – Monash Clayton (Campus Centre, Wellington Road)",
+          "nameCn": "墨尔本银行（校内）",
+          "lat": -37.908,
+          "lng": 145.1338,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "西太集团子品牌，校内分行，部分留学生优惠开户条件比西太更灵活，可同日办卡。"
         }
       ]
     },
@@ -336,32 +669,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Monash University Clayton Campus (Lemon Scented Lawn)",
-          "nameCn": "蒙纳士克莱顿校园",
-          "lat": -37.910776,
-          "lng": 145.134806,
-          "note": "校园本身就是打卡点，绿地草坪、Robert Blackwood Hall 等标志建筑，开学拍照必去。"
-        },
-        {
-          "name": "Clayton Railway Station",
-          "nameCn": "克莱顿火车站",
-          "lat": -37.924672,
-          "lng": 145.120752,
-          "note": "Pakenham/Cranbourne 线车站，约40分钟直达墨尔本CBD（Flinders St），进城交通枢纽。"
-        },
-        {
-          "name": "Jack Meade Reserve",
-          "nameCn": "Jack Meade 公园",
-          "lat": -37.922482,
-          "lng": 145.116095,
-          "note": "克莱顿本地小公园，绿地步道适合散步放松，离校约2km。"
-        },
-        {
-          "name": "Jells Park",
+          "name": "Jells Park (Jells Road, Wheelers Hill)",
           "nameCn": "杰尔斯公园",
-          "lat": -37.900284,
-          "lng": 145.20133,
-          "note": "东南区著名大型自然公园，湖泊、湿地、野餐和骑行步道，周末郊游好去处（约6km，需开车/公交）。"
+          "lat": -37.8989,
+          "lng": 145.2015,
+          "rank": 1,
+          "tier": "必去",
+          "note": "127公顷城市公园，环湖步道、BBQ设施、鸟类观察屋一应俱全，距校园约20分钟车程，周末野餐首选。"
+        },
+        {
+          "name": "Chadstone Shopping Centre (1341 Dandenong Road, Chadstone)",
+          "nameCn": "查德斯通购物中心（南半球最大商场）",
+          "lat": -37.8858,
+          "lng": 145.0825,
+          "rank": 2,
+          "tier": "必去",
+          "note": "南半球最大购物中心，550+品牌含LV/Gucci等奢侈品，内有Legoland，距校约15分钟，购物血拼必去。"
+        },
+        {
+          "name": "Puffing Billy Railway (Belgrave Station, Old Monbulk Road, Belgrave)",
+          "nameCn": "蒸汽小火车（贝尔格雷夫站）",
+          "lat": -37.9076,
+          "lng": 145.3563,
+          "rank": 3,
+          "tier": "必去",
+          "note": "百年窄轨蒸汽火车穿越丹德农山脉森林，可将双脚挂出窗外，是留学生社交打卡最高频的日游项目。"
+        },
+        {
+          "name": "Scotchmans Creek Trail (accessible from Clayton / Glen Waverley)",
+          "nameCn": "斯科奇曼溪步道",
+          "lat": -37.898,
+          "lng": 145.185,
+          "rank": 4,
+          "tier": "必去",
+          "note": "13公里城市绿道，连接 East Malvern 至杰尔斯公园，骑车或慢跑穿越湿地和天然植被，减压神器。"
+        },
+        {
+          "name": "Oakleigh Greek Precinct / Eaton Mall (Eaton Mall, Oakleigh)",
+          "nameCn": "奥克利希腊美食街",
+          "lat": -37.8995,
+          "lng": 145.0885,
+          "rank": 5,
+          "tier": "必去",
+          "note": "墨尔本希腊社区核心，Eaton Mall 聚集十余家正宗希腊烤肉馆和咖啡店，体验多元文化生活必去。"
+        },
+        {
+          "name": "Glen Waverley Activity Precinct (Kingsway / Railway Parade N, Glen Waverley)",
+          "nameCn": "格伦威弗里美食娱乐区",
+          "lat": -37.879,
+          "lng": 145.1608,
+          "rank": 6,
+          "tier": "必去",
+          "note": "汇聚 Dumpling Empire、Dainty Sichuan、The Glen 购物中心和 Village Cinemas，是 Monash 学生周末首选目的地。"
+        },
+        {
+          "name": "M-City Clayton (2107 Dandenong Road, Clayton)",
+          "nameCn": "M-City 综合购物娱乐中心",
+          "lat": -37.9155,
+          "lng": 145.1285,
+          "rank": 7,
+          "tier": "必去",
+          "note": "校园10分钟步行，含 Village Cinemas 电影院、Woolworths、ALDI、餐厅美食广场，看电影购物一站解决。"
+        },
+        {
+          "name": "Dandenong Ranges / Puffing Billy Region (Belgrave area)",
+          "nameCn": "丹德农山脉国家公园",
+          "lat": -37.91,
+          "lng": 145.35,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "距校园45分钟，蕨类植物密林、瀑布步道和山地咖啡馆，配合蒸汽小火车是最受欢迎的半日游路线。"
+        },
+        {
+          "name": "Monash Gallery of Art / MAPh (860 Ferntree Gully Road, Wheelers Hill)",
+          "nameCn": "蒙纳士澳大利亚摄影博物馆（周边景点版）",
+          "lat": -37.8989,
+          "lng": 145.1978,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "国内摄影爱好者必访，常设展与特展全年轮换，免费入场，可与杰尔斯公园同日游览。"
+        },
+        {
+          "name": "Moorabbin Air Museum (Corner First St & Second Ave, Moorabbin Airport)",
+          "nameCn": "莫拉宾航空博物馆（周边景点版）",
+          "lat": -37.9769,
+          "lng": 145.1025,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "50余架真实飞机展览，可坐进驾驶舱体验，门票10澳元，适合约同学一起出行的特色景点。"
         }
       ]
     }

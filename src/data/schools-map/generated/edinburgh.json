@@ -75,74 +75,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Old College (Edinburgh Law School)",
-          "nameCn": "旧学院(法学院)",
-          "lat": 55.9477,
-          "lng": -3.1865,
-          "note": "大学最早的专属建筑,现为法学院总部,带亚当圆顶。"
+          "name": "Old College (Law School & Administration)",
+          "nameCn": "老学院（法学院与行政总部）",
+          "lat": 55.9472,
+          "lng": -3.186,
+          "rank": 1,
+          "tier": "必去",
+          "note": "建于18世纪的标志性建筑，由Robert Adam设计、Playfair完成，目前是爱大法学院所在地，外观庄严，Playfair图书馆藏于其内。"
         },
         {
-          "name": "Informatics Forum",
-          "nameCn": "信息学论坛",
+          "name": "School of Informatics / Informatics Forum",
+          "nameCn": "信息学院（信息论坛大楼）",
           "lat": 55.9448,
-          "lng": -3.1873,
-          "note": "信息学院旗舰大楼,2008年建成,位于波特罗。"
+          "lng": -3.1877,
+          "rank": 2,
+          "tier": "必去",
+          "note": "爱大排名全球前10的信息/计算机科学院，2008年RIAS最佳建筑奖得主，屋顶平台可俯瞰亚瑟山，是CS方向留学生的核心地标。"
         },
         {
-          "name": "Bayes Centre",
-          "nameCn": "贝叶斯中心",
-          "lat": 55.946,
-          "lng": -3.1862,
-          "note": "数据科学与AI创新枢纽,城市区数字研究核心。"
+          "name": "Bayes Centre (Data Science & AI)",
+          "nameCn": "贝叶斯中心（数据科学与人工智能）",
+          "lat": 55.9446,
+          "lng": -3.1872,
+          "rank": 3,
+          "tier": "必去",
+          "note": "耗资4500万英镑，2018年开放，紧邻信息论坛，是全校AI与数据科学研究核心枢纽，设有机器人实验室。"
         },
         {
-          "name": "Chancellor's Building (Edinburgh Medical School)",
-          "nameCn": "校监楼(医学院)",
-          "lat": 55.9217,
-          "lng": -3.1378,
-          "note": "小法兰西医学院主楼,含临床技能中心与讲堂。"
+          "name": "Edinburgh Futures Institute (EFI)",
+          "nameCn": "爱丁堡未来研究院",
+          "lat": 55.944,
+          "lng": -3.192,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2024年6月正式开放，位于Lauriston Place的前皇家医院旧址（A类保护建筑），造价1.2亿英镑，是跨学科社会科学旗舰地。"
         },
         {
-          "name": "Queen's Medical Research Institute",
-          "nameCn": "女王医学研究院",
-          "lat": 55.923,
-          "lng": -3.1349,
-          "note": "生物园核心研究院,2005年启用,四大疾病研究中心。"
-        },
-        {
-          "name": "The Roslin Institute",
-          "nameCn": "罗斯林研究所",
-          "lat": 55.8657,
-          "lng": -3.1986,
-          "note": "东布什动物科学研究所,克隆羊多莉诞生地。"
-        },
-        {
-          "name": "Royal (Dick) School of Veterinary Studies",
-          "nameCn": "皇家(迪克)兽医学院",
-          "lat": 55.8668,
-          "lng": -3.201,
-          "note": "东布什校区兽医教学与动物福利研究主体。"
-        },
-        {
-          "name": "James Clerk Maxwell Building",
-          "nameCn": "麦克斯韦楼",
-          "lat": 55.9217,
-          "lng": -3.1737,
-          "note": "国王大厦数学、物理与气象学科主楼。"
-        },
-        {
-          "name": "Moray House School of Education and Sport",
-          "nameCn": "莫瑞府教育学院",
-          "lat": 55.9505,
-          "lng": -3.179,
-          "note": "圣城路畔教育与体育学院,毗邻苏格兰议会。"
+          "name": "McEwan Hall (Graduation Hall)",
+          "nameCn": "麦克尤恩毕业典礼厅",
+          "lat": 55.9458,
+          "lng": -3.1893,
+          "rank": 5,
+          "tier": "必去",
+          "note": "1897年落成的A级保护建筑，穹顶彩绘壁画精美绝伦，是毕业典礼的神圣场所，同时也是爱大最具辨识度的地标建筑之一。"
         },
         {
           "name": "New College (School of Divinity)",
-          "nameCn": "新学院(神学院)",
-          "lat": 55.9496,
-          "lng": -3.1951,
-          "note": "土丘上的哥特式神学院,兼苏格兰教会大会堂。"
+          "nameCn": "新学院（神学院）",
+          "lat": 55.9502,
+          "lng": -3.1952,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "由Playfair设计的哥特复兴风格建筑，俯瞰王子街花园，苏格兰教会年度大会旧址，神学与宗教研究的重镇。"
+        },
+        {
+          "name": "James Clerk Maxwell Building (Physics & Maths)",
+          "nameCn": "麦克斯韦大楼（物理与数学系）",
+          "lat": 55.922,
+          "lng": -3.174,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "King's Buildings校区核心，以物理学巨匠麦克斯韦命名，是物理与数学两个学院的教学和行政中心。"
+        },
+        {
+          "name": "Joseph Black Building (Chemistry)",
+          "nameCn": "约瑟夫·布莱克大楼（化学院）",
+          "lat": 55.9219,
+          "lng": -3.1727,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "以发现二氧化碳的化学家命名，位于King's Buildings，是化学学院的实验室与教学主楼。"
+        },
+        {
+          "name": "Appleton Tower (Science & Computing Teaching)",
+          "nameCn": "阿普尔顿塔（理科教学楼）",
+          "lat": 55.9451,
+          "lng": -3.1875,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1966年建成的高层教学楼，设有全校最繁忙的讲座厅群，每小时可容纳千名学生进出，是理科日常上课的主要场所。"
+        },
+        {
+          "name": "Dugald Stewart Building (PPLS)",
+          "nameCn": "杜格尔德·斯图尔特大楼（心理/哲学/语言系）",
+          "lat": 55.9444,
+          "lng": -3.188,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "2007年建成的7层现代建筑，容纳心理学、哲学与语言科学三个院系，与贝叶斯中心相连，地处中心校区核心。"
+        },
+        {
+          "name": "Chancellor's Building (Medical School, Little France)",
+          "nameCn": "校监大楼（医学院，小法兰西校区）",
+          "lat": 55.9218,
+          "lng": -3.1368,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "2002年由爱丁堡公爵揭幕，是医学院在皇家医院旁的BioQuarter校区主楼，造价4000万英镑，临床医学生重要据点。"
+        },
+        {
+          "name": "Nucleus Building (King's Buildings Hub)",
+          "nameCn": "核心大楼（King's Buildings学生中心）",
+          "lat": 55.9228,
+          "lng": -3.1742,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "2022年竣工的3400万英镑新楼，荣获RIBA 2025年苏格兰奖，是科学与工程学院学生的社交、学习一体化枢纽。"
         }
       ],
       "defaultOn": true
@@ -156,17 +194,57 @@
       "items": [
         {
           "name": "Main Library, George Square",
-          "nameCn": "乔治广场主图书馆",
-          "lat": 55.9428,
-          "lng": -3.1888,
-          "note": "大学最大图书馆,1967年巴西利亚式建筑。"
+          "nameCn": "大学主图书馆（乔治广场）",
+          "lat": 55.9435,
+          "lng": -3.1893,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全英最大大学图书馆之一，8层共2400余自习座位，24/7全年不打烊，藏书逾200万册，是爱大学生日常学习的绝对核心。"
         },
         {
-          "name": "New College Library",
-          "nameCn": "新学院图书馆",
-          "lat": 55.9497,
-          "lng": -3.1952,
-          "note": "土丘新学院内,苏格兰主要神学藏书馆之一。"
+          "name": "New College Library (Divinity)",
+          "nameCn": "新学院图书馆（神学馆）",
+          "lat": 55.9501,
+          "lng": -3.1953,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "1843年建立的英国最大神学图书馆之一，坐落于Mound Place，藏有丰富宗教研究孤本，学者氛围浓厚。"
+        },
+        {
+          "name": "Law Library (Old College)",
+          "nameCn": "法律图书馆（老学院）",
+          "lat": 55.947,
+          "lng": -3.1858,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于老学院四合院西北角，法学院学生主用馆，环境安静庄重，英国法律原始文献收藏齐全。"
+        },
+        {
+          "name": "Noreen and Kenneth Murray Library (King's Buildings)",
+          "nameCn": "穆雷图书馆（King's Buildings）",
+          "lat": 55.9225,
+          "lng": -3.174,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "理工学院核心图书馆，馆藏覆盖生物、化学、工程、地球物理、数学与物理，是King's Buildings校区学生自习首选。"
+        },
+        {
+          "name": "Edinburgh Futures Institute Library (EFI)",
+          "nameCn": "爱丁堡未来研究院图书馆",
+          "lat": 55.9441,
+          "lng": -3.1922,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2024年随EFI新楼开放，设施现代，专注跨学科与数据驱动研究，亦可供人文社科学生使用，座位设计独特。"
+        },
+        {
+          "name": "Heritage Collections Centre (Main Library 6F)",
+          "nameCn": "遗产馆藏中心（主图书馆6楼）",
+          "lat": 55.9435,
+          "lng": -3.1893,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于主图书馆6楼，收藏孤本善本、手稿、档案及艺术品，需预约参观，是做历史研究必须了解的特藏重地。"
         }
       ]
     },
@@ -178,18 +256,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Talbot Rice Gallery",
-          "nameCn": "塔尔博特·赖斯美术馆",
-          "lat": 55.9477,
-          "lng": -3.1862,
-          "note": "旧学院内当代艺术馆,藏大学历史艺术品。"
+          "name": "National Museum of Scotland",
+          "nameCn": "苏格兰国家博物馆",
+          "lat": 55.9468,
+          "lng": -3.1918,
+          "rank": 1,
+          "tier": "必去",
+          "note": "步行可达的世界级博物馆，免费入场，涵盖苏格兰历史、自然、科技与世界文化，馆藏达2000万件，学生打卡首选。"
         },
         {
-          "name": "St Cecilia's Hall (Music Museum)",
-          "nameCn": "圣塞西莉亚音乐厅",
-          "lat": 55.9484,
-          "lng": -3.1859,
-          "note": "苏格兰最古老专属音乐厅,藏古乐器博物馆。"
+          "name": "Talbot Rice Gallery (Old College)",
+          "nameCn": "塔尔伯特·赖斯画廊（老学院内）",
+          "lat": 55.9473,
+          "lng": -3.1861,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "爱大自营的苏格兰顶级当代艺术公共画廊，免费，就在老学院四合院内，周二至六开放，常设国际重量级展览。"
+        },
+        {
+          "name": "Surgeons' Hall Museums",
+          "nameCn": "外科医生大厅博物馆",
+          "lat": 55.9473,
+          "lng": -3.1845,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "创立于1699年，馆内有病理标本、手术史与牙科收藏，含威廉·伯克（著名谋杀犯）骨骼，医学生必看，需购票约£9.5。"
+        },
+        {
+          "name": "St Cecilia's Hall (Musical Instrument Museum)",
+          "nameCn": "圣塞西莉亚音乐厅（乐器博物馆）",
+          "lat": 55.9476,
+          "lng": -3.1852,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "苏格兰现存最古老的专用音乐厅，馆内展有6000件全球乐器，免费入场，音乐系学生与乐迷必访。"
+        },
+        {
+          "name": "Anatomical Museum (Doorway Building)",
+          "nameCn": "解剖学博物馆（爱大医学院内）",
+          "lat": 55.9444,
+          "lng": -3.1888,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "逾12000件解剖标本，记录爱大300年解剖教学史，每月仅末周六限量免费开放，门票极其紧俏需提前抢票。"
+        },
+        {
+          "name": "Scottish National Gallery",
+          "nameCn": "苏格兰国家画廊",
+          "lat": 55.9505,
+          "lng": -3.1962,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于The Mound，收藏提香、拉斐尔、伦勃朗至苏格兰画派杰作，与皇家苏格兰学院共用地下连廊，免费，步行15分钟可达。"
         }
       ]
     },
@@ -201,25 +319,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "McEwan Hall",
-          "nameCn": "麦克尤恩礼堂",
-          "lat": 55.9454,
-          "lng": -3.1892,
-          "note": "布里斯托广场旁穹顶礼堂,主要毕业典礼场地。"
+          "name": "Bristo Square",
+          "nameCn": "布里斯托广场（校园核心广场）",
+          "lat": 55.9459,
+          "lng": -3.1894,
+          "rank": 1,
+          "tier": "必去",
+          "note": "爱大校园的社交心脏，南侧是麦克尤恩大厅，北侧是Teviot Row学生会，Fringe演出季、毕业庆典都在此举行，留学必打卡。"
         },
         {
-          "name": "Teviot Row House",
-          "nameCn": "蒂维奥特学生会楼",
-          "lat": 55.9449,
-          "lng": -3.1887,
-          "note": "1889年落成,号称世界最古老的专属学生会建筑。"
+          "name": "Teviot Row House (EUSA Student Union)",
+          "nameCn": "Teviot Row学生会大楼",
+          "lat": 55.946,
+          "lng": -3.1893,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1889年建成的全球最古老专用学生会建筑，内含多间酒吧、餐厅与活动空间，是学生社团活动与社交聚会的大本营。"
         },
         {
-          "name": "Edinburgh Waverley Railway Station",
-          "nameCn": "爱丁堡韦弗利火车站",
-          "lat": 55.9521,
+          "name": "George Square Gardens",
+          "nameCn": "乔治广场花园",
+          "lat": 55.9434,
           "lng": -3.1886,
-          "note": "市中心主火车站,距中心校区步行约15分钟。"
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "18世纪保留至今的历史广场，主图书馆、多座院系楼环绕四周，草坪是学生课间晒太阳、午餐野餐的最爱户外空间。"
+        },
+        {
+          "name": "Potterrow Student Centre (EUSA)",
+          "nameCn": "波特罗学生中心",
+          "lat": 55.9456,
+          "lng": -3.1884,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "学生服务、社团办公、咖啡厅与活动空间一体，是EUSA的行政主楼，国际新生报到、找组织从这里开始。"
+        },
+        {
+          "name": "Centre for Sport and Exercise (Pleasance)",
+          "nameCn": "普莱曾斯体育中心",
+          "lat": 55.9452,
+          "lng": -3.183,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "爱大主体育馆，46 Pleasance，拥有102台有氧器械、游泳池、攀岩墙、多功能运动场，学生凭证办会员费用实惠。"
+        },
+        {
+          "name": "The Meadows",
+          "nameCn": "草地公园（The Meadows）",
+          "lat": 55.9407,
+          "lng": -3.1861,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园南侧的开阔城市公园，学生跑步、骑车、BBQ、踢球的首选，四月樱花盛开时是爱丁堡最浪漫的打卡地。"
+        },
+        {
+          "name": "Old College Quad",
+          "nameCn": "老学院四合院庭院",
+          "lat": 55.9472,
+          "lng": -3.1862,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Playfair设计的新古典主义四合院，中央圆顶华美，是爱大拍照最佳背景之一，也是法学生日常穿梭的场所。"
         }
       ]
     },
@@ -231,39 +391,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Aihua Chinese Supermarket",
-          "nameCn": "爱华中超",
-          "lat": 55.9445,
+          "name": "Lidl (Nicolson Street)",
+          "nameCn": "Lidl 超市（尼科尔森街）",
+          "lat": 55.9457,
+          "lng": -3.1842,
+          "rank": 1,
+          "tier": "必去",
+          "note": "就在校园旁56-58 Nicolson St，德国折扣超市价格最低，面包烘焙区性价比极高，是学生日常采购首选，7:00–22:00营业。"
+        },
+        {
+          "name": "Sainsbury's Local (Nicolson Street)",
+          "nameCn": "塞恩斯伯里便利店（尼科尔森街）",
+          "lat": 55.9462,
+          "lng": -3.1844,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "52 Nicolson St，步行5分钟到主图书馆，品类齐全含自有品牌熟食和即食品，适合忙碌上课日快速补货。"
+        },
+        {
+          "name": "Co-op (South Clerk Street)",
+          "nameCn": "合作社超市（南克拉克街）",
+          "lat": 55.9434,
           "lng": -3.1843,
-          "note": "离 George Square 主校区步行几分钟最近的中超，老干妈、火锅底料、速冻饺子米面都全，满额还有折扣。"
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "49 South Clerk St，紧邻学生聚居的Newington区，深夜营业，适合临时买急需食材，社区氛围好。"
+        },
+        {
+          "name": "Sainsbury's Local (Marchmont Road)",
+          "nameCn": "塞恩斯伯里便利店（马奇蒙特路）",
+          "lat": 55.9387,
+          "lng": -3.1849,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于学生宿舍聚集的Marchmont区，07:00–23:00，从The Meadows步行可达，适合住在校园南侧的同学日常购物。"
         },
         {
           "name": "Lang Yu Chinese Supermarket",
-          "nameCn": "朗宇中超",
+          "nameCn": "朗裕中国超市（亚洲食材）",
           "lat": 55.9455,
-          "lng": -3.1862,
-          "note": "尼科尔森大街上的中超(61-63 Nicolson St)，调料、零食、生鲜齐全，学生宿舍区顺路就能买。"
+          "lng": -3.184,
+          "rank": 5,
+          "tier": "必去",
+          "note": "61 Nicolson St EH8 9BZ，距主校区步行5分钟，专售中国食材、调料、速冻饺子汤圆等，是留学生最依赖的中超。"
         },
         {
-          "name": "Sainsbury's (Nicolson Street)",
-          "nameCn": "Sainsbury's 超市(尼科尔森店)",
-          "lat": 55.946,
-          "lng": -3.1858,
-          "note": "校区南侧的英国主流连锁超市，日常米油菜肉、面包牛奶一站买齐，营业到很晚。"
+          "name": "Starlight Chinese Supermarket",
+          "nameCn": "星光中国超市",
+          "lat": 55.9432,
+          "lng": -3.1842,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "25-29 Clerk St EH8 9JH，品类丰富，新鲜蔬菜选择更多，常有泡面、零食、调味品进口货，中国留学生口碑好。"
         },
         {
-          "name": "Tesco (Nicolson Street)",
-          "nameCn": "Tesco 超市(尼科尔森店)",
-          "lat": 55.9468,
+          "name": "Aihua Chinese Supermarket",
+          "nameCn": "爱华中国超市",
+          "lat": 55.9423,
           "lng": -3.1852,
-          "note": "另一家主流大超市，性价比高、自有品牌便宜，办 Clubcard 折扣更划算。"
+          "rank": 7,
+          "tier": "推荐",
+          "note": "36 West Crosscauseway EH8 9JP，主打粤港台食材与调料，还有日韩商品，适合喜爱做饭的同学专程采购。"
         },
         {
-          "name": "Loon Fung (Warriston Place)",
-          "nameCn": "龙凤行(华人超市/餐厅)",
-          "lat": 55.9608,
-          "lng": -3.1948,
-          "note": "爱丁堡老牌华人字号，北边 Canonmills 一带，活鱼海鲜和粤式食材选择多，可顺带粤菜外卖。"
+          "name": "Tesco Express (Causewayside)",
+          "nameCn": "乐购便利店（考斯韦赛德）",
+          "lat": 55.9376,
+          "lng": -3.1832,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Causewayside附近，Tesco自有品牌性价比高，Clubcard会员折扣力度大，适合每周定期采购的学生。"
         }
       ]
     },
@@ -275,46 +472,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "The Mosque Kitchen",
-          "nameCn": "清真厨房(咖喱食堂)",
-          "lat": 55.9455,
-          "lng": -3.1857,
-          "note": "学生公认的平价咖喱食堂，自助打饭式，咖喱配米饭约 9 镑管饱，校区旁排队也值。"
+          "name": "Sichuan House (蜀湘门弟)",
+          "nameCn": "蜀湘门弟川湘餐厅",
+          "lat": 55.9474,
+          "lng": -3.1908,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "37-39 George IV Bridge，疫情期间爱大留学生点外卖最多的中餐，北京老板主理正宗川湘菜与北方菜，本地中国学生公认第一。"
         },
         {
-          "name": "Chez Jules / Southside curry & kebab strip",
-          "nameCn": "南桥咖喱烤肉一条街",
-          "lat": 55.9447,
+          "name": "Sister Bao House",
+          "nameCn": "姐姐包包亚洲融合餐厅",
+          "lat": 55.9427,
+          "lng": -3.1843,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "32 South Clerk St EH8 9PR，主打亚洲fusion包子/肉夹馍类，性价比超高，学生区口碑极佳，午市有学生优惠。"
+        },
+        {
+          "name": "Tasty Noodle",
+          "nameCn": "美味面条（热酸汤面）",
+          "lat": 55.9436,
           "lng": -3.1875,
-          "note": "Forrest Road / South Bridge 一带聚集大量咖喱、烤肉、披萨小馆，深夜下课觅食首选。"
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "36 Buccleuch St，距主图书馆步行一分钟，主打热酸汤面和牛肉乌冬，深受学生喜爱，午餐时段常排队。"
         },
         {
-          "name": "Chop Chop (or central dim sum)",
-          "nameCn": "中餐/点心馆",
-          "lat": 55.9469,
-          "lng": -3.1882,
-          "note": "市中心步行可达的中餐选择，想吃饺子、点心、家常炒菜解馋时来这片找。"
+          "name": "Xiangbala Hotpot (香辣火锅)",
+          "nameCn": "香辣火锅（爱丁堡自助火锅）",
+          "lat": 55.9422,
+          "lng": -3.2155,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "63 Dalry Rd EH11 2BZ，重庆留学生公认最接近国内口味的自助火锅，海鲜品类丰富，下午3点开门，周末需提前订位。"
         },
         {
-          "name": "Oink Hog Roast (Victoria Street)",
-          "nameCn": "Oink 烤猪肉卷",
-          "lat": 55.9479,
-          "lng": -3.1936,
-          "note": "维多利亚街上的招牌烤猪肉三明治，本地必吃小吃，分量足、出餐快，逛老城顺路。"
+          "name": "Stack Dim Sum Bar",
+          "nameCn": "Stack点心吧（港式早茶）",
+          "lat": 55.9579,
+          "lng": -3.172,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Leith Walk附近，正宗港式粤式点心，每份仅约£3，主菜约£8，极具性价比，周末早午茶时段极受华人学生欢迎。"
         },
         {
-          "name": "The Elephant House",
-          "nameCn": "大象咖啡馆",
-          "lat": 55.9472,
-          "lng": -3.1905,
-          "note": "号称《哈利波特》诞生地之一的咖啡馆，打卡兼写论文圣地，靠近 Greyfriars。"
+          "name": "SEN Vietnamese Dining",
+          "nameCn": "SEN越南餐厅",
+          "lat": 55.9447,
+          "lng": -3.1837,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "EH8 9DB，Newington区精品越南餐厅，招牌金枪鱼塔丁和罗望子酱海鲈鱼广受好评，环境精致适合庆功宴。"
         },
         {
-          "name": "Mary's Milk Bar (Grassmarket)",
-          "nameCn": "Mary's 手工冰淇淋",
-          "lat": 55.9472,
-          "lng": -3.1955,
-          "note": "草市集旁的网红手工 gelato，每日限定口味，城堡脚下散步必尝。"
+          "name": "Tuk Tuk Indian Street Food (Southside)",
+          "nameCn": "图图印度街头小吃（南区店）",
+          "lat": 55.943,
+          "lng": -3.1878,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "16 Drummond St EH8 9TX，爱大南区印度街头小吃名店，咖喱、烤肉串种类繁多，价格亲民，学生推荐度极高。"
+        },
+        {
+          "name": "Harajuku Kitchen",
+          "nameCn": "原宿厨房（日本料理）",
+          "lat": 55.9521,
+          "lng": -3.2046,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "爱丁堡最受好评的日本餐厅，传承三代家族食谱，荣获AA推荐，主打精致日料，适合周末犒劳自己。"
+        },
+        {
+          "name": "Happy Lamb Hot Pot",
+          "nameCn": "快乐小羊火锅",
+          "lat": 55.9539,
+          "lng": -3.1907,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "7 South St David St EH2 2BW，城区中心的知名连锁涮羊肉火锅，汤底选择多，品质稳定，适合约上学长学姐聚餐。"
+        },
+        {
+          "name": "Numi Food",
+          "nameCn": "Numi 快餐（学生食堂风）",
+          "lat": 55.9433,
+          "lng": -3.1841,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "South Clerk St附近，自助配菜快餐，格式似大学食堂，提供学生折扣，价格低廉，日常午餐首选之一。"
+        },
+        {
+          "name": "#FISH (Marchmont)",
+          "nameCn": "#FISH 炸鱼薯条（马奇蒙特）",
+          "lat": 55.9393,
+          "lng": -3.187,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "荣获「2024年爱丁堡最佳炸鱼薯条」，主打可持续海鲜，地处学生区，价格公道，必体验苏格兰传统小吃。"
+        },
+        {
+          "name": "Makar's Mash Bar",
+          "nameCn": "马卡传统苏格兰餐厅",
+          "lat": 55.9491,
+          "lng": -3.1921,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "The Mound附近，十余种口味的哈吉斯（haggis）专门店，含哈吉斯玉米片和哈吉斯吐司，是体验苏格兰国菜的最佳入门地。"
+        },
+        {
+          "name": "Dusit Thai Restaurant",
+          "nameCn": "杜西泰国餐厅",
+          "lat": 55.9425,
+          "lng": -3.1985,
+          "rank": 13,
+          "tier": "一般",
+          "note": "爱丁堡口碑最稳定的泰国餐厅之一，创意泰菜，素食选项丰富，节日聚餐或亲友来访时值得安排。"
+        },
+        {
+          "name": "Wee Buddha Asian Fusion",
+          "nameCn": "小佛亚洲融合餐厅",
+          "lat": 55.9543,
+          "lng": -3.2004,
+          "rank": 14,
+          "tier": "一般",
+          "note": "新城区，横跨日本、泰国、韩国、中国和越南菜系的融合餐厅，价格中上，适合想一次吃遍亚洲的聚会。"
         }
       ]
     },
@@ -326,32 +607,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of Scotland (The Mound / South Bridge)",
-          "nameCn": "苏格兰银行(开户网点)",
-          "lat": 55.9486,
-          "lng": -3.1903,
-          "note": "苏格兰本地大行，留学生常用来开学生账户，带录取信+地址证明预约即可办理。"
+          "name": "University Health Service (Richard Verney Health Centre)",
+          "nameCn": "大学健康服务中心（NHS GP）",
+          "lat": 55.9458,
+          "lng": -3.1897,
+          "rank": 1,
+          "tier": "必去",
+          "note": "6 Bristo Square EH8 9AL，电话0131-650-2777，是爱大学生注册NHS GP的首选诊所，位于校园核心，周一至五9–17点。"
         },
         {
-          "name": "Boots Pharmacy (South Bridge)",
-          "nameCn": "Boots 药妆/药房",
-          "lat": 55.9483,
-          "lng": -3.188,
-          "note": "全英连锁药房，处方药、感冒药、日用品都有，还能咨询药剂师，校区步行可达。"
+          "name": "Royal Bank of Scotland (Nicolson Street)",
+          "nameCn": "苏格兰皇家银行（尼科尔森街）",
+          "lat": 55.9465,
+          "lng": -3.1846,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Nicolson St分行，步行至主图书馆仅5分钟，国际学生可开basic bank account，带护照和大学录取信即可办理。"
         },
         {
-          "name": "Royal Infirmary of Edinburgh (A&E)",
-          "nameCn": "爱丁堡皇家医院(急诊 A&E)",
-          "lat": 55.9214,
-          "lng": -3.1369,
-          "note": "本地 24 小时急诊主力医院(16 岁以上)，遇紧急情况打 999 或前往；非急症先约 GP 或打 NHS 111。"
+          "name": "Bank of Scotland (South Clerk Street)",
+          "nameCn": "苏格兰银行（南克拉克街）",
+          "lat": 55.9433,
+          "lng": -3.1843,
+          "rank": 3,
+          "tier": "必去",
+          "note": "51 South Clerk St，Lloyds/Halifax系列可互通，学生账户无月费，开户所需材料：护照+大学录取通知书+地址证明。"
         },
         {
-          "name": "EE / mobile carrier shop (Princes Street)",
-          "nameCn": "EE 等运营商门店(王子街)",
-          "lat": 55.9519,
-          "lng": -3.1956,
-          "note": "王子街购物区集中了 EE、O2、Vodafone、Three 等运营商门店，办手机卡套餐一次比价搞定。"
+          "name": "EE Store (Princes Street)",
+          "nameCn": "EE手机营业厅（王子街）",
+          "lat": 55.953,
+          "lng": -3.1966,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "21 Princes St，苏格兰信号最佳运营商之一，留学生购SIM卡首推EE，提供学生折扣套餐，可携号转网。"
+        },
+        {
+          "name": "Three Store (Princes Street)",
+          "nameCn": "Three手机营业厅（王子街）",
+          "lat": 55.9529,
+          "lng": -3.1958,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "74-75 Princes St，流量套餐价格最低，且支持国际数据漫游，回国探亲期间也可免费使用，中国留学生常用选择。"
+        },
+        {
+          "name": "Bristo Square Pharmacy",
+          "nameCn": "布里斯托广场药房",
+          "lat": 55.9459,
+          "lng": -3.1893,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1 Bristo Square旁，距学生会和GP诊所步行1分钟，NHS处方直接在此取药，感冒发烧急购OTC首选药房。"
+        },
+        {
+          "name": "Boots The Chemist (North Bridge)",
+          "nameCn": "博姿药妆店（北桥）",
+          "lat": 55.9499,
+          "lng": -3.1878,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "40-44 North Bridge EH1 1QN，大型药妆连锁，品类全含美妆护肤，持Boots Advantage Card积分购药更划算。"
+        },
+        {
+          "name": "Royal Infirmary of Edinburgh A&E",
+          "nameCn": "爱丁堡皇家医院急诊（Little France）",
+          "lat": 55.922,
+          "lng": -3.1371,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Little France EH16 4SA，全市主要综合医院急诊室，若遇急症可打999或111转诊，非紧急情况先联系GP。"
         }
       ]
     },
@@ -363,39 +688,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Old College (University of Edinburgh)",
-          "nameCn": "爱丁堡大学旧学院",
-          "lat": 55.9472,
-          "lng": -3.1865,
-          "note": "学校最具标志性的新古典主义庭院，圆顶金人雕像，校区核心打卡点。"
-        },
-        {
-          "name": "The Meadows",
-          "nameCn": "梅多斯公园",
-          "lat": 55.9405,
-          "lng": -3.1903,
-          "note": "紧挨校区的大草坪公园，樱花季和野餐、跑步、踢球的学生日常去处。"
-        },
-        {
           "name": "Arthur's Seat (Holyrood Park)",
-          "nameCn": "亚瑟王座(死火山)",
+          "nameCn": "亚瑟王宝座（火山顶）",
           "lat": 55.9444,
           "lng": -3.1618,
-          "note": "市中心旁的死火山，徒步登顶可俯瞰全城，看日出日落的爱丁堡必爬地标。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园步行20分钟，爱丁堡最高点251米，爬上死火山顶俯瞰全城，360度无遮挡壮观，是来爱大必打卡的第一名地标。"
         },
         {
           "name": "Edinburgh Castle",
           "nameCn": "爱丁堡城堡",
           "lat": 55.9486,
           "lng": -3.1999,
-          "note": "矗立在火山岩上的城堡，城市象征，每天 13 点鸣放报时炮，俯瞰老城绝佳。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落于城堡岩之上，苏格兰皇冠珠宝与命运之石的所在，每年Tattoo军乐节在城墙下举行，是爱丁堡最标志性的景点。"
         },
         {
-          "name": "Royal Mile & Greyfriars Bobby",
-          "nameCn": "皇家英里大道 & 忠犬巴比",
-          "lat": 55.9473,
-          "lng": -3.1903,
-          "note": "老城主轴皇家英里连着圣吉尔斯大教堂，旁边 Greyfriars 墓园有忠犬巴比铜像，传是 J.K. 罗琳取名灵感。"
+          "name": "Royal Mile & Old Town",
+          "nameCn": "皇家大道与旧城",
+          "lat": 55.9497,
+          "lng": -3.1887,
+          "rank": 3,
+          "tier": "必去",
+          "note": "从城堡到霍利鲁德宫的一英里中世纪街道，石板路、哈利波特书店、五光十色的古老小巷，周末漫步必经之地。"
+        },
+        {
+          "name": "Greyfriars Kirkyard & Greyfriars Bobby Statue",
+          "nameCn": "格雷弗莱教堂墓地与鲍比铜像",
+          "lat": 55.9466,
+          "lng": -3.1922,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距主图书馆步行5分钟，16世纪历史墓地加忠犬博比铜像，免费，晚间氛围神秘，许多学生上课间隙在此小憩。"
+        },
+        {
+          "name": "The Meadows (Cherry Blossoms in April)",
+          "nameCn": "草地公园（四月赏樱）",
+          "lat": 55.9407,
+          "lng": -3.1861,
+          "rank": 5,
+          "tier": "必去",
+          "note": "四月樱花大道是爱丁堡最火小红书打卡点，夏日有市集与BBQ，秋季满地金叶，是学生全年最爱的户外绿洲。"
+        },
+        {
+          "name": "Calton Hill",
+          "nameCn": "卡尔顿山",
+          "lat": 55.9553,
+          "lng": -3.1793,
+          "rank": 6,
+          "tier": "必去",
+          "note": "城区内最佳全景观景点，山顶有未完成的雅典式国家纪念碑和纳尔逊纪念塔，日落时分俯瞰城市轮廓极为震撼。"
+        },
+        {
+          "name": "Victoria Street & Grassmarket",
+          "nameCn": "维多利亚街与草市场",
+          "lat": 55.9482,
+          "lng": -3.194,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "五彩缤纷的弧形街道被称为爱丁堡版「对角巷」，连通Grassmarket历史市场广场，咖啡馆、精品店、古董书店林立。"
+        },
+        {
+          "name": "Royal Botanic Garden Edinburgh",
+          "nameCn": "皇家植物园",
+          "lat": 55.9672,
+          "lng": -3.2106,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "英国第二古老植物园，70英亩园区免费入场，温室需票，含全英最高棕榈温室，春夏赏花极佳，适合散心减压。"
+        },
+        {
+          "name": "Scottish National Portrait Gallery",
+          "nameCn": "苏格兰国家肖像画廊",
+          "lat": 55.9553,
+          "lng": -3.1942,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "1 Queen St，维多利亚哥特式建筑本身就是艺术品，大厅壁画震撼，苏格兰名人史诗般的群像，免费，步行15分钟。"
+        },
+        {
+          "name": "Palace of Holyroodhouse",
+          "nameCn": "霍利鲁德宫（苏格兰皇宫）",
+          "lat": 55.9524,
+          "lng": -3.1719,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "英国皇室苏格兰行宫，皇家一英里终点，毗邻亚瑟山入口，内含16世纪宫殿与霍利鲁德修道院遗址，需购票参观。"
+        },
+        {
+          "name": "Dean Village & Water of Leith Walkway",
+          "nameCn": "迪恩村与利斯河步道",
+          "lat": 55.9545,
+          "lng": -3.2166,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "城区内中世纪磨坊村落奇迹般保存至今，沿河步道连接植物园，拍照极美，适合周末半日徒步放松心情。"
         }
       ]
     }

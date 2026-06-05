@@ -59,74 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Edith Morley Building (Humanities & Social Sciences)",
-          "nameCn": "伊迪丝·莫利楼(人文社科)",
-          "lat": 51.4414,
-          "lng": -0.9472,
-          "note": "校区最大教学楼,原名HumSS,人文社科院系所在,因布局复杂被称'迷宫'。"
-        },
-        {
-          "name": "Palmer Building",
-          "nameCn": "帕尔默楼",
-          "lat": 51.4407,
-          "lng": -0.9431,
-          "note": "新生注册、迎新讲座与期末考试的核心教学楼。"
+          "name": "Henley Business School",
+          "nameCn": "亨利商学院",
+          "lat": 51.4415,
+          "lng": -0.9365,
+          "rank": 1,
+          "tier": "必去",
+          "note": "三重认证（AACSB/EQUIS/AMBA）全球顶尖商学院，MBA/金融/管理项目久负盛名，2009年落成的专属大楼位于校园东侧。"
         },
         {
           "name": "ICMA Centre (Henley Business School)",
           "nameCn": "ICMA金融中心",
-          "lat": 51.44237,
-          "lng": -0.94657,
-          "note": "71号楼,亨利商学院金融教学中心,设三间实盘交易室、上百台终端。"
+          "lat": 51.4412,
+          "lng": -0.9358,
+          "rank": 2,
+          "tier": "必去",
+          "note": "专注金融市场的顶级研究与教学机构，是读大金融专业学生的核心教学楼，位于亨利商学院大楼内（71号楼）。"
         },
         {
-          "name": "Chemistry Building",
-          "nameCn": "化学楼",
-          "lat": 51.43893,
-          "lng": -0.94264,
-          "note": "白骑士校区化学系教学与实验楼。"
+          "name": "Brian Hoskins Building (Department of Meteorology)",
+          "nameCn": "布莱恩·霍斯金斯楼（气象系）",
+          "lat": 51.442,
+          "lng": -0.938,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全球排名前五的气象与气候科学系，以研究全球变暖闻名，2022年以荣誉教授Brian Hoskins爵士命名，58号楼。"
         },
         {
-          "name": "Agriculture Building",
-          "nameCn": "农学楼",
-          "lat": 51.43857,
-          "lng": -0.93595,
-          "note": "雷丁传统强项农业与食品科学系所在。"
+          "name": "Edith Morley Building",
+          "nameCn": "伊迪斯·莫利楼",
+          "lat": 51.4413,
+          "lng": -0.944,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园最大教学楼，因走廊复杂被戏称「迷宫」，内设Ure古希腊博物馆、Van Emden大讲堂，人文社科系核心场所。"
         },
         {
-          "name": "Chancellor's Building",
-          "nameCn": "校监楼",
+          "name": "JJ Thomson Building",
+          "nameCn": "JJ汤姆逊楼",
+          "lat": 51.4432,
+          "lng": -0.939,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1950年代建造的悬臂楼梯标志性建筑，理工科（物理/电子/计算机科学系）教学主楼，入口楼梯造型独特值得一拍。"
+        },
+        {
+          "name": "Palmer Building",
+          "nameCn": "帕尔默楼",
+          "lat": 51.4418,
+          "lng": -0.9445,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "新生注册、领学生证的必到之地，也是大型考试和学院欢迎讲座的主场地，26号楼，校园中心位置。"
+        },
+        {
+          "name": "Carrington Building (Student Services)",
+          "nameCn": "卡林顿楼（学生服务中心）",
           "lat": 51.4408,
-          "lng": -0.9448,
-          "note": "近校内巴士站,主要承担语言对话课程与考试。"
+          "lng": -0.943,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "汇集学生服务、心理咨询、残疾辅助、国际学生顾问、就业与实习指导等所有支持服务，国际新生第一周必访。"
         },
         {
-          "name": "Institute of Education",
-          "nameCn": "教育学院",
-          "lat": 51.4504,
-          "lng": -0.9598,
-          "note": "伦敦路校区,师范教育与教师培训基地。"
+          "name": "School of Agriculture, Policy and Development (Agriculture Building)",
+          "nameCn": "农业政策与发展学院",
+          "lat": 51.4398,
+          "lng": -0.933,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "读大农业科学全球排名极高，校园东侧Earley Gate片区，农学/食品政策/发展研究专业学生的主要教学区。"
         },
         {
-          "name": "School of Architecture",
-          "nameCn": "建筑学院",
-          "lat": 51.44949,
-          "lng": -0.96204,
-          "note": "进驻伦敦路校区的新建筑学院。"
+          "name": "Department of Food and Nutritional Science",
+          "nameCn": "食品与营养科学系",
+          "lat": 51.4392,
+          "lng": -0.932,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "英国顶级食品科学院系之一，附设食品处理中心（47号楼），学生可参与实验室食品研发，Earley Gate校区。"
         },
         {
-          "name": "Henley Business School (Greenlands)",
-          "nameCn": "亨利商学院(格林兰兹)",
-          "lat": 51.563,
-          "lng": -0.8826,
-          "note": "泰晤士河畔庄园校区,MBA与高管教育主基地。"
+          "name": "Department of Computer Science",
+          "nameCn": "计算机科学系",
+          "lat": 51.4428,
+          "lng": -0.9405,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "人工智能与机器学习研究实力较强，近年持续扩招国际生，与JJ汤姆逊楼比邻，理工片区核心院系之一。"
         },
         {
-          "name": "The Gateway Building, Thames Valley Science Park",
-          "nameCn": "科学园Gateway大楼",
-          "lat": 51.4149,
-          "lng": -0.9403,
-          "note": "科学园核心楼,约6500平米办公与实验空间,聚集约20家科技公司。"
+          "name": "Chancellor's Building (Language Centre)",
+          "nameCn": "校监楼（语言中心）",
+          "lat": 51.44,
+          "lng": -0.946,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "英语语言课及Pre-Sessional英语项目上课地点，近校门公交站，国际新生提前预科阶段的重要教学楼。"
+        },
+        {
+          "name": "Department of Pharmacy",
+          "nameCn": "药学系",
+          "lat": 51.4435,
+          "lng": -0.9395,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "与化学系毗邻，英国制药专业MPharm排名靠前，位于校园理工区中心，实验室设施完善。"
         }
       ],
       "defaultOn": true
@@ -139,11 +177,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "University Library (Carrington Building)",
-          "nameCn": "主图书馆(卡灵顿楼)",
-          "lat": 51.44126,
-          "lng": -0.94357,
-          "note": "白骑士校区主图书馆,与学生服务、学生会同处卡灵顿楼,藏书近百万册。"
+          "name": "University of Reading Library (Main Library)",
+          "nameCn": "雷丁大学主图书馆",
+          "lat": 51.4405,
+          "lng": -0.9435,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园中心2号楼，藏书逾百万册，1500+自习座位，24小时开放（学期内周一至周五及部分周六），设咖啡厅及团体研讨室。"
+        },
+        {
+          "name": "Henley Business School Library",
+          "nameCn": "亨利商学院图书馆",
+          "lat": 51.4415,
+          "lng": -0.9362,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "商学院专属馆藏，金融/管理/会计文献资源丰富，内部安静适合深度学习，仅对HBS师生开放。"
+        },
+        {
+          "name": "Special Collections (London Road Campus)",
+          "nameCn": "特藏与档案馆（伦敦路校区）",
+          "lat": 51.454,
+          "lng": -0.974,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "馆藏珍贵善本、手稿及档案，包括历史农业文献，需预约参观，位于伦敦路校区，与MERL博物馆相邻。"
+        },
+        {
+          "name": "Library Learning Hub (Study Skills Centre)",
+          "nameCn": "图书馆学习中心（学习技能中心）",
+          "lat": 51.4406,
+          "lng": -0.9433,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "主图书馆内设学习辅导、学术写作工作坊及一对一辅导，国际生提升英语学术写作能力的重要资源。"
+        },
+        {
+          "name": "Cole Museum of Zoology Study Collection",
+          "nameCn": "科尔动物学博物馆学习馆",
+          "lat": 51.4427,
+          "lng": -0.94,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "生命科学系学生可使用专业标本及参考资料，位于健康与生命科学大楼，兼具博物馆教学与馆藏功能。"
+        },
+        {
+          "name": "Department of Meteorology Library",
+          "nameCn": "气象系专业图书馆",
+          "lat": 51.442,
+          "lng": -0.9382,
+          "rank": 6,
+          "tier": "可选",
+          "note": "气候科学专项资源，Brian Hoskins楼内，气象/环境/大气科学学生的专业参考室，开放时间有限。"
         }
       ]
     },
@@ -155,25 +240,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The Museum of English Rural Life (MERL)",
-          "nameCn": "英国乡村生活博物馆",
-          "lat": 51.44868,
-          "lng": -0.96098,
-          "note": "位于Redlands Road、伦敦路校区后侧,国家级乡村生活藏品博物馆。"
+          "name": "Museum of English Rural Life (MERL)",
+          "nameCn": "英国乡村生活博物馆（MERL）",
+          "lat": 51.449,
+          "lng": -0.9598,
+          "rank": 1,
+          "tier": "必去",
+          "note": "读大自营，英国唯一专注农村生活史的博物馆，免费入场，小红书/Reddit强烈推荐打卡，展览生动有趣，周二至周日开放。"
         },
         {
           "name": "Ure Museum of Greek Archaeology",
-          "nameCn": "尤尔希腊考古博物馆",
-          "lat": 51.4414,
-          "lng": -0.9472,
-          "note": "藏于伊迪丝·莫利楼内,英国最重要的希腊陶器收藏之一。"
+          "nameCn": "尤尔古希腊考古博物馆",
+          "lat": 51.4413,
+          "lng": -0.944,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "英国最大古希腊陶器收藏之一，3000余件文物，在伊迪斯·莫利楼内，免费入场，古典学系旗舰展馆。"
         },
         {
           "name": "Cole Museum of Zoology",
           "nameCn": "科尔动物学博物馆",
-          "lat": 51.43789,
-          "lng": -0.94352,
-          "note": "白骑士校区健康与生命科学楼,陈列动物骨骼与标本。"
+          "lat": 51.4427,
+          "lng": -0.94,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "创建于1906年，馆藏3500件标本含绝版动物铸件与骨骼，位于健康与生命科学大楼，免费参观，开学后极受新生欢迎。"
+        },
+        {
+          "name": "Reading Museum (Town Hall)",
+          "nameCn": "雷丁博物馆（市政厅）",
+          "lat": 51.4553,
+          "lng": -0.9715,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "市中心维多利亚式市政厅内，展示罗马遗址文物及全尺寸贝叶挂毯复制品，免费入场，周二至周六开放。"
+        },
+        {
+          "name": "University of Reading Art Collection (St Andrews Hall)",
+          "nameCn": "读大艺术收藏展廊（圣安德鲁斯厅）",
+          "lat": 51.4488,
+          "lng": -0.9601,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "约1000件绘画雕塑，与MERL相邻，校园艺术地图标注多处永久陈列，图书馆大厅亦有作品展出。"
         }
       ]
     },
@@ -185,46 +294,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Reading Students' Union (RUSU)",
-          "nameCn": "雷丁学生会",
-          "lat": 51.44126,
-          "lng": -0.94357,
-          "note": "卡灵顿楼内,含可容2500人的3sixty演出场地。"
+          "name": "Reading Students' Union (RUSU) & 3Sixty",
+          "nameCn": "学生会大楼与3Sixty夜店",
+          "lat": 51.4407,
+          "lng": -0.9444,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园社交核心，内含Reading最大夜店3Sixty（容纳2000人）、Up!咖啡厅、Mojo's酒吧、泡泡茶店及亚洲迷你超市，全年活动不断。"
         },
         {
-          "name": "URS Building",
-          "nameCn": "URS楼",
-          "lat": 51.43978,
-          "lng": -0.94644,
-          "note": "粗野主义风格、二级登录保护建筑,校区地标之一。"
+          "name": "Whiteknights Lake",
+          "nameCn": "白骑士湖",
+          "lat": 51.4388,
+          "lng": -0.941,
+          "rank": 2,
+          "tier": "必去",
+          "note": "穿越校园中央的连串湖泊，环湖步道2.6km，鸭群成群，景色宜人，是新生社交打卡及散心解压必到胜地。"
         },
         {
-          "name": "Great Hall & War Memorial Clock Tower",
-          "nameCn": "大礼堂与战争纪念钟塔",
-          "lat": 51.451,
-          "lng": -0.9605,
-          "note": "伦敦路校区,毕业典礼场地,旁立钟塔造型的战争纪念碑。"
+          "name": "Harris Garden",
+          "nameCn": "哈里斯花园",
+          "lat": 51.441,
+          "lng": -0.938,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园内精心维护的植物园，四季花卉轮替，供野餐和安静学习，是离开宿舍放松的首选绿地。"
         },
         {
-          "name": "University of Reading SportsPark",
-          "nameCn": "雷丁大学体育园",
-          "lat": 51.44248,
-          "lng": -0.95298,
-          "note": "Shinfield Road入口处,含足球/橄榄球/曲棍球场及大型综合体育馆。"
+          "name": "SportsPark (University of Reading)",
+          "nameCn": "运动公园",
+          "lat": 51.4378,
+          "lng": -0.9448,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园西南角大型综合运动设施，含游泳池、健身房、羽毛球/网球/壁球场，国际生办理会员即可使用。"
         },
         {
-          "name": "Shinfield Studios",
-          "nameCn": "Shinfield影视制片厂",
-          "lat": 51.4155,
-          "lng": -0.9387,
-          "note": "科学园Cine Valley重点租户,设摄影棚与影视工坊。"
+          "name": "The Oracle Shopping Centre",
+          "nameCn": "甲骨文购物中心",
+          "lat": 51.4551,
+          "lng": -0.9688,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "市中心肯尼特河畔大型购物中心，集购物/餐饮/影院于一体，NatWest银行亦在此设分支，是最常去的城区目的地。"
         },
         {
-          "name": "Reading Railway Station",
-          "nameCn": "雷丁火车站",
-          "lat": 51.459,
-          "lng": -0.9722,
-          "note": "最近的主要铁路枢纽,在伦敦路校区西北约1.5公里。"
+          "name": "Forbury Gardens",
+          "nameCn": "福布里花园",
+          "lat": 51.4564,
+          "lng": -0.968,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "市中心维多利亚式花园，毗邻读大修道院遗址，标志性马万德狮子雕像在此，适合周末野餐或散步放松。"
+        },
+        {
+          "name": "Broad Street (Reading Town Centre)",
+          "nameCn": "布罗德街（市中心步行街）",
+          "lat": 51.4566,
+          "lng": -0.9714,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "雷丁市中心主步行商业街，集中所有主要银行（HSBC/Barclays/NatWest）、手机运营商门店及主流零售品牌。"
+        },
+        {
+          "name": "Whiteknights Campus Nature Trail",
+          "nameCn": "白骑士校园自然步道",
+          "lat": 51.437,
+          "lng": -0.94,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "2022年开放的校园生态步道，沿途设蝴蝶草甸、野化区和蜂类花园，绕行约30分钟，减压调节心情的好去处。"
         }
       ]
     },
@@ -237,38 +376,75 @@
       "items": [
         {
           "name": "Co-op Food (Whiteknights Campus)",
-          "nameCn": "Co-op 校内超市",
-          "lat": 51.4403,
-          "lng": -0.944,
-          "note": "就在 Whiteknights 校园里，步行几分钟，平时买牛奶面包饮料零食最方便的应急超市。"
+          "nameCn": "合作社超市（校园店）",
+          "lat": 51.44,
+          "lng": -0.9455,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内唯一超市，每天7am-10pm，步行即到，日常零食饮料及速食首选，价格合理，开学周最省时。"
         },
         {
           "name": "Tesco Express (Shinfield Road)",
-          "nameCn": "乐购便利超市（Shinfield Road 店）",
-          "lat": 51.4283,
-          "lng": -0.9456,
-          "note": "距校园约 1.4 公里，每天营业到晚 11 点，是离宿舍最近的大众连锁超市，日常采购首选。"
+          "nameCn": "乐购便利店（新菲尔德路）",
+          "lat": 51.4373,
+          "lng": -0.9321,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距Whiteknights最近的大型连锁超市之一，203-207 Shinfield Rd RG2 8HA，每天6am-11pm，食材选择最全面。"
         },
         {
-          "name": "See Woo Reading (泗和全記)",
-          "nameCn": "泗和全記亚洲超市",
-          "lat": 51.4384,
-          "lng": -0.975,
-          "note": "Reading 规模最大的华人/亚洲食材超市，老干妈、火锅底料、粉面酱料、冷冻饺子都能买到。"
+          "name": "SeeWoo Reading (泗和全記)",
+          "nameCn": "泗和亚洲超市",
+          "lat": 51.4466,
+          "lng": -0.9555,
+          "rank": 3,
+          "tier": "必去",
+          "note": "15 Cradock Rd RG2 0JT，中华食材最全的亚洲超市，米、酱料、冻饺子、东南亚食材一网打尽，中国留学生最爱。"
         },
         {
-          "name": "Cmart Oriental Store",
-          "nameCn": "Cmart 东方超市（市中心店）",
-          "lat": 51.4549,
-          "lng": -0.9766,
-          "note": "市中心 St Mary's Butts 的亚洲杂货店，覆盖中日韩泰等食材，进城逛街时顺便补货很方便。"
+          "name": "Cmart Oriental Store (Town Centre / Broad Street Mall)",
+          "nameCn": "Cmart东方超市（市中心店）",
+          "lat": 51.4568,
+          "lng": -0.9706,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "布罗德街购物中心内，卖中/日/韩/越/泰等亚洲零食、饮料、泡面、冻品，购物中心逛街顺道补货。"
         },
         {
-          "name": "Sainsbury's Local (Station Road)",
-          "nameCn": "Sainsbury's Local 便利店（火车站店）",
-          "lat": 51.4573,
-          "lng": -0.9723,
-          "note": "火车站旁的连锁便利超市，进城或赶火车前买点东西很顺路，营业到很晚。"
+          "name": "Sainsbury's (Broad Street, Town Centre)",
+          "nameCn": "森宝利超市（市中心店）",
+          "lat": 51.4562,
+          "lng": -0.9711,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "7-8 Broad Street RG1 2BH，市中心大型超市，种类齐全价格适中，乘bus从校园到市中心采购的首选。"
+        },
+        {
+          "name": "Morrisons (Basingstoke Road)",
+          "nameCn": "莫里森超市（贝辛斯托克路）",
+          "lat": 51.4327,
+          "lng": -0.9537,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Off Basingstoke Road RG2 0HB，大型超市含熟食柜台和加油站，生鲜选择丰富，适合每周大采购。"
+        },
+        {
+          "name": "Waitrose (Oxford Road)",
+          "nameCn": "威特罗斯超市（牛津路）",
+          "lat": 51.4597,
+          "lng": -0.9895,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "980 Oxford Road RG30 6WR，英国中高档超市，有机食品及进口特色食材丰富，适合偶尔改善伙食。"
+        },
+        {
+          "name": "Cmart Oriental Store (Lower Earley / Asda Mall)",
+          "nameCn": "Cmart东方超市（下厄利店）",
+          "lat": 51.4296,
+          "lng": -0.9475,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Unit 14a, Asda Mall, Lower Earley RG6 5GA，离Whiteknights约15分钟车程，可搭配Asda大超市一起购物。"
         }
       ]
     },
@@ -281,38 +457,129 @@
       "items": [
         {
           "name": "Kungfu Kitchen",
-          "nameCn": "功夫厨房（中餐）",
-          "lat": 51.4428,
-          "lng": -0.9559,
-          "note": "离校园最近（约 1 公里）的人气中餐馆，Reading 公认口碑很好，想吃中餐第一站。"
+          "nameCn": "功夫厨房（一品香）",
+          "lat": 51.4448,
+          "lng": -0.9487,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "80 Christchurch Rd RG2 7AZ，读大附近最受中国留学生推崇的中餐馆，正宗山东/东北/川菜，家常口味，全周9am-10pm。"
+        },
+        {
+          "name": "Kei's Peking Restaurant",
+          "nameCn": "记记北京餐厅",
+          "lat": 51.4289,
+          "lng": -0.9455,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Unit 2, Maiden Pl, Lower Earley RG6 3HD，评分4.9/5，北京风味炒菜及香酥鸭，粤/京双风格，可订座，周二至周日营业。"
+        },
+        {
+          "name": "Kowloon Cafe (九龍冰室)",
+          "nameCn": "九龙冰室",
+          "lat": 51.443,
+          "lng": -0.9305,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "392 London Rd, Earley RG6 1BA，正宗港式茶餐厅，丝袜奶茶、西多士、牛肉炒河，距大学约1.5英里，Reading留学生爱店。"
+        },
+        {
+          "name": "Me Kong (雷丁米港)",
+          "nameCn": "雷丁米港茶餐厅",
+          "lat": 51.4557,
+          "lng": -0.9686,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Abbey Square市中心，正宗港式茶餐厅，不接受预订，常常排队，Reading港人社区口碑极佳，周末早午餐必吃。"
+        },
+        {
+          "name": "China Garden",
+          "nameCn": "中国花园餐厅",
+          "lat": 51.4387,
+          "lng": -0.9326,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "250 Shinfield Rd RG2 8EY，容纳百余人的粤式大餐厅，点心/即叫即蒸，全席/单点均可，周末午市热闹非凡。"
         },
         {
           "name": "Memory of Sichuan",
-          "nameCn": "川忆·正宗川菜",
-          "lat": 51.4565,
-          "lng": -0.9746,
-          "note": "市中心 Friar Street 的川菜馆，被本地华人称为伯克郡最正宗川菜之一，水煮、麻辣口味解馋。"
-        },
-        {
-          "name": "Wagamama (The Oracle)",
-          "nameCn": "Wagamama 亚洲面馆（Oracle 店）",
-          "lat": 51.4524,
+          "nameCn": "记忆四川",
+          "lat": 51.4562,
           "lng": -0.9716,
-          "note": "Oracle 河边的连锁日式/亚洲拉面馆，环境干净适合朋友聚餐，英国很常见的入门亚洲菜。"
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "109 Friar St市中心，正宗四川火锅及麻辣川菜，设自助套餐及工作日午餐优惠，川渝口味思乡时首选。"
         },
         {
-          "name": "Sweeney & Todd",
-          "nameCn": "Sweeney & Todd 馅饼老店",
-          "lat": 51.4537,
-          "lng": -0.9745,
-          "note": "Castle Street 上的 Reading 老牌馅饼餐厅，招牌英式手工 pie 是本地必吃的地道味道。"
+          "name": "Osaka Japanese Restaurant",
+          "nameCn": "大阪日式餐厅",
+          "lat": 51.4555,
+          "lng": -0.9693,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "The Oracle Unit R16 RG1 2AG，河畔餐厅，拉面/寿司/天妇罗/牛肉盖饭俱佳，环境好，适合聚餐或犒劳自己。"
         },
         {
-          "name": "Seoul Plaza (Broad Street Mall)",
-          "nameCn": "首尔广场韩餐",
-          "lat": 51.4546,
-          "lng": -0.9745,
-          "note": "Broad Street Mall 里的韩餐，烤肉拌饭部队锅一应俱全，想换换亚洲口味的好去处。"
+          "name": "Coconut Bar & Kitchen",
+          "nameCn": "椰子酒吧厨房",
+          "lat": 51.4567,
+          "lng": -0.97,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "62-63 St Mary's Butts RG1 2LG，融合泰/中/韩/日亚洲风味，餐厅附设酒吧，价格合理，中亚混搭菜独具风味。"
+        },
+        {
+          "name": "The SOJU",
+          "nameCn": "烧酒韩国烤肉",
+          "lat": 51.4566,
+          "lng": -0.9697,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "9-11 Kings Walk RG1 2HG，Reading市中心唯一正规韩国烤肉店，牛肉五花烤桌上自助，辣饺子口碑极好。"
+        },
+        {
+          "name": "The Coconut Tree",
+          "nameCn": "椰子树斯里兰卡餐厅",
+          "lat": 51.4561,
+          "lng": -0.9699,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "64 Kings Rd RG1 3BJ，斯里兰卡小吃风格，咖喱辛辣浓郁，小分多样适合多人分享，TripAdvisor Reading前10。"
+        },
+        {
+          "name": "London Street Brasserie",
+          "nameCn": "伦敦街小馆",
+          "lat": 51.4553,
+          "lng": -0.9699,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "2-4 London St RG1 4PN，Reading老牌获奖英式欧陆餐厅，周日烤肉和鱼派享誉全城，适合庆祝或请家长吃饭。"
+        },
+        {
+          "name": "Bhel Puri House",
+          "nameCn": "印度街头小吃馆",
+          "lat": 51.4558,
+          "lng": -0.972,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "Reading市中心印度素食街头小吃，价格极低，薄饼/豆泥/咖喱选择多，素食留学生的口粮胜地。"
+        },
+        {
+          "name": "The Botanist Reading",
+          "nameCn": "植物学家英式餐厅",
+          "lat": 51.4571,
+          "lng": -0.9712,
+          "rank": 13,
+          "tier": "推荐",
+          "note": "1-5 King St RG1 2HB，现代英式菜单加精酿啤酒，周五/周六设现场乐队，适合留学生朋友聚会社交。"
+        },
+        {
+          "name": "Buenasado Argentine Steakhouse",
+          "nameCn": "布埃纳萨多阿根廷烤肉",
+          "lat": 51.4552,
+          "lng": -0.969,
+          "rank": 14,
+          "tier": "推荐",
+          "note": "The Oracle Lower Mall RG1 2AQ，草饲牛排配阿根廷红酒，性价比高，逛Oracle时的优质犒劳选项。"
         }
       ]
     },
@@ -324,32 +591,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Royal Berkshire Hospital (A&E)",
-          "nameCn": "皇家伯克郡医院（含急诊 A&E）",
-          "lat": 51.4492,
-          "lng": -0.9581,
-          "note": "距校园约 1.5 公里的大型公立医院，设 24 小时急诊，生病或紧急就医认准这里。"
+          "name": "University Medical Group (University Health Centre)",
+          "nameCn": "大学医疗中心（校园GP）",
+          "lat": 51.4467,
+          "lng": -0.948,
+          "rank": 1,
+          "tier": "必去",
+          "note": "9-11 Northcourt Ave RG2 7HE，距Whiteknights步行约5分钟，专为大学生提供NHS注册服务，抵达后首先在此注册GP。"
         },
         {
-          "name": "HSBC UK (Broad Street)",
-          "nameCn": "汇丰银行（Broad Street 支行）",
-          "lat": 51.4558,
-          "lng": -0.9719,
-          "note": "市中心汇丰网点，开学生账户、办英国借记卡可来这里，中国学生熟悉的银行品牌。"
+          "name": "Royal Berkshire Hospital (A&E & Urgent Care Centre)",
+          "nameCn": "皇家伯克郡医院（急诊）",
+          "lat": 51.4579,
+          "lng": -0.9638,
+          "rank": 2,
+          "tier": "必去",
+          "note": "London Rd RG1 5AN，Reading唯一A&E急诊，紧急就诊勿犹豫，Urgent Care Centre（非急诊）周一至周日10am-9:30pm。"
         },
         {
-          "name": "Boots (Broad Street)",
-          "nameCn": "Boots 药妆店（Broad Street 店）",
-          "lat": 51.4558,
-          "lng": -0.9731,
-          "note": "英国最大连锁药店，配处方药、买感冒药和日用护理品都靠它，店内常驻药剂师。"
+          "name": "HSBC Bank (Broad Street Branch)",
+          "nameCn": "汇丰银行（布罗德街支行）",
+          "lat": 51.4564,
+          "lng": -0.971,
+          "rank": 3,
+          "tier": "必去",
+          "note": "26 Broad Street RG1 2BU，汇丰在中国大陆有合作，开户手续对中国留学生相对友好，建议新生第一周预约办理。"
         },
         {
-          "name": "Three (Broad Street)",
-          "nameCn": "Three 电信营业厅",
-          "lat": 51.4557,
-          "lng": -0.9714,
-          "note": "市中心 Three 运营商门店，可现场办手机卡和套餐，初到英国开通号码很方便。"
+          "name": "Barclays Bank (Broad Street Branch)",
+          "nameCn": "巴克莱银行（布罗德街支行）",
+          "lat": 51.4561,
+          "lng": -0.9708,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "90-93 Broad St RG1 2AP，英国学生账户免月费，开户需BRP和注册信，是读大国际生使用最多的银行之一。"
+        },
+        {
+          "name": "NatWest Bank (Market Place Branch)",
+          "nameCn": "国民西敏寺银行（市场广场支行）",
+          "lat": 51.4567,
+          "lng": -0.972,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "13 Market Place RG1 2EG，学生账户3年免息透支最高£3,250，开户奖励丰厚，距市中心步行区核心。"
+        },
+        {
+          "name": "Boots Pharmacy (Lower Earley)",
+          "nameCn": "Boots药房（下厄利店）",
+          "lat": 51.4295,
+          "lng": -0.9475,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "5 The Parade, Silverdale Rd, Earley RG6 7NZ，最近Whiteknights的大型药房，常备非处方药、OTC感冒药及护理品。"
+        },
+        {
+          "name": "EE (Broad Street Store)",
+          "nameCn": "EE手机运营商（布罗德街店）",
+          "lat": 51.4565,
+          "lng": -0.9709,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "114/115 Broad St（Oracle Centre），英国网络覆盖最广运营商，留学生购买SIM卡/手机合约首选门店。"
+        },
+        {
+          "name": "Three Store (Broad Street)",
+          "nameCn": "Three三网运营商（布罗德街）",
+          "lat": 51.4563,
+          "lng": -0.9712,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "21-22 Broad Street，提供流量大无限套餐，国际漫游含免费欧洲流量，预算有限留学生的流量首选方案。"
         }
       ]
     },
@@ -361,32 +672,67 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "University of Reading – Whiteknights Campus & Lake",
-          "nameCn": "雷丁大学 Whiteknights 校园与校内湖",
-          "lat": 51.4404,
-          "lng": -0.9418,
-          "note": "全英最美校园之一，130 公顷湖泊绿地，散步跑步拍照都很出片，就在你家门口。"
+          "name": "Reading Abbey Ruins & Abbey Quarter",
+          "nameCn": "雷丁修道院遗址与修道院区",
+          "lat": 51.4553,
+          "lng": -0.9673,
+          "rank": 1,
+          "tier": "必去",
+          "note": "亨利一世于1121年建造，Jane Austen曾在Abbey Gateway附属学校就读，免费入场，市中心步行即到。"
         },
         {
-          "name": "Reading Abbey Ruins",
-          "nameCn": "雷丁修道院遗址",
-          "lat": 51.4564,
-          "lng": -0.965,
-          "note": "建于 1121 年的皇家修道院遗迹，是 Reading 的历史地标，免费参观的热门打卡点。"
+          "name": "Museum of English Rural Life (MERL)",
+          "nameCn": "英国乡村生活博物馆",
+          "lat": 51.449,
+          "lng": -0.9598,
+          "rank": 2,
+          "tier": "必去",
+          "note": "6 Redlands Rd RG1 5EX，免费入场，小红书反复推荐，博物馆商店和花园同样值得停留，周二至周日开放。"
+        },
+        {
+          "name": "Kennet and Avon Canal Walk",
+          "nameCn": "肯尼特-埃文运河步道",
+          "lat": 51.4541,
+          "lng": -0.9688,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "从Oracle购物中心穿城而过，可步行探访Reading Gaol（奥斯卡·王尔德曾囚禁之所）、修道院遗址和Forbury花园。"
+        },
+        {
+          "name": "Reading Gaol (Oscar Wilde Memorial Walk)",
+          "nameCn": "雷丁监狱（奥斯卡·王尔德纪念步道）",
+          "lat": 51.456,
+          "lng": -0.966,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "王尔德1895-97年被囚于此，后写《雷丁监狱之歌》，步道纪念牌文字优美，文学爱好者必访之地。"
         },
         {
           "name": "Forbury Gardens",
-          "nameCn": "福伯里花园",
-          "lat": 51.457,
-          "lng": -0.9669,
-          "note": "紧邻修道院遗址的维多利亚式市中心公园，著名的雄狮雕像在此，适合晒太阳与拍照。"
+          "nameCn": "福布里花园",
+          "lat": 51.4564,
+          "lng": -0.968,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "维多利亚式花园，标志性马万德狮子铜像，历史文化丰富，毗邻修道院遗址，是市中心放松野餐的最佳公园。"
         },
         {
-          "name": "The Oracle Shopping Centre",
-          "nameCn": "Oracle 购物中心",
-          "lat": 51.4538,
-          "lng": -0.9708,
-          "note": "市中心临河大型购物中心，品牌店、餐厅、电影院齐全，周末逛街娱乐的主场。"
+          "name": "Reading Museum",
+          "nameCn": "雷丁博物馆",
+          "lat": 51.4553,
+          "lng": -0.9715,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Town Hall Blagrave St RG1 1QH，免费，罗马遗址文物和贝叶挂毯复制品展览，周二至周六开放，逛Broad Street顺道必去。"
+        },
+        {
+          "name": "Thames River Walk (Reading Riverside)",
+          "nameCn": "泰晤士河沿岸步道（雷丁段）",
+          "lat": 51.4626,
+          "lng": -0.9687,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "从市中心沿泰晤士河步行，可至Caversham Bridge，河畔酒吧林立，秋季落叶景色绝美，本地人周末首选。"
         }
       ]
     }

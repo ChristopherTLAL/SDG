@@ -51,46 +51,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Science and Engineering Centre (P Block)",
-          "nameCn": "理工科学中心（P座）",
+          "name": "Science and Engineering Centre (P Block / O Block)",
+          "nameCn": "理工科中心大楼（P栋/O栋）",
+          "lat": -27.4775,
+          "lng": 153.0295,
+          "rank": 1,
+          "tier": "必去",
+          "note": "QUT旗舰工程楼群，造价2.3亿澳元，含The Cube、工程实验室与研究空间，是理工科学生学习核心区"
+        },
+        {
+          "name": "Z Block – QUT Business School",
+          "nameCn": "Z栋 – QUT商学院",
+          "lat": -27.4768,
+          "lng": 153.0272,
+          "rank": 2,
+          "tier": "必去",
+          "note": "商学院主楼，含经济、金融、管理、广告公关等院系，4楼有教职办公室及学生支持中心"
+        },
+        {
+          "name": "S Block – IT & Engineering",
+          "nameCn": "S栋 – 信息技术与工程楼",
+          "lat": -27.4771,
+          "lng": 153.028,
+          "rank": 3,
+          "tier": "必去",
+          "note": "IT与工程教学楼，与图书馆及Z栋有天桥相连，是计算机科学和信息技术专业的核心教学区"
+        },
+        {
+          "name": "X Block – Gardens Theatre & Medical Centre",
+          "nameCn": "X栋 – 剧院及校医中心",
+          "lat": -27.4769,
+          "lng": 153.0265,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "内含395座Gardens Theatre剧场及QUT校医中心，是Gardens Point校区最综合的服务楼"
+        },
+        {
+          "name": "N Block – Old Government House",
+          "nameCn": "N栋 – 昆士兰旧总督府（历史建筑）",
+          "lat": -27.4762,
+          "lng": 153.0271,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1862年建成的昆士兰殖民时期旧总督府，QUT修缮后作博物馆及画廊开放，是校园最具历史感的地标"
+        },
+        {
+          "name": "V Block – Library & HiQ Student Hub",
+          "nameCn": "V栋 – 图书馆及HiQ学生服务中心",
+          "lat": -27.4767,
+          "lng": 153.0275,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Gardens Point主图书馆所在，3楼设HiQ学生一站式服务（ID卡、选课、国际生咨询）"
+        },
+        {
+          "name": "QUT Kelvin Grove Campus – Creative Industries Precinct",
+          "nameCn": "Kelvin Grove校区创意产业园",
+          "lat": -27.4479,
+          "lng": 153.0078,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "8000万投资的创意产业大楼，含表演艺术、影视制作、音乐录音棚等设施，是传媒与设计专业主校区"
+        },
+        {
+          "name": "QUT Kelvin Grove – Faculty of Health",
+          "nameCn": "Kelvin Grove校区健康学院",
+          "lat": -27.4471,
+          "lng": 153.0082,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "护理、医学、公共卫生等健康类专业主校区，设有实训医疗中心和生物医学研究所"
+        },
+        {
+          "name": "Q Block – QUT Law School",
+          "nameCn": "Q栋 – QUT法学院",
+          "lat": -27.4765,
+          "lng": 153.0269,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "法学院教学及实践楼，模拟法庭设施齐全，法学学生主要在此上课"
+        },
+        {
+          "name": "C Block – Science Lecture Theatres",
+          "nameCn": "C栋 – 理科大型讲堂",
           "lat": -27.4774,
-          "lng": 153.0274,
-          "note": "工程与理学核心楼，内设巨型互动屏The Cube。"
-        },
-        {
-          "name": "QUT Business School (Z Block, Gardens Point)",
-          "nameCn": "商学院（Z座）",
-          "lat": -27.4779,
-          "lng": 153.0289,
-          "note": "花园角商科主楼，临布里斯班河。"
-        },
-        {
-          "name": "QUT Law (C Block)",
-          "nameCn": "法学院（C座）",
-          "lat": -27.4766,
-          "lng": 153.0286,
-          "note": "法学与司法教学楼，近园景剧院。"
-        },
-        {
-          "name": "Creative Industries Precinct",
-          "nameCn": "创意产业园区",
-          "lat": -27.4548,
-          "lng": 153.0134,
-          "note": "凯尔文格罗夫创意产业与设计高科技教学集群。"
-        },
-        {
-          "name": "Education Precinct (B/C Block, Kelvin Grove)",
-          "nameCn": "教育学院区（B/C座）",
-          "lat": -27.4505,
-          "lng": 153.0148,
-          "note": "教育学科主楼，靠维多利亚公园路。"
-        },
-        {
-          "name": "Institute of Health and Biomedical Innovation",
-          "nameCn": "健康与生物医学创新研究所",
-          "lat": -27.4528,
-          "lng": 153.0138,
-          "note": "凯尔文格罗夫健康与生物医学研究中心。"
+          "lng": 153.0285,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "理学院大型阶梯教室楼，生物、化学、数学等基础理科课程集中于此上课"
         }
       ],
       "defaultOn": true
@@ -103,18 +151,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Gardens Point Library",
-          "nameCn": "花园角图书馆",
-          "lat": -27.4762,
-          "lng": 153.0272,
-          "note": "主校区核心图书馆，服务商法工理学生。"
+          "name": "QUT Gardens Point Library (V Block)",
+          "nameCn": "QUT Gardens Point图书馆（V栋）",
+          "lat": -27.4767,
+          "lng": 153.0275,
+          "rank": 1,
+          "tier": "必去",
+          "note": "24小时刷卡进入，提供静音自习区、小组讨论室、设备借用；3楼还有HiQ学生服务中心，是QUT最核心的学习空间"
         },
         {
-          "name": "Kelvin Grove Library",
-          "nameCn": "凯尔文格罗夫图书馆",
-          "lat": -27.4512,
-          "lng": 153.0162,
-          "note": "维多利亚公园路149号，服务创意与健康学科。"
+          "name": "QUT Kelvin Grove Library (R Block)",
+          "nameCn": "QUT Kelvin Grove图书馆（R栋）",
+          "lat": -27.4472,
+          "lng": 153.0081,
+          "rank": 2,
+          "tier": "必去",
+          "note": "服务创意产业、教育及医疗卫生学院，同样24小时开放，是KG校区学生日常自习首选"
+        },
+        {
+          "name": "State Library of Queensland",
+          "nameCn": "昆士兰州立图书馆",
+          "lat": -27.4729,
+          "lng": 153.0203,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于South Bank文化中心，免费入馆，馆藏丰富，还设免费展览；离QUT步行过Goodwill Bridge约10分钟"
+        },
+        {
+          "name": "Brisbane Square Library",
+          "nameCn": "布里斯班广场公共图书馆",
+          "lat": -27.4693,
+          "lng": 153.0228,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "布里斯班市图书馆网络旗舰馆，位于CBD核心George Street，馆内电脑可免费使用，适合查找本地资源"
+        },
+        {
+          "name": "QUT Gardens Point Level 5 Collaborative Study Floor",
+          "nameCn": "QUT GP图书馆5楼协作学习区",
+          "lat": -27.4767,
+          "lng": 153.0275,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "V栋图书馆5楼经翻新的协作学习空间，开放式布局适合小组讨论，设有大屏幕投影和可预订房间"
+        },
+        {
+          "name": "QUT Gardens Point Silent Study Levels",
+          "nameCn": "QUT GP图书馆静音自习楼层",
+          "lat": -27.4767,
+          "lng": 153.0275,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "V栋图书馆高层为严格静音区，学生公认为全校最安静的考试季备考场所"
         }
       ]
     },
@@ -126,18 +214,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "QUT Art Museum",
-          "nameCn": "昆士兰科技大学艺术博物馆",
-          "lat": -27.4766,
-          "lng": 153.0289,
-          "note": "校园公立艺术馆，展出澳大利亚现当代艺术。"
+          "name": "GOMA – Gallery of Modern Art",
+          "nameCn": "昆士兰现代艺术馆（GOMA）",
+          "lat": -27.4716,
+          "lng": 153.0183,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳大利亚最大的现代与当代艺术馆，免费常设展，国际巡回展品质极高；位于South Bank步行可达"
         },
         {
-          "name": "William Robinson Gallery (Old Government House)",
-          "nameCn": "威廉·罗宾逊画廊（旧总督府）",
-          "lat": -27.4773,
-          "lng": 153.0291,
-          "note": "1862年旧总督府内的画廊，藏罗宾逊作品。"
+          "name": "Queensland Museum & Sciencentre",
+          "nameCn": "昆士兰州立博物馆",
+          "lat": -27.4729,
+          "lng": 153.0179,
+          "rank": 2,
+          "tier": "必去",
+          "note": "昆州自然历史与科学馆，含Muttaburrasaurus恐龙化石、科学互动展区，学生免费或优惠票"
+        },
+        {
+          "name": "Old Government House Museum & William Robinson Gallery",
+          "nameCn": "昆州旧总督府博物馆及威廉鲁滨逊画廊",
+          "lat": -27.4762,
+          "lng": 153.0271,
+          "rank": 3,
+          "tier": "必去",
+          "note": "QUT校内1862年历史建筑，现为保护性博物馆；内设William Robinson著名画作画廊，免费参观"
+        },
+        {
+          "name": "QUT Art Museum",
+          "nameCn": "QUT艺术博物馆",
+          "lat": -27.4763,
+          "lng": 153.0268,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园内免费当代艺术展馆，收藏3000余件澳洲艺术品；注意风暴维修中部分区域暂停开放，请提前确认"
+        },
+        {
+          "name": "Museum of Brisbane (in City Hall)",
+          "nameCn": "布里斯班市博物馆（市政厅内）",
+          "lat": -27.4681,
+          "lng": 153.0238,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于市政厅3楼，展示布里斯班城市历史与当代文化，免费入馆，可同游市政厅钟楼了望台"
+        },
+        {
+          "name": "Queensland Art Gallery (QAG)",
+          "nameCn": "昆士兰美术馆（QAG）",
+          "lat": -27.4727,
+          "lng": 153.0197,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "与GOMA相邻，以澳大利亚及亚太地区传统艺术为主，GOMA的姊妹馆，同样免费常设展"
         }
       ]
     },
@@ -149,32 +277,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Old Government House",
-          "nameCn": "旧总督府",
-          "lat": -27.4773,
-          "lng": 153.0291,
-          "note": "昆州第一座总督府，国家级遗产建筑。"
+          "name": "The Cube – World's Largest Interactive Screen",
+          "nameCn": "QUT The Cube巨型互动屏幕",
+          "lat": -27.4775,
+          "lng": 153.0295,
+          "rank": 1,
+          "tier": "必去",
+          "note": "世界最大互动数字展示系统之一，170平方米高清屏幕加48块触摸屏，展示STEM内容，周二至日免费开放"
         },
         {
-          "name": "QUT Gardens Theatre",
-          "nameCn": "园景剧院",
-          "lat": -27.4768,
-          "lng": 153.029,
-          "note": "花园角校区表演艺术剧场。"
-        },
-        {
-          "name": "Roundhouse Theatre (La Boite)",
-          "nameCn": "圆屋剧院（拉博伊特剧团）",
-          "lat": -27.4551,
-          "lng": 153.0135,
-          "note": "凯尔文格罗夫圆形剧场，拉博伊特剧团驻地。"
+          "name": "Goodwill Bridge",
+          "nameCn": "古德威尔步行桥",
+          "lat": -27.4796,
+          "lng": 153.0282,
+          "rank": 2,
+          "tier": "必去",
+          "note": "连接QUT校园与South Bank的行人自行车桥，是每天上下学的必经路，也是拍摄城市天际线最佳位置之一"
         },
         {
           "name": "City Botanic Gardens",
-          "nameCn": "市政植物园",
-          "lat": -27.4751,
-          "lng": 153.0305,
-          "note": "紧邻主校区的市中心河畔植物园。"
+          "nameCn": "布里斯班市城市植物园",
+          "lat": -27.4784,
+          "lng": 153.031,
+          "rank": 3,
+          "tier": "必去",
+          "note": "昆州最古老植物园，紧邻QUT校园，18公顷滨河绿地，是学生午休和压力减压的绿色天堂"
+        },
+        {
+          "name": "HiQ Student Centre (V Block Level 3)",
+          "nameCn": "HiQ学生服务中心（V栋3楼）",
+          "lat": -27.4767,
+          "lng": 153.0275,
+          "rank": 4,
+          "tier": "必去",
+          "note": "QUT一站式学生服务窗口，办理ID卡、学籍、经济资助、国际生OSHC保险等，新生入学第一站"
+        },
+        {
+          "name": "QUT Gardens Point Ferry Wharf",
+          "nameCn": "QUT Gardens Point渡轮码头",
+          "lat": -27.4788,
+          "lng": 153.0319,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园内的CityCat渡轮站，可乘轮渡游览布里斯班河，联通Howard Smith Wharves和New Farm等热门目的地"
+        },
+        {
+          "name": "South Bank Parklands",
+          "nameCn": "南岸滨水公园",
+          "lat": -27.4787,
+          "lng": 153.0229,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "过Goodwill Bridge即到，含澳洲唯一市区沙滩Streets Beach、热带花园和文化场馆，是学生最爱周末打卡地"
+        },
+        {
+          "name": "Queen Street Mall",
+          "nameCn": "女王街购物步行街",
+          "lat": -27.4702,
+          "lng": 153.0244,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "布里斯班最大露天购物街，500余家商店；学生生活所需的Coles超市、电子产品、服装店等均在此聚集"
+        },
+        {
+          "name": "Queensland Cultural Centre (QPAC / SLQ precinct)",
+          "nameCn": "昆士兰文化中心综合片区",
+          "lat": -27.4726,
+          "lng": 153.0196,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "含昆士兰表演艺术中心、美术馆、现代艺术馆、州立图书馆和博物馆，是South Bank最重要的文化核心"
         }
       ]
     },
@@ -186,32 +358,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Coles Queen Street CBD (QueensPlaza)",
-          "nameCn": "Coles 超市（昆士兰广场店）",
-          "lat": -27.4694,
-          "lng": 153.027,
-          "note": "澳洲两大主流连锁超市之一，位于 Queen Street Mall 旁的 QueensPlaza，离校步行约 15 分钟，日常生鲜采购首选。"
+          "name": "Woolworths Metro – Southpoint (South Bank)",
+          "nameCn": "Woolworths Metro南岸Southpoint店",
+          "lat": -27.483,
+          "lng": 153.0225,
+          "rank": 1,
+          "tier": "必去",
+          "note": "离QUT步行仅8分钟，过Goodwill Bridge即达，营业至22点，是学生购买日常食材最方便的主流超市"
         },
         {
-          "name": "Woolworths Metro MacArthur Central",
-          "nameCn": "Woolworths 超市（麦克阿瑟中心店）",
-          "lat": -27.4683,
-          "lng": 153.0282,
-          "note": "另一大主流连锁，259 Queen St，营业时间长，补日用品和速食很方便。"
+          "name": "Sunlit Asian Supermarket – South Brisbane",
+          "nameCn": "三一亚洲超市南岸店（Southpoint）",
+          "lat": -27.4831,
+          "lng": 153.0224,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与南岸Woolworths同楼，售中国、日韩、东南亚食材，调味料、泡面、冷冻食品齐全，华人留学生必买"
         },
         {
-          "name": "Davely's Asian Supermarket",
-          "nameCn": "大佳亚洲超市",
-          "lat": -27.473,
-          "lng": 153.027,
-          "note": "CBD 内最知名的亚洲超市（119 Charlotte St），中日韩泰货品齐全，老干妈、火锅底料、酱料、米面都能买到，离校最近的中超。"
+          "name": "Davely's Asian Supermarket – Brisbane CBD",
+          "nameCn": "大佳亚洲超市 CBD店",
+          "lat": -27.4714,
+          "lng": 153.0226,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于CBD Charlotte Street拱廊内，步行到QUT约10分钟，涵盖中、台、日、韩、泰等各类亚洲食材"
         },
         {
-          "name": "BCC Supermarket (Chinatown, Fortitude Valley)",
-          "nameCn": "BCC 华人超市（唐人街店）",
-          "lat": -27.4576,
-          "lng": 153.0345,
-          "note": "Fortitude Valley 唐人街一带的大型华人超市，中国食材和冻品种类最全，凑单囤货来这里。"
+          "name": "Sunlit Asian Supermarket – Brisbane CBD",
+          "nameCn": "三一亚洲超市 CBD店",
+          "lat": -27.4699,
+          "lng": 153.0237,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Elizabeth Street CBD，营业至22点，方便下课后购买中式食材，周四周五延长至23点"
+        },
+        {
+          "name": "Woolworths – Brisbane City (MacArthur Central)",
+          "nameCn": "Woolworths城区MacArthur Central店",
+          "lat": -27.4692,
+          "lng": 153.0253,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "CBD唯一全品类Woolworths，位于Queen Street与Edward Street交口MacArthur Central商场地下"
+        },
+        {
+          "name": "Coles Central Brisbane (Myer Centre)",
+          "nameCn": "Coles CBD Myer Centre店",
+          "lat": -27.4699,
+          "lng": 153.0252,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "女王街Myer Centre内，与Woolworths互为备选，商场位置佳，购物后可顺逛Queen Street Mall"
+        },
+        {
+          "name": "Sunnybank Market Square (Asian Food Hub)",
+          "nameCn": "Sunnybank华人亚洲食品商业区",
+          "lat": -27.5803,
+          "lng": 153.0519,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "布里斯班最大的亚洲社区商圈，汇聚多家中国超市及杂货铺，适合周末大采购，距QUT约20分钟车程"
         }
       ]
     },
@@ -223,39 +430,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chinatown Mall (Duncan Street)",
-          "nameCn": "唐人街美食街（Duncan 街）",
-          "lat": -27.4576,
-          "lng": 153.0344,
-          "note": "布里斯班唐人街核心步行街，整条街中餐、港式、川菜、粤式、火锅扎堆，想吃中餐直接来这里，离校约 2 公里。"
+          "name": "Donna Chang",
+          "nameCn": "Donna Chang粤菜餐厅",
+          "lat": -27.47,
+          "lng": 153.0243,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "极具口碑的精品粤川融合餐厅，坐落于1914年昆州储蓄银行历史建筑内，是QUT学生请家人吃饭的Top选择"
         },
         {
-          "name": "Maoz Chinese / Sichuan eateries, Fortitude Valley",
-          "nameCn": "福蒂图德谷川菜馆",
+          "name": "Stanley – Cantonese at Howard Smith Wharves",
+          "nameCn": "Stanley粤式餐厅（Story Bridge码头）",
+          "lat": -27.4648,
+          "lng": 153.0358,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Story Bridge遗产建筑内的两层粤式餐厅，河景绝佳，烧鸭和虾饺获奖无数，是打卡必去的地标餐厅"
+        },
+        {
+          "name": "Kingsfood Sunnybank",
+          "nameCn": "Kingsfood台湾风中餐（Sunnybank）",
+          "lat": -27.5803,
+          "lng": 153.0519,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Sunnybank华人区30年老店，台式卤牛肉面、脆皮鸡、XO炒花蛤是招牌；留学生一致认为性价比最高的正宗中餐"
+        },
+        {
+          "name": "Happy Boy",
+          "nameCn": "Happy Boy中式小馆（Fortitude Valley）",
+          "lat": -27.4584,
+          "lng": 153.0411,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Fortitude Valley人气最旺的中式餐厅之一，主打广式烧腊与特色炒菜，性价比高且量大，深受QUT留学生喜爱"
+        },
+        {
+          "name": "Fat Dumpling Bar",
+          "nameCn": "Fat Dumpling饺子店（Fortitude Valley）",
+          "lat": -27.4573,
+          "lng": 153.0397,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "青岛人开设的正宗北方手工水饺，每日新鲜现包，份量足料实，是CBD附近找正宗中式饺子的首选"
+        },
+        {
+          "name": "The Fifty Six",
+          "nameCn": "The Fifty Six精品粤菜",
+          "lat": -27.4671,
+          "lng": 153.0296,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "前香港米其林主厨Gerald Ong主理的高端粤菜餐厅，融合本地食材，是QUT学生毕业或特殊场合首选"
+        },
+        {
+          "name": "Little Red Dumpling",
+          "nameCn": "小红点饺子",
+          "lat": -27.5028,
+          "lng": 153.0161,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "热门饺子品牌，小笼包尤其出名，汁水充盈，适合一人快食，午餐时段常有排队"
+        },
+        {
+          "name": "Madame Wu",
+          "nameCn": "Madame Wu泛亚餐厅",
+          "lat": -27.4656,
+          "lng": 153.0316,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Riparian Plaza内高端泛亚餐厅，环境时尚，适合求职成功或与导师庆祝的正式场合"
+        },
+        {
+          "name": "Brisbane Phoenix – Yum Cha",
+          "nameCn": "Brisbane Phoenix饮茶（CBD）",
+          "lat": -27.4686,
+          "lng": 153.0247,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于Brisbane Quarter的现代粤式饮茶，推虾饺、排骨等传统点心，是周末与家人或朋友饮茶首选"
+        },
+        {
+          "name": "Stokehouse Q",
+          "nameCn": "Stokehouse Q河景海鲜餐厅",
+          "lat": -27.4793,
+          "lng": 153.0244,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "South Bank河边人气极旺的澳洲海鲜餐厅，日落时分景色绝美，体验本地海鲜文化的必去之所"
+        },
+        {
+          "name": "Enjoy Inn",
+          "nameCn": "Enjoy Inn中餐（Fortitude Valley）",
           "lat": -27.458,
-          "lng": 153.0349,
-          "note": "唐人街周边聚集多家正宗川菜湘菜馆，麻辣口味解馋，留学生聚餐常去。"
+          "lng": 153.0382,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Fortitude Valley华人区老牌餐厅，蒙古羊肉、蜜汁鸡、炒饭等家常菜口味稳定，价格亲民"
         },
         {
-          "name": "South Bank dining precinct (Grey Street)",
-          "nameCn": "南岸餐饮区（Grey 街）",
-          "lat": -27.4795,
-          "lng": 153.0215,
-          "note": "过河即到的河畔餐饮带，亚洲菜、西餐、咖啡馆云集，环境好，适合周末和朋友吃饭打卡。"
+          "name": "Felons Brewing Co. (Howard Smith Wharves)",
+          "nameCn": "Felons啤酒餐吧（Story Bridge下）",
+          "lat": -27.4643,
+          "lng": 153.036,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Story Bridge桥下的网红精酿酒吧，木烤披萨配精酿啤酒，河畔露台是学生聚会热门地点"
         },
         {
-          "name": "Eagle Street Pier / Howard Smith Wharves dining",
-          "nameCn": "鹰街码头 / 霍华德史密斯码头餐饮区",
-          "lat": -27.4641,
-          "lng": 153.0301,
-          "note": "河边高人气餐饮区，能边吃边看 Story Bridge 夜景，请客或约会的体面之选。"
+          "name": "OTTO Brisbane (South Bank)",
+          "nameCn": "OTTO意式餐厅（南岸）",
+          "lat": -27.4798,
+          "lng": 153.0233,
+          "rank": 13,
+          "tier": "一般",
+          "note": "South Bank人气意大利餐厅，手工意面和城市天际线景观令人印象深刻，适合庆祝场合"
         },
         {
-          "name": "Felons Brewing Co.",
-          "nameCn": "Felons 精酿啤酒花园",
-          "lat": -27.463,
-          "lng": 153.032,
-          "note": "本地标志性河畔精酿酒吧（霍华德史密斯码头内），落地看大桥与河景，是布里斯班必体验的当地玩法。"
+          "name": "The Plough Inn (South Bank)",
+          "nameCn": "Plough Inn酒吧餐厅（南岸）",
+          "lat": -27.4794,
+          "lng": 153.0236,
+          "rank": 14,
+          "tier": "一般",
+          "note": "South Bank老牌英式酒吧，汉堡和薯条价格实惠，看球赛的好去处，适合熟悉澳洲本地文化"
         }
       ]
     },
@@ -267,32 +565,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank, 240 Queen St",
-          "nameCn": "联邦银行（昆士兰街 240 号支行）",
-          "lat": -27.4696,
-          "lng": 153.0258,
-          "note": "澳洲四大行之一，离校最近的大型网点，开学生账户、办卡、咨询都来这里，CBD 核心位置。"
-        },
-        {
-          "name": "Telstra Store Queen St Mall",
-          "nameCn": "Telstra 电信营业厅（昆士兰街步行街店）",
-          "lat": -27.47,
+          "name": "QUT Medical Centre – Gardens Point (X Block, Level 4)",
+          "nameCn": "QUT校医中心（X栋4楼）",
+          "lat": -27.4769,
           "lng": 153.0265,
-          "note": "澳洲最大电信运营商门店（152 Queen St），办手机卡、套餐和宽带，新生落地必办。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内全科医生，QUT在校生持OSHC可通过保险结算，国际生首次就医首选，无需前往校外；电话07 3138 3161"
         },
         {
-          "name": "QUT Medical Centre, Gardens Point",
-          "nameCn": "QUT 校内医疗中心（花园角校区）",
+          "name": "Priceline Pharmacy – QUT Gardens Point (P Block, Level 3)",
+          "nameCn": "Priceline药房 QUT校内店（P栋3楼）",
           "lat": -27.4775,
-          "lng": 153.0285,
-          "note": "校内 X Block 的 GP 全科诊所，学生可 bulk-bill（OSHC 直付基本免费），看病拿药第一站。"
+          "lng": 153.0295,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内唯一药房，销售非处方药、护肤品等，提供流感疫苗注射，周一至五8:30-17:00；电话07 3003 1111"
         },
         {
-          "name": "Mater Hospital Brisbane (South Brisbane)",
-          "nameCn": "Mater 公立/私立医院（南布里斯班）",
-          "lat": -27.484,
-          "lng": 153.0245,
-          "note": "过河南岸的大型综合医院，设有急诊，离校最近的住院级医疗机构，遇紧急情况就近就医。"
+          "name": "Commonwealth Bank – 240 Queen Street Brisbane",
+          "nameCn": "澳大利亚联邦银行 女王街分行",
+          "lat": -27.4701,
+          "lng": 153.0241,
+          "rank": 3,
+          "tier": "必去",
+          "note": "CBD最大的CBA分行，国际留学生办理本地账户最主流选择之一，距QUT步行约10分钟"
+        },
+        {
+          "name": "ANZ Bank – 324 Queen Street Brisbane",
+          "nameCn": "澳新银行 女王街分行",
+          "lat": -27.4698,
+          "lng": 153.0238,
+          "rank": 4,
+          "tier": "必去",
+          "note": "另一大主流银行，留学生可开设日常账户和储蓄账户，提供多语种服务，与CBA步行距离相近"
+        },
+        {
+          "name": "Telstra Store – Queen Street Mall (136-152 Queen St)",
+          "nameCn": "Telstra旗舰店 女王街Mall",
+          "lat": -27.47,
+          "lng": 153.0249,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "澳洲信号最广覆盖的运营商，购买本地SIM卡和月租套餐的第一站；国际学生推荐先对比Optus再决定"
+        },
+        {
+          "name": "Westpac Bank – 74-76 Queen Street Brisbane",
+          "nameCn": "西太平洋银行 女王街分行",
+          "lat": -27.4705,
+          "lng": 153.0244,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "西太平洋银行CBD主分行，可开学生账户，适合需要多银行选择的学生；国际生需携护照和CoE"
+        },
+        {
+          "name": "Priceline Pharmacy – Queen Street Brisbane (CBD)",
+          "nameCn": "Priceline药房 女王街CBD店",
+          "lat": -27.47,
+          "lng": 153.0249,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Queen Street Mall内的连锁大药房，营业时间长，非处方药种类最全，校内药房不开门时的备选"
         }
       ]
     },
@@ -304,39 +637,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "City Botanic Gardens",
-          "nameCn": "市政植物园",
-          "lat": -27.4747,
-          "lng": 153.0301,
-          "note": "紧挨校区的免费城市绿地，亚热带植被加河景，散步、看书、跑步的后花园，出校门就到。"
-        },
-        {
           "name": "South Bank Parklands & Streets Beach",
-          "nameCn": "南岸公园与人工沙滩",
+          "nameCn": "南岸公园及人工沙滩（Streets Beach）",
           "lat": -27.4787,
           "lng": 153.0229,
-          "note": "布里斯班头号城市地标，免费人工沙滩泳池、河岸步道和市集，过 Goodwill 桥步行可达，必去打卡。"
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "澳洲唯一市中心人工海滩，过Goodwill Bridge步行即到，免费游泳、晒太阳，是QUT学生最高频打卡地"
         },
         {
-          "name": "Wheel of Brisbane",
-          "nameCn": "布里斯班摩天轮",
-          "lat": -27.4753,
-          "lng": 153.0209,
-          "note": "南岸地标摩天轮，登顶俯瞰 CBD 天际线和河湾，傍晚拍夜景绝佳。"
+          "name": "Howard Smith Wharves",
+          "nameCn": "霍华德史密斯码头餐饮娱乐区",
+          "lat": -27.4643,
+          "lng": 153.0359,
+          "rank": 2,
+          "tier": "绝对必去",
+          "note": "Story Bridge下的亿元打造河畔娱乐区，汇集13家餐吧，Story Bridge Adventure Climb、Felons酒吧均在此，布里斯班最热门的网红地标"
         },
         {
           "name": "Story Bridge",
           "nameCn": "故事桥",
           "lat": -27.4637,
           "lng": 153.0356,
-          "note": "城市象征性钢桥，夜间亮灯，可远观也可参加攀桥项目，沿河拍照出片率高。"
+          "rank": 3,
+          "tier": "绝对必去",
+          "note": "布里斯班标志性钢铁桥梁，可参加官方桥梁攀爬体验（Adventure Climb），是俯瞰全市最佳视角之一"
         },
         {
-          "name": "QUT Art Museum",
-          "nameCn": "QUT 艺术博物馆",
-          "lat": -27.4773,
-          "lng": 153.0279,
-          "note": "校内免费艺术馆，常设当代艺术展，雨天或课间逛展放松的好去处。"
+          "name": "Fortitude Valley Chinatown",
+          "nameCn": "Fortitude Valley唐人街",
+          "lat": -27.4568,
+          "lng": 153.0374,
+          "rank": 4,
+          "tier": "绝对必去",
+          "note": "布里斯班唐人街，Duncan Street行人街牌坊中英双语，中餐馆和亚洲超市集中，逢春节有热闹庆典活动"
+        },
+        {
+          "name": "City Botanic Gardens",
+          "nameCn": "布里斯班城市植物园",
+          "lat": -27.4784,
+          "lng": 153.031,
+          "rank": 5,
+          "tier": "绝对必去",
+          "note": "昆州历史最悠久植物园，紧邻QUT，散步、野餐、读书的理想之地；QUT学生将此视为自家后花园"
+        },
+        {
+          "name": "Queen Street Mall",
+          "nameCn": "女王街购物步行街",
+          "lat": -27.4702,
+          "lng": 153.0244,
+          "rank": 6,
+          "tier": "绝对必去",
+          "note": "布里斯班市中心最大购物街区，含Myer、David Jones、500余家品牌及多个室内商场，购物娱乐一站满足"
+        },
+        {
+          "name": "Lone Pine Koala Sanctuary",
+          "nameCn": "孤松考拉保护区",
+          "lat": -27.5335,
+          "lng": 152.9687,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全球最大考拉保护区，距CBD约12km，可抱考拉合影、近距离喂袋鼠，是所有访客来昆士兰必体验的景点"
+        },
+        {
+          "name": "Brisbane Powerhouse (New Farm)",
+          "nameCn": "布里斯班电站艺术中心（New Farm）",
+          "lat": -27.4691,
+          "lng": 153.0544,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "由旧发电站改造的艺术文化中心，常设喜剧、音乐、戏剧、展览，是本地文青聚集地；CityCat可直达"
+        },
+        {
+          "name": "Roma Street Parkland",
+          "nameCn": "罗马街公园",
+          "lat": -27.4623,
+          "lng": 153.0165,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "距CBD5分钟步行的16公顷热带花园，四季鲜花盛开的景观花圃（Spectacle Garden）是拍照打卡首选"
+        },
+        {
+          "name": "Kangaroo Point Cliffs",
+          "nameCn": "袋鼠角攀岩崖壁",
+          "lat": -27.4814,
+          "lng": 153.0376,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "布里斯班市内免费攀岩圣地，傍晚夕阳下俯瞰CBD全景，也是慢跑和徒步的热门路线"
+        },
+        {
+          "name": "New Farm Park & Brisbane Riverwalk",
+          "nameCn": "新农场公园及布里斯班河畔步道",
+          "lat": -27.4641,
+          "lng": 153.0529,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "沿布里斯班河边的15公顷历史公园，每年10月紫花楹盛开，河滨步道连接Newstead与CBD，适合骑行"
+        },
+        {
+          "name": "Sunnybank Asian Food Precinct",
+          "nameCn": "Sunnybank亚洲美食区",
+          "lat": -27.5803,
+          "lng": 153.0519,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "布里斯班最大华人聚居区，45家以上中日韩东南亚餐厅集中，每逢周末许多QUT留学生专程打车前往"
         }
       ]
     }

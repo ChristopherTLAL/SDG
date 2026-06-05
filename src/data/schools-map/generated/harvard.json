@@ -67,53 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "University Hall",
-          "nameCn": "大学楼",
-          "lat": 42.3742,
-          "lng": -71.1167,
-          "note": "庭院中心行政楼，文理学院院部。"
+          "name": "Harvard Yard (University Hall & Massachusetts Hall)",
+          "nameCn": "哈佛院校核心区（大学厅与麻省楼）",
+          "lat": 42.3744,
+          "lng": -71.1169,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哈佛最核心的学术行政中枢，麻省楼建于1720年是全美第二古老学术建筑，校长办公室与本科生第一年住所均在此。"
         },
         {
-          "name": "Sever Hall",
-          "nameCn": "塞弗楼",
-          "lat": 42.3745,
-          "lng": -71.1149,
-          "note": "Richardson 设计的红砖教学楼。"
-        },
-        {
-          "name": "Science Center",
-          "nameCn": "科学中心",
-          "lat": 42.3766,
-          "lng": -71.1158,
-          "note": "庭院北侧理科教学与计算枢纽。"
-        },
-        {
-          "name": "Harvard Law School (Langdell)",
-          "nameCn": "哈佛法学院（兰德尔楼）",
-          "lat": 42.3774,
+          "name": "Harvard Law School (Langdell Hall)",
+          "nameCn": "哈佛法学院（朗德尔楼）",
+          "lat": 42.378,
           "lng": -71.1183,
-          "note": "庭院西北的法学院核心建筑群。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球排名第一的法学院主楼，内有全球最大学术法律图书馆，法学研究生必访之地。"
         },
         {
-          "name": "Harvard Business School (Baker Hall)",
-          "nameCn": "哈佛商学院（贝克楼）",
-          "lat": 42.3661,
-          "lng": -71.1226,
-          "note": "Allston 河岸的商学院标志性主楼。"
-        },
-        {
-          "name": "Harvard Medical School (Gordon Hall)",
-          "nameCn": "哈佛医学院（戈登楼）",
-          "lat": 42.3352,
-          "lng": -71.1041,
-          "note": "Longwood 大理石列柱主楼。"
+          "name": "Harvard John A. Paulson School of Engineering and Applied Sciences (Pierce Hall / Maxwell Dworkin)",
+          "nameCn": "哈佛工程与应用科学学院（皮尔斯楼/麦斯维尔·德沃金楼）",
+          "lat": 42.3782,
+          "lng": -71.1147,
+          "rank": 3,
+          "tier": "必去",
+          "note": "哈佛理工科核心，皮尔斯楼（29 Oxford St）与麦斯维尔·德沃金楼相连，SEAS研究生主要在此上课做研究。"
         },
         {
           "name": "Harvard Kennedy School",
           "nameCn": "哈佛肯尼迪政府学院",
-          "lat": 42.3716,
-          "lng": -71.1213,
-          "note": "查尔斯河畔的公共政策学院。"
+          "lat": 42.3703,
+          "lng": -71.1228,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地址79 JFK Street，全球顶尖公共政策学院，紧邻查尔斯河与肯尼迪纪念公园，国际学生比例极高。"
+        },
+        {
+          "name": "Harvard Medical School",
+          "nameCn": "哈佛医学院",
+          "lat": 42.3357,
+          "lng": -71.1051,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于Longwood医疗区25 Shattuck Street，离主校区约5公里，全球最顶尖医学院，配套附属医院群。"
+        },
+        {
+          "name": "Harvard Business School",
+          "nameCn": "哈佛商学院",
+          "lat": 42.3676,
+          "lng": -71.1247,
+          "rank": 6,
+          "tier": "必去",
+          "note": "位于查尔斯河对岸奥尔斯顿111 Western Ave，独立校区占地40英亩，案例教学法发源地。"
+        },
+        {
+          "name": "Harvard Graduate School of Design (Gund Hall)",
+          "nameCn": "哈佛设计研究生院（冈德楼）",
+          "lat": 42.3768,
+          "lng": -71.1135,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "地址48 Quincy Street，标志性大台阶开放式工作室全天可见学生作图，建筑设计领域全球标杆。"
+        },
+        {
+          "name": "Harvard Graduate School of Education (HGSE)",
+          "nameCn": "哈佛教育研究生院",
+          "lat": 42.3773,
+          "lng": -71.1207,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "地址Appian Way，紧邻主校园，教育政策与教学研究重镇，华人留学生比例高。"
+        },
+        {
+          "name": "Harvard Divinity School (Andover Hall)",
+          "nameCn": "哈佛神学院（安多佛楼）",
+          "lat": 42.3789,
+          "lng": -71.1148,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "地址45 Francis Avenue，建于1911年，世界重要宗教研究学术中心，建筑极具特色。"
+        },
+        {
+          "name": "Harvard Science Center",
+          "nameCn": "哈佛科学中心",
+          "lat": 42.3761,
+          "lng": -71.1163,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "地址1 Oxford Street，物理、数学、历史科学仪器馆均在此楼，科学广场（Plaza）是课间最热闹的户外集聚点。"
+        },
+        {
+          "name": "Memorial Hall (Sanders Theatre)",
+          "nameCn": "纪念堂（桑德斯剧场）",
+          "lat": 42.3757,
+          "lng": -71.1143,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "地址45 Quincy Street，维多利亚哥特建筑地标，内设历史悠久的桑德斯剧场，是哈佛举行毕业典礼等重要仪式的场所。"
+        },
+        {
+          "name": "Sever Hall",
+          "nameCn": "塞弗楼",
+          "lat": 42.3742,
+          "lng": -71.1158,
+          "rank": 12,
+          "tier": "可选",
+          "note": "Harvard Yard内经典罗马复兴风格建筑（H.H. Richardson设计），人文学科课堂主要集中于此。"
         }
       ],
       "defaultOn": true
@@ -129,15 +188,73 @@
           "name": "Widener Library",
           "nameCn": "怀德纳图书馆",
           "lat": 42.3736,
-          "lng": -71.1165,
-          "note": "庭院南侧总馆，藏书与列柱台阶地标。"
+          "lng": -71.1163,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址Harvard Yard，馆藏700余万册全球最大学术图书馆之一，哈佛院徽级地标，雄伟台阶是最著名的拍照打卡点。"
+        },
+        {
+          "name": "Houghton Library",
+          "nameCn": "霍顿图书馆（善本与手稿馆）",
+          "lat": 42.3732,
+          "lng": -71.1171,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "哈佛珍本书与手稿核心收藏地，莎士比亚第一对开本、艾米莉·迪金森手稿等均在此，部分展室向公众免费开放。"
         },
         {
           "name": "Lamont Library",
-          "nameCn": "拉蒙特图书馆",
-          "lat": 42.3727,
-          "lng": -71.115,
-          "note": "全美首座本科生专用图书馆。"
+          "nameCn": "拉蒙特图书馆（本科生人文社科馆）",
+          "lat": 42.373,
+          "lng": -71.1168,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "哈佛本科生人文社科主力图书馆，地下室有学习间与咖啡机，24小时开放期间尤其受学生欢迎。"
+        },
+        {
+          "name": "Cabot Science Library",
+          "nameCn": "卡博特科学图书馆",
+          "lat": 42.3764,
+          "lng": -71.116,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "地址1 Oxford Street（科学中心内），理工科学生首选，馆藏数学、物理、计算机等学科文献，学习环境安静高效。"
+        },
+        {
+          "name": "Loeb Music Library",
+          "nameCn": "洛布音乐图书馆",
+          "lat": 42.3763,
+          "lng": -71.1156,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "地址3 Oxford Street，音乐学最重要的专业馆，馆藏乐谱与录音资料极为丰富，音乐系学生必去。"
+        },
+        {
+          "name": "Monroe C. Gutman Library (HGSE)",
+          "nameCn": "戈特曼图书馆（教育学院）",
+          "lat": 42.3774,
+          "lng": -71.1214,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地址6 Appian Way，哈佛教育学院专属图书馆，教育政策、教育心理等研究生文献中心，馆内同时提供安静阅览区。"
+        },
+        {
+          "name": "Tozzer Library",
+          "nameCn": "托兹尔图书馆（人类学）",
+          "lat": 42.3785,
+          "lng": -71.1153,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "地址21 Divinity Avenue，美洲考古学与人类学领域最重要专业图书馆之一，与皮博迪博物馆紧邻。"
+        },
+        {
+          "name": "Harvard Law School Library (Langdell Hall)",
+          "nameCn": "哈佛法学院图书馆（朗德尔楼）",
+          "lat": 42.378,
+          "lng": -71.1183,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "全球最大学术法律图书馆，馆藏超过200万册法律文献，法学院学生的研究核心。"
         }
       ]
     },
@@ -149,18 +266,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Harvard Art Museums",
-          "nameCn": "哈佛艺术博物馆",
-          "lat": 42.3742,
-          "lng": -71.1141,
-          "note": "皮亚诺加建玻璃中庭的三馆合一。"
+          "name": "Harvard Art Museums (Fogg / Busch-Reisinger / Sackler)",
+          "nameCn": "哈佛艺术博物馆群（福格/布希-莱辛格/萨克勒）",
+          "lat": 42.3744,
+          "lng": -71.1139,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址32 Quincy Street，伦佐·皮亚诺设计的玻璃穹顶内汇集三馆25万件藏品，学生持证免费入场，中国和亚洲艺术藏品尤为出色。"
         },
         {
           "name": "Harvard Museum of Natural History",
           "nameCn": "哈佛自然历史博物馆",
-          "lat": 42.3786,
-          "lng": -71.1153,
-          "note": "玻璃花与动物标本闻名的公众馆。"
+          "lat": 42.3791,
+          "lng": -71.1151,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于牛津街Museum Building，镇馆之宝「玻璃海洋生物」（Glass Flowers）举世无双，共16个展厅，哈佛学生免费。"
+        },
+        {
+          "name": "Peabody Museum of Archaeology & Ethnology",
+          "nameCn": "皮博迪考古与民族志博物馆",
+          "lat": 42.3781,
+          "lng": -71.115,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "地址11 Divinity Avenue，与自然历史博物馆共用门票，美洲原住民及全球人类文明藏品极为丰富，考古人类学必访。"
+        },
+        {
+          "name": "Collection of Historical Scientific Instruments (CHSI)",
+          "nameCn": "历史科学仪器馆",
+          "lat": 42.3762,
+          "lng": -71.116,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "地址1 Oxford Street科学中心内，2万余件从殖民地时期到现代的科学仪器，免费开放，科学史爱好者必去的宝藏场馆。"
+        },
+        {
+          "name": "Harvard Museum of the Ancient Near East",
+          "nameCn": "哈佛古近东博物馆",
+          "lat": 42.3784,
+          "lng": -71.1154,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "地址6 Divinity Avenue，哈佛博物馆科学文化群成员，展示美索不达米亚等古文明文物，免费入场。"
+        },
+        {
+          "name": "Carpenter Center for the Visual Arts",
+          "nameCn": "卡彭特视觉艺术中心",
+          "lat": 42.3748,
+          "lng": -71.1141,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地址24 Quincy Street，勒·柯布西耶在北美唯一建成作品，定期展览哈佛学生与教授当代艺术，建筑本身即值得一看。"
         }
       ]
     },
@@ -172,32 +329,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Memorial Hall",
-          "nameCn": "纪念堂",
-          "lat": 42.376,
-          "lng": -71.1148,
-          "note": "维多利亚哥特地标，含 Sanders 剧场。"
+          "name": "Johnston Gate & Harvard Yard",
+          "nameCn": "约翰斯顿门与哈佛院",
+          "lat": 42.3744,
+          "lng": -71.1183,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1889年建成的哈佛正门，红砖围墙内是22英亩的绿草地与历史建筑群，拍照首选地标，毕业典礼于此举行。"
+        },
+        {
+          "name": "Statue of John Harvard",
+          "nameCn": "约翰·哈佛塑像",
+          "lat": 42.374,
+          "lng": -71.1178,
+          "rank": 2,
+          "tier": "必去",
+          "note": "院内最具标志性的铜像，因铭文包含三处错误被称为「三谎之像」，传说摸鞋可以好运，是全球哈佛访客的必打卡之地。"
         },
         {
           "name": "Memorial Church",
           "nameCn": "纪念教堂",
           "lat": 42.3749,
-          "lng": -71.1163,
-          "note": "新庭院白色尖塔教堂。"
+          "lng": -71.116,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1932年建成的新古典主义教堂，是哈佛精神文化中心，白色钟楼为院内最高建筑，每周礼拜公众可旁听。"
         },
         {
-          "name": "Harvard Square Station",
-          "nameCn": "哈佛广场地铁站",
-          "lat": 42.3732,
-          "lng": -71.119,
-          "note": "红线地铁口，校园门户广场。"
+          "name": "Smith Campus Center (Holyoke Center)",
+          "nameCn": "史密斯学生中心（原霍利约克中心）",
+          "lat": 42.3721,
+          "lng": -71.1185,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "地址1350 Massachusetts Ave，哈佛学生服务综合体，内有健康服务中心（HUHS）、餐饮区、打印与办证等一站式服务。"
         },
         {
-          "name": "Harvard Stadium",
-          "nameCn": "哈佛体育场",
-          "lat": 42.3672,
-          "lng": -71.1262,
-          "note": "1903 年建的马蹄形混凝土体育场。"
+          "name": "Harvard Square (MBTA Red Line Station)",
+          "nameCn": "哈佛广场（地铁红线站）",
+          "lat": 42.373,
+          "lng": -71.1189,
+          "rank": 5,
+          "tier": "必去",
+          "note": "麻省大道、芒特奥本街与布拉特尔街交汇的活力商业核心，红线地铁直通波士顿市区，周边集中书店、奶茶店、餐厅与街头演艺。"
+        },
+        {
+          "name": "Charles River & JFK Park",
+          "nameCn": "查尔斯河畔与肯尼迪纪念公园",
+          "lat": 42.3699,
+          "lng": -71.1246,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Kennedy School南侧的查尔斯河走廊与肯尼迪公园是跑步、骑车和野餐的热门绿地，秋叶与冬雪景色绝美。"
+        },
+        {
+          "name": "Harvard Coop (Harvard Cooperative Society)",
+          "nameCn": "哈佛书店（哈佛合作社）",
+          "lat": 42.3729,
+          "lng": -71.1191,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "地址1400 Massachusetts Ave，1882年创立，全美最知名大学书店之一，出售书籍、文具、纪念品及哈佛周边，新生必逛。"
+        },
+        {
+          "name": "Harvard Book Store",
+          "nameCn": "哈佛书库（独立书店）",
+          "lat": 42.3744,
+          "lng": -71.1172,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "地址1256 Massachusetts Ave，1932年创立独立书店，以二手书与文学活动著称，曾被Publisher's Weekly评为年度最佳书商。"
         }
       ]
     },
@@ -210,38 +411,66 @@
       "items": [
         {
           "name": "H Mart Cambridge",
-          "nameCn": "H Mart 韩亚龙超市（中央广场店）",
-          "lat": 42.365,
-          "lng": -71.103,
-          "note": "Central Square 的大型亚洲超市，韩中日食材齐全、带美食广场，是哈佛学生采购中餐配料最近的选择，红线一站直达。"
+          "nameCn": "H Mart韩国亚洲超市（剑桥店）",
+          "lat": 42.3648,
+          "lng": -71.1039,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址581 Massachusetts Ave（Central Square），韩国+日本+中国食材齐全，内设拉面店、咖喱店与烘焙坊，距哈佛骑车约15分钟。"
         },
         {
-          "name": "C-Mart Supermarket",
-          "nameCn": "华丰超市（波士顿华埠店）",
-          "lat": 42.3505,
-          "lng": -71.0617,
-          "note": "波士顿华埠老牌华人超市，活鱼海鲜、青菜、各类中式调料价格实惠，红线到 Chinatown/Tufts Medical 即达。"
+          "name": "Hong Kong Supermarket / Super 88 (Allston)",
+          "nameCn": "香港超级市场/Super88（奥尔斯顿）",
+          "lat": 42.3539,
+          "lng": -71.1351,
+          "rank": 2,
+          "tier": "必去",
+          "note": "地址1 Brighton Ave, Allston，中国留学生采购中式食材首选，海鲜/冷冻点心/酱料品类最齐全，内有亚洲美食广场。"
         },
         {
-          "name": "Trader Joe's",
-          "nameCn": "缺德舅超市（Memorial Drive 店）",
-          "lat": 42.3585,
-          "lng": -71.111,
-          "note": "美式平价连锁超市，自有品牌冷冻食品、零食、酒水性价比高，紧邻查尔斯河，适合日常囤货。"
+          "name": "Trader Joe's (Memorial Drive, Cambridge)",
+          "nameCn": "乔氏超市（剑桥纪念大道店）",
+          "lat": 42.3618,
+          "lng": -71.1022,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "地址748 Memorial Drive，性价比最高的连锁超市，自有品牌零食和冷冻食品广受学生喜爱，骑车可达。"
         },
         {
-          "name": "Star Market",
-          "nameCn": "Star Market 超市（Porter Square 店）",
-          "lat": 42.3884,
-          "lng": -71.119,
-          "note": "Porter Square 的大型本地连锁超市，生鲜、日用一站购齐，从哈佛沿 Mass Ave 步行或红线一站可达。"
+          "name": "Whole Foods Market (River Street, Cambridge)",
+          "nameCn": "全食超市（河街店）",
+          "lat": 42.3553,
+          "lng": -71.1069,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "地址340 River Street，剑桥最近的全食超市，有机食品与现烤熟食齐全，价格偏高但品质出色。"
         },
         {
-          "name": "Reliable Market",
-          "nameCn": "Reliable 韩亚超市（Union Square）",
-          "lat": 42.3796,
-          "lng": -71.095,
-          "note": "Union Square 的韩式/亚洲超市，泡面、韩式小菜、亚洲蔬菜选择多，本地留学生口碑老店。"
+          "name": "Star Market (Porter Square, White Street)",
+          "nameCn": "星级超市（波特广场店，24小时）",
+          "lat": 42.3886,
+          "lng": -71.1225,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地址49 White Street，波特广场附近，24小时营业，距哈佛广场红线一站，深夜补给首选，价格亲民。"
+        },
+        {
+          "name": "Whole Foods Market (Alewife Brook Pkwy, Fresh Pond)",
+          "nameCn": "全食超市（鲜鱼塘大型店）",
+          "lat": 42.3943,
+          "lng": -71.1382,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地址200 Alewife Brook Pkwy，超大型门店，停车方便，紧邻同样值得一逛的Trader Joe's Fresh Pond店，适合集中采购。"
+        },
+        {
+          "name": "Trader Joe's (Fresh Pond, Alewife Brook Pkwy)",
+          "nameCn": "乔氏超市（鲜鱼塘店）",
+          "lat": 42.3948,
+          "lng": -71.1393,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "地址208 Alewife Brook Pkwy，与全食超市门对门，两家同逛效率最高，离校区稍远需骑车或公交。"
         }
       ]
     },
@@ -253,46 +482,130 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "Dumpling House",
+          "nameCn": "饺子馆（剑桥中餐必吃）",
+          "lat": 42.3647,
+          "lng": -71.104,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "地址950 Massachusetts Ave（中央广场），北京厨师主理，葱香饼+汤包+孜然羊肉常年位居波士顿中餐Top3，排队属常态请早去。"
+        },
+        {
+          "name": "Hokkaido Ramen Santouka (Harvard Square)",
+          "nameCn": "北海道山头火拉面（哈佛广场店）",
+          "lat": 42.3724,
+          "lng": -71.1213,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "地址1 Bow Street，日本知名连锁在美最受好评门店之一，盐味拉面与叉烧软烂入味，寒冬必去，Yelp 1576条评价。"
+        },
+        {
+          "name": "Dumpling Kingdom",
+          "nameCn": "饺子王国（奥尔斯顿）",
+          "lat": 42.3534,
+          "lng": -71.133,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "地址137 Harvard Ave, Allston，川式饺子与汤包，营业至凌晨2点是深夜解馋首选，附近中国留学生聚居区必备。"
+        },
+        {
+          "name": "Chef Zhang Cuisine & Bar",
+          "nameCn": "张大厨菜馆",
+          "lat": 42.3671,
+          "lng": -71.1067,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "地址1105 Massachusetts Ave（哈佛广场与中央广场之间），正宗中式家常菜与川菜，华人学生口碑极好。"
+        },
+        {
           "name": "Hong Kong Restaurant",
-          "nameCn": "香港楼",
-          "lat": 42.3725,
-          "lng": -71.1185,
-          "note": "1954 年开业的哈佛广场老字号中餐馆，楼上有著名 Scorpion Bowl 调酒，是几代哈佛学生的聚会地标。"
+          "nameCn": "香港大饭店",
+          "lat": 42.3746,
+          "lng": -71.1175,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "地址1238 Massachusetts Ave，1954年老店，哈佛广场最有历史的中餐馆，午市性价比高，楼上有哈佛学生最爱的夜场。"
         },
         {
-          "name": "Gene's Chinese Flatbread Cafe",
-          "nameCn": "Gene's 西北肉夹馍刀削面",
-          "lat": 42.3735,
-          "lng": -71.12,
-          "note": "主打陕西 biang biang 面、孜然羊肉与肉夹馍，麻辣地道、分量足价格亲民，留学生想吃中国西北味必来。"
+          "name": "Mu Lan Taiwanese Restaurant",
+          "nameCn": "木兰台湾餐厅",
+          "lat": 42.3664,
+          "lng": -71.0943,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "地址228 Broadway，2000年开业的台湾家常菜馆，乌贼饺子与红烧肉是招牌，价格亲民，MIT和哈佛学生常客。"
         },
         {
-          "name": "Koreana",
-          "nameCn": "Koreana 韩餐烤肉",
-          "lat": 42.364,
-          "lng": -71.1018,
-          "note": "剑桥老牌韩式烤肉，桌内炭烤、石锅拌饭与韩式小菜正宗，亚洲学生聚餐热门，离哈佛红线一两站。"
+          "name": "TooHot (Harvard Square)",
+          "nameCn": "TooHot川菜馆（哈佛广场）",
+          "lat": 42.3727,
+          "lng": -71.1219,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "地址18 Elliot Street，2025年新开川菜餐厅，地下空间氛围独特，主打地道四川麻辣风味，迅速积累大批粉丝。"
         },
         {
           "name": "Mr. Bartley's Burger Cottage",
-          "nameCn": "Bartley's 汉堡小屋",
-          "lat": 42.3722,
-          "lng": -71.1182,
-          "note": "1960 年起营业的哈佛广场招牌汉堡店，菜单用政治人物命名、墙上贴满海报，本地必打卡的美式经典。"
+          "nameCn": "巴特利汉堡小屋",
+          "lat": 42.3749,
+          "lng": -71.1176,
+          "rank": 8,
+          "tier": "绝对必吃",
+          "note": "地址1246 Massachusetts Ave，1960年家族老店正对哈佛院，被WSJ评为全美最佳汉堡之一，波士顿本地必吃地标。"
         },
         {
-          "name": "Tatte Bakery & Cafe",
-          "nameCn": "Tatte 烘焙咖啡馆（哈佛广场店）",
-          "lat": 42.3728,
-          "lng": -71.1195,
-          "note": "波士顿人气连锁烘焙店，中东风味糕点、brunch 与咖啡颜值高，适合学习、约见与拍照打卡。"
+          "name": "Alden & Harlow",
+          "nameCn": "奥尔登与哈洛（新美式）",
+          "lat": 42.3726,
+          "lng": -71.1213,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "地址40 Brattle Street，哈佛广场最受好评的创意新美式餐厅，菜单随季节更换，花椰菜恺撒沙拉与炸鸡是招牌。"
+        },
+        {
+          "name": "The Hourly Oyster House",
+          "nameCn": "整点牡蛎屋",
+          "lat": 42.3722,
+          "lng": -71.1196,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "地址15 Dunster Street，哈佛广场最受欢迎的海鲜餐厅，龙虾卷与牡蛎塔是必点，波士顿海鲜体验入门之选。"
+        },
+        {
+          "name": "Tatte Bakery & Café (Harvard Square)",
+          "nameCn": "Tatte烘焙咖啡馆（哈佛广场店）",
+          "lat": 42.3748,
+          "lng": -71.1174,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "地址1288 Massachusetts Ave，波士顿本地最有颜值的烘焙咖啡品牌，沙卡蔬卡与手工挞是招牌，学生早午餐首选。"
+        },
+        {
+          "name": "Gong Cha (Harvard Square)",
+          "nameCn": "贡茶（哈佛广场店）",
+          "lat": 42.3725,
+          "lng": -71.1186,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "地址50 Church Street，台湾珍珠奶茶连锁，哈佛广场学生最常光顾的奶茶店，口味接近国内标准，对华人留学生极友好。"
+        },
+        {
+          "name": "Kung Fu Tea (Harvard Square)",
+          "nameCn": "功夫茶（哈佛广场店）",
+          "lat": 42.3745,
+          "lng": -71.1181,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "地址1160 Massachusetts Ave，美国最大奶茶连锁，哈佛广场店排队稳定，黑糖珍珠系列最受欢迎。"
         },
         {
           "name": "Felipe's Taqueria",
-          "nameCn": "Felipe's 墨西哥卷饼",
-          "lat": 42.3735,
-          "lng": -71.121,
-          "note": "哈佛广场超人气墨西哥餐厅，玉米卷与 burrito 量大味足，楼顶 tiki 酒吧是学生夜晚据点。"
+          "nameCn": "费利佩墨西哥卷",
+          "lat": 42.3727,
+          "lng": -71.1207,
+          "rank": 14,
+          "tier": "一般",
+          "note": "地址21 Brattle Street，哈佛广场平价墨西哥卷，分量大、价格实惠，屋顶露台夏季体验极佳，学生宵夜常选。"
         }
       ]
     },
@@ -304,32 +617,85 @@
       "icon": "account_balance",
       "items": [
         {
+          "name": "Chase Bank (Harvard Square)",
+          "nameCn": "摩根大通银行（哈佛广场）",
+          "lat": 42.3731,
+          "lng": -71.1194,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址9 JFK Street，国际学生最推荐开户银行之一，大学生免月费，境外汇款与英文服务便利，步行至哈佛广场地铁站仅2分钟。"
+        },
+        {
           "name": "Bank of America (Harvard Square)",
-          "nameCn": "美国银行（哈佛广场支行）",
+          "nameCn": "美国银行（哈佛广场）",
+          "lat": 42.3736,
+          "lng": -71.1186,
+          "rank": 2,
+          "tier": "必去",
+          "note": "地址1414 Massachusetts Ave，接受护照开户，学生帐户免月费（24岁以下），ATM网络最广，也接受国际电汇。"
+        },
+        {
+          "name": "TD Bank (Harvard Square)",
+          "nameCn": "道明银行（哈佛广场）",
+          "lat": 42.3746,
+          "lng": -71.1182,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "地址1270 Massachusetts Ave，工作日营业至晚8点、周末不间断，外币兑换与公证服务是区域内便利度最高的银行之一。"
+        },
+        {
+          "name": "Harvard University Health Services (HUHS)",
+          "nameCn": "哈佛大学健康服务中心（校医）",
+          "lat": 42.3721,
+          "lng": -71.1185,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地址Smith Campus Center 75 Mount Auburn St，哈佛在校生首选，全科诊疗+急诊+心理咨询+实验室检查，24小时护士热线617-495-5711。"
+        },
+        {
+          "name": "Cambridge Health Alliance Hospital",
+          "nameCn": "剑桥健康联盟医院",
+          "lat": 42.3779,
+          "lng": -71.0993,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地址1493 Cambridge Street，有急诊24小时、全科和专科门诊，是非哈佛学生或急重症患者的主要就医选择。"
+        },
+        {
+          "name": "CVS Pharmacy (Harvard Square, 24hr)",
+          "nameCn": "CVS药店（哈佛广场24小时店）",
           "lat": 42.373,
-          "lng": -71.1205,
-          "note": "哈佛广场的美国银行网点，带步进式 ATM，新生开美元支票/储蓄账户、办借记卡最方便的大行之一。"
+          "lng": -71.1197,
+          "rank": 6,
+          "tier": "必去",
+          "note": "地址6 JFK Street，距哈佛地铁站50米，24小时药店，OTC药品、日常用品、简单急救一应俱全，MinuteClinic可即时就诊。"
         },
         {
-          "name": "CVS Pharmacy (Harvard Square)",
-          "nameCn": "CVS 药房（哈佛广场店）",
-          "lat": 42.3725,
-          "lng": -71.119,
-          "note": "哈佛广场连锁药房，处方药、感冒药、日用品与照片冲印齐全，是留学生买药和应急用品的首选。"
+          "name": "Walgreens (Porter Square, 1740 Mass Ave)",
+          "nameCn": "沃尔格林药店（波特广场）",
+          "lat": 42.3878,
+          "lng": -71.1218,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "地址1740 Massachusetts Ave，CVS的重要替代，距哈佛红线一站，处方药+疫苗+美妆齐全，有停车场。"
         },
         {
-          "name": "Mount Auburn Hospital",
-          "nameCn": "奥本山医院",
-          "lat": 42.376,
-          "lng": -71.133,
-          "note": "距校园最近的综合性医院，含急诊与门诊，哈佛医学院附属教学医院，突发就医或急诊可直接前往。"
+          "name": "T-Mobile (Harvard Square)",
+          "nameCn": "T-Mobile手机运营商店（哈佛广场）",
+          "lat": 42.3734,
+          "lng": -71.1188,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "地址1438 Massachusetts Ave，国际学生推荐开卡套餐，国际漫游流量费用较低，SIM卡激活可当场完成，华人店员通中文。"
         },
         {
-          "name": "Cambridge Health Alliance (Cambridge Hospital)",
-          "nameCn": "剑桥医院（CHA）",
-          "lat": 42.3712,
-          "lng": -71.101,
-          "note": "剑桥本地公立医院系统，提供急诊、全科与紧急护理，看普通病与做检查的实惠就近选择。"
+          "name": "Verizon (Harvard Square, 25 Brattle St)",
+          "nameCn": "威瑞森运营商店（哈佛广场）",
+          "lat": 42.3727,
+          "lng": -71.121,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "地址25 Brattle Street，美国最大运营商，信号最稳定，学生套餐需比较月费后再决定，适合信号要求高的用户。"
         }
       ]
     },
@@ -341,39 +707,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Harvard Yard",
-          "nameCn": "哈佛庭院",
+          "name": "Harvard Yard & John Harvard Statue",
+          "nameCn": "哈佛院与约翰·哈佛像",
           "lat": 42.3744,
           "lng": -71.1169,
-          "note": "哈佛主校园核心，红砖教学楼与古树环绕，新生必拍的 John Harvard 雕像就在这里，触摸铜鞋是传统。"
-        },
-        {
-          "name": "Harvard Square",
-          "nameCn": "哈佛广场",
-          "lat": 42.373,
-          "lng": -71.119,
-          "note": "校门口的商业文化中心，书店、咖啡馆、街头艺人与地铁红线交汇，留学生日常逛吃与社交的心脏地带。"
-        },
-        {
-          "name": "Weeks Footbridge & Charles River",
-          "nameCn": "Weeks 人行桥与查尔斯河",
-          "lat": 42.369,
-          "lng": -71.123,
-          "note": "横跨查尔斯河的优雅步行桥，可俯瞰赛艇与波士顿天际线，黄昏散步、跑步与拍照的绝佳地点。"
-        },
-        {
-          "name": "Harvard Art Museums",
-          "nameCn": "哈佛艺术博物馆",
-          "lat": 42.3742,
-          "lng": -71.114,
-          "note": "集 Fogg、Busch-Reisinger、Sackler 三馆于一体，玻璃中庭建筑出片，凭学生证免费看世界级藏品。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "新生入学与游客打卡第一站，红砖建筑群与绿草坪是哈佛最具代表性的视觉形象，摸塑像鞋头据说能带来好运。"
         },
         {
           "name": "Mount Auburn Cemetery",
-          "nameCn": "奥本山墓园",
-          "lat": 42.372,
-          "lng": -71.145,
-          "note": "美国第一座园林式墓园，遍植名木、可登塔观景，是赏秋、观鸟与静心散步的隐藏宝藏。"
+          "nameCn": "奥本山公墓（全美第一座园林公墓）",
+          "lat": 42.3706,
+          "lng": -71.1449,
+          "rank": 2,
+          "tier": "必去",
+          "note": "地址580 Mount Auburn St，美国第一座景观公墓（1831年），长眠奥利弗·温德尔·霍姆斯等名人，赏鸟与秋叶极出名，国家历史地标。"
+        },
+        {
+          "name": "Charles River Esplanade & Weeks Bridge",
+          "nameCn": "查尔斯河长廊与威克斯桥",
+          "lat": 42.3698,
+          "lng": -71.122,
+          "rank": 3,
+          "tier": "必去",
+          "note": "沿哈佛划船部（Weld Boathouse）向下的查尔斯河步道是跑步圣地，威克斯人行桥是哈佛最美打卡桥，秋季倒影如画。"
+        },
+        {
+          "name": "Harvard Square Street Performers & Brattle Street",
+          "nameCn": "哈佛广场街头演艺与布拉特尔街",
+          "lat": 42.373,
+          "lng": -71.1195,
+          "rank": 4,
+          "tier": "必去",
+          "note": "布拉特尔街沿途有戏院（Brattle Theatre）、书店、咖啡馆，广场地铁站出口的街头艺人演出是剑桥最具活力的免费文化体验。"
+        },
+        {
+          "name": "Fresh Pond Reservation",
+          "nameCn": "鲜鱼塘自然保护区",
+          "lat": 42.3896,
+          "lng": -71.1446,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "剑桥最大公园，2.25英里环湖步道全年开放，草地、林道与野生动物众多，是学生散步、骑车与减压的首选绿地。"
+        },
+        {
+          "name": "Old Burying Ground (Cambridge Common)",
+          "nameCn": "古老公墓与剑桥公地",
+          "lat": 42.3757,
+          "lng": -71.1199,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "哈佛院对面的1635年殖民时期墓地，紧邻剑桥公地公园，是了解新英格兰历史的绝佳之所，美国国家公园服务管辖。"
+        },
+        {
+          "name": "Boston Freedom Trail",
+          "nameCn": "波士顿自由之路",
+          "lat": 42.3598,
+          "lng": -71.0589,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "红线地铁约20分钟即达市区，2.5英里串联16处历史遗址，法尼尔厅、波士顿公地等均在路线上，免费自助游首选。"
+        },
+        {
+          "name": "Isabella Stewart Gardner Museum",
+          "nameCn": "伊莎贝拉·斯图尔特·加德纳博物馆",
+          "lat": 42.3383,
+          "lng": -71.0994,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "地址25 Evans Way，距哈佛约30分钟车程，威尼斯宫廷式建筑内收藏提香、伦勃朗等大师原作，世界三大未解艺术盗案发生地。"
+        },
+        {
+          "name": "Fenway Park",
+          "nameCn": "芬威球场",
+          "lat": 42.3467,
+          "lng": -71.0972,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "全美最古老职棒球场（1912年），波士顿红袜主场，观看一场球赛是融入美国文化的最佳体验，亦有日间参观导览。"
+        },
+        {
+          "name": "MIT Campus",
+          "nameCn": "麻省理工学院校园",
+          "lat": 42.3601,
+          "lng": -71.0942,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "沿查尔斯河骑车约20分钟，圆顶建筑与现代雕塑群、MIT博物馆均可徒步参观，与哈佛学生交流互动机会最多。"
+        },
+        {
+          "name": "Quincy Market & Faneuil Hall",
+          "nameCn": "昆西市场与法尼尔厅",
+          "lat": 42.3599,
+          "lng": -71.055,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "波士顿市区最热闹的历史商业中心，室内美食广场汇聚新英格兰特色小吃，波士顿龙虾浓汤与蛤蜊浓汤必尝。"
+        },
+        {
+          "name": "Harvard Book Store & Grolier Poetry Book Shop",
+          "nameCn": "哈佛书库与格罗利尔诗歌书店",
+          "lat": 42.3743,
+          "lng": -71.1173,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "哈佛广场书店文化精华：哈佛书库（1256 Mass Ave）是知名独立书店，格罗利尔是全美最老诗歌专门书店，爱书人必逛。"
         }
       ]
     }

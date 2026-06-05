@@ -59,39 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Hunter Building",
+          "name": "Hunter Building (H)",
           "nameCn": "亨特楼",
-          "lat": -32.8946,
-          "lng": 151.6993,
-          "note": "主教学楼，多层坡道连廊"
+          "lat": -32.8927,
+          "lng": 151.7038,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园核心教学楼，护理、人文、社会科学等多学科大讲堂及教室云集，包含Huxley图书馆旧址，是新生最常上课的建筑。"
         },
         {
-          "name": "Medical Sciences Building",
+          "name": "McMullin Building (MC)",
+          "nameCn": "麦克穆林楼",
+          "lat": -32.8942,
+          "lng": 151.6984,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1965年随建校同时落成的三栋初创建筑之一，以首任校长Alister McMullin命名，原为文学、经济、商科中心，现为人文与社会未来学院（CHSS）重要教学楼。"
+        },
+        {
+          "name": "D W George Building / Engineering Science (ES)",
+          "nameCn": "乔治楼（工程与科学楼）",
+          "lat": -32.8913,
+          "lng": 151.7018,
+          "rank": 3,
+          "tier": "必去",
+          "note": "以前副校长Don George命名，工程、科学与环境学院（CESE）的核心教学与实验楼，可容纳逾千名工科生同时上课。"
+        },
+        {
+          "name": "Bowman Building (BB) — Health & Medicine",
+          "nameCn": "鲍曼楼（医学院大楼）",
+          "lat": -32.8936,
+          "lng": 151.7022,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "以前副校长Margaret Bowman命名，紧邻Hunter楼，是健康、医学与福祉学院（CHMW）医学和公共卫生专业的主要教学楼。"
+        },
+        {
+          "name": "Medical Sciences Building (MS)",
           "nameCn": "医学科学楼",
-          "lat": -32.8920488,
-          "lng": 151.6972289,
-          "note": "Callaghan 医学与健康学科"
+          "lat": -32.8921,
+          "lng": 151.7031,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "生物医学科学、药学与护理专业的实验和教学核心楼，校园中部偏东，实验课程多在此进行。"
         },
         {
-          "name": "John Hunter Hospital Clinical School",
-          "nameCn": "约翰·亨特医院临床学院",
-          "lat": -32.92199,
-          "lng": 151.69861,
-          "note": "医学院主教学医院"
+          "name": "Shortland Building / Student Hub (SC)",
+          "nameCn": "肖特兰德楼（学生中心）",
+          "lat": -32.8933,
+          "lng": 151.701,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园最大综合学生服务楼，内有超市、药房、食堂、Student Central帮助台及打印站，是留学生办理入学手续、缴费最重要的行政一站式大楼。"
         },
         {
-          "name": "Conservatorium / University House",
-          "nameCn": "音乐学院 / 大学楼",
-          "lat": -32.928,
-          "lng": 151.7705,
-          "note": "市区创意产业学院与音乐学院"
+          "name": "Birabahn Building",
+          "nameCn": "比拉班楼（原住民文化中心）",
+          "lat": -32.8928,
+          "lng": 151.7004,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2002年建成，融入Awabakal原住民雄鹰图腾设计，是Wollotuka研究所所在地，也是了解澳大利亚原住民文化的重要场所。"
         },
         {
-          "name": "Q Building (Honeysuckle)",
-          "nameCn": "Q 楼（Honeysuckle）",
-          "lat": -32.9256,
-          "lng": 151.766,
-          "note": "创意产业与 I2N 创新网络中心"
+          "name": "The Forum Sports & Aquatic Centre",
+          "nameCn": "论坛体育水上中心",
+          "lat": -32.8893,
+          "lng": 151.7061,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "坐落于130 University Drive，拥有50米室内温水泳池、现代化健身房和攀岩墙，由NUsport运营，是留学生课余放松的最佳场所。"
+        },
+        {
+          "name": "Q Building — Creative Industries & Innovation",
+          "nameCn": "Q楼（创意产业与创新中心）",
+          "lat": -32.893,
+          "lng": 151.699,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "为创意产业学院和集成创新网络（i2N）提供一流设施，有设计工作室、创业孵化空间，是Newcastle校园最现代的学院楼之一。"
+        },
+        {
+          "name": "Edwards Hall — Student Residences",
+          "nameCn": "爱德华兹堂（学生宿舍）",
+          "lat": -32.8898,
+          "lng": 151.6972,
+          "rank": 10,
+          "tier": "可选",
+          "note": "校园首栋学生宿舍（1972年），与International House、Evatt House等5处住宿区共同构成Callaghan校区宿舍群，是大一新生的传统居住选择。"
         }
       ],
       "defaultOn": true
@@ -105,10 +160,57 @@
       "items": [
         {
           "name": "Auchmuty Library",
-          "nameCn": "Auchmuty 图书馆",
-          "lat": -32.8922879,
-          "lng": 151.6982072,
-          "note": "全校最大馆，含法律与生物医学馆"
+          "nameCn": "奥克穆蒂图书馆",
+          "lat": -32.8931,
+          "lng": 151.7002,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Callaghan校区主图书馆，四层楼，馆藏丰富含珍本、档案及法律与生物医学专区，24小时自习区极受留学生欢迎，是校内最核心的学习空间。"
+        },
+        {
+          "name": "Huxley Library (now part of Auchmuty)",
+          "nameCn": "赫胥黎图书馆（已并入奥克穆蒂）",
+          "lat": -32.8925,
+          "lng": 151.7038,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "原位于Hunter楼A/C层，2020年底关闭后全部馆藏迁入Auchmuty，但Hunter楼内仍保留部分阅览和电脑区供学生使用。"
+        },
+        {
+          "name": "Callaghan Campus Digital Commons (Auchmuty Level 2)",
+          "nameCn": "数字学习中心（奥克穆蒂二层）",
+          "lat": -32.8931,
+          "lng": 151.7002,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "奥克穆蒂图书馆二层专属数字学习区，配备大量电脑工作站、3D打印机和多媒体编辑室，适合工科、设计及媒体专业学生。"
+        },
+        {
+          "name": "Shortland Hub Study Spaces",
+          "nameCn": "肖特兰德楼自习区",
+          "lat": -32.8933,
+          "lng": 151.701,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "肖特兰德楼三层提供电脑站和打印服务，毗邻学生中心，适合在办事间隙短暂自习，是图书馆外最方便的学习角落。"
+        },
+        {
+          "name": "Newcastle City Campus Library",
+          "nameCn": "纽卡斯尔市区校区图书馆",
+          "lat": -32.9264,
+          "lng": 151.7756,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于市中心University House内，为商学院、法学院等City Campus学生提供馆藏和自习空间，主校区同学乘轻轨约20分钟可达。"
+        },
+        {
+          "name": "Hunter Medical Research Institute (HMRI) Library",
+          "nameCn": "亨特医学研究院资料室",
+          "lat": -32.9218,
+          "lng": 151.69,
+          "rank": 6,
+          "tier": "可选",
+          "note": "毗邻John Hunter Hospital，专注医学研究文献，适合医学院高年级及研究生查阅临床研究资料，一般本科生较少使用。"
         }
       ]
     },
@@ -120,11 +222,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Watt Space Gallery",
-          "nameCn": "Watt Space 画廊",
-          "lat": -32.92807,
-          "lng": 151.77075,
-          "note": "学生艺术画廊，位于市区校区"
+          "name": "Newcastle Museum",
+          "nameCn": "纽卡斯尔博物馆",
+          "lat": -32.9246,
+          "lng": 151.764,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Honeysuckle滨水区铁路旧车厂（6 Workshop Way），免费入场，三大常设展覆盖原住民历史、煤矿工业及互动科学，是了解纽卡斯尔城市史的最佳起点。"
+        },
+        {
+          "name": "Newcastle Art Gallery",
+          "nameCn": "纽卡斯尔美术馆",
+          "lat": -32.9246,
+          "lng": 151.7712,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于1 Laman Street，悉尼以外新州最大公共美术馆，2024年扩建后新增13个展厅共1600㎡，馆藏澳洲及国际当代艺术，免费入场，周末打卡圣地。"
+        },
+        {
+          "name": "Fort Scratchley Historic Site",
+          "nameCn": "斯克拉奇利要塞历史遗址",
+          "lat": -32.928,
+          "lng": 151.7921,
+          "rank": 3,
+          "tier": "必去",
+          "note": "矗立于Nobbys Road海岬，建于1882年，是二战中唯一向澳大利亚本土炮击的敌军目标之一，凭道隧道参观免费，可远眺海港与海豚出没。"
+        },
+        {
+          "name": "Newcastle Region Library — Local Studies Collection",
+          "nameCn": "纽卡斯尔地方历史档案馆",
+          "lat": -32.9255,
+          "lng": 151.7748,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于城市图书馆Laman Street分馆，珍藏本地历史地图、报纸及照片档案，对研究澳大利亚移民史和地方文化的学生具有较高学术价值。"
+        },
+        {
+          "name": "Blackbutt Reserve Wildlife Exhibits",
+          "nameCn": "黑树林自然保护区野生动物展区",
+          "lat": -32.9283,
+          "lng": 151.6995,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Carnley Avenue入口附近设有免费野生动物展区，可近距离观赏袋鼠、考拉、袋熊及鸸鹋，是182公顷城市丛林中的天然体验馆，骑自行车或开车约15分钟可到。"
         }
       ]
     },
@@ -136,25 +276,436 @@
       "icon": "place",
       "items": [
         {
-          "name": "The Forum (Sports Complex)",
-          "nameCn": "The Forum 体育中心",
-          "lat": -32.8889832,
-          "lng": 151.706073,
-          "note": "University Drive 旁现代体育综合体"
+          "name": "Shortland Hub / Student Central",
+          "nameCn": "肖特兰德学生服务中心",
+          "lat": -32.8933,
+          "lng": 151.701,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最核心的一站式学生服务中枢，入学手续、签证协助、费用缴纳、国际学生支持全在此处，新生第一天必到。"
         },
         {
-          "name": "Shortland Union",
-          "nameCn": "Shortland 学生中心",
-          "lat": -32.8935282,
-          "lng": 151.7056166,
-          "note": "学生会与餐饮中心，邻 Auchmuty 图书馆"
+          "name": "Nobbys Lighthouse & Breakwall",
+          "nameCn": "诺比斯灯塔与防波堤",
+          "lat": -32.9229,
+          "lng": 151.7945,
+          "rank": 2,
+          "tier": "必去",
+          "note": "纽卡斯尔最具标志性的地标，沿防波堤步行至灯塔可欣赏港口全景，周末开放登顶（8am-4pm），是打卡照片必备背景。"
         },
         {
-          "name": "Great Hall",
-          "nameCn": "大礼堂",
-          "lat": -32.8944498,
-          "lng": 151.69705,
-          "note": "毕业典礼与重要活动场地"
+          "name": "Honeysuckle Foreshore Precinct",
+          "nameCn": "哈尼萨克尔滨水区",
+          "lat": -32.9258,
+          "lng": 151.7641,
+          "rank": 3,
+          "tier": "必去",
+          "note": "前工业港口改建的30+餐厅酒吧步行街，紧邻Newcastle Museum，是节假日聚餐、夕阳散步的首选目的地，轻轨直达。"
+        },
+        {
+          "name": "Newcastle CBD Light Rail — Hunter Street Stops",
+          "nameCn": "市区轻轨（亨特街沿线站）",
+          "lat": -32.9265,
+          "lng": 151.7749,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2019年开通的城市轻轨连接Wickham至Newcastle Beach，是留学生从市中心往返Honeysuckle、美术馆和海滩的主要交通工具，与巴士联票通用。"
+        },
+        {
+          "name": "Bar on the Hill (Union Hotel, Callaghan Campus)",
+          "nameCn": "山顶酒吧（校园学生联合会酒吧）",
+          "lat": -32.8922,
+          "lng": 151.6995,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Callaghan校区地标性学生社交场所，俯瞰树海，提供餐饮、直播体育赛事和学生活动，NUSA学生会旁，是课后社交文化入门地。"
+        },
+        {
+          "name": "Civic Park & City Hall",
+          "nameCn": "市政公园与市政厅",
+          "lat": -32.9254,
+          "lng": 151.7732,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "市中心最大绿地，紧邻美术馆和Darby Street餐厅区，节庆集市、圣诞市场、学生毕业典礼游行常在此举行，是市区慢跑和野餐的好去处。"
+        },
+        {
+          "name": "Darby Street Precinct (Cooks Hill)",
+          "nameCn": "达比街文化街区（库克斯希尔）",
+          "lat": -32.929,
+          "lng": 151.771,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "纽卡斯尔最具特色的咖啡馆、精品餐厅和独立小店街区，从Laman Street延伸至King Street，是周末早午餐和晚餐的热门去处。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "supermarket",
+      "label": "超市 / 亚超",
+      "color": "#ea580c",
+      "icon": "shopping_cart",
+      "items": [
+        {
+          "name": "Woolworths Jesmond (Stockland Jesmond)",
+          "nameCn": "Woolworths杰斯蒙德店",
+          "lat": -32.9038,
+          "lng": 151.6897,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Callaghan校园仅约10分钟车程或巴士直达，是最近的大型超市，品类齐全，含生鲜、即食、日用品，Stockland Jesmond商场内还有Telstra等服务。"
+        },
+        {
+          "name": "Coles Waratah (Waratah Village)",
+          "nameCn": "Coles沃拉塔店",
+          "lat": -32.8983,
+          "lng": 151.7215,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Turton Rd & Georgetown Rd交叉口，沿University Drive东行约10分钟，是校区方向最方便的Coles，价格亲民，自有品牌性价比高。"
+        },
+        {
+          "name": "ALDI Kotara",
+          "nameCn": "ALDI科塔拉店",
+          "lat": -32.9404,
+          "lng": 151.7084,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "30 Northcott Drive，Kotara，价格为三大连锁中最低，留学生预算购物首选，每周特价区（Special Buys）常有厨具、行李箱等实用商品。"
+        },
+        {
+          "name": "Woolworths Warabrook",
+          "nameCn": "Woolworths沃拉布鲁克店",
+          "lat": -32.8866,
+          "lng": 151.7194,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "3 Angophora Drive，Warabrook，校区北侧约5分钟车程，规模较小但购物环境好，适合日常补货。"
+        },
+        {
+          "name": "Kwon Mart (Newcastle West)",
+          "nameCn": "权超市（纽卡斯尔西）",
+          "lat": -32.9268,
+          "lng": 151.7618,
+          "rank": 5,
+          "tier": "必去",
+          "note": "23 Steel St, Newcastle West，韩中食材兼备，汤底、拉面、泡菜、韩国饮料、中国调味料一应俱全，是中韩留学生最常光顾的亚洲超市。"
+        },
+        {
+          "name": "AKK Asian Groceries",
+          "nameCn": "AKK亚洲杂货店",
+          "lat": -32.9267,
+          "lng": 151.7631,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "661 Hunter Street，Newcastle West，专营中式食材，酱料、米、干货品类丰富，价格实惠，是Hunter Street上中国留学生最熟悉的中式杂货铺。"
+        },
+        {
+          "name": "Wallsend S-Mart (Wallsend Village)",
+          "nameCn": "S-Mart沃尔森德店",
+          "lat": -32.9028,
+          "lng": 151.6675,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "24 Kokera St，Wallsend，中日韩泰泛亚洲食材齐全，同时供应新鲜韩国熟食（紫菜饭卷等），校园西侧开车约15分钟。"
+        },
+        {
+          "name": "New Lambton Kwon Mart",
+          "nameCn": "权超市（新兰伯顿店）",
+          "lat": -32.9278,
+          "lng": 151.7183,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "230 Lambton Rd，New Lambton，权超市第二分店，离John Hunter Hospital较近，对居住在New Lambton周边的留学生十分方便。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "dining",
+      "label": "必吃 / 餐饮",
+      "color": "#dc2626",
+      "icon": "restaurant",
+      "items": [
+        {
+          "name": "Eight Buns (笼笼香)",
+          "nameCn": "笼笼香",
+          "lat": -32.9283,
+          "lng": 151.7445,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "47 Beaumont St, Hamilton，纽卡斯尔口碑最高的中式点心馆，手工饺子、小笼包现点现蒸，是本地华人留学生聚餐首选，排队属于常态。"
+        },
+        {
+          "name": "Hao Chi by Lee's Yum Cha",
+          "nameCn": "好吃茶餐厅（李记点心）",
+          "lat": -32.9268,
+          "lng": 151.7762,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "326 King Street，Newcastle，纽卡斯尔水准最高的粤式点心馆，虾饺叉烧包等全线正宗，周末常见华人家庭聚餐，价格合理。"
+        },
+        {
+          "name": "Kai Fan Chinese Restaurant (Cooks Hill)",
+          "nameCn": "开饭中餐厅（库克斯希尔）",
+          "lat": -32.929,
+          "lng": 151.7718,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "146 Darby St，Cooks Hill，纽卡斯尔评分最高的正宗中餐厅之一，炒菜、粤式料理口味扎实，是华人留学生独自用餐或小聚的常备选择。"
+        },
+        {
+          "name": "New Shanghai (Charlestown Square)",
+          "nameCn": "新上海（查尔斯顿广场）",
+          "lat": -32.9509,
+          "lng": 151.7163,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Shop L01/30 Pearson St, Charlestown，连锁上海菜馆，小笼包（尤其蟹肉猪肉款）和炒年糕广受好评，是纽卡斯尔购物中心内最受欢迎的中餐选择。"
+        },
+        {
+          "name": "Light Years Asian Bar & Diner",
+          "nameCn": "光年亚洲餐吧",
+          "lat": -32.9273,
+          "lng": 151.7728,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "5-7 Darby St，Cooks Hill，热带风格Art Deco建筑内供应泛亚创意料理，新加坡辣蟹、韩式炸鸡等招牌菜屡获本地美食奖，适合朋友聚会庆典。"
+        },
+        {
+          "name": "Ginger Meg's",
+          "nameCn": "姜姜梅（东南亚料理）",
+          "lat": -32.9261,
+          "lng": 151.7773,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "212 King St，Newcastle，隐于巷弄的东南亚风格酒吧餐厅，四川椒盐鱿鱼、炸云吞和周末饮茶点心是招牌，气氛活泼，适合夜间聚餐。"
+        },
+        {
+          "name": "Nagisa Japanese Restaurant",
+          "nameCn": "渚日本料理",
+          "lat": -32.9253,
+          "lng": 151.7639,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "16/1 Honeysuckle Drive，已在纽卡斯尔经营逾20年，以新鲜刺身和精致套餐著称，滨水港口夜景加持，是留学生生日庆生或家长来访的理想选择。"
+        },
+        {
+          "name": "House of Korea",
+          "nameCn": "韩国之家",
+          "lat": -32.9282,
+          "lng": 151.744,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "54 Beaumont St, Hamilton，正宗韩国料理，烤肉、石锅拌饭和大份海鲜煎饼深受好评，服务热情，分量足，适合韩国及中国留学生聚餐。"
+        },
+        {
+          "name": "Busan GukBap",
+          "nameCn": "釜山汤饭（韩式汤餐）",
+          "lat": -32.9284,
+          "lng": 151.7448,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "74 Beaumont St, Hamilton，2026年初新开，供应正宗釜山猪骨汤饭、韩式烤肉套餐和手工饺子，是Hamilton街区最新热门亚洲餐厅。"
+        },
+        {
+          "name": "Hokkaiya Japanese Restaurant",
+          "nameCn": "北海家日本料理",
+          "lat": -32.9281,
+          "lng": 151.7438,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "2/22 Beaumont St, Hamilton，传统日式定食与拉面，用料新鲜，价格中档偏低，是日本留学生心中性价比最高的日餐馆。"
+        },
+        {
+          "name": "The Flotilla",
+          "nameCn": "舰队现代澳式餐厅",
+          "lat": -32.9244,
+          "lng": 151.7558,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "9 Albert St, Wickham，获奖现代澳式料理，菜单每几周更换以突显本地食材，口碑稳居全州前列，适合特殊场合高消费体验澳大利亚当代饮食文化。"
+        },
+        {
+          "name": "Nan's Dumpling Time",
+          "nameCn": "南婆饺子时光",
+          "lat": -32.9282,
+          "lng": 151.7445,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Beaumont St Piazza Arcade内，Hamilton街区平价饺子小馆，以实惠价格和大份量著称，适合留学生日常聚餐饱腹，不过座位有些拥挤。"
+        },
+        {
+          "name": "Jjindakk Korean Fried Chicken",
+          "nameCn": "炸鸡炸（韩式炸鸡）",
+          "lat": -32.928,
+          "lng": 151.7441,
+          "rank": 13,
+          "tier": "一般",
+          "note": "1/50 Beaumont St, Hamilton，韩式炸鸡外卖专门店，口味多样，适合在Beaumont Street逛街时买外带当晚餐，价格亲民。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "services",
+      "label": "生活服务",
+      "color": "#0e7490",
+      "icon": "account_balance",
+      "items": [
+        {
+          "name": "Commonwealth Bank — Callaghan University Branch",
+          "nameCn": "澳洲联邦银行（卡拉汉校区支行）",
+          "lat": -32.892,
+          "lng": 151.699,
+          "rank": 1,
+          "tier": "必去",
+          "note": "University Drive校区内唯一银行支行，无需出校园即可开户或办理业务，留学生持护照和签证即可开设免月费学生账户，ATM紧邻Bar on the Hill。"
+        },
+        {
+          "name": "Callaghan Campus Medical Centre (UoN Health Service)",
+          "nameCn": "校区医务中心（纽卡大学健康服务）",
+          "lat": -32.8933,
+          "lng": 151.701,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Shortland Building一层，周一至周五9am-5pm，全科医生坐诊，接受OSHC直接结算（Medibank/BUPA/Allianz等），是留学生校内就医首选。"
+        },
+        {
+          "name": "Callaghan Campus Pharmacy",
+          "nameCn": "校区药房",
+          "lat": -32.8934,
+          "lng": 151.7008,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Shop 110b, Shortland Building，周一至周五9am-5:30pm，配药处方、OTC药品、个人护理用品一应俱全，全年开放（圣诞停业除外），位置最便利。"
+        },
+        {
+          "name": "John Hunter Hospital (Emergency & 24hr)",
+          "nameCn": "约翰·亨特医院（急诊24小时）",
+          "lat": -32.921,
+          "lng": 151.6884,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Lookout Rd, New Lambton Heights，新州悉尼以外最繁忙的急诊室，同时是该州唯一一家非悉尼大都市的创伤中心，驾车距校区约15分钟。"
+        },
+        {
+          "name": "Telstra Store — Stockland Jesmond",
+          "nameCn": "Telstra电信店（杰斯蒙德店）",
+          "lat": -32.9038,
+          "lng": 151.6897,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Shop J51，Stockland Jesmond，新生抵澳首要任务是办本地SIM卡，Telstra网络覆盖最广，新生选postpaid或prepaid可带护照和签证来办理。"
+        },
+        {
+          "name": "Optus Store — Westfield Kotara",
+          "nameCn": "Optus电信店（科塔拉Westfield）",
+          "lat": -32.9399,
+          "lng": 151.7088,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Shop 134, Westfield Kotara, Park Ave，Optus套餐比Telstra便宜，留学生月费$30-50可选大流量套餐，是Telstra之外最受推荐的备选运营商。"
+        },
+        {
+          "name": "Newcastle General Practice (International Students)",
+          "nameCn": "纽卡斯尔全科诊所（留学生专区）",
+          "lat": -32.9265,
+          "lng": 151.775,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于Newcastle CBD，在国际学生健康服务网站（internationalstudents.health.nsw.gov.au）登记，可直接OSHC结算，适合不住校区的留学生建立家庭医生关系。"
+        },
+        {
+          "name": "ANZ Bank — Westfield Kotara",
+          "nameCn": "ANZ银行（科塔拉Westfield）",
+          "lat": -32.9399,
+          "lng": 151.7088,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Shop 1020-21, Westfield Kotara，ANZ学生账户无月费，含Visa储蓄卡，留学生持护照和CoE入学通知书即可开户，转账手续费低。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "attractions",
+      "label": "周边 / 打卡",
+      "color": "#db2777",
+      "icon": "photo_camera",
+      "items": [
+        {
+          "name": "Newcastle Ocean Baths (Bar Beach / Merewether)",
+          "nameCn": "纽卡斯尔海洋浴场（海滩）",
+          "lat": -32.9372,
+          "lng": 151.7677,
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "Merewether Ocean Baths是南半球最大海水泳池（1935年开放），Bar Beach和Newcastle Beach也均在3km内，开学前后海滩聚会是留学生社交传统。"
+        },
+        {
+          "name": "Bathers Way Coastal Walk",
+          "nameCn": "浴者之路海岸步道",
+          "lat": -32.929,
+          "lng": 151.782,
+          "rank": 2,
+          "tier": "绝对必去",
+          "note": "全长5.8km，从Merewether Baths至Nobbys Beach，沿途经Bogey Hole、King Edward Park，是NSW最推荐的城市海岸步道之一，视野壮阔。"
+        },
+        {
+          "name": "Bogey Hole (King Edward Park)",
+          "nameCn": "博格伊泳池（爱德华王公园）",
+          "lat": -32.933,
+          "lng": 151.7845,
+          "rank": 3,
+          "tier": "绝对必去",
+          "note": "1819年囚犯手凿的澳洲最古老欧式海水泳池，嵌入岩壁、仅低潮时开放，是Bathers Way步道的标志性打卡点，背景照片极佳。"
+        },
+        {
+          "name": "Nobbys Beach & Lighthouse",
+          "nameCn": "诺比斯海滩与灯塔",
+          "lat": -32.9238,
+          "lng": 151.7928,
+          "rank": 4,
+          "tier": "绝对必去",
+          "note": "纽卡斯尔知名度最高的海滩，海豚常在近岸出没，灯塔周末8am-4pm免费开放，防波堤散步是本地周末最流行的休闲活动之一。"
+        },
+        {
+          "name": "Blackbutt Reserve",
+          "nameCn": "黑树林自然保护区",
+          "lat": -32.9283,
+          "lng": 151.6995,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Carnley Avenue, Kotara，182公顷城市丛林，可免费近距离看袋鼠、考拉、鸸鹋和彩虹鹦鹉，10km丛林步道适合周末独自放松，距校区仅15分钟车程。"
+        },
+        {
+          "name": "Honeysuckle Foreshore & Marina",
+          "nameCn": "哈尼萨克尔滨水区与游艇港",
+          "lat": -32.9258,
+          "lng": 151.7641,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "前港口工业区改建的餐饮娱乐地带，夕阳时分港景迷人，周边聚集30+餐厅酒吧，轻轨直达，是中国留学生节假日必逛的生活区。"
+        },
+        {
+          "name": "Darby Street Precinct",
+          "nameCn": "达比街文化街区",
+          "lat": -32.929,
+          "lng": 151.771,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "纽卡斯尔版\"后街\"，独立咖啡馆、精品书店、多元餐厅聚集，Autumn Rooms早午餐和Light Years晚餐是本地生活方式的代表，步行即可探索。"
+        },
+        {
+          "name": "Newcastle Memorial (Anzac) Walk",
+          "nameCn": "安扎克纪念步道",
+          "lat": -32.926,
+          "lng": 151.783,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "2015年为纪念加里波利登陆百周年建成，沿海岬设置64吨不锈钢士兵剪影雕塑，短途步道（约1km）可接入Bathers Way，兼顾历史与景观。"
         }
       ]
     }

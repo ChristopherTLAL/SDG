@@ -83,39 +83,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Old Arts Building",
-          "nameCn": "旧文科楼",
-          "lat": -37.7975,
-          "lng": 144.9598,
-          "note": "1924年落成的哥特复兴文科教学楼，钟楼标志。"
-        },
-        {
-          "name": "Melbourne Law School",
+          "name": "Melbourne Law School (Building 106)",
           "nameCn": "墨尔本法学院",
-          "lat": -37.803,
-          "lng": 144.9587,
-          "note": "全澳顶尖法学院，位于校区西南角。"
+          "lat": -37.8024,
+          "lng": 144.96,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全澳排名第一的法学院，位于 185 Pelham Street，设施现代，毕业生就业率极高"
         },
         {
-          "name": "Melbourne School of Engineering",
-          "nameCn": "工程学院",
-          "lat": -37.798,
+          "name": "Faculty of Medicine, Dentistry & Health Sciences – Medical Building (Building 181)",
+          "nameCn": "医学牙科与健康科学学院（医学楼）",
+          "lat": -37.7997,
+          "lng": 144.9556,
+          "rank": 2,
+          "tier": "必去",
+          "note": "澳洲顶尖医学院所在地，位于 Grattan Street，紧邻皇家墨尔本医院"
+        },
+        {
+          "name": "Faculty of Engineering & IT – Melbourne Connect (Building 290/291)",
+          "nameCn": "工程与信息技术学院（墨尔本创新枢纽）",
+          "lat": -37.7998,
+          "lng": 144.9633,
+          "rank": 3,
+          "tier": "必去",
+          "note": "700 Swanston Street 综合创新园区，工程与 IT 核心教学科研重地，设施国际一流"
+        },
+        {
+          "name": "Faculty of Business & Economics – FBE Building (Building 105)",
+          "nameCn": "商业与经济学院（FBE 大楼）",
+          "lat": -37.802,
+          "lng": 144.9607,
+          "rank": 4,
+          "tier": "必去",
+          "note": "198 Berkeley Street，六星绿建标准，Giblin Eunson 图书馆即在此楼内"
+        },
+        {
+          "name": "Old Arts Building (Building 149)",
+          "nameCn": "老文学楼",
+          "lat": -37.7983,
+          "lng": 144.9596,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "人文与社会科学的核心教学楼，哥特复兴式外立面，也是最多通识课的上课地"
+        },
+        {
+          "name": "Alan Gilbert Building (Building 104)",
+          "nameCn": "Alan Gilbert 大楼",
+          "lat": -37.8009,
+          "lng": 144.9598,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "弧形玻璃幕墙立面标志性建筑，医学与健康科学大型教室及会议室集中地"
+        },
+        {
+          "name": "Peter Hall Building – School of Maths & Statistics (Building 160)",
+          "nameCn": "Peter Hall 楼（数学统计学院）",
+          "lat": -37.7987,
           "lng": 144.9635,
-          "note": "工程与信息技术学院，临斯旺斯顿街一侧。"
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "数学与统计学院主楼，靠近 Swanston Street 1 号电车站，理学院学生必到之处"
         },
         {
-          "name": "Arts West",
-          "nameCn": "文科西楼",
-          "lat": -37.797,
-          "lng": 144.9595,
-          "note": "翻新后的人文教学楼，毗邻贝利图书馆。"
+          "name": "Elisabeth Murdoch Building (Building 134) – Arts Faculty",
+          "nameCn": "Elisabeth Murdoch 大楼（文学院）",
+          "lat": -37.7979,
+          "lng": 144.9588,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "文学院核心大楼，毗邻 Baillieu 图书馆，语言学、历史学、心理学多课程在此开设"
         },
         {
-          "name": "Peter Hall Building",
-          "nameCn": "彼得霍尔楼",
-          "lat": -37.7981,
-          "lng": 144.9637,
-          "note": "数学与统计学院所在。"
+          "name": "The Spot (Building 110) – Commerce & Economics",
+          "nameCn": "The Spot 大楼",
+          "lat": -37.8023,
+          "lng": 144.9606,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Berkeley Street 与 Pelham Street 交界，商科和经济系学生的日常自习与上课地"
+        },
+        {
+          "name": "Royal Dental Hospital & Melbourne Dental Clinic (Building 348)",
+          "nameCn": "皇家牙科医院暨牙学院",
+          "lat": -37.8013,
+          "lng": 144.9636,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "720 Swanston Street，澳洲最大牙科教学诊所，可提供低价学生诊疗服务"
         }
       ],
       "defaultOn": true
@@ -128,18 +183,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Baillieu Library",
-          "nameCn": "贝利图书馆",
-          "lat": -37.7976,
-          "lng": 144.9606,
-          "note": "主图书馆，人文社科藏书核心，紧邻南草坪。"
+          "name": "Baillieu Library (Building 177)",
+          "nameCn": "Baillieu 图书馆",
+          "lat": -37.7984,
+          "lng": 144.9602,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校最大综合图书馆，收藏人文社科资料，设珍本阅览室和通宵自习区，是全校最受欢迎的自习场所"
         },
         {
-          "name": "Eastern Resource Centre (ERC)",
-          "nameCn": "东区资源中心",
-          "lat": -37.7993,
-          "lng": 144.9628,
-          "note": "理工科图书馆与学习空间，校区东侧。"
+          "name": "ERC Library – Eastern Resource Centre (Building 171)",
+          "nameCn": "东部资源中心图书馆（ERC）",
+          "lat": -37.7975,
+          "lng": 144.9643,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工科资料最全，2-3 楼为静音区，地下室和 1 楼设可预约小组讨论室，考期人气极旺"
+        },
+        {
+          "name": "Giblin Eunson Library (FBE Building 105)",
+          "nameCn": "Giblin Eunson 图书馆",
+          "lat": -37.802,
+          "lng": 144.9607,
+          "rank": 3,
+          "tier": "必去",
+          "note": "专攻商科、经济、教育资料，位于 FBE 大楼内，提供录音设施和 24 小时自习区"
+        },
+        {
+          "name": "Law Library (Building 106)",
+          "nameCn": "法学图书馆",
+          "lat": -37.8024,
+          "lng": 144.9601,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "法学院专属资料库，收藏法律期刊数量位列澳洲大学法学图书馆前列，设安静阅览区"
+        },
+        {
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8099,
+          "lng": 144.9649,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "免费向公众开放，圆顶阅览室是墨尔本最上镜打卡地之一，馆藏超 200 万册，距校园步行 20 分钟"
+        },
+        {
+          "name": "Brownless Biomedical Library (former Building 182 – now ERC annex)",
+          "nameCn": "Brownless 生物医学图书馆（现并入 ERC）",
+          "lat": -37.7997,
+          "lng": 144.9551,
+          "rank": 6,
+          "tier": "可选",
+          "note": "2024 年实体馆关闭，高频医学藏书迁至 Baillieu/ERC，医学生查询资料请直接前往 ERC"
         }
       ]
     },
@@ -151,25 +246,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Potter Museum of Art",
-          "nameCn": "波特艺术博物馆",
-          "lat": -37.7975,
-          "lng": 144.9641,
-          "note": "校方主艺术馆，斯旺斯顿街与马森路转角。"
+          "name": "Potter Museum of Art (Ian Potter Museum)",
+          "nameCn": "伊恩·波特艺术博物馆",
+          "lat": -37.7983,
+          "lng": 144.9618,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳洲最大高校艺术馆，馆藏逾 18,000 件，2025 年以「65,000年：澳大利亚艺术简史」重新开放，免费入场"
         },
         {
-          "name": "Grainger Museum",
-          "nameCn": "格兰杰博物馆",
-          "lat": -37.7973,
-          "lng": 144.9584,
-          "note": "纪念作曲家珀西·格兰杰的自传式博物馆。"
+          "name": "Melbourne Museum",
+          "nameCn": "墨尔本博物馆",
+          "lat": -37.803,
+          "lng": 144.9718,
+          "rank": 2,
+          "tier": "必去",
+          "note": "11 Nicholson Street，南半球最大综合性博物馆之一，含恐龙化石、土著文化和生命科学展厅，步行可达"
         },
         {
-          "name": "Science Gallery Melbourne",
-          "nameCn": "墨尔本科学画廊",
-          "lat": -37.7997,
-          "lng": 144.9641,
-          "note": "科艺交融的公众展览空间，校区东南门户。"
+          "name": "National Gallery of Victoria (NGV International)",
+          "nameCn": "维多利亚国立美术馆",
+          "lat": -37.8226,
+          "lng": 144.9688,
+          "rank": 3,
+          "tier": "必去",
+          "note": "180 St Kilda Road，澳洲历史最悠久、参观人数最多的美术馆，常设展免费，国际特展收费"
+        },
+        {
+          "name": "University of Melbourne Museums & Collections (Cultural Commons)",
+          "nameCn": "墨尔本大学文化典藏群",
+          "lat": -37.7986,
+          "lng": 144.9614,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园内 15+ 博物馆与 30+ 专项收藏，含古地图、医学史、动物标本、稀本书等，可预约参观"
+        },
+        {
+          "name": "Chinese Museum",
+          "nameCn": "墨尔本华人博物馆",
+          "lat": -37.8115,
+          "lng": 144.969,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "22 Cohen Place，位于唐人街心脏，专门展示华人淘金史与移民史，中国留学生强烈推荐"
         }
       ]
     },
@@ -181,32 +300,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Old Quadrangle",
-          "nameCn": "旧方庭",
-          "lat": -37.798,
-          "lng": 144.9603,
-          "note": "1853年最早的建筑，2019年修复的标志性方庭。"
+          "name": "Old Quad (Building 155)",
+          "nameCn": "旧四合院（Old Quad）",
+          "lat": -37.7981,
+          "lng": 144.9601,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1854 年始建，澳洲第一栋大学建筑，哥特式回廊是毕业典礼与校园打卡的标志性地点"
         },
         {
-          "name": "Wilson Hall",
-          "nameCn": "威尔逊礼堂",
-          "lat": -37.7977,
-          "lng": 144.9614,
-          "note": "毕业典礼大礼堂，校区核心地标。"
+          "name": "Royal Exhibition Building",
+          "nameCn": "皇家展览馆",
+          "lat": -37.8046,
+          "lng": 144.9717,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1880 年建成，澳洲首个 UNESCO 世界遗产建筑，坐落于 Carlton Gardens，步行 10 分钟可达"
         },
         {
-          "name": "South Lawn",
-          "nameCn": "南草坪",
-          "lat": -37.7984,
+          "name": "Union House – UMSU (Building 168)",
+          "nameCn": "学生会大楼（UMSU）",
+          "lat": -37.7979,
           "lng": 144.9608,
-          "note": "标志性绿地，地下停车场顶部的橄榄树草坪。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "学生社团、餐厅、福利服务、活动票务集中地，是新生融入校园生活的第一站"
         },
         {
-          "name": "University Square",
-          "nameCn": "大学广场",
-          "lat": -37.8008,
-          "lng": 144.9627,
-          "note": "校区南侧公共绿地广场，连接城市。"
+          "name": "Melbourne Connect (Building 290/291, 700 Swanston St)",
+          "nameCn": "墨尔本创新连接中心",
+          "lat": -37.7998,
+          "lng": 144.9633,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "74,000 ㎡ 创新园区，三栋大楼通过「超级楼层」相连，工程/IT 学生与初创公司混合办公地标"
+        },
+        {
+          "name": "State Library of Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8099,
+          "lng": 144.9649,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "标志性八角圆顶阅览室是墨尔本最著名的免费打卡地，也是全城最热闹的自习空间"
+        },
+        {
+          "name": "Lygon Street, Carlton",
+          "nameCn": "里根街（小意大利）",
+          "lat": -37.8,
+          "lng": 144.9675,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "墨尔本「小意大利」，大学生下课后必逛的餐饮文化街，Brunetti 咖啡馆、Readings 书店均在此"
+        },
+        {
+          "name": "1888 Building",
+          "nameCn": "1888 大楼",
+          "lat": -37.7985,
+          "lng": 144.9598,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校内维多利亚时代砖木混合风格建筑，是校园最具历史感的打卡角落之一"
         }
       ]
     },
@@ -218,39 +372,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Mr Dad Asian Supermarket",
-          "nameCn": "亚洲老爹超级市场",
-          "lat": -37.8016,
-          "lng": 144.9628,
-          "note": "校园南门 557 Swanston St，主打中日韩东南亚食材，营业到晚 11 点，留学生采购中式调料最方便。"
+          "name": "Woolworths Carlton (Lygon Court)",
+          "nameCn": "Woolworths 超市（卡尔顿店）",
+          "lat": -37.7995,
+          "lng": 144.968,
+          "rank": 1,
+          "tier": "必去",
+          "note": "368-380 Lygon Street，步行至校园约 8 分钟，生鲜和日用品齐全，是周边学生最常用的主流超市"
         },
         {
-          "name": "Woolworths Melbourne CBD (QV)",
-          "nameCn": "Woolworths 超市（QV 店）",
-          "lat": -37.8101,
-          "lng": 144.9636,
-          "note": "本地两大主流连锁超市之一，QV 中心地下层，日常生鲜、牛奶、肉菜一站买齐。"
+          "name": "Mr Dad Asian Supermarket (Swanston Street)",
+          "nameCn": "Mr Dad 亚洲超市（Swanston 店）",
+          "lat": -37.8011,
+          "lng": 144.9641,
+          "rank": 2,
+          "tier": "必去",
+          "note": "557 Swanston Street，营业至深夜 11 点，汇集日、韩、中、港、台、越南食材逾万种，留学生首选亚超"
         },
         {
-          "name": "Coles Carlton (Lygon Court)",
-          "nameCn": "Coles 超市（Lygon Court）",
-          "lat": -37.8001,
-          "lng": 144.9669,
-          "note": "Lygon 街上的主流超市，步行可达，价格平价，学生日用品和速食的首选。"
+          "name": "Coles Carlton (Lygon Street)",
+          "nameCn": "Coles 超市（卡尔顿店）",
+          "lat": -37.7993,
+          "lng": 144.9678,
+          "rank": 3,
+          "tier": "必去",
+          "note": "406 Lygon Street，与 Woolworths 紧邻，价格有时更实惠，周末生鲜特价受学生青睐"
+        },
+        {
+          "name": "Mr Dad Asian Supermarket (Victoria Street)",
+          "nameCn": "Mr Dad 亚洲超市（Victoria 街店）",
+          "lat": -37.8015,
+          "lng": 144.9638,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "168 Victoria Street Carlton，另一家更靠近校区的亚超分店，方便购买东亚食材和零食"
+        },
+        {
+          "name": "ALDI (501 Swanston Street)",
+          "nameCn": "ALDI 超市（Swanston 街店）",
+          "lat": -37.805,
+          "lng": 144.9641,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "501 Swanston Street，折扣超市，牛奶、面包、冷冻食品价格全城最低，预算有限的学生必去"
+        },
+        {
+          "name": "Woolworths Metro (160 Swanston Street)",
+          "nameCn": "Woolworths Metro（市区 Swanston 店）",
+          "lat": -37.8137,
+          "lng": 144.9639,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "160 Swanston Street CBD 便利店型分支，营业时间长，下课路上顺路购物最方便"
         },
         {
           "name": "Queen Victoria Market",
           "nameCn": "维多利亚女王市场",
           "lat": -37.8076,
-          "lng": 144.9567,
-          "note": "墨尔本最大露天市场，平价果蔬肉禽海鲜，自己做饭比超市更省，周末必逛。"
-        },
-        {
-          "name": "Tang Asian Food Emporium",
-          "nameCn": "Tang 亚洲食品超市",
-          "lat": -37.8112,
-          "lng": 144.9676,
-          "note": "CBD 唐人街旁的大型亚超，中式干货、火锅底料、冷冻饺子齐全，规模比校园店大。"
+          "lng": 144.9566,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "南半球最大露天市场，每周二至周日开放，新鲜蔬果和肉类价格仅为超市的六七折，周末必逛"
         }
       ]
     },
@@ -262,46 +444,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chinatown (Little Bourke St)",
-          "nameCn": "墨尔本唐人街",
-          "lat": -37.8118,
-          "lng": 144.9685,
-          "note": "南半球最老唐人街之一，川菜粤菜火锅港式茶餐厅云集，想家时吃中餐就来这。"
+          "name": "Brunetti Classico Carlton",
+          "nameCn": "布鲁内蒂经典意式咖啡馆",
+          "lat": -37.7979,
+          "lng": 144.9674,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "380 Lygon Street，1985 年开业，墨尔本最著名意式甜品与咖啡地标，提拉米苏和 cannoli 必点"
         },
         {
-          "name": "Brunetti Classico",
-          "nameCn": "Brunetti 意式咖啡甜品",
-          "lat": -37.7997,
-          "lng": 144.9672,
-          "note": "Lygon 街 1985 年开业的墨尔本咖啡甜品地标，意式蛋糕和 gelato 出名，学生打卡常去。"
-        },
-        {
-          "name": "Tiamo",
+          "name": "Tiamo Restaurant",
           "nameCn": "Tiamo 意大利餐厅",
-          "lat": -37.7991,
-          "lng": 144.9673,
-          "note": "Lygon 街 70 年代老牌意餐，份量大价格友好，千层面和木火披萨是经典。"
+          "lat": -37.7995,
+          "lng": 144.9676,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "303 Lygon Street，1978 年开业，平价正宗意面与千层面，几十年来学生心中的 Lygon 街灵魂"
         },
         {
-          "name": "Shujinko Ramen",
-          "nameCn": "Shujinko 拉面",
-          "lat": -37.8108,
-          "lng": 144.9669,
-          "note": "24 小时营业的人气日式拉面，CBD 北端，下课晚了也能吃上一碗热汤面。"
+          "name": "Hi Chong Qing (Hi CQ)",
+          "nameCn": "Hi 重庆面馆",
+          "lat": -37.8012,
+          "lng": 144.9663,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "26 Orr Street Carlton，手工小麦面+猪脚花椒汤底，多年登上 TimeOut 最佳廉价餐厅榜，中国学生聚集地"
         },
         {
-          "name": "Tsindos / Greek Precinct (Lonsdale St)",
-          "nameCn": "朗斯代尔街希腊城",
-          "lat": -37.8113,
-          "lng": 144.965,
-          "note": "墨尔本希腊城，正宗地中海菜和 souvlaki，体验本地多元饮食的必尝一站。"
+          "name": "Panda Hot Pot Carlton",
+          "nameCn": "熊猫火锅（卡尔顿）",
+          "lat": -37.8008,
+          "lng": 144.9671,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "100 Victoria Street，四川麻辣锅底配 80+ 涮料，金龙镇店，堂食氛围热烈，中国留学生聚餐首选"
         },
         {
-          "name": "Seven Seeds Coffee",
-          "nameCn": "Seven Seeds 精品咖啡",
-          "lat": -37.8016,
-          "lng": 144.9576,
-          "note": "墨尔本精品咖啡名店之一，体验本地引以为傲的咖啡文化，离校园几分钟。"
+          "name": "Lagoon Dining",
+          "nameCn": "Lagoon 泛亚料理",
+          "lat": -37.799,
+          "lng": 144.9667,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "263 Lygon Street，5 星口碑的泛亚创意料理，TimeOut 给出五星好评，性价比极高的正式餐厅"
+        },
+        {
+          "name": "Bowltiful Lanzhou Beef Noodle (Swanston Street)",
+          "nameCn": "壹碗中国兰州牛肉面（Swanston 店）",
+          "lat": -37.809,
+          "lng": 144.9641,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "249 Swanston Street，手拉面配清澈牛骨汤，$14.80 起，清真认证，深受穆斯林和中国学生追捧"
+        },
+        {
+          "name": "East Imperial Carlton",
+          "nameCn": "东皇宫（卡尔顿）",
+          "lat": -37.7967,
+          "lng": 144.9668,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "323 Rathdowne Street，以等比例兵马俑为装饰的正宗粤式点心馆，推车叉烧包与小笼包口碑极佳"
+        },
+        {
+          "name": "D.O.C Pizza & Mozzarella Bar Carlton",
+          "nameCn": "D.O.C 披萨芝士吧",
+          "lat": -37.7983,
+          "lng": 144.9672,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "326 Lygon Street，2024 年翻新后的 Lygon 街招牌意式薄底披萨，芝士拼盘和自制意面同样出色"
+        },
+        {
+          "name": "Flower Drum",
+          "nameCn": "花鼓（高端粤菜）",
+          "lat": -37.8112,
+          "lng": 144.9693,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "17 Market Lane，唐人街顶级粤菜，连续多年摘得 Good Food Guide 双帽，值得生日庆典或家长到访时一去"
+        },
+        {
+          "name": "Lune Croissanterie Fitzroy",
+          "nameCn": "Lune 可颂工坊（Fitzroy）",
+          "lat": -37.796,
+          "lng": 144.9799,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "119 Rose Street Fitzroy，全澳最著名的法式可颂专门店，开店前已大排长龙，cruffin 每日限量"
+        },
+        {
+          "name": "Dolan Uyghur Restaurant Carlton",
+          "nameCn": "多兰维吾尔餐厅",
+          "lat": -37.801,
+          "lng": 144.966,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Carlton 的新疆清真餐厅，大盘鸡、手抓饭、羊肉串口味地道，中国西北学生特别推荐"
+        },
+        {
+          "name": "Tipo 00",
+          "nameCn": "Tipo 00 意面馆",
+          "lat": -37.813,
+          "lng": 144.9597,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "361 Little Bourke Street CBD，被誉为墨尔本最佳意面，Tripadvisor 全城前 25，价格偏高但值得"
+        },
+        {
+          "name": "Chinatown – Little Bourke Street precinct",
+          "nameCn": "唐人街（Little Bourke Street 餐饮区）",
+          "lat": -37.8114,
+          "lng": 144.9683,
+          "rank": 13,
+          "tier": "一般",
+          "note": "全球持续时间最久的华人聚居区，集中大量粤菜、湘菜、越南河粉、日韩料理，人均 $15-30"
         }
       ]
     },
@@ -313,32 +570,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "The Royal Melbourne Hospital",
-          "nameCn": "皇家墨尔本医院",
-          "lat": -37.7994,
-          "lng": 144.957,
-          "note": "300 Grattan St，正对校园北侧的公立大医院，设急诊（Emergency），急病外伤来这。"
+          "name": "Commonwealth Bank Carlton Branch",
+          "nameCn": "澳洲联邦银行卡尔顿支行",
+          "lat": -37.7991,
+          "lng": 144.9674,
+          "rank": 1,
+          "tier": "必去",
+          "note": "272 Lygon Street，距校区最近的主流银行网点，接受大学录取通知书开户，有中文服务人员"
         },
         {
-          "name": "Commonwealth Bank (Lygon St)",
-          "nameCn": "联邦银行 CBA（Lygon 街）",
-          "lat": -37.8003,
-          "lng": 144.967,
-          "note": "澳洲四大行之一，离校最近的网点，开学生账户、办卡咨询走这家最方便。"
+          "name": "University of Melbourne Health Service (Building 385)",
+          "nameCn": "墨尔本大学校医中心",
+          "lat": -37.7988,
+          "lng": 144.9617,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内 GPS 诊所，周一至五 8:45-17:00，仅面向在校学生和员工，可开具心理健康护理计划（MHCP）"
         },
         {
-          "name": "Chemist Warehouse Carlton",
-          "nameCn": "Chemist Warehouse 药房",
-          "lat": -37.8006,
-          "lng": 144.9668,
-          "note": "澳洲最大连锁药房，平价药品、保健品、防晒，处方非处方都能配。"
+          "name": "Royal Melbourne Hospital Emergency Department",
+          "nameCn": "皇家墨尔本医院急诊室",
+          "lat": -37.7993,
+          "lng": 144.9556,
+          "rank": 3,
+          "tier": "必去",
+          "note": "300 Grattan Street Parkville，24 小时急诊与创伤中心，紧邻校园，是步行最近的公立三甲医院"
         },
         {
-          "name": "Telstra Store Melbourne Central",
-          "nameCn": "Telstra 电信营业厅",
-          "lat": -37.8102,
-          "lng": 144.9628,
-          "note": "澳洲最大电信运营商，办手机卡和套餐、解决信号问题，Melbourne Central 内。"
+          "name": "HealthSmart Pharmacy University",
+          "nameCn": "HealthSmart 校区药房",
+          "lat": -37.7993,
+          "lng": 144.9635,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校内 Swanston Street 附近，常规药品与处方药均有，开学季特别拥挤，建议提前配药"
+        },
+        {
+          "name": "Telstra Store Carlton",
+          "nameCn": "Telstra 卡尔顿营业厅",
+          "lat": -37.798,
+          "lng": 144.9675,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "223 Lygon Street，最近的 Telstra 官方门店，澳洲信号最佳的运营商，留学生激活 SIM 首选"
+        },
+        {
+          "name": "Optus Store (253 Elizabeth Street CBD)",
+          "nameCn": "Optus 营业厅（Elizabeth 街）",
+          "lat": -37.8106,
+          "lng": 144.959,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "253 Elizabeth Street，Optus 是第二大运营商，学生套餐性价比高，40GB 含国际通话约 $40/月"
+        },
+        {
+          "name": "Bank of China Melbourne Branch",
+          "nameCn": "中国银行墨尔本分行",
+          "lat": -37.8124,
+          "lng": 144.9683,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "140 William Street CBD，中国留学生专属海外学生账户，可凭在读证明开户，人民币汇款手续费低"
+        },
+        {
+          "name": "Royal Dental Hospital of Melbourne",
+          "nameCn": "皇家牙科医院",
+          "lat": -37.8013,
+          "lng": 144.9636,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "720 Swanston Street，大学牙学院附属公立诊所，学生诊疗价格仅为私立的三分之一，需提前预约"
         }
       ]
     },
@@ -350,39 +651,112 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "Melbourne Zoo / Royal Park",
+          "nameCn": "墨尔本动物园 / 皇家公园",
+          "lat": -37.7848,
+          "lng": 144.9521,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Elliott Avenue Parkville，距校区骑车 10 分钟，学生票约 $29，大熊猫馆和野外海洋展馆人气最高"
+        },
+        {
           "name": "Royal Exhibition Building & Carlton Gardens",
-          "nameCn": "皇家展览馆与卡尔顿花园",
-          "lat": -37.8047,
-          "lng": 144.9712,
-          "note": "墨尔本唯一世界文化遗产建筑，被花园环绕，步行即到，拍照散步绝佳。"
+          "nameCn": "皇家展览馆暨卡尔顿花园",
+          "lat": -37.8046,
+          "lng": 144.9717,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UNESCO 世界遗产，外观恢宏壮丽，花园内草坪是学生野餐和打卡圣地，免费入场"
         },
         {
-          "name": "Melbourne Museum",
-          "nameCn": "墨尔本博物馆",
-          "lat": -37.8033,
-          "lng": 144.9716,
-          "note": "南半球最大博物馆之一，自然史、原住民文化与恐龙化石，学生票便宜。"
+          "name": "Federation Square",
+          "nameCn": "联邦广场",
+          "lat": -37.8178,
+          "lng": 144.9687,
+          "rank": 3,
+          "tier": "必去",
+          "note": "电车 1 号直达，城市最重要的文化广场，NGV 澳洲馆免费，各类节庆活动和集市均在此举行"
         },
         {
-          "name": "University of Melbourne Old Quad",
-          "nameCn": "墨大老方庭 Old Quad",
-          "lat": -37.7975,
-          "lng": 144.9606,
-          "note": "校园最古老的哥特式建筑与回廊，新生入学打卡和毕业照的标志性背景。"
+          "name": "Queen Victoria Market",
+          "nameCn": "维多利亚女王市场",
+          "lat": -37.8076,
+          "lng": 144.9566,
+          "rank": 4,
+          "tier": "必去",
+          "note": "南半球最大露天市场，周二至周日开放，新鲜食材和街头美食价廉物美，留学生必逛"
         },
         {
-          "name": "State Library Victoria",
-          "nameCn": "维多利亚州立图书馆",
-          "lat": -37.8098,
-          "lng": 144.9652,
-          "note": "壮观的圆顶穹顶阅览室（La Trobe Reading Room），免费开放，自习与拍照都热门。"
+          "name": "Royal Botanic Gardens Melbourne",
+          "nameCn": "墨尔本皇家植物园",
+          "lat": -37.8334,
+          "lng": 144.9803,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Birdwood Avenue South Yarra，免费入场，40 公顷绿地含 150 万株植物，是考试季减压首选户外场所"
         },
         {
-          "name": "Lygon Street (Little Italy)",
-          "nameCn": "Lygon 街小意大利",
-          "lat": -37.7998,
-          "lng": 144.9671,
-          "note": "墨尔本小意大利风情街，餐厅咖啡馆林立，紧邻校园，是学生日常吃喝聚会的中心。"
+          "name": "St Kilda Beach",
+          "nameCn": "圣基尔达海滩",
+          "lat": -37.8672,
+          "lng": 144.9766,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "电车 1 号南行约 30 分钟可达，周末必去海滨，Luna Park 游乐园、Acland Street 甜品店连成精彩一日游"
+        },
+        {
+          "name": "Melbourne Skydeck (Eureka Tower 88F)",
+          "nameCn": "墨尔本天空甲板（Eureka Tower 88层）",
+          "lat": -37.8213,
+          "lng": 144.9646,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "7 Riverside Quay Southbank，南半球最高观景台，360° 俯瞰墨尔本全貌，朋友来访必带"
+        },
+        {
+          "name": "Fitzroy Gardens & Cook's Cottage",
+          "nameCn": "菲茨罗伊花园暨库克船长小屋",
+          "lat": -37.8126,
+          "lng": 144.9804,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "东墨尔本 19 世纪历史公园，库克船长父母故居原屋移植至此，榆树大道是摄影打卡热点"
+        },
+        {
+          "name": "Chinatown Melbourne (Little Bourke Street)",
+          "nameCn": "墨尔本唐人街",
+          "lat": -37.8114,
+          "lng": 144.9683,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "西方世界历史最悠久的华人聚居区，农历新年游行全城最盛大，中国学生的文化精神家园"
+        },
+        {
+          "name": "Lune Croissanterie & Fitzroy precinct",
+          "nameCn": "菲茨罗伊街区（Lune 可颂工坊）",
+          "lat": -37.796,
+          "lng": 144.9799,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "119 Rose Street Fitzroy，全澳最火爆的法式甜品店毗邻独立咖啡馆与街头艺术，骑车 15 分钟可达"
+        },
+        {
+          "name": "Degraves Street Melbourne",
+          "nameCn": "德格雷夫斯巷（咖啡文化小巷）",
+          "lat": -37.8173,
+          "lng": 144.9656,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "CBD 最具代表性的咖啡文化巷弄，密集的特色咖啡馆体现墨尔本精品咖啡文化，电车即达"
+        },
+        {
+          "name": "Readings Bookshop Carlton",
+          "nameCn": "Readings 书店（卡尔顿旗舰店）",
+          "lat": -37.798,
+          "lng": 144.9673,
+          "rank": 12,
+          "tier": "可选",
+          "note": "309 Lygon Street，2016 年荣获伦敦书展「年度最佳书店」，英文学术书和文学类图书精选推荐齐全"
         }
       ]
     }

@@ -99,46 +99,121 @@
       "icon": "school",
       "items": [
         {
-          "name": "Goldwin Smith Hall",
-          "nameCn": "戈德温·史密斯楼",
-          "lat": 42.4497,
-          "lng": -76.4823,
-          "note": "艺术方庭新古典主义文科核心楼。"
+          "name": "Gates Hall (Ann S. Bowers College of Computing & Information Science)",
+          "nameCn": "盖茨楼（计算机与信息科学学院）",
+          "lat": 42.4447,
+          "lng": -76.4814,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Cornell计算机科学与信息学的旗舰楼，由比尔·盖茨夫妇捐资兴建，是CS/IS学生的核心学习与科研中心。"
         },
         {
-          "name": "Sage Hall (Johnson School of Business)",
-          "nameCn": "塞奇楼（约翰逊商学院）",
-          "lat": 42.4456,
-          "lng": -76.483,
-          "note": "SC约翰逊商学院研究生院所在。"
+          "name": "Duffield Hall (Cornell NanoScale Facility)",
+          "nameCn": "达菲尔德楼（纳米科学楼）",
+          "lat": 42.444,
+          "lng": -76.4821,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程学院核心科研楼，内设全美顶级纳米级科学实验设施（CNF），ECE/MSE等专业学生必到。"
         },
         {
-          "name": "Duffield Hall (Engineering)",
-          "nameCn": "达菲尔德楼（工程）",
-          "lat": 42.4445,
+          "name": "Goldwin Smith Hall (College of Arts & Sciences)",
+          "nameCn": "戈德温·史密斯楼（文理学院）",
+          "lat": 42.4488,
           "lng": -76.4843,
-          "note": "工程方庭现代纳米与协作研究中心。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "Arts Quad核心建筑，历史学、英语、古典学等人文学科的大本营，是文理学院最具代表性的教学楼。"
         },
         {
-          "name": "Statler Hall & Hotel (Hotel School)",
-          "nameCn": "斯塔特勒楼及酒店（酒店管理学院）",
+          "name": "Myron Taylor Hall (Cornell Law School)",
+          "nameCn": "迈伦·泰勒楼（康奈尔法学院）",
+          "lat": 42.4475,
+          "lng": -76.4867,
+          "rank": 4,
+          "tier": "必去",
+          "note": "康奈尔法学院所在地，建筑风格庄重，内有法学图书馆，全美前十四法学院之一。"
+        },
+        {
+          "name": "Sage Hall (SC Johnson College of Business)",
+          "nameCn": "塞奇楼（SC约翰逊商学院）",
+          "lat": 42.4469,
+          "lng": -76.4857,
+          "rank": 5,
+          "tier": "必去",
+          "note": "康奈尔商学院（MBA/本科商科）所在地，历史建筑经过现代化改造，内部配套设施齐全。"
+        },
+        {
+          "name": "Statler Hall (Nolan School of Hotel Administration)",
+          "nameCn": "斯塔特勒楼（诺兰酒店管理学院）",
           "lat": 42.4459,
-          "lng": -76.481,
-          "note": "全美顶尖酒店管理学院兼教学型酒店。"
+          "lng": -76.4851,
+          "rank": 6,
+          "tier": "必去",
+          "note": "全球排名第一的酒店管理学院，内附真实运营的Statler Hotel，理论与实践一体化教学。"
         },
         {
-          "name": "Klarman Hall",
-          "nameCn": "克拉曼楼",
-          "lat": 42.4495,
-          "lng": -76.4817,
-          "note": "2016年落成的人文学科新楼，连接戈德温·史密斯。"
+          "name": "Ives Hall (ILR School – Industrial & Labor Relations)",
+          "nameCn": "艾弗斯楼（劳动关系学院）",
+          "lat": 42.4451,
+          "lng": -76.487,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "世界顶尖劳动关系学院所在地，内有卡瑟伍德图书馆，研究劳工法、经济学的重要场所。"
         },
         {
-          "name": "Bailey Hall (Ag Quad)",
-          "nameCn": "贝利楼（农学方庭）",
-          "lat": 42.4492,
-          "lng": -76.4801,
-          "note": "1912年落成，校园最大礼堂。"
+          "name": "Weill Hall (Life Sciences)",
+          "nameCn": "韦尔楼（生命科学楼）",
+          "lat": 42.4477,
+          "lng": -76.4807,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "康奈尔生命科学研究的中心，含现代化实验室和研究中心，生物、生化、基因学专业学生的聚集地。"
+        },
+        {
+          "name": "Martha Van Rensselaer Hall (College of Human Ecology)",
+          "nameCn": "玛莎·范·伦塞勒楼（人类生态学院）",
+          "lat": 42.4471,
+          "lng": -76.4798,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "人类生态学院的主楼，覆盖营养、纤维科学、公共政策、心理学等跨学科专业。"
+        },
+        {
+          "name": "Sibley Hall (College of Architecture, Art & Planning)",
+          "nameCn": "西布利楼（建筑艺术与规划学院）",
+          "lat": 42.4497,
+          "lng": -76.486,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "AAP学院核心楼，建筑专业学生的工作室与设计中心，校园内造型最具艺术感的历史建筑之一。"
+        },
+        {
+          "name": "Milstein Hall (Architecture Studio)",
+          "nameCn": "米尔斯坦楼（建筑工作室）",
+          "lat": 42.45,
+          "lng": -76.4858,
+          "rank": 11,
+          "tier": "强烈推荐",
+          "note": "由明星建筑师Rem Koolhaas/OMA设计，2011年建成，25000平方英尺开放式设计工作室，建筑爱好者必看。"
+        },
+        {
+          "name": "Phillips Hall (Electrical & Computer Engineering)",
+          "nameCn": "菲利普斯楼（电气与计算机工程）",
+          "lat": 42.4438,
+          "lng": -76.4843,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "ECE系核心教学楼，工程学院四边形（Eng Quad）的标志性建筑，电子与计算机工程专业必来。"
+        },
+        {
+          "name": "Bradfield Hall (Agriculture & Life Sciences)",
+          "nameCn": "布拉德菲尔德楼（农业与生命科学学院）",
+          "lat": 42.451,
+          "lng": -76.4772,
+          "rank": 13,
+          "tier": "推荐",
+          "note": "CALS学院主楼，农业、生态、地球科学等专业的主要教学场所，俯瞰北部校区。"
         }
       ],
       "defaultOn": true
@@ -153,23 +228,65 @@
         {
           "name": "Olin Library",
           "nameCn": "奥林图书馆",
-          "lat": 42.448,
-          "lng": -76.4838,
-          "note": "艺术方庭主研究图书馆，地下连克罗赫馆。"
+          "lat": 42.4479,
+          "lng": -76.4837,
+          "rank": 1,
+          "tier": "必去",
+          "note": "康奈尔最大的综合性图书馆，24小时开放，馆藏丰富，是全校学生备考和科研的首选去处。"
         },
         {
           "name": "Uris Library",
           "nameCn": "尤里斯图书馆",
-          "lat": 42.4478,
-          "lng": -76.4847,
-          "note": "1891年罗马复兴式，McGraw钟塔即附其上。"
+          "lat": 42.4481,
+          "lng": -76.4834,
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落于Arts Quad的哥特式图书馆，主要服务本科生，建筑风格古典优美，是打卡拍照的热门地点。"
         },
         {
-          "name": "Mann Library",
+          "name": "Carl A. Kroch Library (Rare & Manuscript Collections)",
+          "nameCn": "克罗克图书馆（珍贵手稿馆）",
+          "lat": 42.4479,
+          "lng": -76.4839,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "专藏珍贵手稿、档案和东亚文献（含大量中文资料），对汉学和历史研究的学生极具价值。"
+        },
+        {
+          "name": "Albert R. Mann Library",
           "nameCn": "曼恩图书馆",
-          "lat": 42.4489,
-          "lng": -76.4763,
-          "note": "农学与生命科学图书馆，装饰艺术风格。"
+          "lat": 42.45,
+          "lng": -76.4769,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "农业、生命科学与自然资源领域专科图书馆，是CALS学生的主要学习空间，馆内环境安静宽敞。"
+        },
+        {
+          "name": "Catherwood Library (ILR / Labor)",
+          "nameCn": "卡瑟伍德图书馆（劳动关系）",
+          "lat": 42.4451,
+          "lng": -76.4868,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美顶级劳动关系图书馆，收藏劳工运动历史档案（Kheel Center），是学劳动法、历史的宝库。"
+        },
+        {
+          "name": "Mui Ho Fine Arts Library",
+          "nameCn": "穆伊·何艺术图书馆",
+          "lat": 42.4497,
+          "lng": -76.4862,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专注建筑、艺术与规划领域的图书馆，位于Sibley Hall附近，是AAP学院学生的核心参考资源库。"
+        },
+        {
+          "name": "Law Library (Myron Taylor Hall)",
+          "nameCn": "法学图书馆（迈伦·泰勒楼内）",
+          "lat": 42.4475,
+          "lng": -76.4867,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "康奈尔法学院内部图书馆，馆藏法律原典与判例资料，为法学生提供安静独立的研究空间。"
         }
       ]
     },
@@ -182,10 +299,48 @@
       "items": [
         {
           "name": "Herbert F. Johnson Museum of Art",
-          "nameCn": "赫伯特·F·约翰逊艺术博物馆",
-          "lat": 42.4508,
-          "lng": -76.4847,
-          "note": "贝聿铭设计，俯瞰卡尤加湖的艺术馆。"
+          "nameCn": "赫伯特·约翰逊艺术博物馆",
+          "lat": 42.4504,
+          "lng": -76.4851,
+          "rank": 1,
+          "tier": "必去",
+          "note": "由贝聿铭设计，馆藏超4万件，免费入场，亚洲艺术藏品尤为丰富，顶层俯瞰Cayuga湖的景色令人叫绝。"
+        },
+        {
+          "name": "Museum of the Earth (Paleontological Research Institution)",
+          "nameCn": "地球博物馆（古生物研究所）",
+          "lat": 42.4591,
+          "lng": -76.5023,
+          "rank": 2,
+          "tier": "必去",
+          "note": "馆藏近300万件古生物标本，是美国前十大古生物馆之一，恐龙化石展览深受欢迎，周四至周一开放。"
+        },
+        {
+          "name": "Sciencenter",
+          "nameCn": "科学中心",
+          "lat": 42.4379,
+          "lng": -76.4985,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "互动式科学博物馆，250多个体验展项，适合所有年龄层，开放式科学公园是夏天的好去处。"
+        },
+        {
+          "name": "Cornell Botanic Gardens",
+          "nameCn": "康奈尔植物园",
+          "lat": 42.4551,
+          "lng": -76.4716,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园内25英亩精心布置的花园加150英亩树木园，全年免费入场，是散步减压、认识自然的绝佳去处。"
+        },
+        {
+          "name": "McGraw Hall Museum Collections",
+          "nameCn": "麦克格劳楼博物藏品馆",
+          "lat": 42.4486,
+          "lng": -76.4844,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "康奈尔历史最悠久的建筑之一，内有考古与地质学藏品展示，Arts Quad的标志性历史建筑。"
         }
       ]
     },
@@ -197,25 +352,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "McGraw Tower (Cornell Chimes)",
-          "nameCn": "麦格劳钟塔（康奈尔钟琴）",
+          "name": "McGraw Tower & Cornell Chimes",
+          "nameCn": "麦克格劳塔与康奈尔钟琴",
+          "lat": 42.4487,
+          "lng": -76.4843,
+          "rank": 1,
+          "tier": "必去",
+          "note": "康奈尔最具标志性的173英尺高钟楼，每天三次报时演奏，是全校公认的精神地标和校园摄影必打卡点。"
+        },
+        {
+          "name": "Willard Straight Hall (Student Union)",
+          "nameCn": "威拉德·斯特莱特楼（学生会大楼）",
+          "lat": 42.4478,
+          "lng": -76.4871,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1925年建成的哥特式学生会中心，含多功能厅、康奈尔电影院、艺术画廊和Okenshields餐厅，是校园生活的核心枢纽。"
+        },
+        {
+          "name": "Ho Plaza",
+          "nameCn": "何广场",
           "lat": 42.4476,
-          "lng": -76.4848,
-          "note": "校园地标钟塔，每日鸣奏康奈尔钟琴。"
+          "lng": -76.4872,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园内最重要的公共广场，紧邻Willard Straight Hall，是集会、抗议、摆摊和社团活动的中心地带。"
         },
         {
-          "name": "Willard Straight Hall",
-          "nameCn": "威拉德·斯特雷特楼",
-          "lat": 42.447,
-          "lng": -76.4855,
-          "note": "学生活动中心，含Okenshields餐厅。"
+          "name": "Arts Quad (Quadrangle)",
+          "nameCn": "艺术广场（中央大草坪）",
+          "lat": 42.4487,
+          "lng": -76.484,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园历史最悠久的大草坪，四周环绕麦克格劳塔、尤里斯图书馆等古建，是感受康奈尔人文气息的核心地带。"
         },
         {
-          "name": "Schoellkopf Field",
-          "nameCn": "舍尔科普夫体育场",
-          "lat": 42.4441,
-          "lng": -76.4787,
-          "note": "大红队主场，橄榄球与田径运动场。"
+          "name": "Cornell Botanic Gardens Nevin Welcome Center",
+          "nameCn": "康奈尔植物园内文欢迎中心",
+          "lat": 42.4551,
+          "lng": -76.4716,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "植物园游览的起始点，周边有超过十二个专题花园，春秋季节景色尤为绝美，是新生必须探访的校园绿地。"
+        },
+        {
+          "name": "Schwartz Center for Performing Arts",
+          "nameCn": "施瓦茨表演艺术中心",
+          "lat": 42.4458,
+          "lng": -76.4882,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "康奈尔表演艺术中心，含戏剧、舞蹈、电影多个演出空间，每年吸引两万余名观众，紧邻Cascadilla峡谷入口。"
+        },
+        {
+          "name": "Schoellkopf Field & Crescent",
+          "nameCn": "施尔科普夫体育场",
+          "lat": 42.452,
+          "lng": -76.481,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "康奈尔大红队的主场，橄榄球和曲棍球比赛地，校园北侧的重要体育文化地标，体育氛围浓厚。"
+        },
+        {
+          "name": "The Statler Hotel",
+          "nameCn": "斯塔特勒酒店",
+          "lat": 42.4461,
+          "lng": -76.4853,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "酒店管理学院实训酒店，由学生参与运营，是体验真实酒店管理的窗口，也是校内品质最高的住宿与餐饮场所。"
         }
       ]
     },
@@ -227,32 +433,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Wegmans (Ithaca)",
-          "nameCn": "Wegmans 超市",
-          "lat": 42.4346,
-          "lng": -76.5072,
-          "note": "美东口碑最好的连锁大超市之一，500 S Meadow St，生鲜熟食烘焙齐全，自营药房，营业到午夜，留学生囤货主力点。"
+          "name": "Wegmans (South Meadow)",
+          "nameCn": "韦格曼超市（南草地店）",
+          "lat": 42.4192,
+          "lng": -76.5093,
+          "rank": 1,
+          "tier": "必去",
+          "note": "东北美最受欢迎的全能超市，品类齐全、价格实惠，设有药房和熟食区，是康奈尔学生采购日常食材的首选。"
         },
         {
           "name": "Ren's Mart Asian Groceries",
-          "nameCn": "Ren's 亚洲超市",
-          "lat": 42.4419,
-          "lng": -76.5142,
-          "note": "701 W Buffalo St，主打中日韩台菲食材，有活鱼海鲜柜，是康奈尔中国学生买中餐调料、火锅料的首选亚超。"
+          "nameCn": "任氏亚洲超市",
+          "lat": 42.4376,
+          "lng": -76.5089,
+          "rank": 2,
+          "tier": "必去",
+          "note": "伊萨卡最知名的亚洲食材超市，售有中、韩、日、越南等各式食材，设海鲜柜台，中国留学生购置厨房食材的首站。"
         },
         {
           "name": "Win Li Supermarket",
-          "nameCn": "永利亚洲超市",
-          "lat": 42.4222,
-          "lng": -76.5095,
-          "note": "374 Elmira Rd，老牌华人超市，中式米面酱料蔬菜冷冻品全，价格实惠，开车或公交可达。"
+          "nameCn": "文利超市（中国食材）",
+          "lat": 42.4159,
+          "lng": -76.5251,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "家庭经营的中国食材超市，以新鲜果蔬和东南亚包装食品见长，周一至周六11am-7pm开放。"
         },
         {
-          "name": "Asian Foods (Green Street)",
-          "nameCn": "亚洲食品店",
-          "lat": 42.4399,
-          "lng": -76.4968,
-          "note": "市中心 Commons 附近的亚洲食材小店，离校近，临时缺酱油挂面方便面时步行可买。"
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 42.4181,
+          "lng": -76.5125,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "全美受欢迎的特色超市，主打有机与自有品牌，价格亲民，冷冻食品和零食深受学生喜爱。"
+        },
+        {
+          "name": "GreenStar Food Co-op (West Buffalo St)",
+          "nameCn": "绿星合作社超市（西布法罗街）",
+          "lat": 42.4376,
+          "lng": -76.5089,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "社区合作制有机超市，专售本地农产品和天然食品，支持可持续农业，素食学生的理想选择。"
+        },
+        {
+          "name": "GreenStar Food Co-op (Collegetown / Cascadilla St)",
+          "nameCn": "绿星合作社超市（大学城店）",
+          "lat": 42.444,
+          "lng": -76.492,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "靠近Collegetown的分店，步行即可抵达，供应有机零食和即食食品，方便校园周边学生随时补给。"
+        },
+        {
+          "name": "Tops Friendly Markets",
+          "nameCn": "Tops超市",
+          "lat": 42.44,
+          "lng": -76.498,
+          "rank": 7,
+          "tier": "可选",
+          "note": "伊萨卡本地连锁超市，分布较广，营业时间长，品类覆盖日用杂货与熟食，是价格敏感型学生的备选。"
         }
       ]
     },
@@ -264,46 +505,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Collegetown Bagels (CTB)",
-          "nameCn": "Collegetown 贝果店",
-          "lat": 42.4423,
-          "lng": -76.4852,
-          "note": "420 College Ave，1976 年开业的康奈尔头号地标早餐店，被评为全美最具代表性大学城餐馆之一，贝果三明治必打卡。"
-        },
-        {
           "name": "De Tasty Hot Pot",
-          "nameCn": "De Tasty 火锅",
-          "lat": 42.4422,
-          "lng": -76.4847,
-          "note": "Collegetown 人气川味/火锅，孜然羊肉、辣子鸡分量大味道地道，中国学生聚餐常去。"
-        },
-        {
-          "name": "Shi Miao Dao Yunnan Rice Noodle",
-          "nameCn": "是秒到云南米线",
+          "nameCn": "德味火锅",
           "lat": 42.4427,
-          "lng": -76.4843,
-          "note": "416 Eddy St，主打云南过桥米线，近年成 Collegetown 新晋中餐据点，想吃热汤粉就来。"
+          "lng": -76.4917,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "伊萨卡最受中国留学生追捧的火锅餐厅，主打东北风味，麻辣锅底地道，食材新鲜，位于Collegetown核心地带。"
         },
         {
           "name": "Xi'an Street Food",
-          "nameCn": "西安风味小吃",
-          "lat": 42.4426,
-          "lng": -76.4848,
-          "note": "120 Dryden Rd，正宗西北菜，肉夹馍、油泼面、凉皮，重口味中餐解馋之选。"
+          "nameCn": "西安街食",
+          "lat": 42.4436,
+          "lng": -76.4897,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "2024年新开的西安风味餐厅，招牌是手撕面（Biang Biang面）和孜然羊肉面，深受华人学生和老外两圈好评。"
         },
         {
-          "name": "Hai Hong Restaurant",
-          "nameCn": "海虹粤菜茶餐厅",
-          "lat": 42.4424,
-          "lng": -76.4845,
-          "note": "208 Dryden Rd，开了二十多年的粤式老店，有点心 dim sum，是 Collegetown 的港式情怀担当。"
+          "name": "Hot Pot Meets BBQ",
+          "nameCn": "火锅遇烧烤",
+          "lat": 42.4195,
+          "lng": -76.5134,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "集火锅与韩式烤肉于一体，食材丰富，沸腾的锅底与烟火气的烤肉相结合，周末常需等位。"
+        },
+        {
+          "name": "Collegetown Bagels (CTB)",
+          "nameCn": "大学城贝果（CTB）",
+          "lat": 42.4433,
+          "lng": -76.4854,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "康奈尔学生的精神食粮，近40年历史，招牌贝果三明治和咖啡，是融入Cornell文化的必体验之一。"
+        },
+        {
+          "name": "Hakacha Restaurant",
+          "nameCn": "哈卡查餐厅",
+          "lat": 42.4389,
+          "lng": -76.5007,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "以拉面为特色的亚洲创意料理餐厅，汤头浓郁，配菜用心，Google和Yelp双高评分，口碑在Cornell圈内极响。"
+        },
+        {
+          "name": "Maru Korea (formerly Maru Ramen)",
+          "nameCn": "丸子韩国料理（原丸子拉面）",
+          "lat": 42.4396,
+          "lng": -76.501,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "转型为韩式料理后菜单更丰富，石锅拌饭、部队锅和拉面均受好评，是伊萨卡亚洲饮食爱好者的常客去处。"
         },
         {
           "name": "Moosewood Restaurant",
-          "nameCn": "Moosewood 素食餐厅",
-          "lat": 42.438,
-          "lng": -76.4989,
-          "note": "市中心 Commons 内，1973 年创立的传奇素食餐厅，被 Bon Appétit 评为 20 世纪最具影响力餐馆之一，伊萨卡必体验。"
+          "nameCn": "姆斯伍德素食餐厅",
+          "lat": 42.4409,
+          "lng": -76.4985,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "被《美食与美酒》杂志列为20世纪最具影响力餐厅之一，主打创意素食，1973年开业至今，是伊萨卡的饮食文化地标。"
+        },
+        {
+          "name": "Saigon Kitchen",
+          "nameCn": "西贡厨房",
+          "lat": 42.4388,
+          "lng": -76.5014,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "伊萨卡口碑最好的越南餐厅，Pho牛肉汤底纯正鲜美，价格合理，工作日中午常座无虚席。"
+        },
+        {
+          "name": "Taste of Thai",
+          "nameCn": "泰味餐厅",
+          "lat": 42.44,
+          "lng": -76.499,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于伊萨卡Commons的泰国餐厅，为康奈尔学生和本地居民钟爱，绿咖喱和芒果糯米饭均是招牌。"
+        },
+        {
+          "name": "BiBiBowl Asian Grill",
+          "nameCn": "必必碗亚洲烤肉拌饭",
+          "lat": 42.4436,
+          "lng": -76.4874,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Collegetown内的韩式石锅拌饭快餐店，分量足、价格实惠，是学生午餐和深夜食堂的热门选择。"
+        },
+        {
+          "name": "Capital Corner",
+          "nameCn": "首都角中餐厅",
+          "lat": 42.4393,
+          "lng": -76.5015,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "伊萨卡Commons区最老牌的中餐馆，提供传统中式炒菜和寿司双菜单，营业时间长，外卖方便。"
+        },
+        {
+          "name": "Simeon's on the Commons",
+          "nameCn": "西梅恩美式餐酒馆",
+          "lat": 42.4403,
+          "lng": -76.4984,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "位于Commons最繁华路口的本地新美式餐厅，汉堡和精酿啤酒是招牌，是体验伊萨卡本地饮食文化的代表之选。"
+        },
+        {
+          "name": "Spicy Asian",
+          "nameCn": "辣亚洲川菜",
+          "lat": 42.4189,
+          "lng": -76.5181,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "主打四川风味的中餐厅，麻辣菜品用料扎实，口味接近国内水准，在当地华人群体中口碑颇佳。"
+        },
+        {
+          "name": "Okenshields (Cornell Dining – Willard Straight Hall)",
+          "nameCn": "奥肯希尔兹自助餐厅（学生食堂）",
+          "lat": 42.4478,
+          "lng": -76.4871,
+          "rank": 14,
+          "tier": "一般",
+          "note": "位于Willard Straight Hall内的学生食堂，设有亚洲餐台和多种口味选择，是刚入学感受校园餐饮文化的好起点。"
         }
       ]
     },
@@ -315,32 +640,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Tompkins Community Bank (Downtown)",
-          "nameCn": "Tompkins 社区银行（市中心总行）",
-          "lat": 42.4404,
-          "lng": -76.496,
-          "note": "110 N Tioga St，伊萨卡本地老牌银行（1934 年），网点和 ATM 遍布城区与校园，开学生账户方便。"
+          "name": "Cornell Health (formerly Gannett) – Campus Medical Center",
+          "nameCn": "康奈尔健康中心（校医院）",
+          "lat": 42.4469,
+          "lng": -76.4869,
+          "rank": 1,
+          "tier": "必去",
+          "note": "康奈尔官方校医院，位于Ho Plaza 110号，提供初级医疗、心理咨询、药房服务，24小时电话急诊咨询：607-255-5155。"
         },
         {
-          "name": "Cayuga Health Immediate Care",
-          "nameCn": "Cayuga 紧急门诊（急诊小病）",
-          "lat": 42.4636,
-          "lng": -76.499,
-          "note": "401 Cayuga Park Lane，距校约 1.3 英里的 urgent care，发烧外伤等非急症免预约，比急诊室便宜快捷。"
+          "name": "Cayuga Medical Center (Hospital & ER)",
+          "nameCn": "卡尤加医疗中心（综合医院）",
+          "lat": 42.4534,
+          "lng": -76.4985,
+          "rank": 2,
+          "tier": "必去",
+          "note": "伊萨卡唯一的综合性医院，设24小时急诊室，处理重伤、急症，校医不能处理的情况均转诊至此。"
         },
         {
-          "name": "Cayuga Medical Center",
-          "nameCn": "Cayuga 医疗中心（综合医院）",
-          "lat": 42.4707,
-          "lng": -76.5236,
-          "note": "101 Dates Dr，本地唯一综合医院，24 小时急诊，重病大病和住院就诊去这里。"
+          "name": "Cayuga Health Walk-In Care (Urgent Care)",
+          "nameCn": "卡尤加健康走进诊所（急诊门诊）",
+          "lat": 42.4435,
+          "lng": -76.5015,
+          "rank": 3,
+          "tier": "必去",
+          "note": "无需预约的急诊门诊，地址401 Cayuga Park Lane，普通急性病（发烧、扭伤等）首选，等待时间比急诊室短。"
         },
         {
-          "name": "Verizon (S Meadow St)",
-          "nameCn": "Verizon 通讯营业厅",
-          "lat": 42.4322,
-          "lng": -76.5079,
-          "note": "720 S Meadow St，主流运营商门店，办手机卡/套餐/购机；附近还有 AT&T，落地办号一站搞定。"
+          "name": "Tompkins Community Bank (no SSN required for students)",
+          "nameCn": "汤普金斯社区银行（留学生可开户）",
+          "lat": 42.4397,
+          "lng": -76.4985,
+          "rank": 4,
+          "tier": "必去",
+          "note": "康奈尔校方推荐的本地银行，25岁以下学生无需社安号即可开户，设有校园ATM，中国留学生开户首选。"
+        },
+        {
+          "name": "Chase Bank (Downtown Ithaca)",
+          "nameCn": "摩根大通银行（市中心）",
+          "lat": 42.4397,
+          "lng": -76.4983,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地址301 E State St，全美最大银行之一，网点和ATM分布广，到手社安号后可开账户，转账汇款便利。"
+        },
+        {
+          "name": "Walgreens Pharmacy (Pine Tree Rd)",
+          "nameCn": "沃尔格林药房（松树路店）",
+          "lat": 42.4484,
+          "lng": -76.4617,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "距校园最近的大型连锁药房之一，330 Pine Tree Rd，销售OTC药品、护肤品，设有药剂师服务。"
+        },
+        {
+          "name": "Verizon Store (South Meadow)",
+          "nameCn": "Verizon电信门店（南草地）",
+          "lat": 42.4193,
+          "lng": -76.5145,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "720 S Meadow St，美国主流运营商，信号覆盖最广，留学生初到可购买预付卡，后续可转签约套餐。"
+        },
+        {
+          "name": "T-Mobile Store (South Meadow)",
+          "nameCn": "T-Mobile电信门店（南草地）",
+          "lat": 42.4195,
+          "lng": -76.5141,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "740 S Meadow St，提供适合留学生的国际套餐，含无限免费墨西哥和加拿大通话，月租价格较Verizon实惠。"
         }
       ]
     },
@@ -352,39 +721,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Cornell Botanic Gardens",
-          "nameCn": "康奈尔植物园",
-          "lat": 42.4499,
-          "lng": -76.4699,
-          "note": "紧邻校园的 25 英亩植物园加 150 英亩树木园，免费开放，散步野餐赏花的好去处。"
-        },
-        {
-          "name": "Herbert F. Johnson Museum of Art",
-          "nameCn": "约翰逊艺术博物馆",
-          "lat": 42.4513,
-          "lng": -76.4847,
-          "note": "贝聿铭设计的校内艺术馆，藏品横跨 35 个世纪，顶楼可俯瞰 Cayuga 湖，免费且是拍照胜地。"
-        },
-        {
-          "name": "McGraw Tower & Ho Plaza",
-          "nameCn": "麦格劳钟楼与何氏广场",
-          "lat": 42.4476,
-          "lng": -76.4843,
-          "note": "康奈尔标志性钟楼，每日有编钟演奏，何氏广场是校园中心打卡点。"
-        },
-        {
           "name": "Cascadilla Gorge Trail",
           "nameCn": "卡斯卡迪拉峡谷步道",
-          "lat": 42.4416,
-          "lng": -76.486,
-          "note": "从 Collegetown 直通校园的峡谷瀑布步道，沿途八级瀑布、石阶古道，伊萨卡最受欢迎的峡谷景观。"
+          "lat": 42.443,
+          "lng": -76.488,
+          "rank": 1,
+          "tier": "必去",
+          "note": "穿越六道瀑布、从市中心直连康奈尔校园的石阶步道，是「Ithaca is Gorges」最具代表性的体验，强烈推荐开学第一周去走。"
         },
         {
-          "name": "Ithaca Falls",
-          "nameCn": "伊萨卡瀑布",
-          "lat": 42.4565,
-          "lng": -76.4915,
-          "note": "校园西北侧、高逾 30 米宽近 53 米的大瀑布，春季水声轰鸣，步行可达的网红自然景点。"
+          "name": "Taughannock Falls State Park",
+          "nameCn": "托哈楠克瀑布州立公园",
+          "lat": 42.5428,
+          "lng": -76.6061,
+          "rank": 2,
+          "tier": "必去",
+          "note": "215英尺单段垂直落差，超过尼亚加拉，是美国东部最高单落差瀑布，距校园约16公里，秋季色彩尤为壮观。"
+        },
+        {
+          "name": "Buttermilk Falls State Park",
+          "nameCn": "酪浆瀑布州立公园",
+          "lat": 42.4175,
+          "lng": -76.5219,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距康奈尔仅3公里，165英尺叠瀑，峡谷步道景色壮美，夏季可在瀑布底部游泳，是学生周末郊游首选。"
+        },
+        {
+          "name": "Robert H. Treman State Park",
+          "nameCn": "罗伯特·特里曼州立公园",
+          "lat": 42.3978,
+          "lng": -76.5564,
+          "rank": 4,
+          "tier": "必去",
+          "note": "拥有12道瀑布和天然游泳池的峡谷公园，步道系统完善，是徒步与野餐的绝佳目的地。"
+        },
+        {
+          "name": "Ithaca Commons (Downtown Pedestrian Mall)",
+          "nameCn": "伊萨卡Commons步行街（市中心）",
+          "lat": 42.44,
+          "lng": -76.4985,
+          "rank": 5,
+          "tier": "必去",
+          "note": "伊萨卡市中心步行商业区，集聚特色餐厅、独立书店、街头艺术和各类节庆活动，是感受本地市民文化的核心地带。"
+        },
+        {
+          "name": "Fall Creek Gorge & Beebe Lake (North Campus)",
+          "nameCn": "秋溪峡谷与比比湖（北校区）",
+          "lat": 42.4557,
+          "lng": -76.4769,
+          "rank": 6,
+          "tier": "必去",
+          "note": "穿越北校区的壮美峡谷，含比比湖和三锤瀑布（Triphammer Falls），是康奈尔学生下午漫步的经典路线。"
+        },
+        {
+          "name": "Stewart Park & Cayuga Lake Waterfront",
+          "nameCn": "斯图尔特公园与卡尤加湖滨",
+          "lat": 42.467,
+          "lng": -76.5076,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于卡尤加湖南端的市立公园，可划船、骑行和野餐，夏日露天电影是学生最爱，沿湖步道全长超8英里。"
+        },
+        {
+          "name": "Cayuga Lake Wine Trail",
+          "nameCn": "卡尤加湖葡萄酒之路",
+          "lat": 42.5,
+          "lng": -76.56,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "美国历史最悠久的葡萄酒之路，25家酒庄沿湖而建，周末驾车品酒是留学生圈内流行的社交活动。"
+        },
+        {
+          "name": "Cornell Botanic Gardens (Arboretum Trails)",
+          "nameCn": "康奈尔植物园步道",
+          "lat": 42.4551,
+          "lng": -76.4716,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "校内免费开放的8英里步道系统，穿越池塘、溪流和草甸，四季皆美，是缓解学业压力的最近绿色天地。"
+        },
+        {
+          "name": "Gimme! Coffee (Collegetown)",
+          "nameCn": "给我咖啡！（大学城店）",
+          "lat": 42.4432,
+          "lng": -76.4873,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "伊萨卡最具个性的精品咖啡品牌，本地烘焙豆，浓缩咖啡口感层次丰富，被誉为「伊萨卡最好喝的咖啡」。"
+        },
+        {
+          "name": "Museum of the Earth",
+          "nameCn": "地球博物馆",
+          "lat": 42.4591,
+          "lng": -76.5023,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "伊萨卡Discovery Trail成员之一，恐龙化石展览震撼人心，适合周末下午来此「充电」，票价学生优惠。"
+        },
+        {
+          "name": "Sciencenter",
+          "nameCn": "科学中心",
+          "lat": 42.4379,
+          "lng": -76.4985,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "走进式科学博物馆，250多个互动展项覆盖物理、生命科学等，室外迷你高尔夫球场是夏天的特色项目。"
         }
       ]
     }

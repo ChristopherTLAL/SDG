@@ -59,46 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Burruss Hall",
-          "nameCn": "伯鲁斯楼",
-          "lat": 37.2275,
-          "lng": -80.4232,
-          "note": "标志性行政主楼，含3000座礼堂，建筑与城市研究学院办公区。"
+          "name": "College of Engineering – Whittemore Hall",
+          "nameCn": "工学院 — 惠特莫尔楼",
+          "lat": 37.2282,
+          "lng": -80.4244,
+          "rank": 1,
+          "tier": "必去",
+          "note": "工学院核心楼，电气与计算机工程系（ECE）主要教学与实验室所在地，是 VT 最强学科之一。"
         },
         {
-          "name": "Torgersen Hall",
-          "nameCn": "托格森楼",
-          "lat": 37.2295,
-          "lng": -80.4224,
-          "note": "工程与信息学楼，跨桥连接图书馆，含先进通信实验室。"
+          "name": "Randolph Hall – College of Engineering",
+          "nameCn": "兰道夫楼 — 工学院",
+          "lat": 37.2276,
+          "lng": -80.4247,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工学院主楼群之一，多个工程系研究空间集中于此，院长办公室所在地。"
         },
         {
-          "name": "Goodwin Hall",
-          "nameCn": "古德温楼",
-          "lat": 37.2316,
-          "lng": -80.4243,
-          "note": "工程学院旗舰楼，遍布振动传感器的「智慧楼宇」。"
+          "name": "Durham Hall – Engineering",
+          "nameCn": "杜勒姆楼 — 工程楼",
+          "lat": 37.2317,
+          "lng": -80.4238,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1998年建成的现代工程大楼，含电气、机械、化工等系实验室与课堂，是工科生高频出入场所。"
         },
         {
-          "name": "Davidson Hall (Chemistry)",
-          "nameCn": "戴维森化学楼",
-          "lat": 37.227,
-          "lng": -80.4252,
-          "note": "化学系所在地，临 Drillfield 西北侧。"
+          "name": "Burruss Hall – Administration & Auditorium",
+          "nameCn": "伯勒斯楼 — 主行政楼",
+          "lat": 37.2291,
+          "lng": -80.4231,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园最标志性建筑，哥特式石灰石外墙，内有3003座礼堂和行政办公室，建筑学院入驻于此。"
         },
         {
-          "name": "Pamplin Hall (Business)",
-          "nameCn": "潘普林商学楼",
-          "lat": 37.2269,
-          "lng": -80.4248,
-          "note": "潘普林商学院主楼，位于 Drillfield 西南。"
+          "name": "McBryde Hall – Computer Science & Math",
+          "nameCn": "麦克布莱德楼 — 计算机科学与数学",
+          "lat": 37.2279,
+          "lng": -80.4253,
+          "rank": 5,
+          "tier": "必去",
+          "note": "计算机科学系、数学系与社会学系所在地，位于钻石广场东侧，是理工科学生课业中枢。"
         },
         {
-          "name": "Holden Hall (Geosciences/Mining)",
-          "nameCn": "霍尔登地学楼",
-          "lat": 37.2304,
-          "lng": -80.4226,
-          "note": "地球科学与采矿工程系，校区北侧。"
+          "name": "Pamplin Hall – College of Business",
+          "nameCn": "潘普林楼 — 商学院",
+          "lat": 37.2268,
+          "lng": -80.4223,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "潘普林商学院主楼，1957年建成，有宽敞中庭，提供会计、金融、市场营销等商科课程。"
+        },
+        {
+          "name": "Torgersen Hall & Bridge",
+          "nameCn": "托格森楼与连廊桥",
+          "lat": 37.2278,
+          "lng": -80.4228,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "信息技术与数字图书馆研究中心，通过著名拱桥与纽曼图书馆相连，内设绝美拱顶阅览室。"
+        },
+        {
+          "name": "Cowgill Hall – Architecture & Urban Studies",
+          "nameCn": "考吉尔楼 — 建筑与城市研究学院",
+          "lat": 37.2265,
+          "lng": -80.4257,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "建筑与城市研究学院主楼，1969年建成并获 AIA 时间检验奖，是设计专业学生的创作中心。"
+        },
+        {
+          "name": "Derring Hall – Geosciences & Biological Sciences",
+          "nameCn": "德林楼 — 地球科学与生物科学",
+          "lat": 37.2272,
+          "lng": -80.4267,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "地球科学和生物科学系所在地，同时收纳地球科学博物馆（MoGs），实验室设施完善。"
+        },
+        {
+          "name": "Shanks Hall – English & Communication",
+          "nameCn": "尚克斯楼 — 英语与传播学",
+          "lat": 37.2261,
+          "lng": -80.4218,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "文理学院人文核心楼，英语系与传播学系在此授课，国际学生必经的英语写作课多在此开设。"
+        },
+        {
+          "name": "Holden Hall – Materials Science & Mining Engineering",
+          "nameCn": "霍尔登楼 — 材料科学与矿业工程",
+          "lat": 37.2283,
+          "lng": -80.4258,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "材料科学工程系与矿业矿物工程系驻地，1940年建成，2022年完成翻新，设有先进实验室。"
+        },
+        {
+          "name": "Norris Hall – Engineering Science & Mechanics / Peace Center",
+          "nameCn": "诺里斯楼 — 工程科学与和平研究中心",
+          "lat": 37.2274,
+          "lng": -80.4241,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "工程科学与力学系主楼，二楼设有和平与暴力预防研究中心，是校园历史与反思的重要场所。"
         }
       ],
       "defaultOn": true
@@ -113,9 +179,56 @@
         {
           "name": "Carol M. Newman Library",
           "nameCn": "纽曼图书馆",
-          "lat": 37.2286,
-          "lng": -80.4196,
-          "note": "中央主图书馆，临 Drillfield 北缘，校园学术中枢。"
+          "lat": 37.228,
+          "lng": -80.4226,
+          "rank": 1,
+          "tier": "必去",
+          "note": "VT 主图书馆，24小时开放（周一至周四），含特别馆藏、多媒体学习室、创客工坊，是学习备考首选。"
+        },
+        {
+          "name": "Torgersen Hall Reading Room",
+          "nameCn": "托格森楼拱顶阅览室",
+          "lat": 37.2278,
+          "lng": -80.4228,
+          "rank": 2,
+          "tier": "必去",
+          "note": "连接纽曼图书馆的拱形木质天花板阅览室，景观与环境极佳，被誉为校园最美学习空间之一。"
+        },
+        {
+          "name": "Special Collections and University Archives (Newman Library 1F)",
+          "nameCn": "特别馆藏与大学档案馆",
+          "lat": 37.228,
+          "lng": -80.4225,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于纽曼图书馆一楼，收藏 VT 历史档案、珍稀手稿与大学史料，适合历史与人文研究者参观。"
+        },
+        {
+          "name": "Library Service Center (Off-Campus Storage)",
+          "nameCn": "图书馆服务中心（场外密集书库）",
+          "lat": 37.2308,
+          "lng": -80.4389,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "高密度气候控制仓储库，存放大量实体馆藏，可按需申请快递到主馆，适合需要专业资料的研究生。"
+        },
+        {
+          "name": "Blacksburg Public Library – Montgomery-Floyd Regional Library",
+          "nameCn": "布莱克斯堡公共图书馆",
+          "lat": 37.2449,
+          "lng": -80.4599,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Huckleberry Trail 起点旁，面向本地市民开放，学生可用公共电脑、借阅实体书，有中文书籍少量存档。"
+        },
+        {
+          "name": "Schiffert Health Center Library / Patient Education Resources",
+          "nameCn": "希弗特健康中心医学资料室",
+          "lat": 37.2285,
+          "lng": -80.4297,
+          "rank": 6,
+          "tier": "可选",
+          "note": "校内卫生中心附属健康教育资料区，提供医疗保健指导手册与国际学生健康信息，就医前可先查阅。"
         }
       ]
     },
@@ -127,11 +240,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Moss Arts Center",
-          "nameCn": "莫斯艺术中心",
-          "lat": 37.2302,
-          "lng": -80.4185,
-          "note": "演艺与视觉艺术中心，含 Street and Davis 美术馆，临市中心。"
+          "name": "Museum of Geosciences (MoGs) – Derring Hall",
+          "nameCn": "地球科学博物馆",
+          "lat": 37.2272,
+          "lng": -80.4267,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于 Derring Hall 2062 室，展示矿物、化石、岩石和太空陨石，免费入场，深受理工科学生喜爱。"
+        },
+        {
+          "name": "Center for the Arts at Virginia Tech (Moss Arts Center) – Galleries",
+          "nameCn": "弗吉尼亚理工艺术中心画廊（原苔藓艺术中心）",
+          "lat": 37.2323,
+          "lng": -80.4177,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内顶级艺术综合体，设四个视觉艺术画廊与1260座音乐厅，常年举办国际级展览和演出，免费参观展览。"
+        },
+        {
+          "name": "Hahn Horticulture Garden",
+          "nameCn": "哈恩园艺花园",
+          "lat": 37.2245,
+          "lng": -80.4155,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园东南角约5.75英亩活体植物博物馆，含水景园、遮阴园、草甸园，四季皆宜放松拍照打卡。"
+        },
+        {
+          "name": "Perspective Gallery – Squires Student Center",
+          "nameCn": "透视画廊 — 斯奎尔斯学生中心",
+          "lat": 37.2274,
+          "lng": -80.4211,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于斯奎尔斯学生中心2楼，展出本地及国际艺术家作品，免费开放，鼓励艺术欣赏与跨文化对话。"
+        },
+        {
+          "name": "Armory Art Gallery",
+          "nameCn": "军械库画廊",
+          "lat": 37.2299,
+          "lng": -80.426,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "展出学生、教职工及区域艺术家作品，定期更换展览，是了解 VT 视觉艺术创作生态的窗口。"
         }
       ]
     },
@@ -144,38 +295,75 @@
       "items": [
         {
           "name": "The Drillfield",
-          "nameCn": "Drillfield 草坪",
+          "nameCn": "操练广场（Drillfield）",
           "lat": 37.2281,
-          "lng": -80.4225,
-          "note": "校园中央椭圆大草坪，所有主要学楼环绕，集会与活动中心。"
+          "lng": -80.4248,
+          "rank": 1,
+          "tier": "必去",
+          "note": "VT 校园灵魂所在，22英亩椭圆形草坪，周围是主要学术楼，Gobblerfest等大型校园活动在此举行。"
         },
         {
-          "name": "War Memorial Chapel & Pylons",
-          "nameCn": "战争纪念礼拜堂与石柱",
-          "lat": 37.2288,
-          "lng": -80.4205,
-          "note": "Drillfield 南侧八根石柱与纪念礼拜堂，校园精神象征。"
+          "name": "War Memorial Court & Pylons",
+          "nameCn": "战争纪念庭院与柱石（八柱）",
+          "lat": 37.2293,
+          "lng": -80.4249,
+          "rank": 2,
+          "tier": "必去",
+          "note": "八根刻有校训与阵亡校友姓名的石灰石纪念柱，柱下为小礼拜堂，是 VT 最庄严肃穆的精神地标。"
+        },
+        {
+          "name": "April 16 Memorial",
+          "nameCn": "4·16纪念碑",
+          "lat": 37.2296,
+          "lng": -80.4237,
+          "rank": 3,
+          "tier": "必去",
+          "note": "由32块 Hokie Stone 组成，纪念2007年枪击事件遇难者，位于 Burruss Hall 前钻石广场侧，是校园重要历史地标。"
+        },
+        {
+          "name": "Squires Student Center",
+          "nameCn": "斯奎尔斯学生中心",
+          "lat": 37.2274,
+          "lng": -80.4211,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园学生活动中枢，内有餐饮、画廊、电影院、学生社团办公室，ATM 及校园活动告示板，国际学生必逛。"
+        },
+        {
+          "name": "Duck Pond",
+          "nameCn": "鸭子池",
+          "lat": 37.2316,
+          "lng": -80.4272,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1930年代人工建造的景观水池，野鸭栖息，沿岸有亭台与步道，是减压散步、拍照打卡的热门去处。"
+        },
+        {
+          "name": "Solitude (Oldest Campus Building, 1840)",
+          "nameCn": "孤寂屋（校园最古老建筑）",
+          "lat": 37.2318,
+          "lng": -80.428,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1840年建成，已列入美国国家历史名胜名录，紧邻鸭子池，是 VT 历史的起点，感受百年校园文化必访。"
         },
         {
           "name": "Lane Stadium",
           "nameCn": "莱恩体育场",
-          "lat": 37.22,
-          "lng": -80.4185,
-          "note": "橄榄球主场，号称全美最强主场氛围，「Enter Sandman」入场。"
+          "lat": 37.2199,
+          "lng": -80.4183,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "VT Hokies 橄榄球主场，65000余座，主场氛围被评为全美第一，秋季比赛日是校园最狂热的文化体验。"
         },
         {
-          "name": "Cassell Coliseum",
-          "nameCn": "卡塞尔体育馆",
-          "lat": 37.2215,
-          "lng": -80.4192,
-          "note": "1万座综合体育馆，篮球主场，紧邻莱恩体育场。"
-        },
-        {
-          "name": "Squires Student Center",
-          "nameCn": "斯夸尔斯学生中心",
-          "lat": 37.2295,
-          "lng": -80.4179,
-          "note": "学生活动中心，临市中心，含餐饮、剧场与社团空间。"
+          "name": "Lyric Theatre",
+          "nameCn": "抒情剧院",
+          "lat": 37.2297,
+          "lng": -80.4156,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1930年建成的装饰艺术风格老剧院，坐落于 College Ave，放映独立电影、举办现场演出，票价亲民。"
         }
       ]
     },
@@ -187,32 +375,67 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Kroger – South Main Street",
+          "nameCn": "克罗格超市（南主街店）",
+          "lat": 37.2173,
+          "lng": -80.4015,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的主流连锁超市，品类齐全，自有品牌性价比高，有加油站，步行或骑车即可到达。"
+        },
+        {
+          "name": "Food Lion – North Main Street",
+          "nameCn": "Food Lion 超市（北主街店）",
+          "lat": 37.2352,
+          "lng": -80.421,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "本地大型连锁，营业至午夜，生鲜、熟食、日常杂货一站搞定，价格实惠，常见促销活动。"
+        },
+        {
           "name": "Oasis World Market",
-          "nameCn": "绿洲世界超市（国际/亚洲食材）",
-          "lat": 37.2159,
-          "lng": -80.3998,
-          "note": "布堡最全的国际/亚洲食杂店，中、日、韩、印食材都有，每周五到新鲜货，留学生采买中餐调料首选。"
+          "nameCn": "绿洲世界超市（亚洲/中国食材）",
+          "lat": 37.2261,
+          "lng": -80.419,
+          "rank": 3,
+          "tier": "必去",
+          "note": "布莱克斯堡唯一的亚洲食材专卖店（1411 S Main St），出售中国、印度、韩国等亚洲食品，每周五到货新鲜。"
         },
         {
-          "name": "Lotus Oriental Market",
-          "nameCn": "莲花东方超市（中国/亚洲杂货）",
-          "lat": 37.2243,
-          "lng": -80.4147,
-          "note": "靠近 downtown 的小型中国/亚洲杂货店，米面、酱料、冷冻饺子和速食，离校近、补货方便。"
+          "name": "Walmart Supercenter – Christiansburg",
+          "nameCn": "沃尔玛超市（克里斯琴斯堡店）",
+          "lat": 37.1456,
+          "lng": -80.4082,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "15分钟车程，品类最全的大型超市，电器、服装、家居生活用品及华人零食应有尽有，价格全区最低。"
         },
         {
-          "name": "Kroger (Gables Shopping Center)",
-          "nameCn": "Kroger 超市（Gables 店）",
-          "lat": 37.2185,
-          "lng": -80.403,
-          "note": "离校最近的大型连锁超市，生鲜日用一站买齐，营业到午夜，店内还带药房。"
+          "name": "ALDI – Christiansburg",
+          "nameCn": "奥乐齐折扣超市（克里斯琴斯堡店）",
+          "lat": 37.1479,
+          "lng": -80.4137,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "德系折扣超市，有机蔬菜与进口零食性价比极高，约15分钟车程，适合预算有限的学生家庭采购。"
         },
         {
-          "name": "Kroger (University City Blvd)",
-          "nameCn": "Kroger 超市（University City 店）",
-          "lat": 37.2335,
-          "lng": -80.4318,
-          "note": "校园西侧的另一家大 Kroger，靠近学生公寓区，开车或公交都方便，同样营业到午夜。"
+          "name": "Target – Christiansburg (Spradlin Farms)",
+          "nameCn": "塔吉特百货（克里斯琴斯堡店）",
+          "lat": 37.1423,
+          "lng": -80.4052,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "集超市、家居、服装于一体，Spradlin Farms 购物区内，有机食品和家居品质较好，约15分钟车程。"
+        },
+        {
+          "name": "Annie Kay's Whole Foods Market",
+          "nameCn": "安妮凯伊天然食品店",
+          "lat": 37.2183,
+          "lng": -80.4085,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "布莱克斯堡本地有机健康食品店（1531 S Main St），天然蔬果、补充剂、素食食品选择丰富，关注健康的学生推荐。"
         }
       ]
     },
@@ -224,39 +447,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Junzi Kitchen (君子食堂)",
-          "nameCn": "君子食堂（北方面食/盖饭）",
+          "name": "Junzi Kitchen Virginia Tech 君子食堂",
+          "nameCn": "君子食堂（刀削面/中式快餐）",
+          "lat": 37.2284,
+          "lng": -80.4265,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "VT 校区内中国快餐，220 Gilbert St，供应刀削面、麻酱拌面、卤肉饭等，是中国留学生解乡愁首选。"
+        },
+        {
+          "name": "Hunan King",
+          "nameCn": "湖南王（中餐馆）",
+          "lat": 37.2251,
+          "lng": -80.4282,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "布莱克斯堡口碑最佳中餐馆（801 University City Blvd），湖南菜、四川菜均有，多数华人学生认可的正宗口味。"
+        },
+        {
+          "name": "Chinese Kitchen",
+          "nameCn": "中国厨房（外卖中餐）",
+          "lat": 37.2354,
+          "lng": -80.4228,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "北主街老牌中餐馆（1409 N Main St），炒菜、汤面到位，有外卖和堂食，价格亲民适合学生。"
+        },
+        {
+          "name": "Cafe Mekong Viet-Thai Cuisine",
+          "nameCn": "湄公河咖啡越泰料理",
+          "lat": 37.2261,
+          "lng": -80.4145,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "布莱克斯堡最受好评的亚洲餐厅之一（1405 S Main St），泰国咖喱、越南河粉、老挝烤肉各有特色。"
+        },
+        {
+          "name": "Kuma Moon Japanese Ramen & Boba",
+          "nameCn": "熊月日式拉面与珍珠奶茶",
+          "lat": 37.2243,
+          "lng": -80.4282,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "725 University City Blvd，拉面、乌冬、咖喱炸猪排及丰富的奶茶系列，深受亚洲学生追捧。"
+        },
+        {
+          "name": "The Cellar Restaurant",
+          "nameCn": "地窖餐厅（希腊地中海）",
+          "lat": 37.2309,
+          "lng": -80.4175,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "302 N Main St 的地下希腊地中海餐厅，有丰富精酿啤酒单，氛围浓郁，是本地老学生和校友公认必吃。"
+        },
+        {
+          "name": "Benny Marzano's",
+          "nameCn": "本尼马尔扎诺披萨",
+          "lat": 37.2308,
+          "lng": -80.4164,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "110 Draper Rd，招牌28寸巨型 NY 风格披萨，凌晨3点营业，深夜学习后填肚首选，VT 学生必打卡。"
+        },
+        {
+          "name": "Our Daily Bread Bakery & Bistro",
+          "nameCn": "我们的日常面包烘焙坊",
+          "lat": 37.2195,
+          "lng": -80.4082,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "1329 S Main St，多次荣获「布莱克斯堡最佳早午餐」，法式烘焙、三明治与汤品，周末排队是常态。"
+        },
+        {
+          "name": "Gaucho Brazilian Grille",
+          "nameCn": "高乔巴西烤肉",
+          "lat": 37.2243,
+          "lng": -80.4289,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "880 University City Blvd，正宗巴西自助烤肉，服务热情，肉类品质高，适合节庆聚餐或解馋大餐。"
+        },
+        {
+          "name": "Cabo Fish Taco",
+          "nameCn": "卡博鱼玉米饼（墨西哥）",
           "lat": 37.23,
-          "lng": -80.415,
-          "note": "校门口 downtown 的现代中式快餐，主打北方肉夹馍(bing)和面碗，口味正、留学生扎堆。"
+          "lng": -80.4149,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "117 S Main St 的下城最热闹餐厅，Baja 风格炸鱼玉米饼、玛格丽特鸡尾酒，氛围轻松，学生聚餐常去。"
         },
         {
-          "name": "Happy Wok",
-          "nameCn": "Happy Wok 中餐馆",
-          "lat": 37.2294,
-          "lng": -80.4138,
-          "note": "College Ave 上口碑很高的中餐，被不少人评为布堡最好吃的中国菜，点中文菜单更地道。"
+          "name": "Macado's",
+          "nameCn": "马卡多三明治餐厅",
+          "lat": 37.2311,
+          "lng": -80.4171,
+          "rank": 11,
+          "tier": "一般",
+          "note": "价格亲民的地区连锁，以堆料饱满三明治闻名，内部装饰充满怀旧流行文化风格，学生聚会常选。"
         },
         {
-          "name": "Top of the Stairs (TOTS)",
-          "nameCn": "Top of the Stairs（地标酒吧餐厅）",
+          "name": "Blacksburg Farmers Market",
+          "nameCn": "布莱克斯堡农夫市集",
+          "lat": 37.2303,
+          "lng": -80.4153,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "100 Draper Rd 市场广场公园，周三下午及周六上午，汇集本地新鲜农产品、蜂蜜、手工食品，体验地道在地文化。"
+        },
+        {
+          "name": "Edo Ya Japanese Restaurant",
+          "nameCn": "江户屋日本料理",
           "lat": 37.2245,
-          "lng": -80.4167,
-          "note": "1978 年开业的 VT 学生地标，招牌 loaded tots 薯块和 Rail 饮料，来了至少打卡一次。"
+          "lng": -80.4085,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "布莱克斯堡日式料理好评口碑较高，寿司与定食系列均受亚洲学生认可，适合想换口味时前往。"
         },
         {
-          "name": "Gillie's",
-          "nameCn": "Gillie's（早午餐名店）",
-          "lat": 37.2293,
-          "lng": -80.4148,
-          "note": "1974 年老牌素食/海鲜餐厅，周末 brunch 极火，对素食和无麸质友好，几乎就在校园边。"
-        },
-        {
-          "name": "Benny Marconi's (Benny's Pizza)",
-          "nameCn": "Benny's 披萨（巨型 Virginia Slice）",
-          "lat": 37.23,
-          "lng": -80.414,
-          "note": "downtown 的招牌大披萨，比脸还大的 slice，深夜常常排到门外，学生宵夜经典。"
+          "name": "Not Your Mama's Pasta",
+          "nameCn": "不是妈妈的意面（手工意面）",
+          "lat": 37.2294,
+          "lng": -80.415,
+          "rank": 14,
+          "tier": "一般",
+          "note": "手工现制意面配罗马风披萨，食材讲究，氛围现代，周四至周六全程服务，其余外卖，品质在布莱克斯堡属上乘。"
         }
       ]
     },
@@ -268,32 +582,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (S Main St)",
-          "nameCn": "美国银行（开户网点）",
-          "lat": 37.212,
-          "lng": -80.396,
-          "note": "大型连锁银行 Blacksburg 实体网点，可办理开户；校内 Squires 学生中心还有其 ATM。"
+          "name": "Wells Fargo Bank – University City Blvd",
+          "nameCn": "富国银行（大学城大道支行）",
+          "lat": 37.2248,
+          "lng": -80.429,
+          "rank": 1,
+          "tier": "必去",
+          "note": "920 University City Blvd，距校最近的全国连锁银行，国际学生持护照+I-20可开户，校内 Squires 亦有 ATM。"
         },
         {
-          "name": "LewisGale Hospital Montgomery",
-          "nameCn": "LewisGale Montgomery 医院（急诊/急救）",
-          "lat": 37.196,
-          "lng": -80.387,
-          "note": "本地综合医院，设 24 小时急诊和三级创伤中心，生病或急症就医的主要去处。"
+          "name": "Schiffert Health Center (On-Campus Clinic)",
+          "nameCn": "希弗特健康中心（校内诊所）",
+          "lat": 37.2285,
+          "lng": -80.4297,
+          "rank": 2,
+          "tier": "必去",
+          "note": "McComas Hall 内校医院，周一至周五门诊，周六上午急诊，含旅行门诊/过敏注射/化验室，持 VT 健康保险享优惠。"
         },
         {
-          "name": "CVS Pharmacy (1775 S Main St)",
-          "nameCn": "CVS 药房",
-          "lat": 37.2122,
-          "lng": -80.397,
-          "note": "连锁药房，可取处方药、买非处方药和日用品，也提供疫苗等基础健康服务。"
+          "name": "Carilion VelocityCare – Blacksburg (Urgent Care)",
+          "nameCn": "卡瑞来急诊护理中心",
+          "lat": 37.228,
+          "lng": -80.4267,
+          "rank": 3,
+          "tier": "必去",
+          "note": "215 Gilbert St，每日8am-11pm，接收校医无法处理的急症，直接走保险，无需预约，应急首选。"
         },
         {
-          "name": "Verizon (Victra, University City Blvd)",
-          "nameCn": "Verizon 手机营业厅",
-          "lat": 37.233,
-          "lng": -80.43,
-          "note": "主流运营商 Verizon 授权店，办手机卡/套餐、买机或解决信号问题，靠近学生公寓区。"
+          "name": "LewisGale Hospital Montgomery (ER)",
+          "nameCn": "路易斯盖尔蒙哥马利医院急诊",
+          "lat": 37.1994,
+          "lng": -80.4012,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "3700 S Main St，三级创伤中心，24小时急诊室，是布莱克斯堡区域最高级别医院，严重意外首选。"
+        },
+        {
+          "name": "CVS Pharmacy – University City Blvd",
+          "nameCn": "CVS 药房（大学城大道店）",
+          "lat": 37.2246,
+          "lng": -80.4286,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "600 University City Blvd，每日7am-10pm，有处方药、OTC 药物及 MinuteClinic 小诊所，是学生最常用药房。"
+        },
+        {
+          "name": "CVS Pharmacy – South Main Street",
+          "nameCn": "CVS 药房（南主街店）",
+          "lat": 37.2185,
+          "lng": -80.4068,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "1301 S Main St，与 CVS 大学城店互补，为南部居住区学生提供便捷取药和日常健康产品。"
+        },
+        {
+          "name": "Verizon – University City Blvd",
+          "nameCn": "Verizon 手机运营商门店",
+          "lat": 37.2246,
+          "lng": -80.4287,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "800 University City Blvd，美国信号最广的运营商，国际学生到美后可在此办理 SIM 卡，校园信号稳定。"
+        },
+        {
+          "name": "Bank of America – Blacksburg",
+          "nameCn": "美国银行（布莱克斯堡支行）",
+          "lat": 37.2306,
+          "lng": -80.4172,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "下城支行，国际学生凭护照+I-20可开免费学生支票账户，ATM 网点广，与微信/支付宝互通转账便利。"
         }
       ]
     },
@@ -305,32 +663,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Virginia Tech Duck Pond",
-          "nameCn": "弗吉尼亚理工鸭子湖",
-          "lat": 37.221,
-          "lng": -80.429,
-          "note": "校园里 1930 年代人工湖，水鸟成群、绿树环绕，散步、拍照、放松的网红风景点。"
+          "name": "Cascades Falls (Jefferson National Forest)",
+          "nameCn": "卡斯卡德瀑布（杰弗逊国家森林）",
+          "lat": 37.3536,
+          "lng": -80.5997,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校约40分钟车程，往返4英里徒步，终点为66英尺双层瀑布，是 VT 学生公认的首选周末徒步胜地。"
         },
         {
-          "name": "War Memorial Chapel & Pylons",
-          "nameCn": "战争纪念教堂与纪念柱",
-          "lat": 37.227,
-          "lng": -80.422,
-          "note": "VT 精神象征，八根 Hokie Stone 纪念柱刻有校训 Ut Prosim，俯瞰 Drillfield 大草坪。"
+          "name": "Dragon's Tooth – Catawba",
+          "nameCn": "龙牙岩（卡托巴）",
+          "lat": 37.3787,
+          "lng": -80.1563,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距校约45分钟车程，陡峭有趣的徒步路线（约4英里往返），顶部巨岩景观震撼，秋季色彩尤为迷人。"
         },
         {
-          "name": "Moss Arts Center (Center for the Arts)",
-          "nameCn": "莫斯艺术中心",
-          "lat": 37.2298,
-          "lng": -80.4155,
-          "note": "校园边的大型艺术中心，1260 座剧院加视觉艺术画廊，常有演出和展览可看。"
+          "name": "Huckleberry Trail",
+          "nameCn": "越橘步道（布莱克斯堡城市绿道）",
+          "lat": 37.2449,
+          "lng": -80.4599,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "校园外8.3英里全铺装城市绿道，连接 VT 与克里斯琴斯堡，可跑步、骑车、遛狗，是日常减压散心首选。"
+        },
+        {
+          "name": "Mountain Lake Lodge (Dirty Dancing Filming Location)",
+          "nameCn": "山湖旅馆（《热舞17》取景地）",
+          "lat": 37.3554,
+          "lng": -80.5378,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距校约35分钟车程，电影《Dirty Dancing》主要取景地，群山环抱的山间度假木屋，适合周末1日游。"
+        },
+        {
+          "name": "Virginia Tech Duck Pond & Solitude Trail",
+          "nameCn": "鸭子池与孤寂屋散步路线",
+          "lat": 37.2316,
+          "lng": -80.4272,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园内最治愈的休闲步道，绕鸭子池一圈约20分钟，历史建筑 Solitude（1840年）就在一旁，全年免费。"
+        },
+        {
+          "name": "Center for the Arts at Virginia Tech (Performances)",
+          "nameCn": "弗吉尼亚理工艺术中心（演出）",
+          "lat": 37.2323,
+          "lng": -80.4177,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "190 Alumni Mall，全年举办交响乐、爵士、话剧、国际艺术家巡演，学生票价折扣大，文化体验不可错过。"
+        },
+        {
+          "name": "Blacksburg Farmers Market (Market Square Park)",
+          "nameCn": "布莱克斯堡农夫市集（市场广场公园）",
+          "lat": 37.2303,
+          "lng": -80.4153,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "100 Draper Rd，4-10月周三下午及周六上午开市，品尝本地蜂蜜、手工奶酪和应季蔬果，感受 Appalachian 农耕文化。"
+        },
+        {
+          "name": "Lane Stadium – Hokies Game Day",
+          "nameCn": "莱恩球场——橄榄球比赛日",
+          "lat": 37.2199,
+          "lng": -80.4183,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "秋季主场赛季（9-11月）入场体验 VT 橙色狂热文化，学生票价优惠，Hokie Stadium 嘈杂氛围名列全美前茅。"
         },
         {
           "name": "Hahn Horticulture Garden",
-          "nameCn": "Hahn 园艺花园",
-          "lat": 37.2196,
-          "lng": -80.4248,
-          "note": "校内免费植物园，四季花木和水景，靠近鸭子湖，适合慢逛和出片的安静角落。"
+          "nameCn": "哈恩园艺花园（春季赏花）",
+          "lat": 37.2245,
+          "lng": -80.4155,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "校园内免费开放的活体植物园，春季樱花和杜鹃盛开，秋季色叶缤纷，是拍照和冥想的绝佳去处。"
         }
       ]
     }

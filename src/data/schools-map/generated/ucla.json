@@ -75,32 +75,103 @@
       "icon": "school",
       "items": [
         {
+          "name": "Henry Samueli School of Engineering (Boelter Hall)",
+          "nameCn": "萨缪利工学院（博尔特楼）",
+          "lat": 34.0692,
+          "lng": -118.4432,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCLA理工科核心，计算机、电气、化工等顶尖项目所在地，南校区标志性建筑群。"
+        },
+        {
           "name": "Royce Hall",
-          "nameCn": "罗伊斯楼",
+          "nameCn": "罗伊斯音乐厅",
           "lat": 34.0728,
-          "lng": -118.4419,
-          "note": "1929年罗马砖建筑，北校区四方庭院地标。"
+          "lng": -118.4422,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UCLA最具标志性的意大利罗曼式建筑，校园打卡第一名，也是重要演讲厅与音乐厅。"
         },
         {
-          "name": "Henry Samueli School of Engineering",
-          "nameCn": "塞缪里工程学院",
-          "lat": 34.069,
-          "lng": -118.4434,
-          "note": "南校区工程与应用科学院。"
-        },
-        {
-          "name": "David Geffen School of Medicine (CHS)",
-          "nameCn": "盖芬医学院（CHS楼）",
-          "lat": 34.0668,
-          "lng": -118.4423,
-          "note": "南校区医学院与健康科学中心。"
-        },
-        {
-          "name": "Anderson School of Management",
+          "name": "UCLA Anderson School of Management",
           "nameCn": "安德森商学院",
-          "lat": 34.0742,
-          "lng": -118.4435,
-          "note": "北校区商学院综合楼群。"
+          "lat": 34.0763,
+          "lng": -118.448,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美顶尖商学院之一，MBA/MFE项目知名，建筑群位于北校区西侧。"
+        },
+        {
+          "name": "UCLA School of Law",
+          "nameCn": "法学院",
+          "lat": 34.0737,
+          "lng": -118.4392,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美前十法学院，建筑群环绕North Campus，学生常在此参加法律讲座与活动。"
+        },
+        {
+          "name": "Bunche Hall (Social Sciences)",
+          "nameCn": "邦奇楼（社会科学院）",
+          "lat": 34.0745,
+          "lng": -118.4409,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "北校区最高建筑，政治学、国际关系、历史系主要教学楼，外观深褐色辨识度极高。"
+        },
+        {
+          "name": "Haines Hall (Humanities & Social Sciences)",
+          "nameCn": "海恩斯楼（人文社科）",
+          "lat": 34.0718,
+          "lng": -118.4405,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "最早四栋校园建筑之一，人类学、社会学系所在地，意大利罗曼式风格。"
+        },
+        {
+          "name": "Franz Hall (Psychology)",
+          "nameCn": "弗朗茨楼（心理学院）",
+          "lat": 34.0735,
+          "lng": -118.4427,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UCLA心理学系与认知科学系总部，实验室和研究设施齐全，北校区核心。"
+        },
+        {
+          "name": "Meyer and Renee Luskin School of Public Affairs",
+          "nameCn": "拉斯金公共事务学院",
+          "lat": 34.0726,
+          "lng": -118.4386,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "城市规划、公共政策和社会福利研究重镇，与联合国SDG议题高度相关。"
+        },
+        {
+          "name": "Life Sciences Building",
+          "nameCn": "生命科学楼",
+          "lat": 34.0682,
+          "lng": -118.4415,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "生物学本科核心教学楼，大型阶梯教室，前往南校区科学区的重要节点。"
+        },
+        {
+          "name": "Gonda (Goldschmied) Neuroscience and Genetics Research Center",
+          "nameCn": "贡达神经科学与遗传学研究中心",
+          "lat": 34.0665,
+          "lng": -118.444,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "UCLA医学与神经科学研究旗舰楼，与David Geffen医学院紧邻，设施世界级。"
+        },
+        {
+          "name": "Broad Art Center",
+          "nameCn": "博罗德艺术中心",
+          "lat": 34.0757,
+          "lng": -118.4406,
+          "rank": 11,
+          "tier": "可选",
+          "note": "UCLA艺术学院现代建筑，设有展览空间与工作室，北校区文艺氛围的代表。"
         }
       ],
       "defaultOn": true
@@ -115,16 +186,74 @@
         {
           "name": "Powell Library",
           "nameCn": "鲍威尔图书馆",
-          "lat": 34.0719,
-          "lng": -118.4421,
-          "note": "本科生主图书馆，对望罗伊斯楼。"
+          "lat": 34.0712,
+          "lng": -118.4422,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCLA最具标志性的本科图书馆，45英尺高穹顶阅览室是全校最美自习空间，考试季常排队。"
         },
         {
-          "name": "Charles E. Young Research Library",
-          "nameCn": "杨氏研究图书馆",
-          "lat": 34.075,
-          "lng": -118.4413,
-          "note": "北校区研究型主图书馆。"
+          "name": "Charles E. Young Research Library (YRL)",
+          "nameCn": "杨格研究图书馆",
+          "lat": 34.0759,
+          "lng": -118.4415,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UCLA最大综合研究型图书馆，馆藏超300万册，Special Collections和东亚图书馆均在此。"
+        },
+        {
+          "name": "Louise M. Darling Biomedical Library",
+          "nameCn": "达林生物医学图书馆",
+          "lat": 34.0663,
+          "lng": -118.4434,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于健康科学大楼内，全美顶尖医学图书馆之一，医学/公卫/护理专业必用资源。"
+        },
+        {
+          "name": "Science and Engineering Library (SEL)",
+          "nameCn": "理工科学图书馆",
+          "lat": 34.0693,
+          "lng": -118.4435,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于博尔特楼8270室，理工科专业核心参考馆，有专业学科馆员提供科研支持。"
+        },
+        {
+          "name": "Richard C. Rudolph East Asian Library",
+          "nameCn": "鲁道夫东亚图书馆",
+          "lat": 34.0759,
+          "lng": -118.4415,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于YRL内，中文、日文、韩文馆藏丰富，是中国留学生查阅中文文献的首选之地。"
+        },
+        {
+          "name": "Arts Library",
+          "nameCn": "艺术图书馆",
+          "lat": 34.0739,
+          "lng": -118.4403,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于公共事务楼1400室，艺术史、设计、建筑资料齐全，环境安静适合创意类研究。"
+        },
+        {
+          "name": "Walter H. Rubsamen Music Library",
+          "nameCn": "鲁布萨门音乐图书馆",
+          "lat": 34.0742,
+          "lng": -118.4433,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于申伯格音乐楼，收藏乐谱、音频录音和音乐学文献，音乐专业学生必访。"
+        },
+        {
+          "name": "Eugene and Maxine Rosenfeld Management Library",
+          "nameCn": "罗森菲尔德管理图书馆",
+          "lat": 34.0763,
+          "lng": -118.448,
+          "rank": 8,
+          "tier": "可选",
+          "note": "位于安德森商学院楼内，商科、金融、会计类参考资源集中，环境高端安静。"
         }
       ]
     },
@@ -136,18 +265,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Fowler Museum",
-          "nameCn": "福勒博物馆",
-          "lat": 34.0729,
-          "lng": -118.4434,
-          "note": "全球艺术与文化博物馆，紧邻罗伊斯楼。"
+          "name": "Hammer Museum",
+          "nameCn": "海默博物馆",
+          "lat": 34.0598,
+          "lng": -118.4444,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻校园的免费当代艺术馆，馆内有Lulu餐厅，经常举办与UCLA联动的前卫展览。"
         },
         {
-          "name": "Hammer Museum",
-          "nameCn": "哈默博物馆",
-          "lat": 34.0593,
-          "lng": -118.4435,
-          "note": "威尔希尔大道艺术馆，校区南缘。"
+          "name": "Fowler Museum at UCLA",
+          "nameCn": "福勒文化博物馆",
+          "lat": 34.0731,
+          "lng": -118.4491,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内免费博物馆，聚焦非洲、亚洲、太平洋及美洲原住民艺术与文化，展品极具冲击力。"
+        },
+        {
+          "name": "Franklin D. Murphy Sculpture Garden",
+          "nameCn": "墨菲雕塑花园",
+          "lat": 34.0751,
+          "lng": -118.4401,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内5英亩露天雕塑公园，馆藏Matisse、Rodin等大师原作，四季免费开放，拍照绝佳。"
+        },
+        {
+          "name": "Mildred E. Mathias Botanical Garden",
+          "nameCn": "玛赛厄斯植物园",
+          "lat": 34.0658,
+          "lng": -118.4382,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园东南角7.5英亩活体博物馆，收录来自世界各地的珍稀植物，环境静谧适合散步放松。"
+        },
+        {
+          "name": "UCLA Film & Television Archive — Research and Study Center",
+          "nameCn": "UCLA电影电视档案研究中心",
+          "lat": 34.0712,
+          "lng": -118.4422,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于鲍威尔图书馆46室，珍藏大量好莱坞历史影像资料，影视专业学生的宝库。"
         }
       ]
     },
@@ -159,25 +319,76 @@
       "icon": "place",
       "items": [
         {
+          "name": "Dickson Plaza (Janss Steps)",
+          "nameCn": "迪克森广场（詹斯台阶）",
+          "lat": 34.0719,
+          "lng": -118.4415,
+          "rank": 1,
+          "tier": "必去",
+          "note": "罗伊斯楼与鲍威尔图书馆之间的中心广场，台阶是全校最经典的毕业拍照圣地。"
+        },
+        {
+          "name": "Ackerman Student Union",
+          "nameCn": "阿克曼学生会大楼",
+          "lat": 34.0701,
+          "lng": -118.4435,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内最大学生服务中心，内有UCLA官方书店、药房、餐厅及各类学生组织办公室。"
+        },
+        {
+          "name": "Bruin Plaza & The Bruin Bear Statue",
+          "nameCn": "布鲁因广场与熊猫铜像",
+          "lat": 34.0699,
+          "lng": -118.444,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园心脏地带，布鲁因熊雕像是UCLA最热门打卡点，周边聚集木制中心等学生设施。"
+        },
+        {
+          "name": "Wilson Plaza",
+          "nameCn": "威尔逊广场",
+          "lat": 34.071,
+          "lng": -118.4421,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "詹斯台阶底部的主要户外集会空间，马丁·路德·金曾在此发表演讲，是校园政治文化中心。"
+        },
+        {
+          "name": "John Wooden Center",
+          "nameCn": "约翰·伍登运动中心",
+          "lat": 34.0706,
+          "lng": -118.4444,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校内主要综合健身中心，学生凭ID免费进入，篮球馆、游泳池、健身房一应俱全。"
+        },
+        {
+          "name": "Kerckhoff Hall",
+          "nameCn": "科考夫楼",
+          "lat": 34.0705,
+          "lng": -118.4428,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "哥特式城堡外观的旧学生会楼，内有著名的科考夫咖啡屋，是课间休息聚集的社交场。"
+        },
+        {
           "name": "Pauley Pavilion",
-          "nameCn": "保利体育馆",
-          "lat": 34.0702,
-          "lng": -118.4468,
-          "note": "篮球主场馆，伍登传奇之地。"
+          "nameCn": "鲍利体育馆",
+          "lat": 34.07,
+          "lng": -118.4459,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UCLA篮球队的主场，承载了无数全美冠军历史，比赛季节气氛热烈，值得亲身体验。"
         },
         {
-          "name": "Drake Stadium",
-          "nameCn": "德雷克体育场",
-          "lat": 34.072,
-          "lng": -118.4483,
-          "note": "田径与足球场，约11700座。"
-        },
-        {
-          "name": "Ackerman Union",
-          "nameCn": "阿克曼学生会馆",
-          "lat": 34.0707,
-          "lng": -118.4438,
-          "note": "学生活动中心，紧邻保利体育馆。"
+          "name": "Arthur Ashe Student Health and Wellness Center",
+          "nameCn": "阿瑟·阿什学生健康中心",
+          "lat": 34.0698,
+          "lng": -118.4449,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "UCLA在校生主要医疗点，提供初级诊疗、心理咨询及体检服务，国际生必须了解。"
         }
       ]
     },
@@ -190,38 +401,66 @@
       "items": [
         {
           "name": "99 Ranch Market (Westwood)",
-          "nameCn": "大华超市（西木店）",
-          "lat": 34.0497,
-          "lng": -118.4438,
-          "note": "离校最近的大型华人超市，中餐食材、亚洲蔬菜海鲜、二楼亚洲美食广场一应俱全，步行/公交即达。"
+          "nameCn": "大华超市（韦斯特伍德店）",
+          "lat": 34.0559,
+          "lng": -118.4417,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2023年新开，距校步行可达，45000平方英尺亚洲食材超市，附设美食广场和奶茶，中国留学生必去。"
         },
         {
-          "name": "Trader Joe's (Westwood Village)",
-          "nameCn": "缺德舅超市（西木村店）",
-          "lat": 34.0608,
-          "lng": -118.4445,
-          "note": "村里最受欢迎的平价超市，冷冻食品、零食、半成品丰富，性价比高，几乎是留学生标配。"
-        },
-        {
-          "name": "Ralphs (Westwood Village)",
-          "nameCn": "Ralphs 超市（西木村店）",
-          "lat": 34.0617,
-          "lng": -118.4459,
-          "note": "24 小时营业的美式大超市，紧邻校园，日常采购、深夜补货都方便。"
+          "name": "Trader Joe's (Westwood)",
+          "nameCn": "乔氏超市（韦斯特伍德店）",
+          "lat": 34.0606,
+          "lng": -118.4458,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1000 Glendon Ave，校园步行5分钟，价格实惠自有品牌食品丰富，UCLA学生最爱日常购物地。"
         },
         {
           "name": "Whole Foods Market (Westwood)",
-          "nameCn": "全食超市（西木店）",
-          "lat": 34.0588,
-          "lng": -118.4434,
-          "note": "主打有机生鲜与现成热食的高端超市，沙拉吧和熟食区适合临时解决一餐。"
+          "nameCn": "全食超市（韦斯特伍德店）",
+          "lat": 34.0612,
+          "lng": -118.4469,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "1050 Gayley Ave，有机食品和即食熟食丰富，价格偏高但品质好，适合改善伙食。"
         },
         {
-          "name": "Nijiya Market (Sawtelle)",
-          "nameCn": "Nijiya 日本超市（Sawtelle 店）",
-          "lat": 34.0349,
-          "lng": -118.4459,
-          "note": "小东京街区的日系超市，新鲜刺身、便当、日本调料齐全，想做日料或买亚洲食材的好去处。"
+          "name": "Ralph's (Westwood)",
+          "nameCn": "拉尔夫超市（韦斯特伍德店）",
+          "lat": 34.0577,
+          "lng": -118.4436,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "10861 Weyburn Ave，连锁平价超市，日用品、生鲜一站购齐，持Shopper's Card享折扣。"
+        },
+        {
+          "name": "Mitsuwa Marketplace (West LA)",
+          "nameCn": "三和超市（西洛杉矶店）",
+          "lat": 34.0207,
+          "lng": -118.4284,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "3760 S Centinela Ave，洛杉矶最大日本超市，附设多家日式餐厅和面包店，日本食材一应俱全。"
+        },
+        {
+          "name": "H Mart (Koreatown)",
+          "nameCn": "H Mart韩国超市（韩国城店）",
+          "lat": 34.0608,
+          "lng": -118.305,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "3525 W 8th St，洛杉矶最大韩国超市，韩式食材、泡菜、海鲜丰富，车程约20分钟。"
+        },
+        {
+          "name": "CVS Pharmacy (Westwood Blvd)",
+          "nameCn": "CVS药妆店（韦斯特伍德大道）",
+          "lat": 34.0579,
+          "lng": -118.4425,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1001 Westwood Blvd，集药房与便利店于一体，生活日用品、非处方药、护肤品随时可购。"
         }
       ]
     },
@@ -233,46 +472,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "In-N-Out Burger (Westwood)",
-          "nameCn": "In-N-Out 汉堡（西木店）",
-          "lat": 34.0626,
-          "lng": -118.449,
-          "note": "加州必吃的国民汉堡，紧邻校园南侧，记得点隐藏菜单 Animal Style，几乎是来洛杉矶的打卡仪式。"
-        },
-        {
           "name": "Tsujita LA Artisan Noodle",
-          "nameCn": "Tsujita 拉面（Sawtelle 旗舰店）",
-          "lat": 34.0337,
-          "lng": -118.4459,
-          "note": "全美闻名的蘸面（つけ麺）名店，60 小时熬制豚骨汤，常年排队；近期翻修临时搬到对街 2050/2006 号。"
+          "nameCn": "辻田拉面（沙威特尔店）",
+          "lat": 34.0282,
+          "lng": -118.4453,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "2057 Sawtelle Blvd，洛杉矶最出名的蘸面（つけ麺）专门店，排队是常态，浓郁猪骨汤底强烈推荐。"
         },
         {
-          "name": "Tatsu Ramen (Sawtelle)",
-          "nameCn": "Tatsu 拉面（Sawtelle 店）",
-          "lat": 34.0356,
-          "lng": -118.4459,
-          "note": "小东京街上人气豚骨拉面，平板点单、营业到很晚，适合上完晚自习去吃一碗。"
+          "name": "Sichuan Impression",
+          "nameCn": "川味印象",
+          "lat": 34.0402,
+          "lng": -118.4461,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "11057 Santa Monica Blvd，公认南加州最好的川菜馆之一，口水鸡、冷面、花椒爆炒绝佳，常爆满。"
         },
         {
-          "name": "Yang Chow Westwood",
-          "nameCn": "扬州饭店（西木店）",
-          "lat": 34.0593,
-          "lng": -118.4432,
-          "note": "老牌川粤中餐馆，招牌 Slippery Shrimp（脆皮虾）很受欢迎，想吃中式正餐时的稳妥选择。"
+          "name": "Din Tai Fung (Century City)",
+          "nameCn": "鼎泰丰（世纪城店）",
+          "lat": 34.056,
+          "lng": -118.4173,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "10250 Santa Monica Blvd，台式小笼包标杆，环境整洁服务好，是UCLA中国学生最爱的正式聚餐地。"
         },
         {
-          "name": "BCD Tofu House (Sawtelle)",
-          "nameCn": "北仓洞豆腐（Sawtelle 店）",
-          "lat": 34.042,
-          "lng": -118.4459,
-          "note": "24 小时韩式嫩豆腐锅连锁，热汤暖胃、分量足，赶论文的深夜食堂。"
+          "name": "Tasty Noodle House",
+          "nameCn": "美味面馆",
+          "lat": 34.0285,
+          "lng": -118.4449,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "2117 Sawtelle Blvd，小笼包和葱油饼人气极旺，价格实惠，是沙威特尔日式街上难得的中餐明星。"
+        },
+        {
+          "name": "Sun Nong Dan",
+          "nameCn": "顺农丹（韩国城）",
+          "lat": 34.0282,
+          "lng": -118.445,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "1803 Sawtelle Blvd，24小时营业的韩式红烧牛肋，超大份量冒热气的砂锅，寒冷夜晚暖胃之选。"
+        },
+        {
+          "name": "Emporium Thai",
+          "nameCn": "帝国泰餐厅",
+          "lat": 34.0494,
+          "lng": -118.4438,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "1275 Westwood Blvd，学生区最受好评的家庭泰餐，南部咖喱海鲜和香脆鸡翅是招牌，价格亲民。"
+        },
+        {
+          "name": "Hide Sushi",
+          "nameCn": "秘密寿司",
+          "lat": 34.0284,
+          "lng": -118.4454,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "2040 Sawtelle Blvd，沙威特尔街最经典的平价传统寿司，只收现金，新鲜实惠，老饕必访。"
         },
         {
           "name": "Diddy Riese",
-          "nameCn": "Diddy Riese 饼干冰淇淋",
-          "lat": 34.0628,
-          "lng": -118.447,
-          "note": "西木村平价网红甜品，现烤曲奇夹冰淇淋只要几美元，UCLA 学生几十年的甜点据点。"
+          "nameCn": "迪迪·里斯曲奇冰淇淋",
+          "lat": 34.0623,
+          "lng": -118.4481,
+          "rank": 8,
+          "tier": "绝对必吃",
+          "note": "926 Broxton Ave，紧邻校园30年老字号，1.75美元一个冰淇淋夹心饼干，UCLA学生人均吃过的甜蜜回忆。"
+        },
+        {
+          "name": "Gushi",
+          "nameCn": "具志韩式烤肉窗口",
+          "lat": 34.0616,
+          "lng": -118.4483,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "978 Gayley Ave，校边网红韩式路边摊，套餐肉饭超值，开敞的窗口点餐，学生圈口碑极佳。"
+        },
+        {
+          "name": "Marugame Udon",
+          "nameCn": "丸龟制面",
+          "lat": 34.0284,
+          "lng": -118.4454,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "2029 Sawtelle Blvd，日本连锁自助乌冬面，现做Q弹面条配丰富天妇罗，快手午餐性价比极高。"
+        },
+        {
+          "name": "Saffron & Rose Ice Cream",
+          "nameCn": "藏红花玫瑰冰淇淋",
+          "lat": 34.0512,
+          "lng": -118.4445,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1385 Westwood Blvd，波斯风味冰淇淋名店，藏红花开心果口味是招牌，Westwood独特文化体验。"
+        },
+        {
+          "name": "Hakata Izakaya Hero",
+          "nameCn": "博多居酒屋",
+          "lat": 34.0441,
+          "lng": -118.4445,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "1929 Westwood Blvd，小而精的日式居酒屋，猪骨拉面和分享小食是亮点，聚餐好选择。"
+        },
+        {
+          "name": "Ten No Meshi (Kyoto Wagyu Tonkatsu)",
+          "nameCn": "天之御馐炸猪排",
+          "lat": 34.0283,
+          "lng": -118.4449,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "2006 Sawtelle Blvd，京都直营炸猪排专门店，A5和牛炸猪排是招牌，定食套餐精致，慢食好去处。"
+        },
+        {
+          "name": "Bella Pita",
+          "nameCn": "贝拉皮塔地中海餐",
+          "lat": 34.0619,
+          "lng": -118.4483,
+          "rank": 14,
+          "tier": "一般",
+          "note": "980 Gayley Ave，UCLA校边深夜营业的地中海餐馆，超大皮塔口袋饼Wowshi是学生深夜救星。"
         }
       ]
     },
@@ -284,32 +607,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Ronald Reagan UCLA Medical Center",
-          "nameCn": "罗纳德·里根 UCLA 医学中心",
-          "lat": 34.0653,
-          "lng": -118.4466,
-          "note": "全美顶尖的校内综合医院，含急诊（ER），突发重病或意外第一去处；日常小病可先用校内 Ashe 学生健康中心。"
+          "name": "Chase Bank (Westwood Blvd Branch)",
+          "nameCn": "摩根大通银行（韦斯特伍德大道支行）",
+          "lat": 34.0526,
+          "lng": -118.4432,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "1550 Westwood Blvd，距校步行约15分钟，开设学生账户方便，国际生带护照和I-20可办理。"
         },
         {
-          "name": "Chase Bank (Westwood Village)",
-          "nameCn": "大通银行（西木村支行）",
-          "lat": 34.0621,
-          "lng": -118.4458,
-          "note": "村里的摩根大通网点，开学生支票/借记账户、办理转账方便，是中国学生常用的大行之一。"
-        },
-        {
-          "name": "CVS Pharmacy (Westwood)",
-          "nameCn": "CVS 药房（西木店）",
+          "name": "Wells Fargo Bank (Wilshire Westwood Branch)",
+          "nameCn": "富国银行（威尔夏-韦斯特伍德支行）",
           "lat": 34.0612,
-          "lng": -118.4456,
-          "note": "连锁药房兼便利店，处方药、感冒药、日用品都能买，紧邻校园取药方便。"
+          "lng": -118.4453,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "10920 Wilshire Blvd，校园旁大型分行，可开支票账户及申请学生信用卡，自动存取款机24小时。"
         },
         {
-          "name": "T-Mobile (Westwood Village)",
-          "nameCn": "T-Mobile 营业厅（西木村店）",
-          "lat": 34.0625,
-          "lng": -118.4467,
-          "note": "村里手机运营商门店，办美国手机号/套餐、配 SIM 卡，新生落地后办卡的去处。"
+          "name": "UCLA Westwood Immediate Care",
+          "nameCn": "UCLA韦斯特伍德紧急诊疗中心",
+          "lat": 34.0671,
+          "lng": -118.4443,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "200 UCLA Medical Plaza，无需预约的校属紧急门诊，校医保覆盖，生病首选，比急诊室快很多。"
+        },
+        {
+          "name": "Arthur Ashe Student Health Center (Pharmacy)",
+          "nameCn": "阿什学生健康中心（药房）",
+          "lat": 34.0698,
+          "lng": -118.4449,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Ackerman Union A层，UCLA学生专属校内药房，处方药和非处方药均可取，价格对在校生优惠。"
+        },
+        {
+          "name": "Exer Urgent Care (Westwood)",
+          "nameCn": "Exer紧急护理中心（韦斯特伍德）",
+          "lat": 34.0411,
+          "lng": -118.4441,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2090 Westwood Blvd，每日9时至20时30分，无需预约，适合非UCLA学生或需要快速检查的情况。"
+        },
+        {
+          "name": "T-Mobile (Westwood Blvd Store)",
+          "nameCn": "T-Mobile手机运营商门店",
+          "lat": 34.0583,
+          "lng": -118.4441,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "1142 Westwood Blvd，国际生首选运营商之一，到店可办理换卡、预付卡套餐，无需信用记录。"
+        },
+        {
+          "name": "CVS Pharmacy (Westwood Blvd)",
+          "nameCn": "CVS药房（韦斯特伍德大道）",
+          "lat": 34.0579,
+          "lng": -118.4425,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1001 Westwood Blvd，MinuteClinic小诊所内设，可办理小伤口处理和常规体检，药品日用品齐全。"
+        },
+        {
+          "name": "Bank of America (Westwood)",
+          "nameCn": "美国银行（韦斯特伍德）",
+          "lat": 34.0598,
+          "lng": -118.4438,
+          "rank": 8,
+          "tier": "可选",
+          "note": "Westwood Blvd附近，可开设Advantage Banking账户，ATM网络广，适合需要大银行服务的学生。"
         }
       ]
     },
@@ -321,39 +688,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Royce Hall (UCLA)",
-          "nameCn": "罗伊斯礼堂（UCLA 地标）",
-          "lat": 34.0723,
-          "lng": -118.442,
-          "note": "UCLA 最经典的罗曼式红砖双塔建筑，正对 Dickson 草坪，是全校第一打卡点和毕业拍照圣地。"
-        },
-        {
-          "name": "Hammer Museum",
-          "nameCn": "哈默艺术博物馆",
-          "lat": 34.059,
-          "lng": -118.4438,
-          "note": "UCLA 旗下免费当代艺术馆，位于西木村 Wilshire 与 Westwood 路口，常办展览与公共讲座。"
-        },
-        {
-          "name": "The Getty Center",
-          "nameCn": "盖蒂中心",
+          "name": "Getty Center",
+          "nameCn": "盖蒂艺术中心",
           "lat": 34.078,
-          "lng": -118.4741,
-          "note": "山顶上的世界级艺术博物馆，免费入场（仅停车收费），缆车上山可俯瞰全城与海景，必去。"
+          "lng": -118.4745,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCLA西北2公里，全球顶级免费艺术博物馆，白色山顶建筑俯瞰洛杉矶全景，周末必游之地。"
         },
         {
-          "name": "Westwood Village",
-          "nameCn": "西木村商业街",
-          "lat": 34.061,
-          "lng": -118.446,
-          "note": "紧邻校门的核心生活商圈，餐厅、咖啡、电影院、书店云集，含 1931 年的地标 Fox 剧院塔楼。"
+          "name": "Santa Monica Pier & Beach",
+          "nameCn": "圣塔莫尼卡码头与海滩",
+          "lat": 34.0094,
+          "lng": -118.4973,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距UCLA约8英里，Route 66终点标志性码头，游乐园、海鲜、日落景观，周末放松必去。"
         },
         {
-          "name": "Glen Bearie / Janss Steps",
-          "nameCn": "Janss 台阶",
-          "lat": 34.0712,
-          "lng": -118.4445,
-          "note": "UCLA 历史最悠久的 87 级红砖大台阶，连接山顶老校区，俯拍校园与日落的人气取景地。"
+          "name": "Venice Beach Boardwalk & Abbot Kinney",
+          "nameCn": "威尼斯海滩步道与阿伯特·金尼大道",
+          "lat": 33.985,
+          "lng": -118.4695,
+          "rank": 3,
+          "tier": "必去",
+          "note": "肌肉海滩、街头表演、艺术涂鸦加Abbot Kinney精品小店，感受洛杉矶最bohemian的一面。"
+        },
+        {
+          "name": "Griffith Observatory",
+          "nameCn": "格里菲斯天文台",
+          "lat": 34.1184,
+          "lng": -118.3004,
+          "rank": 4,
+          "tier": "必去",
+          "note": "洛杉矶最佳俯瞰点，免费入园，晴天可遥望太平洋，夜晚观星与眺望城市灯光是热门活动。"
+        },
+        {
+          "name": "Sawtelle Japantown",
+          "nameCn": "沙威特尔日本街",
+          "lat": 34.0285,
+          "lng": -118.445,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Sawtelle Blvd两侧聚集大量日式餐厅、拉面馆、烤肉店和抹茶甜品，被称为UCLA学生后花园。"
+        },
+        {
+          "name": "LACMA (Los Angeles County Museum of Art)",
+          "nameCn": "洛杉矶县立艺术博物馆",
+          "lat": 34.0638,
+          "lng": -118.3598,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "美国西海岸最大艺术博物馆，Urban Light路灯装置是打卡网红点，学生票有折扣。"
+        },
+        {
+          "name": "Beverly Hills (Rodeo Drive)",
+          "nameCn": "贝弗利山庄（罗迪欧大道）",
+          "lat": 34.0695,
+          "lng": -118.3997,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "距UCLA仅15分钟车程，顶级奢侈品大道，即使只是漫步也能感受洛杉矶名媛文化，拍照免费。"
+        },
+        {
+          "name": "Hollywood Walk of Fame",
+          "nameCn": "好莱坞星光大道",
+          "lat": 34.1016,
+          "lng": -118.3267,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Hollywood Blvd上超过2500颗星章，TCL中国剧院与柯达剧院附近，到洛杉矶必打卡的地标。"
+        },
+        {
+          "name": "The Broad Museum",
+          "nameCn": "布劳德当代艺术馆",
+          "lat": 34.0543,
+          "lng": -118.2505,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "221 S Grand Ave，DTLA免费当代艺术馆，收藏Koons、Basquiat、Hirst等大师之作，需提前预约。"
         }
       ]
     }

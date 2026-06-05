@@ -67,74 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Main Building",
-          "nameCn": "主楼",
-          "lat": 51.489,
-          "lng": -3.1797,
-          "note": "1909年落成的二级登录地标主楼,53 Park Place。"
+          "name": "Main Building (Park Place)",
+          "nameCn": "主楼（帕克广场）",
+          "lat": 51.4883,
+          "lng": -3.1764,
+          "rank": 1,
+          "tier": "必去",
+          "note": "卡迪夫大学标志性Portland石砌建筑，行政核心，内设科学图书馆，Grade II*保护建筑"
         },
         {
           "name": "Glamorgan Building",
-          "nameCn": "格拉摩根楼",
-          "lat": 51.4859,
-          "lng": -3.1815,
-          "note": "一级登录建筑,地理规划与社会科学学院。"
+          "nameCn": "格拉摩根大楼",
+          "lat": 51.4887,
+          "lng": -3.1782,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Grade I保护建筑，爱德华时代前郡政厅，现为规划与地理学院、社会科学学院所在地"
         },
         {
-          "name": "Bute Building",
-          "nameCn": "布特楼",
-          "lat": 51.4865,
-          "lng": -3.1826,
-          "note": "威尔士建筑学院所在,二级登录建筑。"
+          "name": "Bute Building (Welsh School of Architecture)",
+          "nameCn": "布特大楼（威尔士建筑学院）",
+          "lat": 51.4892,
+          "lng": -3.1779,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Grade II保护建筑，建于1916年，拥有六根罗马多立克柱，2018-2022年翻新，世界顶级建筑教育场所"
         },
         {
-          "name": "Queen's Buildings",
-          "nameCn": "女王楼",
-          "lat": 51.4845,
-          "lng": -3.1702,
-          "note": "工程学院与物理天文学院教学楼群。"
+          "name": "Hadyn Ellis Building",
+          "nameCn": "海登·埃利斯大楼",
+          "lat": 51.4953,
+          "lng": -3.18,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "神经科学与心理学旗舰楼，设有MRC神经精神遗传学中心，BREEAM威尔士高等教育奖获得者"
         },
         {
-          "name": "Abacws",
-          "nameCn": "Abacws楼",
-          "lat": 51.4899,
-          "lng": -3.1772,
-          "note": "计算机科学与数学学院新楼,Senghennydd路。"
+          "name": "Abacws Building",
+          "nameCn": "阿巴库斯大楼",
+          "lat": 51.4898,
+          "lng": -3.1753,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2022年落成的六层新楼，计算机科学与信息学院和数学学院共同使用，位于Cathays火车站旁"
         },
         {
-          "name": "Redwood Building",
-          "nameCn": "红木楼",
-          "lat": 51.4878,
-          "lng": -3.1841,
-          "note": "药学与制药科学学院。"
+          "name": "Queen's Buildings (Engineering & Physics)",
+          "nameCn": "女王大楼（工程与物理）",
+          "lat": 51.4868,
+          "lng": -3.1698,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "工程学院、物理与天文学院及计算机学院主要校区，位于Newport Road旁，距主校区约10分钟步行"
         },
         {
-          "name": "School of Medicine",
-          "nameCn": "医学院",
-          "lat": 51.5067,
-          "lng": -3.1913,
-          "note": "希斯公园校区,与威尔士大学医院共址教学。"
+          "name": "Law Building",
+          "nameCn": "法学院大楼",
+          "lat": 51.488,
+          "lng": -3.177,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "卡迪夫法学院所在地，位于Park Place与Museum Avenue交汇处，毗邻国家博物馆"
         },
         {
-          "name": "School of Dentistry",
-          "nameCn": "牙医学院",
-          "lat": 51.5072,
-          "lng": -3.1898,
-          "note": "希斯公园校区牙科学院及附属牙科医院。"
+          "name": "Redwood Building (Pharmacy)",
+          "nameCn": "雷德伍德大楼（药学院）",
+          "lat": 51.4891,
+          "lng": -3.1774,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "药学与制药科学学院所在地，以杰出药剂师Theophilus Redwood命名"
         },
         {
-          "name": "2 Central Square",
-          "nameCn": "中央广场2号",
-          "lat": 51.4766,
-          "lng": -3.1805,
-          "note": "市中心新闻、媒体与文化学院,毗邻BBC威尔士。"
+          "name": "Biosciences Building",
+          "nameCn": "生命科学大楼",
+          "lat": 51.4877,
+          "lng": -3.1762,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "生命科学与医学教学综合设施，研究实验室与教学空间兼备"
         },
         {
-          "name": "sbarc|spark",
-          "nameCn": "sbarc|spark创新楼",
-          "lat": 51.4935,
-          "lng": -3.1866,
-          "note": "全球首座社会科学研究园,Maindy路创新园区核心。"
+          "name": "School of Medicine (Heath Park Campus)",
+          "nameCn": "医学院（希斯公园校区）",
+          "lat": 51.5128,
+          "lng": -3.186,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "卡迪夫大学医学院，与威尔士大学医院比邻，是英国顶级医学教育基地之一"
+        },
+        {
+          "name": "Centre for Student Life (CSL)",
+          "nameCn": "学生生活中心",
+          "lat": 51.4883,
+          "lng": -3.1762,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "校园核心服务楼，5层开放式学习空间，英国最长阳台，学生事务办理首选地"
         }
       ],
       "defaultOn": true
@@ -147,18 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Arts and Social Studies Library",
+          "name": "Arts and Social Studies Library (ASSL)",
           "nameCn": "文社科图书馆",
-          "lat": 51.49,
-          "lng": -3.1819,
-          "note": "主校区最大馆,Colum Road。"
+          "lat": 51.4877,
+          "lng": -3.1768,
+          "rank": 1,
+          "tier": "必去",
+          "note": "卡大最大图书馆，24/7全天开放，分无声自习室、小组讨论区及休闲阅读区，中国留学生必备"
         },
         {
-          "name": "Science Library (Trevithick)",
-          "nameCn": "理科图书馆",
-          "lat": 51.4847,
-          "lng": -3.1705,
-          "note": "原Drapers图书馆,服务理工学科。"
+          "name": "Science Library (Main Building, 1F)",
+          "nameCn": "科学图书馆（主楼一层）",
+          "lat": 51.4883,
+          "lng": -3.1764,
+          "rank": 2,
+          "tier": "必去",
+          "note": "主楼一层，收藏化学、地球科学、生命科学、工程等理工资料，多种自习分区"
+        },
+        {
+          "name": "Health Library (Cochrane Building, Heath Park)",
+          "nameCn": "健康图书馆（科克兰楼）",
+          "lat": 51.5128,
+          "lng": -3.1857,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于威尔士大学医院园区，为医学及医疗相关学生提供海量医学文献与专属自习空间"
+        },
+        {
+          "name": "Special Collections and Archives (ASSL Lower Ground)",
+          "nameCn": "特藏与档案室",
+          "lat": 51.4877,
+          "lng": -3.1768,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "收藏稀有善本、手稿、威尔士地方史料，人文历史专业研究必到，需提前预约"
+        },
+        {
+          "name": "Students' Union Study Spaces (Y Plas / Food Court Level 2)",
+          "nameCn": "学生会自习区",
+          "lat": 51.4898,
+          "lng": -3.177,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "学生会三层Lounge为24小时空间，二层Food Court区也有自习位，氛围比图书馆轻松"
+        },
+        {
+          "name": "National Library of Wales (Aberystwyth) — Cardiff Reading Room",
+          "nameCn": "威尔士国家图书馆卡迪夫阅览室",
+          "lat": 51.4893,
+          "lng": -3.1779,
+          "rank": 6,
+          "tier": "可选",
+          "note": "威尔士国家图书馆在卡大校内设有参考资源，法律与威尔士研究方向学生可借阅馆际资源"
         }
       ]
     },
@@ -172,9 +241,47 @@
         {
           "name": "National Museum Cardiff",
           "nameCn": "威尔士国家博物馆",
-          "lat": 51.4858,
-          "lng": -3.1768,
-          "note": "紧邻主校区的国家级艺术与自然史博物馆。"
+          "lat": 51.4883,
+          "lng": -3.1796,
+          "rank": 1,
+          "tier": "必去",
+          "note": "免费入场，馆藏包括莫奈三联水莲、梵高画作及4.6亿年地球演化展，距主校区步行3分钟"
+        },
+        {
+          "name": "St Fagans National Museum of History",
+          "nameCn": "圣法根斯威尔士民俗博物馆",
+          "lat": 51.4936,
+          "lng": -3.2861,
+          "rank": 2,
+          "tier": "必去",
+          "note": "免费入场，100英亩露天展区重建50多栋威尔士历史建筑，威尔士最受欢迎的遗址景点"
+        },
+        {
+          "name": "Cardiff Story Museum",
+          "nameCn": "卡迪夫故事博物馆",
+          "lat": 51.4806,
+          "lng": -3.1794,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "免费入场，坐落于Old Library，展示卡迪夫城市发展历史，了解本地文化的好去处"
+        },
+        {
+          "name": "Principality Stadium Tours",
+          "nameCn": "威尔士球场参观",
+          "lat": 51.4782,
+          "lng": -3.1825,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "74000人容量的标志性体育场，提供幕后参观，威尔士橄榄球圣地，学生票有优惠"
+        },
+        {
+          "name": "Pierhead Building (Cardiff Bay)",
+          "nameCn": "码头大楼博物馆（卡迪夫湾）",
+          "lat": 51.4648,
+          "lng": -3.1638,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "免费入场，哥特式红砖地标建筑，现为威尔士议会展厅，介绍威尔士民主自治历程"
         }
       ]
     },
@@ -188,37 +295,74 @@
         {
           "name": "Cardiff University Students' Union",
           "nameCn": "卡迪夫大学学生会",
-          "lat": 51.4894,
-          "lng": -3.1772,
-          "note": "Park Place 学生会大楼,临近卡瑟斯火车站。"
+          "lat": 51.4898,
+          "lng": -3.177,
+          "rank": 1,
+          "tier": "必去",
+          "note": "英国最大最活跃学生会之一，含Great Hall演出场馆（1500人）、Y Plas夜店、餐饮、书店、租房服务"
         },
         {
-          "name": "Cathays railway station",
-          "nameCn": "卡瑟斯火车站",
-          "lat": 51.4891,
-          "lng": -3.1793,
-          "note": "主校区最近的本地火车站。"
+          "name": "Cathays Park Civic Centre",
+          "nameCn": "卡迪亚公园市政中心",
+          "lat": 51.4886,
+          "lng": -3.1784,
+          "rank": 2,
+          "tier": "必去",
+          "note": "市政会堂、国家博物馆、威尔士政府大楼与卡大主楼共同构成的爱德华时代Portland石建筑群，欧洲最美市政区之一"
         },
         {
-          "name": "Cardiff Central railway station",
-          "nameCn": "卡迪夫中央火车站",
-          "lat": 51.4762,
-          "lng": -3.179,
-          "note": "城市主火车站,紧邻中央广场校园。"
+          "name": "Cardiff Castle",
+          "nameCn": "卡迪夫城堡",
+          "lat": 51.4826,
+          "lng": -3.1813,
+          "rank": 3,
+          "tier": "必去",
+          "note": "城市核心地标，含罗马遗址、诺曼城垛与维多利亚时代豪华宅邸，距校园步行15分钟"
         },
         {
-          "name": "University Hospital of Wales",
-          "nameCn": "威尔士大学医院",
-          "lat": 51.507,
-          "lng": -3.19,
-          "note": "希斯公园校区临床教学与威尔士最大医院。"
-        },
-        {
-          "name": "Aberdare Hall",
-          "nameCn": "阿伯戴尔学舍",
-          "lat": 51.4891,
+          "name": "Bute Park",
+          "nameCn": "布特公园",
+          "lat": 51.4862,
           "lng": -3.184,
-          "note": "1895年女生学舍,登录历史建筑。"
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "紧邻城堡的130英亩城市绿肺，含国家级树木园，是卡迪夫学生跑步、野餐首选之地"
+        },
+        {
+          "name": "Cardiff City Hall",
+          "nameCn": "卡迪夫市政厅",
+          "lat": 51.4892,
+          "lng": -3.1797,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Cathays Park中心宏伟的Edwardian建筑，内有大理石大厅与威尔士英雄雕像群，免费入场"
+        },
+        {
+          "name": "Wales Millennium Centre",
+          "nameCn": "威尔士千禧中心",
+          "lat": 51.4647,
+          "lng": -3.1636,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "卡迪夫湾标志性文化建筑，设有歌剧院、剧场及餐厅，铜字外墙堪称打卡必拍背景"
+        },
+        {
+          "name": "Abacws Building",
+          "nameCn": "阿巴库斯大楼（新地标）",
+          "lat": 51.4898,
+          "lng": -3.1753,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2022年落成的卡大最新地标，现代玻璃钢结构，Cathays站旁，代表大学城市化新面貌"
+        },
+        {
+          "name": "Gorsedd Gardens & Stone Circle",
+          "nameCn": "戈尔塞德花园与石圈",
+          "lat": 51.4886,
+          "lng": -3.1791,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "记录1899年威尔士民族诗歌节的德鲁伊石圈，坐落在国家博物馆前，免费漫步圣地"
         }
       ]
     },
@@ -230,39 +374,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Lidl Maindy Road",
-          "nameCn": "Lidl 超市(Maindy Road店)",
-          "lat": 51.4942,
-          "lng": -3.1843,
-          "note": "离校园和多数学生公寓步行约10分钟的大型平价超市,日常采购首选。"
+          "name": "Lidl (Maindy Road, Cathays)",
+          "nameCn": "利德超市（梅因迪路）",
+          "lat": 51.4961,
+          "lng": -3.1805,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距卡大宿舍区6-20分钟步行，品类齐全性价比极高，学生主力采购点，Mon-Sat 8am-10pm"
         },
         {
-          "name": "Tesco Express Cathays Terrace",
-          "nameCn": "乐购 Tesco Express(Cathays Terrace店)",
-          "lat": 51.4938,
-          "lng": -3.1797,
-          "note": "Cathays学生区中心的便利超市,营业到深夜,补货方便。"
+          "name": "Sainsbury's Local (Woodville Road, Cathays)",
+          "nameCn": "森宝利便利店（伍德维尔路）",
+          "lat": 51.4939,
+          "lng": -3.1774,
+          "rank": 2,
+          "tier": "必去",
+          "note": "步行即达，位于中国留学生聚居的Cathays学生街，7天营业，应急食材采购最便捷"
+        },
+        {
+          "name": "Tesco Express (Cathays Terrace)",
+          "nameCn": "乐购便利店（卡迪亚台地）",
+          "lat": 51.4942,
+          "lng": -3.1798,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "188 Cathays Terrace，6am-11pm营业，位于学生核心区，生活日常补给极方便"
         },
         {
           "name": "Eastern Chinese Supermarket",
           "nameCn": "东方中国超市",
-          "lat": 51.479,
-          "lng": -3.1872,
-          "note": "Riverside区老牌华人超市,中式调料、米面、火锅料齐全,中国学生囤货必去。"
+          "lat": 51.4737,
+          "lng": -3.1903,
+          "rank": 4,
+          "tier": "必去",
+          "note": "26 Tudor St，Cardiff最具规模的中国超市，新鲜食材、调味料、酱油、冻品一应俱全，中国留学生必到"
         },
         {
-          "name": "Wing Yip / New Hong Kong Supermarket area (Tudor St)",
-          "nameCn": "都铎街亚洲超市一带",
-          "lat": 51.4787,
-          "lng": -3.1869,
-          "note": "紧邻东方超市,集中了多家亚洲杂货店,亚洲食材一站买齐。"
+          "name": "Tesco City Road Express",
+          "nameCn": "乐购城市路店",
+          "lat": 51.4934,
+          "lng": -3.1717,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "134-142 City Road，位于学生聚居的Roath区，毗邻多家亚洲餐厅，便利可靠"
         },
         {
-          "name": "Tesco Express Salisbury Road",
-          "nameCn": "乐购 Tesco Express(Salisbury Road店)",
-          "lat": 51.4925,
-          "lng": -3.1769,
-          "note": "距Senghennydd等宿舍最近的超市,几分钟即到,适合临时采买。"
+          "name": "Tesco Metro (Cowbridge Road East)",
+          "nameCn": "乐购都市超市（考布里奇东路）",
+          "lat": 51.4773,
+          "lng": -3.1997,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "255 Cowbridge Rd East，中型格局，离市中心约1英里，品类较便利店更全，适合大采购"
+        },
+        {
+          "name": "Wally's Delicatessen (Royal Arcade)",
+          "nameCn": "沃利精品食品店（皇家拱廊）",
+          "lat": 51.4809,
+          "lng": -3.1785,
+          "rank": 7,
+          "tier": "可选",
+          "note": "38-46 Royal Arcade，卡迪夫最知名的欧洲精品食材店，进口奶酪、腌肉、特色零食"
         }
       ]
     },
@@ -274,46 +446,130 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "Jianghu Restaurant (江湖小酒馆)",
+          "nameCn": "江湖小酒馆",
+          "lat": 51.495,
+          "lng": -3.1776,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "106-110 Woodville Rd，Cathays中心，四川风味烤串与干锅，Google 4.3星，中国学生最常推荐的学区真味中餐"
+        },
+        {
+          "name": "Kachun / 卡村饭馆",
+          "nameCn": "卡村饭馆",
+          "lat": 51.4937,
+          "lng": -3.1744,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "108 Salisbury Rd，Cathays区，以四川、广东及北方菜为主，口水鸡、牛腩咖喱饭备受华人学生好评"
+        },
+        {
+          "name": "Savour (红辣椒)",
+          "nameCn": "红辣椒",
+          "lat": 51.4935,
+          "lng": -3.1739,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "116 Salisbury Rd，Cathays，四川风格火锅干锅与铁板，Google 4.4星，食客评价最正宗之一"
+        },
+        {
+          "name": "Elements Cafe",
+          "nameCn": "元素咖啡厅",
+          "lat": 51.494,
+          "lng": -3.1769,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "82 Woodville Rd，香港台湾风味咖啡餐厅，招牌港式奶茶、芒果西米露、韩式刨冰，Cathays氛围最佳"
+        },
+        {
+          "name": "In Cafe Cardiff",
+          "nameCn": "In Cafe 港式茶餐厅",
+          "lat": 51.4964,
+          "lng": -3.1739,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "76 Crwys Rd，香港主理，自2018年起成为学生早午餐圣地，港式西多士与冻柠茶大受好评"
+        },
+        {
+          "name": "Crown Kitchen (御厨)",
+          "nameCn": "御厨",
+          "lat": 51.4933,
+          "lng": -3.1715,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "120 City Road，2024年7月开业，主厨曾在伦敦四季酒店任私人厨师20余年，上海与华南风味菜被誉为Cardiff最佳中餐之一"
+        },
+        {
+          "name": "Hotpot Spot",
+          "nameCn": "火锅店",
+          "lat": 51.4965,
+          "lng": -3.1752,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "Unit 19, Globe Centre, Wellfield Rd，威尔士唯一正宗中式火锅，学生聚餐首选，自选食材涮涮锅"
+        },
+        {
           "name": "Happy Gathering",
-          "nameCn": "鸿运楼(Happy Gathering)",
-          "lat": 51.4769,
-          "lng": -3.1859,
-          "note": "开了三十多年的老牌粤菜馆,以港式点心(饮茶)闻名,华人聚餐常客。"
+          "nameCn": "快乐相聚酒家",
+          "lat": 51.4773,
+          "lng": -3.1959,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "233 Cowbridge Rd East，开业30余年的老牌粤式茶楼，每日点心至下午6点，双人套餐约£17.5起"
         },
         {
           "name": "Riverside Cantonese Restaurant",
-          "nameCn": "丽华轩粤菜馆",
-          "lat": 51.4742,
-          "lng": -3.194,
-          "note": "主厨在香港受训,正宗广东菜,本地华人社区的招牌餐厅。"
+          "nameCn": "河畔粤菜酒楼",
+          "lat": 51.4734,
+          "lng": -3.192,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Leckwith Rd，南威尔士历史最悠久的粤菜馆，主厨香港受训，烤鸭与糖醋里脊俱佳"
         },
         {
-          "name": "Wagamama Cardiff Library",
-          "nameCn": "Wagamama 亚洲面屋(图书馆店)",
-          "lat": 51.4805,
-          "lng": -3.1773,
-          "note": "市中心图书馆一层的日式拉面连锁,氛围休闲,学生人气高。"
+          "name": "Matsudai Ramen",
+          "nameCn": "松台拉面",
+          "lat": 51.471,
+          "lng": -3.1814,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "183-185 Clare Rd，威尔士第一家正宗拉面馆，深受日本留学生与美食爱好者追捧，需提前订座"
         },
         {
-          "name": "Fabulous Welshcakes — Castle Arcade",
-          "nameCn": "Fabulous Welshcakes 威尔士蛋糕(城堡拱廊店)",
-          "lat": 51.4818,
-          "lng": -3.1809,
-          "note": "城堡拱廊里现烤的威尔士小蛋糕,本地必尝甜点,适合打卡带手信。"
+          "name": "Noodlez",
+          "nameCn": "面箱子东南亚面食",
+          "lat": 51.4934,
+          "lng": -3.1716,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "126 City Road，东南亚风味面箱，£3.9起，可定制口味，凭UNiDAYS享学生8折优惠，性价比之王"
         },
         {
-          "name": "Madame Fromage — Castle Arcade",
-          "nameCn": "Madame Fromage 法式奶酪餐厅(城堡拱廊店)",
-          "lat": 51.4817,
-          "lng": -3.181,
-          "note": "维多利亚拱廊里的法式/威尔士小馆,奶酪与正餐都地道,体验本地风味。"
+          "name": "Good World Chinese Restaurant",
+          "nameCn": "好世界中餐厅",
+          "lat": 51.473,
+          "lng": -3.2012,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Capital Retail Park, Leckwith Rd，位于大型购物公园，菜单丰富、份量大，适合家庭或多人聚餐"
         },
         {
-          "name": "Cardiff Central Market",
-          "nameCn": "卡迪夫中央市场",
-          "lat": 51.4799,
-          "lng": -3.1791,
-          "note": "维多利亚室内市场,有现做威尔士蛋糕、海鲜与各色小吃,逛吃两不误。"
+          "name": "Cardiff Market (Welsh Cakes at Bakestones)",
+          "nameCn": "卡迪夫市场（威尔士煎饼）",
+          "lat": 51.4804,
+          "lng": -3.1786,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "St Mary St，维多利亚式室内市场，必尝现烤威尔士煎饼（Welsh Cakes），体验本地饮食文化必到"
+        },
+        {
+          "name": "Riverside Farmers' Market (Sunday)",
+          "nameCn": "里弗赛德周日农夫市集",
+          "lat": 51.4773,
+          "lng": -3.1858,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Fitzhamon Embankment，每周日10am-2pm，威尔士本地奶酪、新鲜农产与街头小吃，感受地道威尔士饮食"
         }
       ]
     },
@@ -325,32 +581,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Boots Queen Street",
-          "nameCn": "Boots 药妆店(皇后街店)",
-          "lat": 51.4817,
-          "lng": -3.1739,
-          "note": "皇后街上的大型连锁药房,常备药、处方与日用品一应俱全。"
+          "name": "Park Place Surgery (On-Campus GP)",
+          "nameCn": "帕克广场校内诊所",
+          "lat": 51.4882,
+          "lng": -3.1759,
+          "rank": 1,
+          "tier": "必去",
+          "note": "37 Park Place，校内唯一GP分诊所，专为卡大学生与教职服务，Cathays区学生入学后应第一时间在此注册"
         },
         {
           "name": "University Hospital of Wales (A&E)",
-          "nameCn": "威尔士大学医院(急诊)",
-          "lat": 51.5074,
-          "lng": -3.1809,
-          "note": "市北Heath区的大型公立医院,卡迪夫唯一的急诊(A&E),急重症去这里。"
+          "nameCn": "威尔士大学医院（急诊）",
+          "lat": 51.5127,
+          "lng": -3.1855,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Heath Park, CF14 4XW，24小时急诊，威尔士最大教学医院，紧急情况请拨999或先致电111确认"
         },
         {
-          "name": "Cardiff Royal Infirmary — Urgent Primary Care",
-          "nameCn": "卡迪夫皇家医院(紧急初级诊疗中心)",
-          "lat": 51.4861,
-          "lng": -3.164,
-          "note": "Newport Road上的医院,设紧急初级诊疗中心和GP,小病小痛就近就医。"
+          "name": "HSBC (56 Queen Street)",
+          "nameCn": "汇丰银行（皇后街）",
+          "lat": 51.4819,
+          "lng": -3.1785,
+          "rank": 3,
+          "tier": "必去",
+          "note": "56 Queen Street，中国留学生最常选择的开户行，提供国际学生账户，步行可达市中心"
         },
         {
-          "name": "Lloyds Bank Queen Street",
-          "nameCn": "劳埃德银行(皇后街店)",
-          "lat": 51.4816,
-          "lng": -3.1748,
-          "note": "皇后街主要银行之一,留学生开户、办卡可来此办理。"
+          "name": "Barclays Bank (17 Queen Street)",
+          "nameCn": "巴克莱银行（皇后街）",
+          "lat": 51.4817,
+          "lng": -3.1787,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "17 Queen Street（2025年6月迁至新址），学生账户可透支至£3000，提供多种借记卡福利"
+        },
+        {
+          "name": "Boots Pharmacy (Queen Street)",
+          "nameCn": "Boots药房（皇后街）",
+          "lat": 51.4817,
+          "lng": -3.1788,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "36 Queen Street，市中心最大药房，可处方OTC药物，部分门店提供Choose Pharmacy服务免去GP之需"
+        },
+        {
+          "name": "Cathays Surgery",
+          "nameCn": "卡迪亚医疗诊所",
+          "lat": 51.4951,
+          "lng": -3.1779,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "每年接受大量学生注册，覆盖Cathays、Roath等主要学生居住区，在Woodville Rd药房可取处方"
+        },
+        {
+          "name": "EE Store (46-48 Queen Street)",
+          "nameCn": "EE电信营业厅（皇后街）",
+          "lat": 51.482,
+          "lng": -3.1783,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "46-48 Queen Street，英国覆盖率最佳运营商，4G/5G套餐丰富，留学生选号首选"
+        },
+        {
+          "name": "O2 Store (60 Queen Street)",
+          "nameCn": "O2电信营业厅（皇后街）",
+          "lat": 51.482,
+          "lng": -3.1782,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "60 Queen Street，含Priority优惠计划，学生SIM与合约套餐均有，市中心即可办理"
         }
       ]
     },
@@ -362,39 +662,94 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "Roath Park Lake",
+          "nameCn": "罗斯公园湖",
+          "lat": 51.5064,
+          "lng": -3.1751,
+          "rank": 1,
+          "tier": "必去",
+          "note": "维多利亚时代湖区公园，30英亩划船湖，Scott纪念灯塔，玫瑰园与植物温室，距校区步行20分钟"
+        },
+        {
+          "name": "Cardiff Bay Waterfront",
+          "nameCn": "卡迪夫湾滨水区",
+          "lat": 51.4648,
+          "lng": -3.1636,
+          "rank": 2,
+          "tier": "必去",
+          "note": "含千禧中心、美人鱼码头餐厅、Senedd议会、Pierhead博物馆，卡迪夫最重要的现代城市名片"
+        },
+        {
+          "name": "Castell Coch",
+          "nameCn": "科赫城堡（童话红堡）",
+          "lat": 51.5359,
+          "lng": -3.2548,
+          "rank": 3,
+          "tier": "必去",
+          "note": "威尔士'童话城堡'，维多利亚哥特复兴风格，坐落山林，乘26路公交20分钟直达，拍照圣地"
+        },
+        {
+          "name": "Llandaff Cathedral",
+          "nameCn": "兰达夫大教堂",
+          "lat": 51.4979,
+          "lng": -3.2175,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "建于12世纪的大教堂，立有埃坡斯坦基督像，周边村庄氛围宁静，免费参观，卡迪夫最美古建"
+        },
+        {
+          "name": "St Fagans National Museum of History",
+          "nameCn": "圣法根斯民俗博物馆",
+          "lat": 51.4936,
+          "lng": -3.2861,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "威尔士最受欢迎免费遗址，50余栋历史建筑迁建重现，体验威尔士千年生活史必去景点"
+        },
+        {
           "name": "Cardiff Castle",
           "nameCn": "卡迪夫城堡",
-          "lat": 51.4823,
+          "lat": 51.4826,
           "lng": -3.1813,
-          "note": "市中心的千年城堡,罗马城墙加哥特豪宅,卡迪夫头号地标与打卡点。"
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "城市正中心古堡，罗马壁基、诺曼城楼与维多利亚金碧宫室并存，了解威尔士历史必到"
         },
         {
-          "name": "National Museum Cardiff",
-          "nameCn": "卡迪夫国家博物馆",
-          "lat": 51.4858,
-          "lng": -3.1769,
-          "note": "就在主校区旁的Cathays Park,印象派名画与自然史馆藏,免费参观。"
+          "name": "Caerphilly Castle",
+          "nameCn": "卡菲利城堡",
+          "lat": 51.5763,
+          "lng": -3.2191,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "威尔士最大城堡，英国第二大城堡，30英亩护城河与塔楼系统，距Cardiff约25分钟公交"
         },
         {
-          "name": "Bute Park",
-          "nameCn": "比特公园",
-          "lat": 51.4856,
-          "lng": -3.1857,
-          "note": "紧邻城堡和校园、沿塔夫河的城市大绿地,散步跑步野餐的好去处。"
+          "name": "Bute Park & River Taff Walk",
+          "nameCn": "布特公园与塔夫河步道",
+          "lat": 51.4862,
+          "lng": -3.184,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "130英亩城市绿肺，国家树木园，沿塔夫河骑行或慢跑通向Pontcanna与兰达夫，免费天然氧吧"
         },
         {
-          "name": "Principality Stadium",
-          "nameCn": "千禧/公国体育场",
-          "lat": 51.4782,
-          "lng": -3.1826,
-          "note": "威尔士国家体育场,橄榄球与大型演唱会主场,赛事氛围震撼。"
+          "name": "Penarth Pier & Seafront",
+          "nameCn": "佩纳斯码头海滨",
+          "lat": 51.4362,
+          "lng": -3.1697,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Art Deco风格维多利亚码头，廊亭内设画廊与咖啡馆，一海相隔的海滨小镇，全程步行或乘火车轻松到达"
         },
         {
-          "name": "Cathays Park Civic Centre (City Hall)",
-          "nameCn": "Cathays Park 市政中心(市政厅)",
-          "lat": 51.4866,
-          "lng": -3.1786,
-          "note": "校园所在的爱德华式白石建筑群,市政厅与法院庄严宏伟,适合拍照。"
+          "name": "Pontcanna Street & Kings Road",
+          "nameCn": "庞特坎纳街区",
+          "lat": 51.4912,
+          "lng": -3.204,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "卡迪夫最时髦社区，精品独立餐厅、咖啡馆、周六农夫市集，卡大学生周末闲逛必到之地"
         }
       ]
     }

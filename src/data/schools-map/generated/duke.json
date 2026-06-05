@@ -67,39 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Allen Building",
-          "nameCn": "艾伦行政楼",
+          "name": "Duke University School of Medicine / Duke University Medical Center",
+          "nameCn": "杜克大学医学院 / 医学中心",
+          "lat": 36.0044,
+          "lng": -78.9379,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖医学院，附属Duke University Hospital世界级研究型医院，医学研究生和本科生必了解的核心学术地标。"
+        },
+        {
+          "name": "Pratt School of Engineering – Hudson Hall",
+          "nameCn": "普拉特工程学院 – 哈德逊楼",
+          "lat": 36.0039,
+          "lng": -78.9403,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程学院主楼，涵盖土木、电子、机械等四大系，是工科留学生最主要的学习和科研场所。"
+        },
+        {
+          "name": "Fuqua School of Business – Breeden Hall",
+          "nameCn": "富卡商学院 – 布里登楼",
+          "lat": 36.0004,
+          "lng": -78.937,
+          "rank": 3,
+          "tier": "必去",
+          "note": "MBA和管理学院主楼，内设Fox学生中心和Ford图书馆，商科留学生的学术与社交核心。"
+        },
+        {
+          "name": "Sanford School of Public Policy",
+          "nameCn": "桑福德公共政策学院",
+          "lat": 36.002,
+          "lng": -78.9365,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "公共政策领域全美顶尖院校，Sanford大楼和Rubenstein Hall位于Science Drive，是政策和国际关系学生的核心地点。"
+        },
+        {
+          "name": "Nicholas School of the Environment – Grainger Hall",
+          "nameCn": "尼古拉斯环境学院 – 格兰杰楼",
+          "lat": 36.0012,
+          "lng": -78.9342,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美环境学顶级院校，铂金LEED认证绿色建筑，关注可持续发展的留学生的重要学术中心。"
+        },
+        {
+          "name": "Trinity College of Arts & Sciences – Allen Building",
+          "nameCn": "三一文理学院 – 艾伦楼",
           "lat": 36.001,
-          "lng": -78.9385,
-          "note": "西校区主行政楼，校长办公室所在。"
+          "lng": -78.939,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "杜克主体本科文理学院行政与学术主楼，也是总统办公室所在地，文理科学生必到的核心建筑。"
         },
         {
-          "name": "Pratt School of Engineering (Fitzpatrick CIEMAS)",
-          "nameCn": "普拉特工程学院",
-          "lat": 36.0028,
-          "lng": -78.941,
-          "note": "西校区工程学科与跨学科研究中心。"
+          "name": "Duke University School of Law – Science Drive",
+          "nameCn": "杜克大学法学院",
+          "lat": 36.0005,
+          "lng": -78.936,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全美一流法学院，位于Science Drive，与Fuqua和Sanford紧邻，法学留学生的核心学习场所。"
         },
         {
-          "name": "Levine Science Research Center",
+          "name": "Levine Science Research Center (LSRC)",
           "nameCn": "莱文科学研究中心",
-          "lat": 36.003,
-          "lng": -78.942,
-          "note": "全美最大单体科研楼之一，跨学科实验室集群。"
+          "lat": 36.0018,
+          "lng": -78.9355,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "计算机科学系及多学科交叉研究所在地，理工科研究生科研的重要场所，连接Nicholas学院。"
         },
         {
-          "name": "Fuqua School of Business",
-          "nameCn": "福库商学院",
-          "lat": 35.99878,
-          "lng": -78.94721,
-          "note": "西校区北缘的商学院，紧邻医学中心。"
+          "name": "French Family Science Center",
+          "nameCn": "法国家族科学中心",
+          "lat": 36.0035,
+          "lng": -78.9385,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "2007年由盖茨基金会支持建设的生物与遗传学实验室综合体，理学院研究生科研的重要设施。"
         },
         {
-          "name": "Duke Law School",
-          "nameCn": "杜克法学院",
-          "lat": 35.99979,
-          "lng": -78.94531,
-          "note": "西校区西北侧的法学院。"
+          "name": "Gross Hall – Social Sciences & Data Science",
+          "nameCn": "格罗斯楼 – 社会科学与数据科学",
+          "lat": 36.0015,
+          "lng": -78.9362,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "社会科学研究所（SSRI）和跨学科数据科学硕士项目所在地，位于Towerview Road和Science Drive转角。"
+        },
+        {
+          "name": "Duke Divinity School – Gray / Westbrook Buildings",
+          "nameCn": "杜克神学院",
+          "lat": 35.999,
+          "lng": -78.934,
+          "rank": 11,
+          "tier": "可选",
+          "note": "全美顶级神学院，由Gray楼、Langford楼和Westbrook楼组成，宗教学和神学专业留学生的核心场所。"
         }
       ],
       "defaultOn": true
@@ -112,25 +176,76 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Perkins & Bostock Library",
-          "nameCn": "珀金斯与博斯托克图书馆",
-          "lat": 36.002,
-          "lng": -78.9387,
-          "note": "西校区主图书馆群，馆藏与学习核心。"
+          "name": "Perkins Library",
+          "nameCn": "珀金斯图书馆",
+          "lat": 36.0022,
+          "lng": -78.9386,
+          "rank": 1,
+          "tier": "必去",
+          "note": "杜克主图书馆，馆藏超600万册，是所有学生最常用的学习与查阅资料场所，全年开放时间最长。"
+        },
+        {
+          "name": "Bostock Library & von der Heyden Pavilion",
+          "nameCn": "博斯托克图书馆 & 阳光阅览室",
+          "lat": 36.0023,
+          "lng": -78.939,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与珀金斯相连的五层现代图书馆，von der Heyden Pavilion阳光中庭是最受欢迎的非正式学习和社交空间。"
         },
         {
           "name": "Rubenstein Rare Book & Manuscript Library",
-          "nameCn": "鲁宾斯坦珍本与手稿图书馆",
-          "lat": 36.0023,
-          "lng": -78.9382,
-          "note": "特藏与档案库，与珀金斯相连。"
+          "nameCn": "鲁本斯坦珍本与手稿图书馆",
+          "lat": 36.0025,
+          "lng": -78.9388,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "收藏珍稀古籍、手稿和档案，历史、文学等人文学科研究者的必去地，同时举办精彩特展。"
         },
         {
-          "name": "Lilly Library",
-          "nameCn": "莉莉图书馆",
-          "lat": 36.0076,
-          "lng": -78.9153,
-          "note": "东校区人文艺术图书馆。"
+          "name": "J. Michael Goodson Law Library",
+          "nameCn": "古德森法学图书馆",
+          "lat": 36.0003,
+          "lng": -78.9357,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "法学院专属图书馆，位于210 Science Drive，法律文献资源丰富，法学留学生的核心学习场所。"
+        },
+        {
+          "name": "Ford Library at Fuqua School of Business",
+          "nameCn": "富卡商学院福特图书馆",
+          "lat": 36.0004,
+          "lng": -78.9368,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "商学院专属图书馆，位于Breeden Hall二层，提供金融、管理领域数据库和研究资源，MBA学生必备。"
+        },
+        {
+          "name": "Lilly Library – East Campus",
+          "nameCn": "莉莉图书馆（东校区）",
+          "lat": 36.0039,
+          "lng": -78.9197,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "东校区本科生主图书馆，服务大一新生，馆藏丰富，环境安静，是东校区最重要的学习场所。"
+        },
+        {
+          "name": "Music Library – Biddle Music Building",
+          "nameCn": "音乐图书馆 – 比德尔音乐楼",
+          "lat": 36.0035,
+          "lng": -78.9195,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于东校区Mary Duke Biddle音乐楼，提供乐谱、录音资料和音乐学术数据库，音乐专业留学生专用。"
+        },
+        {
+          "name": "Duke Medical Center Library & Archives",
+          "nameCn": "医学中心图书馆与档案馆",
+          "lat": 36.0044,
+          "lng": -78.9385,
+          "rank": 8,
+          "tier": "可选",
+          "note": "医学中心专属图书馆，提供临床文献和医学数据库，是医学院及护理学院学生的专业研究资源中心。"
         }
       ]
     },
@@ -142,11 +257,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Nasher Museum of Art",
-          "nameCn": "纳什艺术博物馆",
-          "lat": 35.999,
-          "lng": -78.9291,
-          "note": "校园大道旁的当代艺术馆，藏品逾1.3万件。"
+          "name": "Nasher Museum of Art at Duke University",
+          "nameCn": "纳什尔艺术博物馆",
+          "lat": 35.9997,
+          "lng": -78.939,
+          "rank": 1,
+          "tier": "必去",
+          "note": "杜克大学标志性艺术博物馆，收藏逾10,000件作品，含前哥伦布时期、中世纪及当代艺术，建筑本身亦是地标。"
+        },
+        {
+          "name": "Duke Lemur Center",
+          "nameCn": "杜克狐猴中心",
+          "lat": 36.0238,
+          "lng": -78.971,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球最大濒危灵长类动物保育中心，圈养逾200只14个种的狐猴，杜克大学独有的世界级科研与参观项目。"
+        },
+        {
+          "name": "Museum of Life and Science",
+          "nameCn": "生命与科学博物馆",
+          "lat": 36.0287,
+          "lng": -78.8973,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "北卡最受欢迎的科学博物馆之一，84英亩园区含全美最大蝴蝶保育温室和互动自然展，适合休闲探索。"
+        },
+        {
+          "name": "Rubenstein Arts Center (The Ruby) – Gallery Spaces",
+          "nameCn": "鲁本斯坦艺术中心（Ruby）",
+          "lat": 36.0002,
+          "lng": -78.9391,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "杜克校内综合艺术中心，设有表演剧场、排练室和展览空间，紧邻Nasher博物馆，是校园艺术生活的中心。"
+        },
+        {
+          "name": "Duke University Archives – Rubenstein Library Exhibits",
+          "nameCn": "杜克大学档案馆展览（鲁本斯坦图书馆）",
+          "lat": 36.0025,
+          "lng": -78.9388,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "珍本与手稿图书馆定期举办珍稀文献特展，杜克校史及人文主题展览，免费入场，历史研究者不可错过。"
         }
       ]
     },
@@ -158,32 +311,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Duke University Chapel",
-          "nameCn": "杜克礼拜堂",
-          "lat": 36.0017,
-          "lng": -78.9398,
-          "note": "210英尺哥特式塔楼，校园地标与精神中心。"
-        },
-        {
-          "name": "Cameron Indoor Stadium",
-          "nameCn": "坎伦室内球馆",
-          "lat": 35.997,
-          "lng": -78.9421,
-          "note": "蓝魔篮球主场，NCAA最具传奇色彩的球馆之一。"
-        },
-        {
-          "name": "Wallace Wade Stadium",
-          "nameCn": "华莱士韦德体育场",
-          "lat": 35.9953,
-          "lng": -78.9417,
-          "note": "1929年启用的橄榄球场，西校区首座设施。"
+          "name": "Duke Chapel",
+          "nameCn": "杜克教堂",
+          "lat": 36.001,
+          "lng": -78.9372,
+          "rank": 1,
+          "tier": "必去",
+          "note": "杜克最标志性建筑，哥特式石塔高约64米，内设77扇彩绘玻璃窗，是校园打卡和毕业典礼的核心地标。"
         },
         {
           "name": "Sarah P. Duke Gardens",
-          "nameCn": "莎拉·杜克花园",
-          "lat": 36.0015,
-          "lng": -78.9333,
-          "note": "55英亩植物园，西校区东侧著名景观。"
+          "nameCn": "萨拉·杜克花园",
+          "lat": 36.0025,
+          "lng": -78.9332,
+          "rank": 2,
+          "tier": "必去",
+          "note": "55英亩、年访客逾60万的世界级植物园，四季景色各异，是放松减压、拍照和课余漫步的最佳去处。"
+        },
+        {
+          "name": "Cameron Indoor Stadium",
+          "nameCn": "卡梅伦室内体育馆",
+          "lat": 35.9972,
+          "lng": -78.9424,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美大学篮球最著名的主场之一，观看Duke Blue Devils主场比赛是杜克留学生活的标志性体验，气氛极其热烈。"
+        },
+        {
+          "name": "Richard H. Brodhead Center for Campus Life",
+          "nameCn": "布罗德黑德校园生活中心",
+          "lat": 36.0007,
+          "lng": -78.9415,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "西校区主要餐饮与学生活动中心，设13家以Durham本地餐厅为主的餐饮档口，是学生日常聚集和用餐场所。"
+        },
+        {
+          "name": "Bryan Center",
+          "nameCn": "布莱恩中心（学生会楼）",
+          "lat": 36.0003,
+          "lng": -78.942,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "西校区核心学生活动中心，含多个剧场和演出厅，杜克国际学生中心DISC西区办公室也设于此，新生常来咨询。"
+        },
+        {
+          "name": "Wilson Recreation Center",
+          "nameCn": "威尔逊健身娱乐中心",
+          "lat": 35.998,
+          "lng": -78.9413,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "紧邻卡梅伦体育馆，配备泳池、健身房、球场等完善设施，是日常锻炼和课外放松的主要场所。"
+        },
+        {
+          "name": "Duke University East Campus Main Quad",
+          "nameCn": "东校区主广场（大一校区）",
+          "lat": 36.0042,
+          "lng": -78.9201,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "杜克原始校区，以Georgian建筑风格为主，大一新生主要居住地，东西校区间有免费班车相连。"
+        },
+        {
+          "name": "Duke University Main Campus Quad (West)",
+          "nameCn": "西校区主广场（Duke Chapel前草坪）",
+          "lat": 36.0008,
+          "lng": -78.938,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "以杜克教堂为中心的哥特式主广场，杜克最具代表性的校园景观，开学典礼、春季节庆和日常散步的核心场所。"
         }
       ]
     },
@@ -195,25 +392,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market (Broad Street)",
-          "nameCn": "全食超市（Broad街店）",
-          "lat": 36.0063,
+          "name": "Whole Foods Market – Broad Street",
+          "nameCn": "全食超市（Broad Street店）",
+          "lat": 36.0061,
           "lng": -78.9199,
-          "note": "离东校区步行可达，杜克学生最常去的高端综合超市，有机食品和熟食区齐全。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的高品质有机超市，步行可达，选品齐全，是日常采购蔬果和熟食的首选，价格偏高但质量优。"
+        },
+        {
+          "name": "Harris Teeter – Durham Festival Center (Hillsborough Rd)",
+          "nameCn": "哈里斯特克超市（Hillsborough Road店）",
+          "lat": 36.0033,
+          "lng": -78.9615,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距西校区约1英里，学生凭学生证可享5%折扣，是日常采购最性价比高的选择，品种丰富。"
         },
         {
           "name": "Li Ming's Global Mart",
-          "nameCn": "黎明国际超市",
-          "lat": 35.9664,
-          "lng": -78.9611,
-          "note": "校区西南约4公里，三角区最大的亚洲超市之一，中餐调料、冷冻点心、活鲜一应俱全。"
+          "nameCn": "李明亚洲食品超市",
+          "lat": 35.966,
+          "lng": -78.9626,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Durham最知名的中国/东亚食品超市，售卖各类中式调料、冷冻食品、新鲜蔬菜和泡面，中国留学生的采购圣地。"
         },
         {
           "name": "Mang's Asian Supermarket",
           "nameCn": "Mang亚洲超市",
-          "lat": 35.9616,
-          "lng": -78.9771,
-          "note": "Chapel Hill大道上的亚洲超市，东南亚和中式食材丰富，适合补充家乡口味。"
+          "lat": 35.965,
+          "lng": -78.9702,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Durham-Chapel Hill大道，品种齐全的亚洲综合超市，中式和东南亚食材丰富，与Aung超市相邻。"
+        },
+        {
+          "name": "Aung Asian Supermarket",
+          "nameCn": "Aung亚洲超市",
+          "lat": 35.9648,
+          "lng": -78.9705,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "缅甸裔经营的亚洲食品超市，与Mang's超市在同一购物中心，东南亚和部分中国食材选择良好。"
+        },
+        {
+          "name": "Target – Durham Chapel Hill Blvd",
+          "nameCn": "Target超市（Durham Chapel Hill大道店）",
+          "lat": 35.9645,
+          "lng": -78.971,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "美国日常必需品一站式购物，生活用品、家居、电子和食品齐全，是初来乍到置办宿舍用品的理想选择。"
+        },
+        {
+          "name": "Trader Joe's – Chapel Hill (E Franklin St)",
+          "nameCn": "Trader Joe's（教堂山East Franklin Street店）",
+          "lat": 35.9081,
+          "lng": -79.0354,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Chapel Hill的Trader Joe's是Durham学生的热门选择，性价比高、自有品牌商品丰富，开车约20分钟。"
+        },
+        {
+          "name": "Walmart Supercenter – New Hope Commons",
+          "nameCn": "沃尔玛超市（New Hope Commons店）",
+          "lat": 35.9708,
+          "lng": -78.981,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "价格最实惠的大型综合超市，生活必需品一应俱全，适合批量采购，距校区约4英里，开车前往便利。"
         }
       ]
     },
@@ -225,39 +473,130 @@
       "icon": "restaurant",
       "items": [
         {
+          "name": "Szechuan Mansion Hotpot (大宅门火锅)",
+          "nameCn": "大宅门四川火锅",
+          "lat": 36.0062,
+          "lng": -78.9268,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Durham最受中国留学生追捧的正宗四川火锅，位于9th Street，麻辣锅底地道，食材新鲜，聚餐首选。"
+        },
+        {
+          "name": "Dashi",
+          "nameCn": "Dashi日式拉面酒馆",
+          "lat": 35.9946,
+          "lng": -78.8978,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Durham最广受好评的日式拉面店，一楼拉面二楼居酒屋，手工叉烧浓郁醇香，网红推荐Top榜单常客。"
+        },
+        {
+          "name": "Kiichi Ramen",
+          "nameCn": "Kiichi拉面",
+          "lat": 36.0063,
+          "lng": -78.9263,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "9th Street人气拉面店，汤头浓郁，炸鸡和小食同样出色，是学生聚餐和日常打卡的热门地点。"
+        },
+        {
           "name": "Juju Asian Tapas + Bar",
-          "nameCn": "Juju 亚洲小馆",
-          "lat": 36.01,
-          "lng": -78.9221,
-          "note": "九街口的亚洲融合小盘餐酒馆，靠东校区，是学生聚餐和约会的人气地标。"
+          "nameCn": "Juju亚洲小吃酒吧",
+          "lat": 36.0062,
+          "lng": -78.9264,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "亚洲融合小吃酒吧，位于9th Street，菜单创意十足，融合中韩日泰多种风味，氛围好，课后聚餐极受欢迎。"
         },
         {
-          "name": "Sister Liu's Kitchen (Cosmic) area dumplings",
-          "nameCn": "刘姐厨房风味饺子（九街可达）",
-          "lat": 36.0076,
-          "lng": -78.9212,
-          "note": "九街一带的家常中餐与手工水饺集中地，想吃东北饺子和中式快餐来这片。"
+          "name": "Nan Xiang Express",
+          "nameCn": "南翔点心快餐",
+          "lat": 36.0082,
+          "lng": -78.9293,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "上海风味快餐，小笼包和汤面是招牌，紧邻Erwin Road，价格实惠，是中国留学生解乡愁的最快途径。"
         },
         {
-          "name": "Cosmic Cantina",
-          "nameCn": "Cosmic墨西哥卷",
-          "lat": 36.0076,
-          "lng": -78.9212,
-          "note": "九街老牌墨西哥卷餐厅，营业到凌晨，份大便宜，是杜克学生的深夜食堂。"
+          "name": "Shanghai Durham",
+          "nameCn": "上海餐厅（Hillsborough店）",
+          "lat": 36.0148,
+          "lng": -78.9701,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "Durham最具口碑的正宗上海菜餐厅，小笼包皮薄汤浓享有崇高地位，是中国留学生口耳相传的经典去处。"
         },
         {
-          "name": "Vin Rouge",
-          "nameCn": "红酒法式小馆",
-          "lat": 36.0105,
-          "lng": -78.9222,
-          "note": "九街知名法式bistro，多次入选达勒姆最佳餐厅，适合请客或家长来访时正式聚餐。"
+          "name": "Sister Liu's Kitchen",
+          "nameCn": "刘姐厨房",
+          "lat": 35.97,
+          "lng": -78.9735,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Durham评价极高的正宗中国家常菜，手工饺子和各类炒菜家常味浓，深受中国学生和本地华人社区喜爱。"
         },
         {
-          "name": "Guglhupf Bakery & Cafe",
-          "nameCn": "Guglhupf 德式烘焙咖啡馆",
-          "lat": 35.974,
-          "lng": -78.9321,
-          "note": "达勒姆地标级德法手工面包房兼餐厅，带啤酒花园，本地必打卡的早午餐去处。"
+          "name": "Namu Korean Eats, Beer Hall & Coffee Bar",
+          "nameCn": "Namu韩式餐厅",
+          "lat": 35.971,
+          "lng": -78.972,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Durham人气极旺的韩式料理，拌饭、炸鸡和韩式烧烤出色，兼营精酿啤酒和咖啡，周末需排队。"
+        },
+        {
+          "name": "Wheat (麦茶)",
+          "nameCn": "麦茶（Wheat）",
+          "lat": 36.006,
+          "lng": -78.9268,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "9th Street的台式茶饮加轻食餐厅，珍珠奶茶和各类台式小吃深受留学生喜爱，是课间和社交的热门场所。"
+        },
+        {
+          "name": "Bullock's Bar-B-Cue",
+          "nameCn": "布洛克烧烤",
+          "lat": 36.0002,
+          "lng": -78.9613,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Durham最具传统的家庭式北卡BBQ，全猪慢烤配玉米饼和自制酱汁，家庭式无限续，是了解本地饮食文化的必去。"
+        },
+        {
+          "name": "Backyard BBQ Pit",
+          "nameCn": "后院烧烤坑",
+          "lat": 35.9381,
+          "lng": -78.9382,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "获南方生活杂志和Bobby Flay认可的柴火烧烤，东卡罗莱纳风格烟熏猪肉极具特色，被列为Durham必吃。"
+        },
+        {
+          "name": "Mateo Bar de Tapas",
+          "nameCn": "Mateo西班牙小吃吧",
+          "lat": 35.9943,
+          "lng": -78.8985,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Durham市中心最受欢迎的西班牙风味小吃餐厅，融合南方食材与西班牙传统，James Beard提名，约会和庆祝首选。"
+        },
+        {
+          "name": "Minga Korean Restaurant – Chapel Hill",
+          "nameCn": "铭家韩日料理（教堂山店）",
+          "lat": 35.9129,
+          "lng": -79.0362,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Chapel Hill人气韩日融合餐厅，菜量丰盛价格合理，Triangle地区中国和亚洲学生的常规聚餐选择。"
+        },
+        {
+          "name": "Hawkers Asian Street Food – Chapel Hill",
+          "nameCn": "霍克斯亚洲街头美食（教堂山店）",
+          "lat": 35.9119,
+          "lng": -79.0462,
+          "rank": 14,
+          "tier": "一般",
+          "note": "连锁亚洲街头风格餐厅，融合马来、新加坡、中国和东南亚风味，Chapel Hill大学路旁，价格友好，适合尝鲜。"
         }
       ]
     },
@@ -269,32 +608,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Wells Fargo (W Main St / Erwin Square)",
-          "nameCn": "富国银行（西Main街店）",
-          "lat": 36.0066,
-          "lng": -78.9223,
-          "note": "紧邻东校区与九街，新生开美国银行账户、办借记卡最方便的网点。"
+          "name": "Wells Fargo Bank – Westgate Drive Branch",
+          "nameCn": "富国银行（Westgate Drive支行）",
+          "lat": 35.9668,
+          "lng": -78.9621,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的全服务富国银行支行，提供学生账户开户服务，费25岁以下留学生可免月费，到校后优先办理。"
         },
         {
-          "name": "Duke University Hospital",
-          "nameCn": "杜克大学医院",
-          "lat": 36.0081,
-          "lng": -78.9374,
-          "note": "就在西校区旁的世界级医院，急诊和专科齐全，学生医保多在此体系内就医。"
+          "name": "Bank of America – Durham Chapel Hill Blvd Branch",
+          "nameCn": "美国银行（Durham Chapel Hill大道支行）",
+          "lat": 35.9649,
+          "lng": -78.9712,
+          "rank": 2,
+          "tier": "必去",
+          "note": "美国最大银行之一，学生账户Advantage SafeBalance无月费，提供中文客服，是中国留学生开户热门选择。"
         },
         {
-          "name": "Duke Urgent Care Croasdaile",
-          "nameCn": "杜克Croasdaile紧急护理诊所",
-          "lat": 36.0303,
-          "lng": -78.9359,
-          "note": "校区以北的walk-in急诊诊所，发烧外伤等小病不用挂急诊，当天即可看诊。"
+          "name": "Duke Student Health Center",
+          "nameCn": "杜克大学学生健康中心",
+          "lat": 36.0018,
+          "lng": -78.9425,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内医疗服务中心，位于305 Towerview Drive，提供全科诊疗、疫苗接种和心理健康服务，在校生首要就医选择。"
         },
         {
-          "name": "CVS Pharmacy (Hillsborough Rd)",
-          "nameCn": "CVS药店（Hillsborough路店）",
-          "lat": 36.0223,
-          "lng": -78.9534,
-          "note": "连锁药房兼便利店，内设MinuteClinic可打疫苗、配处方药和日用品。"
+          "name": "Duke University Hospital – Emergency & Urgent Care",
+          "nameCn": "杜克大学医院（急救与急诊）",
+          "lat": 36.0044,
+          "lng": -78.9379,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美顶级综合医院，位于2301 Erwin Road，提供24小时急诊和专科诊疗，严重病情的最终保障。"
+        },
+        {
+          "name": "CVS Pharmacy – Hillsborough Rd",
+          "nameCn": "CVS药房（Hillsborough Road店）",
+          "lat": 36.0039,
+          "lng": -78.962,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "距西校区最近的CVS药房，配备MinuteClinic急诊护士诊所，可无预约就诊，同时提供处方药取药服务。"
+        },
+        {
+          "name": "Duke Outpatient Pharmacy",
+          "nameCn": "杜克门诊药房",
+          "lat": 36.004,
+          "lng": -78.938,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于Duke Clinic红区一楼，是医学中心官方药房，持Duke处方取药价格最优惠，医学院留学生必须了解。"
+        },
+        {
+          "name": "T-Mobile Store – Guess Road",
+          "nameCn": "T-Mobile营业厅（Guess Road店）",
+          "lat": 36.0491,
+          "lng": -78.9063,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于2707 Guess Road，T-Mobile是留学生常用运营商，提供eSIM和预付费套餐，价格相对AT&T和Verizon实惠。"
+        },
+        {
+          "name": "Verizon Store – North Pointe Drive",
+          "nameCn": "Verizon营业厅（North Pointe Drive店）",
+          "lat": 36.0463,
+          "lng": -78.9218,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于1815 N Pointe Drive，Verizon信号覆盖最广，网络稳定，是对信号有较高要求的学生的首选运营商。"
         }
       ]
     },
@@ -306,39 +689,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Duke University Chapel",
-          "nameCn": "杜克大学教堂",
-          "lat": 36.0017,
-          "lng": -78.9404,
-          "note": "高210英尺的新哥特式教堂，杜克的精神象征与第一打卡地标，可入内参观登塔。"
-        },
-        {
           "name": "Sarah P. Duke Gardens",
-          "nameCn": "莎拉·杜克花园",
-          "lat": 36.0029,
-          "lng": -78.9301,
-          "note": "55英亩免费校园植物园，含亚洲园林区，四季有花，散步野餐拍照的首选。"
-        },
-        {
-          "name": "Nasher Museum of Art",
-          "nameCn": "纳什艺术博物馆",
-          "lat": 35.9999,
-          "lng": -78.9276,
-          "note": "杜克校内的世界级艺术馆，免费开放，常设当代与古典特展，雨天好去处。"
+          "nameCn": "萨拉·杜克花园",
+          "lat": 36.0025,
+          "lng": -78.9332,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内55英亩世界级植物园，600余种植物四季更替，免费入场，是杜克留学生放松散步和拍照的第一圣地。"
         },
         {
           "name": "American Tobacco Campus",
-          "nameCn": "美国烟草园区",
-          "lat": 35.9929,
-          "lng": -78.9043,
-          "note": "老烟厂改造的市中心商业文创区，餐厅酒吧林立，旁边就是达勒姆公牛棒球场。"
+          "nameCn": "美国烟草园区（市中心历史街区）",
+          "lat": 35.9877,
+          "lng": -78.9018,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Durham历史工业遗址改造的文化创意园区，设有餐厅、酒吧、演出场所和创业孵化器，是Durham最具活力的打卡地。"
         },
         {
-          "name": "Duke East Campus & Ninth Street",
-          "nameCn": "杜克东校区与九街",
-          "lat": 36.0089,
-          "lng": -78.9165,
-          "note": "大一新生住宿区与相邻的九街商圈，书店咖啡餐馆集中，是日常生活与拍照的核心地带。"
+          "name": "Durham Bulls Athletic Park",
+          "nameCn": "Durham牛市棒球场",
+          "lat": 35.9883,
+          "lng": -78.9025,
+          "rank": 3,
+          "tier": "必去",
+          "note": "3A职业棒球队Durham Bulls主场，以1988年电影《公牛杜伦》闻名，观看比赛是融入本地文化的最佳体验之一。"
+        },
+        {
+          "name": "DPAC – Durham Performing Arts Center",
+          "nameCn": "Durham表演艺术中心",
+          "lat": 35.9924,
+          "lng": -78.8989,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美最活跃的剧院之一，常年上演百老汇巡演、演唱会和喜剧秀，是Durham城市文化生活的中心地标。"
+        },
+        {
+          "name": "Eno River State Park",
+          "nameCn": "伊诺河州立公园",
+          "lat": 36.0749,
+          "lng": -79.0172,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距校约15分钟车程，沿伊诺河徒步、钓鱼和野餐，秋叶和春花期间风景极美，是户外解压的绝佳去处。"
+        },
+        {
+          "name": "Duke Lemur Center",
+          "nameCn": "杜克狐猴中心（参观游览）",
+          "lat": 36.0238,
+          "lng": -78.971,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "参观全球最大狐猴保育中心，近距离观察濒危灵长类动物，须提前预约，是杜克独有的特色游览体验。"
+        },
+        {
+          "name": "9th Street District",
+          "nameCn": "第九街餐饮街区",
+          "lat": 36.0063,
+          "lng": -78.9265,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "杜克附近最热闹的校外生活街区，餐厅、咖啡馆、酒吧和精品店密集，是学生日常聚会和周末娱乐的核心去处。"
+        },
+        {
+          "name": "Brightleaf Square",
+          "nameCn": "明叶广场（历史烟草仓库改造）",
+          "lat": 35.996,
+          "lng": -78.8993,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Durham历史烟草仓库改造的特色购物餐饮广场，毗邻市中心，有独立餐厅、酒吧和精品店，体验Durham人文气息必到。"
+        },
+        {
+          "name": "The Streets at Southpoint",
+          "nameCn": "南点购物中心",
+          "lat": 35.9043,
+          "lng": -78.942,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Durham最大购物中心，品牌店、餐厅和电影院齐全，下雨天购物娱乐的首选，开车约15分钟。"
+        },
+        {
+          "name": "Museum of Life and Science",
+          "nameCn": "生命与科学博物馆",
+          "lat": 36.0287,
+          "lng": -78.8973,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "北卡最受欢迎的科学互动博物馆，84英亩户外科学公园含蝴蝶馆和火车，适合朋友聚会和班级活动。"
+        },
+        {
+          "name": "Downtown Durham – Main Street & Parrish Street",
+          "nameCn": "Durham市中心（Main Street历史街区）",
+          "lat": 35.9943,
+          "lng": -78.8981,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "Durham历史中心，被称为南方硅谷，集餐厅、画廊、精品店和创业空间于一体，周末来逛是融入Durham文化的好方式。"
         }
       ]
     }

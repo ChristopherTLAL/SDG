@@ -72,10 +72,15 @@ const lang = 'en';
           <div class="smap-card smap-toolscard">
             <div class="smap-tt">底图</div>
             <div class="smap-base-row" id="smap-base-row"></div>
-            <div class="smap-toggles">
+            <div id="smap-topn-sec">
+              <div class="smap-tt" style="margin-top:9px">显示数量</div>
+              <div class="smap-filter-row" id="smap-topn-row"></div>
+            </div>
+            <div class="smap-toggles" style="margin-top:9px">
               <button class="smap-toggle" id="smap-label-btn"><span class="material-symbols-outlined">label</span>名称</button>
               <button class="smap-toggle active" id="smap-list-btn"><span class="material-symbols-outlined">list</span>列表</button>
             </div>
+            <button class="smap-toggle smap-reset-btn" id="smap-reset"><span class="material-symbols-outlined">restart_alt</span>恢复默认</button>
           </div>
           <div class="smap-card smap-list-wrap" id="smap-list-wrap">
             <h3 id="smap-list-title">建院时间轴</h3>

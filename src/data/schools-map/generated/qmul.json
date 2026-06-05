@@ -75,60 +75,121 @@
       "icon": "school",
       "items": [
         {
-          "name": "Blizard Building (Blizard Institute)",
-          "nameCn": "Blizard研究所大楼",
-          "lat": 51.5165,
-          "lng": -0.0613,
-          "note": "Will Alsop设计的彩色玻璃幕墙生物医学建筑,2005年落成。"
+          "name": "Engineering Building (SEMS / EECS)",
+          "nameCn": "工程大楼（工程与材料/电子工程与计算机科学）",
+          "lat": 51.5225,
+          "lng": -0.0555,
+          "rank": 1,
+          "tier": "必去",
+          "note": "横跨 Bancroft Road 两侧、由天桥相连的五层双翼工程综合楼，是 QMUL 理工科核心，经 3000 万英镑翻修，实验室设施一流。"
+        },
+        {
+          "name": "Blizard Building (Barts & The London School of Medicine and Dentistry)",
+          "nameCn": "布利扎德楼（巴兹与伦敦医学牙科学院）",
+          "lat": 51.5186,
+          "lng": -0.0588,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Will Alsop 设计的橙色太空感建筑，是 QMUL 医学与牙科学院旗舰楼，内含 Centre of the Cell 科普馆，造型极具标志性。"
+        },
+        {
+          "name": "Francis Bancroft Building",
+          "nameCn": "弗朗西斯·班克罗夫特楼",
+          "lat": 51.523,
+          "lng": -0.054,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Mile End 校园最大教学楼，商学与管理、地理、语言等多个人文社科学院在此上课，是日常课程最密集的建筑。"
         },
         {
           "name": "Graduate Centre",
           "nameCn": "研究生中心",
-          "lat": 51.5233,
-          "lng": -0.0416,
-          "note": "主校区七层教学楼,7700平米学习与教学空间。"
+          "lat": 51.5228,
+          "lng": -0.0547,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Bancroft Road 旁七层研究生专用楼，三楼设经济与金融学院，顶层有可预约 24 小时自习室，研究生必用。"
         },
         {
-          "name": "Engineering Building",
-          "nameCn": "工程楼",
+          "name": "People's Palace / Great Hall",
+          "nameCn": "人民宫 / 大剧场",
+          "lat": 51.5228,
+          "lng": -0.0521,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1937 年建成的 Art Deco 风格大剧场，可容纳 770 人，是伦敦舞台最大之一，校内演讲、毕业典礼均在此举行。"
+        },
+        {
+          "name": "Queens' Building & The Octagon",
+          "nameCn": "皇后楼与八角厅",
+          "lat": 51.5232,
+          "lng": -0.0522,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1887 年维多利亚女王亲自揭幕的 Grade II 上榜建筑，内含复原后的八角穹顶图书馆，是 QMUL 最上镜的打卡地标。"
+        },
+        {
+          "name": "Mathematical Sciences Building",
+          "nameCn": "数学科学楼",
+          "lat": 51.5237,
+          "lng": -0.0534,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "QMUL 数学科学学院所在地，毗邻 Mile End 校区北侧，提供数学、统计、精算等专业的研讨室与计算机实验室。"
+        },
+        {
+          "name": "G.O. Jones Building (Physics & Astronomy)",
+          "nameCn": "G.O. 琼斯楼（物理与天文学）",
+          "lat": 51.5231,
+          "lng": -0.0548,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "物理与天文学院的主教学楼，毗邻数学楼与工程楼，内有粒子物理与天文观测研究设施。"
+        },
+        {
+          "name": "Arts One & Arts Two Buildings",
+          "nameCn": "艺术一楼与艺术二楼",
           "lat": 51.5226,
-          "lng": -0.041,
-          "note": "主校区理工科教学楼,工程与材料科学院系所在。"
+          "lng": -0.0517,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "语言、语言学与电影学院（SLLF）及艺术学院的主楼，内有 Hitchcock 微型放映厅，人文学科学生课程大多在此。"
         },
         {
-          "name": "Bancroft Building",
-          "nameCn": "Bancroft楼",
-          "lat": 51.5248,
-          "lng": -0.0403,
-          "note": "主校区主要教学楼之一,临Bancroft Road。"
+          "name": "Joseph Priestley Building",
+          "nameCn": "约瑟夫·普利斯特里楼",
+          "lat": 51.5233,
+          "lng": -0.0527,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "化学与生物化学系所在楼，以发现氧气的科学家命名，内有现代化实验室和研究生研讨室。"
         },
         {
-          "name": "Centre for Commercial Law Studies",
-          "nameCn": "商法研究中心",
-          "lat": 51.5158,
-          "lng": -0.1173,
-          "note": "法学院研究生中心,位于67-69 Lincoln's Inn Fields。"
+          "name": "Garrod Building (Whitechapel Campus)",
+          "nameCn": "加罗德楼（白教堂校区）",
+          "lat": 51.5191,
+          "lng": -0.0598,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "白教堂医学校区核心楼，内有 24 小时开放的 Old Library 自习空间和 Whitechapel Library，医牙学生的主要活动场所。"
         },
         {
-          "name": "John Vane Science Centre",
-          "nameCn": "John Vane科学中心",
-          "lat": 51.5225,
-          "lng": -0.0998,
-          "note": "West Smithfield园区医学研究楼,以诺奖得主John Vane命名。"
+          "name": "School of Business and Management (4F Bancroft Building)",
+          "nameCn": "商学与管理学院（班克罗夫特楼四层）",
+          "lat": 51.523,
+          "lng": -0.0541,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "QMUL 商学与管理学院设于班克罗夫特楼四层，提供会计、市场营销、运营管理等课程，招收大量国际学生。"
         },
         {
-          "name": "William Harvey Research Institute",
-          "nameCn": "William Harvey研究所",
-          "lat": 51.5224,
-          "lng": -0.0982,
-          "note": "Charterhouse Square园区心血管与药理学研究所。"
-        },
-        {
-          "name": "Barts Cancer Institute",
-          "nameCn": "巴茨癌症研究所",
-          "lat": 51.5223,
-          "lng": -0.1001,
-          "note": "Charterhouse Square园区癌症研究机构。"
+          "name": "Lincoln's Inn Fields Campus (Centre for Commercial Law Studies)",
+          "nameCn": "林肯律师学院广场校区（商法研究中心）",
+          "lat": 51.5163,
+          "lng": -0.118,
+          "rank": 13,
+          "tier": "可选",
+          "note": "QMUL 法学研究生专用校区，位于霍尔本中心地带，紧邻伦敦高院，LLM 学生主要在此上课。"
         }
       ],
       "defaultOn": true
@@ -142,24 +203,57 @@
       "items": [
         {
           "name": "Mile End Library",
-          "nameCn": "Mile End图书馆",
-          "lat": 51.5236,
-          "lng": -0.0395,
-          "note": "主校区主图书馆,学期内24小时开放。"
+          "nameCn": "Mile End 图书馆（主馆）",
+          "lat": 51.5229,
+          "lng": -0.0531,
+          "rank": 1,
+          "tier": "必去",
+          "note": "QMUL 最大图书馆，学年期间 24 小时开放，超过 2000 个自习座位，二层设研究生专属阅览室，图书馆卡到手即可借电脑。"
         },
         {
-          "name": "Whitechapel Medical Library",
-          "nameCn": "Whitechapel医学图书馆",
-          "lat": 51.5176,
-          "lng": -0.0606,
-          "note": "医学院Whitechapel校区图书馆。"
+          "name": "The Octagon (Queens' Building)",
+          "nameCn": "八角图书厅（皇后楼）",
+          "lat": 51.5232,
+          "lng": -0.0523,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "1887 年原版校图书馆，穹顶直径超 23 米、双层铁廊环绕，现作为阅览与活动空间，是 QMUL 最上镜的读书角。"
         },
         {
-          "name": "West Smithfield Medical Library",
-          "nameCn": "West Smithfield医学图书馆",
-          "lat": 51.5173,
-          "lng": -0.0998,
-          "note": "Barts园区医学图书馆。"
+          "name": "Canalside Study Space",
+          "nameCn": "运河侧自习室",
+          "lat": 51.5223,
+          "lng": -0.0526,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "紧邻摄政运河的图书馆系下辖自习空间，环境宁静，风景独特，安静备考时的首选去处。"
+        },
+        {
+          "name": "Whitechapel Library (Garrod Building)",
+          "nameCn": "白教堂图书馆（加罗德楼）",
+          "lat": 51.5191,
+          "lng": -0.0598,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "原皇家伦敦医院图书馆，现为医牙学生专属，藏有大量医学研究资料，Old Library 区域 24 小时开放。"
+        },
+        {
+          "name": "Francis Bancroft Building PC Labs & Study Rooms",
+          "nameCn": "班克罗夫特楼电脑自习室",
+          "lat": 51.523,
+          "lng": -0.054,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "班克罗夫特楼内设多个图书馆下辖电脑机房与小组讨论室，可在 LibCal 系统预约，人文社科学生常用。"
+        },
+        {
+          "name": "Graduate Centre 7th Floor Study Space",
+          "nameCn": "研究生中心七层自习室",
+          "lat": 51.5228,
+          "lng": -0.0547,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "研究生中心顶层专属自习室，可网上预约，安静程度高，俯瞰校园景色，适合论文写作与独立研究。"
         }
       ]
     },
@@ -171,11 +265,58 @@
       "icon": "museum",
       "items": [
         {
+          "name": "Barts Pathology Museum",
+          "nameCn": "巴兹病理博物馆",
+          "lat": 51.5188,
+          "lng": -0.0594,
+          "rank": 1,
+          "tier": "必去",
+          "note": "建于 1879 年的医学教学博物馆，馆内收藏\"象人\"约瑟夫·麦里克遗骨及超 3000 件病理标本，是全球最独特医学博物馆之一。"
+        },
+        {
+          "name": "Whitechapel Gallery",
+          "nameCn": "白教堂画廊",
+          "lat": 51.5151,
+          "lng": -0.0726,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1901 年建立的免费当代艺术馆，每周四有 Whitechapel Lates 夜场，是东伦敦最重要的先锋艺术展览空间。"
+        },
+        {
+          "name": "Centre of the Cell (Blizard Building)",
+          "nameCn": "细胞中心科普馆（布利扎德楼）",
+          "lat": 51.5187,
+          "lng": -0.0589,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全球首个悬挂于真实实验室上方的橙色 Pod 科普中心，荣获英国最佳教育倡议奖，已接待 18 万余名访客。"
+        },
+        {
+          "name": "Young V&A (formerly Museum of Childhood)",
+          "nameCn": "Young V&A 博物馆（原儿童博物馆）",
+          "lat": 51.5283,
+          "lng": -0.0553,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "维多利亚与艾尔伯特博物馆分馆，1872 年建成，收藏英国国家儿童玩具与服装典藏，从 Bethnal Green 站步行 1 分钟，免费入场。"
+        },
+        {
           "name": "St Bartholomew's Hospital Museum",
           "nameCn": "圣巴塞洛缪医院博物馆",
-          "lat": 51.5172,
-          "lng": -0.0997,
-          "note": "位于Barts医院,展出英国最古老医院的历史与医学文物。"
+          "lat": 51.5178,
+          "lng": -0.1007,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "英国历史最悠久的医院（1123 年建）附属博物馆，馆内有霍加斯两幅巨型壁画原作及九个世纪的医学历史档案，免费开放。"
+        },
+        {
+          "name": "Museum of London Docklands",
+          "nameCn": "伦敦码头博物馆",
+          "lat": 51.5076,
+          "lng": -0.0239,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "West India Quay 历史仓库内的移民与贸易主题博物馆，深度呈现东伦敦与泰晤士河的商贸史与华人社区故事，免费入场。"
         }
       ]
     },
@@ -187,46 +328,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Queen Mary Clock Tower",
-          "nameCn": "钟塔",
-          "lat": 51.524,
-          "lng": -0.0398,
-          "note": "主校区Mile End Road正门标志,校园主入口位于钟塔两侧。"
+          "name": "Queens' Building (The Octagon) & Main Gate",
+          "nameCn": "皇后楼与主校门",
+          "lat": 51.5232,
+          "lng": -0.0522,
+          "rank": 1,
+          "tier": "必去",
+          "note": "QMUL 最具代表性的 Grade II 历史建筑，Mile End Road 主门入口，新生报到和拍毕业照的第一选择。"
         },
         {
-          "name": "Queens' Building (The Octagon)",
-          "nameCn": "皇后楼/八角厅",
-          "lat": 51.5233,
-          "lng": -0.0404,
-          "note": "1887年建的二级保护建筑,前身人民宫,内有八角厅,现为行政主楼。"
+          "name": "Students' Union Hub (The Nest)",
+          "nameCn": "学生会大楼（The Nest）",
+          "lat": 51.5228,
+          "lng": -0.0529,
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生会接待处、社团活动空间、媒体工作室集于一楼，是入学第一周注册社团、认识新朋友的核心场所。"
+        },
+        {
+          "name": "Westfield Student Village",
+          "nameCn": "韦斯特菲尔德学生村",
+          "lat": 51.522,
+          "lng": -0.051,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "2004 年建成的 2000+ 床位住宅群，设餐厅、咖啡厅、超市和健身房，是本科新生最主要的宿舍区，氛围热闹友好。"
         },
         {
           "name": "People's Palace & Great Hall",
           "nameCn": "人民宫大礼堂",
-          "lat": 51.523,
-          "lng": -0.0412,
-          "note": "1930年代Art Deco大礼堂,用于毕业典礼与大型活动。"
+          "lat": 51.5228,
+          "lng": -0.0521,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校内最大演出场地（770 座），毕业典礼、学术讲座、演唱会均在此举办，东伦敦社区文化历史的重要见证地。"
         },
         {
-          "name": "Queen Mary Students' Union (Hub)",
-          "nameCn": "学生会",
-          "lat": 51.5243,
-          "lng": -0.0386,
-          "note": "主校区学生会中心(Hub),含社团、活动与服务空间。"
+          "name": "Mile End Park & Green Bridge",
+          "nameCn": "Mile End 公园与绿桥",
+          "lat": 51.5248,
+          "lng": -0.0467,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "沿摄政运河延伸的 79 英亩线形公园，标志性黄色弧形绿桥横跨 Mile End Road，是课后放松和慢跑健身的首选。"
         },
         {
-          "name": "Mile End Underground Station",
-          "nameCn": "Mile End地铁站",
-          "lat": 51.525,
-          "lng": -0.033,
-          "note": "最近地铁站,中央线/区域线/H&C线,主校区步行可达。"
+          "name": "Drapers Bar & Kitchen",
+          "nameCn": "德雷柏斯酒吧与餐厅",
+          "lat": 51.5226,
+          "lng": -0.0527,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校内最受欢迎的学生餐吧，供餐至晚 8:30，菜单兼顾各类饮食需求，是新生社交和小组作业碰头的中心场所。"
         },
         {
-          "name": "Whitechapel Station",
-          "nameCn": "Whitechapel车站",
-          "lat": 51.5195,
-          "lng": -0.0613,
-          "note": "伊丽莎白线/区域线/Overground,医学院Whitechapel校区最近车站。"
+          "name": "Canalside & Regent's Canal Towpath",
+          "nameCn": "运河侧步道与摄政运河",
+          "lat": 51.5224,
+          "lng": -0.0519,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园南侧的摄政运河步道风景宜人，沿河慢跑可直达 Victoria Park 或 Limehouse Basin，是东伦敦隐藏绿道。"
         }
       ]
     },
@@ -238,39 +400,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "China Ark Supermarket 方舟超市",
-          "nameCn": "方舟中国超市",
-          "lat": 51.5219,
-          "lng": -0.0454,
-          "note": "校门外步行就到的华人超市，中日韩泰食材齐全，营业到晚上九点半，是最近的买中国调料、速食、火锅料的地方。"
+          "name": "Sainsbury's Whitechapel Superstore",
+          "nameCn": "塞恩斯伯里白教堂大店",
+          "lat": 51.5195,
+          "lng": -0.0598,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址 1 Cambridge Heath Road，白教堂站旁最大综合超市，有熟食、烘焙、药妆、服装等，周一至周六 7:00–23:00，食材选择最全面。"
         },
         {
-          "name": "Shop&Go (快易行)",
-          "nameCn": "快易行亚洲超市",
-          "lat": 51.5224,
-          "lng": -0.0429,
-          "note": "Mile End Road 上的亚洲杂货店，离教学楼很近，临时缺米、面、酱料随时能补。"
+          "name": "Tesco Express (Mile End Road)",
+          "nameCn": "乐购便利店（Mile End Road）",
+          "lat": 51.523,
+          "lng": -0.0492,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "地址 83–89 Mile End Road，距校门步行 5 分钟，每日营业时间长，是日常购买食品零食和日用品最方便的选择。"
         },
         {
-          "name": "Sainsbury's Superstore Whitechapel",
-          "nameCn": "Sainsbury's 白教堂大型超市",
-          "lat": 51.5199,
-          "lng": -0.0617,
-          "note": "走路或一站地铁可达的英国主流大超市，生鲜、日用、自有品牌最全，还带 Argos，适合一周一次的大采购。"
+          "name": "China Ark Supermarket",
+          "nameCn": "中国方舟超市",
+          "lat": 51.5213,
+          "lng": -0.0517,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "地址 84–86 Mile End Road，步行即可到达，专营中国食材、酱料、冷冻食品、泡面及调味品，是中国留学生解乡愁的首选。"
         },
         {
-          "name": "Tesco Express Mile End",
-          "nameCn": "Tesco 便利超市（Mile End）",
-          "lat": 51.5251,
-          "lng": -0.0339,
-          "note": "紧挨 Mile End 地铁站的英国连锁便利店，办张 Clubcard 会员卡折扣明显，日常牛奶面包随手买。"
+          "name": "Tian Tian Market (Aldgate / Piazza Walk)",
+          "nameCn": "天天超市（奥尔盖特店）",
+          "lat": 51.5157,
+          "lng": -0.0755,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "地址 18 Piazza Walk E1，来自 25 个亚洲国家的精品食材一网打尽，包括韩国、日本、泰国及中国各类食材，装修整洁体验佳。"
         },
         {
-          "name": "Sainsbury's Local Mile End Road",
-          "nameCn": "Sainsbury's 社区店（Mile End Road）",
-          "lat": 51.5235,
-          "lng": -0.0382,
-          "note": "Mile End Road 上的小型便利超市，早七点到晚十一点营业，下课顺路就能补给。"
+          "name": "Tian Tian Market (Canary Wharf)",
+          "nameCn": "天天超市（金丝雀码头旗舰店）",
+          "lat": 51.5037,
+          "lng": -0.0189,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地址 16 Canada Square E14，旗舰最大店，选品最全，专区陈列中日韩泰越南食材及伴手礼，金丝雀码头地下直连。"
+        },
+        {
+          "name": "Sainsbury's Local (Mile End Road / Bow)",
+          "nameCn": "塞恩斯伯里便利店（Mile End Road 东段）",
+          "lat": 51.5268,
+          "lng": -0.0374,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地址 409–413 Mile End Road E3，2024 年新开，紧邻 Bow Road 站，方便住 Bow 一带的同学购买日常生鲜。"
+        },
+        {
+          "name": "Co-op (Mile End)",
+          "nameCn": "合作社超市（Mile End）",
+          "lat": 51.5244,
+          "lng": -0.0462,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于绿桥附近 Mile End Road，距校区约 0.4 英里，价位偏中，熟食即食品种不错，适合下课后顺路采购。"
+        },
+        {
+          "name": "Waitrose (St Katharine Docks)",
+          "nameCn": "维特罗斯（圣凯瑟琳码头）",
+          "lat": 51.5067,
+          "lng": -0.0704,
+          "rank": 8,
+          "tier": "可选",
+          "note": "地址圣凯瑟琳码头，步行约 20 分钟，品质偏高端，想购买有机食品或进口奶酪时可前往，平日购物性价比不及上述几家。"
         }
       ]
     },
@@ -282,46 +481,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Tian Tian",
-          "nameCn": "天天川菜馆",
-          "lat": 51.5227,
-          "lng": -0.0461,
-          "note": "校园旁口碑很好的中餐馆，主打川菜与新加坡风味（孜然羊肉、麦片虾），是东区少有的正经中餐，想家时的首选。"
+          "name": "Din Tai Fung (Canary Wharf)",
+          "nameCn": "鼎泰丰（金丝雀码头店）",
+          "lat": 51.5047,
+          "lng": -0.0191,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "地址 Crossrail Place E14，鼎泰丰进军东伦敦首店，小笼包现场手工制作，享誉全球的台湾蒸饺品牌，中国学生聚餐首选。"
         },
         {
-          "name": "Mr Wong's Wok & Box",
-          "nameCn": "Mr Wong 中式快炒",
-          "lat": 51.5225,
-          "lng": -0.0432,
-          "note": "Mile End Road 上的清真认证（HMC）中式炒饭炒面店，现炒现做、价格亲民，回民同学也能放心吃。"
+          "name": "Royal China (Canary Riverside)",
+          "nameCn": "皇朝酒家（金丝雀河畔店）",
+          "lat": 51.5071,
+          "lng": -0.0221,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "地址 Westferry Circus E14，正宗港式点心+烧鸭粉面，Thames 河畔露台用餐，推荐周末早茶（建议早到等位）。"
         },
         {
           "name": "Tayyabs",
-          "nameCn": "Tayyabs 巴基斯坦烤肉馆",
-          "lat": 51.5165,
-          "lng": -0.0648,
-          "note": "白教堂一带的传奇餐厅，1972 年开业，招牌炭烤羊排是全伦敦必吃，常年排队，约同学聚餐的热门地。"
+          "nameCn": "泰亚布斯旁遮普餐厅",
+          "lat": 51.5137,
+          "lng": -0.0695,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "地址 83–89 Fieldgate Street，1972 年开业的传奇旁遮普烤肉餐厅，羊排闻名全伦敦，人均约 20 镑，自带酒水免开瓶费。"
         },
         {
-          "name": "Lahore Kebab House",
-          "nameCn": "拉合尔烤肉馆",
-          "lat": 51.5146,
-          "lng": -0.063,
-          "note": "白教堂另一家老牌巴基斯坦餐厅，羊排和咖喱扁豆出名，空间大、适合多人聚餐，分量足又实惠。"
+          "name": "Ippudo (Canary Wharf)",
+          "nameCn": "一风堂拉面（金丝雀码头）",
+          "lat": 51.5047,
+          "lng": -0.0189,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "地址 1 Crossrail Place E14，日本博多豚骨拉面品牌伦敦分店，汤底浓醇，叉烧鲜嫩，午市开始前已排队，建议提前到场。"
         },
         {
-          "name": "Beigel Bake (Brick Lane)",
-          "nameCn": "Brick Lane 24 小时贝果店",
-          "lat": 51.5246,
-          "lng": -0.0716,
-          "note": "Brick Lane 上 1974 年创立的伦敦地标，24 小时供应盐腌牛肉贝果，深夜赶完 due 来一个是东伦敦的经典体验。"
+          "name": "Tian Tian Chinese Restaurant",
+          "nameCn": "天天中餐厅（Mile End Road）",
+          "lat": 51.5192,
+          "lng": -0.0546,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Mile End Road 上的川菜与星洲风味融合餐厅，新疆烤羊肉串 £1.50 一串份量足，是校区最近正宗中式餐厅之一。"
         },
         {
-          "name": "Brick Lane Curry Houses",
-          "nameCn": "红砖巷咖喱一条街",
+          "name": "Needoo Grill",
+          "nameCn": "尼杜烤肉餐厅",
+          "lat": 51.5142,
+          "lng": -0.0671,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Whitechapel 的旁遮普烤肉名店，与 Tayyabs 比肩，羊排和混合烤肉拼盘好评无数，价格实惠，午市不用排很长队。"
+        },
+        {
+          "name": "Boujee Boba",
+          "nameCn": "布吉珍珠奶茶",
           "lat": 51.5205,
-          "lng": -0.0719,
-          "note": "Brick Lane（孟加拉城）整条街都是咖喱餐厅与街头小吃，英式南亚美食的发源地，逛吃打卡两不误。"
+          "lng": -0.0536,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "地址 162A Mile End Road，步行即达，乌芋芋泥、焦糖黑糖茶等颜值高、口味多，服务快，是校区最近的优质奶茶店。"
+        },
+        {
+          "name": "Bengal Village (Brick Lane)",
+          "nameCn": "孟加拉村（砖巷）",
+          "lat": 51.5211,
+          "lng": -0.0714,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "砖巷\"咖喱一条街\"口碑最佳餐厅之一，开业超 30 年、屡获殊荣，提供印孟融合料理及纯素选项，人均约 15–20 镑。"
+        },
+        {
+          "name": "Nando's (Mile End)",
+          "nameCn": "南多斯（Mile End 店）",
+          "lat": 51.5268,
+          "lng": -0.0372,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "地址 552 Mile End Road E3，紧邻 Mile End 地铁站对面，葡式辣鸡连锁人气高，学生卡享折扣，性价比高、座位充足。"
+        },
+        {
+          "name": "Sinh Le Vietnamese Restaurant",
+          "nameCn": "新乐越南餐厅",
+          "lat": 51.5187,
+          "lng": -0.0587,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Mile End Road 附近的老字号越南餐厅，家庭经营已逾 30 年，周日自助以物美价廉著称，河粉和越式小炒口碑稳定。"
+        },
+        {
+          "name": "Boxpark Shoreditch Food Stalls",
+          "nameCn": "砖箱市场（肖尔迪奇）",
+          "lat": 51.5223,
+          "lng": -0.0774,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "集装箱改造的街头美食广场，汇聚炸鸡、披萨、汉堡及多国风味摊位，全天营业、可堂食，是周末探店必去之地。"
+        },
+        {
+          "name": "Brick Lane Sunday Upmarket & Food Hall",
+          "nameCn": "砖巷周日市集与美食广场",
+          "lat": 51.5218,
+          "lng": -0.0718,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "每周日 10:00–17:00，Truman Brewery 内聚集 40 余个美食摊档，埃塞俄比亚饼饭、韩式炸鸡串等国际风味齐全，平均 £5–8。"
+        },
+        {
+          "name": "Gopal's Corner by Roti King (Market Halls Canary Wharf)",
+          "nameCn": "罗提王马来西亚餐厅（金丝雀码头）",
+          "lat": 51.5053,
+          "lng": -0.0192,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "《泰晤士报》评英国百大最佳平价餐厅，马来西亚 Roti Canai 薄饼配椰汁咖喱，简单纯粹，金丝雀码头 Market Halls 内。"
+        },
+        {
+          "name": "Whitechapel Market Food Stalls",
+          "nameCn": "白教堂路市场小吃摊",
+          "lat": 51.5179,
+          "lng": -0.0644,
+          "rank": 14,
+          "tier": "一般",
+          "note": "沿 Whitechapel Road 绵延近 1 公里的户外市场，有印孟街头小吃、烤玉米和廉价水果蔬菜，平日 8:00–16:00，价格极低。"
         }
       ]
     },
@@ -333,32 +616,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "The Royal London Hospital",
-          "nameCn": "皇家伦敦医院",
+          "name": "Barclays Bank (Whitechapel Branch)",
+          "nameCn": "巴克莱银行（白教堂支行）",
+          "lat": 51.5179,
+          "lng": -0.0643,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址 240 Whitechapel Road E1，是 QMUL 官方推荐的学生开户行之一，国际学生可凭录取信和护照到店开立英镑账户。"
+        },
+        {
+          "name": "HSBC (Bethnal Green Road Branch)",
+          "nameCn": "汇丰银行（贝斯纳尔格林路支行）",
+          "lat": 51.5266,
+          "lng": -0.0558,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "地址 465 Bethnal Green Road E2，汇丰提供专属国际学生账户，可先网上预申请再到店完成身份验证，中文服务友好。"
+        },
+        {
+          "name": "Lloyds Bank (Whitechapel Road Branch)",
+          "nameCn": "劳埃德银行（白教堂路支行）",
+          "lat": 51.5178,
+          "lng": -0.0645,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "地址 3–5 Whitechapel Road E1，英国主流高街银行，学生账户无月费，网银与 App 操作成熟，适合长居 UK 的学生。"
+        },
+        {
+          "name": "Suttons Wharf Health Centre (QMUL Student GP)",
+          "nameCn": "萨顿码头健康中心（QMUL 学生 GP）",
+          "lat": 51.5231,
+          "lng": -0.0535,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地址 Geography Building 一层（Mile End 校区），QMUL 官方学生 GP，提供全套 NHS 医疗服务，电话 020 7882 8710，到校第一件事就是注册。"
+        },
+        {
+          "name": "The Royal London Hospital (A&E + UTC)",
+          "nameCn": "皇家伦敦医院（急诊 + 紧急治疗中心）",
           "lat": 51.5189,
-          "lng": -0.0593,
-          "note": "白教堂的大型 NHS 综合医院，设有 24 小时急诊（A&E），离校近，突发急病或受伤直接来这里。"
+          "lng": -0.06,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "地址 Whitechapel Road E1，英国 NHS 顶级创伤医院，24 小时急诊，急症治疗中心（UTC）位于 Cavell 入口，轻伤无需预约可直接就诊。"
         },
         {
-          "name": "Globe Town Pharmacy / Boots (Mile End)",
-          "nameCn": "Boots 药房（Mile End）",
-          "lat": 51.5252,
-          "lng": -0.0336,
-          "note": "Mile End 站附近的连锁药房，可买常用药、咨询药剂师，凭 NHS 处方也能在此取药。"
+          "name": "Shantys Pharmacy",
+          "nameCn": "善提药房",
+          "lat": 51.5187,
+          "lng": -0.0596,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于皇家伦敦医院对面，Whitechapel E1，提供处方取药、旅行疫苗、紧急避孕药及 OTC 药品，营业时间覆盖较广。"
         },
         {
-          "name": "Barclays Bank (Whitechapel/Mile End)",
-          "nameCn": "巴克莱银行",
-          "lat": 51.5197,
-          "lng": -0.0598,
-          "note": "白教堂方向的英国主流银行网点，凭录取信和签证可预约办理学生账户，开户后才方便交房租、收奖学金。"
+          "name": "EE / O2 / Three Phone Shops (Whitechapel Road)",
+          "nameCn": "EE / O2 / Three 电信门店（白教堂路）",
+          "lat": 51.5179,
+          "lng": -0.064,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Whitechapel Road 上集中分布多家主流运营商门店，EE 信号覆盖优秀，Three 套餐价格最低，新生到英建议首日购 SIM 卡。"
         },
         {
-          "name": "Three / EE Store (Whitechapel)",
-          "nameCn": "Three/EE 手机营业厅（白教堂）",
-          "lat": 51.5174,
-          "lng": -0.0608,
-          "note": "Whitechapel 一带的手机运营商门店，办英国本地 SIM 卡和合约套餐，初到落地办号、保号必去。"
+          "name": "Mile End Hospital (Community Outpatient)",
+          "nameCn": "Mile End 社区医院（门诊部）",
+          "lat": 51.5243,
+          "lng": -0.0436,
+          "rank": 8,
+          "tier": "可选",
+          "note": "地址 Bancroft Road E1，Barts Health 管辖的社区医院，设糖尿病、性健康、风湿等专科门诊，无急诊，需 GP 转介预约。"
         }
       ]
     },
@@ -370,39 +697,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Mile End Park & The Green Bridge",
-          "nameCn": "Mile End 公园与绿桥",
-          "lat": 51.5237,
-          "lng": -0.0331,
-          "note": "紧邻校园、横跨 Mile End Road 的「绿桥」（俗称香蕉桥），桥上长满草木，是周边散步、跑步、拍照的标志性景观。"
-        },
-        {
-          "name": "Regent's Canal towpath",
-          "nameCn": "摄政运河步道",
-          "lat": 51.5256,
-          "lng": -0.0428,
-          "note": "校园西侧紧贴运河，沿纤道可一路走到维多利亚公园，水边咖啡船和船屋很出片，是日常放松的最佳路线。"
-        },
-        {
           "name": "Victoria Park",
           "nameCn": "维多利亚公园",
-          "lat": 51.5392,
-          "lng": -0.0386,
-          "note": "东伦敦最大的公园（人称 People's Park），有湖泊、划船和大片草坪，沿运河步行约 20 分钟可达，野餐遛弯的好去处。"
-        },
-        {
-          "name": "Genesis Cinema",
-          "nameCn": "Genesis 独立影院",
-          "lat": 51.5212,
-          "lng": -0.049,
-          "note": "Mile End Road 上东伦敦最老的独立电影院，含沙发厅与鸡尾酒吧，深受玛丽女王学生喜爱，看冷门片和约会的去处。"
+          "lat": 51.5363,
+          "lng": -0.0385,
+          "rank": 1,
+          "tier": "必去",
+          "note": "从 Mile End 步行约 20 分钟的\"东伦敦海德公园\"，面积宽阔、湖景宜人，每年举办多场户外音乐节和集市，是周末最佳去处。"
         },
         {
           "name": "Brick Lane",
-          "nameCn": "红砖巷",
-          "lat": 51.5215,
-          "lng": -0.0716,
-          "note": "东伦敦最有名的街区，周日有古着市集、街头涂鸦和咖喱馆，文艺潮流氛围浓，是周末逛街拍照的必打卡地。"
+          "nameCn": "砖巷",
+          "lat": 51.5216,
+          "lng": -0.0717,
+          "rank": 2,
+          "tier": "必去",
+          "note": "东伦敦最知名的文化街区，孟加拉咖喱餐厅、涂鸦艺术、复古市集、贝果老店并列，周日市集最热闹，必须亲身体验。"
+        },
+        {
+          "name": "Tower of London & Tower Bridge",
+          "nameCn": "伦敦塔与塔桥",
+          "lat": 51.5081,
+          "lng": -0.0759,
+          "rank": 3,
+          "tier": "必去",
+          "note": "英国最著名的历史地标，距 Mile End 地铁约 4 站，皇冠珠宝与中世纪要塞令人叹为观止，是来伦敦必打卡的景点。"
+        },
+        {
+          "name": "Old Spitalfields Market",
+          "nameCn": "老斯皮塔菲尔兹市场",
+          "lat": 51.5192,
+          "lng": -0.0774,
+          "rank": 4,
+          "tier": "必去",
+          "note": "维多利亚式屋顶大厅内聚集独立设计师、古董、街头美食，周四古玩日尤为热门，是寻找独特好物和廉价午餐的好地方。"
+        },
+        {
+          "name": "Queen Elizabeth Olympic Park",
+          "nameCn": "伊丽莎白女王奥林匹克公园",
+          "lat": 51.545,
+          "lng": -0.0168,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2012 年奥运遗址，公园内有阿塞洛·米塔尔观景塔、扎哈·哈迪德游泳馆和 V&A East 文化新区，坐地铁 10 分钟直达 Stratford。"
+        },
+        {
+          "name": "Columbia Road Flower Market",
+          "nameCn": "哥伦比亚路花市",
+          "lat": 51.5303,
+          "lng": -0.0714,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "每周日 8:00–15:00 开集，维多利亚街道两侧摆满鲜花盆栽，周边有 60 余家独立小店，是东伦敦最有情调的周日出行。"
+        },
+        {
+          "name": "Whitechapel Gallery",
+          "nameCn": "白教堂画廊",
+          "lat": 51.5151,
+          "lng": -0.0726,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "免费当代艺术展览馆，步行 10 分钟可达，周四晚有 Whitechapel Lates 免费夜场，与伦敦前卫艺术圈近距离接触的绝佳渠道。"
+        },
+        {
+          "name": "Shoreditch Street Art & Boxpark",
+          "nameCn": "肖尔迪奇涂鸦区与集装箱市场",
+          "lat": 51.5233,
+          "lng": -0.0781,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Banksy 等世界级涂鸦艺术家的露天画廊，Boxpark 内有多国街头美食，是体验东伦敦青年文化和网红打卡的核心区域。"
+        },
+        {
+          "name": "Mile End Climbing Wall",
+          "nameCn": "Mile End 攀岩馆",
+          "lat": 51.5267,
+          "lng": -0.0411,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "英国历史最悠久的专业攀岩场之一（1989 年），位于摄政运河桥下，有室内外攀岩路线，学生价格友好，是校内活跃的体育社群。"
+        },
+        {
+          "name": "Tower Hamlets Cemetery Park",
+          "nameCn": "塔哈姆莱茨公墓自然公园",
+          "lat": 51.5261,
+          "lng": -0.0361,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "维多利亚时代七大公墓之一，现为城市林地自然保护区，每年接待 8000 余名学生，安静、绿意盎然，秋日漫步极为惬意。"
+        },
+        {
+          "name": "Canary Wharf (Shopping & Public Art)",
+          "nameCn": "金丝雀码头（购物与公共艺术）",
+          "lat": 51.5054,
+          "lng": -0.0235,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "东伦敦金融商务区，有 100+ 件免费公共艺术装置、高端购物中心及 Din Tai Fung 等优质餐厅，伊丽莎白线 7 分钟可达。"
+        },
+        {
+          "name": "Westfield Stratford City",
+          "nameCn": "斯特拉特福德西田购物中心",
+          "lat": 51.5428,
+          "lng": -0.0066,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "欧洲最大购物中心之一，270+ 品牌店、70+ 餐厅，紧邻奥林匹克公园，Stratford 站下车即到，购物补货的最佳去处。"
         }
       ]
     }

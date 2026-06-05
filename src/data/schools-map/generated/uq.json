@@ -67,39 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Forgan Smith Building",
-          "nameCn": "福根·史密斯楼",
-          "lat": -27.4974,
-          "lng": 153.0139,
-          "note": "1949年落成的标志性砂岩楼，曾设法学院与人文学科。"
+          "name": "Forgan Smith Building (Building 1) – Law & Humanities",
+          "nameCn": "福根史密斯大楼（法学院与人文学院）",
+          "lat": -27.4972,
+          "lng": 153.0135,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最具代表性的砂岩建筑，建于1937年，是昆士兰大学标志；内设TC Beirne法学院及人文社科学院"
         },
         {
-          "name": "Michie Building",
-          "nameCn": "米奇楼",
-          "lat": -27.497,
-          "lng": 153.0129,
-          "note": "大草坪西侧，人文与社会科学学院所在。"
-        },
-        {
-          "name": "Steele Building",
-          "nameCn": "斯蒂尔楼",
-          "lat": -27.4979,
-          "lng": 153.0137,
-          "note": "大草坪南侧砂岩建筑，地理与环境科学等院系。"
-        },
-        {
-          "name": "Mayne Medical School (Herston)",
-          "nameCn": "梅恩医学院楼",
-          "lat": -27.4487,
-          "lng": 153.0239,
-          "note": "赫斯顿校区遗产建筑，UQ医学院核心教学楼。"
-        },
-        {
-          "name": "Susan Tett Building",
-          "nameCn": "苏珊·泰特楼",
+          "name": "Advanced Engineering Building (Building 49)",
+          "nameCn": "高级工程大楼（49号楼）",
           "lat": -27.4995,
-          "lng": 153.0305,
-          "note": "达顿公园校区，药学与制药科学学院主楼（原PACE）。"
+          "lng": 153.0155,
+          "rank": 2,
+          "tier": "必去",
+          "note": "昆大工程学院旗舰楼，ITEE及化工等热门专业主要教学科研场所，设备顶尖"
+        },
+        {
+          "name": "Colin Clark Building (Building 39) – Business & Economics",
+          "nameCn": "科林·克拉克大楼（39号楼）—商学院与经济学院",
+          "lat": -27.4948,
+          "lng": 153.0141,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UQ商学院及经济学院所在地，QS商科专业全球前50，中国留学生最集中的院系之一"
+        },
+        {
+          "name": "Hawken Engineering Building (Building 50)",
+          "nameCn": "霍肯工程大楼（50号楼）",
+          "lat": -27.5002,
+          "lng": 153.0152,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "机械、矿业及土木工程系所在地，同时容纳Dorothy Hill工程与科学图书馆"
+        },
+        {
+          "name": "Molecular Biosciences Building (Building 76)",
+          "nameCn": "分子生物科学大楼（76号楼）",
+          "lat": -27.5003,
+          "lng": 153.0128,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "生命科学与生物技术研究核心楼，内有多个世界级实验室，适合生科及医学预科生探访"
+        },
+        {
+          "name": "Joyce Ackroyd Building (Building 37) – Humanities & Languages",
+          "nameCn": "乔伊斯·阿克罗德大楼（37号楼）—人文与语言学院",
+          "lat": -27.4955,
+          "lng": 153.0138,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "传播与艺术学院、语言文化学院及现代语言学院所在地，也是UQ商学院部分行政区域"
+        },
+        {
+          "name": "Michie Building (Building 9) – Law & Social Sciences",
+          "nameCn": "米奇大楼（9号楼）—法律与社会科学",
+          "lat": -27.4968,
+          "lng": 153.0148,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "内设昆大人类学博物馆（1楼）和古典文物博物馆（2楼），法学院部分课室也在此楼"
+        },
+        {
+          "name": "Parnell Building (Building 7) – Physics & Chemistry",
+          "nameCn": "帕内尔大楼（7号楼）—物理与化学",
+          "lat": -27.4966,
+          "lng": 153.0143,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "物理系与化学系核心教学楼，内设物理博物馆（2楼），可免费参观历史仪器展品"
+        },
+        {
+          "name": "Gordon Greenwood Building (Building 32) – Social Sciences & Health",
+          "nameCn": "戈登·格林伍德大楼（32号楼）—社会科学与健康",
+          "lat": -27.4962,
+          "lng": 153.012,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "社会科学与语言文化学院部分系所在地；校园医疗中心（UQ Health Care St Lucia）位于1楼"
+        },
+        {
+          "name": "Zelman Cowen Building (Building 51) – Architecture & Music",
+          "nameCn": "泽尔曼·考恩大楼（51号楼）—建筑与音乐学院",
+          "lat": -27.499,
+          "lng": 153.0144,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "建筑学院与音乐学院所在地，内设ARMUS图书馆，有专业音乐练习室和设计工作室"
+        },
+        {
+          "name": "Chamberlain Building (Building 35) – Social & Behavioural Sciences",
+          "nameCn": "张伯伦大楼（35号楼）—社会与行为科学",
+          "lat": -27.4953,
+          "lng": 153.0137,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "心理学、社会学及教育学系部分课室所在地，毗邻Great Court，位置核心"
+        },
+        {
+          "name": "Hartley Teakle Building (Building 83) – Agriculture & Science",
+          "nameCn": "哈特利·蒂克尔大楼（83号楼）—农业与环境科学",
+          "lat": -27.5005,
+          "lng": 153.0118,
+          "rank": 12,
+          "tier": "可选",
+          "note": "农业与环境科学系以及部分理学院研究中心所在地，位于校园南侧"
         }
       ],
       "defaultOn": true
@@ -112,32 +185,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Duhig Tower & Central Library",
-          "nameCn": "杜伊格塔与中央图书馆",
-          "lat": -27.4966,
-          "lng": 153.0136,
-          "note": "全昆士兰州最大的研究图书馆，临大草坪。"
-        },
-        {
-          "name": "Fryer Library",
-          "nameCn": "弗赖尔图书馆",
+          "name": "Central Library (Duhig North, Building 12)",
+          "nameCn": "中央图书馆（杜希北楼，12号楼）",
           "lat": -27.4965,
-          "lng": 153.0137,
-          "note": "位于杜伊格楼内的善本与档案馆，藏澳洲文学手稿。"
+          "lng": 153.0138,
+          "rank": 1,
+          "tier": "必去",
+          "note": "昆大最大最繁忙的图书馆，馆藏最全；设24小时自习区（刷学生证入内），有IT帮助台和打印服务"
         },
         {
-          "name": "Dorothy Hill Engineering & Sciences Library",
+          "name": "Duhig Tower (Building 2)",
+          "nameCn": "杜希塔（2号楼）",
+          "lat": -27.4967,
+          "lng": 153.0136,
+          "rank": 2,
+          "tier": "必去",
+          "note": "标志性高塔建筑，与中央图书馆相连；内有Fryer Library，专藏澳大利亚文学手稿和珍贵历史资料"
+        },
+        {
+          "name": "Fryer Library & FW Robinson Reading Room",
+          "nameCn": "弗莱尔图书馆与罗宾逊阅览室",
+          "lat": -27.4967,
+          "lng": 153.0135,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于杜希塔4楼，保存昆士兰及澳大利亚文学手稿、历史地图等珍稀特藏，需预约参观"
+        },
+        {
+          "name": "Dorothy Hill Engineering and Sciences Library",
           "nameCn": "多萝西·希尔工程与科学图书馆",
-          "lat": -27.4999,
-          "lng": 153.0133,
-          "note": "工程与理科专业图书馆，位于校区东南。"
+          "lat": -27.5002,
+          "lng": 153.0152,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于霍肯工程大楼（50号楼），专为工程、物理、数学及IT学生服务，馆内有大量技术期刊"
         },
         {
-          "name": "Herston Health Sciences Library",
-          "nameCn": "赫斯顿健康科学图书馆",
-          "lat": -27.448,
-          "lng": 153.0285,
-          "note": "赫斯顿校区医学与健康专业图书馆。"
+          "name": "Walter Harrison Law Library",
+          "nameCn": "沃尔特·哈里森法学图书馆",
+          "lat": -27.4972,
+          "lng": 153.0131,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于福根史密斯大楼内，是澳大利亚最重要的法学研究图书馆之一，专为法学院学生提供服务"
+        },
+        {
+          "name": "Architecture and Music Library (ARMUS)",
+          "nameCn": "建筑与音乐图书馆",
+          "lat": -27.499,
+          "lng": 153.0144,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于泽尔曼·考恩大楼（51号楼）3楼，专为建筑与音乐专业学生提供设计、乐谱等特色馆藏"
+        },
+        {
+          "name": "Biological Sciences Library (Building 94)",
+          "nameCn": "生物科学图书馆（94号楼）",
+          "lat": -27.4968,
+          "lng": 153.0114,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "专为生命科学、生物技术及医学预科学生服务，馆藏生物医学期刊齐全，环境较安静"
         }
       ]
     },
@@ -149,25 +257,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "UQ Art Museum",
-          "nameCn": "昆士兰大学艺术博物馆",
-          "lat": -27.4965,
-          "lng": 153.012,
-          "note": "James and Mary Emelia Mayne中心内，藏澳洲当代艺术。"
-        },
-        {
-          "name": "R.D. Milns Antiquities Museum",
-          "nameCn": "米尔恩斯古物博物馆",
+          "name": "UQ Art Museum (Forgan Smith Tower – relocating 2027)",
+          "nameCn": "昆大艺术博物馆（福根史密斯塔，2027年迁新址）",
           "lat": -27.4972,
           "lng": 153.0131,
-          "note": "馆藏古希腊、罗马与埃及文物的教学博物馆。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "昆士兰最重要的公共艺术收藏之一，藏品逾4400件；目前闭馆施工，2027年迁入新址后重开，值得期待"
         },
         {
-          "name": "Marks-Hirschfeld Museum (Herston)",
-          "nameCn": "马克斯-希施菲尔德医学史博物馆",
-          "lat": -27.4482,
-          "lng": 153.0238,
-          "note": "赫斯顿校区，展示医学史器械与档案。"
+          "name": "UQ Anthropology Museum (Michie Building 9, Level 1)",
+          "nameCn": "昆大人类学博物馆（米奇大楼9号楼1层）",
+          "lat": -27.4968,
+          "lng": 153.0148,
+          "rank": 2,
+          "tier": "必去",
+          "note": "澳大利亚大学中最大的民族志藏品馆，收藏原住民及太平洋岛国文化遗产，免费开放"
+        },
+        {
+          "name": "RD Milns Antiquities Museum (Michie Building 9, Level 2)",
+          "nameCn": "米尔斯古典文物博物馆（米奇大楼9号楼2层）",
+          "lat": -27.4968,
+          "lng": 153.0148,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "昆士兰州最重要的古典地中海文明藏品库，含古希腊、古罗马及埃及文物，免费参观"
+        },
+        {
+          "name": "UQ Physics Museum (Parnell Building 7, Level 2)",
+          "nameCn": "昆大物理博物馆（帕内尔大楼7号楼2层）",
+          "lat": -27.4966,
+          "lng": 153.0143,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "展示历史物理仪器及实验设备，理工科学生必逛，可预约导览，免费入场"
+        },
+        {
+          "name": "Gallery of Modern Art (GOMA) – South Bank",
+          "nameCn": "现代艺术馆（GOMA）——南岸",
+          "lat": -27.4706,
+          "lng": 153.0173,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "澳大利亚最大的现代与当代艺术馆，常设展免费，设有儿童艺术中心和电影院；距校园约6公里"
+        },
+        {
+          "name": "Marks-Hirschfeld Museum of Medical History (Herston Campus)",
+          "nameCn": "马克斯-赫施菲尔德医学史博物馆（赫斯顿校区）",
+          "lat": -27.4509,
+          "lng": 153.0218,
+          "rank": 6,
+          "tier": "可选",
+          "note": "昆士兰医学史与病理收藏，位于赫斯顿医学院校区，适合医学生和对医史感兴趣的学生前往"
         }
       ]
     },
@@ -179,32 +320,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Great Court",
-          "nameCn": "大草坪",
+          "name": "The Great Court",
+          "nameCn": "大广场（大中庭）",
           "lat": -27.4972,
-          "lng": 153.0136,
-          "note": "砂岩拱廊环绕的半圆形大草坪，校园标志与精神核心。"
+          "lng": 153.0131,
+          "rank": 1,
+          "tier": "必去",
+          "note": "昆大最具标志性的户外空间，由遗产保护砂岩建筑围合而成，是毕业照与打卡的首选地点"
         },
         {
-          "name": "UQ Union & Student Union Complex",
-          "nameCn": "学生会综合楼",
+          "name": "UQ Lakes (Lake Cornelia & surrounding parkland)",
+          "nameCn": "昆大湖区（科尼利亚湖及周边绿地）",
+          "lat": -27.501,
+          "lng": 153.0125,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园南侧大片天鹅湖草地，是学生午休、野餐和拍照的绝佳去处，常见野鸭和鹮群"
+        },
+        {
+          "name": "Union Complex (Building 21A/21C) – UQU Student Hub",
+          "nameCn": "学生会联合体（21A/21C号楼）——UQU学生中心",
+          "lat": -27.4968,
+          "lng": 153.0175,
+          "rank": 3,
+          "tier": "必去",
+          "note": "昆大学生活动中枢，含食堂、UQU办公室、REDROOM酒吧、牙科诊所及各类学生社团；正在翻新"
+        },
+        {
+          "name": "Eleanor Schonell Bridge & UQ CityCat Ferry Terminal",
+          "nameCn": "施内尔桥与昆大渡轮码头",
+          "lat": -27.5007,
+          "lng": 153.0079,
+          "rank": 4,
+          "tier": "必去",
+          "note": "仅供行人和自行车通行的蓝色拱桥，连接两岸；旁边就是CityCat渡轮站，可直达南岸和市中心"
+        },
+        {
+          "name": "UQ Art Museum Building / James & Mary Mayne Centre",
+          "nameCn": "昆大艺术博物馆建筑（詹姆斯·梅恩中心）",
+          "lat": -27.4966,
+          "lng": 153.0135,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "昆大标志性文化场馆，即便博物馆因施工暂闭，其建筑本身和周边庭院也是打卡热点"
+        },
+        {
+          "name": "UQ Athletics Track & Oval",
+          "nameCn": "昆大运动场与田径跑道",
+          "lat": -27.5016,
+          "lng": 153.0132,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园内专业运动场地，跑步、足球等活动免费向学生开放，也有健身中心（UQ Sport）"
+        },
+        {
+          "name": "Sandstone Buildings Heritage Walk",
+          "nameCn": "砂岩建筑群遗产步道",
           "lat": -27.4974,
-          "lng": 153.0154,
-          "note": "学生会、餐饮与社团活动中心。"
-        },
-        {
-          "name": "UQ Lakes Bus Station",
-          "nameCn": "UQ湖区巴士站",
-          "lat": -27.498,
-          "lng": 153.0177,
-          "note": "校区主巴士枢纽，连接市区的高频公交终点。"
-        },
-        {
-          "name": "UQ St Lucia CityCat Ferry Terminal",
-          "nameCn": "圣卢西亚渡轮码头",
-          "lat": -27.4967,
-          "lng": 153.0196,
-          "note": "布里斯班河CityCat渡轮码头，可乘船往返市区。"
+          "lng": 153.0139,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "围绕Great Court一圈，仔细观察砂岩外墙上的奇特石雕和院系徽章，是了解昆大百年历史的最佳方式"
         }
       ]
     },
@@ -216,39 +392,67 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Coles – Toowong Village",
+          "nameCn": "科尔斯超市——图旺购物中心店",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校约2公里，图旺购物中心内的主流连锁超市，品类齐全；有Coles品牌平价自有商品，学生常用"
+        },
+        {
+          "name": "Woolworths – Toowong Village",
+          "nameCn": "沃尔沃斯超市——图旺购物中心店",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2022年底开业的图旺新店，4000平米旗舰店，生鲜和预制食品种类丰富，与Coles在同一商场"
+        },
+        {
           "name": "IGA Marketplace St Lucia",
-          "nameCn": "圣卢西亚 IGA 超市",
-          "lat": -27.4998,
-          "lng": 153.0046,
-          "note": "距校园不到500米、可步行的主力超市，位于Hawken Drive商业街，每天6点至午夜营业，日常采买最方便。"
+          "nameCn": "IGA超市——圣路西亚店",
+          "lat": -27.5003,
+          "lng": 153.011,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Hawken Drive 240号，步行可达校园，全年营业6am-12am，是离UQ最近的大型超市"
         },
         {
-          "name": "Coles Toowong Village",
-          "nameCn": "Coles 超市（Toowong Village）",
-          "lat": -27.4853,
-          "lng": 152.9924,
-          "note": "距校约2.4公里的大型连锁超市，坐411/412路公交可达，商场内还有Kmart和银行，适合大采购。"
-        },
-        {
-          "name": "Sunlit Asian Supermarket Indooroopilly",
-          "nameCn": "三一亚洲超市（Indooroopilly店）",
-          "lat": -27.4995,
-          "lng": 152.9731,
-          "note": "布里斯班最大的亚超之一，中日韩台食材齐全，店员会讲中文，调料零食火锅料都能买到。"
-        },
-        {
-          "name": "Hanaro Mart Toowong",
-          "nameCn": "Hanaro Mart 韩亚超市（Toowong）",
+          "name": "HX Asian Supermarket – Toowong",
+          "nameCn": "华欣亚洲超市——图旺店",
           "lat": -27.4849,
-          "lng": 152.9927,
-          "note": "位于Toowong Village的韩式亚超，泡面、冷冻饺子、韩国调料和亚洲蔬菜丰富，离校约2.4公里。"
+          "lng": 152.989,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于High St 57-59号，距校约2公里，专售中日韩东南亚食品及冷冻品，是中国留学生首选亚超"
         },
         {
-          "name": "Woolworths Indooroopilly",
-          "nameCn": "Woolworths 超市（Indooroopilly）",
-          "lat": -27.499,
-          "lng": 152.9735,
-          "note": "Westfield Indooroopilly内的另一家主力超市，与Coles同场，生鲜和本地日用品选择多。"
+          "name": "HX Asian Supermarket – South Brisbane (24/7)",
+          "nameCn": "华欣亚洲超市——南布里斯班店（24小时）",
+          "lat": -27.4806,
+          "lng": 153.0162,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Cordelia St 21号，24小时营业，方便深夜补货，离市中心和南岸均近"
+        },
+        {
+          "name": "Hanamart (Toowong Village Food Court)",
+          "nameCn": "韩亚超市——图旺购物中心美食广场",
+          "lat": -27.4848,
+          "lng": 152.9892,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "图旺Village地面层食堂旁的韩国亚洲超市，韩日食材种类齐全，泡菜、拉面和零食选择多"
+        },
+        {
+          "name": "Yuen's Market – Market Square Sunnybank",
+          "nameCn": "源氏超市——阳光堤市场广场",
+          "lat": -27.5803,
+          "lng": 153.063,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "阳光堤中华美食区内的大型亚洲超市，新鲜海鲜、中式食材和南洋食品最全；距校约10公里"
         }
       ]
     },
@@ -260,46 +464,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "New Silk Road Xinjiang Cuisine",
-          "nameCn": "新疆美食中餐厅（新丝路）",
-          "lat": -27.5005,
-          "lng": 153.0042,
-          "note": "225 Hawken Dr，步行可达的清真新疆菜，大盘鸡、拉条子、烤串很正宗，留学生聚餐热门。"
+          "name": "China Sea Milton",
+          "nameCn": "中国海·米尔顿（粤菜海鲜）",
+          "lat": -27.468,
+          "lng": 153.0013,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "地址：60 Park Rd, Milton；四度蝉联布里斯班最佳中餐，正宗粤菜海鲜，点心、整条蒸鱼和北京烤鸭均必点"
         },
         {
-          "name": "Yum Cha Indooroopilly",
-          "nameCn": "印多罗皮利饮茶（粤式点心）",
-          "lat": -27.4992,
-          "lng": 152.9733,
-          "note": "Westfield内现做粤式点心和烧腊，虾饺叉烧包蒸点齐全，想吃广式早茶来这里。"
+          "name": "Lilong West End",
+          "nameCn": "里弄上海街食堂（西区）",
+          "lat": -27.4778,
+          "lng": 153.0032,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "地址：2/79 Boundary St, West End；上海街边小吃风格，招牌葱油拌面和生煎包，布里斯班沪式餐饮天花板"
         },
         {
-          "name": "PappaRich Indooroopilly",
-          "nameCn": "PappaRich 马来西亚餐厅",
-          "lat": -27.4988,
-          "lng": 152.9737,
-          "note": "连锁马来西亚茶餐厅，肉骨茶、海南鸡饭、咖喱叻沙和拉茶，亚洲胃的安心之选。"
+          "name": "Kingsfood Sunnybank",
+          "nameCn": "台湾小调——阳光堤（台湾菜）",
+          "lat": -27.58,
+          "lng": 153.0628,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "地址：25/341 Mains Rd, Sunnybank；台式卤肉饭、大块炸猪排、牛肉面，Timeout评选布里斯班最佳中餐之一"
         },
         {
-          "name": "Hardgrave Road, West End",
-          "nameCn": "West End 哈德格雷夫路（亚洲美食街）",
-          "lat": -27.4828,
-          "lng": 153.0095,
-          "note": "过河约1.6公里的多元美食街，越南粉、泰餐、希腊菜云集，氛围年轻，性价比高。"
+          "name": "Longtime Dining",
+          "nameCn": "老时光餐厅（精致点心）",
+          "lat": -27.456,
+          "lng": 153.0308,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "地址：610 Ann St, Fortitude Valley；少油少盐精品点心，XLB小笼包和叉烧包招牌，是布里斯班最精致的粤式早茶"
         },
         {
-          "name": "Saint Lucy Caffé e Cucina",
-          "nameCn": "Saint Lucy 意式餐厅（校内）",
-          "lat": -27.497,
-          "lng": 153.0142,
-          "note": "就在UQ校园内的人气意餐，柴火披萨和手工意面，约朋友或导师吃饭的体面去处。"
+          "name": "Stanley Restaurant",
+          "nameCn": "士丹利餐厅（粤式烧腊点心）",
+          "lat": -27.477,
+          "lng": 153.015,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "地址：5 Boundary St, Brisbane CBD；周日早茶极受欢迎，烤鸭皮脆肉嫩，点心种类超过40款，需提前订位"
         },
         {
-          "name": "Merlo Coffee UQ",
-          "nameCn": "Merlo 咖啡（UQ Duhig店）",
-          "lat": -27.4968,
-          "lng": 153.0139,
-          "note": "布里斯班本土精品咖啡品牌的校内门店，昆士兰人从小喝到大，课间补咖啡因首选。"
+          "name": "Market Square Sunnybank Food Court",
+          "nameCn": "市场广场美食街——阳光堤（中式美食城）",
+          "lat": -27.58,
+          "lng": 153.063,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "地址：341 Mains Rd, Sunnybank；布里斯班最大中华美食广场，越、泰、台、港、川菜一站搞定，人均$15内"
+        },
+        {
+          "name": "Longwang Restaurant",
+          "nameCn": "龙王餐厅（现代粤菜）",
+          "lat": -27.4681,
+          "lng": 153.0269,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "地址：144 Edward St, Brisbane CBD；布里斯班最多人推荐的现代粤菜之一，脆皮馄饨和时令海鲜炒味道一流"
+        },
+        {
+          "name": "Genkotsu Ramen Toowong",
+          "nameCn": "元骨拉面——图旺店（日式拉面）",
+          "lat": -27.4848,
+          "lng": 152.9893,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于图旺，距昆大最近的正宗日式拉面，豚骨汤底浓郁，中国学生常去的轻便解馋之选"
+        },
+        {
+          "name": "JAKO Japanese & Korean Restaurant – Toowong",
+          "nameCn": "若古日韩餐厅——图旺（日韩料理）",
+          "lat": -27.4841,
+          "lng": 152.9895,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "地址：9 Morley St, Toowong；日韩双拼菜单，烤肉、定食和涮涮锅俱全，性价比高，步行可达图旺Village"
+        },
+        {
+          "name": "Seoul Garden Korean BBQ & Hotpot – Sunnybank",
+          "nameCn": "首尔花园韩式烤肉火锅——阳光堤",
+          "lat": -27.5802,
+          "lng": 153.063,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "位于Market Square 2楼，昆士兰最大韩式烤肉+火锅自助，以量取胜，中韩学生聚餐首选"
+        },
+        {
+          "name": "Queen's Bapsang – Toowong (Korean)",
+          "nameCn": "女王饭桌——图旺（韩式家常）",
+          "lat": -27.4845,
+          "lng": 152.9892,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "图旺新开韩式家常饭店，石锅拌饭、部队锅地道，价格亲民，午市套餐受留学生好评"
+        },
+        {
+          "name": "Little Hong Kong BBQ – Sunnybank",
+          "nameCn": "小香港烧腊——阳光堤",
+          "lat": -27.5798,
+          "lng": 153.0628,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Market Square内港式烧腊小店，叉烧饭和烧鸭饭分量足价格实惠，$12左右解决一餐"
+        },
+        {
+          "name": "Jackpot Noodles – Toowong",
+          "nameCn": "发财面馆——图旺（粤式面食）",
+          "lat": -27.4843,
+          "lng": 152.989,
+          "rank": 13,
+          "tier": "一般",
+          "note": "图旺区的粤式云吞面和炒面老字号，价格实惠，是学生下课后快速充饥的常见选择"
+        },
+        {
+          "name": "Darwin's Café – UQ Campus (near Bio Sciences Library)",
+          "nameCn": "达尔文咖啡馆——昆大校园（生物图书馆旁）",
+          "lat": -27.4969,
+          "lng": 153.0116,
+          "rank": 14,
+          "tier": "一般",
+          "note": "校园内口碑最好的校内咖啡馆，Eggs Benny曾获布里斯班第三名，学生和教职工都爱去"
         }
       ]
     },
@@ -311,32 +599,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank, Toowong Village",
-          "nameCn": "联邦银行（Toowong Village 网点）",
-          "lat": -27.4853,
-          "lng": 152.9924,
-          "note": "距校约2.4公里的实体银行网点，CommBank是澳洲学生开户主流之一，办卡和现金业务都方便。"
+          "name": "ANZ Bank – Toowong Village Branch",
+          "nameCn": "澳新银行——图旺购物中心支行",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 1,
+          "tier": "必去",
+          "note": "地址：Shop GA41, 9 Sherwood Rd, Toowong Village；留学生常用的开户首选银行，有针对学生的免费账户"
         },
         {
-          "name": "Myhealth Medical Centre, Toowong Village",
-          "nameCn": "Myhealth 全科诊所（Toowong Village）",
-          "lat": -27.4851,
-          "lng": 152.9926,
-          "note": "商场1楼的GP全科诊所（混合收费），看病开药、开转诊单和流感疫苗都在这里，可在线预约。"
+          "name": "Commonwealth Bank – Toowong Branch",
+          "nameCn": "联邦银行——图旺支行",
+          "lat": -27.4845,
+          "lng": 152.989,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Toowong Sherwood Rd附近，CommBank Smart Access是最受留学生欢迎的学生账户，开户简单"
         },
         {
-          "name": "Hawken Drive Pharmacy",
-          "nameCn": "Hawken Drive 药房",
-          "lat": -27.4999,
-          "lng": 153.0048,
-          "note": "紧邻UQ校园的社区药房，处方药、感冒药和日常保健品就近可取，走路几分钟即到。"
+          "name": "NAB – Toowong Village Branch",
+          "nameCn": "国民银行（NAB）——图旺购物中心支行",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 3,
+          "tier": "必去",
+          "note": "地址：Shop GA39, 9 Sherwood Rd；NAB Classic Banking无月费，适合国际学生，可快速开户"
         },
         {
-          "name": "Telstra Shop, Toowong Village",
-          "nameCn": "Telstra 营业厅（Toowong Village）",
-          "lat": -27.4852,
-          "lng": 152.9925,
-          "note": "澳洲最大运营商Telstra的门店，办手机卡和套餐、信号覆盖最广，落地办电话卡来这里。"
+          "name": "UQ Health Care St Lucia Medical Centre",
+          "nameCn": "昆大圣路西亚校园医疗中心",
+          "lat": -27.4962,
+          "lng": 153.012,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地址：Gordon Greenwood Building (32), Level 1；仅服务昆大在籍学生，覆盖全科、心理、性健康等，留学生必知"
+        },
+        {
+          "name": "Campus Pharmacy (UQ Union Complex)",
+          "nameCn": "校园药房（昆大学生联合体）",
+          "lat": -27.4968,
+          "lng": 153.0175,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于Union Complex内，无需处方可购买常见药品，可凭医生处方配药，学生最方便的药房"
+        },
+        {
+          "name": "Telstra Store – Toowong Village",
+          "nameCn": "澳大利亚电信（Telstra）——图旺购物中心店",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地址：Shop GA21, 9 Sherwood Rd；Telstra信号覆盖最广，留学生入境首选购卡之地，有月付和预付两种方案"
+        },
+        {
+          "name": "Optus (Yes Optus) – Toowong Village",
+          "nameCn": "澳普特斯（Optus）——图旺购物中心店",
+          "lat": -27.4848,
+          "lng": 152.9891,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "地址：Shop G11a, 9 Sherwood Rd；性价比高于Telstra，留学生热门SIM卡选择，有$20/月起的预付套餐"
+        },
+        {
+          "name": "St Lucia Dental (near UQ campus)",
+          "nameCn": "圣路西亚牙科诊所（昆大附近）",
+          "lat": -27.4988,
+          "lng": 153.0108,
+          "rank": 8,
+          "tier": "可选",
+          "note": "位于UQ校园3分钟步行范围内，提供日常洗牙和急诊牙科服务，接受海外学生医保OSHC"
         }
       ]
     },
@@ -348,39 +680,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "UQ Great Court",
-          "nameCn": "昆大大court（砂岩中庭）",
-          "lat": -27.4975,
-          "lng": 153.0137,
-          "note": "校园心脏地带的世界级砂岩回廊建筑群，10月蓝花楹盛开时满地紫色花瓣，必拍打卡点。"
+          "name": "South Bank Parklands & Streets Beach",
+          "nameCn": "南岸公园与街头海滩",
+          "lat": -27.4787,
+          "lng": 153.0229,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳大利亚唯一市内人工沙滩，全年免费开放；周五晚至周日有Collective Markets，是最受留学生欢迎的周末目的地"
         },
         {
-          "name": "UQ Lakes",
-          "nameCn": "昆大湖区",
-          "lat": -27.4992,
-          "lng": 153.0146,
-          "note": "校园内的景观湖，黑天鹅和水鸟常驻，旁边就是UQ Lakes公交站和露天剧场，散步休息好去处。"
+          "name": "Gallery of Modern Art (GOMA) & Queensland Art Gallery",
+          "nameCn": "现代艺术馆（GOMA）与昆士兰艺术馆",
+          "lat": -27.4706,
+          "lng": 153.0173,
+          "rank": 2,
+          "tier": "必去",
+          "note": "两座并排世界级艺术馆，常设展免费；包含数字艺术、亚太艺术及儿童艺术中心，周末必打卡"
         },
         {
-          "name": "Eleanor Schonell Bridge",
-          "nameCn": "埃莉诺·肖内尔大桥",
-          "lat": -27.4958,
-          "lng": 153.019,
-          "note": "2006年建成的390米斜拉桥，仅供公交、自行车和行人通行，跨布里斯班河看落日风景极佳。"
+          "name": "Lone Pine Koala Sanctuary",
+          "nameCn": "孤松考拉保护区",
+          "lat": -27.5264,
+          "lng": 152.9682,
+          "rank": 3,
+          "tier": "必去",
+          "note": "地址：708 Jesmond Rd, Fig Tree Pocket；世界最大考拉保护区，可抱考拉和喂袋鼠；从UQ步行至码头可乘船直达"
         },
         {
-          "name": "St Lucia (UQ) CityCat Ferry Terminal",
-          "nameCn": "圣卢西亚 CityCat 渡轮码头",
-          "lat": -27.4944,
-          "lng": 153.0178,
-          "note": "校园边的渡轮码头，坐CityCat沿布里斯班河进城既是通勤也是观光，最具布里斯班特色的出行方式。"
+          "name": "Brisbane Botanic Gardens, Mt Coot-tha",
+          "nameCn": "布里斯班植物园·库撒山",
+          "lat": -27.4765,
+          "lng": 152.9761,
+          "rank": 4,
+          "tier": "必去",
+          "note": "地址：Mt Coot-tha Rd, Toowong；免费入场，含日式庭园、热带温室和邦塞盆景园；库撒山顶可俯瞰全城"
         },
         {
-          "name": "Guyatt Park, St Lucia",
-          "nameCn": "Guyatt 河滨公园",
-          "lat": -27.492,
-          "lng": 153.009,
-          "note": "步行可达的河边公园，也设有CityCat码头，草坪开阔适合野餐、跑步和拍河景日落。"
+          "name": "Fortitude Valley Chinatown & Night Market",
+          "nameCn": "春节谷中华街与夜市",
+          "lat": -27.459,
+          "lng": 153.033,
+          "rank": 5,
+          "tier": "必去",
+          "note": "布里斯班唐人街所在地Duncan Street，聚集中式超市和餐馆；附近夜市营业至11:30pm，是城中为数不多的深夜美食去处"
+        },
+        {
+          "name": "Brisbane CBD & Queen Street Mall",
+          "nameCn": "布里斯班市中心与皇后街步行街",
+          "lat": -27.4704,
+          "lng": 153.0235,
+          "rank": 6,
+          "tier": "必去",
+          "note": "澳大利亚最大的购物步行街之一，汇集大型商场、餐饮、电影院；乘CityCat可直达，购物逛街必到"
+        },
+        {
+          "name": "Kangaroo Point Cliffs & Green Bridge",
+          "nameCn": "袋鼠角悬崖与绿桥",
+          "lat": -27.4778,
+          "lng": 153.0383,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "俯瞰布里斯班CBD天际线的最佳地点，傍晚散步和攀岩都很热门；新建绿桥免费通行方便到达"
+        },
+        {
+          "name": "West End Boundary Street Precinct",
+          "nameCn": "西区Boundary街美食文化区",
+          "lat": -27.4797,
+          "lng": 153.0059,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "布里斯班最文艺的街区，有周末集市、独立咖啡馆和多元餐厅；Lilong里弄就在此街，是中国学生聚集地"
+        },
+        {
+          "name": "Sunnybank Hills – Brisbane's Little Asia",
+          "nameCn": "阳光堤——布里斯班中华美食区",
+          "lat": -27.58,
+          "lng": 153.063,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "布里斯班最大华人聚居区，Market Square内45+餐厅全部为亚洲菜系，是中国留学生每周必去的「家乡味」朝圣地"
+        },
+        {
+          "name": "Story Bridge Adventure Climb",
+          "nameCn": "故事桥冒险攀登",
+          "lat": -27.4637,
+          "lng": 153.0356,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全球三大桥梁攀登之一，360度俯瞰布里斯班；有白天和日落及夜间场次，是特殊纪念日首选体验"
+        },
+        {
+          "name": "CityCat Ferry Ride (UQ to South Bank / CBD)",
+          "nameCn": "城市猫渡轮游览（昆大至南岸/市中心）",
+          "lat": -27.5007,
+          "lng": 153.0079,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "从昆大渡轮码头出发，乘CityCat沿布里斯班河游览两岸风光，凭go card即可乘坐，体验绝佳"
+        },
+        {
+          "name": "New Farm Park & Powerhouse",
+          "nameCn": "新农场公园与发电厂艺术中心",
+          "lat": -27.462,
+          "lng": 153.049,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "布里斯班最美的河边公园之一；旁边Powerhouse是本地艺术演出场馆，每月有农夫市集和户外电影"
         }
       ]
     }

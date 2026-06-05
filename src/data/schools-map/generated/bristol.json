@@ -59,88 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Senate House",
-          "nameCn": "参议院大楼",
-          "lat": 51.4588,
-          "lng": -2.6035,
-          "note": "行政中枢,学生注册与校级办公。"
+          "name": "Wills Memorial Building (Law & Earth Sciences)",
+          "nameCn": "威尔斯纪念楼（法学院与地球科学系）",
+          "lat": 51.4584,
+          "lng": -2.6033,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最著名地标建筑，哥特式塔楼高达65米，内有法学院和地球科学系，大礼堂用于毕业典礼。"
         },
         {
-          "name": "Merchant Venturers Building",
-          "nameCn": "商人冒险家楼",
-          "lat": 51.4559,
+          "name": "Merchant Venturers Building (Engineering & Computer Science)",
+          "nameCn": "商人冒险家楼（工程学院与计算机科学）",
+          "lat": 51.4564,
+          "lng": -2.6038,
+          "rank": 2,
+          "tier": "必去",
+          "note": "75 Woodland Road，计算机科学、电气工程与工程数学三个系的所在地，工程学院核心教学楼。"
+        },
+        {
+          "name": "Life Sciences Building (Biological Sciences)",
+          "nameCn": "生命科学楼（生物科学学院）",
+          "lat": 51.4577,
+          "lng": -2.6026,
+          "rank": 3,
+          "tier": "必去",
+          "note": "24 Tyndall Avenue，2014年由大卫·爱登堡爵士揭幕，价值5600万英镑，是英国顶级生物科学研究设施。"
+        },
+        {
+          "name": "Chemistry Building (School of Chemistry)",
+          "nameCn": "化学楼（化学学院）",
+          "lat": 51.4568,
+          "lng": -2.6019,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Cantock's Close，化学QS全英排名第一，楼内直连生物医学楼，是STEM核心教学研究重镇。"
+        },
+        {
+          "name": "H.H. Wills Physics Laboratory",
+          "nameCn": "H.H.威尔斯物理实验室",
+          "lat": 51.4575,
           "lng": -2.603,
-          "note": "计算机科学与电子电气工程系所在。"
+          "rank": 5,
+          "tier": "必去",
+          "note": "Tyndall Avenue，1920年代由欧内斯特·卢瑟福主持开幕，历史上走出多位诺贝尔物理学奖得主。"
         },
         {
-          "name": "School of Chemistry",
-          "nameCn": "化学学院",
-          "lat": 51.4565,
-          "lng": -2.6004,
-          "note": "凯西堂,化学系教学与科研楼。"
-        },
-        {
-          "name": "School of Physics (HH Wills Lab)",
-          "nameCn": "物理学院(威尔斯实验室)",
-          "lat": 51.4585,
-          "lng": -2.6005,
-          "note": "泰恩德尔大道物理系,量子工程研究重镇。"
-        },
-        {
-          "name": "Arts Complex (Woodland Road)",
-          "nameCn": "人文学院群",
+          "name": "Fry Building (School of Mathematics)",
+          "nameCn": "弗莱楼（数学学院）",
           "lat": 51.4561,
-          "lng": -2.6036,
-          "note": "伍德兰路一带的人文与社科院系建筑。"
+          "lng": -2.6028,
+          "rank": 6,
+          "tier": "必去",
+          "note": "Woodland Road BS8 1UG，数学学院所在地，QS全英数学专业第四，现代化研究中心。"
         },
         {
-          "name": "School of Economics & Management",
-          "nameCn": "经济与管理学院",
-          "lat": 51.456,
-          "lng": -2.6047,
-          "note": "管理学院,毗邻主图书馆的商科教学楼。"
+          "name": "Victoria Rooms (Department of Music)",
+          "nameCn": "维多利亚厅（音乐系）",
+          "lat": 51.4598,
+          "lng": -2.6083,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Queens Road BS8 1SA，新古典主义建筑，音乐系所在地，定期举办师生音乐会，正对威尔士大道入口。"
         },
         {
-          "name": "Medical Sciences Building",
-          "nameCn": "医学科学楼",
-          "lat": 51.4581,
+          "name": "Senate House",
+          "nameCn": "议会楼（学生中心兼行政楼）",
+          "lat": 51.4579,
+          "lng": -2.6015,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Tyndall Avenue BS8 1TH，校方行政中心兼学生服务枢纽，2024年翻新后含Bristol SU入驻。"
+        },
+        {
+          "name": "Biomedical Sciences Building",
+          "nameCn": "生物医学科学楼",
+          "lat": 51.457,
+          "lng": -2.6014,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "University Walk，医学院临床前研究重镇，内部通过连廊直连化学楼，学医必经之地。"
+        },
+        {
+          "name": "Royal Fort House & Gardens",
+          "nameCn": "皇家堡垒花园",
+          "lat": 51.4582,
+          "lng": -2.601,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "18世纪庄园花园，一级保护历史建筑，春秋季节是校园内最美的野餐与放松场所。"
+        },
+        {
+          "name": "Richmond Building (Bristol SU)",
+          "nameCn": "里士满楼（学生会主楼）",
+          "lat": 51.4591,
+          "lng": -2.6071,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "105 Queens Road BS8 1LN，学生会旗舰楼，含活动空间、学生社团办公室及娱乐设施。"
+        },
+        {
+          "name": "Centre for Nanoscience and Quantum Information (NSQI)",
+          "nameCn": "纳米科学与量子信息中心",
+          "lat": 51.4563,
           "lng": -2.6022,
-          "note": "大学路医学院,基础医学教学与实验。"
-        },
-        {
-          "name": "Bristol Royal Infirmary (Teaching Hospital)",
-          "nameCn": "布里斯托皇家医院(教学医院)",
-          "lat": 51.4588,
-          "lng": -2.5966,
-          "note": "附属教学医院,临床医学实习基地。"
-        },
-        {
-          "name": "Bristol Dental School",
-          "nameCn": "布里斯托牙医学院",
-          "lat": 51.4586,
-          "lng": -2.595,
-          "note": "牙科教学医院,临床培训中心。"
-        },
-        {
-          "name": "Wills Hall",
-          "nameCn": "威尔斯堂",
-          "lat": 51.4781,
-          "lng": -2.6235,
-          "note": "斯托克主教标志性宿舍,新哥特式四合院。"
-        },
-        {
-          "name": "Churchill Hall",
-          "nameCn": "丘吉尔堂",
-          "lat": 51.4768,
-          "lng": -2.6272,
-          "note": "斯托克主教宿舍村主要学生公寓。"
-        },
-        {
-          "name": "Bristol Veterinary School (Langford)",
-          "nameCn": "兽医学院(兰福德)",
-          "lat": 51.3432,
-          "lng": -2.7781,
-          "note": "兰福德校区兽医教学楼与农场动物医院。"
+          "rank": 12,
+          "tier": "推荐",
+          "note": "Tyndall Avenue旁，2009年开放价值1100万英镑设施，量子计算研究全英前列，物理/工程专业必知。"
         }
       ],
       "defaultOn": true
@@ -154,17 +178,57 @@
       "items": [
         {
           "name": "Arts and Social Sciences Library",
-          "nameCn": "文社科图书馆",
-          "lat": 51.4596,
-          "lng": -2.6016,
-          "note": "主馆,泰恩德尔大道上的核心藏书地。"
+          "nameCn": "文科与社科图书馆",
+          "lat": 51.4578,
+          "lng": -2.6013,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Tyndall Avenue BS8 1TJ，全校最大图书馆，24小时全年无休（学期内），是人文社科生的大本营。"
         },
         {
-          "name": "Beacon House",
-          "nameCn": "灯塔楼学习中心",
+          "name": "Wills Memorial Library",
+          "nameCn": "威尔斯纪念图书馆",
+          "lat": 51.4584,
+          "lng": -2.6033,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于哥特式威尔斯纪念楼内，木镶板专业馆，收藏法学与地球科学文献，氛围感极强。"
+        },
+        {
+          "name": "Queen's Building Library",
+          "nameCn": "皇后楼图书馆",
+          "lat": 51.4566,
+          "lng": -2.6035,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "工程类专业图书馆，工科/计算机学生常驻，馆内自习座位紧张，早去早得。"
+        },
+        {
+          "name": "Medical Library",
+          "nameCn": "医学图书馆",
           "lat": 51.4572,
-          "lng": -2.6066,
-          "note": "24小时学习空间与学生服务枢纽。"
+          "lng": -2.6016,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "University Walk旁，专供医学和卫生健康专业，藏书与数据库资源丰富，临床专业必备。"
+        },
+        {
+          "name": "Chemistry Library",
+          "nameCn": "化学图书馆",
+          "lat": 51.4568,
+          "lng": -2.6019,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于化学楼内Cantock's Close，理工科期刊资源全面，安静自习首选。"
+        },
+        {
+          "name": "Senate House Study Centre",
+          "nameCn": "议会楼学习中心",
+          "lat": 51.4579,
+          "lng": -2.6015,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Tyndall Avenue，2024年翻新后新增大量开放式学习位，24小时可访问，适合所有专业。"
         }
       ]
     },
@@ -178,9 +242,65 @@
         {
           "name": "Bristol Museum & Art Gallery",
           "nameCn": "布里斯托博物馆与美术馆",
-          "lat": 51.4567,
-          "lng": -2.6063,
-          "note": "邻接校区的市立博物馆,大学常用展陈。"
+          "lat": 51.4588,
+          "lng": -2.6036,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Queens Road BS8 1RL，免费入场，20个展厅涵盖恐龙化石、埃及木乃伊、当代艺术与自然史，校门口步行5分钟。"
+        },
+        {
+          "name": "M Shed",
+          "nameCn": "M展馆（布里斯托城市历史博物馆）",
+          "lat": 51.4497,
+          "lng": -2.5996,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Princes Wharf, Wapping Road BS1 4RN，免费参观，讲述布里斯托港口历史与城市故事，周二至周日开放。"
+        },
+        {
+          "name": "Brunel's SS Great Britain",
+          "nameCn": "布鲁内尔SS大不列颠号博物馆",
+          "lat": 51.449,
+          "lng": -2.6044,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Gas Ferry Road BS1 6TY，全球第一艘蒸汽螺旋桨远洋轮船博物馆，布里斯托最受欢迎付费景点。"
+        },
+        {
+          "name": "Royal West of England Academy (RWA)",
+          "nameCn": "皇家西英格兰美术学院画廊",
+          "lat": 51.4581,
+          "lng": -2.6082,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Queens Road BS8 1PX，布里斯托最老美术学院，五个展廊展出历史与当代英国艺术，距离校园步行5分钟。"
+        },
+        {
+          "name": "Georgian House Museum",
+          "nameCn": "乔治亚风格博物馆",
+          "lat": 51.4527,
+          "lng": -2.6034,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "7 Great George Street BS1 5RR，免费入场，18世纪六层联排别墅原貌还原，展示蓄奴商人与仆人历史，充满反思价值。"
+        },
+        {
+          "name": "We The Curious",
+          "nameCn": "我们好奇（互动科学中心）",
+          "lat": 51.4499,
+          "lng": -2.5997,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "One Millennium Square BS1 5DB，英国唯一3D天文馆，200余个互动展品，理工科学生和科技爱好者打卡圣地。"
+        },
+        {
+          "name": "University of Bristol Theatre Collection",
+          "nameCn": "布里斯托大学戏剧馆",
+          "lat": 51.4566,
+          "lng": -2.6022,
+          "rank": 7,
+          "tier": "可选",
+          "note": "Vandyck Building, Cantock's Close BS8 1UP，英国戏剧史研究中心，珍藏海报、戏服、照片等档案，英国戏剧爱好者必访。"
         }
       ]
     },
@@ -192,39 +312,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Wills Memorial Building",
-          "nameCn": "威尔斯纪念楼",
-          "lat": 51.4562,
-          "lng": -2.6037,
-          "note": "新哥特式钟塔地标,毕业典礼与法学院所在。"
+          "name": "Clifton Suspension Bridge",
+          "nameCn": "克利夫顿悬索桥",
+          "lat": 51.4546,
+          "lng": -2.6276,
+          "rank": 1,
+          "tier": "必去",
+          "note": "布鲁内尔设计1864年竣工，布里斯托最标志性地标，行人免费通行，对面有访客中心和暸望点。"
         },
         {
-          "name": "Bristol SU (Richmond Building)",
-          "nameCn": "学生会(里士满楼)",
-          "lat": 51.4568,
-          "lng": -2.6129,
-          "note": "学生会总部,皇后路上的活动与社团中心。"
+          "name": "Bristol Harbourside (Floating Harbour)",
+          "nameCn": "布里斯托港湾（浮动港）",
+          "lat": 51.4497,
+          "lng": -2.5999,
+          "rank": 2,
+          "tier": "必去",
+          "note": "昔日英国第二大港，如今聚集博物馆、酒吧、餐厅与画廊，周末市集人气极旺，学生周末必逛。"
         },
         {
-          "name": "Victoria Rooms",
-          "nameCn": "维多利亚厅",
-          "lat": 51.4585,
-          "lng": -2.6098,
-          "note": "古典柱廊礼堂,音乐学院与典礼场地。"
+          "name": "Park Street & College Green",
+          "nameCn": "公园街与学院绿地",
+          "lat": 51.4541,
+          "lng": -2.602,
+          "rank": 3,
+          "tier": "必去",
+          "note": "布里斯托最热闹的主干学生商业街，连接大教堂广场与威尔斯纪念楼，两侧布满餐厅、咖啡馆与特色小店。"
         },
         {
-          "name": "Royal Fort House",
-          "nameCn": "皇家堡邸",
-          "lat": 51.4578,
-          "lng": -2.6018,
-          "note": "乔治时期宅邸,坐落于皇家堡花园中。"
+          "name": "Stokes Croft Street Art Quarter",
+          "nameCn": "斯托克斯克罗夫特街头艺术区",
+          "lat": 51.4631,
+          "lng": -2.5968,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "班克西《温和的西部》壁画所在地，英国规模最大的街头艺术集中区，有自由创意氛围的独立店铺。"
         },
         {
-          "name": "Bristol Temple Meads Station",
-          "nameCn": "坦普尔米兹火车站",
-          "lat": 51.4491,
-          "lng": -2.5804,
-          "note": "布里斯托主火车站,城市铁路门户。"
+          "name": "Clifton Village",
+          "nameCn": "克利夫顿村",
+          "lat": 51.4595,
+          "lng": -2.6178,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "乔治亚与摄政时期优雅联排街道，维多利亚拱廊、独立咖啡馆与精品店，步行可达悬索桥，周末闲逛首选。"
+        },
+        {
+          "name": "Clifton Down & The Downs",
+          "nameCn": "克利夫顿高地（城市大草地）",
+          "lat": 51.466,
+          "lng": -2.6245,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "400英亩城市绿肺，可俯瞰峡谷，学生慢跑、野餐、放风筝首选，克利夫顿天文台即在此处。"
+        },
+        {
+          "name": "Gloucester Road",
+          "nameCn": "格洛斯特路独立商业街",
+          "lat": 51.4745,
+          "lng": -2.5959,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "全英最长独立商店街道，两侧密布独立咖啡馆、二手书店、素食餐厅与复古服装店，学生生活必达之地。"
         }
       ]
     },
@@ -236,32 +384,67 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Sainsbury's Clifton Down Superstore",
+          "nameCn": "塞恩斯伯里超市（克利夫顿大店）",
+          "lat": 51.4638,
+          "lng": -2.6148,
+          "rank": 1,
+          "tier": "必去",
+          "note": "3 Clifton Down Shopping Centre, Whiteladies Road BS8 2NN，距校区步行15分钟，品类最全的大型超市，适合周末囤货。"
+        },
+        {
+          "name": "Wai Yee Hong Chinese Supermarket",
+          "nameCn": "惠怡行中国超市",
+          "lat": 51.4719,
+          "lng": -2.5611,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Eastgate Oriental City, Eastgate Road BS5 6XX，西南英格兰最大中华超市，亚洲食材应有尽有，楼上Dragon's Delicacy是知名点心餐厅。"
+        },
+        {
+          "name": "Tesco Express (Whiteladies Road)",
+          "nameCn": "乐购便利店（白女士路）",
+          "lat": 51.4641,
+          "lng": -2.6139,
+          "rank": 3,
+          "tier": "必去",
+          "note": "169A Whiteladies Road BS8 2RL，距校区最近的大型连锁便利店，7天营业，应急采购首选。"
+        },
+        {
+          "name": "Sainsbury's Local (Whiteladies Road)",
+          "nameCn": "塞恩斯伯里便利店（白女士路）",
+          "lat": 51.4648,
+          "lng": -2.6135,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "175A Whiteladies Road BS8 2RY，与Tesco Express相距百米，熟食、面包与日常食材充足，适合快速补给。"
+        },
+        {
           "name": "168 Oriental Supermarket",
-          "nameCn": "168亚洲超市",
-          "lat": 51.45654,
-          "lng": -2.59441,
-          "note": "市中心小唐人街最大的亚超，中日韩泰食材、整排泡面和冷冻区一应俱全，从校园步行可达。"
+          "nameCn": "168东方超市",
+          "lat": 51.4547,
+          "lng": -2.598,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Nelson Street BS1 2BJ市中心，中华亚洲食材专门店，面条、调料、冷冻食品选择丰富，营业至晚九点。"
         },
         {
-          "name": "Wai Yee Hong (Eastgate Oriental City)",
-          "nameCn": "伟义行华人超市",
-          "lat": 51.47312,
-          "lng": -2.56942,
-          "note": "Eastgate东门亚洲城内的大型华人批发超市，中餐食材最齐全，适合一次性囤货采购。"
+          "name": "Tesco Clifton Regent Street Express",
+          "nameCn": "乐购里根街便利店",
+          "lat": 51.4542,
+          "lng": -2.6083,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "32-34 Regent Street BS8 4HG，Park Street旁，购物之余可顺路采购，选品比Whiteladies Road店更小但位置便利。"
         },
         {
-          "name": "Sainsbury's (The Triangle)",
-          "nameCn": "Sainsbury's超市（三角广场店）",
-          "lat": 51.45688,
-          "lng": -2.60673,
-          "note": "紧邻校园的英国主流大型超市，就在Queens Road上，日常采购最方便。"
-        },
-        {
-          "name": "Bristol Sweet Mart",
-          "nameCn": "布里斯托甜品集市（南亚食材）",
-          "lat": 51.46766,
-          "lng": -2.56469,
-          "note": "Easton老牌南亚/中东杂货铺，香料、米面、亚洲调料种类极多，价格实惠。"
+          "name": "Alfu International Supermarket (Gloucester Road)",
+          "nameCn": "Alfu国际超市（格洛斯特路）",
+          "lat": 51.4745,
+          "lng": -2.5927,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "138 Gloucester Road BS7 8NT，中东、土耳其与亚洲食材兼备，含清真肉品，性价比高适合中东非洲裔学生。"
         }
       ]
     },
@@ -273,39 +456,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "BrisNoodles",
-          "nameCn": "BrisNoodles面馆",
-          "lat": 51.45532,
-          "lng": -2.60044,
-          "note": "Park Row上温州师傅开的中式面馆，现做面食和街头小吃口味地道，留学生最爱（仅收现金）。"
+          "name": "Cathay Rendezvous",
+          "nameCn": "国泰汇中餐厅",
+          "lat": 51.4515,
+          "lng": -2.5955,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "30 King Street BS1 4DZ，布里斯托历史最悠久（1986年创立）中餐厅，粤菜川菜兼备，位于布里斯托剧院街头，气氛独特。"
+        },
+        {
+          "name": "Dragon's Delicacy",
+          "nameCn": "龙之珍馔（点心餐厅）",
+          "lat": 51.4719,
+          "lng": -2.5611,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Eastgate Oriental City楼上，可容纳400人，布里斯托最大正宗中餐厅，每年农历新年庆典必到之地。"
+        },
+        {
+          "name": "Toro Noodle Bar",
+          "nameCn": "Toro泛亚面食火锅吧",
+          "lat": 51.4536,
+          "lng": -2.6031,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "72 Park Street BS1 5JX，校园步行可达，中国留学生高频聚餐地，有私人包厢卡拉OK房，一人热锅和烤鱼锅口碑极佳。"
+        },
+        {
+          "name": "Chilli Daddy",
+          "nameCn": "辣爸爸（正宗四川料理）",
+          "lat": 51.4534,
+          "lng": -2.5936,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "45-47 Baldwin Street BS1 1RA，屡获殊荣的正宗四川馆子，麻辣香锅与饺子招牌，爱吃辣的留学生必去。"
         },
         {
           "name": "Beijing Cooking Pot",
-          "nameCn": "北京砂锅居",
-          "lat": 51.45689,
-          "lng": -2.59782,
-          "note": "Perry Road上离校园很近的中餐砂锅店，主打煲汤和轻食，适合一人食。"
+          "nameCn": "北京厨锅（北京/天津风味）",
+          "lat": 51.4584,
+          "lng": -2.5953,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "17 Perry Road BS1 5BG，BRI医院旁，北方炸酱面与传统铜锅涮肉，午市£6.80起超值，工作日午饭首选。"
         },
         {
-          "name": "Wagamama (Clifton Triangle)",
-          "nameCn": "Wagamama日式拉面（三角店）",
-          "lat": 51.4565,
-          "lng": -2.60702,
-          "note": "校园对面的连锁亚洲面馆，拉面咖喱出餐快，是同学聚餐的稳妥之选。"
+          "name": "Woky Ko (Queens Road)",
+          "nameCn": "Woky Ko亚洲小食餐厅（皇后路）",
+          "lat": 51.4591,
+          "lng": -2.607,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "7-9 Queens Road BS8 1QE，前MasterChef选手Larkin Cen出品，港式叉烧、烤鸭小食精致，紧挨学生会。"
         },
         {
-          "name": "Eat a Pitta",
-          "nameCn": "Eat a Pitta中东口袋饼",
-          "lat": 51.45477,
-          "lng": -2.61913,
-          "note": "Clifton村里超人气的法拉费口袋饼，本地学生公认的平价快餐打卡店。"
+          "name": "Brisnoodles",
+          "nameCn": "布里斯托面馆",
+          "lat": 51.4564,
+          "lng": -2.6026,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "10A Park Row BS1 5LJ，温州老板主理，有菜单外隐藏家乡菜，手工面条正宗，中国留学生好评如潮。"
+        },
+        {
+          "name": "Wangs",
+          "nameCn": "旺氏（摩登中华料理）",
+          "lat": 51.466,
+          "lng": -2.5876,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "66 Bath Buildings, Montpelier BS6 5PU，现代中华菜与经典创新结合，地下室有麻将吧，聚会首选。"
+        },
+        {
+          "name": "Clouds Dim Sum Cafe & Wine Bar",
+          "nameCn": "云端点心咖啡酒吧",
+          "lat": 51.4695,
+          "lng": -2.5791,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "107b Mina Road, St Werburghs BS2 9YD，2024年底开业新晋网红，手工蒸饺配精选葡萄酒，年轻人拔草圣地。"
+        },
+        {
+          "name": "Wong's Chinese Restaurant",
+          "nameCn": "王氏中餐厅",
+          "lat": 51.4536,
+          "lng": -2.5946,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "12 Denmark Street BS1 5DQ，传统粤菜老店，招牌辣鲈鱼享誉全城，市中心位置方便，适合节庆家宴。"
+        },
+        {
+          "name": "Bravas",
+          "nameCn": "Bravas西班牙小食吧",
+          "lat": 51.4625,
+          "lng": -2.6076,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Cotham Hill，西班牙Tapas名店，开放厨房氛围热闹，雪利酒与炸茄子是招牌，本地人强烈推荐。"
+        },
+        {
+          "name": "Root (Wapping Wharf)",
+          "nameCn": "Root素食小食馆（沃平码头）",
+          "lat": 51.449,
+          "lng": -2.6025,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Wapping Wharf港边集装箱餐厅，创意素食小食获米其林推荐，有户外用餐区，夜景绝佳。"
         },
         {
           "name": "St Nicholas Market",
           "nameCn": "圣尼古拉斯市集",
-          "lat": 51.45433,
-          "lng": -2.59305,
-          "note": "市中心标志性美食市集，几十家小摊从咖喱到鸡肉卷，本地必吃午餐圣地。"
+          "lat": 51.4539,
+          "lng": -2.5948,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "Corn Street中世纪市集，汇聚来自全球的街头美食摊，£5-10饱腹，库尔德旋转烤肉卷是传奇，学生钱包友好。"
         }
       ]
     },
@@ -317,32 +582,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bristol Royal Infirmary (BRI)",
-          "nameCn": "布里斯托皇家医院",
-          "lat": 51.45837,
-          "lng": -2.59646,
-          "note": "校园旁的大型NHS公立医院，设有急诊（A&E），突发疾病或受伤就近就医。"
+          "name": "Students' Health Service (Hampton House)",
+          "nameCn": "布大学生健康服务中心（GP诊所）",
+          "lat": 51.4631,
+          "lng": -2.598,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Hampton House, St Michael's Hill BS6 6AU，布大学生专属NHS全科诊所，国际学生可在此注册享受免费医疗。"
         },
         {
-          "name": "Boots Pharmacy (Queen's Road)",
-          "nameCn": "Boots药房（女王路店）",
-          "lat": 51.4571,
-          "lng": -2.60736,
-          "note": "校园门口Queens Road上的连锁药房，买非处方药、感冒药和日用品都靠它。"
+          "name": "Bristol Royal Infirmary (BRI) — A&E",
+          "nameCn": "布里斯托皇家医院（急诊部）",
+          "lat": 51.4594,
+          "lng": -2.5951,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Upper Maudlin Street BS2 8HW，距校区步行约10分钟，急症及大病就医必到，全年24小时急诊服务。"
         },
         {
-          "name": "EE Store (Cabot Circus)",
-          "nameCn": "EE手机营业厅（Cabot Circus店）",
-          "lat": 51.45843,
-          "lng": -2.58596,
-          "note": "Cabot Circus商场内的EE运营商门店，办手机卡和套餐，附近还有Three/Vodafone。"
+          "name": "NatWest Bank (Queens Road Branch)",
+          "nameCn": "英国国民西敏银行（皇后路支行）",
+          "lat": 51.4591,
+          "lng": -2.6064,
+          "rank": 3,
+          "tier": "必去",
+          "note": "40 Queens Road BS8 1BF，距离校区最近的主要银行，学生开户推荐，周一至周六均有服务。"
         },
         {
-          "name": "Lloyds Bank (Cabot Circus)",
-          "nameCn": "劳埃德银行（Cabot Circus店）",
-          "lat": 51.45846,
-          "lng": -2.5858,
-          "note": "购物中心附近的主流银行网点，可预约开户；Queens Road三角区还有HSBC等多家银行。"
+          "name": "Lloyds Bank (Queens Road Branch)",
+          "nameCn": "劳埃德银行（皇后路支行）",
+          "lat": 51.4587,
+          "lng": -2.6058,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "58 Queens Road BS8 1RQ，步行校区5分钟，国际学生友好，与NatWest相距百米，开户择一即可。"
+        },
+        {
+          "name": "Boots Pharmacy (Clifton Down Shopping Centre)",
+          "nameCn": "Boots药房（克利夫顿购物中心）",
+          "lat": 51.4636,
+          "lng": -2.6148,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "9 Clifton Down Shopping Centre, Whiteladies Road BS8 2NN，全英最大药房连锁，处方药、OTC药及护肤品齐全。"
+        },
+        {
+          "name": "Three Mobile Store (Broadmead)",
+          "nameCn": "Three电信营业厅（博劳米德）",
+          "lat": 51.4558,
+          "lng": -2.5921,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "84 Broadmead BS1，推荐国际学生办理Three SIM卡，不限量数据套餐性价比最高，无需信用记录即可办理。"
+        },
+        {
+          "name": "HSBC Bank (College Green Branch)",
+          "nameCn": "汇丰银行（学院绿地支行）",
+          "lat": 51.4548,
+          "lng": -2.6016,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "24 College Green BS1 5TD，国际学生开户汇丰全球账户便利，步行Park Street可达，营业时间较长。"
+        },
+        {
+          "name": "Lloyds Pharmacy (Whiteladies Road)",
+          "nameCn": "劳埃德药房（白女士路）",
+          "lat": 51.4641,
+          "lng": -2.6133,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Clifton Down附近Whatley Road路口，紧邻Tesco Express，急需处方药或避孕药时首选。"
         }
       ]
     },
@@ -354,39 +663,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Cabot Tower & Brandon Hill",
-          "nameCn": "卡伯特塔与布兰登山",
-          "lat": 51.45403,
-          "lng": -2.60682,
-          "note": "校园后山的城市绿洲，登塔可俯瞰全城，步行几分钟即到，看日落的最佳免费观景点。"
+          "name": "Clifton Suspension Bridge & Observatory",
+          "nameCn": "克利夫顿悬索桥与天文台",
+          "lat": 51.4546,
+          "lng": -2.6276,
+          "rank": 1,
+          "tier": "必去",
+          "note": "布里斯托头号打卡地，Litfield Road有Camera Obscura（£3），旁边天文台俯瞰Avon峡谷景色无敌，入学必打卡。"
         },
         {
-          "name": "Clifton Suspension Bridge",
-          "nameCn": "克利夫顿悬索桥",
-          "lat": 51.45495,
-          "lng": -2.62786,
-          "note": "布里斯托第一地标，横跨Avon峡谷的百年吊桥，免费步行通过，必去拍照打卡。"
+          "name": "Bristol Harbourside & Wapping Wharf",
+          "nameCn": "布里斯托港湾与沃平码头",
+          "lat": 51.449,
+          "lng": -2.601,
+          "rank": 2,
+          "tier": "必去",
+          "note": "集M Shed、SS Great Britain、We The Curious于一体，还有集装箱市集餐厅与酒吧，周末必逛半日游。"
         },
         {
-          "name": "Bristol Museum & Art Gallery",
-          "nameCn": "布里斯托博物馆与美术馆",
-          "lat": 51.45649,
-          "lng": -2.60504,
-          "note": "就在校园旁Queens Road上的免费博物馆，自然史与艺术藏品丰富，雨天好去处。"
+          "name": "Banksy Street Art Tour (Stokes Croft)",
+          "nameCn": "班克西涂鸦游（斯托克斯克罗夫特）",
+          "lat": 51.4634,
+          "lng": -2.5947,
+          "rank": 3,
+          "tier": "必去",
+          "note": "《温和的西部》等班克西原作聚集于此，PRSC商店有纪念品，艺术打卡与波西米亚氛围浓厚。"
         },
         {
-          "name": "We The Curious",
-          "nameCn": "We The Curious科学馆",
-          "lat": 51.45036,
-          "lng": -2.60051,
-          "note": "海港边的互动科学中心，含天文馆，适合放松散心，周边Harbourside咖啡酒吧林立。"
+          "name": "University of Bristol Botanic Garden",
+          "nameCn": "布里斯托大学植物园",
+          "lat": 51.481,
+          "lng": -2.6302,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Stoke Park Road, Stoke Bishop BS9 1JG，校属植物园免费对学生开放，春季温室与地中海园区尤为美丽。"
         },
         {
-          "name": "Clifton Village",
-          "nameCn": "克利夫顿村",
-          "lat": 51.45528,
-          "lng": -2.61934,
-          "note": "乔治王朝风格的精致老街区，独立小店、咖啡馆和酒吧云集，周末闲逛首选。"
+          "name": "Bath (Day Trip by Rail)",
+          "nameCn": "巴斯（火车日归）",
+          "lat": 51.3811,
+          "lng": -2.359,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Bristol Temple Meads出发约10分钟，罗马浴场、王者广场与乔治亚建筑密集，每学年必做一次的经典短途游。"
+        },
+        {
+          "name": "Clifton Lido",
+          "nameCn": "克利夫顿露天泳池",
+          "lat": 51.4568,
+          "lng": -2.6152,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Oakfield Place BS8 2BJ，1849年建造的英国最古老泳池之一，含水疗与餐厅，治愈系打卡地。"
+        },
+        {
+          "name": "Gloucester Road Independent Shopping",
+          "nameCn": "格洛斯特路独立购物街",
+          "lat": 51.4745,
+          "lng": -2.5959,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全英最长独立商店街道，古着店、唱片店、独立咖啡馆与素食餐厅林立，体验真正布里斯托文化的地方。"
+        },
+        {
+          "name": "Watershed Arts Centre & Cinema",
+          "nameCn": "Watershed港湾艺术影院",
+          "lat": 51.4502,
+          "lng": -2.5978,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "1 Canons Road BS1 5TX，英国第一家媒体艺术中心，文艺独立电影与科技文化活动汇聚，学生折扣票常有。"
+        },
+        {
+          "name": "Cheddar Gorge",
+          "nameCn": "切达峡谷（英格兰最大峡谷）",
+          "lat": 51.2818,
+          "lng": -2.7703,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "英格兰最大峡谷，可参观史前洞穴与攀登峭壁，切达奶酪发源地，需大巴约1小时，适合春秋远足。"
+        },
+        {
+          "name": "Eastgate Oriental City",
+          "nameCn": "东方城（亚洲文化美食中心）",
+          "lat": 51.4719,
+          "lng": -2.5611,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Eastgate Road BS5 6XX，集Wai Yee Hong超市、Dragon's Delicacy餐厅及多家亚洲店铺，是中国留学生的「家」。"
         }
       ]
     }

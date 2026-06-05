@@ -61,30 +61,110 @@
         {
           "name": "Bascom Hall",
           "nameCn": "巴斯科姆楼",
-          "lat": 43.0753,
+          "lat": 43.0757,
           "lng": -89.4041,
-          "note": "山顶行政主楼，校园精神地标"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最具标志性的行政与教学楼，坐落于巴斯科姆山顶，是UW-Madison的精神中心与象征。"
         },
         {
-          "name": "College of Engineering (Engineering Hall)",
-          "nameCn": "工程学院（工程楼）",
-          "lat": 43.0722,
-          "lng": -89.4104,
-          "note": "工程学科主楼群所在"
+          "name": "Morgridge Hall (CDIS)",
+          "nameCn": "莫里奇楼（计算机与数据科学学院）",
+          "lat": 43.0717,
+          "lng": -89.4133,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2025年新开放、耗资2.67亿美元的旗舰楼，汇聚计算机科学、统计、数据科学，是CS/DS学生核心据点。"
         },
         {
-          "name": "School of Medicine and Public Health (HSLC)",
-          "nameCn": "医学与公共卫生学院",
-          "lat": 43.0766,
-          "lng": -89.4297,
-          "note": "西侧健康科学学习中心，邻大学医院"
+          "name": "Grainger Hall (Wisconsin School of Business)",
+          "nameCn": "格兰杰楼（商学院）",
+          "lat": 43.0724,
+          "lng": -89.4066,
+          "rank": 3,
+          "tier": "必去",
+          "note": "威斯康星商学院所在地，位于校园核心地带，MBA与本科商科学生必经之处。"
         },
         {
-          "name": "Babcock Hall (Dairy Science)",
-          "nameCn": "巴布科克楼（乳品科学）",
+          "name": "Engineering Hall",
+          "nameCn": "工程楼",
+          "lat": 43.072,
+          "lng": -89.4153,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "工程学院核心教学楼，内设多个研究实验室，工程系学生每天必到。"
+        },
+        {
+          "name": "Science Hall",
+          "nameCn": "科学楼",
+          "lat": 43.0757,
+          "lng": -89.3997,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "建于1888年的国家历史地标，理查德森罗曼式建筑，曾开创美国首批地学与海洋学课程。"
+        },
+        {
+          "name": "Van Hise Hall",
+          "nameCn": "范海斯楼",
           "lat": 43.0748,
-          "lng": -89.4137,
-          "note": "农学院乳品科学楼，附设冰淇淋店"
+          "lng": -89.4076,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "19层高楼，麦迪逊第二高建筑，容纳大量人文与语言系，地标般矗立于校园西侧。"
+        },
+        {
+          "name": "Sewell Social Sciences Building",
+          "nameCn": "休厄尔社会科学楼",
+          "lat": 43.0765,
+          "lng": -89.4098,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "经济、社会学、人类学等社会科学系聚集地，社科学生上课、自习的日常核心楼。"
+        },
+        {
+          "name": "Humanities Building (Mosse Hall)",
+          "nameCn": "人文楼（莫斯楼）",
+          "lat": 43.0752,
+          "lng": -89.4019,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于图书馆广场，粗野主义风格，容纳历史、艺术与音乐系，与纪念图书馆毗邻。"
+        },
+        {
+          "name": "Ingraham Hall",
+          "nameCn": "英格拉姆楼",
+          "lat": 43.0763,
+          "lng": -89.4065,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "经济学系和数学系课程常设于此，学术讨论和课外辅导活动活跃。"
+        },
+        {
+          "name": "Medical Sciences Center",
+          "nameCn": "医学科学中心",
+          "lat": 43.0734,
+          "lng": -89.4305,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "医学、护理、药学等生命科学院系所在地，医卫专业学生的主要学习楼群。"
+        },
+        {
+          "name": "Helen C. White Hall",
+          "nameCn": "海伦·怀特楼",
+          "lat": 43.0783,
+          "lng": -89.3965,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "College Library所在楼，也容纳英语系和传播学课程，湖边视野绝佳，深受学生喜爱。"
+        },
+        {
+          "name": "Vilas Hall (Communication Arts)",
+          "nameCn": "维拉斯楼（传播艺术系）",
+          "lat": 43.0735,
+          "lng": -89.4027,
+          "rank": 12,
+          "tier": "可选",
+          "note": "传播与媒体艺术系所在地，内有专业剧场与媒体制作设施，新闻传播专业核心楼。"
         }
       ],
       "defaultOn": true
@@ -99,16 +179,56 @@
         {
           "name": "Memorial Library",
           "nameCn": "纪念图书馆",
-          "lat": 43.075,
-          "lng": -89.398,
-          "note": "人文社科主图书馆，馆藏规模最大"
+          "lat": 43.0757,
+          "lng": -89.4007,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全威斯康星州最大图书馆，350万余册馆藏，人文社科研究主力，选址图书馆广场核心。"
         },
         {
-          "name": "Steenbock Memorial Library",
-          "nameCn": "斯滕博克纪念图书馆",
-          "lat": 43.0761,
-          "lng": -89.4134,
-          "note": "农业生命与自然科学图书馆"
+          "name": "College Library (Helen C. White Hall)",
+          "nameCn": "大学生图书馆（海伦·怀特楼）",
+          "lat": 43.0783,
+          "lng": -89.3965,
+          "rank": 2,
+          "tier": "必去",
+          "note": "以本科生为核心服务对象，学期内每周五晚提供24小时开放，有Open Book Café和数字媒体室。"
+        },
+        {
+          "name": "Steenbock Library",
+          "nameCn": "斯汀博克图书馆",
+          "lat": 43.0678,
+          "lng": -89.4166,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "理工农林及兽医学科主图书馆，靠近工程与农业校区，STEM学生科研文献首选。"
+        },
+        {
+          "name": "Law Library (Law School)",
+          "nameCn": "法学院图书馆",
+          "lat": 43.0735,
+          "lng": -89.4038,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于巴斯科姆林荫道法学院内，美国顶尖公立法学院图书馆，法学生及学术研究者首选。"
+        },
+        {
+          "name": "School of Computer, Data & Information Sciences (SCDIS) Library",
+          "nameCn": "计算机与数据科学图书馆",
+          "lat": 43.0717,
+          "lng": -89.4133,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "嵌入莫里奇楼内的专业学科图书馆，服务CS、统计与信息学科，藏书与数据库均为最新。"
+        },
+        {
+          "name": "Wisconsin Historical Society Library & Archives",
+          "nameCn": "威斯康星历史学会图书馆及档案馆",
+          "lat": 43.0759,
+          "lng": -89.4004,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "与纪念图书馆毗邻，存有美国中西部最丰富的历史原始档案，历史及社科研究者的宝库。"
         }
       ]
     },
@@ -122,16 +242,47 @@
         {
           "name": "Chazen Museum of Art",
           "nameCn": "查岑艺术博物馆",
-          "lat": 43.0739,
-          "lng": -89.3987,
-          "note": "州内规模最大的艺术博物馆，免费开放"
+          "lat": 43.0742,
+          "lng": -89.4028,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UW-Madison校内免费开放的艺术博物馆，藏品逾2.2万件，威斯康星州第二大艺术收藏。"
         },
         {
-          "name": "Geology Museum",
+          "name": "UW-Madison Geology Museum",
           "nameCn": "地质博物馆",
-          "lat": 43.0706,
-          "lng": -89.4064,
-          "note": "韦克斯曼楼内，藏恐龙与矿物标本"
+          "lat": 43.0721,
+          "lng": -89.4082,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于Weeks Hall，展示恐龙化石与矿物标本，入场免费，地球科学爱好者和小红书打卡热门。"
+        },
+        {
+          "name": "Wisconsin Historical Museum",
+          "nameCn": "威斯康星历史博物馆",
+          "lat": 43.0744,
+          "lng": -89.3843,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于国会广场旁，展示威斯康星州原住民与移民历史（注：2026年暂关闭重建，2028年将作为新历史中心开放）。"
+        },
+        {
+          "name": "Henry Vilas Zoo",
+          "nameCn": "亨利·维拉斯动物园",
+          "lat": 43.0591,
+          "lng": -89.4148,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美少数免费入场的认证动物园，650余种动物，距校园步行可达，是留学生周末必去的减压之地。"
+        },
+        {
+          "name": "Babcock Hall Dairy Store",
+          "nameCn": "巴布科克冰淇淋店",
+          "lat": 43.0695,
+          "lng": -89.415,
+          "rank": 5,
+          "tier": "必去",
+          "note": "UW农业学院出品的网红冰淇淋，20余种口味，学生自产自销，是打卡校园的必体验项目。"
         }
       ]
     },
@@ -143,32 +294,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Memorial Union & Terrace",
-          "nameCn": "纪念学生会与湖滨平台",
-          "lat": 43.0763,
-          "lng": -89.4001,
-          "note": "门多塔湖畔标志性学生活动中心"
+          "name": "Memorial Union Terrace",
+          "nameCn": "纪念学生中心露台",
+          "lat": 43.0776,
+          "lng": -89.4004,
+          "rank": 1,
+          "tier": "必去",
+          "note": "门多塔湖畔彩色向日葵椅标志性露台，是全美最美学生中心之一，傍晚看日落必去。"
+        },
+        {
+          "name": "Bascom Hill",
+          "nameCn": "巴斯科姆山",
+          "lat": 43.0757,
+          "lng": -89.4041,
+          "rank": 2,
+          "tier": "必去",
+          "note": "从山顶望向国会大厦的视野是麦迪逊最标志性景象，毕业典礼与开学季的聚集地。"
+        },
+        {
+          "name": "Wisconsin State Capitol",
+          "nameCn": "威斯康星州议会大厦",
+          "lat": 43.0747,
+          "lng": -89.384,
+          "rank": 3,
+          "tier": "必去",
+          "note": "麦迪逊城市中轴地标，提供免费参观和观景台，沿State Street步行即可抵达。"
+        },
+        {
+          "name": "State Street",
+          "nameCn": "国家大街",
+          "lat": 43.0736,
+          "lng": -89.393,
+          "rank": 4,
+          "tier": "必去",
+          "note": "连接校园与州议会的步行街，餐厅、酒吧、书店云集，是麦迪逊学生生活与夜生活核心。"
+        },
+        {
+          "name": "Union South",
+          "nameCn": "南校学生中心",
+          "lat": 43.0698,
+          "lng": -89.4079,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "工程与理工学院附近的第二学生活动中心，内有Varsity Hall演出厅、餐厅与攀岩墙。"
         },
         {
           "name": "Camp Randall Stadium",
-          "nameCn": "兰德营体育场",
-          "lat": 43.0701,
-          "lng": -89.4127,
-          "note": "獾队橄榄球主场，约8万座"
+          "nameCn": "兰德尔球场",
+          "lat": 43.0699,
+          "lng": -89.4124,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Badgers橄榄球队主场，全美最受欢迎的大学橄榄球体验之一，秋季比赛日气氛极佳。"
         },
         {
           "name": "Kohl Center",
           "nameCn": "科尔中心",
-          "lat": 43.0694,
-          "lng": -89.3967,
-          "note": "篮球与冰球室内场馆"
-        },
-        {
-          "name": "Union South",
-          "nameCn": "南区学生会",
-          "lat": 43.0716,
-          "lng": -89.4079,
-          "note": "西南侧第二学生活动中心，邻工程区"
+          "lat": 43.0698,
+          "lng": -89.4191,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Badgers篮球和冰球的主场馆，举办大型演唱会和体育赛事，交通便利。"
         }
       ]
     },
@@ -180,32 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Asian Midway Foods",
-          "nameCn": "亚洲中途食品超市",
-          "lat": 43.0639,
-          "lng": -89.4003,
-          "note": "离校园最近的亚洲超市,South Park St上,中餐调料、米面、冷冻饺子和亚洲蔬菜都齐全,步行可达。"
+          "name": "Fresh Madison Market",
+          "nameCn": "新鲜麦迪逊市场",
+          "lat": 43.0719,
+          "lng": -89.4061,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内步行可达的全服务超市，位于University Ave地面层，解决了校园无大型超市的历史空白。"
         },
         {
           "name": "Trader Joe's",
-          "nameCn": "缺德舅超市",
-          "lat": 43.0646,
-          "lng": -89.4178,
-          "note": "Monroe St上的连锁超市,性价比高、冷冻速食和零食出名,留学生日常采购首选。"
+          "nameCn": "乔氏超市",
+          "lat": 43.0611,
+          "lng": -89.4062,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Monroe St，自有品牌性价比高，冷冻食品和零食深受留学生喜爱，骑车约15分钟可达。"
         },
         {
-          "name": "Whole Foods Market",
-          "nameCn": "全食超市",
-          "lat": 43.0712,
-          "lng": -89.4493,
-          "note": "University Ave上的高端有机超市,生鲜和熟食区好,自驾或公交约10分钟。"
+          "name": "Global Market & Food Hall",
+          "nameCn": "环球亚洲超市及美食广场",
+          "lat": 43.117,
+          "lng": -89.3405,
+          "rank": 3,
+          "tier": "必去",
+          "note": "麦迪逊最大亚洲超市，经营中、韩、日、越南食材及厨具，附设多家亚洲餐饮档口，开车约15分钟。"
         },
         {
-          "name": "Metcalfe's Market (Hilldale)",
-          "nameCn": "Metcalfe's 本地超市(Hilldale店)",
-          "lat": 43.0707,
-          "lng": -89.452,
-          "note": "本地大型综合超市,生鲜、肉类、亚洲货架都有,Hilldale购物中心内,补货一站搞定。"
+          "name": "Viet Hoa Market",
+          "nameCn": "越华超市",
+          "lat": 43.0511,
+          "lng": -89.3528,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "东南亚及中式食材齐全，内有热食档口，是华人学生采购调料和新鲜食材的常去之地。"
+        },
+        {
+          "name": "Woodman's Food Market (West)",
+          "nameCn": "伍德曼食品超市（西店）",
+          "lat": 43.0493,
+          "lng": -89.488,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "麦迪逊最大的本地连锁超市，品类最全、价格最低，一次性采购必选，需开车或乘公交。"
+        },
+        {
+          "name": "Regent Market Co-op",
+          "nameCn": "摄政市场合作社",
+          "lat": 43.063,
+          "lng": -89.4189,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "本地有机合作社超市，新鲜农产品和环保产品丰富，距校园骑车可达。"
+        },
+        {
+          "name": "Oriental Shop",
+          "nameCn": "东方小店",
+          "lat": 43.0587,
+          "lng": -89.3924,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Park St附近的小型亚洲杂货店，采购急需中式食材的便捷选择。"
         }
       ]
     },
@@ -218,45 +439,129 @@
       "items": [
         {
           "name": "Ruyi Hand Pulled Noodle",
-          "nameCn": "如意拉面",
-          "lat": 43.0743,
-          "lng": -89.3905,
-          "note": "State St上的兰州手工拉面,牛肉面和凉皮地道,是中国学生解馋的常去店。"
+          "nameCn": "如意手工拉面",
+          "lat": 43.0738,
+          "lng": -89.394,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "State Street上的人气中式手工拉面馆，牛肉面和葱油面是华人学生口碑之选，小红书高频推荐。"
         },
         {
-          "name": "Chen's Dumpling House",
-          "nameCn": "陈记饺子馆",
-          "lat": 43.0729,
-          "lng": -89.3952,
-          "note": "505 State St,手工水饺和家常川菜出名,价格学生友好,本地华人口碑很好。"
+          "name": "Hutong 胡同小酒馆",
+          "nameCn": "胡同小酒馆",
+          "lat": 43.0713,
+          "lng": -89.3798,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "女性主理的隐秘正宗中餐馆，丹丹面和牛骨汤面在Yelp获4.6分，麦迪逊华人圈公认最正宗之一。"
         },
         {
-          "name": "Ian's Pizza on State",
-          "nameCn": "Ian's 披萨(State St店)",
-          "lat": 43.075,
-          "lng": -89.3857,
-          "note": "麦迪逊招牌按片卖的创意披萨(土豆培根口味必试),深夜营业,UW学生的灵魂食堂。"
+          "name": "Ichiban Sichuan",
+          "nameCn": "一品川菜",
+          "lat": 43.0606,
+          "lng": -89.3913,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "正宗川菜馆，麻婆豆腐、葱油饼、辣炒四季豆评价极高，是嗜辣留学生的心头好。"
         },
         {
-          "name": "Babcock Dairy Store",
-          "nameCn": "Babcock 乳品店",
-          "lat": 43.0774,
-          "lng": -89.4128,
-          "note": "校内自制冰淇淋老字号(1951年起),用本校牧场牛奶,来UW必尝的招牌甜点。"
+          "name": "Chin Up 麦屯小吃",
+          "nameCn": "麦屯小吃",
+          "lat": 43.0745,
+          "lng": -89.398,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于W Gilman St，主打肉夹馍等陕西风味，是麦迪逊少见的中式街头小吃馆，深受留学生追捧。"
         },
         {
-          "name": "Mickie's Dairy Bar",
-          "nameCn": "Mickie's 复古早餐店",
-          "lat": 43.0683,
-          "lng": -89.4136,
-          "note": "Monroe St上的复古早餐馆,招牌Scrambler超大份,周末常排队,麦迪逊经典。"
+          "name": "Double 10 Mini Hot Pot",
+          "nameCn": "双十迷你火锅",
+          "lat": 43.0793,
+          "lng": -89.3736,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Williamson St上的小份火锅餐厅，价格亲民，适合三五好友聚餐，华人圈人气极旺。"
+        },
+        {
+          "name": "QQ Express",
+          "nameCn": "QQ快餐",
+          "lat": 43.0719,
+          "lng": -89.4074,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "紧靠校园的快手中式快餐，价格经济，外卖和堂食均方便，是上课间隙解馋首选。"
+        },
+        {
+          "name": "Orient House",
+          "nameCn": "东方苑中餐厅",
+          "lat": 43.0607,
+          "lng": -89.3914,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Park St上的老牌中餐馆，菜量大、价格实惠，广受华人学生好评，适合日常聚餐。"
+        },
+        {
+          "name": "Chopsticks",
+          "nameCn": "筷子中餐厅",
+          "lat": 43.0632,
+          "lng": -89.4179,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Regent St附近，提供点心和传统中式料理，靠近研究生居住区，方便周末外卖。"
+        },
+        {
+          "name": "Umami Ramen & Dumpling Bar",
+          "nameCn": "鲜味拉面饺子吧",
+          "lat": 43.0786,
+          "lng": -89.371,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "麦迪逊第一家拉面馆，1880年代历史老宅改造，日式拉面与中式饺子结合，Yelp评分高达4.5。"
+        },
+        {
+          "name": "Ian's Pizza",
+          "nameCn": "伊恩's披萨",
+          "lat": 43.0738,
+          "lng": -89.3868,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "State Street标志性披萨店，奇葩口味（经典Mac芝士披萨）令人上瘾，是麦迪逊大学生深夜宵夜圣地。"
         },
         {
           "name": "State Street Brats",
-          "nameCn": "State Street 烤肠店",
-          "lat": 43.0745,
-          "lng": -89.3879,
-          "note": "威州特色烤肠和炸奶酪块,带露天座,看球氛围浓,体验本地饮食文化首选。"
+          "nameCn": "国家街香肠吧",
+          "lat": 43.0737,
+          "lng": -89.394,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "自1940年代营业的麦迪逊名物，红肠配奶酪和New Glarus斑点牛啤，体验最正宗的威斯康星大学生活。"
+        },
+        {
+          "name": "Memorial Union Terrace (Rathskeller)",
+          "nameCn": "纪念学生中心地下酒吧与露台餐饮",
+          "lat": 43.0776,
+          "lng": -89.4004,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "湖畔露台可享用烤肠、啤酒和冰淇淋，Rathskeller地下室氛围独特，是融入校园文化的必体验。"
+        },
+        {
+          "name": "L'Etoile",
+          "nameCn": "星光法餐厅",
+          "lat": 43.0742,
+          "lng": -89.3843,
+          "rank": 13,
+          "tier": "一般",
+          "note": "国会广场旁、麦迪逊最负盛名的农场直供法式精致餐厅，节日庆典或正式宴请必选。"
+        },
+        {
+          "name": "Dane County Farmers' Market (Food Stalls)",
+          "nameCn": "戴恩县农夫市集（餐食摊位）",
+          "lat": 43.0747,
+          "lng": -89.384,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "全美最大生产者直销农夫市集，周六早晨环绕国会广场，新鲜芝士、熟食和各类农产品应有尽有。"
         }
       ]
     },
@@ -268,32 +573,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "UW Credit Union – State Street",
-          "nameCn": "UW信用社(State St分行)",
-          "lat": 43.0739,
-          "lng": -89.3963,
-          "note": "662 State St,紧邻校园的信用社,办学生支票/储蓄账户方便,UW学生主力银行。"
+          "name": "UW Credit Union (State Street Branch)",
+          "nameCn": "UW信用合作社（State Street分行）",
+          "lat": 43.0742,
+          "lng": -89.393,
+          "rank": 1,
+          "tier": "必去",
+          "note": "最推荐留学生开户的本地信用社，可申请美国首张信用卡，免月费，662 State St，紧邻校园。"
         },
         {
-          "name": "U.S. Bank – University Square",
-          "nameCn": "美国合众银行(University Square校园支行)",
-          "lat": 43.0726,
-          "lng": -89.3956,
-          "note": "389 East Campus Mall,与学校合作的校园网点,新生开美元账户、办借记卡可现场办理。"
+          "name": "University Health Services (UHS)",
+          "nameCn": "大学健康服务中心",
+          "lat": 43.0714,
+          "lng": -89.4072,
+          "rank": 2,
+          "tier": "必去",
+          "note": "在校学生免费就医的校内诊所，333 East Campus Mall，内科、心理健康、性健康等一站式服务。"
         },
         {
           "name": "UW Health University Hospital",
-          "nameCn": "UW Health大学医院",
-          "lat": 43.0759,
-          "lng": -89.4307,
-          "note": "校园西侧的主力综合医院与急诊,留学生看病/急诊的主要去处,校医保SHIP对接。"
+          "nameCn": "UW健康大学医院",
+          "lat": 43.0777,
+          "lng": -89.4348,
+          "rank": 3,
+          "tier": "必去",
+          "note": "600 Highland Ave，大Madison地区最顶级医院，急诊24小时，严重病情或专科就诊首选。"
         },
         {
-          "name": "UnityPoint Health Urgent Care – University Ave",
-          "nameCn": "UnityPoint紧急护理诊所(University Ave)",
-          "lat": 43.0712,
-          "lng": -89.4316,
-          "note": "非预约的urgent care,小病小伤、流感、验血当天就诊,比急诊快且便宜。"
+          "name": "Walgreens (State Street)",
+          "nameCn": "沃格林药店（State Street店）",
+          "lat": 43.0737,
+          "lng": -89.393,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "676 State St，校园最近的全服务药房，常规药品、OTC药物及洗护用品一应俱全。"
+        },
+        {
+          "name": "Chase Bank (Capitol Branch)",
+          "nameCn": "摩根大通银行（国会广场分行）",
+          "lat": 43.0742,
+          "lng": -89.3854,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "22 E Mifflin St，距校园最近的大型全国性银行，联系国际转账和ACH便利，留学生常选。"
+        },
+        {
+          "name": "T-Mobile (University & Farley Store)",
+          "nameCn": "T-Mobile手机店（大学街店）",
+          "lat": 43.0734,
+          "lng": -89.4247,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "2701 University Ave，校园附近最近的T-Mobile门店，留学生办理预付费或合约套餐首选，5G覆盖率98%。"
+        },
+        {
+          "name": "AT&T Store (University Ave)",
+          "nameCn": "AT&T手机店（大学街店）",
+          "lat": 43.0731,
+          "lng": -89.4241,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "3302 University Ave，AT&T国内与国际通话套餐可在此办理，工作人员可帮助SIM卡激活。"
+        },
+        {
+          "name": "Walgreens (University Ave)",
+          "nameCn": "沃格林药店（大学街店）",
+          "lat": 43.0744,
+          "lng": -89.425,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "3700 University Ave，靠近西校区和工程学院区域，有照片冲印和疫苗接种服务。"
         }
       ]
     },
@@ -305,39 +654,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Wisconsin State Capitol",
-          "nameCn": "威斯康星州议会大厦",
+          "name": "Picnic Point",
+          "nameCn": "野餐角",
+          "lat": 43.0898,
+          "lng": -89.426,
+          "rank": 1,
+          "tier": "必去",
+          "note": "伸入门多塔湖的一英里半岛，环湖全景壮阔，有印第安土丘遗迹，傍晚看夕阳是留学生必打卡。"
+        },
+        {
+          "name": "Memorial Union Terrace (Sunset)",
+          "nameCn": "纪念学生中心露台（看日落）",
+          "lat": 43.0776,
+          "lng": -89.4004,
+          "rank": 2,
+          "tier": "必去",
+          "note": "门多塔湖最佳日落观赏点，彩色向日葵椅是麦迪逊最具辨识度的社交媒体打卡场景。"
+        },
+        {
+          "name": "UW Arboretum",
+          "nameCn": "UW植物园",
+          "lat": 43.0423,
+          "lng": -89.4212,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1260英亩的恢复生态保护区，国家历史地标，春夏秋冬均有徒步与慢跑路线，是放松减压的城市绿肺。"
+        },
+        {
+          "name": "Olbrich Botanical Gardens",
+          "nameCn": "奥尔布里希植物园",
+          "lat": 43.0887,
+          "lng": -89.3269,
+          "rank": 4,
+          "tier": "必去",
+          "note": "3330 Atwood Ave，16英亩户外花园加1万平方英尺温室，内有泰国凉亭，春夏季花展是网红拍照地。"
+        },
+        {
+          "name": "Henry Vilas Zoo",
+          "nameCn": "亨利·维拉斯动物园",
+          "lat": 43.0591,
+          "lng": -89.4148,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美罕见的完全免费认证动物园，距校园步行可达，周末携友一游是留学生最受欢迎的休闲选择。"
+        },
+        {
+          "name": "State Street",
+          "nameCn": "国家大街",
+          "lat": 43.0736,
+          "lng": -89.393,
+          "rank": 6,
+          "tier": "必去",
+          "note": "校园与国会大厦之间的步行街，餐厅、独立书店、酒吧和街头艺人云集，是了解麦迪逊城市生活的窗口。"
+        },
+        {
+          "name": "Dane County Farmers' Market",
+          "nameCn": "戴恩县农夫市集",
           "lat": 43.0747,
-          "lng": -89.3844,
-          "note": "State St尽头的州议会大厦,免费参观、可上观景台,麦迪逊地标,打卡拍照必去。"
+          "lng": -89.384,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全美最大生产者直销市集，每周六清晨环绕国会广场，是感受麦迪逊本地文化最真实的户外体验。"
         },
         {
-          "name": "Memorial Union Terrace",
-          "nameCn": "纪念学生会湖畔露台",
-          "lat": 43.0763,
-          "lng": -89.4001,
-          "note": "门多塔湖畔的标志性露台,彩色向日葵椅+日落湖景,UW学生social和拍照圣地(4-9月开放)。"
+          "name": "Lake Mendota (Kayaking & Sailing)",
+          "nameCn": "门多塔湖（皮划艇与帆船）",
+          "lat": 43.0986,
+          "lng": -89.4124,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "校园北侧大湖，Outdoor UW提供皮划艇、帆船、桨板租赁，夏季必体验的户外活动。"
         },
         {
-          "name": "Bascom Hill",
-          "nameCn": "巴斯科姆山坡",
-          "lat": 43.0753,
-          "lng": -89.4043,
-          "note": "校园历史核心的草坡,顶端林肯像可俯瞰State St和州议会,毕业季和秋叶最美。"
+          "name": "Wisconsin State Capitol (Observation Deck)",
+          "nameCn": "威斯康星州议会大厦（观景台）",
+          "lat": 43.0747,
+          "lng": -89.384,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "免费开放的穹顶观景台，俯瞰麦迪逊全景及双湖，导览之旅全年开放，是新生融入城市的好去处。"
         },
         {
-          "name": "Chazen Museum of Art",
-          "nameCn": "Chazen艺术博物馆",
-          "lat": 43.0719,
-          "lng": -89.3998,
-          "note": "校内免费的大型艺术博物馆,藏品横跨古今,适合周末逛展避寒,文艺打卡好去处。"
-        },
-        {
-          "name": "Lake Mendota Lakeshore Path",
-          "nameCn": "门多塔湖滨步道",
-          "lat": 43.0782,
-          "lng": -89.4115,
-          "note": "沿校园北侧门多塔湖的步道,跑步、骑车、看日落都合适,四季风景各异。"
+          "name": "Lakeshore Path",
+          "nameCn": "湖滨步道",
+          "lat": 43.083,
+          "lng": -89.406,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "沿门多塔湖岸绵延数英里的跑步与骑行路线，串联纪念学生中心与野餐角，四季皆宜。"
         }
       ]
     }

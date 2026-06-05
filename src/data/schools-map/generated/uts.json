@@ -67,39 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "UTS Tower (Building 1)",
-          "nameCn": "UTS主塔楼(1号楼)",
-          "lat": -33.8837,
-          "lng": 151.2009,
-          "note": "120米高的粗野主义地标塔楼,行政与多院系核心,校园门面。"
-        },
-        {
-          "name": "Building 11 — Faculty of Engineering and IT",
-          "nameCn": "11号楼(工程与信息技术学院)",
+          "name": "Building 11 (FEIT Building)",
+          "nameCn": "工程与信息技术学院大楼（CB11）",
           "lat": -33.884,
-          "lng": 151.1992,
-          "note": "外墙覆二进制码穿孔屏的14层工程IT学院主楼。"
+          "lng": 151.1993,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UTS工程与信息技术学院（FEIT）主楼，QS工程学科全球前100，包含计算机、电气、机械、软件等专业；14层大楼内有Data Arena可视化实验室，是科技专业学生的核心学习场所。"
         },
         {
-          "name": "Vicki Sara Building (Building 7) — Science",
-          "nameCn": "Vicki Sara楼(7号楼·理学院)",
-          "lat": -33.8824,
-          "lng": 151.1998,
-          "note": "Thomas与Jones街角的理科主楼,与健康学院相连成科学健康片区。"
+          "name": "UTS Central / Building 2 (CB02)",
+          "nameCn": "UTS中央大楼（CB02）",
+          "lat": -33.8838,
+          "lng": 151.2002,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园核心枢纽，集图书馆（7-9层）、Hive超级实验室、法学院、三个全球首创大型协作教室及无塑料美食广场于一体，是学生日常学习生活的中心。"
         },
         {
-          "name": "Dr Chau Chak Wing Building (Building 8) — Business",
-          "nameCn": "周泽荣博士楼(8号楼·商学院)",
-          "lat": -33.8811,
-          "lng": 151.2014,
-          "note": "Frank Gehry在澳设计首作,32万块定制砖砌成的「褶皱纸袋」商学院。"
+          "name": "Dr Chau Chak Wing Building / Building 8 (CB08)",
+          "nameCn": "赵炳光大楼 / 商学院大楼（CB08）",
+          "lat": -33.8812,
+          "lng": 151.2015,
+          "rank": 3,
+          "tier": "必去",
+          "note": "由普利兹克奖得主Frank Gehry设计的标志性建筑，外立面由32万块定制砖砌成，被称为「揉皱的纸袋」；是UTS商学院所在地，本身即为澳洲建筑地标，赵炳光（澳华富商）捐款2000万澳元资助建造。"
         },
         {
-          "name": "Faculty of Law (UTS Central)",
-          "nameCn": "法学院(UTS Central内)",
-          "lat": -33.8839,
-          "lng": 151.1999,
-          "note": "扭转塔楼UTS Central内,与图书馆同栋,法学院主场。"
+          "name": "UTS Tower / Building 1 (CB01)",
+          "nameCn": "UTS塔楼（CB01）",
+          "lat": -33.8841,
+          "lng": 151.2006,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "建于1979年的粗野主义风格标志塔，是UTS行政中心，5层设有大礼堂（Great Hall，毕业典礼场地），6层设有UTS健康服务诊所；对面即One Central Park绿色建筑综合体。"
+        },
+        {
+          "name": "Vicki Sara Building / Building 7 (CB07)",
+          "nameCn": "维基·萨拉大楼 / 理学院（CB07）",
+          "lat": -33.8831,
+          "lng": 151.2008,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "UTS理学院与健康研究生学院所在地，Jones Street角落入口有Cornerstone咖啡馆；包含生物医学、法证科学、数学、物理、药学等科系。"
+        },
+        {
+          "name": "Peter Johnson Building / Building 6 (CB06)",
+          "nameCn": "彼得·约翰逊大楼 / 设计建筑学院（CB06）",
+          "lat": -33.8823,
+          "lng": 151.1996,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UTS设计、建筑与建造学院（DAB）所在地，702-730 Harris Street；DAB在全球创意学科中声誉卓著，楼内常有学生作品展览展示。"
+        },
+        {
+          "name": "Building 10 (Jones Street / Cheese Grater)",
+          "nameCn": "10号楼（奶酪刨丝器大楼）",
+          "lat": -33.8834,
+          "lng": 151.2008,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "原Fairfax媒体大楼，获Sulman建筑设计奖，现为人文社会科学学院与健康学院所在地，235 Jones Street；内有大型开放中庭、协作教室及短期课程培训场地。"
+        },
+        {
+          "name": "Building 4 (Science Labs)",
+          "nameCn": "4号楼（理学院实验楼）",
+          "lat": -33.8847,
+          "lng": 151.1993,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "745 Harris Street，理学院专业实验室及教学研究设施，是物理、化学、生命科学本科生实验课的主要场所。"
+        },
+        {
+          "name": "Building 5 / Haymarket Precinct (CB05)",
+          "nameCn": "5号楼 / Haymarket校区（CB05）",
+          "lat": -33.88,
+          "lng": 151.2013,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1-59 Quay Street，紧邻唐人街，是UTS商学院研究生项目及UTS College主要教学区，楼内有改造后的图书馆分馆（Building 5A）和学生服务中心。"
+        },
+        {
+          "name": "UTS Data Arena (Building 11, Level 2)",
+          "nameCn": "UTS数据竞技场",
+          "lat": -33.884,
+          "lng": 151.1993,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全球最大柱形数据可视化显示系统之一，360度沉浸式显示屏覆盖整个房间；对数据科学、计算机视觉、人机交互方向学生具有极高学习与研究价值。"
         }
       ],
       "defaultOn": true
@@ -113,10 +168,57 @@
       "items": [
         {
           "name": "UTS Library (UTS Central, Building 2)",
-          "nameCn": "UTS图书馆(UTS Central·2号楼)",
-          "lat": -33.884,
-          "lng": 151.1999,
-          "note": "2019年迁入UTS Central五至九层,馆藏经Alumni Green地下检索系统调取。"
+          "nameCn": "UTS中央图书馆（CB02）",
+          "lat": -33.8838,
+          "lng": 151.2002,
+          "rank": 1,
+          "tier": "必去",
+          "note": "主馆位于UTS Central大楼7-9层：7层适合小组讨论，8层安静学习，9层完全静音；设阅读室（5-6层）、10层HDR研究学者专区（刷卡进入）、各类可预约讨论室及借用笔记本电脑等设备的「物品图书馆」。"
+        },
+        {
+          "name": "UTS Library – Building 5A Study Spaces",
+          "nameCn": "UTS图书馆 5A分馆（Haymarket校区）",
+          "lat": -33.88,
+          "lng": 151.2013,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Haymarket校区的独立学习空间，近期翻新，含电源插座、电脑工位、可预约安静/小组讨论室，以及供课间放松的休闲区；对Haymarket上课的商学院学生尤为方便。"
+        },
+        {
+          "name": "State Library of NSW",
+          "nameCn": "新南威尔士州立图书馆",
+          "lat": -33.8682,
+          "lng": 151.2122,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "澳大利亚最重要的公共研究图书馆之一，位于马丁广场附近，馆藏丰富；Mitchell图书馆阅览室拱顶壮观，免费入场，是校外安静学习和文献查阅的绝佳去处。"
+        },
+        {
+          "name": "City of Sydney Library – Haymarket",
+          "nameCn": "悉尼市立图书馆 Haymarket分馆",
+          "lat": -33.8793,
+          "lng": 151.2047,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于Ultimo Road的市立图书馆，步行至UTS Haymarket校区仅3分钟；对无UTS账号或需要安静阅读环境的访客和旁听生十分方便，免费Wi-Fi和插座充足。"
+        },
+        {
+          "name": "UTS Scholars Centre (CB02, Level 10)",
+          "nameCn": "UTS研究学者中心（10层）",
+          "lat": -33.8838,
+          "lng": 151.2002,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专为博士及高级研究学位（HDR）学生设计的安静写作空间，凭学生ID刷卡入场，优先保障独立深度研究；有志于申请博士或从事学术研究的学生应了解此空间。"
+        },
+        {
+          "name": "Fisher Library (University of Sydney)",
+          "nameCn": "费舍图书馆（悉尼大学）",
+          "lat": -33.8889,
+          "lng": 151.1876,
+          "rank": 6,
+          "tier": "可选",
+          "note": "悉尼大学主图书馆，步行或短途巴士约15分钟可达；馆藏极为丰富，具有历史感的阅览大厅是深度学习和论文写作的理想环境，部分资源UTS学生可互借。"
         }
       ]
     },
@@ -128,11 +230,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Powerhouse Museum (Ultimo)",
-          "nameCn": "动力博物馆(Ultimo)",
-          "lat": -33.8782,
-          "lng": 151.1996,
-          "note": "经The Goods Line步道与Haymarket校区相连的科技设计博物馆,共享其剧场空间。"
+          "name": "Powerhouse Museum (MAAS – Ultimo)",
+          "nameCn": "电力屋博物馆（科技应用艺术博物馆）",
+          "lat": -33.8778,
+          "lng": 151.1997,
+          "rank": 1,
+          "tier": "必去",
+          "note": "500 Harris Street，步行5分钟即达，馆藏超40万件涵盖科技、设计、工业、太空探索的实物，是UTS理工科学生课外拓展的首选；注意：主馆2026年3月起关闭大修，届时请提前确认开放状态。"
+        },
+        {
+          "name": "White Rabbit Gallery",
+          "nameCn": "白兔画廊（当代中国艺术馆）",
+          "lat": -33.8942,
+          "lng": 151.1993,
+          "rank": 2,
+          "tier": "必去",
+          "note": "30 Balfour Street，Chippendale；专注2000年后当代中国艺术的全球最大私人收藏馆之一（逾3000件），免费入场，周三至周日开放；对中国留学生而言兼具文化归属感与视觉冲击力。"
+        },
+        {
+          "name": "Australian National Maritime Museum",
+          "nameCn": "澳大利亚国家海洋博物馆",
+          "lat": -33.8693,
+          "lng": 151.1986,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "2 Murray Street，Darling Harbour；馆外停泊冷战潜艇、历史高桅帆船等真实舰艇，探索澳大利亚与大洋洲的海洋文明史，免费基础入场，步行约20分钟可达。"
+        },
+        {
+          "name": "Museum of Sydney",
+          "nameCn": "悉尼博物馆",
+          "lat": -33.8673,
+          "lng": 151.209,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "Bridge Street 37号，建于第一任总督官邸遗址之上，以现代多媒体方式呈现悉尼从土著文化到殖民时代的城市历史，对了解澳洲本土文化背景极有帮助。"
         }
       ]
     },
@@ -144,25 +275,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Alumni Green",
-          "nameCn": "校友草坪(Alumni Green)",
-          "lat": -33.8833,
-          "lng": 151.2001,
-          "note": "主校区中央开放草坪,地下即图书馆检索库,学生活动聚集地。"
+          "name": "UTS Alumni Green",
+          "nameCn": "UTS校友绿地广场",
+          "lat": -33.8836,
+          "lng": 151.2003,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于CB01与CB02之间的校园绿色核心区，三面被教学楼环抱，是学生晒太阳、野餐、举办社团活动的日常聚集地，也是拍摄校园打卡照的最佳背景。"
         },
         {
-          "name": "The Goods Line",
-          "nameCn": "The Goods Line步行长廊",
-          "lat": -33.88,
-          "lng": 151.2005,
-          "note": "由旧货运铁路改造的高线公园式步道,串联校园、动力博物馆与中央车站。"
+          "name": "Dr Chau Chak Wing Building (CB08) Exterior",
+          "nameCn": "赵炳光大楼外观（Frank Gehry地标）",
+          "lat": -33.8812,
+          "lng": 151.2015,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Frank Gehry在澳大利亚的唯一作品，其扭曲砖砌外立面被广泛认为是悉尼21世纪最重要的建筑地标之一；Ultimo Road沿线拍摄效果最佳，是来UTS必打卡的建筑奇观。"
         },
         {
-          "name": "Central Station",
-          "nameCn": "中央火车站",
-          "lat": -33.884,
-          "lng": 151.2063,
-          "note": "悉尼最大铁路枢纽,步行可达校园东侧,通勤主入口。"
+          "name": "UTS Great Hall (Building 1, Level 5)",
+          "nameCn": "UTS大礼堂",
+          "lat": -33.8841,
+          "lng": 151.2006,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "UTS Tower 5层，毕业典礼、重要典礼及大型讲座的举办场地；粗野主义风格的高挑空间是感受UTS校园文化与历史的重要场所，开学季和毕业季尤为热闹。"
+        },
+        {
+          "name": "Central Park Sydney (One Central Park)",
+          "nameCn": "中央公园综合体（垂直花园大楼）",
+          "lat": -33.8859,
+          "lng": 151.2009,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Broadway与Campbell Street交汇处，对面即UTS Tower；Patrick Blanc设计的世界最高垂直花园覆盖整栋楼面，是悉尼城市更新的代表作，附带精品超市（Harris Farm）与咖啡馆，学生课余常来此。"
+        },
+        {
+          "name": "Darling Harbour Precinct",
+          "nameCn": "达令港休闲区",
+          "lat": -33.8732,
+          "lng": 151.1983,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "步行约20分钟可达；汇聚SEA LIFE水族馆、Wild Life Zoo、国家海洋博物馆、ICC会议中心、露天酒吧与餐厅，是周末最重要的休闲区，澳大利亚节假日烟花表演也在此举行。"
+        },
+        {
+          "name": "Chinatown (Dixon Street Precinct)",
+          "nameCn": "悉尼唐人街（Dixon Street）",
+          "lat": -33.8783,
+          "lng": 151.204,
+          "rank": 6,
+          "tier": "必去",
+          "note": "步行5分钟即达，是中国留学生的生活补给站：中餐、奶茶、中文超市、中药房、手机店一应俱全；周五唐人街夜市热闹非凡，春节期间张灯结彩氛围感极强。"
+        },
+        {
+          "name": "Kensington Street / Spice Alley",
+          "nameCn": "肯辛顿街美食街区",
+          "lat": -33.8887,
+          "lng": 151.2003,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Chippendale创意区核心美食街，由红色门廊进入的黄灯笼小巷（Spice Alley）汇聚东南亚街头小吃与时尚餐吧，Holy Duck等现代中菜也在此，是设计系学生最爱的工作后聚餐地。"
         }
       ]
     },
@@ -174,39 +347,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Coles Broadway",
-          "nameCn": "Coles 超市（Broadway 购物中心）",
-          "lat": -33.8838,
-          "lng": 151.1948,
-          "note": "离 UTS 步行约 8 分钟，本地最大连锁超市之一，日常生鲜、米面油一站买齐，楼里还有 ALDI。"
+          "name": "Woolworths Metro – Central Park / Broadway",
+          "nameCn": "Woolworths大型超市（中央公园店）",
+          "lat": -33.8856,
+          "lng": 151.2003,
+          "rank": 1,
+          "tier": "必去",
+          "note": "26-60 Broadway，UTS Tower对面步行3分钟；澳洲主流连锁超市，生鲜、日用品、熟食均有，营业时间07:00-22:00（天天），是UTS学生日常采购最方便的主流超市。"
         },
         {
-          "name": "Woolworths Metro (Central Park Mall)",
-          "nameCn": "Woolworths 超市（Central Park 商场）",
-          "lat": -33.883,
-          "lng": 151.198,
-          "note": "紧邻校园对面的 Central Park 楼下，主流澳洲超市，下课顺路补货最方便。"
+          "name": "Coles – Broadway Sydney",
+          "nameCn": "Coles超市（Broadway购物中心）",
+          "lat": -33.8849,
+          "lng": 151.1982,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1 Bay Street，Broadway Shopping Centre内；澳洲两大连锁超市之一，与Woolworths价格竞争激烈，学生常两家比价购物，Click & Collect服务方便。"
         },
         {
-          "name": "Thai Kee IGA (Market City)",
-          "nameCn": "泰记亚洲超市（Market City）",
-          "lat": -33.88,
-          "lng": 151.204,
-          "note": "悉尼唐人街最大的亚洲超市，中式调料、火锅料、冷冻饺子、亚洲蔬菜应有尽有，想家就来这。"
+          "name": "Thai Kee IGA Supermarket",
+          "nameCn": "泰记IGA亚洲超市（唐人街市集城）",
+          "lat": -33.8798,
+          "lng": 151.2035,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Market City购物中心1层，9-13 Hay Street；悉尼最大的亚洲综合超市，东南亚、中国、日本、韩国、泰国食材应有尽有，椰浆、泡面、酱料等品类极为丰富，中国留学生必逛。"
         },
         {
-          "name": "Burlington Supermarket",
-          "nameCn": "宝灵顿亚洲超市",
-          "lat": -33.8788,
-          "lng": 151.2046,
-          "note": "Dixon 街附近老牌华人超市，肉禽海鲜和南货齐全，价格实惠，老移民常去。"
+          "name": "Woolworths Metro – Haymarket",
+          "nameCn": "Woolworths Metro（Haymarket店）",
+          "lat": -33.8797,
+          "lng": 151.2001,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "33A Ultimo Road，距中央车站仅300米；Metro格式面积较小但选品精良，生鲜熟食覆盖齐全，是Haymarket校区下课后最顺路的便利补货点。"
         },
         {
-          "name": "Paddy's Markets Haymarket",
-          "nameCn": "Paddy's 市场（海鲜果蔬）",
-          "lat": -33.8799,
-          "lng": 151.2039,
-          "note": "周三到周日开的大集市，新鲜果蔬海鲜按堆卖，临近收市还能捡便宜，性价比之王。"
+          "name": "IGA X-Press – Quay Street",
+          "nameCn": "IGA X-Press便利超市（Quay Street店）",
+          "lat": -33.8797,
+          "lng": 151.2018,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2 Quay Street，紧靠UTS Haymarket校区（CB05）；营业时间延长，适合课间或下课后快速购买零食、饮料和日用品。"
+        },
+        {
+          "name": "Tong Li Supermarket Chinatown",
+          "nameCn": "同利中国超市（唐人街）",
+          "lat": -33.8786,
+          "lng": 151.2043,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Haymarket唐人街核心；专注中国大陆食材与调味料，包括东北大米、各类酱油醋、火锅底料、豆腐、中式蔬菜等，是烹饪中餐最可靠的食材采购点。"
+        },
+        {
+          "name": "Harris Farm Markets (Central Park)",
+          "nameCn": "Harris Farm精品超市（中央公园）",
+          "lat": -33.8854,
+          "lng": 151.2002,
+          "rank": 7,
+          "tier": "可选",
+          "note": "One Central Park内，Broadway对面；本地精品生鲜超市，以新鲜有机蔬果和优质肉类著称，价格略高但品质上乘，适合买食材做一顿好饭。"
         }
       ]
     },
@@ -218,46 +419,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chat Thai (Thaitown)",
-          "nameCn": "Chat Thai 泰餐（泰国城旗舰店）",
-          "lat": -33.8794,
-          "lng": 151.2068,
-          "note": "Capitol 剧院对面，悉尼最有名的正宗泰餐，常年排队到凌晨两点，泰式船面和咖喱必点。"
+          "name": "Din Tai Fung – World Square",
+          "nameCn": "鼎泰丰（世界广场店）",
+          "lat": -33.8737,
+          "lng": 151.2075,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Shop 11.04, Level 1, 644 George Street；米其林推荐台湾小笼包品牌，生煎包、小笼包、葱油拌面口碑极高，高峰期需提前订位，是中国留学生招待父母或庆祝节日的首选餐厅。"
         },
         {
-          "name": "Spice Alley (Kensington Street)",
-          "nameCn": "Spice Alley 亚洲美食巷",
-          "lat": -33.8845,
-          "lng": 151.1995,
-          "note": "就在校园旁的红灯笼小巷，露天大排档式亚洲快餐（拉面、叻沙、煲仔饭），学生价、灯光出片。"
+          "name": "Spicy Joint",
+          "nameCn": "辣府（Haymarket店）",
+          "lat": -33.8783,
+          "lng": 151.2038,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Harbour Plaza, 25-29 Dixon Street；Time Out悉尼2023年度「最佳平价餐厅」得主，正宗四川口味：水煮鱼、毛血旺、麻辣香锅，是中国留学生解馋首选，价格实惠人均约$25。"
         },
         {
-          "name": "Emperor's Garden Cake & Bakery",
-          "nameCn": "皇庭饼屋（奶油泡芙）",
+          "name": "Royal Palace Seafood Restaurant (皇庭海鲜舫)",
+          "nameCn": "皇庭海鲜舫（悉尼最大粤菜酒楼）",
+          "lat": -33.8784,
+          "lng": 151.2031,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "393-399 Sussex Street；前Golden Century原址重生的600座超大型粤式酒楼，24个现捞活海鲜缸，周末早茶排队壮观，营业至凌晨3点（周五六），是告别昔日金世纪遗憾的最佳去处。"
+        },
+        {
+          "name": "Golden Century BBQ",
+          "nameCn": "金世纪BBQ烧腊（达令广场）",
           "lat": -33.8793,
-          "lng": 151.2042,
-          "note": "唐人街地标级老店，现做现卖的热奶油泡芙一块多澳币一颗，门口永远在排队。"
+          "lng": 151.2003,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "1 Little Pier Street, Darling Square；传奇金世纪家族新开的正宗港式烧腊专门店，脆皮烤鸭、叉烧、豉油鸡配白饭完美，是悉尼公认水准最高的港式烧腊之一。"
         },
         {
-          "name": "Mappen Udon",
-          "nameCn": "Mappen 乌冬面",
-          "lat": -33.877,
-          "lng": 151.2055,
-          "note": "George 街上的人气日式自助乌冬，自选天妇罗、价格亲民、出餐快，留学生食堂般的存在。"
+          "name": "Xi An Cuisine",
+          "nameCn": "西安美食（Haymarket）",
+          "lat": -33.8783,
+          "lng": 151.2044,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "4/90 Hay Street；西安本地小馆风格，刀削面、凉皮、肉夹馍（孜然羊肉版）是招牌，手工面条配辣椒油每份约$13，性价比极高，北方留学生必来解乡愁。"
         },
         {
-          "name": "Golden Century / Chinatown 粤菜",
-          "nameCn": "唐人街粤式海鲜（Dixon 街一带）",
-          "lat": -33.879,
+          "name": "Spice Alley",
+          "nameCn": "香料小巷（Kensington Street，Chippendale）",
+          "lat": -33.8889,
+          "lng": 151.2003,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "18-20 Kensington Street；红色拱门进入的黄灯笼夜市，汇聚马来西亚、泰国、港式等东南亚小摊，人均$15-20，是周末吃饭逛街的网红打卡地，与Holy Duck等餐厅相邻。"
+        },
+        {
+          "name": "Holy Duck!",
+          "nameCn": "Holy Duck!（Chippendale现代中菜）",
+          "lat": -33.8892,
+          "lng": 151.2001,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "10-12 Kensington Street；现代中式餐厅主打脆皮鸭（all-you-can-eat $48起），周日yum cha午餐$20/位颇受好评，是设计系、创意类学生最爱的聚餐场所。"
+        },
+        {
+          "name": "Taste of Shanghai – World Square",
+          "nameCn": "上海小馆（世界广场店）",
+          "lat": -33.874,
+          "lng": 151.2074,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "World Square Shopping Centre；正宗上海与北方面点，生煎锅贴、小笼包、葱油面性价比高；另有Darling Square的Lilong分店（1 Little Hay Street），两店均深受中国留学生喜爱。"
+        },
+        {
+          "name": "Chinese Noodle House",
+          "nameCn": "中国面馆（Haymarket）",
+          "lat": -33.8787,
+          "lng": 151.2043,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于Haymarket核心区；新疆风格手拉面配羊肉、清真饺子是招牌，BYO自带酒水，价格亲民，常被Timeout及本地美食博主列入Chinatown必吃名单。"
+        },
+        {
+          "name": "The Eight Modern Chinese",
+          "nameCn": "八度空间（现代粤菜）",
+          "lat": -33.8786,
           "lng": 151.205,
-          "note": "Dixon 步行街聚集大量港式/粤式酒楼，早茶点心、椒盐海鲜，朋友聚餐、家长来访首选。"
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Market City内；2011年开业的精品粤式点心餐厅，以猪肚粥、蜂巢芋角、北京烤鸭夺得悉尼最佳点心美誉，适合家长来访或周末高品质早茶体验。"
         },
         {
-          "name": "Central Park Food Court",
-          "nameCn": "Central Park 美食广场",
-          "lat": -33.883,
-          "lng": 151.1982,
-          "note": "校园对面商场内的美食广场，韩餐、越南粉、汉堡、奶茶都有，下课快速解决一餐。"
+          "name": "Bing Lee Food Court & Market City Food Court",
+          "nameCn": "Market City美食广场",
+          "lat": -33.8795,
+          "lng": 151.2035,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Market City购物中心内，集中了日式拉面、泰式炒饭、港式茶餐厅等多种亚洲快餐选择，人均$12-18，是下课后解决一顿饭最快的地方。"
+        },
+        {
+          "name": "Bling Bling Dumpling",
+          "nameCn": "叮当饺子馆",
+          "lat": -33.8836,
+          "lng": 151.1998,
+          "rank": 12,
+          "tier": "一般",
+          "note": "185 Broadway；以「$1饺子」出名，是UTS周边最便宜的中式小吃选择，适合预算有限的学生日常填饱肚子，口味基础但价格无敌。"
         }
       ]
     },
@@ -269,32 +536,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank — Broadway",
-          "nameCn": "联邦银行 Broadway 支行（开户）",
-          "lat": -33.8838,
-          "lng": 151.1948,
-          "note": "Broadway 购物中心内的 CBA 网点，留学生落地办银行卡/开户最近的大行，记得带护照和地址证明。"
+          "name": "UTS Health Service (Building 1, Level 6)",
+          "nameCn": "UTS健康服务诊所（CB01, 6层）",
+          "lat": -33.8841,
+          "lng": 151.2006,
+          "rank": 1,
+          "tier": "必去",
+          "note": "15 Broadway，UTS Tower 6层；校内全科诊所，持Medibank Private或ahm OSHC保险可免费就诊（bulk billing）；周一至四8:30-18:00，周五8:30-17:00；课业压力大或初到澳洲生病时第一站。"
         },
         {
-          "name": "Royal Prince Alfred Hospital (RPA) Emergency",
-          "nameCn": "皇家阿尔弗雷德医院（RPA 急诊）",
-          "lat": -33.8892,
-          "lng": 151.1829,
-          "note": "离校约 2 公里的大型公立医院，24 小时急诊（ED），突发重病或受伤就来这里。"
+          "name": "Commonwealth Bank – Haymarket Branch",
+          "nameCn": "联邦银行 Haymarket支行",
+          "lat": -33.8793,
+          "lng": 151.204,
+          "rank": 2,
+          "tier": "必去",
+          "note": "691-693 George Street；澳洲最大银行，新生开户推荐Commonwealth Bank Smart Access账户（可在到达前网上预约），该行国际汇款手续费较低，支行离UTS步行约10分钟。"
         },
         {
-          "name": "Priceline Pharmacy Broadway",
-          "nameCn": "Priceline 药房（Broadway）",
-          "lat": -33.8837,
-          "lng": 151.195,
-          "note": "购物中心内连锁药妆店，非处方药、感冒药、防晒和日用品都能买，比独立药房选择多。"
+          "name": "Westpac Bank – Haymarket Branch",
+          "nameCn": "西太平洋银行 Haymarket支行",
+          "lat": -33.8787,
+          "lng": 151.2047,
+          "rank": 3,
+          "tier": "必去",
+          "note": "671-675 George Street；澳洲四大银行之一，学生账户免月费，ATM网络广；部分中国留学生更偏好Westpac因与国内银行汇率合作较好，可在线预开户。"
         },
         {
-          "name": "Telstra / Optus (Broadway Sydney)",
-          "nameCn": "Telstra / Optus 营业厅（Broadway）",
-          "lat": -33.8836,
-          "lng": 151.1949,
-          "note": "Broadway 商场内的电信运营商门店，办本地手机卡和上网套餐，带护照可现场激活。"
+          "name": "Chemist Warehouse – Haymarket",
+          "nameCn": "Chemist Warehouse大药房（Haymarket）",
+          "lat": -33.8786,
+          "lng": 151.2048,
+          "rank": 4,
+          "tier": "必去",
+          "note": "827-837 George Street；澳洲最大连锁折扣药房，处方药、OTC非处方药、维生素保健品、护肤品一应俱全，营业时间延长（工作日7:30-22:00），价格比其他药房便宜30-50%。"
+        },
+        {
+          "name": "Telstra Store – World Square",
+          "nameCn": "Telstra电信门店（世界广场）",
+          "lat": -33.8737,
+          "lng": 151.2073,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "644 George Street（World Square）；澳洲最大电信运营商，网络覆盖全国最广；新生建议购买Prepaid SIM（$30/月起含无限通话+大流量），留学生网速体验明显优于其他运营商。"
+        },
+        {
+          "name": "Priceline Pharmacy – Broadway Sydney",
+          "nameCn": "Priceline药妆店（Broadway购物中心）",
+          "lat": -33.8849,
+          "lng": 151.1981,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Broadway Shopping Centre内；综合药妆连锁，以Beauty服务和保健品著称，自有品牌价格实惠；同时提供处方取药服务，是日常护肤品和女性健康用品的便利购买点。"
+        },
+        {
+          "name": "Royal Prince Alfred Hospital (RPA)",
+          "nameCn": "皇家太子医院（RPA，急诊）",
+          "lat": -33.8897,
+          "lng": 151.1873,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Missenden Road，Camperdown；悉尼最重要的公立教学医院之一，提供24小时急诊服务，步行约20分钟或短途巴士可达；持OSHC医保可报销，发生紧急医疗情况时就近前往。"
         }
       ]
     },
@@ -306,39 +608,94 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "Sydney Harbour / Circular Quay & Opera House",
+          "nameCn": "悉尼港 / 环形码头与歌剧院",
+          "lat": -33.8568,
+          "lng": 151.2153,
+          "rank": 1,
+          "tier": "必去",
+          "note": "乘火车从Central Station两站即达Circular Quay；悉尼歌剧院+海港大桥的全景是悉尼最经典的打卡画面，环形码头每天傍晚人流如织，渡轮可延伸游览Manly、Taronga动物园等地。"
+        },
+        {
+          "name": "Manly Beach (via Ferry)",
+          "nameCn": "曼利海滩（轮渡可达）",
+          "lat": -33.7969,
+          "lng": 151.2875,
+          "rank": 2,
+          "tier": "必去",
+          "note": "从Circular Quay乘渡轮30分钟（景色极美）；悉尼最受欢迎的冲浪与游泳海滩，沿Corso步行街有咖啡馆和冲浪板租赁，是周末一日游首选，留学生开学后必去一次。"
+        },
+        {
           "name": "Chinese Garden of Friendship",
-          "nameCn": "谊园（中国友谊花园）",
-          "lat": -33.877,
-          "lng": 151.2018,
-          "note": "达令港边的苏州式古典园林，亭台流水、旗袍写真热门地，离校步行十多分钟，闹中取静。"
+          "nameCn": "中国友谊花园",
+          "lat": -33.8765,
+          "lng": 151.2013,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Tumbalong Boulevard入口，Darling Harbour；悉尼与广州友好城市合作建造的正统苏州园林风格庭院，亭台楼阁、荷花池、假山齐备，门票约$8，是中国留学生缓解乡愁、拍写真的经典去处。"
         },
         {
-          "name": "Darling Harbour / Tumbalong Park",
-          "nameCn": "达令港 / 通巴龙公园",
-          "lat": -33.8745,
-          "lng": 151.201,
-          "note": "悉尼最热闹的滨水休闲区，餐厅、摩天轮、跨年烟花和周末活动都在这，散步约会必去。"
+          "name": "SEA LIFE Sydney Aquarium",
+          "nameCn": "SEA LIFE悉尼水族馆",
+          "lat": -33.8697,
+          "lng": 151.2003,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1-5 Wheat Road，Darling Harbour；澳洲最大水族馆，玻璃隧道穿越鲨鱼缸、大堡礁珊瑚展区及鸭嘴兽展馆令人震撼；提前网上购票可省约50%，适合节假日与家人好友同游。"
         },
         {
-          "name": "The Goods Line",
-          "nameCn": "The Goods Line 高架绿道",
-          "lat": -33.881,
-          "lng": 151.2,
-          "note": "由旧铁路改造的步行绿道，从校园穿过直通达令港，沿途有座椅和乒乓桌，通勤兼散心。"
+          "name": "Paddy's Markets Haymarket",
+          "nameCn": "帕迪市场（Haymarket跳蚤市场）",
+          "lat": -33.8796,
+          "lng": 151.2035,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "9-13 Hay Street（Market City地下），周三至周日10:00-18:00；澳洲最著名的室内集市，便宜的澳洲纪念品、食材、日用百货应有尽有，是给国内亲友带伴手礼最省钱的地方。"
         },
         {
-          "name": "Victoria Park",
-          "nameCn": "维多利亚公园",
-          "lat": -33.887,
-          "lng": 151.193,
-          "note": "Broadway 尽头紧挨悉尼大学的大草坪公园，带泳池，天气好时野餐晒太阳的好去处。"
+          "name": "Royal Botanic Garden Sydney",
+          "nameCn": "悉尼皇家植物园",
+          "lat": -33.8642,
+          "lng": 151.2164,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Mrs Macquaries Road，免费入场，每日7时开放至日落；紧邻歌剧院和海港桥，热带温室、玫瑰园、海滨草地极为宜人；论文写作压力大时来此漫步是留学生公认的减压良方。"
         },
         {
-          "name": "Capitol Theatre",
-          "nameCn": "国会剧院（Capitol Theatre）",
-          "lat": -33.88,
-          "lng": 151.2065,
-          "note": "海马克特地标级历史剧院，常驻百老汇音乐剧，建筑本身就值得一拍，学生票偶有折扣。"
+          "name": "Hyde Park & ANZAC Memorial",
+          "nameCn": "海德公园与澳新军团纪念馆",
+          "lat": -33.8756,
+          "lng": 151.211,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "126 Elizabeth Street；澳洲最古老的公共公园，ANZAC纪念馆是Art Deco建筑精品（免费），公园内600棵悬铃木在秋季落叶绚丽，距UTS步行约20分钟，是城市正中的休闲绿肺。"
+        },
+        {
+          "name": "Sydney Tower Eye",
+          "nameCn": "悉尼塔观景台",
+          "lat": -33.8705,
+          "lng": 151.2087,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "100 Market Street（Westfield Sydney内）；309米高的悉尼最高建筑，观景台俯瞰全城海湾360度全景，是带父母来悉尼旅游时必选行程；建议傍晚入场欣赏夕阳与城市夜景。"
+        },
+        {
+          "name": "White Rabbit Gallery",
+          "nameCn": "白兔画廊（Chippendale）",
+          "lat": -33.8942,
+          "lng": 151.1993,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "30 Balfour Street，步行约15分钟；全球最重要的当代中国艺术私人收藏馆，免费入场，周三至周日开放；展览每季度更换，对有艺术或设计背景的同学极具吸引力。"
+        },
+        {
+          "name": "Kensington Street & Chippendale Creative Precinct",
+          "nameCn": "Chippendale创意街区",
+          "lat": -33.8887,
+          "lng": 151.2003,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "步行约15分钟；结合Spice Alley夜市、Holy Duck!等餐厅、艺术涂鸦墙和White Rabbit画廊，是悉尼最具活力的创意与美食街区，非常适合周五下课后的放松聚餐。"
         }
       ]
     }

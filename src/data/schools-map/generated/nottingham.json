@@ -91,60 +91,94 @@
       "icon": "school",
       "items": [
         {
+          "name": "Trent Building (Arts & Admin)",
+          "nameCn": "特伦特楼（文理行政主楼）",
+          "lat": 52.9369,
+          "lng": -1.1955,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1928年落成，波特兰石砌钟楼，校园最具标志性的历史建筑，开放参观，文学院与行政核心所在。"
+        },
+        {
+          "name": "Portland Building (Students' Union)",
+          "nameCn": "波特兰楼（学生会）",
+          "lat": 52.9381,
+          "lng": -1.1945,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1956年建成，学生会总部，内设商店、咖啡厅、学生活动中心，是校园日常生活最集中的枢纽。"
+        },
+        {
           "name": "Nottingham University Business School (Jubilee)",
-          "nameCn": "商学院(禧年)",
-          "lat": 52.9534,
-          "lng": -1.1882,
-          "note": "禧年校区商学院教学楼群"
+          "nameCn": "诺丁汉大学商学院（朱比利校区）",
+          "lat": 52.9514,
+          "lng": -1.1851,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Jubilee校区，拥有全英顶尖商学院之一，MBA与本科项目均排名靠前，建筑现代感强。"
         },
         {
-          "name": "School of Computer Science",
-          "nameCn": "计算机科学学院",
-          "lat": 52.9533,
-          "lng": -1.1873,
-          "note": "禧年校区计算机与信息技术学院"
+          "name": "George Green Library & Engineering",
+          "nameCn": "乔治·格林图书馆暨工程学院",
+          "lat": 52.9409,
+          "lng": -1.1908,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "工程与科学学院核心教学区，图书馆由Hopkins Architects设计，24小时开放，获RIBA大奖。"
         },
         {
-          "name": "GSK Carbon Neutral Laboratory",
-          "nameCn": "GSK碳中和实验室",
-          "lat": 52.9504,
-          "lng": -1.1829,
-          "note": "禧年校区零碳可持续化学研究实验楼"
+          "name": "School of Medicine (QMC Campus)",
+          "nameCn": "医学院（女王医学中心校区）",
+          "lat": 52.9435,
+          "lng": -1.1859,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "与英国最大单体建筑之一女王医学中心（NHS教学医院）相邻，医学院学生在此完成临床实习。"
         },
         {
-          "name": "School of Veterinary Medicine and Science",
-          "nameCn": "兽医学院",
-          "lat": 52.8289,
-          "lng": -1.2482,
-          "note": "萨顿博宁顿校区兽医学院,2006年启用"
-        },
-        {
-          "name": "Medical School (QMC)",
-          "nameCn": "医学院(QMC)",
-          "lat": 52.9425,
-          "lng": -1.1845,
-          "note": "女王医学中心内,本科医学教育主基地"
-        },
-        {
-          "name": "Engineering Faculty (Coates / Tower Building)",
-          "nameCn": "工程学院",
-          "lat": 52.9418,
-          "lng": -1.1888,
-          "note": "主校区工程学院教学与实验楼群"
-        },
-        {
-          "name": "School of Law (Law and Social Sciences Building)",
-          "nameCn": "法学院",
+          "name": "Coates Building (Law & Social Sciences)",
+          "nameCn": "科茨楼（法学与社会科学）",
           "lat": 52.9383,
-          "lng": -1.1991,
-          "note": "主校区法律与社会科学楼"
+          "lng": -1.1986,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "由Basil Spence爵士设计，法学院与社会科学院所在地，建筑本身列入建筑遗产名录。"
         },
         {
-          "name": "Si Yuan Centre",
-          "nameCn": "思源中心",
-          "lat": 52.9509,
-          "lng": -1.1861,
-          "note": "主校区中英合作建筑,设国际研究与会议设施"
+          "name": "Jubilee Campus (Computer Science & Education)",
+          "nameCn": "朱比利校区（计算机科学与教育学院）",
+          "lat": 52.9514,
+          "lng": -1.1851,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "建于前Raleigh自行车厂旧址，由Michael Hopkins设计，绿色建筑典范，校园内有人工湖与景观。"
+        },
+        {
+          "name": "Boots Science Building (School of Pharmacy)",
+          "nameCn": "Boots科学楼（药学院）",
+          "lat": 52.9386,
+          "lng": -1.1965,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "以英国著名连锁药店Boots命名捐赠，药学院主体建筑，研究实力全英前三。"
+        },
+        {
+          "name": "School of Physics & Astronomy",
+          "nameCn": "物理与天文学院",
+          "lat": 52.9395,
+          "lng": -1.1945,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "展有爱因斯坦亲手书写的黑板（Einstein's Blackboard），是校园内极具历史价值的科学藏品之一。"
+        },
+        {
+          "name": "Sutton Bonington Campus (Veterinary & Biosciences)",
+          "nameCn": "萨顿博宁顿校区（兽医与生命科学）",
+          "lat": 52.8311,
+          "lng": -1.2505,
+          "rank": 10,
+          "tier": "可选",
+          "note": "距主校区约20公里，设有400公顷大学农场，兽医与生物科学学院所在地，英国顶尖兽医学校。"
         }
       ],
       "defaultOn": true
@@ -159,30 +193,65 @@
         {
           "name": "Hallward Library",
           "nameCn": "霍尔沃德图书馆",
-          "lat": 52.9379,
-          "lng": -1.1984,
-          "note": "主校区人文与社科主图书馆"
+          "lat": 52.9389,
+          "lng": -1.1973,
+          "rank": 1,
+          "tier": "必去",
+          "note": "主校区最大综合图书馆，服务文科与社会科学，1973年开放，藏书逾百万册，提供24小时学习区。"
         },
         {
           "name": "George Green Library",
           "nameCn": "乔治·格林图书馆",
           "lat": 52.9409,
           "lng": -1.1908,
-          "note": "理工科学图书馆,2016年扩建翻新"
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程与理科专业图书馆，24小时开放，由Hopkins Architects设计，2017年荣获RIBA建筑大奖。"
         },
         {
           "name": "Djanogly Learning Resource Centre",
           "nameCn": "Djanogly学习资源中心",
           "lat": 52.9537,
           "lng": -1.1884,
-          "note": "禧年校区湖畔圆形图书馆与学习中心"
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "朱比利校区标志性圆形建筑，建于湖中央，集图书馆、计算机室与学习空间于一体，景色宜人。"
         },
         {
-          "name": "James Cameron-Gifford Library",
-          "nameCn": "卡梅伦-吉福德图书馆",
-          "lat": 52.8305,
-          "lng": -1.2522,
-          "note": "萨顿博宁顿校区图书馆,服务农学与兽医学"
+          "name": "Greenfield Medical Library",
+          "nameCn": "格林菲尔德医学图书馆",
+          "lat": 52.9422,
+          "lng": -1.1856,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "医学与健康科学专业馆，毗邻女王医学中心，提供临床证据数据库与医学期刊全文访问。"
+        },
+        {
+          "name": "Manuscripts and Special Collections",
+          "nameCn": "手稿与特藏部",
+          "lat": 52.9385,
+          "lng": -1.1719,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于King's Meadow校区，收藏大学档案、珍贵手稿及稀有图书，定期在Weston Gallery举办展览。"
+        },
+        {
+          "name": "Business Library (Jubilee Campus)",
+          "nameCn": "商学图书馆（朱比利校区）",
+          "lat": 52.9514,
+          "lng": -1.1855,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "商学院专属图书馆，收藏金融、经济、管理类资源，毗邻商学院主楼，适合商科生日常学习。"
+        },
+        {
+          "name": "Denis Arnold Music Library",
+          "nameCn": "丹尼斯·阿诺德音乐图书馆",
+          "lat": 52.937,
+          "lng": -1.196,
+          "rank": 7,
+          "tier": "可选",
+          "note": "主校区音乐系专属馆，收藏乐谱、录音及音乐理论文献，是全英规模较大的大学音乐图书馆之一。"
         }
       ]
     },
@@ -194,11 +263,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Lakeside Arts / Djanogly Art Gallery",
-          "nameCn": "湖畔艺术中心",
+          "name": "Djanogly Art Gallery (Lakeside Arts)",
+          "nameCn": "Djanogly艺术画廊（湖边艺术中心）",
           "lat": 52.9383,
           "lng": -1.1875,
-          "note": "主校区文化艺术中心,含美术馆、考古博物馆与剧场"
+          "rank": 1,
+          "tier": "必去",
+          "note": "主校区湖边，英国高校最活跃的艺术画廊之一，常设及临时展览全年免费，展品涵盖现代绘画与版画。"
+        },
+        {
+          "name": "Nottingham Museum of Archaeology",
+          "nameCn": "诺丁汉考古博物馆",
+          "lat": 52.9387,
+          "lng": -1.1879,
+          "rank": 2,
+          "tier": "必去",
+          "note": "大学园区内免费参观，馆藏涵盖25万年区域考古史，含古希腊、古罗马、古埃及文物，获奖博物馆。"
+        },
+        {
+          "name": "Wollaton Hall (Natural History Museum)",
+          "nameCn": "沃拉顿庄园（自然历史博物馆）",
+          "lat": 52.948,
+          "lng": -1.2098,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "伊丽莎白时代壮观庄园（《黑暗骑士崛起》韦恩庄园取景地），园区免费，内设自然历史博物馆，藏品75万件。"
+        },
+        {
+          "name": "National Justice Museum",
+          "nameCn": "国家司法博物馆",
+          "lat": 52.9507,
+          "lng": -1.1442,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于花边市场区的维多利亚式旧法庭与监狱，历史可追溯至14世纪，同时管理City of Caves景区。"
+        },
+        {
+          "name": "Nottingham Industrial Museum (Wollaton)",
+          "nameCn": "诺丁汉工业博物馆（沃拉顿）",
+          "lat": 52.9479,
+          "lng": -1.2117,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "沃拉顿庄园附属建筑内，展示城市工业史，从都铎时代矿业到世界首台录像机，门票低廉。"
+        },
+        {
+          "name": "Weston Gallery (Manuscripts & Special Collections)",
+          "nameCn": "韦斯顿画廊（手稿特藏展）",
+          "lat": 52.9385,
+          "lng": -1.1725,
+          "rank": 6,
+          "tier": "可选",
+          "note": "King's Meadow校区，每年举办两次珍贵手稿与古籍展览，学术氛围浓厚，免费入场。"
         }
       ]
     },
@@ -210,32 +326,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Trent Building",
-          "nameCn": "特伦特楼",
+          "name": "Trent Building Clock Tower",
+          "nameCn": "特伦特楼钟楼",
           "lat": 52.9369,
-          "lng": -1.196,
-          "note": "主校区标志性钟楼行政楼,人文社科核心建筑"
+          "lng": -1.1955,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最具辨识度的地标，1928年乔治五世亲自揭幕，也是中国宁波、马来西亚校区钟楼的原型。"
         },
         {
-          "name": "Portland Building",
-          "nameCn": "波特兰楼",
-          "lat": 52.9382,
-          "lng": -1.1942,
-          "note": "学生会所在地,设餐饮、社团与学生媒体"
+          "name": "Portland Building (Students' Union Hub)",
+          "nameCn": "波特兰楼（学生会中心）",
+          "lat": 52.9381,
+          "lng": -1.1945,
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生日常生活核心，内设酒吧、咖啡、超市、学生会办公室及200余个学生社团注册处。"
         },
         {
-          "name": "Aspire Sculpture",
-          "nameCn": "Aspire雕塑",
-          "lat": 52.9515,
-          "lng": -1.1846,
-          "note": "禧年校区60米红色地标雕塑,曾为英国最高独立艺术品"
+          "name": "Highfields Park & Boating Lake",
+          "nameCn": "海菲尔兹公园与划船湖",
+          "lat": 52.9361,
+          "lng": -1.1935,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园南侧52英亩公园，可租赁划船、小高尔夫，是学生课余最受欢迎的放松场所，夏季尤佳。"
         },
         {
-          "name": "Nottingham Railway Station",
-          "nameCn": "诺丁汉火车站",
-          "lat": 52.947,
-          "lng": -1.146,
-          "note": "市中心铁路枢纽,有轨电车直达University Park校区"
+          "name": "Lakeside Arts Centre",
+          "nameCn": "湖边艺术中心",
+          "lat": 52.9365,
+          "lng": -1.1885,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园内综合艺术场馆，含Djanogly剧院、画廊、音乐厅，全年举办戏剧、音乐会与艺术节活动。"
+        },
+        {
+          "name": "Jubilee Campus & Aspire Sculpture",
+          "nameCn": "朱比利校区与Aspire雕塑",
+          "lat": 52.9514,
+          "lng": -1.1851,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "由Make Architects设计的60米高橙色风车形雕塑矗立朱比利校区中心，已成诺丁汉城市地标之一。"
+        },
+        {
+          "name": "Cripps Health Centre",
+          "nameCn": "克里普斯健康中心",
+          "lat": 52.9432,
+          "lng": -1.1974,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园内的NHS全科诊所，国际学生入学需在此注册GP，同楼有Boots药店，方便日常就医取药。"
+        },
+        {
+          "name": "University of Nottingham Tram Stop",
+          "nameCn": "诺丁汉大学有轨电车站",
+          "lat": 52.9378,
+          "lng": -1.1902,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "南入口处的NET有轨电车站，直达市中心Old Market Square约20分钟，是国际学生进城最快捷的交通。"
         }
       ]
     },
@@ -247,32 +398,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Sainsbury's Beeston Superstore",
-          "nameCn": "Sainsbury's 比斯顿超市",
-          "lat": 52.9288,
-          "lng": -1.2147,
-          "note": "距校园西南约2公里、比斯顿镇中心的大型综合超市，日用百货和生鲜一站买齐，留学生最常去的主力超市之一。"
+          "name": "Sainsbury's Local (Derby Road / Park Street)",
+          "nameCn": "森宝利便利店（德比路）",
+          "lat": 52.9492,
+          "lng": -1.1767,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距主校区步行约10分钟的Derby Road，是学生日常购物最方便的综合超市，生鲜、熟食、酒水齐全。"
         },
         {
-          "name": "Tesco Extra Beeston",
-          "nameCn": "Tesco Extra 比斯顿店",
-          "lat": 52.9262,
-          "lng": -1.2131,
-          "note": "比斯顿火车站旁的特大Tesco，价格亲民、营业时间长，电锅锅碗瓢盆等开学装备也能在这买。"
-        },
-        {
-          "name": "Oriental Mart",
-          "nameCn": "东方超市",
+          "name": "Deyi Oriental Food Supermarket",
+          "nameCn": "德益东方食品超市",
           "lat": 52.9553,
-          "lng": -1.1524,
-          "note": "市中心Goldsmith Street的老牌亚超，老干妈、火锅底料、生鲜冻品和中日韩泰货齐全，比斯顿高街也新开了分店。"
+          "lng": -1.1798,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Ilkeston Road 251号，紧邻大学区，专售中国食材、调味料、冷冻饺子、方便面，华人学生首选。"
+        },
+        {
+          "name": "Oriental Mart (Beeston Branch)",
+          "nameCn": "东方超市（碧斯顿分店）",
+          "lat": 52.9284,
+          "lng": -1.2137,
+          "rank": 3,
+          "tier": "必去",
+          "note": "High Road 75号，2024年4月开业，提供日韩中泰越东南亚食材，距大学乘电车约3站，品类最全。"
         },
         {
           "name": "Asiana Hypermarket",
-          "nameCn": "Asiana 亚洲大卖场",
+          "nameCn": "亚西亚华人超市",
           "lat": 52.9623,
           "lng": -1.1467,
-          "note": "诺丁汉规模最大的亚洲超市，中港台日韩越货品最全，想囤大批中餐食材来这准没错。"
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Woodborough Road 108号，诺丁汉规模最大的亚洲超市，中韩日越印食材一站购齐，需乘公交前往。"
+        },
+        {
+          "name": "Sainsbury's Beeston Superstore",
+          "nameCn": "森宝利碧斯顿大型超市",
+          "lat": 52.9288,
+          "lng": -1.2147,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "碧斯顿中心大型超市，品类齐全，营业至22:00，周边学生聚居区最受欢迎的一站式购物点。"
+        },
+        {
+          "name": "ASDA (Hyson Green)",
+          "nameCn": "阿斯达超市（海森格林）",
+          "lat": 52.968,
+          "lng": -1.1724,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Hyson Green附近的大型ASDA，价格实惠，可乘电车前往，适合周末大采购，常有优惠活动。"
+        },
+        {
+          "name": "Lidl (Beeston, Wollaton Road)",
+          "nameCn": "利德（碧斯顿沃拉顿路）",
+          "lat": 52.929,
+          "lng": -1.2188,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "碧斯顿沃拉顿路69号，德国折扣超市，价格最低廉，冷冻食品与日用品性价比高，适合预算有限的学生。"
+        },
+        {
+          "name": "Tesco Express (Alfreton Road)",
+          "nameCn": "乐购特快（阿尔弗雷顿路）",
+          "lat": 52.9579,
+          "lng": -1.1662,
+          "rank": 8,
+          "tier": "可选",
+          "note": "Alfreton Road 131号，方便夜间或临时补货，营业时间长，学校北侧出行方向的便利选项。"
         }
       ]
     },
@@ -284,32 +479,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Nosh Restaurant",
-          "nameCn": "Nosh 中餐馆",
-          "lat": 52.9281,
-          "lng": -1.2129,
-          "note": "藏在比斯顿高街小巷里的地道川菜小店，招牌四川汤面口碑极好，离校近、性价比高。"
-        },
-        {
           "name": "Shanghai Shanghai",
-          "nameCn": "上海上海",
+          "nameCn": "上海上海（港式餐厅）",
           "lat": 52.9538,
           "lng": -1.1431,
-          "note": "被东米德兰华人圈公认数一数二的中餐厅，250多道菜、川菜麻辣到位，宴请聚餐首选。"
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Goose Gate 15号，港式点心与粤川菜，菜单逾250道，活海鲜，诺丁汉中国留学生公认最地道的中餐馆，热门需订位。"
         },
         {
-          "name": "Annie's Burger Shack",
-          "nameCn": "Annie's 美式汉堡",
-          "lat": 52.9505,
-          "lng": -1.1448,
-          "note": "花边市场区的网红美式汉堡店，30多款汉堡且都可做素食版，本地必打卡的地标级馆子。"
+          "name": "Mandarin Restaurant 喜得寶",
+          "nameCn": "喜得宝点心楼",
+          "lat": 52.9534,
+          "lng": -1.1411,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Belward Street 42号，1994年开业，以港式点心闻名，60款点心选择，两层楼120席，适合周末家庭式聚餐。"
         },
         {
-          "name": "Wagamama Nottingham",
-          "nameCn": "Wagamama 亚洲面屋",
-          "lat": 52.9559,
-          "lng": -1.1506,
-          "note": "市中心的连锁日式亚洲料理，拉面、咖喱饭份量足，一个人快食或同学小聚都合适。"
+          "name": "Nosh Restaurant (Beeston)",
+          "nameCn": "乐食馆（碧斯顿）",
+          "lat": 52.9281,
+          "lng": -1.2129,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "High Road 78B，隐藏在步行街小巷内，川湘东北口味正宗，麻辣汤面被誉为诺丁汉最好吃的中式汤面。"
+        },
+        {
+          "name": "Mr Man's Restaurant",
+          "nameCn": "曼氏粤菜餐厅",
+          "lat": 52.9483,
+          "lng": -1.2093,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Wollaton Road沃拉顿公园旁，1987年创立，诺丁汉规模最大的中餐厅之一，粤菜正宗，周日自助广受好评。"
+        },
+        {
+          "name": "Korea House",
+          "nameCn": "韩国之家（碧斯顿）",
+          "lat": 52.9285,
+          "lng": -1.2161,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "高路129A号碧斯顿，正宗韩式烧烤与拌饭，周边留学生聚集区，价格亲民，是亚洲留学生聚餐首选。"
+        },
+        {
+          "name": "Kushi-ya",
+          "nameCn": "串家日本料理",
+          "lat": 52.9512,
+          "lng": -1.1497,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Low Pavement 14A，米其林推荐，串烤小食与鸡肉丸子出名，是诺丁汉口碑最好的日式餐厅，须提前订位。"
+        },
+        {
+          "name": "Pho (Vietnamese)",
+          "nameCn": "Pho越南河粉馆",
+          "lat": 52.9535,
+          "lng": -1.1441,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Carlton Street 24-32号，正宗越南河粉与咖喱，多素食及无麸质选项，Hockley区最受国际学生欢迎的亚洲餐厅。"
+        },
+        {
+          "name": "Dumdi Bar & BBQ",
+          "nameCn": "Dumdi越韩料理酒吧",
+          "lat": 52.9543,
+          "lng": -1.1489,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Chapel Bar 6号，2023年开业，越南街头小吃与韩式烧烤融合，气氛活泼，适合朋友聚会，有学生折扣。"
+        },
+        {
+          "name": "Chungs of Mapperley",
+          "nameCn": "Chungs粤菜馆（麦普利）",
+          "lat": 52.9848,
+          "lng": -1.1201,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Woodborough Road 946号，1985年创立，正宗粤菜与周日自助餐，老牌名店，需乘公交，值得专程前往。"
+        },
+        {
+          "name": "Iberico World Tapas",
+          "nameCn": "伊比利亚世界小食",
+          "lat": 52.9508,
+          "lng": -1.1445,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "High Pavement旧法院地下室，米其林Bib Gourmand认证，西班牙塔帕斯融合亚洲风味，体验独特。"
+        },
+        {
+          "name": "Alchemilla",
+          "nameCn": "炼金草现代英国餐厅",
+          "lat": 52.955,
+          "lng": -1.1656,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Derby Road 192号，一星米其林，植物料理为主，英国本地时令食材，想体验英式高端料理的首选。"
+        },
+        {
+          "name": "Wagamama",
+          "nameCn": "和面家（日式连锁）",
+          "lat": 52.9534,
+          "lng": -1.1495,
+          "rank": 12,
+          "tier": "一般",
+          "note": "市中心连锁日式拉面餐厅，价格适中、无需订位，适合大学刚到还不熟悉本地餐厅时的过渡之选。"
         }
       ]
     },
@@ -321,25 +596,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Queen's Medical Centre (QMC)",
-          "nameCn": "女王医学中心（QMC）",
-          "lat": 52.9436,
+          "name": "Cripps Health Centre (NHS GP)",
+          "nameCn": "克里普斯健康中心（NHS全科医生）",
+          "lat": 52.9432,
+          "lng": -1.1974,
+          "rank": 1,
+          "tier": "必去",
+          "note": "主校区内唯一的NHS全科诊所，国际学生入学第一周须来此注册GP，不注册无法享受免费NHS医疗。"
+        },
+        {
+          "name": "Queen's Medical Centre (A&E Hospital)",
+          "nameCn": "女王医学中心（急诊医院）",
+          "lat": 52.9435,
           "lng": -1.1859,
-          "note": "紧邻校园、有人行天桥直达的大型NHS医院，含急诊A&E，是看病急诊的第一去处。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "英国最大单体建筑之一，24小时急诊，距主校区步行约15分钟，学生遭遇急症直接前往A&E。"
         },
         {
-          "name": "Boots Pharmacy Beeston",
-          "nameCn": "Boots 药房（比斯顿）",
-          "lat": 52.9249,
-          "lng": -1.2164,
-          "note": "比斯顿镇中心的连锁药房，感冒药、处方取药和常用日化都有，离学生宿舍区很近。"
+          "name": "Boots Pharmacy (Cripps Health Centre)",
+          "nameCn": "Boots药店（克里普斯院内）",
+          "lat": 52.9432,
+          "lng": -1.1974,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Cripps Health Centre楼内，提供NHS处方取药、流感疫苗、基础药品，是校园最方便的药店。"
         },
         {
-          "name": "Lloyds Bank Beeston",
-          "nameCn": "劳埃德银行（比斯顿）",
-          "lat": 52.9265,
-          "lng": -1.2165,
-          "note": "比斯顿高街的大行网点，可预约办理开户，留学生落地后办英国银行卡的方便选择。"
+          "name": "HSBC UK (Clumber Street)",
+          "nameCn": "汇丰银行（Clumber Street分行）",
+          "lat": 52.9543,
+          "lng": -1.1474,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "市中心Clumber Street，国际学生开户首选，支持中文服务，开户需携带护照与入学录取通知书。"
+        },
+        {
+          "name": "Lloyds Bank (Lower Parliament Street)",
+          "nameCn": "劳埃德银行（下议会街）",
+          "lat": 52.9549,
+          "lng": -1.1472,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "下议会街12-16号，适合留学生开设基础学生账户，离市中心电车站步行约5分钟，服务便捷。"
+        },
+        {
+          "name": "NatWest (Victoria Centre)",
+          "nameCn": "英国国民西敏寺银行（维多利亚购物中心）",
+          "lat": 52.9548,
+          "lng": -1.1495,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "维多利亚购物中心内，学生账户免费，附设ATM，购物时可顺道处理银行事务。"
+        },
+        {
+          "name": "O2 Store (Victoria Centre)",
+          "nameCn": "O2手机专卖店（维多利亚购物中心）",
+          "lat": 52.9548,
+          "lng": -1.1495,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Victoria Centre 55-56号，到英后第一时间在此购买O2或Three英国SIM卡，无需签约，可按月付费。"
         }
       ]
     },
@@ -351,39 +668,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Highfields Park",
-          "nameCn": "海菲尔兹公园",
-          "lat": 52.9361,
-          "lng": -1.1935,
-          "note": "就在大学正门口的湖畔公园，可划船散步，是校园同款明信片风景、最近的遛弯拍照地。"
-        },
-        {
           "name": "Wollaton Hall & Deer Park",
-          "nameCn": "沃拉顿庄园与鹿园",
+          "nameCn": "沃拉顿庄园与鹿苑",
           "lat": 52.948,
           "lng": -1.2098,
-          "note": "伊丽莎白时期庄园配500英亩鹿园，蝙蝠侠电影韦恩庄园取景地，离校步行可达的遛弯打卡圣地。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距主校区步行约20分钟，伊丽莎白时代庄园，500英亩鹿苑免费开放，《黑暗骑士崛起》韦恩庄园取景地，必去打卡地。"
+        },
+        {
+          "name": "Highfields Park & Boating Lake",
+          "nameCn": "海菲尔兹公园与划船湖",
+          "lat": 52.9361,
+          "lng": -1.1935,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园南侧公园，夏季可租划船、小高尔夫，湖边咖啡厅有湖景座位，是学生最爱的放松与野餐好去处。"
         },
         {
           "name": "Nottingham Castle",
           "nameCn": "诺丁汉城堡",
           "lat": 52.9494,
           "lng": -1.1543,
-          "note": "罗宾汉传说所在地，翻修后的城堡可看展、逛地下洞穴、登台俯瞰全城。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "市中心高地上的历史城堡，内有Robin Hood展览，罗宾汉铜像，可探索地下岩洞，外国学生必打卡。"
         },
         {
-          "name": "Old Market Square",
-          "nameCn": "老市场广场",
+          "name": "Old Market Square & Council House",
+          "nameCn": "老市集广场与议会大厦",
           "lat": 52.9534,
           "lng": -1.1499,
-          "note": "英国仅次于伦敦特拉法加的第二大城市广场，市中心地标，逛街约人和节庆活动都在这。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "市中心最大广场，由壮观的诺丁汉议会大厦俯瞰，周边购物餐饮云集，电车换乘枢纽，到市区第一站。"
         },
         {
-          "name": "City of Caves",
-          "nameCn": "洞穴之城",
-          "lat": 52.9503,
-          "lng": -1.146,
-          "note": "市中心地下的人工砂岩洞穴群，曾作住所与防空洞，是体验诺丁汉历史的特色景点。"
+          "name": "Hockley & Lace Market Quarter",
+          "nameCn": "霍克利与花边市场创意街区",
+          "lat": 52.9525,
+          "lng": -1.145,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "维多利亚时代花边工厂改造为独立餐厅、酒吧、咖啡馆与精品店，是诺丁汉最文艺潮流的街区，周末必逛。"
+        },
+        {
+          "name": "Newstead Abbey",
+          "nameCn": "纽斯特德修道院",
+          "lat": 53.0784,
+          "lng": -1.1924,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "诗人拜伦爵士故居，距市区约30分钟巴士，300英亩庄园与花园，水景瀑布，门票低廉，是热门日游目的地。"
+        },
+        {
+          "name": "Nottingham Arboretum",
+          "nameCn": "诺丁汉树木园",
+          "lat": 52.9611,
+          "lng": -1.1575,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "市内最古老公园，珍稀树木、湖泊与钟楼，免费入场，乘电车约15分钟，是散步和读书的好去处。"
+        },
+        {
+          "name": "Broadway Cinema",
+          "nameCn": "百老汇独立影院",
+          "lat": 52.9543,
+          "lng": -1.1437,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Hockley区独立文艺影院，放映艺术片与国家剧院Live，常有学生折扣，是文艺留学生的精神聚集地。"
+        },
+        {
+          "name": "Victoria Centre Shopping Mall",
+          "nameCn": "维多利亚购物中心",
+          "lat": 52.9549,
+          "lng": -1.1492,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "市中心最大购物中心，含John Lewis、H&M、Boots等120余家品牌，是学生置办日用品与服饰的主要商场。"
         }
       ]
     }

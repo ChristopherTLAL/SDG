@@ -59,53 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "The Wharton School (Jon M. Huntsman Hall)",
-          "nameCn": "沃顿商学院（亨茨曼楼）",
-          "lat": 39.953,
-          "lng": -75.198,
-          "note": "全球顶尖商学院主楼，本科与 MBA 核心。"
+          "name": "Wharton School – Jon M. Huntsman Hall",
+          "nameCn": "沃顿商学院 – 亨茨曼楼",
+          "lat": 39.9523,
+          "lng": -75.1985,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球顶尖商学院主楼，320,000 平方英尺，48 间教室、57 间小组讨论室，是 Penn 最具标志性的学术建筑。"
         },
         {
-          "name": "School of Engineering (Towne Building)",
-          "nameCn": "工程与应用科学学院（汤恩楼）",
-          "lat": 39.952,
-          "lng": -75.1907,
-          "note": "SEAS 历史主楼，机械与系统工程所在。"
+          "name": "Perelman School of Medicine",
+          "nameCn": "佩雷尔曼医学院",
+          "lat": 39.9502,
+          "lng": -75.193,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美顶尖医学院之一，紧邻宾大医院（HUP），科研与临床资源极为丰富。"
         },
         {
-          "name": "Levine Hall (Computer & Information Science)",
-          "nameCn": "莱文楼（计算机与信息科学）",
+          "name": "College Hall",
+          "nameCn": "学院楼",
           "lat": 39.9524,
-          "lng": -75.1908,
-          "note": "CIS 系教研中心，玻璃幕墙现代楼。"
+          "lng": -75.1939,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于 1873 年的 Penn 最古老建筑，绿色蛇纹石外墙标志性，校长办公室所在地，是校园核心地标。"
         },
         {
-          "name": "Perelman School of Medicine (BRB II/III)",
-          "nameCn": "佩雷尔曼医学院（生物医学研究楼）",
-          "lat": 39.9482,
-          "lng": -75.1965,
-          "note": "全美最早医学院，生物医学研究主楼。"
-        },
-        {
-          "name": "Penn Carey Law School",
-          "nameCn": "凯里法学院",
-          "lat": 39.9536,
-          "lng": -75.1942,
-          "note": "本部西北角，法学院主楼与图书馆。"
+          "name": "Levine Hall (SEAS – Computer & Information Science)",
+          "nameCn": "莱文楼（工程与应用科学学院 – 计算机科学）",
+          "lat": 39.9524,
+          "lng": -75.1909,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Penn 计算机与信息科学系所在地，SEAS 工程综合体核心楼，连接 Moore School 与 Towne Building。"
         },
         {
           "name": "Annenberg School for Communication",
-          "nameCn": "安南伯格传播学院",
-          "lat": 39.9529,
-          "lng": -75.1965,
-          "note": "传播学研究重镇，邻沃顿。"
+          "nameCn": "安纳伯格传播学院",
+          "lat": 39.9519,
+          "lng": -75.1966,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "美国顶尖传播学院，位于 3620 Walnut St，研究媒体与政治传播领域享有国际声誉。"
         },
         {
-          "name": "Stuart Weitzman School of Design (Meyerson Hall)",
-          "nameCn": "魏茨曼设计学院（迈耶森楼）",
-          "lat": 39.9514,
-          "lng": -75.1922,
-          "note": "建筑、城市规划与美术学院所在。"
+          "name": "Penn Carey Law – Silverman Hall",
+          "nameCn": "凯里法学院 – 西尔弗曼楼",
+          "lat": 39.9519,
+          "lng": -75.197,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "法学院主楼，建于 1900 年，哥特式风格，律政资源顶尖；3501 Sansom St。"
+        },
+        {
+          "name": "Stuart Weitzman School of Design – Meyerson Hall",
+          "nameCn": "魏茨曼设计学院 – 迈尔森楼",
+          "lat": 39.9527,
+          "lng": -75.1937,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "建筑与城市规划顶尖学院，210 S 34th St，常年有优秀展览对外开放。"
+        },
+        {
+          "name": "Moore School / Skirkanich Hall (SEAS Engineering)",
+          "nameCn": "摩尔楼 / 斯柯坎尼奇楼（工程学院）",
+          "lat": 39.952,
+          "lng": -75.1903,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "电子电气与生物工程核心教学楼，与莱文楼相连，工程专业学生日常所在地。"
+        },
+        {
+          "name": "Penn Dental Medicine",
+          "nameCn": "宾大牙医学院",
+          "lat": 39.9502,
+          "lng": -75.2003,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "全美排名前五的牙医学院，240 S 40th St，学生可在此以较低价格获得牙科诊疗服务。"
+        },
+        {
+          "name": "Graduate School of Education (GSE) – 3700 Walnut",
+          "nameCn": "教育研究生院",
+          "lat": 39.9521,
+          "lng": -75.1971,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Penn 教育政策与学习科学研究重镇，位于 Walnut Street 核心区域。"
         }
       ],
       "defaultOn": true
@@ -119,24 +160,57 @@
       "items": [
         {
           "name": "Van Pelt-Dietrich Library Center",
-          "nameCn": "范佩尔特图书馆",
-          "lat": 39.9521,
-          "lng": -75.1932,
-          "note": "校主馆，人文社科藏书与学习中心。"
-        },
-        {
-          "name": "Biomedical Library (Johnson Pavilion)",
-          "nameCn": "生物医学图书馆",
-          "lat": 39.9499,
-          "lng": -75.1972,
-          "note": "服务医学院与医院的专科馆。"
+          "nameCn": "范佩尔特图书馆（主图书馆）",
+          "lat": 39.9527,
+          "lng": -75.1931,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Penn 主图书馆，3420 Walnut St，馆内设 Weigle Commons 学习区，藏书超百万册，24 小时开放部分区域。"
         },
         {
           "name": "Fisher Fine Arts Library",
-          "nameCn": "费舍尔美术图书馆",
-          "lat": 39.9516,
-          "lng": -75.1928,
-          "note": "弗内斯设计的哥特红砖地标建筑。"
+          "nameCn": "费希尔艺术图书馆",
+          "lat": 39.9519,
+          "lng": -75.1934,
+          "rank": 2,
+          "tier": "必去",
+          "note": "建于 1891 年的弗兰克·弗内斯设计的维多利亚哥特式杰作，被誉为世界上最重要的图书馆建筑之一，220 S 34th St。"
+        },
+        {
+          "name": "Lippincott Library (Wharton)",
+          "nameCn": "利平科特图书馆（沃顿）",
+          "lat": 39.9523,
+          "lng": -75.1982,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "沃顿商学院专属图书馆，商科数据库与金融资料最为齐全，Huntsman Hall 内。"
+        },
+        {
+          "name": "Biddle Law Library",
+          "nameCn": "比德尔法律图书馆",
+          "lat": 39.9514,
+          "lng": -75.1968,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Penn 法学院专属图书馆，藏有丰富法律期刊与案例资料，法学生必用。"
+        },
+        {
+          "name": "Biomedical Library",
+          "nameCn": "生物医学图书馆",
+          "lat": 39.9498,
+          "lng": -75.1918,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "3610 Hamilton Walk，医学与生命科学专业核心资源库，毗邻医学院建筑群。"
+        },
+        {
+          "name": "Kislak Center for Special Collections, Rare Books & Manuscripts",
+          "nameCn": "基斯拉克特藏珍本中心",
+          "lat": 39.9527,
+          "lng": -75.1931,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于 Van Pelt 图书馆六楼，收藏珍稀手稿与古籍，常举办限时展览，免费参观。"
         }
       ]
     },
@@ -148,18 +222,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Penn Museum (Archaeology & Anthropology)",
-          "nameCn": "宾大考古与人类学博物馆",
-          "lat": 39.9496,
-          "lng": -75.1917,
-          "note": "世界级考古藏品，含埃及与近东文物。"
+          "name": "Penn Museum (University of Pennsylvania Museum of Archaeology and Anthropology)",
+          "nameCn": "宾大考古人类学博物馆",
+          "lat": 39.9493,
+          "lng": -75.1915,
+          "rank": 1,
+          "tier": "必去",
+          "note": "3260 South St，Penn 自有的世界级博物馆，埃及木乃伊、美索不达米亚文物、玛雅珍品俱全，学生持证免费。"
         },
         {
           "name": "Institute of Contemporary Art (ICA)",
           "nameCn": "当代艺术学院（ICA）",
-          "lat": 39.9541,
-          "lng": -75.1948,
-          "note": "免费当代艺术展馆，邻 36 街地铁。"
+          "lat": 39.9529,
+          "lng": -75.1964,
+          "rank": 2,
+          "tier": "必去",
+          "note": "118 S 36th St，Penn 附属当代艺术展览馆，曾首展 Robert Mapplethorpe 等大师，免费入场。"
+        },
+        {
+          "name": "Philadelphia Museum of Art",
+          "nameCn": "费城艺术博物馆",
+          "lat": 39.9656,
+          "lng": -75.181,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2600 Benjamin Franklin Pkwy，「洛基台阶」就在这里，馆藏超 24 万件，从 Van Gogh 到杜尚，距 Penn 约 3 公里。"
+        },
+        {
+          "name": "Barnes Foundation",
+          "nameCn": "巴恩斯基金会",
+          "lat": 39.9606,
+          "lng": -75.1728,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2025 Benjamin Franklin Pkwy，拥有全球最多的雷诺阿（181 件）与塞尚（69 件）原作，艺术爱好者必去圣地。"
+        },
+        {
+          "name": "The Franklin Institute",
+          "nameCn": "富兰克林科学博物馆",
+          "lat": 39.9584,
+          "lng": -75.1735,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "222 N 20th St，以 Benjamin Franklin 命名的科学博物馆，有巨型心脏模型和天象仪，适合周末解压。"
+        },
+        {
+          "name": "Arthur Ross Gallery (Fisher Fine Arts)",
+          "nameCn": "亚瑟·罗斯画廊",
+          "lat": 39.9519,
+          "lng": -75.1934,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于费希尔艺术图书馆内，轮换展出多元艺术作品，步行即达，免费，适合日常文化打卡。"
         }
       ]
     },
@@ -171,32 +285,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "College Hall",
-          "nameCn": "学院厅",
-          "lat": 39.9518,
+          "name": "Locust Walk",
+          "nameCn": "洛克斯特步行道",
+          "lat": 39.9521,
+          "lng": -75.1951,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Penn 校园灵魂所在，砖铺步行大道贯穿东西，秋天落叶极美，是社团活动和日常通勤的核心轴线。"
+        },
+        {
+          "name": "College Green (College Hall front lawn)",
+          "nameCn": "学院绿地",
+          "lat": 39.9525,
+          "lng": -75.194,
+          "rank": 2,
+          "tier": "必去",
+          "note": "College Hall 前的中央草坪，春季毕业典礼、学生聚会首选地，本杰明·富兰克林雕像就在附近。"
+        },
+        {
+          "name": "Houston Hall (America's First Student Union)",
+          "nameCn": "休斯顿楼（全美最早学生中心）",
+          "lat": 39.9516,
+          "lng": -75.1955,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于 1896 年，全美最古老的学生联合会建筑，现仍是学生活动、聚会和用餐的中心地带。"
+        },
+        {
+          "name": "Ben Franklin Statue (Locust Walk)",
+          "nameCn": "本杰明·富兰克林雕像",
+          "lat": 39.9524,
           "lng": -75.1944,
-          "note": "本部标志性绿砂岩主楼，校长办公所在。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "Locust Walk 上标志性的富兰克林坐像，新生入学必打卡，开学典礼常以此为背景合影。"
         },
         {
-          "name": "Franklin Field",
-          "nameCn": "富兰克林球场",
-          "lat": 39.95,
-          "lng": -75.19,
-          "note": "全美最古老双层体育场，宾大接力赛主场。"
+          "name": "Penn Bookstore (Barnes & Noble at Penn)",
+          "nameCn": "宾大书店",
+          "lat": 39.9514,
+          "lng": -75.1948,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "3601 Walnut St，宾大官方书店，Penn 周边文具、教材、纪念品一站购齐，是新生报到必经之地。"
         },
         {
-          "name": "Perelman Quadrangle / Houston Hall",
-          "nameCn": "佩雷尔曼四方院（休斯顿厅）",
-          "lat": 39.9513,
-          "lng": -75.1937,
-          "note": "全美首座学生活动中心，校园社交核心。"
+          "name": "Hill College House (Eero Saarinen)",
+          "nameCn": "希尔学院宿舍（沙里宁设计）",
+          "lat": 39.9523,
+          "lng": -75.1893,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "由现代建筑大师 Eero Saarinen 设计于 1960 年，33rd & Walnut 交叉口，建筑本身是艺术品。"
         },
         {
-          "name": "30th Street Station",
-          "nameCn": "30 街车站",
-          "lat": 39.9566,
-          "lng": -75.182,
-          "note": "校区东北门户，Amtrak 与区域铁路枢纽。"
+          "name": "Penn Park",
+          "nameCn": "宾大公园",
+          "lat": 39.949,
+          "lng": -75.1857,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园东南侧 24 英亩绿地，有运动场、慢跑道，可远眺城市天际线，是减压放松的好去处。"
+        },
+        {
+          "name": "University City District (Sansom / Walnut Corridor)",
+          "nameCn": "大学城商业街区",
+          "lat": 39.9509,
+          "lng": -75.1975,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Sansom St 至 Walnut St 一带咖啡馆、餐厅、服装店密集，是日常消费与社交的核心生活圈。"
         }
       ]
     },
@@ -208,32 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "ACME Markets (40th & Walnut)",
-          "nameCn": "ACME 超市（40街店）",
-          "lat": 39.9568,
-          "lng": -75.198,
-          "note": "距校园几步、24小时的全美连锁大型超市，宾大学生日常采购首选。"
+          "name": "ACME Markets",
+          "nameCn": "ACME 超市",
+          "lat": 39.9508,
+          "lng": -75.2007,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "4001 Walnut St，距 Penn 核心区步行约 10 分钟，品类齐全，生鲜、熟食均有，营业至 11 pm。"
         },
         {
-          "name": "Hung Vuong Food Market",
-          "nameCn": "恒发超市",
-          "lat": 39.9341,
-          "lng": -75.1607,
-          "note": "费城最大的亚洲超市之一，中餐食材、活鱼海鲜、调味料齐全，开车约10分钟。"
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 39.9538,
+          "lng": -75.1718,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "2121 Market St，口碑极佳的品质超市，自有品牌性价比高，冷冻食品尤受学生欢迎，乘地铁 10 分钟可达。"
         },
         {
-          "name": "Trader Joe's (22nd & Market)",
-          "nameCn": "缺德舅超市（市中心店）",
-          "lat": 39.9558,
-          "lng": -75.1738,
-          "note": "性价比高、半成品和零食出名的连锁超市，骑车或地铁一站可达。"
+          "name": "Wawa (Spruce St / Chestnut St)",
+          "nameCn": "Wawa 便利超市",
+          "lat": 39.9497,
+          "lng": -75.1952,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "3744 Spruce St / 3604 Chestnut St，费城标志性便利连锁，三明治、咖啡、日用品 24 小时，校园内步行可达。"
         },
         {
-          "name": "Reading Terminal Market",
-          "nameCn": "雷丁车站市场",
-          "lat": 39.9534,
-          "lng": -75.159,
-          "note": "百年室内市集，生鲜、奶酪、香料一站买齐，也能现吃，地铁直达。"
+          "name": "Whole Foods Market (Center City)",
+          "nameCn": "全食超市",
+          "lat": 39.9536,
+          "lng": -75.168,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "2101 Pennsylvania Ave，有机食材与进口食品品类丰富，适合注重品质饮食的留学生，地铁 15 分钟。"
+        },
+        {
+          "name": "EnJoy Market (Chinatown)",
+          "nameCn": "Enjoy 亚洲超市（唐人街）",
+          "lat": 39.956,
+          "lng": -75.1577,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "143 N 11th St，唐人街内新开的中式综合超市，冷冻食品、零食、调味料品类丰富，地铁约 20 分钟。"
+        },
+        {
+          "name": "Hung Vuong Super Market",
+          "nameCn": "鸿旺亚洲超市",
+          "lat": 39.9385,
+          "lng": -75.1576,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "1122 Washington Ave，越南华人社区大型亚洲超市，中式调味料、新鲜蔬菜、活海鲜品类最全，乘地铁可达。"
+        },
+        {
+          "name": "H Mart (North Philadelphia / Elkins Park)",
+          "nameCn": "韩亚超市 H Mart",
+          "lat": 40.019,
+          "lng": -75.1136,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "6201 N Front St，全美知名韩亚超市，泡菜、豆腐、韩国零食及部分中式食材一应俱全，需乘车前往。"
         }
       ]
     },
@@ -247,44 +440,119 @@
         {
           "name": "Han Dynasty (University City)",
           "nameCn": "汉朝川菜（大学城店）",
-          "lat": 39.956,
-          "lng": -75.1965,
-          "note": "校园旁最有名的川菜馆，麻辣口味地道，宾大中国学生聚餐据点。"
+          "lat": 39.9559,
+          "lng": -75.1946,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "3711 Market St，正宗四川菜，麻辣干锅和口水鸡是招牌，中国留学生聚会首选，宽敞带室外露台。"
         },
         {
           "name": "Sang Kee Noodle House",
-          "nameCn": "生记面家",
-          "lat": 39.9548,
-          "lng": -75.1938,
-          "note": "就在校园里，港式烧腊、云吞面、点心便宜量足，步行可达。"
+          "nameCn": "生记面家（大学城）",
+          "lat": 39.9503,
+          "lng": -75.1961,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "3549 Chestnut St，港式云吞面和烤鸭饭经典，价格亲民，是本地华人最常光顾的大学城中餐馆。"
         },
         {
-          "name": "Fu-Wah Mini Market",
-          "nameCn": "富华小超市",
-          "lat": 39.9483,
-          "lng": -75.217,
-          "note": "西费城传奇越南三明治（豆腐 banh mi 必点），便宜又地道。"
+          "name": "Dim Sum House by Jane G's",
+          "nameCn": "点心坊",
+          "lat": 39.9503,
+          "lng": -75.2009,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "3939 Chestnut St，中国留学生评为「校园最佳中餐」，点心种类多，汤包和虾饺口味稳定。"
+        },
+        {
+          "name": "EMei Restaurant",
+          "nameCn": "峨嵋餐厅（唐人街）",
+          "lat": 39.9543,
+          "lng": -75.157,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "915 Arch St，费城唐人街最受好评的川菜馆之一，机器人送菜，重庆辣子鸡和麻婆豆腐是必点菜。"
         },
         {
           "name": "Sang Kee Peking Duck House (Chinatown)",
-          "nameCn": "生记烤鸭店（华埠）",
-          "lat": 39.9554,
-          "lng": -75.1556,
-          "note": "费城华埠老字号，招牌北京烤鸭，想吃正宗中餐时值得跑一趟。"
+          "nameCn": "生记北京烤鸭（唐人街）",
+          "lat": 39.9555,
+          "lng": -75.1576,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "238 N 9th St，1980 年开业，脆皮北京烤鸭是招牌，云吞汤和牛腩炒河粉同样经典，性价比极高。"
         },
         {
-          "name": "Dim Sum Garden",
-          "nameCn": "南方小馆",
-          "lat": 39.9543,
-          "lng": -75.1565,
-          "note": "华埠人气小笼包与点心店，性价比高，常排队。"
+          "name": "Ocean Harbor (Chinatown)",
+          "nameCn": "海港酒楼（唐人街）",
+          "lat": 39.9553,
+          "lng": -75.1578,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "1023 Race St，费城最受欢迎的推车式港式早茶，周末需排队，叉烧包、肠粉、凤爪一应俱全。"
         },
         {
-          "name": "DiNic's (Reading Terminal)",
-          "nameCn": "DiNic's 烤猪肉三明治",
+          "name": "Terakawa Ramen (University City)",
+          "nameCn": "寺川拉面（大学城）",
+          "lat": 39.95,
+          "lng": -75.201,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "125 S 40th St，Penn 学生评分极高的日式拉面店，浓郁豚骨汤底，午餐常排队，性价比一流。"
+        },
+        {
+          "name": "White Dog Cafe",
+          "nameCn": "白狗咖啡馆",
+          "lat": 39.9511,
+          "lng": -75.1963,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "3420 Sansom St，1983 年开业，Penn 校园标志性美式餐厅，农场直供食材，适合接待家长和正式聚餐。"
+        },
+        {
+          "name": "Abyssinia Ethiopian Restaurant",
+          "nameCn": "阿比西尼亚埃塞俄比亚餐厅",
+          "lat": 39.9542,
+          "lng": -75.2117,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "229 S 45th St，西费城留学生圈高人气，手抓饭和英吉拉别具风味，价格亲民，素食选项丰富。"
+        },
+        {
+          "name": "Renata's Kitchen",
+          "nameCn": "雷纳塔厨房（巴勒斯坦地中海菜）",
+          "lat": 39.9454,
+          "lng": -75.2054,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "3940 Baltimore Ave，前电车站改造的地中海风格餐厅，沙拉和烤肉拼盘口碑极佳，周末需预约。"
+        },
+        {
+          "name": "Reading Terminal Market",
+          "nameCn": "阅读终点市场",
           "lat": 39.9533,
-          "lng": -75.1592,
-          "note": "被评全美最佳三明治之一的费城烤猪肉，本地必吃。"
+          "lng": -75.1578,
+          "rank": 11,
+          "tier": "绝对必吃",
+          "note": "51 N 12th St，费城最大室内公共市场，阿米什烤鸡、螃蟹饼、奶昔、异国小吃全都有，是必去美食地标。"
+        },
+        {
+          "name": "Vientiane Cafe",
+          "nameCn": "万象咖啡（老挝菜）",
+          "lat": 39.9489,
+          "lng": -75.2062,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "4728 Baltimore Ave，正宗老挝菜，木瓜沙拉和柠檬草汤风味独特，是大学城隐藏宝藏，价格实惠。"
+        },
+        {
+          "name": "Nom Wah (Chinatown)",
+          "nameCn": "南华点心（唐人街）",
+          "lat": 39.9549,
+          "lng": -75.1569,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "1009 Race St，单人也适合的港式点心，汤包、虾饺、葱油饼按单点，随到随吃无需等位。"
         }
       ]
     },
@@ -296,32 +564,76 @@
       "icon": "account_balance",
       "items": [
         {
+          "name": "Wells Fargo Bank (University City Branch)",
+          "nameCn": "富国银行（大学城支行）",
+          "lat": 39.9507,
+          "lng": -75.2005,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "4000 Chestnut St，距 Penn 步行 5 分钟，留学生开户首选，可办理学生账户，支持中文客服热线。"
+        },
+        {
+          "name": "Penn Student Health Service (Wellness at Penn)",
+          "nameCn": "宾大学生健康服务中心",
+          "lat": 39.9558,
+          "lng": -75.1947,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "3535 Market St Suite 100，Penn 官方学生医疗中心，初诊、疫苗、妇科、心理咨询均可预约，持 Penn 保险免费。"
+        },
+        {
           "name": "Hospital of the University of Pennsylvania (HUP)",
-          "nameCn": "宾夕法尼亚大学医院",
-          "lat": 39.9495,
-          "lng": -75.1928,
-          "note": "校园南侧的顶级综合医院，含急诊，看病就医最近的大医院。"
+          "nameCn": "宾大医院（HUP）",
+          "lat": 39.9494,
+          "lng": -75.1929,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "3400 Spruce St，全美顶尖医学中心，急诊 24 小时，距 Penn 核心区步行 10 分钟。"
         },
         {
-          "name": "CVS Pharmacy (Shops at Penn)",
-          "nameCn": "CVS 药房（宾大商场店）",
-          "lat": 39.9536,
-          "lng": -75.1981,
-          "note": "校园核心地段连锁药房，可买药、打疫苗、拿处方，最方便。"
+          "name": "vybe urgent care (University City)",
+          "nameCn": "vybe 急症护理（大学城）",
+          "lat": 39.9558,
+          "lng": -75.1943,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "3550 Market St，无需预约的步入式急症诊所，处理轻伤、流感、COVID 检测等，7 天营业含夜间。"
         },
         {
-          "name": "TD Bank (University City)",
-          "nameCn": "TD 银行（大学城支行）",
-          "lat": 39.953,
-          "lng": -75.1992,
-          "note": "校园旁开户方便的银行，对留学生友好，开户排队短。"
+          "name": "CVS Pharmacy (Locust St)",
+          "nameCn": "CVS 药店（洛克斯特街）",
+          "lat": 39.9505,
+          "lng": -75.2007,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "4314 Locust St，距 Penn 近，处方取药、OTC 非处方药、日用品与美妆品类齐全，是日常最便捷药店。"
         },
         {
-          "name": "Apple Store / Verizon (Shops at Penn)",
-          "nameCn": "苹果店 / Verizon（宾大商场）",
-          "lat": 39.9537,
-          "lng": -75.1979,
-          "note": "3401 Walnut 的宾大商场内有手机店和苹果店，可办美国手机卡。"
+          "name": "T-Mobile (34th & Chestnut)",
+          "nameCn": "T-Mobile 手机营业厅",
+          "lat": 39.951,
+          "lng": -75.1943,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "3400 Chestnut St 附近，T-Mobile 信号在 Penn 校园覆盖良好，留学生首推预付费计划，办卡无需 SSN。"
+        },
+        {
+          "name": "Chase Bank (Center City / Market St)",
+          "nameCn": "摩根大通银行",
+          "lat": 39.9527,
+          "lng": -75.1653,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1100 Market St，ATM 密布全城，Zelle 转账便捷，对留学生友好；也可通过网上银行开户。"
+        },
+        {
+          "name": "Penn Presbyterian Medical Center",
+          "nameCn": "宾大长老会医疗中心",
+          "lat": 39.9558,
+          "lng": -75.2106,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "51 N 39th St，距校园约 1 公里的综合医院，急诊、外科、影像科齐备，是 HUP 之外的重要就医选择。"
         }
       ]
     },
@@ -333,39 +645,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Penn Museum (Archaeology & Anthropology)",
-          "nameCn": "宾大考古与人类学博物馆",
-          "lat": 39.9493,
-          "lng": -75.1917,
-          "note": "校内世界级博物馆，藏有埃及、亚洲文物与狮身人面像，学生免费。"
+          "name": "Philadelphia Chinatown",
+          "nameCn": "费城唐人街",
+          "lat": 39.9552,
+          "lng": -75.1573,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Race St 与 9th/10th St 一带，中餐馆、亚洲超市、奶茶店密集，是中国留学生周末必刷的「家门口」。"
         },
         {
-          "name": "LOVE Sculpture (36th & Locust Walk)",
-          "nameCn": "LOVE 雕塑（校园版）",
-          "lat": 39.9525,
-          "lng": -75.1947,
-          "note": "校园地标红色 LOVE 雕塑，最热门的打卡拍照点。"
+          "name": "Philadelphia Museum of Art & Rocky Steps",
+          "nameCn": "费城艺术博物馆（洛基台阶）",
+          "lat": 39.9656,
+          "lng": -75.181,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2600 Benjamin Franklin Pkwy，冲上台阶 pose 是来费城的仪式感，博物馆本身也是世界级藏品宝库。"
         },
         {
           "name": "Reading Terminal Market",
-          "nameCn": "雷丁车站市场",
-          "lat": 39.9534,
-          "lng": -75.159,
-          "note": "被评全美最佳公共市集，逛吃一体的费城必访地标。"
+          "nameCn": "阅读终点市场",
+          "lat": 39.9533,
+          "lng": -75.1578,
+          "rank": 3,
+          "tier": "必去",
+          "note": "51 N 12th St，1893 年开业的室内市集，80 多家独立摊位，阿米什食品与世界各地小吃同台，逛吃必去。"
         },
         {
-          "name": "Philadelphia City Hall",
-          "nameCn": "费城市政厅",
-          "lat": 39.9526,
-          "lng": -75.1635,
-          "note": "市中心地标建筑，可登塔俯瞰全城，离校园约2.5公里。"
+          "name": "Liberty Bell Center & Independence National Historical Park",
+          "nameCn": "自由钟与独立国家历史公园",
+          "lat": 39.9496,
+          "lng": -75.1503,
+          "rank": 4,
+          "tier": "必去",
+          "note": "6th & Market St，自由钟与独立厅步行相距 2 分钟，美国建国圣地，免费参观，节假日人多建议早到。"
         },
         {
-          "name": "Schuylkill River Trail / Banks",
-          "nameCn": "斯库尔基尔河滨步道",
-          "lat": 39.953,
+          "name": "Barnes Foundation",
+          "nameCn": "巴恩斯基金会",
+          "lat": 39.9606,
+          "lng": -75.1728,
+          "rank": 5,
+          "tier": "必去",
+          "note": "2025 Benjamin Franklin Pkwy，全球最密集的印象派与后印象派原作，室内展陈别具一格，强烈推荐。"
+        },
+        {
+          "name": "Schuylkill River Trail",
+          "nameCn": "斯库基尔河步道",
+          "lat": 39.956,
+          "lng": -75.181,
+          "rank": 6,
+          "tier": "必去",
+          "note": "Penn 西侧沿河绿道，跑步、骑行、观赏 Boathouse Row 夜景，是校园边最佳解压路线，春季尤美。"
+        },
+        {
+          "name": "Boathouse Row",
+          "nameCn": "船屋排（斯库基尔河畔）",
+          "lat": 39.9694,
           "lng": -75.1832,
-          "note": "校园东侧河滨步道，跑步骑行赏天际线，傍晚散步好去处。"
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Kelly Dr 沿岸 19 世纪维多利亚式船屋连排，夜晚灯光倒映水面极为梦幻，是费城最上镜的打卡点之一。"
+        },
+        {
+          "name": "The Franklin Institute",
+          "nameCn": "富兰克林科学博物馆",
+          "lat": 39.9584,
+          "lng": -75.1735,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "222 N 20th St，互动式科学体验馆，有可钻入的巨型心脏和天象仪，也适合节假日带家人参观。"
+        },
+        {
+          "name": "Penn Museum",
+          "nameCn": "宾大考古人类学博物馆",
+          "lat": 39.9493,
+          "lng": -75.1915,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "3260 South St，步行即达，世界级考古藏品，学生凭证免费，适合闲暇午后参观探索。"
+        },
+        {
+          "name": "Eastern State Penitentiary",
+          "nameCn": "东部州立监狱",
+          "lat": 39.9678,
+          "lng": -75.1723,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "2027 Fairmount Ave，全美最著名的历史监狱，昔日关押过阿尔·卡彭，导览生动有趣，万圣节活动尤为出名。"
+        },
+        {
+          "name": "South Street & Philly's Magic Gardens",
+          "nameCn": "南街与费城魔法花园",
+          "lat": 39.9415,
+          "lng": -75.1599,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "1020 South St，以数百万片马赛克拼贴覆盖的艺术装置庭院，独一无二的本地艺术奇景。"
+        },
+        {
+          "name": "Rittenhouse Square",
+          "nameCn": "里滕豪斯广场",
+          "lat": 39.9495,
+          "lng": -75.1716,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "费城最美城市公园之一，四面环绕咖啡馆与餐厅，周末农夫市场，约步行或地铁 15 分钟即可抵达。"
         }
       ]
     }

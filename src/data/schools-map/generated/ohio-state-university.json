@@ -76,31 +76,111 @@
       "items": [
         {
           "name": "Fisher College of Business",
-          "nameCn": "费雪商学院",
-          "lat": 40.0049,
-          "lng": -83.0161,
-          "note": "校区东北角的商学院建筑群。"
+          "nameCn": "费舍尔商学院",
+          "lat": 39.9994,
+          "lng": -83.0166,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖商学院之一，含金融、会计、市场等专业，主楼 Fisher Hall 位于 2100 Neil Ave。"
         },
         {
-          "name": "Wexner Medical Center – Doan Hall",
-          "nameCn": "医学中心多恩楼",
-          "lat": 39.9956,
-          "lng": -83.0174,
-          "note": "大学医院核心住院楼。"
+          "name": "College of Engineering – Dreese Laboratories",
+          "nameCn": "工学院 Dreese 实验楼",
+          "lat": 40.0026,
+          "lng": -83.0151,
+          "rank": 2,
+          "tier": "必去",
+          "note": "电气与计算机工程系主楼，OSU 工学院核心建筑，紧邻 Neil Ave 北端。"
         },
         {
-          "name": "Knowlton School of Architecture",
+          "name": "Knowlton Hall – Austin E. Knowlton School of Architecture",
           "nameCn": "诺尔顿建筑学院",
-          "lat": 40.0036,
-          "lng": -83.0168,
-          "note": "校区北部的建筑与城市规划学院。"
+          "lat": 40.0035,
+          "lng": -83.0193,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建筑、景观、城市规划学院所在地，275 W Woodruff Ave，内设 KSA Café，建筑设计感强。"
         },
         {
-          "name": "Dreese Laboratories (Engineering)",
-          "nameCn": "德雷斯工程实验楼",
-          "lat": 40.0021,
-          "lng": -83.0148,
-          "note": "电气与计算机工程系所在。"
+          "name": "University Hall",
+          "nameCn": "大学礼堂（教学主楼）",
+          "lat": 40,
+          "lng": -83.0087,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园最具历史感的综合教学楼，底层设小型博物馆，多院系在此授课。"
+        },
+        {
+          "name": "Hitchcock Hall – College of Engineering",
+          "nameCn": "希区柯克工程楼",
+          "lat": 40.0013,
+          "lng": -83.0168,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "工程一年级教育及 24 小时机房所在地，2070 Neil Ave，工科生报到必经之处。"
+        },
+        {
+          "name": "Drinko Hall – Moritz College of Law",
+          "nameCn": "莫里茨法学院",
+          "lat": 39.9968,
+          "lng": -83.0134,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "法学院及 Moritz 法律图书馆所在地，55 W 12th Ave，全美百强法学院。"
+        },
+        {
+          "name": "Orton Hall",
+          "nameCn": "奥顿礼堂",
+          "lat": 40.0005,
+          "lng": -83.0074,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1893 年建成，校园最老建筑之一，内有地质博物馆与 Carillon 钟塔，每日正午敲响。"
+        },
+        {
+          "name": "Hayes Hall",
+          "nameCn": "海斯礼堂",
+          "lat": 40.001,
+          "lng": -83.006,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "校园现存最古老建筑（1893），列入国家历史名录，现为视觉艺术与设计系所在地。"
+        },
+        {
+          "name": "Prior Hall – College of Public Health",
+          "nameCn": "普莱尔公共卫生楼",
+          "lat": 39.9975,
+          "lng": -83.0158,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "公共卫生学院及健康科学图书馆（HSL）所在地，376 W 10th Ave，紧靠 Wexner 医学中心。"
+        },
+        {
+          "name": "Smith Laboratory",
+          "nameCn": "史密斯实验楼",
+          "lat": 40.0022,
+          "lng": -83.0128,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "化学与化工学院核心实验楼，工程教育研究中心，174 W 18th Ave。"
+        },
+        {
+          "name": "Agricultural Administration Building – CFAES",
+          "nameCn": "农业与环境科学楼",
+          "lat": 40.0057,
+          "lng": -83.0282,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "食品、农业与环境科学学院行政楼，含农业图书馆，2120 Fyffe Rd，OSU 农业特色强。"
+        },
+        {
+          "name": "Drake Performance and Event Center",
+          "nameCn": "德雷克艺术中心",
+          "lat": 40.0014,
+          "lng": -83.0119,
+          "rank": 12,
+          "tier": "可选",
+          "note": "舞蹈、戏剧和音乐系所在地，1849 Cannon Dr，曾为校园重要演出场所（注意核实活动状态）。"
         }
       ],
       "defaultOn": true
@@ -113,18 +193,76 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Thompson Library",
-          "nameCn": "汤普森图书馆",
-          "lat": 39.9995,
-          "lng": -83.015,
-          "note": "椭圆草坪东端的主图书馆地标。"
+          "name": "William Oxley Thompson Memorial Library",
+          "nameCn": "汤普森主图书馆",
+          "lat": 40.0004,
+          "lng": -83.0107,
+          "rank": 1,
+          "tier": "必去",
+          "note": "OSU 最大图书馆（主馆），1858 Neil Ave Mall，超过 230 台电脑，含珍本与手稿特藏馆，24 小时自习区。"
         },
         {
-          "name": "18th Avenue Library",
-          "nameCn": "第18大道图书馆",
-          "lat": 40.0008,
-          "lng": -83.012,
-          "note": "理工与科学馆藏分馆。"
+          "name": "18th Avenue Library (Science & Engineering)",
+          "nameCn": "第18大道科学工程图书馆",
+          "lat": 40.0022,
+          "lng": -83.0127,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工科专业核心馆，175 W 18th Ave，覆盖化学、计算机、工程、数学、物理等，含 Research Commons（3楼）。"
+        },
+        {
+          "name": "Health Sciences Library",
+          "nameCn": "健康科学图书馆",
+          "lat": 39.9975,
+          "lng": -83.0158,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "376 W 10th Ave，Prior Hall 1-5 层，紧邻 Wexner 医学中心，医学/护理/公共卫生生必用。"
+        },
+        {
+          "name": "Moritz Law Library",
+          "nameCn": "莫里茨法律图书馆",
+          "lat": 39.9968,
+          "lng": -83.0134,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Drinko Hall 2 楼，55 W 12th Ave，法学院专属馆藏，含判例法与学术期刊，对法律研究者必不可少。"
+        },
+        {
+          "name": "Billy Ireland Cartoon Library & Museum",
+          "nameCn": "比利·爱尔兰漫画图书馆与博物馆",
+          "lat": 40.0016,
+          "lng": -83.0118,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Sullivant Hall，1813 N High St，全球最大漫画资料馆，兼具图书馆和展览馆功能，文化打卡地。"
+        },
+        {
+          "name": "Architecture Library",
+          "nameCn": "建筑学图书馆",
+          "lat": 40.0035,
+          "lng": -83.0193,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Knowlton Hall 400A 室，275 W Woodruff Ave，建筑与城市规划专业专属馆，藏品精专。"
+        },
+        {
+          "name": "Fine Arts Library",
+          "nameCn": "美术图书馆",
+          "lat": 40.0002,
+          "lng": -83.0089,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Wexner 艺术中心 040L 室，1871 N High St，艺术类专业学生首选参考馆，毗邻当代艺术展馆。"
+        },
+        {
+          "name": "Geology Library",
+          "nameCn": "地质学图书馆",
+          "lat": 40.0005,
+          "lng": -83.0074,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Orton Hall 180 室，155 S Oval Mall，地质与地球科学专业专属馆，与地质博物馆同楼。"
         }
       ]
     },
@@ -138,9 +276,56 @@
         {
           "name": "Wexner Center for the Arts",
           "nameCn": "韦克斯纳艺术中心",
-          "lat": 40.0011,
-          "lng": -83.0082,
-          "note": "高街入口处的当代艺术馆，解构主义建筑。"
+          "lat": 40.0002,
+          "lng": -83.0089,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最重要当代艺术空间，1871 N High St，Peter Eisenman 设计，免费画廊 + 电影院 + 表演厅，国际艺术展频繁。"
+        },
+        {
+          "name": "Billy Ireland Cartoon Library & Museum",
+          "nameCn": "比利·爱尔兰漫画博物馆",
+          "lat": 40.0016,
+          "lng": -83.0118,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Sullivant Hall，1813 N High St，全球规模最大的漫画与连环画馆藏，常设及巡回展览均值得一看。"
+        },
+        {
+          "name": "Orton Geological Museum",
+          "nameCn": "奥顿地质博物馆",
+          "lat": 40.0005,
+          "lng": -83.0074,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Orton Hall 底层，155 S Oval Mall，陈列俄亥俄州化石、矿物与岩石标本，免费入场，历史感强。"
+        },
+        {
+          "name": "Columbus Museum of Art",
+          "nameCn": "哥伦布艺术博物馆",
+          "lat": 39.9601,
+          "lng": -82.9895,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "480 E Broad St，距校约 15 分钟车程，收藏美国、欧洲及现代艺术，Wonder Room 互动展区深受好评。"
+        },
+        {
+          "name": "Ohio History Center",
+          "nameCn": "俄亥俄历史中心",
+          "lat": 40.0048,
+          "lng": -82.9873,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "800 E 17th Ave，含俄亥俄州自然与文化历史馆及俄亥俄历史村，每年一度活历史节热门。"
+        },
+        {
+          "name": "Hopkins Hall Gallery",
+          "nameCn": "霍普金斯画廊",
+          "lat": 40,
+          "lng": -83.0097,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "OSU 美术学院内部画廊，展示学生、教师及跨学科合作艺术项目，校内艺术氛围展示窗口。"
         }
       ]
     },
@@ -152,25 +337,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Ohio Stadium (The Horseshoe)",
+          "name": "Ohio Stadium (The Horseshoe / The Shoe)",
           "nameCn": "俄亥俄体育场（马蹄铁）",
           "lat": 40.0016,
-          "lng": -83.0197,
-          "note": "可容十万人的标志性橄榄球场。"
+          "lng": -83.0196,
+          "rank": 1,
+          "tier": "必去",
+          "note": "411 Woody Hayes Dr，约 10.5 万座位，全美最大体育场之一，1974 年列入国家历史名录，Buckeyes 橄榄球主场。"
+        },
+        {
+          "name": "The Oval",
+          "nameCn": "椭圆广场（校园草坪）",
+          "lat": 40.0001,
+          "lng": -83.0083,
+          "rank": 2,
+          "tier": "必去",
+          "note": "约 11 英亩草坪，校园「客厅」，四周围绕历史建筑，是晒太阳、野餐、举办活动的学生聚集地。"
         },
         {
           "name": "Ohio Union",
-          "nameCn": "俄州联合学生中心",
-          "lat": 39.9966,
-          "lng": -83.0085,
-          "note": "高街旁的学生活动中心。"
+          "nameCn": "俄亥俄学生活动中心",
+          "lat": 39.9984,
+          "lng": -83.0078,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1739 N High St，2010 年新建，含餐厅、会议室、学生社团办公室，学生日常活动与餐饮核心地带。"
         },
         {
-          "name": "Orton Hall",
-          "nameCn": "奥顿楼",
-          "lat": 39.9983,
-          "lng": -83.0119,
-          "note": "椭圆草坪南侧的历史地质学楼，含钟塔。"
+          "name": "RPAC – Recreation and Physical Activity Center",
+          "nameCn": "校园体育活动中心（RPAC）",
+          "lat": 40.0044,
+          "lng": -83.0215,
+          "rank": 4,
+          "tier": "必去",
+          "note": "337 Annie and John Glenn Ave，超大综合健身中心，含泳池、攀岩墙、球场，学生凭学生证免费入场。"
+        },
+        {
+          "name": "South Campus Gateway",
+          "nameCn": "南校区 Gateway 商业综合体",
+          "lat": 39.9943,
+          "lng": -83.0082,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1550 N High St 附近，含 Gateway Film Center 电影院、餐饮商铺、Huntington Bank，校园南端生活核心。"
+        },
+        {
+          "name": "Schottenstein Center",
+          "nameCn": "肖滕斯坦中心（体育馆）",
+          "lat": 40.0027,
+          "lng": -83.0268,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "555 Borror Dr，篮球与冰球主场，也是大型演唱会及毕业典礼场地，OSU 体育文化重要地标。"
+        },
+        {
+          "name": "Orton Hall Bell Tower",
+          "nameCn": "奥顿礼堂钟楼",
+          "lat": 40.0005,
+          "lng": -83.0074,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "建于 1893 年，校园内最具辨识度的哥特式石砌塔楼，每日正午 Carillon 钟鸣，必拍打卡点。"
+        },
+        {
+          "name": "Mirror Lake",
+          "nameCn": "镜湖",
+          "lat": 40.004,
+          "lng": -83.0163,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "校园北部小湖，环境优美，尤以深秋和密歇根比赛周前的「跳湖」传统（Mirror Lake Jump）闻名。"
         }
       ]
     },
@@ -182,25 +418,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "CAM International Market (Olentangy)",
-          "nameCn": "CAM 亚洲国际超市（奥伦坦吉河路店）",
-          "lat": 40.04118,
-          "lng": -83.033,
-          "note": "哥伦布最大的亚洲/中超连锁，中国调料、生鲜、冻品、火锅料齐全，离校约4.7公里，留学生囤中餐食材的首选。"
+          "name": "Kroger (North High Street)",
+          "nameCn": "克罗格超市（北高街店）",
+          "lat": 40.0214,
+          "lng": -83.0146,
+          "rank": 1,
+          "tier": "必去",
+          "note": "3417 N High St，距校约 10 分钟，最近的大型连锁超市，接受 BuckID 消费，日常采购首选。"
         },
         {
-          "name": "Lucky's Market (Clintonville)",
-          "nameCn": "Lucky's 自然食品超市（Clintonville 店）",
-          "lat": 40.01884,
-          "lng": -83.01243,
-          "note": "沿 High St 往北约2公里的精品/有机食品超市，生鲜熟食酒水齐全，离宿舍区近、步行可达。"
+          "name": "Sunrise Asian Super Market",
+          "nameCn": "朝阳亚洲超市",
+          "lat": 40.0208,
+          "lng": -83.059,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1920 W Henderson Rd，中俄亥俄地区最大亚洲超市，新鲜海鲜、蔬菜、中式调料齐全，含食堂。"
         },
         {
-          "name": "Kroger (3417 N High St, University District)",
-          "nameCn": "Kroger 大型连锁超市（大学城店）",
-          "lat": 40.03196,
-          "lng": -83.01603,
-          "note": "校园北侧最近的大型美式连锁超市，接受 BuckID 校园卡，日常采购、配药一站搞定。"
+          "name": "CAM International Market 华欣",
+          "nameCn": "华欣亚洲超市",
+          "lat": 39.9913,
+          "lng": -83.1468,
+          "rank": 3,
+          "tier": "必去",
+          "note": "3767 Park Mill Run Dr, Hilliard，1997 年创立的哥伦布最大中式综合亚洲超市，品类覆盖中日韩食材。"
+        },
+        {
+          "name": "Tensuke Market",
+          "nameCn": "天助日本食品市场",
+          "lat": 40.0217,
+          "lng": -83.0543,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1167 Old Henderson Rd，俄亥俄州最大日本食品超市，新鲜刺身、日式便当、抹茶零食一应俱全。"
+        },
+        {
+          "name": "Saraga International Grocery",
+          "nameCn": "Saraga 国际食品市场",
+          "lat": 40.0632,
+          "lng": -82.9859,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1265 Morse Rd，多国食材汇集，中东、东南亚、东亚各式调料进口食品丰富，价格实惠。"
+        },
+        {
+          "name": "Trader Joe's (Easton)",
+          "nameCn": "乔氏超市（Easton 店）",
+          "lat": 40.0524,
+          "lng": -82.9116,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "3888 Townsfair Way，连锁精品超市，自有品牌零食和冷冻食品深受学生欢迎，车程约 20 分钟。"
+        },
+        {
+          "name": "Whole Foods Market (Dublin-Granville)",
+          "nameCn": "全食超市（都柏林店）",
+          "lat": 40.0875,
+          "lng": -83.0619,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "3670 W Dublin-Granville Rd，有机食品与进口产品选择丰富，车程约 15 分钟，适合周末大采购。"
         }
       ]
     },
@@ -212,39 +490,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Tai's Asian Bistro",
-          "nameCn": "泰氏亚洲餐厅",
-          "lat": 40.00696,
-          "lng": -83.04463,
-          "note": "服务 OSU 校区20多年的中餐/亚洲菜老店，川菜、拉面、寿司都有，离校约2公里，华人学生常去。"
-        },
-        {
-          "name": "Panda Express (2044 N High St)",
-          "nameCn": "熊猫快餐（High St 店）",
-          "lat": 40.0039,
-          "lng": -83.00875,
-          "note": "就在 High St 校门口的美式中式快餐，橙皮鸡是招牌，便宜快捷，适合赶课间果腹。"
-        },
-        {
           "name": "Buckeye Donuts",
-          "nameCn": "Buckeye 甜甜圈",
-          "lat": 40.0031,
-          "lng": -83.00858,
-          "note": "1969年开业的校园地标，24小时营业、手工甜甜圈+希腊卷饼，熬夜赶due的深夜食堂。"
+          "nameCn": "巴基甜甜圈",
+          "lat": 40.0017,
+          "lng": -83.0083,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "1998 N High St，24 小时营业，1969 年开业的 OSU 标志性老店，甜甜圈 + 希腊卷饼 + 早餐三明治，OSU 生必打卡。"
         },
         {
-          "name": "Mikey's Late Night Slice (Campus)",
-          "nameCn": "Mikey's 深夜披萨（校园店）",
-          "lat": 40.00037,
-          "lng": -83.00736,
-          "note": "High St 旁的网红披萨，按片卖、营业到凌晨，夜生活和酒后必打卡的本地小吃。"
+          "name": "Chuan Jiang Hao Zi（川江号子）",
+          "nameCn": "川江号子",
+          "lat": 40.0068,
+          "lng": -83.0096,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "496 Ackerman Rd，俄亥俄地区最受好评的正宗四川菜，Columbus Monthly 2024 年度最佳新餐厅，麻辣鱼、夫妻肺片必点。"
         },
         {
-          "name": "Hang Over Easy",
-          "nameCn": "Hang Over Easy 早午餐馆",
-          "lat": 39.99762,
-          "lng": -83.00766,
-          "note": "Ohio Union 一带广受学生喜爱的美式早午餐（法式吐司、鸡肉华夫饼），周末解宿醉名所。"
+          "name": "N.E. Chinese Restaurant",
+          "nameCn": "东北菜餐厅",
+          "lat": 40.0108,
+          "lng": -83.0084,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "2620 N High St，Clintonville 区正宗东北菜，酸菜白肉、饺子、回锅肉受中国留学生强烈推荐。"
+        },
+        {
+          "name": "Tiger + Lily",
+          "nameCn": "老虎百合亚洲融合餐厅",
+          "lat": 39.9607,
+          "lng": -83.0001,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "19 E Gay St（市中心），韩、中、日融合菜，拉面、盖饭、奶茶、甜品俱全，Yelp 高分，气氛好。"
+        },
+        {
+          "name": "Brassica",
+          "nameCn": "芸苔地中海餐厅",
+          "lat": 39.9737,
+          "lng": -83.0016,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "680 N High St（Short North），地中海风快餐，以色列式卷饼、球茎甘蓝沙拉，OSU 学生榜单常客。"
+        },
+        {
+          "name": "Satori Ramen Bar",
+          "nameCn": "悟道拉面",
+          "lat": 39.9634,
+          "lng": -83.0035,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "59 Spruce St，Short North 区高评分拉面馆，汤底浓郁，手工叉烧，入夜后等位但值得。"
+        },
+        {
+          "name": "Kung Fu Noodle",
+          "nameCn": "功夫面",
+          "lat": 40.0758,
+          "lng": -83.0605,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "5225 Godown Rd，Yelp 2024 全美百强餐厅，手工拉面 90% 食材自制，兰州牛肉面、馄饨汤口碑极佳。"
+        },
+        {
+          "name": "The O on Lane",
+          "nameCn": "Lane 大道的 O（柴火比萨）",
+          "lat": 40.0023,
+          "lng": -83.0233,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "352 W Lane Ave，步行即达，家庭式经营柴火比萨，性价比高，是距校园最近的人气餐厅之一。"
+        },
+        {
+          "name": "Cazuelas Mexican Cantina",
+          "nameCn": "卡祖拉斯墨西哥餐厅",
+          "lat": 40.0079,
+          "lng": -83.0084,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "2321 N High St，校园周边最受欢迎的墨西哥菜，玛格丽塔鸡尾酒 + 炸玉米片，周末气氛热烈。"
+        },
+        {
+          "name": "Northstar Cafe (Clintonville)",
+          "nameCn": "北极星咖啡餐厅",
+          "lat": 40.0392,
+          "lng": -83.0151,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "4241 N High St，农场直供食材，早午餐和午餐选择丰富，健康舒适，OSU 学生和教职员工均爱。"
+        },
+        {
+          "name": "Insomnia Cookies",
+          "nameCn": "失眠饼干",
+          "lat": 40.0052,
+          "lng": -83.0083,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "2209 N High St，深夜至凌晨营业，温热饼干 + 冰淇淋，是 OSU 学生考试季、夜跑必打卡的甜品小店。"
+        },
+        {
+          "name": "Apollo's Gyros",
+          "nameCn": "阿波罗希腊卷饼",
+          "lat": 40.0003,
+          "lng": -83.0082,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "High St 校园区，新鲜羊肉希腊卷加 tzatziki 酱，午餐快餐首选，分量足价格亲民。"
+        },
+        {
+          "name": "Donatos Pizza",
+          "nameCn": "多纳托斯薄饼",
+          "lat": 40.0025,
+          "lng": -83.0083,
+          "rank": 13,
+          "tier": "一般",
+          "note": "2084 N High St，OSU 校友 1963 年创立，薄底比萨铺满料，接受 BuckID，是校园最常叫外卖的比萨店。"
+        },
+        {
+          "name": "Tensuke Express",
+          "nameCn": "天助快餐（日式便当）",
+          "lat": 40.0217,
+          "lng": -83.0543,
+          "rank": 14,
+          "tier": "一般",
+          "note": "1155 Old Henderson Rd，天助超市旁的日式快餐，拉面、丼饭、寿司、炸物，价格合理口味正宗。"
         }
       ]
     },
@@ -256,32 +625,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Huntington Bank (South Campus Gateway)",
-          "nameCn": "Huntington 银行（南校门 Gateway 支行）",
-          "lat": 39.99437,
-          "lng": -83.00686,
-          "note": "Huntington 是 OSU 官方合作银行（Buckeye Banking），学生开户免费免月费，就在 High St 校门口，办卡首选。"
+          "name": "Huntington Bank – Ohio State Gateway Branch",
+          "nameCn": "猎人银行 Gateway 校区分行",
+          "lat": 39.9943,
+          "lng": -83.0082,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1582 N High St，OSU 官方合作银行，国际学生无需 SSN 即可开户，BuckID 关联 ATM，不收月费。"
         },
         {
-          "name": "CVS Pharmacy (Lane & High)",
-          "nameCn": "CVS 药房（Lane & High 店）",
-          "lat": 40.001,
-          "lng": -83.00817,
-          "note": "校园边 High St 上的连锁药房，处方药、感冒药、日用品齐全，距校约1.3公里。"
+          "name": "Wilce Student Health Center",
+          "nameCn": "Wilce 学生健康中心",
+          "lat": 40.0019,
+          "lng": -83.0202,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1875 Millikin Rd，OSU 在校学生专属门诊，可预约全科、疫苗接种、妇科等，含学生药房，就诊优先。"
         },
         {
-          "name": "T-Mobile (High St & 11th Ave)",
-          "nameCn": "T-Mobile 手机营业厅（High St 11街口）",
-          "lat": 39.99489,
-          "lng": -83.00696,
-          "note": "校门口的运营商门店，新生落地办美国手机卡/套餐很方便，步行即到。"
+          "name": "OSU Wexner Medical Center – University Hospital",
+          "nameCn": "韦克斯纳医学中心（大学医院）",
+          "lat": 39.9987,
+          "lng": -83.017,
+          "rank": 3,
+          "tier": "必去",
+          "note": "410 W 10th Ave，大型学术医院，急救/专科/急诊全覆盖，校园内最权威的综合性医疗资源。"
         },
         {
-          "name": "OSU Advanced Urgent Care (Martha Morehouse)",
-          "nameCn": "俄州大紧急门诊（Martha Morehouse）",
-          "lat": 40.00129,
-          "lng": -83.03443,
-          "note": "Wexner 医学中心旗下走进式急诊门诊，小病小伤无需预约，离校约1公里，校医院 ER 也在南侧。"
+          "name": "Chase Bank – University High Street Branch",
+          "nameCn": "摩根大通银行（高街校区分行）",
+          "lat": 39.9967,
+          "lng": -83.0083,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1698 N High St，Chase 是国际学生开户最常选之一，全美 ATM 网络广，接受护照+I-20 开户。"
+        },
+        {
+          "name": "CVS Pharmacy (North High Street)",
+          "nameCn": "CVS 药房（北高街）",
+          "lat": 40.0053,
+          "lng": -83.0084,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2160 N High St at Lane Ave，校区最近的连锁药房，24 小时药剂师咨询，OTC 药品、日用品一站搞定。"
+        },
+        {
+          "name": "Verizon TCC Authorized Retailer",
+          "nameCn": "Verizon 授权零售商",
+          "lat": 39.9787,
+          "lng": -83.0033,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "890 N High St，校区最近的 Verizon 授权店，可办理实体 SIM 卡或 eSIM，Verizon 在哥伦布信号覆盖最佳。"
+        },
+        {
+          "name": "Ohio State Urgent Care Clintonville",
+          "nameCn": "俄亥俄州立大学紧急诊疗（Clintonville）",
+          "lat": 40.0392,
+          "lng": -83.015,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "4400 N High St，Wilce 关门后非急救首选，无预约即可就诊，距校约 10 分钟，支持在线排队。"
+        },
+        {
+          "name": "Huntington Bank – Ohio State Doan Branch",
+          "nameCn": "猎人银行 Doan Hall 分行",
+          "lat": 39.9983,
+          "lng": -83.0167,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "410 W 10th Ave，紧靠医学中心校区，方便医学相关专业学生，同样支持国际学生无 SSN 开户。"
         }
       ]
     },
@@ -293,39 +706,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Ohio Stadium (The Shoe)",
-          "nameCn": "俄亥俄体育场（马蹄铁球场）",
-          "lat": 40.00163,
-          "lng": -83.01971,
-          "note": "可容十万人的标志性橄榄球场，秋季 Buckeyes 主场日是全城盛事，校园第一打卡地。"
-        },
-        {
-          "name": "Mirror Lake",
-          "nameCn": "镜湖",
-          "lat": 39.9922,
-          "lng": -83.0087,
-          "note": "校园中心的小湖与 Browning 露天剧场，春夏吊床野餐、拍照散步的网红角落。"
-        },
-        {
-          "name": "Thompson Library & The Oval",
-          "nameCn": "汤普森图书馆与椭圆草坪",
-          "lat": 39.99936,
-          "lng": -83.01481,
-          "note": "校园中轴 The Oval 尽头的主图书馆，11楼可俯瞰全校和市中心天际线，自习+拍照两相宜。"
-        },
-        {
-          "name": "Wexner Center for the Arts",
-          "nameCn": "韦克斯纳艺术中心",
-          "lat": 40.00061,
-          "lng": -83.00824,
-          "note": "校内前卫艺术馆，常设国际级当代艺术、电影与展览，建筑本身就是地标。"
-        },
-        {
           "name": "Short North Arts District",
-          "nameCn": "Short North 艺术街区",
-          "lat": 39.9779,
-          "lng": -83.005,
-          "note": "校园南侧 High St 上的画廊、餐厅、酒吧聚集区，拱门夜景出名，周末逛吃首选。"
+          "nameCn": "短北艺术区",
+          "lat": 39.9793,
+          "lng": -83.0041,
+          "rank": 1,
+          "tier": "必去",
+          "note": "沿 N High St 从 Goodale Ave 至 5th Ave，餐厅、酒吧、画廊、精品店林立，每月第一个周六 Gallery Hop 夜场必体验。"
+        },
+        {
+          "name": "Columbus Zoo and Aquarium",
+          "nameCn": "哥伦布动物园与水族馆",
+          "lat": 40.1538,
+          "lng": -83.1177,
+          "rank": 2,
+          "tier": "必去",
+          "note": "4850 W Powell Rd, Powell，全美排名前列的大型动物园，580 英亩含水族馆、非洲心脏、极地前线等特色园区。"
+        },
+        {
+          "name": "COSI – Center of Science and Industry",
+          "nameCn": "科学工业中心（COSI）",
+          "lat": 39.9575,
+          "lng": -83.0047,
+          "rank": 3,
+          "tier": "必去",
+          "note": "333 W Broad St，300+ 互动展区 + 俄亥俄最大天文馆 + IMAX 巨幕影院，1964 年创立，周末必去好去处。"
+        },
+        {
+          "name": "Franklin Park Conservatory",
+          "nameCn": "富兰克林公园植物温室",
+          "lat": 39.9627,
+          "lng": -82.9819,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1777 E Broad St，1895 年维多利亚式温室，世界级 Chihuly 玻璃艺术收藏 + 蝴蝶屋，春节前后圣诞灯展极美。"
+        },
+        {
+          "name": "German Village",
+          "nameCn": "德国村",
+          "lat": 39.946,
+          "lng": -82.9965,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Columbus 南部 588 S 3rd St 附近，233 英亩 19 世纪红砖建筑街区，咖啡馆、书店密集，秋日步行氛围极佳。"
+        },
+        {
+          "name": "Olentangy Trail",
+          "nameCn": "奥伦坦基河畔步道",
+          "lat": 40.006,
+          "lng": -83.0279,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "沿 Olentangy River 延伸 14 英里的多用途步道，从校园西侧可直接进入，跑步、骑行、赏秋风景绝佳。"
+        },
+        {
+          "name": "Short North Gallery Hop",
+          "nameCn": "短北画廊夜游（Gallery Hop）",
+          "lat": 39.9793,
+          "lng": -83.0041,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "每月第一个周六 16:00-22:00，Goodale 至 5th Ave 沿街画廊、音乐、街头表演全线开放，免费入场。"
+        },
+        {
+          "name": "Ohio History Center",
+          "nameCn": "俄亥俄历史中心",
+          "lat": 40.0048,
+          "lng": -82.9873,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "800 E 17th Ave，俄亥俄州历史与自然史双馆，旁设俄亥俄历史村（Ohio Village），周末有活态历史表演。"
+        },
+        {
+          "name": "Scioto Audubon Metro Park",
+          "nameCn": "西奥托奥杜邦自然公园",
+          "lat": 39.9501,
+          "lng": -83.0085,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "400 W Whittier St，119 英亩沿河公园，含攀岩墙（免费）、观鸟台、狗公园，距市中心仅 5 分钟车程。"
+        },
+        {
+          "name": "Columbus Museum of Art",
+          "nameCn": "哥伦布艺术博物馆",
+          "lat": 39.9601,
+          "lng": -82.9895,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "480 E Broad St，Wonder Room 互动区深受学生喜爱，周日下午向学生提供折扣票，兼有临时特展。"
+        },
+        {
+          "name": "Gateway Film Center",
+          "nameCn": "Gateway 艺术影院",
+          "lat": 39.9938,
+          "lng": -83.0078,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "1550 N High St，位于南校区 Gateway，放映独立与艺术院线影片，学生票价优惠，OSU 学生常去的文艺空间。"
+        },
+        {
+          "name": "Goodale Park",
+          "nameCn": "古代尔公园",
+          "lat": 39.9718,
+          "lng": -83.0042,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "Short North 北端入口公园，每年 ComFest（社区音乐节）举办地，平日适合野餐、晨跑，免费停车便利。"
         }
       ]
     }

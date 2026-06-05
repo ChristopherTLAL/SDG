@@ -59,32 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "South Building (Administration)",
-          "nameCn": "南楼（行政中心）",
-          "lat": 35.9107,
-          "lng": -79.051,
-          "note": "校长办公室所在，建于1798年。"
+          "name": "Kenan-Flagler Business School (McColl Building)",
+          "nameCn": "基南-弗拉格勒商学院",
+          "lat": 35.9046,
+          "lng": -79.0516,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶级商学院之一（US News排名约前20），MBA/本科商科均享盛誉，位于校园南区。"
         },
         {
-          "name": "UNC School of Medicine / Medical Center",
-          "nameCn": "医学院与医学中心",
-          "lat": 35.9047,
-          "lng": -79.054,
-          "note": "南校区医疗与生命科学集群。"
+          "name": "Gillings School of Global Public Health (Rosenau Hall)",
+          "nameCn": "吉林斯全球公共卫生学院",
+          "lat": 35.9037,
+          "lng": -79.0526,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美排名前二的公共卫生学院，连续八年第一公立，Rosenau Hall为主楼。"
         },
         {
-          "name": "Kenan-Flagler Business School (McColl)",
-          "nameCn": "凯南-弗拉格勒商学院",
-          "lat": 35.8997,
-          "lng": -79.0461,
-          "note": "南校区McColl大楼，紧邻Smith体育馆。"
+          "name": "Eshelman School of Pharmacy (Beard Hall)",
+          "nameCn": "埃谢尔曼药学院",
+          "lat": 35.9027,
+          "lng": -79.0534,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美排名第一的药学院，已连续四次蝉联榜首，是UNC最具标志性的顶尖院系。"
         },
         {
-          "name": "Gillings School of Global Public Health",
-          "nameCn": "吉灵斯全球公共卫生学院",
-          "lat": 35.9057,
+          "name": "UNC School of Medicine (MBRB)",
+          "nameCn": "医学院",
+          "lat": 35.9016,
           "lng": -79.0539,
-          "note": "全美顶尖公卫学院，邻医学中心。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "初级保健医学全美顶级，多个专科排名前十，与UNC医院紧密相连。"
+        },
+        {
+          "name": "School of Law (Van Hecke-Wettach Hall)",
+          "nameCn": "法学院",
+          "lat": 35.9112,
+          "lng": -79.0518,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美法学院排名约第18位，公立法学院中排名第六，是北卡最重要的法律教育机构。"
+        },
+        {
+          "name": "FedEx Global Education Center",
+          "nameCn": "联邦快递全球教育中心",
+          "lat": 35.9093,
+          "lng": -79.053,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "国际事务中心所在地，包含ISSS留学生与学者服务处，国际新生必须来此办理手续。"
+        },
+        {
+          "name": "Hanes Art Center",
+          "nameCn": "海尼斯艺术中心",
+          "lat": 35.9076,
+          "lng": -79.0535,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "艺术与艺术史系所在地，有工作室课程与展览空间，建筑本身具有视觉艺术特色。"
+        },
+        {
+          "name": "Carroll Hall (Hussman School of Journalism & Media)",
+          "nameCn": "卡罗尔楼（新闻与传媒学院）",
+          "lat": 35.9101,
+          "lng": -79.051,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "全美历史最悠久的新闻学院之一，Hussman新闻与传媒学院的教学主楼。"
+        },
+        {
+          "name": "Phillips Hall (Mathematics & Physics)",
+          "nameCn": "菲利普斯楼（数理系）",
+          "lat": 35.9084,
+          "lng": -79.05,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "数学和物理系的核心教学楼，校园中部标志性建筑，理工科学生必经之地。"
+        },
+        {
+          "name": "Venable & Murray Halls (Chemistry)",
+          "nameCn": "韦纳布尔与默里楼（化学系）",
+          "lat": 35.9066,
+          "lng": -79.0496,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "化学与海洋科学系所在地，2010年落成，是校园最大建设项目之一，现代化实验设施齐全。"
+        },
+        {
+          "name": "Kenan Memorial Stadium",
+          "nameCn": "基南纪念体育场",
+          "lat": 35.9053,
+          "lng": -79.0559,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "美式橄榄球赛事主场，每逢主场比赛，全校学生踊跃参与，是UNC校园文化的重要符号。"
+        },
+        {
+          "name": "Genome Sciences Building",
+          "nameCn": "基因组科学大楼",
+          "lat": 35.9019,
+          "lng": -79.0555,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "8层228,000平方英尺的基因组学研究中心，汇集全校基因组研究力量，设施先进。"
         }
       ],
       "defaultOn": true
@@ -99,16 +179,56 @@
         {
           "name": "Davis Library",
           "nameCn": "戴维斯图书馆",
-          "lat": 35.9105,
-          "lng": -79.0479,
-          "note": "全校最大主图书馆，七层藏书。"
+          "lat": 35.9095,
+          "lng": -79.0508,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UNC最大主图书馆，藏书丰富，有24小时自习区，是学生日常学习的核心场所。"
         },
         {
-          "name": "Louis Round Wilson Library",
-          "nameCn": "威尔逊图书馆",
-          "lat": 35.9097,
-          "lng": -79.0497,
-          "note": "圆顶地标，珍本与南方历史特藏。"
+          "name": "Wilson Special Collections Library",
+          "nameCn": "威尔逊特藏图书馆",
+          "lat": 35.9073,
+          "lng": -79.0498,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1929年建成的标志性建筑，收藏珍贵特藏与南方历史资料，定期举办展览，必须打卡。"
+        },
+        {
+          "name": "House Undergraduate Library",
+          "nameCn": "豪斯本科生图书馆",
+          "lat": 35.9086,
+          "lng": -79.0504,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "专为本科生设计，学习空间舒适；注意：2027年前因装修暂时关闭，请关注开放动态。"
+        },
+        {
+          "name": "Health Sciences Library",
+          "nameCn": "健康科学图书馆",
+          "lat": 35.9009,
+          "lng": -79.0536,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "医学、药学、护理、公共卫生院系的专业图书馆，医科生必备资源中心。"
+        },
+        {
+          "name": "Kathrine R. Everett Law Library",
+          "nameCn": "埃弗里特法律图书馆",
+          "lat": 35.9107,
+          "lng": -79.0519,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "法学院专属图书馆，法学资源丰富，对校内外读者均开放，学习环境安静专注。"
+        },
+        {
+          "name": "Kenan Science Library",
+          "nameCn": "基南科学图书馆",
+          "lat": 35.907,
+          "lng": -79.0503,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "理工科专属图书馆，理工科及环境科学方向学生的重要参考资源库。"
         }
       ]
     },
@@ -122,16 +242,56 @@
         {
           "name": "Ackland Art Museum",
           "nameCn": "阿克兰艺术博物馆",
-          "lat": 35.9126,
-          "lng": -79.0551,
-          "note": "校园西缘综合艺术馆，免费开放。"
+          "lat": 35.9111,
+          "lng": -79.0513,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UNC附属美术馆，馆藏逾21,000件作品，涵盖德加、毕沙罗等大师，常设特展，免费入场。"
         },
         {
-          "name": "Morehead Planetarium & Science Center",
-          "nameCn": "莫尔黑德天文馆",
-          "lat": 35.9135,
-          "lng": -79.0494,
-          "note": "曾训练NASA宇航员的天象馆。"
+          "name": "Morehead Planetarium and Science Center",
+          "nameCn": "莫尔黑德天文馆与科学中心",
+          "lat": 35.912,
+          "lng": -79.0508,
+          "rank": 2,
+          "tier": "必去",
+          "note": "曾是NASA宇航员培训基地，全穹幕剧场体验感极强，Franklin Street上的Chapel Hill地标。"
+        },
+        {
+          "name": "Carolina Basketball Museum",
+          "nameCn": "卡罗来纳篮球博物馆",
+          "lat": 35.905,
+          "lng": -79.0519,
+          "rank": 3,
+          "tier": "必去",
+          "note": "展示UNC六次NCAA冠军历程及迈克尔·乔丹等Tar Heels传奇，TripAdvisor评Chapel Hill第一景点。"
+        },
+        {
+          "name": "Sonja Haynes Stone Center for Black Culture and History",
+          "nameCn": "索尼娅·海恩斯·斯通黑人文化历史中心",
+          "lat": 35.9088,
+          "lng": -79.0509,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "非裔美国人文化与历史研究中心，Brown Gallery定期举办艺术展览，是了解多元文化的重要窗口。"
+        },
+        {
+          "name": "North Carolina Botanical Garden",
+          "nameCn": "北卡植物园",
+          "lat": 35.8953,
+          "lng": -79.0407,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1,100英亩的原生植物保护区，提供免费导览，是减压散步和亲近自然的绝佳去处，春季花卉尤美。"
+        },
+        {
+          "name": "Coker Arboretum",
+          "nameCn": "科克尔植物园",
+          "lat": 35.9118,
+          "lng": -79.0505,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于校园核心的5英亩小型植物园，四季花草变换，紧邻Morehead天文馆，散步打卡胜地。"
         }
       ]
     },
@@ -143,32 +303,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "The Old Well",
-          "nameCn": "老井",
-          "lat": 35.9117,
-          "lng": -79.051,
-          "note": "新古典圆亭，UNC的象征地标。"
-        },
-        {
           "name": "Morehead-Patterson Bell Tower",
-          "nameCn": "莫尔黑德钟楼",
-          "lat": 35.9092,
-          "lng": -79.0476,
-          "note": "172英尺钟楼，校园天际线标志。"
+          "nameCn": "莫尔黑德-帕特森钟楼",
+          "lat": 35.9058,
+          "lng": -79.0497,
+          "rank": 1,
+          "tier": "必去",
+          "note": "52米高的罗马风格钟楼，1931年建成，是UNC最具标志性的符号，每逢橄榄球赛日校园钟声响彻云霄。"
         },
         {
-          "name": "Kenan Memorial Stadium",
-          "nameCn": "凯南纪念体育场",
-          "lat": 35.9072,
-          "lng": -79.047,
-          "note": "橄榄球主场，嵌于林木山谷。"
+          "name": "The Pit (Student Hub)",
+          "nameCn": "学生广场「坑」",
+          "lat": 35.9088,
+          "lng": -79.0502,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园学生生活中心，社团招募、演讲、集市全在这里，在此驻足一天据说能见到全校每一个学生。"
         },
         {
-          "name": "Dean E. Smith Center",
-          "nameCn": "迪恩·史密斯篮球馆",
-          "lat": 35.8997,
-          "lng": -79.044,
-          "note": "Tar Heels篮球圣地，可容两万人。"
+          "name": "Frank Porter Graham Student Union (Carolina Union)",
+          "nameCn": "卡罗来纳学生中心",
+          "lat": 35.9084,
+          "lng": -79.0506,
+          "rank": 3,
+          "tier": "必去",
+          "note": "学生活动大本营，内含餐饮、自习室、社团办公室、ATM等一站式服务，新生开学必逛。"
+        },
+        {
+          "name": "Old East (Nation's Oldest Public University Building)",
+          "nameCn": "老东楼（全国最古老公立大学建筑）",
+          "lat": 35.9122,
+          "lng": -79.0521,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1793年奠基，美国历史最悠久的公立大学建筑，现仍作宿舍使用，承载着UNC超两百年历史。"
+        },
+        {
+          "name": "Franklin Street",
+          "nameCn": "富兰克林街",
+          "lat": 35.913,
+          "lng": -79.0502,
+          "rank": 5,
+          "tier": "必去",
+          "note": "校门外的繁华商业街，餐厅、书店、咖啡馆、酒吧林立，每逢Tar Heels夺冠便成为学生狂欢地。"
+        },
+        {
+          "name": "McCorkle Place (Davie Poplar Tree)",
+          "nameCn": "麦科尔广场（戴维杨树）",
+          "lat": 35.9123,
+          "lng": -79.0516,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园最古老的草坪广场，其中的戴维大花楸据说早于建校就已存在，是UNC精神的象征。"
+        },
+        {
+          "name": "Dean E. Smith Center (The Dean Dome)",
+          "nameCn": "迪恩·史密斯中心（院长穹顶）",
+          "lat": 35.9042,
+          "lng": -79.0521,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "容纳21,750人的篮球馆，紧邻卡罗来纳篮球博物馆，是UNC篮球信仰的圣地，比赛日气氛震撼。"
+        },
+        {
+          "name": "The Carolina Inn",
+          "nameCn": "卡罗来纳酒店",
+          "lat": 35.9125,
+          "lng": -79.0534,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1924年开业的百年历史校园精品酒店，南部殖民地风格建筑，深受校友和访客喜爱，可进去喝下午茶。"
         }
       ]
     },
@@ -180,32 +384,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Harris Teeter (Carr Mill Mall)",
-          "nameCn": "Harris Teeter 超市（卡尔磨坊店）",
-          "lat": 35.9156,
-          "lng": -79.0758,
-          "note": "离校园最近的大型连锁超市，位于卡尔磨坊商场，步行/公交可达，生鲜日用一站买齐。"
+          "name": "Wegmans",
+          "nameCn": "威格曼超市",
+          "lat": 35.9226,
+          "lng": -79.0439,
+          "rank": 1,
+          "tier": "必去",
+          "note": "100,000平方英尺的大型综合超市，品类全面，熟食部优质，2022年新开，是学生最爱的购物目的地。"
         },
         {
-          "name": "Weaver Street Market",
-          "nameCn": "织工街市集（有机食品超市）",
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 35.9145,
+          "lng": -79.0408,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Eastgate购物中心，性价比极高，有机食品丰富，UNC学生日常打卡超市，步行或骑车可达。"
+        },
+        {
+          "name": "Whole Foods Market",
+          "nameCn": "全食超市",
+          "lat": 35.9142,
+          "lng": -79.0411,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "有机食品、即食熟食一流，与Trader Joe's同在Eastgate区域，适合对食材品质有要求的学生。"
+        },
+        {
+          "name": "Harris Teeter (Estes Drive)",
+          "nameCn": "哈里斯·提特超市",
+          "lat": 35.9126,
+          "lng": -79.0427,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "本地连锁超市，VIC会员卡可享折扣，生鲜品质稳定，多处分店方便日常采购。"
+        },
+        {
+          "name": "Weaver Street Market (Carrboro)",
+          "nameCn": "织布者街市场（凯尔伯罗）",
           "lat": 35.9105,
-          "lng": -79.0747,
-          "note": "Carrboro 标志性合作社超市，有机食材+熟食+草坪音乐，本地生活感很强。"
-        },
-        {
-          "name": "Trader Joe's (Meadowmont)",
-          "nameCn": "缺德舅超市（Meadowmont 店）",
-          "lat": 35.9,
-          "lng": -79.0205,
-          "note": "性价比高的人气连锁，冷冻速食和零食丰富，留学生囤货首选之一。"
+          "lng": -79.0729,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "合作社模式的有机食品店，Carrboro地标，户外草坪是周末聚会圣地，同时是了解本地文化的窗口。"
         },
         {
           "name": "Li Ming's Global Mart",
-          "nameCn": "黎明环球超市（华人/亚洲超市）",
-          "lat": 35.9659,
-          "lng": -78.9626,
-          "note": "三角区最大的华人亚洲超市（在 Durham，约 9-10km），中餐食材、调料、活鱼、美食广场齐全，开车采购中国味道的去处。"
+          "nameCn": "李明全球超市（亚洲超市）",
+          "lat": 35.9604,
+          "lng": -79.0074,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于达勒姆的大型亚洲超市，中日韩各类食材应有尽有，是三角区华人的重要购物目的地，驾车约20分钟。"
+        },
+        {
+          "name": "Aung Asian Supermarket",
+          "nameCn": "昂亚洲超市",
+          "lat": 35.9389,
+          "lng": -79.0356,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "缅甸裔经营的亚洲超市，位于Durham-Chapel Hill大道，东南亚食材品类齐全，价格实惠。"
+        },
+        {
+          "name": "H Mart (Cary)",
+          "nameCn": "韩亚超市（凯里店）",
+          "lat": 35.7873,
+          "lng": -78.7876,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "全美知名韩国大型超市，凯里店品类完整，韩国、中国、日本食材均有，驾车约30-40分钟。"
         }
       ]
     },
@@ -217,46 +465,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Lantern Restaurant",
-          "nameCn": "灯笼餐厅（亚洲融合）",
-          "lat": 35.9106,
-          "lng": -79.0588,
-          "note": "Franklin 街地标级亚洲融合餐厅，曾入选全美 Top 50，用北卡本地食材做亚洲味，约会/请客都体面。"
-        },
-        {
-          "name": "Sutton's Drug Store",
-          "nameCn": "萨顿药房餐吧（百年老店）",
-          "lat": 35.9134,
-          "lng": -79.054,
-          "note": "1923 年开业的 Tar Heel 传统，墙上贴满学生与球星合影，汉堡早餐是教堂山的活历史。"
-        },
-        {
-          "name": "Sup Dogs",
-          "nameCn": "Sup Dogs 热狗汉堡",
-          "lat": 35.9135,
-          "lng": -79.0552,
-          "note": "学生票选人气王，热狗和汉堡分量足价格友好，球赛日气氛热烈。"
-        },
-        {
-          "name": "Mama Dip's Kitchen",
-          "nameCn": "Mama Dip 南方家常菜",
-          "lat": 35.9145,
-          "lng": -79.0623,
-          "note": "教堂山著名的南方灵魂料理（炸鸡、秋葵、玉米面包），体验地道美国南方口味的必去。"
-        },
-        {
-          "name": "Time-Out Restaurant",
-          "nameCn": "Time-Out 南方快餐（24 小时）",
-          "lat": 35.9133,
-          "lng": -79.0543,
-          "note": "1970 年代起守着校园的深夜食堂，炸鸡比士吉是熬夜赶due的灵魂安慰。"
+          "name": "Szechuan Village",
+          "nameCn": "川小馆",
+          "lat": 35.9046,
+          "lng": -79.0388,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Chapel Hill中餐口碑第一，正宗四川口味，麻辣鲜香，深受华人留学生追捧，Yelp评分极高。"
         },
         {
           "name": "Gourmet Kingdom",
-          "nameCn": "美食王国（川菜）",
-          "lat": 35.9152,
-          "lng": -79.0808,
-          "note": "Carrboro 口碑很好的正宗川菜馆，麻辣水煮鱼一解思乡的中国胃。"
+          "nameCn": "美食王国",
+          "lat": 35.9098,
+          "lng": -79.0759,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于Carrboro的中餐馆，主打川菜，麻婆豆腐、干煸四季豆广受好评，适合多人聚餐。"
+        },
+        {
+          "name": "Hawkers Asian Street Food",
+          "nameCn": "小贩亚洲街头美食",
+          "lat": 35.9141,
+          "lng": -79.0417,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "东南亚街头风味，肉骨茶、炒粿条、Roti Canai咖喱饼等必点，University Place广受好评。"
+        },
+        {
+          "name": "Mediterranean Deli",
+          "nameCn": "地中海熟食店",
+          "lat": 35.9135,
+          "lng": -79.0553,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Franklin Street上最受欢迎的餐厅之一，中东烤肉、沙拉、皮塔饼分量足价格亲民，学生神仙选择。"
+        },
+        {
+          "name": "Al's Burger Shack",
+          "nameCn": "阿尔汉堡小屋",
+          "lat": 35.9144,
+          "lng": -79.056,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "本地手工汉堡名店，食材新鲜、配料创意丰富，连续多年获评Chapel Hill最佳汉堡。"
+        },
+        {
+          "name": "Hunam Chinese Restaurant",
+          "nameCn": "湖南中国餐厅",
+          "lat": 35.9194,
+          "lng": -79.0588,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "1980年创立的老字号，北京烤鸭、四川猪肉等传统菜肴，出示学生证可享9折，历史积淀深厚。"
+        },
+        {
+          "name": "Spicy 9 Sushi Bar & Asian Restaurant",
+          "nameCn": "辣味9号日式亚洲餐厅",
+          "lat": 35.9131,
+          "lng": -79.0514,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "位于Franklin Street的日式亚洲融合餐厅，寿司卷、花式寿司好评众多，学生午餐特价实惠。"
+        },
+        {
+          "name": "Top of the Hill Restaurant & Brewery",
+          "nameCn": "山顶餐厅与酿酒厂",
+          "lat": 35.9131,
+          "lng": -79.0497,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Franklin Street地标餐厅，屋顶露台可俯瞰校园，本地精酿啤酒知名，节假日聚餐首选。"
+        },
+        {
+          "name": "Rasa Malaysia",
+          "nameCn": "马来风味",
+          "lat": 35.9104,
+          "lng": -79.0424,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "正宗马来西亚风味，Roti Canai咖喱饼、椰浆饭等必点，是三角区难得的东南亚美食精选。"
+        },
+        {
+          "name": "Momo's Master",
+          "nameCn": "饺饺大师（尼泊尔喜马拉雅餐厅）",
+          "lat": 35.913,
+          "lng": -79.0521,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "尼泊尔小笼包及喜马拉雅风味，辣油豆腐、羊肉小笼等独具特色，是留学生探索新口味的好去处。"
+        },
+        {
+          "name": "Sister Liu's Kitchen",
+          "nameCn": "刘姐厨房",
+          "lat": 35.9556,
+          "lng": -79.0276,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "位于达勒姆的家常中餐，手工饺子、东北菜系好评如潮，华人留学生最爱的家乡味，驾车约15分钟。"
+        },
+        {
+          "name": "Sutton's Drug Store",
+          "nameCn": "萨顿药店餐厅",
+          "lat": 35.9131,
+          "lng": -79.0505,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "1923年开业的Chapel Hill百年地标，老派美式汉堡、奶昔、三明治，感受校园百年文化的必去餐厅。"
+        },
+        {
+          "name": "Kiichi Ramen",
+          "nameCn": "喜一拉面（达勒姆）",
+          "lat": 35.9974,
+          "lng": -78.9072,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "位于达勒姆Ninth Street的人气拉面店，博多风格汤底浓郁，是三角区最受推崇的日式拉面之一。"
+        },
+        {
+          "name": "Merritt's Store & Grill",
+          "nameCn": "梅里特杂货铺餐厅",
+          "lat": 35.924,
+          "lng": -79.0668,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "1929年创立，以BLT（培根生菜番茄三明治）驰名全美，被National Geographic Traveler收录，必吃历史名店。"
+        },
+        {
+          "name": "CholaNad",
+          "nameCn": "南印度餐厅CholaNad",
+          "lat": 35.9134,
+          "lng": -79.0509,
+          "rank": 15,
+          "tier": "一般",
+          "note": "Franklin Street上近乎精致的南印度餐厅，多萨饼、咖喱鸡等菜肴风味正宗，喜爱南亚料理可尝试。"
         }
       ]
     },
@@ -268,32 +609,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "UNC Hospitals / UNC Medical Center",
-          "nameCn": "UNC 医院（综合医疗中心）",
-          "lat": 35.9036,
-          "lng": -79.054,
-          "note": "就在校园南侧的千床级大型医院，含急诊，生病或急症的主要去处。"
+          "name": "Wells Fargo (Franklin Street Branch)",
+          "nameCn": "富国银行（富兰克林街支行）",
+          "lat": 35.9133,
+          "lng": -79.0507,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Franklin Street上的富国银行，提供学生账户开户服务，国际学生持护照和I-20即可办理。"
         },
         {
-          "name": "Wells Fargo (Franklin St)",
-          "nameCn": "富国银行（Franklin 街支行）",
-          "lat": 35.9123,
-          "lng": -79.0533,
-          "note": "校门口 Franklin 街的银行网点，开学办理美国银行账户、存取现金方便。"
+          "name": "Bank of America (Franklin Street)",
+          "nameCn": "美国银行（富兰克林街支行）",
+          "lat": 35.913,
+          "lng": -79.0505,
+          "rank": 2,
+          "tier": "必去",
+          "note": "144 E Franklin St的美国银行，提供开户和视频银行服务，国际留学生首选银行之一。"
         },
         {
-          "name": "Campus Health (UNC Student Health)",
-          "nameCn": "UNC 学生健康中心（校医院）",
-          "lat": 35.9087,
-          "lng": -79.0476,
-          "note": "在校学生的校内门诊与初级医疗，普通看病、疫苗、心理咨询先来这里，费用走学生保险。"
+          "name": "UNC Campus Health (Student Health Services)",
+          "nameCn": "UNC校园健康中心",
+          "lat": 35.904,
+          "lng": -79.0482,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内医疗中心，提供初级保健、心理咨询、疫苗接种、女性健康等全面服务，在读学生优先使用。"
         },
         {
-          "name": "CVS Pharmacy (Carr Mill)",
-          "nameCn": "CVS 药房（卡尔磨坊店）",
-          "lat": 35.9159,
-          "lng": -79.0762,
-          "note": "连锁药房，处方药、感冒药、日用品齐全，紧挨 Harris Teeter 顺路就能买。"
+          "name": "UNC Hospitals (Emergency & Main)",
+          "nameCn": "UNC医院（急诊与主院区）",
+          "lat": 35.9002,
+          "lng": -79.0541,
+          "rank": 4,
+          "tier": "必去",
+          "note": "北卡顶级综合医院，急诊室24小时开放，地址101 Manning Drive，电话984-974-1000。"
+        },
+        {
+          "name": "CVS Pharmacy (Franklin Street)",
+          "nameCn": "CVS药店（富兰克林街）",
+          "lat": 35.9132,
+          "lng": -79.0508,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于Franklin Street的CVS药店，提供非处方药、日常用品，设有MinuteClinic快速问诊。"
+        },
+        {
+          "name": "UNC Urgent Care",
+          "nameCn": "UNC急救诊所",
+          "lat": 35.8922,
+          "lng": -79.0261,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于6013 Farrington Road，周一至周日8:00-20:00，无预约可就诊，适合非紧急急症处理。"
+        },
+        {
+          "name": "AT&T Store (University Place)",
+          "nameCn": "AT&T通讯门店",
+          "lat": 35.914,
+          "lng": -79.0418,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "University Place的AT&T门店，可办理手机套餐和SIM卡，国际学生换卡激活首选地。"
+        },
+        {
+          "name": "Walgreens Pharmacy",
+          "nameCn": "沃尔格林药店",
+          "lat": 35.8929,
+          "lng": -79.0225,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于Environ Way的连锁药店，营业时间较长，处方药、日常保健品一应俱全。"
         }
       ]
     },
@@ -305,39 +690,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "The Old Well",
-          "nameCn": "老井（UNC 标志）",
-          "lat": 35.912,
-          "lng": -79.0511,
-          "note": "UNC 最经典的校园地标与拍照点，开学第一口井水据说能拿好成绩。"
-        },
-        {
-          "name": "Morehead Planetarium and Science Center",
-          "nameCn": "莫尔黑德天文馆与科学中心",
-          "lat": 35.9135,
-          "lng": -79.0508,
-          "note": "全美首座大学校园天文馆，曾为 NASA 训练登月宇航员，球幕show很值得看。"
+          "name": "Franklin Street & Downtown Chapel Hill",
+          "nameCn": "富兰克林街与Chapel Hill市区",
+          "lat": 35.913,
+          "lng": -79.0502,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园旁的灵魂商业街，书店、咖啡、酒吧、餐厅汇聚，周末逛街、吃饭、感受UNC文化的第一站。"
         },
         {
           "name": "North Carolina Botanical Garden",
           "nameCn": "北卡植物园",
-          "lat": 35.8978,
-          "lng": -79.0312,
-          "note": "UNC 运营的自然保护植物园，本土植物步道清幽，免费散步放松的好地方。"
+          "lat": 35.8953,
+          "lng": -79.0407,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1,100英亩原生植物保护区，提供免费导览，是减压散步和亲近自然的绝佳去处，春季花卉尤美。"
         },
         {
-          "name": "Coker Arboretum",
-          "nameCn": "科克尔树木园",
-          "lat": 35.9128,
-          "lng": -79.0487,
-          "note": "紧邻校园的小型树木园，藤架长廊四季有景，课间散步与拍照的隐藏角落。"
+          "name": "Carrboro & Weaver Street Market",
+          "nameCn": "凯尔伯罗与织布者街市场",
+          "lat": 35.9105,
+          "lng": -79.0729,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Chapel Hill西邻的文艺小镇，周六农贸市场热闹非凡，户外草坪适合野餐，被誉为「皮德蒙特的巴黎」。"
         },
         {
-          "name": "Ackland Art Museum",
-          "nameCn": "阿克兰艺术博物馆",
-          "lat": 35.9112,
-          "lng": -79.0535,
-          "note": "校内免费艺术博物馆，常设亚洲与欧洲藏品，雨天文艺打卡首选。"
+          "name": "Jordan Lake State Recreation Area",
+          "nameCn": "乔丹湖州立休闲区",
+          "lat": 35.7369,
+          "lng": -79.0169,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距校园约30分钟车程，可游泳、划船、钓鱼、野营，是感受北卡自然风光的经典周末目的地。"
+        },
+        {
+          "name": "Sarah P. Duke Gardens (Durham)",
+          "nameCn": "莎拉·杜克花园（达勒姆）",
+          "lat": 35.9975,
+          "lng": -78.9411,
+          "rank": 5,
+          "tier": "必去",
+          "note": "55英亩的杜克大学植物园，四季景色各异，免费入场，是三角区最美的花园之一，春秋尤佳。"
+        },
+        {
+          "name": "American Tobacco Campus (Durham)",
+          "nameCn": "美国烟草园区（达勒姆）",
+          "lat": 35.9955,
+          "lng": -78.9036,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "历史烟草工厂改造的创意街区，餐厅、酒吧、办公、活动空间云集，Durham最有活力的地标。"
+        },
+        {
+          "name": "Eno River State Park (Durham)",
+          "nameCn": "伊诺河州立公园（达勒姆）",
+          "lat": 36.0783,
+          "lng": -79.005,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "3,900英亩的城市近郊荒野，7个入口、多条徒步及山地自行车径，秋季赏叶一流，驾车约20分钟。"
+        },
+        {
+          "name": "Carrboro Farmers Market",
+          "nameCn": "凯尔伯罗农贸市场",
+          "lat": 35.9103,
+          "lng": -79.0735,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "1979年创立，每周六早晨开放，方圆50英里内的本地农产品汇聚，是了解北卡农业文化的窗口。"
+        },
+        {
+          "name": "Museum of Life and Science (Durham)",
+          "nameCn": "生命与科学博物馆（达勒姆）",
+          "lat": 36.0152,
+          "lng": -78.8985,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "包含蝴蝶馆、互动科学展和农场体验，是北卡亲子和理工科学生都热爱的科学乐园。"
+        },
+        {
+          "name": "Carolina North Forest",
+          "nameCn": "卡罗来纳北部森林",
+          "lat": 35.9302,
+          "lng": -79.0676,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "750英亩混合用途森林，距Weaver Street步行或骑行约10分钟，有徒步与山地车径，免费开放。"
+        },
+        {
+          "name": "Duke Lemur Center (Durham)",
+          "nameCn": "杜克狐猴中心（达勒姆）",
+          "lat": 36.0181,
+          "lng": -78.9423,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "全球规模最大的濒危灵长类动物保育中心，马达加斯加狐猴近距离观赏，需提前预约导览。"
         }
       ]
     }

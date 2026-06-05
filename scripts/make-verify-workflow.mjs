@@ -9,16 +9,21 @@ const here = (p) => fileURLToPath(new URL(p, import.meta.url));
 const dir = here('../src/data/schools-map/generated');
 const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
 
+// LAYERS=campus,department,library,museum,landmark → verify only precision-sensitive layers
+const LAYERS = process.env.LAYERS ? new Set(process.env.LAYERS.split(',')) : null;
+
 const SCHOOLS = files.map((f) => {
   const s = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'));
   const points = [];
   for (const feat of s.features || []) {
+    const cat = feat.kind === 'zone' ? 'campus' : feat.key;
+    if (LAYERS && !LAYERS.has(cat)) continue;
     for (const it of feat.items || []) {
-      points.push({ cat: feat.kind === 'zone' ? 'campus' : feat.key, name: it.name, lat: it.lat, lng: it.lng });
+      points.push({ cat, name: it.name, lat: it.lat, lng: it.lng });
     }
   }
   return { id: s.id, name: s.name, nameCn: s.nameCn, points };
-});
+}).filter((s) => s.points.length);
 
 const ONLY = process.argv[2] ? new Set(process.argv[2].split(',')) : null;
 const USE = ONLY ? SCHOOLS.filter((s) => ONLY.has(s.id)) : SCHOOLS;
@@ -60,7 +65,7 @@ const results = await parallel(SCHOOLS.map((s) => () => {
     '',
     'Return corrections ONLY for points that are clearly WRONG — misplaced by more than ~150 m, in the wrong area/city, or the place does not actually exist. For a wrong location use action "fix" with the correct lat/lng (4+ decimals). For a non-existent/duplicate place use action "remove" with a short reason. If a point is correct, do NOT include it. Do not invent. If every point is fine, return an empty corrections array.',
   ].join('\\n');
-  return agent(prompt, { schema: SCHEMA, label: 'verify:' + s.id })
+  return agent(prompt, { schema: SCHEMA, label: 'verify:' + s.id, model: 'sonnet' })
     .then((r) => ({ id: s.id, corrections: (r && r.corrections) || [] }))
     .catch(() => ({ id: s.id, corrections: [], error: true }));
 }));

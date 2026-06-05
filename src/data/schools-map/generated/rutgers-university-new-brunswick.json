@@ -75,39 +75,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Rutgers Business School (Livingston)",
-          "nameCn": "罗格斯商学院",
-          "lat": 40.52342,
-          "lng": -74.4407,
-          "note": "利文斯顿校区地标教学楼"
+          "name": "Alexander Library (College Avenue Campus)",
+          "nameCn": "亚历山大图书馆大楼区（文理学院核心）",
+          "lat": 40.4999,
+          "lng": -74.4478,
+          "rank": 1,
+          "tier": "必去",
+          "note": "文理学院（SAS）核心区，紧邻Old Queens，是校园学术心脏地带，历史建筑与现代学术楼并立。"
         },
         {
-          "name": "Hill Center for Mathematical Sciences",
-          "nameCn": "希尔数学科学中心",
+          "name": "Hill Center for the Mathematical Sciences",
+          "nameCn": "希尔数学科学中心（Busch校区）",
           "lat": 40.5218,
-          "lng": -74.4717,
-          "note": "布什校区数学与计算机科学楼"
+          "lng": -74.4637,
+          "rank": 2,
+          "tier": "必去",
+          "note": "数学、计算机科学、物理系所在地，也是全校最重要的理工科学术楼之一，1971年启用。"
+        },
+        {
+          "name": "Rutgers Business School (100 Rockafeller Rd)",
+          "nameCn": "罗格斯商学院（Livingston校区）",
+          "lat": 40.5236,
+          "lng": -74.4345,
+          "rank": 3,
+          "tier": "必去",
+          "note": "罗格斯商学院旗舰楼，2013年开幕，商科生日常上课及招聘活动的主要场所。"
         },
         {
           "name": "Robert Wood Johnson Medical School",
           "nameCn": "罗伯特·伍德·约翰逊医学院",
-          "lat": 40.49458,
-          "lng": -74.44824,
-          "note": "市中心医学院，含HELIX新教学楼"
+          "lat": 40.4968,
+          "lng": -74.4482,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全美知名医学院，紧邻RWJ大学医院，是罗格斯医学教育的核心，临床培训资源丰富。"
         },
         {
-          "name": "School of Environmental and Biological Sciences",
-          "nameCn": "环境与生物科学学院",
-          "lat": 40.4805,
-          "lng": -74.4335,
-          "note": "库克校区，农业与生态研究"
+          "name": "Richard Weeks Hall of Engineering",
+          "nameCn": "理查德·威克斯工程馆（Busch校区）",
+          "lat": 40.5212,
+          "lng": -74.4588,
+          "rank": 5,
+          "tier": "必去",
+          "note": "2018年开幕的价值8400万美元新工程楼，含先进制造、微加工实验室，工程学院核心教学科研基地。"
         },
         {
-          "name": "Mason Gross School of the Arts",
-          "nameCn": "梅森·格罗斯艺术学院",
-          "lat": 40.4865,
-          "lng": -74.4365,
-          "note": "道格拉斯校区表演与视觉艺术"
+          "name": "Mason Gross School of the Arts – Civic Square",
+          "nameCn": "梅森·格罗斯艺术学院市政广场校区",
+          "lat": 40.4945,
+          "lng": -74.446,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于市中心33 Livingston Ave，艺术与设计系驻地，附设画廊每年举办10余场学生作品展，免费开放。"
+        },
+        {
+          "name": "School of Environmental and Biological Sciences (Cook Campus)",
+          "nameCn": "环境与生物科学学院（Cook校区）",
+          "lat": 40.4838,
+          "lng": -74.4298,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Cook校区核心学院，农业、生态、食品科学等专业云集，毗邻Rutgers Gardens，农场田间实习资源独特。"
+        },
+        {
+          "name": "Ernest Mario School of Pharmacy",
+          "nameCn": "欧内斯特·马里奥药学院",
+          "lat": 40.524,
+          "lng": -74.462,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "全美顶尖药学院之一，位于Busch校区，与RWJ医院及研究中心形成医药健康学术集群。"
+        },
+        {
+          "name": "Livingston Campus Student Hub & Lecture Halls",
+          "nameCn": "Livingston校区教学楼群",
+          "lat": 40.5228,
+          "lng": -74.4372,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Livingston校区集中大量社科、心理、商学课程，通勤巴士直达，是大二以上学生常驻校区。"
+        },
+        {
+          "name": "Rutgers Academic Building (College Avenue)",
+          "nameCn": "罗格斯学术楼（College Avenue校区）",
+          "lat": 40.5015,
+          "lng": -74.45,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "College Ave校区最大综合教学楼，含5个报告厅、17间通用教室及语言媒体实验室，大课首选场地。"
         }
       ],
       "defaultOn": true
@@ -121,17 +176,75 @@
       "items": [
         {
           "name": "Archibald S. Alexander Library",
-          "nameCn": "亚历山大图书馆",
-          "lat": 40.50495,
-          "lng": -74.45228,
-          "note": "学院大道主研究图书馆"
+          "nameCn": "亚历山大图书馆（College Ave主馆）",
+          "lat": 40.4999,
+          "lng": -74.4477,
+          "rank": 1,
+          "tier": "必去",
+          "note": "罗格斯最大、最古老的图书馆，人文社科藏书最全，还藏有特藏与大学档案，是全校学习中心。"
         },
         {
-          "name": "Library of Science and Medicine",
-          "nameCn": "科学与医学图书馆",
-          "lat": 40.5255,
-          "lng": -74.4668,
-          "note": "布什校区，165 Bevier Road"
+          "name": "Library of Science and Medicine (LSM)",
+          "nameCn": "理工医学图书馆（Busch校区）",
+          "lat": 40.5228,
+          "lng": -74.465,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工科和医学研究的核心馆藏，期刊数据库资源丰富，是STEM学生最常泡馆的地方。"
+        },
+        {
+          "name": "Mathematical Sciences and Physics Library",
+          "nameCn": "数学与物理图书馆（Hill Center内）",
+          "lat": 40.5218,
+          "lng": -74.4638,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Hill Center内，专注数学、物理、天文、统计、计算机科学馆藏，紧邻相关系所，查阅极为方便。"
+        },
+        {
+          "name": "Douglass Library",
+          "nameCn": "道格拉斯图书馆（Douglass校区）",
+          "lat": 40.4862,
+          "lng": -74.4328,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "以性别研究、女性研究馆藏著称，同时设有表演艺术图书馆和媒体收藏，Douglass学院学生常用。"
+        },
+        {
+          "name": "Art Library (Voorhees Hall)",
+          "nameCn": "艺术图书馆（Voorhees Hall）",
+          "lat": 40.4994,
+          "lng": -74.4465,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于College Ave校区Voorhees Hall，艺术史、设计、建筑类藏书集中，紧邻Zimmerli艺术博物馆。"
+        },
+        {
+          "name": "Carr Library (Livingston Campus)",
+          "nameCn": "卡尔图书馆（Livingston校区）",
+          "lat": 40.523,
+          "lng": -74.4368,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Livingston校区的学习空间，提供自习室和基础馆藏，商学、社科学生上课间隙常来此自习。"
+        },
+        {
+          "name": "East Asian Library (Alexander Library)",
+          "nameCn": "东亚图书馆（亚历山大馆内）",
+          "lat": 40.5,
+          "lng": -74.4476,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "设于Alexander Library内，拥有丰富的中日韩文献与数字资源，中国留学生查阅中文资料的首选。"
+        },
+        {
+          "name": "Chang Science Library (Cook/Douglass)",
+          "nameCn": "张氏科学图书馆（Cook/Douglass校区）",
+          "lat": 40.4848,
+          "lng": -74.4315,
+          "rank": 8,
+          "tier": "可选",
+          "note": "服务Cook和Douglass校区的科学馆藏，农业、生态、食品科学学生常用，环境清静宜自习。"
         }
       ]
     },
@@ -144,17 +257,39 @@
       "items": [
         {
           "name": "Jane Voorhees Zimmerli Art Museum",
-          "nameCn": "齐默利艺术博物馆",
-          "lat": 40.5,
-          "lng": -74.446,
-          "note": "学院大道，馆藏俄苏非官方艺术著称"
+          "nameCn": "简·沃尔希斯·齐默利艺术博物馆",
+          "lat": 40.4994,
+          "lng": -74.4463,
+          "rank": 1,
+          "tier": "必去",
+          "note": "罗格斯核心艺术博物馆，藏品逾7万件，以苏联非官方艺术收藏举世闻名，对学生免费开放。"
         },
         {
           "name": "Rutgers Geology Museum",
           "nameCn": "罗格斯地质博物馆",
-          "lat": 40.49861,
-          "lng": -74.4465,
-          "note": "学院大道，馆内有乳齿象骨架"
+          "lat": 40.4984,
+          "lng": -74.4473,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于85 Somerset St地质楼，馆藏包括猛犸象骨骼、埃及木乃伊和大量矿物标本，免费入场，趣味十足。"
+        },
+        {
+          "name": "Mason Gross Galleries at Civic Square",
+          "nameCn": "梅森·格罗斯市政广场画廊",
+          "lat": 40.4945,
+          "lng": -74.446,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于市中心的4200平方英尺展览空间，每年举办10场学生艺术展，免费开放，是感受校园创意的好去处。"
+        },
+        {
+          "name": "American Hungarian Foundation Museum",
+          "nameCn": "美国匈牙利基金会博物馆",
+          "lat": 40.4954,
+          "lng": -74.4431,
+          "rank": 4,
+          "tier": "可选",
+          "note": "位于New Brunswick市区，展示匈牙利裔美国人的历史与文化，是体验城市多元文化的小而精博物馆。"
         }
       ]
     },
@@ -166,46 +301,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Old Queens",
-          "nameCn": "老皇后楼",
-          "lat": 40.4998,
-          "lng": -74.4463,
-          "note": "1809年奠基，国家级历史地标，校长办公室所在"
+          "name": "Old Queens Building",
+          "nameCn": "老皇后楼（标志性历史建筑）",
+          "lat": 40.5004,
+          "lng": -74.4479,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1825年建成，罗格斯最古老建筑，1976年列为国家地标，是全校最具历史感的打卡胜地。"
         },
         {
-          "name": "Kirkpatrick Chapel",
-          "nameCn": "柯克帕特里克礼拜堂",
-          "lat": 40.49875,
-          "lng": -74.44575,
-          "note": "学院大道历史礼拜堂"
+          "name": "The Yard (College Avenue)",
+          "nameCn": "The Yard广场（College Ave校区）",
+          "lat": 40.5017,
+          "lng": -74.4481,
+          "rank": 2,
+          "tier": "必去",
+          "note": "College Ave校区核心公共绿地，设有大型户外屏幕和座椅，是新生认识同学、举办活动的人气聚集地。"
+        },
+        {
+          "name": "College Avenue Student Center",
+          "nameCn": "College Ave学生活动中心",
+          "lat": 40.5015,
+          "lng": -74.4492,
+          "rank": 3,
+          "tier": "必去",
+          "note": "College Ave校区学生活动枢纽，内有餐厅、社团活动室和会议空间，每日人流量极大。"
+        },
+        {
+          "name": "Voorhees Mall",
+          "nameCn": "沃尔希斯林荫大道",
+          "lat": 40.4998,
+          "lng": -74.4465,
+          "rank": 4,
+          "tier": "必去",
+          "note": "College Ave校区最美步行轴线，两侧梧桐成荫，连接图书馆、艺术博物馆与历史老楼，是校园招牌景观。"
         },
         {
           "name": "SHI Stadium",
-          "nameCn": "SHI体育场",
-          "lat": 40.5136,
-          "lng": -74.4653,
-          "note": "布什校区，红骑士橄榄球主场"
+          "nameCn": "SHI体育场（美式橄榄球主场）",
+          "lat": 40.524,
+          "lng": -74.439,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "容纳5.2万人的Big Ten橄榄球场，主场比赛气氛震撼，秋季赛季是校园生活必体验项目。"
         },
         {
-          "name": "Jersey Mike's Arena (RAC)",
-          "nameCn": "泽西麦克球馆",
-          "lat": 40.52528,
-          "lng": -74.44111,
-          "note": "利文斯顿校区篮球馆，83 Rockafeller Road"
+          "name": "Sonny Werblin Recreation Center",
+          "nameCn": "沃布林休闲中心（Busch校区）",
+          "lat": 40.5218,
+          "lng": -74.46,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全校最大健身中心，位于Busch校区，含游泳池、室内球场、健身房等，持学生证可免费使用。"
         },
         {
-          "name": "Passion Puddle",
-          "nameCn": "情侣池",
-          "lat": 40.481,
-          "lng": -74.436,
-          "note": "库克/道格拉斯之间的浪漫地标小池塘"
-        },
-        {
-          "name": "New Brunswick Station",
+          "name": "New Brunswick Train Station",
           "nameCn": "新布朗斯维克火车站",
-          "lat": 40.4973,
-          "lng": -74.4458,
-          "note": "NJ Transit与Amtrak车站，紧邻学院大道校区"
+          "lat": 40.4865,
+          "lng": -74.4436,
+          "rank": 7,
+          "tier": "必去",
+          "note": "NJ Transit及Amtrak均停靠，每30分钟一班直达纽约Penn Station（约1小时），是出行纽约的最便捷通道。"
+        },
+        {
+          "name": "George Street Playhouse",
+          "nameCn": "乔治街剧场",
+          "lat": 40.4947,
+          "lng": -74.4452,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于市中心9 Livingston Ave，New Brunswick知名专业剧院，学生票价优惠，是体验美国戏剧文化的好去处。"
         }
       ]
     },
@@ -217,32 +382,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "H Mart - Edison",
-          "nameCn": "H Mart 韩亚龙超市（爱迪生店）",
-          "lat": 40.5135,
-          "lng": -74.4079,
-          "note": "距校约5公里的大型亚洲连锁超市，韩日中食材、活鲜与速食齐全，留学生采购主力点。"
+          "name": "H Mart Edison",
+          "nameCn": "H Mart韩国亚洲超市（爱迪生）",
+          "lat": 40.5151,
+          "lng": -74.3935,
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "位于Edison 1761 Route 27，距校约15分钟车程，品类最全的韩国及泛亚超市，中国留学生首选购物地。"
         },
         {
-          "name": "99 Ranch Market - Edison",
-          "nameCn": "大华99超市（爱迪生店）",
-          "lat": 40.5275,
-          "lng": -74.4185,
-          "note": "北美最大华人连锁超市，中式调味料、米面、火锅料与新鲜蔬果最全，想做中餐必去。"
+          "name": "Asian Food Market (East Brunswick)",
+          "nameCn": "亚洲食品市场（东布朗斯维克）",
+          "lat": 40.4291,
+          "lng": -74.4171,
+          "rank": 2,
+          "tier": "绝对必去",
+          "note": "位于Route 18，约3万平方英尺的亚洲超市，前身为Hong Kong Supermarket，中韩日东南亚食材一站购齐。"
         },
         {
-          "name": "Asian Food Market - Edison",
-          "nameCn": "亚洲食品市场（爱迪生店）",
-          "lat": 40.5142,
-          "lng": -74.3958,
-          "note": "爱迪生华人聚居区的老牌亚超，价格实惠、海鲜与亚洲零食选择多。"
+          "name": "Trader Joe's (North Brunswick)",
+          "nameCn": "Trader Joe's超市（北布朗斯维克）",
+          "lat": 40.4694,
+          "lng": -74.4854,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于869 US-1，性价比极高，有机食品、即食品牌受学生追捧，周末人气火爆，记得提前去。"
         },
         {
-          "name": "Stop & Shop - New Brunswick",
-          "nameCn": "Stop & Shop 美式超市",
-          "lat": 40.4868,
-          "lng": -74.4525,
-          "note": "离校最近的主流美式连锁超市，日常生活用品、面包牛奶一站买齐。"
+          "name": "ShopRite (North Brunswick)",
+          "nameCn": "ShopRite超市（北布朗斯维克）",
+          "lat": 40.4745,
+          "lng": -74.479,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于400 Renaissance Rd，新泽西本土连锁超市，品类齐全价格实惠，自有品牌物美价廉，适合囤货。"
+        },
+        {
+          "name": "Stop & Shop (East Brunswick, Route 18)",
+          "nameCn": "Stop & Shop超市（东布朗斯维克）",
+          "lat": 40.4302,
+          "lng": -74.4167,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Route 18 647号，东部地区主流连锁，生鲜、进口零食及生活用品种类丰富，附设药房。"
+        },
+        {
+          "name": "Nai Brother (Edison) – Asian Food Court",
+          "nameCn": "奶兄弟爱迪生店（H Mart商圈）",
+          "lat": 40.5148,
+          "lng": -74.393,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Edison 1855 Lincoln Hwy，以酸菜鱼闻名全美中国留学生圈，紧邻H Mart，可购物后顺带吃饭。"
+        },
+        {
+          "name": "George Street Co-op",
+          "nameCn": "乔治街合作超市（New Brunswick市区）",
+          "lat": 40.4975,
+          "lng": -74.4448,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于市中心的有机食品合作社，步行可达，新鲜有机蔬果及特色食品为主，适合素食或注重健康饮食的学生。"
         }
       ]
     },
@@ -254,39 +454,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Noodle Gourmet (香港麵家)",
-          "nameCn": "香港面家",
-          "lat": 40.5001,
-          "lng": -74.4476,
-          "note": "Easton Ave 上的港式茶餐厅，云吞面、烧腊与煲仔饭地道，留学生想家时的食堂。"
+          "name": "Ramen Nagomi",
+          "nameCn": "和味拉面",
+          "lat": 40.4956,
+          "lng": -74.4438,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "位于49 Bayard St，Yelp评分极高，正宗日式清汤拉面小批量熬制，是New Brunswick最多人推荐的单品餐厅。"
         },
         {
-          "name": "Stuff Yer Face",
-          "nameCn": "Stuff Yer Face（招牌 Stromboli）",
-          "lat": 40.5003,
-          "lng": -74.4474,
-          "note": "1977年开业的罗格斯地标餐吧，招牌卷饼 Stromboli 上过《Man v. Food》，必打卡。"
+          "name": "Scarlet Bowls",
+          "nameCn": "Scarlet Bowls盖饭店",
+          "lat": 40.5012,
+          "lng": -74.4496,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于174 Easton Ave，学生最爱的亚洲风味盖饭，料足量大价格亲民，留学生圈评价极高，几乎天天排队。"
         },
         {
-          "name": "Tacoria",
-          "nameCn": "Tacoria 墨西哥街头厨房",
-          "lat": 40.5006,
-          "lng": -74.447,
-          "note": "由罗格斯校友创办的本地 Taco 名店，性价比高，学生宵夜与聚餐热门。"
+          "name": "Noodle Gourmet",
+          "nameCn": "面食美食家",
+          "lat": 40.501,
+          "lng": -74.449,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Easton Ave上的中式面馆，汤底鲜美、份量超大，牛肉/海鲜/馄饨任选，深受华人留学生喜爱。"
         },
         {
-          "name": "Chef Tan",
-          "nameCn": "陈师傅川菜馆",
-          "lat": 40.4878,
-          "lng": -74.4505,
-          "note": "附近评价很高的正宗川菜馆，麻辣口味解馋，适合多人点菜分享。"
+          "name": "Sakana Sushi & Japanese Cuisine",
+          "nameCn": "Sakana寿司日本料理",
+          "lat": 40.4962,
+          "lng": -74.4438,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于338 George St，招牌自助寿司点单制，食材新鲜品种多，是校园周边最受学生欢迎的日料餐厅。"
         },
         {
-          "name": "Hansel 'n Griddle",
-          "nameCn": "Hansel 'n Griddle 美式快餐",
+          "name": "KBG Korean BBQ & Grill",
+          "nameCn": "KBG韩国烤肉",
           "lat": 40.5008,
-          "lng": -74.4469,
-          "note": "Easton Ave 上深受学生喜爱的汉堡帕尼尼店，份量足、营业到很晚。"
+          "lng": -74.4508,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "位于6 Easton Ave，正宗韩式烤肉快餐，性价比高，朋友聚餐首选，留学生圈口碑极好。"
+        },
+        {
+          "name": "Clydz",
+          "nameCn": "Clydz餐厅酒吧",
+          "lat": 40.4958,
+          "lng": -74.4424,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "位于55 Paterson St，Yelp持续排名New Brunswick第一，创意美式料理配精酿鸡尾酒，庆祝场合首选。"
+        },
+        {
+          "name": "Salt Seafood & Oyster Bar",
+          "nameCn": "Salt海鲜生蚝吧",
+          "lat": 40.495,
+          "lng": -74.4432,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "位于103 Church St，西岸生蚝、脆鱿鱼、蟹肉蘸酱备受好评，是New Brunswick海鲜爱好者的圣地。"
+        },
+        {
+          "name": "Steakhouse 85",
+          "nameCn": "Steakhouse 85牛排馆",
+          "lat": 40.4952,
+          "lng": -74.4435,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于85 Church St，高档牛排餐厅，服务一流出品稳定，是毕业季、家长来访必预约的庆典场所。"
+        },
+        {
+          "name": "Galata Bistro",
+          "nameCn": "加拉塔土耳其餐厅",
+          "lat": 40.496,
+          "lng": -74.444,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "土耳其地中海菜，土耳其扁面包lahmacun和土耳其扁豆汤备受推崇，是市区最具异域风味的选择之一。"
+        },
+        {
+          "name": "Harvest Moon Brewery & Cafe",
+          "nameCn": "丰收月精酿餐厅",
+          "lat": 40.4958,
+          "lng": -74.4437,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "New Brunswick本地精酿啤酒厂附设餐厅，美式汉堡配自酿啤酒，校园聚会和体育赛事后的好去处。"
+        },
+        {
+          "name": "Nai Brother (Edison)",
+          "nameCn": "奶兄弟中国酸菜鱼（爱迪生）",
+          "lat": 40.5148,
+          "lng": -74.393,
+          "rank": 11,
+          "tier": "绝对必吃",
+          "note": "位于Edison 1855 Lincoln Hwy，酸菜鱼配方正宗，留学生圈打卡必吃，紧邻H Mart，购物吃饭一条龙。"
+        },
+        {
+          "name": "Sushi Room (Easton Ave)",
+          "nameCn": "寿司屋（Easton Ave）",
+          "lat": 40.501,
+          "lng": -74.45,
+          "rank": 12,
+          "tier": "一般",
+          "note": "位于12 Easton Ave，日式寿司及便当，价格亲民，校园附近快餐日料选择，外卖方便。"
+        },
+        {
+          "name": "Chef Tan (Highland Park)",
+          "nameCn": "谭厨（Highland Park）",
+          "lat": 40.4998,
+          "lng": -74.4262,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "位于对岸Highland Park，川湘风味正宗，麻辣下饭菜品受中国留学生好评，需开车或骑车前往。"
+        },
+        {
+          "name": "Luca's Ristorante",
+          "nameCn": "卢卡意大利餐厅",
+          "lat": 40.4952,
+          "lng": -74.4428,
+          "rank": 14,
+          "tier": "很推荐",
+          "note": "市区口碑老牌意大利餐厅，手工面和经典意大利菜肴受本地人和学生一致好评，适合约饭聚餐。"
         }
       ]
     },
@@ -298,32 +589,76 @@
       "icon": "account_balance",
       "items": [
         {
+          "name": "Chase Bank – 133 Neilson St Branch",
+          "nameCn": "摩根大通银行（市区网点）",
+          "lat": 40.4962,
+          "lng": -74.4445,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校步行可达，学生开户最方便的大行，另在学生中心和活动中心设有24小时ATM，存款取款零手续费。"
+        },
+        {
+          "name": "TD Bank – 70 Bayard Street",
+          "nameCn": "道明银行（Bayard Street网点）",
+          "lat": 40.4955,
+          "lng": -74.4433,
+          "rank": 2,
+          "tier": "必去",
+          "note": "加拿大背景的大型商业银行，在NJ布局密集，留学生开户无需SSN，是中国学生最常选择的银行之一。"
+        },
+        {
+          "name": "Bank of America – 409 George St",
+          "nameCn": "美国银行（George Street网点）",
+          "lat": 40.498,
+          "lng": -74.4452,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美最大银行之一，George Street网点步行可达校园，学生账户免月费，ATM覆盖全美。"
+        },
+        {
           "name": "Robert Wood Johnson University Hospital",
           "nameCn": "罗伯特·伍德·约翰逊大学医院",
-          "lat": 40.4928,
-          "lng": -74.4445,
-          "note": "紧邻校园的大型教学医院，设24小时急诊，生病或急症首选就医点。"
+          "lat": 40.4951,
+          "lng": -74.449,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1 Robert Wood Johnson Place，620床位顶级学术医疗中心，急诊24小时，是国际学生就医的主要医院。"
         },
         {
-          "name": "Bank of America - New Brunswick Main",
-          "nameCn": "美国银行（新布朗斯维克主分行）",
-          "lat": 40.4965,
-          "lng": -74.4445,
-          "note": "市中心 George St 上的大行网点，可办开户、ATM，离校步行可达，适合新生办银行卡。"
+          "name": "Rutgers Student Health (Hurtado Health Center)",
+          "nameCn": "罗格斯学生健康中心",
+          "lat": 40.5002,
+          "lng": -74.4484,
+          "rank": 5,
+          "tier": "必去",
+          "note": "校内学生健康诊所，提供基础医疗、疫苗接种、心理健康服务，持学生证可享受补贴价，留学生首选就医渠道。"
         },
         {
-          "name": "Walgreens (254 Easton Ave)",
-          "nameCn": "Walgreens 连锁药房",
-          "lat": 40.5028,
-          "lng": -74.4445,
-          "note": "位于圣彼得医院旁的连锁药房，买非处方药、日用品和取处方药都方便。"
+          "name": "Walgreens – 20 Jersey Ave",
+          "nameCn": "沃尔格林药房（Jersey Ave店）",
+          "lat": 40.4872,
+          "lng": -74.4432,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "火车站附近的24小时连锁药房，常备OTC药品、基础医疗用品，也可凭处方取药，是留学生囤药常选。"
         },
         {
-          "name": "T-Mobile - New Brunswick",
-          "nameCn": "T-Mobile 手机营业厅",
-          "lat": 40.4958,
-          "lng": -74.4451,
-          "note": "市中心运营商门店，可办美国手机卡与套餐，新生落地后办号的去处。"
+          "name": "University Pharmacy (303 George St)",
+          "nameCn": "大学药房（George Street）",
+          "lat": 40.4974,
+          "lng": -74.445,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "紧邻校园的独立药房，药剂师常提供多语言服务，方便国际学生沟通，处方、健康产品一应俱全。"
+        },
+        {
+          "name": "T-Mobile – 156 French St",
+          "nameCn": "T-Mobile电信门店（French St）",
+          "lat": 40.496,
+          "lng": -74.4415,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "市区最近的T-Mobile门店，无限流量套餐性价比高，留学生首选运营商之一，支持eSIM激活。"
         }
       ]
     },
@@ -335,39 +670,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Zimmerli Art Museum",
-          "nameCn": "齐默利艺术博物馆",
-          "lat": 40.4985,
-          "lng": -74.4459,
-          "note": "校内大型艺术馆，藏苏联非官方艺术与19世纪法国画作，免费入场，雨天好去处。"
-        },
-        {
-          "name": "Old Queens",
-          "nameCn": "老皇后楼（Old Queens）",
-          "lat": 40.4998,
-          "lng": -74.447,
-          "note": "1809年建、罗格斯最古老的联邦风格建筑，国家历史地标，校园打卡必拍。"
-        },
-        {
-          "name": "Voorhees Mall",
-          "nameCn": "沃里斯草坪（Voorhees Mall）",
-          "lat": 40.4972,
-          "lng": -74.4448,
-          "note": "College Ave 校区的中央绿地草坪，榆树成荫的历史建筑群环绕，散步与拍照圣地。"
+          "name": "Boyd Park & Raritan Riverfront",
+          "nameCn": "博伊德公园（拉里坦河滨）",
+          "lat": 40.4892,
+          "lng": -74.4396,
+          "rank": 1,
+          "tier": "必去",
+          "note": "沿河20英亩公园，设灯光步道、历史摆桥和露天音乐台，夏季免费音乐会频繁，是放松散步首选。"
         },
         {
           "name": "Rutgers Gardens",
-          "nameCn": "罗格斯植物园",
-          "lat": 40.4731,
-          "lng": -74.4244,
-          "note": "罗格斯的大型公共植物园，四季花木与林间步道免费开放，周末踏青放松好去处。"
+          "nameCn": "罗格斯植物园（Cook校区）",
+          "lat": 40.472,
+          "lng": -74.4212,
+          "rank": 2,
+          "tier": "必去",
+          "note": "180英亩校属植物园，春夏花卉迷人，附设学生农场和周末农夫市集，是远离喧嚣的天然放松圣地。"
         },
         {
-          "name": "Buccleuch Park",
-          "nameCn": "巴克卢公园",
-          "lat": 40.5079,
-          "lng": -74.4549,
-          "note": "紧邻校园的大型市政公园，拉里坦河畔绿地宽阔，适合跑步、野餐与放松。"
+          "name": "New Brunswick Performing Arts Center (NBPAC)",
+          "nameCn": "新布朗斯维克表演艺术中心",
+          "lat": 40.4944,
+          "lng": -74.4461,
+          "rank": 3,
+          "tier": "必去",
+          "note": "市中心最大演艺场馆，常年举办百老汇巡演、音乐会和舞蹈演出，学生票有折扣，文化体验绝佳。"
+        },
+        {
+          "name": "State Theatre New Jersey",
+          "nameCn": "新泽西州立剧院",
+          "lat": 40.4944,
+          "lng": -74.4455,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于15 Livingston Ave，百年历史的歌剧院，演出质量高，与NBPAC相邻，是New Brunswick文化区核心。"
+        },
+        {
+          "name": "Johnson Park (Raritan Riverfront)",
+          "nameCn": "约翰逊公园（Piscataway）",
+          "lat": 40.5028,
+          "lng": -74.471,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "478英亩滨河大型公园，含东泽西老城村（殖民地复原）、野餐区和运动场，骑车或步行过桥即达。"
+        },
+        {
+          "name": "Princeton University Campus",
+          "nameCn": "普林斯顿大学校园（日游）",
+          "lat": 40.3431,
+          "lng": -74.6551,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "34分钟火车可达，新泽西最美校园，免费参观哥特式建筑群和普林斯顿艺术博物馆，读书打卡两相宜。"
+        },
+        {
+          "name": "Thomas Edison Center at Menlo Park",
+          "nameCn": "爱迪生门洛帕克纪念中心",
+          "lat": 40.5362,
+          "lng": -74.3613,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于Edison市37 Christie St，留声机和灯泡发明地，免费参观，了解美国科技史的绝佳场所，距校仅15分钟。"
+        },
+        {
+          "name": "Buccleuch Park & Mansion",
+          "nameCn": "布克鲁克公园（Easton Ave旁）",
+          "lat": 40.5022,
+          "lng": -74.4415,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "78英亩城市公园，含Colonial庄园、球场、慢跑道和花园，距College Ave步行15分钟，是课后健身打卡地。"
+        },
+        {
+          "name": "H Mart Edison Food Court",
+          "nameCn": "H Mart爱迪生美食广场",
+          "lat": 40.5151,
+          "lng": -74.3935,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "H Mart内的亚洲美食广场，韩国炸鸡、中式小吃、日本抹茶甜品一应俱全，是购物后的解压打卡地。"
         }
       ]
     }

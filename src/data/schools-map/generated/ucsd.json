@@ -67,46 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Jacobs School of Engineering",
+          "name": "Jacobs School of Engineering (Franklin Antonio Hall / EBU1/EBU2/EBU3)",
           "nameCn": "雅各布斯工程学院",
-          "lat": 32.8817,
-          "lng": -117.2342,
-          "note": "主校区北侧工程学院群，工学顶尖。"
+          "lat": 32.8818,
+          "lng": -117.2339,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖工程学院之一，含计算机科学、电子工程等多个专业；Franklin Antonio Hall（2022年开放）是新旗舰大楼，LEED铂金认证。"
         },
         {
-          "name": "Revelle College",
-          "nameCn": "瑞威尔学院",
-          "lat": 32.8745,
-          "lng": -117.241,
-          "note": "最早设立的住宿学院，居校区西南。"
+          "name": "Geisel Library / Central University Library",
+          "nameCn": "盖泽尔图书馆（中央图书馆大楼）",
+          "lat": 32.881,
+          "lng": -117.2375,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园最具辨识度的建筑，威廉·佩雷拉1970年设计，外形酷似倒置UFO，也是整个校园的精神地标。"
         },
         {
-          "name": "Muir College",
-          "nameCn": "缪尔学院",
-          "lat": 32.879,
-          "lng": -117.2415,
-          "note": "西侧Ridge Walk沿线住宿学院。"
+          "name": "Scripps Institution of Oceanography",
+          "nameCn": "斯克里普斯海洋研究所",
+          "lat": 32.8663,
+          "lng": -117.2542,
+          "rank": 3,
+          "tier": "必去",
+          "note": "世界顶级海洋科学研究机构，毗邻太平洋，拥有自己的码头和Birch水族馆，气候、海洋地球物理研究享誉全球。"
         },
         {
-          "name": "Warren College",
-          "nameCn": "沃伦学院",
-          "lat": 32.8825,
-          "lng": -117.233,
-          "note": "图书馆东北，邻近工程与理学楼。"
+          "name": "Rady School of Management",
+          "nameCn": "拉迪管理学院",
+          "lat": 32.8762,
+          "lng": -117.2311,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "UCSD商学院，MBA及管理硕士项目，校园东侧，紧邻Otterson Hall，专注于创新与创业方向。"
         },
         {
-          "name": "School of Global Policy and Strategy",
-          "nameCn": "全球政策与战略学院",
-          "lat": 32.8855,
-          "lng": -117.2415,
-          "note": "校区西北的国际政策研究院。"
+          "name": "School of Medicine / Biomedical Science Building",
+          "nameCn": "医学院 / 生物医学科学大楼",
+          "lat": 32.8773,
+          "lng": -117.2295,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "UCSD医学院核心教学区，毗邻Jacobs医疗中心，是美国排名前十的医学院，研究经费雄厚。"
         },
         {
-          "name": "Moores Cancer Center",
-          "nameCn": "摩尔斯癌症中心",
-          "lat": 32.8783,
-          "lng": -117.2229,
-          "note": "东校区NCI认证综合癌症中心。"
+          "name": "Halicioglu Data Science Institute (HDSI)",
+          "nameCn": "哈利乔格鲁数据科学学院",
+          "lat": 32.8827,
+          "lng": -117.234,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2020年成立的全美首批独立数据科学学院之一，紧邻工程区，是热门DS/ML方向学生必知的新学术地标。"
+        },
+        {
+          "name": "Atkinson Hall (Qualcomm Institute)",
+          "nameCn": "阿特金森厅（高通研究所）",
+          "lat": 32.8832,
+          "lng": -117.234,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "高通冠名资助，Calit2/QI无线与互联网研究中心所在地，AR/VR、生物传感前沿实验室聚集地。"
+        },
+        {
+          "name": "San Diego Supercomputer Center (SDSC)",
+          "nameCn": "圣迭戈超级计算机中心",
+          "lat": 32.8849,
+          "lng": -117.2363,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1985年创建，全美顶尖HPC研究中心，运营Expanse等超算系统，为全球数千个科研项目提供算力支持。"
+        },
+        {
+          "name": "Skaggs School of Pharmacy & Pharmaceutical Sciences",
+          "nameCn": "斯卡格斯药学院",
+          "lat": 32.8755,
+          "lng": -117.2293,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "UCSD药学院，全美排名靠前，与医学院、Salk研究所合作密切，临床药学和药物研发方向强劲。"
+        },
+        {
+          "name": "School of Global Policy and Strategy (GPS) — Robinson Building",
+          "nameCn": "全球政策与战略学院（罗宾逊楼）",
+          "lat": 32.8753,
+          "lng": -117.2414,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "专注亚太政策、国际事务与发展研究，是全球政策方向研究生的核心学习场所，常与东亚政府有合作交流。"
+        },
+        {
+          "name": "Mandeville Center for the Arts",
+          "nameCn": "曼德维尔艺术中心",
+          "lat": 32.8779,
+          "lng": -117.242,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "A. Quincy Jones 1975年设计，内设大礼堂、大学艺廊及视觉艺术工作室，是文理学生演出和展览的主场。"
+        },
+        {
+          "name": "Pepper Canyon Hall (Humanities & Social Sciences)",
+          "nameCn": "胡椒谷厅（人文社科楼）",
+          "lat": 32.8798,
+          "lng": -117.2338,
+          "rank": 12,
+          "tier": "可选",
+          "note": "人文与社会科学类大课常在此举行，毗邻Warren Mall，是文科学生上课频率最高的综合教学楼之一。"
         }
       ],
       "defaultOn": true
@@ -120,17 +186,57 @@
       "items": [
         {
           "name": "Geisel Library",
-          "nameCn": "吉塞尔图书馆",
-          "lat": 32.8812,
-          "lng": -117.2377,
-          "note": "悬臂玻璃地标，校区视觉与地理中心。"
+          "nameCn": "盖泽尔图书馆",
+          "lat": 32.881,
+          "lng": -117.2375,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCSD主馆，6层全天候开放空间，藏书逾400万册，顶层可俯瞰整个校园及太平洋，是最热门的自习场所。"
         },
         {
           "name": "Biomedical Library",
           "nameCn": "生物医学图书馆",
-          "lat": 32.8744,
-          "lng": -117.2383,
-          "note": "服务理学与医学院的专科馆。"
+          "lat": 32.8778,
+          "lng": -117.2306,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "专为医学院、药学院及生命科学研究生服务，提供临床数据库、解剖图谱和专业数字资源，靠近Jacobs医疗中心。"
+        },
+        {
+          "name": "Scripps Institution of Oceanography Library",
+          "nameCn": "斯克里普斯海洋研究所图书馆",
+          "lat": 32.866,
+          "lng": -117.253,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "全球最大的海洋科学专业图书馆之一，收藏大量稀有海洋调查航行记录与气候数据集，学术氛围浓厚。"
+        },
+        {
+          "name": "Social Sciences & Humanities Library (SSH)",
+          "nameCn": "社会科学与人文图书馆",
+          "lat": 32.8797,
+          "lng": -117.2354,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "Geisel南侧延伸馆，专攻人文、社会科学、法律文献，有安静的小型研讨室，受文科研究生青睐。"
+        },
+        {
+          "name": "GPS Library (Robinson Building)",
+          "nameCn": "GPS学院专属馆藏（罗宾逊楼）",
+          "lat": 32.8753,
+          "lng": -117.2414,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "附设于全球政策与战略学院内，专注亚太政策、外交、发展研究文献，是GPS学生论文研究的第一站。"
+        },
+        {
+          "name": "Teaching + Learning Commons (Copley Learning Center)",
+          "nameCn": "教学与学习中心（科普利学习中心）",
+          "lat": 32.8794,
+          "lng": -117.2369,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "不仅是图书馆功能空间，更是提供写作辅导、课业辅助、学业咨询的一站式学习支持中心，国际学生常驻此地。"
         }
       ]
     },
@@ -143,17 +249,48 @@
       "items": [
         {
           "name": "Birch Aquarium at Scripps",
-          "nameCn": "斯克里普斯伯奇水族馆",
-          "lat": 32.8658,
-          "lng": -117.2506,
-          "note": "海洋研究所公共水族馆，俯瞰太平洋。"
+          "nameCn": "伯奇水族馆（斯克里普斯）",
+          "lat": 32.866,
+          "lng": -117.254,
+          "rank": 1,
+          "tier": "必去",
+          "note": "依山傍海，俯瞰太平洋，60余个海洋生态缸，含珊瑚礁、鲨鱼、水母展区及户外潮间带，是La Jolla最受欢迎的打卡点之一。"
         },
         {
-          "name": "Stuart Collection (outdoor art)",
-          "nameCn": "斯图尔特户外艺术收藏",
-          "lat": 32.88,
-          "lng": -117.236,
-          "note": "散布校园的site-specific公共艺术装置。"
+          "name": "Stuart Collection (Campus-wide Public Art)",
+          "nameCn": "斯图尔特公共艺术品群",
+          "lat": 32.8801,
+          "lng": -117.234,
+          "rank": 2,
+          "tier": "必去",
+          "note": "散布全校园的22件永久装置艺术，含Niki de Saint Phalle的Sun God、Do Ho Suh的Fallen Star等经典作品，免费自由参观。"
+        },
+        {
+          "name": "University Art Gallery (Mandeville Center)",
+          "nameCn": "大学艺术画廊（曼德维尔中心）",
+          "lat": 32.8779,
+          "lng": -117.242,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "校内当代艺术展览场所，常设UCSD视觉艺术系教师与学生作品展，免费入场，文艺氛围浓郁。"
+        },
+        {
+          "name": "San Diego Natural History Museum (Balboa Park)",
+          "nameCn": "圣迭戈自然历史博物馆（巴尔博亚公园）",
+          "lat": 32.7307,
+          "lng": -117.149,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于巴尔博亚公园，西南生态自然科学藏品丰富，IMAX影院与恐龙化石展区最受欢迎，距校区约20分钟车程。"
+        },
+        {
+          "name": "Museum of Contemporary Art San Diego (MCASD) — La Jolla",
+          "nameCn": "圣迭戈当代艺术博物馆（La Jolla馆）",
+          "lat": 32.8425,
+          "lng": -117.2718,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "距校区约15分钟，面朝太平洋，专藏1950年后当代艺术，馆藏逾4900件，周四免费，是艺术类学生必访地。"
         }
       ]
     },
@@ -166,24 +303,75 @@
       "items": [
         {
           "name": "Price Center",
-          "nameCn": "普莱斯中心",
-          "lat": 32.8796,
-          "lng": -117.236,
-          "note": "学生活动中心，餐饮书店枢纽。"
+          "nameCn": "普赖斯学生活动中心",
+          "lat": 32.8793,
+          "lng": -117.2361,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最大学生中心，内含餐厅、书店、电影院、活动大厅及各类学生服务，是日常生活与社交的核心枢纽。"
         },
         {
-          "name": "RIMAC Arena",
-          "nameCn": "RIMAC体育馆",
-          "lat": 32.8854,
-          "lng": -117.2396,
-          "note": "北校区主体育与赛事场馆。"
-        },
-        {
-          "name": "Sun God statue",
+          "name": "Sun God Statue (Stuart Collection)",
           "nameCn": "太阳神雕塑",
-          "lat": 32.8786,
-          "lng": -117.2397,
-          "note": "校园标志性图腾雕塑与节庆地标。"
+          "lat": 32.88,
+          "lng": -117.2355,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Niki de Saint Phalle创作的彩色马赛克雕塑，是UCSD校园精神图腾，每年Sun God节在此举办，新生必拍打卡地。"
+        },
+        {
+          "name": "Library Walk",
+          "nameCn": "图书馆步行道",
+          "lat": 32.8797,
+          "lng": -117.2368,
+          "rank": 3,
+          "tier": "必去",
+          "note": "贯穿校园中轴的露天步行街，两侧汇聚Geisel图书馆、学生健康中心、Price Center，是课余聚集、社团活动的最热闹地带。"
+        },
+        {
+          "name": "Warren Mall",
+          "nameCn": "沃伦广场",
+          "lat": 32.8827,
+          "lng": -117.2335,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Warren College的户外活动草坪，四周为教学楼环绕，常有社团摆摊、晒太阳、飞盘活动，是理工生课间最爱的放松地带。"
+        },
+        {
+          "name": "Fallen Star (Do Ho Suh, Stuart Collection)",
+          "nameCn": "坠落的星装置（苏豪，斯图尔特系列）",
+          "lat": 32.8821,
+          "lng": -117.2337,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "工程学大楼顶层悬挑出的迷你屋子，韩裔艺术家苏豪作品，表达异国漂泊感，强烈吸引亚洲留学生共鸣打卡。"
+        },
+        {
+          "name": "Torrey Pines Gliderport",
+          "nameCn": "托里松林悬挂滑翔起飞点",
+          "lat": 32.8893,
+          "lng": -117.2501,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "全美最著名的悬挂滑翔与滑翔伞起飞点，俯瞰300英尺悬崖和太平洋，步行可从UCSD北边到达，周末热门观赏打卡地。"
+        },
+        {
+          "name": "Westfield UTC Shopping Center",
+          "nameCn": "UTC西田购物中心",
+          "lat": 32.8698,
+          "lng": -117.2131,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "步行或骑车约15分钟可达的大型露天商场，含Din Tai Fung、Apple Store、Target、电影院，是学生购物与聚会最常去的地方。"
+        },
+        {
+          "name": "The Loft at Price Center",
+          "nameCn": "The Loft 学生文化中心",
+          "lat": 32.879,
+          "lng": -117.2362,
+          "rank": 8,
+          "tier": "可选",
+          "note": "Price Center内的文化活动空间，定期举办脱口秀、校园乐队演出、电影放映和派对，UCSD社交文化生活的重要场地。"
         }
       ]
     },
@@ -195,32 +383,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Trader Joe's (La Jolla Village Square)",
-          "nameCn": "缺德舅超市（La Jolla Village Square 店）",
-          "lat": 32.8703,
-          "lng": -117.2275,
-          "note": "离校最近的主流超市，平价半成品和零食，UCSD 学生日常采购首选，步行/校巴可达。"
+          "name": "Ralphs Fresh Fare (La Jolla Village Square)",
+          "nameCn": "Ralph's生鲜超市（La Jolla村广场）",
+          "lat": 32.8587,
+          "lng": -117.2178,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的大型连锁超市，步行或短车程可达，蔬菜肉类齐全，接受Instacart配送，适合日常囤货。"
         },
         {
-          "name": "Whole Foods Market La Jolla",
-          "nameCn": "全食超市 La Jolla 店",
-          "lat": 32.8718,
-          "lng": -117.227,
-          "note": "与缺德舅同一片商业区，有机食品和现成熟食，价格偏高但品质好。"
+          "name": "Trader Joe's (La Jolla)",
+          "nameCn": "乔氏超市（La Jolla店）",
+          "lat": 32.8588,
+          "lng": -117.218,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与Ralphs同楼，价格亲民、有机食品多，自有品牌零食和冷冻餐极受留学生欢迎，是最常见的囤货首选。"
         },
         {
-          "name": "99 Ranch Market (Clairemont Mesa)",
-          "nameCn": "大华超市（Clairemont Mesa 店）",
-          "lat": 32.8235,
-          "lng": -117.1632,
-          "note": "离校最近的大型华人超市，中式调料、活鲜、亚洲蔬果齐全，需开车约15分钟，内含三和粥粉面和奶茶店。"
+          "name": "99 Ranch Market (Clairemont Mesa Blvd)",
+          "nameCn": "大华超市（克莱尔蒙特大道店）",
+          "lat": 32.8185,
+          "lng": -117.1535,
+          "rank": 3,
+          "tier": "必去",
+          "note": "圣迭戈最大中华亚超，食材极全——活海鲜、各类中式蔬菜、豆腐、调味料应有尽有，是中国留学生的精神粮仓，车程约15分钟。"
+        },
+        {
+          "name": "Mitsuwa Marketplace (Kearny Mesa)",
+          "nameCn": "三和超市（日本超市，Kearny Mesa）",
+          "lat": 32.8197,
+          "lng": -117.1484,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "大型日本综合超市，内设熟食街（含Santouka拉面）、烘焙、刺身，也是购买日本调味料和零食的不二之选。"
+        },
+        {
+          "name": "Vons (Campus Point Dr, University City)",
+          "nameCn": "Vons超市（Campus Point Dr店）",
+          "lat": 32.8673,
+          "lng": -117.2108,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于校区东侧University City，美式连锁超市，生鲜、药品、日用品齐全，Pharmacy可配药，停车便利。"
+        },
+        {
+          "name": "Zion Market (Clairemont Mesa Blvd)",
+          "nameCn": "锦绣超市（克莱尔蒙特大道）",
+          "lat": 32.8205,
+          "lng": -117.1513,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "韩式亚洲超市，紧邻99 Ranch，韩国食材、泡菜、韩式烤肉肉类品质高，也有中国和东南亚食材专区。"
         },
         {
           "name": "Nijiya Market (Convoy St)",
-          "nameCn": "二木日本超市（Convoy 街店）",
-          "lat": 32.8163,
-          "lng": -117.156,
-          "note": "Convoy 亚洲美食区的日系超市，日韩食材、便当和刺身，与大华同一带可一起逛。"
+          "nameCn": "日新超市（Convoy街）",
+          "lat": 32.819,
+          "lng": -117.1478,
+          "rank": 7,
+          "tier": "可选",
+          "note": "Convoy街日本精品超市，主打有机日本食材、清酒和新鲜刺身，规模较小但品质高，深受日本留学生喜爱。"
         }
       ]
     },
@@ -233,38 +456,129 @@
       "items": [
         {
           "name": "Din Tai Fung (Westfield UTC)",
-          "nameCn": "鼎泰丰（UTC 商场店）",
-          "lat": 32.8716,
-          "lng": -117.211,
-          "note": "UTC 商场内的台式名店，小笼包招牌，离校开车几分钟，请客和想家时的稳妥之选。"
+          "nameCn": "鼎泰豊（UTC西田商场）",
+          "lat": 32.8691,
+          "lng": -117.2127,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "台湾米其林级别小笼包连锁，圣迭戈唯一门店，周末等位1小时以上是常态，来访必点小笼包和虾仁炒饭，中国留学生聚餐首选。"
         },
         {
-          "name": "Haidilao Hotpot San Diego (UTC)",
-          "nameCn": "海底捞火锅（UTC 店）",
-          "lat": 32.871,
-          "lng": -117.2103,
-          "note": "UTC 商场内的海底捞，正宗川式火锅和贴心服务，适合朋友聚餐解馋。"
+          "name": "Jasmine Seafood Restaurant (Convoy)",
+          "nameCn": "茗莉海鲜酒家（Convoy广东早茶）",
+          "lat": 32.8212,
+          "lng": -117.1475,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "圣迭戈最大粤式酒楼，周末推车式点心——虾饺、肠粉、凤爪品质稳定，容纳600人，是来圣迭戈必吃的正宗广式早茶。"
         },
         {
-          "name": "Tasty Noodle House (Convoy)",
-          "nameCn": "美味小厨（Convoy 街店）",
-          "lat": 32.819,
-          "lng": -117.156,
-          "note": "Convoy 亚洲美食区的人气江浙沪小馆，小笼、生煎和家常菜，分量足价格实在。"
+          "name": "Dumpling Inn (Convoy St)",
+          "nameCn": "饺子馆（Convoy街）",
+          "lat": 32.8218,
+          "lng": -117.148,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "1994年家族经营，每日现包小笼包和水饺，价格实惠，小笼包汤汁鲜美，是Convoy街最受华人学生推荐的中式餐厅之一。"
         },
         {
-          "name": "Shan Xi Magic Kitchen (Convoy)",
-          "nameCn": "西安魔法厨房（Convoy 街店）",
-          "lat": 32.8193,
-          "lng": -117.156,
-          "note": "主打陕西手工面和肉夹馍的北方菜馆，想吃面食时值得专程一去。"
+          "name": "Menya Ultra Ramen (Convoy)",
+          "nameCn": "麺屋Ultra拉面（Convoy街）",
+          "lat": 32.8209,
+          "lng": -117.1467,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "圣迭戈拉面界公认No.1，面条每日用北海道进口面粉现制，浓郁鸡白汤底，经常有排队，奥得不到座位才放弃。"
         },
         {
-          "name": "George's at the Cove",
-          "nameCn": "George's 海景餐厅（La Jolla Cove）",
-          "lat": 32.85,
-          "lng": -117.2722,
-          "note": "La Jolla Cove 旁的招牌海景餐厅，加州海鲜，本地必打卡的高人气地标。"
+          "name": "RakiRaki Ramen (Convoy)",
+          "nameCn": "RakiRaki拉面（Convoy街）",
+          "lat": 32.8205,
+          "lng": -117.1463,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "Convoy最知名拉面品牌之一，每天营业至凌晨1点，深夜场尤受UCSD学生欢迎，猪骨汤底浓郁。"
+        },
+        {
+          "name": "Emerald Seafood Chinese Restaurant (Convoy)",
+          "nameCn": "翡翠海鲜中餐厅（Convoy）",
+          "lat": 32.8215,
+          "lng": -117.1472,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "港式海鲜酒楼，活海鲜现点现做，蒸鱼、避风塘炒蟹是招牌，节假日家庭聚餐气氛浓厚，价格比洛杉矶同档次略低。"
+        },
+        {
+          "name": "Spicy City (Convoy)",
+          "nameCn": "辣都·川菜（Convoy街）",
+          "lat": 32.821,
+          "lng": -117.147,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Convoy街代表性川菜馆，麻辣水煮鱼、串串香、夫妻肺片都是招牌，思乡想家必吃，辣度可调，深受中国学生好评。"
+        },
+        {
+          "name": "Phuong Trang (Convoy)",
+          "nameCn": "芳庄越南餐厅（Convoy街）",
+          "lat": 32.82,
+          "lng": -117.146,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "菜单超过200种，价格实惠，越南河粉、牛肉炒粿条、生春卷是UCSD学生必点，快速翻台，非常适合预算有限的留学生。"
+        },
+        {
+          "name": "China Max Dumpling House (Convoy)",
+          "nameCn": "吃好了·中式无限点（Convoy）",
+          "lat": 32.822,
+          "lng": -117.1476,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Convoy街热门无限量点餐式中餐馆，烤鱼、虾饺、煎饺一轮轮上桌，人均约$25，是多人聚餐的极高性价比之选。"
+        },
+        {
+          "name": "Manna Korean BBQ (Convoy)",
+          "nameCn": "曼纳·韩式自助烤肉（Convoy）",
+          "lat": 32.8225,
+          "lng": -117.1468,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "全你能吃韩式烤肉，五花肉、辣牛肉等约$30一位，性价比高，是Convoy KBBQ首选，每到周末必须等位。"
+        },
+        {
+          "name": "Kanpai BBQ & Shabu (Convoy)",
+          "nameCn": "乾杯·日式烤肉涮涮锅（Convoy）",
+          "lat": 32.8213,
+          "lng": -117.1465,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "日式烤肉与涮涮锅自助结合，同一桌可同时BBQ和涮肉，食材精良，是UCSD日系食物爱好者首推聚餐地。"
+        },
+        {
+          "name": "Santouka Ramen (inside Mitsuwa Marketplace)",
+          "nameCn": "山头火拉面（三和超市内）",
+          "lat": 32.8197,
+          "lng": -117.1484,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "日本北海道知名拉面连锁，盐味和酱油汤底清澈鲜美，搭配三和超市日式美食街，购物后顺便吃一碗是绝配。"
+        },
+        {
+          "name": "UCSD Dining — OceanView Terrace",
+          "nameCn": "UCSD校内食堂（OceanView等）",
+          "lat": 32.879,
+          "lng": -117.2415,
+          "rank": 13,
+          "tier": "一般",
+          "note": "校园内最大食堂，多国料理轮换供应，持Meal Plan刷卡就餐，海景露台可俯瞰峡谷，是新生第一年的主要吃饭地。"
+        },
+        {
+          "name": "Tapioca Express (UCSD area)",
+          "nameCn": "茶博士珍珠奶茶（校园区）",
+          "lat": 32.8795,
+          "lng": -117.2362,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Price Center附近的台式奶茶连锁，价格适中，珍珠奶茶和芋头系列是上课间隙的快速补给，属校园日常标配。"
         }
       ]
     },
@@ -276,32 +590,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (La Jolla Village Square)",
-          "nameCn": "美国银行（La Jolla Village Square 支行）",
-          "lat": 32.8707,
-          "lng": -117.2278,
-          "note": "离校最近的大行网点，可现场预约开户办借记卡，带护照和 I-20 即可办理。"
+          "name": "Chase Bank (UCSD La Jolla Branch, Villa La Jolla Dr)",
+          "nameCn": "大通银行（La Jolla校区支行）",
+          "lat": 32.8572,
+          "lng": -117.216,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校区约10分钟，是UCSD国际学生办卡最常推荐的银行，可开学生支票账户，无最低存款要求，网点和ATM覆盖广。"
         },
         {
-          "name": "UC San Diego Health Urgent Care – Villa La Jolla",
-          "nameCn": "UCSD 健康急诊护理中心（Villa La Jolla）",
-          "lat": 32.8709,
-          "lng": -117.2305,
-          "note": "校属急诊护理点，发烧外伤等非急症免预约就诊，学生保险通常可直付。"
+          "name": "Bank of America (Villa La Jolla Dr)",
+          "nameCn": "美国银行（Villa La Jolla Dr）",
+          "lat": 32.8571,
+          "lng": -117.2161,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与Chase相邻，Advantage SafeBalance账户免月费，适合留学生开户，全美ATM网络广泛，转账方便。"
         },
         {
-          "name": "CVS Pharmacy / MinuteClinic (Villa La Jolla Dr)",
-          "nameCn": "CVS 药房 / MinuteClinic（Villa La Jolla 路）",
-          "lat": 32.8714,
-          "lng": -117.23,
-          "note": "连锁药房可取处方药和买非处方药，附设 MinuteClinic 能打疫苗做小病问诊。"
+          "name": "UCSD Student Health Services (SHS)",
+          "nameCn": "UCSD学生健康中心（校内）",
+          "lat": 32.879,
+          "lng": -117.2361,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Library Walk旁，提供门诊、急诊、疫苗接种和心理咨询，持UC SHIP保险免费就诊，是校内首选就医点。"
+        },
+        {
+          "name": "Jacobs Medical Center / UC San Diego Health (La Jolla)",
+          "nameCn": "雅各布斯医疗中心（La Jolla）",
+          "lat": 32.8732,
+          "lng": -117.2263,
+          "rank": 4,
+          "tier": "必去",
+          "note": "UCSD附属医院旗舰院区，紧邻校园，提供急诊、住院、手术服务，是需要更高级医疗服务时的首选，急诊24小时。"
+        },
+        {
+          "name": "SHS Pharmacy (Student Health Building)",
+          "nameCn": "学生健康中心药房（校内）",
+          "lat": 32.879,
+          "lng": -117.2359,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "加州药学委员会认证，可配绝大多数处方药，价格优惠，持UC SHIP可减免，是校内开药最方便的去处。"
+        },
+        {
+          "name": "CVS Pharmacy (La Jolla Village Square)",
+          "nameCn": "CVS药房（La Jolla村广场）",
+          "lat": 32.8589,
+          "lng": -117.2177,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校外最近大型连锁药房，OTC药品、生活用品、简单医疗耗材一站购齐，24小时Pharmacy窗口部分时段开放。"
         },
         {
           "name": "T-Mobile (UTC Mall)",
-          "nameCn": "T-Mobile 营业厅（UTC 商场店）",
-          "lat": 32.8709,
-          "lng": -117.2105,
-          "note": "运营商门店，落地后办美国手机卡套餐，店员可协助开通和转网。"
+          "nameCn": "T-Mobile电信门店（UTC商场）",
+          "lat": 32.8695,
+          "lng": -117.2126,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "步行/短车程可达，T-Mobile是最受UCSD中国留学生推荐的运营商（网络覆盖好、价格合理），可在此办理SIM卡和套餐。"
+        },
+        {
+          "name": "Wells Fargo (Villa La Jolla Dr)",
+          "nameCn": "富国银行（Villa La Jolla Dr）",
+          "lat": 32.857,
+          "lng": -117.2162,
+          "rank": 8,
+          "tier": "可选",
+          "note": "同样紧邻Chase和Bank of America，适合需要SWIFT转账或银行汇票的学生，开户所需材料与其他大行类似。"
         }
       ]
     },
@@ -313,39 +671,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Birch Aquarium at Scripps",
-          "nameCn": "斯克里普斯伯奇水族馆",
-          "lat": 32.8658,
-          "lng": -117.2506,
-          "note": "UCSD 斯克里普斯海洋研究所旗下水族馆，能看小蓝企鹅和海龙，俯瞰太平洋景观绝佳。"
+          "name": "La Jolla Cove",
+          "nameCn": "拉霍亚湾（海豹湾）",
+          "lat": 32.8501,
+          "lng": -117.2714,
+          "rank": 1,
+          "tier": "必去",
+          "note": "被TripAdvisor评为2026年美国第一海滩，悬崖环绕、海水碧蓝，常有海豹晒太阳，是UCSD新生到达后第一个必打卡地。"
         },
         {
-          "name": "La Jolla Cove",
-          "nameCn": "拉霍亚海湾",
-          "lat": 32.8506,
-          "lng": -117.2722,
-          "note": "圣迭戈最经典的海湾，礁石上常有海狮海豹，浮潜和看日落的头号打卡点。"
+          "name": "Torrey Pines State Natural Reserve",
+          "nameCn": "托里松林州立自然保护区",
+          "lat": 32.9218,
+          "lng": -117.2497,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全美最稀有松树（托里松）的仅存两处生境之一，俯崖步道可俯瞰太平洋，徒步1-2小时即可完成，距校区10分钟车程。"
         },
         {
           "name": "La Jolla Shores Beach",
-          "nameCn": "拉霍亚海滩",
-          "lat": 32.8569,
-          "lng": -117.2566,
-          "note": "离校最近的沙滩，平缓海浪适合新手冲浪和皮划艇，周末散步晒太阳好去处。"
+          "nameCn": "拉霍亚海岸沙滩",
+          "lat": 32.8614,
+          "lng": -117.2553,
+          "rank": 3,
+          "tier": "必去",
+          "note": "一英里长的平缓沙滩，适合日光浴、皮划艇、初学冲浪，距UCSD步行或骑车15分钟，是最常去的周末放松地。"
         },
         {
-          "name": "Sunny Jim Sea Cave",
-          "nameCn": "阳光吉姆海蚀洞",
-          "lat": 32.85,
-          "lng": -117.2708,
-          "note": "拉霍亚唯一可从陆上进入的海蚀洞，下145级台阶穿过百年人工隧道，独特探险体验。"
+          "name": "Birch Aquarium at Scripps",
+          "nameCn": "伯奇水族馆",
+          "lat": 32.866,
+          "lng": -117.254,
+          "rank": 4,
+          "tier": "必去",
+          "note": "UCSD附属水族馆，60余种海洋生态缸，户外潮间带可近距离触摸海星，景色加学术兼备，学生凭ID可享折扣。"
         },
         {
-          "name": "Geisel Library (UCSD)",
-          "nameCn": "盖泽尔图书馆（UCSD 地标）",
-          "lat": 32.8811,
-          "lng": -117.2376,
-          "note": "校园中央的飞碟形未来主义建筑，UCSD 最出名的地标，新生必拍的标志性背景。"
+          "name": "Balboa Park",
+          "nameCn": "巴尔博亚公园",
+          "lat": 32.7308,
+          "lng": -117.1454,
+          "rank": 5,
+          "tier": "必去",
+          "note": "圣迭戈最大城市公园，内含18座博物馆、植物园和世界著名圣迭戈动物园，一天逛不完，是来圣迭戈必去的文化胜地。"
+        },
+        {
+          "name": "San Diego Zoo",
+          "nameCn": "圣迭戈动物园",
+          "lat": 32.7347,
+          "lng": -117.1509,
+          "rank": 6,
+          "tier": "必去",
+          "note": "全球顶级动物园，拥有大熊猫（已送还后将有其他稀有动物）、巨型竹节虫等3500种动物，距校约30分钟车程，必去。"
+        },
+        {
+          "name": "Old Town San Diego State Historic Park",
+          "nameCn": "老城圣迭戈州立历史公园",
+          "lat": 32.754,
+          "lng": -117.1959,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "加利福尼亚最古老欧洲殖民地遗址，墨西哥风味餐厅林立，民俗表演和免费参观，是体验圣迭戈文化历史的好去处。"
+        },
+        {
+          "name": "Convoy Asian Cultural District",
+          "nameCn": "Convoy亚洲文化区（美食街）",
+          "lat": 32.821,
+          "lng": -117.147,
+          "rank": 8,
+          "tier": "必去",
+          "note": "官方认定的亚洲文化街区，1.5英里美食走廊汇聚中日韩越台各式餐馆，也有卡拉OK、泡泡浴和亚超，是中国留学生的第二故乡。"
+        },
+        {
+          "name": "Torrey Pines Gliderport",
+          "nameCn": "托里松林滑翔伞起飞点",
+          "lat": 32.8893,
+          "lng": -117.2501,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "全美最美滑翔伞起飞点，300英尺悬崖边可看老鹰和滑翔伞翱翔，无需参与也值得来打卡，步行可从UCSD北边到达。"
+        },
+        {
+          "name": "USS Midway Museum (Downtown San Diego)",
+          "nameCn": "中途岛号航母博物馆（市区）",
+          "lat": 32.7136,
+          "lng": -117.1751,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "停泊在圣迭戈港的二战航母，可登舰参观战斗机和作战舰室，距校约30-40分钟车程，是了解美国海军历史的独特体验。"
+        },
+        {
+          "name": "Mission Beach & Belmont Park",
+          "nameCn": "使命湾海滩与贝尔蒙特公园",
+          "lat": 32.7694,
+          "lng": -117.2526,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "沿海大型娱乐区，复古木制过山车、碰碰车和27英里海滩步道俱全，距校约20分钟，适合周末放松和节假日出游。"
         }
       ]
     }

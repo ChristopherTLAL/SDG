@@ -75,53 +75,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "McKinnon Building (67)",
-          "nameCn": "麦金农楼(商学院)",
-          "lat": -34.405,
-          "lng": 150.8772,
-          "note": "以前任校长Ken McKinnon命名,商科与社科教学楼。"
+          "name": "Engineering & Information Sciences (Building 4)",
+          "nameCn": "工程与信息科学楼（4号楼）",
+          "lat": -34.4066,
+          "lng": 150.8769,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UOW工程学院核心教学楼，土木、电气、计算机、电信等专业集中于此，是校园工科生最常去的建筑。"
         },
         {
-          "name": "Engineering (Building 4)",
-          "nameCn": "工程学院4号楼",
-          "lat": -34.407,
-          "lng": 150.881,
-          "note": "校园东缘的工程教学科研楼群核心。"
+          "name": "SMART Infrastructure Facility (Building 6)",
+          "nameCn": "SMART基础设施研究中心（6号楼）",
+          "lat": -34.408,
+          "lng": 150.8785,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UOW顶级研究设施，聚焦可再生能源、水利、智能基础设施，含多个世界级实验室。"
         },
         {
-          "name": "Informatics & Computer Science (3)",
-          "nameCn": "信息与计算机科学楼",
-          "lat": -34.4064,
-          "lng": 150.8823,
-          "note": "信息学、IT与计算机科学院系所在的3号楼。"
+          "name": "Molecular Horizons (Building 42)",
+          "nameCn": "分子地平线研究楼（42号楼）",
+          "lat": -34.4055,
+          "lng": 150.878,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2021年由总督揭幕，UOW最大自筹研究投资，拥有全球最强透射电子显微镜（Cryo-EM），分子生命科学旗舰楼。"
         },
         {
-          "name": "The Sciences Building (41)",
-          "nameCn": "理学楼(41号)",
-          "lat": -34.4053,
+          "name": "McKinnon Building (Building 67)",
+          "nameCn": "麦金农楼（67号楼）",
+          "lat": -34.406,
           "lng": 150.8798,
-          "note": "理学院授课与实验空间,毗邻科学教学设施43号楼。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "法学院与人文社科学院主楼，含美食广场、阶梯教室及功能会议室，人文社科学生日常核心场所。"
         },
         {
-          "name": "Arts Building (19)",
-          "nameCn": "文学院楼(19号)",
-          "lat": -34.4062,
-          "lng": 150.8776,
-          "note": "人文艺术与社会科学课程的主要授课楼。"
+          "name": "Faculty of Business & Law (Building 40)",
+          "nameCn": "商学与法学院楼（40号楼）",
+          "lat": -34.4068,
+          "lng": 150.8793,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "商学院本部，会计、金融、经济、管理、市场营销各系汇聚，含Hope剧场等教学空间。"
         },
         {
-          "name": "Early Start (21)",
-          "nameCn": "Early Start早教研究楼",
-          "lat": -34.4047,
-          "lng": 150.8758,
-          "note": "教育学院旗舰大楼,内含面向儿童的Discovery探索中心。"
+          "name": "Mechanical Engineering (Building 8)",
+          "nameCn": "机械工程楼（8号楼）",
+          "lat": -34.4073,
+          "lng": 150.8764,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "机械与机电工程系所在楼，含大型实验车间与设计工作室，是工科实践课的重要场地。"
         },
         {
-          "name": "Illawarra Health & Medical Research Institute (IHMRI)",
-          "nameCn": "伊拉瓦拉健康与医学研究院",
+          "name": "Campus Medical Centre / Student Central (Buildings 17 & 28)",
+          "nameCn": "学生中心与医学楼（17号/28号楼）",
           "lat": -34.405,
-          "lng": 150.8808,
-          "note": "校园内的健康医学研究中心,医学院科研主阵地。"
+          "lng": 150.8786,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "17号楼为Student Central，处理住宿、学籍、海外交流事宜；28号楼为医学院，含国际生必需的校园医疗资源。"
+        },
+        {
+          "name": "Chemistry (Building 18)",
+          "nameCn": "化学楼（18号楼）",
+          "lat": -34.4058,
+          "lng": 150.8775,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "化学系主楼，科学、医学与健康学院学生实验课主场地，毗邻图书馆方便学习。"
+        },
+        {
+          "name": "Biology & Information Sciences (Building 35)",
+          "nameCn": "生物与信息科学楼（35号楼）",
+          "lat": -34.4045,
+          "lng": 150.8782,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "生物学与信息科学共用楼，主入口靠近Rush庭院，是理学院与工信学院学生交汇的重要教学楼。"
+        },
+        {
+          "name": "Early Start Discovery Space (Building 21)",
+          "nameCn": "Early Start早期探索中心（21号楼）",
+          "lat": -34.4048,
+          "lng": 150.8804,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "儿童教育与发展研究中心，含互动展览空间，教育学、幼教专业必访，也是校园打卡热点。"
+        },
+        {
+          "name": "UniActive Recreation Centre (Building 13)",
+          "nameCn": "UniActive康乐中心（13号楼）",
+          "lat": -34.4087,
+          "lng": 150.8793,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "全校最大运动中心，含50米加热游泳池、健身房、篮球场、网球场和壁球场，学生日常健身首选。"
+        },
+        {
+          "name": "Innovation Campus (Squires Way, North Wollongong)",
+          "nameCn": "创新园区（北卧龙岗）",
+          "lat": -34.398,
+          "lng": 150.894,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "主校区以东约2公里的科研创新园，汇聚AIIM先进材料研究所、Science Space科学馆及众多科技企业，是UOW产学研平台。"
         }
       ],
       "defaultOn": true
@@ -134,11 +193,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "UOW Library (Building 16)",
-          "nameCn": "大学图书馆(16号楼)",
-          "lat": -34.4068,
-          "lng": 150.8786,
-          "note": "主校区中心图书馆,1972年启用后多次扩建。"
+          "name": "UOW Main Library (Building 16)",
+          "nameCn": "UOW主图书馆（16号楼）",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园核心图书馆，含海量纸质与数字资源、博士研究生专属空间（电动升降桌）、两个计算机实验室及多间小组学习室。"
+        },
+        {
+          "name": "Library Level 2 Computer Labs",
+          "nameCn": "图书馆二楼计算机实验室",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "主图书馆16号楼2楼，提供免费电脑工位，可自由使用，有课时可能被临时征用，是赶作业必去之地。"
+        },
+        {
+          "name": "Library Postgraduate Space",
+          "nameCn": "图书馆研究生专区",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "主图书馆底层，13张电动升降桌+BYOD显示器，专供在读博士生使用，安静高效。"
+        },
+        {
+          "name": "Library Access Room (Assistive Technology)",
+          "nameCn": "图书馆无障碍技术室",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "主图书馆底层，配备辅助技术设备，面向在学生无障碍服务中心注册的学生，是校园包容性支持设施之一。"
+        },
+        {
+          "name": "Library Group Study Rooms",
+          "nameCn": "图书馆小组学习室",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "分布于底层和2楼，可供团队项目讨论，资源紧张建议提前通过UOW系统预约。"
+        },
+        {
+          "name": "Library Lounge (Ground Floor)",
+          "nameCn": "图书馆休闲区（底层）",
+          "lat": -34.4057,
+          "lng": 150.8789,
+          "rank": 6,
+          "tier": "可选",
+          "note": "主图书馆底层非正式休息区，氛围轻松，适合短暂休息或在非高峰期进行轻度学习。"
         }
       ]
     },
@@ -150,18 +256,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Early Start Discovery Centre",
-          "nameCn": "Early Start探索中心",
-          "lat": -34.4048,
-          "lng": 150.8752,
-          "note": "Early Start楼内的互动式儿童博物馆,澳洲首座同类场馆。"
+          "name": "UOW Science Space & Planetarium",
+          "nameCn": "UOW科学馆与天文馆",
+          "lat": -34.3992,
+          "lng": 150.8947,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Innovation Campus，两层互动科学展览+沉浸式天象馆，Illawarra地区最受欢迎室内参观景点，适合带朋友或家人。"
         },
         {
-          "name": "Science Space",
-          "nameCn": "科学馆与天文馆",
-          "lat": -34.401,
-          "lng": 150.8999,
-          "note": "创新园内的科普展馆兼天文馆,前身为大学天文台。"
+          "name": "Wollongong Art Gallery",
+          "nameCn": "卧龙岗美术馆",
+          "lat": -34.4248,
+          "lng": 150.8937,
+          "rank": 2,
+          "tier": "必去",
+          "note": "46 Burelli Street，澳大利亚最大地区美术馆之一，免费入场，2500余件藏品含当代澳洲艺术与亚洲艺术，常年举办20+展览。"
+        },
+        {
+          "name": "Illawarra Museum Wollongong",
+          "nameCn": "伊拉瓦拉历史博物馆",
+          "lat": -34.4253,
+          "lng": 150.893,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "11 Market Street，设于1865年殖民时期邮电局旧址，展示伊拉瓦拉地区从原住民历史到工矿时代的文物。"
+        },
+        {
+          "name": "Project Contemporary Artspace",
+          "nameCn": "Project当代艺术空间",
+          "lat": -34.4264,
+          "lng": 150.8907,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "255 Keira Street，专注展示新兴与中期职业艺术家，是卧龙岗本地前沿当代艺术的重要展示窗口，免费入场。"
+        },
+        {
+          "name": "Illawarra Light Railway Museum",
+          "nameCn": "伊拉瓦拉轻铁博物馆",
+          "lat": -34.5767,
+          "lng": 150.8054,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Albion Park Rail，运营中的蒸汽与窄轨铁路遗址，可乘坐历史列车，适合铁路迷或周末出行。"
         }
       ]
     },
@@ -173,32 +310,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "UniCentre & UniBar (Building 11)",
-          "nameCn": "学生中心与UniBar",
-          "lat": -34.4076,
-          "lng": 150.8792,
-          "note": "学生会/学生中心,内设获奖设计的UniBar社交酒吧。"
+          "name": "UniCentre (Building 11)",
+          "nameCn": "大学中心（11号楼）",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园生活核心楼，汇聚IGA超市、NAB银行、美食广场、邮局、学生中心、医疗、牙科、眼科等所有日常服务。"
         },
         {
-          "name": "Hope Theatre",
-          "nameCn": "Hope剧场",
+          "name": "UniBar (Building 12)",
+          "nameCn": "学生酒吧（12号楼）",
           "lat": -34.4064,
-          "lng": 150.8769,
-          "note": "商学院旁的演讲/演出剧场,大型讲座与活动场地。"
+          "lng": 150.88,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "校园社交娱乐中心，举办演出、派对与学生活动，是感受UOW校园文化最接地气的场所，IMB ATM在此。"
         },
         {
-          "name": "University Recreation & Aquatic Centre (URAC, 13)",
-          "nameCn": "大学休闲与水上运动中心",
-          "lat": -34.4044,
-          "lng": 150.8807,
-          "note": "校内体育馆与游泳馆,学生健身与赛事中心。"
+          "name": "Student Central (Building 17)",
+          "nameCn": "学生事务中心（17号楼）",
+          "lat": -34.405,
+          "lng": 150.8786,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "所有学籍、住宿、海外交流、成绩查询等行政事务一站办理，新生入学必到，Northfields Avenue正门附近。"
         },
         {
-          "name": "The Hub",
-          "nameCn": "The Hub学生枢纽",
-          "lat": -34.4033,
-          "lng": 150.8799,
-          "note": "校园北侧学生生活枢纽,餐饮与活动集聚地。"
+          "name": "Wollongong Harbour & Lighthouses",
+          "nameCn": "卧龙岗港与双塔灯塔",
+          "lat": -34.4257,
+          "lng": 150.912,
+          "rank": 4,
+          "tier": "必去",
+          "note": "澳大利亚东海岸唯一双灯塔景点，Flagstaff Point灯塔（1936年）与海港老灯塔并立，夕阳视角极佳。"
+        },
+        {
+          "name": "Crown Street Mall",
+          "nameCn": "皇冠街步行商业街",
+          "lat": -34.4267,
+          "lng": 150.8944,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "卧龙岗CBD核心步行街，餐厅、咖啡店、零售店云集，每周四晚Crown St Markets夜市热闹非凡。"
+        },
+        {
+          "name": "Wollongong Central Shopping Centre",
+          "nameCn": "卧龙岗中心购物广场",
+          "lat": -34.4249,
+          "lng": 150.8959,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "200 Crown Street，市内最大综合商场，含Coles超市、Telstra、Optus、Priceline药房等国际学生必去一站式购物地。"
+        },
+        {
+          "name": "Wollongong Botanic Garden",
+          "nameCn": "卧龙岗植物园",
+          "lat": -34.404,
+          "lng": 150.8832,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Murphys Ave，位于Mount Keira山脚，毗邻校园（步行可达），免费开放，是课余放松与自然漫步的首选绿地。"
+        },
+        {
+          "name": "North Wollongong Beach",
+          "nameCn": "北卧龙岗海滩",
+          "lat": -34.4118,
+          "lng": 150.9015,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "距校园约3公里的冲浪与游泳海滩，是本地学生周末放松的热门去处，设有救生员巡逻，安全便利。"
         }
       ]
     },
@@ -210,39 +391,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "IGA University of Wollongong (UniShop)",
-          "nameCn": "校园 IGA 超市（UniShop）",
-          "lat": -34.4077,
-          "lng": 150.8789,
-          "note": "校内 11 号楼超市，步行即到，日常零食、生鲜、热食都能买，新生最方便的应急补给点。"
+          "name": "IGA University of Wollongong (Building 11)",
+          "nameCn": "IGA校内超市（11号楼）",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最便捷超市，位于UniCentre内，周一至周五8am-7pm，步行即可购买日常食材，新生到校第一站。"
         },
         {
           "name": "Coles Wollongong Central",
-          "nameCn": "Coles 超市（卧龙岗中心）",
-          "lat": -34.4247,
-          "lng": 150.8942,
-          "note": "市中心 Crown 街商场内的大型连锁超市，主食、肉菜、生活用品一站买齐，离北卧龙岗站很近。"
+          "nameCn": "Coles卧龙岗中心店",
+          "lat": -34.4249,
+          "lng": 150.8959,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "200 Crown Street，Wollongong Central购物广场内，品类全、价格实惠，是每周大采购首选主流超市。"
+        },
+        {
+          "name": "Woolworths Wollongong",
+          "nameCn": "Woolworths卧龙岗店",
+          "lat": -34.4276,
+          "lng": 150.8928,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "63 Burelli Street（另有425 Crown St西店），澳洲最大超市连锁之一，生鲜自有品牌丰富，价格与Coles相当。"
         },
         {
           "name": "Wan Long Oriental Supermarket",
-          "nameCn": "万隆东方超市",
-          "lat": -34.4199,
-          "lng": 150.8939,
-          "note": "Campbell 街上的华人超市，酱油、火锅料、米面、亚洲蔬菜调料齐全，留学生采购中餐食材首选。"
+          "nameCn": "万龙东方超市",
+          "lat": -34.4288,
+          "lng": 150.8872,
+          "rank": 4,
+          "tier": "必去",
+          "note": "81 Campbell Street，卧龙岗最大中/亚洲食材超市，经营20年+，中、泰、日、韩、印度食材一站购齐，中国留学生必去。"
         },
         {
-          "name": "Wollongong Orient Trading (Dong Phuong)",
-          "nameCn": "东方贸易亚洲超市（Dong Phuong）",
-          "lat": -34.425,
-          "lng": 150.893,
-          "note": "本地规模最大的亚洲超市，越南、日韩、中式食材都有，新鲜蔬果便宜，就在市中心商场内。"
+          "name": "STK Supermarket (Korean/Asian)",
+          "nameCn": "STK韩亚超市（Fairy Meadow）",
+          "lat": -34.396,
+          "lng": 150.9019,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "118-126 Princes Hwy，Fairy Meadow，位于Coles楼上，韩国零食与食材种类极为丰富，网红零食控必逛。"
         },
         {
-          "name": "Coles Fairy Meadow",
-          "nameCn": "Coles 超市（Fairy Meadow）",
-          "lat": -34.391,
-          "lng": 150.8881,
-          "note": "校园北侧 Fairy Meadow 商圈的大超市，旁边聚集多家亚超和水果市场，适合开车或坐火车一站囤货。"
+          "name": "Wan Long Oriental Supermarket (Flinders St branch)",
+          "nameCn": "万龙东方超市（Flinders街分店）",
+          "lat": -34.4269,
+          "lng": 150.8956,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "63 Flinders Street，市区第二家万龙，靠近Woolworths，购买中式调味料与速冻食品更方便。"
+        },
+        {
+          "name": "Woolworths West Wollongong",
+          "nameCn": "Woolworths西卧龙岗店",
+          "lat": -34.428,
+          "lng": 150.8785,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "425 Crown Street，靠近校区西侧住宅区，适合步行或骑行前往的学生日常补给。"
         }
       ]
     },
@@ -254,46 +463,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "TaChun Chinese Restaurant",
-          "nameCn": "TaChun 中餐厅",
-          "lat": -34.425,
-          "lng": 150.8912,
-          "note": "市中心 Keira 街的中式与台式餐馆，评价很高，想吃热乎中餐、解乡愁来这家准没错。"
+          "name": "Beast Good Food Eatery (Ramen)",
+          "nameCn": "Beast拉面馆",
+          "lat": -34.4253,
+          "lng": 150.895,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "8 Crown Lane，Google 4.7分，卧龙岗最受好评亚洲餐厅，专攻猪骨汤与黑拉面，夹带炸鸡与饺子，藏于小巷排队长龙。"
         },
         {
-          "name": "Chef's Choice",
-          "nameCn": "厨师之选（中越餐厅）",
-          "lat": -34.4243,
-          "lng": 150.8916,
-          "note": "开了二十多年的老牌中越餐厅，份量足价格实在，是本地华人和学生的常去食堂。"
+          "name": "Harbourfront Seafood Restaurant",
+          "nameCn": "港湾海鲜餐厅",
+          "lat": -34.4259,
+          "lng": 150.9128,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "2 Endeavour Drive，港口景观餐厅，主打现捞海鲜（国王虾、扇贝、石斑），是卧龙岗本地人庆典必选餐厅。"
         },
         {
-          "name": "Diggies Cafe",
-          "nameCn": "Diggies 海滩咖啡馆",
-          "lat": -34.415,
-          "lng": 150.8953,
-          "note": "北海滩边 1930 年代 Art Deco 老建筑里的网红早午餐店，看海吃 brunch 的卧龙岗经典打卡点。"
+          "name": "Fortuna Palace Chinese Seafood Restaurant",
+          "nameCn": "福临门中式海鲜酒楼",
+          "lat": -34.4248,
+          "lng": 150.8915,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "14 Kenny Street，1984年创立的粤菜老字号，卧龙岗最著名中餐厅，提供点心/早茶与海鲜宴，中式餐桌聚会首选。"
         },
         {
-          "name": "Lee & Me",
-          "nameCn": "Lee & Me 咖啡馆",
-          "lat": -34.4267,
-          "lng": 150.8929,
-          "note": "市中心人气咖啡早午餐店，氛围好出片，体验澳洲 brunch 文化的代表小店。"
+          "name": "Miss Lee's Chinese Restaurant",
+          "nameCn": "李小姐中餐厅",
+          "lat": -34.4264,
+          "lng": 150.8914,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "155 Keira Street，Restaurant Guru 4.3分超918条评价，菜单丰富兼融中越粤系风味，服务热情，学生留学生圈极口碑。"
         },
         {
-          "name": "His Boy Elroy",
-          "nameCn": "His Boy Elroy 汉堡店",
-          "lat": -34.4263,
-          "lng": 150.8924,
-          "note": "卧龙岗本地有名的美式汉堡馆，份量大、口味地道，学生聚餐的热门去处。"
+          "name": "Half Ton Malatang (半吨麻辣烫)",
+          "nameCn": "半吨麻辣烫",
+          "lat": -34.4249,
+          "lng": 150.8959,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "4/50 Crown Street，卧龙岗CBD地道麻辣烫，自选食材+可调辣度，中国留学生的思乡必吃，支持外卖。"
         },
         {
-          "name": "North Beach Pavilion / Levendi",
-          "nameCn": "北海滩餐厅 Levendi",
-          "lat": -34.4138,
-          "lng": 150.8958,
-          "note": "北卧龙岗海边的地中海风味餐厅，正对海滩落地窗景，适合朋友聚餐或周末改善伙食。"
+          "name": "Babyface Kitchen",
+          "nameCn": "Babyface Kitchen日式料理",
+          "lat": -34.4264,
+          "lng": 150.8907,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "179 Keira Street，极简风日式创意菜，季节性菜单突出本地食材（和牛、刺身），是卧龙岗获奖最多的精致餐厅。"
+        },
+        {
+          "name": "Top Choice Restaurant",
+          "nameCn": "Top Choice东南亚餐厅",
+          "lat": -34.4258,
+          "lng": 150.8934,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "17 Market Street，479条评价，价格亲民（多数菜品$15以下），融合东南亚风味，BYO带酒，学生外出聚餐高频选择。"
+        },
+        {
+          "name": "Chef's Choice Restaurant",
+          "nameCn": "厨师之选中柬融合餐厅",
+          "lat": -34.4261,
+          "lng": 150.8902,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Shop 3/166 Keira Street，中柬融合菜系，份量大价格实惠，被多次评为卧龙岗最具性价比中式餐厅之一。"
+        },
+        {
+          "name": "Sakura Sushi Japanese Restaurant",
+          "nameCn": "樱花寿司日本料理",
+          "lat": -34.4265,
+          "lng": 150.8977,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "8/121-125 Corrimal Street，正宗日式寿司刺身，三文鱼/吞拿鱼/鰤鱼刺身新鲜地道，Google 4.5分，需提前订座。"
+        },
+        {
+          "name": "Little Vietnam Restaurant",
+          "nameCn": "越南小馆",
+          "lat": -34.4258,
+          "lng": 150.8934,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "17 Market Street，卧龙岗CBD越南菜招牌店，经营30年+，正宗越南汤粉与生春卷，价格亲民，TripAdvisor长期高分。"
+        },
+        {
+          "name": "Steamers Bar and Grill",
+          "nameCn": "Steamers海滨酒吧烧烤",
+          "lat": -34.4233,
+          "lng": 150.9088,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1 Marine Drive，海滨露台景观餐厅，菜单涵盖全球风味，主厨Paul Hamilton以本地食材见长，是卧龙岗必吃地标之一。"
+        },
+        {
+          "name": "Mylan Vietnamese Restaurant",
+          "nameCn": "Mylan越南餐厅",
+          "lat": -34.4265,
+          "lng": 150.8886,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "193 Keira Street，经营近20年，份量巨大、口味正宗，沙爹汤粉深受好评，是卧龙岗越南菜老牌口碑店。"
+        },
+        {
+          "name": "Fresh Buns & Dumplings",
+          "nameCn": "新鲜包子饺子馆",
+          "lat": -34.3497,
+          "lng": 150.9114,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "位于Woonona（卧龙岗北郊），正宗小笼包、蒸饺、叉烧包，Google 4.2分，是中国留学生寻找地道点心的热门选择。"
+        },
+        {
+          "name": "UniCentre Food Court",
+          "nameCn": "大学中心美食广场",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 14,
+          "tier": "一般",
+          "note": "校园11号楼内，多档快餐选择（中式、西式、三明治），价格适中，是两节课之间最快捷补充体力的地方。"
         }
       ]
     },
@@ -305,32 +598,85 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Wollongong Hospital",
-          "nameCn": "卧龙岗医院（公立急诊）",
-          "lat": -34.4263,
-          "lng": 150.8855,
-          "note": "Loftus 街的大型公立医院，设 24 小时急诊，突发疾病或意外就医的主要去处，离校区很近。"
+          "name": "Wollongong Campus Medical Centre (Building 11)",
+          "nameCn": "UOW校园医疗中心",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UniCentre 11号楼1层，可通过HotDoc预约或拨打02 4216 5590，持优惠卡可bulk billing，提供驻场病理检测服务。"
         },
         {
-          "name": "UOW Campus Medical & Pharmacy",
-          "nameCn": "校园诊所及药房",
-          "lat": -34.4072,
-          "lng": 150.8782,
-          "note": "校内全科诊所（GP）加药房，看小病、开处方、配药一站搞定，学生看病最省事的第一站。"
+          "name": "NAB (National Australia Bank) – On Campus",
+          "nameCn": "NAB澳大利亚国民银行（校内）",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UniCentre 11号楼内的NAB校内支行，是留学生开立澳洲银行账户最便捷的地点，含ATM，无需跑市区。"
         },
         {
-          "name": "Commonwealth Bank (Wollongong Central)",
-          "nameCn": "联邦银行（市中心网点）",
-          "lat": -34.4258,
-          "lng": 150.892,
-          "note": "澳洲四大行之一，市中心 Crown 街商场及周边设网点，开学生账户、办银行卡来这里。"
+          "name": "Commonwealth Bank Wollongong CBD",
+          "nameCn": "澳联邦银行CBD支行",
+          "lat": -34.4264,
+          "lng": 150.8958,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "141-145 Crown Street，澳洲最大银行，国际学生开户热门选择，近Wollongong Central，工作日正常营业。"
         },
         {
-          "name": "Telstra Store Wollongong",
-          "nameCn": "Telstra 电信营业厅",
-          "lat": -34.4262,
-          "lng": 150.8926,
-          "note": "澳洲最大运营商门店，落地办手机卡、选套餐、买配件，新生开通本地号码的去处。"
+          "name": "ANZ Bank Wollongong CBD",
+          "nameCn": "ANZ澳新银行CBD支行",
+          "lat": -34.4253,
+          "lng": 150.8944,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "96 Crown Street，Crown Street Mall步行街内，提供账户开立与外汇换汇服务，学生开户选择之一。"
+        },
+        {
+          "name": "Wollongong Hospital Emergency Department",
+          "nameCn": "卧龙岗公立医院急诊部",
+          "lat": -34.4312,
+          "lng": 150.8969,
+          "rank": 5,
+          "tier": "必去",
+          "note": "384 Crown Street，全天24小时急诊，电话02 4222 5000，持OSHC海外学生医保，紧急情况直接前往。"
+        },
+        {
+          "name": "TerryWhite Chemmart Wollongong",
+          "nameCn": "TerryWhite药房（Crown Street）",
+          "lat": -34.4257,
+          "lng": 150.8952,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "128-134 Crown Street，卧龙岗CBD最便捷连锁药房，处方药、OTC成药、健康产品一站购，靠近Wollongong Central。"
+        },
+        {
+          "name": "Campus Pharmacy Wollongong",
+          "nameCn": "UOW校园药房",
+          "lat": -34.4062,
+          "lng": 150.8797,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于校园UniCentre附近，紧邻医疗中心与病理检测，取处方药无需出校，留学生就医后的最后一公里。"
+        },
+        {
+          "name": "Telstra Store – Wollongong Central",
+          "nameCn": "Telstra电信店（Wollongong Central）",
+          "lat": -34.4249,
+          "lng": 150.8959,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "T022, 174-200 Crown Street，澳洲覆盖最广的电信运营商，国际学生首选SIM卡，带护照即可办理，支持中文服务。"
+        },
+        {
+          "name": "Optus Store – Wollongong Central",
+          "nameCn": "Optus店（Wollongong Central）",
+          "lat": -34.4249,
+          "lng": 150.8959,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "Ground Level, 200 Crown Street，Telstra竞品，套餐含中国等国际通话分钟数，中国留学生性价比高，Student Plan有优惠。"
         }
       ]
     },
@@ -342,39 +688,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "North Wollongong Beach",
-          "nameCn": "北卧龙岗海滩",
-          "lat": -34.415,
-          "lng": 150.8965,
-          "note": "离校最近的金沙海滩，夏天游泳冲浪、平日散步看海都很棒，是卧龙岗的日常治愈地。"
+          "name": "Sea Cliff Bridge",
+          "nameCn": "悬崖海桥（大洋公路地标）",
+          "lat": -34.2342,
+          "lng": 150.972,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Coalcliff与Clifton之间的665米悬臂桥，大洋公路最壮观路段，可步行或驾车穿越，网红打卡第一位。"
         },
         {
-          "name": "Wollongong Head Lighthouse (Flagstaff Hill)",
-          "nameCn": "旗杆山灯塔",
-          "lat": -34.4219,
-          "lng": 150.9097,
-          "note": "海角山丘上的标志性灯塔加炮台公园，俯瞰海岸线的绝佳观景与拍照点，看日出超出片。"
+          "name": "Nan Tien Temple",
+          "nameCn": "南天寺（南半球最大佛寺）",
+          "lat": -34.4967,
+          "lng": 150.8212,
+          "rank": 2,
+          "tier": "必去",
+          "note": "180 Berkeley Road，南半球最大佛教寺庙，建筑宏伟，提供冥想体验与素食餐厅，中国留学生文化归属感打卡地。"
+        },
+        {
+          "name": "Flagstaff Point Lighthouse",
+          "nameCn": "旗杆角灯塔",
+          "lat": -34.4257,
+          "lng": 150.912,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Endeavour Drive，澳大利亚东岸唯一双灯塔遗址，周围绿地广阔，海景一流，是周末下午漫步的首选地标。"
+        },
+        {
+          "name": "Bald Hill Lookout & Hang Gliding",
+          "nameCn": "秃山眺望台与滑翔伞基地",
+          "lat": -34.2292,
+          "lng": 150.9837,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Lawrence Hargrave Drive，Stanwell Tops，俯瞰悬崖海桥与太平洋全景，澳洲人气最高观景台之一，滑翔伞从这里起飞。"
+        },
+        {
+          "name": "Wollongong City Beach",
+          "nameCn": "卧龙岗市区海滩",
+          "lat": -34.4295,
+          "lng": 150.9117,
+          "rank": 5,
+          "tier": "必去",
+          "note": "从Flagstaff Point延伸的3公里海滩，波高平均1.5米，可游泳冲浪钓鱼，设救生员，是离CBD最近的海滩。"
         },
         {
           "name": "Wollongong Botanic Garden",
           "nameCn": "卧龙岗植物园",
-          "lat": -34.4117,
-          "lng": 150.8777,
-          "note": "紧邻校区的免费植物园，27 公顷绿地适合散步野餐、复习放空，是校园旁的天然后花园。"
+          "lat": -34.404,
+          "lng": 150.8832,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Murphys Ave，Keiraville，紧邻校园步行可达，免费开放，澳大利亚原生植物与热带温室，每年举办12场园艺活动。"
         },
         {
-          "name": "Wollongong Harbour & Belmore Basin",
-          "nameCn": "卧龙岗港口与 Belmore 渔港",
-          "lat": -34.4202,
-          "lng": 150.9035,
-          "note": "历史小渔港带老灯塔，可看渔船、买新鲜海鲜、海边漫步，黄昏景色尤其好。"
+          "name": "Symbio Wildlife Park",
+          "nameCn": "Symbio野生动物园",
+          "lat": -34.1785,
+          "lng": 150.9917,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "7-11 Lawrence Hargrave Drive，Helensburgh，含苏门答腊虎、考拉、红熊猫、袋鼠，驾车约30分钟，适合假期出游。"
         },
         {
-          "name": "Mount Keira Lookout",
-          "nameCn": "凯拉山观景台",
-          "lat": -34.4145,
-          "lng": 150.8489,
-          "note": "校区西侧山顶观景台，可俯瞰整个卧龙岗城区与海岸全景，开车上山看夜景的好去处。"
+          "name": "Grand Pacific Drive",
+          "nameCn": "大洋公路（悉尼至卧龙岗）",
+          "lat": -34.2342,
+          "lng": 150.972,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "从悉尼皇家国家公园沿海岸线驾车经Stanwell Tops、悬崖海桥至卧龙岗，全程约1.5小时，是澳洲最美公路之一。"
+        },
+        {
+          "name": "Eat Street Markets (Crown Street Mall)",
+          "nameCn": "Crown Street夜市",
+          "lat": -34.4265,
+          "lng": 150.8939,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "每周四17-21点、周五09-15点，Crown Street步行街摆摊，本地美食、手工艺品与农产品，是感受本地生活最接地气的活动。"
+        },
+        {
+          "name": "Minnamurra Rainforest",
+          "nameCn": "Minnamurra雨林与瀑布",
+          "lat": -34.6369,
+          "lng": 150.7277,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Budderoo国家公园内，木栈道穿越温带雨林直达瀑布，距卧龙岗约1小时车程，是徒步与自然摄影热门地点。"
+        },
+        {
+          "name": "Illawarra Fly Treetop Walk",
+          "nameCn": "伊拉瓦拉树顶步道",
+          "lat": -34.5029,
+          "lng": 150.5876,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "40 Murphys Ave（Robertson），离地50米钢制栈道穿越雨林，含高空滑索，体验感极强，适合朋友组团出行。"
         }
       ]
     }

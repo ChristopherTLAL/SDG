@@ -13,6 +13,12 @@ const ERAS = [
 const eraOf = (y: number) => ERAS.find((e) => y <= e.max) || ERAS[ERAS.length - 1];
 const $ = (id: string): any => document.getElementById(id);
 
+// A pointLayer is "ranked" iff EVERY item carries a numeric rank — then it renders numbered
+// markers (like colleges), feeds the ranked list, and obeys the global Top-N filter.
+const isRankedLayer = (cat: PointLayerFeature) => cat.items.length > 0 && cat.items.every((p) => typeof p.rank === 'number');
+const TOPN_FILTERS = [{ label: 'Top 5', n: 5 }, { label: 'Top 10', n: 10 }, { label: 'Top 20', n: 20 }, { label: '全部', n: Infinity }];
+const DEFAULT_TOPN = 10;
+
 export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
   const wrap = $('smap-wrap');
   const { map, setBase } = createMap('smap-map', scene.center, scene.zoom);
@@ -25,6 +31,30 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
   const transits = scene.features.filter((f) => f.kind === 'transit') as TransitFeature[];
   const commute = scene.features.find((f) => f.kind === 'commute') as CommuteFeature | undefined;
   const fitPts: [number, number][] = [];
+
+  // ranked-layer engine state (Top-N + per-layer toggles + reset all compose through these)
+  const layerStates: any[] = [];
+  const toggleRegistry: { input: HTMLInputElement; cb: (on: boolean) => void; defaultOn: boolean }[] = [];
+  let topN = DEFAULT_TOPN;
+  const hasRanked = pointLayers.some(isRankedLayer);
+  const useRankedList = !colleges && hasRanked; // colleges keep the list when present
+
+  // Recompute visibility for every ranked entry from (toggleOn && rank <= topN). Pure style
+  // flips (opacity/pointer-events/tooltip/list-row) — no add/removeLayer, no DOM rebuild.
+  const applyTopN = () => {
+    layerStates.forEach((st) => {
+      if (!st.ranked) return;
+      let shown = 0;
+      st.entries.forEach((e: any) => {
+        const within = e.rank <= topN;
+        if (within) shown++;
+        if (e.m._icon) { e.m._icon.style.opacity = within ? '1' : '0'; e.m._icon.style.pointerEvents = within ? 'auto' : 'none'; }
+        const t = e.m.getTooltip(); if (t && t._container) t._container.classList.toggle('tl-hidden', !within);
+        if (e.row) e.row.style.display = within ? '' : 'none';
+      });
+      if (st.header) st.header.style.display = (st.toggleOn && shown > 0) ? '' : 'none';
+    });
+  };
 
   buildBaseRow($('smap-base-row'), setBase);
   wireToggle($('smap-label-btn'), (active) => wrap && wrap.classList.toggle('show-labels', active));
@@ -120,23 +150,58 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       fitPts.push([it.lat, it.lng]);
     });
     if (z.defaultOn) group.addTo(map);
-    if (catRows) catRows.appendChild(makeToggleRow(z.color, '<span class="material-symbols-outlined">workspaces</span>', z.label, String(z.items.length), z.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }));
+    if (catRows) catRows.appendChild(makeToggleRow(z.color, '<span class="material-symbols-outlined">workspaces</span>', z.label, String(z.items.length), z.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }, toggleRegistry));
   });
+
+  if (useRankedList) {
+    if (listTitle) listTitle.textContent = '推荐清单';
+    if (listSub) listSub.textContent = '按热度排序 · 点击在地图上定位';
+  }
 
   pointLayers.forEach((cat) => {
     const group = L.layerGroup();
-    cat.items.forEach((p) => {
+    const ranked = isRankedLayer(cat);
+    const st: any = { cat, ranked, group, entries: [], header: undefined, toggleOn: !!cat.defaultOn };
+
+    // ranked layer that owns the list → a group header row
+    if (ranked && useRankedList && listEl) {
+      const header = document.createElement('div');
+      header.className = 'smap-list-grp';
+      header.innerHTML = `<span class="smap-grp-dot" style="background:${cat.color}"></span>${esc(cat.label)}`;
+      listEl.appendChild(header);
+      st.header = header;
+    }
+
+    const items = ranked ? cat.items.slice().sort((a, b) => (a.rank || 0) - (b.rank || 0)) : cat.items;
+    items.forEach((p) => {
       const ic = p.icon || cat.icon;
-      const icon = L.divIcon({ className: 'smap-cat-marker', html: `<div class="cp" style="background:${cat.color}"><span class="material-symbols-outlined">${ic}</span></div>`, iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -15] });
+      const icon = ranked
+        ? L.divIcon({ className: 'smap-rank-marker', html: `<div class="cm" style="background:${cat.color}">${p.rank}</div>`, iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -14] })
+        : L.divIcon({ className: 'smap-cat-marker', html: `<div class="cp" style="background:${cat.color}"><span class="material-symbols-outlined">${ic}</span></div>`, iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -15] });
       const m = L.marker([p.lat, p.lng], { icon });
-      m.bindTooltip(esc(p.nameCn), { permanent: true, direction: 'right', offset: [16, 0], className: 'smap-mk-label' });
-      m.bindPopup(`<div class="smap-pop-name">${esc(p.name)}</div><div class="smap-pop-cn">${esc(p.nameCn)}</div><div class="smap-pop-tag" style="color:${cat.color}"><span class="material-symbols-outlined" style="font-size:14px">${ic}</span>${esc(cat.label)}</div><div class="smap-pop-note">${esc(p.note || '')}</div>${mapsLink(p.lat, p.lng)}`);
+      m.bindTooltip(esc(p.nameCn), { permanent: true, direction: 'right', offset: ranked ? [15, 0] : [16, 0], className: 'smap-mk-label' });
+      const tagExtra = ranked ? `${p.tier ? ' · ' + esc(p.tier) : ''} · #${p.rank}` : '';
+      m.bindPopup(`<div class="smap-pop-name">${esc(p.name)}</div><div class="smap-pop-cn">${esc(p.nameCn)}</div><div class="smap-pop-tag" style="color:${cat.color}"><span class="material-symbols-outlined" style="font-size:14px">${ic}</span>${esc(cat.label)}${tagExtra}</div><div class="smap-pop-note">${esc(p.note || '')}</div>${mapsLink(p.lat, p.lng)}`);
       attachHoverLabel(m);
       group.addLayer(m);
       fitPts.push([p.lat, p.lng]);
+
+      if (ranked) {
+        const row = document.createElement('div');
+        row.className = 'smap-li';
+        row.innerHTML = `<div class="smap-li-badge" style="background:${cat.color}">${p.rank}</div><div class="smap-li-name">${esc(p.name)}<span class="cn">${esc(p.nameCn)}</span></div><div class="smap-li-meta">${esc(p.tier || '')}</div>`;
+        const setHot = (on: boolean) => { if (m._icon) m._icon.classList.toggle('hot', on); row.classList.toggle('hot', on); m.setZIndexOffset(on ? 1000 : 0); };
+        m.on('mouseover', () => setHot(true)); m.on('mouseout', () => setHot(false));
+        row.addEventListener('mouseenter', () => setHot(true)); row.addEventListener('mouseleave', () => setHot(false));
+        row.addEventListener('click', () => { map.flyTo([p.lat, p.lng], 17, { duration: 0.8 }); m.openPopup(); });
+        if (st.header && listEl) listEl.appendChild(row);
+        st.entries.push({ rank: p.rank, m, row });
+      }
     });
+
     if (cat.defaultOn) group.addTo(map);
-    if (catRows) catRows.appendChild(makeToggleRow(cat.color, `<span class="material-symbols-outlined">${cat.icon}</span>`, cat.label, String(cat.items.length), cat.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }));
+    layerStates.push(st);
+    if (catRows) catRows.appendChild(makeToggleRow(cat.color, `<span class="material-symbols-outlined">${cat.icon}</span>`, cat.label, String(cat.items.length), cat.defaultOn, (on) => { st.toggleOn = on; if (on) group.addTo(map); else map.removeLayer(group); applyTopN(); }, toggleRegistry));
   });
 
   // ===== transit (tube lines) =====
@@ -152,11 +217,11 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
       });
     });
     if (tr.defaultOn) group.addTo(map);
-    if (catRows) catRows.appendChild(makeToggleRow('#334155', '<span class="material-symbols-outlined">subway</span>', tr.label, String(tr.lines.length), tr.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }));
+    if (catRows) catRows.appendChild(makeToggleRow('#334155', '<span class="material-symbols-outlined">subway</span>', tr.label, String(tr.lines.length), tr.defaultOn, (on) => { if (on) group.addTo(map); else map.removeLayer(group); }, toggleRegistry));
   });
 
-  // ===== commute table → list panel (region scenes) =====
-  if (!colleges) {
+  // ===== commute table → list panel (region scenes; only when no colleges & no ranked list) =====
+  if (!colleges && !hasRanked) {
     if (commute) {
       if (listTitle) listTitle.textContent = commute.label || '通勤参考';
       if (listSub) listSub.textContent = '各校最近地铁站 · 步行 / 到市中心(分钟)';
@@ -174,6 +239,46 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
     }
   }
 
+  // ===== global Top-N control (Top 5 / 10 / 20 / 全部) =====
+  const topnSec = $('smap-topn-sec');
+  const topRow = $('smap-topn-row');
+  if (hasRanked && topRow) {
+    TOPN_FILTERS.forEach((f) => {
+      const b = document.createElement('button');
+      b.className = 'smap-filter-btn' + (f.n === DEFAULT_TOPN ? ' active' : '');
+      b.dataset.n = String(f.n);
+      b.textContent = f.label;
+      b.addEventListener('click', () => {
+        topN = f.n;
+        topRow.querySelectorAll('.smap-filter-btn').forEach((x: any) => x.classList.toggle('active', x === b));
+        applyTopN();
+      });
+      topRow.appendChild(b);
+    });
+  } else if (topnSec) {
+    topnSec.style.display = 'none';
+  }
+
+  // ===== 恢复默认 (reset to default view) =====
+  const resetBtn = $('smap-reset');
+  if (resetBtn) resetBtn.addEventListener('click', () => {
+    toggleRegistry.forEach(({ input, cb, defaultOn }) => { input.checked = !!defaultOn; cb(!!defaultOn); });
+    topN = DEFAULT_TOPN;
+    if (topRow) topRow.querySelectorAll('.smap-filter-btn').forEach((x: any) => x.classList.toggle('active', x.dataset.n === String(DEFAULT_TOPN)));
+    if (wrap) wrap.classList.remove('show-labels');
+    const lblBtn = $('smap-label-btn'); if (lblBtn) lblBtn.classList.remove('active');
+    const lstBtn = $('smap-list-btn'); if (lstBtn) lstBtn.classList.add('active');
+    if (listWrap) listWrap.classList.remove('hidden');
+    setBase('light');
+    const baseRow = $('smap-base-row'); if (baseRow) baseRow.querySelectorAll('.smap-base-btn').forEach((x: any) => x.classList.toggle('active', x.dataset.k === 'light'));
+    map.closePopup();
+    map.flyTo(scene.center, scene.zoom, { duration: 0.8 });
+    applyTopN();
+  });
+
+  // apply the initial Top-N cap to the default-on ranked layers
+  applyTopN();
+
   // fit-to-bounds (all points across all features)
   const fitBtn = $('smap-fit');
   if (fitBtn && fitPts.length) {
@@ -186,10 +291,12 @@ export function mountDetail(scene: SchoolsMapScene, scenes: any[] = []) {
   disableMapDragOn([document.querySelector('.smap-left'), document.querySelector('.smap-right'), $('smap-timeline'), document.querySelector('.smap-nav')]);
 }
 
-function makeToggleRow(color: string, iconHtml: string, label: string, count: string, on: boolean | undefined, cb: (on: boolean) => void): HTMLElement {
+function makeToggleRow(color: string, iconHtml: string, label: string, count: string, on: boolean | undefined, cb: (on: boolean) => void, registry?: { input: HTMLInputElement; cb: (on: boolean) => void; defaultOn: boolean }[]): HTMLElement {
   const el = document.createElement('label');
   el.className = 'smap-row';
   el.innerHTML = `<input type="checkbox" ${on ? 'checked' : ''}><span class="smap-ic" style="background:${color}">${iconHtml}</span><span class="smap-nm">${esc(label)}</span><span class="smap-ct">${esc(count)}</span>`;
-  el.querySelector('input')!.addEventListener('change', (e: any) => cb(e.target.checked));
+  const input = el.querySelector('input') as HTMLInputElement;
+  input.addEventListener('change', (e: any) => cb(e.target.checked));
+  if (registry) registry.push({ input, cb, defaultOn: !!on });
   return el;
 }

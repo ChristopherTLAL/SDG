@@ -59,39 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "National Graphene Institute",
-          "nameCn": "国家石墨烯研究院",
-          "lat": 53.4687,
-          "lng": -2.2335,
-          "note": "石墨烯发现地的旗舰研究中心,主校区北端。"
+          "name": "Nancy Rothwell Building (Engineering)",
+          "nameCn": "南希·罗斯韦尔楼（工程学院）",
+          "lat": 53.4672,
+          "lng": -2.2336,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2021年建成的欧洲最大教育空间之一，是工程学院（EPS）主楼，以前副校长命名。"
         },
         {
-          "name": "Alliance Manchester Business School",
-          "nameCn": "联盟曼彻斯特商学院",
-          "lat": 53.4676,
-          "lng": -2.2365,
-          "note": "英国老牌商学院,Booth Street West。"
+          "name": "Stopford Building (Faculty of Biology, Medicine and Health)",
+          "nameCn": "斯托普福德楼（生物医学与健康学部）",
+          "lat": 53.4615,
+          "lng": -2.2294,
+          "rank": 2,
+          "tier": "必去",
+          "note": "曼大第二大建筑，医学院和生命科学院的主楼，紧邻曼彻斯特皇家医院。"
         },
         {
-          "name": "Pariser Building",
-          "nameCn": "Pariser工程楼",
-          "lat": 53.4741,
+          "name": "Sackville Street Building (STEM & Jodrell Bank)",
+          "nameCn": "萨克维尔街楼（理工学院/射电天文）",
+          "lat": 53.475,
+          "lng": -2.2375,
+          "rank": 3,
+          "tier": "必去",
+          "note": "曼大最大建筑，北校区核心，是Jodrell Bank天文学中心的市区办公地。"
+        },
+        {
+          "name": "Alan Turing Building (Mathematics)",
+          "nameCn": "阿兰·图灵楼（数学系）",
+          "lat": 53.4668,
+          "lng": -2.2312,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2007年建成，三指形建筑，容纳数学系与光子科学研究所，以计算机之父命名。"
+        },
+        {
+          "name": "Alliance Manchester Business School (AMBS)",
+          "nameCn": "曼彻斯特联合商学院",
+          "lat": 53.4648,
+          "lng": -2.2343,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全球TOP三联合认证商学院（AACSB/AMBA/EQUIS），毕业生就业率全英第二。"
+        },
+        {
+          "name": "Samuel Alexander Building (Arts, Languages & Cultures)",
+          "nameCn": "塞缪尔·亚历山大楼（人文艺术）",
+          "lat": 53.4638,
           "lng": -2.2338,
-          "note": "北校区工程教学楼,原UMIST核心建筑之一。"
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1919年建成，文学院、哲学、语言系的主楼，也是学术英语中心所在地。"
         },
         {
-          "name": "Sackville Street Building",
-          "nameCn": "萨克维尔街主楼",
-          "lat": 53.476,
-          "lng": -2.2345,
-          "note": "北校区地标主楼,昔日UMIST总部。"
+          "name": "University Place (Conference & Lecture Centre)",
+          "nameCn": "大学广场综合楼",
+          "lat": 53.4661,
+          "lng": -2.2344,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "校园核心地标，拥有43个会议室和600人报告厅，是各大讲座和学术活动的主场。"
         },
         {
-          "name": "Manchester Royal Infirmary",
-          "nameCn": "曼彻斯特皇家医院",
-          "lat": 53.4629,
-          "lng": -2.2262,
-          "note": "医学院教学医院,牛津路东侧。"
+          "name": "Whitworth Hall (The Whitworth Building)",
+          "nameCn": "惠特沃斯礼堂",
+          "lat": 53.4636,
+          "lng": -2.2325,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "建于1902年的II*级保护建筑，是毕业典礼与考试的核心礼堂，哥特式外观极具标志性。"
+        },
+        {
+          "name": "Schuster Building (Physics)",
+          "nameCn": "舒斯特楼（物理系）",
+          "lat": 53.4641,
+          "lng": -2.2321,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "物理与天文系主楼，石墨烯发现地，诺贝尔奖成就的发源地，学术朝圣必到。"
+        },
+        {
+          "name": "Martin Harris Centre for Music and Drama",
+          "nameCn": "马丁·哈里斯音乐与戏剧中心",
+          "lat": 53.4634,
+          "lng": -2.2284,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "音乐与戏剧学院主楼，有专业音乐厅，常有免费或低价学生演出。"
         }
       ],
       "defaultOn": true
@@ -104,18 +159,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Alan Gilbert Learning Commons",
-          "nameCn": "Alan Gilbert学习中心",
-          "lat": 53.4649,
-          "lng": -2.2331,
-          "note": "24小时开放的现代化自习与协作空间。"
+          "name": "The University of Manchester Library (Main Library)",
+          "nameCn": "曼彻斯特大学主图书馆",
+          "lat": 53.4643,
+          "lng": -2.2336,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全英第三大学术图书馆，Burlington Street入口，馆藏逾400万册，每年开放时间最长。"
         },
         {
-          "name": "The John Rylands Library",
-          "nameCn": "约翰·赖兰兹图书馆",
-          "lat": 53.4804,
-          "lng": -2.2491,
-          "note": "市中心Deansgate的新哥特式珍本馆,藏善本手稿。"
+          "name": "Alan Gilbert Learning Commons (AGLC)",
+          "nameCn": "艾伦·吉尔伯特学习公社",
+          "lat": 53.4657,
+          "lng": -2.2348,
+          "rank": 2,
+          "tier": "必去",
+          "note": "24小时开放（学期内），1000+座位+330台PC，是考试季备考首选的全天候自习楼。"
+        },
+        {
+          "name": "John Rylands Research Institute and Library",
+          "nameCn": "约翰·瑞兰兹图书馆（迪恩斯盖特）",
+          "lat": 53.4803,
+          "lng": -2.2487,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1900年的维多利亚哥特式建筑，免费向公众开放，曼城最美图书馆，市中心必打卡。"
+        },
+        {
+          "name": "Eddie Davies Library (Alliance Manchester Business School)",
+          "nameCn": "埃迪·戴维斯图书馆（商学院）",
+          "lat": 53.4642,
+          "lng": -2.2356,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "商学院专属图书馆，位于Booth Street West，提供安静自习区和商科数据库资源。"
+        },
+        {
+          "name": "Stopford Student Hub and Library (Medical & Life Sciences)",
+          "nameCn": "斯托普福德学生中心与图书馆（医学院）",
+          "lat": 53.4617,
+          "lng": -2.2291,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "医学与生命科学专业图书馆，在斯托普福德楼内，医科生的课业核心资源地。"
+        },
+        {
+          "name": "Joule Library (Science, Engineering & Technology)",
+          "nameCn": "焦耳图书馆（理工学院）",
+          "lat": 53.4671,
+          "lng": -2.2335,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "理工科学生专属，近Nancy Rothwell大楼，专业期刊和技术文献齐全。"
         }
       ]
     },
@@ -127,18 +222,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Manchester Museum",
-          "nameCn": "曼彻斯特博物馆",
-          "lat": 53.466,
-          "lng": -2.2337,
-          "note": "校属自然史与文化博物馆,藏埃及木乃伊。"
+          "name": "The Whitworth Art Gallery",
+          "nameCn": "惠特沃斯美术馆",
+          "lat": 53.4563,
+          "lng": -2.2354,
+          "rank": 1,
+          "tier": "必去",
+          "note": "曼大附属，6万余件藏品，从毕加索到Tracey Emin，免费入场，校园旁，学生强烈推荐。"
         },
         {
-          "name": "The Whitworth",
-          "nameCn": "惠特沃斯美术馆",
-          "lat": 53.4602,
-          "lng": -2.2295,
-          "note": "主校区南端的美术馆,毗邻惠特沃斯公园。"
+          "name": "Manchester Museum",
+          "nameCn": "曼彻斯特博物馆",
+          "lat": 53.4648,
+          "lng": -2.2338,
+          "rank": 2,
+          "tier": "必去",
+          "note": "曼大附属自然历史博物馆，含霸王龙骨架，2023年重新开放加入South Asian Gallery，免费入场。"
+        },
+        {
+          "name": "Science and Industry Museum (MOSI)",
+          "nameCn": "科学与工业博物馆",
+          "lat": 53.478,
+          "lng": -2.254,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建在世界首个客运铁路站，展示曼城从蒸汽到原子能的工业传奇，免费入场，Castlefield必打卡。"
+        },
+        {
+          "name": "Manchester Art Gallery",
+          "nameCn": "曼彻斯特美术馆",
+          "lat": 53.4789,
+          "lng": -2.2388,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于市中心Mosley Street，藏品从文艺复兴到现代艺术，免费入场，是艺术爱好者必去之地。"
+        },
+        {
+          "name": "National Football Museum",
+          "nameCn": "国家足球博物馆",
+          "lat": 53.4855,
+          "lng": -2.2395,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于标志性的Urbis建筑内，世界最大足球博物馆，足球迷必到，免费入场。"
+        },
+        {
+          "name": "Imperial War Museum North",
+          "nameCn": "帝国战争博物馆北馆",
+          "lat": 53.4724,
+          "lng": -2.2983,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Salford Quays，建筑由Daniel Libeskind设计，展示战争对人类生活的影响，免费。"
         }
       ]
     },
@@ -150,46 +285,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "University of Manchester Students' Union",
-          "nameCn": "学生会",
-          "lat": 53.4644,
-          "lng": -2.2324,
-          "note": "英国最大学生会之一,牛津路活动中心。"
+          "name": "University of Manchester Students' Union (Steve Biko Building)",
+          "nameCn": "曼大学生会（史蒂夫·比科大楼）",
+          "lat": 53.4641,
+          "lng": -2.2316,
+          "rank": 1,
+          "tier": "必去",
+          "note": "学生生活核心，含Academy演出场馆、餐厅、社团注册、心理咨询，新生第一周必来报到。"
         },
         {
-          "name": "Whitworth Hall & The Old Quadrangle",
-          "nameCn": "惠特沃斯礼堂与老方庭",
-          "lat": 53.4664,
-          "lng": -2.2339,
-          "note": "维多利亚哥特式标志建筑群,学校象征。"
+          "name": "Whitworth Park",
+          "nameCn": "惠特沃斯公园",
+          "lat": 53.457,
+          "lng": -2.2348,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻惠特沃斯美术馆，是课间散步、野餐和社交的绿色空间，学生最喜欢的户外放松地。"
         },
         {
-          "name": "Sugden Sports Centre",
-          "nameCn": "Sugden体育中心",
-          "lat": 53.4712,
-          "lng": -2.236,
-          "note": "校内体育馆,距主校区步行约一分钟。"
+          "name": "Oxford Road Corridor",
+          "nameCn": "牛津路走廊",
+          "lat": 53.466,
+          "lng": -2.233,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全欧最繁忙学术街道之一，曼大与曼城城市大学沿线布局，餐厅、咖啡馆和学生商店密集。"
         },
         {
-          "name": "Owens Park",
-          "nameCn": "Owens Park宿舍",
-          "lat": 53.4446,
-          "lng": -2.2167,
-          "note": "Fallowfield学生村中心的大型本科生公寓。"
+          "name": "Manchester Central Library",
+          "nameCn": "曼彻斯特中央图书馆",
+          "lat": 53.4783,
+          "lng": -2.2445,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "圆形新古典主义建筑，位于St Peter's Square，是曼城文化地标，含种族关系资源中心。"
         },
         {
-          "name": "Unsworth Park",
-          "nameCn": "Unsworth Park宿舍",
-          "lat": 53.4452,
-          "lng": -2.2112,
-          "note": "Fallowfield较新的宿舍楼群。"
+          "name": "Platt Fields Park",
+          "nameCn": "普拉特菲尔德公园",
+          "lat": 53.4478,
+          "lng": -2.227,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Fallowfield学生区的大型公园，有湖泊、运动场，是学生节和户外活动的热门场地。"
         },
         {
-          "name": "Manchester Oxford Road railway station",
-          "nameCn": "牛津路火车站",
-          "lat": 53.4738,
-          "lng": -2.2423,
-          "note": "距主校区最近的铁路站,城市线枢纽。"
+          "name": "Aviva Studios (Factory International)",
+          "nameCn": "阿维瓦演艺中心（Factory International）",
+          "lat": 53.4792,
+          "lng": -2.2511,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "《时代》杂志2024年全球最佳地点之一，英国自泰特现代美术馆以来最大的公共文化投资。"
+        },
+        {
+          "name": "Manchester Arndale",
+          "nameCn": "曼彻斯特安达尔购物中心",
+          "lat": 53.4831,
+          "lng": -2.2393,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "市中心最大购物中心，含Oseyo亚洲超市，是购物和日常补给的核心地点。"
+        },
+        {
+          "name": "Castlefield Urban Heritage Park",
+          "nameCn": "卡斯尔菲尔德城市遗址公园",
+          "lat": 53.4753,
+          "lng": -2.253,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "罗马堡垒遗址与运河交汇处，工业革命发祥地，Viaduct高架桥公园2023年开放，适合打卡。"
         }
       ]
     },
@@ -201,39 +366,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "W.H. Lung Supermarket",
-          "nameCn": "荣华行（华人超市）",
-          "lat": 53.4675,
-          "lng": -2.2291,
-          "note": "曼大学生最常去的大型华人超市，就在 Upper Brook Street、校区马路对面，中餐食材、冷冻点心、亚洲调料齐全。"
+          "name": "Morrisons (Grafton Street, off Oxford Road)",
+          "nameCn": "莫里森超市（牛津路格拉夫顿街）",
+          "lat": 53.4621,
+          "lng": -2.228,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距医学院步行5分钟，是最靠近主校区的大型超市，品类齐全，学生日常采购首选。"
         },
         {
-          "name": "Hang Won Hong Supermarket",
-          "nameCn": "恒荣行（唐人街华超）",
-          "lat": 53.4788,
-          "lng": -2.2407,
-          "note": "市中心唐人街 George Street 上最大的华人超市，距校区约1.5公里，米面酱料、活鲜与港式食材最全。"
+          "name": "Sainsbury's Fallowfield Superstore",
+          "nameCn": "赛百味大型超市（Fallowfield）",
+          "lat": 53.4437,
+          "lng": -2.222,
+          "rank": 2,
+          "tier": "必去",
+          "note": "347 Wilmslow Road，学生宿舍区最大超市，每晚11点关门，周日营业，是住Fallowfield学生的主力采购地。"
         },
         {
-          "name": "Worldwide Foods Rusholme",
-          "nameCn": "世界食品超市（咖喱街）",
-          "lat": 53.4573,
-          "lng": -2.227,
-          "note": "咖喱街旁 Great Western Street 的国际食品超市，南亚、中东、东亚食材便宜量大，离校区步行可达。"
+          "name": "Oseyo (Manchester Arndale)",
+          "nameCn": "Oseyo韩国超市（安达尔购物中心）",
+          "lat": 53.4831,
+          "lng": -2.24,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2024年新开，英国最大亚洲超市，1300平米，韩系食品、零食、美妆、文具应有尽有。"
         },
         {
-          "name": "Tesco Express (Wilmslow Park)",
-          "nameCn": "乐购便利店（校区店）",
-          "lat": 53.4586,
-          "lng": -2.2269,
-          "note": "紧贴校区的英国主流连锁便利超市，日常牛奶面包速食随手买，营业时间长。"
+          "name": "Wing Yip (Oldham Road, Ancoats)",
+          "nameCn": "永业中国超市（Ancoats）",
+          "lat": 53.4858,
+          "lng": -2.225,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Oldham Road大型华人超市，酱料、冻品、生鲜等中式食材一站购齐，每周打一次卡够用一周。"
         },
         {
-          "name": "Sainsbury's Fallowfield",
-          "nameCn": "森宝利超市（Fallowfield 大店）",
-          "lat": 53.4408,
-          "lng": -2.2179,
-          "note": "学生宿舍区 Fallowfield 的大型英超，品类比便利店全，沿 Wilmslow Road 公交直达。"
+          "name": "Hello Oriental Market (Circle Square)",
+          "nameCn": "好东方亚洲市场（Circle Square）",
+          "lat": 53.47,
+          "lng": -2.2365,
+          "rank": 5,
+          "tier": "必去",
+          "note": "牛津路旁Circle Square地下三层亚洲食材市场+美食广场，食材和即食均可，距校区步行可达。"
+        },
+        {
+          "name": "Hang Won Hong (George Street, Chinatown)",
+          "nameCn": "恒旺行华人超市（唐人街）",
+          "lat": 53.4789,
+          "lng": -2.2418,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "唐人街最大华人超市，58-60 George Street，蔬果、海鲜、冷冻品齐全，国人最爱。"
+        },
+        {
+          "name": "Taste the Orient (Oxford Road)",
+          "nameCn": "品味东方亚洲超市（牛津路）",
+          "lat": 53.469,
+          "lng": -2.2328,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Oxford Road上的亚洲超市，覆盖中日韩马各类食材，位置方便，适合日常补货。"
+        },
+        {
+          "name": "Lameizi Chinese Supermarket (Chester Street)",
+          "nameCn": "辣妹子中国超市（切斯特街）",
+          "lat": 53.4737,
+          "lng": -2.2431,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Chester Street The Quadrangle，品种丰富的四川风味中国超市，附设小餐馆，学生评价高。"
         }
       ]
     },
@@ -245,39 +447,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Mughli Charcoal Pit",
-          "nameCn": "Mughli 炭烤印巴餐厅",
-          "lat": 53.4558,
+          "name": "Red Chilli (Oxford Road)",
+          "nameCn": "红辣椒川菜馆（牛津路）",
+          "lat": 53.4615,
+          "lng": -2.2295,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "403-419 Oxford Road，曼城最著名的正宗川菜馆，Observer食评家Jay Rayner力荐，学生最常推荐。"
+        },
+        {
+          "name": "Hello Oriental Food Hall (Circle Square)",
+          "nameCn": "好东方亚洲美食广场",
+          "lat": 53.47,
+          "lng": -2.2365,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "地下三层泛亚美食城，广式烧腊、小笼包、泡芙、韩国炸鸡一站满足，小红书高曝光地。"
+        },
+        {
+          "name": "Little Yang Sing (George Street, Chinatown)",
+          "nameCn": "小杨星粤菜馆（唐人街）",
+          "lat": 53.4783,
+          "lng": -2.2413,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "17 George Street，传承自曼城传奇粤菜馆Yang Sing，正宗广式点心举足轻重，周末需提前订座。"
+        },
+        {
+          "name": "Seoul Kimchi (Upper Brook Street)",
+          "nameCn": "首尔泡菜韩国餐厅（上布鲁克街）",
+          "lat": 53.4591,
           "lng": -2.2256,
-          "note": "咖喱街口碑标杆，1991年创立的炭烤与慢炖咖喱，曼城必吃南亚菜代表。"
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "275 Upper Brook Street，自2010年开业以来常年排队，老板娘手作泡菜家传配方，曼城最佳韩餐。"
         },
         {
-          "name": "MyLahore",
-          "nameCn": "MyLahore 巴基斯坦餐厅",
-          "lat": 53.4562,
-          "lng": -2.2258,
-          "note": "咖喱街人气连锁，巴式咖喱、烤肉与奶昔分量足，学生聚餐高性价比之选。"
+          "name": "Mei Dim (Faulkner Street, Chinatown)",
+          "nameCn": "美点广式茶楼（唐人街）",
+          "lat": 53.4787,
+          "lng": -2.2415,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "45-47 Faulkner Street，被评为曼城最佳点心地，精致虾饺、烧卖和叉烧包，Chinatown老饕首选。"
         },
         {
-          "name": "Shere Khan",
-          "nameCn": "Shere Khan 咖喱餐厅",
-          "lat": 53.4553,
-          "lng": -2.2253,
-          "note": "Wilmslow Road 老牌咖喱馆，菜单大、价格亲民，咖喱街经典打卡点。"
+          "name": "Yuzu (Faulkner Street, Chinatown)",
+          "nameCn": "柚子日本料理（唐人街）",
+          "lat": 53.4786,
+          "lng": -2.2413,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "39 Faulkner Street，曼城最受好评日本家常料理，定食套餐实惠，被多家媒体评为必吃。"
         },
         {
-          "name": "This & That Cafe",
-          "nameCn": "This & That 三选一咖喱",
-          "lat": 53.4847,
-          "lng": -2.2381,
-          "note": "北区 Soap Street 隐藏小馆，1984年开业的「米饭+三样咖喱（rice and three）」鼻祖，曼城便宜快食传奇。"
-        },
-        {
-          "name": "Manchester Chinatown restaurants",
-          "nameCn": "曼城唐人街中餐区",
+          "name": "Pinwei (Princess Street)",
+          "nameCn": "品味中餐厅（公主街）",
           "lat": 53.4784,
-          "lng": -2.2398,
-          "note": "市中心唐人街聚集粤菜、火锅、港式茶餐厅与亚洲甜品，想吃地道中餐就来这片。"
+          "lng": -2.2427,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "28 Princess Street，市政厅旁，北京烤鸭配手工薄饼是招牌，正宗北方风味，获奖中餐厅。"
+        },
+        {
+          "name": "Momo (Oxford Road Corridor)",
+          "nameCn": "MoMo中式街食（牛津路）",
+          "lat": 53.4665,
+          "lng": -2.2325,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "牛津路上的中式街头料理，米饭、面条、每日饺子特供，多款珍珠奶茶，学生午餐热门之选。"
+        },
+        {
+          "name": "Gong Cha (Oxford Road)",
+          "nameCn": "贡茶（牛津路）",
+          "lat": 53.468,
+          "lng": -2.233,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "149-153 Oxford Road，台湾正宗贡茶，学生课间补给站，是中国留学生解乡愁必点的奶茶。"
+        },
+        {
+          "name": "Mr Egg (Oxford Road)",
+          "nameCn": "Mr Egg台式鸡排与珍珠奶茶",
+          "lat": 53.469,
+          "lng": -2.2335,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "牛津路上的台湾风味炸鸡和多口味珍珠奶茶，价格亲民，学生课后零食首选。"
+        },
+        {
+          "name": "Happy Seasons (Faulkner Street, Chinatown)",
+          "nameCn": "喜宴烤鸭店（唐人街）",
+          "lat": 53.4785,
+          "lng": -2.2416,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Faulkner Street家族经营老字号（1982年），广式烧腊上光完美，鱿鱼饼和云吞汤家常味道地道。"
+        },
+        {
+          "name": "Umami (Oxford Road Aquatics Centre)",
+          "nameCn": "鲜味寿司拉面（牛津路）",
+          "lat": 53.4661,
+          "lng": -2.2294,
+          "rank": 12,
+          "tier": "一般",
+          "note": "紧邻曼城水上运动中心，融合寿司+拉面，凭学生证享折扣，中日学生食堂级备选。"
+        },
+        {
+          "name": "Bundobust (Oxford Street)",
+          "nameCn": "Bundobust印度街食+精酿",
+          "lat": 53.4759,
+          "lng": -2.2418,
+          "rank": 13,
+          "tier": "一般",
+          "note": "印度街头小吃配自酿精酿啤酒，有学生9折，Tripadvisor一致好评，与英国本地食文化结合佳。"
+        },
+        {
+          "name": "The Turing Tap (Oxford Road)",
+          "nameCn": "图灵小馆（牛津路）",
+          "lat": 53.4656,
+          "lng": -2.2305,
+          "rank": 14,
+          "tier": "一般",
+          "note": "牛津路南端的学生友好型酒吧餐厅，全天供餐，价格适中，是两所大学学生聚会常选之地。"
         }
       ]
     },
@@ -289,32 +582,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Manchester Royal Infirmary",
-          "nameCn": "曼彻斯特皇家医院",
-          "lat": 53.4629,
-          "lng": -2.2261,
-          "note": "校区东侧的大型公立教学医院，含急诊（A&E），就医、急症首选。"
+          "name": "HSBC (348-350 Oxford Road, M13 9NG)",
+          "nameCn": "汇丰银行（牛津路支行）",
+          "lat": 53.4622,
+          "lng": -2.2296,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距主校区最近的HSBC支行，有国际留学生专属开户方案，到校后持入学证明即可申请。"
         },
         {
-          "name": "Barclays Bank (Wilmslow Road)",
-          "nameCn": "巴克莱银行（Wilmslow Road）",
-          "lat": 53.4577,
-          "lng": -2.2269,
-          "note": "咖喱街起点的银行网点，离校区近，留学生办本地账户、存取现金方便。"
+          "name": "NatWest (323 Oxford Road, M13 9PS)",
+          "nameCn": "国民西敏寺银行（牛津路校区支行）",
+          "lat": 53.4636,
+          "lng": -2.2308,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于学生会对面，专为UoM学生服务，开户方便，是在校期间最常用的银行之一。"
         },
         {
-          "name": "Boots Pharmacy (Oxford Street)",
-          "nameCn": "Boots 药房（Oxford Street）",
-          "lat": 53.4756,
-          "lng": -2.2418,
-          "note": "英国最大连锁药妆店，处方药、感冒药、日用品一站搞定，沿 Oxford Road 往市中心方向。"
+          "name": "University GP Service (Crawford House, Booth Street East)",
+          "nameCn": "曼大学生GP诊所（克劳福德楼）",
+          "lat": 53.4651,
+          "lng": -2.2308,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内NHS全科医生服务，4楼，学生不限住址均可注册，是开具处方和病假证明的第一入口。"
         },
         {
-          "name": "EE Store (Market Street)",
-          "nameCn": "EE 电信营业厅（Market Street）",
-          "lat": 53.4821,
+          "name": "Manchester Royal Infirmary (MRI) Urgent Treatment Centre",
+          "nameCn": "曼彻斯特皇家医院紧急诊疗中心",
+          "lat": 53.4613,
+          "lng": -2.2287,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Oxford Road M13 9WL，步行至校区，16岁以上无需预约，8am-8pm开放，最近的A&E替代选项。"
+        },
+        {
+          "name": "Boots Pharmacy (The Circus, Portland Street)",
+          "nameCn": "Boots药房（市中心The Circus）",
+          "lat": 53.478,
+          "lng": -2.2403,
+          "rank": 5,
+          "tier": "必去",
+          "note": "3A The Circus，牛津路至市中心必经药房，NHS处方、OTC药品、个人护理品齐全，全英最大连锁。"
+        },
+        {
+          "name": "EE Store (33 Market Street)",
+          "nameCn": "EE电信门店（市场街）",
+          "lat": 53.4837,
+          "lng": -2.2394,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2024年新开Experience旗舰店，33 Market Street，办理SIM卡、手机和宽带，英国信号覆盖最优。"
+        },
+        {
+          "name": "Wilmslow Road Medical Centre (GP, Rusholme)",
+          "nameCn": "威尔姆斯洛路医疗中心（GP，Rusholme）",
+          "lat": 53.4498,
+          "lng": -2.2216,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "156 Wilmslow Road，Fallowfield/Rusholme学生区的NHS全科诊所，接受新患者注册，离宿舍区近。"
+        },
+        {
+          "name": "Vodafone (Manchester Arndale)",
+          "nameCn": "沃达丰电信（安达尔购物中心）",
+          "lat": 53.4832,
           "lng": -2.2398,
-          "note": "市中心主流运营商门店，办手机卡/套餐、咨询合约机，距校区一段公交或步行。"
+          "rank": 8,
+          "tier": "可选",
+          "note": "Manchester Arndale内，提供学生专属SIM卡套餐和手机方案，备选运营商之一。"
         }
       ]
     },
@@ -326,39 +663,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Manchester Museum",
-          "nameCn": "曼彻斯特博物馆",
-          "lat": 53.4664,
-          "lng": -2.2342,
-          "note": "曼大校园内的免费博物馆，埃及木乃伊、自然史与活体爬虫馆，新生必逛且就在校区。"
+          "name": "Jodrell Bank Observatory (UNESCO World Heritage Site)",
+          "nameCn": "卓瑞尔河岸天文台（联合国教科文组织世界遗产）",
+          "lat": 53.2368,
+          "lng": -2.3085,
+          "rank": 1,
+          "tier": "必去",
+          "note": "世界最大可移动射电望远镜所在地，2019年入选UNESCO世遗，从曼城驱车约45分钟，曼大天文物理必访。"
         },
         {
-          "name": "The Whitworth",
-          "nameCn": "惠特沃斯美术馆",
-          "lat": 53.4602,
-          "lng": -2.2295,
-          "note": "紧邻校区、毗邻惠特沃斯公园的免费现代艺术馆，展览+落地窗咖啡厅，拍照与放松好去处。"
+          "name": "Northern Quarter",
+          "nameCn": "北区（独立小店与街头艺术）",
+          "lat": 53.4844,
+          "lng": -2.2363,
+          "rank": 2,
+          "tier": "必去",
+          "note": "曼城最有活力的文创街区，Afflecks古着市场、独立咖啡馆、涂鸦墙和黑胶唱片店，周末必逛。"
         },
         {
-          "name": "Chinatown Imperial Arch",
-          "nameCn": "唐人街中华门牌楼",
+          "name": "Manchester Chinatown",
+          "nameCn": "曼彻斯特唐人街",
           "lat": 53.4784,
-          "lng": -2.2398,
-          "note": "市中心唐人街标志性中式牌楼，欧洲最早的唐人街之一，节庆热闹的打卡地标。"
+          "lng": -2.2413,
+          "rank": 3,
+          "tier": "必去",
+          "note": "英国第二大唐人街，Faulkner/George Street周边，中餐、港式茶楼、华人超市聚集，中国留学生必访。"
         },
         {
-          "name": "John Rylands Library",
-          "nameCn": "约翰·赖兰兹图书馆",
-          "lat": 53.4804,
-          "lng": -2.2491,
-          "note": "Deansgate 上的新哥特式古典图书馆，建筑华美如教堂，免费参观的网红拍照圣地。"
+          "name": "Afflecks (Church Street, Northern Quarter)",
+          "nameCn": "Afflecks独立商场（北区）",
+          "lat": 53.4826,
+          "lng": -2.2373,
+          "rank": 4,
+          "tier": "必去",
+          "note": "52 Church Street，70+摊位涵盖复古服装、文身、黑胶唱片，是曼城另类文化圣地，学生打卡热点。"
         },
         {
-          "name": "Manchester Oxford Road Station",
-          "nameCn": "牛津路火车站",
-          "lat": 53.4738,
-          "lng": -2.2423,
-          "note": "离校区最近的火车站，去市中心、机场及周边城市出行的主要枢纽。"
+          "name": "The Lowry (Salford Quays)",
+          "nameCn": "洛瑞艺术中心（Salford Quays）",
+          "lat": 53.4705,
+          "lng": -2.2956,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Salford Quays码头，含剧院和L.S. Lowry专属美术馆，乘地铁约15分钟，是曼城重要文化演出地。"
+        },
+        {
+          "name": "Castlefield Urban Heritage Park & Viaduct",
+          "nameCn": "卡斯尔菲尔德运河遗址公园与高架桥",
+          "lat": 53.4753,
+          "lng": -2.2553,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "世界首个城市遗产公园，古罗马堡垒遗址+工业运河，Castlefield Viaduct空中花园2023年开放。"
+        },
+        {
+          "name": "MediaCityUK (Salford Quays)",
+          "nameCn": "媒体城（Salford Quays）",
+          "lat": 53.4742,
+          "lng": -2.2981,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "BBC和ITV北部总部所在，可步行参观户外广场，紧邻IWM北馆和洛瑞中心，Metrolink直达。"
+        },
+        {
+          "name": "Mackie Mayor (Eagle Street, Northern Quarter)",
+          "nameCn": "麦基马约市场美食大厅（北区）",
+          "lat": 53.4854,
+          "lng": -2.2396,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "1858年列二级保护建筑改造成的街食市场，周五至周日开放，是曼城最上镜的打卡地之一。"
+        },
+        {
+          "name": "Deansgate Locks",
+          "nameCn": "迪恩斯盖特船闸夜生活区",
+          "lat": 53.4762,
+          "lng": -2.2497,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "运河拱桥下的酒吧群，曼城最有代表性的学生夜生活地带，每周有学生特价夜。"
+        },
+        {
+          "name": "Rusholme Curry Mile (Wilmslow Road)",
+          "nameCn": "Rusholme咖喱街（威尔姆斯洛路）",
+          "lat": 53.4538,
+          "lng": -2.2176,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "距校区步行/公车约15分钟的中东与南亚餐厅集群，深夜营业，是留学生公认的性价比美食街。"
         }
       ]
     }

@@ -51,60 +51,112 @@
       "icon": "school",
       "items": [
         {
+          "name": "Caltech Hall (formerly Millikan Library)",
+          "nameCn": "加州理工学院大楼（原米利肯图书馆）",
+          "lat": 34.1374,
+          "lng": -118.1256,
+          "rank": 1,
+          "tier": "必去",
+          "note": "园区最高建筑（9层），校园视觉中心，曾是图书馆，现已转型为办公空间，脚下便是著名的米利肯倒影池。"
+        },
+        {
           "name": "Beckman Institute",
           "nameCn": "贝克曼研究所",
-          "lat": 34.1384,
-          "lng": -118.1259,
-          "note": "化学与生物交叉研究中心，坐落 Beckman 中庭北端。"
+          "lat": 34.1389,
+          "lng": -118.1268,
+          "rank": 2,
+          "tier": "必去",
+          "note": "跨学科化学与生物科学研究中心，由贝克曼夫妇捐款5000万美元建造，西班牙风格庭院极具特色，是Caltech最重要的研究建筑之一。"
         },
         {
           "name": "Cahill Center for Astronomy and Astrophysics",
           "nameCn": "卡希尔天文与天体物理中心",
-          "lat": 34.1356,
-          "lng": -118.1263,
-          "note": "南校区的天文台系科楼，外立面色带醒目。"
-        },
-        {
-          "name": "Annenberg Center (Computing & Mathematical Sciences)",
-          "nameCn": "安纳伯格计算与数学科学中心",
-          "lat": 34.1398,
-          "lng": -118.1238,
-          "note": "计算机科学与应用数学的现代教研楼。"
-        },
-        {
-          "name": "Moore Laboratory of Engineering",
-          "nameCn": "摩尔工程实验楼",
-          "lat": 34.1398,
+          "lat": 34.1363,
           "lng": -118.1247,
-          "note": "电子工程系所在地，临 Moore Walk。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "2009年建成，Caltech天文物理系的旗舰建筑，普利兹克奖建筑师Thom Mayne设计，外形前卫，是校园最具辨识度的现代建筑。"
+        },
+        {
+          "name": "Annenberg Center for Information Science and Technology",
+          "nameCn": "安南伯格信息科学与技术中心",
+          "lat": 34.1377,
+          "lng": -118.1232,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2009年落成，CMS（计算+数学+科学）系所在地，由安南伯格基金会资助，是学校CS/应用数学专业的核心教学楼。"
+        },
+        {
+          "name": "Broad Center for the Biological Sciences",
+          "nameCn": "布罗德生物科学中心",
+          "lat": 34.1392,
+          "lng": -118.1279,
+          "rank": 5,
+          "tier": "必去",
+          "note": "生物与生物工程系的研究核心，含一流实验室和Broad Cafe，是生命科学方向学生的主要活动场所。"
         },
         {
           "name": "Guggenheim Aeronautical Laboratory (GALCIT)",
           "nameCn": "古根海姆航空实验室",
-          "lat": 34.1366,
-          "lng": -118.1245,
-          "note": "航空航天系 GALCIT 的发源楼，钱学森曾在此求学任教。"
+          "lat": 34.1382,
+          "lng": -118.1313,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1929年建立，Caltech航空与航天系前身，直接催生了JPL喷气推进实验室，是人类航天史的重要起点。"
         },
         {
-          "name": "Linde Hall of Mathematics and Physics",
-          "nameCn": "林德数学与物理楼",
-          "lat": 34.1364,
-          "lng": -118.1254,
-          "note": "数学与物理共用的西班牙复兴式核心教学楼。"
+          "name": "Dabney Hall of the Humanities",
+          "nameCn": "达布尼人文学院",
+          "lat": 34.1369,
+          "lng": -118.1258,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "校园最古老建筑之一，人文与社会科学系所在地，含Dabney休息室和人文图书馆，西班牙任务式风格建筑。"
         },
         {
-          "name": "Bridge Laboratory of Physics",
-          "nameCn": "布里奇物理实验楼",
-          "lat": 34.1364,
-          "lng": -118.1261,
-          "note": "历史悠久的物理系实验楼群，分东、西与附楼。"
+          "name": "Watson Laboratories of Applied Physics",
+          "nameCn": "沃森应用物理实验室",
+          "lat": 34.138,
+          "lng": -118.1252,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "应用物理与材料科学系核心实验室，以IBM创始人Thomas Watson Sr.命名，是工程与应用科学研究重镇。"
         },
         {
-          "name": "Crellin & Church Laboratories of Chemistry",
-          "nameCn": "克雷林与丘奇化学实验楼",
-          "lat": 34.1374,
-          "lng": -118.1267,
-          "note": "化学系核心实验楼，鲍林曾长期在此工作。"
+          "name": "Noyes Laboratory of Chemical Physics",
+          "nameCn": "诺伊斯化学物理实验室",
+          "lat": 34.1378,
+          "lng": -118.127,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "化学与化学工程系主要实验楼，以诺贝尔奖得主Arthur Noyes命名，是Caltech化学研究的历史发源地。"
+        },
+        {
+          "name": "Parsons-Gates Hall of Administration",
+          "nameCn": "帕森斯-盖茨行政楼",
+          "lat": 34.1383,
+          "lng": -118.1264,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校园行政核心楼，处理学生事务、注册等，新生开学第一周必来报到的地方。"
+        },
+        {
+          "name": "Center for Student Services",
+          "nameCn": "学生服务中心",
+          "lat": 34.1393,
+          "lng": -118.1287,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "学生事务一站式服务中心，包含国际学生办公室、财务援助、职业发展等，留学生必访之地。"
+        },
+        {
+          "name": "Resnick Sustainability Center",
+          "nameCn": "雷斯尼克可持续发展中心",
+          "lat": 34.1362,
+          "lng": -118.1282,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "2024年最新落成，专注于清洁能源与可持续发展研究，是Caltech最新的旗舰研究建筑，环保设计极具前瞻性。"
         }
       ],
       "defaultOn": true
@@ -117,18 +169,112 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Caltech Hall (formerly Millikan Library)",
-          "nameCn": "加州理工楼（原密立根图书馆）",
-          "lat": 34.1369,
-          "lng": -118.1261,
-          "note": "校园最高建筑，九层塔楼，曾为主图书馆与地标。"
+          "name": "Sherman Fairchild Library of Engineering and Applied Science",
+          "nameCn": "谢尔曼·费尔柴尔德工程应用科学图书馆",
+          "lat": 34.1371,
+          "lng": -118.126,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Caltech主力图书馆，1997年建成，工程/物理/数学馆藏最全，含大量小组研讨室和计算机终端，是学生最常使用的学习空间。"
         },
         {
-          "name": "Sherman Fairchild Library",
-          "nameCn": "谢尔曼·费尔柴尔德图书馆",
-          "lat": 34.1378,
-          "lng": -118.1248,
-          "note": "工程与应用科学主图书馆，全天候开放的自习中心。"
+          "name": "Caltech Hall Library (Millikan Collections)",
+          "nameCn": "加州理工大楼图书馆（米利肯馆藏）",
+          "lat": 34.1374,
+          "lng": -118.1256,
+          "rank": 2,
+          "tier": "必去",
+          "note": "馆藏科学史珍本及院校行政档案，与Caltech Hall合并，是校园制度记忆的守护者。"
+        },
+        {
+          "name": "Dabney Library (Humanities)",
+          "nameCn": "达布尼人文图书馆",
+          "lat": 34.1369,
+          "lng": -118.1258,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "人文与社会科学专藏，位于Dabney Hall内，环境安静，适合写作和人文研究，并设有Treasure Room历史珍藏展示区。"
+        },
+        {
+          "name": "Cahill Astrophysics Library",
+          "nameCn": "卡希尔天体物理图书馆",
+          "lat": 34.1363,
+          "lng": -118.1247,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Caltech天体物理分馆，位于Cahill中心内，专藏天文和物理期刊及研究资料，是天文系学生的专属学习空间。"
+        },
+        {
+          "name": "Earthquake Engineering Research Library",
+          "nameCn": "地震工程研究图书馆",
+          "lat": 34.1395,
+          "lng": -118.129,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专注地震工程与结构力学文献，藏有大量USGS报告和地球物理学资料，是地质与行星科学方向的重要资源。"
+        },
+        {
+          "name": "Huntington Library (Research Library)",
+          "nameCn": "亨廷顿图书馆",
+          "lat": 34.1291,
+          "lng": -118.1145,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "世界级人文研究图书馆，藏有古腾堡圣经、莎士比亚第一对开本等珍本，需申请研究员身份方可进入研究室，但其植物园和艺术馆对公众开放。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "The Huntington Library, Art Museum, and Botanical Gardens",
+          "nameCn": "亨廷顿图书馆·艺术博物馆·植物园",
+          "lat": 34.1291,
+          "lng": -118.1145,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Caltech仅2英里的世界级文化圣地，207英亩庄园含12个专题花园（日式、中式、沙漠等）和欧美艺术馆，《蓝衣少年》名画即藏于此，是留学生周末必去打卡地。"
+        },
+        {
+          "name": "Norton Simon Museum",
+          "nameCn": "诺顿·西蒙博物馆",
+          "lat": 34.1464,
+          "lng": -118.1593,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Old Town Pasadena西端的顶级艺术博物馆，罗丹雕塑群和印象派馆藏享誉全美，对Caltech学生免费开放，步行或Metro可达。"
+        },
+        {
+          "name": "USC Pacific Asia Museum",
+          "nameCn": "南加大太平洋亚洲博物馆",
+          "lat": 34.1461,
+          "lng": -118.1442,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Pasadena市中心的亚洲艺术专题博物馆，中式庭院建筑本身即是文物，常设亚洲各国书画与工艺展，中国学生来此倍感亲切。"
+        },
+        {
+          "name": "Caltech Seismological Laboratory / Geological Sciences Gallery",
+          "nameCn": "Caltech地震实验室与地质科学展廊",
+          "lat": 34.1395,
+          "lng": -118.129,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "Caltech地质与行星科学系馆内设有岩石、矿物和地震仪器展示，开放日可参观，是理解南加州地震带的最佳入门地。"
+        },
+        {
+          "name": "Pasadena Museum of History",
+          "nameCn": "帕萨迪纳历史博物馆",
+          "lat": 34.1499,
+          "lng": -118.1434,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "全市唯一专门记录帕萨迪纳历史的博物馆，含Fenyes豪宅（可参观）和19-20世纪档案，了解玫瑰花车游行历史的好去处。"
         }
       ]
     },
@@ -140,39 +286,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Beckman Auditorium",
-          "nameCn": "贝克曼礼堂",
-          "lat": 34.1392,
-          "lng": -118.1255,
-          "note": "标志性圆形白色穹顶礼堂，号称『婚礼蛋糕』，位于校区北端。"
+          "name": "Beckman Auditorium ('The Wedding Cake')",
+          "nameCn": "贝克曼礼堂（婚礼蛋糕）",
+          "lat": 34.1411,
+          "lng": -118.1258,
+          "rank": 1,
+          "tier": "必去",
+          "note": "白色圆形建筑因外形酷似婚礼蛋糕而得名，1136座的校园最大礼堂，Nobel奖演讲、公开讲座和音乐会均在此举行，是Caltech最具标志性的建筑。"
+        },
+        {
+          "name": "Olive Walk & Millikan Pond",
+          "nameCn": "橄榄步道与米利肯倒影池",
+          "lat": 34.1375,
+          "lng": -118.126,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贯穿校园东西的核心步道，两侧古橄榄树成荫，连接各主要建筑；米利肯倒影池每年举行机械工程小船比赛，是最具Caltech情调的拍照地点。"
         },
         {
           "name": "The Athenaeum",
           "nameCn": "雅典娜俱乐部",
-          "lat": 34.1372,
-          "lng": -118.1224,
-          "note": "校区东南角的教职员俱乐部，多位诺奖得主在此庆功。"
+          "lat": 34.1367,
+          "lng": -118.1221,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "1930年建成的地中海复兴式教职员私人俱乐部，爱因斯坦访校时曾下榻于此（Einstein Suite），学生需受邀方可入内，是校园历史最有质感的建筑。"
         },
         {
-          "name": "Hameetman Center (Student Center)",
-          "nameCn": "哈米特曼学生中心",
-          "lat": 34.1373,
-          "lng": -118.1239,
-          "note": "学生活动与餐饮中心，毗邻 Winnett 学生会。"
+          "name": "Hameetman Center & Red Door Cafe",
+          "nameCn": "哈米特曼中心与红门咖啡",
+          "lat": 34.1382,
+          "lng": -118.1269,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园学生活动中枢，含排练厅、游戏室和Red Door Cafe（深夜咖啡厅，晚10点-凌晨2点营业），是Caltech学生压力释放的日常聚集地。"
         },
         {
-          "name": "Beckman Mall & Olive Walk",
-          "nameCn": "贝克曼中庭与橄榄步道",
-          "lat": 34.1384,
+          "name": "Throop Memorial Garden (Turtle Pond)",
+          "nameCn": "斯罗普纪念花园（龟池）",
+          "lat": 34.138,
           "lng": -118.1255,
-          "note": "贯穿校园南北的绿化主轴与橄榄树步道。"
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园最受喜爱的户外小憩之地，小池中有乌龟自由游弋，以创校者Amos Throop命名，是考完试放松、聊天、发呆的第一选择。"
         },
         {
-          "name": "Braun Athletic Center",
-          "nameCn": "布劳恩体育中心",
-          "lat": 34.1339,
-          "lng": -118.1275,
-          "note": "校区南端的体育馆与游泳池，校队主场。"
+          "name": "Rose Bowl Stadium",
+          "nameCn": "玫瑰碗体育场",
+          "lat": 34.1614,
+          "lng": -118.1676,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "美国最标志性的户外体育场之一，每年1月1日举行玫瑰碗美式足球赛，每月第二个周日举办2500+摊贩的跳蚤市场，步行到Metro A线可达。"
+        },
+        {
+          "name": "Old Town Pasadena (Colorado Blvd Historic District)",
+          "nameCn": "帕萨迪纳老城区",
+          "lat": 34.1477,
+          "lng": -118.151,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "22街区国家历史遗产区，餐厅、精品店、电影院和酒吧云集，是距Caltech最近的城市娱乐中心，Uber或步行均可抵达。"
+        },
+        {
+          "name": "Colorado Street Bridge (Suicide Bridge)",
+          "nameCn": "科罗拉多大桥（历史拱桥）",
+          "lat": 34.1505,
+          "lng": -118.1648,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1913年建成的优美混凝土拱桥，横跨Arroyo Seco峡谷，是帕萨迪纳最具摄影价值的城市景观，玫瑰花车游行的必经之路。"
         }
       ]
     },
@@ -184,32 +367,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Trader Joe's (S. Lake Ave)",
-          "nameCn": "Trader Joe's 超市（南湖大道店）",
-          "lat": 34.141,
-          "lng": -118.132,
-          "note": "离校园最近的主流超市之一，性价比高、半成品和零食丰富，345 S Lake Ave，步行/骑车可达。"
+          "name": "Pavilions (California Blvd)",
+          "nameCn": "帕维利翁斯超市（加州大道店）",
+          "lat": 34.1375,
+          "lng": -118.1121,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Caltech步行约10分钟，是校园周边最近的大型主流超市，24小时营业，生鲜、日用品、熟食一应俱全，是最常用的日常补给站。"
         },
         {
-          "name": "Ralphs (N. Lake Ave)",
-          "nameCn": "Ralphs 超市（北湖大道店）",
-          "lat": 34.149,
-          "lng": -118.1318,
-          "note": "大型连锁综合超市，生鲜日用一站买齐，校园北侧 160 N Lake Ave，店内带药房。"
+          "name": "Trader Joe's (S. Arroyo Pkwy)",
+          "nameCn": "乔氏超市（阿罗约大道店）",
+          "lat": 34.1401,
+          "lng": -118.1466,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Caltech学生最爱的性价比超市，有机食品、即食餐和招牌冷冻食品价格实惠，骑车或乘公交约10分钟可达，是周末囤货首选。"
         },
         {
           "name": "99 Ranch Market (San Gabriel)",
-          "nameCn": "大华超市 99 大华（圣盖博店）",
-          "lat": 34.0777,
-          "lng": -118.1018,
-          "note": "南加最大华人连锁超市，中餐食材/调料/活海鲜最全，校园南约 6km，是采购中国货的首选。"
+          "nameCn": "大华超市（圣盖博店）",
+          "lat": 34.0804,
+          "lng": -118.1062,
+          "rank": 3,
+          "tier": "必去",
+          "note": "华人留学生最重要的中国食材基地，位于圣盖博市中心，猪肉、鱼类、蔬菜、豆腐、调味料、冷冻食品全面齐备，开车约15分钟。"
         },
         {
           "name": "H Mart (Arcadia)",
-          "nameCn": "H Mart 韩亚龙超市（阿凯迪亚店）",
-          "lat": 34.1356,
-          "lng": -118.0636,
-          "note": "大型韩国/亚洲超市，韩日中食材齐全、自带美食广场，校园以东约 5.5km。"
+          "nameCn": "韩国H超市（阿卡迪亚店）",
+          "lat": 34.1352,
+          "lng": -118.0401,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "韩国大型连锁亚洲超市，韩式食材最全，同时兼顾中日东南亚食材，内设美食广场，开车约20分钟，是补充泡菜、年糕等食材的好去处。"
+        },
+        {
+          "name": "Ralphs (N. Lake Ave)",
+          "nameCn": "拉尔夫斯超市（北湖大道店）",
+          "lat": 34.1569,
+          "lng": -118.1313,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Kroger旗下连锁超市，位于Lake Ave，步行或乘Metro可达，自有品牌性价比高，药妆区和烤鸡是招牌，适合日常快速采购。"
+        },
+        {
+          "name": "Whole Foods Market (N. Fair Oaks Ave)",
+          "nameCn": "全食超市（费尔奥克斯大道店）",
+          "lat": 34.1586,
+          "lng": -118.1494,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "高端有机超市，位于Pasadena北部，健康零食、素食、各国进口食品品类丰富，价格偏高但品质一流，偶尔犒劳自己的好选择。"
+        },
+        {
+          "name": "99 Ranch Market (Arcadia – Golden West)",
+          "nameCn": "大华超市（阿卡迪亚金西店）",
+          "lat": 34.1268,
+          "lng": -118.0494,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "阿卡迪亚的大型大华店，位于金西大道，停车便利，品类比圣盖博店更全，适合周末开车大量囤货中国食材。"
         }
       ]
     },
@@ -221,39 +439,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Pie 'n Burger",
-          "nameCn": "Pie 'n Burger 经典美式餐馆",
-          "lat": 34.136,
-          "lng": -118.1315,
-          "note": "1963 年开业的加州理工地标小馆，汉堡和现烤派必点，几乎挨着校园（913 E California Blvd）。"
-        },
-        {
-          "name": "Lunasia Dim Sum House",
-          "nameCn": "六意（粤式茶餐厅/点心）",
-          "lat": 34.1457,
-          "lng": -118.1473,
-          "note": "老城区著名粤式点心，虾饺烧卖港式烤鸭水准高，离校园最近的正经中餐之一。"
-        },
-        {
           "name": "Din Tai Fung (Arcadia)",
-          "nameCn": "鼎泰丰（阿凯迪亚 Santa Anita 店）",
-          "lat": 34.1308,
-          "lng": -118.051,
-          "note": "世界知名小笼包，台式经典，开在 Westfield Santa Anita 商场内，校园东约 7km，值得专程。"
+          "nameCn": "鼎泰丰（阿卡迪亚店）",
+          "lat": 34.1304,
+          "lng": -118.0385,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "全球最知名的小笼包连锁，米其林星级品质，阿卡迪亚店位于Westfield购物中心内，留学生聚餐首选，排队是常态但绝对值得。"
+        },
+        {
+          "name": "Lunasia Dim Sum House (Alhambra)",
+          "nameCn": "鸿运茶餐厅点心（阿罕布拉店）",
+          "lat": 34.0776,
+          "lng": -118.1282,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "米其林推荐的粤式点心殿堂，虾饺、烧卖和肠粉是招牌，周末早茶需提前候位，是正宗港式饮茶体验的最佳选择。"
         },
         {
           "name": "Chengdu Taste (Alhambra)",
           "nameCn": "成都味道（阿罕布拉店）",
-          "lat": 34.0937,
-          "lng": -118.127,
-          "note": "圣盖博谷川菜名店，担担面、钵钵鸡、辣味地道，想吃正宗川味必来。"
+          "lat": 34.0778,
+          "lng": -118.1324,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "全美最受好评的正宗成都川菜馆之一，主厨王刚招牌钵钵鸡和辣椒炒猪肠令无数食客心动，米其林指南推荐，需排队1-2小时。"
         },
         {
-          "name": "Lake Avenue dining cluster",
-          "nameCn": "南湖大道餐饮街区",
-          "lat": 34.1385,
-          "lng": -118.1318,
-          "note": "校园西侧 Lake Ave 一带集中了咖啡、快餐、波霸奶茶和各国小馆，日常解决吃饭最方便。"
+          "name": "Ramen Tatsunoya (Pasadena)",
+          "nameCn": "竜の家拉面（帕萨迪纳店）",
+          "lat": 34.1462,
+          "lng": -118.1503,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "来自日本博多的正宗九州豚骨拉面，汤底浓郁，面条弹牙，在Old Town Pasadena，是Yelp最高分拉面店之一，排队必备。"
+        },
+        {
+          "name": "Mama Lu's Dumpling House (Pasadena)",
+          "nameCn": "妈妈路饺子馆（帕萨迪纳店）",
+          "lat": 34.1453,
+          "lng": -118.1505,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Old Town Pasadena里人气最旺的中式饺子馆，手工饺子皮薄馅大，葱姜猪肉水饺是招牌，价格实惠，口味最接近北方家常味道。"
+        },
+        {
+          "name": "Chong Qing Yao Mei Hotpot (Pasadena)",
+          "nameCn": "重庆摇妹火锅（帕萨迪纳店）",
+          "lat": 34.1467,
+          "lng": -118.1466,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "正宗重庆麻辣火锅，牛油锅底浓香，毛肚、黄喉是招牌，位于Green Street，是Caltech学生聚餐解馋首选，冬季尤其火爆。"
+        },
+        {
+          "name": "Boiling Point (Pasadena)",
+          "nameCn": "沸点（帕萨迪纳店）",
+          "lat": 34.1476,
+          "lng": -118.1475,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "台式独份小火锅连锁，每人一锅不用等位分汤，仙草豆腐麻辣锅是招牌，价格约15美元，性价比极高，留学生自己吃饭的好选择。"
+        },
+        {
+          "name": "SOH Grill House (Pasadena)",
+          "nameCn": "SOH韩式烤肉（帕萨迪纳店）",
+          "lat": 34.1478,
+          "lng": -118.1511,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Pasadena评分最高的韩式烤肉，五花肉和牛舌品质上乘，座位宽敞，团体聚餐气氛好，位于Raymond Ave，是庆祝好成绩的首选。"
+        },
+        {
+          "name": "Dan Modern Chinese (Pasadena)",
+          "nameCn": "Dan现代中餐（帕萨迪纳店）",
+          "lat": 34.1445,
+          "lng": -118.1294,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于South Lake Ave的时尚现代中餐厅，主打精致川湘菜融合，装修精良，适合接待家人或正式聚餐，价格中等偏上。"
+        },
+        {
+          "name": "Bone Kettle (Pasadena)",
+          "nameCn": "骨汤壶越南餐厅（帕萨迪纳店）",
+          "lat": 34.1476,
+          "lng": -118.1508,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Old Town中最受好评的越南骨汤餐厅，24小时熬制的猪骨汤底配饭浓郁鲜美，米其林必比登推荐，是亚洲饮食风格爱好者的心头好。"
+        },
+        {
+          "name": "Szechuan Impression (Alhambra / San Gabriel)",
+          "nameCn": "川味印象（阿罕布拉店）",
+          "lat": 34.0817,
+          "lng": -118.1312,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "由成都年轻人创办的精致川菜馆，菜单精简但件件出彩，夫妻肺片和红油抄手是必点，装修现代，比成都味道稍等位短，同样需排队。"
+        },
+        {
+          "name": "Sato Ramen House (Pasadena)",
+          "nameCn": "佐藤拉面（帕萨迪纳店）",
+          "lat": 34.1461,
+          "lng": -118.1505,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Old Town里精致的日式拉面小馆，味噌拉面浓郁层次丰富，座位较少，氛围安静，是独自一人用餐的好选择。"
+        },
+        {
+          "name": "Lunasia Signature (Pasadena)",
+          "nameCn": "鸿运Signature升级版（帕萨迪纳店）",
+          "lat": 34.147,
+          "lng": -118.109,
+          "rank": 13,
+          "tier": "一般",
+          "note": "鸿运在帕萨迪纳的升级版新店，位于East Colorado Blvd，提供精致粤菜和特色套餐，适合在校内庆祝场合或亲友来访时光顾。"
+        },
+        {
+          "name": "All India Café (Fair Oaks Ave)",
+          "nameCn": "全印度咖啡厅（印度餐厅）",
+          "lat": 34.1453,
+          "lng": -118.1499,
+          "rank": 14,
+          "tier": "一般",
+          "note": "帕萨迪纳口碑最好的印度餐厅之一，塔利套餐丰盛实惠，素食选项丰富，是多元饮食的好选择，深受Caltech师生喜爱。"
         }
       ]
     },
@@ -265,32 +574,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (E. Colorado Blvd)",
-          "nameCn": "大通银行 Chase（科罗拉多大道店）",
-          "lat": 34.1458,
-          "lng": -118.1318,
-          "note": "全美最大零售银行之一，新生开户/办借记卡常用，860 E Colorado Blvd，离校园近。"
+          "name": "Bank of America (California Blvd Branch)",
+          "nameCn": "美国银行（加州大道支行）",
+          "lat": 34.1372,
+          "lng": -118.118,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Caltech最近的大型美国银行支行，可开美元账户和申请学生信用卡，适合留学生落地第一周开户，工作人员有普通话服务。"
         },
         {
-          "name": "Huntington Hospital",
-          "nameCn": "亨廷顿医院（综合医院/急诊）",
-          "lat": 34.1366,
-          "lng": -118.153,
-          "note": "帕萨迪纳主要综合医院，24 小时急诊，100 W California Blvd，紧急就医的去处。"
+          "name": "Huntington Hospital (Emergency Room)",
+          "nameCn": "亨廷顿医院（急诊室）",
+          "lat": 34.142,
+          "lng": -118.1223,
+          "rank": 2,
+          "tier": "必去",
+          "note": "帕萨迪纳最大的综合医院，24小时急诊，距Caltech约1英里，是Caltech学生医疗保险网络内的首选医院，国际学生来美必须了解。"
+        },
+        {
+          "name": "Caltech Student Wellness Services",
+          "nameCn": "Caltech学生健康服务中心",
+          "lat": 34.1388,
+          "lng": -118.1259,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Caltech校内的学生医疗和心理咨询机构，含初级保健门诊和心理咨询，持学生保险可免费或低费使用，新生必须登记注册。"
         },
         {
           "name": "Exer Urgent Care (S. Lake Ave)",
-          "nameCn": "Exer 紧急护理诊所（南湖店）",
-          "lat": 34.1382,
-          "lng": -118.1318,
-          "note": "离校最近的 urgent care，发烧/小外伤等非急诊问题可直接 walk-in，600 S Lake Ave，每天营业。"
+          "nameCn": "Exer紧急护理中心（南湖大道）",
+          "lat": 34.1393,
+          "lng": -118.1316,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距Caltech最近的紧急护理门诊，每天8:00-20:00营业，无需预约，处理轻伤、发烧、扭伤等，比急诊室等待时间短且费用低。"
         },
         {
-          "name": "CVS Pharmacy (Lake Ave area)",
-          "nameCn": "CVS 药房（湖大道一带）",
-          "lat": 34.1455,
-          "lng": -118.1316,
-          "note": "连锁药房，处方药、常备药和日用品都有，校园附近多家分店，配药/打疫苗方便。"
+          "name": "Walgreens Pharmacy (S. Lake & Del Mar)",
+          "nameCn": "沃尔格林药店（南湖与德尔马路口）",
+          "lat": 34.1425,
+          "lng": -118.1312,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "距Caltech步行约15分钟的最近大型连锁药店，处方药、非处方药和日用品齐全，可取医院处方药，24小时取药窗口（部分时段）。"
+        },
+        {
+          "name": "T-Mobile (Old Town Pasadena, E Colorado Blvd)",
+          "nameCn": "T-Mobile电信门店（帕萨迪纳老城）",
+          "lat": 34.1476,
+          "lng": -118.15,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Old Town核心地段的T-Mobile门店，可办理留学生预付费SIM卡（Prepaid），$50/月含无限流量，是留学生落地后首选的运营商之一。"
+        },
+        {
+          "name": "Chase Bank (E Colorado Blvd)",
+          "nameCn": "摩根大通银行（科罗拉多大道支行）",
+          "lat": 34.1461,
+          "lng": -118.1436,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "大通银行帕萨迪纳支行，可开学生支票账户，Chase Sapphire借记卡在美国使用广泛，ATM免手续费网络覆盖全国，是第二热门开户选择。"
+        },
+        {
+          "name": "CVS Pharmacy (E Colorado Blvd)",
+          "nameCn": "CVS药店（科罗拉多大道店）",
+          "lat": 34.1461,
+          "lng": -118.1318,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "科罗拉多大道上的CVS连锁药店，处方药和日用品、美妆品类齐全，MinuteClinic可做基础诊断，价格比Walgreens稍低。"
         }
       ]
     },
@@ -302,39 +655,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "The Huntington Library, Art Museum & Botanical Gardens",
-          "nameCn": "亨廷顿图书馆与植物园（含流芳园中式园林）",
-          "lat": 34.129,
+          "name": "The Huntington (Gardens & Art)",
+          "nameCn": "亨廷顿植物园与艺术馆",
+          "lat": 34.1291,
           "lng": -118.1145,
-          "note": "世界级图书馆+艺术馆+植物园，「流芳园」是海外最大中式园林之一，校园南约 2km，必打卡。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园2英里的世界级园林，中式园林、日式庭院、仙人掌园各具特色，春季玫瑰园尤为壮观，Caltech学生凭ID可享折扣，是最推荐的周末目的地。"
         },
         {
-          "name": "Old Pasadena",
-          "nameCn": "帕萨迪纳老城",
-          "lat": 34.1456,
-          "lng": -118.1503,
-          "note": "Colorado Blvd 与 Fair Oaks 交口的历史街区，购物、餐厅、酒吧和街拍最热闹的地方。"
+          "name": "Old Town Pasadena",
+          "nameCn": "帕萨迪纳老城区",
+          "lat": 34.1477,
+          "lng": -118.151,
+          "rank": 2,
+          "tier": "必去",
+          "note": "22街区历史保护区，步行街汇聚百余家餐厅、咖啡馆、精品店和电影院，是周末购物娱乐中心，Gold Line轻轨可达，距校园约2英里。"
+        },
+        {
+          "name": "Rose Bowl Stadium & Flea Market",
+          "nameCn": "玫瑰碗体育场与跳蚤市场",
+          "lat": 34.1614,
+          "lng": -118.1676,
+          "rank": 3,
+          "tier": "必去",
+          "note": "每月第二个周日举行全美最大户外跳蚤市场（2500+摊位），古着、黑胶、古董应有尽有，入场费$15，是淘宝爱好者的天堂，1月1日玫瑰碗赛球场亦开放参观。"
         },
         {
           "name": "Norton Simon Museum",
-          "nameCn": "诺顿·西蒙美术馆",
+          "nameCn": "诺顿·西蒙博物馆",
           "lat": 34.1464,
           "lng": -118.1593,
-          "note": "藏有伦勃朗、梵高、戈雅等大师作品的私人级美术馆，玫瑰花车游行就在门口拐弯。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "Old Town西侧的世界级艺术博物馆，罗丹《地狱之门》系列和莫奈睡莲等镇馆之宝，门票$20，Caltech学生凭ID免费，强烈推荐独立参观。"
         },
         {
-          "name": "Caltech campus (Beckman Mall / Throop)",
-          "nameCn": "加州理工校园（贝克曼广场一带）",
-          "lat": 34.137,
-          "lng": -118.1253,
-          "note": "校园本身就是景点：地中海式建筑、橙园和喷泉，适合散步与拍照。"
+          "name": "Jet Propulsion Laboratory (JPL)",
+          "nameCn": "喷气推进实验室（JPL）",
+          "lat": 34.2015,
+          "lng": -118.1727,
+          "rank": 5,
+          "tier": "必去",
+          "note": "NASA旗下由Caltech管理的行星探测研究中心，探测器往往从这里发射，每年开放日（Open House）可免费参观控制中心，是理工科学生的朝圣之地。"
         },
         {
-          "name": "Pasadena City Hall",
-          "nameCn": "帕萨迪纳市政厅",
-          "lat": 34.1477,
-          "lng": -118.1444,
-          "note": "西班牙复兴式穹顶建筑，影视取景常客，是城里最上镜的拍照地标之一。"
+          "name": "Descanso Gardens",
+          "nameCn": "德斯坎索花园",
+          "lat": 34.2025,
+          "lng": -118.2054,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "La Cañada的160英亩公共花园，茶花林、玫瑰园和日式禅意花园令人心旷神怡，门票$12，是春季赏花和秋季Enchanted Forest灯光秀的必去之地。"
+        },
+        {
+          "name": "Arroyo Seco & Colorado Street Bridge",
+          "nameCn": "阿罗约塞科峡谷与科罗拉多大桥",
+          "lat": 34.1505,
+          "lng": -118.1648,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1913年的百年拱桥横跨峡谷，步道延伸至Rose Bowl，是跑步、骑行和摄影的绝佳路线，日落时分从桥上望向峡谷风景如画。"
+        },
+        {
+          "name": "San Gabriel Valley Food Crawl (SGV 626)",
+          "nameCn": "圣盖博谷美食探索（626区域）",
+          "lat": 34.0962,
+          "lng": -118.1064,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "全美中国城外最密集的中华美食聚集地，圣盖博、阿罕布拉、阿卡迪亚一带川菜、粤菜、台湾小吃应有尽有，是中国留学生的「精神故乡」，每周必去数次。"
+        },
+        {
+          "name": "Eaton Canyon Natural Area",
+          "nameCn": "伊顿峡谷自然保护区",
+          "lat": 34.1727,
+          "lng": -118.0936,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "圣盖博山脉入口处的天然徒步公园，自然中心免费开放，有清晰标识的短程步道，注意：2025年伊顿大火后部分热门步道（瀑布道）暂时关闭，进入前需确认最新开放状态。"
+        },
+        {
+          "name": "Pasadena Playhouse",
+          "nameCn": "帕萨迪纳游乐场剧院",
+          "lat": 34.1456,
+          "lng": -118.143,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "加州州立剧院，1924年建成，百年历史，演出百老汇前身剧目和实验戏剧，对文艺感兴趣的留学生可在此体验高质量英语戏剧演出。"
         }
       ]
     }

@@ -75,39 +75,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Paul G. Allen Center for Computer Science & Engineering",
+          "name": "Paul G. Allen Center & Bill & Melinda Gates Center for CSE",
           "nameCn": "保罗·艾伦计算机科学与工程中心",
-          "lat": 47.6533,
-          "lng": -122.3055,
-          "note": "艾伦计算机学院主楼，位于下校区工科群。"
+          "lat": 47.6532,
+          "lng": -122.3051,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖CS学院所在地，Allen Center与Gates Center两楼相连，是UW最具科技感的核心建筑。"
         },
         {
-          "name": "Bill & Melinda Gates Center",
-          "nameCn": "盖茨计算机科学与工程中心",
-          "lat": 47.6529,
-          "lng": -122.3045,
-          "note": "与艾伦中心隔路相望的第二座CSE楼。"
+          "name": "Warren G. Magnuson Health Sciences Center",
+          "nameCn": "马格努森健康科学中心",
+          "lat": 47.652,
+          "lng": -122.3124,
+          "rank": 2,
+          "tier": "必去",
+          "note": "涵盖医学院、牙学院、护理学院、公共卫生学院、药学院，是UW南校区最大学术建筑群。"
         },
         {
-          "name": "Mary Gates Hall",
-          "nameCn": "玛丽·盖茨楼",
-          "lat": 47.6555,
-          "lng": -122.3068,
-          "note": "信息学院与本科学术中心所在。"
+          "name": "Michael G. Foster School of Business (PACCAR Hall)",
+          "nameCn": "福斯特商学院（帕卡大楼）",
+          "lat": 47.6553,
+          "lng": -122.3043,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UW商学院旗舰建筑，MBA/本科商科课程在此，位于Stevens Way核心位置。"
         },
         {
-          "name": "Health Sciences Building (Magnuson)",
-          "nameCn": "健康科学大楼",
-          "lat": 47.6497,
-          "lng": -122.3095,
-          "note": "医学、护理、药学等学院的庞大综合体。"
+          "name": "William H. Gates Hall (School of Law)",
+          "nameCn": "盖茨法学院大楼",
+          "lat": 47.6583,
+          "lng": -122.3121,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "UW法学院所在，以比尔·盖茨之父命名，六层自然采光空间，内有西北最大法学图书馆。"
+        },
+        {
+          "name": "Denny Hall",
+          "nameCn": "丹尼大楼",
+          "lat": 47.6566,
+          "lng": -122.3099,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "建于1895年，是UW现址最老的建筑，文艺复兴风格，现为文学与人文学科教学楼，打卡必备。"
         },
         {
           "name": "Kane Hall",
-          "nameCn": "凯恩楼",
-          "lat": 47.6566,
+          "nameCn": "凯恩大楼",
+          "lat": 47.6569,
+          "lng": -122.3081,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UW最大的演讲厅所在地，许多大班必修课在此上课，紧邻红场，是新生最先熟悉的教学楼之一。"
+        },
+        {
+          "name": "Meany Hall (Meany Center for the Performing Arts)",
+          "nameCn": "米尼大楼（表演艺术中心）",
+          "lat": 47.6561,
+          "lng": -122.3118,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UW艺术表演旗舰场馆，红场西南角，举办世界级音乐会与舞台剧，学生票价实惠。"
+        },
+        {
+          "name": "Gowen Hall (Asian Languages & Literature / East Asia)",
+          "nameCn": "高文大楼（亚洲语言文学系）",
+          "lat": 47.6558,
           "lng": -122.3091,
-          "note": "红场西侧大讲堂与文理学院核心教学楼。"
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于人文四合院（The Quad）东南侧，内有东亚图书馆，是亚洲研究、政治学等人文学科重地。"
+        },
+        {
+          "name": "Husky Union Building (HUB)",
+          "nameCn": "哈士奇学生活动中心",
+          "lat": 47.6557,
+          "lng": -122.3046,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "学生会大楼，内有美食广场、US银行、书店、Starbucks及保龄球道，是学生活动的日常中心。"
+        },
+        {
+          "name": "Husky Stadium",
+          "nameCn": "哈士奇体育场",
+          "lat": 47.6502,
+          "lng": -122.3029,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "NFL级别大学球场，坐落湖滨，背靠卡斯喀特山脉，是全美风景最美的橄榄球场之一，赛季票疯抢。"
         }
       ],
       "defaultOn": true
@@ -121,17 +176,66 @@
       "items": [
         {
           "name": "Suzzallo Library",
-          "nameCn": "苏萨洛图书馆",
-          "lat": 47.6557,
-          "lng": -122.3084,
-          "note": "哥特式中央图书馆，校园最具标志性建筑。"
+          "nameCn": "苏扎洛图书馆",
+          "lat": 47.6561,
+          "lng": -122.3078,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UW标志性哥特式图书馆，阅览室宏伟如哈利波特场景，全美最美大学图书馆之一，必来打卡。"
         },
         {
-          "name": "Odegaard Undergraduate Library",
+          "name": "Allen Library",
+          "nameCn": "艾伦图书馆",
+          "lat": 47.6558,
+          "lng": -122.3072,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与苏扎洛相连，馆藏人文社科与自然科学为主，学习座位充足，学期末常爆满。"
+        },
+        {
+          "name": "Odegaard Undergraduate Library (OUGL)",
           "nameCn": "奥德加德本科图书馆",
-          "lat": 47.6566,
-          "lng": -122.3099,
-          "note": "红场旁24小时本科学习中心。"
+          "lat": 47.6563,
+          "lng": -122.3088,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全校计算机工位最多，有Zoom录音间和协作学习区，本科生24/7常用自习神地（需Husky Card）。"
+        },
+        {
+          "name": "Foster Business Library (in PACCAR Hall)",
+          "nameCn": "福斯特商学图书馆",
+          "lat": 47.6553,
+          "lng": -122.3043,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "商学院专业图书馆，6万册商科藏书加数百种期刊数据库，商科生写报告必备资源。"
+        },
+        {
+          "name": "Tateuchi East Asia Library (in Gowen Hall)",
+          "nameCn": "达内亚洲图书馆",
+          "lat": 47.6558,
+          "lng": -122.3091,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于高文大楼三楼，专藏中日韩文献，中文留学生查阅汉语资料的最佳图书馆。"
+        },
+        {
+          "name": "Health Sciences Library (in Magnuson HSC)",
+          "nameCn": "健康科学图书馆",
+          "lat": 47.652,
+          "lng": -122.3124,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "医学、护理、公卫等专业的核心馆，提供临床与基础医学数据库，南校区学生首选。"
+        },
+        {
+          "name": "UW Engineering Library",
+          "nameCn": "工程图书馆",
+          "lat": 47.6545,
+          "lng": -122.306,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "服务工学院各系，馆藏工程类技术文献与专利，位于Stevens Way，紧邻HUB。"
         }
       ]
     },
@@ -145,16 +249,47 @@
         {
           "name": "Burke Museum of Natural History and Culture",
           "nameCn": "伯克自然历史与文化博物馆",
-          "lat": 47.661,
-          "lng": -122.3098,
-          "note": "华盛顿州自然史与原住民文化馆。"
+          "lat": 47.6601,
+          "lng": -122.312,
+          "rank": 1,
+          "tier": "必去",
+          "note": "华盛顿州立博物馆，2019年新馆开放，可见科学家在透明实验室工作，恐龙化石+原住民文化展览绝佳。"
         },
         {
           "name": "Henry Art Gallery",
-          "nameCn": "亨利美术馆",
-          "lat": 47.6564,
-          "lng": -122.3117,
-          "note": "15大道旁的当代艺术馆。"
+          "nameCn": "亨利艺术画廊",
+          "lat": 47.6588,
+          "lng": -122.3118,
+          "rank": 2,
+          "tier": "必去",
+          "note": "华盛顿州第一家公共艺术博物馆，当代艺术展览前沿，与UW深度合作，学生免费或优惠入场。"
+        },
+        {
+          "name": "Wing Luke Museum of the Asian Pacific American Experience",
+          "nameCn": "翁路克亚裔美国人博物馆",
+          "lat": 47.5983,
+          "lng": -122.3237,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于唐人街/国际区，深度呈现华裔、日裔、菲裔等亚太裔移民历史，中国留学生强烈推荐参观。"
+        },
+        {
+          "name": "Seattle Asian Art Museum (Volunteer Park)",
+          "nameCn": "西雅图亚洲艺术博物馆",
+          "lat": 47.631,
+          "lng": -122.3155,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于卡比托尔山义工公园内的Art Deco建筑，展藏中国、日本、韩国、印度等亚洲艺术精品。"
+        },
+        {
+          "name": "Museum of Pop Culture (MoPOP)",
+          "nameCn": "流行文化博物馆",
+          "lat": 47.6215,
+          "lng": -122.3481,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "弗兰克·盖里设计的流线型建筑，展示摇滚、电影、科幻流行文化，紧邻太空针塔，强烈推荐。"
         }
       ]
     },
@@ -166,39 +301,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Red Square (Central Plaza)",
-          "nameCn": "红场（中央广场）",
-          "lat": 47.6562,
-          "lng": -122.3089,
-          "note": "红砖铺面的校园中枢广场。"
+          "name": "Suzzallo Library Reading Room (Red Square)",
+          "nameCn": "苏扎洛图书馆·红场",
+          "lat": 47.6561,
+          "lng": -122.3078,
+          "rank": 1,
+          "tier": "必去",
+          "note": "红砖广场是UW的心脏地带，哥特式苏扎洛大楼在此矗立，入学第一天必须来拍照的地标。"
+        },
+        {
+          "name": "The Liberal Arts Quadrangle (Cherry Blossom Quad)",
+          "nameCn": "人文四合院·樱花广场",
+          "lat": 47.6556,
+          "lng": -122.3094,
+          "rank": 2,
+          "tier": "必去",
+          "note": "每年3月下旬30棵90年吉野樱盛放，是全美最著名大学赏樱地之一，三月必来打卡。"
+        },
+        {
+          "name": "Drumheller Fountain (Rainier Vista)",
+          "nameCn": "德拉姆赫勒喷泉·雷尼尔景观轴",
+          "lat": 47.6531,
+          "lng": -122.3072,
+          "rank": 3,
+          "tier": "必去",
+          "note": "奥姆斯特德设计的景观轴，晴天站在台阶上可完美框住雷尼尔火山，是UW最经典的拍照角度。"
         },
         {
           "name": "Husky Union Building (HUB)",
-          "nameCn": "哈士奇学生活动中心",
-          "lat": 47.6554,
-          "lng": -122.305,
-          "note": "学生会与餐饮活动中心。"
+          "nameCn": "学生会大楼 HUB",
+          "lat": 47.6557,
+          "lng": -122.3046,
+          "rank": 4,
+          "tier": "必去",
+          "note": "新生报到、社团招募、学生自治的核心枢纽，一楼有美食广场和银行，是校园日常生活中心。"
         },
         {
-          "name": "Husky Stadium",
-          "nameCn": "哈士奇体育场",
-          "lat": 47.6502,
-          "lng": -122.301,
-          "note": "临湖橄榄球场，东校区体育核心。"
+          "name": "Sylvan Grove (Greek Columns)",
+          "nameCn": "西尔万树林·希腊柱廊",
+          "lat": 47.6574,
+          "lng": -122.3138,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "校园西侧隐秘的露天圆形剧场，四根希腊柱来自UW最初市区老校址，拍照绝佳的宁静角落。"
         },
         {
-          "name": "Drumheller Fountain",
-          "nameCn": "德拉姆海勒喷泉",
-          "lat": 47.6536,
-          "lng": -122.3076,
-          "note": "雷尼尔景观轴线上的喷泉，可远眺雷尼尔山。"
+          "name": "UW Waterfront Activities Center",
+          "nameCn": "校园水上活动中心",
+          "lat": 47.6486,
+          "lng": -122.2999,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "哈士奇体育场后方湖边，可租独木舟和划艇游联合湾至华盛顿公园植物园，体验极佳。"
         },
         {
-          "name": "U District Station (Link)",
-          "nameCn": "大学区轻轨站",
-          "lat": 47.6604,
-          "lng": -122.3137,
-          "note": "Link轻轨车站，校园西北门户。"
+          "name": "University Village (U Village)",
+          "nameCn": "大学村购物中心",
+          "lat": 47.6632,
+          "lng": -122.2989,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园旁开放式精品购物中心，聚集Din Tai Fung、Apple、Lululemon等品牌，中国留学生周末必逛。"
         }
       ]
     },
@@ -210,39 +373,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "H Mart UW (University District)",
-          "nameCn": "H Mart 韩亚龙超市（U区店）",
-          "lat": 47.6582,
-          "lng": -122.3134,
-          "note": "校园西侧 the Ave 上的亚洲超市，韩国/中国食材、泡面、速食、地下二层 K-beauty，步行可达，留学生采购最方便。"
+          "name": "H Mart UW",
+          "nameCn": "H超市（大学城店）",
+          "lat": 47.6617,
+          "lng": -122.3133,
+          "rank": 1,
+          "tier": "绝对必逛",
+          "note": "步行可达的韩国亚洲超市，两层楼中日韩食材+首尔烘焙坊，是离UW最近的亚洲食材首选。"
         },
         {
-          "name": "University Village (QFC flagship)",
-          "nameCn": "大学城购物中心（QFC 旗舰超市）",
-          "lat": 47.6629,
-          "lng": -122.299,
-          "note": "校园东北的露天商场，内有大型 QFC 旗舰超市，生鲜日用一站购齐，旁边就是各类品牌店。"
+          "name": "Trader Joe's U District",
+          "nameCn": "Trader Joe's 大学区店",
+          "lat": 47.6636,
+          "lng": -122.3163,
+          "rank": 2,
+          "tier": "很推荐",
+          "note": "步行15分钟可达，性价比高的美国特色超市，冷冻食品和零食口碑极好，学生日常必备。"
         },
         {
-          "name": "Safeway University District",
-          "nameCn": "Safeway 超市（U区店）",
-          "lat": 47.6657,
-          "lng": -122.314,
-          "note": "U区主流连锁超市，价格亲民、品类全，常有会员折扣，适合日常囤货。"
+          "name": "QFC University Village",
+          "nameCn": "QFC大学村店",
+          "lat": 47.6617,
+          "lng": -122.2993,
+          "rank": 3,
+          "tier": "很推荐",
+          "note": "大学村内的全服务连锁超市，生鲜肉类齐全，内设Pharmacy，是UW学生最近的全品类西式超市。"
         },
         {
-          "name": "Trader Joe's University District",
-          "nameCn": "Trader Joe's（缺德舅·U区店）",
-          "lat": 47.6614,
-          "lng": -122.317,
-          "note": "网红平价超市，冷冻速食、零食、酒水性价比高，留学生最爱逛的'缺德舅'。"
+          "name": "Whole Foods Market Roosevelt Square",
+          "nameCn": "全食超市·罗斯福广场店",
+          "lat": 47.6757,
+          "lng": -122.3164,
+          "rank": 4,
+          "tier": "一般",
+          "note": "有机食材齐全的高端超市，距UW约2公里，轻轨可达，适合买有机蔬菜和进口食品。"
         },
         {
-          "name": "Uwajimaya (Chinatown-ID)",
-          "nameCn": "宇和岛屋亚洲超市（国际区总店）",
-          "lat": 47.5972,
-          "lng": -122.327,
-          "note": "西雅图最大日系亚洲超市，中日韩食材最齐全，坐轻轨 Link 直达国际区，周末囤货可去。"
+          "name": "Uwajimaya Seattle (Chinatown/ID)",
+          "nameCn": "宇和岛屋亚洲超市（国际区）",
+          "lat": 47.5968,
+          "lng": -122.3268,
+          "rank": 5,
+          "tier": "绝对必逛",
+          "note": "西雅图最大亚洲超市，位于唐人街国际区，日韩中食材最全，内有美食广场，轻轨直达。"
+        },
+        {
+          "name": "99 Ranch Market (Edmonds)",
+          "nameCn": "大华超市（埃德蒙兹店）",
+          "lat": 47.8081,
+          "lng": -122.3338,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "北郊最大中国超市，中式食材最全，有免费烤鱼服务，需驱车或乘轻轨+公交约40分钟。"
         }
       ]
     },
@@ -254,46 +436,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Xi'an Noodles",
-          "nameCn": "西安名吃（油泼面）",
-          "lat": 47.6663,
-          "lng": -122.3134,
-          "note": "the Ave 上的陕西手工 biang biang 面，油泼辣子、肉夹馍正宗管饱，学生党最爱的一碗。"
-        },
-        {
           "name": "Din Tai Fung (University Village)",
-          "nameCn": "鼎泰丰（大学城店）",
-          "lat": 47.6622,
-          "lng": -122.2985,
-          "note": "大学城内的台式小笼包名店，蟹粉小笼、炒饭稳定好吃，适合家人来访或改善伙食。"
+          "nameCn": "鼎泰丰·大学村店",
+          "lat": 47.6624,
+          "lng": -122.2992,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "台湾顶级小笼包连锁，全球公认品质，在UW学生中极受追捧，周末排队1小时属常态。"
         },
         {
-          "name": "Little Duck Organic / 东北菜",
-          "nameCn": "小鸭东北菜",
-          "lat": 47.6618,
-          "lng": -122.3134,
-          "note": "the Ave 附近主打东北家常菜，麻辣炸鸡、猪肉饺子分量足，想家时来一顿。"
+          "name": "Xi'an Noodles",
+          "nameCn": "西安面馆",
+          "lat": 47.6699,
+          "lng": -122.3132,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "西大街招牌裤带面+孜然羊肉，登上多项西雅图最佳餐厅榜单，中国留学生心头好，价格实惠。"
+        },
+        {
+          "name": "Dough Zone Dumpling House (U District)",
+          "nameCn": "面区饺子馆·大学区店",
+          "lat": 47.6648,
+          "lng": -122.3052,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "西雅图最受好评的中式饺子/小笼包餐厅，汤汁饱满的煎饺和XLB是王牌，多次获最佳中餐提名。"
+        },
+        {
+          "name": "Chuan House 川渝食府",
+          "nameCn": "川渝食府",
+          "lat": 47.6659,
+          "lng": -122.3131,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "正宗川渝风味，麻辣烫、口水鸡、炒饭一应俱全，是UW中国留学生最常去的家乡味餐厅之一。"
+        },
+        {
+          "name": "Little Duck",
+          "nameCn": "小鸭东北菜馆",
+          "lat": 47.6613,
+          "lng": -122.3175,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "专做东北菜，炸鸡、酸菜饺子、松仁玉米，《西雅图时报》力荐，分量大价格低，性价比之王。"
         },
         {
           "name": "Thai Tom",
-          "nameCn": "Thai Tom 泰餐",
+          "nameCn": "泰汤泰餐厅",
+          "lat": 47.6651,
+          "lng": -122.313,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "大学路上的传奇泰餐，明火大炒镬气十足，炒河粉带着焦香，被众多UW学生奉为必吃神店。"
+        },
+        {
+          "name": "Portage Bay Cafe",
+          "nameCn": "博蒂奇湾咖啡馆",
+          "lat": 47.6608,
+          "lng": -122.3179,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "本地有机食材为傲的早午餐名店，法式吐司和蟹肉班尼迪克蛋口碑极佳，周末早午餐打卡首选。"
+        },
+        {
+          "name": "Sumo Sushi & Grill AYCE",
+          "nameCn": "相扑寿司无限畅吃",
+          "lat": 47.6693,
+          "lng": -122.3138,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "午餐25美元·晚餐36美元日式无限畅吃，近50种寿司卷，是UW学生最爱的聚餐性价比餐厅。"
+        },
+        {
+          "name": "Aladdin Gyro-Cery",
+          "nameCn": "阿拉丁旋转烤肉小店",
+          "lat": 47.6618,
+          "lng": -122.3152,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "大学路上的中东小店，炸豆丸子芝麻酱是绝对拳头产品，超低价格填饱肚子，学生口碑神话。"
+        },
+        {
+          "name": "Taste of Xi'an",
+          "nameCn": "西安美食",
+          "lat": 47.6645,
+          "lng": -122.3131,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "大学路上另一家西安风味店，肉夹馍和凉皮大受好评，价格亲民，中国学生午饭常选。"
+        },
+        {
+          "name": "Off The Rez (at Burke Museum)",
+          "nameCn": "保留地外印第安美食",
           "lat": 47.6601,
-          "lng": -122.3133,
-          "note": "U区开了几十年的明火爆炒泰餐小店，Pad See Ew、咖喱辣得过瘾，本地学生公认必吃。"
+          "lng": -122.312,
+          "rank": 11,
+          "tier": "一般",
+          "note": "位于伯克博物馆内的原住民特色咖啡馆，炸面包鸡肉卷是招牌，既是美食也是文化体验。"
         },
         {
-          "name": "Shawarma King",
-          "nameCn": "Shawarma King 中东卷",
-          "lat": 47.6606,
-          "lng": -122.3133,
-          "note": "the Ave 上的中东快餐，沙威玛卷、falafel 便宜大份，深夜补给好去处。"
-        },
-        {
-          "name": "Dick's Drive-In (Wallingford)",
-          "nameCn": "Dick's 复古汉堡（Wallingford 店）",
-          "lat": 47.6611,
-          "lng": -122.3327,
-          "note": "西雅图本土汉堡传奇，便宜的 Deluxe 汉堡+奶昔，体验美式快餐文化的打卡点。"
+          "name": "Cedar's Restaurant",
+          "nameCn": "雪松印度餐厅",
+          "lat": 47.665,
+          "lng": -122.3127,
+          "rank": 12,
+          "tier": "一般",
+          "note": "大学区口碑最佳印度餐厅，烤饼加咖喱性价比高，适合想换口味的留学生。"
         }
       ]
     },
@@ -305,32 +553,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank — University Way NE",
-          "nameCn": "大通银行（University Way 支行）",
-          "lat": 47.6634,
-          "lng": -122.3134,
-          "note": "the Ave 上的 Chase 支行，留学生开户/办借记卡常去，工作日及周六上午营业。"
+          "name": "Chase Bank – University Way NE Branch",
+          "nameCn": "大通银行·大学路分行",
+          "lat": 47.6648,
+          "lng": -122.313,
+          "rank": 1,
+          "tier": "必办",
+          "note": "地址4501 University Way NE，开国际学生账户最便捷选择之一，步行即达，周一至五9-5营业。"
         },
         {
-          "name": "Bank of America — University Branch",
-          "nameCn": "美国银行（大学支行）",
-          "lat": 47.665,
-          "lng": -122.3134,
-          "note": "距 Chase 两个街区，另一主流大行选择，开户、电汇、ATM 齐全。"
+          "name": "Bank of America – University Way NE",
+          "nameCn": "美国银行·大学路支行",
+          "lat": 47.667,
+          "lng": -122.3126,
+          "rank": 2,
+          "tier": "必办",
+          "note": "地址4701 University Way NE，留学生开户所需材料简单，支持护照+I-20，大学路常用银行。"
         },
         {
-          "name": "Husky Health Center (Hall Health)",
-          "nameCn": "Husky 学生健康中心（原 Hall Health）",
-          "lat": 47.6562,
-          "lng": -122.3036,
-          "note": "校内学生医疗中心，含全科门诊、紧急照护、药房与心理咨询，看病开药第一站。"
+          "name": "Wells Fargo – University Way NE Branch",
+          "nameCn": "富国银行·大学路支行",
+          "lat": 47.6626,
+          "lng": -122.3133,
+          "rank": 3,
+          "tier": "必办",
+          "note": "地址4100 University Way NE，富国银行大学区最近分行，ATM多，国际转账功能完善。"
         },
         {
-          "name": "T-Mobile — NE 45th St",
-          "nameCn": "T-Mobile 通讯店（NE 45th）",
-          "lat": 47.6614,
-          "lng": -122.3128,
-          "note": "校园附近运营商门店，办手机卡/套餐、加 eSIM，新生落地先来开号。"
+          "name": "Husky Health Center (formerly Hall Health)",
+          "nameCn": "哈士奇健康中心（原霍尔健康中心）",
+          "lat": 47.6558,
+          "lng": -122.3048,
+          "rank": 4,
+          "tier": "必知",
+          "note": "地址4060 E Stevens Way NE，UW学生首诊诊所，提供初级保健、运动医学、旅行疫苗，学生医保可用。"
+        },
+        {
+          "name": "UW Medical Center – Montlake (Hospital)",
+          "nameCn": "UW医疗中心·蒙特莱克院区",
+          "lat": 47.6503,
+          "lng": -122.3079,
+          "rank": 5,
+          "tier": "必知",
+          "note": "地址1959 NE Pacific St，华盛顿州排名第一的医院，校园南侧步行可达，急诊及专科均可就诊。"
+        },
+        {
+          "name": "CVS Pharmacy – University Way NE",
+          "nameCn": "CVS药房·大学路店",
+          "lat": 47.6637,
+          "lng": -122.3133,
+          "rank": 6,
+          "tier": "必知",
+          "note": "地址4313 University Way NE，大学区最方便的连锁药房，处方药、OTC感冒药、日用品一站解决。"
+        },
+        {
+          "name": "T-Mobile – University Village",
+          "nameCn": "T-Mobile·大学村店",
+          "lat": 47.6617,
+          "lng": -122.299,
+          "rank": 7,
+          "tier": "必知",
+          "note": "地址2756 NE 45th St，大学村内，留学生开号首选，国际预付卡与月付套餐齐全，中文可沟通。"
+        },
+        {
+          "name": "AT&T Store – University Village",
+          "nameCn": "AT&T·大学村店",
+          "lat": 47.6622,
+          "lng": -122.2988,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "地址4626 25th Ave NE，信号覆盖优质，留学生可选择月付或预付计划，到店办理方便。"
         }
       ]
     },
@@ -342,39 +634,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "UW Quad (Cherry Blossoms)",
-          "nameCn": "华大文理学院方庭（樱花大道）",
-          "lat": 47.6571,
-          "lng": -122.308,
-          "note": "校内 30 棵吉野樱，每年三月底至四月初盛开，西雅图最著名赏樱与拍照地标。"
+          "name": "Pike Place Market",
+          "nameCn": "派克市场",
+          "lat": 47.6097,
+          "lng": -122.3422,
+          "rank": 1,
+          "tier": "必去",
+          "note": "创立于1907年的全美最古老公共市场，鱼贩抛鱼表演、星巴克创始店、本地新鲜农产品，西雅图必游No.1。"
         },
         {
-          "name": "Suzzallo Library Reading Room",
-          "nameCn": "苏萨罗图书馆（哈利波特阅览室）",
-          "lat": 47.6557,
-          "lng": -122.3076,
-          "note": "哥特式大阅览室号称'霍格沃茨'，是华大最上镜的建筑，自习+打卡两不误。"
+          "name": "Space Needle",
+          "nameCn": "太空针塔",
+          "lat": 47.6204,
+          "lng": -122.3491,
+          "rank": 2,
+          "tier": "必去",
+          "note": "西雅图天际线符号，1962年世博会建筑，605英尺高360°旋转观景台，俯瞰普吉特湾与雷尼尔火山。"
         },
         {
-          "name": "Drumheller Fountain & Rainier Vista",
-          "nameCn": "德拉姆海勒喷泉与雷尼尔视廊",
-          "lat": 47.6534,
-          "lng": -122.3076,
-          "note": "喷泉沿草坪望去可远眺雷尼尔雪山，校园经典明信片视角。"
+          "name": "UW Cherry Blossom Quad (Spring)",
+          "nameCn": "UW樱花四合院（春季赏樱）",
+          "lat": 47.6556,
+          "lng": -122.3094,
+          "rank": 3,
+          "tier": "必去",
+          "note": "每年3月中下旬30棵90年吉野樱同时盛开，是全美大学校园最著名赏樱地，留学生第一年必体验。"
         },
         {
-          "name": "Burke Museum of Natural History",
-          "nameCn": "伯克自然史与文化博物馆",
-          "lat": 47.6605,
-          "lng": -122.3115,
-          "note": "校园西北角的自然史博物馆，恐龙化石与西北原住民艺术，UW 学生可免费参观。"
+          "name": "Gas Works Park",
+          "nameCn": "煤气厂公园",
+          "lat": 47.6456,
+          "lng": -122.3344,
+          "rank": 4,
+          "tier": "必去",
+          "note": "联合湖北岸废弃工业改造公园，山顶可俯瞰西雅图最美免费天际线，距校区骑车15分钟，极具打卡价值。"
         },
         {
-          "name": "Henry Art Gallery",
-          "nameCn": "亨利美术馆",
-          "lat": 47.6586,
-          "lng": -122.3122,
-          "note": "华大当代艺术馆，常设 James Turrell 天光装置，UW 学生免费，雨天好去处。"
+          "name": "Fremont Neighborhood (Fremont Troll & Sunday Market)",
+          "nameCn": "弗里蒙特社区（巨魔雕像+周日集市）",
+          "lat": 47.651,
+          "lng": -122.3476,
+          "rank": 5,
+          "tier": "必去",
+          "note": "巨型混凝土巨魔雕像是西雅图最受欢迎的网红打卡点，每周日还有热闹的户外集市，步行/骑行均可。"
+        },
+        {
+          "name": "Seattle Chinatown-International District",
+          "nameCn": "西雅图唐人街·国际区",
+          "lat": 47.5983,
+          "lng": -122.3237,
+          "rank": 6,
+          "tier": "必去",
+          "note": "百年亚裔社区，宇和岛屋超市、翁路克博物馆、正宗粤菜馆云集，是感受华人历史与美食的好去处。"
+        },
+        {
+          "name": "Washington Park Arboretum",
+          "nameCn": "华盛顿公园植物园",
+          "lat": 47.6398,
+          "lng": -122.2945,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "UW与西雅图市共管的230英亩植物园，春季杜鹃花道（Azalea Way）极美，免费入园，步行或划船可达。"
+        },
+        {
+          "name": "Green Lake Park",
+          "nameCn": "绿湖公园",
+          "lat": 47.6816,
+          "lng": -122.3413,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "围湖2.8英里步道是西雅图最受欢迎的健步跑步路线，地处校园北侧约3公里，周末休闲首选。"
+        },
+        {
+          "name": "Capitol Hill & Volunteer Park",
+          "nameCn": "卡比托尔山·义工公园",
+          "lat": 47.631,
+          "lng": -122.3155,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "西雅图最有活力的文艺社区，义工公园内有亚洲艺术博物馆和温室，周边酒吧咖啡馆林立。"
+        },
+        {
+          "name": "Museum of Pop Culture (MoPOP) + Seattle Center",
+          "nameCn": "流行文化博物馆·西雅图中心",
+          "lat": 47.6215,
+          "lng": -122.3481,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "与太空针塔同处74英亩的西雅图中心，弗兰克·盖里设计的奇异外观+摇滚/科幻展览，打卡太空针后顺逛。"
+        },
+        {
+          "name": "UW Waterfront Activities Center (Kayaking)",
+          "nameCn": "UW水上活动中心（划船体验）",
+          "lat": 47.6486,
+          "lng": -122.2999,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "哈士奇体育场后方租独木舟划向联合湾，春夏强烈推荐，可一路划到华盛顿植物园，是UW独有体验。"
         }
       ]
     }

@@ -51,39 +51,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Law Building",
-          "nameCn": "法学楼",
-          "lat": -37.845,
-          "lng": 145.1123,
-          "note": "2021年由Woods Bagot设计，获2022 WAN建筑金奖。"
+          "name": "Deakin Law School Building (Building LC)",
+          "nameCn": "迪肯法学院大楼（LC栋）",
+          "lat": -37.8468,
+          "lng": 145.1158,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2020年建成的旗舰法学楼，荣获2022年WAN Awards金奖，内设Moot Court法庭教室及完善的健康中心，是迪肯最具代表性的学术地标。"
         },
         {
-          "name": "Building BC (Business & Law)",
-          "nameCn": "商法学楼 BC",
+          "name": "Deakin Business School Building (Building LB)",
+          "nameCn": "迪肯商学院大楼（LB栋）",
+          "lat": -37.847,
+          "lng": 145.1155,
+          "rank": 2,
+          "tier": "必去",
+          "note": "商学与法学院核心教学楼，涵盖会计、金融、市场营销、信息系统等多个系的办公室与教室，国际生云集。"
+        },
+        {
+          "name": "Specialised Indoor Exercise & Sport Science Building (Building U)",
+          "nameCn": "运动科学专用楼（U栋）",
+          "lat": -37.848,
+          "lng": 145.113,
+          "rank": 3,
+          "tier": "必去",
+          "note": "耗资3200万澳元，拥有全澳最先进的运动科学设施，包括气候模拟舱、5条40米室内跑道及生物力学实验室。"
+        },
+        {
+          "name": "Faculty of Health — Exercise, Nutrition & Sport Science (Building J)",
+          "nameCn": "健康学院运动营养楼（J栋）",
+          "lat": -37.846,
+          "lng": 145.1135,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "健康学院主要教学楼，内含食品实验室、运动科学实验室及感官测试间，是营养与运动科学专业学生的核心学习场所。"
+        },
+        {
+          "name": "Nursing & Midwifery Building (Building W)",
+          "nameCn": "护理与助产楼（W栋）",
+          "lat": -37.8465,
+          "lng": 145.1125,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "护理与助产专业的核心教学楼，内设临床模拟中心（Clinical Simulation Centre），配备高仿真训练设施。"
+        },
+        {
+          "name": "Faculty of Science, Engineering & Built Environment (Building BA)",
+          "nameCn": "科学与工程学院楼（BA栋）",
+          "lat": -37.8475,
+          "lng": 145.112,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "理工与建筑环境学院所在地，内有计算机、机器人（RIoT实验室）及工程学实验室，IT和工程专业必去。"
+        },
+        {
+          "name": "Deakin College Building (Building LA)",
+          "nameCn": "迪肯学院大楼（LA栋）",
+          "lat": -37.8472,
+          "lng": 145.1162,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "迪肯学院所在地，位于Elgar Road入口，专为国际生提供大学预科衔接课程，新生入学前必熟悉的地方。"
+        },
+        {
+          "name": "DUSA Student Hub (Building H)",
+          "nameCn": "DUSA学生会大楼（H栋）",
           "lat": -37.8483,
-          "lng": 145.1129,
-          "note": "伯伍德校区高速公路沿线主教学楼，商学与法学院。"
+          "lng": 145.1145,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "学生会（DUSA）总部，提供学生活动空间、社团注册、学生协助服务，是校园社交生活的核心枢纽。"
         },
         {
-          "name": "Specialised Exercise & Sport Science Building",
-          "nameCn": "运动与体育科学楼",
-          "lat": -37.8486,
-          "lng": 145.1134,
-          "note": "健康学院旗舰设施，配澳洲顶尖运动科学实验室。"
+          "name": "DeakinACTIVE Fitness Centre (Building LC Level G)",
+          "nameCn": "迪肯健身中心（LC栋底层）",
+          "lat": -37.8469,
+          "lng": 145.116,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "850平方米现代健身房，附设有氧区与团体操课，俯瞰wellness花园，是校内最受学生欢迎的健身场所。"
         },
         {
-          "name": "Dennys Lascelles Building (Waterfront)",
-          "nameCn": "丹尼斯·拉斯塞尔斯楼",
-          "lat": -38.1442,
-          "lng": 144.3598,
-          "note": "吉朗滨水校区核心楼，耗资3700万翻新，含阿尔弗雷德·迪肯研究所。"
+          "name": "Burwood Corporate Centre (Building BC)",
+          "nameCn": "柏伍德研究中心（BC栋）",
+          "lat": -37.8478,
+          "lng": 145.1148,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "研究行政中心，二楼为柏伍德企业中心，主要为研究人员和教职人员使用，部分实验室对研究生开放。"
         },
         {
-          "name": "School of Medicine (Waurn Ponds)",
-          "nameCn": "医学院",
-          "lat": -38.1972,
-          "lng": 144.2982,
-          "note": "2008年设立于沃恩池校区，区域医学教学中心。"
+          "name": "Lecture Theatres Complex (Building I)",
+          "nameCn": "综合大讲堂楼（I栋）",
+          "lat": -37.8481,
+          "lng": 145.114,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "包含三个大型讲堂，是全校跨学院大规模讲授课的主要教学场所，几乎所有专业的新生都在此上课。"
+        },
+        {
+          "name": "Student Central & Math Support (Building R/HE)",
+          "nameCn": "学生中心与数学辅导室（R/HE栋）",
+          "lat": -37.8479,
+          "lng": 145.1143,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "学生咨询、数学顾问及PASS朋辈辅导集中于此，是遇到学业困难时第一个应该前往的地方。"
         }
       ],
       "defaultOn": true
@@ -96,18 +169,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Building V Library (Burwood)",
-          "nameCn": "伯伍德图书馆 V栋",
-          "lat": -37.8474,
-          "lng": 145.1146,
-          "note": "主校区图书馆，位于Morgan's Walk尽头，含展览空间。"
+          "name": "Deakin University Library — Melbourne Burwood Campus (Building V)",
+          "nameCn": "迪肯大学图书馆——柏伍德校区（V栋）",
+          "lat": -37.8476,
+          "lng": 145.1138,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校区核心图书馆，提供可预约自习室、个人研习亭、24小时考试季开放、电脑与打印服务，并设有心理减压「重置室」。"
         },
         {
-          "name": "Alfred Deakin Prime Ministerial Library",
-          "nameCn": "阿尔弗雷德·迪肯总理图书馆",
-          "lat": -38.144,
-          "lng": 144.36,
-          "note": "纪念澳洲第二任总理迪肯，藏于吉朗滨水校区。"
+          "name": "Building LC Study Spaces (Levels 2–5)",
+          "nameCn": "LC栋多层自习空间（2–5层）",
+          "lat": -37.8469,
+          "lng": 145.1158,
+          "rank": 2,
+          "tier": "必去",
+          "note": "法学院大楼内各层设有个人自习区、小组研讨舱和科技吧，环境安静现代，法学和商科生的首选自习地。"
+        },
+        {
+          "name": "Deakin University Library — Online/Digital Collections",
+          "nameCn": "迪肯大学数字图书馆（线上资源）",
+          "lat": -37.8476,
+          "lng": 145.1138,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "提供海量电子期刊、数据库（Web of Science、Scopus等）及电子书，在家或宿舍即可全天候访问，科研必备。"
+        },
+        {
+          "name": "Box Hill Library (Whitehorse City Council)",
+          "nameCn": "Box Hill公共图书馆（白马市立）",
+          "lat": -37.8194,
+          "lng": 145.1223,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距校区约3公里的公共图书馆，免费办理图书证，中文馆藏丰富，是需要中文资料或安静校外自习的好去处。"
+        },
+        {
+          "name": "Whitehorse Manningham Regional Library — Nunawading",
+          "nameCn": "怀特霍斯曼宁汉地区图书馆（努纳瓦丁）",
+          "lat": -37.8248,
+          "lng": 145.1753,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "区域公共图书馆，馆藏涵盖多种亚洲语言书籍，周末开放时间较长，适合长时间自习或打印资料。"
+        },
+        {
+          "name": "Monash Gallery of Art Library & Reference Room",
+          "nameCn": "莫纳什摄影艺术馆参考图书室",
+          "lat": -37.9044,
+          "lng": 145.1631,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "MAPh（原MGA）附属摄影艺术专业参考图书室，对艺术与传媒专业学生有特殊参考价值，免费入馆。"
         }
       ]
     },
@@ -119,11 +232,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Deakin University Art Gallery",
-          "nameCn": "迪肯大学美术馆",
-          "lat": -37.8467,
-          "lng": 145.1139,
-          "note": "位于伯伍德校区FA栋，展出大学艺术收藏与当代展览。"
+          "name": "Deakin University Art Gallery (Building FA)",
+          "nameCn": "迪肯大学美术馆（FA栋）",
+          "lat": -37.8474,
+          "lng": 145.1132,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内画廊，每年举办约六场展览，展示澳大利亚当代艺术家作品，由前Toorak校区迁至，免费入场，周一至周五10am-4pm。"
+        },
+        {
+          "name": "Museum of Australian Photography (MAPh, formerly MGA)",
+          "nameCn": "澳大利亚摄影博物馆（原莫纳什艺术馆）",
+          "lat": -37.9044,
+          "lng": 145.1631,
+          "rank": 2,
+          "tier": "必去",
+          "note": "专注澳大利亚摄影艺术，免费入场，环境优美附设咖啡厅，距校区约15公里，艺术与媒体专业学生的朝圣地。"
+        },
+        {
+          "name": "Australian Sports Museum (MCG, Gate 3)",
+          "nameCn": "澳大利亚体育博物馆（MCG）",
+          "lat": -37.82,
+          "lng": 144.9833,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全澳最大体育历史博物馆，坐落于世界级球场MCG内，搭乘75路电车约45分钟可达，感受澳式板球与足球文化。"
+        },
+        {
+          "name": "Whitehorse Arts Centre Gallery",
+          "nameCn": "怀特霍斯艺术中心画廊",
+          "lat": -37.8198,
+          "lng": 145.1224,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "Box Hill市政艺术中心附属画廊，定期举办本地及亚裔艺术家展览，免费入场，距校区约3公里。"
         }
       ]
     },
@@ -135,25 +277,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "DeakinACTIVE Burwood (LC Building)",
-          "nameCn": "DeakinACTIVE健身中心 LC栋",
-          "lat": -37.8448,
-          "lng": 145.1121,
-          "note": "2020年启用，850平米健身房俯瞰康养花园，临Elgar路。"
+          "name": "Deakin Law Building (Woods Bagot Architecture)",
+          "nameCn": "迪肯法学院地标大楼",
+          "lat": -37.8468,
+          "lng": 145.1158,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2022年WAN Awards金奖得主，标志性竖向槽纹立面，是迪肯最具视觉冲击力的建筑，校园打卡首选地标。"
         },
         {
-          "name": "Costa Hall",
-          "nameCn": "科斯塔音乐厅",
-          "lat": -38.1436,
-          "lng": 144.3608,
-          "note": "1422座音乐厅，毕业典礼场地，属吉朗艺术中心。"
+          "name": "Burwood Link Pedestrian Bridge",
+          "nameCn": "柏伍德连廊步行天桥",
+          "lat": -37.847,
+          "lng": 145.1152,
+          "rank": 2,
+          "tier": "必去",
+          "note": "连接主校区（221号Burwood Hwy）与Elgar Road校区（LA/LB/LC栋）的高空步行桥，俯瞰校园全景的绝佳位置。"
         },
         {
-          "name": "Elite Sports Precinct (Waurn Ponds)",
-          "nameCn": "精英体育园区",
-          "lat": -38.1971,
-          "lng": 144.2992,
-          "note": "迪肯小鸭橄榄球俱乐部主场，吉朗猫队备用训练基地。"
+          "name": "DUSA Student Bar & Café (Building H)",
+          "nameCn": "DUSA学生酒吧与咖啡厅（H栋）",
+          "lat": -37.8483,
+          "lng": 145.1145,
+          "rank": 3,
+          "tier": "必去",
+          "note": "学生会经营的餐饮与社交中心，举办各类学生活动与社团聚会，是结交朋友、融入校园文化的最佳场所。"
+        },
+        {
+          "name": "Gardiners Creek Reserve (Adjacent to Campus)",
+          "nameCn": "加迪纳斯溪自然保护区（校园旁）",
+          "lat": -37.85,
+          "lng": 145.11,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "紧邻校园南侧的线型河岸公园，提供散步、骑行小径与野餐设施，是课后放松减压的天然绿地。"
+        },
+        {
+          "name": "Burwood Brickworks Shopping Centre",
+          "nameCn": "柏伍德砖窑购物中心",
+          "lat": -37.8509,
+          "lng": 145.1252,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全球最可持续购物中心之一，距校区约2公里，内设屋顶农场、Reading影院、Woolworths及多家特色餐厅，周末必去。"
+        },
+        {
+          "name": "Burwood One Shopping Centre",
+          "nameCn": "柏伍德一号购物中心",
+          "lat": -37.848,
+          "lng": 145.13,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "距校区约1公里，聚集Coles、Kmart、Aldi、CBA银行、GP诊所及亚洲超市Hokkien Market，日常购物最便捷。"
+        },
+        {
+          "name": "Deakin University Art Gallery Entrance (via Entrance 1/Holland Ave)",
+          "nameCn": "迪肯大学1号门（Holland Ave入口）",
+          "lat": -37.8466,
+          "lng": 145.1136,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园主入口，步行约500米可抵达画廊，是校园雕塑步道（Sculpture Walk）的起点，艺术装置散布其间。"
         }
       ]
     },
@@ -165,32 +349,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Box Hill Central (Box Hill Fresh Food Market)",
-          "nameCn": "博士山中央购物中心（生鲜市场）",
-          "lat": -37.8196,
-          "lng": 145.1212,
-          "note": "墨尔本最大华人商圈核心，地下生鲜市场+多家亚超，中餐食材一站买齐，离校约3公里、201校巴/火车直达。"
+          "name": "Woolworths Burwood East (Burwood Brickworks)",
+          "nameCn": "Woolworths超市（柏伍德砖窑店）",
+          "lat": -37.8509,
+          "lng": 145.1252,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Burwood Brickworks内全线Woolworths，生鲜齐全，每日7am-10pm，距校区约2公里，是距校最近的主流超市之一。"
         },
         {
-          "name": "Burwood One Shopping Centre (Coles / ALDI / Kmart)",
-          "nameCn": "Burwood One 购物中心",
-          "lat": -37.8497,
-          "lng": 145.149,
-          "note": "离校最近的大型综合超市群，24小时Coles+ALDI+Kmart+邮局，日常采购最方便，Burwood Hwy上电车可达。"
+          "name": "Coles Burwood East (Burwood One)",
+          "nameCn": "Coles超市（柏伍德一号店）",
+          "lat": -37.848,
+          "lng": 145.13,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Burwood One购物中心内，距校约1公里，与Kmart同楼，配合GPS周末采购主流食品杂货极为方便。"
         },
         {
-          "name": "Burwood Brickworks Shopping Centre (Woolworths)",
-          "nameCn": "Burwood Brickworks 购物中心（Woolworths）",
-          "lat": -37.8491,
-          "lng": 145.134,
-          "note": "新建环保社区购物中心，Woolworths超市+屋顶农场，环境好，离校约2公里。"
+          "name": "289 Asian Supermarket",
+          "nameCn": "289亚洲超市（柏伍德东）",
+          "lat": -37.8488,
+          "lng": 145.1315,
+          "rank": 3,
+          "tier": "必去",
+          "note": "东墨尔本地区最大亚洲超市之一，位于287-293 Burwood Hwy，周日至周四8:30am-8:30pm，中韩日东南亚食材一站购齐。"
         },
         {
-          "name": "Bennettswood Shopping Centre (Asian groceries)",
-          "nameCn": "Bennettswood 小商圈（亚洲杂货）",
-          "lat": -37.8517,
-          "lng": 145.1064,
-          "note": "步行可达的社区小商圈，含亚洲杂货店与餐馆，补货零食、调料很方便。"
+          "name": "Hokkien Market (Burwood One)",
+          "nameCn": "福建市场亚洲超市（柏伍德一号）",
+          "lat": -37.848,
+          "lng": 145.1298,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Burwood One内的大型亚洲食品超市，新鲜蔬果、豆腐、鱼丸、各类亚洲酱料应有尽有，华人学生高度依赖。"
+        },
+        {
+          "name": "Hu Hui Supermarket (Burwood Brickworks)",
+          "nameCn": "惠惠超市（柏伍德砖窑购物中心）",
+          "lat": -37.8509,
+          "lng": 145.125,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Burwood Brickworks内的中式亚洲食品超市，以优质生鲜和特色商品著称，是砖窑购物中心的华人购物首选。"
+        },
+        {
+          "name": "Burwood Highway Asian Grocery",
+          "nameCn": "柏伍德公路亚洲食品杂货店",
+          "lat": -37.8489,
+          "lng": 145.131,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于Burwood Hwy与Middleborough Rd路口附近，专营中国、韩国、日本、东南亚、印度等多国食材，品类专而全。"
+        },
+        {
+          "name": "ALDI Burwood East (Burwood One)",
+          "nameCn": "ALDI折扣超市（柏伍德一号）",
+          "lat": -37.8481,
+          "lng": 145.1302,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "德国平价连锁超市，价格比Coles/Woolworths低20-30%，基础食品和日用品性价比极高，是学生省钱利器。"
+        },
+        {
+          "name": "Woolworths at Burwood Heights Shopping Centre",
+          "nameCn": "Woolworths（柏伍德高地购物中心）",
+          "lat": -37.8455,
+          "lng": 145.1077,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "校区西侧另一家Woolworths，步行即可到达，Burwood Heights Shopping Centre内，适合日常补货。"
         }
       ]
     },
@@ -202,46 +430,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "China Bar Signature (Box Hill)",
-          "nameCn": "China Bar 中餐厅（博士山）",
-          "lat": -37.8189,
-          "lng": 145.1221,
-          "note": "博士山地标级中餐，分量大价格友好，深夜营业，留学生聚餐常客。"
+          "name": "Box Hill Central Food Court",
+          "nameCn": "Box Hill中心美食广场",
+          "lat": -37.8199,
+          "lng": 145.1218,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "墨尔本东区最知名的中华美食集散地，汇聚七个中国省份菜系，手拉兰州面、生煎包、越南河粉、台湾卤肉饭一应俱全，乘75路电车约20分钟可达。"
         },
         {
-          "name": "Dragon Hot Pot (Burwood East)",
-          "nameCn": "龙小火锅（Burwood East）",
-          "lat": -37.8535,
-          "lng": 145.15,
-          "note": "连锁麻辣香锅/串串，离校近、平价管饱，想念川味时的首选。"
+          "name": "Gold Leaf Chinese Restaurant",
+          "nameCn": "金叶中国餐厅（柏伍德东）",
+          "lat": -37.8485,
+          "lng": 145.128,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "柏伍德东最受推荐的粤式点心/早茶餐厅，购物车推点心的传统方式，周末座位极抢手需提前预订。地址：155 Burwood Hwy。"
         },
         {
-          "name": "Little Sichuan Hot Pot (Box Hill Central)",
-          "nameCn": "小四川火锅（博士山中央）",
-          "lat": -37.8198,
-          "lng": 145.121,
-          "note": "博士山中央内的正宗四川火锅，朋友聚会、解馋必去。"
+          "name": "Simon's Peiking Duck Restaurant",
+          "nameCn": "Simon's北京烤鸭餐厅（Box Hill South）",
+          "lat": -37.838,
+          "lng": 145.1318,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "墨尔本东区顶级北京烤鸭餐厅，仅供套餐、一鸭推荐2-3人共享，TripAdvisor好评逾2900条，是中式聚餐的标志性选择。"
         },
         {
-          "name": "Pancake Village / Jianbing (Box Hill)",
-          "nameCn": "煎饼村（博士山）",
-          "lat": -37.8202,
-          "lng": 145.1208,
-          "note": "北京风味煎饼果子，博士山小吃名物，便宜快手的中式早餐。"
+          "name": "Little Monkey Hot Pot (Burwood Brickworks)",
+          "nameCn": "小猴子麻辣烫火锅（柏伍德砖窑）",
+          "lat": -37.8509,
+          "lng": 145.1253,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Burwood Brickworks内最受华人学生欢迎的麻辣烫/火锅店，可自选食材、汤底，性价比高，是寒冷天气慰藉肠胃的首选。"
         },
         {
-          "name": "Roast Duck Inn (Box Hill)",
-          "nameCn": "烧鸭店（博士山 Carrington Rd）",
-          "lat": -37.8185,
-          "lng": 145.1235,
-          "note": "Carrington路上的港式烧腊，烧鸭叉烧地道，打包回宿舍很合适。"
+          "name": "Tien Dat Vietnamese Restaurant",
+          "nameCn": "天达越南餐厅（Box Hill）",
+          "lat": -37.8194,
+          "lng": 145.1197,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "1983年开业的越南餐厅元老，以浓郁牛骨汤越南河粉和香脆鸡排闻名，是Box Hill越南美食的历史代表，人均约$20。"
         },
         {
-          "name": "Grill'd Burwood (Aussie burgers)",
-          "nameCn": "Grill'd 澳式汉堡（Burwood）",
-          "lat": -37.8493,
-          "lng": 145.1338,
-          "note": "本地人气健康汉堡连锁，想吃西餐/澳式快餐时换换口味。"
+          "name": "Gami Chicken & Beer (Burwood Brickworks)",
+          "nameCn": "GAMI韩式炸鸡啤酒（柏伍德砖窑）",
+          "lat": -37.8509,
+          "lng": 145.1254,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "正宗韩式炸鸡连锁，17种香料秘制，RSPCA认证食材，是聚会撸串的热门场所，距校区约2公里。"
+        },
+        {
+          "name": "123 Sushi (On-Campus, Building LB)",
+          "nameCn": "123寿司（校内LB栋）",
+          "lat": -37.8471,
+          "lng": 145.1155,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "校内Elgar Road校区LB栋的寿司与亚洲料理店，提供新鲜实惠的日式及中式快餐，是课间午餐最方便的亚洲选择。"
+        },
+        {
+          "name": "Norwood Café & Restaurant (Burwood Brickworks)",
+          "nameCn": "Norwood咖啡餐厅（柏伍德砖窑）",
+          "lat": -37.8509,
+          "lng": 145.1249,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "本地人气早午餐咖啡馆，主打蘑菇卡邦尼、猪肉腹肉包和澳式早餐，咖啡出色，体验本地brunch文化的好地方。"
+        },
+        {
+          "name": "Rombe (Burwood Brickworks Rooftop)",
+          "nameCn": "Rombe屋顶餐厅（柏伍德砖窑顶层）",
+          "lat": -37.8508,
+          "lng": 145.125,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "砖窑购物中心顶层的城市农场餐厅，可俯瞰山脉全景，主打当季时令食材，红酒焖羊肩是招牌，适合庆祝场合。"
+        },
+        {
+          "name": "Market Hall (On-Campus, Burwood Hwy Campus)",
+          "nameCn": "Market Hall校内食堂（主校区）",
+          "lat": -37.8477,
+          "lng": 145.1142,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "校内最大食堂，提供多档美食，包括中式、西式、素食等选项，价格学生友好，是快速午餐的实用选择。"
+        },
+        {
+          "name": "Pho Huong Viet (Box Hill)",
+          "nameCn": "香越河粉（Box Hill）",
+          "lat": -37.8197,
+          "lng": 145.122,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Box Hill区高度评价的越南河粉店，汤底浓郁纯正，分量足价格实惠，适合大胃口学生慰藉乡愁。"
+        },
+        {
+          "name": "Master Lanzhou Noodle Express (Box Hill Central)",
+          "nameCn": "兰州拉面（Box Hill中心）",
+          "lat": -37.8201,
+          "lng": 145.1215,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "Box Hill Central内可透过玻璃看到师傅现场手拉面条，地道兰州清汤牛肉拉面，价格约$13-15，深受北方学生喜爱。"
+        },
+        {
+          "name": "Guardian Medical Café / Food at Burwood One",
+          "nameCn": "柏伍德一号内各式快餐档",
+          "lat": -37.848,
+          "lng": 145.1299,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Burwood One购物中心内有多家快餐与简餐选项，适合购物后顺便用餐，方便但选择相对普通。"
+        },
+        {
+          "name": "Ichiro Izakaya Bar (Burwood Brickworks)",
+          "nameCn": "一郎居酒屋（柏伍德砖窑）",
+          "lat": -37.8509,
+          "lng": 145.1251,
+          "rank": 14,
+          "tier": "一般",
+          "note": "砖窑购物中心内的日式居酒屋，提供日式小吃与调酒，适合下班或课后小酌聚会，价位中档。"
         }
       ]
     },
@@ -253,32 +565,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Box Hill Hospital (Eastern Health)",
-          "nameCn": "博士山医院（东部健康）",
-          "lat": -37.8137,
-          "lng": 145.1198,
-          "note": "区域大型公立医院，含24小时急诊，紧急就医认准这里。"
+          "name": "Deakin Medical Centre (Building LC, Level 1 & Building JB)",
+          "nameCn": "迪肯大学校医中心（LC栋1楼）",
+          "lat": -37.8469,
+          "lng": 145.1158,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内GP诊所，提供保密医疗、疫苗接种及心理咨询（CAPS），电话(03) 9244 5577，紧急后线13 74 25，国际生首选就医点。"
         },
         {
-          "name": "Commonwealth Bank — Box Hill Central",
-          "nameCn": "联邦银行 CBA（博士山中央）",
-          "lat": -37.8193,
-          "lng": 145.1215,
-          "note": "澳洲四大行之一，落地后开户/办卡，网点员工多会中文。"
+          "name": "Commonwealth Bank — Burwood East Branch (Burwood One)",
+          "nameCn": "澳联邦银行——柏伍德东分行（柏伍德一号）",
+          "lat": -37.848,
+          "lng": 145.13,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Burwood One购物中心内（Shop 16/17），距校约1公里，联邦银行是国际留学生最常选择的开户银行，支持预约英语服务。"
         },
         {
-          "name": "Chemist Warehouse Burwood East",
-          "nameCn": "Chemist Warehouse 药房（Burwood East）",
-          "lat": -37.8496,
-          "lng": 145.1488,
-          "note": "全澳最大平价连锁药房，买药、保健品、日用最划算。"
+          "name": "Guardian Medical Burwood (Burwood One, GP + Pharmacy)",
+          "nameCn": "卫士全科诊所（柏伍德一号，含药房）",
+          "lat": -37.848,
+          "lng": 145.1299,
+          "rank": 3,
+          "tier": "必去",
+          "note": "AGPAL认证的综合诊所，配备16间诊室及院内药房，提供GP看诊、免疫接种及小手术，无需预约，位于Burwood One。"
         },
         {
-          "name": "Box Hill Central — Telstra / Optus stores",
-          "nameCn": "电信营业厅 Telstra/Optus（博士山）",
-          "lat": -37.8197,
-          "lng": 145.1214,
-          "note": "主流运营商门店集中，办手机卡/套餐当场搞定。"
+          "name": "Chemist Warehouse — Burwood (622 Burwood Hwy area / nearby)",
+          "nameCn": "Chemist Warehouse仓储药房（柏伍德公路）",
+          "lat": -37.848,
+          "lng": 145.114,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全澳最低价药品连锁，提供处方药、非处方药及个人护理用品，折扣幅度大，是日常购买感冒药和营养品的首选。"
+        },
+        {
+          "name": "Optus Store (Westfield Burwood / nearby shopping centres)",
+          "nameCn": "Optus手机营业厅（区域购物中心）",
+          "lat": -37.848,
+          "lng": 145.1145,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Optus提供留学生常用的预付费SIM卡和月租套餐，覆盖广、网速稳，初抵澳洲首要办理的手机服务之一。"
+        },
+        {
+          "name": "Bendigo Bank / Community Bank Deakin University (On-Campus)",
+          "nameCn": "迪肯大学社区银行（本迪戈银行，校内）",
+          "lat": -37.8478,
+          "lng": 145.1142,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "迪肯大学与本迪戈银行合作的校内社区银行，盈利返还用于学生奖学金，账户可免费使用CBA/ANZ/NAB/Westpac ATM。"
+        },
+        {
+          "name": "Elevate Medical (Burwood GP Clinic)",
+          "nameCn": "Elevate全科诊所（柏伍德）",
+          "lat": -37.8475,
+          "lng": 145.1138,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "提供当日预约的全科诊所，对15岁以下儿童及老年人提供免费批量账单（Bulk Billing），候诊时间相对较短。"
+        },
+        {
+          "name": "Australia Post — Burwood East",
+          "nameCn": "澳大利亚邮政（柏伍德东营业点）",
+          "lat": -37.8488,
+          "lng": 145.1305,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "邮政服务点，可领取快递包裹、办理ePassport申请及国际汇款，是寄送文件和接收海外家寄物品的必要地点。"
         }
       ]
     },
@@ -290,39 +646,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Wattle Park",
-          "nameCn": "金合欢公园（Wattle Park）",
-          "lat": -37.833,
-          "lng": 145.108,
-          "note": "校园北侧大型遗产公园，含9洞高尔夫与70路电车终点，散步野餐看考拉桉树林。"
+          "name": "Box Hill (Chinese Precinct & Food Hub)",
+          "nameCn": "Box Hill华人聚集区与美食中心",
+          "lat": -37.8194,
+          "lng": 145.1222,
+          "rank": 1,
+          "tier": "必去",
+          "note": "墨尔本东区最大的华人社区，超市、餐馆、茶楼、奶茶店一应俱全，乘75路电车20分钟可达，是解乡愁的「中国城」。"
         },
         {
-          "name": "Box Hill Gardens",
-          "nameCn": "博士山花园",
-          "lat": -37.8155,
-          "lng": 145.1238,
-          "note": "博士山医院对面的城市花园，有湖、跑道与超大游乐场，拍照放松好去处。"
+          "name": "Blackburn Lake Sanctuary",
+          "nameCn": "布莱克本湖自然保护区",
+          "lat": -37.8238,
+          "lng": 145.1535,
+          "rank": 2,
+          "tier": "必去",
+          "note": "大墨尔本地区最重要的鸟类避难所之一，27公顷茂密森林与湿地，步道平坦，是压力大时放松心情的城市绿洲。"
         },
         {
-          "name": "Burwood Brickworks Rooftop Farm",
-          "nameCn": "Brickworks 屋顶农场",
-          "lat": -37.8489,
-          "lng": 145.1342,
-          "note": "世界级绿色建筑的屋顶都市农场，免费参观、出片，离校仅2公里。"
+          "name": "Chadstone Shopping Centre",
+          "nameCn": "查德斯通购物中心（南半球最大）",
+          "lat": -37.8879,
+          "lng": 145.0814,
+          "rank": 3,
+          "tier": "必去",
+          "note": "南半球最大购物中心，距校约5公里，汇聚500+品牌含奢侈品与网红餐厅，重大节假日购物首选目的地。"
         },
         {
-          "name": "Aqualink Box Hill (Surrey Park)",
-          "nameCn": "Aqualink 水上中心（萨里公园）",
-          "lat": -37.8245,
-          "lng": 145.1115,
-          "note": "建于澳洲首个奥运标准泳池旧址的休闲水上中心，游泳健身，周边公园景色好。"
+          "name": "Melbourne CBD (Tram Route 75)",
+          "nameCn": "墨尔本市中心（75路电车直达）",
+          "lat": -37.8136,
+          "lng": 144.9631,
+          "rank": 4,
+          "tier": "必去",
+          "note": "乘75路电车约45-50分钟可达市区，Flinders St、联邦广场、唐人街、Queen Victoria Market等尽在其中，周末必访。"
         },
         {
-          "name": "Deakin Burwood Corner / The Hub",
-          "nameCn": "迪肯 Burwood 校园中心广场",
-          "lat": -37.8473,
-          "lng": 145.1148,
-          "note": "校园标志性中庭与现代建筑群，入学打卡、社团活动与日常生活的中心。"
+          "name": "Jells Park",
+          "nameCn": "杰尔斯公园",
+          "lat": -37.905,
+          "lng": 145.172,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "127公顷大型城市公园，含人工湖、钓鱼码头、9公里骑行步道及野餐区，每年访客逾90万，是周末户外活动首选。"
+        },
+        {
+          "name": "Gardiners Creek Trail",
+          "nameCn": "加迪纳斯溪绿道",
+          "lat": -37.849,
+          "lng": 145.1085,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "从校园旁出发、连接Blackburn湖至主亚拉河道的多用途绿道，全程约20公里，适合跑步、骑车和鸟类观察。"
+        },
+        {
+          "name": "Camberwell Sunday Market",
+          "nameCn": "坎伯韦尔周日古董市集",
+          "lat": -37.8463,
+          "lng": 145.062,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "每周日7am-12:30pm于Station St停车场举办，售卖复古服饰、艺术品、黑胶唱片，墨尔本淘宝文化体验必去地。"
+        },
+        {
+          "name": "Melbourne Cricket Ground (MCG)",
+          "nameCn": "墨尔本板球场（MCG）",
+          "lat": -37.82,
+          "lng": 144.9833,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "可容纳10万人的澳大利亚体育圣地，内含体育博物馆，75路电车直达，体验AFL足球或板球比赛是留澳必备经历。"
+        },
+        {
+          "name": "Museum of Australian Photography (MAPh)",
+          "nameCn": "澳大利亚摄影博物馆（Wheelers Hill）",
+          "lat": -37.9044,
+          "lng": 145.1631,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "免费入场的专业摄影艺术馆，附设咖啡厅与公园，距校约15公里，适合艺术类学生或需要安静放松的周末半日游。"
+        },
+        {
+          "name": "Dandenong Ranges National Park",
+          "nameCn": "丹德农山脉国家公园",
+          "lat": -37.8833,
+          "lng": 145.3667,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "墨尔本东郊的热带雨林，树蕨高达百年，搭乘公共交通约1小时可达，是远离城市喧嚣的一日游首选自然景点。"
+        },
+        {
+          "name": "Queen Victoria Market (CBD)",
+          "nameCn": "维多利亚女王市场（市中心）",
+          "lat": -37.8066,
+          "lng": 144.9569,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "南半球最大的露天市场，生鲜、熟食、手工艺品及二手物齐全，体验地道墨尔本生活的标志性场所，周日有夜市。"
+        },
+        {
+          "name": "Heide Museum of Modern Art",
+          "nameCn": "海德现代艺术博物馆",
+          "lat": -37.7479,
+          "lng": 145.0688,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "拥有雕塑公园和历史建筑的现代艺术博物馆，离校约15公里，适合艺术与人文专业学生或对澳洲艺术史感兴趣者。"
         }
       ]
     }

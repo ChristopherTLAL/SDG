@@ -67,53 +67,103 @@
       "icon": "school",
       "items": [
         {
+          "name": "Donald Bren School of Information & Computer Sciences (Donald Bren Hall)",
+          "nameCn": "唐纳德·布伦信息与计算机科学学院（布伦大厅）",
+          "lat": 33.6431,
+          "lng": -117.8422,
+          "rank": 1,
+          "tier": "必去",
+          "note": "美国唯一独立的计算机科学学院（UC系统内），全美计算机科学排名前十，热门申请院系之一。"
+        },
+        {
           "name": "Henry Samueli School of Engineering",
-          "nameCn": "塞缪利工程学院",
-          "lat": 33.6433,
-          "lng": -117.8407,
-          "note": "环路东南侧的工程教学与实验楼群"
+          "nameCn": "亨利·萨缪利工程学院",
+          "lat": 33.6449,
+          "lng": -117.8448,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UCI工程旗舰学院，涵盖电气、机械、化工等专业，工学楼群集中在校园西北侧。"
         },
         {
-          "name": "School of Physical Sciences (Rowland Hall)",
-          "nameCn": "物理科学学院（罗兰楼）",
-          "lat": 33.6445,
-          "lng": -117.8442,
-          "note": "化学物理与地球系统科学所在"
+          "name": "Paul Merage School of Business (SB1 & SB2)",
+          "nameCn": "保罗·梅拉吉商学院",
+          "lat": 33.6398,
+          "lng": -117.8432,
+          "rank": 3,
+          "tier": "必去",
+          "note": "MBA与本科商科重镇，位于Pereira Dr，建筑现代、设施齐全，常举办行业讲座与招聘会。"
         },
         {
-          "name": "School of Biological Sciences",
-          "nameCn": "生物科学学院",
-          "lat": 33.6447,
-          "lng": -117.8443,
-          "note": "环路西侧生命科学楼群"
+          "name": "UCI School of Law",
+          "nameCn": "UCI法学院",
+          "lat": 33.6472,
+          "lng": -117.835,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于401 E Peltason Dr，是全美最年轻的顶级法学院之一，灰色建筑醒目易辨认。"
         },
         {
-          "name": "School of Social Sciences",
-          "nameCn": "社会科学学院",
-          "lat": 33.6466,
-          "lng": -117.8401,
-          "note": "经济、政治学等社科核心"
-        },
-        {
-          "name": "School of Humanities (Humanities Gateway)",
-          "nameCn": "人文学院（人文门楼）",
-          "lat": 33.6481,
-          "lng": -117.843,
-          "note": "环路北侧文史哲教学区"
+          "name": "Social Science Tower & Plaza (SSH/SST/SSPA/SSPB)",
+          "nameCn": "社会科学塔楼与广场",
+          "lat": 33.6463,
+          "lng": -117.8413,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "社会学、政治学、经济学、心理学系所在地，圆形校园东南区Pereira经典布鲁塔利主义建筑群。"
         },
         {
           "name": "Claire Trevor School of the Arts",
           "nameCn": "克莱尔·特雷弗艺术学院",
-          "lat": 33.6487,
-          "lng": -117.8458,
-          "note": "含Maya Lin设计的艺术广场"
+          "lat": 33.6468,
+          "lng": -117.8462,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "以奥斯卡影后命名，涵盖音乐、戏剧、舞蹈、视觉艺术，校内最具特色的连廊模块化建筑群。"
         },
         {
-          "name": "Calit2 Building",
-          "nameCn": "Calit2 研究大楼",
-          "lat": 33.6429,
-          "lng": -117.8412,
-          "note": "信息技术与通信跨学科研究中心"
+          "name": "Natural Sciences II / Biological Sciences Building",
+          "nameCn": "自然科学二楼 / 生命科学楼",
+          "lat": 33.6453,
+          "lng": -117.8468,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "生物学、神经科学、生态学等重要实验室集中地，毗邻Aldrich公园西侧，是生科学生日常核心。"
+        },
+        {
+          "name": "Rowland Hall (Physics & Astronomy)",
+          "nameCn": "罗兰大厅（物理与天文系）",
+          "lat": 33.6455,
+          "lng": -117.8478,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "物理系所在地，与化学楼相邻，是理工科学生上基础课的常驻场所。"
+        },
+        {
+          "name": "Humanities Hall",
+          "nameCn": "人文大厅",
+          "lat": 33.6476,
+          "lng": -117.8453,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "英语、历史、比较文学、哲学等人文学科汇聚地，Pereira原始设计建筑之一，风格素朴内敛。"
+        },
+        {
+          "name": "Interdisciplinary Science & Engineering Building (ISEB)",
+          "nameCn": "跨学科科学与工程大楼",
+          "lat": 33.643,
+          "lng": -117.8445,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "近年新建的旗舰交叉学科研究楼，可持续设计获LEED金奖，是学校展示科研实力的门面建筑。"
+        },
+        {
+          "name": "Susan & Henry Samueli College of Health Sciences",
+          "nameCn": "萨缪利健康科学学院",
+          "lat": 33.641,
+          "lng": -117.8408,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "护理、公共卫生、制药等健康类专业大本营，离Student Health Center较近，校园东南角。"
         }
       ],
       "defaultOn": true
@@ -127,24 +177,57 @@
       "items": [
         {
           "name": "Langson Library",
-          "nameCn": "兰森图书馆（主馆）",
-          "lat": 33.6464,
-          "lng": -117.8409,
-          "note": "人文社科主馆，紧邻环路"
+          "nameCn": "兰斯通图书馆",
+          "lat": 33.6471,
+          "lng": -117.8411,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCI主馆，支持人文、社科、艺术类研究，Pereira设计的原始建筑之一，园区标志性存在，是学生最常用的图书馆。"
         },
         {
-          "name": "Science Library",
-          "nameCn": "科学图书馆",
+          "name": "Ayala Science Library",
+          "nameCn": "阿亚拉科学图书馆",
           "lat": 33.6437,
-          "lng": -117.8424,
-          "note": "理工与生命科学藏书中心"
+          "lng": -117.8468,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工科主图书馆，位于510 E Peltason Dr，内设多媒体资源中心（MRC）与3D打印服务，是工科生首选。"
+        },
+        {
+          "name": "Gateway Study Center",
+          "nameCn": "Gateway学习中心",
+          "lat": 33.646,
+          "lng": -117.8395,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Campus Dr与University Dr交叉口，以24/7开放时段著称，配备大量电脑工作站，考试周人满为患。"
+        },
+        {
+          "name": "UCI Law Library",
+          "nameCn": "UCI法学院图书馆",
+          "lat": 33.6472,
+          "lng": -117.8352,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于法学院内401 E Peltason Dr，仅对UCI师生开放，收藏丰富法律数据库与期刊，法学生必备资源。"
         },
         {
           "name": "Grunigen Medical Library",
           "nameCn": "格鲁尼根医学图书馆",
-          "lat": 33.7878,
-          "lng": -117.8889,
-          "note": "位于奥兰治医学中心内"
+          "lat": 33.7861,
+          "lng": -117.8693,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于UCI Medical Center园区（Orange市），专供医学院学生使用，医学文献与临床资源齐全。"
+        },
+        {
+          "name": "Multimedia Resources Center (MRC) at Science Library",
+          "nameCn": "多媒体资源中心",
+          "lat": 33.6437,
+          "lng": -117.8466,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于科学图书馆一楼入口旁，提供影视资料借阅、视听设备和媒体剪辑工作站，艺术与传播学生常驻。"
         }
       ]
     },
@@ -156,18 +239,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Beall Center for Art + Technology",
-          "nameCn": "比尔艺术与科技中心",
-          "lat": 33.6498,
-          "lng": -117.8445,
-          "note": "艺术广场上的艺术与科技展厅"
+          "name": "UC Irvine Langson Orange County Museum of Art (at Segerstrom Center, Costa Mesa)",
+          "nameCn": "UCI兰斯通橙县艺术博物馆",
+          "lat": 33.6949,
+          "lng": -117.8892,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCI正式收购后更名，收藏9000余件加州艺术作品，主馆位于Costa Mesa的赛格斯特伦艺术中心，免费入场。"
         },
         {
-          "name": "UCI Langson IMCA (Costa Mesa)",
-          "nameCn": "兰森加州艺术博物馆（科斯塔梅萨）",
-          "lat": 33.6917,
-          "lng": -117.8815,
-          "note": "永久馆址在Segerstrom艺术中心园区"
+          "name": "University Art Gallery (UAG) — Claire Trevor School of the Arts",
+          "nameCn": "UCI大学艺术画廊",
+          "lat": 33.6468,
+          "lng": -117.846,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "校内实验性当代艺术展览空间，免费对外开放，定期举办学生与教职艺术家作品展，艺术系师生聚集地。"
+        },
+        {
+          "name": "Beall Center for Art + Technology",
+          "nameCn": "比尔艺术与科技中心",
+          "lat": 33.6466,
+          "lng": -117.8457,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "专注数字媒体与互动艺术，以科技驱动的沉浸式展览闻名，是全美最早将艺术与技术深度融合的校园机构之一。"
+        },
+        {
+          "name": "UCI Special Collections & Archives (Langson Library)",
+          "nameCn": "UCI特藏与档案馆",
+          "lat": 33.6471,
+          "lng": -117.8411,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "收藏珍贵历史文献、手稿与校史资料，设有策展展览，人文与历史研究者的宝库。"
         }
       ]
     },
@@ -179,32 +284,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Bren Events Center",
-          "nameCn": "布伦活动中心",
-          "lat": 33.6494,
-          "lng": -117.847,
-          "note": "5500座体育馆，篮球与活动主场"
+          "name": "Aldrich Park",
+          "nameCn": "奥尔德里奇公园",
+          "lat": 33.6459,
+          "lng": -117.8427,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCI校园正中心的16英亩核心公园，由创校校长命名，环形校园设计的精髓所在，是打卡与放松的第一地标。"
+        },
+        {
+          "name": "UCI Student Center",
+          "nameCn": "UCI学生中心",
+          "lat": 33.6484,
+          "lng": -117.8414,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园最重要的学生活动枢纽，内含Anthill Pub、星巴克、书店The Hill、各类餐饮与学生组织办公室。"
         },
         {
           "name": "Anteater Recreation Center (ARC)",
-          "nameCn": "食蚁兽康体中心",
+          "nameCn": "食蚁兽体育娱乐中心",
           "lat": 33.6433,
-          "lng": -117.828,
-          "note": "8.9万平方英尺学生健身设施"
+          "lng": -117.8393,
+          "rank": 3,
+          "tier": "必去",
+          "note": "680 California Ave，89000平方英尺旗舰健身中心，含攀岩墙、游泳池、篮球场、跑道，免费向在校生开放。"
         },
         {
-          "name": "Anteater Stadium & Crawford Athletics Complex",
-          "nameCn": "食蚁兽体育场与克劳福德运动综合体",
-          "lat": 33.6501,
-          "lng": -117.8509,
-          "note": "棒球、田径与校队训练基地"
+          "name": "Ring Mall / Ring Road",
+          "nameCn": "环形步行道",
+          "lat": 33.6459,
+          "lng": -117.8445,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "围绕Aldrich公园的1英里环形主干步道，连接所有学院楼群，是UCI最具辨识度的规划特色与日常散步地。"
         },
         {
-          "name": "Student Center & Title IX Plaza",
-          "nameCn": "学生活动中心",
-          "lat": 33.6486,
-          "lng": -117.8443,
-          "note": "环路北缘学生服务与餐饮枢纽"
+          "name": "Bren Events Center",
+          "nameCn": "布伦活动中心",
+          "lat": 33.6408,
+          "lng": -117.8418,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "UCI最大室内体育场馆，可容纳5000+人，承办篮球赛、毕业典礼、大型演唱会，是学生生活重要节点。"
+        },
+        {
+          "name": "Aldrich Park Anteater Statue (Peter the Anteater)",
+          "nameCn": "食蚁兽吉祥物雕像",
+          "lat": 33.6455,
+          "lng": -117.8427,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Peter the Anteater是UCI官方吉祥物，雕像位于园区中心，是入学打卡、毕业合影的必选背景。"
+        },
+        {
+          "name": "UCI Anthill Pub & Grille",
+          "nameCn": "食蚁兽酒吧烧烤餐厅",
+          "lat": 33.6484,
+          "lng": -117.8412,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "学生中心内标志性餐厅酒吧，供应精酿啤酒与经典美式食物，是UCI本科生聚餐与放松的头号场所。"
         }
       ]
     },
@@ -216,32 +356,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Trader Joe's (University Center)",
-          "nameCn": "Trader Joe's 超市（大学城中心店）",
-          "lat": 33.6505,
-          "lng": -117.8419,
-          "note": "离校园北门最近、可步行到的平价超市，4225 Campus Dr，新生采购日常食材和半成品的首选。"
+          "name": "99 Ranch Market (Culver Dr)",
+          "nameCn": "大华超市（Culver Dr店）",
+          "lat": 33.6739,
+          "lng": -117.8326,
+          "rank": 1,
+          "tier": "必去",
+          "note": "15333 Culver Dr，最靠近UCI的大华旗舰店，华人食材、生鲜、熟食应有尽有，中国留学生几乎每周必去。"
         },
         {
           "name": "H Mart (Diamond Jamboree)",
-          "nameCn": "H Mart 韩亚龙超市（钻石广场店）",
-          "lat": 33.6878,
-          "lng": -117.8351,
-          "note": "钻石广场内的大型韩亚超市（2600 Alton Pkwy），中日韩食材、活海鲜、泡面一应俱全，自带美食广场。"
+          "nameCn": "韩亚超市（Diamond Jamboree店）",
+          "lat": 33.6885,
+          "lng": -117.8339,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2600 Alton Pkwy，大型韩国亚裔超市，韩国零食、泡菜、日韩食材极全，同商场内还有大量亚裔餐厅。"
         },
         {
-          "name": "99 Ranch Market (Culver Plaza)",
-          "nameCn": "大华超市 99 Ranch（Culver 店）",
-          "lat": 33.6962,
-          "lng": -117.7988,
-          "note": "华人最熟悉的连锁亚超（15333 Culver Dr），中式酱料、火锅料、青菜豆腐最全，开车约 10 分钟。"
+          "name": "99 Ranch Market (Walnut Ave / Jeffrey Rd)",
+          "nameCn": "大华超市（Walnut Ave店）",
+          "lat": 33.6752,
+          "lng": -117.7992,
+          "rank": 3,
+          "tier": "很推荐",
+          "note": "5402 Walnut Ave，UCI东侧另一家大华，生鲜海鲜品种繁多，距中国城南加福临市场近，适合东部住的同学。"
+        },
+        {
+          "name": "Trader Joe's (University Center)",
+          "nameCn": "乔氏超市（大学城店）",
+          "lat": 33.649,
+          "lng": -117.839,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "4225 Campus Dr，紧邻UCI学生中心，步行可达，有机食品与特色零食性价比高，是日常采购首选主流超市。"
         },
         {
           "name": "Target (University Center)",
-          "nameCn": "Target 百货（大学城中心店）",
-          "lat": 33.651,
-          "lng": -117.8425,
-          "note": "紧邻校园的综合百货，日用品、床品、零食、药妆一站买齐，搬入宿舍当天就用得上。"
+          "nameCn": "塔吉特百货（大学城店）",
+          "lat": 33.6487,
+          "lng": -117.8388,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "4255 Campus Dr，与Trader Joe's同商场，集超市+日用品+电子产品于一体，开学采购必去。"
+        },
+        {
+          "name": "Albertsons (Campus Dr)",
+          "nameCn": "艾伯森超市（Campus Dr店）",
+          "lat": 33.648,
+          "lng": -117.836,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "4541 Campus Dr，品牌齐全的主流连锁超市，有药房服务，适合购买西式食材和日常家用品。"
+        },
+        {
+          "name": "Zion Market",
+          "nameCn": "锡安韩国超市",
+          "lat": 33.712,
+          "lng": -117.786,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "4800 Irvine Blvd，知名韩国超市，韩式半成品熟食、泡菜、烤肉食材丰富，喜欢韩餐的同学必备。"
         }
       ]
     },
@@ -253,39 +428,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "BCD Tofu House",
-          "nameCn": "北倉洞嫩豆腐 BCD Tofu House",
-          "lat": 33.6884,
-          "lng": -117.834,
-          "note": "钻石广场内 24 小时营业的韩式嫩豆腐锅名店，留学生深夜和考试季最爱的暖胃去处。"
+          "name": "Din Tai Fung (Irvine Spectrum)",
+          "nameCn": "鼎泰丰（Irvine Spectrum店）",
+          "lat": 33.6503,
+          "lng": -117.744,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "812 Spectrum Center Dr，台湾名店小笼包全球地标，Irvine最高人气中式餐厅，周末排队1小时以上属正常。"
         },
         {
-          "name": "Capital Seafood (Diamond Jamboree)",
-          "nameCn": "海珍轩 Capital Seafood（钻石广场店）",
-          "lat": 33.6882,
-          "lng": -117.8332,
-          "note": "钻石广场内的粤式酒楼，逾百款现做点心和海鲜，约朋友家人饮茶聚餐的体面之选。"
+          "name": "Meizhou Dongpo",
+          "nameCn": "眉州东坡（Irvine店）",
+          "lat": 33.6741,
+          "lng": -117.8329,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "15363 Culver Dr，北京知名连锁在美旗舰，东坡肉、烤鸭、水煮鱼全线在线，是国内学生最有家乡感的中餐厅。"
         },
         {
-          "name": "85°C Bakery Cafe",
-          "nameCn": "85度C 烘焙咖啡",
-          "lat": 33.6886,
-          "lng": -117.8336,
-          "note": "台式连锁面包店（2700 Alton Pkwy #123），海盐咖啡和台式面包性价比高，是钻石广场的人气打卡点。"
+          "name": "Northern Cafe",
+          "nameCn": "北方馆（Campus Dr店）",
+          "lat": 33.6491,
+          "lng": -117.8392,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "4175 Campus Dr，步行可达UCI，手工包子、小笼包、刀削面，价格学生友好，是UCI中国留学生公认的食堂级中餐。"
         },
         {
-          "name": "In-N-Out Burger (Culver Dr)",
-          "nameCn": "In-N-Out 汉堡（Culver 店）",
-          "lat": 33.6896,
-          "lng": -117.7956,
-          "note": "加州必吃的招牌快餐汉堡，记得点隐藏菜单 Animal Style，体验地道南加州味道。"
+          "name": "Kuan Zhai Alley",
+          "nameCn": "宽窄巷子（川菜）",
+          "lat": 33.6558,
+          "lng": -117.7705,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "8691 Irvine Center Dr，正宗成都麻辣风格，串串、担担面、口水鸡，口碑极佳，Yelp300+条高评价。"
         },
         {
-          "name": "Class 302",
-          "nameCn": "三年二班 Class 302",
-          "lat": 33.6881,
-          "lng": -117.8345,
-          "note": "钻石广场内主打台式校园风的餐厅，卤肉饭、芒果冰、珍奶解乡愁，氛围怀旧。"
+          "name": "Capital Seafood / Capital Dim Sum Seafood Bar",
+          "nameCn": "大都会海鲜茶餐厅",
+          "lat": 33.6504,
+          "lng": -117.7445,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "770 Spectrum Center Dr，正宗粤式饮茶与海鲜，周末早茶推车场景让华人倍感亲切，价格适中、品质稳定。"
+        },
+        {
+          "name": "Jiang Nan (江南)",
+          "nameCn": "江南（江浙沪融合菜）",
+          "lat": 33.6758,
+          "lng": -117.8003,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "5406 Walnut Ave，Michelin推荐的高档中式融合餐厅，以精致江南菜系著称，适合宴请家长或庆祝场合。"
+        },
+        {
+          "name": "7 Leaves Cafe (Jeffrey Rd)",
+          "nameCn": "七叶咖啡（Jeffrey Rd店）",
+          "lat": 33.6727,
+          "lng": -117.7961,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "14845 Jeffrey Rd，UCI学生票选最爱奶茶店，越式奶茶+抹茶系列每日排长队，被Buzzfeed评为最值得去的奶茶。"
+        },
+        {
+          "name": "Class 302 Tea Cafe",
+          "nameCn": "302教室奶茶（Jamboree店）",
+          "lat": 33.7141,
+          "lng": -117.804,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "13252 Jamboree Rd，UCI学生极爱的台式奶茶，超大杯分量惊人，价格亲民，自助站可定制口味。"
+        },
+        {
+          "name": "HiroNori Craft Ramen",
+          "nameCn": "HiroNori工匠拉面",
+          "lat": 33.6546,
+          "lng": -117.7706,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "Irvine Spectrum附近，日式豚骨拉面网红店，汤头浓郁、叉烧厚切，学生与本地居民都强烈推荐。"
+        },
+        {
+          "name": "Pho Ha Noi",
+          "nameCn": "河内越式牛肉粉",
+          "lat": 33.713,
+          "lng": -117.793,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "14021 Jeffrey Rd，Irvine越南美食代表，正宗河内牛肉米粉汤清味鲜，Yelp570+高分评价，午饭必选。"
+        },
+        {
+          "name": "Sichuan Impression (Tustin, near UCI)",
+          "nameCn": "川味印象（Tustin店）",
+          "lat": 33.741,
+          "lng": -117.805,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "13816 Red Hill Ave, Tustin，正宗四川麻辣口味，被众多UCI华人学生视为周边最正宗的川菜馆。"
+        },
+        {
+          "name": "Anthill Pub & Grille (On Campus)",
+          "nameCn": "食蚁兽酒吧（校内）",
+          "lat": 33.6484,
+          "lng": -117.8412,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "4200 Campus Dr，校内标志性酒吧餐厅，汉堡、薯条配精酿啤酒，UCI学生聚餐社交首选校内场所。"
+        },
+        {
+          "name": "In-N-Out Burger (University Town Center)",
+          "nameCn": "In-N-Out 汉堡（大学城）",
+          "lat": 33.649,
+          "lng": -117.838,
+          "rank": 13,
+          "tier": "推荐",
+          "note": "UCI学生最常光顾的美式快餐，Double-Double必点，加州必吃体验，与Trader Joe's同商场，深夜也能解馋。"
         }
       ]
     },
@@ -297,32 +554,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (University Center)",
-          "nameCn": "大通银行 Chase（大学城中心支行）",
-          "lat": 33.6504,
-          "lng": -117.8414,
-          "note": "校园边可步行到的大行（4249 Campus Dr），新生开美国银行账户、办借记卡常去这家。"
+          "name": "Wells Fargo Bank — On-Campus Branch",
+          "nameCn": "富国银行（UCI校内网点）",
+          "lat": 33.6466,
+          "lng": -117.842,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于1 W Peltason Dr学生服务楼，专为UCI学生设计，开国际留学生友好账户首选，步行即达。"
         },
         {
-          "name": "Bank of America (UCI / Campus Dr)",
-          "nameCn": "美国银行 BofA（UCI 校区店）",
-          "lat": 33.6508,
-          "lng": -117.841,
-          "note": "另一家紧邻校园的主流银行，留学生开户、电汇学费的备选，校内学生中心还有 ATM。"
+          "name": "UCI Student Health Center (SHC)",
+          "nameCn": "UCI学生健康中心",
+          "lat": 33.6448,
+          "lng": -117.836,
+          "rank": 2,
+          "tier": "必去",
+          "note": "501 Student Health楼，校内基础医疗、心理咨询、疫苗接种、STI检测全覆盖，持UCI健康保险费用极低。"
         },
         {
-          "name": "UCI Health — Irvine (Urgent Care & ER)",
-          "nameCn": "UCI Health 欧文院区（急诊 / 紧急护理）",
-          "lat": 33.676,
-          "lng": -117.8434,
-          "note": "离校最近的校属医院（19200 Jamboree Rd），急诊 24 小时、紧急护理日间开放，突发病痛先来这里。"
+          "name": "CVS Pharmacy (Campus Drive)",
+          "nameCn": "CVS药房（Campus Dr店）",
+          "lat": 33.6487,
+          "lng": -117.8385,
+          "rank": 3,
+          "tier": "必去",
+          "note": "4255 Campus Dr，距UCI步行5分钟，OTC药品、日用品、处方药齐全，含MinuteClinic门诊，最便利的药房。"
         },
         {
-          "name": "CVS Pharmacy (Campus Plaza)",
-          "nameCn": "CVS 药房（校园广场店）",
-          "lat": 33.652,
-          "lng": -117.829,
-          "note": "校园附近连锁药房，买非处方药、取处方、打流感疫苗都方便，深夜也能应急。"
+          "name": "Chase Bank (University Town Center)",
+          "nameCn": "大通银行（大学城店）",
+          "lat": 33.6491,
+          "lng": -117.8387,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "University Town Center内，ATM24小时可用，学生开户流程简单，接受护照+I-20办理账户。"
+        },
+        {
+          "name": "UCI Health — Gottschalk Medical Plaza",
+          "nameCn": "UCI健康戈茨查尔克医疗广场",
+          "lat": 33.644,
+          "lng": -117.8428,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1 Medical Plaza Dr，校内综合门诊，提供初级保健和专科转诊，是学生在Student Health之外的首选就医地。"
+        },
+        {
+          "name": "T-Mobile (Campus Dr & Bridge)",
+          "nameCn": "T-Mobile（Campus Dr店）",
+          "lat": 33.6495,
+          "lng": -117.8382,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "4237 Campus Dr，最近UCI校园的运营商门店，新生办理SIM卡或换号首选，支持eSIM和学生优惠套餐。"
+        },
+        {
+          "name": "Walgreens Pharmacy (Irvine Blvd, 24hr)",
+          "nameCn": "沃尔格林药房（Irvine Blvd 24小时店）",
+          "lat": 33.703,
+          "lng": -117.787,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "6316 Irvine Blvd，Irvine区24小时药房，深夜急症或临时需要药物时的最佳选择，车程约10分钟。"
+        },
+        {
+          "name": "UCI Medical Center (ER / Hospital)",
+          "nameCn": "UCI医疗中心（急诊/综合医院）",
+          "lat": 33.7861,
+          "lng": -117.8693,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "101 The City Dr S, Orange，UCI附属教学医院，提供24小时急诊，距UCI约13英里，严重病情首选。"
         }
       ]
     },
@@ -334,39 +635,85 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Aldrich Park",
-          "nameCn": "奥尔德里奇公园 Aldrich Park",
-          "lat": 33.6461,
-          "lng": -117.843,
-          "note": "UCI 校园正中心的环形大草坪和树林，被 Ring Road 环绕，是散步、野餐和拍校园照的标志性地标。"
-        },
-        {
-          "name": "San Joaquin Marsh Wildlife Sanctuary",
-          "nameCn": "圣华金湿地野生动物保护区",
-          "lat": 33.6628,
-          "lng": -117.8455,
-          "note": "步行可达的 300 英亩湿地（5 Riparian View），观鸟、慢跑和看日落的好去处，离校仅约十分钟。"
-        },
-        {
-          "name": "William R. Mason Regional Park",
-          "nameCn": "梅森地区公园 William R. Mason Park",
-          "lat": 33.652,
-          "lng": -117.8265,
-          "note": "校园东侧大型市政公园（18712 University Dr），有湖泊草坪，周末烧烤、骑行、放松的首选。"
-        },
-        {
           "name": "Irvine Spectrum Center",
-          "nameCn": "欧文光谱中心 Irvine Spectrum",
-          "lat": 33.6506,
-          "lng": -117.7441,
-          "note": "南加州人气露天购物娱乐城，有大摩天轮、电影院和众多餐饮品牌，周末逛街约会的热门去处。"
+          "nameCn": "欧文Spectrum购物中心",
+          "lat": 33.6502,
+          "lng": -117.744,
+          "rank": 1,
+          "tier": "必去",
+          "note": "670 Spectrum Center Dr，大型露天购物娱乐中心，含108英尺大摩天轮、电影院、Din Tai Fung等名店，UCI学生周末首选。"
         },
         {
-          "name": "Newport Beach / Balboa Peninsula",
-          "nameCn": "新港海滩 / 巴尔博亚半岛",
-          "lat": 33.6037,
-          "lng": -117.929,
-          "note": "离校约 15 分钟车程的著名海滩，码头、栈桥和冲浪文化，是体验南加州海岸生活的必去之地。"
+          "name": "Disneyland Resort",
+          "nameCn": "迪士尼乐园",
+          "lat": 33.8121,
+          "lng": -117.919,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1313 Disneyland Dr, Anaheim，距UCI约20分钟车程，全球最知名主题公园，来加州绝对必打卡。"
+        },
+        {
+          "name": "Crystal Cove State Park",
+          "nameCn": "水晶湾州立公园",
+          "lat": 33.5697,
+          "lng": -117.8448,
+          "rank": 3,
+          "tier": "必去",
+          "note": "8471 N Coast Hwy, Laguna Beach，UCI最近的顶级自然海滩，潮池清澈、步道优美，约15分钟车程，周末徒步必选。"
+        },
+        {
+          "name": "Newport Beach / Balboa Island",
+          "nameCn": "纽波特海滩 / 巴尔博亚岛",
+          "lat": 33.6069,
+          "lng": -117.8944,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距UCI约16分钟，纽波特海滩港湾风光绝佳，巴尔博亚岛渡轮与冰淇淋香蕉必体验，南加生活的缩影。"
+        },
+        {
+          "name": "Laguna Beach Main Beach",
+          "nameCn": "拉古纳海滩主海滩",
+          "lat": 33.5427,
+          "lng": -117.7833,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距UCI约20分钟，以艺术画廊、潮池和悬崖步道闻名，海水透明度高，是OC最美艺术小镇海滩。"
+        },
+        {
+          "name": "Orange County Great Park",
+          "nameCn": "橙县大公园",
+          "lat": 33.6674,
+          "lng": -117.7208,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "6990 Marine Way, Irvine，前军用机场改建的超大公共公园，有系留气球、农场、艺术展和体育场，免费入场。"
+        },
+        {
+          "name": "Diamond Jamboree Shopping Center",
+          "nameCn": "Diamond Jamboree购物中心",
+          "lat": 33.6885,
+          "lng": -117.8339,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2700 Alton Pkwy，华人/韩裔食客最聚集的商场，H Mart、7 Leaves、各类亚裔餐厅云集，周末必逛。"
+        },
+        {
+          "name": "Knott's Berry Farm",
+          "nameCn": "诺特莓农场",
+          "lat": 33.8443,
+          "lng": -117.9987,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Buena Park，距UCI约30分钟，加州最老主题公园，刺激过山车与仙人掌炸鸡并存，比迪士尼排队短、票价低。"
+        },
+        {
+          "name": "Huntington Beach (Surf City USA)",
+          "nameCn": "亨廷顿海滩（冲浪之城）",
+          "lat": 33.6553,
+          "lng": -117.9988,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "距UCI约25分钟，美国冲浪文化发源地，海滩绵延超10英里，夕阳景观绝佳，散步和骑行体验一流。"
         }
       ]
     }

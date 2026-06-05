@@ -67,39 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Building 10 & Great Dome",
-          "nameCn": "10号楼与大穹顶",
+          "name": "Ray and Maria Stata Center (Building 32) — CSAIL & AI Lab",
+          "nameCn": "斯塔塔中心（32号楼）— 计算机科学与AI实验室",
+          "lat": 42.3616,
+          "lng": -71.0903,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Frank Gehry设计的怪异解构主义建筑，CSAIL（全球顶级AI实验室）所在地，是MIT最具辨识度的学术地标。"
+        },
+        {
+          "name": "MIT Schwarzman College of Computing (Building 45)",
+          "nameCn": "施瓦茨曼计算学院（45号楼）",
+          "lat": 42.361,
+          "lng": -71.0919,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2023年启用的8层新楼，MIT计算机科学与AI政策研究的跨学科中枢，Vassar Street上最新地标。"
+        },
+        {
+          "name": "MIT Media Lab (Building E14)",
+          "nameCn": "媒体实验室（E14号楼）",
           "lat": 42.3601,
-          "lng": -71.092,
-          "note": "校园象征性穹顶，俯瞰基利安庭院。"
+          "lng": -71.0876,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全球最具创意的跨学科研究机构之一，研究范围涵盖可穿戴设备、AR/VR、社会计算与设计，开放展览空间常年免费参观。"
         },
         {
-          "name": "Ray and Maria Stata Center (Bldg 32)",
-          "nameCn": "斯塔塔中心",
+          "name": "MIT Sloan School of Management (Building E62)",
+          "nameCn": "斯隆管理学院（E62号楼）",
           "lat": 42.3617,
-          "lng": -71.0902,
-          "note": "盖里设计，计算机科学与人工智能实验室所在。"
+          "lng": -71.0848,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全球Top 3商学院，金融、创业、管理方向极强，玻璃外立面的现代建筑紧邻Kendall Square创新区。"
         },
         {
-          "name": "MIT Media Lab (Bldg E14/E15)",
-          "nameCn": "媒体实验室",
-          "lat": 42.3608,
-          "lng": -71.0875,
-          "note": "跨学科科技与设计前沿研究中心。"
+          "name": "Department of Brain and Cognitive Sciences (Building 46)",
+          "nameCn": "脑与认知科学系（46号楼）",
+          "lat": 42.3627,
+          "lng": -71.0914,
+          "rank": 5,
+          "tier": "必去",
+          "note": "集McGovern脑研究所、Picower学习记忆中心于一体，是全球规模最大的神经科学研究综合楼，建筑本身造型科幻。"
         },
         {
-          "name": "MIT.nano (Lisa T. Su Building)",
-          "nameCn": "纳米科学楼",
-          "lat": 42.3606,
-          "lng": -71.091,
-          "note": "纳米尺度研究的洁净室与表征设施。"
+          "name": "Koch Institute for Integrative Cancer Research (Building 76)",
+          "nameCn": "科赫癌症研究所（76号楼）",
+          "lat": 42.3627,
+          "lng": -71.0887,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全球前沿癌症研究中心，一楼设有免费对公众开放的「科赫图像画廊」，展示震撼的生物医学显微摄影。"
         },
         {
-          "name": "Sloan School of Management (E62)",
-          "nameCn": "斯隆管理学院",
-          "lat": 42.3608,
-          "lng": -71.0838,
-          "note": "肯德尔一侧的商学院主楼，临查尔斯河。"
+          "name": "Building 10 — Maclaurin Buildings & Great Dome",
+          "nameCn": "麦克劳林楼群与大穹顶（10号楼）",
+          "lat": 42.3594,
+          "lng": -71.094,
+          "rank": 7,
+          "tier": "必去",
+          "note": "MIT的象征性建筑中心，新古典主义穹顶下是Barker工程图书馆阅览室，Killian Court毕业典礼在此举行。"
+        },
+        {
+          "name": "MIT Department of Physics (Building 6 / 8)",
+          "nameCn": "物理系（6号/8号楼）",
+          "lat": 42.36,
+          "lng": -71.0923,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "出产诺贝尔物理奖最多的院系之一，与化学、数学系共同构成MIT理学院核心走廊，即Infinite Corridor沿线主力建筑。"
+        },
+        {
+          "name": "MIT School of Architecture and Planning (Building 7 / W20 area)",
+          "nameCn": "建筑与规划学院（7号楼）",
+          "lat": 42.3594,
+          "lng": -71.0945,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "坐落于主入口Lobby 7之上，建筑系排名全球第一，Rotch图书馆即在此楼，Infinite Corridor的西端起点。"
+        },
+        {
+          "name": "Green Building — Earth, Atmospheric & Planetary Sciences (Building 54)",
+          "nameCn": "绿色大楼——地球与大气科学系（54号楼）",
+          "lat": 42.3605,
+          "lng": -71.089,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "贝聿铭设计的18层高塔，是MIT唯一的高层建筑，天气研究中心在此，顶层可俯瞰整个剑桥与波士顿。"
+        },
+        {
+          "name": "MIT Department of Chemistry (Building 18 — Dreyfus Building)",
+          "nameCn": "化学系（18号楼，德莱弗斯楼）",
+          "lat": 42.36,
+          "lng": -71.0935,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "MIT化学系诺贝尔奖得主云集，与主走廊相连，是理学院核心区域重要的教学科研楼。"
+        },
+        {
+          "name": "MIT Department of Electrical Engineering and Computer Science — Building 38",
+          "nameCn": "电气工程与计算机科学系（38号楼）",
+          "lat": 42.362,
+          "lng": -71.0908,
+          "rank": 12,
+          "tier": "必去",
+          "note": "EECS是MIT最大的系，全球排名第一，与Stata Center共同构成MIT CS/EE研究的两大核心节点。"
         }
       ],
       "defaultOn": true
@@ -112,18 +185,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Hayden Library",
-          "nameCn": "海登图书馆",
-          "lat": 42.3585,
-          "lng": -71.0897,
-          "note": "理学与人文主馆，临河重装后开放。"
+          "name": "Hayden Library — Humanities & Science (Building 14)",
+          "nameCn": "海登图书馆——人文与理科（14号楼）",
+          "lat": 42.3577,
+          "lng": -71.0928,
+          "rank": 1,
+          "tier": "必去",
+          "note": "MIT主力图书馆，2020年翻新后空间极佳，沿查尔斯河而建，内有咖啡厅与The Nexus协作空间，人气最旺的学习圣地。"
         },
         {
-          "name": "Barker Engineering Library",
-          "nameCn": "巴克工程图书馆",
-          "lat": 42.36,
-          "lng": -71.0917,
-          "note": "位于大穹顶下圆形阅览室的工程藏书。"
+          "name": "Barker Engineering Library (Building 10-500)",
+          "nameCn": "巴克工程图书馆（10号楼）",
+          "lat": 42.3594,
+          "lng": -71.0938,
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落于大穹顶正下方的阅览大厅，是MIT最具历史感的图书馆，工程类文献资源极为丰富，打卡价值极高。"
+        },
+        {
+          "name": "Rotch Library — Architecture & Planning (Building 7-238)",
+          "nameCn": "罗奇图书馆——建筑与规划（7号楼）",
+          "lat": 42.3595,
+          "lng": -71.0943,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "全球最权威的建筑学图书馆之一，收藏海量设计图纸、建筑史料和城市规划档案，建筑系学生必备资源。"
+        },
+        {
+          "name": "Dewey Library — Management & Social Sciences (Building E53-100)",
+          "nameCn": "杜威图书馆——管理与社会科学（E53号楼）",
+          "lat": 42.362,
+          "lng": -71.0845,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "斯隆管理学院和社会科学方向的专属图书馆，经济学、政治学及管理类期刊数据库资源齐全，紧邻Sloan校区。"
+        },
+        {
+          "name": "Lewis Music Library (Building 14E-109)",
+          "nameCn": "刘易斯音乐图书馆（14E号楼）",
+          "lat": 42.358,
+          "lng": -71.0924,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "MIT唯一的音乐专项图书馆，馆藏乐谱、唱片与音乐学文献，是MIT Linde Music Building开放后的配套资源中心。"
+        },
+        {
+          "name": "MIT Libraries GIS & Data Lab (Building 7-238, in Rotch)",
+          "nameCn": "GIS与数据实验室（7号楼，罗奇馆内）",
+          "lat": 42.3596,
+          "lng": -71.0944,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "提供地理信息系统软件、数据集及数据可视化工作站，理工科、城规、社科研究生做数据分析的利器。"
+        },
+        {
+          "name": "Distinctive Collections — Archives & Special Materials (Building 14N-118)",
+          "nameCn": "特藏与档案馆（14N号楼）",
+          "lat": 42.3579,
+          "lng": -71.0926,
+          "rank": 7,
+          "tier": "可选",
+          "note": "收藏MIT机构历史档案、手稿与珍本，研究MIT发展史或做校史课题的学生必来之处。"
         }
       ]
     },
@@ -135,18 +257,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "MIT Museum (Gambrill Center)",
-          "nameCn": "麻省理工博物馆",
-          "lat": 42.3621,
-          "lng": -71.0865,
-          "note": "2022年迁至肯德尔广场新馆，科技与艺术互动展。"
+          "name": "MIT Museum (Building E28, 314 Main St)",
+          "nameCn": "MIT博物馆（E28号楼，314 Main St）",
+          "lat": 42.3623,
+          "lng": -71.0864,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2022年迁入全新5200平米馆区，展示全息摄影、AI机器人、科学摄影等MIT百年科研成果，对MIT学生免费，距Kendall站步行可达。"
         },
         {
-          "name": "List Visual Arts Center",
-          "nameCn": "李斯特视觉艺术中心",
-          "lat": 42.3604,
-          "lng": -71.0875,
-          "note": "媒体实验室楼内的当代艺术画廊。"
+          "name": "MIT List Visual Arts Center (Building E15, 20 Ames St)",
+          "nameCn": "李斯特视觉艺术中心（E15号楼）",
+          "lat": 42.3609,
+          "lng": -71.0881,
+          "rank": 2,
+          "tier": "必去",
+          "note": "MIT的当代艺术博物馆，贝聿铭设计的Wiesner楼内，免费入场，常设前沿当代艺术装置展，是校园文化地标。"
+        },
+        {
+          "name": "Koch Institute Public Galleries (Building 76, 500 Main St)",
+          "nameCn": "科赫研究所公共画廊（76号楼）",
+          "lat": 42.3628,
+          "lng": -71.0888,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "免费画廊，以超大幅生物医学显微图像震撼视觉，每年举办图像奖展览，工作日8:00–18:00对公众开放。"
+        },
+        {
+          "name": "Hart Nautical Gallery (MIT Museum, 55 Mass Ave)",
+          "nameCn": "哈特航海陈列馆（55 Mass Ave）",
+          "lat": 42.3597,
+          "lng": -71.0937,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "展示美国历史船模、航海工程文物与船舶设计图纸，创建于1921年，是全球最重要的航海工程史料馆之一，免费参观。"
+        },
+        {
+          "name": "Harvard Art Museums (32 Quincy St, Cambridge)",
+          "nameCn": "哈佛艺术博物馆（剑桥）",
+          "lat": 42.3741,
+          "lng": -71.1141,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "由伦佐·皮亚诺翻新的综合艺术博物馆，囊括福格、布施–莱辛格、萨克勒三馆，MIT学生凭ID可免费入场。"
+        },
+        {
+          "name": "Museum of Science Boston (1 Science Park, Boston)",
+          "nameCn": "波士顿科学博物馆",
+          "lat": 42.3678,
+          "lng": -71.0709,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "横跨查尔斯河堤坝的大型互动科学馆，700余件展品覆盖工程、太空、生命科学，还有全IMAX球形影院，MIT学生有折扣。"
         }
       ]
     },
@@ -158,39 +320,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Killian Court",
-          "nameCn": "基利安庭院",
-          "lat": 42.3588,
-          "lng": -71.0917,
-          "note": "面向查尔斯河的草坪，毕业典礼举办地。"
+          "name": "Lobby 7 & The Infinite Corridor (Building 7, 77 Mass Ave)",
+          "nameCn": "7号大厅与无限走廊（MIT正门）",
+          "lat": 42.3594,
+          "lng": -71.094,
+          "rank": 1,
+          "tier": "必去",
+          "note": "MIT正门入口，253米长的无限走廊贯穿校园东西，每年2月「MIT日晷」奇观（夕阳直射走廊全程）是必见盛事。"
         },
         {
-          "name": "MIT Chapel & Kresge Auditorium",
-          "nameCn": "小教堂与克雷斯吉礼堂",
-          "lat": 42.358,
-          "lng": -71.095,
-          "note": "沙里宁设计的圆形教堂与薄壳礼堂。"
+          "name": "Killian Court — The Great Dome",
+          "nameCn": "基利安广场与大穹顶",
+          "lat": 42.3591,
+          "lng": -71.0934,
+          "rank": 2,
+          "tier": "必去",
+          "note": "面朝查尔斯河的开阔草坪广场，新古典主义大穹顶为背景，是MIT毕业典礼举办地，拍照打卡的核心机位。"
         },
         {
-          "name": "Stratton Student Center (W20)",
-          "nameCn": "斯特拉顿学生中心",
-          "lat": 42.3592,
-          "lng": -71.0945,
-          "note": "马萨诸塞大道西侧的学生活动中心。"
+          "name": "Kresge Auditorium & MIT Chapel (Buildings W16/W15)",
+          "nameCn": "克雷斯吉礼堂与MIT小教堂",
+          "lat": 42.3583,
+          "lng": -71.0951,
+          "rank": 3,
+          "tier": "必去",
+          "note": "埃罗·沙里宁1955年的双子杰作：1/8球壳薄混凝土穹顶礼堂与砖砌圆柱形小教堂，极简主义建筑艺术的朝圣地。"
         },
         {
-          "name": "Z Center (Zesiger Sports Center)",
-          "nameCn": "泽西格体育中心",
-          "lat": 42.3587,
-          "lng": -71.0958,
-          "note": "西校区主体育与游泳健身设施。"
+          "name": "Baker House Dormitory (362 Memorial Dr)",
+          "nameCn": "贝克宿舍楼",
+          "lat": 42.3568,
+          "lng": -71.0967,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "阿尔瓦·阿尔托1949年设计的S形波浪宿舍楼，UNESCO认定的现代建筑经典，面朝查尔斯河，是MIT住宿生必拍地标。"
         },
         {
-          "name": "Kendall/MIT MBTA Station",
-          "nameCn": "肯德尔/MIT 地铁站",
-          "lat": 42.3625,
-          "lng": -71.0862,
-          "note": "红线地铁站，校区东端门户。"
+          "name": "Stratton Student Center (Building W20, 84 Mass Ave)",
+          "nameCn": "斯特拉顿学生中心（W20号楼）",
+          "lat": 42.3599,
+          "lng": -71.0952,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "MIT学生活动中枢，餐饮、社团办公室、Anna's Taqueria全在此，是了解MIT学生社区生活的第一站。"
+        },
+        {
+          "name": "Kendall/MIT MBTA Station & Kendall Square",
+          "nameCn": "肯德尔/MIT地铁站与肯德尔广场",
+          "lat": 42.3624,
+          "lng": -71.0864,
+          "rank": 6,
+          "tier": "必去",
+          "note": "全球创新密度最高的街区之一，红线地铁站出口即是biotech/AI公司云集的肯德尔广场，MIT东校区与波士顿的交通门户。"
+        },
+        {
+          "name": "Longfellow Bridge (\"Salt and Pepper Shaker Bridge\")",
+          "nameCn": "朗费罗桥（盐和胡椒瓶桥）",
+          "lat": 42.3636,
+          "lng": -71.078,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "连接剑桥Kendall Square与波士顿Beacon Hill的历史铁桥，MBTA红线从桥上通过，俯瞰查尔斯河与城市天际线的最佳打卡点。"
+        },
+        {
+          "name": "Simmons Hall (229 Vassar St)",
+          "nameCn": "西蒙斯宿舍楼（海绵楼）",
+          "lat": 42.3583,
+          "lng": -71.0993,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Steven Holl设计的多孔海绵造型宿舍，外立面600个开孔各不相同，是MIT最受摄影爱好者喜爱的当代建筑奇观。"
         }
       ]
     },
@@ -202,39 +401,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "H Mart Central Square",
-          "nameCn": "H Mart 韩亚龙超市（中央广场店）",
-          "lat": 42.3642,
-          "lng": -71.1006,
-          "note": "离 MIT 最近的大型亚洲超市，581 Mass Ave，中日韩食材、生鲜、调料、速食一应俱全，步行可达，留学生采购首选。"
+          "name": "H Mart Cambridge (581 Massachusetts Ave)",
+          "nameCn": "H Mart韩亚超市（剑桥中央广场）",
+          "lat": 42.3652,
+          "lng": -71.1049,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距MIT步行约20分钟，韩国/日本/中国食材一站购齐，楼内附设Sapporo拉面店与法式面包坊，是MIT中国留学生最常光顾的亚洲超市。"
         },
         {
-          "name": "Whole Foods Market (River Street)",
-          "nameCn": "全食超市（River Street 店）",
-          "lat": 42.3636,
-          "lng": -71.1062,
-          "note": "340 River St 的大型主流超市，有机生鲜、熟食区齐全，周末 MIT 有免费班车直达。"
+          "name": "Whole Foods Market Central Square (115 Prospect St)",
+          "nameCn": "全食超市（中央广场店）",
+          "lat": 42.3658,
+          "lng": -71.1048,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距MIT红线一站，有机蔬果、熟食与高端食品齐全，是MIT学生采购日常西式食材的首选主流超市，营业至22:00。"
         },
         {
-          "name": "Star Market (Twin City Plaza)",
-          "nameCn": "Star Market 超市（双城广场）",
-          "lat": 42.3735,
-          "lng": -71.0918,
-          "note": "McGrath Hwy 双城广场内的综合超市，价格亲民、品类全，邻 Cambridge/Somerville 边界，可顺带逛 Marshalls。"
+          "name": "Brothers Marketplace Kendall Square (1 Broadway)",
+          "nameCn": "兄弟超市（肯德尔广场）",
+          "lat": 42.3628,
+          "lng": -71.0859,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "MIT最近的全品类超市，步行可达，提供现制熟食、新鲜海鲜与本地农产品，是肯德尔广场上班族与学生的便利补给站。"
         },
         {
-          "name": "Reliable Market",
-          "nameCn": "Reliable 亚洲超市",
-          "lat": 42.3789,
-          "lng": -71.0936,
-          "note": "Union Square 老牌泛亚超市，日韩调料、海苔、火锅料齐全，后厨还卖韩式现做热食，适合补货。"
+          "name": "Trader Joe's Cambridge (748 Memorial Dr)",
+          "nameCn": "乔氏超市（剑桥纪念大道店）",
+          "lat": 42.3545,
+          "lng": -71.1048,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "沿查尔斯河边，性价比极高的美式特色超市，自有品牌商品口碑极佳，MIT提供班车定期前往，适合大采购。"
         },
         {
-          "name": "Market Basket (Somerville)",
-          "nameCn": "Market Basket 平价超市",
-          "lat": 42.3796,
-          "lng": -71.0985,
-          "note": "400 Somerville Ave 的本地连锁，全城公认最便宜，囤日用品和米面油的省钱之选。"
+          "name": "Hong Kong Supermarket / Super 88 (1 Brighton Ave, Allston)",
+          "nameCn": "香港超市 / Super 88（奥斯顿）",
+          "lat": 42.3539,
+          "lng": -71.1241,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "波士顿最大中国城风格超市，生鲜猪肉/活鱼/中式蔬菜/酱料应有尽有，楼内亚洲美食广场同样精彩，乘公交约20分钟。"
+        },
+        {
+          "name": "C-Mart Supermarket (50 Herald St, Boston South End)",
+          "nameCn": "大中华超市（波士顿南区）",
+          "lat": 42.3416,
+          "lng": -71.0727,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "波士顿正宗中式食材超市，紧邻唐人街，活水产、新鲜荔枝/芒果、台式豆腐等中式专属食材应有尽有，红线地铁可达。"
+        },
+        {
+          "name": "Star Market Porter Square (49 White St)",
+          "nameCn": "明星超市（波特广场）",
+          "lat": 42.3882,
+          "lng": -71.1196,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "24小时大型超市，品类齐全价格适中，附设Starbucks与熟食区，是剑桥北部居住的学生深夜采购的可靠选择。"
         }
       ]
     },
@@ -246,46 +473,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Royal East",
-          "nameCn": "皇朝（Royal East）中餐厅",
+          "name": "Happy Lamb Hot Pot (485 Massachusetts Ave)",
+          "nameCn": "快乐小羊火锅（中央广场）",
+          "lat": 42.3647,
+          "lng": -71.1038,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "MIT中国留学生聚餐首选，正宗内蒙古风格清汤涮羊肉，近中央广场红线站，平日27刀、周末33刀，性价比超高。"
+        },
+        {
+          "name": "Dumpling House (950 Massachusetts Ave)",
+          "nameCn": "饺子屋（中央广场）",
+          "lat": 42.3687,
+          "lng": -71.1099,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "北方手工饺子与上海汤包兼备，MIT和哈佛学生公认的中式快餐天花板，生意火爆常需排队，近中央广场站。"
+        },
+        {
+          "name": "5 Spices House (546 Massachusetts Ave)",
+          "nameCn": "五香楼（中央广场）",
+          "lat": 42.3649,
+          "lng": -71.1046,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "学长学姐口碑最好的川菜馆，麻辣火锅和宫保鸡丁深受MIT中国生喜爱，价格亲民，自带食材可按需定制辣度。"
+        },
+        {
+          "name": "Mu Lan Taiwanese Restaurant (228 Broadway)",
+          "nameCn": "木兰台湾餐厅（肯德尔广场旁）",
+          "lat": 42.3631,
+          "lng": -71.0867,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "离MIT最近的正宗台式料理，步行即达，卤肉饭、姜母鸭汤、手工水饺均获MIT学生The Tech校报高度推荐。"
+        },
+        {
+          "name": "QingDao Garden (2382 Massachusetts Ave)",
+          "nameCn": "青岛花园（北剑桥）",
+          "lat": 42.3956,
+          "lng": -71.1272,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "波士顿华人圈推荐最多的北方中餐馆，擀皮手工饺子与中式糕点水准出众，是专程驱车采购的值得一去。"
+        },
+        {
+          "name": "Sapporo Ramen at H Mart (581 Massachusetts Ave)",
+          "nameCn": "Sapporo拉面（H Mart店）",
+          "lat": 42.3652,
+          "lng": -71.1049,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "H Mart楼内的日式拉面摊，鸡骨汤底熬制10小时，价格实惠出餐快，与逛超市完美结合，是MIT学生高频率的午餐首选。"
+        },
+        {
+          "name": "Wusong Road (112 Mount Auburn St, Harvard Square)",
+          "nameCn": "吴淞路（哈佛广场旁）",
+          "lat": 42.373,
+          "lng": -71.121,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "新英格兰华裔主厨打造的创意中美融合风格餐厅，招牌椰子排骨与手作包子配全波士顿最佳Tiki鸡尾酒，氛围绝佳。"
+        },
+        {
+          "name": "Row 34 Cambridge (314 Main St, Kendall Square)",
+          "nameCn": "Row 34海鲜餐厅（肯德尔广场）",
           "lat": 42.3625,
-          "lng": -71.0973,
-          "note": "782 Main St，紧挨 MIT 的老牌中餐馆，中式/马来/泰式合一，价格实惠，是 MIT 学生的日常食堂级选择。"
+          "lng": -71.0861,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "波士顿杂志2025年最佳海鲜奖，步行至MIT仅5分钟，龙虾卷与生蚝拼盘是必点，是招待家人访校的高端之选。"
         },
         {
-          "name": "5 Spices House",
-          "nameCn": "五味轩川菜馆",
-          "lat": 42.3744,
-          "lng": -71.1179,
-          "note": "公认 MIT 附近最强川菜之一，麻辣香锅可自选食材，想吃地道辣口必来。"
+          "name": "Area Four (500 Technology Square, Kendall)",
+          "nameCn": "Area Four木火披萨（肯德尔广场）",
+          "lat": 42.363,
+          "lng": -71.0878,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "用10年老酵母制作的薄脆窑烤披萨，New Haven与那不勒斯风格之间，2011年开业至今是肯德尔广场人气标杆餐厅。"
         },
         {
-          "name": "Dumpling House",
-          "nameCn": "饺子馆（Dumpling House）",
-          "lat": 42.3727,
-          "lng": -71.1158,
-          "note": "950 Mass Ave，南北方中式水饺、锅贴、面食，华人聚集的人气小馆，性价比高。"
+          "name": "Hei La Moon Dim Sum (83 Essex St, Boston Chinatown)",
+          "nameCn": "喜满楼点心（波士顿唐人街）",
+          "lat": 42.3519,
+          "lng": -71.0618,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "波士顿唐人街最大推车点心餐厅，虾饺、烧卖、萝卜糕品质扎实，红线Orange Line可达，周末排队属正常现象。"
         },
         {
-          "name": "The Mad Monkfish",
-          "nameCn": "疯狂鮟鱇鱼（亚洲融合）",
-          "lat": 42.3636,
-          "lng": -71.101,
-          "note": "中央广场亚洲融合餐厅，日式寿司+泰式咖喱+东南亚菜，环境好，适合朋友聚餐或请客。"
+          "name": "Myers + Chang (1145 Washington St, South End)",
+          "nameCn": "Myers + Chang亚洲融合餐厅（南区）",
+          "lat": 42.3417,
+          "lng": -71.0653,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "波士顿明星主厨Joanne Chang的亚洲创意餐厅，猪肉韭菜饺子与姜葱龙虾面享誉全城，适合正式聚餐。"
         },
         {
-          "name": "Toscanini's Ice Cream",
-          "nameCn": "Toscanini's 冰淇淋",
-          "lat": 42.3636,
-          "lng": -71.0994,
-          "note": "899 Main St，1981 年创立的剑桥传奇冰淇淋店，被《纽约时报》盛赞，口味稀奇古怪，本地必打卡甜点。"
+          "name": "Clover Food Lab (1 Kendall Square area)",
+          "nameCn": "Clover素食快餐（肯德尔广场）",
+          "lat": 42.3627,
+          "lng": -71.0867,
+          "rank": 12,
+          "tier": "一般",
+          "note": "MIT最受素食学生欢迎的连锁快餐，鹰嘴豆煎饼三明治与迷迭香薯条是招牌，自制面包每日新鲜出炉。"
         },
         {
-          "name": "Flour Bakery + Cafe",
-          "nameCn": "Flour 烘焙咖啡馆",
-          "lat": 42.3624,
-          "lng": -71.0855,
-          "note": "Kendall 广场人气连锁烘焙店，招牌 sticky bun 和三明治，适合早餐和带电脑自习。"
+          "name": "Taiwan Café (34 Oxford St, Boston Chinatown)",
+          "nameCn": "台湾咖啡馆（波士顿唐人街）",
+          "lat": 42.351,
+          "lng": -71.0601,
+          "rank": 13,
+          "tier": "一般",
+          "note": "唐人街老牌台式小馆，三杯鸡、盐酥鸡与牛肉面均为经典，价格低廉份量豪放，深受台湾留学生强烈推荐。"
+        },
+        {
+          "name": "Flour Bakery + Café (190 Mass Ave, Cambridge)",
+          "nameCn": "面粉面包咖啡馆（剑桥）",
+          "lat": 42.3638,
+          "lng": -71.1018,
+          "rank": 14,
+          "tier": "一般",
+          "note": "波士顿最知名烘焙品牌，粘豆包式肉桂卷和手工三明治是MIT学生早午餐首选，是波士顿Magazine常年最佳面包坊。"
         }
       ]
     },
@@ -297,32 +608,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Central Square)",
-          "nameCn": "美国银行（中央广场支行）",
-          "lat": 42.3645,
-          "lng": -71.1014,
-          "note": "727 Mass Ave，离校最近的大行网点，可开学生账户，ATM 支持中文界面，办卡存款方便。"
+          "name": "MIT Health Urgent Care (25 Carleton St, Building E23)",
+          "nameCn": "MIT健康中心急诊部（E23号楼）",
+          "lat": 42.3568,
+          "lng": -71.0975,
+          "rank": 1,
+          "tier": "必去",
+          "note": "MIT在校学生首选就医地，平日8:00–20:00，周末10:00–16:00，步行可达校园，持MIT保险费用极低，中文服务有限需提前申请翻译。"
         },
         {
-          "name": "MIT Health (Urgent Care)",
-          "nameCn": "MIT 校医院（紧急门诊）",
-          "lat": 42.3617,
-          "lng": -71.0883,
-          "note": "25 Carleton St (E23)，校内医疗中心，含 24 小时急诊与全科，持学生保险首诊就来这里。"
+          "name": "Mount Auburn Hospital (330 Mount Auburn St, Cambridge)",
+          "nameCn": "奥本山医院（剑桥）",
+          "lat": 42.3762,
+          "lng": -71.1363,
+          "rank": 2,
+          "tier": "必去",
+          "note": "剑桥最近的综合性哈佛附属教学医院，24小时急诊，心脏、癌症、妇产科均为全美顶级，MIT急重症患者的主要转诊地。"
         },
         {
-          "name": "CHA Cambridge Hospital",
-          "nameCn": "剑桥联合医疗医院（CHA）",
-          "lat": 42.3739,
-          "lng": -71.1004,
-          "note": "1493 Cambridge St，24 小时急诊综合医院，校医院处理不了的住院/专科转诊到这里。"
+          "name": "CVS Pharmacy Central Square (624 Massachusetts Ave)",
+          "nameCn": "CVS药房（中央广场店）",
+          "lat": 42.3652,
+          "lng": -71.1049,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距H Mart步行数分钟，常规处方药、OTC药品、个人护理品一应俱全，可接MIT处方，含照相馆与基本医疗器械。"
         },
         {
-          "name": "CVS Pharmacy (Central Square)",
-          "nameCn": "CVS 药房（中央广场店）",
-          "lat": 42.3651,
-          "lng": -71.1024,
-          "note": "624 Mass Ave，连锁药房，处方药、感冒药、日用品都能买，离校近、营业时间长。"
+          "name": "Bank of America — Mid-Cambridge Branch (727 Massachusetts Ave)",
+          "nameCn": "美国银行（剑桥中区支行）",
+          "lat": 42.3638,
+          "lng": -71.1062,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "MIT校内Stratton学生中心亦设有BoA ATM，此为最近实体支行，留学生凭护照+F-1可开立学生支票账户，无月费。"
+        },
+        {
+          "name": "TD Bank — Area 4 Branch (617 Massachusetts Ave)",
+          "nameCn": "道明银行（617 Mass Ave）",
+          "lat": 42.365,
+          "lng": -71.1049,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "加拿大背景大银行，无最低余额要求，17–23岁免月管理费，ATM手续费宽松，是MIT留学生最常推荐的开户选项之一。"
+        },
+        {
+          "name": "T-Mobile Store — Harvard Square (1438 Massachusetts Ave)",
+          "nameCn": "T-Mobile门店（哈佛广场）",
+          "lat": 42.3734,
+          "lng": -71.119,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "距MIT红线两站，T-Mobile信号覆盖MIT校园最好，Magenta Plan套餐最受中国留学生欢迎，支持eSIM开通，可带护照+学生证办理。"
+        },
+        {
+          "name": "CVS Pharmacy — 24hr Harvard Square (6 John F Kennedy St)",
+          "nameCn": "CVS药房（哈佛广场24小时店）",
+          "lat": 42.3733,
+          "lng": -71.1199,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "24小时不打烊，深夜急需药品或个人用品的备用药房，内有MinuteClinic可处理轻症，位于哈佛广场红线站出口旁。"
         }
       ]
     },
@@ -334,39 +680,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "MIT Great Dome & Killian Court",
-          "nameCn": "MIT 大圆顶与 Killian 草坪",
-          "lat": 42.3601,
-          "lng": -71.0921,
-          "note": "MIT 标志性新古典大圆顶，俯瞰毕业典礼草坪与查尔斯河，校园拍照第一机位，黄昏光线最佳。"
+          "name": "Charles River Esplanade & Bike Path",
+          "nameCn": "查尔斯河公园大道与骑行道",
+          "lat": 42.3576,
+          "lng": -71.0886,
+          "rank": 1,
+          "tier": "必去",
+          "note": "MIT南侧沿河绿道，可租用皮划艇或独木舟，骑行道绵延23英里，日落时分波士顿天际线倒映水中，是MIT学生放松的第一去处。"
         },
         {
-          "name": "Ray and Maria Stata Center",
-          "nameCn": "斯塔塔中心（盖里建筑）",
-          "lat": 42.3617,
-          "lng": -71.0905,
-          "note": "建筑大师 Frank Gehry 设计的歪斜未来派楼，MIT 计算机系所在，本身就是网红打卡建筑。"
+          "name": "Harvard Square & Harvard Yard",
+          "nameCn": "哈佛广场与哈佛庭院",
+          "lat": 42.373,
+          "lng": -71.119,
+          "rank": 2,
+          "tier": "必去",
+          "note": "红线10分钟可达，全美最古老高校的历史庭院、独立书店、街头音乐家与创意咖啡馆，是剑桥最有文化氛围的街区。"
         },
         {
-          "name": "MIT Museum",
-          "nameCn": "MIT 博物馆",
-          "lat": 42.3625,
-          "lng": -71.088,
-          "note": "314 Main St 新馆，机器人、人工智能、全息与黑科技展品，紧邻 Kendall 地铁站，理工生必逛。"
+          "name": "Museum of Science Boston",
+          "nameCn": "波士顿科学博物馆",
+          "lat": 42.3678,
+          "lng": -71.0709,
+          "rank": 3,
+          "tier": "必去",
+          "note": "步行或骑车25分钟可达，超700件互动展品加全美最大IMAX球形影院，周四19:00后MIT学生入场半价。"
         },
         {
-          "name": "Charles River Esplanade (MIT waterfront)",
-          "nameCn": "查尔斯河滨步道（MIT 河岸）",
-          "lat": 42.3573,
-          "lng": -71.092,
-          "note": "Harvard Bridge 旁的河滨绿道，跑步骑行、看波士顿天际线和帆船，日落与节庆烟花的绝佳视角。"
+          "name": "Boston Chinatown",
+          "nameCn": "波士顿唐人街",
+          "lat": 42.3522,
+          "lng": -71.0627,
+          "rank": 4,
+          "tier": "必去",
+          "note": "红线转橙线两站可达，正宗港式点心、四川火锅、台湾小吃与亚洲食材市场密集，是MIT中国留学生消解乡愁的必访之地。"
         },
         {
-          "name": "Kendall/MIT Square",
-          "nameCn": "Kendall 广场创新区",
+          "name": "Boston Common & Public Garden",
+          "nameCn": "波士顿公园与公共花园",
+          "lat": 42.3551,
+          "lng": -71.0656,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美最古老公共草坪，紧邻著名天鹅船花园，春季樱花、夏季音乐会、冬季溜冰场四季各异，是波士顿城市核心地标。"
+        },
+        {
+          "name": "Longfellow Bridge",
+          "nameCn": "朗费罗桥（盐和胡椒瓶桥）",
+          "lat": 42.3636,
+          "lng": -71.078,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "连接剑桥与波士顿的历史铁桥，MBTA红线从桥上穿过，是拍摄查尔斯河与MIT/波士顿天际线同框照片的绝佳机位。"
+        },
+        {
+          "name": "Institute of Contemporary Art Boston (ICA, 25 Harbor Shore Dr)",
+          "nameCn": "波士顿当代艺术博物馆（ICA）",
+          "lat": 42.3476,
+          "lng": -71.0449,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "矗立于波士顿港湾边的玻璃悬臂美术馆，常设前沿当代艺术展，MIT学生凭ID免费入场，每周四17:00–21:00免费开放给所有人。"
+        },
+        {
+          "name": "Museum of Fine Arts Boston (465 Huntington Ave)",
+          "nameCn": "波士顿艺术博物馆（MFA）",
+          "lat": 42.3394,
+          "lng": -71.0942,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "全美最重要综合艺术博物馆之一，馆藏47万件，MIT学生持证免费，印象派画作与古埃及文物尤为知名，乘绿线可达。"
+        },
+        {
+          "name": "Kendall Square Innovation District",
+          "nameCn": "肯德尔广场创新区",
           "lat": 42.3624,
-          "lng": -71.0862,
-          "note": "号称「地球上最具创新力的一平方英里」，科技公司云集、餐饮咖啡密集，感受 MIT 周边活力的中心。"
+          "lng": -71.0864,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "全球生物科技与AI公司密度最高的街区，漫步可见Google、Pfizer、Broad Institute，是感受MIT与工业界紧密连接的窗口。"
+        },
+        {
+          "name": "Newbury Street & Back Bay (Boston)",
+          "nameCn": "纽伯里街与后湾区（波士顿）",
+          "lat": 42.3503,
+          "lng": -71.081,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "波士顿最时尚购物街，高档精品店到独立设计师品牌一应俱全，维多利亚式联排别墅背景极佳，红线转绿线可达。"
+        },
+        {
+          "name": "Fresh Pond Reservation (Cambridge)",
+          "nameCn": "新鲜池塘自然保护区（剑桥）",
+          "lat": 42.3886,
+          "lng": -71.146,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "剑桥市内2.5公里环湖健步小径，绕湖一圈约35分钟，秋季色彩炫烂，是MIT学生逃离校园压力的城市自然净土。"
         }
       ]
     }

@@ -67,60 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "St Salvator's Quadrangle (United College)",
-          "nameCn": "圣萨尔瓦多方庭",
-          "lat": 56.3417,
-          "lng": -2.7943,
-          "note": "北街联合学院方庭,兼作教学与学生活动场地。"
+          "name": "School of Physics and Astronomy (J.F. Allen Building)",
+          "nameCn": "物理与天文学院（J.F.艾伦楼）",
+          "lat": 56.3415,
+          "lng": -2.8427,
+          "rank": 1,
+          "tier": "核心必知",
+          "note": "圣安大最顶尖理科院系之一，诺贝尔奖得主摇篮，位于北草坪（North Haugh）科学区，含先进光学与激光实验室。"
         },
         {
-          "name": "St Mary's College",
-          "nameCn": "圣玛丽学院",
-          "lat": 56.3391,
+          "name": "School of International Relations (Arts Building, The Scores)",
+          "nameCn": "国际关系学院（文科楼，The Scores）",
+          "lat": 56.3413,
+          "lng": -2.8006,
+          "rank": 2,
+          "tier": "核心必知",
+          "note": "全球顶尖IR院系，位于The Scores步道旁；专为IR/IR+中东研究等项目中国学生必去报到处。"
+        },
+        {
+          "name": "School of Management (The Gateway, North Haugh)",
+          "nameCn": "管理学院（Gateway大楼，北草坪）",
+          "lat": 56.3432,
+          "lng": -2.8445,
+          "rank": 3,
+          "tier": "核心必知",
+          "note": "商学院旗舰楼，含图书馆分馆；未来将迁入市区翻新后的New College（麦德拉斯旧址）。"
+        },
+        {
+          "name": "School of Chemistry (Purdie Building, North Haugh)",
+          "nameCn": "化学学院（珀迪楼，北草坪）",
+          "lat": 56.3408,
+          "lng": -2.8452,
+          "rank": 4,
+          "tier": "核心必知",
+          "note": "以托马斯·珀迪命名，紧邻数学楼，化学与催化研究在QS全球前50；实验室设施一流。"
+        },
+        {
+          "name": "School of Mathematics and Statistics (North Haugh)",
+          "nameCn": "数学与统计学院（北草坪）",
+          "lat": 56.341,
+          "lng": -2.8447,
+          "rank": 5,
+          "tier": "核心必知",
+          "note": "与化学楼相邻，开设纯数/统计/精算专业；多位菲尔兹奖级研究者任教。"
+        },
+        {
+          "name": "School of Computer Science (Jack Cole Building, North Haugh)",
+          "nameCn": "计算机科学学院（杰克·科尔楼，北草坪）",
+          "lat": 56.342,
+          "lng": -2.844,
+          "rank": 6,
+          "tier": "核心必知",
+          "note": "以圣大CS奠基人杰克·科尔命名；人工智能、形式方法方向研究实力强劲。"
+        },
+        {
+          "name": "United College / St Salvator's Quadrangle",
+          "nameCn": "联合学院 / 圣萨尔瓦托圣方庭",
+          "lat": 56.3402,
           "lng": -2.7946,
-          "note": "神学院与心理及神经科学学院,含国王詹姆斯图书馆。"
+          "rank": 7,
+          "tier": "核心必知",
+          "note": "1450年创立的核心文科教学区，哥特式方庭是大学最标志性建筑，历史、哲学、英文等课程在此授课。"
         },
         {
-          "name": "Gateway Building (School of Management)",
-          "nameCn": "Gateway楼(管理学院)",
-          "lat": 56.3412,
-          "lng": -2.8095,
-          "note": "2000年落成,管理学院所在。"
+          "name": "St Mary's College (South Street)",
+          "nameCn": "圣玛丽学院（南街）",
+          "lat": 56.3385,
+          "lng": -2.7952,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "神学院所在地，1538年建立；古树参天的庭院是全校最安静的读书圣地，对公众开放。"
         },
         {
-          "name": "Jack Cole Building (Computer Science)",
-          "nameCn": "Jack Cole楼(计算机系)",
-          "lat": 56.3403,
-          "lng": -2.8087,
-          "note": "North Haugh的计算机科学学院主楼。"
+          "name": "School of Biology (Westburn Lane, North Haugh)",
+          "nameCn": "生物学院（北草坪）",
+          "lat": 56.3405,
+          "lng": -2.846,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "海洋生物与生态学研究国际闻名，紧邻化学与医学楼；实验室配备基因组与成像设施。"
         },
         {
-          "name": "Purdie Building (Chemistry)",
-          "nameCn": "Purdie楼(化学系)",
-          "lat": 56.3399,
-          "lng": -2.8106,
-          "note": "North Haugh化学学院教学实验楼。"
+          "name": "School of Medicine (Medical Sciences, North Haugh)",
+          "nameCn": "医学院（北草坪医学楼）",
+          "lat": 56.343,
+          "lng": -2.8455,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "新建现代化医学实验楼，GEP/MBBS课程录取竞争极激烈；部分临床实习在邓迪医院完成。"
         },
         {
-          "name": "School of Mathematics and Statistics",
-          "nameCn": "数学与统计学院",
-          "lat": 56.3399,
-          "lng": -2.808,
-          "note": "North Haugh的数学与统计学院。"
+          "name": "School of Economics and Finance (Castlecliffe, The Scores)",
+          "nameCn": "经济与金融学院（卡斯尔克利夫楼，The Scores）",
+          "lat": 56.3407,
+          "lng": -2.7992,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "维多利亚风格别墅改建，面朝北海，经济学本研课程在此上课，环境清幽。"
         },
         {
-          "name": "Bute Medical Building",
-          "nameCn": "Bute医学楼",
-          "lat": 56.338,
-          "lng": -2.79375,
-          "note": "圣玛丽方庭内旧医学楼,藏Bell Pettigrew自然史博物馆。"
-        },
-        {
-          "name": "New College (former Madras College, South Street)",
-          "nameCn": "新学院(原马德拉斯学院南街址)",
-          "lat": 56.339,
-          "lng": -2.7976,
-          "note": "大学收购的南街历史校舍,改建为新学院。"
+          "name": "School of English (Buchanan Building, Union Street)",
+          "nameCn": "英语学院（布坎南楼）",
+          "lat": 56.3388,
+          "lng": -2.7948,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "文学与创意写作重镇，近South Street；英国文化研究领域排名前列。"
         }
       ],
       "defaultOn": true
@@ -133,18 +185,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "University of St Andrews Main Library",
-          "nameCn": "大学主图书馆",
-          "lat": 56.342,
-          "lng": -2.796,
-          "note": "北街主馆,藏书逾百万册。"
+          "name": "Main Library (University of St Andrews Library)",
+          "nameCn": "主图书馆",
+          "lat": 56.3409,
+          "lng": -2.7957,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校最大图书馆，藏书逾百万册，含稀有善本与手稿；24小时自习室，考期延长开放，中国留学生首选学习场所。"
         },
         {
-          "name": "Parliament Hall & King James Library",
-          "nameCn": "国王詹姆斯图书馆",
-          "lat": 56.3393,
-          "lng": -2.794,
-          "note": "1643年建,神学与中世纪史特藏。"
+          "name": "St Mary's College Library / King James Library",
+          "nameCn": "圣玛丽学院图书馆 / 詹姆斯王图书馆",
+          "lat": 56.3386,
+          "lng": -2.7951,
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落于古老庭院内，收藏15-21世纪印刷书逾20万册及珍贵地图手稿；开放学术访问，气氛静雅。"
+        },
+        {
+          "name": "Martyrs Kirk (Thomson Reading Room)",
+          "nameCn": "殉道者教堂阅览室",
+          "lat": 56.3403,
+          "lng": -2.7953,
+          "rank": 3,
+          "tier": "必去",
+          "note": "哥特式教堂改建的研究生阅览室，位于北街80号；独特建筑环境使其成为最受欢迎的学习打卡地。"
+        },
+        {
+          "name": "J.F. Allen Library (Physics & Astronomy, North Haugh)",
+          "nameCn": "J.F.艾伦图书馆（物理天文楼内）",
+          "lat": 56.3415,
+          "lng": -2.8427,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "北草坪理科区专属图书馆，期刊数据库、物理/天文专业参考书齐全，理科生课间自习首选。"
+        },
+        {
+          "name": "Library at The Gateway (North Haugh)",
+          "nameCn": "Gateway图书馆分馆（北草坪）",
+          "lat": 56.3432,
+          "lng": -2.8445,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于管理学院Gateway大楼地下室，商科专业资料齐备，附近自习座位充足。"
+        },
+        {
+          "name": "Butts Wynd Building (24h Study Rooms)",
+          "nameCn": "Butts Wynd 24小时自习楼",
+          "lat": 56.34,
+          "lng": -2.796,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "全周7天24小时开放的自习与电脑教室，备考期间人满为患；紧邻主图，深夜学习首选。"
+        },
+        {
+          "name": "Walter Bower House Library (Eden Campus, Guardbridge)",
+          "nameCn": "沃尔特·鲍尔图书馆（伊甸园校区）",
+          "lat": 56.373,
+          "lng": -2.9021,
+          "rank": 7,
+          "tier": "可选",
+          "note": "位于瓜德布里奇伊甸园校区，主要服务MBA和可持续发展项目学生，安静且现代化。"
         }
       ]
     },
@@ -156,11 +257,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Wardlaw Museum (formerly MUSA)",
-          "nameCn": "沃德劳博物馆",
+          "name": "R&A World Golf Museum",
+          "nameCn": "R&A世界高尔夫博物馆",
           "lat": 56.343,
-          "lng": -2.794,
-          "note": "The Scores上的大学博物馆,2008年开放。"
+          "lng": -2.8158,
+          "rank": 1,
+          "tier": "必去",
+          "note": "高尔夫发源地的官方博物馆，坐落于老球场旁Bruce Embankment，互动展览丰富，顶层可俯瞰第一球道与西沙滩，入圣安不可错过。"
+        },
+        {
+          "name": "Wardlaw Museum (87 North Street)",
+          "nameCn": "沃德劳博物馆",
+          "lat": 56.3404,
+          "lng": -2.7964,
+          "rank": 2,
+          "tier": "必去",
+          "note": "大学官方博物馆，展示1413年建校以来的科研成就与全球影响力，常设与临时展览并行，免费入场。"
+        },
+        {
+          "name": "Bell Pettigrew Museum of Natural History (Bute Building)",
+          "nameCn": "贝尔-佩蒂格鲁自然历史博物馆",
+          "lat": 56.3394,
+          "lng": -2.7966,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "维多利亚时代博物馆柜橱式陈列，珍奇动物标本琳琅满目，免费参观，是全苏格兰保存最完好的维多利亚博物馆之一。"
+        },
+        {
+          "name": "Crawford Arts Centre (93 North Street)",
+          "nameCn": "克劳福德艺术中心",
+          "lat": 56.3402,
+          "lng": -2.7971,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "圣大附属当代艺术画廊，定期举办苏格兰本地及国际艺术家展览，兼设咖啡吧，免费入场，文艺氛围浓厚。"
+        },
+        {
+          "name": "St Andrews Cathedral Museum",
+          "nameCn": "圣安德鲁斯大教堂博物馆",
+          "lat": 56.3392,
+          "lng": -2.7842,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "苏格兰最大中世纪教堂遗址内附设的历史博物馆，收藏精美石雕与中世纪文物；爬圣鲁尔塔可俯瞰全镇。"
         }
       ]
     },
@@ -172,67 +311,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "St Salvator's Chapel",
-          "nameCn": "圣萨尔瓦多礼拜堂",
-          "lat": 56.3414,
-          "lng": -2.7944,
-          "note": "1450年创建,大学标志性礼拜堂与钟塔。"
+          "name": "St Salvator's Chapel & Quadrangle",
+          "nameCn": "圣萨尔瓦托教堂与方庭",
+          "lat": 56.3402,
+          "lng": -2.7946,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1450年建成，全大学最具代表性地标；北街入口的PH铺砖是学生必须避开的「触霉头」传说。"
         },
         {
-          "name": "Younger Hall",
-          "nameCn": "扬格音乐厅",
-          "lat": 56.3412,
-          "lng": -2.7921,
-          "note": "北街毕业典礼与音乐会主礼堂。"
-        },
-        {
-          "name": "University of St Andrews Sports Centre",
-          "nameCn": "大学体育中心",
-          "lat": 56.339,
-          "lng": -2.8148,
-          "note": "St Leonards路,North Haugh上方的运动中心。"
-        },
-        {
-          "name": "St Salvator's Hall",
-          "nameCn": "圣萨尔瓦多宿舍",
-          "lat": 56.3419,
-          "lng": -2.7922,
-          "note": "古城核心区代表性学生宿舍。"
-        },
-        {
-          "name": "Andrew Melville Hall",
-          "nameCn": "安德鲁·梅尔维尔宿舍",
-          "lat": 56.3407,
-          "lng": -2.8171,
-          "note": "西区现代主义大型学生宿舍。"
-        },
-        {
-          "name": "David Russell Apartments",
-          "nameCn": "David Russell公寓",
-          "lat": 56.3366,
-          "lng": -2.8229,
-          "note": "西郊最大学生公寓群。"
-        },
-        {
-          "name": "Old Course (St Andrews Links)",
-          "nameCn": "老球场(高尔夫)",
-          "lat": 56.3438,
-          "lng": -2.8027,
-          "note": "世界高尔夫发源地,紧邻校园西北海滨。"
+          "name": "Old Course (The Home of Golf)",
+          "nameCn": "老球场（高尔夫发源地）",
+          "lat": 56.3454,
+          "lng": -2.8134,
+          "rank": 2,
+          "tier": "必去",
+          "note": "世界最古老高尔夫球场，斯威尔坎桥与皇家古代俱乐部会所并肩而立；即使不打球也是必到打卡圣地。"
         },
         {
           "name": "St Andrews Castle",
           "nameCn": "圣安德鲁斯城堡",
-          "lat": 56.3422,
-          "lng": -2.7905,
-          "note": "海崖城堡遗址,毗邻The Scores教学区。"
+          "lat": 56.3432,
+          "lng": -2.7892,
+          "rank": 3,
+          "tier": "必去",
+          "note": "悬崖边13世纪主教城堡遗址，含瓶形地牢与地下隧道，可俯瞰北海；票价约£8，历史感震撼。"
         },
         {
-          "name": "Leuchars Railway Station",
-          "nameCn": "鲁哈斯火车站",
-          "lat": 56.3753,
-          "lng": -2.8921,
-          "note": "最近铁路站,距城约8公里,东海岸干线。"
+          "name": "St Andrews Cathedral Ruins",
+          "nameCn": "圣安德鲁斯大教堂遗址",
+          "lat": 56.3392,
+          "lng": -2.7842,
+          "rank": 4,
+          "tier": "必去",
+          "note": "苏格兰曾经最大的教堂，12世纪建造，宗教改革后被毁；高耸的石塔遗址是全镇天际线核心，入场免费。"
+        },
+        {
+          "name": "University of St Andrews Students' Association (St Mary's Place)",
+          "nameCn": "圣大学生会大楼",
+          "lat": 56.3393,
+          "lng": -2.7978,
+          "rank": 5,
+          "tier": "必去",
+          "note": "学生联合会所在地，含多个酒吧、咖啡厅、Club 601演出场地及学生服务中心，是校园社交核心。"
+        },
+        {
+          "name": "Younger Hall (North Street)",
+          "nameCn": "扬格礼堂",
+          "lat": 56.3403,
+          "lng": -2.7935,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1929年建成的大学毕业典礼及音乐厅，容量958座；毕业典礼与大型音乐会在此举行，是留学记忆最深处。"
+        },
+        {
+          "name": "West Sands Beach",
+          "nameCn": "西沙滩",
+          "lat": 56.3627,
+          "lng": -2.8078,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "长达3公里的金色沙滩，电影《烈火战车》开场地取景处，紧邻老球场；夕阳散步必去，冬季依然壮观。"
+        },
+        {
+          "name": "St Andrews Harbour",
+          "nameCn": "圣安德鲁斯渔港",
+          "lat": 56.337,
+          "lng": -2.7818,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "13世纪老港口，渔船与游艇并停，石砌防波堤可漫步赏海；东沙滩与城堡遗址就在旁边。"
         }
       ]
     },
@@ -244,39 +392,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tesco Express (Market Street)",
-          "nameCn": "乐购便利店（市场街店）",
-          "lat": 56.3404,
-          "lng": -2.7945,
-          "note": "市中心步行可达的主力连锁超市，日常买菜、面包、牛奶最方便，营业时间长。"
+          "name": "Tesco Express (138-140 Market Street)",
+          "nameCn": "乐购特易购便利店",
+          "lat": 56.3391,
+          "lng": -2.7954,
+          "rank": 1,
+          "tier": "必去",
+          "note": "市中心Market Street上的特易购便利店，营业时间长，离大多数宿舍步行可达，是日常购物最方便选择。"
         },
         {
-          "name": "Aldi St Andrews (Tom Stewart Lane)",
-          "nameCn": "阿尔迪超市（圣安店）",
-          "lat": 56.3322,
-          "lng": -2.8118,
-          "note": "镇南的平价大型超市，价格便宜、适合周末囤货，留学生省钱首选。"
-        },
-        {
-          "name": "Morrisons (Largo Road)",
-          "nameCn": "莫里森超市（拉戈路店）",
-          "lat": 56.3369,
-          "lng": -2.8001,
-          "note": "本地综合大超市，蔬果肉类齐全，离医院和学生宿舍区都很近。"
-        },
-        {
-          "name": "Oriental House (Asian grocery counter)",
-          "nameCn": "东方行（亚洲食材店）",
-          "lat": 56.3402,
-          "lng": -2.7958,
-          "note": "镇上最主要的中亚食材来源，能买到酱油、米、面条、火锅料等中餐必备品。"
-        },
-        {
-          "name": "Sainsbury's Local (Market Street)",
-          "nameCn": "桑斯伯里便利店（市场街店）",
-          "lat": 56.3406,
+          "name": "Sainsbury's Local (71 Market Street)",
+          "nameCn": "森宝利便利超市",
+          "lat": 56.339,
           "lng": -2.796,
-          "note": "市中心另一家便利连锁，临时补货、买三明治和饮料很顺手。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "同在Market Street，与特易购相距不远；Nectar积分卡对国际学生友好，自有品牌性价比高。"
+        },
+        {
+          "name": "Morrisons (45 Largo Road)",
+          "nameCn": "莫里森超市",
+          "lat": 56.3325,
+          "lng": -2.7963,
+          "rank": 3,
+          "tier": "必去",
+          "note": "镇南Largo Road上的大型超市，生鲜肉类与烘焙品丰富；有停车场，适合每周大采购，自有品牌价格实惠。"
+        },
+        {
+          "name": "Aldi (Tom Stewart Lane, KY16 8YB)",
+          "nameCn": "阿尔迪折扣超市",
+          "lat": 56.3302,
+          "lng": -2.8,
+          "rank": 4,
+          "tier": "必去",
+          "note": "德国折扣超市，价格全镇最低；留学生省钱神器，冷冻食品、奶制品、橄榄油等必买，距市中心骑车约10分钟。"
+        },
+        {
+          "name": "M&S Simply Food (23 Largo Road)",
+          "nameCn": "玛莎精品食品",
+          "lat": 56.333,
+          "lng": -2.7975,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "精品食品超市，即食餐、高品质肉类和甜品出众；价格偏高但品质有保证，特殊场合或犒劳自己时首选。"
+        },
+        {
+          "name": "E&Z Asian Mart (124 Market Street)",
+          "nameCn": "E&Z亚洲食品超市",
+          "lat": 56.339,
+          "lng": -2.7946,
+          "rank": 6,
+          "tier": "必去",
+          "note": "圣安唯一市区亚洲食品店，韩国/日本方便面、饺子（功夫/鲜亚洲品牌）、酱料、海苔等应有尽有；中国留学生的救命口粮站。"
+        },
+        {
+          "name": "Balgove Larder (Strathtyrum Estate, St Andrews)",
+          "nameCn": "巴尔戈夫农庄市集",
+          "lat": 56.3504,
+          "lng": -2.84,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "郊外农场直营熟食店，自产牛排、手工奶酪、本地蔬果均有出售；环境质朴迷人，外卖咖啡和派对采购必到。"
         }
       ]
     },
@@ -288,46 +464,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Oriental House",
-          "nameCn": "东方行中餐馆",
-          "lat": 56.3402,
+          "name": "The Tailend Restaurant & Fish Bar (130 Market Street)",
+          "nameCn": "泰尔本海鲜餐厅与炸鱼薯条",
+          "lat": 56.339,
+          "lng": -2.7942,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "圣安最受推崇的炸鱼薯条店，新鲜本地海鲜每日供应；既可堂食也可外带，来圣安第一顿必吃。"
+        },
+        {
+          "name": "Haar Restaurant (1 Golf Place)",
+          "nameCn": "Haar精致海鲜餐厅",
+          "lat": 56.3434,
+          "lng": -2.8145,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "米其林指南推荐，大厨Dean Banks主理，季节性苏格兰海鲜菜单，正对老球场；庆祝毕业/接待家长首选。"
+        },
+        {
+          "name": "CombiniCo (91 South Street)",
+          "nameCn": "CombiniCo 韩日便利美食",
+          "lat": 56.3387,
+          "lng": -2.7956,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "韩日风格快食店，寿司卷、日式便当、韩式炒饭套餐，价位亲民，荣获苏格兰亚洲美食奖提名，中国留学生常客。"
+        },
+        {
+          "name": "Tulsi Indian & Thai Restaurant (60-62 Market Street)",
+          "nameCn": "图尔西印泰料理",
+          "lat": 56.3389,
+          "lng": -2.7963,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "圣安口碑最好的印度泰国混合餐厅，TheFork评分9.3/10；咖喱、泰式炒河粉均出色，可提前订座。"
+        },
+        {
+          "name": "Dr Noodles (84A Market Street)",
+          "nameCn": "Dr Noodles面馆",
+          "lat": 56.339,
           "lng": -2.7958,
-          "note": "圣安最知名的中餐厅兼外卖，想家时吃中餐的首选，可堂食可打包。"
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "主打中式/亚洲风味面食，素食选项丰富，价格实惠；中国留学生深夜解馋首选，外卖方便。"
         },
         {
-          "name": "Maxin Chinese Takeaway",
-          "nameCn": "美心中式外卖",
-          "lat": 56.333,
-          "lng": -2.8085,
-          "note": "镇南的中式外卖店，咖喱炒饭、香酥鸭、麻婆豆腐等家常菜实惠管饱。"
-        },
-        {
-          "name": "Cromars Classic Fish & Chips",
-          "nameCn": "Cromars 炸鱼薯条",
-          "lat": 56.3407,
-          "lng": -2.7948,
-          "note": "曾两度获评全苏格兰最佳炸鱼薯条，来圣安必吃的本地国民美食。"
-        },
-        {
-          "name": "Jannettas Gelateria",
-          "nameCn": "Jannettas 意式冰淇淋",
-          "lat": 56.3398,
-          "lng": -2.7921,
-          "note": "1908年创立的百年冰淇淋老店，几十种口味，是圣安的甜品地标。"
-        },
-        {
-          "name": "Northpoint Cafe",
-          "nameCn": "北角咖啡馆",
-          "lat": 56.3414,
-          "lng": -2.7912,
-          "note": "威廉王子与凯特当年喝咖啡的网红咖啡馆，早餐和打卡都合适。"
-        },
-        {
-          "name": "Mitchell's St Andrews",
-          "nameCn": "Mitchell's 餐厅熟食店",
-          "lat": 56.3401,
+          "name": "Forgans (110 Market Street)",
+          "nameCn": "弗甘斯苏格兰餐厅",
+          "lat": 56.3389,
           "lng": -2.7952,
-          "note": "主打苏格兰本地食材的brunch与熟食店，环境精致适合周末小聚。"
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "市中心最热闹的苏格兰现代餐厅，菜单多样、气氛活跃；午餐套餐性价比高，朋友聚会之选。"
+        },
+        {
+          "name": "The Bothy (3 Church Square)",
+          "nameCn": "博蒂苏格兰餐厅",
+          "lat": 56.3397,
+          "lng": -2.7941,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "充满苏格兰田园风情的餐厅，含庭院座席，季节食材烹制传统菜肴；海鲜汤与牛排评价很高。"
+        },
+        {
+          "name": "Jahangir Balti & Tandoori (116a South Street)",
+          "nameCn": "贾汉吉尔印度炭烤餐厅",
+          "lat": 56.3386,
+          "lng": -2.7958,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "无需预约的小型印度餐厅，炭火孜然烤肉与馕饼口碑极好；学生必点咖喱拼盘，物超所值。"
+        },
+        {
+          "name": "Oriental House (91 Market Street)",
+          "nameCn": "东方居中餐厅",
+          "lat": 56.339,
+          "lng": -2.796,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "圣安少数正规中餐厅之一，位于Market Street，提供午市和晚市；适合思念中餐时打牙祭。"
+        },
+        {
+          "name": "The Seafood Ristorante (Bruce Embankment)",
+          "nameCn": "海鲜意式餐厅",
+          "lat": 56.3432,
+          "lng": -2.816,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "坐落于布鲁斯海堤，俯瞰老球场海岸线，本地龙虾与扇贝是招牌；适合重要纪念日的高档聚餐。"
+        },
+        {
+          "name": "Fisher & Donaldson (13 Church Street)",
+          "nameCn": "费希尔·唐纳森百年烘焙坊",
+          "lat": 56.3398,
+          "lng": -2.7941,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "超过百年历史的家族烘焙坊，招牌咖啡海绵蛋糕与奶油酥饼是本地传奇；早餐采购和伴手礼必到。"
+        },
+        {
+          "name": "Jannettas Gelateria (31 South Street)",
+          "nameCn": "贾尼塔冰淇淋店",
+          "lat": 56.3386,
+          "lng": -2.7965,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "圣安百年手工意式冰淇淋店，菲夫覆盆子口味和焦糖生姜口味尤为特色；排队购买是圣安夏日仪式。"
+        },
+        {
+          "name": "Northpoint Café (24 North Street)",
+          "nameCn": "北角咖啡厅",
+          "lat": 56.3403,
+          "lng": -2.7964,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "全城最受追捧的早午餐地，不接受预约常需排队；英式早餐、煎蛋卷与手冲咖啡均备受好评。"
+        },
+        {
+          "name": "Nando's (Market Street)",
+          "nameCn": "南多斯葡式烤鸡",
+          "lat": 56.3389,
+          "lng": -2.7956,
+          "rank": 14,
+          "tier": "一般",
+          "note": "葡式辣烤鸡连锁，圣安学生最常去的快餐聚点；黑卡学生优惠实用，适合预算有限的日常聚餐。"
+        },
+        {
+          "name": "Spoiled Life Café (South Street)",
+          "nameCn": "Spoiled Life 精品咖啡",
+          "lat": 56.3384,
+          "lng": -2.796,
+          "rank": 15,
+          "tier": "一般",
+          "note": "精品独立咖啡馆，平白咖啡口碑极佳且每周更换手工糕点；论文写作党的首选安静咖啡角。"
         }
       ]
     },
@@ -339,32 +608,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Royal Bank of Scotland (South Street)",
-          "nameCn": "苏格兰皇家银行（南街支行）",
-          "lat": 56.3396,
-          "lng": -2.7931,
-          "note": "市中心银行网点，办理英国本地银行账户、现金业务可在此办理。"
+          "name": "Bank of Scotland (1 Queen's Gardens)",
+          "nameCn": "苏格兰银行（苏格兰本地银行）",
+          "lat": 56.3391,
+          "lng": -2.7982,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "苏格兰本地银行，国际学生可开设学生账户；Lloyds集团旗下，英国各地ATM免费取现。"
         },
         {
-          "name": "St Andrews Community Hospital & Health Centre",
-          "nameCn": "圣安社区医院及健康中心",
-          "lat": 56.3361,
-          "lng": -2.8024,
-          "note": "镇上的医院与GP全科诊所所在地，看病、注册家庭医生都来这里。"
+          "name": "TSB Bank (12 Church Street)",
+          "nameCn": "TSB银行",
+          "lat": 56.3397,
+          "lng": -2.794,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "圣安市中心分行，窗口业务齐全；国际学生开户所需文件：护照+学生签证+大学录取函。"
         },
         {
-          "name": "Boots Pharmacy (Market Street)",
-          "nameCn": "Boots 药房（市场街店）",
-          "lat": 56.3405,
-          "lng": -2.7937,
-          "note": "市中心连锁药房，买常用药、感冒药和日用品最方便。"
+          "name": "Royal Bank of Scotland (113-115 South Street)",
+          "nameCn": "苏格兰皇家银行（RBS）",
+          "lat": 56.3388,
+          "lng": -2.7962,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "RBS圣安分行，NatWest集团，苏格兰留学生常用银行；学生账户含免费隔夜透支额度。"
         },
         {
-          "name": "Lloyds Pharmacy (Community Hospital)",
-          "nameCn": "劳埃德药房（社区医院店）",
-          "lat": 56.336,
-          "lng": -2.8023,
-          "note": "设在社区医院内的药房，凭处方取药、配处方药在此完成。"
+          "name": "Blackfriars Medical Practice (St Andrews Community Hospital, 82 Largo Road)",
+          "nameCn": "黑修士医疗中心（NHS全科诊所）",
+          "lat": 56.3275,
+          "lng": -2.797,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "服务圣大学生的主要NHS全科诊所，入学后须尽快注册；诊所含出诊与电话/视频问诊，牙科另行预约。"
+        },
+        {
+          "name": "Boots Pharmacy (113-119 Market Street)",
+          "nameCn": "博姿药房（市中心）",
+          "lat": 56.339,
+          "lng": -2.7951,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "英国最大连锁药房，Market Street主店，感冒药/维生素/避孕药/处方药均可取；持NHS处方费用9.9英镑。"
+        },
+        {
+          "name": "Dears Pharmacy & Travel Clinic (St Andrews Community Hospital, Largo Road)",
+          "nameCn": "迪尔斯药房与旅行疫苗诊所",
+          "lat": 56.3276,
+          "lng": -2.7972,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "医院内附设药房，含旅行疫苗门诊，出国前打疫苗或取NHS处方首选；与GP诊所同址，非常方便。"
+        },
+        {
+          "name": "O2 / Vodafone Store (114 Market Street)",
+          "nameCn": "O2/沃达丰电信营业厅",
+          "lat": 56.339,
+          "lng": -2.7948,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "O2与Vodafone共用Market Street门店，入学后办本地SIM卡首选；学生套餐含大流量，Two年合约绑定手机也划算。"
+        },
+        {
+          "name": "St Andrews Post Office (127 South Street)",
+          "nameCn": "圣安邮局",
+          "lat": 56.3385,
+          "lng": -2.7975,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "负责包裹收寄、护照申请、汇款换汇；收国内寄来的快递时需凭收件单到此处提货。"
         }
       ]
     },
@@ -376,39 +689,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "St Andrews Cathedral",
-          "nameCn": "圣安德鲁斯大教堂",
-          "lat": 56.34,
-          "lng": -2.7875,
-          "note": "12世纪修建、曾是苏格兰最大的教堂遗址，可登塔俯瞰全镇与海岸。"
+          "name": "West Sands Beach",
+          "nameCn": "西沙滩",
+          "lat": 56.3627,
+          "lng": -2.8078,
+          "rank": 1,
+          "tier": "必去",
+          "note": "3公里金沙长滩，《烈火战车》取景地，紧靠老球场；夕阳沿海漫步是圣安留学生活的经典仪式。"
+        },
+        {
+          "name": "St Andrews Cathedral & St Rule's Tower",
+          "nameCn": "圣安德鲁斯大教堂与圣鲁尔塔",
+          "lat": 56.3392,
+          "lng": -2.7842,
+          "rank": 2,
+          "tier": "必去",
+          "note": "苏格兰历史上最大教堂的中世纪遗址，爬上12世纪石塔可360度俯瞰全镇与北海，门票约£4.50。"
         },
         {
           "name": "St Andrews Castle",
           "nameCn": "圣安德鲁斯城堡",
-          "lat": 56.3419,
-          "lng": -2.7901,
-          "note": "海边的中世纪城堡遗迹，有著名的地牢与攻城地道，临海风景极佳。"
+          "lat": 56.3432,
+          "lng": -2.7892,
+          "rank": 3,
+          "tier": "必去",
+          "note": "悬崖峭壁上的主教城堡遗址，含全欧洲最完整的中世纪地下矿道系统，历史震撼感极强，票价约£8。"
         },
         {
-          "name": "The Old Course & R&A Clubhouse",
-          "nameCn": "老球场与R&A高尔夫俱乐部",
-          "lat": 56.3485,
-          "lng": -2.8024,
-          "note": "高尔夫运动的发源地、世界最著名的球场，门口拍照是经典打卡点。"
+          "name": "Old Course & Swilcan Bridge",
+          "nameCn": "老球场与斯威尔坎桥",
+          "lat": 56.3454,
+          "lng": -2.8134,
+          "rank": 4,
+          "tier": "必去",
+          "note": "高尔夫圣地，斯威尔坎桥是全球高尔夫爱好者朝圣地；即使不打球也可沿球场边道漫步，免费打卡。"
         },
         {
-          "name": "West Sands Beach",
-          "nameCn": "西沙滩",
-          "lat": 56.3528,
-          "lng": -2.8086,
-          "note": "电影《烈火战车》开场奔跑的两英里长沙滩，看海、散步、看日落的胜地。"
+          "name": "St Andrews Botanic Garden",
+          "nameCn": "圣安德鲁斯植物园",
+          "lat": 56.3346,
+          "lng": -2.8066,
+          "rank": 5,
+          "tier": "必去",
+          "note": "18英亩的校区植物园，紧靠Kinness Burn小溪，春夏百花齐放；免费入园，是留学生放松散心和拍照的宝地。"
         },
         {
-          "name": "University of St Andrews – St Salvator's Quad",
-          "nameCn": "圣安德鲁斯大学圣萨尔瓦多学院方庭",
-          "lat": 56.3406,
-          "lng": -2.7955,
-          "note": "大学最古老的主校园中庭，哥特式钟楼是学校的标志性建筑。"
+          "name": "East Sands Beach & Harbour",
+          "nameCn": "东沙滩与渔港",
+          "lat": 56.3351,
+          "lng": -2.7791,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "小巧静谧的海湾沙滩，紧靠渔港与城堡遗址；夏季海水游泳和冲浪皆有，东侧悬崖步道景色壮美。"
+        },
+        {
+          "name": "Fife Coastal Path (Rock & Spindle Walk)",
+          "nameCn": "菲夫海岸步道（岩脊路段）",
+          "lat": 56.332,
+          "lng": -2.768,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "圣安向东延伸的海岸步道，岩脊地貌奇特；徒步约2小时可抵达，是周末户外首选，海岬远眺令人心旷神怡。"
+        },
+        {
+          "name": "Anstruther & Anstruther Fish Bar",
+          "nameCn": "安斯特鲁瑟古渔港与炸鱼薯条名店",
+          "lat": 56.2232,
+          "lng": -2.6974,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "圣安以南约20分钟车程，东纽克最美渔村，Anstruther Fish Bar多次获评全英最佳炸鱼薯条；可乘船前往五月岛观海雀。"
+        },
+        {
+          "name": "Tentsmuir Forest & Beach",
+          "nameCn": "腾茨穆尔森林与沙滩",
+          "lat": 56.42,
+          "lng": -2.83,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "圣安以北约20分钟，广阔松林与海滩相连，夏季海豹常聚集晒太阳；骑行路线成熟，适合一日户外游。"
+        },
+        {
+          "name": "Kingsbarns Distillery",
+          "nameCn": "金斯巴恩斯威士忌蒸馏厂",
+          "lat": 56.2762,
+          "lng": -2.666,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "圣安以南15分钟，苏格兰新锐单一麦芽威士忌厂，含Darnley's Gin蒸馏，提供互动参观与品鉴；须提前预约。"
+        },
+        {
+          "name": "Crail Harbour (East Neuk Village)",
+          "nameCn": "克雷尔古渔村港口",
+          "lat": 56.259,
+          "lng": -2.6299,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "东纽克最精致的渔村，石砌港湾彩色小屋如画卷，含艺廊与工艺品店；驾车约15分钟，适合周末摄影之旅。"
+        },
+        {
+          "name": "Scotland's Secret Nuclear Bunker (Troywood, near St Andrews)",
+          "nameCn": "苏格兰秘密核掩体",
+          "lat": 56.2705,
+          "lng": -2.6984,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "冷战时期地下100英尺的核战指挥中心，全程声光互动参观，约30分钟车程；冷战历史爱好者必到。"
         }
       ]
     }

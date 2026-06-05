@@ -67,53 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Gates and Hillman Centers",
-          "nameCn": "盖茨-希尔曼计算机中心",
-          "lat": 40.4434,
-          "lng": -79.9447,
-          "note": "计算机科学学院主楼，蜿蜒玻璃幕墙地标。"
+          "name": "Gates & Hillman Centers (GHC)",
+          "nameCn": "盖茨与希尔曼计算机科学楼",
+          "lat": 40.4437,
+          "lng": -79.9445,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全球顶尖CS学院SCS的旗舰建筑，含机器学习、LTI、CS等核心系，每位CMU学生必知地标。"
         },
         {
-          "name": "Hamerschlag Hall",
-          "nameCn": "哈默施拉格楼",
-          "lat": 40.4424,
-          "lng": -79.9467,
-          "note": "工程学院老牌建筑，电气与计算机工程系所在。"
-        },
-        {
-          "name": "Wean Hall",
-          "nameCn": "维恩楼",
-          "lat": 40.4435,
-          "lng": -79.9456,
-          "note": "巨型混凝土科研楼，数学、物理与计算机课程集中地。"
-        },
-        {
-          "name": "Doherty Hall",
-          "nameCn": "多尔蒂楼",
+          "name": "Newell-Simon Hall (NSH)",
+          "nameCn": "纽厄尔-西蒙大楼",
           "lat": 40.4431,
-          "lng": -79.9452,
-          "note": "理学院化学与材料系教学楼，临The Cut。"
+          "lng": -79.9456,
+          "rank": 2,
+          "tier": "必去",
+          "note": "机器人研究所（Robotics Institute）和人机交互研究所（HCII）所在地，是CMU机器人研究的圣地。"
         },
         {
-          "name": "Tepper Quad",
-          "nameCn": "泰珀商学院庭院",
-          "lat": 40.445,
-          "lng": -79.9442,
-          "note": "横跨福布斯大道的泰珀商学院新园区。"
+          "name": "Wean Hall (WEH)",
+          "nameCn": "威恩大楼",
+          "lat": 40.4423,
+          "lng": -79.9456,
+          "rank": 3,
+          "tier": "必去",
+          "note": "数学系、工程研究中心及众多SCS实验室所在，含大量研究生办公室，是核心学术楼之一。"
         },
         {
-          "name": "College of Fine Arts",
-          "nameCn": "美术学院",
-          "lat": 40.4416,
-          "lng": -79.9429,
-          "note": "宏伟Beaux-Arts建筑，建筑、戏剧与音乐学院所在。"
-        },
-        {
-          "name": "Margaret Morrison Carnegie Hall",
-          "nameCn": "玛格丽特·莫里森楼",
+          "name": "Tepper School of Business (Tepper Quad)",
+          "nameCn": "泰珀商学院大楼",
           "lat": 40.4429,
-          "lng": -79.9412,
-          "note": "半圆柱廊立面，设计学院使用。"
+          "lng": -79.9473,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2018年落成的现代化商学院大楼，全球MBA Top 15，设施一流，含金融与创业中心。"
+        },
+        {
+          "name": "College of Fine Arts (CFA)",
+          "nameCn": "美术学院大楼",
+          "lat": 40.4418,
+          "lng": -79.9448,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1912年建成的Hornbostel设计经典建筑，外立面刻有五种建筑风格浮雕，是CMU标志性历史建筑。"
+        },
+        {
+          "name": "Purnell Center for the Arts",
+          "nameCn": "珀内尔艺术中心",
+          "lat": 40.4434,
+          "lng": -79.9473,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "戏剧学院和艺术学院表演与展览主场地，含Miller ICA当代艺术馆，演出活动频繁，向公众开放。"
+        },
+        {
+          "name": "Hamburg Hall (HBH)",
+          "nameCn": "汉堡大楼（海因兹学院）",
+          "lat": 40.4441,
+          "lng": -79.945,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "海因兹信息系统与公共政策学院所在地，1915年建于国家史迹名录，拥有公共政策与数据分析强项。"
+        },
+        {
+          "name": "Baker Hall (BH)",
+          "nameCn": "贝克大楼",
+          "lat": 40.4414,
+          "lng": -79.9442,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "人文与社会科学学院（Dietrich College）核心教学楼，含哲学、心理学、经济学等系。"
+        },
+        {
+          "name": "Doherty Hall (DH)",
+          "nameCn": "多尔蒂大楼",
+          "lat": 40.4412,
+          "lng": -79.9453,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "物理、化学和生物科学系的重要教学楼，Mellon College of Science核心教学区。"
+        },
+        {
+          "name": "Scott Hall (SH)",
+          "nameCn": "斯科特大楼",
+          "lat": 40.4418,
+          "lng": -79.9432,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "生物医学工程系与能源创新研究所（Scott Institute）所在地，工程与科学交叉研究中心。"
+        },
+        {
+          "name": "Posner Hall (POS)",
+          "nameCn": "波斯纳大楼",
+          "lat": 40.4426,
+          "lng": -79.9468,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "Tepper商学院附属教学楼，含多间商学课堂与会议室，是MBA核心上课区域。"
+        },
+        {
+          "name": "Mellon Institute",
+          "nameCn": "梅隆研究所大楼",
+          "lat": 40.4454,
+          "lng": -79.9506,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "1937年建成的宏伟科隆柱廊建筑，现为CMU生物科学与化学系研究楼，是奥克兰区地标之一。"
         }
       ],
       "defaultOn": true
@@ -127,17 +186,57 @@
       "items": [
         {
           "name": "Hunt Library",
-          "nameCn": "亨特图书馆",
-          "lat": 40.4424,
-          "lng": -79.9442,
-          "note": "CMU主图书馆，位于The Cut南侧。"
+          "nameCn": "亨特图书馆（CMU主馆）",
+          "lat": 40.4418,
+          "lng": -79.9461,
+          "rank": 1,
+          "tier": "必去",
+          "note": "CMU最大图书馆，藏有人文、商学、艺术与社科资源，四层阅览空间，学习氛围佳，24小时自习区深受学生欢迎。"
         },
         {
-          "name": "Sorrells Engineering & Science Library",
-          "nameCn": "索雷尔斯工程科学图书馆",
-          "lat": 40.4435,
+          "name": "Engineering & Science Library (ESL)",
+          "nameCn": "工程与理科图书馆",
+          "lat": 40.4422,
+          "lng": -79.9432,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Wean Hall内的技术资料专业库，理工科研究生首选，馆藏数学、工程、计算机科学期刊与技术报告。"
+        },
+        {
+          "name": "Mellon Institute Library",
+          "nameCn": "梅隆研究所图书馆",
+          "lat": 40.4454,
+          "lng": -79.9506,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于梅隆研究所大楼内，专注化学与生命科学领域馆藏，适合MCS理科研究。"
+        },
+        {
+          "name": "Sorrells Library (Heinz College)",
+          "nameCn": "索雷尔斯图书馆（海因兹学院）",
+          "lat": 40.4441,
           "lng": -79.945,
-          "note": "维恩楼内工程与科学专业馆藏。"
+          "rank": 4,
+          "tier": "推荐",
+          "note": "汉堡大楼内专属的公共政策与信息系统学科图书馆，为Heinz及SCS学生提供数据资源与研究支持。"
+        },
+        {
+          "name": "Carnegie Library of Pittsburgh – Main (Oakland)",
+          "nameCn": "卡内基公共图书馆（奥克兰主馆）",
+          "lat": 40.4439,
+          "lng": -79.9506,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "1895年由安德鲁·卡内基捐建的公共图书馆，与卡内基博物馆共建，馆藏丰富，向公众免费开放。"
+        },
+        {
+          "name": "University of Pittsburgh Hillman Library",
+          "nameCn": "匹兹堡大学希尔曼图书馆",
+          "lat": 40.4446,
+          "lng": -79.9531,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "步行10分钟可达的Pitt主图书馆，CMU学生持证可互借，资源互补性强，特别适合文史法政专业。"
         }
       ]
     },
@@ -149,18 +248,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Miller Institute for Contemporary Art",
-          "nameCn": "米勒当代艺术馆",
-          "lat": 40.4435,
-          "lng": -79.9435,
-          "note": "美术学院旁的当代艺术展廊（原Miller Gallery）。"
+          "name": "Carnegie Museum of Natural History",
+          "nameCn": "卡内基自然历史博物馆",
+          "lat": 40.4436,
+          "lng": -79.9506,
+          "rank": 1,
+          "tier": "必去",
+          "note": "230具恐龙化石镇馆，含最完整的暴龙骨骼，CMU学生持学生证可免费入场，步行10分钟即到。"
         },
         {
-          "name": "Posner Center",
-          "nameCn": "波斯纳珍本中心",
-          "lat": 40.4416,
-          "lng": -79.9424,
-          "note": "波斯纳家族珍稀书籍与艺术收藏馆。"
+          "name": "Carnegie Museum of Art",
+          "nameCn": "卡内基艺术博物馆",
+          "lat": 40.4436,
+          "lng": -79.9506,
+          "rank": 2,
+          "tier": "必去",
+          "note": "与自然历史博物馆共建于同一建筑群，收藏西方绘画与当代艺术，CMU学生持证免费，年度展览精彩。"
+        },
+        {
+          "name": "Miller ICA (Institute for Contemporary Art at CMU)",
+          "nameCn": "米勒当代艺术馆（CMU）",
+          "lat": 40.4434,
+          "lng": -79.9473,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于珀内尔艺术中心内的CMU当代艺术馆，常设前沿装置与媒体艺术展，免费入场，2027年迁新址三倍扩容。"
+        },
+        {
+          "name": "Senator John Heinz History Center",
+          "nameCn": "约翰·海因兹历史中心",
+          "lat": 40.4481,
+          "lng": -79.9899,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "全美最佳历史博物馆之一（USA Today三连冠），位于Strip District，含匹兹堡运动史馆，CMU学生持Arts Pass免费。"
+        },
+        {
+          "name": "Phipps Conservatory and Botanical Gardens",
+          "nameCn": "菲普斯温室与植物园",
+          "lat": 40.4389,
+          "lng": -79.9477,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "步行5分钟的维多利亚式玻璃花房，设有蝴蝶园与四季主题花展，CMU学生有折扣，是拍照打卡圣地。"
         }
       ]
     },
@@ -172,32 +302,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Jared L. Cohon University Center",
-          "nameCn": "科恩学生中心",
+          "name": "The Fence",
+          "nameCn": "彩色围栏",
           "lat": 40.4428,
-          "lng": -79.9426,
-          "note": "学生活动中心，含健身馆、泳池与餐饮。"
+          "lng": -79.9449,
+          "rank": 1,
+          "tier": "必去",
+          "note": "CMU最具代表性的传统地标，涂层超过60年积累后重建，学生社团整夜排队涂鸦宣传，是校园精神象征。"
         },
         {
-          "name": "Purnell Center for the Arts",
-          "nameCn": "珀内尔艺术中心",
-          "lat": 40.443,
-          "lng": -79.942,
-          "note": "戏剧学院剧场与表演空间。"
+          "name": "Cohon University Center",
+          "nameCn": "科翁大学生活中心",
+          "lat": 40.4435,
+          "lng": -79.9478,
+          "rank": 2,
+          "tier": "必去",
+          "note": "CMU学生中心，含餐厅、社团空间、国际学生办公室（OIE）、健身房和会议室，是校园生活核心枢纽。"
+        },
+        {
+          "name": "The Cut (Campus Mall)",
+          "nameCn": "卡特（校园草坪中轴）",
+          "lat": 40.4427,
+          "lng": -79.9453,
+          "rank": 3,
+          "tier": "必去",
+          "note": "贯穿校园的绿色草坪长廊，晴天学生晒太阳、野餐、玩飞盘，是举办户外活动最多的校园公共空间。"
+        },
+        {
+          "name": "Schenley Plaza",
+          "nameCn": "申克利广场",
+          "lat": 40.4403,
+          "lng": -79.9519,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "CMU与Pitt之间的4.5英亩公共广场，设溜冰场（冬季）、旋转木马（夏季）及户外餐饮，是学生周末首选。"
+        },
+        {
+          "name": "Carnegie Mellon Welcome Center",
+          "nameCn": "CMU访客接待中心",
+          "lat": 40.4427,
+          "lng": -79.9433,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Warner Hall内，是新生报到、校园参观团起点，提供校园地图与留学生入学信息咨询。"
         },
         {
           "name": "Gesling Stadium",
           "nameCn": "格斯林体育场",
-          "lat": 40.4425,
-          "lng": -79.9404,
-          "note": "校区东端橄榄球与田径主场。"
+          "lat": 40.4409,
+          "lng": -79.9416,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "CMU主体育场与田径跑道所在地，3500座，是橄榄球和田径赛事场地，也是学生户外锻炼热门地点。"
         },
         {
-          "name": "Walking to the Sky",
-          "nameCn": "《走向天空》雕塑",
-          "lat": 40.4441,
-          "lng": -79.943,
-          "note": "福布斯大道草坪上斜插天际的人像雕塑地标。"
+          "name": "Schenley Park",
+          "nameCn": "申克利公园",
+          "lat": 40.4347,
+          "lng": -79.9451,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "紧邻CMU的456英亩大型城市公园，含健行步道、滑板场、高尔夫球场，秋季赏叶和晨跑胜地。"
         }
       ]
     },
@@ -209,39 +374,67 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Giant Eagle Market District – Shadyside",
+          "nameCn": "巨鹰超市（市场区沙迪塞德店）",
+          "lat": 40.4529,
+          "lng": -79.9345,
+          "rank": 1,
+          "tier": "必去",
+          "note": "匹兹堡最受欢迎的本地连锁超市，品类齐全含熟食、有机食品和药房，步行或乘坐61C公交15分钟可达。"
+        },
+        {
           "name": "Panda Supermarket (熊猫超市)",
-          "nameCn": "熊猫亚洲超市（松鼠山店）",
-          "lat": 40.438,
-          "lng": -79.9223,
-          "note": "松鼠山 Forbes 大道上最近的华人超市，中餐调料、火锅食材、冷冻品、亚洲蔬菜齐全，CMU 中国学生采购首选。"
+          "nameCn": "熊猫超市",
+          "lat": 40.4362,
+          "lng": -79.9232,
+          "rank": 2,
+          "tier": "必去",
+          "note": "松鼠山最便捷的中文超市，专营新鲜中式蔬菜、冷冻食品、零食饮料和炊具，是CMU中国学生必逛之地。"
         },
         {
-          "name": "Lotus Food Company",
-          "nameCn": "莲花亚洲食品超市（Strip District）",
-          "lat": 40.4509,
-          "lng": -79.9821,
-          "note": "Strip District 老牌大型亚超，规模大、品类全、价格实惠，周末囤货补给的好去处，距校约 4 公里。"
+          "name": "Trader Joe's – East Liberty",
+          "nameCn": "乔氏超市（东自由区店）",
+          "lat": 40.461,
+          "lng": -79.9268,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "性价比极高的精品超市，冷冻食品、调味料和进口零食品质佳价格低，乘15分钟公交即达。"
         },
         {
-          "name": "Giant Eagle Market District (Shadyside)",
-          "nameCn": "Giant Eagle 大鹰超市（高端 Market District 店）",
-          "lat": 40.4566,
-          "lng": -79.9298,
-          "note": "匹兹堡本地连锁主力大超市，生鲜熟食烘焙俱全，有 fuelperks 油价积分，日常美式采购主场。"
-        },
-        {
-          "name": "Whole Foods Market (East Liberty)",
+          "name": "Whole Foods Market – East Liberty",
           "nameCn": "全食超市（东自由区店）",
-          "lat": 40.4625,
-          "lng": -79.9248,
-          "note": "高端有机超市，有机蔬果、沙拉吧、热食区品质好，适合买健康食材和现成餐，环境舒适。"
+          "lat": 40.46,
+          "lng": -79.925,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "高端有机超市，生鲜与熟食区品质优秀，适合购买进口食材和健康零食，与Trader Joe's在同一区域。"
         },
         {
-          "name": "Many More Asian Market",
-          "nameCn": "Many More 亚洲市场（Strip District）",
-          "lat": 40.466,
-          "lng": -79.9595,
-          "note": "Strip District 大型亚超，东亚、东南亚食材种类多、性价比高，常和 Lotus 一起逛。"
+          "name": "Enson Market (Rockwell Park)",
+          "nameCn": "恩森亚洲超市",
+          "lat": 40.4596,
+          "lng": -79.9178,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2025年新开的4万平方英尺大型亚洲超市，品类覆盖中日韩东南亚，有自有停车场，是目前匹兹堡最大亚超。"
+        },
+        {
+          "name": "Young's Oriental Grocery",
+          "nameCn": "杨氏东方食品超市",
+          "lat": 40.4352,
+          "lng": -79.9238,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "松鼠山的韩式小超市，同时备有中日东南亚食材，步行可达，适合日常补货，营业时间长。"
+        },
+        {
+          "name": "ALDI – Penn Ave",
+          "nameCn": "阿尔迪超市（宾夕法尼亚大道店）",
+          "lat": 40.4591,
+          "lng": -79.9295,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "德国折扣超市，日常食材价格极低，适合学生日常采购，生活成本压缩利器。"
         }
       ]
     },
@@ -253,46 +446,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Rose Tea Cafe",
-          "nameCn": "蔷薇茶餐厅（台湾菜）",
-          "lat": 40.438,
-          "lng": -79.9224,
-          "note": "松鼠山经典台湾菜，三杯鸡、卤肉饭、牛肉面口碑炸裂，中国学生解馋的头号食堂。"
-        },
-        {
-          "name": "Chengdu Gourmet (成都味道)",
-          "nameCn": "成都美食（正宗川菜）",
-          "lat": 40.4378,
-          "lng": -79.923,
-          "note": "James Beard 提名的正宗川菜馆，麻辣鲜香、水煮鱼夫妻肺片地道，匹兹堡最强中餐之一。"
-        },
-        {
           "name": "Everyday Noodles",
-          "nameCn": "天天面（手工小笼包/拉面）",
-          "lat": 40.4381,
-          "lng": -79.9218,
-          "note": "现包小笼包、刀削面、生煎，能隔玻璃看师傅手工制作，松鼠山排队名店。"
+          "nameCn": "每日面馆",
+          "lat": 40.4358,
+          "lng": -79.9224,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "松鼠山最受中国留学生追捧的餐厅，可透过玻璃窗观看师傅手工拉面，汤包和馄饨是招牌，需排队候位。"
         },
         {
-          "name": "The Original Hot Dog Shop",
-          "nameCn": "the O 原创热狗店（Oakland 地标）",
-          "lat": 40.4424,
-          "lng": -79.9587,
-          "note": "Oakland 校区门口几十年老店「the O」，巨量薯条配热狗，匹兹堡学生深夜文化符号。"
+          "name": "Chengdu Gourmet",
+          "nameCn": "成都美食（正宗川菜）",
+          "lat": 40.4331,
+          "lng": -79.9226,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "James Beard提名主厨Wei Zhu掌勺，孜然羊排、麻辣干鸡和担担面享誉全城，是匹兹堡最知名正宗川菜馆。"
         },
         {
-          "name": "Primanti Brothers (Oakland)",
-          "nameCn": "Primanti 兄弟三明治（匹兹堡名物）",
-          "lat": 40.4429,
-          "lng": -79.9579,
-          "note": "匹兹堡招牌三明治：薯条、卷心菜、肉全夹进面包里，外地人必打卡的本地必吃。"
+          "name": "Taiwanese Bistro Cafe 33",
+          "nameCn": "台湾小馆33号",
+          "lat": 40.4492,
+          "lng": -79.9278,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Yelp匹兹堡中餐排名第一，台式卤肉饭、臭豆腐、炸鸡排正宗地道，是留学生聚餐首选，需提前预订。"
         },
         {
-          "name": "Pamela's Diner (Oakland)",
-          "nameCn": "Pamela's 美式早餐店",
-          "lat": 40.4428,
-          "lng": -79.9573,
-          "note": "匹兹堡最有名的美式 brunch，薄脆可丽饼煎饼一绝，奥巴马都吃过，只收现金。"
+          "name": "How Lee Chinese Food (川霸王)",
+          "nameCn": "好利川菜（川霸王）",
+          "lat": 40.435,
+          "lng": -79.9219,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "松鼠山地标性老字号川菜馆，麻辣茄子和干煸辣鸡是必点招牌，营业至深夜，价格亲民，学生常客众多。"
+        },
+        {
+          "name": "Sichuan Gourmet",
+          "nameCn": "四川美食",
+          "lat": 40.4293,
+          "lng": -79.9253,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "穆雷大道上的正宗四川餐馆，工作日提供学生午餐外卖，麻辣口味地道，是松鼠山区域最受好评的川菜之一。"
+        },
+        {
+          "name": "Noodlehead",
+          "nameCn": "面条脑袋（泰式街头料理）",
+          "lat": 40.4541,
+          "lng": -79.9282,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Shadyside最火的泰式面馆，咖喱面、炒河粉和清迈猪颈肉面备受好评，Yelp评分极高，CMU学生常去打牙祭。"
+        },
+        {
+          "name": "Nan Xiang Soup Dumplings Pittsburgh",
+          "nameCn": "南翔小笼包",
+          "lat": 40.428,
+          "lng": -79.9769,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "South Side的正宗上海小笼包专门店，皮薄汁多，是匹兹堡中国留学生圈子评价最高的小笼包。"
+        },
+        {
+          "name": "Union Grill",
+          "nameCn": "联合烧烤餐厅",
+          "lat": 40.444,
+          "lng": -79.9466,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "CMU校园旁Craig Street上的老牌美式餐厅，营业几十年，汉堡和火鸡三明治口碑极佳，是本地人和学生聚餐经典地。"
+        },
+        {
+          "name": "The Porch at Schenley",
+          "nameCn": "申克利廊台餐厅",
+          "lat": 40.4403,
+          "lng": -79.9519,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于申克利广场旁的时髦餐厅，供应精酿啤酒与披萨，夏季露台氛围佳，是CMU学生聚会与庆祝毕业的热门选择。"
+        },
+        {
+          "name": "Butterjoint",
+          "nameCn": "黄油关节酒吧",
+          "lat": 40.4432,
+          "lng": -79.935,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Shadyside的精酿酒吧与餐厅，汉堡和薯条广受好评，配比利时精酿啤酒，是下课后放松的热门去处。"
+        },
+        {
+          "name": "Ali Baba Restaurant",
+          "nameCn": "阿里巴巴中东餐厅",
+          "lat": 40.4443,
+          "lng": -79.9475,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1972年开业的匹兹堡最老的叙利亚/中东餐馆，哈木斯和法拉费尔正宗，是CMU周边最具历史的餐厅之一。"
+        },
+        {
+          "name": "Grapow Thai & Sushi",
+          "nameCn": "葛葡泰式寿司",
+          "lat": 40.4444,
+          "lng": -79.9472,
+          "rank": 12,
+          "tier": "一般",
+          "note": "靠近CMU的泰式与日料混合餐厅，午市性价比高，泰式炒饭和日式卷受学生欢迎，堂食翻台快。"
+        },
+        {
+          "name": "Mediterranean Table",
+          "nameCn": "地中海饭桌",
+          "lat": 40.4442,
+          "lng": -79.9474,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Oakland区的中东风味快餐，Pita和沙拉价格实惠，是学生中午解决果腹问题的常选之一。"
         }
       ]
     },
@@ -304,32 +572,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "PNC Bank (Forbes Ave, Oakland)",
-          "nameCn": "PNC 银行（Oakland 福布斯大道支行）",
-          "lat": 40.4425,
-          "lng": -79.9557,
-          "note": "匹兹堡总部银行，校区附近网点多、对国际学生开户友好，留学生开美国账户的主流选择。"
+          "name": "PNC Bank – Squirrel Hill Branch",
+          "nameCn": "PNC银行（松鼠山支行）",
+          "lat": 40.4353,
+          "lng": -79.922,
+          "rank": 1,
+          "tier": "必去",
+          "note": "PNC是CMU官方合作银行，为学生提供免学费账户开户服务，Campus Branch就在步行范围内，国际学生首选。"
+        },
+        {
+          "name": "Chase Bank – Oakland Branch",
+          "nameCn": "摩根大通银行（奥克兰支行）",
+          "lat": 40.4428,
+          "lng": -79.9558,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "全美最大银行网络之一，Oakland支行在第五大道，可办理支票账户、信用卡和国际汇款业务。"
         },
         {
           "name": "UPMC Presbyterian Hospital",
-          "nameCn": "UPMC 长老会医院（大型综合医院/急诊）",
-          "lat": 40.4419,
-          "lng": -79.9608,
-          "note": "全美顶尖的 UPMC 旗舰医院，24 小时急诊，紧邻校区，重大病情和急救的去处。"
+          "nameCn": "UPMC长老会医院",
+          "lat": 40.4427,
+          "lng": -79.9609,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美顶尖医学中心之一，位于Lothrop St，是距CMU最近的大型综合医院，急诊24小时，接受CMU SHIP保险。"
         },
         {
-          "name": "CVS Pharmacy (Forbes Ave)",
-          "nameCn": "CVS 药房（福布斯大道店）",
-          "lat": 40.4417,
-          "lng": -79.956,
-          "note": "连锁药房兼便利店，处方药、感冒药、日用品齐全，离校步行可达，配镜疫苗都能办。"
+          "name": "Concentra Urgent Care – University Center",
+          "nameCn": "Concentra急诊诊所（大学中心店）",
+          "lat": 40.4431,
+          "lng": -79.9584,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Oakland区步行可达的急诊诊所，无需预约即可处理轻伤、验血、体检等，学生日常小病首选，比医院等候时间短。"
         },
         {
-          "name": "Verizon (Oakland / Forbes)",
-          "nameCn": "Verizon 通讯营业厅",
-          "lat": 40.4421,
-          "lng": -79.9551,
-          "note": "美国主流运营商门店，办手机卡和套餐、解决信号问题，新生落地办号方便。"
+          "name": "CVS Pharmacy – Forbes Ave Oakland",
+          "nameCn": "CVS药房（奥克兰福布斯大道店）",
+          "lat": 40.4397,
+          "lng": -79.9552,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "离CMU和UPMC医院最近的连锁药房，可处方取药、购买OTC药品和日常用品，含Minute Clinic小诊所。"
+        },
+        {
+          "name": "Walgreens – Centre Ave Shadyside",
+          "nameCn": "沃尔格林药房（沙迪塞德店）",
+          "lat": 40.4519,
+          "lng": -79.9328,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "另一家主要连锁药房选择，营业时间长，近Shadyside社区，可配药并提供疫苗接种服务。"
+        },
+        {
+          "name": "T-Mobile – Murray Ave & Forbes Ave",
+          "nameCn": "T-Mobile手机运营商（松鼠山店）",
+          "lat": 40.4353,
+          "lng": -79.922,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "CMU周边最近的T-Mobile门店，可办理SIM卡、家庭计划和换机，国际学生来美后最常选择的运营商之一。"
+        },
+        {
+          "name": "Bank of America – Oakland Forbes Ave",
+          "nameCn": "美国银行（奥克兰福布斯大道）",
+          "lat": 40.44,
+          "lng": -79.9555,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "奥克兰区重要银行，提供国际学生账户开户及Zelle转账，靠近CMU及UPMC院区，ATM便利。"
         }
       ]
     },
@@ -341,39 +653,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Carnegie Museum of Art & Natural History",
-          "nameCn": "卡内基艺术与自然历史博物馆",
-          "lat": 40.4434,
-          "lng": -79.9496,
-          "note": "紧贴 CMU 的双馆博物馆，恐龙化石和艺术藏品世界级，CMU 学生常免费入场，周末好去处。"
+          "name": "Duquesne Incline",
+          "nameCn": "杜肯缆车（登山观光电车）",
+          "lat": 40.4383,
+          "lng": -80.0189,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1877年建成的历史缆车，登顶华盛顿山可俯瞰匹兹堡三河汇流全景，是小红书和Instagram打卡热点，必去。"
+        },
+        {
+          "name": "Point State Park",
+          "nameCn": "尖端州立公园（三河交汇处）",
+          "lat": 40.4411,
+          "lng": -80.0097,
+          "rank": 2,
+          "tier": "必去",
+          "note": "三条河流交汇处的公园，150英尺高喷泉是匹兹堡标志，黄金三角全景绝佳，周末活动与节庆文化活动多。"
         },
         {
           "name": "Phipps Conservatory and Botanical Gardens",
-          "nameCn": "菲普斯温室植物园",
+          "nameCn": "菲普斯温室与植物园",
           "lat": 40.4389,
           "lng": -79.9477,
-          "note": "玻璃温室植物园，四季花展和圣诞灯光秀超出片，就在校旁 Schenley 公园边，约会拍照圣地。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "步行5分钟的维多利亚式玻璃温室，四季主题花展和蝴蝶园令人惊艳，CMU学生凭ID打折，春季花展尤为精彩。"
         },
         {
-          "name": "Cathedral of Learning (University of Pittsburgh)",
-          "nameCn": "匹兹堡大学学习大教堂",
-          "lat": 40.4443,
-          "lng": -79.9531,
-          "note": "全美最高的哥特式教学楼，内有各国主题教室，是 Oakland 地标与必拍打卡点。"
+          "name": "Strip District",
+          "nameCn": "斯特里普街区（周末市集）",
+          "lat": 40.4509,
+          "lng": -79.9895,
+          "rank": 4,
+          "tier": "必去",
+          "note": "周末清晨的全城食材市集天堂，各国移民风味餐馆与食品杂货聚集，Pennsylvania Macaroni等百年老店必逛。"
         },
         {
-          "name": "Schenley Park",
-          "nameCn": "申利公园",
-          "lat": 40.4364,
-          "lng": -79.9419,
-          "note": "校园南侧大型城市公园，步道、网球场、Panther Hollow 湖，跑步散步野餐的后花园。"
+          "name": "Heinz History Center",
+          "nameCn": "海因兹历史中心",
+          "lat": 40.4481,
+          "lng": -79.9899,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美评选最佳历史博物馆，Strip District内，含Pittsburgh体育名人堂，CMU Arts Pass免费入场。"
         },
         {
-          "name": "Cathedral / Schenley Plaza & Fountain",
-          "nameCn": "申利广场与喷泉草坪",
-          "lat": 40.4421,
-          "lng": -79.9534,
-          "note": "Oakland 中心绿地广场，餐车、旋转木马和草坪，天气好时学生聚集晒太阳的好地方。"
+          "name": "Schenley Park Trails",
+          "nameCn": "申克利公园（健行+赏景）",
+          "lat": 40.4347,
+          "lng": -79.9451,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "CMU后门直连的456英亩城市森林，含多条健行步道和观景台，秋季红叶绝美，是跑步和放松减压好去处。"
+        },
+        {
+          "name": "Mount Washington Overlook",
+          "nameCn": "华盛顿山观景台",
+          "lat": 40.4296,
+          "lng": -80.0154,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "匹兹堡城市天际线最著名的观景地，夜晚的三河灯光城景名列全美最美夜景之一，配合杜肯缆车一起游览。"
+        },
+        {
+          "name": "Carnegie Museum of Natural History",
+          "nameCn": "卡内基自然历史博物馆",
+          "lat": 40.4436,
+          "lng": -79.9506,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "步行10分钟、CMU学生免费入场，恐龙展厅令人震撼，同票可进入艺术博物馆，周末与朋友同游性价比极高。"
+        },
+        {
+          "name": "Station Square",
+          "nameCn": "车站广场购物娱乐区",
+          "lat": 40.4319,
+          "lng": -79.9996,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "蒙加希拉河南岸的历史车站改造综合体，含餐厅、夜店和购物，是杜肯缆车下站后顺游的热门区域。"
+        },
+        {
+          "name": "Squirrel Hill Neighborhood Walk",
+          "nameCn": "松鼠山街区漫步",
+          "lat": 40.4353,
+          "lng": -79.922,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "CMU对门的犹太裔与亚裔移民聚居区，Forbes Ave和Murray Ave有大量正宗亚洲餐厅和特色小店，周末漫步必去。"
         }
       ]
     }

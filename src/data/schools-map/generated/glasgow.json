@@ -68,52 +68,102 @@
       "items": [
         {
           "name": "Gilbert Scott Building (Main Building)",
-          "nameCn": "Gilbert Scott 主楼",
-          "lat": 55.87146,
-          "lng": -4.2885,
-          "note": "1870年哥特复兴主楼,含纪念礼拜堂与狮鹫楼梯,大学标志。"
+          "nameCn": "吉尔伯特·斯科特楼（主楼）",
+          "lat": 55.8726,
+          "lng": -4.288,
+          "rank": 1,
+          "tier": "必去",
+          "note": "哥特复兴式校标建筑，278英尺钟楼雄冠格拉斯哥天际线，是全英第二大哥特式建筑，内设行政机构与多个讲堂。"
         },
         {
-          "name": "James McCune Smith Learning Hub",
-          "nameCn": "James McCune Smith 学习中心",
-          "lat": 55.87325,
-          "lng": -4.29202,
-          "note": "2021年启用的旗舰教学楼,可容纳2500名学生。"
+          "name": "James McCune Smith Learning Hub (JMS)",
+          "nameCn": "詹姆斯·麦丘恩·史密斯学习中心",
+          "lat": 55.8708,
+          "lng": -4.2925,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2021年开放的£9060万旗舰教学楼，容纳2500名学生，有500座阶梯讲堂及全天候自习空间，是新生最常用的学习场所。"
+        },
+        {
+          "name": "Mazumdar-Shaw Advanced Research Centre (ARC)",
+          "nameCn": "马祖姆达-肖高级研究中心",
+          "lat": 55.8713,
+          "lng": -4.2952,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "2022年开放的£1.16亿研究旗舰楼，汇聚600名研究人员，涵盖量子、生命科学等五大主题，是校园西区创新核心。"
+        },
+        {
+          "name": "Adam Smith Business School Building",
+          "nameCn": "亚当·斯密商学院大楼",
+          "lat": 55.8718,
+          "lng": -4.2963,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "经济学与管理学系所在地，以苏格兰经济学之父命名，商科留学生的核心院系建筑。"
         },
         {
           "name": "Wolfson Medical School Building",
-          "nameCn": "Wolfson 医学院楼",
-          "lat": 55.8731,
-          "lng": -4.29338,
-          "note": "University Avenue上的医学院主楼。"
+          "nameCn": "沃尔夫森医学院大楼",
+          "lat": 55.8718,
+          "lng": -4.2862,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "医学、牙科与护理学院所在地，玻璃中庭获建筑奖，是医学生必到之处，毗邻大学主道。"
+        },
+        {
+          "name": "Rankine Building (James Watt School of Engineering)",
+          "nameCn": "兰金楼（詹姆斯·瓦特工程学院）",
+          "lat": 55.874,
+          "lng": -4.2885,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "工程学院主楼，土木与电子工程等专业在此上课，以热力学先驱威廉·兰金命名。"
         },
         {
           "name": "Boyd Orr Building",
-          "nameCn": "Boyd Orr 楼",
-          "lat": 55.87359,
-          "lng": -4.29273,
-          "note": "粗野主义高层教学楼,与亚当·斯密商学院相连。"
+          "nameCn": "博伊德·奥尔楼",
+          "lat": 55.8737,
+          "lng": -4.2898,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "生命科学与部分理科课程所在地，高层建筑内设大型讲堂，是理工科新生上课最频繁的楼栋之一。"
         },
         {
-          "name": "Adam Smith Business School",
-          "nameCn": "亚当·斯密商学院",
-          "lat": 55.8707,
-          "lng": -4.2959,
-          "note": "以校友亚当·斯密命名的商学院与研究生教学楼。"
+          "name": "Joseph Black Building (School of Chemistry)",
+          "nameCn": "约瑟夫·布莱克楼（化学学院）",
+          "lat": 55.8731,
+          "lng": -4.287,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "化学学院本部，以发现CO₂的苏格兰化学家约瑟夫·布莱克命名，内含教学实验室和化学专业图书馆。"
         },
         {
-          "name": "Advanced Research Centre (ARC)",
-          "nameCn": "高等研究中心 ARC",
-          "lat": 55.8716855,
-          "lng": -4.2955955,
-          "note": "1.16亿英镑跨学科研究大楼,主校区西侧Chapel Lane。"
+          "name": "Sir Alwyn Williams Building (School of Computing Science)",
+          "nameCn": "阿尔文·威廉姆斯楼（计算机科学学院）",
+          "lat": 55.8748,
+          "lng": -4.2905,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "计算机科学学院专属大楼，2007年落成，设有专业机房与研究实验室，IT与AI方向学生的主场。"
         },
         {
-          "name": "School of Veterinary Medicine (Garscube)",
-          "nameCn": "兽医学院(Garscube)",
-          "lat": 55.9025,
-          "lng": -4.3215,
-          "note": "Garscube校区兽医学院与小动物医院所在。"
+          "name": "Mathematics & Statistics Building",
+          "nameCn": "数学与统计学楼",
+          "lat": 55.871,
+          "lng": -4.293,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "数学与统计学院于2017年迁入前西部医院旧址的全新建筑，紧邻ARC，是数学系研究生的日常学习地。"
+        },
+        {
+          "name": "Clarice Pears Building (School of Health & Wellbeing)",
+          "nameCn": "克拉丽斯·皮尔斯楼（健康与福祉学院）",
+          "lat": 55.8706,
+          "lng": -4.2898,
+          "rank": 11,
+          "tier": "可选",
+          "note": "2022年竣工，汇聚公共卫生、心理健康、临床试验等十个团队，毗邻拜尔斯路，是健康类社科研究中心。"
         }
       ],
       "defaultOn": true
@@ -126,18 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "University of Glasgow Library",
-          "nameCn": "格拉斯哥大学图书馆",
-          "lat": 55.873543,
-          "lng": -4.289058,
-          "note": "Hillhead街12层主图书馆,藏书逾250万册。"
+          "name": "University of Glasgow Library (Main Library)",
+          "nameCn": "格拉斯哥大学图书馆（主馆）",
+          "lat": 55.8733,
+          "lng": -4.2891,
+          "rank": 1,
+          "tier": "必去",
+          "note": "12层主图书馆，藏书超过100万册，设800台电脑、红/琥珀/绿分区自习区，07:15开门至凌晨02:00，是学生备考首选。"
         },
         {
-          "name": "James Herriot Library (Garscube)",
-          "nameCn": "James Herriot 图书馆",
-          "lat": 55.90015,
-          "lng": -4.31921,
-          "note": "Garscube校区兽医与生命科学图书馆。"
+          "name": "James McCune Smith Learning Hub (Learning Spaces)",
+          "nameCn": "詹姆斯·麦丘恩·史密斯学习中心自习区",
+          "lat": 55.8708,
+          "lng": -4.2925,
+          "rank": 2,
+          "tier": "必去",
+          "note": "教学楼内设大量可预约学习座位，配备电源与WiFi，24小时开放，图书馆满座时的最佳溢出自习地。"
+        },
+        {
+          "name": "Chemistry Library (Joseph Black Building)",
+          "nameCn": "化学专业图书馆（约瑟夫·布莱克楼内）",
+          "lat": 55.8731,
+          "lng": -4.287,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "化学学院专属资料室，藏有化学期刊与实验手册，化学及相关理科学生必用。"
+        },
+        {
+          "name": "James Ireland Library (Dental School, Sauchiehall St)",
+          "nameCn": "詹姆斯·爱尔兰图书馆（牙医学院）",
+          "lat": 55.8641,
+          "lng": -4.2699,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "牙医学院专属图书馆，位于索基霍尔街牙学院内，医学与牙科生专用参考资料库。"
+        },
+        {
+          "name": "Mitchell Library",
+          "nameCn": "米切尔图书馆",
+          "lat": 55.8649,
+          "lng": -4.2733,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "欧洲最大的公共参考图书馆之一，市中心地标建筑，开放给公众免费使用，苏格兰地方史料收藏丰富。"
+        },
+        {
+          "name": "Library Research Annexe (Saracen Street)",
+          "nameCn": "图书馆研究附馆（萨拉森街）",
+          "lat": 55.885,
+          "lng": -4.2618,
+          "rank": 6,
+          "tier": "可选",
+          "note": "存放大量低频使用藏书与档案资料的辅助馆，需提前预约取书，适合论文阶段查阅实体文献。"
         }
       ]
     },
@@ -150,24 +240,57 @@
       "items": [
         {
           "name": "Hunterian Museum",
-          "nameCn": "亨特博物馆",
-          "lat": 55.8718,
-          "lng": -4.288,
-          "note": "苏格兰最古老的公共博物馆,位于Gilbert Scott主楼内。"
+          "nameCn": "亨特里安博物馆",
+          "lat": 55.8727,
+          "lng": -4.2883,
+          "rank": 1,
+          "tier": "必去",
+          "note": "苏格兰最古老的公共博物馆，免费入场，馆藏包括罗马钱币、比尔斯登鲨鱼化石及中国古地图，就在主楼内。"
         },
         {
-          "name": "Hunterian Art Gallery",
-          "nameCn": "亨特美术馆",
-          "lat": 55.8736,
-          "lng": -4.2894,
-          "note": "含麦金托什故居重建室,藏惠斯勒等大量画作。"
+          "name": "Hunterian Art Gallery (incl. Mackintosh House)",
+          "nameCn": "亨特里安艺术画廊（含麦金托什之家）",
+          "lat": 55.8724,
+          "lng": -4.2907,
+          "rank": 2,
+          "tier": "必去",
+          "note": "珍藏惠斯勒与麦金托什原作，苏格兰最大版画收藏（4万件），麦金托什之家完整复原艺术家故居室内陈设，须另购票入场。"
         },
         {
-          "name": "The Hunterian at Kelvin Hall",
-          "nameCn": "Kelvin Hall 亨特典藏中心",
-          "lat": 55.8684944,
-          "lng": -4.2940444,
-          "note": "Argyle街Kelvin Hall内的亨特典藏研究与展示空间。"
+          "name": "Kelvingrove Art Gallery and Museum",
+          "nameCn": "凯文格罗夫艺术博物馆",
+          "lat": 55.8686,
+          "lng": -4.291,
+          "rank": 3,
+          "tier": "必去",
+          "note": "格拉斯哥最热门的免费景点之一，22个展厅涵盖古埃及文物到达利名画，入选孤独星球500大旅行体验，步行10分钟可达。"
+        },
+        {
+          "name": "Hunterian Zoology Museum",
+          "nameCn": "亨特里安动物学博物馆",
+          "lat": 55.8725,
+          "lng": -4.2883,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "展示近800个动物物种的经典分类陈列，从大象到玻璃海绵一应俱全，是生物科学爱好者的宝库，免费入场。"
+        },
+        {
+          "name": "Riverside Museum (Museum of Transport)",
+          "nameCn": "河滨博物馆（交通运输博物馆）",
+          "lat": 55.8649,
+          "lng": -4.3057,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "扎哈·哈迪德设计的锯齿形建筑，展示格拉斯哥百年交通史，免费入场，停泊在旁的老式帆船SS格拉斯哥号也值得打卡。"
+        },
+        {
+          "name": "The Tenement House (National Trust for Scotland)",
+          "nameCn": "公寓楼博物馆（苏格兰国家信托）",
+          "lat": 55.8671,
+          "lng": -4.2691,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "20世纪初格拉斯哥中产阶级公寓原貌展，1911年的煤气灯与炉灶完整保留，是了解苏格兰市民生活史的时光胶囊。"
         }
       ]
     },
@@ -179,32 +302,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "University Memorial Chapel & Bell Tower",
-          "nameCn": "纪念礼拜堂与钟塔",
-          "lat": 55.8717,
-          "lng": -4.2884,
-          "note": "主楼中央的钟塔与尖顶,1891年完工,西区天际线地标。"
+          "name": "The Gilbert Scott Bell Tower & South Front",
+          "nameCn": "吉尔伯特·斯科特钟楼与南立面",
+          "lat": 55.8726,
+          "lng": -4.2879,
+          "rank": 1,
+          "tier": "必去",
+          "note": "格拉斯哥大学最具标志性的拍照地点，哥特式双塔倒映于草地前，是每个新生必须留影的校园地标。"
         },
         {
-          "name": "Glasgow University Union",
-          "nameCn": "格拉斯哥大学学生会",
-          "lat": 55.8724,
-          "lng": -4.285,
-          "note": "University Avenue上的历史学生会,以辩论传统著称。"
+          "name": "Queen Margaret Union (QMU)",
+          "nameCn": "玛格丽特女王学生会（QMU）",
+          "lat": 55.874,
+          "lng": -4.2875,
+          "rank": 2,
+          "tier": "必去",
+          "note": "格拉斯哥著名学生音乐场地，Nirvana、Red Hot Chili Peppers等乐队曾在此演出，学生社交与文化活动中心。"
+        },
+        {
+          "name": "Glasgow University Union (GUU)",
+          "nameCn": "格拉斯哥大学学生会（GUU）",
+          "lat": 55.8729,
+          "lng": -4.2868,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于大学路32号，英国最古老的学生会之一，设有酒吧、辩论厅，是认识本地同学、融入校园文化的重要场所。"
+        },
+        {
+          "name": "University Cloisters (Undercroft)",
+          "nameCn": "大学回廊地下廊道",
+          "lat": 55.8725,
+          "lng": -4.2882,
+          "rank": 4,
+          "tier": "必去",
+          "note": "主楼地下哥特式拱廊，《哈利·波特》取景地灵感来源，在此漫步极有代入感，是摄影爱好者最钟爱的校内角落。"
+        },
+        {
+          "name": "Ashton Lane",
+          "nameCn": "阿什顿巷",
+          "lat": 55.8744,
+          "lng": -4.2934,
+          "rank": 5,
+          "tier": "必去",
+          "note": "希尔黑德地铁站旁的鹅卵石小巷，聚集多家特色餐厅与酒吧，夜晚灯光璀璨，是格拉斯哥西区最浪漫的网红打卡地。"
         },
         {
           "name": "Hillhead Subway Station",
-          "nameCn": "Hillhead 地铁站",
-          "lat": 55.87521,
-          "lng": -4.29328,
-          "note": "Byres路上服务西区的主要地铁站,距主校区最近。"
+          "nameCn": "希尔黑德地铁站",
+          "lat": 55.8741,
+          "lng": -4.2937,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "距大学最近的地铁站，格拉斯哥环线地铁直达市中心，是学生日常通勤与购物的交通枢纽。"
         },
         {
-          "name": "Partick Interchange Station",
-          "nameCn": "Partick 换乘站",
-          "lat": 55.8698,
-          "lng": -4.3091,
-          "note": "火车与地铁换乘枢纽,连接市中心与西区。"
+          "name": "Byres Road",
+          "nameCn": "拜尔斯路",
+          "lat": 55.875,
+          "lng": -4.296,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "格拉斯哥西区最热闹的商业街，集中了超市、独立书店、咖啡馆与餐厅，是学生日常生活和周末逛街的首选街道。"
+        },
+        {
+          "name": "Kelvingrove Park",
+          "nameCn": "凯文格罗夫公园",
+          "lat": 55.8697,
+          "lng": -4.2887,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "85英亩的城市公园，有网球场、溜冰场和凯文格罗夫乐台，是学生野餐、跑步和放松的后花园，距主校园步行10分钟。"
         }
       ]
     },
@@ -216,39 +383,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Sainsbury's Local (Byres Road)",
-          "nameCn": "Sainsbury's 便利店（拜尔斯路店）",
-          "lat": 55.8736,
-          "lng": -4.2899,
-          "note": "拜尔斯路上离学校最近的英国主流超市之一，日常蔬果、面包、即食餐都有，步行几分钟即到。"
+          "name": "Tesco Express (300-304 Byres Road)",
+          "nameCn": "乐购便利超市（拜尔斯路）",
+          "lat": 55.8762,
+          "lng": -4.2976,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "距大学步行5分钟的连锁超市，品类齐全、价格适中，日常采购最方便，营业至凌晨。"
         },
         {
-          "name": "Tesco Express (Byres Road)",
-          "nameCn": "Tesco 便利超市（拜尔斯路店）",
-          "lat": 55.8745,
-          "lng": -4.2895,
-          "note": "另一家紧邻校园的连锁超市，营业时间长，适合补日用品和速食，Clubcard 会员价划算。"
+          "name": "Sainsbury's Local (22 Byres Road)",
+          "nameCn": "森宝利便利店（拜尔斯路22号）",
+          "lat": 55.8719,
+          "lng": -4.2909,
+          "rank": 2,
+          "tier": "推荐",
+          "note": "紧邻希尔黑德地铁站的小型森宝利，生鲜及三明治品质较好，适合快速补充日常食材。"
         },
         {
-          "name": "888 Express (Hong Kong grocery)",
-          "nameCn": "888 港式超市",
-          "lat": 55.8721,
-          "lng": -4.2899,
-          "note": "拜尔斯路上的港式华人超市，老干妈、火锅底料、冷冻点心、亚洲调料齐全，还卖港式小吃。"
+          "name": "Marks & Spencer Food (Sauchiehall St)",
+          "nameCn": "马莎百货食品区（索基霍尔街）",
+          "lat": 55.866,
+          "lng": -4.2693,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "M&S食品区品质上乘，自有品牌熟食和外卖餐盒深受学生好评，价格较贵，适合犒劳自己。"
         },
         {
-          "name": "iMart Oriental Supermarket",
-          "nameCn": "iMart 亚洲东方超市",
-          "lat": 55.8665,
-          "lng": -4.2807,
-          "note": "西区规模较大的亚洲超市，中、日、韩、印食材都有，想囤米面酱料来这里一次买齐。"
+          "name": "ASDA (Great Western Retail Park)",
+          "nameCn": "阿斯达大型超市（大西部零售园）",
+          "lat": 55.889,
+          "lng": -4.336,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "价格最实惠的大型超市之一，需坐公交或骑车前往，适合周末大采购，自有品牌性价比极高。"
         },
         {
-          "name": "Lidl (North Woodside Road)",
-          "nameCn": "Lidl 折扣超市（北伍德赛德路店）",
-          "lat": 55.8728,
-          "lng": -4.2697,
-          "note": "靠近 Kelvinbridge 地铁站的平价德国连锁超市，预算有限时采购最省钱。"
+          "name": "iMart Oriental (53 Crow Road)",
+          "nameCn": "爱马特亚洲超市（克罗路53号）",
+          "lat": 55.8784,
+          "lng": -4.3087,
+          "rank": 5,
+          "tier": "必去",
+          "note": "西区最方便的亚洲超市，售卖中日韩印度食材与零食，免费配送（满£40），是中国留学生补充米面酱料的首选。"
+        },
+        {
+          "name": "SeeWoo Asian Supermarket (29 Saracen Street)",
+          "nameCn": "泗和行亚洲超市（萨拉森街29号）",
+          "lat": 55.8811,
+          "lng": -4.2533,
+          "rank": 6,
+          "tier": "必去",
+          "note": "苏格兰最大的华人超市，6万平方英尺，郫县豆瓣、花椒、老干妈一应俱全，逢年过节必来补货，需坐车约20分钟。"
+        },
+        {
+          "name": "iMart Oriental (1303 Argyle Street)",
+          "nameCn": "爱马特亚洲超市（阿盖尔街1303号）",
+          "lat": 55.8659,
+          "lng": -4.3015,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "芬尼埃斯顿区另一分店，兼卖亚洲街头小食，购物与就餐两不误，前往河滨博物馆途中可顺路光顾。"
         }
       ]
     },
@@ -260,46 +455,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "OAKA Supercity (Byres Road)",
-          "nameCn": "OAKA 超级城（拜尔斯路店）",
-          "lat": 55.8742,
-          "lng": -4.2896,
-          "note": "距校园步行约3分钟的人气亚洲料理，主打点心和街头小吃，中国留学生扎堆的食堂级选择。"
-        },
-        {
           "name": "Dumpling Monkey",
           "nameCn": "饺子猴",
-          "lat": 55.8696,
-          "lng": -4.3094,
-          "note": "西区知名北方菜馆，手工饺子、包子、面食地道，想吃家乡味来这里准没错。"
+          "lat": 55.8669,
+          "lng": -4.3007,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "格拉斯哥最早的饺子专门店（2013年），位于邓巴顿路，手工饺子与蒸包物美价廉，中国留学生口碑第一，强烈推荐锅贴和蒸饺。"
         },
         {
-          "name": "Ramen Dayo!",
-          "nameCn": "Ramen Dayo 日式拉面",
-          "lat": 55.8746,
-          "lng": -4.2902,
-          "note": "西区超火的日式豚骨/味噌拉面店，还有咖喱猪排饭，冬天暖胃的好去处。"
+          "name": "GooDuck (串门鸭)",
+          "nameCn": "串门鸭（GooDuck）",
+          "lat": 55.8757,
+          "lng": -4.2975,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "拜尔斯路上的新晋烤鸭餐厅，汤汁小笼包口碑极佳，是离大学最近的正宗中式餐厅之一，中国留学生TikTok热推。"
+        },
+        {
+          "name": "Loon Fung Cantonese Restaurant",
+          "nameCn": "龙凤粤菜餐厅",
+          "lat": 55.8637,
+          "lng": -4.2628,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "苏格兰第一家中餐厅（1971年），索基霍尔街地标，手工河粉、港式烧鸭和叉烧享誉全城，还设包厢KTV，中国学生社交聚餐首选。"
+        },
+        {
+          "name": "I-Chai Glasgow",
+          "nameCn": "一茶中餐厅",
+          "lat": 55.8781,
+          "lng": -4.3211,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "2023年苏格兰企业奖最佳中餐，2005年开业，招牌椒盐猪肉和草莓烤鸭备受推崇，使用新鲜时令食材制作正宗中式料理。"
         },
         {
           "name": "Ubiquitous Chip",
-          "nameCn": "Ubiquitous Chip（无处不在薯条）",
-          "lat": 55.8744,
-          "lng": -4.2916,
-          "note": "Ashton Lane 上自1971年的格拉斯哥老牌餐厅，苏格兰菜代表（haggis、鹿肉），请客打卡首选。"
+          "nameCn": "无处不在的薯条",
+          "lat": 55.8745,
+          "lng": -4.2939,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "阿什顿巷的格拉斯哥饮食圣殿，专营苏格兰鹿肉和海鲜，植物满布的庭院式用餐体验独一无二，连续数十年入选米其林指南。"
         },
         {
-          "name": "Brel (Ashton Lane)",
-          "nameCn": "Brel 比利时餐吧（阿什顿巷）",
-          "lat": 55.8743,
-          "lng": -4.2913,
-          "note": "Ashton Lane 网红石板巷里的比利时餐酒馆，露天花园氛围超出片，奶酪火锅和精酿很受欢迎。"
+          "name": "Cail Bruich",
+          "nameCn": "凯尔布鲁赫（米其林一星）",
+          "lat": 55.8774,
+          "lng": -4.2939,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "苏格兰唯一由女性主厨（Lorna McNee）摘得的米其林一星餐厅，季节性苏格兰菜品套餐，适合毕业典礼或特殊纪念日。"
         },
         {
-          "name": "The Wee Curry Shop (Ashton Lane)",
-          "nameCn": "小咖喱店（阿什顿巷）",
+          "name": "Ox and Finch",
+          "nameCn": "公牛与雀",
+          "lat": 55.8658,
+          "lng": -4.2845,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "凯文格罗夫区的共享小食风格餐厅，现代欧洲菜，口碑稳居格拉斯哥前列，芬尼埃斯顿美食圈必吃之一。"
+        },
+        {
+          "name": "Crabshakk",
+          "nameCn": "蟹棚海鲜餐厅",
+          "lat": 55.8659,
+          "lng": -4.297,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "芬尼埃斯顿最具人气的海鲜餐厅，龙虾、螃蟹和牡蛎当日新鲜供应，餐厅小而精致，建议提前预订。"
+        },
+        {
+          "name": "Mother India",
+          "nameCn": "印度母亲餐厅",
+          "lat": 55.8619,
+          "lng": -4.2786,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "格拉斯哥最受好评的印度餐厅之一，位于芬尼埃斯顿，咖喱风味正宗浓郁，深受当地和留学生群体喜爱，TripAdvisor长期高分。"
+        },
+        {
+          "name": "Eleven Fifty Five (formerly The Gannet)",
+          "nameCn": "1155（前身：塘鹅餐厅）",
+          "lat": 55.866,
+          "lng": -4.2969,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "米其林推荐级别的苏格兰现代料理，2026年初转型为更亲民的休闲餐酒馆风格，保留对苏格兰食材的精致诠释。"
+        },
+        {
+          "name": "Number 16",
+          "nameCn": "16号餐厅",
+          "lat": 55.875,
+          "lng": -4.294,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "拜尔斯路上的双AA玫瑰奖餐厅，入选米其林指南，提供现代苏格兰菜，用料时令本地，价格合理而品质精良。"
+        },
+        {
+          "name": "The Bothy",
+          "nameCn": "农舍餐厅",
           "lat": 55.8742,
-          "lng": -4.2911,
-          "note": "格拉斯哥是 tikka masala 的发源地，这家咖喱馆性价比高，分量足，留学生常来。"
+          "lng": -4.2947,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "露斯文巷的苏格兰传统菜餐厅，哈吉斯、鹿肉和黏糊太妃布丁是招牌，氛围温馨，是体验地道苏格兰风味的绝佳选择。"
+        },
+        {
+          "name": "Banana Leaf (South Indian)",
+          "nameCn": "香蕉叶南印度餐厅",
+          "lat": 55.864,
+          "lng": -4.2572,
+          "rank": 13,
+          "tier": "一般",
+          "note": "2023年翻新重开的南印度素食及肉食餐厅，地道坦都里烤肉和南印度咖喱，荣获苏格兰亚洲食品奖提名。"
         }
       ]
     },
@@ -311,32 +581,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Boots Pharmacy (277 Byres Road)",
-          "nameCn": "Boots 药店（拜尔斯路277号）",
-          "lat": 55.8757,
-          "lng": -4.2888,
-          "note": "拜尔斯路大型连锁药妆店，处方药、感冒药、日用品都有，营业到晚上9点，参与 NHS Pharmacy First 免费咨询。"
+          "name": "Barclay Medical Practice (University GP)",
+          "nameCn": "巴克利全科诊所（校内GP）",
+          "lat": 55.872,
+          "lng": -4.2869,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于大学弗雷泽楼65 Hillhead Street，格拉斯哥大学学生注册GP首选，到校第一周务必完成注册，可享NHS免费就医。"
         },
         {
-          "name": "Gartnavel General Hospital",
-          "nameCn": "加特纳维尔综合医院",
-          "lat": 55.8807,
-          "lng": -4.3142,
-          "note": "西区最近的NHS综合医院（1053 Great Western Rd），看急诊或专科去这里；记得先在校医务室注册GP。"
+          "name": "Santander (271-273 Byres Road)",
+          "nameCn": "桑坦德银行（拜尔斯路）",
+          "lat": 55.8765,
+          "lng": -4.2979,
+          "rank": 2,
+          "tier": "必去",
+          "note": "离大学最近的银行网点之一，留学生开户需携带护照、签证及录取通知书，开户流程较友好，设有免手续费学生账户。"
         },
         {
-          "name": "Bank of Scotland (Byres Road)",
-          "nameCn": "苏格兰银行（拜尔斯路支行）",
-          "lat": 55.875,
-          "lng": -4.289,
-          "note": "拜尔斯路上的银行网点，新生开学生账户、办理英国本地卡可来此预约办理。"
+          "name": "Halifax (22 Byres Road)",
+          "nameCn": "哈利法克斯银行（拜尔斯路22号）",
+          "lat": 55.8718,
+          "lng": -4.2908,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "希尔黑德地铁站附近，提供学生账户无息透支额度高达£1,500，品牌知名度高，开户资料与其他高街银行相同。"
         },
         {
-          "name": "EE Store (Byres Road)",
-          "nameCn": "EE 通讯营业厅（拜尔斯路店）",
-          "lat": 55.8748,
-          "lng": -4.2891,
-          "note": "拜尔斯路上的手机运营商门店，办英国手机卡/合约套餐，也可咨询 SIM 充值。"
+          "name": "Boots Pharmacy (693 Great Western Road)",
+          "nameCn": "博姿药店（大西路693号）",
+          "lat": 55.8764,
+          "lng": -4.2927,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "西区主要连锁药店，可购买非处方药、护肤品及维生素，亦提供流感疫苗预约服务，营业时间长。"
+        },
+        {
+          "name": "Vodafone (333 Byres Road)",
+          "nameCn": "沃达丰手机店（拜尔斯路333号）",
+          "lat": 55.8762,
+          "lng": -4.2981,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "拜尔斯路上的Vodafone门店，可办理SIM卡、手机合同及宽带，到英后购买本地号码的首选门店之一，覆盖格拉斯哥5G网络。"
+        },
+        {
+          "name": "Queen Elizabeth University Hospital (A&E)",
+          "nameCn": "伊丽莎白女王大学医院（急诊）",
+          "lat": 55.8601,
+          "lng": -4.3133,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "格拉斯哥最大综合医院，成人与儿童急诊24小时开放，地址为戈万路1345号，非紧急情况请先拨NHS 24（111）。"
+        },
+        {
+          "name": "Ashton Medical Practice",
+          "nameCn": "阿什顿全科诊所",
+          "lat": 55.8744,
+          "lng": -4.2916,
+          "rank": 7,
+          "tier": "可选",
+          "note": "西区另一家适合学生注册的NHS全科诊所，紧邻大学西侧，候诊时间相对短，适合住在希尔黑德周边的学生。"
         }
       ]
     },
@@ -348,39 +653,85 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "Glasgow Botanic Gardens & Kibble Palace",
+          "nameCn": "格拉斯哥植物园与奇博温室",
+          "lat": 55.8797,
+          "lng": -4.2913,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距大学步行5分钟，奇博宫维多利亚时代玻璃温室馆藏来自五大洲的植物，全年免费开放，是留学生散步解压的最佳去处。"
+        },
+        {
           "name": "Kelvingrove Art Gallery and Museum",
-          "nameCn": "凯尔文格罗夫艺术博物馆",
+          "nameCn": "凯文格罗夫艺术博物馆",
           "lat": 55.8686,
           "lng": -4.291,
-          "note": "校园南侧的免费博物馆，22个主题展厅藏品过万（达利名画+史前到现代），格拉斯哥必逛地标。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "免费世界级博物馆，22个展厅展出达利、凡·高等名作和自然史标本，每逢周日还有管风琴音乐会，是格拉斯哥最不能错过的文化地标。"
         },
         {
-          "name": "Glasgow Botanic Gardens",
-          "nameCn": "格拉斯哥植物园",
-          "lat": 55.8796,
-          "lng": -4.2912,
-          "note": "西区免费植物园，维多利亚式 Kibble Palace 温室+河边步道，散步、野餐、拍照的绝佳去处。"
+          "name": "Loch Lomond (Balloch)",
+          "nameCn": "洛蒙德湖（巴洛赫）",
+          "lat": 56.006,
+          "lng": -4.567,
+          "rank": 3,
+          "tier": "必去",
+          "note": "苏格兰最大淡水湖，被誉为「苏格兰女王」，从格拉斯哥女皇街火车站出发约50分钟直达，入学后第一个周末的必选一日游。"
         },
         {
-          "name": "Hunterian Museum",
-          "nameCn": "亨特里安博物馆",
-          "lat": 55.8722,
-          "lng": -4.2882,
-          "note": "就在格大主楼内，苏格兰最古老的公共博物馆，免费参观，雨天课间逛展最方便。"
+          "name": "Ashton Lane & West End Streets",
+          "nameCn": "阿什顿巷与西区街道",
+          "lat": 55.8744,
+          "lng": -4.2934,
+          "rank": 4,
+          "tier": "必去",
+          "note": "格拉斯哥最具代表性的鹅卵石小巷，夜晚彩灯闪烁，左右是精品餐厅与酒吧，是拍照打卡和感受格拉斯哥本地生活的核心地带。"
         },
         {
-          "name": "University of Glasgow Main Building (Cloisters)",
-          "nameCn": "格拉斯哥大学主楼（回廊）",
-          "lat": 55.8718,
-          "lng": -4.2885,
-          "note": "哈利波特取景同款哥特式回廊与钟楼，全校最出片的打卡点，开学第一张照片就在这里。"
+          "name": "Kelvingrove Park & Bandstand",
+          "nameCn": "凯文格罗夫公园与乐台",
+          "lat": 55.8697,
+          "lng": -4.2887,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "夏季户外音乐表演、野餐和滑板的热门公园，凯文格罗夫乐台（Bandstand）已翻新修复，是和朋友放松一整天的理想场所。"
         },
         {
-          "name": "Kelvingrove Park",
-          "nameCn": "凯尔文格罗夫公园",
-          "lat": 55.8703,
-          "lng": -4.2855,
-          "note": "紧邻校园的大型城市公园，沿 River Kelvin 跑步骑行，晴天野餐晒太阳的学生后花园。"
+          "name": "Riverside Museum & SS Glenlee",
+          "nameCn": "河滨博物馆与格伦利帆船",
+          "lat": 55.8649,
+          "lng": -4.3057,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "扎哈·哈迪德设计的免费交通博物馆，旁边停泊的SS格伦利1896年帆船可登船参观，是了解格拉斯哥工业史的绝佳去处。"
+        },
+        {
+          "name": "Glasgow City Centre (George Square & Merchant City)",
+          "nameCn": "格拉斯哥市中心（乔治广场与商人城）",
+          "lat": 55.8608,
+          "lng": -4.2511,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "乔治广场是城市心脏，商人城有各类餐厅、独立设计店和夜生活场所，坐地铁一站直达，是周末购物和探索城市的必去区域。"
+        },
+        {
+          "name": "Glasgow Chinatown (New City Road)",
+          "nameCn": "格拉斯哥中国城（新城路）",
+          "lat": 55.8679,
+          "lng": -4.261,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "格拉斯哥华人社区聚集地，有中餐馆、亚洲食品店与社区活动，农历新年期间格外热闹，是中国留学生感受家乡味道的好去处。"
+        },
+        {
+          "name": "Finnieston (Argyle Street food & bar strip)",
+          "nameCn": "芬尼埃斯顿餐饮街区",
+          "lat": 55.8652,
+          "lng": -4.296,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "曾被《泰晤士报》评为「英国最潮社区」，聚集了米其林推荐餐厅、精酿酒吧和文艺小店，是格拉斯哥美食探险的必到街区。"
         }
       ]
     }

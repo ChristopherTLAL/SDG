@@ -51,39 +51,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "McCombs School of Business",
-          "nameCn": "麦库姆斯商学院",
-          "lat": 30.284,
-          "lng": -97.7383,
-          "note": "全美顶尖商学院，位于校区西南。"
-        },
-        {
-          "name": "Cockrell School of Engineering (EER)",
-          "nameCn": "科克雷尔工程学院",
-          "lat": 30.2886,
+          "name": "Cockrell School of Engineering – EER Building",
+          "nameCn": "科克雷尔工程学院 – 工程教育与研究中心",
+          "lat": 30.2899,
           "lng": -97.7363,
-          "note": "工程教育与研究中心，校区北部。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "石油工程全美#1、工程整体#6，EER大楼是校内最现代的理工科地标，2017年建成"
         },
         {
-          "name": "Gates-Dell Complex (Computer Science)",
-          "nameCn": "盖茨-戴尔楼（计算机科学）",
-          "lat": 30.2861,
-          "lng": -97.7366,
-          "note": "计算机科学系所在地。"
+          "name": "McCombs School of Business – Rowling Hall",
+          "nameCn": "麦库姆斯商学院 – 罗林大楼",
+          "lat": 30.2823,
+          "lng": -97.7389,
+          "rank": 2,
+          "tier": "必去",
+          "note": "信息系统全美#1、MBA全美#18，Rowling Hall是MBA核心教学楼，玻璃外墙极具辨识度"
         },
         {
-          "name": "Welch Hall (Chemistry)",
-          "nameCn": "韦尔奇化学楼",
-          "lat": 30.2862,
-          "lng": -97.7387,
-          "note": "化学系主楼。"
+          "name": "LBJ School of Public Affairs",
+          "nameCn": "林登·约翰逊公共事务学院",
+          "lat": 30.2852,
+          "lng": -97.7277,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全美公共事务排名前15，与LBJ总统图书馆毗邻，政策研究氛围浓厚"
         },
         {
-          "name": "Texas Advanced Computing Center (TACC)",
-          "nameCn": "德州先进计算中心",
-          "lat": 30.39,
-          "lng": -97.7257,
-          "note": "皮克尔园区内，运营Frontera超算。"
+          "name": "School of Law – Townes Hall",
+          "nameCn": "法学院 – 汤斯大厅",
+          "lat": 30.2878,
+          "lng": -97.7394,
+          "rank": 4,
+          "tier": "必去",
+          "note": "德州最顶尖法学院之一，全美排名#16，Townes Hall是法学院核心建筑"
+        },
+        {
+          "name": "College of Natural Sciences – Robert Lee Moore Hall (RLM)",
+          "nameCn": "自然科学学院 – 罗伯特·李·摩尔大楼",
+          "lat": 30.2865,
+          "lng": -97.7358,
+          "rank": 5,
+          "tier": "必去",
+          "note": "数学、物理、天文系主楼，16层高楼是校内理科学生最常出入的建筑之一"
+        },
+        {
+          "name": "Jackson School of Geosciences – JGB Building",
+          "nameCn": "杰克逊地球科学学院",
+          "lat": 30.2892,
+          "lng": -97.7282,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "地球科学全美#4，毗邻LBJ图书馆，是UT地质与能源研究核心"
+        },
+        {
+          "name": "College of Education – Sanchez Building",
+          "nameCn": "教育学院 – 桑切斯大楼",
+          "lat": 30.2908,
+          "lng": -97.7382,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "教育学全美#6，是教育政策与课程研究的重要基地"
+        },
+        {
+          "name": "Moody College of Communication – Dealey Center",
+          "nameCn": "穆迪传播学院 – 迪利新媒体中心",
+          "lat": 30.2879,
+          "lng": -97.7411,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "UT传播与新闻旗舰大楼，内设KUT公共广播电台工作室，新闻专业学生必去"
+        },
+        {
+          "name": "College of Pharmacy – Pharmacy Building",
+          "nameCn": "药学院大楼",
+          "lat": 30.2895,
+          "lng": -97.7369,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "全美药学排名#8，位于Dean Keeton街南侧，是健康科学教育核心区域"
+        },
+        {
+          "name": "School of Architecture – Goldsmith Hall",
+          "nameCn": "建筑学院 – 戈德史密斯大厅",
+          "lat": 30.2866,
+          "lng": -97.7412,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Paul Cret设计的1933年建筑，西班牙复兴风格，建筑学院历史最悠久主楼"
+        },
+        {
+          "name": "College of Liberal Arts – Batts Hall",
+          "nameCn": "文理学院 – 巴茨大厅",
+          "lat": 30.286,
+          "lng": -97.737,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "文理科人文社科核心教学楼，心理学、语言学、历史等多系汇集于此"
+        },
+        {
+          "name": "Dell Medical School – Health Transformation Building",
+          "nameCn": "戴尔医学院 – 健康转化大楼",
+          "lat": 30.2805,
+          "lng": -97.734,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "UT最新医学院（2016年创立），底层设有H-E-B药房，医学生及国际学生看病首选之地"
         }
       ],
       "defaultOn": true
@@ -98,9 +171,65 @@
         {
           "name": "Perry-Castañeda Library (PCL)",
           "nameCn": "佩里-卡斯塔涅达图书馆",
-          "lat": 30.2824,
-          "lng": -97.7379,
-          "note": "中央主图书馆，北美最大学术馆之一。"
+          "lat": 30.2829,
+          "lng": -97.7372,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UT主图书馆，全北美最大学术馆之一，设大学写作中心、数据实验室和24/7安静自习区"
+        },
+        {
+          "name": "Benson Latin American Collection",
+          "nameCn": "本森拉丁美洲馆",
+          "lat": 30.2848,
+          "lng": -97.7292,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "全球最重要的拉丁美洲研究馆藏之一，位于Sid Richardson Hall，兼具研究与展览功能"
+        },
+        {
+          "name": "Fine Arts Library",
+          "nameCn": "艺术图书馆",
+          "lat": 30.2858,
+          "lng": -97.7375,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "支持音乐、美术、戏剧、舞蹈研究，珍藏大量乐谱与演出档案，艺术生必访"
+        },
+        {
+          "name": "Life Science Library",
+          "nameCn": "生命科学图书馆",
+          "lat": 30.2887,
+          "lng": -97.736,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "生物、化学、医学资料最全，毗邻生命科学建筑群，理工科学生常驻自习"
+        },
+        {
+          "name": "Kuehne Physics Mathematics Astronomy Library",
+          "nameCn": "物理数学天文图书馆",
+          "lat": 30.2863,
+          "lng": -97.736,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于RLM大楼内，收藏物理、数学、天文专业资料，RLM楼内学生首选自习点"
+        },
+        {
+          "name": "Walter Geology Library",
+          "nameCn": "沃尔特地质图书馆",
+          "lat": 30.2892,
+          "lng": -97.7286,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "地球科学专业馆藏，内有大量地图集与地质数据库，石油工程学生重要资源"
+        },
+        {
+          "name": "Architecture & Planning Library (Battle Hall)",
+          "nameCn": "建筑规划图书馆（巴特尔大厅）",
+          "lat": 30.2855,
+          "lng": -97.7403,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1911年建校园最古老图书馆，列入国家历史名录，西班牙地中海风格建筑本身即为打卡地"
         }
       ]
     },
@@ -114,16 +243,56 @@
         {
           "name": "Blanton Museum of Art",
           "nameCn": "布兰顿艺术博物馆",
-          "lat": 30.2808,
-          "lng": -97.7373,
-          "note": "校区南缘，藏品丰富的大学美术馆。"
+          "lat": 30.2818,
+          "lng": -97.7389,
+          "rank": 1,
+          "tier": "必去",
+          "note": "德克萨斯中部最大艺术馆，21000余件藏品，周二免费，留学生文化必打卡"
         },
         {
-          "name": "LBJ Presidential Library",
-          "nameCn": "约翰逊总统图书馆",
-          "lat": 30.2858,
-          "lng": -97.7292,
-          "note": "东校区，纪念第36任总统。"
+          "name": "Harry Ransom Center",
+          "nameCn": "哈里·兰森人文研究中心",
+          "lat": 30.2844,
+          "lng": -97.7389,
+          "rank": 2,
+          "tier": "必去",
+          "note": "珍藏古登堡圣经（全球仅20册）、弗里达卡罗画作及爱因斯坦手稿，全球顶级人文档案馆"
+        },
+        {
+          "name": "LBJ Presidential Library and Museum",
+          "nameCn": "林登·约翰逊总统图书馆与博物馆",
+          "lat": 30.2857,
+          "lng": -97.7277,
+          "rank": 3,
+          "tier": "必去",
+          "note": "收藏4500万页历史文件，免费入场，是了解美国60年代历史与民权运动的绝佳窗口"
+        },
+        {
+          "name": "Texas Science and Natural History Museum",
+          "nameCn": "德克萨斯科学与自然历史博物馆",
+          "lat": 30.2813,
+          "lng": -97.7387,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "展出30英尺长海王龙化石和猛犸象，儿童和自然爱好者必逛，位于布兰顿博物馆旁"
+        },
+        {
+          "name": "Bullock Texas State History Museum",
+          "nameCn": "布洛克德克萨斯州立历史博物馆",
+          "lat": 30.2818,
+          "lng": -97.7381,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "德州官方历史博物馆，含IMAX影院，距UT校园步行5分钟，了解德州史必去"
+        },
+        {
+          "name": "Mexic-Arte Museum",
+          "nameCn": "墨西哥艺术博物馆",
+          "lat": 30.2676,
+          "lng": -97.7422,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专注墨西哥与拉丁美洲当代艺术，学生票仅$4，位于6街艺术区，文化多元体验必去"
         }
       ]
     },
@@ -135,32 +304,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "UT Tower / Main Building",
-          "nameCn": "UT钟楼 / 主楼",
-          "lat": 30.2857,
-          "lng": -97.7392,
-          "note": "校园象征，登顶可俯瞰奥斯汀。"
+          "name": "UT Tower (Main Building)",
+          "nameCn": "UT大钟楼（主楼）",
+          "lat": 30.2862,
+          "lng": -97.7394,
+          "rank": 1,
+          "tier": "必去",
+          "note": "94米高的UT标志性建筑，1937年落成，27层观景台可俯瞰奥斯汀全景，是校园最经典打卡点"
         },
         {
-          "name": "Darrell K Royal-Texas Memorial Stadium",
-          "nameCn": "德州纪念体育场",
-          "lat": 30.2836,
-          "lng": -97.7325,
-          "note": "可容十万人的橄榄球主场。"
+          "name": "The Drag (Guadalupe Street)",
+          "nameCn": "德拉格街（瓜达卢佩街）",
+          "lat": 30.287,
+          "lng": -97.7423,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贴着西校门延伸的校园商业街，UT周边餐厅、书店、咖啡馆最集中地带，新生必逛"
         },
         {
-          "name": "Texas Union",
-          "nameCn": "德州学生会馆",
-          "lat": 30.2866,
-          "lng": -97.7412,
-          "note": "学生活动与餐饮中心。"
+          "name": "Texas Union (Student Union)",
+          "nameCn": "德克萨斯学生会大楼",
+          "lat": 30.2874,
+          "lng": -97.7404,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1933年Paul Cret设计，内含保龄球馆、宴会厅和多种学生服务，校园最核心活动中心"
         },
         {
-          "name": "Bass Concert Hall",
-          "nameCn": "巴斯音乐厅",
-          "lat": 30.2859,
-          "lng": -97.7313,
-          "note": "校区表演艺术中心主厅。"
+          "name": "Darrell K Royal – Texas Memorial Stadium",
+          "nameCn": "达雷尔·K·皇家德州纪念体育场",
+          "lat": 30.2837,
+          "lng": -97.7322,
+          "rank": 4,
+          "tier": "必去",
+          "note": "可容纳100119人的橄榄球圣地，全美第7大体育场，Longhorns主场，秋季比赛日氛围震撼"
+        },
+        {
+          "name": "Speedway Pedestrian Mall",
+          "nameCn": "Speedway步行商业街",
+          "lat": 30.2854,
+          "lng": -97.736,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "贯穿校园南北的步行主轴，两侧汇聚各大学院楼、咖啡车和学生活动，日常通勤必经"
+        },
+        {
+          "name": "Moody Center",
+          "nameCn": "穆迪中心（多功能表演馆）",
+          "lat": 30.2815,
+          "lng": -97.7294,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2022年开幕的15000座综合演出馆，UT毕业典礼场地，也是奥斯汀顶级音乐会举办地"
+        },
+        {
+          "name": "Gregory Gymnasium (Rec Sports)",
+          "nameCn": "格雷戈里体育馆",
+          "lat": 30.2838,
+          "lng": -97.7375,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UT学生最常用健身中心，含游泳池、篮球场、健身房，凭学生证免费进入"
+        },
+        {
+          "name": "Battle Hall",
+          "nameCn": "巴特尔大厅",
+          "lat": 30.2855,
+          "lng": -97.7403,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1911年建造的国家历史名录建筑，红瓦石灰岩外墙奠定了整个校园的西班牙复兴风格基调"
         }
       ]
     },
@@ -172,32 +385,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Target (UT Campus / 2021 Guadalupe)",
-          "nameCn": "Target 塔吉特超市（校园店）",
-          "lat": 30.281,
-          "lng": -97.7415,
-          "note": "就在 Guadalupe 大街（学生口中的 The Drag）上，紧邻西校区，步行可达，买日用品、零食、生鲜、急需药妆最方便。"
+          "name": "H-E-B Hancock Center",
+          "nameCn": "H-E-B汉考克购物中心店",
+          "lat": 30.3006,
+          "lng": -97.721,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UT校园约2公里，德州本地最大连锁超市，生鲜齐全价格实惠，是留学生最常去的日用超市"
         },
         {
-          "name": "MT Supermarket (Chinatown Center)",
-          "nameCn": "大中华超市（中国城购物中心）",
-          "lat": 30.3848,
-          "lng": -97.6862,
-          "note": "中德州最大的亚洲超市，位于北 Lamar 的 Chinatown Center，中餐调料、活鲜、肉类、亚洲日用品最全，周末采购大本营。"
+          "name": "Whole Foods Market – Lamar (Flagship)",
+          "nameCn": "全食超市拉马尔旗舰店",
+          "lat": 30.2693,
+          "lng": -97.7503,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Whole Foods总部大楼，4层旗舰超市，有机食品品类最全，距校园约3公里"
+        },
+        {
+          "name": "99 Ranch Market Austin",
+          "nameCn": "大华超市奥斯汀店",
+          "lat": 30.3318,
+          "lng": -97.7053,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "机场大道上最近的大型中文超市，熟食档有北京烤鸭和港式点心，中国食材最全"
+        },
+        {
+          "name": "MT Supermarket",
+          "nameCn": "MT超市（奥斯汀最大亚洲超市）",
+          "lat": 30.3699,
+          "lng": -97.7122,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "6500平方米的亚洲食品超市，涵盖中日韩越菲等各国食材，奥斯汀中国留学生最爱的亚超"
+        },
+        {
+          "name": "H Mart Austin",
+          "nameCn": "H-Mart韩国超市奥斯汀店",
+          "lat": 30.4429,
+          "lng": -97.7945,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "韩国最大连锁亚洲超市，含美食广场，韩国食品最全，同时经营中日越食材"
+        },
+        {
+          "name": "Trader Joe's – Seaholm",
+          "nameCn": "乔氏超市西港店",
+          "lat": 30.2709,
+          "lng": -97.7543,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于市中心Seaholm区，主打特色进口零食和有机食品，价格适中，留学生零食爱好者必去"
         },
         {
           "name": "Han Yang Market",
-          "nameCn": "汉阳韩国超市",
-          "lat": 30.3438,
-          "lng": -97.7106,
-          "note": "北 Lamar 的韩亚超市，离校区比中国城更近，韩式食材、泡面、豆腐、生鲜齐全，应急囤货很方便。"
-        },
-        {
-          "name": "H Mart (South Lamar)",
-          "nameCn": "H Mart 韩国超市（南 Lamar 店）",
-          "lat": 30.2392,
-          "lng": -97.7929,
-          "note": "较新的大型韩亚超市，自带美食广场（含 Tous les Jours 面包房），逛超市顺便吃饭，适合周末开车采购。"
+          "nameCn": "汉阳市场",
+          "lat": 30.3282,
+          "lng": -97.7248,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "北拉马尔大道上的中小型亚洲市场，距校园较近，朝鲜族食材和豆腐品类丰富"
         }
       ]
     },
@@ -209,39 +457,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chef Hong (Food Trailer)",
-          "nameCn": "Chef Hong 西安小吃车",
-          "lat": 30.2899,
-          "lng": -97.7438,
-          "note": "西校区巷子里的网红中餐车，正宗西安手工拉面、肉夹馍、凉皮，价格学生友好，离课堂几步路，想家时的解馋首选。"
+          "name": "Franklin Barbecue",
+          "nameCn": "富兰克林烤肉",
+          "lat": 30.2701,
+          "lng": -97.7313,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "奥斯汀最传奇BBQ，德州烟熏牛胸被誉为全美最佳，需早上排队，到奥斯汀必吃"
+        },
+        {
+          "name": "Ramen Tatsu-Ya (East 6th St)",
+          "nameCn": "拉面达也（东第六街店）",
+          "lat": 30.2631,
+          "lng": -97.7263,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "奥斯汀人气最高的日式拉面店，猪骨浓汤是招牌，常有排队，多家分店"
+        },
+        {
+          "name": "Wu Chow",
+          "nameCn": "吴潮（粤式点心）",
+          "lat": 30.2668,
+          "lng": -97.7493,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "奥斯汀最好的粤式点心餐厅，周末下午茶推车dim sum，精致上海菜与广东菜融合"
+        },
+        {
+          "name": "Qi Austin",
+          "nameCn": "七奥斯汀（现代中餐）",
+          "lat": 30.2706,
+          "lng": -97.7521,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "市中心高人气中餐厅，点心品质评价极佳，Yelp 4星+，晚餐需预约"
+        },
+        {
+          "name": "House of Three Gorges",
+          "nameCn": "三峡人家（川菜）",
+          "lat": 30.3617,
+          "lng": -97.7154,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "奥斯汀最正宗川菜馆，麻辣鸡、麻婆豆腐、铸铁锅火锅均获高分，中国留学生聚餐首选"
+        },
+        {
+          "name": "Mian & Bao",
+          "nameCn": "面与堡（川式面食饺子）",
+          "lat": 30.3154,
+          "lng": -97.733,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "The Triangle商圈内，小笼包、辣油拌面和四川特色面食，距校园4公里，性价比极高"
+        },
+        {
+          "name": "Chef Hong Food Trailer",
+          "nameCn": "洪师傅餐车（陕西风味）",
+          "lat": 30.2929,
+          "lng": -97.7423,
+          "rank": 7,
+          "tier": "绝对必吃",
+          "note": "UT西校门旁的食物拖车，西安牛肉面和肉夹馍是招牌，步行即达，中国留学生日常打卡"
+        },
+        {
+          "name": "Din Ho Chinese BBQ",
+          "nameCn": "第一号中国烧腊",
+          "lat": 30.3836,
+          "lng": -97.7155,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "奥斯汀港式烧腊代名词，烤鸭和叉烧是绝对招牌，与三峡人家同在Research Blvd"
+        },
+        {
+          "name": "Old Thousand",
+          "nameCn": "老千（创意中餐）",
+          "lat": 30.2695,
+          "lng": -97.7295,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "东11街网红中餐馆，美式中餐创意改良风格，结合鸡尾酒吧，被本地人强烈推荐"
+        },
+        {
+          "name": "Bamboo House",
+          "nameCn": "竹屋（北京烤鸭）",
+          "lat": 30.328,
+          "lng": -97.7268,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "被Infatuation评为奥斯汀最佳北京烤鸭，鸭皮极脆，全场最推荐整鸭套餐"
+        },
+        {
+          "name": "Dee Dee Thai",
+          "nameCn": "迪迪泰国菜",
+          "lat": 30.2316,
+          "lng": -97.7881,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "奥斯汀最正宗泰国东北风味，打抛猪肉和拉布木沙拉堪称全城最佳，位于南奥斯汀"
         },
         {
           "name": "Kerbey Lane Cafe (University)",
-          "nameCn": "Kerbey Lane 咖啡馆（大学店）",
-          "lat": 30.2935,
-          "lng": -97.7415,
-          "note": "Austin 本地传奇老店，全天供应招牌松饼和 Queso 芝士酱，离校超近，朋友聚餐和深夜吃饭的经典打卡地。"
+          "nameCn": "克比巷咖啡馆（大学店）",
+          "lat": 30.2963,
+          "lng": -97.7419,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "UT校门对面24小时经典美式早午餐馆，奎索蘸酱和松饼是必点，留学生深夜首选"
         },
         {
-          "name": "Tso Chinese Takeout & Delivery",
-          "nameCn": "Tso 中式外卖",
-          "lat": 30.303,
-          "lng": -97.7211,
-          "note": "学生群体超受欢迎的美式中餐外卖／配送，左宗棠鸡、炒饭出品稳定快速，忙起来点外卖的常驻选择。"
+          "name": "Uchi",
+          "nameCn": "宇知（高端日式料理）",
+          "lat": 30.2509,
+          "lng": -97.7606,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "奥斯汀最知名日式料理，Michelin推荐，创意寿司融合德州食材，节日庆生首选"
         },
         {
-          "name": "Qi Austin Modern Asian Kitchen",
-          "nameCn": "启 现代亚洲餐厅",
-          "lat": 30.267,
-          "lng": -97.743,
-          "note": "靠近市中心的现代中餐，点心和小笼包品类丰富，想吃一顿稍正式的中餐、招待家人时合适。"
+          "name": "Sijie Special Noodle",
+          "nameCn": "思杰特色面馆",
+          "lat": 30.4164,
+          "lng": -97.7979,
+          "rank": 14,
+          "tier": "一般",
+          "note": "手工宽面、生煎汤包、水饺品种丰富，中国留学生周末专程来吃，在北奥斯汀"
         },
         {
-          "name": "Madam Mam's (Noodles & More)",
-          "nameCn": "Madam Mam's 泰式面馆",
-          "lat": 30.2887,
-          "lng": -97.7416,
-          "note": "Drag 上经营多年的泰餐老店，咖喱、炒河粉、冬阴功平价好吃，是校园周边亚洲菜的常青树。"
+          "name": "Sweet Chive",
+          "nameCn": "甜韭菜（台式饺子面）",
+          "lat": 30.2553,
+          "lng": -97.723,
+          "rank": 15,
+          "tier": "一般",
+          "note": "台湾风味饺子、葱油饼和汤面，East Cesar Chavez街上的小清新中餐馆"
         }
       ]
     },
@@ -253,32 +601,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Guadalupe / UT)",
-          "nameCn": "大通银行（Guadalupe 校园支行）",
-          "lat": 30.292,
-          "lng": -97.7415,
-          "note": "就在 Drag 上的大通支行，办理学生支票账户、存取现金、办借记卡都在这里，是留学生开户最方便的选择之一。"
+          "name": "Chase Bank – Guadalupe St (UT Branch)",
+          "nameCn": "大通银行瓜达卢佩街UT店",
+          "lat": 30.2934,
+          "lng": -97.7418,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UT主校门步行5分钟，留学生开户无需SSN，大学生账户免月费，首推开户银行"
         },
         {
-          "name": "UT University Health Services (UHS)",
-          "nameCn": "UT 学生健康服务中心",
-          "lat": 30.2884,
-          "lng": -97.7375,
-          "note": "校内学生医疗中心（100 W Dean Keeton），看病、急诊小伤、24 小时护士咨询热线 512-475-6877，持学生身份即可就诊。"
-        },
-        {
-          "name": "CVS Pharmacy (2402 Guadalupe)",
-          "nameCn": "CVS 药房（2402 Guadalupe）",
-          "lat": 30.2902,
-          "lng": -97.7417,
-          "note": "步行可达的连锁药房，处方药、感冒药、隐形眼镜护理液和日用品都有，生病时不必跑远。"
-        },
-        {
-          "name": "AT&T Store (2828 Guadalupe)",
-          "nameCn": "AT&T 通讯营业厅",
+          "name": "Wells Fargo – Guadalupe St",
+          "nameCn": "富国银行瓜达卢佩街店",
           "lat": 30.294,
-          "lng": -97.7415,
-          "note": "Drag 上仍在营业的运营商门店，刚落地办美国电话卡、选套餐、买手机配件可来这里，店员可现场协助开户。"
+          "lng": -97.7418,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "在Chase对面，学生账户25美元开户，国际汇款手续费低，备选开户银行"
+        },
+        {
+          "name": "University Health Services (UHS)",
+          "nameCn": "UT大学健康服务中心",
+          "lat": 30.291,
+          "lng": -97.7371,
+          "rank": 3,
+          "tier": "必去",
+          "note": "100 W Dean Keeton，在校学生首选医疗点，提供急诊、疫苗、心理咨询及转介服务"
+        },
+        {
+          "name": "UT Health Austin – Dell Medical Clinic",
+          "nameCn": "UT健康奥斯汀戴尔医疗诊所",
+          "lat": 30.2805,
+          "lng": -97.734,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1601 Trinity St，健康转化大楼内，UT官方全科门诊，含急诊服务，接受学生保险"
+        },
+        {
+          "name": "CVS Pharmacy – 2402 Guadalupe St",
+          "nameCn": "CVS药房瓜达卢佩街店",
+          "lat": 30.2944,
+          "lng": -97.7421,
+          "rank": 5,
+          "tier": "必去",
+          "note": "UT西侧步行可达，营业至晚9时，处方药、OTC药品及日用品齐全，最近的药房"
+        },
+        {
+          "name": "Walgreens Specialty Pharmacy – 3701 Guadalupe St",
+          "nameCn": "沃尔格林专科药房",
+          "lat": 30.3024,
+          "lng": -97.7413,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "3701 Guadalupe，专科处方药及常规药品，备选CVS的Guadalupe街另一家药店"
+        },
+        {
+          "name": "T-Mobile – Downtown Austin",
+          "nameCn": "T-Mobile奥斯汀市区店",
+          "lat": 30.2671,
+          "lng": -97.7431,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "市中心最近T-Mobile实体店，留学生到美后买SIM卡首选，支持不限流量Prepaid套餐"
+        },
+        {
+          "name": "Bank of America – 1904 Guadalupe St",
+          "nameCn": "美国银行瓜达卢佩街店",
+          "lat": 30.2859,
+          "lng": -97.7416,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于MLK大道与Guadalupe交叉口，可开国际学生账户，ATM网络广泛"
         }
       ]
     },
@@ -290,39 +682,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "UT Tower (Main Building) & Observation Deck",
-          "nameCn": "UT 主楼钟塔与观景台",
-          "lat": 30.2862,
-          "lng": -97.7394,
-          "note": "高 307 英尺的校园地标，预约后可登顶观景台 360 度俯瞰 Austin 城市与丘陵，胜利之夜会亮成「德州橙」，必拍。"
+          "name": "Lady Bird Lake – Barton Springs Area",
+          "nameCn": "鸟夫人湖（波顿温泉区）",
+          "lat": 30.2558,
+          "lng": -97.7766,
+          "rank": 1,
+          "tier": "必去",
+          "note": "奥斯汀城中最大城市公园，可划皮划艇、跑步沿湖10英里步道，是留学生放松首选"
         },
         {
-          "name": "Blanton Museum of Art",
-          "nameCn": "布兰顿艺术博物馆",
-          "lat": 30.2806,
-          "lng": -97.7374,
-          "note": "全美顶尖大学艺术馆之一，户外 Ellsworth Kelly 的「Austin」彩窗教堂超出片，每周四免费，文艺打卡好去处。"
-        },
-        {
-          "name": "Harry Ransom Center",
-          "nameCn": "哈里·兰瑟姆人文研究中心",
-          "lat": 30.2848,
-          "lng": -97.7414,
-          "note": "校内人文档案馆，常设展示古腾堡圣经和世界第一张照片，免费参观，适合静下心看展。"
+          "name": "Barton Springs Pool",
+          "nameCn": "波顿温泉游泳池",
+          "lat": 30.262,
+          "lng": -97.7733,
+          "rank": 2,
+          "tier": "必去",
+          "note": "地下泉水恒温22℃的天然游泳池，全年开放，$3入场，夏季奥斯汀最经典打卡体验"
         },
         {
           "name": "Texas State Capitol",
-          "nameCn": "德州州议会大厦",
+          "nameCn": "德克萨斯州议会大厦",
           "lat": 30.2747,
-          "lng": -97.7404,
-          "note": "从校园沿 Congress 大道南行即到的红色花岗岩州议会大厦，比国会山还高，可免费入内参观，是 Austin 必游地标。"
+          "lng": -97.7403,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1100 Congress Ave，宏伟的19世纪粉色花岗岩建筑，比美国国会大厦更高，免费参观"
         },
         {
-          "name": "Lady Bird Lake Hike-and-Bike Trail",
-          "nameCn": "伯德湖环湖步道",
-          "lat": 30.264,
-          "lng": -97.746,
-          "note": "市中心湖滨步道，跑步骑行赏天际线，傍晚还能看蝙蝠桥（Congress Ave Bridge）出洞的奇观，放松散心首选。"
+          "name": "Congress Avenue Bridge Bats",
+          "nameCn": "国会大道桥蝙蝠奇观",
+          "lat": 30.2613,
+          "lng": -97.7453,
+          "rank": 4,
+          "tier": "必去",
+          "note": "3月至9月每晚日落时分150万只蝙蝠腾空而起，全球最大城市蝙蝠群，奥斯汀必看奇观"
+        },
+        {
+          "name": "South Congress Avenue (SoCo)",
+          "nameCn": "南国会大道（SoCo艺术街区）",
+          "lat": 30.2508,
+          "lng": -97.7503,
+          "rank": 5,
+          "tier": "必去",
+          "note": "奥斯汀最特色的商业街，独立小店、古着店、餐厅和涂鸦墙并存，周末人气最旺"
+        },
+        {
+          "name": "6th Street Entertainment District",
+          "nameCn": "第六街娱乐区",
+          "lat": 30.2683,
+          "lng": -97.7407,
+          "rank": 6,
+          "tier": "必去",
+          "note": "奥斯汀现场音乐首都核心，多家live music酒吧连绵数个街区，是感受Austin文化不可缺少的一站"
+        },
+        {
+          "name": "Zilker Metropolitan Park",
+          "nameCn": "齐尔克都市公园",
+          "lat": 30.2661,
+          "lng": -97.7724,
+          "rank": 7,
+          "tier": "必去",
+          "note": "奥斯汀市民最爱的大型城市公园，内含植物园、UMLAUF雕塑园，每年ACL音乐节于此举行"
+        },
+        {
+          "name": "Bullock Texas State History Museum",
+          "nameCn": "布洛克德州历史博物馆",
+          "lat": 30.2818,
+          "lng": -97.7381,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "距UT步行5分钟，含IMAX影院，是了解德州历史文化的最佳入口，新生到访首选"
+        },
+        {
+          "name": "Mt. Bonnell",
+          "nameCn": "博内尔山（奥斯汀最高观景台）",
+          "lat": 30.3218,
+          "lng": -97.7734,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "奥斯汀市内最高自然景观点，可俯瞰科罗拉多河和西奥斯汀豪宅区，日落时分最美"
+        },
+        {
+          "name": "Domain Shopping Center",
+          "nameCn": "领地购物中心",
+          "lat": 30.4027,
+          "lng": -97.7282,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "北奥斯汀最大露天购物中心，Apple、Nike、高端餐厅齐聚，周末购物和餐饮首选"
+        },
+        {
+          "name": "University of Texas Co-op",
+          "nameCn": "UT官方书店与周边店",
+          "lat": 30.2875,
+          "lng": -97.7411,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "Guadalupe街上的官方UT纪念品与教材店，Longhorn周边最全，购买教材也比亚马逊方便"
         }
       ]
     }

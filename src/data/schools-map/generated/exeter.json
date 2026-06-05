@@ -51,74 +51,121 @@
       "icon": "school",
       "items": [
         {
-          "name": "Queen's Building",
-          "nameCn": "女王楼",
-          "lat": 50.7342,
-          "lng": -3.535,
-          "note": "人文学院主楼:英语、电影、艺术史、现代语言。"
+          "name": "The Forum",
+          "nameCn": "论坛大楼",
+          "lat": 50.7352,
+          "lng": -3.5336,
+          "rank": 1,
+          "tier": "必去",
+          "note": "价值4800万英镑的校园核心枢纽，含图书馆、学生服务、餐饮及600座礼堂，是埃克塞特大学的象征"
         },
         {
           "name": "Amory Building",
-          "nameCn": "阿莫里楼",
-          "lat": 50.7365,
-          "lng": -3.5317,
-          "note": "社会科学与国际研究学院,政治、社会学。"
+          "nameCn": "阿莫里大楼",
+          "lat": 50.7366,
+          "lng": -3.5314,
+          "rank": 2,
+          "tier": "必去",
+          "note": "法学院与社会科学系所在地，建于1974年，是法律与政治学学生的主要教学楼"
         },
         {
-          "name": "Washington Singer Building",
-          "nameCn": "华盛顿·辛格楼",
-          "lat": 50.7331,
-          "lng": -3.5365,
-          "note": "心理学与运动科学系所在。"
+          "name": "Building:One (Streatham Court / XFi)",
+          "nameCn": "商学院综合楼",
+          "lat": 50.7359,
+          "lng": -3.53,
+          "rank": 3,
+          "tier": "必去",
+          "note": "三重认证商学院核心楼群，含XFi金融研究楼（路透社实验室）、Streatham Court（本科）和Building:One（研究生/MBA）"
+        },
+        {
+          "name": "Queen's Building",
+          "nameCn": "女王楼",
+          "lat": 50.734,
+          "lng": -3.5351,
+          "rank": 4,
+          "tier": "必去",
+          "note": "人文学院枢纽，英语、电影、艺术史、传播与现代语言系均在此楼"
+        },
+        {
+          "name": "Harrison Building",
+          "nameCn": "哈里森大楼",
+          "lat": 50.7377,
+          "lng": -3.5325,
+          "rank": 5,
+          "tier": "必去",
+          "note": "数据科学、工程与数学中心，耗资650万英镑更新了工程实验室和创客空间"
         },
         {
           "name": "Geoffrey Pope Building",
-          "nameCn": "杰弗里·波普楼",
-          "lat": 50.7367,
-          "lng": -3.5351,
-          "note": "生命科学/生物科学院系楼。"
+          "nameCn": "杰弗里·波普大楼",
+          "lat": 50.7366,
+          "lng": -3.535,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "生命科学与自然科学中心，设有水族资源中心、生物成像单元，是全校最高建筑之一"
         },
         {
           "name": "Living Systems Institute",
-          "nameCn": "生命系统研究所",
-          "lat": 50.7371,
+          "nameCn": "生命系统研究院",
+          "lat": 50.7366,
           "lng": -3.535,
-          "note": "2017 年启用的跨学科生命科学研究中心。"
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2017年耗资5200万英镑建成，跨学科（生物、物理、数学、工程）研究疾病诊断，RIBA西南奖获奖建筑"
         },
         {
-          "name": "Building One (Business School)",
-          "nameCn": "商学院一号楼",
-          "lat": 50.7355,
-          "lng": -3.5299,
-          "note": "埃克塞特商学院核心教学楼。"
+          "name": "Laver Building",
+          "nameCn": "莱弗大楼",
+          "lat": 50.7372,
+          "lng": -3.5334,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "考古学系所在地，配备景观研究室、化学实验室和实验考古设施"
         },
         {
-          "name": "Streatham Court",
-          "nameCn": "斯特里萨姆庭院楼",
-          "lat": 50.7357,
-          "lng": -3.5304,
-          "note": "商学院与经济学教学/办公楼。"
+          "name": "Washington Singer Laboratories",
+          "nameCn": "华盛顿辛格实验楼",
+          "lat": 50.7332,
+          "lng": -3.5364,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "心理学系核心楼，配备认知实验室与情绪障碍研究中心"
         },
         {
-          "name": "Peter Chalk Centre",
+          "name": "Physics Building",
+          "nameCn": "物理大楼",
+          "lat": 50.7372,
+          "lng": -3.5359,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "物理与天文学系所在地，与LSI及杰弗里·波普大楼通过天桥相连"
+        },
+        {
+          "name": "Peter Chalk Centre (Newman Building)",
           "nameCn": "彼得·查尔克中心",
-          "lat": 50.7363,
-          "lng": -3.5361,
-          "note": "公共教学楼,大量讲座与考试在此。"
+          "lat": 50.7354,
+          "lng": -3.5345,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "含五个Newman讲堂、圆屋咖啡馆和学生信息点，是重要的教学中心"
         },
         {
-          "name": "Sir Henry Wellcome Building for Biocatalysis",
-          "nameCn": "亨利·威康生物催化楼",
-          "lat": 50.7333,
-          "lng": -3.5362,
-          "note": "化学/生物催化研究楼。"
+          "name": "IAIS Building",
+          "nameCn": "伊斯兰与阿拉伯研究院",
+          "lat": 50.7364,
+          "lng": -3.5372,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "全球顶尖的阿拉伯与伊斯兰研究中心，馆藏数万册阿拉伯文献"
         },
         {
-          "name": "University of Exeter Medical School (St Luke's)",
-          "nameCn": "埃克塞特医学院",
-          "lat": 50.7224,
-          "lng": -3.5168,
-          "note": "位于圣路加校区,医学与健康教学主楼。"
+          "name": "Alexander Building / Thornlea",
+          "nameCn": "亚历山大楼",
+          "lat": 50.7303,
+          "lng": -3.5388,
+          "rank": 13,
+          "tier": "可选",
+          "note": "戏剧系所在地，含排练室、技术设施和演出空间"
         }
       ],
       "defaultOn": true
@@ -131,11 +178,121 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "The Forum & Library",
-          "nameCn": "Forum 中心与图书馆",
-          "lat": 50.7351,
+          "name": "Forum Library (Rashleigh Building)",
+          "nameCn": "论坛图书馆",
+          "lat": 50.7352,
           "lng": -3.5339,
-          "note": "校园核心地标,24小时主图书馆 + 学生服务大厅。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最大图书馆，24/7开放（刷卡），超过1000个座位，含数字创客空间和无障碍阅览室，是最重要的学习中心"
+        },
+        {
+          "name": "Old Library & Special Collections",
+          "nameCn": "老图书馆暨特藏馆",
+          "lat": 50.7333,
+          "lng": -3.5341,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "珍藏13世纪至今的档案与善本，是比尔·道格拉斯电影博物馆的所在楼，亦含多信仰礼拜堂"
+        },
+        {
+          "name": "Roborough Basement Library",
+          "nameCn": "罗伯勒地下图书馆",
+          "lat": 50.7333,
+          "lng": -3.5341,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "老图书馆附属的安静自习空间，适合需要沉浸式学习的学生"
+        },
+        {
+          "name": "Law Library (Amory)",
+          "nameCn": "法学图书馆",
+          "lat": 50.7366,
+          "lng": -3.5314,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于阿莫里大楼内，专为法学学生提供法律文献、判例汇编和学术期刊"
+        },
+        {
+          "name": "St Luke's Library (Haighton Building)",
+          "nameCn": "圣卢克斯图书馆",
+          "lat": 50.7233,
+          "lng": -3.5166,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "医学院与教育学院学生的专属图书馆，位于圣卢克斯校区海顿楼内"
+        },
+        {
+          "name": "Devon and Exeter Institution Library",
+          "nameCn": "德文-埃克塞特学会图书馆",
+          "lat": 50.7253,
+          "lng": -3.5293,
+          "rank": 6,
+          "tier": "可选",
+          "note": "城区历史悠久的独立学术图书馆，成立于1813年，收藏本地史与地方志文献，入场需申请会员"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "Royal Albert Memorial Museum & Art Gallery (RAMM)",
+          "nameCn": "皇家阿尔伯特纪念博物馆",
+          "lat": 50.7253,
+          "lng": -3.5325,
+          "rank": 1,
+          "tier": "必去",
+          "note": "埃克塞特最大博物馆，16个展厅，藏品逾百万件，包括动物学、考古与艺术，免费入场，2012年荣获英国年度博物馆奖"
+        },
+        {
+          "name": "Bill Douglas Cinema Museum",
+          "nameCn": "比尔·道格拉斯电影博物馆",
+          "lat": 50.7333,
+          "lng": -3.5341,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于校园老图书馆内，收藏英国最大的电影史藏品，从魔灯到现代银幕，每天10:00-17:00免费开放"
+        },
+        {
+          "name": "Exeter Historic Guildhall",
+          "nameCn": "埃克塞特历史市政厅",
+          "lat": 50.7247,
+          "lng": -3.5313,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "英国最古老的仍在使用的市政建筑（可追溯至1160年），16世纪木质门板与都铎风格廊柱令人叹为观止，免费参观"
+        },
+        {
+          "name": "Custom House Visitor Centre",
+          "nameCn": "海关大楼游客中心",
+          "lat": 50.7177,
+          "lng": -3.5305,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于埃克塞特河港，以互动展览讲述城市2000年历史，从罗马时代到纺织贸易，免费入场"
+        },
+        {
+          "name": "Northcote House & Senate Chamber",
+          "nameCn": "诺斯科特故居暨参议院",
+          "lat": 50.7352,
+          "lng": -3.5351,
+          "rank": 5,
+          "tier": "可选",
+          "note": "大学主行政楼，内含参议院会议厅，维多利亚式建筑风格，可借助学院艺术与文化活动进入参观"
+        },
+        {
+          "name": "Exeter City Walls & Roman Remains",
+          "nameCn": "埃克塞特城墙与罗马遗址",
+          "lat": 50.7263,
+          "lng": -3.5328,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "全国保存最完好的罗马至中世纪城墙之一，北恩海花园内可见罗马段，配套有城墙小径导览图"
         }
       ]
     },
@@ -147,53 +304,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Great Hall",
+          "name": "The Forum Plaza",
+          "nameCn": "论坛广场",
+          "lat": 50.7352,
+          "lng": -3.5336,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园核心广场，拥有全英国最大自由形态木格壳屋顶（3200㎡），是学生集会、自习和社交的首选地标"
+        },
+        {
+          "name": "Devonshire House (Students' Guild)",
+          "nameCn": "德文郡楼（学生公会）",
+          "lat": 50.7351,
+          "lng": -3.5342,
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生公会所在地，含RAM酒吧、Exehale心理健康空间、公会商店及校园影院，是新生必访的社交核心"
+        },
+        {
+          "name": "Reed Hall & Gardens",
+          "nameCn": "里德厅与花园",
+          "lat": 50.7355,
+          "lng": -3.5376,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1867年建造的意式庄园，是校园最古老建筑，周围花园和树木园免费开放，被《泰晤士报》评为英国最美校园"
+        },
+        {
+          "name": "Northcote House",
+          "nameCn": "诺斯科特楼",
+          "lat": 50.7352,
+          "lng": -3.5351,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "大学主接待处与行政中心，是访客到访和各类典礼的集中地，维多利亚建筑风格"
+        },
+        {
+          "name": "The Great Hall",
           "nameCn": "大礼堂",
           "lat": 50.7354,
-          "lng": -3.5343,
-          "note": "主校区大型活动与毕业典礼场地,毗邻 Forum。"
+          "lng": -3.5345,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "举办毕业典礼和考试的标志性大厅，内设Blackwells书店和Sanctuary自习空间"
         },
         {
-          "name": "Reed Hall",
-          "nameCn": "里德楼",
-          "lat": 50.73539,
-          "lng": -3.53761,
-          "note": "校园最古老建筑,现作会议婚礼场地。"
+          "name": "Exeter Cathedral",
+          "nameCn": "埃克塞特大教堂",
+          "lat": 50.7222,
+          "lng": -3.5306,
+          "rank": 6,
+          "tier": "必去",
+          "note": "建于12世纪的哥特式主教座堂，拥有全球最长的中世纪哥特式穹顶，是全市最重要的打卡地标"
         },
         {
-          "name": "Students' Guild",
-          "nameCn": "学生会",
-          "lat": 50.735,
-          "lng": -3.5344,
-          "note": "埃克塞特学生会(St Luke's 一侧),社团与活动中枢。"
+          "name": "Exeter Quayside",
+          "nameCn": "埃克塞特河港",
+          "lat": 50.7177,
+          "lng": -3.5305,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "历史悠久的滨河区，咖啡馆、酒吧、皮划艇出租与工艺作坊云集，是休闲打卡和拍照的好地方"
         },
         {
-          "name": "Exeter Northcott Theatre",
-          "nameCn": "诺斯科特剧院",
-          "lat": 50.7358,
-          "lng": -3.5352,
-          "note": "主校区专业剧院。"
-        },
-        {
-          "name": "Cornwall House",
-          "nameCn": "康沃尔楼",
-          "lat": 50.735,
-          "lng": -3.5297,
-          "note": "含游泳池与活动空间的学生综合楼。"
-        },
-        {
-          "name": "University of Exeter Laver Building",
-          "nameCn": "拉弗楼",
-          "lat": 50.7374,
-          "lng": -3.5335,
-          "note": "地理/计算机科学等院系教学楼。"
-        },
-        {
-          "name": "Exeter St Davids Railway Station",
-          "nameCn": "埃克塞特圣戴维斯火车站",
-          "lat": 50.7292,
-          "lng": -3.5433,
-          "note": "最近大型火车站,距主校区步行约15分钟。"
+          "name": "Gandy Street",
+          "nameCn": "甘迪街",
+          "lat": 50.7248,
+          "lng": -3.5313,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "鹅卵石铺就的独立小店街，据说启发了J.K.罗琳的对角巷，咖啡馆、酒吧和精品店密布"
         }
       ]
     },
@@ -205,39 +385,85 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "168 Oriental Supermarket (一路發超市)",
-          "nameCn": "168亚洲超市",
-          "lat": 50.72723,
-          "lng": -3.52277,
-          "note": "市中心最大的华人超市，中日韩泰食材、冷冻饺子、火锅底料、调味料齐全，距校园步行约5分钟。"
+          "name": "Co-op Food — Pennsylvania Road",
+          "nameCn": "合作社超市（宾夕法尼亚路店）",
+          "lat": 50.7309,
+          "lng": -3.5259,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距斯特里塞姆校区步行约10分钟，是留学生日常采购最近的综合超市，Sunday也营业"
+        },
+        {
+          "name": "168 Oriental Supermarket",
+          "nameCn": "168东方超市",
+          "lat": 50.7273,
+          "lng": -3.5221,
+          "rank": 2,
+          "tier": "必去",
+          "note": "城区最知名的亚洲食材超市，出售中国、日本、韩国、泰国食材及速冻饺子、新鲜中蔬，10:00-20:00营业"
         },
         {
           "name": "BHL Oriental Food Store",
           "nameCn": "BHL东方食品店",
-          "lat": 50.72688,
-          "lng": -3.5257,
-          "note": "King William街上的亚超，包子、泡面、酱料、新鲜亚洲蔬菜，凭学生证有折扣，离校近。"
+          "lat": 50.7275,
+          "lng": -3.5248,
+          "rank": 3,
+          "tier": "必去",
+          "note": "凭学生证享九折，周日提供新鲜中国食材到货，库存包括蛤蜊球、贡丸、泡菜、寿司米等亚洲食材"
         },
         {
-          "name": "Co-op Food (Pennsylvania Road)",
-          "nameCn": "Co-op超市（宾州路店）",
-          "lat": 50.73086,
-          "lng": -3.52585,
-          "note": "离校园最近的英式便利超市，步行约2分钟，买牛奶面包果蔬日用最方便。"
+          "name": "Continental Food Stores",
+          "nameCn": "大陆国际食品超市",
+          "lat": 50.7299,
+          "lng": -3.5195,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "西南最大国际食品超市，经营14个国籍菜系食材，包含中国、泰国、菲律宾、韩国、日本等全系列"
         },
         {
-          "name": "Sainsbury's Local (Sidwell Street)",
-          "nameCn": "Sainsbury's便利店（Sidwell街）",
-          "lat": 50.72594,
-          "lng": -3.52631,
-          "note": "英国三大连锁超市之一，自有品牌平价，适合日常采购和即食餐。"
+          "name": "Sainsbury's — Guildhall",
+          "nameCn": "塞斯伯里斯超市（市政厅店）",
+          "lat": 50.7244,
+          "lng": -3.5325,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "市中心综合超市，品类齐全，含床上用品和小家电，配合Nectar积分卡，是城区购物的主力选择"
         },
         {
-          "name": "Tesco Express (Sidwell Street)",
-          "nameCn": "Tesco便利店（Sidwell街）",
-          "lat": 50.7283,
-          "lng": -3.52228,
-          "note": "英国最大连锁超市，Clubcard会员价划算，营业时间长，应急采购首选。"
+          "name": "Waitrose",
+          "nameCn": "维特罗斯超市",
+          "lat": 50.7247,
+          "lng": -3.5142,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "对面即圣卢克斯校区，品质较高的中高端超市，果蔬新鲜，适合偶尔改善伙食"
+        },
+        {
+          "name": "Marks & Spencer Simply Food",
+          "nameCn": "马莎百货食品店",
+          "lat": 50.7238,
+          "lng": -3.5312,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "高街旗舰食品馆，以精选即食、优质肉类和烘焙食品见长，价格稍高但品质出众"
+        },
+        {
+          "name": "Lidl — Burnthouse Lane",
+          "nameCn": "利德尔超市（伯恩豪斯巷店）",
+          "lat": 50.7138,
+          "lng": -3.4995,
+          "rank": 8,
+          "tier": "可选",
+          "note": "德国折扣超市，价格实惠，有欧洲进口食品，需乘U1/U2公交约20分钟，内设Well药房"
+        },
+        {
+          "name": "Sainsbury's — Alphington Road",
+          "nameCn": "塞斯伯里斯超市（阿尔芬顿路店）",
+          "lat": 50.7066,
+          "lng": -3.536,
+          "rank": 9,
+          "tier": "可选",
+          "note": "郊区大型超市，品类更全，可搭乘公交前往，适合大采购"
         }
       ]
     },
@@ -249,39 +475,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Tang Shian (羴湘)",
-          "nameCn": "羴湘中餐厅",
-          "lat": 50.72127,
-          "lng": -3.53133,
-          "note": "南街上口碑很好的港式粤菜与川菜馆，提供点菜和火锅，留学生聚餐常去。"
+          "name": "Dee Yi Chinese Restaurant",
+          "nameCn": "迪一中餐厅",
+          "lat": 50.7249,
+          "lng": -3.5211,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "埃克塞特最受好评的正宗中餐馆之一，位于Heavitree Road，主厨经验丰富，菜系正宗，华人留学生高度推荐"
         },
         {
-          "name": "The Dragon's Den Hot Pot",
-          "nameCn": "龙穴火锅",
-          "lat": 50.72727,
-          "lng": -3.52404,
-          "note": "Sidwell街上的下沉式自助火锅，川味锅底加自助蘸料台，离校园仅几分钟。"
+          "name": "Beijing Beijing Chinese Restaurant",
+          "nameCn": "北京北京中餐厅",
+          "lat": 50.7268,
+          "lng": -3.535,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于Queen Street，正宗川菜风味，包括麻辣口味招牌菜，是埃克塞特最老牌的中式餐厅之一"
         },
         {
-          "name": "Comptoir Libanais",
-          "nameCn": "黎巴嫩餐厅",
-          "lat": 50.72388,
-          "lng": -3.53225,
-          "note": "Queen街上的中东风味连锁，烤肉、塔吉锅、薄荷茶，环境出片，换换口味的好选择。"
+          "name": "Mr Choy",
+          "nameCn": "Mr Choy中式外卖",
+          "lat": 50.7169,
+          "lng": -3.5401,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "经营30余年的家传中式外卖，位于Cowick Street，谷歌4.3分/248条评价，份量足、价格亲民"
         },
         {
-          "name": "Boston Tea Party",
-          "nameCn": "波士顿茶餐厅",
-          "lat": 50.72457,
-          "lng": -3.53173,
-          "note": "西南本土人气早午餐品牌，英式全早餐和咖啡份量足，是体验当地brunch文化的必去店。"
+          "name": "Shimizu Sushi",
+          "nameCn": "清水寿司",
+          "lat": 50.7289,
+          "lng": -3.5233,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Well Street上的日式料理馆，提供寿司、拉面、天妇罗、盖饭和便当，是留学生最喜爱的日料去处"
         },
         {
-          "name": "Samuel Jones Ale & Smoke House",
-          "nameCn": "Samuel Jones河畔餐酒馆",
-          "lat": 50.71833,
-          "lng": -3.53183,
-          "note": "运河码头边的英式酒馆餐厅，烤肉与本地啤酒，露台正对水景，是感受Exeter码头风情的必坐之地。"
+          "name": "Red Panda Exeter",
+          "nameCn": "红熊猫亚洲街食",
+          "lat": 50.7248,
+          "lng": -3.5313,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "甘迪街人气亚洲街食小店，肉夹馍3.80英镑起，米饭套餐6-7英镑，全部现做、物美价廉，留学生热门"
+        },
+        {
+          "name": "Jasmine Thai Restaurant",
+          "nameCn": "茉莉泰餐厅",
+          "lat": 50.7215,
+          "lng": -3.5343,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Fore Street上的正宗泰式餐厅，谷歌4.5分/352条评价，自2011年营业，推荐咖喱和泰式炒河粉"
+        },
+        {
+          "name": "Somboon Thai Shop",
+          "nameCn": "松本泰国店",
+          "lat": 50.7271,
+          "lng": -3.5236,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Sidwell Street上的泰式小馆，距校区仅5分钟步行，价格实惠，深受学生群体欢迎"
+        },
+        {
+          "name": "iFood Thai Taste",
+          "nameCn": "iFood泰国味道",
+          "lat": 50.728,
+          "lng": -3.5221,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Sidwell Street的泰式外卖，菜单多样，含纯素和无麸质选项，是快速午餐的好选择"
+        },
+        {
+          "name": "Eat The Bird",
+          "nameCn": "食鸟炸鸡馆",
+          "lat": 50.7258,
+          "lng": -3.5257,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "2023年英国街头美食炸鸡奖得主，2024/25 Good Food Awards蓝丝带，是埃克塞特必尝本地特色"
+        },
+        {
+          "name": "Thai Orchid",
+          "nameCn": "泰国兰花餐厅",
+          "lat": 50.7262,
+          "lng": -3.5301,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Cathedral Yard旁，1995年开业，埃克塞特历史最悠久的泰餐之一，沙爹鸡和泰绿咖喱是招牌"
+        },
+        {
+          "name": "Rockfish Exeter Quay",
+          "nameCn": "磐石海鲜（河港店）",
+          "lat": 50.7172,
+          "lng": -3.5305,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Piazza Terracina河港边的可持续海鲜馆，食材直接来自多塞特、德文与康沃尔海域，是体验西南海鲜文化必去之所"
+        },
+        {
+          "name": "Harry's Restaurant",
+          "nameCn": "哈里餐厅",
+          "lat": 50.7277,
+          "lng": -3.5262,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "1993年开业的本地传奇独立餐厅，使用100%德文本地肉品和时令食材，哥特式建筑内的温馨用餐体验"
+        },
+        {
+          "name": "Old Firehouse",
+          "nameCn": "旧消防局酒吧餐厅",
+          "lat": 50.7269,
+          "lng": -3.5283,
+          "rank": 13,
+          "tier": "一般",
+          "note": "New North Road上的烛光历史酒吧，提供自制披萨、9款本地生啤与20余种农庄苹果酒，深受学生喜爱"
+        },
+        {
+          "name": "Turks Head",
+          "nameCn": "土耳其人头酒馆",
+          "lat": 50.7233,
+          "lng": -3.5319,
+          "rank": 14,
+          "tier": "一般",
+          "note": "High Street上700年历史的老酒馆，设有自酿微型啤酒厂，曾是狄更斯常去之地，英式炸鱼薯条必试"
         }
       ]
     },
@@ -293,32 +610,85 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "HSBC UK (High Street)",
-          "nameCn": "汇丰银行（高街）",
-          "lat": 50.72531,
-          "lng": -3.52799,
-          "note": "高街上的汇丰网点，留学生开户常用银行，可预约办理账户，距校园步行约8分钟。"
+          "name": "University of Exeter Student Health Centre",
+          "nameCn": "埃克塞特大学学生医疗中心",
+          "lat": 50.7313,
+          "lng": -3.5395,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内Reed Mews的专属GP诊所（圣托马斯医疗集团），开学后务必第一时间网上注册，可免费NHS就诊，急诊24小时转诊"
         },
         {
-          "name": "Boots Pharmacy (High Street)",
-          "nameCn": "Boots药妆店（高街）",
-          "lat": 50.72542,
-          "lng": -3.52778,
-          "note": "英国最大连锁药房，处方药、常用感冒药、个护和化妆品都有，市中心最方便。"
+          "name": "Royal Devon and Exeter Hospital (Wonford)",
+          "nameCn": "皇家德文-埃克塞特医院（旺福德）",
+          "lat": 50.7167,
+          "lng": -3.5067,
+          "rank": 2,
+          "tier": "必去",
+          "note": "埃克塞特最大NHS综合医院，提供急诊（A&E）和住院治疗，地址Barrack Road，内设Boots药房（一楼P区）"
         },
         {
-          "name": "EE Store (High Street)",
-          "nameCn": "EE手机营业厅（高街）",
-          "lat": 50.72417,
-          "lng": -3.52974,
-          "note": "英国主流电信运营商门店，办手机卡/合约套餐，网速覆盖好，开学换卡来这。"
+          "name": "Boots Pharmacy — High Street",
+          "nameCn": "Boots药店（高街店）",
+          "lat": 50.7255,
+          "lng": -3.5279,
+          "rank": 3,
+          "tier": "必去",
+          "note": "250-251 High Street，市中心最大的Boots药店，可取NHS处方药及OTC药品，可办理欧洲健康卡相关事宜"
         },
         {
-          "name": "Royal Devon & Exeter Hospital (Wonford)",
-          "nameCn": "皇家德文埃克塞特医院（Wonford院区）",
-          "lat": 50.71709,
-          "lng": -3.50627,
-          "note": "本地综合教学医院，设24小时急诊(A&E)，急重症就医认准这个院区，距校约2公里。"
+          "name": "Barclays Bank — Exeter City Centre",
+          "nameCn": "巴克莱银行（埃克塞特市中心）",
+          "lat": 50.7243,
+          "lng": -3.529,
+          "rank": 4,
+          "tier": "必去",
+          "note": "3 Bedford Street，为国际学生开户友好，提供学生账户，需携带护照、签证及入学确认函，建议开学前预约"
+        },
+        {
+          "name": "HSBC Bank — Exeter High Street",
+          "nameCn": "汇丰银行（埃克塞特高街）",
+          "lat": 50.7254,
+          "lng": -3.5281,
+          "rank": 5,
+          "tier": "必去",
+          "note": "250-251 High Street，中国学生常选银行，支持中英文服务，国际汇款手续费相对合理"
+        },
+        {
+          "name": "Santander Bank — Exeter High Street",
+          "nameCn": "桑坦德银行（埃克塞特高街）",
+          "lat": 50.7232,
+          "lng": -3.5313,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "53 High Street，学生账户免费赠送4年期16-25铁路卡（约30英镑/年折扣），性价比高"
+        },
+        {
+          "name": "NatWest Bank — Exeter High Street",
+          "nameCn": "英国国民西敏寺银行（高街）",
+          "lat": 50.7231,
+          "lng": -3.5316,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "59 High Street，学生账户最高3000英镑免息透支，英国本地学生首选之一"
+        },
+        {
+          "name": "Three Mobile — Exeter High Street",
+          "nameCn": "三网移动营业厅（高街）",
+          "lat": 50.7247,
+          "lng": -3.5292,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "244-246 High Street，提供SIM-only套餐，Three的5G信号覆盖埃克塞特市区，留学生买SIM卡首选"
+        },
+        {
+          "name": "Boots Pharmacy — Sidwell Street",
+          "nameCn": "Boots药店（锡德威尔街）",
+          "lat": 50.7274,
+          "lng": -3.524,
+          "rank": 9,
+          "tier": "可选",
+          "note": "37 Sidwell Street，靠近校园方向的备用药店，营业时间较High Street店更灵活，适合日常小病取药"
         }
       ]
     },
@@ -330,39 +700,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Exeter Cathedral",
-          "nameCn": "埃克塞特大教堂",
-          "lat": 50.72252,
-          "lng": -3.52985,
-          "note": "英格兰哥特式建筑代表作，拥有全球最长的连续哥特拱顶，前方草坪是市中心头号打卡地。"
+          "name": "Exeter Cathedral & Cathedral Close",
+          "nameCn": "埃克塞特大教堂与大教堂广场",
+          "lat": 50.7222,
+          "lng": -3.5306,
+          "rank": 1,
+          "tier": "必去",
+          "note": "中世纪哥特式教堂，全球最长的未间断中世纪哥特式穹顶，大教堂广场是草地野餐和音乐节的场所"
         },
         {
-          "name": "Royal Albert Memorial Museum (RAMM)",
-          "nameCn": "皇家阿尔伯特纪念博物馆",
-          "lat": 50.72523,
-          "lng": -3.53208,
-          "note": "曾获年度博物馆大奖，16个展厅免费参观，雨天和文化补给的好去处，离校近。"
+          "name": "Exeter Quayside & Custom House",
+          "nameCn": "埃克塞特河港与海关大楼",
+          "lat": 50.7177,
+          "lng": -3.5305,
+          "rank": 2,
+          "tier": "必去",
+          "note": "皮划艇租赁、古董店、工坊和河边餐厅密布，海关大楼游客中心免费展示城市2000年历史"
         },
         {
-          "name": "Exeter Quay (Historic Quayside)",
-          "nameCn": "埃克塞特历史码头",
-          "lat": 50.71828,
-          "lng": -3.53099,
-          "note": "运河边最上镜的休闲区，可散步、租皮划艇、逛古董店，沿河酒吧咖啡馆林立。"
+          "name": "Exeter's Underground Passages",
+          "nameCn": "埃克塞特地下水道",
+          "lat": 50.7252,
+          "lng": -3.5269,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全英唯一对公众开放的中世纪城市输水地下通道（14世纪），由导游带领探索，入场约£8学生票"
         },
         {
-          "name": "Gandy Street",
-          "nameCn": "甘迪街",
-          "lat": 50.7247,
-          "lng": -3.53135,
-          "note": "中世纪小巷，独立小店与咖啡馆云集，相传是《哈利波特》对角巷灵感来源，校友J.K.罗琳曾在此求学。"
+          "name": "Gandy Street & Cathedral Quarter",
+          "nameCn": "甘迪街与大教堂区",
+          "lat": 50.7248,
+          "lng": -3.5313,
+          "rank": 4,
+          "tier": "必去",
+          "note": "鹅卵石小街据说启发了J.K.罗琳的对角巷，独立咖啡馆、精品店和Phoenix艺术中心汇聚于此"
         },
         {
-          "name": "Northernhay Gardens",
-          "nameCn": "北郊花园",
-          "lat": 50.7265,
-          "lng": -3.53162,
-          "note": "英格兰最古老的公共园林之一，紧邻罗马城墙遗迹，是校园与市中心之间散步歇脚的绿地。"
+          "name": "Northernhay & Rougemont Gardens",
+          "nameCn": "北海花园与鲁热蒙花园",
+          "lat": 50.7263,
+          "lng": -3.5283,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "英格兰最古老的公共开放空间（1612年），花园内含保存完好的罗马城墙段，是校园附近最佳散步地"
+        },
+        {
+          "name": "Exmouth Beach & Jurassic Coast",
+          "nameCn": "埃克斯茅斯海滩与侏罗纪海岸",
+          "lat": 50.6178,
+          "lng": -3.413,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "从Exeter St Davids乘火车约25分钟，2英里金沙海滩，是UNESCO世界遗产侏罗纪海岸西端，化石寻宝地"
+        },
+        {
+          "name": "Exeter Phoenix Arts Centre",
+          "nameCn": "埃克塞特凤凰艺术中心",
+          "lat": 50.7248,
+          "lng": -3.5313,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Gandy Street的多元艺术中心，含独立影院、画廊、演出空间，学生票有折扣，是体验本地文化生活的好去处"
+        },
+        {
+          "name": "Exeter University Sculpture Trail",
+          "nameCn": "大学雕塑小径",
+          "lat": 50.7352,
+          "lng": -3.536,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "校园内散布亨利·摩尔（Henry Moore）、芭芭拉·赫普沃斯（Barbara Hepworth）等名家户外雕塑，免费漫游"
+        },
+        {
+          "name": "Topsham & Exe Estuary Nature Walk",
+          "nameCn": "托普舍姆与埃克斯河口自然步道",
+          "lat": 50.6802,
+          "lng": -3.4625,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "从市区骑行或乘火车20分钟可达，沿运河可赏天鹅、苍鹭，RSPB自然保护区是观鸟胜地"
+        },
+        {
+          "name": "Exeter Northcott Theatre",
+          "nameCn": "埃克塞特北科特剧院",
+          "lat": 50.7358,
+          "lng": -3.5352,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校园内的专业剧院，提供话剧、音乐剧、喜剧和舞蹈演出，学生票折扣力度大，是文艺活动必选"
         }
       ]
     }

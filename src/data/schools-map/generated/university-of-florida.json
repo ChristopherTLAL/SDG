@@ -67,46 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Reitz Union (J. Wayne Reitz)",
-          "nameCn": "莱兹学生活动中心",
-          "lat": 29.6463,
-          "lng": -82.3479,
-          "note": "校园主学生中心，餐饮、活动与服务枢纽。"
+          "name": "Herbert Wertheim College of Engineering – Malachowsky Hall",
+          "nameCn": "工程学院马拉科夫斯基大楼",
+          "lat": 29.6487,
+          "lng": -82.35,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UF旗舰AI/数据科学大楼，NVIDIA联创捐资建造，CISE与ECE系在此，全美顶尖工程项目之一。"
         },
         {
-          "name": "Turlington Hall",
-          "nameCn": "特灵顿楼",
-          "lat": 29.6486,
-          "lng": -82.3438,
-          "note": "文理学院核心教学楼，前广场人流最密集。"
+          "name": "Warrington College of Business – Heavener Hall",
+          "nameCn": "沃灵顿商学院-海文纳大楼",
+          "lat": 29.6488,
+          "lng": -82.3508,
+          "rank": 2,
+          "tier": "必去",
+          "note": "本科商学院主楼，位于西校区University Ave旁，全美商学院排名前30。"
         },
         {
-          "name": "Herbert Wertheim College of Engineering",
-          "nameCn": "韦特海姆工程学院",
-          "lat": 29.6484,
-          "lng": -82.3485,
-          "note": "工程学院主楼群，紧邻马斯顿科学图书馆。"
-        },
-        {
-          "name": "Warrington College of Business (Heavener Hall)",
-          "nameCn": "沃灵顿商学院",
-          "lat": 29.6515,
-          "lng": -82.3397,
-          "note": "商学院教学区，靠近历史区北缘。"
-        },
-        {
-          "name": "College of Medicine",
-          "nameCn": "医学院",
-          "lat": 29.6404,
-          "lng": -82.3438,
-          "note": "健康科学中心内的医学院主体建筑。"
-        },
-        {
-          "name": "Levin College of Law",
+          "name": "Levin College of Law – Holland Law Center",
           "nameCn": "莱文法学院",
+          "lat": 29.6474,
+          "lng": -82.3605,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UF法学院主楼，全美排名约30，位于校园西南Village Drive。"
+        },
+        {
+          "name": "Harrell Medical Education Building – College of Medicine",
+          "nameCn": "哈雷尔医学教育大楼",
+          "lat": 29.641,
+          "lng": -82.3455,
+          "rank": 4,
+          "tier": "必去",
+          "note": "UF医学院主楼，毗邻Shands医院，医学教育与研究中心，全美医学院声誉极高。"
+        },
+        {
+          "name": "HPNP Building – College of Pharmacy & Nursing",
+          "nameCn": "健康职业/护理/药学大楼",
+          "lat": 29.6417,
+          "lng": -82.3453,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美排名前10的药学院所在地，与护理学院共用，位于健康科学中心内。"
+        },
+        {
+          "name": "College of Veterinary Medicine",
+          "nameCn": "兽医学院",
+          "lat": 29.6378,
+          "lng": -82.3602,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全美排名前10的兽医学院，设有开放性动物医院，位于校园西南部SW 16th Ave。"
+        },
+        {
+          "name": "Turlington Hall – College of Liberal Arts and Sciences",
+          "nameCn": "特灵顿大楼",
           "lat": 29.649,
-          "lng": -82.3591,
-          "note": "校园西侧独立的法学院园区。"
+          "lng": -82.3443,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "文理学院核心建筑，英语、历史、社会学等众多人文社科系在此，是校园中央地标性大楼。"
+        },
+        {
+          "name": "Anderson Hall",
+          "nameCn": "安德森大楼",
+          "lat": 29.6514,
+          "lng": -82.3422,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "建于1913年，UF最古老建筑之一，哥特式风格，目前是文科院系所在地，校园必打卡历史建筑。"
+        },
+        {
+          "name": "Weil Hall – Herbert Wertheim College of Engineering (Main)",
+          "nameCn": "威尔工程大楼",
+          "lat": 29.646,
+          "lng": -82.349,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "工程学院老楼，土木、机械等传统工程系集中地，多数工科学生的日常上课场所。"
+        },
+        {
+          "name": "College of Design Construction and Planning – Rinker Hall",
+          "nameCn": "设计建造规划学院林克大楼",
+          "lat": 29.6475,
+          "lng": -82.3462,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "LEED金奖绿色建筑，建筑、城规、景观建筑系所在地，设计专业必知地标。"
         }
       ],
       "defaultOn": true
@@ -121,23 +169,56 @@
         {
           "name": "Library West",
           "nameCn": "西图书馆",
-          "lat": 29.6516,
+          "lat": 29.6514,
           "lng": -82.3429,
-          "note": "Smathers图书馆系统最大馆，人文社科主馆。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "UF最大综合性图书馆，人文社科藏书丰富，24小时期间开放，考期学生最爱聚集地。"
         },
         {
           "name": "Marston Science Library",
-          "nameCn": "马斯顿科学图书馆",
-          "lat": 29.648,
-          "lng": -82.3438,
-          "note": "理工农与自然科学馆，位于特灵顿广场旁。"
+          "nameCn": "马斯顿理科图书馆",
+          "lat": 29.6479,
+          "lng": -82.344,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工农医藏书中心，位于Newell Drive，有大量电脑终端和安静自习区，理工科学生首选。"
         },
         {
           "name": "Smathers Library (Library East)",
-          "nameCn": "Smathers图书馆（东馆）",
-          "lat": 29.6511,
-          "lng": -82.3414,
-          "note": "校园最古老的图书馆，馆藏特藏与档案。"
+          "nameCn": "斯马瑟斯图书馆",
+          "lat": 29.6506,
+          "lng": -82.3419,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1926年，UF最古老图书馆，Plaza of the Americas旁，藏有特殊馆藏与善本，建筑本身是景点。"
+        },
+        {
+          "name": "Health Science Center Libraries",
+          "nameCn": "健康科学中心图书馆",
+          "lat": 29.6388,
+          "lng": -82.3456,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "医学、药学、护理专业学生专属图书馆，位于Communicore大楼，馆藏医学数据库资源丰富。"
+        },
+        {
+          "name": "Education Library",
+          "nameCn": "教育图书馆",
+          "lat": 29.649,
+          "lng": -82.3483,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专注教育学、课程与教学资源，教育学院旁，适合教育及相关专业研究生查阅馆藏。"
+        },
+        {
+          "name": "Legal Information Center (Lawton Chiles Legal Information Center)",
+          "nameCn": "法学院图书馆",
+          "lat": 29.6474,
+          "lng": -82.3605,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Holland法学院内，法律专业学生必用资源，提供法律数据库和案例查询服务。"
         }
       ]
     },
@@ -149,18 +230,49 @@
       "icon": "museum",
       "items": [
         {
+          "name": "Florida Museum of Natural History",
+          "nameCn": "佛罗里达自然历史博物馆",
+          "lat": 29.6361,
+          "lng": -82.37,
+          "rank": 1,
+          "tier": "必去",
+          "note": "东南美最大自然历史博物馆，含蝴蝶温室（Butterfly Rainforest），免费入场，位于文化广场内，强烈推荐。"
+        },
+        {
           "name": "Samuel P. Harn Museum of Art",
           "nameCn": "哈恩艺术博物馆",
           "lat": 29.6369,
           "lng": -82.37,
-          "note": "佛州最大的大学艺术馆之一，免费开放。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "东南部最大大学附属艺术博物馆之一，收藏非洲、亚洲、现代艺术，免费入场，与自然历史博物馆相邻。"
         },
         {
-          "name": "Florida Museum of Natural History",
-          "nameCn": "佛罗里达自然史博物馆",
-          "lat": 29.6357,
-          "lng": -82.3704,
-          "note": "蝴蝶雨林馆闻名，州立自然史研究馆。"
+          "name": "Cade Museum for Creativity and Invention",
+          "nameCn": "凯德创意与发明博物馆",
+          "lat": 29.6437,
+          "lng": -82.3248,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "纪念佳得乐(Gatorade)发明者James Cade教授，互动式科学发明展览，适合亲子与STEM爱好者参观。"
+        },
+        {
+          "name": "Thomas Center Galleries",
+          "nameCn": "托马斯中心艺术画廊",
+          "lat": 29.6573,
+          "lng": -82.3218,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "市区地中海复兴风格历史建筑内的免费画廊，展出本地及巡回当代艺术展，是周末文艺下午的好去处。"
+        },
+        {
+          "name": "Hippodrome State Theatre Gallery",
+          "nameCn": "希波德罗姆州立剧院画廊",
+          "lat": 29.6492,
+          "lng": -82.3242,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "地区唯一专业剧院，内设视觉艺术廊与小型电影院，戏剧演出及艺术展览并存，文化氛围浓郁。"
         }
       ]
     },
@@ -173,31 +285,75 @@
       "items": [
         {
           "name": "Ben Hill Griffin Stadium (The Swamp)",
-          "nameCn": "本·希尔·格里芬体育场（沼泽）",
-          "lat": 29.6499,
-          "lng": -82.3488,
-          "note": "Gators橄榄球主场，可容近九万人。"
+          "nameCn": "本·希尔·格里芬体育场（沼泽地）",
+          "lat": 29.65,
+          "lng": -82.3486,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美最具威慑力的大学橄榄球主场之一，座位近9万，Gator Nation圣地，比赛日氛围震撼无比。"
         },
         {
           "name": "Century Tower",
           "nameCn": "世纪钟楼",
           "lat": 29.6488,
           "lng": -82.3433,
-          "note": "157英尺高的钟琴塔，校园地标中心。"
-        },
-        {
-          "name": "Stephen C. O'Connell Center",
-          "nameCn": "奥康奈尔中心",
-          "lat": 29.6493,
-          "lng": -82.3502,
-          "note": "篮球与多功能室内体育馆。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "UF最标志性地标，157英尺高的编钟塔，每天正点报时，校园中心，是毕业照的首选背景。"
         },
         {
           "name": "Plaza of the Americas",
           "nameCn": "美洲广场",
-          "lat": 29.6505,
-          "lng": -82.3424,
-          "note": "历史区中心绿地，两侧环绕主图书馆。"
+          "lat": 29.6495,
+          "lng": -82.343,
+          "rank": 3,
+          "tier": "必去",
+          "note": "古树参天的校园中央绿地，周边有Smathers老图书馆和各学院围绕，Krishna午餐（$5素食）每天在此供应。"
+        },
+        {
+          "name": "J. Wayne Reitz Union",
+          "nameCn": "莱茨学生中心",
+          "lat": 29.6463,
+          "lng": -82.3477,
+          "rank": 4,
+          "tier": "必去",
+          "note": "UF学生活动中心，含餐厅、电影院、游戏室、Wells Fargo银行网点、便利店，学生生活核心枢纽。"
+        },
+        {
+          "name": "Turlington Plaza",
+          "nameCn": "特灵顿广场",
+          "lat": 29.649,
+          "lng": -82.3443,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Turlington大楼前的开放广场，社团活动、政治演讲、街头表演频发，是UF最热闹的户外社交空间。"
+        },
+        {
+          "name": "University Avenue (Midtown Strip)",
+          "nameCn": "大学大道-学生街",
+          "lat": 29.6513,
+          "lng": -82.348,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园北侧沿University Ave的酒吧、餐厅、咖啡聚集带，是UF学生夜生活与课余活动的核心街区。"
+        },
+        {
+          "name": "UF Bat Houses",
+          "nameCn": "UF蝙蝠屋",
+          "lat": 29.6443,
+          "lng": -82.3497,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "全球最大人工蝙蝠屋，每晚日落时30万只游离蝙蝠倾巢而出，壮观奇景，免费观看，网红打卡地。"
+        },
+        {
+          "name": "Depot Park",
+          "nameCn": "德波公园",
+          "lat": 29.642,
+          "lng": -82.3212,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "市区32英亩社区公园，含儿童戏水区和狗狗公园，全年节庆活动不断，城市版周末休闲首选。"
         }
       ]
     },
@@ -209,25 +365,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Chun Ching Market 重庆超市",
-          "nameCn": "重庆超市（中亚超市）",
-          "lat": 29.6576,
-          "lng": -82.3317,
-          "note": "开了25年的老牌泛亚超市，中日韩越泰食材、生鲜海鲜齐全，价格比连锁便宜，留学生采购中餐配料首选。"
+          "name": "Publix Super Market at University Village Market",
+          "nameCn": "Publix超市（大学村店）",
+          "lat": 29.6532,
+          "lng": -82.3378,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园步行可达的最近Publix，是UF学生最常用的日常超市，品质稳定，有新鲜熟食和药房。"
         },
         {
-          "name": "Publix at University Village Market",
-          "nameCn": "Publix 超市（大学城店）",
-          "lat": 29.6535,
-          "lng": -82.3393,
-          "note": "离校园最近的主流美式超市，步行可达，日常采购、烘焙熟食、Sub三明治都靠它，佛州人公认的国民超市。"
+          "name": "Enson Market – Gainesville",
+          "nameCn": "恩萨亚洲超市兼食堂",
+          "lat": 29.6278,
+          "lng": -82.387,
+          "rank": 2,
+          "tier": "必去",
+          "note": "中日韩食材齐全，内设食堂（干锅/珍珠奶茶），新鲜肉类海鲜丰富，中国留学生最爱亚超，评分4.5星。"
         },
         {
-          "name": "Sohao Street Fare Cafe (grab-and-go)",
-          "nameCn": "Sohao 中式快餐外带",
-          "lat": 29.6321,
-          "lng": -82.3756,
-          "note": "34街上的中餐外带店，热干面、饺子、川味小菜可堂食可打包，想念家乡味又懒得做饭时的备选。"
+          "name": "Chun Ching Market (重庆超市)",
+          "nameCn": "重庆超市",
+          "lat": 29.6597,
+          "lng": -82.3293,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于NW 8th Ave的老字号华人亚超，售泛亚洲食品包括中日菲韩越印食材，是离校园较近的华人超市。"
+        },
+        {
+          "name": "Walmart Supercenter (SW 42nd St)",
+          "nameCn": "沃尔玛超级中心（西南42街）",
+          "lat": 29.6282,
+          "lng": -82.3887,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "最近的大型综合购物超市，生活用品、电子、食品一站搞定，开车约10分钟，价格最实惠。"
+        },
+        {
+          "name": "Target (SW Archer Rd)",
+          "nameCn": "塔吉特超市（阿彻路店）",
+          "lat": 29.6307,
+          "lng": -82.3874,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "美式中档综合超市，品质高于沃尔玛，近亚超区域，家居用品和服装选择丰富，留学生置办家当首选。"
+        },
+        {
+          "name": "ALDI (NW 13th St)",
+          "nameCn": "奥乐齐超市",
+          "lat": 29.6708,
+          "lng": -82.3387,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "德系低价超市，有机食品价格实惠，自有品牌质量不错，预算有限的学生省钱神器。"
+        },
+        {
+          "name": "Publix Super Market (Gainesville Shopping Center, W University Ave)",
+          "nameCn": "Publix超市（大学大道西店）",
+          "lat": 29.6514,
+          "lng": -82.3665,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "西校区附近第二家Publix，适合住在校园西侧和SW区域的同学，24小时停车方便。"
         }
       ]
     },
@@ -240,45 +438,120 @@
       "items": [
         {
           "name": "Sohao Street Fare Cafe",
-          "nameCn": "Sohao 街边中餐馆",
-          "lat": 29.6321,
-          "lng": -82.3756,
-          "note": "本地评价最高的正宗中餐之一，主打武汉热干面、川味豆角、椒盐茄子，留学生回头率极高。"
+          "nameCn": "Sohao中式街头小吃咖啡馆",
+          "lat": 29.6278,
+          "lng": -82.3867,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Yelp 2025 Gainesville榜单常客，正宗中式街头菜，麻辣香锅、串串香风格，中国留学生口碑极佳。"
+        },
+        {
+          "name": "Yummy House Gainesville",
+          "nameCn": "Yummy House粤式餐厅",
+          "lat": 29.6277,
+          "lng": -82.3864,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Gainesville最佳粤菜馆，提供正宗港式点心（虾饺、糯米鸡），周末去晚了要排队，中国留学生必去。"
         },
         {
           "name": "Ten Seconds Yunnan Rice Noodles",
-          "nameCn": "十秒云南过桥米线",
-          "lat": 29.6118,
-          "lng": -82.3762,
-          "note": "连锁云南米线，过桥米线和小锅米线地道，分量足，是华人学生群里口口相传的中餐据点。"
-        },
-        {
-          "name": "First Wok of Gainesville",
-          "nameCn": "First Wok 中式外卖",
-          "lat": 29.613,
-          "lng": -82.376,
-          "note": "美式中餐外卖老店，左宗棠鸡、炒饭、捞面这类纽约风格快餐做得稳定，赶due熬夜时的省事之选。"
-        },
-        {
-          "name": "Pokebowl Station / NewAsian (Midtown)",
-          "nameCn": "Pokebowl / 新亚洲（Midtown）",
-          "lat": 29.6519,
-          "lng": -82.3478,
-          "note": "正对校门的Midtown，珍珠奶茶、夏威夷poke、亚洲小吃集中地，下课顺路一杯奶茶最方便。"
+          "nameCn": "十秒云南米线",
+          "lat": 29.6255,
+          "lng": -82.3881,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "云南过桥米线连锁，Gainesville店颇受好评，汤底鲜浓，口味地道，想家时的中式慰藉之选。"
         },
         {
           "name": "Satchel's Pizza",
-          "nameCn": "Satchel's 披萨（本地必打卡）",
-          "lat": 29.679,
-          "lng": -82.3158,
-          "note": "Gainesville地标级披萨店，在老飞机、复古面包车里用餐，还有现场音乐和玩具店，本地人最爱的网红餐厅。"
+          "nameCn": "萨切尔披萨",
+          "lat": 29.6705,
+          "lng": -82.2965,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Gainesville最传奇的独立披萨店，建于2003年，现金支付，VW面包车装饰，必须提前等位，是本地人文化符号。"
         },
         {
-          "name": "The Top",
-          "nameCn": "The Top（市中心招牌餐厅）",
-          "lat": 29.6517,
-          "lng": -82.3247,
-          "note": "市中心人气美式餐吧，氛围复古、晚间热闹，是体验Gainesville本地生活和约朋友聚餐的经典去处。"
+          "name": "First Wok",
+          "nameCn": "First Wok中餐外卖",
+          "lat": 29.6253,
+          "lng": -82.3881,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "性价比极高的中餐外卖店，橙汁鸡、蛋炒饭等经典美式中餐，分量大，价格学生友好，SW 34th St区域。"
+        },
+        {
+          "name": "Crane Ramen",
+          "nameCn": "Crane拉面",
+          "lat": 29.6512,
+          "lng": -82.3227,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "市区人气日式拉面店，汤底浓郁，位于SE 1st Ave，深受学生和本地食客喜爱，常有等位。"
+        },
+        {
+          "name": "Bambuu Asian Eatery",
+          "nameCn": "Bambuu亚洲料理",
+          "lat": 29.6303,
+          "lng": -82.3876,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "快餐式亚洲融合菜，泡饭、炒菜、炒面选择多样，性价比高，位于SW Archer Rd附近，午饭首选。"
+        },
+        {
+          "name": "Dragonfly Sushi & Sake Bar",
+          "nameCn": "蜻蜓寿司清酒吧",
+          "lat": 29.65,
+          "lng": -82.3218,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "市区人气日式寿司居酒屋，创意Rolls和日式小食出色，夜晚氛围好，适合社交聚餐或庆祝场合。"
+        },
+        {
+          "name": "Tuptim Thai Restaurant",
+          "nameCn": "Tuptim泰国餐厅",
+          "lat": 29.6503,
+          "lng": -82.349,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "靠近校园的人气泰国餐厅，Pad Thai和绿咖喱广受好评，位于W University Ave，UF师生常去。"
+        },
+        {
+          "name": "Bonchon Gainesville",
+          "nameCn": "棒天下韩式炸鸡",
+          "lat": 29.6358,
+          "lng": -82.3803,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "韩式炸鸡连锁，双重酥脆炸鸡配酱，Butler Blvd店，聚餐宵夜必备，在UF韩国留学生群体中口碑很好。"
+        },
+        {
+          "name": "Boca Fiesta",
+          "nameCn": "Boca Fiesta墨西哥餐厅",
+          "lat": 29.6491,
+          "lng": -82.3246,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "本地标志性墨西哥餐厅，屋顶露台座位，随意氛围，Taco和莎莎酱出名，Yelp 2025年Gainesville排行常客。"
+        },
+        {
+          "name": "Liquid Ginger",
+          "nameCn": "姜汁亚洲融合餐厅",
+          "lat": 29.6493,
+          "lng": -82.323,
+          "rank": 12,
+          "tier": "一般",
+          "note": "市区亚洲融合餐厅，寿司、Pad Thai、饺子等混搭菜单，用餐环境好，位于SE 2nd Place市区核心区。"
+        },
+        {
+          "name": "The Swamp Restaurant",
+          "nameCn": "沼泽地餐厅",
+          "lat": 29.6469,
+          "lng": -82.3369,
+          "rank": 13,
+          "tier": "一般",
+          "note": "UF本地文化标志，Gator主题美式酒吧餐厅，汉堡、鸡翅经典，比赛日必去，搬迁至SW 2nd Ave新址。"
         }
       ]
     },
@@ -290,32 +563,85 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (University Avenue)",
-          "nameCn": "美国银行（大学大道支行）",
-          "lat": 29.652,
-          "lng": -82.3414,
-          "note": "紧邻校园Midtown的银行网点，可现场开户办卡，新生落地办银行账户、领支票本走这里最近。"
+          "name": "Wells Fargo Bank – Reitz Union Branch (on-campus)",
+          "nameCn": "富国银行（莱茨学生中心校内网点）",
+          "lat": 29.6463,
+          "lng": -82.3477,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内唯一全功能银行网点，开学季是留学生开户首选，有24小时ATM，无需出校园，强烈推荐优先开户。"
+        },
+        {
+          "name": "Bank of America – University Avenue Branch",
+          "nameCn": "美国银行（大学大道网点）",
+          "lat": 29.6515,
+          "lng": -82.3482,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻校园北侧，支持Zelle、国际电汇，是留学生第二推荐开户行，大学大道1116号，停车便利。"
+        },
+        {
+          "name": "Chase Bank – University & 13th",
+          "nameCn": "摩根大通银行（大学大道13街口）",
+          "lat": 29.6519,
+          "lng": -82.342,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Chase网点遍布全美，适合需要全国通用账户的学生，UF北侧W University Ave 1340号。"
+        },
+        {
+          "name": "UF Student Health Care Center (Main Campus)",
+          "nameCn": "UF学生健康服务中心（主校区）",
+          "lat": 29.644,
+          "lng": -82.3499,
+          "rank": 4,
+          "tier": "必去",
+          "note": "UF在校生专属医疗机构，提供全科、急诊快诊、心理咨询、药房及实验室服务，学生保险可覆盖，Stadium Rd。"
         },
         {
           "name": "UF Health Shands Hospital",
-          "nameCn": "UF Health Shands 医院（含急诊）",
-          "lat": 29.6396,
-          "lng": -82.3438,
-          "note": "校园南侧的大型教学医院，设24小时急诊，是生病或突发状况时的主要就医点。"
+          "nameCn": "UF健康香德斯医院",
+          "lat": 29.6395,
+          "lng": -82.3821,
+          "rank": 5,
+          "tier": "必去",
+          "note": "盖恩斯维尔最顶级教学医院，急诊24小时，为UF附属医院，严重病情或手术首选，SW Archer Rd 1600号。"
         },
         {
-          "name": "CVS Pharmacy (SW 13th St)",
-          "nameCn": "CVS 药房（13街店）",
-          "lat": 29.6362,
-          "lng": -82.3392,
-          "note": "离校近的连锁药房，配处方药、买感冒药和日用品都方便，多数美国常用药这里都能买到。"
+          "name": "Walgreens Pharmacy – E University Ave",
+          "nameCn": "沃尔格林药房（大学大道东店）",
+          "lat": 29.6512,
+          "lng": -82.3328,
+          "rank": 6,
+          "tier": "必去",
+          "note": "距校园最近的Walgreens，1120 E University Ave，24小时药房服务，OTC药品和日用品齐全，深夜急用必备。"
         },
         {
-          "name": "T-Mobile (Butler Plaza, SW Archer Rd)",
-          "nameCn": "T-Mobile 营业厅（Butler 商圈）",
-          "lat": 29.6263,
-          "lng": -82.3766,
-          "note": "Archer路Butler商圈的运营商门店，可现场办美国手机卡和套餐，落地后办号码、配eSIM走这里。"
+          "name": "AT&T Store – W University Ave",
+          "nameCn": "AT&T手机店（大学大道西）",
+          "lat": 29.6512,
+          "lng": -82.349,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "靠近校园的AT&T直营店，可办理留学生常用的预付费或后付费手机套餐，激活新SIM、换号首选。"
+        },
+        {
+          "name": "T-Mobile – SW Archer Rd Experience Store",
+          "nameCn": "T-Mobile体验店（阿彻路）",
+          "lat": 29.6282,
+          "lng": -82.3882,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "T-Mobile旗舰体验店，套餐选择多、信号覆盖广，位于Target和Walmart附近，办套餐购机方便。"
+        },
+        {
+          "name": "CVS Pharmacy – NW 13th St",
+          "nameCn": "CVS药房（西北13街）",
+          "lat": 29.6583,
+          "lng": -82.338,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "校园北侧CVS，提供处方药、疫苗接种、MinuteClinic快诊服务，学生保险可用，生活用品一并供应。"
         }
       ]
     },
@@ -327,39 +653,76 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Ben Hill Griffin Stadium (The Swamp)",
-          "nameCn": "本希尔格里芬体育场（“沼泽”）",
-          "lat": 29.65,
-          "lng": -82.3486,
-          "note": "可容纳近9万人的橄榄球主场，绰号“The Swamp”，秋季Gators主场日全城沸腾，UF精神象征和必看打卡点。"
+          "name": "Devil's Millhopper Geological State Park",
+          "nameCn": "魔鬼磨坊漏斗地质公园",
+          "lat": 29.7069,
+          "lng": -82.395,
+          "rank": 1,
+          "tier": "必去",
+          "note": "深达40米的大型喀斯特漏斗，内有微型热带雨林，木栈道下可见小瀑布和化石，距校园仅15分钟。"
         },
         {
-          "name": "Florida Museum of Natural History & Butterfly Rainforest",
-          "nameCn": "佛罗里达自然历史博物馆 & 蝴蝶雨林",
-          "lat": 29.6356,
-          "lng": -82.3702,
-          "note": "校内免费自然史博物馆，蝴蝶雨林温室可与上百只活蝴蝶同处一室（扩建中，预计2026秋重开）。"
+          "name": "Paynes Prairie Preserve State Park",
+          "nameCn": "佩恩斯草原保护区州立公园",
+          "lat": 29.5831,
+          "lng": -82.3331,
+          "rank": 2,
+          "tier": "必去",
+          "note": "佛罗里达第一个州立生态公园，可见野牛、鹤群和鳄鱼，La Chua小径全程可步行，距校园约15分钟车程。"
         },
         {
-          "name": "Lake Alice & UF Bat Houses",
-          "nameCn": "爱丽丝湖 & 世界最大蝙蝠屋",
-          "lat": 29.6431,
-          "lng": -82.3617,
-          "note": "校内湖区可见野生鳄鱼，对面是世界最大的蝙蝠屋，日落后约50万只蝙蝠成群飞出，黄昏观蝠是经典体验。"
+          "name": "La Chua Trail (Paynes Prairie north entrance)",
+          "nameCn": "La Chua小径（佩恩斯草原北入口）",
+          "lat": 29.6103,
+          "lng": -82.3043,
+          "rank": 3,
+          "tier": "必去",
+          "note": "从校园骑车即可到达，木栈道走入开阔草原，必见大量鳄鱼和候鸟，全美最佳城市徒步观野生动物路线之一。"
         },
         {
-          "name": "Century Tower",
-          "nameCn": "世纪钟塔",
-          "lat": 29.6489,
-          "lng": -82.3434,
-          "note": "校园中心的标志性钟楼，每15分钟报时钟声响彻Turlington广场，是UF最上镜的拍照地标之一。"
+          "name": "Kanapaha Botanical Gardens",
+          "nameCn": "卡纳帕哈植物园",
+          "lat": 29.6123,
+          "lng": -82.4089,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "68英亩植物园，含东南最大草药园和竹子展示区，四季繁花，适合拍照放松，距校园约15分钟车程。"
         },
         {
-          "name": "Downtown Gainesville (Bo Diddley Plaza)",
-          "nameCn": "市中心 Bo Diddley 广场",
-          "lat": 29.6516,
-          "lng": -82.3243,
-          "note": "市中心广场，常办免费音乐会、农夫市集和节庆活动，周边餐吧林立，是感受本地烟火气的去处。"
+          "name": "Morningside Nature Center",
+          "nameCn": "晨曦自然中心",
+          "lat": 29.655,
+          "lng": -82.28,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "城市边缘的生态保护区，6英里丛林步道穿越长叶松林和柏树沼泽，免费入场，周末徒步骑行佳选。"
+        },
+        {
+          "name": "First Magnitude Brewing Company",
+          "nameCn": "第一量级精酿啤酒厂",
+          "lat": 29.6462,
+          "lng": -82.3185,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "市区改建仓库精酿酒厂，紧邻Gainesville-Hawthorne自行车道，户外座位宽敞，当地文化体验不可错过。"
+        },
+        {
+          "name": "The Oaks Mall",
+          "nameCn": "橡树购物中心",
+          "lat": 29.6596,
+          "lng": -82.4111,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "盖恩斯维尔最大购物中心，Macy's、JCPenney等主力店入驻，购物逛街一站解决，车行约20分钟。"
+        },
+        {
+          "name": "Heartwood Soundstage",
+          "nameCn": "心木音乐表演场",
+          "lat": 29.6423,
+          "lng": -82.3262,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "市区1500人户外+200人室内音乐场地，常举办本地及巡演演出，Tom Petty主题周是年度盛事。"
         }
       ]
     }

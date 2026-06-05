@@ -67,46 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Roger Stevens Building",
-          "nameCn": "罗杰·史蒂文斯楼",
-          "lat": 53.8049,
-          "lng": -1.5546,
-          "note": "粗野主义阶梯式建筑,含25间阶梯教室,校园核心教学楼。"
+          "name": "Sir William Henry Bragg Building (School of Computing & Physics)",
+          "nameCn": "威廉·亨利·布拉格楼（计算机与物理学院）",
+          "lat": 53.8198,
+          "lng": -1.5536,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2022年开放的£9600万全新七层科研大楼，容纳计算机科学、物理天文及工程学科，是校园最现代的学术地标。"
         },
         {
-          "name": "Maurice Keyworth Building (Leeds University Business School)",
-          "nameCn": "商学院(基沃斯楼)",
-          "lat": 53.8081,
-          "lng": -1.5611,
-          "note": "利兹大学商学院主楼,位于校园东缘临近 Moorland 路。"
+          "name": "Parkinson Building",
+          "nameCn": "帕金森大楼",
+          "lat": 53.8077,
+          "lng": -1.5549,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园最标志性建筑，57米钟楼为城市地标，内含语言与文化学院及大学艺术画廊，是迎新和官方活动的中心。"
+        },
+        {
+          "name": "Roger Stevens Building",
+          "nameCn": "罗杰·史蒂文斯楼",
+          "lat": 53.8068,
+          "lng": -1.5548,
+          "rank": 3,
+          "tier": "必去",
+          "note": "二级星保护建筑，拥有26个阶梯教室，是理工科大型讲座的主要场所，校园内独特的混凝土阶梯造型颇具特色。"
         },
         {
           "name": "Worsley Building (School of Medicine & Dentistry)",
-          "nameCn": "沃斯利楼(医牙学院)",
-          "lat": 53.8034,
-          "lng": -1.5557,
-          "note": "医学院与牙学院本部,毗邻利兹综合医院,设健康科学图书馆。"
+          "nameCn": "沃斯利楼（医学与牙医学院）",
+          "lat": 53.8056,
+          "lng": -1.5491,
+          "rank": 4,
+          "tier": "必去",
+          "note": "连接圣詹姆斯大学医院，是医学院主楼，内设Health Sciences Library，为医科生核心学习场所。"
         },
         {
-          "name": "Great Hall",
-          "nameCn": "大礼堂",
-          "lat": 53.8083,
+          "name": "EC Stoner Building",
+          "nameCn": "EC斯通纳楼",
+          "lat": 53.807,
           "lng": -1.5527,
-          "note": "维多利亚哥特式礼堂,毕业典礼主场地。"
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "二级保护建筑，容纳数学、地球与环境、部分工程系，是理科生日常上课最集中的建筑之一。"
         },
         {
-          "name": "School of Mechanical Engineering (Mechanical Engineering Building)",
-          "nameCn": "机械工程学院楼",
-          "lat": 53.8094,
-          "lng": -1.5556,
-          "note": "工程学科群,位于校园北部。"
+          "name": "Maurice Keyworth Building (Leeds University Business School)",
+          "nameCn": "莫里斯·凯沃斯楼（商学院）",
+          "lat": 53.8079,
+          "lng": -1.5602,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "商学院主楼，前身为利兹文法学校，19世纪历史建筑，QS百强商学院所在地，西校区核心。"
         },
         {
-          "name": "Leeds Institute of Medical Research at St James's (LIMR)",
-          "nameCn": "圣詹姆斯医学研究所",
+          "name": "Liberty Building (School of Law)",
+          "nameCn": "自由楼（法学院）",
+          "lat": 53.8084,
+          "lng": -1.5617,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "法学院所在地，紧邻商学院位于西校区，提供法律诊所、模拟法庭等实训设施。"
+        },
+        {
+          "name": "Michael Marks Building (M&S Archive & School of Design)",
+          "nameCn": "迈克尔·马克斯楼（M&S档案馆与设计学院）",
+          "lat": 53.8087,
+          "lng": -1.5598,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "设计学院与全球知名M&S公司档案馆共处，馆内免费展览回顾玛莎百货百年历史，是西校区独特人文地标。"
+        },
+        {
+          "name": "Clothworkers' Building (School of Media & Communication)",
+          "nameCn": "布匠楼（媒体与传播学院）",
           "lat": 53.8073,
-          "lng": -1.5172,
-          "note": "位于圣詹姆斯医院园区内,连接大学与NHS的医学研究中心。"
+          "lng": -1.5573,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "传播学、新闻学、艺术史等人文学科主楼，内设专业摄影棚和广播设施，艺术人文生的日常核心。"
+        },
+        {
+          "name": "Institute for Transport Studies (34–40 University Road)",
+          "nameCn": "交通研究所",
+          "lat": 53.8088,
+          "lng": -1.5561,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全球顶尖交通学研究机构之一，全球排名前五，驾驶模拟器等研究设施国际领先，极具学术声誉。"
         }
       ],
       "defaultOn": true
@@ -119,25 +167,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Brotherton Library",
-          "nameCn": "布拉泽顿图书馆",
-          "lat": 53.8079,
-          "lng": -1.5525,
-          "note": "帕金森楼内的圆形主图书馆,人文社科馆藏,1936年装饰艺术风格。"
-        },
-        {
           "name": "Edward Boyle Library",
           "nameCn": "爱德华·博伊尔图书馆",
-          "lat": 53.8069,
-          "lng": -1.5545,
-          "note": "粗野主义理工科主图书馆,经2800万英镑翻新。"
+          "lat": 53.807,
+          "lng": -1.5551,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最大图书馆，六层空间涵盖静音区、小组讨论室和IT机房，考试季24小时开放，是最受学生欢迎的自习圣地。"
+        },
+        {
+          "name": "Brotherton Library",
+          "nameCn": "布拉泽顿图书馆",
+          "lat": 53.8074,
+          "lng": -1.5548,
+          "rank": 2,
+          "tier": "必去",
+          "note": "建于1936年的庄严圆顶图书馆，以深度安静著称，藏有特殊馆藏与珍本文献，最适合沉浸式学习。"
         },
         {
           "name": "Laidlaw Library",
           "nameCn": "莱德劳图书馆",
-          "lat": 53.8068,
-          "lng": -1.5519,
-          "note": "2015年开放的本科生图书馆,位于校园东南入口处。"
+          "lat": 53.8065,
+          "lng": -1.5548,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园最新图书馆，获BREEAM「优秀」绿色建筑认证，设施最现代，社科类藏书丰富，环境明亮舒适。"
+        },
+        {
+          "name": "Health Sciences Library (Worsley Building, Level 7)",
+          "nameCn": "健康科学图书馆（沃斯利楼七层）",
+          "lat": 53.8056,
+          "lng": -1.5491,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "专为医学、牙医、护理及心理学生服务的专业图书馆，静音区充足，专业数据库资源丰富。"
+        },
+        {
+          "name": "Laidlaw Library Special Collections Reading Room",
+          "nameCn": "莱德劳特藏阅览室",
+          "lat": 53.8065,
+          "lng": -1.5546,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "馆藏珍贵手稿、档案及艺术品，配合Brotherton Gallery展览开放，学术研究者与艺术爱好者的必访之地。"
+        },
+        {
+          "name": "University of Leeds Library (Woodhouse Lane main entrance)",
+          "nameCn": "利兹大学图书馆总馆入口",
+          "lat": 53.8072,
+          "lng": -1.5545,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "四馆统一管理体系，全部支持学生证扫码入馆，Spacefinder系统实时显示空座，使用便捷高效。"
         }
       ]
     },
@@ -149,11 +230,67 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Stanley & Audrey Burton Gallery",
-          "nameCn": "伯顿美术馆",
-          "lat": 53.8081,
-          "lng": -1.5527,
-          "note": "帕金森楼内的大学美术馆,藏英国近现代艺术。"
+          "name": "Stanley & Audrey Burton Gallery (University of Leeds)",
+          "nameCn": "斯坦利与奥黛丽·伯顿画廊",
+          "lat": 53.8074,
+          "lng": -1.5548,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内免费画廊，展示大学艺术馆藏及临时当代展览，含欧洲绘画、雕塑、陶瓷等，步行可达。"
+        },
+        {
+          "name": "Treasures of the Brotherton Gallery",
+          "nameCn": "布拉泽顿珍宝展廊",
+          "lat": 53.8074,
+          "lng": -1.5548,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于布拉泽顿图书馆内，常设展示大学珍贵馆藏手稿与历史文献，免费开放，学术氛围浓厚。"
+        },
+        {
+          "name": "Royal Armouries Museum",
+          "nameCn": "皇家军械库博物馆",
+          "lat": 53.7919,
+          "lng": -1.5324,
+          "rank": 3,
+          "tier": "必去",
+          "note": "英国国家级盔甲兵器收藏，五层免费展馆涵盖古代至现代武器史，距校园约2公里，乘巴士可达。"
+        },
+        {
+          "name": "Leeds City Museum",
+          "nameCn": "利兹城市博物馆",
+          "lat": 53.8014,
+          "lng": -1.5466,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于Millennium Square，展示利兹城市历史、埃及木乃伊、自然史等，免费入场，步行至校园约15分钟。"
+        },
+        {
+          "name": "Leeds Art Gallery",
+          "nameCn": "利兹艺术画廊",
+          "lat": 53.8003,
+          "lng": -1.5447,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "The Headrow上的市立画廊，馆藏英国及欧洲绘画与雕塑，紧邻亨利·摩尔研究所，免费参观。"
+        },
+        {
+          "name": "Henry Moore Institute",
+          "nameCn": "亨利·摩尔研究所",
+          "lat": 53.8002,
+          "lng": -1.5446,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "世界级雕塑研究中心，毗邻利兹艺术画廊，定期举办当代雕塑展览及学术讲座，免费入场。"
+        },
+        {
+          "name": "M&S Archive (Michael Marks Building, University of Leeds)",
+          "nameCn": "M&S公司档案馆（迈克尔·马克斯楼）",
+          "lat": 53.8087,
+          "lng": -1.5598,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "玛莎百货70000+件历史档案，「Marks in Time」免费展览讲述百年零售史，周一至周五及每月第二个周六开放。"
         }
       ]
     },
@@ -165,25 +302,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Parkinson Building",
-          "nameCn": "帕金森楼(钟塔)",
-          "lat": 53.8081,
-          "lng": -1.553,
-          "note": "57米高白色钟塔,利兹地标,2006年起入校徽,M621高速远眺可见。"
+          "name": "Parkinson Building & Steps",
+          "nameCn": "帕金森大楼及台阶",
+          "lat": 53.8077,
+          "lng": -1.5549,
+          "rank": 1,
+          "tier": "必去",
+          "note": "57米钟楼是校园绝对地标，台阶是学生聚集、拍照打卡第一选择，开学典礼、毕业典礼均在此举行。"
         },
         {
-          "name": "Leeds University Union",
-          "nameCn": "利兹大学学生会",
-          "lat": 53.8066,
-          "lng": -1.556,
-          "note": "英国规模最大的学生会之一,位于校园核心区。"
+          "name": "Leeds University Union (LUU)",
+          "nameCn": "利兹大学学生会（LUU）",
+          "lat": 53.8068,
+          "lng": -1.5545,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Lifton Place，学生社团、娱乐、餐厅、商店和演出场地一体，是校园社交生活中心，新生必去打卡。"
         },
         {
-          "name": "Leeds railway station",
-          "nameCn": "利兹火车站",
-          "lat": 53.7952,
-          "lng": -1.5477,
-          "note": "市中心主火车站,距主校区步行约15分钟,通伦敦/曼城等地。"
+          "name": "The Edge (Sports & Fitness Centre)",
+          "nameCn": "The Edge体育健身中心",
+          "lat": 53.8061,
+          "lng": -1.5537,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园旗舰运动设施，含健身房、游泳池、攀岩墙、球类场地，学生会员价实惠，锻炼社交两不误。"
+        },
+        {
+          "name": "Parkinson Court (with café)",
+          "nameCn": "帕金森广场（含咖啡馆）",
+          "lat": 53.8075,
+          "lng": -1.5545,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "帕金森大楼背后的露天庭院，有鸭子池塘和咖啡馆，春秋季是学生户外休闲的最爱聚集地。"
+        },
+        {
+          "name": "Great Hall (University of Leeds)",
+          "nameCn": "大礼堂",
+          "lat": 53.8073,
+          "lng": -1.5542,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "气势恢宏的维多利亚风格大礼堂，承办学术颁奖、大型音乐会和入学典礼，历史感极强。"
+        },
+        {
+          "name": "Merrion Centre",
+          "nameCn": "美里昂购物中心",
+          "lat": 53.8016,
+          "lng": -1.5457,
+          "rank": 6,
+          "tier": "必去",
+          "note": "校园步行5分钟的综合购物中心，内有Morrisons超市、Sing Kee中超、Gong Cha奶茶、Blue Pavilion中餐，是留学生最高频打卡商圈。"
+        },
+        {
+          "name": "Trinity Leeds Shopping Centre",
+          "nameCn": "Trinity利兹购物中心",
+          "lat": 53.7977,
+          "lng": -1.5434,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "市中心顶级购物商场，有Trinity Kitchen街食、电影院及屋顶吧，购物娱乐餐饮一站式，地铁步行可达。"
         }
       ]
     },
@@ -195,39 +374,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Sing-Kee Oriental Supermarket",
+          "name": "Morrisons (Merrion Centre, 43 Woodhouse Lane)",
+          "nameCn": "莫里森超市（美里昂中心店）",
+          "lat": 53.8016,
+          "lng": -1.5455,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园步行5分钟，品种齐全的大型超市，生鲜丰富、价格适中，是留学生日常采购首选。"
+        },
+        {
+          "name": "Sing Kee Oriental Supermarket (26–28 Woodhouse Lane / Merrion Centre)",
           "nameCn": "成记东方超市",
-          "lat": 53.8013,
-          "lng": -1.5448,
-          "note": "步行可达的老牌华人超市，火锅底料、中式调料、冷冻饺子一应俱全，还附设奶茶和便当外带。"
+          "lat": 53.8018,
+          "lng": -1.5453,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻莫里森，中国食材、亚洲零食、冷冻食品一应俱全，店内还有奶茶档口和面包烘焙，华人留学生必逛。"
         },
         {
-          "name": "Wing Lee Hong",
-          "nameCn": "荣利行华人超市",
-          "lat": 53.7999,
-          "lng": -1.5388,
-          "note": "利兹历史最久、规模最大的华人超市（爱德华街），中日泰菲食材最全，包饺子煮火锅都能在这囤货。"
+          "name": "Hang Sing Hong (Taste the Orient, 117–119 Vicar Lane)",
+          "nameCn": "恒成行（东方超市，维卡街）",
+          "lat": 53.7994,
+          "lng": -1.5407,
+          "rank": 3,
+          "tier": "必去",
+          "note": "约克郡规模最大的亚洲食材超市，中、泰、日、韩、菲食材应有尽有，还有店内奶茶档，是留学生周末深度采购地。"
         },
         {
-          "name": "Taste the Orient (Hang Sing Hong)",
-          "nameCn": "亚洲东方食品店（Blenheim Terrace）",
-          "lat": 53.8073,
-          "lng": -1.5508,
-          "note": "就在校园门口 Blenheim Terrace 这条街上，临时缺老干妈、方便面、酱油拐进来就能买，最方便。"
+          "name": "Wing Lee Hong (6 Edward Street)",
+          "nameCn": "荣利行（爱德华街）",
+          "lat": 53.7993,
+          "lng": -1.5394,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "利兹最老牌华人超市之一，专营中国调料、新鲜豆腐、海鲜及进口食品，老华人社区信赖的本地店。"
         },
         {
-          "name": "Morrisons (Merrion Centre)",
-          "nameCn": "Morrisons 超市（Merrion 中心）",
-          "lat": 53.8019,
-          "lng": -1.5444,
-          "note": "离校最近的英国大型连锁超市，肉菜蛋奶、日用百货一站买齐，适合每周大采购。"
+          "name": "Tai Lee Hong (19 Sheepscar Street South)",
+          "nameCn": "泰利行",
+          "lat": 53.8063,
+          "lng": -1.5381,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "营业逾30年的亚洲食材批发零售商，供货餐厅同款食材，价格实惠，印度、中国、东南亚食材均有。"
         },
         {
-          "name": "Sainsbury's (Headingley)",
-          "nameCn": "Sainsbury's 超市（Headingley 学生区）",
-          "lat": 53.8204,
-          "lng": -1.581,
-          "note": "通往 Headingley 学生宿舍区路上的主流超市，住北边的同学回家顺路补货很方便。"
+          "name": "Sainsbury's Local (30–32 Woodhouse Lane)",
+          "nameCn": "塞恩斯伯里便利店（伍德豪斯街）",
+          "lat": 53.8024,
+          "lng": -1.5477,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园Merrion Centre入口旁便利店，营业时间长，日常零食饮料、即食食品采购极为方便。"
+        },
+        {
+          "name": "Tesco Express (Blenheim Terrace, 19–20 Blenheim Terrace)",
+          "nameCn": "特易购便利店（布莱内姆台）",
+          "lat": 53.8087,
+          "lng": -1.5542,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距校园学生宿舍区最近的Tesco，营业至晚11点，供深夜购物需求，是住宿生最依赖的便利店。"
+        },
+        {
+          "name": "Sainsbury's (The Headrow, 22–26 The Headrow)",
+          "nameCn": "塞恩斯伯里超市（Headrow大街）",
+          "lat": 53.7997,
+          "lng": -1.5468,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "市中心大型Sainsbury's，距校园步行约15分钟，品类全，价格较Waitrose实惠，周末大采购好去处。"
         }
       ]
     },
@@ -239,39 +455,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Home Chinese Restaurant",
-          "nameCn": "家味中餐厅",
-          "lat": 53.8074,
-          "lng": -1.5506,
-          "note": "紧挨校园的人气中餐馆，价格实惠出餐快，被本地学生称作「利兹必去的那家中餐」。"
+          "name": "Wen's Restaurant (72–74 North Street)",
+          "nameCn": "温氏餐厅",
+          "lat": 53.8031,
+          "lng": -1.5439,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "利兹最受好评的家常中餐，菜单真实还原中国家庭口味，中国留学生和美食媒体一致赞誉为「利兹最地道中餐」。"
         },
         {
-          "name": "EATiME",
-          "nameCn": "益德食（Merrion 中心）",
-          "lat": 53.8023,
-          "lng": -1.544,
-          "note": "离校超近的港式茶餐厅／中式快餐，烧腊饭、炒面、奶茶，想吃中餐又赶时间的首选。"
+          "name": "Noodle House 美食之家 (20 Merrion Street)",
+          "nameCn": "美食之家",
+          "lat": 53.8014,
+          "lng": -1.5447,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Google 4.7星500+评价，招牌叻沙、麻辣烫令无数留学生倾心，中马混合风味，价格亲民，被誉为利兹最佳华人面馆。"
         },
         {
-          "name": "Tattu Leeds",
-          "nameCn": "Tattu 高级中餐厅",
-          "lat": 53.7981,
+          "name": "Joy's Kitchen 一川风月 (113 Vicar Lane)",
+          "nameCn": "一川风月",
+          "lat": 53.7994,
+          "lng": -1.5404,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "利兹最正宗的四川料理与粤式点心，多家媒体评为利兹最佳中餐，周末排队人气极旺，留学生聚餐必选。"
+        },
+        {
+          "name": "Hunan Chinese Restaurant 湘味王 (69 Raglan Road)",
+          "nameCn": "湘味王中餐馆",
+          "lat": 53.8071,
+          "lng": -1.5516,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "距校园步行约10分钟，自助火锅+湘味辣菜，感觉「像回到了中国」，华人圈口碑极好，性价比高。"
+        },
+        {
+          "name": "Blue Pavilion (90 Merrion Street)",
+          "nameCn": "蓝亭中餐厅",
+          "lat": 53.8015,
+          "lng": -1.5453,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "耗资£300万打造，樱花灯笼装饰极为精美，同时含KTV包间，兼具正餐与娱乐，是庆祝宴请首选场所。"
+        },
+        {
+          "name": "TAO Hotpot & Cantonese (43–47 Great George Street)",
+          "nameCn": "TAO粤式火锅",
+          "lat": 53.8009,
           "lng": -1.5491,
-          "note": "市中心网红高级中餐，樱花造景出片率极高，适合朋友聚会或请客打卡。"
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "现代粤式火锅与广东菜，清汤与浓汤可选，食材新鲜，环境精致，是朋友聚会和家人探访时的优质选择。"
         },
         {
-          "name": "Leeds Kirkgate Market",
-          "nameCn": "柯克盖特市场",
-          "lat": 53.7972,
-          "lng": -1.5389,
-          "note": "维多利亚时代室内市场、玛莎百货发源地，平价小吃和各国熟食云集，本地必逛必吃地标。"
+          "name": "Tattu Leeds (29 East Parade)",
+          "nameCn": "Tattu当代中餐",
+          "lat": 53.7994,
+          "lng": -1.5454,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "全国知名当代中餐品牌，摩登中国美学设计，菜式创意融合，TripAdvisor 4.5星3000+评价，特殊场合必去体验。"
         },
         {
-          "name": "Bundobust",
-          "nameCn": "Bundobust 印度素食街头小馆",
-          "lat": 53.7955,
+          "name": "Man's Market (West Point, Wellington Street)",
+          "nameCn": "Man's Market港式市集餐厅",
+          "lat": 53.7969,
+          "lng": -1.5487,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "以香港女人街夜市为灵感，港式小食拼盘、创意鸡尾酒，共享式上菜风格非常适合多人聚餐。"
+        },
+        {
+          "name": "Gong Cha (Merrion Centre, 80 Merrion Street)",
+          "nameCn": "贡茶奶茶（美里昂中心）",
+          "lat": 53.8014,
           "lng": -1.5456,
-          "note": "利兹招牌的印度素食街头美食配精酿啤酒，便宜好吃气氛热闹，本地人极力推荐。"
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "台湾正宗珍珠奶茶品牌，约克郡首店，支持多样自定义搭配，是中国留学生课间和购物间隙的高频打卡地。"
+        },
+        {
+          "name": "Zaap Thai Street Food (22 Grand Arcade)",
+          "nameCn": "ZAAP泰国街食",
+          "lat": 53.7988,
+          "lng": -1.544,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "利兹最受欢迎的泰国街头风格餐厅，Pad Thai与绿咖喱口碑极佳，价格实惠，氛围热闹，学生聚餐高频选择。"
+        },
+        {
+          "name": "Bundobust (6 Mill Hill)",
+          "nameCn": "Bundobust印度街食",
+          "lat": 53.7954,
+          "lng": -1.5454,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "素食印度街头小食+精酿啤酒，Bhel Puri等招牌菜深受好评，午市两道菜£11.25，是学生预算内的必吃地。"
+        },
+        {
+          "name": "Viet Guy (159 Briggate)",
+          "nameCn": "越南小哥",
+          "lat": 53.7974,
+          "lng": -1.5414,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "家庭经营正宗越南菜，新鲜健康风味足，价格亲民，被多家学生指南推荐为利兹最佳亚洲轻食选项之一。"
+        },
+        {
+          "name": "Leeds Kirkgate Market (Vicar Lane, LS2 7HY)",
+          "nameCn": "利兹柯克盖特市集",
+          "lat": 53.7994,
+          "lng": -1.5388,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "欧洲最大室内市集，800+摊位，亚洲美食、中东烤串、本地熟食应有尽有，周三亚洲集市，是穷游觅食的必逛地。"
         }
       ]
     },
@@ -283,39 +581,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Leeds Student Medical Practice",
-          "nameCn": "利兹学生全科诊所（GP）",
-          "lat": 53.8074,
-          "lng": -1.5491,
-          "note": "专为本校学生设立的 GP 诊所，就在校园 Blenheim Walk，落地后第一件事就是来这注册 GP。"
+          "name": "Leeds Student Medical Practice (4 Blenheim Court, Blenheim Walk)",
+          "nameCn": "利兹学生医疗诊所（GP）",
+          "lat": 53.8087,
+          "lng": -1.5526,
+          "rank": 1,
+          "tier": "必去",
+          "note": "专为大学生设计的NHS GP诊所，提供心理健康、性健康及常规医疗服务，到校就应尽快注册，不要等生病再去。"
         },
         {
-          "name": "Leeds General Infirmary (A&E)",
-          "nameCn": "利兹总医院（急诊 A&E）",
-          "lat": 53.8009,
-          "lng": -1.551,
-          "note": "紧邻校园的大型公立医院，设 24 小时急诊，遇紧急情况就近就医的地方。"
+          "name": "HSBC Bank (33 Park Row)",
+          "nameCn": "汇丰银行（帕克街）",
+          "lat": 53.7985,
+          "lng": -1.549,
+          "rank": 2,
+          "tier": "必去",
+          "note": "提供留学生专属无月费账户，中文服务友好，支持国际汇款，是中国留学生最推荐的开户银行，需提前预约。"
         },
         {
-          "name": "HSBC (Park Row)",
-          "nameCn": "汇丰银行（Park Row 旗舰行）",
-          "lat": 53.7979,
-          "lng": -1.5473,
-          "note": "市中心主要银行，可预约办理本地学生账户；中国学生熟悉的汇丰，开户沟通更顺。"
+          "name": "Halifax Bank (32 Commercial Street)",
+          "nameCn": "哈利法克斯银行（商业街）",
+          "lat": 53.7984,
+          "lng": -1.5427,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "英国本地主流银行，开户材料要求相对简单，与Lloyds/Bank of Scotland共享柜台，候期比部分银行短。"
         },
         {
-          "name": "Boots (Albion Street)",
-          "nameCn": "Boots 药妆店（Albion 街）",
-          "lat": 53.7972,
-          "lng": -1.546,
-          "note": "英国连锁大药房，凭 GP 处方取药、买感冒药和日常护理用品都靠它。"
+          "name": "Boots Pharmacy (19 Albion Street)",
+          "nameCn": "Boots药房（阿尔比恩街）",
+          "lat": 53.7984,
+          "lng": -1.5434,
+          "rank": 4,
+          "tier": "必去",
+          "note": "英国最大连锁药房，提供OTC药物、处方药取药、流感疫苗接种，还有护肤和日用品，距校园步行约15分钟。"
         },
         {
-          "name": "EE (Briggate)",
-          "nameCn": "EE 通讯营业厅（Briggate）",
-          "lat": 53.7972,
-          "lng": -1.5426,
-          "note": "主流手机运营商门店，办英国电话卡／合约套餐，落地办号入网来这。"
+          "name": "Leeds General Infirmary (LGI) A&E (Great George Street)",
+          "nameCn": "利兹总医院急诊（LGI）",
+          "lat": 53.8014,
+          "lng": -1.5528,
+          "rank": 5,
+          "tier": "必去",
+          "note": "最近校园的NHS急诊医院，紧急情况拨打999或直接到达，校园步行约10分钟，就医需提前注册GP。"
+        },
+        {
+          "name": "O2 Store (Trinity Leeds, Albion Street)",
+          "nameCn": "O2手机店（Trinity利兹商场）",
+          "lat": 53.7977,
+          "lng": -1.5427,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "英国主流运营商之一，SIM卡套餐灵活，学生可办月付或Pay As You Go，覆盖范围广，中国留学生常选。"
+        },
+        {
+          "name": "Vodafone (Commercial Street, Leeds City Centre)",
+          "nameCn": "沃达丰（商业街市中心）",
+          "lat": 53.7989,
+          "lng": -1.5415,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "另一大主流运营商，unlimited数据套餐性价比高，可直接携带国内号码切换，门店工作人员可帮助配置。"
         }
       ]
     },
@@ -327,39 +653,76 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Brotherton Library & Parkinson Building",
-          "nameCn": "布拉泽顿图书馆与帕金森楼",
-          "lat": 53.8078,
-          "lng": -1.5527,
-          "note": "学校地标钟楼配圆顶古典阅览室，是利兹大学最出片的打卡点，开学典礼也在这。"
-        },
-        {
-          "name": "Leeds Art Gallery",
-          "nameCn": "利兹美术馆",
-          "lat": 53.8,
-          "lng": -1.5481,
-          "note": "离校几步路的免费市立美术馆，英国近现代绘画雕塑收藏一流，下雨天好去处。"
-        },
-        {
-          "name": "Millennium Square & Leeds City Museum",
-          "nameCn": "千禧广场与利兹城市博物馆",
-          "lat": 53.8016,
-          "lng": -1.5469,
-          "note": "市政厅前的活动广场加免费城市博物馆，常办市集与节庆，了解利兹历史的第一站。"
+          "name": "Roundhay Park & Tropical World",
+          "nameCn": "朗德海公园与热带世界",
+          "lat": 53.829,
+          "lng": -1.5071,
+          "rank": 1,
+          "tier": "必去",
+          "note": "700英亩城市公园，湖泊、花园、滑板场应有尽有；Tropical World是英国伦敦外最大热带植物温室，含水虎鱼、美洲狮和蝴蝶，乘公交约30分钟。"
         },
         {
           "name": "Royal Armouries Museum",
-          "nameCn": "皇家军械博物馆",
-          "lat": 53.7918,
-          "lng": -1.5323,
-          "note": "全英顶尖的免费冷兵器与盔甲博物馆，临河而建，常有骑士格斗表演，值得专程一逛。"
+          "nameCn": "皇家军械库博物馆",
+          "lat": 53.7919,
+          "lng": -1.5324,
+          "rank": 2,
+          "tier": "必去",
+          "note": "英国国家军事博物馆，五层展馆免费，从古代战争至现代武器，互动展览极受欢迎，离市中心仅2公里。"
         },
         {
-          "name": "Hyde Park Picture House & Woodhouse Moor",
-          "nameCn": "海德公园老电影院与伍德豪斯绿地",
-          "lat": 53.8121,
-          "lng": -1.5694,
-          "note": "学生区方向的百年煤气灯老影院＋大片草坪公园，散步晒太阳、看文艺片的惬意去处。"
+          "name": "Leeds Kirkgate Market",
+          "nameCn": "利兹柯克盖特市集",
+          "lat": 53.7994,
+          "lng": -1.5388,
+          "rank": 3,
+          "tier": "必去",
+          "note": "欧洲最大室内市集，1875年一级保护建筑，也是M&S创始地，各国美食与本地特产汇聚，逛市集感受英式烟火气。"
+        },
+        {
+          "name": "Harrogate (day trip by train, ~30 min)",
+          "nameCn": "哈罗盖特（火车约30分钟）",
+          "lat": 53.9925,
+          "lng": -1.5418,
+          "rank": 4,
+          "tier": "必去",
+          "note": "英国「最幸福小镇」，土耳其浴室、英式花园、Betty's茶室是必体验三件套，火车票最低£2起，周末日归首选。"
+        },
+        {
+          "name": "Leeds Art Gallery & Henry Moore Institute",
+          "nameCn": "利兹艺术画廊与亨利·摩尔研究所",
+          "lat": 53.8003,
+          "lng": -1.5447,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "市中心双馆相邻，收藏英国近现代绘画与世界级雕塑，免费开放，艺术爱好者的打卡圣地。"
+        },
+        {
+          "name": "Headingley (student village, ~2 km north of campus)",
+          "nameCn": "黑丁利（学生街区，距校2公里）",
+          "lat": 53.8237,
+          "lng": -1.5793,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "大批Leeds学生租房聚居，Otley Road沿街餐厅、酒吧、超市林立，Zaap Thai Headingley等多家学生餐厅在此。"
+        },
+        {
+          "name": "Millennium Square",
+          "nameCn": "千禧广场",
+          "lat": 53.8014,
+          "lng": -1.5466,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "市中心活动广场，Leeds City Museum在侧，夏季露天音乐会、冬季圣诞市集都在此举办，节日氛围浓厚。"
+        },
+        {
+          "name": "Saltaire UNESCO World Heritage Village (train ~20 min)",
+          "nameCn": "索尔泰尔世界遗产村（火车约20分钟）",
+          "lat": 53.8381,
+          "lng": -1.7892,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "维多利亚时代工业村，列入世界遗产，Salts Mill内设David Hockney画廊，是一次文化与建筑的双重体验。"
         }
       ]
     }

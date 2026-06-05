@@ -67,53 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "UCL Institute of Education (20 Bedford Way)",
-          "nameCn": "UCL 教育学院",
-          "lat": 51.5231,
-          "lng": -0.1283,
-          "note": "全球顶尖教育研究机构,贝德福德路主楼。"
+          "name": "UCL Main Building (Wilkins Building)",
+          "nameCn": "UCL主楼（威尔金斯楼）",
+          "lat": 51.5245,
+          "lng": -0.1335,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCL标志性主楼，建于1827年，新古典主义风格，设有行政办公室和主图书馆，是全校最具代表性的建筑。"
+        },
+        {
+          "name": "UCL Bartlett Faculty of the Built Environment",
+          "nameCn": "巴特莱特建筑学院",
+          "lat": 51.5243,
+          "lng": -0.134,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球顶尖建筑学院，位于22 Gordon Street，常年蝉联QS建筑学专业世界前三。"
+        },
+        {
+          "name": "UCL Institute of Education (IOE), 20 Bedford Way",
+          "nameCn": "UCL教育学院（IOE）",
+          "lat": 51.5232,
+          "lng": -0.1278,
+          "rank": 3,
+          "tier": "必去",
+          "note": "全球排名第一的教育学院，位于Bedford Way 20号，研究教育政策与实践，国际学生众多。"
         },
         {
           "name": "UCL Faculty of Laws (Bentham House)",
-          "nameCn": "UCL 法学院",
-          "lat": 51.5253,
-          "lng": -0.131,
-          "note": "Endsleigh Gardens 边的边沁楼。"
+          "nameCn": "UCL法学院（边沁楼）",
+          "lat": 51.5265,
+          "lng": -0.13,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "UCL法学院主楼，位于4-8 Endsleigh Gardens，英国顶尖法学研究重镇，以边沁项目闻名。"
         },
         {
-          "name": "UCL Bartlett School of Architecture (22 Gordon Street)",
-          "nameCn": "巴特莱特建筑学院",
-          "lat": 51.5258,
-          "lng": -0.1322,
-          "note": "戈登街 22 号,世界顶尖建筑教育重镇。"
+          "name": "Cruciform Building (UCL Medical School)",
+          "nameCn": "十字架楼（医学院教学楼）",
+          "lat": 51.5228,
+          "lng": -0.1342,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "阿尔弗雷德·沃特豪斯设计的二级保护建筑，UCL医学院教学核心，原为大学学院医院旧址。"
         },
         {
-          "name": "UCL Great Ormond Street Institute of Child Health",
-          "nameCn": "大奥蒙德街儿童健康研究所",
-          "lat": 51.5232,
-          "lng": -0.1202,
-          "note": "Guilford Street 30 号,与儿童医院相邻的研究所。"
+          "name": "Rockefeller Building (Faculty of Medical Sciences)",
+          "nameCn": "洛克菲勒楼（医学科学楼）",
+          "lat": 51.5235,
+          "lng": -0.1328,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于University Street 21号，UCL医学院标志性历史建筑，由洛克菲勒基金资助兴建。"
         },
         {
-          "name": "UCL Queen Square Institute of Neurology",
-          "nameCn": "皇后广场神经病学研究所",
+          "name": "Malet Place Engineering Building (CS & Engineering)",
+          "nameCn": "马莱特广场工程楼（计算机系）",
+          "lat": 51.5234,
+          "lng": -0.1314,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "UCL计算机科学系及工程系所在地，位于Torrington Place对面，是工科生的日常核心场所。"
+        },
+        {
+          "name": "Slade School of Fine Art",
+          "nameCn": "斯莱德美术学院",
+          "lat": 51.525,
+          "lng": -0.1337,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "创立于1871年，世界顶级美术学院，培育了大量英国国宝级艺术家，画展常对外开放。"
+        },
+        {
+          "name": "UCL Department of Economics (Drayton House)",
+          "nameCn": "UCL经济学系（德雷顿楼）",
           "lat": 51.5222,
-          "lng": -0.1219,
-          "note": "与国家神经病与神经外科医院同址。"
+          "lng": -0.1282,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于30 Gordon Street，UCL顶尖经济学系所在地，与全球政策机构联系紧密。"
         },
         {
-          "name": "UCL Eastman Dental Institute (Gray's Inn Road)",
-          "nameCn": "伊士曼牙科研究所",
-          "lat": 51.52354,
-          "lng": -0.13479,
-          "note": "格雷律师学院路上的口腔医学研究机构。"
-        },
-        {
-          "name": "UCL School of Management (One Canada Square, Canary Wharf)",
-          "nameCn": "UCL 管理学院(金丝雀码头)",
-          "lat": 51.505,
-          "lng": -0.0195,
-          "note": "金丝雀码头加拿大一号广场高层,商科教学点。"
+          "name": "UCL Department of Psychology (26 Bedford Way)",
+          "nameCn": "UCL心理学系（Bedford Way 26号）",
+          "lat": 51.5228,
+          "lng": -0.1275,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "全球知名心理学系，位于Bedford Way 26号，毗邻IOE，行为神经科学研究领域享有盛誉。"
         }
       ],
       "defaultOn": true
@@ -126,25 +167,67 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "UCL Main Library",
-          "nameCn": "UCL 主图书馆",
-          "lat": 51.5247,
-          "lng": -0.134,
-          "note": "位于威尔金斯主楼内的核心图书馆。"
+          "name": "UCL Student Centre Library",
+          "nameCn": "UCL学生中心图书馆",
+          "lat": 51.5243,
+          "lng": -0.129,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Gordon Square 27-28号，全年24小时开放，1104个座位，是全校最受欢迎的学习场所，Jeremy Bentham遗体就展示在一楼。"
         },
         {
-          "name": "UCL Science Library",
-          "nameCn": "UCL 科学图书馆",
-          "lat": 51.5239,
-          "lng": -0.1316,
-          "note": "DMS Watson 楼内,理工科主要藏书地。"
+          "name": "UCL Main Library (Wilkins Building)",
+          "nameCn": "UCL主图书馆（威尔金斯楼）",
+          "lat": 51.5248,
+          "lng": -0.1335,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UCL旗舰图书馆，馆藏涵盖人文、历史、法律、经济等学科，位于标志性主楼内，氛围庄重。"
         },
         {
-          "name": "UCL Institute of Education Library (Newsam Library)",
-          "nameCn": "教育学院图书馆",
-          "lat": 51.5229,
-          "lng": -0.1283,
-          "note": "20 Bedford Way 内,教育与社科藏书。"
+          "name": "UCL Science Library (DMS Watson Building)",
+          "nameCn": "UCL科学图书馆（DMS沃森楼）",
+          "lat": 51.5235,
+          "lng": -0.1315,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Malet Place，馆藏涵盖工程、地理、生命科学、数学物理等理工学科，工科学生必来。"
+        },
+        {
+          "name": "IOE Newsam Library & Archives",
+          "nameCn": "IOE纽萨姆图书馆",
+          "lat": 51.5232,
+          "lng": -0.1278,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Bedford Way 20号IOE楼四层，专注教育学文献，教育类学生的核心学术资源中心。"
+        },
+        {
+          "name": "Wellcome Library (Wellcome Collection)",
+          "nameCn": "惠康图书馆",
+          "lat": 51.5258,
+          "lng": -0.1336,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Euston Road 183号，医学史与人文科学馆藏丰富，免费对外开放，学术与艺术价值兼备。"
+        },
+        {
+          "name": "British Library",
+          "nameCn": "大英图书馆",
+          "lat": 51.5298,
+          "lng": -0.1277,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于Euston Road 96号，英国国家图书馆，馆藏超1.7亿件，UCL学生可凭学生证办理读者证。"
+        },
+        {
+          "name": "UCL Laws Library (Bentham House)",
+          "nameCn": "UCL法律图书馆（边沁楼）",
+          "lat": 51.5265,
+          "lng": -0.13,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "UCL法学院专属图书馆，位于Endsleigh Gardens，法律文献馆藏齐全，仅限法学院师生使用。"
         }
       ]
     },
@@ -156,18 +239,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Petrie Museum of Egyptian Archaeology",
-          "nameCn": "皮特里埃及考古博物馆",
-          "lat": 51.524,
-          "lng": -0.133,
-          "note": "馆藏丰富的埃及与苏丹文物博物馆。"
+          "name": "British Museum",
+          "nameCn": "大英博物馆",
+          "lat": 51.5194,
+          "lng": -0.127,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距UCL步行仅10分钟，全球最重要的博物馆之一，免费入场，馆藏来自世界各大文明，必打卡。"
         },
         {
-          "name": "Grant Museum of Zoology",
-          "nameCn": "格兰特动物学博物馆",
+          "name": "Wellcome Collection",
+          "nameCn": "惠康收藏馆",
+          "lat": 51.5258,
+          "lng": -0.1336,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Euston Road 183号，探索医学、艺术与人类体验的免费博物馆，展品奇特深刻，紧邻UCL。"
+        },
+        {
+          "name": "Grant Museum of Zoology (UCL)",
+          "nameCn": "格兰特动物学博物馆（UCL）",
           "lat": 51.5238,
-          "lng": -0.1343,
-          "note": "伦敦仅存的大学动物学博物馆,标本众多。"
+          "lng": -0.1335,
+          "rank": 3,
+          "tier": "必去",
+          "note": "伦敦唯一存世的大学动物标本馆，收藏10万余件标本，位于UCL校园内，免费参观。"
+        },
+        {
+          "name": "Petrie Museum of Egyptian Archaeology (UCL)",
+          "nameCn": "皮特里埃及考古博物馆（UCL）",
+          "lat": 51.524,
+          "lng": -0.1323,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "世界最重要的埃及与苏丹考古收藏之一，馆藏8万余件，位于UCL校园内，免费开放。"
+        },
+        {
+          "name": "UCL Art Museum & Flaxman Gallery",
+          "nameCn": "UCL艺术博物馆与弗拉克斯曼画廊",
+          "lat": 51.5247,
+          "lng": -0.1333,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "收藏逾1万件作品，包括斯莱德学生作品及老大师版画，位于主楼内，免费对公众开放。"
+        },
+        {
+          "name": "Sir John Soane's Museum",
+          "nameCn": "约翰·索恩爵士博物馆",
+          "lat": 51.5172,
+          "lng": -0.1186,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Lincoln's Inn Fields 13号，19世纪建筑师索恩的故居改建博物馆，收藏古典艺术品与建筑图纸，免费入场。"
         }
       ]
     },
@@ -179,53 +302,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Wilkins Building (Main Building, The Quad & Portico)",
-          "nameCn": "威尔金斯主楼与中央广场",
+          "name": "UCL Portico & Main Quad (Wilkins Building)",
+          "nameCn": "UCL门廊与主广场",
+          "lat": 51.5245,
+          "lng": -0.1335,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UCL最具代表性的地标，新古典主义柱廊与穹顶，是开学照、毕业照的首选打卡地。"
+        },
+        {
+          "name": "Jeremy Bentham's Auto-Icon (UCL Student Centre)",
+          "nameCn": "边沁遗体展示柜（UCL学生中心）",
+          "lat": 51.5243,
+          "lng": -0.129,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UCL创始人边沁的遗体蜡头展示，是UCL最著名的奇特传统与网红打卡点，位于学生中心一楼。"
+        },
+        {
+          "name": "Students' Union UCL (UCLU)",
+          "nameCn": "UCL学生会大楼",
+          "lat": 51.5243,
+          "lng": -0.1333,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Gordon Street 25号，学生社团、餐饮、活动中心，新生融入校园生活的第一站。"
+        },
+        {
+          "name": "Russell Square",
+          "nameCn": "罗素广场",
+          "lat": 51.5197,
+          "lng": -0.1223,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "布鲁姆斯伯里最大的花园广场，地铁站同名，是UCL学生课余散步、野餐的热门场所。"
+        },
+        {
+          "name": "Gordon Square Gardens",
+          "nameCn": "戈登广场花园",
           "lat": 51.5248,
-          "lng": -0.1336,
-          "note": "带圆顶与门廊的标志性主楼,内含八角厅与中央广场。"
+          "lng": -0.1293,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "紧邻UCL学生中心的园林广场，布鲁姆斯伯里文化圈历史遗址，学生午餐和放松的好去处。"
         },
         {
-          "name": "Students' Union UCL (25 Gordon Street)",
-          "nameCn": "UCL 学生会",
-          "lat": 51.5256,
-          "lng": -0.1326,
-          "note": "戈登街学生会大楼,社团与活动中心。"
+          "name": "Waterstones Gower Street",
+          "nameCn": "Waterstones书店（高尔街）",
+          "lat": 51.5226,
+          "lng": -0.1319,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "UCL旁百年学术书店，曾是Dillon's大学书店，藏书5英里之多，附设Gower Records唱片区，学术氛围浓郁。"
         },
         {
-          "name": "Euston Station",
-          "nameCn": "尤斯顿火车站",
-          "lat": 51.5282,
-          "lng": -0.1337,
-          "note": "距主校区最近的国铁与地铁大站,步行约 8 分钟。"
-        },
-        {
-          "name": "Euston Square Underground Station",
-          "nameCn": "尤斯顿广场地铁站",
-          "lat": 51.5258,
-          "lng": -0.1359,
-          "note": "紧邻主校区西侧的地铁站。"
-        },
-        {
-          "name": "Marshgate (UCL East)",
-          "nameCn": "Marshgate 大楼",
-          "lat": 51.5383,
-          "lng": -0.0121,
-          "note": "UCL East 主体建筑,2023 年正式开放。"
-        },
-        {
-          "name": "One Pool Street (UCL East)",
-          "nameCn": "One Pool Street 大楼",
-          "lat": 51.5383,
-          "lng": -0.0099,
-          "note": "东校区首栋建筑,与 Marshgate 隔河相望。"
-        },
-        {
-          "name": "Stratford Station",
-          "nameCn": "斯特拉特福车站",
-          "lat": 51.5416,
-          "lng": -0.0042,
-          "note": "服务东校区的交通枢纽,距 UCL East 约 10 分钟。"
+          "name": "Tavistock Square",
+          "nameCn": "塔维斯托克广场",
+          "lat": 51.5253,
+          "lng": -0.1288,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "布鲁姆斯伯里重要历史广场，设有甘地雕像与和平纪念碑，比罗素广场更安静，适合读书静思。"
         }
       ]
     },
@@ -237,39 +374,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tian Tian Market (Brunswick Square)",
-          "nameCn": "天天市场（布伦瑞克广场店）",
-          "lat": 51.5238,
-          "lng": -0.1235,
-          "note": "UCL官方学生指南推荐的现代亚超，步行可达，中日韩东南亚食材齐全，离Russell Square地铁站很近。"
+          "name": "Tian Tian Asian Market (Brunswick Centre)",
+          "nameCn": "田田亚洲超市（布伦瑞克中心）",
+          "lat": 51.522,
+          "lng": -0.1238,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Brunswick Square 24-26号，最近UCL的大型亚洲超市，中日韩泰越南食材一网打尽，还有小月饼、日式面包，中国留学生必去。"
         },
         {
-          "name": "Yohome Asian Supermarket",
-          "nameCn": "Yohome 亚洲超市",
-          "lat": 51.5222,
-          "lng": -0.1346,
-          "note": "就在UCL Torrington Place对面，以中国食材为主，还卖热乎的中式早餐和午餐，下课顺路买菜最方便。"
+          "name": "Waitrose (Brunswick Centre)",
+          "nameCn": "Waitrose超市（布伦瑞克中心）",
+          "lat": 51.5223,
+          "lng": -0.124,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Brunswick Centre，英国中高档超市，食材品质好，距UCL步行约10分钟，生鲜肉类蔬菜丰富。"
         },
         {
-          "name": "Waitrose Brunswick Centre",
-          "nameCn": "Waitrose 超市（布伦瑞克中心店）",
-          "lat": 51.5243,
-          "lng": -0.1228,
-          "note": "步行十分钟的高端英国连锁超市，生鲜和半成品品质好，Brunswick中心内还有电影院和餐厅。"
+          "name": "Sainsbury's (Marchmont Street)",
+          "nameCn": "Sainsbury's超市（马奇蒙特街）",
+          "lat": 51.5218,
+          "lng": -0.1237,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Marchmont Street，全英知名连锁超市，距UCL步行约12分钟，日常采购首选，性价比高。"
         },
         {
-          "name": "Sainsbury's Local (Tottenham Court Road)",
-          "nameCn": "Sainsbury's 便利超市（TCR店）",
-          "lat": 51.5198,
-          "lng": -0.1306,
-          "note": "价格亲民的主流英超，离校近、营业时间长，适合日常采买和应急补货。"
+          "name": "Lidl (Tottenham Court Road)",
+          "nameCn": "Lidl超市（托特纳姆法院路）",
+          "lat": 51.5215,
+          "lng": -0.135,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Tottenham Court Road 145号，德国平价超市，物美价廉，学生预算有限时的理想选择。"
         },
         {
-          "name": "Loon Fung Supermarket (Chinatown)",
-          "nameCn": "龙凤行超市（唐人街店）",
-          "lat": 51.5113,
-          "lng": -0.1316,
-          "note": "伦敦唐人街老牌华人大超市，42-44 Gerrard Street，米面酱料火锅料最全，囤年货必来。"
+          "name": "Tesco Express (Bernard Street)",
+          "nameCn": "Tesco便利店（伯纳德街）",
+          "lat": 51.522,
+          "lng": -0.1232,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Bernard Street 40号，距UCL步行约10分钟，24小时或长时间营业，应急购物方便。"
+        },
+        {
+          "name": "Yohome (Torrington Place)",
+          "nameCn": "优家中式食品店（托灵顿广场）",
+          "lat": 51.5237,
+          "lng": -0.1313,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "紧邻UCL Torrington Place入口，主要售卖中式食品，提供早餐和午餐热食，是中国留学生快速解馋的首选小店。"
+        },
+        {
+          "name": "Oseyo (Tottenham Court Road)",
+          "nameCn": "Oseyo韩式超市（托特纳姆法院路）",
+          "lat": 51.5217,
+          "lng": -0.1342,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Tottenham Court Road上的韩式便利超市，有速热食品、韩式零食及日系商品，亚洲学生打卡常客。"
         }
       ]
     },
@@ -281,46 +446,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "North Sea Fish Restaurant",
-          "nameCn": "北海鱼餐厅（炸鱼薯条）",
-          "lat": 51.5256,
-          "lng": -0.1262,
-          "note": "布卢姆斯伯里1977年开业的炸鱼薯条名店，鱼当天从Billingsgate市场进货，体验地道英式国民美食必打卡。"
+          "name": "Master Wei Xi'an Cuisine",
+          "nameCn": "魏师傅陕西面食",
+          "lat": 51.5215,
+          "lng": -0.122,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "位于Cosmo Place 13号，最靠近UCL的正宗陕西馆子，biangbiang面是招牌，UCL和LSE中国学生天天爆满，公认性价比最高的中餐。"
         },
         {
-          "name": "BAO Noodle Shop",
-          "nameCn": "BAO 刈包面馆",
-          "lat": 51.5258,
-          "lng": -0.1207,
-          "note": "网红台式餐厅BAO在Marchmont街的分店，招牌刈包和牛肉面，离校近、适合和同学聚餐。"
+          "name": "Haidilao Hot Pot (Piccadilly Circus)",
+          "nameCn": "海底捞火锅（皮卡迪利广场）",
+          "lat": 51.5094,
+          "lng": -0.1318,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于Coventry Street 5号，中国留学生聚餐首选，服务极致贴心，可做拉面表演，深夜也开到凌晨3点。"
         },
         {
-          "name": "Roti King",
-          "nameCn": "Roti King（印度飞饼）",
-          "lat": 51.5295,
-          "lng": -0.1335,
-          "note": "Euston附近排队神店，马来风味咖喱配印度飞饼超平价管饱，留学生圈口碑爆棚。"
+          "name": "Dumplings' Legend",
+          "nameCn": "饺子传奇（唐人街）",
+          "lat": 51.5118,
+          "lng": -0.131,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "位于Gerrard Street 15号唐人街核心，每日手工制作8000个饺子，小笼包驰名，是伦敦唐人街点单率最高的中餐馆之一。"
         },
         {
-          "name": "Honest Burgers (Brunswick)",
-          "nameCn": "Honest Burgers 汉堡（布伦瑞克店）",
-          "lat": 51.524,
-          "lng": -0.1229,
-          "note": "英国本土精品汉堡连锁，迷迭香薯条很出名，Brunswick中心内就餐环境好。"
+          "name": "BAO Fitzrovia",
+          "nameCn": "BAO台式面包店（菲茨罗维亚）",
+          "lat": 51.521,
+          "lng": -0.1365,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于Windmill Street 31号，伦敦最火台式刈包餐厅，排队常见，台湾卤肉饭和奶黄包令人念念不忘。"
         },
         {
-          "name": "Four Seasons Chinatown",
-          "nameCn": "四季烧腊（唐人街）",
-          "lat": 51.5117,
-          "lng": -0.1306,
-          "note": "唐人街知名粤式烧腊，烧鸭和叉烧饭一绝，想家时来一顿广式快餐很治愈。"
+          "name": "Chilli Cool",
+          "nameCn": "辣得酷川菜馆",
+          "lat": 51.523,
+          "lng": -0.1248,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "位于Leigh Street，Bloomsbury口碑最好的川菜馆，麻辣味道正宗，价格学生友好，中国留学生老面孔。"
         },
         {
-          "name": "Dishoom King's Cross",
-          "nameCn": "Dishoom（国王十字店）",
-          "lat": 51.5344,
-          "lng": -0.1238,
-          "note": "伦敦人气孟买风咖喱餐厅，老德里风装潢出片好看，黑豆咖喱和印度奶茶必点。"
+          "name": "Holborn Dining Room",
+          "nameCn": "霍尔本餐厅",
+          "lat": 51.5174,
+          "lng": -0.1187,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "位于Rosewood Hotel内，伦敦最佳英式肉馅饼之一，传统英国brasserie氛围，值得专程一吃的本地美食体验。"
+        },
+        {
+          "name": "Noble Rot (Lamb's Conduit Street)",
+          "nameCn": "Noble Rot酒肴馆",
+          "lat": 51.521,
+          "lng": -0.1193,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "位于Lamb's Conduit Street，以葡萄酒为主轴的现代英法料理，午餐套餐性价比极高，Bloomsbury区高评分餐厅。"
+        },
+        {
+          "name": "Bibimbap (Great Russell Street)",
+          "nameCn": "拌饭韩餐（大罗素街）",
+          "lat": 51.5196,
+          "lng": -0.1265,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于Great Russell Street 14号，大英博物馆旁的韩式快餐，石锅拌饭和煎饼价实量足，UCL学生常在此解馋。"
+        },
+        {
+          "name": "Kanada-Ya (St Giles High Street)",
+          "nameCn": "金田家日式拉面（圣吉尔斯高街）",
+          "lat": 51.5157,
+          "lng": -0.1268,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "伦敦最受推崇的博多豚骨拉面店，汤底浓郁纯正，位于UCL与Soho之间，是日料爱好者的必去地。"
+        },
+        {
+          "name": "Xi'an Impression (islington branch, accessible)",
+          "nameCn": "西安印象",
+          "lat": 51.5495,
+          "lng": -0.1039,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Emirates Stadium旁的西北中国料理馆，凉皮、肉夹馍、油泼面远近驰名，是Master Wei的师出同门之处。"
+        },
+        {
+          "name": "Plum Valley (Gerrard Street)",
+          "nameCn": "梅谷粤式茶楼（唐人街）",
+          "lat": 51.512,
+          "lng": -0.1308,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "位于Gerrard Street，家族经营逾三十年的粤式餐厅，全天候供应即制点心，是唐人街饮茶首选。"
+        },
+        {
+          "name": "Chubby Bunny (Holborn)",
+          "nameCn": "贪吃兔（霍尔本）",
+          "lat": 51.5178,
+          "lng": -0.1224,
+          "rank": 12,
+          "tier": "一般",
+          "note": "提供四川麻辣火锅、韩式烤肉和中式点心，位于大英博物馆步行圈内，聚会必备，网红打卡地。"
+        },
+        {
+          "name": "Hunan Restaurant (Goodge Street)",
+          "nameCn": "湖南餐厅（古奇街）",
+          "lat": 51.5208,
+          "lng": -0.137,
+          "rank": 13,
+          "tier": "一般",
+          "note": "位于Goodge Street 29号，有机湘菜与川菜料理，辣味浓郁，距UCL步行不到10分钟。"
         }
       ]
     },
@@ -332,32 +572,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "University College Hospital (UCLH) A&E",
-          "nameCn": "伦敦大学学院医院（UCLH 急诊）",
-          "lat": 51.5246,
-          "lng": -0.1357,
-          "note": "235 Euston Road的NHS大型公立医院，设24小时急诊A&E，距校步行几分钟，急病重病第一去处。"
-        },
-        {
-          "name": "HSBC Tottenham Court Road",
-          "nameCn": "汇丰银行（TCR支行）",
-          "lat": 51.523,
-          "lng": -0.1345,
-          "note": "156/157 Tottenham Court Road的汇丰支行，离校近，可预约办理留学生开户和大额存取。"
-        },
-        {
-          "name": "Boots Pharmacy (Brunswick Centre)",
-          "nameCn": "Boots 药妆店（布伦瑞克中心）",
-          "lat": 51.5241,
-          "lng": -0.123,
-          "note": "英国最大连锁药房，可买非处方药、配处方、量血压并咨询药剂师，日常小病自购药很方便。"
-        },
-        {
-          "name": "Gower Street Practice (NHS GP)",
-          "nameCn": "高尔街全科诊所（NHS GP）",
+          "name": "Ridgmount Practice (UCL Partner GP)",
+          "nameCn": "里奇蒙特诊所（UCL合作GP）",
           "lat": 51.5218,
-          "lng": -0.1334,
-          "note": "校园边的NHS全科诊所，注册GP后看小病和开转诊都靠它，建议入学后尽早登记。"
+          "lng": -0.1317,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Ridgmount Street 8号，UCL官方合作家庭医生，所有新生强烈建议入学后立即在此注册，工作日提供步入问诊。"
+        },
+        {
+          "name": "University College Hospital (UCLH) A&E",
+          "nameCn": "大学学院医院（急诊）",
+          "lat": 51.5247,
+          "lng": -0.135,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Euston Road 235号，UCL旁最近的NHS三甲医院，设急诊室与同日紧急诊疗，24小时运营。"
+        },
+        {
+          "name": "Boots Pharmacy (Tottenham Court Road)",
+          "nameCn": "Boots药店（托特纳姆法院路）",
+          "lat": 51.5214,
+          "lng": -0.1343,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于Tottenham Court Road 120-122号，英国最大连锁药房，出售处方药和非处方药，近UCL步行约12分钟。"
+        },
+        {
+          "name": "Superdrug (Tottenham Court Road)",
+          "nameCn": "Superdrug药妆店（托特纳姆法院路）",
+          "lat": 51.52,
+          "lng": -0.1338,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Tottenham Court Road 43号，药品和美妆一体，价格比Boots略低，学生购日用品常光顾。"
+        },
+        {
+          "name": "HSBC Bank (Euston Road)",
+          "nameCn": "汇丰银行（尤斯顿路）",
+          "lat": 51.5275,
+          "lng": -0.1318,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Euston Road 31号，距UCL步行约10分钟，中国留学生开户首选银行，支持中文客服，建议预约。"
+        },
+        {
+          "name": "Barclays Bank (Southampton Row)",
+          "nameCn": "巴克莱银行（南安普顿街道）",
+          "lat": 51.5195,
+          "lng": -0.1213,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于Southampton Row 58号，距UCL近，开设学生账户需线下预约，是国际学生常用的英国本地银行。"
+        },
+        {
+          "name": "EE Mobile Store (Tottenham Court Road)",
+          "nameCn": "EE手机运营商门店（托特纳姆法院路）",
+          "lat": 51.5172,
+          "lng": -0.1315,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于Tottenham Court Road 4-5号，英国最大电信运营商，网络覆盖最好，办理SIM卡首选，有学生优惠套餐。"
+        },
+        {
+          "name": "O2 Mobile Store (Tottenham Court Road)",
+          "nameCn": "O2手机运营商门店（托特纳姆法院路）",
+          "lat": 51.5203,
+          "lng": -0.1338,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于Tottenham Court Road 229号，英国第二大运营商，有学生SIM套餐，价格略低于EE。"
         }
       ]
     },
@@ -369,39 +653,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "The British Museum",
+          "name": "British Museum",
           "nameCn": "大英博物馆",
           "lat": 51.5194,
           "lng": -0.127,
-          "note": "世界顶级博物馆且免费入场，罗塞塔石碑和木乃伊必看，离UCL步行十分钟,周末逛展首选。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "步行10分钟，全球最顶级博物馆之一，永久免费，必须专门留出半天游览，中国留学生必打卡。"
         },
         {
-          "name": "Russell Square Gardens",
-          "nameCn": "罗素广场花园",
-          "lat": 51.5219,
-          "lng": -0.1257,
-          "note": "校园旁的经典伦敦园林广场，喷泉草坪适合午休野餐看书，四季都很出片。"
+          "name": "London Chinatown (Gerrard Street)",
+          "nameCn": "伦敦唐人街（杰拉德街）",
+          "lat": 51.5118,
+          "lng": -0.1313,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Leicester Square附近，是英国最大的唐人街，逢年过节热闹非凡，寻找家乡味道的必到之地。"
+        },
+        {
+          "name": "Regent's Park",
+          "nameCn": "摄政公园",
+          "lat": 51.5313,
+          "lng": -0.1573,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UCL以北约2公里，皇家园林，玫瑰园每年6月绚烂盛开，夏季有露天剧场，是学生周末放松首选。"
+        },
+        {
+          "name": "Coal Drops Yard (King's Cross)",
+          "nameCn": "煤炭卸料场（国王十字）",
+          "lat": 51.5368,
+          "lng": -0.1241,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Heatherwick设计的工业遗址改建的时尚购物街区，位于King's Cross，餐饮精品云集，步行或地铁15分钟可达。"
         },
         {
           "name": "British Library",
           "nameCn": "大英图书馆",
-          "lat": 51.5299,
-          "lng": -0.1276,
-          "note": "英国国家图书馆，藏有《大宪章》和达芬奇手稿等珍品，安静的自习和看展圣地，离校很近。"
+          "lat": 51.5298,
+          "lng": -0.1277,
+          "rank": 5,
+          "tier": "必去",
+          "note": "世界最大图书馆之一，展览常设珍本包括《大宪章》《贝奥武甫》原稿，学生凭证可办读者证免费进入。"
+        },
+        {
+          "name": "ZSL London Zoo",
+          "nameCn": "伦敦动物园",
+          "lat": 51.5353,
+          "lng": -0.1534,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于摄政公园北端，全球最古老的科学动物园，UCL学生凭证享折扣，小团体出游热门选择。"
+        },
+        {
+          "name": "Camden Market",
+          "nameCn": "卡姆登集市",
+          "lat": 51.542,
+          "lng": -0.148,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "伦敦最著名的创意集市，街头美食、vintage服饰、文创产品聚集，周末必逛，学生文化氛围浓厚。"
         },
         {
           "name": "Wellcome Collection",
-          "nameCn": "惠康博物馆",
-          "lat": 51.526,
-          "lng": -0.1335,
-          "note": "Euston Road上免费的医学与人文主题博物馆，展览脑洞大、咖啡馆和书店都很赞,小众宝藏。"
+          "nameCn": "惠康收藏馆",
+          "lat": 51.5258,
+          "lng": -0.1336,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "距UCL步行5分钟，免费博物馆，探索医学与人类文明，展览设计感强，是文理科学生都会喜欢的地方。"
         },
         {
-          "name": "Granary Square & Coal Drops Yard",
-          "nameCn": "谷仓广场与煤滴庭院",
-          "lat": 51.535,
-          "lng": -0.1255,
-          "note": "国王十字改造区的喷泉广场和潮流商业街，运河边咖啡店林立,打卡拍照和周末闲逛都合适。"
+          "name": "Russell Square & Bloomsbury Walking Route",
+          "nameCn": "罗素广场与布鲁姆斯伯里漫步路线",
+          "lat": 51.5197,
+          "lng": -0.1223,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "布鲁姆斯伯里花园广场群（罗素、戈登、泰维斯托克）连成一线，维吉尼亚·伍尔夫等文学名人故居密布，最有UCL味道的散步路线。"
+        },
+        {
+          "name": "Granary Square (King's Cross)",
+          "nameCn": "粮仓广场（国王十字）",
+          "lat": 51.5358,
+          "lng": -0.1234,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "运河旁的现代广场，夏天音乐喷泉开放，毗邻中央圣马丁艺术学院，创意氛围浓，摄影打卡佳地。"
         }
       ]
     }

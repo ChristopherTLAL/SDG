@@ -84,45 +84,102 @@
       "items": [
         {
           "name": "Gilman Hall",
-          "nameCn": "Gilman 楼",
-          "lat": 39.329,
+          "nameCn": "吉尔曼大楼",
+          "lat": 39.3294,
           "lng": -76.6207,
-          "note": "主校区学术核心，人文学科与上区四方院头部地标"
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最古老最大建筑，文学院人文系所集中于此，也是JHU精神象征"
         },
         {
-          "name": "Krieger Hall",
-          "nameCn": "Krieger 楼",
-          "lat": 39.3284,
+          "name": "Malone Hall (Computer Science)",
+          "nameCn": "马龙大楼（计算机系）",
+          "lat": 39.3271,
+          "lng": -76.6214,
+          "rank": 2,
+          "tier": "必去",
+          "note": "惠廷工程学院旗舰新楼，计算机科学系与信息安全研究院所在地"
+        },
+        {
+          "name": "Hackerman Hall (Engineering)",
+          "nameCn": "哈克曼大楼（工程学院）",
+          "lat": 39.3273,
+          "lng": -76.6211,
+          "rank": 3,
+          "tier": "必去",
+          "note": "惠廷工程学院核心教学楼，化工、材料、电气多系合用"
+        },
+        {
+          "name": "Krieger Hall (Mathematics & Cognitive Science)",
+          "nameCn": "克里格大楼（数学/认知科学）",
+          "lat": 39.3291,
           "lng": -76.6213,
-          "note": "文理学院主教学楼，社科与理科课堂"
+          "rank": 4,
+          "tier": "必去",
+          "note": "克里格文理学院数学系与认知科学系所在地"
         },
         {
-          "name": "Hackerman Hall",
-          "nameCn": "Hackerman 楼",
-          "lat": 39.3269,
-          "lng": -76.6209,
-          "note": "Decker四方院，计算科学与工程研究"
+          "name": "Olin Hall (Earth & Planetary Sciences)",
+          "nameCn": "奥林大楼（地球行星科学系）",
+          "lat": 39.3285,
+          "lng": -76.6228,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园西侧林木环绕，地球行星科学系驻扎于此，实验室设施完善"
         },
         {
-          "name": "Maryland Hall",
-          "nameCn": "Maryland 楼",
-          "lat": 39.3278,
+          "name": "Shaffer Hall",
+          "nameCn": "谢弗大楼",
+          "lat": 39.3293,
+          "lng": -76.6202,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "跨院系核心教室楼，人文社科类大课首选场地，JHU最常用教学楼之一"
+        },
+        {
+          "name": "Mudd Hall (Biology)",
+          "nameCn": "马德大楼（生物系）",
+          "lat": 39.3281,
           "lng": -76.6198,
-          "note": "工程学院核心教学楼之一"
-        },
-        {
-          "name": "School of Medicine",
-          "nameCn": "医学院",
-          "lat": 39.2972,
-          "lng": -76.5925,
-          "note": "东巴尔的摩医学城，全美顶尖医学院"
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "克里格文理学院生物系主楼，实验室密集，是生命科学研究核心区"
         },
         {
           "name": "Bloomberg School of Public Health",
           "nameCn": "彭博公共卫生学院",
-          "lat": 39.298,
-          "lng": -76.5905,
-          "note": "全球规模最大的公共卫生学院，紧邻医院"
+          "lat": 39.2978,
+          "lng": -76.5924,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "全球排名第一的公共卫生学院，位于东巴尔的摩医学院区，与医院群毗邻"
+        },
+        {
+          "name": "Mason Hall (Undergraduate Admissions)",
+          "nameCn": "梅森大楼（本科招生办）",
+          "lat": 39.3304,
+          "lng": -76.6228,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "本科招生与参观接待中心，校园参观必经之地"
+        },
+        {
+          "name": "Garland Hall (President's Office)",
+          "nameCn": "加兰大楼（校长办公室）",
+          "lat": 39.3288,
+          "lng": -76.6208,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校长办公室及核心行政部门所在地，地址即3400 N Charles St主入口"
+        },
+        {
+          "name": "Shriver Hall",
+          "nameCn": "什里弗大楼",
+          "lat": 39.3272,
+          "lng": -76.6196,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "校内最大演出与讲座礼堂，经典音乐会系列「SHCS」常年在此举办"
         }
       ],
       "defaultOn": true
@@ -135,25 +192,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Milton S. Eisenhower Library",
+          "name": "Milton S. Eisenhower Library (MSE)",
           "nameCn": "艾森豪威尔图书馆",
-          "lat": 39.3287,
-          "lng": -76.6199,
-          "note": "主研究图书馆，地下多层采光设计，藏书逾380万册"
+          "lat": 39.3297,
+          "lng": -76.6204,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校最大主研究馆，馆藏近300万册，正进行1.3亿美元大规模翻新"
         },
         {
           "name": "Brody Learning Commons",
-          "nameCn": "Brody 学习共享空间",
-          "lat": 39.3285,
-          "lng": -76.6196,
-          "note": "2012年启用，与主图书馆相连的协作学习楼"
+          "nameCn": "布罗迪学习共享空间",
+          "lat": 39.3295,
+          "lng": -76.6201,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2012年开放的现代化自习中心，16间小组研讨室+75座咖啡馆，MSE翻修期间为主力自习空间"
         },
         {
           "name": "George Peabody Library",
-          "nameCn": "George Peabody 图书馆",
-          "lat": 39.2974,
-          "lng": -76.6149,
-          "note": "Mount Vernon街区，19世纪铸铁书廊，被誉最美图书馆之一"
+          "nameCn": "乔治·皮博迪图书馆",
+          "lat": 39.3017,
+          "lng": -76.6158,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1878年，五层铸铁花格书架直冲61英尺玻璃天顶，全球最美图书馆之一，位于市中心马弗农区"
+        },
+        {
+          "name": "Sheridan Libraries Special Collections",
+          "nameCn": "谢里丹图书馆特藏室",
+          "lat": 39.3295,
+          "lng": -76.6202,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "稀世手稿、珍本善本及大学历史档案均在此，需预约查阅"
+        },
+        {
+          "name": "Peabody Institute Library (Conservatory)",
+          "nameCn": "皮博迪音乐学院图书馆",
+          "lat": 39.3013,
+          "lng": -76.6158,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "专注音乐与表演艺术的专题馆，与皮博迪音乐学院同楼"
+        },
+        {
+          "name": "JHU Libraries Digital Collections",
+          "nameCn": "谢里丹数字资源中心",
+          "lat": 39.3297,
+          "lng": -76.6204,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "90万本电子书+900余数据库全校师生免费访问，MSE内线上线下一体服务台"
         }
       ]
     },
@@ -165,11 +255,58 @@
       "icon": "museum",
       "items": [
         {
+          "name": "Baltimore Museum of Art (BMA)",
+          "nameCn": "巴尔的摩艺术博物馆",
+          "lat": 39.3267,
+          "lng": -76.6193,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧贴Homewood校园南侧，馆藏马蒂斯世界最大单一机构收藏，免费入场"
+        },
+        {
+          "name": "Evergreen Museum & Library",
+          "nameCn": "常青博物馆与图书馆",
+          "lat": 39.3517,
+          "lng": -76.6278,
+          "rank": 2,
+          "tier": "必去",
+          "note": "JHU附属48室镀金年代豪宅，收藏毕加索、莫迪利亚尼及蒂凡尼玻璃器，3万册珍本图书馆"
+        },
+        {
+          "name": "Walters Art Museum",
+          "nameCn": "沃尔特斯艺术博物馆",
+          "lat": 39.2984,
+          "lng": -76.6161,
+          "rank": 3,
+          "tier": "必去",
+          "note": "市中心马弗农区，古埃及至20世纪藏品逾3.6万件，常设展免费"
+        },
+        {
           "name": "Homewood Museum",
-          "nameCn": "Homewood 博物馆",
+          "nameCn": "霍姆伍德历史博物馆",
           "lat": 39.3294,
-          "lng": -76.6192,
-          "note": "1801年Carroll家族联邦式宅邸，校园同名来源"
+          "lng": -76.6207,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "就在Homewood校园内，联邦时期帕拉第奥建筑珍品，美国最完好的早期共和国庄园之一"
+        },
+        {
+          "name": "American Visionary Art Museum (AVAM)",
+          "nameCn": "美国视觉艺术博物馆",
+          "lat": 39.279,
+          "lng": -76.603,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "联邦国会授权的outsider art国家博物馆，位于联邦山，脑洞大开展览让人印象深刻"
+        },
+        {
+          "name": "B&O Railroad Museum",
+          "nameCn": "巴尔的摩-俄亥俄铁路博物馆",
+          "lat": 39.2843,
+          "lng": -76.6381,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "美国铁路发源地，1884年圆形车库内收藏最多19世纪蒸汽机车，可乘坐历史列车"
         }
       ]
     },
@@ -181,32 +318,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Shriver Hall",
-          "nameCn": "Shriver 礼堂",
-          "lat": 39.3265,
-          "lng": -76.6203,
-          "note": "主校区演讲与音乐会场，霍普金斯交响乐团驻地"
+          "name": "The Beach (Homewood Campus Lawn)",
+          "nameCn": "沙滩草坪（校园标志草坪）",
+          "lat": 39.3293,
+          "lng": -76.6196,
+          "rank": 1,
+          "tier": "必去",
+          "note": "Bloomberg学生中心东侧大草坡，天气好时学生集体晒太阳的灵魂地标"
         },
         {
-          "name": "Mason Hall (Admissions)",
-          "nameCn": "Mason 招生楼",
-          "lat": 39.3301,
-          "lng": -76.6205,
-          "note": "Decker四方院，招生办与访客中心"
+          "name": "Bloomberg Student Center (The Mike)",
+          "nameCn": "彭博学生中心「The Mike」",
+          "lat": 39.3289,
+          "lng": -76.6199,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2025年10月正式开放，2.5亿美元4层新生中心，JHU史上第一座专属学生中心，餐饮+社群空间一体"
         },
         {
-          "name": "Homewood Field",
-          "nameCn": "Homewood 体育场",
-          "lat": 39.3336,
-          "lng": -76.6208,
-          "note": "长曲棍球主场，沿San Martin Dr东北侧"
+          "name": "Gilman Hall Clock Tower",
+          "nameCn": "吉尔曼钟楼",
+          "lat": 39.3294,
+          "lng": -76.6207,
+          "rank": 3,
+          "tier": "必去",
+          "note": "JHU最具代表性的联邦风格建筑，钟楼是所有官方宣传材料的标志性取景地"
         },
         {
-          "name": "The Johns Hopkins Hospital (Dome)",
-          "nameCn": "霍普金斯医院（穹顶楼）",
-          "lat": 39.2965,
-          "lng": -76.593,
-          "note": "1889年标志性穹顶建筑，美国最负盛名医院之一"
+          "name": "Keyser Quadrangle",
+          "nameCn": "凯泽四合院广场",
+          "lat": 39.3296,
+          "lng": -76.621,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园几何中心草坪，四面被历史建筑围合，秋季枫叶极美，是新生军训和毕业典礼的传统集合点"
+        },
+        {
+          "name": "Homewood House (National Historic Landmark)",
+          "nameCn": "霍姆伍德大宅（国家历史地标）",
+          "lat": 39.3295,
+          "lng": -76.6209,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1801年联邦式宅邸，是整个Homewood校园的建筑原型和名称来源"
+        },
+        {
+          "name": "Shriver Hall Auditorium",
+          "nameCn": "什里弗礼堂",
+          "lat": 39.3272,
+          "lng": -76.6196,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "巴尔的摩最大音乐厅之一，经1400万美元翻修，古典音乐与讲座常年上演"
+        },
+        {
+          "name": "Decker Quad (Engineering Quad)",
+          "nameCn": "德克尔工程广场",
+          "lat": 39.3274,
+          "lng": -76.6213,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "惠廷工程学院核心区，Malone Hall+Hackerman Hall环绕，工科生日常打卡地"
         }
       ]
     },
@@ -218,32 +390,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Giant Food (601 E 33rd St)",
-          "nameCn": "巨人超市(33街店)",
-          "lat": 39.3277,
-          "lng": -76.608,
-          "note": "离 Homewood 校区最近的大型综合超市,生鲜、日用、店内还带药房,东向步行/校车可达,日常采买首选。"
+          "name": "Safeway (Charles Village)",
+          "nameCn": "Safeway（查尔斯村店）",
+          "lat": 39.31,
+          "lng": -76.6175,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的全品类超市，步行约15分钟，生鲜+药妆+熟食一站购齐"
         },
         {
-          "name": "Safeway (Charles Village, 2401 N Charles St)",
-          "nameCn": "Safeway 超市(查尔斯村店)",
-          "lat": 39.3168,
-          "lng": -76.6163,
-          "note": "校区南侧 Charles Village 的主流连锁超市,价格亲民、营业时间长,适合临时补货和周常采购。"
+          "name": "University Market (Uni Mini)",
+          "nameCn": "大学市场「Uni Mini」",
+          "lat": 39.3287,
+          "lng": -76.6182,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻校园24小时便利店，以招牌牛排蛋酪三明治和自制意面著称，深夜救急首选"
         },
         {
-          "name": "Po Tung Oriental Grocery (321 Park Ave)",
-          "nameCn": "宝同东方杂货",
-          "lat": 39.2937,
-          "lng": -76.6179,
-          "note": "巴尔的摩老华埠最全的亚洲杂货店,中式调料/面条/速食/冻品齐全,凭学生证打九折,JHU 中国学生公认补货点。"
+          "name": "GW Supermarket (Great Wall, Catonsville)",
+          "nameCn": "长城超市（卡顿斯维尔店）",
+          "lat": 39.281,
+          "lng": -76.7301,
+          "rank": 3,
+          "tier": "必去",
+          "note": "巴尔的摩地区最大中国超市，中式食材、冷冻点心、调味料一应俱全，需开车或乘公交"
         },
         {
-          "name": "Eddie's of Charles Village (3100 St Paul St)",
-          "nameCn": "Eddie's 社区超市",
-          "lat": 39.3268,
-          "lng": -76.6159,
-          "note": "紧邻校区、可步行到的本地老牌社区超市,生鲜熟食精致,临时买菜买早餐最方便。"
+          "name": "H Mart (Catonsville)",
+          "nameCn": "韩亚超市（卡顿斯维尔店）",
+          "lat": 39.2762,
+          "lng": -76.7328,
+          "rank": 4,
+          "tier": "必去",
+          "note": "大型韩裔亚洲超市，韩式、日式、中式食材+熟食区，与长城超市相距约1英里可合并购物"
+        },
+        {
+          "name": "MOM's Organic Market (Hampden)",
+          "nameCn": "MOM有机超市（汉普顿店）",
+          "lat": 39.3348,
+          "lng": -76.6348,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "步行可达的有机超市，藏于Rotunda历史建筑内，素食/有机/环保选品丰富"
+        },
+        {
+          "name": "Po Tung Trading (Downtown)",
+          "nameCn": "宝通东方杂货铺（市中心）",
+          "lat": 39.2924,
+          "lng": -76.6174,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "巴尔的摩唐人街遗存，平价亚洲食材+调料，深受JHU留学生青睐，营业时段有限需提前确认"
         }
       ]
     },
@@ -255,39 +453,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Lao Sze Chuan (3224 St Paul St)",
-          "nameCn": "老四川",
-          "lat": 39.3279,
-          "lng": -76.6162,
-          "note": "全美连锁正宗川菜,毗邻校区,水煮/麻婆/干锅地道解辣,中国学生聚餐高频选择。"
-        },
-        {
-          "name": "Tamber's (3327 St Paul St)",
-          "nameCn": "Tamber's 五十年代餐厅",
-          "lat": 39.3291,
-          "lng": -76.6157,
-          "note": "距校区两个街区的查尔斯村老字号,印度菜+美式 diner 复古混搭,招牌咖喱和奶昔,深夜也开。"
-        },
-        {
-          "name": "Ekiben (911 W 36th St, Hampden)",
-          "nameCn": "Ekiben 亚洲融合",
-          "lat": 39.3286,
-          "lng": -76.639,
-          "note": "巴尔的摩网红亚洲融合馆,招牌台式咖喱炸鸡刈包(Neighborhood Bird),在 Hampden 的 The Avenue 上,必打卡。"
-        },
-        {
-          "name": "The Charmery (801 W 36th St, Hampden)",
-          "nameCn": "The Charmery 手工冰淇淋",
+          "name": "Lao Sze Chuan",
+          "nameCn": "老四川（查尔斯村）",
           "lat": 39.3285,
-          "lng": -76.6379,
-          "note": "Hampden The Avenue 上的本地超人气手工冰淇淋,季节限定口味多,逛街顺道必吃。"
+          "lng": -76.6183,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "芝加哥名牌川菜连锁在查尔斯村开店，麻辣口味正宗，校门口最方便的中餐首选"
         },
         {
-          "name": "Faidley's Seafood (Lexington Market)",
-          "nameCn": "Faidley 海鲜(蟹饼)",
-          "lat": 39.2919,
-          "lng": -76.6219,
-          "note": "1886 年至今的巴尔的摩海鲜老店,招牌马里兰大块蟹饼(crab cake)是来 Charm City 必尝的本地名物。"
+          "name": "Orient Express",
+          "nameCn": "东方快车（川菜）",
+          "lat": 39.3253,
+          "lng": -76.6171,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "家庭经营川菜馆，开在校园旁St Paul街，价格亲民，是JHU中国学生的老牌据点"
+        },
+        {
+          "name": "Ekiben (Hampden)",
+          "nameCn": "Ekiben亚洲炸鸡（汉普顿）",
+          "lat": 39.3391,
+          "lng": -76.6357,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "巴尔的摩最火亚洲风味炸鸡三明治，Neighborhood Bird是社交媒体常驻爆款"
+        },
+        {
+          "name": "R. House Food Hall",
+          "nameCn": "R. House美食广场",
+          "lat": 39.3224,
+          "lng": -76.6254,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "Remington社区多品牌美食集市，韩式烧烤/波克碗/中东料理等多元选择，气氛热闹"
+        },
+        {
+          "name": "Water Song Yunnan Kitchen",
+          "nameCn": "水歌云南厨房",
+          "lat": 39.2797,
+          "lng": -76.6039,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "联邦山云南米线专门店，老板本人来自云南省，米线汤头鲜美，留学生吃了回家的感觉"
+        },
+        {
+          "name": "The Food Market",
+          "nameCn": "食品市场（汉普顿）",
+          "lat": 39.3402,
+          "lng": -76.638,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "汉普顿大街中段网红餐厅，美式创意舒适餐，出镜率最高的巴尔的摩本地美食之一"
+        },
+        {
+          "name": "Gertrude's Chesapeake Kitchen",
+          "nameCn": "格特鲁德切萨皮克厨房",
+          "lat": 39.3265,
+          "lng": -76.6191,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "位于巴尔的摩艺术博物馆内，切萨皮克湾农场到餐桌本地料理，推开博物馆大门就能到"
+        },
+        {
+          "name": "Tamber's Restaurant",
+          "nameCn": "坦伯餐厅（印度+美式）",
+          "lat": 39.3316,
+          "lng": -76.6176,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "1991年开业的查尔斯村老店，印式咖喱与美式汉堡双线并行，深受学生喜爱"
+        },
+        {
+          "name": "Bodhi Corner (at R. House)",
+          "nameCn": "菩提角（R. House内）",
+          "lat": 39.3224,
+          "lng": -76.6254,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "R. House内埃及素食摊位，醉鸡面和素炸豆泥球是素食生招牌，也受非素食者追捧"
+        },
+        {
+          "name": "Artifact Coffee",
+          "nameCn": "Artifact精品咖啡",
+          "lat": 39.3447,
+          "lng": -76.6381,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Union Ave工业风精品咖啡馆，出自Woodberry Kitchen团队，手冲和烘焙全Baltimore最高分之列"
+        },
+        {
+          "name": "Dear Charles",
+          "nameCn": "Dear Charles（学习酒店内餐厅）",
+          "lat": 39.328,
+          "lng": -76.6188,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Study at Johns Hopkins酒店内餐厅，提供高品质早午餐，周末特别适合和家人聚餐"
+        },
+        {
+          "name": "Kajiken Baltimore",
+          "nameCn": "Kajiken油拌面（日式）",
+          "lat": 39.3253,
+          "lng": -76.618,
+          "rank": 12,
+          "tier": "一般",
+          "note": "日式台湾风格拌面专门店，汤底浓郁、面条劲道，JHU日韩留学生圈内口碑极好"
+        },
+        {
+          "name": "University Market Deli",
+          "nameCn": "Uni Mini熟食吧台",
+          "lat": 39.3287,
+          "lng": -76.6182,
+          "rank": 13,
+          "tier": "一般",
+          "note": "24小时营业的校门口便利店附设熟食台，深夜唯一选择，牛排蛋酪三明治是传说级单品"
         }
       ]
     },
@@ -299,32 +579,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (3400 N Charles St)",
-          "nameCn": "美国银行(开户)",
-          "lat": 39.3309,
-          "lng": -76.6202,
-          "note": "位于校区北缘 N Charles 街上的大行网点,JHU 国际学生处推荐的开户银行之一,办卡/开户/ATM 都方便。"
+          "name": "Chase Bank (St Paul St Branch)",
+          "nameCn": "大通银行（圣保罗街校园网点）",
+          "lat": 39.328,
+          "lng": -76.6182,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距Homewood校园最近的大通银行支行，国际学生推荐首选开户银行之一，JHU OIS官方推荐"
         },
         {
-          "name": "MedStar Union Memorial Hospital (201 E University Pkwy)",
-          "nameCn": "联合纪念医院",
-          "lat": 39.3295,
-          "lng": -76.6148,
-          "note": "紧邻校区北侧的综合医院,设急诊室,突发就医或急症送医最近的大医院。"
+          "name": "Bank of America (Johns Hopkins Branch)",
+          "nameCn": "美国银行（约翰霍普金斯校园支行）",
+          "lat": 39.3289,
+          "lng": -76.6207,
+          "rank": 2,
+          "tier": "必去",
+          "note": "在校内3400 N Charles St设有网点，校园书店旁，存取款极便利，学生开户免月费"
         },
         {
           "name": "CVS Pharmacy (3200 St Paul St)",
-          "nameCn": "CVS 药房",
-          "lat": 39.3272,
-          "lng": -76.6163,
-          "note": "就在校区旁 3200 St Paul 综合体内的连锁药房,处方药、常备药和日用品随时可买。"
+          "nameCn": "CVS药房（圣保罗街店）",
+          "lat": 39.3275,
+          "lng": -76.6183,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校门口32街转角的CVS，日常药品+护肤+零食，营业时间长，MinuteClinic诊所也在内"
         },
         {
-          "name": "Metro by T-Mobile (2440 N Charles St)",
-          "nameCn": "Metro 电话卡门店",
-          "lat": 39.3174,
-          "lng": -76.6172,
-          "note": "校区南侧 N Charles 街上的运营商门店,办手机卡/预付费套餐方便,落地先开通号码可来这里。"
+          "name": "JHU Student Health Wellness Center",
+          "nameCn": "JHU学生健康与健康中心（初级医疗）",
+          "lat": 39.32,
+          "lng": -76.6202,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校属初级医疗诊所，地址1 E 31st Street N200，须持学生保险，年度体检和常规就医首选"
+        },
+        {
+          "name": "MedStar Union Memorial Hospital",
+          "nameCn": "美德医疗联合纪念医院",
+          "lat": 39.329,
+          "lng": -76.6035,
+          "rank": 5,
+          "tier": "必去",
+          "note": "距校区最近的全科医院，急诊24小时，地址201 E University Pkwy，步行或短途Uber可达"
+        },
+        {
+          "name": "T-Mobile (W 41st St Hampden)",
+          "nameCn": "T-Mobile（汉普顿41街店）",
+          "lat": 39.3394,
+          "lng": -76.6398,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "步行可达的T-Mobile门店，留学生常选的实体SIM卡购买地点，套餐灵活无合约"
+        },
+        {
+          "name": "MedStar Urgent Care Anneslie",
+          "nameCn": "MedStar紧急医疗（安尼斯利店）",
+          "lat": 39.3641,
+          "lng": -76.6075,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "6317 York Road，非急诊小病首选，无需预约，周一至五8am至8pm，性价比高于急诊室"
         }
       ]
     },
@@ -336,32 +651,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Baltimore Museum of Art (10 Art Museum Dr)",
-          "nameCn": "巴尔的摩艺术博物馆",
-          "lat": 39.3258,
-          "lng": -76.6197,
-          "note": "就贴着校区南侧,常年免费入场,藏有北美最大的马蒂斯收藏(Cone 收藏)与雕塑花园,学生消磨周末的好去处。"
+          "name": "Hampden The Avenue W 36th St",
+          "nameCn": "汉普顿大街（36街）",
+          "lat": 39.3391,
+          "lng": -76.638,
+          "rank": 1,
+          "tier": "必去",
+          "note": "步行即达的波西米亚风社区，百余家特色小店+餐厅+酒吧，巴尔的摩最有活力的街区"
         },
         {
-          "name": "Sherwood Gardens",
-          "nameCn": "舍伍德花园(郁金香)",
-          "lat": 39.3414,
-          "lng": -76.6142,
-          "note": "校区北侧 Guilford 社区的 6 英亩免费花园,号称北美最有名的郁金香园,每年四月底五月初花海绝佳拍照点。"
+          "name": "Baltimore Inner Harbor",
+          "nameCn": "巴尔的摩内港",
+          "lat": 39.2856,
+          "lng": -76.6122,
+          "rank": 2,
+          "tier": "必去",
+          "note": "城市最著名的滨水地标，国家水族馆+科学中心+历史船只云集，周末必打卡"
         },
         {
-          "name": "Homewood Museum",
-          "nameCn": "Homewood 故居博物馆",
-          "lat": 39.3287,
-          "lng": -76.6201,
-          "note": "就在校园内的联邦时期建筑国家历史地标,JHU 校名即源于此宅,免费可参观,顺路打卡校园历史。"
+          "name": "National Aquarium Baltimore",
+          "nameCn": "巴尔的摩国家水族馆",
+          "lat": 39.2862,
+          "lng": -76.6084,
+          "rank": 3,
+          "tier": "必去",
+          "note": "美国顶级水族馆，16000余只动物+热带雨林+澳洲河谷，内港核心景点"
+        },
+        {
+          "name": "Fells Point Historic District",
+          "nameCn": "费尔斯角历史街区",
+          "lat": 39.2844,
+          "lng": -76.5984,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1763年建港的历史街区，鹅卵石街巷+牡蛎酒吧+夜间现场音乐，周末夜生活最佳去处"
         },
         {
           "name": "Wyman Park Dell",
-          "nameCn": "怀曼公园谷地",
-          "lat": 39.3252,
-          "lng": -76.6242,
-          "note": "校区西南侧的开阔绿地谷地,连接 BMA 与校园,适合散步、野餐和春秋拍照。"
+          "nameCn": "怀曼公园山谷",
+          "lat": 39.3274,
+          "lng": -76.628,
+          "rank": 5,
+          "tier": "必去",
+          "note": "紧贴Homewood校园西侧，16英亩草地+Stony Run小径，学生跑步和野餐日常目的地"
+        },
+        {
+          "name": "Fort McHenry National Monument",
+          "nameCn": "麦克亨利堡国家纪念地",
+          "lat": 39.2634,
+          "lng": -76.5799,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "美国国歌诞生地，1814年巴尔的摩战役遗址，42英亩公园内可眺望海湾，免费参观"
+        },
+        {
+          "name": "Peabody Institute Conservatory",
+          "nameCn": "皮博迪音乐学院",
+          "lat": 39.3016,
+          "lng": -76.6156,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "创立1857年的世界名校级音乐学院，学生音乐会常年免费对外开放，听古典乐绝佳去处"
+        },
+        {
+          "name": "Maryland Science Center",
+          "nameCn": "马里兰科学中心",
+          "lat": 39.2832,
+          "lng": -76.616,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "内港旁互动式科学博物馆，含IMAX影院和天象馆，工科生最爱的周末消遣"
+        },
+        {
+          "name": "Oriole Park at Camden Yards",
+          "nameCn": "卡姆登球场（金莺队主场）",
+          "lat": 39.2839,
+          "lng": -76.6215,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "美国最美棒球场之一，1992年复古风格设计先河，MLB金莺队主场，体验美国棒球文化的最佳课堂"
+        },
+        {
+          "name": "American Visionary Art Museum AVAM",
+          "nameCn": "美国视觉艺术博物馆",
+          "lat": 39.279,
+          "lng": -76.603,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "脑洞大开的outsider art国家博物馆，联邦山山顶风车是城市天际线一景"
+        },
+        {
+          "name": "B&O Railroad Museum",
+          "nameCn": "B&O铁路博物馆",
+          "lat": 39.2843,
+          "lng": -76.6381,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "美国铁路发源地，圆形车库保存最多19世纪蒸汽机车，可乘坐历史列车"
         }
       ]
     }

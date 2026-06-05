@@ -51,46 +51,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Lovett Hall",
-          "nameCn": "洛维特楼",
-          "lat": 29.718,
-          "lng": -95.399,
-          "note": "1912 年原行政楼，拜占庭风格地标，校园东侧正门所在。"
+          "name": "Duncan Hall (Engineering & Computer Science)",
+          "nameCn": "邓肯楼（工程与计算机系）",
+          "lat": 29.7196,
+          "lng": -95.4005,
+          "rank": 1,
+          "tier": "必去",
+          "note": "乔治·布朗工程与计算学院核心楼，内设CS/ECE/统计等系，约翰·奥特拉姆设计的后现代建筑，外观极具辨识度。"
         },
         {
-          "name": "Duncan Hall (Computational Engineering)",
-          "nameCn": "邓肯楼（计算工程）",
-          "lat": 29.7204,
-          "lng": -95.3984,
-          "note": "工程四方院，色彩绚丽的中庭天花板著称。"
+          "name": "Lovett Hall",
+          "nameCn": "洛维特楼",
+          "lat": 29.7172,
+          "lng": -95.4022,
+          "rank": 2,
+          "tier": "必去",
+          "note": "莱斯大学最具标志性的行政楼，地中海复兴风格，入学典礼与毕业典礼均在此举行，含拱门Sallyport。"
+        },
+        {
+          "name": "George R. Brown Hall",
+          "nameCn": "乔治·布朗楼（工程主楼）",
+          "lat": 29.7201,
+          "lng": -95.3995,
+          "rank": 3,
+          "tier": "必去",
+          "note": "工程学院主要教学楼，化学工程、土木工程、材料科学等系均设于此，配备先进实验室。"
+        },
+        {
+          "name": "McNair Hall (Jones School of Business)",
+          "nameCn": "麦克奈尔楼（商学院）",
+          "lat": 29.7182,
+          "lng": -95.397,
+          "rank": 4,
+          "tier": "必去",
+          "note": "杰西·琼斯商学院所在地，内设现代教室、交易室及研究空间，MBA学生主要活动区域。"
+        },
+        {
+          "name": "Alice Pratt Brown Hall (Shepherd School of Music)",
+          "nameCn": "艾丽斯·普拉特·布朗楼（音乐学院）",
+          "lat": 29.7175,
+          "lng": -95.3968,
+          "rank": 5,
+          "tier": "必去",
+          "note": "谢泼德音乐学院驻地，由西班牙建筑师里卡多·博菲尔设计，内设多个演奏厅，经常有免费音乐会。"
         },
         {
           "name": "Brockman Hall for Physics",
           "nameCn": "布罗克曼物理楼",
-          "lat": 29.71974,
-          "lng": -95.40141,
-          "note": "2011 年落成，物理与天文系，跨越通道架于水景之上。"
+          "lat": 29.72,
+          "lng": -95.4012,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "物理与天文学系现代科研楼，配备量子计算与纳米科学实验室，莱斯物理系全美排名前列。"
         },
         {
-          "name": "Shepherd School of Music (Alice Pratt Brown Hall)",
-          "nameCn": "谢泼德音乐学院",
-          "lat": 29.71623,
-          "lng": -95.40498,
-          "note": "西四方院，全美顶尖音乐学院之一。"
+          "name": "Sewall Hall (Social Sciences & Humanities)",
+          "nameCn": "西沃尔楼（社会科学与人文）",
+          "lat": 29.7163,
+          "lng": -95.4013,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "社会科学与人文艺术学院核心楼，紧邻学术广场，内有最大阶梯教室，历史悠久。"
         },
         {
-          "name": "Anderson Biological Laboratories",
-          "nameCn": "安德森生物实验楼",
-          "lat": 29.71865,
-          "lng": -95.40233,
-          "note": "学术四方院西北侧，生物科学教学与研究。"
+          "name": "BioScience Research Collaborative (BRC)",
+          "nameCn": "生命科学研究合作中心",
+          "lat": 29.7093,
+          "lng": -95.4013,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "位于6500 Main St，莱斯大学与德州医疗中心联合科研基地，生物工程与医学交叉研究重镇。"
         },
         {
-          "name": "Jesse H. Jones Graduate School of Business",
-          "nameCn": "琼斯商学院",
-          "lat": 29.71749,
-          "lng": -95.40359,
-          "note": "McNair Hall，校园北部商科教学楼。"
+          "name": "Keck Hall (Chemistry & Bioengineering)",
+          "nameCn": "凯克楼（化学与生物工程）",
+          "lat": 29.7195,
+          "lng": -95.4018,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "分子生物物理、生物化学与生物工程系所在地，现代化实验室与灵活协作空间设计。"
+        },
+        {
+          "name": "Baker Institute for Public Policy",
+          "nameCn": "贝克公共政策研究所",
+          "lat": 29.7178,
+          "lng": -95.3975,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "著名智库，研究能源、中国政策、卫生政策等议题，常有面向学生的公开论坛和讲座。"
+        },
+        {
+          "name": "Herzstein Hall",
+          "nameCn": "赫茨斯坦楼",
+          "lat": 29.7168,
+          "lng": -95.4018,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "原物理楼，现为人文与社会科学教学楼，内设校园最大阶梯礼堂，学术讲座常在此举办。"
+        },
+        {
+          "name": "Anderson Hall (Architecture)",
+          "nameCn": "安德森楼（建筑学院）",
+          "lat": 29.7161,
+          "lng": -95.4025,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "莱斯建筑学院驻地，学术广场西北角，学生作品展览常向公众开放。"
         }
       ],
       "defaultOn": true
@@ -104,10 +170,57 @@
       "items": [
         {
           "name": "Fondren Library",
-          "nameCn": "方德仁图书馆",
-          "lat": 29.7176,
-          "lng": -95.4003,
-          "note": "1949 年主图书馆，正对洛维特楼，镇守学术四方院西侧。"
+          "nameCn": "丰得伦图书馆（主馆）",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 1,
+          "tier": "必去",
+          "note": "莱斯大学主图书馆，馆藏超250万册，六楼可俯瞰校园全景，内含布朗美术图书馆与伍德森特藏中心。"
+        },
+        {
+          "name": "Woodson Research Center (Special Collections)",
+          "nameCn": "伍德森研究中心（珍本特藏）",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于丰得伦一楼，收藏莱斯大学档案、善本书、德克萨斯历史及航空史手稿，可预约阅览。"
+        },
+        {
+          "name": "Brown Fine Arts Library",
+          "nameCn": "布朗美术图书馆",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于丰得伦三楼，专注艺术、建筑与音乐馆藏，阅览环境优雅，是艺术专业学生的最爱。"
+        },
+        {
+          "name": "Fondren Library Sixth Floor Study Space",
+          "nameCn": "丰得伦六楼安静学习区",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "安静阅览楼层，可俯瞰整片校园绿地与远处城市天际线，期末季最受欢迎的备考地点。"
+        },
+        {
+          "name": "Mudd Computer Science Reading Room",
+          "nameCn": "马德计算机阅览室（丰得伦内）",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "丰得伦内专为理工科设置的自习区，全天候提供高速网络，深夜学习的热门场所。"
+        },
+        {
+          "name": "Rice University Digital Collections (Online)",
+          "nameCn": "莱斯大学数字馆藏（在线）",
+          "lat": 29.717,
+          "lng": -95.4013,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "通过digitalcollections.rice.edu可访问校史照片、毕业年鉴与地图等数字资源，线上免费开放。"
         }
       ]
     },
@@ -121,16 +234,56 @@
         {
           "name": "Moody Center for the Arts",
           "nameCn": "穆迪艺术中心",
-          "lat": 29.71406,
-          "lng": -95.40556,
-          "note": "2017 年开放的现代艺术展演空间，串联音乐学院与天光屋。"
+          "lat": 29.719,
+          "lng": -95.3987,
+          "rank": 1,
+          "tier": "必去",
+          "note": "莱斯校园内免费当代艺术馆，获评休斯顿最佳免费博物馆，还设有James Turrell Skyspace装置（暑期将重开）。"
         },
         {
-          "name": "Twilight Epiphany Skyspace (James Turrell)",
-          "nameCn": "天光顿悟（特瑞尔天空之境）",
-          "lat": 29.71649,
-          "lng": -95.40426,
-          "note": "特瑞尔光影艺术装置，日落 LED 灯光秀，邻近音乐学院。"
+          "name": "The Menil Collection",
+          "nameCn": "梅尼尔收藏馆",
+          "lat": 29.7376,
+          "lng": -95.3979,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1533 Sul Ross St，永久免费，收藏古代至当代杰作，含赛·托姆布雷画廊和丹·弗莱文装置，距校约2.5公里。"
+        },
+        {
+          "name": "Museum of Fine Arts, Houston (MFAH)",
+          "nameCn": "休斯顿美术博物馆",
+          "lat": 29.7256,
+          "lng": -95.3906,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1001 Bissonnet St，全美最大美术馆之一，馆藏63,000件，周四免费，距校约1公里，步行或骑车可达。"
+        },
+        {
+          "name": "Houston Museum of Natural Science (HMNS)",
+          "nameCn": "休斯顿自然科学博物馆",
+          "lat": 29.7224,
+          "lng": -95.388,
+          "rank": 4,
+          "tier": "必去",
+          "note": "5555 Hermann Park Dr，恐龙化石、蝴蝶中心、天文馆一体，周二17:00后免费入场，赫尔曼公园内。"
+        },
+        {
+          "name": "Contemporary Arts Museum Houston (CAMH)",
+          "nameCn": "休斯顿当代艺术博物馆",
+          "lat": 29.7264,
+          "lng": -95.3915,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "5216 Montrose Blvd，永久免费，聚焦当代实验艺术，紧邻MFAH，周四延至晚9点。"
+        },
+        {
+          "name": "Asia Society Texas Center",
+          "nameCn": "亚洲协会德克萨斯中心",
+          "lat": 29.7285,
+          "lng": -95.385,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1370 Southmore Blvd，周四免费，展示亚洲多国艺术与文化，设书法体验站和亚洲语言学习角，对华人学生格外友好。"
         }
       ]
     },
@@ -142,39 +295,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Rice Stadium",
-          "nameCn": "莱斯体育场",
-          "lat": 29.7164,
-          "lng": -95.4092,
-          "note": "1950 年橄榄球场，校园西北端，曾办 1974 超级碗。"
-        },
-        {
-          "name": "Tudor Fieldhouse",
-          "nameCn": "都铎体育馆",
-          "lat": 29.7151,
-          "lng": -95.4039,
-          "note": "篮球与排球主场馆。"
-        },
-        {
-          "name": "Reckling Park",
-          "nameCn": "雷克林棒球场",
-          "lat": 29.71376,
-          "lng": -95.40425,
-          "note": "校园西南角棒球场，可容 7000 余人。"
-        },
-        {
-          "name": "Rice Memorial Center (RMC)",
-          "nameCn": "莱斯纪念学生中心",
-          "lat": 29.71797,
-          "lng": -95.40223,
-          "note": "学生活动中心，沿内环路而立。"
+          "name": "The Sallyport (Lovett Hall Arch)",
+          "nameCn": "萨利港拱门",
+          "lat": 29.7172,
+          "lng": -95.4022,
+          "rank": 1,
+          "tier": "必去",
+          "note": "莱斯最著名打卡点，新生入学走进、毕业生走出，是莱斯人集体记忆与仪式感的核心象征。"
         },
         {
           "name": "Brochstein Pavilion",
-          "nameCn": "布罗赫斯坦玻璃亭",
-          "lat": 29.7178,
-          "lng": -95.3996,
-          "note": "2008 年中央四方院玻璃咖啡亭，校园社交核心。"
+          "nameCn": "布罗克斯坦亭",
+          "lat": 29.7177,
+          "lng": -95.4003,
+          "rank": 2,
+          "tier": "必去",
+          "note": "中央广场玻璃建筑，灵感来自巴黎杜乐丽花园，内设咖啡馆与户外座椅，是学生聚会最爱的开放空间。"
+        },
+        {
+          "name": "James Turrell 'Twilight Epiphany' Skyspace",
+          "nameCn": "特瑞尔天空装置《暮光显现》",
+          "lat": 29.7209,
+          "lng": -95.4002,
+          "rank": 3,
+          "tier": "必去",
+          "note": "草坡金字塔式公共艺术装置，日出前40分钟与日落后10分钟启动LED光影秀，每年吸引2万名访客，免费开放（2026年暑期重开）。"
+        },
+        {
+          "name": "Rice Memorial Center / Ley Student Center (RMC)",
+          "nameCn": "莱斯纪念学生中心",
+          "lat": 29.7167,
+          "lng": -95.4,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园核心学生中心，内有书店、多家餐饮、学生社团活动空间及Chase ATM，日常最热闹的室内场所。"
+        },
+        {
+          "name": "Academic Quadrangle & William Marsh Rice Statue",
+          "nameCn": "学术广场与赖斯创始人雕像",
+          "lat": 29.7168,
+          "lng": -95.4015,
+          "rank": 5,
+          "tier": "必去",
+          "note": "校园中心草坪广场，四围为洛维特楼、丰得伦图书馆等历史建筑，创始人雕像前是新生拍照留念必到之处。"
+        },
+        {
+          "name": "Hermann Park & McGovern Centennial Gardens",
+          "nameCn": "赫尔曼公园与百年纪念花园",
+          "lat": 29.7216,
+          "lng": -95.3893,
+          "rank": 6,
+          "tier": "必去",
+          "note": "紧邻校园东北角，445英亩城市公园，含博物馆群、Houston Zoo、麦克高文花园及METRORail车站，是最常去的周末放松地。"
+        },
+        {
+          "name": "Rice Village Shopping District",
+          "nameCn": "莱斯村购物区",
+          "lat": 29.7191,
+          "lng": -95.408,
+          "rank": 7,
+          "tier": "必去",
+          "note": "校园正西侧商业区，集餐厅、咖啡馆、精品店于一身，步行5分钟可达，是学生日常外出用餐购物首选。"
+        },
+        {
+          "name": "METRORail Hermann Park/Rice University Station",
+          "nameCn": "MetroRail赫尔曼公园/莱斯大学站",
+          "lat": 29.7199,
+          "lng": -95.3944,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "红线轻轨站，位于Fannin St与Sunset Blvd交叉口，可直通博物馆区、市中心及德州医疗中心，国际生最重要的公共交通节点。"
         }
       ]
     },
@@ -186,32 +376,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "H-E-B Buffalo Speedway",
-          "nameCn": "H-E-B 超市（Buffalo Speedway 店）",
-          "lat": 29.72704,
-          "lng": -95.42717,
-          "note": "离校最近的大型综合超市，德州本土连锁，生鲜平价、设国际食品区，留学生日常采购首选。"
+          "name": "H-Mart Bellaire",
+          "nameCn": "韩亚超市（贝莱尔店）",
+          "lat": 29.6931,
+          "lng": -95.4765,
+          "rank": 1,
+          "tier": "必去",
+          "note": "9896 Bellaire Blvd，韩式及泛亚洲食材最全，泡菜、拉面、年糕、韩国零食应有尽有，是留学生囤货首选。"
+        },
+        {
+          "name": "Great Wall Supermarket (Dun Huang Plaza)",
+          "nameCn": "大中华超市（敦煌广场）",
+          "lat": 29.693,
+          "lng": -95.4768,
+          "rank": 2,
+          "tier": "必去",
+          "note": "9889 Bellaire Blvd，活海鲜超市，中国进口食材、新鲜蔬菜与调料品类最齐全，是华人社区最核心的中式超市。"
+        },
+        {
+          "name": "Jusgo Supermarket (百佳)",
+          "nameCn": "百佳超级市场",
+          "lat": 29.694,
+          "lng": -95.4754,
+          "rank": 3,
+          "tier": "必去",
+          "note": "9280 Bellaire Blvd，中国特色食材、稀有蔬菜与活海鲜为特色，价格实惠，营业至晚10点，位于贝莱尔华人区核心。"
         },
         {
           "name": "Whole Foods Market (Kirby)",
-          "nameCn": "全食超市（Kirby 店）",
-          "lat": 29.73948,
-          "lng": -95.41817,
-          "note": "高端有机超市，有机食材、熟食和现成餐区丰富，距校约 3 公里。"
+          "nameCn": "全食超市（科比店）",
+          "lat": 29.7362,
+          "lng": -95.3993,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2955 Kirby Dr，距校约3公里，有机食品与高品质进口产品齐全，热食区可直接打包当午餐。"
+        },
+        {
+          "name": "Kroger (Buffalo Speedway)",
+          "nameCn": "克罗格超市（布法罗大道店）",
+          "lat": 29.7173,
+          "lng": -95.4218,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "5150 Buffalo Speedway，距校1.5公里，24小时营业，生活用品与食材一站购齐，价格亲民，是最便捷的日常超市。"
         },
         {
           "name": "Trader Joe's (S Shepherd)",
-          "nameCn": "缺德舅超市（南谢泼德店）",
-          "lat": 29.7392,
-          "lng": -95.41117,
-          "note": "美国人气连锁，自有品牌冷冻食品和零食便宜好吃，性价比高。"
+          "nameCn": "乔氏超市（南谢泼德店）",
+          "lat": 29.738,
+          "lng": -95.3978,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2922 S Shepherd Dr，以自有品牌食品和独家进口零食著称，价格性价比高，学生中口碑极好。"
         },
         {
-          "name": "99 Ranch Market (Asiatown)",
-          "nameCn": "大华超市（华人城店）",
-          "lat": 29.78568,
-          "lng": -95.52342,
-          "note": "全美最大华人连锁超市，中餐调料、活鲜、亚洲蔬菜最齐全；在 Bellaire 华人城，需开车约 20 分钟，囤中餐货专程一趟。"
+          "name": "HEB (Buffalo Speedway)",
+          "nameCn": "HEB超市（布法罗大道店）",
+          "lat": 29.7168,
+          "lng": -95.4223,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "5225 Buffalo Speedway，德州本土连锁超市，自有品牌食材性价比极高，熟食区和烘焙区深受好评。"
+        },
+        {
+          "name": "99 Ranch Market (Memorial)",
+          "nameCn": "大华超市（纪念公园店）",
+          "lat": 29.7763,
+          "lng": -95.4725,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1005 Blalock Rd，东亚各国零食与食材种类超丰富，内设85度烘焙与美食广场，适合一次性大量采购。"
         }
       ]
     },
@@ -225,37 +459,119 @@
         {
           "name": "Tiger Noodle House",
           "nameCn": "老虎面馆",
-          "lat": 29.71757,
-          "lng": -95.41603,
-          "note": "Rice Village 内的人气中餐面馆，牛肉面、饺子、川味小炒平价管饱，步行可达的中国胃食堂。"
+          "lat": 29.7198,
+          "lng": -95.4085,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "2424 Rice Blvd，莱斯学生票仓，步行5分钟，四川牛肉面和爆炒菜价格实惠，深夜仍营业，是华人学生最高频光顾的中餐馆。"
         },
         {
-          "name": "Duck N Bao",
-          "nameCn": "鸭与包",
-          "lat": 29.7143,
-          "lng": -95.41718,
-          "note": "Rice Village 网红中餐，招牌烤鸭和小笼包（灌汤包）出名，约会聚餐两宜。"
+          "name": "Mian (四川面馆)",
+          "nameCn": "面（四川米其林面馆）",
+          "lat": 29.6937,
+          "lng": -95.475,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "9600 Bellaire Blvd，米其林Bib Gourmand认证，重庆小面与辣子鸡拌面获《德克萨斯月刊》强推，是休斯顿四川面条最高水准。"
         },
         {
-          "name": "Cooking Girl (West U)",
-          "nameCn": "做饭的姑娘（西大学城店）",
-          "lat": 29.70648,
-          "lng": -95.41518,
-          "note": "颜值与口味俱佳的川菜馆，麻辣鲜香、摆盘讲究，深受华人留学生喜爱。"
+          "name": "HK Dim Sum (香港点心城)",
+          "nameCn": "香港点心城",
+          "lat": 29.6932,
+          "lng": -95.4768,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "9889 Bellaire Blvd #110，本地大厨私下常去的点心馆，虾饺、肠粉、叉烧包水准高，早茶时段排队是常态。"
         },
         {
-          "name": "Hungry's Cafe & Bistro",
-          "nameCn": "Hungry's 美式餐吧",
-          "lat": 29.71782,
-          "lng": -95.41333,
-          "note": "Rice Village 老牌美式餐厅，汉堡沙拉早午餐都有，离校仅 1 公里、是接待来客的方便选择。"
+          "name": "Fung's Kitchen",
+          "nameCn": "冯记厨房（粤菜/点心）",
+          "lat": 29.6952,
+          "lng": -95.4658,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "7320 SW Fwy #115，港式点心150+道、手推车服务，是休斯顿华人圈公认最正宗的广式早茶体验，聚餐首选。"
         },
         {
-          "name": "Local Foods (Rice Village)",
-          "nameCn": "Local Foods 轻食（米村店）",
-          "lat": 29.71949,
-          "lng": -95.41653,
-          "note": "本地人气三明治/轻食店，主打新鲜健康，适合赶课间快速解决一餐。"
+          "name": "Sinh Sinh Restaurant",
+          "nameCn": "新新餐厅（广式烧腊/海鲜）",
+          "lat": 29.6941,
+          "lng": -95.4762,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "9788 Bellaire Blvd，现流海鲜直取，片皮烤鸭、皮皮虾为招牌，是休斯顿华人圈口碑最稳的广式海鲜烧腊大馆。"
+        },
+        {
+          "name": "Crawfish & Noodles",
+          "nameCn": "小龙虾与面（越南卡疆融合）",
+          "lat": 29.695,
+          "lng": -95.496,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "11360 Bellaire Blvd，James Beard入围大厨Trong Nguyen创立的越南卡疆龙虾馆，被Netflix收录，是休斯顿最具代表性的本土饮食创新。"
+        },
+        {
+          "name": "Duck n Bao (Rice Village)",
+          "nameCn": "烤鸭包子馆（莱斯村）",
+          "lat": 29.7196,
+          "lng": -95.4082,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "5215 Kelvin Dr，紧邻校园，北京烤鸭与小笼包口碑极好，提供外卖，是平时聚餐最方便的中式正餐馆。"
+        },
+        {
+          "name": "Pho Binh (Bellaire)",
+          "nameCn": "阿Binh越南河粉",
+          "lat": 29.6965,
+          "lng": -95.4956,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "10827 Bellaire Blvd，自1983年起营业，被评为休斯顿最佳河粉，老汤醇厚，是华人学生游逛贝莱尔时必吃的越南牛肉河粉。"
+        },
+        {
+          "name": "Turan Uyghur Kitchen",
+          "nameCn": "图兰新疆餐厅",
+          "lat": 29.6938,
+          "lng": -95.4756,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "9330 Bellaire Blvd，休斯顿难得一见的新疆菜，大盘鸡、手抓饭与拉条子口味正宗，深受北方同学好评。"
+        },
+        {
+          "name": "Triple Pepper (Sichuan)",
+          "nameCn": "三椒（四川菜）",
+          "lat": 29.754,
+          "lng": -95.3976,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "1915 W Gray St，距校约5公里，川菜椒盐鱼片与辣炒猪大肠获好评，氛围时尚，适合小聚改善伙食。"
+        },
+        {
+          "name": "Saigon Pagolac (Vietnamese 7-course beef)",
+          "nameCn": "西贡宝阁（越南七式牛肉宴）",
+          "lat": 29.697,
+          "lng": -95.4876,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "11606 Bellaire Blvd，人均不足$20的越南七式牛肉宴体验，份量豪迈，是预算有限时吃出仪式感的经典选择。"
+        },
+        {
+          "name": "Barnaby's Café",
+          "nameCn": "巴纳比咖啡馆（美式舒适食物）",
+          "lat": 29.7318,
+          "lng": -95.3865,
+          "rank": 12,
+          "tier": "一般",
+          "note": "博物馆区经典美式餐厅，mac & cheese与汉堡是招牌，环境温馨，逛完MFAH后的绝佳就餐选择。"
+        },
+        {
+          "name": "Sammy's at Rice Student Center",
+          "nameCn": "萨米餐厅（莱斯学生中心）",
+          "lat": 29.7167,
+          "lng": -95.4,
+          "rank": 13,
+          "tier": "一般",
+          "note": "位于RMC校内，含越南河粉站（Oui Banh Mi）、炸鸡与多档快餐，是中午课间最方便的校内用餐去处。"
         }
       ]
     },
@@ -267,32 +583,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Kirby & Sunset)",
-          "nameCn": "大通银行（Kirby & Sunset 支行）",
-          "lat": 29.72282,
-          "lng": -95.41815,
-          "note": "离校最近的大型银行网点，开学办美国银行账户（开卡/学生账户）就来这家，步行约 20 分钟。"
+          "name": "Chase Bank (Texas Medical Center Branch)",
+          "nameCn": "大通银行（德州医疗中心支行）",
+          "lat": 29.7082,
+          "lng": -95.3998,
+          "rank": 1,
+          "tier": "必去",
+          "note": "6560 Fannin St，是莱斯学生开户最常选择的银行，校内丰得伦图书馆和RMC均设有Chase ATM，大学生账号0手续费。"
         },
         {
-          "name": "Memorial Hermann-Texas Medical Center",
-          "nameCn": "纪念赫尔曼医院（德州医学中心院区）",
-          "lat": 29.71339,
-          "lng": -95.39605,
-          "note": "校南即是全球最大医学城，这家是顶级综合医院，急诊/看病就医资源近在咫尺，约 800 米。"
+          "name": "Wells Fargo Bank (TMC Branch)",
+          "nameCn": "富国银行（医疗中心支行）",
+          "lat": 29.709,
+          "lng": -95.4002,
+          "rank": 2,
+          "tier": "必去",
+          "note": "6621 Fannin St，紧邻医疗中心，大学生账号最低存款$25，是开立美国银行卡的第二热门选择。"
         },
         {
-          "name": "CVS Pharmacy (Kirby)",
-          "nameCn": "CVS 药房（Kirby 店）",
-          "lat": 29.72969,
-          "lng": -95.41924,
-          "note": "美国连锁药房，处方药、感冒药、日用品都有，还能打流感疫苗，离校约 2 公里。"
+          "name": "Rice Student Health Services (Morton L. Rich Center)",
+          "nameCn": "莱斯学生健康服务中心",
+          "lat": 29.721,
+          "lng": -95.397,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校内27号门附近，校费涵盖日常门诊，周一至五8am-5pm，紧急情况拨打713-348-6000（24小时）。"
         },
         {
-          "name": "Rice Village Shopping District",
-          "nameCn": "米村商业区（含手机营业厅）",
-          "lat": 29.71665,
-          "lng": -95.41666,
-          "note": "步行可达的商业区，AT&T / T-Mobile 等运营商门店集中于此，办美国手机卡很方便。"
+          "name": "Houston Methodist Hospital (TMC)",
+          "nameCn": "休斯顿卫理公会医院（急诊）",
+          "lat": 29.7094,
+          "lng": -95.3999,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "6565 Fannin St，距校约1公里，德州医疗中心核心医院，24小时急诊，重症首选，步行或乘METRORail可达。"
+        },
+        {
+          "name": "CVS Pharmacy (Kirby Dr)",
+          "nameCn": "CVS药房（科比大道店）",
+          "lat": 29.7193,
+          "lng": -95.4062,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "6011 Kirby Dr，距校步行约10分钟，营业至晚11点，含MinuteClinic小诊所，可处方常见药、流感疫苗接种。"
+        },
+        {
+          "name": "Walgreens Pharmacy (Buffalo Speedway)",
+          "nameCn": "沃尔格林药房（布法罗大道店）",
+          "lat": 29.7169,
+          "lng": -95.4215,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "5280 Buffalo Speedway，24小时营业，紧邻Kroger超市，OTC药品、美妆及日用品一站购齐，深夜应急最方便。"
+        },
+        {
+          "name": "AT&T Store (Kirby Dr)",
+          "nameCn": "AT&T手机店（科比大道店）",
+          "lat": 29.7195,
+          "lng": -95.406,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "5804 Kirby Dr，办理SIM卡、手机套餐与国际长途最近的运营商门店，新生抵美首选开卡地点之一。"
+        },
+        {
+          "name": "AFC Urgent Care (Weslayan)",
+          "nameCn": "AFC紧急护理诊所（韦斯莱扬店）",
+          "lat": 29.7221,
+          "lng": -95.4239,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "5568 Weslayan，无预约急诊小病诊所，处理轻伤、感冒及常规检查，费用低于急诊室，适合非急性病症。"
         }
       ]
     },
@@ -306,37 +666,92 @@
         {
           "name": "Hermann Park",
           "nameCn": "赫尔曼公园",
-          "lat": 29.71482,
-          "lng": -95.38492,
-          "note": "校东紧邻的大型城市公园，有日式花园、小火车和倒影池，散步跑步野餐的好去处。"
-        },
-        {
-          "name": "Museum of Fine Arts, Houston",
-          "nameCn": "休斯顿美术馆",
-          "lat": 29.72513,
-          "lng": -95.38945,
-          "note": "美国最大美术馆之一，藏品横跨古今，学生常有免费日，文艺打卡必去，距校约 1.6 公里。"
+          "lat": 29.7216,
+          "lng": -95.3893,
+          "rank": 1,
+          "tier": "必去",
+          "note": "445英亩城市绿肺，含日本花园、麦克高文百年花园、踏板船、迷你火车，MetroRail直达，是莱斯学生周末散步首选。"
         },
         {
           "name": "Houston Zoo",
           "nameCn": "休斯顿动物园",
-          "lat": 29.71333,
-          "lng": -95.39159,
-          "note": "位于赫尔曼公园内的人气动物园，离校约 1 公里，周末放松遛弯的热门去处。"
+          "lat": 29.7158,
+          "lng": -95.3895,
+          "rank": 2,
+          "tier": "必去",
+          "note": "赫尔曼公园内，非洲森林、加拉帕戈斯群岛与海洋馆等展区，从METRORail站步行10分钟，门票约$20，是入学后第一个周末最常去的景点。"
         },
         {
-          "name": "Houston Museum of Natural Science",
-          "nameCn": "休斯顿自然科学博物馆",
-          "lat": 29.7221,
-          "lng": -95.3899,
-          "note": "恐龙化石、宝石厅和蝴蝶馆都很出名，亲子和拍照都合适，步行即可到达。"
+          "name": "The Menil Collection & Neighborhood",
+          "nameCn": "梅尼尔收藏馆及周边街区",
+          "lat": 29.7376,
+          "lng": -95.3979,
+          "rank": 3,
+          "tier": "必去",
+          "note": "免费世界级美术馆外，周边的蒙特罗斯街区充满画廊、咖啡馆与艺术壁画，是感受休斯顿文艺气息的最佳地带。"
         },
         {
-          "name": "The Menil Collection",
-          "nameCn": "梅尼尔收藏馆",
-          "lat": 29.7373,
-          "lng": -95.39847,
-          "note": "免费私人艺术馆，建筑安静优雅、含 Rothko 教堂与 Twombly 展馆，文青最爱，骑车 10 分钟。"
+          "name": "Houston Museum District (Museum Row)",
+          "nameCn": "博物馆区（博物馆走廊）",
+          "lat": 29.726,
+          "lng": -95.39,
+          "rank": 4,
+          "tier": "必去",
+          "note": "步行圈内汇聚19座博物馆，多家永久免费，是留学生文化探索和论文写作灵感来源，MetroRail直达校门。"
+        },
+        {
+          "name": "Asiatown / Bellaire Chinatown",
+          "nameCn": "休斯顿亚洲城（贝莱尔华人街）",
+          "lat": 29.694,
+          "lng": -95.4762,
+          "rank": 5,
+          "tier": "必去",
+          "note": "以Bellaire Blvd为轴，集中了全美最大规模华人、越南、韩国餐饮与亚超，解乡愁首选，距校开车约15分钟。"
+        },
+        {
+          "name": "Buffalo Bayou Park",
+          "nameCn": "布法罗湾公园",
+          "lat": 29.7601,
+          "lng": -95.3829,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "160英亩滨河绿道，跑步道、滑板场、狗公园与文化装置，开车15分钟，是跑步健身与节假日骑行的热门去处。"
+        },
+        {
+          "name": "Gerald D. Hines Waterwall Park",
+          "nameCn": "海因斯水墙公园",
+          "lat": 29.7363,
+          "lng": -95.4613,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2800 Post Oak Blvd（紧邻Galleria），64英尺高U形水幕墙，休斯顿最上镜的免费景点，毗邻Galleria购物中心，打卡必备。"
+        },
+        {
+          "name": "The Galleria Houston",
+          "nameCn": "盖洛里亚购物中心",
+          "lat": 29.7402,
+          "lng": -95.462,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "5085 Westheimer Rd，全美第七大购物中心，含冰场与400+品牌，节假日血拼和快递代收的核心商业地标，距校约6公里。"
+        },
+        {
+          "name": "Miller Outdoor Theatre",
+          "nameCn": "米勒室外剧院",
+          "lat": 29.7222,
+          "lng": -95.3887,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "赫尔曼公园内，全年免费户外演出（交响乐、芭蕾、莎翁戏剧等），夏季夜晚最具休斯顿气质的文化体验，需提前网上领票。"
+        },
+        {
+          "name": "Montrose Neighborhood",
+          "nameCn": "蒙特罗斯街区",
+          "lat": 29.739,
+          "lng": -95.394,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "距校约2公里，休斯顿最多元的艺术社区，独立书店、特色咖啡馆、小众餐厅云集，周末骑行或步行探索的最佳去处。"
         }
       ]
     }

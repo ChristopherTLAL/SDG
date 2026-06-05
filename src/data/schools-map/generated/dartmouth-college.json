@@ -59,39 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Geisel School of Medicine",
-          "nameCn": "盖泽尔医学院",
-          "lat": 43.709,
-          "lng": -72.2848,
-          "note": "校园北端的医学院教学楼群，临床部分设于黎巴嫩医学中心。"
+          "name": "Tuck School of Business",
+          "nameCn": "塔克商学院",
+          "lat": 43.7055,
+          "lng": -72.2972,
+          "rank": 1,
+          "tier": "必去",
+          "note": "常春藤顶尖MBA学院之一，全球商业排名长期前十，校园位于达特茅斯西侧"
         },
         {
           "name": "Thayer School of Engineering",
-          "nameCn": "塞耶工程学院",
-          "lat": 43.7053,
-          "lng": -72.294,
-          "note": "西区河畔的工程学院，含2022年新落成的工程与计算机中心。"
+          "nameCn": "赛耶工程学院",
+          "lat": 43.7051,
+          "lng": -72.2985,
+          "rank": 2,
+          "tier": "必去",
+          "note": "美国最古老的工程学院之一，紧邻塔克商学院，主楼为MacLean Engineering Sciences Center"
         },
         {
-          "name": "Tuck School of Business",
-          "nameCn": "塔克商学院",
-          "lat": 43.7056,
-          "lng": -72.2942,
-          "note": "全美历史最悠久的研究生商学院，位于塔克草坪西端近河处。"
+          "name": "Geisel School of Medicine",
+          "nameCn": "盖泽尔医学院",
+          "lat": 43.7085,
+          "lng": -72.2875,
+          "rank": 3,
+          "tier": "必去",
+          "note": "新英格兰顶尖医学院，位于北校区，主楼Remsen大楼，1 Rope Ferry Road"
         },
         {
           "name": "Dartmouth Hall",
           "nameCn": "达特茅斯楼",
-          "lat": 43.7034,
-          "lng": -72.288,
-          "note": "面向绿地的标志性白色殿堂，校园最古老建筑群之一。"
+          "lat": 43.7033,
+          "lng": -72.2877,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校史最悠久的学术楼之一，紧临绿地，现为语言系主楼，是校园标志性乔治亚建筑"
         },
         {
-          "name": "Fairchild Physical Sciences Center",
-          "nameCn": "费尔柴尔德理科中心",
-          "lat": 43.7048,
-          "lng": -72.2862,
-          "note": "理学与自然科学院系所在的科研教学楼。"
+          "name": "Kemeny Hall & Haldeman Center",
+          "nameCn": "凯梅尼大厅 & 哈尔德曼中心",
+          "lat": 43.7047,
+          "lng": -72.2887,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "数学系与人文中心联合楼，2006年落成，含伦理研究所和迪基国际研究中心"
+        },
+        {
+          "name": "Sherman Fairchild Physical Sciences Center",
+          "nameCn": "费尔柴尔德物理科学中心",
+          "lat": 43.7052,
+          "lng": -72.2857,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "由Burke、Fairchild、Steele、Wilder四楼组成，化学、地球科学、物理系的主要基地"
+        },
+        {
+          "name": "Black Family Visual Arts Center (BVAC)",
+          "nameCn": "布莱克家族视觉艺术中心",
+          "lat": 43.7022,
+          "lng": -72.2893,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2012年开放的三层艺术楼，22 Lebanon Street，是电影与媒体、摄影、动画等专业的教学中心"
+        },
+        {
+          "name": "Silsby Hall",
+          "nameCn": "西尔斯比大厅",
+          "lat": 43.7029,
+          "lng": -72.2884,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "社会科学和经济系核心教学楼，绿地南侧，设有现代化可移动座椅智慧课堂"
+        },
+        {
+          "name": "Rollins Chapel",
+          "nameCn": "罗林斯教堂",
+          "lat": 43.704,
+          "lng": -72.2866,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "建于1885年的非宗派礼拜堂，校内最古老宗教建筑，常举办音乐会与冥想活动"
+        },
+        {
+          "name": "Shattuck Observatory",
+          "nameCn": "沙特克天文台",
+          "lat": 43.706,
+          "lng": -72.2843,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "建于1854年，达特茅斯最古老科学建筑，位于科学中心后山，公众开放夜间观测活动"
         }
       ],
       "defaultOn": true
@@ -106,16 +161,65 @@
         {
           "name": "Baker-Berry Library",
           "nameCn": "贝克-贝里图书馆",
-          "lat": 43.7048,
-          "lng": -72.2885,
-          "note": "校园主图书馆，钟楼俯瞰绿地，是达特茅斯地标。"
+          "lat": 43.7046,
+          "lng": -72.2883,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园主图书馆，标志性200英尺钟塔，藏书逾200万册；地下室有奥罗斯科壁画国家历史地标"
+        },
+        {
+          "name": "Rauner Special Collections Library",
+          "nameCn": "劳纳特藏图书馆",
+          "lat": 43.7049,
+          "lng": -72.2879,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贝克图书馆正门旁，藏珍稀书籍逾10万册和Robert Frost手稿，建校档案馆所在地"
+        },
+        {
+          "name": "Feldberg Business & Engineering Library",
+          "nameCn": "费尔德伯格商科与工程图书馆",
+          "lat": 43.7053,
+          "lng": -72.2975,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Murdough Center一楼，塔克与赛耶联合图书馆，商科和工程资料最齐全"
+        },
+        {
+          "name": "Kresge Physical Sciences Library",
+          "nameCn": "克雷斯吉理工图书馆",
+          "lat": 43.7054,
+          "lng": -72.2855,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Fairchild Hall三楼，专为化学、地科、数学及计算机系提供专业文献资源"
+        },
+        {
+          "name": "Sherman Art Library",
+          "nameCn": "谢尔曼艺术图书馆",
+          "lat": 43.7037,
+          "lng": -72.2896,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Carpenter Hall内与贝克-贝里相通，专门收藏艺术史参考文献与期刊，环境静雅"
         },
         {
           "name": "Dana Biomedical Library",
           "nameCn": "达纳生物医学图书馆",
-          "lat": 43.7089,
-          "lng": -72.2862,
-          "note": "服务医学院与生命科学的专业图书馆。"
+          "lat": 43.709,
+          "lng": -72.2877,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于北校区医学院区域，是新英格兰地区健康生命科学文献资源中心之一"
+        },
+        {
+          "name": "Evans Map Room (Baker-Berry)",
+          "nameCn": "埃文斯地图室",
+          "lat": 43.7047,
+          "lng": -72.2882,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于贝里图书馆二楼，收藏超过18.9万张地形图，GIS软件齐备，地理/环境专业必访"
         }
       ]
     },
@@ -129,9 +233,38 @@
         {
           "name": "Hood Museum of Art",
           "nameCn": "胡德艺术博物馆",
-          "lat": 43.7013,
-          "lng": -72.2862,
-          "note": "学院艺术博物馆，馆藏逾6.5万件，2019年扩建重开。"
+          "lat": 43.7028,
+          "lng": -72.2894,
+          "rank": 1,
+          "tier": "必去",
+          "note": "6 East Wheelock St，藏品逾6.5万件，美国大学博物馆藏量最多之一，免费入场"
+        },
+        {
+          "name": "Baker Library Orozco Murals",
+          "nameCn": "贝克图书馆 · 奥罗斯科壁画",
+          "lat": 43.7046,
+          "lng": -72.2883,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贝克图书馆地下室，墨西哥大师奥罗斯科1932-1934年绘制的24幅湿壁画，美国国家历史地标"
+        },
+        {
+          "name": "Hopkins Center for the Arts (Hop)",
+          "nameCn": "霍普金斯艺术中心",
+          "lat": 43.703,
+          "lng": -72.2897,
+          "rank": 3,
+          "tier": "必去",
+          "note": "4 East Wheelock St，含792座的Spaulding剧场等多个演出厅，为林肯艺术中心设计原型"
+        },
+        {
+          "name": "Vermont Institute of Natural Science (VINS)",
+          "nameCn": "佛蒙特自然科学研究院",
+          "lat": 43.6432,
+          "lng": -72.4088,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "距达特茅斯约30分钟，Quechee，有猛禽表演和自然步道，适合周末半日游"
         }
       ]
     },
@@ -143,32 +276,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Baker Tower & The Green",
-          "nameCn": "贝克钟楼与绿地广场",
-          "lat": 43.7022,
-          "lng": -72.2872,
-          "note": "校园几何与精神中心，重大庆典与篝火夜在此举行。"
+          "name": "The Green (Dartmouth Green)",
+          "nameCn": "达特茅斯绿地广场",
+          "lat": 43.7035,
+          "lng": -72.2881,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园核心草坪，四周被乔治亚式学术楼环绕，是聚会、飞盘、毕业典礼和节庆的灵魂地带"
         },
         {
-          "name": "Hopkins Center for the Arts",
-          "nameCn": "霍普金斯艺术中心",
-          "lat": 43.7017,
-          "lng": -72.2886,
-          "note": "学院表演艺术中心，外形据传启发了林肯中心设计。"
+          "name": "Baker-Berry Library Tower",
+          "nameCn": "贝克图书馆钟楼",
+          "lat": 43.7046,
+          "lng": -72.2883,
+          "rank": 2,
+          "tier": "必去",
+          "note": "仿费城独立厅设计的200英尺高塔，是达特茅斯最具辨识度的地标，校园照片必出镜"
         },
         {
-          "name": "Memorial Field",
-          "nameCn": "纪念球场",
-          "lat": 43.7013,
-          "lng": -72.2842,
-          "note": "1923年建成的橄榄球与田径主场。"
+          "name": "Collis Center for Student Involvement",
+          "nameCn": "科利斯学生活动中心",
+          "lat": 43.7037,
+          "lng": -72.2891,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2 North Main St，学生社团与日常生活核心，含Collis Cafe、学生市场和活动室"
         },
         {
-          "name": "Thompson Arena",
-          "nameCn": "汤普森冰球馆",
-          "lat": 43.7011,
-          "lng": -72.2803,
-          "note": "可容3500人的冰球馆，奈尔维设计的混凝土拱顶。"
+          "name": "Class of 1953 Commons (FoCo)",
+          "nameCn": "1953届公共餐厅（FoCo）",
+          "lat": 43.7031,
+          "lng": -72.29,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校内最大、最受欢迎的餐厅，选项多样，是与新朋友认识的绝佳场所"
+        },
+        {
+          "name": "Hanover Inn Dartmouth",
+          "nameCn": "达特茅斯汉诺威客栈",
+          "lat": 43.7026,
+          "lng": -72.2889,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2 East Wheelock St，校内唯一精品酒店，俯瞰绿地，接待家长访校首选，餐厅Pine值得一试"
+        },
+        {
+          "name": "Occom Pond",
+          "nameCn": "奥科姆池塘",
+          "lat": 43.7072,
+          "lng": -72.2892,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "北校区景致水塘，冬天结冰后成为学生溜冰和冰球场，是新英格兰户外生活的缩影"
+        },
+        {
+          "name": "Ledyard Canoe Club (Connecticut River)",
+          "nameCn": "莱迪亚德独木舟俱乐部",
+          "lat": 43.7018,
+          "lng": -72.3065,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "百年历史的独木舟俱乐部，位于康涅狄格河畔，可免费租借皮划艇，夏天必去"
+        },
+        {
+          "name": "Robinson Hall",
+          "nameCn": "罗宾逊大厅",
+          "lat": 43.7039,
+          "lng": -72.2892,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1914年建成，紧临科利斯中心，是学生媒体、社团组织和学生报的大本营"
         }
       ]
     },
@@ -180,32 +357,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Co-op Food Store (Hanover)",
-          "nameCn": "Co-op 合作社超市（汉诺威店）",
-          "lat": 43.6989,
-          "lng": -72.2899,
-          "note": "距校园最近的主力超市，会员制合作社，日用、生鲜、有机食品齐全，步行可达。"
+          "name": "Co-op Food Stores — Hanover",
+          "nameCn": "汉诺威合作社超市（主城店）",
+          "lat": 43.6994,
+          "lng": -72.2891,
+          "rank": 1,
+          "tier": "必去",
+          "note": "45 South Park St，校外步行10分钟，新英格兰最受欢迎的合作社超市，有机食品齐全"
         },
         {
-          "name": "Hannaford Supermarket (West Lebanon)",
-          "nameCn": "Hannaford 超市（西黎巴嫩店）",
-          "lat": 43.6356,
-          "lng": -72.3206,
-          "note": "大型连锁超市，价格更实惠、品类更全，适合开车囤货一周食材。"
+          "name": "Walmart Supercenter — West Lebanon",
+          "nameCn": "西黎巴嫩沃尔玛超级中心",
+          "lat": 43.6434,
+          "lng": -72.3232,
+          "rank": 2,
+          "tier": "必去",
+          "note": "285 Plainfield Rd，车程约15分钟，日用百货和食品最全，价格最实惠，新生必访"
         },
         {
-          "name": "Asian Super Store",
-          "nameCn": "亚洲超市（Asian Super Store）",
-          "lat": 43.6418,
-          "lng": -72.2519,
-          "note": "黎巴嫩镇亚超，备有中、泰、日、印等亚洲调料食材，想买酱油老干妈来这。"
+          "name": "Target — West Lebanon",
+          "nameCn": "西黎巴嫩塔吉特",
+          "lat": 43.6435,
+          "lng": -72.3267,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "200 S Main St，与沃尔玛相邻，适合购置寝室用品、电子配件和日常服饰"
         },
         {
-          "name": "Bangkok Asian Market & Cafe",
-          "nameCn": "曼谷亚洲市场（含小食堂）",
-          "lat": 43.6411,
-          "lng": -72.2538,
-          "note": "另一家亚超，覆盖中国、港台、韩、东南亚货品，还能现场吃口热饭。"
+          "name": "Co-op Food Stores — Lebanon",
+          "nameCn": "黎巴嫩合作社超市",
+          "lat": 43.649,
+          "lng": -72.3228,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "12 Centerra Pkwy，营业至晚9点，比汉诺威店更大，适合大量采购"
+        },
+        {
+          "name": "Asian Super Store — Lebanon",
+          "nameCn": "亚洲超市（黎巴嫩）",
+          "lat": 43.6424,
+          "lng": -72.2508,
+          "rank": 5,
+          "tier": "必去",
+          "note": "24 Hanover St #4，黎巴嫩市区，Upper Valley唯一亚洲食材店，中/日/韩/泰/印度食材皆有"
+        },
+        {
+          "name": "CVS Pharmacy — Hanover",
+          "nameCn": "汉诺威CVS药妆店",
+          "lat": 43.7012,
+          "lng": -72.2878,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "79 S Main St，步行可达，药品、零食、日常用品均有，紧急补货首选"
+        },
+        {
+          "name": "Hanover Consumer Co-op — Downtown",
+          "nameCn": "汉诺威市中心小型合作社",
+          "lat": 43.7015,
+          "lng": -72.2893,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "市中心小型有机食品区，熟食和本地农产品丰富，适合日常小额采购"
         }
       ]
     },
@@ -217,39 +429,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Han Fusion",
-          "nameCn": "汉福源（Han Fusion 中餐）",
-          "lat": 43.7016,
-          "lng": -72.2884,
-          "note": "达特茅斯学生公认最地道的中餐，台湾主厨，回锅肉、宫保鸡丁解乡愁首选。"
-        },
-        {
-          "name": "Tuk Tuk Thai Cuisine",
-          "nameCn": "嘟嘟泰餐（Tuk Tuk Thai）",
-          "lat": 43.702,
-          "lng": -72.2893,
-          "note": "主街上的人气泰餐，咖喱、炒河粉地道，亚洲口味平价之选。"
-        },
-        {
           "name": "Lou's Restaurant & Bakery",
-          "nameCn": "Lou's 餐厅烘焙坊",
-          "lat": 43.7008,
-          "lng": -72.2894,
-          "note": "1947 年开业的镇上地标早午餐+烘焙店，全天早餐，有著名的「通宵等 Lou's」传统。"
+          "nameCn": "卢氏餐厅与面包房",
+          "lat": 43.7011,
+          "lng": -72.2882,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "30 S Main St，达特茅斯早餐圣地，黄油薄饼配纯枫糖浆，必点松饼和现烤糕点，经典不败"
         },
         {
           "name": "Murphy's on the Green",
-          "nameCn": "Murphy's 酒馆餐厅",
-          "lat": 43.7026,
-          "lng": -72.289,
-          "note": "紧邻校园绿地的老牌美式酒馆，汉堡、芝士通心粉，师生校友聚餐常去。"
+          "nameCn": "墨菲绿地酒馆",
+          "lat": 43.7021,
+          "lng": -72.2887,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "11 S Main St，暗色木质装潢经典美式酒馆，炸抱子甘蓝、汉堡和Mac & Cheese学生最爱"
         },
         {
           "name": "Molly's Restaurant & Bar",
-          "nameCn": "Molly's 餐厅酒吧",
-          "lat": 43.7011,
+          "nameCn": "莫莉餐厅酒吧",
+          "lat": 43.7018,
+          "lng": -72.2884,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "43 S Main St，木材烤炉意面、薄脆披萨和自制甜点，学生聚餐热门地，常有排队"
+        },
+        {
+          "name": "Tuk Tuk Thai Cuisine",
+          "nameCn": "嘟嘟泰式料理",
+          "lat": 43.7017,
+          "lng": -72.288,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "5 S Main St，隐于地下的泰国餐厅，Pad Thai和咖喱评价极高，亚洲留学生常来"
+        },
+        {
+          "name": "Han Fusion",
+          "nameCn": "汉家融合餐厅",
+          "lat": 43.7016,
+          "lng": -72.2875,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "3 Lebanon St，Upper Valley评价最高的中国菜，台湾名厨主理，火锅和炒菜均佳"
+        },
+        {
+          "name": "Jewel of India",
+          "nameCn": "印度珠宝餐厅",
+          "lat": 43.7015,
+          "lng": -72.2869,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "11 Lebanon St，1992年开业的经典北印度餐厅，蒜香馕饼和Tikka Masala令人称道"
+        },
+        {
+          "name": "Pine Restaurant (Hanover Inn)",
+          "nameCn": "松树餐厅",
+          "lat": 43.7026,
+          "lng": -72.2889,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "2 East Wheelock St，汉诺威客栈内，新英格兰风味Fine Dining，本地食材创意菜，适合庆祝场合"
+        },
+        {
+          "name": "Dirt Cowboy Cafe",
+          "nameCn": "泥土牛仔咖啡馆",
+          "lat": 43.7017,
+          "lng": -72.2878,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "7 S Main St，1993年开业，连续七年获评区域最佳精品咖啡，手冲咖啡和自制酥饼不可错过"
+        },
+        {
+          "name": "Collis Cafe (Collis Center)",
+          "nameCn": "科利斯咖啡馆",
+          "lat": 43.7037,
           "lng": -72.2891,
-          "note": "主街热门美式餐厅，常排队，上菜先送现烤面包配蜂蜜黄油，氛围热闹。"
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "2 N Main St，校内学生食堂，自制面包汤品和炒饭，价格亲民，是校园日常的温馨去处"
+        },
+        {
+          "name": "Simon Pearce Restaurant",
+          "nameCn": "西蒙皮尔斯餐厅",
+          "lat": 43.6447,
+          "lng": -72.3995,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "1760 Main St Quechee VT，玻璃工坊旁的河畔农场餐厅，新英格兰最浪漫的用餐体验之一"
+        },
+        {
+          "name": "Noodle Station",
+          "nameCn": "面条站",
+          "lat": 43.7013,
+          "lng": -72.287,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "亚意融合面食馆，Pad Thai到意面均有，留学生聚集地，价格实惠"
+        },
+        {
+          "name": "FoCo (Class of 1953 Commons)",
+          "nameCn": "1953届公共餐厅",
+          "lat": 43.7031,
+          "lng": -72.29,
+          "rank": 12,
+          "tier": "一般",
+          "note": "校内最大食堂，每日旋转菜单含比萨、沙拉吧和热饮，无限畅吃，入学第一年的主要餐厅"
+        },
+        {
+          "name": "Thayer Dining Hall",
+          "nameCn": "赛耶餐厅",
+          "lat": 43.7041,
+          "lng": -72.2906,
+          "rank": 13,
+          "tier": "一般",
+          "note": "校内经典食堂，1937年建成，提供多种Dining操作站，方便在商学院和工程学院附近的学生"
         }
       ]
     },
@@ -261,32 +555,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Hanover Main)",
-          "nameCn": "美国银行（汉诺威主街支行）",
-          "lat": 43.7011,
-          "lng": -72.2895,
-          "note": "主街上的银行网点，带 ATM，新生办理美国银行账户、存取现金方便。"
+          "name": "Citizens Bank — Hanover Branch",
+          "nameCn": "公民银行汉诺威支行",
+          "lat": 43.7012,
+          "lng": -72.288,
+          "rank": 1,
+          "tier": "必去",
+          "note": "44 S Main St，步行至校园核心5分钟，国际学生开户最常选择的银行之一"
         },
         {
-          "name": "CVS Pharmacy",
-          "nameCn": "CVS 药房",
-          "lat": 43.7003,
-          "lng": -72.2896,
-          "note": "主街连锁药房，买非处方药、日用、取处方药都在这，营业到晚上 9 点。"
+          "name": "Dick's House — Dartmouth Student Health Service",
+          "nameCn": "迪克之家 · 达特茅斯学生健康服务中心",
+          "lat": 43.7077,
+          "lng": -72.2888,
+          "rank": 2,
+          "tier": "必去",
+          "note": "5-7 Rope Ferry Rd，校内学生诊所，含初级门诊、心理咨询、校内药房和24小时护理热线"
         },
         {
-          "name": "Dartmouth Hitchcock Medical Center",
+          "name": "Dartmouth-Hitchcock Medical Center (DHMC)",
           "nameCn": "达特茅斯-希区柯克医疗中心",
-          "lat": 43.676,
-          "lng": -72.267,
-          "note": "区域大型综合医院（含急诊、24 小时药房在 Centerra），看大病、急诊来这。"
+          "lat": 43.6441,
+          "lng": -72.3154,
+          "rank": 3,
+          "tier": "必去",
+          "note": "One Medical Center Dr，黎巴嫩市，新罕布什尔唯一学术医学中心，急诊和专科均有，规模最大"
         },
         {
-          "name": "Dick Hall's House (Health Service)",
-          "nameCn": "校医院 Dick Hall's House",
-          "lat": 43.705,
-          "lng": -72.287,
-          "note": "达特茅斯校内健康服务中心，含校园药房，学生看小病、日常问诊第一站。"
+          "name": "CVS Pharmacy — Hanover",
+          "nameCn": "汉诺威CVS药房",
+          "lat": 43.7012,
+          "lng": -72.2878,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "79 S Main St，主街上的连锁药房，OTC非处方药、日常保健品和照相服务均有"
+        },
+        {
+          "name": "Ledyard National Bank — South Main St",
+          "nameCn": "莱迪亚德国家银行（主街）",
+          "lat": 43.701,
+          "lng": -72.2877,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "38 S Main St，本地特色社区银行，ATM免手续费，对Dartmouth学生友好"
+        },
+        {
+          "name": "T-Mobile — West Lebanon",
+          "nameCn": "T-Mobile西黎巴嫩门店",
+          "lat": 43.6433,
+          "lng": -72.324,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "254 N Plainfield Rd #4，离校约15分钟车程，手机激活和SIM套餐办理，留学生必办"
+        },
+        {
+          "name": "Verizon Authorized Retailer — West Lebanon",
+          "nameCn": "Verizon授权零售商（西黎巴嫩）",
+          "lat": 43.6435,
+          "lng": -72.3237,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "267 N Plainfield Rd，与T-Mobile相邻，美国信号最广的运营商，农村地区覆盖最佳"
+        },
+        {
+          "name": "Walmart Pharmacy — West Lebanon",
+          "nameCn": "西黎巴嫩沃尔玛药房",
+          "lat": 43.6434,
+          "lng": -72.3232,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "285 Plainfield Rd沃尔玛内，处方药价格最低，营业时间8am-7pm，急诊取药方便"
         }
       ]
     },
@@ -298,39 +636,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Dartmouth Green",
-          "nameCn": "达特茅斯中央草坪",
-          "lat": 43.7036,
-          "lng": -72.2887,
-          "note": "校园正中心的标志性大草坪，四季活动与拍照打卡地，周边围着主要学院建筑。"
+          "name": "Storrs Pond Recreation Area",
+          "nameCn": "斯托尔斯池塘休闲区",
+          "lat": 43.7222,
+          "lng": -72.2645,
+          "rank": 1,
+          "tier": "必去",
+          "note": "59 Oak Hill Dr，校园步行15分钟，13英亩游泳池塘、沙滩、网球场和山地徒步道，夏季首选"
         },
         {
-          "name": "Baker-Berry Library",
-          "nameCn": "贝克-贝里图书馆",
-          "lat": 43.7053,
-          "lng": -72.2887,
-          "note": "仿独立宫钟楼的校园地标图书馆，藏 250 万册书，钟楼在特定活动可登顶俯瞰全镇。"
+          "name": "Quechee Gorge, Vermont",
+          "nameCn": "魁切峡谷（佛蒙特州）",
+          "lat": 43.6368,
+          "lng": -72.4005,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距校约25分钟，165英尺深峡谷被称为「佛蒙特小大峡谷」，步道免费，风景壮丽必打卡"
         },
         {
-          "name": "Hood Museum of Art",
-          "nameCn": "胡德艺术博物馆",
-          "lat": 43.7027,
-          "lng": -72.2877,
-          "note": "达特茅斯免费校园美术馆，藏品 7 万件，含奥罗斯科的国家级历史地标壁画。"
+          "name": "Gile Mountain Fire Tower, Norwich VT",
+          "nameCn": "贾尔山瞭望塔（诺里奇）",
+          "lat": 43.7895,
+          "lng": -72.3427,
+          "rank": 3,
+          "tier": "必去",
+          "note": "从汉诺威驾车20分钟，1.4英里轻松短徒步，塔顶360度全景可俯瞰Upper Valley全貌"
         },
         {
-          "name": "Hopkins Center for the Arts",
-          "nameCn": "霍普金斯艺术中心（the Hop）",
-          "lat": 43.7022,
-          "lng": -72.2878,
-          "note": "世界级演艺中心，每季上百场演出、电影与展览，学生文艺生活核心场地。"
+          "name": "Dartmouth Skiway",
+          "nameCn": "达特茅斯滑雪场",
+          "lat": 43.787,
+          "lng": -72.1004,
+          "rank": 4,
+          "tier": "必去",
+          "note": "39 Grafton Turnpike，Lyme Center，达特茅斯自营滑雪场，学生有优惠票，冬季必去"
         },
         {
-          "name": "Appalachian Trail (through Hanover)",
-          "nameCn": "阿巴拉契亚步道（穿镇而过）",
-          "lat": 43.7038,
-          "lng": -72.29,
-          "note": "传奇徒步长线正好穿过汉诺威主街，可就近走一段感受新英格兰山林。"
+          "name": "Simon Pearce Glass Studio & Mill",
+          "nameCn": "西蒙皮尔斯玻璃工坊与磨坊",
+          "lat": 43.6447,
+          "lng": -72.3995,
+          "rank": 5,
+          "tier": "必去",
+          "note": "1760 Main St Quechee VT，可现场观看手工玻璃吹制，与峡谷游可合并为一日游"
+        },
+        {
+          "name": "Billings Farm & Museum, Woodstock VT",
+          "nameCn": "比林斯农场博物馆（伍德斯托克）",
+          "lat": 43.6243,
+          "lng": -72.5164,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "69 Old River Rd，Woodstock，工作奶牛场+19世纪农耕历史博物馆，秋叶季景色绝美"
+        },
+        {
+          "name": "Connecticut River Waterfront (Dartmouth)",
+          "nameCn": "康涅狄格河滨（达特茅斯段）",
+          "lat": 43.7018,
+          "lng": -72.3065,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Ledyard独木舟俱乐部旁，夏季免费借皮划艇，沿河皮划艇和钓鱼是最佳解压方式"
+        },
+        {
+          "name": "Woodstock Village, Vermont",
+          "nameCn": "佛蒙特州伍德斯托克小镇",
+          "lat": 43.6237,
+          "lng": -72.5212,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "美国最美小镇之一，秋叶时节风景如画，古典廊桥和精品店步行可达，离校约40分钟"
+        },
+        {
+          "name": "White River Junction Arts District",
+          "nameCn": "白河交汇区艺术街区",
+          "lat": 43.6489,
+          "lng": -72.3187,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "距校10分钟，Vermont当代艺术与戏剧重镇，Briggs剧院演出和每月首个周五画廊夜值得探索"
+        },
+        {
+          "name": "Appalachian Trail — Hanover Section",
+          "nameCn": "阿巴拉契亚小径（汉诺威段）",
+          "lat": 43.704,
+          "lng": -72.2921,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "著名的AT步道穿越汉诺威市区，从校园Green出发即可踏上徒步之路，全球最具象征性长途步道"
         }
       ]
     }

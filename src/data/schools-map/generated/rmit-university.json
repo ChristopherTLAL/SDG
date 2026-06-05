@@ -59,46 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Swanston Academic Building (Building 80)",
-          "nameCn": "斯旺斯顿教学楼（80 号楼）",
-          "lat": -37.8082,
+          "name": "Building 80 – Swanston Academic Building",
+          "nameCn": "斯旺斯顿学术楼（80号楼）",
+          "lat": -37.8075,
+          "lng": 144.9626,
+          "rank": 1,
+          "tier": "必去",
+          "note": "RMIT最新旗舰教学楼，11层、35,000㎡，6个大型阶梯教室，是全校最繁忙的上课场所，绝大多数专业都在此上课。"
+        },
+        {
+          "name": "Building 100 – Design Hub",
+          "nameCn": "设计枢纽（100号楼）",
+          "lat": -37.8062,
+          "lng": 144.9625,
+          "rank": 2,
+          "tier": "必去",
+          "note": "RMIT建筑与设计学院所在地，同时设有设计档案馆和Design Hub画廊，Carlton与Swanston街交界，标志性圆盘式玻璃外立面。"
+        },
+        {
+          "name": "Building 8 – Union House",
+          "nameCn": "联合楼（8号楼）",
+          "lat": -37.8083,
           "lng": 144.963,
-          "note": "445 Swanston St，彩色折面立面的标志性教学楼。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "后现代主义代表建筑，内含Swanston图书馆、学生会（RUSU）、医疗中心等核心服务，是学生日常活动最集中的楼。"
         },
         {
-          "name": "Design Hub (Building 100)",
-          "nameCn": "设计中心（100 号楼）",
-          "lat": -37.8067,
-          "lng": 144.9637,
-          "note": "Swanston 与 Victoria 街角，圆盘玻璃幕墙的设计研究楼。"
+          "name": "Building 1 – Francis Ormond Building",
+          "nameCn": "弗朗西斯·奥蒙德楼（1号楼）",
+          "lat": -37.8076,
+          "lng": 144.9631,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "RMIT最古老建筑（1886-1892），苏格兰男爵式哥特复兴风格，现为校务委员会与行政中枢，是校园历史象征。"
         },
         {
-          "name": "Emily McPherson Building (Building 13)",
-          "nameCn": "艾米丽·麦弗森楼（13 号楼）",
-          "lat": -37.8074,
-          "lng": 144.9652,
-          "note": "Franklin 与 Victoria 街角，1927 年新古典学院楼。"
+          "name": "Building 16 – Storey Hall",
+          "nameCn": "斯托里礼堂（16号楼）",
+          "lat": -37.808,
+          "lng": 144.963,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "融合古典礼堂与分形几何后现代扩建，是RMIT画廊与大型活动场地，屡获建筑奖项，Swanston Street上必拍建筑。"
         },
         {
-          "name": "New Academic Street (Building 12/14)",
-          "nameCn": "新学术街（12/14 号楼）",
-          "lat": -37.8078,
-          "lng": 144.9624,
-          "note": "贯穿校区的学术步行轴，连接图书馆与学生服务。"
+          "name": "Building 10 – Casey Building",
+          "nameCn": "凯西楼（10号楼）",
+          "lat": -37.8082,
+          "lng": 144.9629,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "与8、12、14号楼相连的主干楼，4楼连廊是跨楼穿行主路，内有RMIT Connect（学生服务台）和Job Shop（就业中心）。"
         },
         {
-          "name": "Bundoora West Engineering & Health",
-          "nameCn": "邦多拉西区 工程与健康学院",
-          "lat": -37.6804,
-          "lng": 145.0634,
-          "note": "航空、电气、机械工程与医学科学教学区。"
+          "name": "Building 13 – Emily McPherson Building",
+          "nameCn": "艾米丽·麦克弗森楼（13号楼）",
+          "lat": -37.807,
+          "lng": 144.9662,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1925年新古典主义风格建筑，原为家政学院，现为RMIT商法研究生院（GSB&L），坐落于Victoria与Russell街交角。"
         },
         {
-          "name": "School of Fashion and Textiles (Brunswick)",
-          "nameCn": "时尚与纺织学院（布伦瑞克）",
-          "lat": -37.7722,
-          "lng": 144.9578,
-          "note": "25 Dawson St，服装、纺织、印刷与平面设计。"
+          "name": "Building 9 – Old Radio School",
+          "nameCn": "旧广播学院楼（9号楼）",
+          "lat": -37.8077,
+          "lng": 144.9632,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1938-1942年流线型现代主义建筑，现为RMIT媒体与传播学院，新闻、电视、广播专业学生的主要上课地。"
+        },
+        {
+          "name": "Building 3 – Kernot Building",
+          "nameCn": "科诺特楼（3号楼）",
+          "lat": -37.8073,
+          "lng": 144.9636,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1930年代希腊复兴风格宫殿式建筑，现为应用科学学院，理工科学生上实验课的主要场所之一。"
+        },
+        {
+          "name": "Building 12 – Gillespie Building",
+          "nameCn": "吉莱斯皮楼（12号楼）",
+          "lat": -37.8082,
+          "lng": 144.9628,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "主校区核心塔楼之一，内有RUSU前台和Compass服务中心，与10号楼4楼相连，是寻求学生支持服务的起点。"
         }
       ],
       "defaultOn": true
@@ -111,18 +159,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Swanston Library (Building 8)",
-          "nameCn": "斯旺斯顿图书馆（8 号楼）",
-          "lat": -37.8076,
-          "lng": 144.9633,
-          "note": "城市校区主图书馆，Swanston 街沿线。"
+          "name": "Swanston Library (Building 10, Level 5)",
+          "nameCn": "斯旺斯顿图书馆",
+          "lat": -37.8082,
+          "lng": 144.9628,
+          "rank": 1,
+          "tier": "必去",
+          "note": "RMIT城市校区主图书馆，5-6层设有17个小组学习室，提供电脑、打印、24小时还书口，是最繁忙的备考场所。"
         },
         {
-          "name": "Bundoora West Library",
-          "nameCn": "邦多拉西区图书馆",
-          "lat": -37.6808,
-          "lng": 145.0628,
-          "note": "邦多拉校区主图书馆。"
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8099,
+          "lng": 144.964,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1856年建成，澳大利亚最古老的公共图书馆，La Trobe阅览室是网红打卡圆顶大厅，免费开放，步行5分钟即达。"
+        },
+        {
+          "name": "Carlton Library (Building 94, Level 3)",
+          "nameCn": "卡尔顿图书馆",
+          "lat": -37.7993,
+          "lng": 144.9665,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "RMIT第二图书馆，位于Cardigan Street，设3层小组学习室和静音阅览区，设计与视觉传媒专业书籍馆藏丰富。"
+        },
+        {
+          "name": "Building 80 Study Rooms (Swanston Academic Building)",
+          "nameCn": "80号楼学习室",
+          "lat": -37.8075,
+          "lng": 144.9626,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "80余个教学与学习空间，部分可通过Resource Booker预约小组学习室，是课后自习和小组项目的热门选择。"
+        },
+        {
+          "name": "Melbourne Central Library (City of Melbourne)",
+          "nameCn": "墨尔本市中央图书馆",
+          "lat": -37.8103,
+          "lng": 144.9628,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "市政公共图书馆，免费Wi-Fi与自习座位，无需RMIT学号即可入座，适合临时自习或避开高峰期。"
+        },
+        {
+          "name": "University of Melbourne Baillieu Library (nearby)",
+          "nameCn": "墨尔本大学贝利厄图书馆",
+          "lat": -37.7975,
+          "lng": 144.9603,
+          "rank": 6,
+          "tier": "可选",
+          "note": "步行约20分钟的墨大主图书馆，馆藏200万册，对部分联盟访问开放，人文社科外借资源是RMIT馆藏的重要补充。"
         }
       ]
     },
@@ -134,11 +222,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "RMIT Gallery (Storey Hall)",
-          "nameCn": "RMIT 美术馆（斯托里厅）",
-          "lat": -37.8085,
-          "lng": 144.9637,
-          "note": "342-348 Swanston St，1887 年古建内的当代艺术馆。"
+          "name": "RMIT Gallery (Building 16, Storey Hall)",
+          "nameCn": "RMIT画廊",
+          "lat": -37.808,
+          "lng": 144.963,
+          "rank": 1,
+          "tier": "必去",
+          "note": "墨尔本最活跃的公共画廊之一，展览设计、建筑、新媒体与当代艺术，周二至周六免费入场，就在校园内。"
+        },
+        {
+          "name": "RMIT Design Hub Gallery (Building 100, Level 2)",
+          "nameCn": "RMIT设计枢纽画廊",
+          "lat": -37.8062,
+          "lng": 144.9625,
+          "rank": 2,
+          "tier": "必去",
+          "note": "探索设计在当代社会角色的专题展览空间，展期内周二至周六免费开放，常有互动装置和实验性设计展。"
+        },
+        {
+          "name": "Melbourne Museum",
+          "nameCn": "墨尔本博物馆",
+          "lat": -37.8034,
+          "lng": 144.9717,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "澳大利亚规模最大的博物馆，自然史、文化史与科技展览俱全，毗邻世界遗产皇家展览馆，步行15分钟可达。"
+        },
+        {
+          "name": "Ian Potter Centre: NGV Australia (Federation Square)",
+          "nameCn": "伊恩·波特中心：澳大利亚国家美术馆",
+          "lat": -37.8178,
+          "lng": 144.9691,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "澳大利亚艺术专题馆，收藏土著艺术与现代澳洲绘画，位于Federation Square，免费入场，步行15分钟。"
+        },
+        {
+          "name": "ACMI – Australian Centre for Moving Image",
+          "nameCn": "澳大利亚移动影像中心",
+          "lat": -37.8179,
+          "lng": 144.9692,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "澳大利亚国家影像博物馆，含电影、游戏、数字艺术互动展，常设展免费，媒体与传播专业学生必访。"
+        },
+        {
+          "name": "Immigration Museum",
+          "nameCn": "移民博物馆",
+          "lat": -37.8185,
+          "lng": 144.9605,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于弗林德斯街古海关大楼，讲述澳大利亚多元移民历史，国际学生尤为共鸣，步行约20分钟。"
         }
       ]
     },
@@ -150,25 +285,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "RMIT Capitol Theatre (Building 113)",
-          "nameCn": "RMIT 国会剧院（113 号楼）",
-          "lat": -37.8149,
-          "lng": 144.966,
-          "note": "113 Swanston St，1924 年沃尔特·伯利·格里芬设计的剧院。"
+          "name": "RMIT Building 8 – Union House (Student Hub)",
+          "nameCn": "RMIT联合楼·学生中心",
+          "lat": -37.8083,
+          "lng": 144.963,
+          "rank": 1,
+          "tier": "必去",
+          "note": "学生会、法律援助、心理咨询、医疗、餐饮、失物招领全部集中于此，是RMIT学生日常生活的核心地标。"
         },
         {
-          "name": "Alumni Courtyard & Old Melbourne Gaol",
-          "nameCn": "校友庭院与旧墨尔本监狱",
-          "lat": -37.8074,
-          "lng": 144.965,
-          "note": "由旧监狱围墙院落改造，校区历史地标。"
+          "name": "Bowen Street & Ellis Court (RMIT Campus Spine)",
+          "nameCn": "鲍恩街·RMIT校园主轴",
+          "lat": -37.8082,
+          "lng": 144.9638,
+          "rank": 2,
+          "tier": "必去",
+          "note": "贯穿RMIT城市校区的步行主轴，连接各主楼，沿途有公共艺术装置和咖啡亭，是感受校园生活氛围的地方。"
         },
         {
-          "name": "Melbourne Central Station",
-          "nameCn": "墨尔本中央车站",
-          "lat": -37.81,
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8099,
+          "lng": 144.964,
+          "rank": 3,
+          "tier": "必去",
+          "note": "不仅是图书馆，更是墨尔本城市打卡地标，门前大草坪是市民集会与学生休憩的城市客厅，免费开放。"
+        },
+        {
+          "name": "Melbourne Central Shopping Centre",
+          "nameCn": "墨尔本中央购物中心",
+          "lat": -37.8103,
           "lng": 144.9628,
-          "note": "La Trobe 与 Swanston 街角，校区门口的地铁枢纽。"
+          "rank": 4,
+          "tier": "必去",
+          "note": "RMIT正对面，内含200+商店、超市、美食广场，屋顶保留了19世纪子弹工厂圆锥形钢结构，既购物又打卡。"
+        },
+        {
+          "name": "QV Melbourne",
+          "nameCn": "QV广场购物区",
+          "lat": -37.81,
+          "lng": 144.966,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "紧邻State Library，含Woolworths超市、餐厅和服饰店，步行距离RMIT约5分钟，是日常购物的便利选择。"
+        },
+        {
+          "name": "Federation Square",
+          "nameCn": "联邦广场",
+          "lat": -37.818,
+          "lng": 144.969,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "墨尔本市民广场，毗邻弗林德斯街火车站，常举办免费音乐节、电影放映和文化活动，是认识这座城市的起点。"
+        },
+        {
+          "name": "Royal Exhibition Building & Carlton Gardens",
+          "nameCn": "皇家展览馆与卡尔顿花园",
+          "lat": -37.8043,
+          "lng": 144.9713,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "澳大利亚首个UNESCO世界遗产建筑，1880年维多利亚式宏伟建筑，毗邻墨尔本博物馆，步行约20分钟。"
+        },
+        {
+          "name": "Storey Hall – RMIT Architecture Icon",
+          "nameCn": "斯托里礼堂·RMIT建筑地标",
+          "lat": -37.808,
+          "lng": 144.963,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1887年礼堂加1996年分形几何扩建，紫绿交错的立面是Swanston街最具辨识度的建筑，是新生拍照打卡首选。"
         }
       ]
     },
@@ -180,39 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Mr Dad Asian Supermarket",
-          "nameCn": "亚洲老爹超市（卡尔顿店）",
-          "lat": -37.8044,
-          "lng": 144.9632,
-          "note": "离 RMIT 最近的大型亚超，556平方米店面、25国万种亚洲食材，营业到晚11点，买中日韩调料零食首选。"
-        },
-        {
-          "name": "Coles Melbourne Central",
-          "nameCn": "Coles 超市（墨尔本中央店）",
-          "lat": -37.8106,
-          "lng": 144.9626,
-          "note": "主流连锁大超市，就在 Melbourne Central 商场内，步行5分钟，日常蔬果肉蛋牛奶一站采购。"
-        },
-        {
-          "name": "Woolworths QV Melbourne",
-          "nameCn": "Woolworths 超市（QV 店）",
-          "lat": -37.8117,
-          "lng": 144.9654,
-          "note": "另一家全国连锁主流超市，QV 商场地下，价格亲民、自有品牌齐全，和 Coles 比价省钱。"
-        },
-        {
-          "name": "Central Grocery (Melbourne Central)",
-          "nameCn": "中央亚洲杂货（中央车站店）",
-          "lat": -37.8101,
+          "name": "ALDI Melbourne CBD – 501 Swanston Street",
+          "nameCn": "ALDI超市（斯旺斯顿街店）",
+          "lat": -37.8069,
           "lng": 144.9628,
-          "note": "Melbourne Central 地铁站旁的亚洲杂货店，零食饮料糖果香料多，下了地铁顺手就能逛。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "距RMIT步行2分钟，全墨尔本CBD最近的廉价超市，生鲜、零食、日用品价格远低于Woolworths，留学生省钱首选。"
         },
         {
-          "name": "Queen Victoria Market",
-          "nameCn": "维多利亚女王市场",
-          "lat": -37.8076,
-          "lng": 144.9568,
-          "note": "墨尔本地标性露天市场，新鲜蔬果、海鲜、肉类、熟食和便宜杂货，周末必逛、性价比高。"
+          "name": "Woolworths QV – 30 Artemis Lane",
+          "nameCn": "Woolworths QV店",
+          "lat": -37.8104,
+          "lng": 144.9655,
+          "rank": 2,
+          "tier": "必去",
+          "note": "QV广场内的Woolworths，开至深夜11点，品类齐全，是RMIT学生课后采购肉类、蔬菜的最常用大超市。"
+        },
+        {
+          "name": "Woolworths Metro – Melbourne Central (211 La Trobe St)",
+          "nameCn": "Woolworths Metro墨尔本中央店",
+          "lat": -37.8108,
+          "lng": 144.9628,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "墨尔本中央购物中心内的Metro便利型门店，适合课间快速购买熟食、饮料和日用品。"
+        },
+        {
+          "name": "Mr Dad Asian Supermarket – 557 Swanston St, Carlton",
+          "nameCn": "亚洲老爹超市（卡尔顿店）",
+          "lat": -37.8038,
+          "lng": 144.9629,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距RMIT步行约8分钟，提供25个亚洲国家的食品，中日韩泰越马来食材齐全，每天10点营业至晚11点。"
+        },
+        {
+          "name": "Hanaromart – 228 La Trobe St (Aurora Melbourne Central)",
+          "nameCn": "韩亚罗超市（拉特罗布街店）",
+          "lat": -37.8097,
+          "lng": 144.962,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2024年11月新开，韩国No.1亚洲连锁超市，韩国泡面、零食、调料最全，同时备有日本和中国食材，距RMIT步行5分钟。"
+        },
+        {
+          "name": "Coles Central Melbourne CBD – Elizabeth St & Flinders St",
+          "nameCn": "Coles中央店（伊丽莎白街）",
+          "lat": -37.8175,
+          "lng": 144.9598,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "弗林德斯街火车站旁的Coles大店，生鲜肉类品类最全，从RMIT步行约15分钟，适合周末大采购。"
+        },
+        {
+          "name": "Crown Asian Supermarket – Melbourne CBD",
+          "nameCn": "Crown亚洲超市",
+          "lat": -37.8116,
+          "lng": 144.966,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "墨尔本最大亚洲超市连锁之一，CBD多门店，中国食材（酱油、花椒、冻饺子等）最为丰富，留学生煮中餐首选。"
         }
       ]
     },
@@ -225,45 +439,129 @@
       "items": [
         {
           "name": "HuTong Dumpling Bar",
-          "nameCn": "胡同小笼包",
-          "lat": -37.8127,
-          "lng": 144.9683,
-          "note": "唐人街口碑老店，招牌上海小笼包皮薄汁多，留学生聚餐高频之选，建议提前订位。"
+          "nameCn": "壶同点心坊",
+          "lat": -37.8119,
+          "lng": 144.9695,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "墨尔本最知名小笼包专门店，14-16 Market Lane，现包现蒸，以小笼包和酸辣抄手著称，是每个中国留学生必吃清单No.1。"
         },
         {
-          "name": "Tim Ho Wan (Emporium)",
-          "nameCn": "添好运点心（Emporium 店）",
-          "lat": -37.8125,
-          "lng": 144.9646,
-          "note": "香港米其林平价点心连锁，酥皮叉烧包必点，离校步行8分钟，想吃粤式早茶来这。"
+          "name": "New Shanghai – Melbourne Central (Level 3)",
+          "nameCn": "新上海·墨尔本中央店",
+          "lat": -37.8103,
+          "lng": 144.9628,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "上海菜专门店，小笼包、生煎包、葱油面、红烧肉，步行距RMIT3分钟，价格实惠，中国留学生高频聚餐地。"
         },
         {
-          "name": "Shujinko Ramen",
-          "nameCn": "主公拉面",
-          "lat": -37.8108,
-          "lng": 144.9676,
-          "note": "24小时营业的日式拉面店，浓厚豚骨汤底，赶due熬夜或深夜饿了随时能吃。"
+          "name": "Dumplings Plus",
+          "nameCn": "饺子加",
+          "lat": -37.8118,
+          "lng": 144.9635,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "269 Swanston St，中式饺子与上海风味融合，供餐快、价格亲民，是RMIT学生课后最常光顾的平价中餐。"
         },
         {
-          "name": "Stalactites",
-          "nameCn": "Stalactites 希腊餐厅",
-          "lat": -37.8112,
-          "lng": 144.9683,
-          "note": "开了40多年的墨尔本希腊烤肉名店，souvlaki 卷和拼盘份量足，也是24小时营业的当地经典。"
+          "name": "Sichuan House",
+          "nameCn": "四川馆子",
+          "lat": -37.8121,
+          "lng": 144.9677,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "22-26 Corrs Lane，Chinatown内最受好评的川菜馆，麻辣口味地道，份量大、价格适中，留学生聚餐必选。"
+        },
+        {
+          "name": "Dainty Sichuan – Lonsdale St",
+          "nameCn": "精品四川（朗斯代尔街店）",
+          "lat": -37.812,
+          "lng": 144.9665,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "149 Lonsdale St，同名餐饮集团旗舰，红油抄手、夫妻肺片最为出名，被多家媒体评为墨尔本最佳中餐之一。"
+        },
+        {
+          "name": "China Bar – Swanston Street",
+          "nameCn": "中国吧（斯旺斯顿街）",
+          "lat": -37.8113,
+          "lng": 144.9634,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "257-259 Swanston St，24小时营业，港式茶餐厅风格，价格极实惠，凌晨也能吃到热食，RMIT夜间赶作业必备。"
+        },
+        {
+          "name": "Chin Chin",
+          "nameCn": "Chin Chin泰式餐厅",
+          "lat": -37.8178,
+          "lng": 144.968,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "125 Flinders Lane，墨尔本最知名东南亚融合餐厅，泰式小炒与越南风味并驾，需排队但绝对值得，本地人年年推荐。"
+        },
+        {
+          "name": "Supernormal",
+          "nameCn": "超寻常亚洲融合餐厅",
+          "lat": -37.8178,
+          "lng": 144.9673,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "180 Flinders Lane，Good Food Guide摘帽，日本料理风格融合Pan-Asian精华，新鲜生蚝、XO大虾饺是招牌。"
+        },
+        {
+          "name": "Mr Huang Jin",
+          "nameCn": "黄金先生",
+          "lat": -37.8183,
+          "lng": 144.961,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "台湾小笼包专门店，猪肉汤包以8小时熬制的汤汁闻名，位于Katherine Place，台湾味道最正宗的选择之一。"
+        },
+        {
+          "name": "Flower Drum",
+          "nameCn": "花鼓粤菜餐厅",
+          "lat": -37.8115,
+          "lng": 144.969,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Market Lane，自1975年起，墨尔本最高级粤菜馆，北京填鸭桌边现片，适合家长来访或毕业庆祝等重要场合。"
+        },
+        {
+          "name": "Brunetti Classico Carlton",
+          "nameCn": "布鲁内蒂意大利咖啡馆（卡尔顿）",
+          "lat": -37.7998,
+          "lng": 144.9663,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "380 Lygon St，1985年开业的意大利甜品与咖啡地标，每日现制20+口味冰淇淋，是Lygon Street标志性打卡地。"
         },
         {
           "name": "Pellegrini's Espresso Bar",
-          "nameCn": "Pellegrini 意式咖啡馆",
-          "lat": -37.8113,
-          "lng": 144.9714,
-          "note": "1954年开业的墨尔本咖啡文化地标，站着喝 espresso、吃手工意面，体验本地老派风味。"
+          "nameCn": "佩莱格里尼意式咖啡馆",
+          "lat": -37.8117,
+          "lng": 144.9712,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "66 Bourke St，1954年开业，墨尔本最古老意式咖啡馆，真正的墨尔本咖啡文化发源地，pasta和立饮浓缩是标配。"
         },
         {
-          "name": "Lune Croissanterie (CBD)",
-          "nameCn": "Lune 可颂（CBD 店）",
-          "lat": -37.8167,
-          "lng": 144.9668,
-          "note": "被称为全球最好吃的可颂之一，墨尔本必打卡，常排队，早起来买刚出炉的最香。"
+          "name": "Tiamo Restaurant – Lygon Street Carlton",
+          "nameCn": "提亚莫意大利餐厅",
+          "lat": -37.7993,
+          "lng": 144.966,
+          "rank": 13,
+          "tier": "一般",
+          "note": "303 Lygon St Carlton，1978年开业，学生最常去的平价正宗意大利餐，份量大、氛围好，Lygon Street传奇餐厅。"
+        },
+        {
+          "name": "Lune Croissanterie CBD",
+          "nameCn": "吕内可颂（CBD店）",
+          "lat": -37.8175,
+          "lng": 144.9703,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Russell街/Flinders Lane转角，被《纽约时报》称为世界最佳可颂，奶油香气浓郁，周末早上需排队，打卡必到。"
         }
       ]
     },
@@ -275,32 +573,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank (Swanston St Branch)",
-          "nameCn": "联邦银行（Swanston 街旗舰店）",
-          "lat": -37.8137,
-          "lng": 144.965,
-          "note": "澳洲四大行之一、留学生开户最常选，旗舰大店服务全，凭录取信和护照即可办学生账户。"
+          "name": "Medical Hub @ RMIT (Building 8, Level 3)",
+          "nameCn": "RMIT校内医疗中心",
+          "lat": -37.8083,
+          "lng": 144.963,
+          "rank": 1,
+          "tier": "必去",
+          "note": "368-374 Swanston St，RMIT学生及员工可享受混合计费（持Medicare者免费），OSHC持有的国际学生也可直接就诊，是校内GP首选。"
         },
         {
-          "name": "The Royal Melbourne Hospital (Emergency)",
-          "nameCn": "皇家墨尔本医院（急诊）",
-          "lat": -37.7994,
-          "lng": 144.957,
-          "note": "离校约1.5公里的大型公立医院急诊室，24小时接诊，遇紧急情况打000或直接来这。"
+          "name": "Commonwealth Bank – RMIT Branch (Building 8)",
+          "nameCn": "联邦银行RMIT支行",
+          "lat": -37.8083,
+          "lng": 144.963,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于RMIT 368-374 Swanston St，学生开户方便，留学生可提前3个月在国内办理开户，CBA学生账户无月费。"
         },
         {
-          "name": "Chemist Warehouse (Swanston St)",
-          "nameCn": "Chemist Warehouse 药房",
-          "lat": -37.8118,
-          "lng": 144.9637,
-          "note": "澳洲最大连锁药房，处方药、感冒药、保健品和日用品都便宜，离校步行几分钟。"
+          "name": "Telstra Discovery Store – 246-260 Bourke Street",
+          "nameCn": "Telstra旗舰店",
+          "lat": -37.8135,
+          "lng": 144.966,
+          "rank": 3,
+          "tier": "必去",
+          "note": "澳大利亚覆盖率最广的电信运营商旗舰店，预付卡和SIM套餐最全，刚到澳洲首选Telstra保障信号，带护照即可办理。"
         },
         {
-          "name": "Telstra Store (Bourke St Mall)",
-          "nameCn": "Telstra 电信营业厅（Bourke 步行街）",
-          "lat": -37.8141,
-          "lng": 144.9645,
-          "note": "澳洲信号最广的运营商门店，办电话卡/套餐认准这家，留学生落地先来开号。"
+          "name": "ANZ Bank – 287-293 Collins Street",
+          "nameCn": "澳新银行（柯林斯街支行）",
+          "lat": -37.8157,
+          "lng": 144.9662,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "四大行之一，国际学生开户友好，支持网上银行和手机银行，离RMIT步行约10分钟，开户需护照和签证。"
+        },
+        {
+          "name": "Chemist Warehouse – Manchester Unity Building (Collins St)",
+          "nameCn": "化妆品仓库药房（柯林斯街）",
+          "lat": -37.815,
+          "lng": 144.9662,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "220-226 Collins St，澳大利亚最大连锁药房，处方药、OTC药、维生素、护肤品全覆盖，价格低至竞争对手的50%。"
+        },
+        {
+          "name": "Optus Store – Melbourne Central",
+          "nameCn": "Optus电信（墨尔本中央店）",
+          "lat": -37.8103,
+          "lng": 144.9628,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "墨尔本中央购物中心内，Optus是唯一设有学生专属优惠平台的运营商，含对中国等国家国际通话，适合常打越洋电话的留学生。"
+        },
+        {
+          "name": "Westpac – Corner Collins & Swanston Streets",
+          "nameCn": "西太平洋银行（柯林斯/斯旺斯顿角）",
+          "lat": -37.8153,
+          "lng": 144.9633,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "四大行中离RMIT最近的支行之一，提供学生账户和日常银行业务，Collins与Swanston街交叉口，步行约10分钟。"
         }
       ]
     },
@@ -312,39 +645,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "State Library Victoria",
-          "nameCn": "维多利亚州立图书馆",
-          "lat": -37.8098,
-          "lng": 144.9648,
-          "note": "紧邻校园的百年地标，圆顶 La Trobe 阅览室是出片圣地，免费自习、躲清静的好去处。"
-        },
-        {
-          "name": "Melbourne Museum & Carlton Gardens",
-          "nameCn": "墨尔本博物馆与卡尔顿花园",
-          "lat": -37.8033,
-          "lng": 144.9717,
-          "note": "步行10分钟即到，博物馆+世界遗产花园连成一片，散步、拍照、看展一举多得。"
-        },
-        {
-          "name": "Old Melbourne Gaol",
-          "nameCn": "墨尔本旧监狱",
-          "lat": -37.8079,
-          "lng": 144.9658,
-          "note": "就在校园旁的历史监狱博物馆，传奇逃犯 Ned Kelly 在此受刑，了解本地历史的网红打卡点。"
-        },
-        {
-          "name": "Royal Exhibition Building",
-          "nameCn": "皇家展览馆",
-          "lat": -37.8047,
-          "lng": 144.9717,
-          "note": "澳洲首个世界文化遗产建筑，宏伟穹顶外观极上镜，就在卡尔顿花园内顺路一起逛。"
+          "name": "Queen Victoria Market",
+          "nameCn": "维多利亚女王市场",
+          "lat": -37.8076,
+          "lng": 144.9567,
+          "rank": 1,
+          "tier": "必去",
+          "note": "南半球最大露天市场，生鲜蔬果、熟食小吃、纪念品应有尽有，步行约15分钟，周三夏夜夜市是必体验活动。"
         },
         {
           "name": "Federation Square",
           "nameCn": "联邦广场",
           "lat": -37.818,
-          "lng": 144.9691,
-          "note": "墨尔本市中心活动地标，紧邻亚拉河与 Flinders 街车站，常有市集和展览，是城市出片必到点。"
+          "lng": 144.969,
+          "rank": 2,
+          "tier": "必去",
+          "note": "墨尔本的文化心脏，NGV Australia和ACMI在此，全年免费文化活动不断，步行约15分钟，是了解墨尔本的第一站。"
+        },
+        {
+          "name": "State Library Victoria – La Trobe Reading Room",
+          "nameCn": "维多利亚州立图书馆·拉特罗布阅览室",
+          "lat": -37.8099,
+          "lng": 144.964,
+          "rank": 3,
+          "tier": "必去",
+          "note": "圆顶大阅览室是墨尔本最具代表性的室内打卡空间，免费开放，小红书超高出镜率，距RMIT步行5分钟。"
+        },
+        {
+          "name": "Lygon Street – Melbourne's Little Italy",
+          "nameCn": "Lygon街·小意大利区",
+          "lat": -37.7998,
+          "lng": 144.966,
+          "rank": 4,
+          "tier": "必去",
+          "note": "从RMIT步行约15分钟，意大利餐厅、咖啡馆和冰淇淋店林立，Brunetti Classico和Tiamo都在此，是周末放松的首选。"
+        },
+        {
+          "name": "Southbank Promenade & Yarra River Walk",
+          "nameCn": "南岸滨河步道",
+          "lat": -37.8225,
+          "lng": 144.965,
+          "rank": 5,
+          "tier": "必去",
+          "note": "沿亚拉河南岸步行道散步，经过NGV International、Arts Centre Melbourne和众多餐厅，是体验墨尔本城市风光的最佳路线。"
+        },
+        {
+          "name": "Melbourne Museum & Royal Exhibition Building",
+          "nameCn": "墨尔本博物馆与皇家展览馆",
+          "lat": -37.8034,
+          "lng": 144.9717,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "博物馆免费开放部分展区，世遗展览馆建于1880年，毗邻Carlton Gardens，周末半天游足够探索，步行约20分钟。"
+        },
+        {
+          "name": "Melbourne CBD Laneways (Hosier Lane / AC/DC Lane)",
+          "nameCn": "墨尔本CBD巷道文化（霍希尔巷等）",
+          "lat": -37.8173,
+          "lng": 144.9684,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Hosier Lane是澳大利亚最有名的街头艺术画廊，涂鸦每天更新，是了解墨尔本街头文化的必逛地，步行15分钟。"
+        },
+        {
+          "name": "Old Melbourne Gaol",
+          "nameCn": "墨尔本旧监狱博物馆",
+          "lat": -37.8088,
+          "lng": 144.9665,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "377 Russell St，澳大利亚著名罪犯Ned Kelly被绞刑之地，历史博物馆，每晚有夜间鬼屋导览，校内步行5分钟。"
+        },
+        {
+          "name": "Royal Botanic Gardens Melbourne",
+          "nameCn": "墨尔本皇家植物园",
+          "lat": -37.8304,
+          "lng": 144.9801,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "距RMIT约3公里，38公顷绿地，免费开放，湖边野餐是墨尔本学生最喜爱的周末活动，乘电车City Circle可直达。"
+        },
+        {
+          "name": "NGV International (Southbank)",
+          "nameCn": "维多利亚国家美术馆（国际馆）",
+          "lat": -37.8227,
+          "lng": 144.969,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "180 St Kilda Rd，澳大利亚最古老最大博物馆，76,000件藏品，常设展免费，特展需购票，步行约20分钟。"
+        },
+        {
+          "name": "Flinders Street Station",
+          "nameCn": "弗林德斯街火车站",
+          "lat": -37.8181,
+          "lng": 144.9668,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "维多利亚州最繁忙的火车站，黄砖穹顶建筑是墨尔本城市封面，是探索全市公共交通的出发枢纽，步行15分钟。"
         }
       ]
     }

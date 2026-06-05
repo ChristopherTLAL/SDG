@@ -59,39 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Technological Institute",
-          "nameCn": "技术学院（工程楼）",
-          "lat": 42.0578,
-          "lng": -87.6757,
-          "note": "麦考密克工程学院主楼，校内最大建筑之一。"
+          "name": "Technological Institute (Tech / McCormick School of Engineering)",
+          "nameCn": "技术学院大楼（麦考密克工程学院）",
+          "lat": 42.0581,
+          "lng": -87.6756,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西北大学最大的单体学术建筑，超过7万平方米，工程各专业的核心教学与实验中枢，校内最醒目的学术地标。"
         },
         {
-          "name": "Kellogg Global Hub",
-          "nameCn": "凯洛格全球枢纽",
-          "lat": 42.0574,
-          "lng": -87.6724,
-          "note": "凯洛格商学院2017年新楼，湖滨地标。"
+          "name": "Kellogg Global Hub (Kellogg School of Management)",
+          "nameCn": "凯洛格全球中心（管理学院）",
+          "lat": 42.0601,
+          "lng": -87.6727,
+          "rank": 2,
+          "tier": "必去",
+          "note": "2017年落成的五层现代商学院大楼，坐拥密歇根湖景，内设西班牙台阶中庭，是全美最具辨识度的MBA大楼之一。"
         },
         {
-          "name": "Annenberg Hall (School of Education)",
-          "nameCn": "安南伯格楼（教育学院）",
-          "lat": 42.0561,
-          "lng": -87.6745,
-          "note": "社会政策与教育学院所在。"
+          "name": "University Hall (Weinberg College of Arts & Sciences – English Dept.)",
+          "nameCn": "大学堂（文理学院·英语系）",
+          "lat": 42.0517,
+          "lng": -87.6748,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1869年的维多利亚哥特式石灰岩建筑，是校园最古老的原始建筑，现为英语系所在地，也是学校精神象征。"
         },
         {
-          "name": "Feinberg School of Medicine (Rubloff/Ward)",
-          "nameCn": "范伯格医学院",
-          "lat": 41.8957,
-          "lng": -87.6205,
-          "note": "芝加哥校区，750 N Lake Shore Dr。"
+          "name": "Annenberg Hall (School of Education & Social Policy)",
+          "nameCn": "安南伯格堂（教育与社会政策学院）",
+          "lat": 42.0527,
+          "lng": -87.6752,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "教育与社会政策学院主楼，以传媒大亨沃尔特·安南伯格命名，紧邻Searle Hall，位于南校区核心。"
         },
         {
-          "name": "Pritzker School of Law",
-          "nameCn": "普利兹克法学院",
-          "lat": 41.8966,
-          "lng": -87.6176,
-          "note": "375 E Chicago Ave，芝加哥校区东缘。"
+          "name": "Bienen School of Music – Ryan Center for the Musical Arts",
+          "nameCn": "比南音乐学院（瑞安音乐艺术中心）",
+          "lat": 42.0508,
+          "lng": -87.6742,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美顶尖音乐学院之一，坐落于艺术圆环，毗邻Pick-Staiger音乐厅，提供古典到爵士的全面音乐教育。"
+        },
+        {
+          "name": "Medill School of Journalism – McCormick Foundation Center",
+          "nameCn": "梅迪尔新闻学院（麦考密克基金会中心）",
+          "lat": 42.0545,
+          "lng": -87.6752,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全美排名前三的新闻传播学院，整合新闻学与整合营销传播专业，以实战培训著称。"
+        },
+        {
+          "name": "Harris Hall (Political Science / Communications)",
+          "nameCn": "哈里斯堂（政治学·传播学）",
+          "lat": 42.0521,
+          "lng": -87.6751,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "政治学与传播学系所在的老建筑，哥特复兴风格，与University Hall相邻，人文社科氛围浓厚。"
+        },
+        {
+          "name": "Kresge Hall (Weinberg College – Humanities)",
+          "nameCn": "克雷斯格堂（文理学院·人文系科）",
+          "lat": 42.0538,
+          "lng": -87.6754,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "文理学院人文系科聚集地，承载历史学、哲学、比较文学等多个系，是跨学科讨论的重要场所。"
+        },
+        {
+          "name": "Annie May Swift Hall (Art Theory & Practice / Radio-TV-Film)",
+          "nameCn": "安妮·梅·斯威夫特堂（艺术理论与电影系）",
+          "lat": 42.0536,
+          "lng": -87.6749,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "艺术理论实践与广播电影电视系所在地，校园艺术圆环附近，创意艺术学生聚集的核心楼。"
+        },
+        {
+          "name": "Northwestern Pritzker School of Law (Chicago Campus)",
+          "nameCn": "普利兹克法学院（芝加哥校区）",
+          "lat": 41.896,
+          "lng": -87.6215,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "位于芝加哥市区密歇根大道旁，全美顶尖法学院，拥有湖景地块，交通可乘紫线CTA直达。"
+        },
+        {
+          "name": "Feinberg School of Medicine (Chicago Campus)",
+          "nameCn": "费因伯格医学院（芝加哥校区）",
+          "lat": 41.8959,
+          "lng": -87.6214,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "位于芝加哥医学区，毗邻西北医疗中心，是西北大学医学教育与临床研究的主要场所。"
+        },
+        {
+          "name": "Seabury Hall (former Seabury-Western Seminary, now NU)",
+          "nameCn": "西伯里堂（前神学院旧址）",
+          "lat": 42.0524,
+          "lng": -87.6747,
+          "rank": 12,
+          "tier": "可选",
+          "note": "2008年并入西北大学的神学院建筑群，历史感深厚的哥特式建筑，现为各人文系科使用。"
         }
       ],
       "defaultOn": true
@@ -104,18 +177,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "University Library (Charles Deering McCormick)",
-          "nameCn": "大学图书馆",
-          "lat": 42.0531,
-          "lng": -87.6741,
-          "note": "北美第14大高校图书馆，主馆。"
+          "name": "University Library (Main Library)",
+          "nameCn": "大学图书馆（主馆）",
+          "lat": 42.0562,
+          "lng": -87.6748,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西北大学主图书馆，每年超65万访客，馆藏丰富，设有大量自习座位和协作空间，是最繁忙的学习场所。"
         },
         {
-          "name": "Deering Library",
-          "nameCn": "迪林图书馆",
-          "lat": 42.0535,
+          "name": "Charles Deering Library",
+          "nameCn": "查尔斯·迪尔林图书馆",
+          "lat": 42.0534,
           "lng": -87.675,
-          "note": "哥特式老馆，仿剑桥国王学院礼拜堂。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "1932年落成的哥特学院风地标建筑，仿剑桥国王学院教堂设计，是校园最美的建筑之一，目前正在翻修中（预计2025年完工）。"
+        },
+        {
+          "name": "Mudd Library (Science & Engineering Library)",
+          "nameCn": "马德图书馆（理工科图书馆）",
+          "lat": 42.0578,
+          "lng": -87.6745,
+          "rank": 3,
+          "tier": "必去",
+          "note": "理工科主要专业图书馆，紧邻Tech楼，提供丰富的数字资源和工程技术参考资料，学理工科必到。"
+        },
+        {
+          "name": "Mathematics Library",
+          "nameCn": "数学图书馆",
+          "lat": 42.0577,
+          "lng": -87.6754,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "馆藏约3.4万册纯数学与统计学专著，是美国大学中少见的独立数学专业图书馆，安静适合深度研究。"
+        },
+        {
+          "name": "Styberg Library (Garrett-Evangelical Theological Seminary)",
+          "nameCn": "斯泰伯格图书馆（神学院）",
+          "lat": 42.0526,
+          "lng": -87.6743,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "加勒特福音神学院附属馆藏，已并入西北大学NUSearch系统，神学、宗教研究资源尤为丰富，可凭NU证借阅。"
+        },
+        {
+          "name": "Evanston Public Library (Main Branch)",
+          "nameCn": "埃文斯顿公共图书馆（总馆）",
+          "lat": 42.0466,
+          "lng": -87.6844,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "市立公共图书馆，持有伊利诺伊州驾照或居住证明可免费办证，馆内有宽敞自习区和免费WiFi。"
         }
       ]
     },
@@ -128,10 +241,48 @@
       "items": [
         {
           "name": "Mary and Leigh Block Museum of Art",
-          "nameCn": "布洛克艺术博物馆",
-          "lat": 42.0518,
-          "lng": -87.6735,
-          "note": "永久馆藏逾4000件，免费开放。"
+          "nameCn": "玛丽与利·布洛克艺术博物馆",
+          "lat": 42.0509,
+          "lng": -87.6744,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西北大学附属免费公立艺术馆，永久馆藏超6000件，含美国版画与南非当代艺术，户外雕塑花园也值得游览。"
+        },
+        {
+          "name": "Evanston History Center (Charles Gates Dawes House)",
+          "nameCn": "埃文斯顿历史中心（道斯故居）",
+          "lat": 42.0423,
+          "lng": -87.6656,
+          "rank": 2,
+          "tier": "必去",
+          "note": "美国副总统查尔斯·道斯的故居改建的博物馆，俯瞰密歇根湖，展示埃文斯顿及北岸地区历史，建筑本身即为国家历史地标。"
+        },
+        {
+          "name": "Dearborn Observatory",
+          "nameCn": "迪尔本天文台",
+          "lat": 42.0582,
+          "lng": -87.6756,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1888年的历史天文台，每周五晚对公众开放，可通过18.5英寸折射望远镜观星，是校园独特的科普活动场所。"
+        },
+        {
+          "name": "Pick-Staiger Concert Hall (Bienen School of Music)",
+          "nameCn": "皮克-斯泰格音乐厅",
+          "lat": 42.0555,
+          "lng": -87.6739,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1003座的专业音乐厅，常年举办管弦乐、合唱及室内乐演出，门票平价甚至免费，是感受世界级音乐表演的绝佳去处。"
+        },
+        {
+          "name": "Block Museum Sculpture Garden (Arts Circle)",
+          "nameCn": "布洛克雕塑花园（艺术圆环）",
+          "lat": 42.051,
+          "lng": -87.6741,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1989年开设的户外雕塑公园，散布于艺术圆环各建筑之间，汇集十六件国际级雕塑，是拍照打卡和散步的好去处。"
         }
       ]
     },
@@ -143,39 +294,76 @@
       "icon": "place",
       "items": [
         {
+          "name": "The Rock",
+          "nameCn": "西北大学磐石",
+          "lat": 42.0516,
+          "lng": -87.6748,
+          "rank": 1,
+          "tier": "必去",
+          "note": "西北大学最具传奇色彩的地标：一块巴拉布石英岩，学生需守护24小时方可涂鸦，是校园精神与传统的核心象征。"
+        },
+        {
+          "name": "Weber Arch (Arnold Weber Arch)",
+          "nameCn": "韦伯拱门",
+          "lat": 42.0506,
+          "lng": -87.6739,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于谢里丹路与芝加哥大道交口，新生入学时从拱门下列队穿行，毕业时再度经过，是最重要的校园仪式场所。"
+        },
+        {
+          "name": "Northwestern University Lakefill",
+          "nameCn": "西北大学湖畔填造地",
+          "lat": 42.0574,
+          "lng": -87.6693,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1964年向密歇根湖填海建造的约30公顷土地，是校园跑步、野餐和看日落的绝佳场所，湖景无敌。"
+        },
+        {
           "name": "Norris University Center",
-          "nameCn": "诺里斯学生活动中心",
-          "lat": 42.053,
-          "lng": -87.672,
-          "note": "湖滨学生中心，俯瞰密歇根湖。"
+          "nameCn": "诺里斯大学学生中心",
+          "lat": 42.0559,
+          "lng": -87.6741,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园学生活动核心，含社团活动室、书店、麦考密克礼堂及多个餐饮选项，是学生日常生活和社交的枢纽。"
+        },
+        {
+          "name": "Shakespeare Garden",
+          "nameCn": "莎士比亚花园",
+          "lat": 42.0529,
+          "lng": -87.6746,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1915年由草原风格景观设计师詹斯·延森设计，种有莎士比亚作品中提及的50余种植物，附有文学引语，春夏景色极美。"
+        },
+        {
+          "name": "Deering Meadow",
+          "nameCn": "迪尔林草地",
+          "lat": 42.0543,
+          "lng": -87.6752,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "校园中央开阔草坪，被迪尔林图书馆和主要教学楼环绕，是学生晒太阳、办露天活动和抛飞盘的经典场地。"
+        },
+        {
+          "name": "Kellogg Global Hub Atrium (Spanish Steps)",
+          "nameCn": "凯洛格全球中心中庭（西班牙台阶）",
+          "lat": 42.0601,
+          "lng": -87.6727,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "商学院大楼内三层挑高中庭，以罗马西班牙台阶为灵感，是校园最具现代设计感的打卡室内空间之一。"
         },
         {
           "name": "Ryan Field",
-          "nameCn": "瑞安橄榄球场",
-          "lat": 42.0656,
-          "lng": -87.692,
-          "note": "Wildcats 主场，Central St 与 Ashland Ave 交口。"
-        },
-        {
-          "name": "Welsh-Ryan Arena",
-          "nameCn": "威尔什-瑞安球馆",
-          "lat": 42.0665,
-          "lng": -87.6912,
-          "note": "篮球主场，紧邻瑞安体育场北侧。"
-        },
-        {
-          "name": "The Arch (Weber Arch)",
-          "nameCn": "韦伯拱门",
-          "lat": 42.0513,
-          "lng": -87.677,
-          "note": "Sheridan Rd 主入口标志性拱门。"
-        },
-        {
-          "name": "Davis Street Metra/CTA Station",
-          "nameCn": "戴维斯街车站",
-          "lat": 42.0478,
-          "lng": -87.6841,
-          "note": "校园西南通勤铁路与紫线枢纽。"
+          "nameCn": "瑞安体育场（美式橄榄球场）",
+          "lat": 42.0617,
+          "lng": -87.668,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "西北野猫队主场，NCAA大十联盟橄榄球赛事在此举办，每逢主场比赛日氛围热烈，是融入美国校园文化的绝佳体验。"
         }
       ]
     },
@@ -187,39 +375,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market (Evanston)",
-          "nameCn": "全食超市（埃文斯顿店）",
-          "lat": 42.047585,
-          "lng": -87.679603,
-          "note": "市中心主力超市，步行约1公里可达，有机食品和日常生鲜最全，离校最近的大超市。"
+          "name": "Whole Foods Market (Chicago Ave)",
+          "nameCn": "全食超市（芝加哥大道店）",
+          "lat": 42.0421,
+          "lng": -87.682,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距The Rock步行约8分钟，最靠近校园的连锁超市，有机产品丰富，是日常购物最方便的选择。"
         },
         {
-          "name": "Trader Joe's (Evanston)",
-          "nameCn": "缺德舅超市",
-          "lat": 42.039799,
-          "lng": -87.68008,
-          "note": "美国学生最爱的平价精品超市，自有品牌零食、冷冻速食和酒水性价比高。"
+          "name": "Trader Joe's (Chicago Ave)",
+          "nameCn": "乔氏超市（芝加哥大道店）",
+          "lat": 42.0395,
+          "lng": -87.6822,
+          "rank": 2,
+          "tier": "必去",
+          "note": "价格亲民、自有品牌种类多，冷冻食品和零食选择丰富，被西北学生票选为最佳超市，性价比极高。"
         },
         {
           "name": "Jewel-Osco (Chicago Ave)",
-          "nameCn": "Jewel-Osco 超市",
-          "lat": 42.039478,
-          "lng": -87.680816,
-          "note": "本地大型连锁超市，品类齐全、价格实惠，常有打折，适合一站式囤货。"
+          "nameCn": "珠宝欧斯科超市（芝加哥大道店）",
+          "lat": 42.038,
+          "lng": -87.6826,
+          "rank": 3,
+          "tier": "必去",
+          "note": "芝加哥地区主流连锁超市，商品种类全面、24小时营业（部分门店），附设药房，是一站式日常采购首选。"
         },
         {
-          "name": "Valli Produce International Fresh Market",
-          "nameCn": "Valli 国际生鲜超市",
-          "lat": 42.038704,
-          "lng": -87.700098,
-          "note": "大型国际超市，亚洲/中餐调料、米面、冷冻品和亚洲蔬菜区很全，找中国食材首选。"
+          "name": "H Mart (Niles)",
+          "nameCn": "韩亚超市（尼尔斯店）",
+          "lat": 42.0294,
+          "lng": -87.7957,
+          "rank": 4,
+          "tier": "必去",
+          "note": "美国最大韩亚裔连锁超市，Niles店距埃文斯顿约15分钟车程，中韩日各类食材一应俱全，熟食和泡菜尤佳，留学生强烈推荐。"
         },
         {
-          "name": "Sea Ranch Fish Market",
-          "nameCn": "Sea Ranch 日式生鲜超市",
-          "lat": 42.041031,
-          "lng": -87.680093,
-          "note": "日式食品杂货店，卖刺身级鲜鱼、日韩零食和亚洲调料，想做日料或买亚洲零嘴可来。"
+          "name": "Joong Boo Market (Glenview)",
+          "nameCn": "中部超市（格伦维尤店）",
+          "lat": 42.0697,
+          "lng": -87.8529,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "创立于1992年的综合亚洲超市，格伦维尤店距西北大学约10分钟车程，新鲜亚洲蔬菜和海鲜选择出色。"
+        },
+        {
+          "name": "Target (Chicago Ave)",
+          "nameCn": "塔吉特（芝加哥大道店）",
+          "lat": 42.04,
+          "lng": -87.6825,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "生活用品、电子产品与食品兼售的大型连锁，开学季采购宿舍必需品的首选，步行可达。"
+        },
+        {
+          "name": "Valli Produce (Skokie)",
+          "nameCn": "瓦利农产品超市（斯科基店）",
+          "lat": 42.027,
+          "lng": -87.7327,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "以新鲜农产品、国际食材和低价著称，距埃文斯顿约15分钟车程，国际学生淘各国食材的好去处。"
         }
       ]
     },
@@ -231,39 +447,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Joy Yee Noodle",
-          "nameCn": "乐怡面馆",
-          "lat": 42.046252,
-          "lng": -87.679273,
-          "note": "校区附近人气亚洲面馆，菜单巨大、泡面奶茶都有，学生聚餐常来。"
+          "name": "Lao Sze Chuan (720 Clark St)",
+          "nameCn": "老四川（克拉克街店）",
+          "lat": 42.0474,
+          "lng": -87.6841,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "全美最知名四川菜连锁，2025年重返埃文斯顿在720 Clark St开新店，麻婆豆腐、四川凉面和孜然羊肉是学生必点，性价比高。"
+        },
+        {
+          "name": "Shang Noodle & Chinese",
+          "nameCn": "上·面馆",
+          "lat": 42.0469,
+          "lng": -87.6836,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Davis街上每日现制手工面，融合四川、上海、山东口味，被誉为埃文斯顿最正宗中式面馆，排队是常态。"
         },
         {
           "name": "Koi Fine Asian Cuisine & Lounge",
-          "nameCn": "锦鲤亚洲料理",
-          "lat": 42.046413,
-          "lng": -87.681043,
-          "note": "市中心中日泰融合餐厅，环境时髦，川菜寿司都能点，适合朋友家庭聚餐。"
+          "nameCn": "鲤·亚洲精致料理",
+          "lat": 42.0468,
+          "lng": -87.6834,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "埃文斯顿最受好评的亚洲料理综合餐厅，同时提供中、日、泰料理，环境优雅，适合朋友聚餐或父母来访时享用。"
         },
         {
-          "name": "Mt. Everest Restaurant",
-          "nameCn": "珠峰印度尼泊尔餐厅",
-          "lat": 42.047983,
-          "lng": -87.680347,
-          "note": "市中心印度/尼泊尔老店，周末自助午餐超划算，想换口味吃咖喱来这。"
+          "name": "Joy Yee Noodle",
+          "nameCn": "喜宜面馆（珍珠奶茶）",
+          "lat": 42.047,
+          "lng": -87.6829,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "1994年开业的泛亚料理先驱，以珍珠奶茶和份量大、价格亲民的亚洲菜出名，韩式牛肉饭和炒河粉是热门选择。"
         },
         {
-          "name": "Tapas Barcelona",
-          "nameCn": "巴塞罗那西班牙小吃",
-          "lat": 42.046641,
-          "lng": -87.679192,
-          "note": "1995年开业的西班牙Tapas名店，本地约会和家长来访的招牌打卡餐厅。"
+          "name": "Hunan Spring",
+          "nameCn": "湖南春",
+          "lat": 42.038,
+          "lng": -87.6832,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "位于芝加哥大道的老牌湖南菜馆，外卖和堂食皆宜，以辣炒菜和红烧肉著称，是西北中国留学生最常光顾的餐厅之一。"
         },
         {
-          "name": "Evanston Chicken Shack",
-          "nameCn": "埃文斯顿炸鸡屋",
-          "lat": 42.052798,
-          "lng": -87.687416,
-          "note": "本地传奇炸鸡店，2026年被校报评为最佳深夜美食，深夜赶due的必备能量站。"
+          "name": "Dozika",
+          "nameCn": "道积卡（泛亚料理）",
+          "lat": 42.0462,
+          "lng": -87.6836,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "迁至Davis街1018号的泛亚融合馆，涵盖日式、泰式、韩式料理，寿司卷和各类咖喱均获好评，装潢时尚。"
+        },
+        {
+          "name": "Soulwich",
+          "nameCn": "灵魂三明治",
+          "lat": 42.0487,
+          "lng": -87.6826,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "亚洲风味三明治小店，口味创新、价格实惠，是课间快餐的热门选择，常被西北学生评为最爱外卖之一。"
+        },
+        {
+          "name": "Oceanique",
+          "nameCn": "海洋法餐厅",
+          "lat": 42.0361,
+          "lng": -87.6864,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "1989年开业的高端法式海鲜餐厅，以龙虾和北大西洋海鲜著称，是埃文斯顿最受认可的精致餐厅，适合毕业庆典或父母探访。"
+        },
+        {
+          "name": "Blind Faith Cafe",
+          "nameCn": "盲目信仰素食咖啡馆",
+          "lat": 42.0437,
+          "lng": -87.6836,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "埃文斯顿历史最悠久的全素食餐厅，素食烘焙和早午餐极受好评，是素食主义者和注重健康饮食学生的必备选项。"
+        },
+        {
+          "name": "Peppercorns Kitchen",
+          "nameCn": "花椒厨房（川菜）",
+          "lat": 42.0468,
+          "lng": -87.6834,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Davis街上主打川菜的主厨餐厅，口味正宗，已迁移或歇业请确认，以前以麻辣烫和口水鸡受到中国学生力荐。"
+        },
+        {
+          "name": "Mustard's Last Stand",
+          "nameCn": "芥末最后摊（芝加哥热狗）",
+          "lat": 42.0619,
+          "lng": -87.6683,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "Ryan Field旁的传奇热狗摊，五十年不变的芝加哥风味热狗，是体验正宗芝加哥街头食文化最直接的方式。"
+        },
+        {
+          "name": "Hunan Star",
+          "nameCn": "湖南之星",
+          "lat": 42.0145,
+          "lng": -87.7129,
+          "rank": 12,
+          "tier": "一般",
+          "note": "位于埃文斯顿南部Golf路的湖南菜馆，口味偏家常，距校区稍远需开车，以高性价比的外卖套餐受到好评。"
+        },
+        {
+          "name": "Shinsen (Japanese/Thai)",
+          "nameCn": "新鲜（日泰创意料理）",
+          "lat": 42.0454,
+          "lng": -87.683,
+          "rank": 13,
+          "tier": "一般",
+          "note": "日泰创意融合料理，Robata烤肉串和罗勒炒面深受好评，适合想尝试非中餐亚洲风味的学生。"
+        },
+        {
+          "name": "Hewn Bread (Bakery & Cafe)",
+          "nameCn": "工匠面包咖啡馆",
+          "lat": 42.0461,
+          "lng": -87.6835,
+          "rank": 14,
+          "tier": "一般",
+          "note": "以有机面粉现做的手工酸面包闻名，是埃文斯顿最受欢迎的烘焙咖啡馆，早餐和下午茶的绝佳选择。"
         }
       ]
     },
@@ -275,32 +582,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (Orrington Plaza)",
-          "nameCn": "大通银行（市中心支行）",
-          "lat": 42.046973,
-          "lng": -87.680594,
-          "note": "市中心主力银行网点，新生开户、办借记卡走这里，离校步行可达。"
+          "name": "Chase Bank – Orrington Branch",
+          "nameCn": "大通银行（欧林顿支行）",
+          "lat": 42.0488,
+          "lng": -87.6826,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园步行约5分钟，全美最大银行之一，国际学生持护照和I-20可开学生账户，免月费账户需维持500美元余额。"
         },
         {
-          "name": "CVS Pharmacy (Sherman Ave)",
-          "nameCn": "CVS 药房",
-          "lat": 42.04896,
-          "lng": -87.681565,
-          "note": "市中心连锁药房，感冒药、处方药、日用品和打疫苗都能搞定。"
+          "name": "Northwestern Medicine Student Health Service (Searle Hall)",
+          "nameCn": "西北大学学生健康服务中心",
+          "lat": 42.05,
+          "lng": -87.6775,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园内学生医疗服务机构，提供初级保健、妇科和心理咨询，需提前预约，就读期间必须了解如何使用，接受大学医保。"
         },
         {
-          "name": "Endeavor Health Evanston Hospital",
-          "nameCn": "埃文斯顿医院（急诊）",
-          "lat": 42.065915,
-          "lng": -87.684352,
-          "note": "离校最近的综合医院，设24小时急诊室，生病或急症第一去处。"
+          "name": "Northwestern Medicine Immediate Care (1630 Sherman Ave)",
+          "nameCn": "西北医疗急症中心（谢尔曼大道）",
+          "lat": 42.0475,
+          "lng": -87.6836,
+          "rank": 3,
+          "tier": "必去",
+          "note": "每天8am–7:30pm开放的紧急诊疗中心，无需预约，适合感冒发烧等非危及生命的急症，接受大多数保险。"
         },
         {
-          "name": "AT&T Store (Chicago Ave)",
-          "nameCn": "AT&T 手机营业厅",
-          "lat": 42.046779,
-          "lng": -87.679639,
-          "note": "运营商门店，落地后办美国手机卡/套餐、买手机配件可来这。"
+          "name": "CVS Pharmacy (1711 Sherman Ave)",
+          "nameCn": "CVS药店（谢尔曼大道店）",
+          "lat": 42.0474,
+          "lng": -87.6836,
+          "rank": 4,
+          "tier": "必去",
+          "note": "下城区最近的CVS药店，含药房、非处方药、日常生活用品，附设照片打印，是最方便的一站式药妆店。"
+        },
+        {
+          "name": "Walgreens (635 Chicago Ave)",
+          "nameCn": "华格林药店（芝加哥大道店）",
+          "lat": 42.0378,
+          "lng": -87.6826,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "靠近南部宿舍区的另一家主流连锁药店，24小时营业药房（确认实时），是深夜急需药品或生活用品的备选。"
+        },
+        {
+          "name": "T-Mobile (Sherman Ave & Church St)",
+          "nameCn": "T-Mobile手机运营商门店",
+          "lat": 42.0476,
+          "lng": -87.6835,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于下城区Sherman Ave，T-Mobile预付费计划性价比高，是国际学生落地首选电话卡，工作人员可协助激活。"
+        },
+        {
+          "name": "AT&T Store (1620 Chicago Ave)",
+          "nameCn": "AT&T运营商门店",
+          "lat": 42.0411,
+          "lng": -87.6826,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "提供手机套餐开卡和设备购买服务，AT&T覆盖广泛，适合需要稳定4G/5G信号的学生，国际学生需护照办理。"
+        },
+        {
+          "name": "U.S. Bank – Northwestern University Branch (Norris Center)",
+          "nameCn": "美国银行（诺里斯学生中心分行）",
+          "lat": 42.0559,
+          "lng": -87.6741,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于诺里斯学生中心内的校园银行网点，开户最为便利，国际学生可直接在校内办理账户，无需额外交通。"
         }
       ]
     },
@@ -312,46 +663,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Dearborn Observatory",
-          "nameCn": "迪尔伯恩天文台",
-          "lat": 42.056672,
-          "lng": -87.675068,
-          "note": "校内1888年历史天文台，周五晚可预约用古董望远镜观星，校园地标。"
+          "name": "Evanston Lakefront & Beaches (Clark St, Lighthouse, Greenwood)",
+          "nameCn": "埃文斯顿湖畔海滩群",
+          "lat": 42.0481,
+          "lng": -87.6683,
+          "rank": 1,
+          "tier": "必去",
+          "note": "密歇根湖畔一线风光，共六处公共沙滩，夏季游泳、皮划艇、桨板租借一应俱全，是西北学生减压放松的首选去处。"
         },
         {
-          "name": "Shakespeare Garden",
-          "nameCn": "莎士比亚花园",
-          "lat": 42.056814,
-          "lng": -87.675977,
-          "note": "校内百年历史花园，种满莎剧里提到的花草，安静拍照和散步的好去处。"
-        },
-        {
-          "name": "Northwestern Lakefill",
-          "nameCn": "西北大学湖滨填地",
-          "lat": 42.054477,
-          "lng": -87.673824,
-          "note": "校园东侧密歇根湖填地，能远眺芝加哥天际线，跑步看日出和拍照绝佳。"
-        },
-        {
-          "name": "The Block Museum of Art",
-          "nameCn": "布洛克艺术博物馆",
-          "lat": 42.052232,
-          "lng": -87.672715,
-          "note": "校内免费艺术博物馆，常设和特展都有，雨天或想看展时步行即到。"
+          "name": "Bahá'í House of Worship (Wilmette)",
+          "nameCn": "巴哈伊礼拜堂（维尔梅特）",
+          "lat": 42.073,
+          "lng": -87.7049,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全北美唯一的巴哈伊礼拜堂，135英尺白色花边圆顶气势恢宏，免费参观，乘CTA紫线Linden站即可抵达，是必打卡的宗教建筑奇观。"
         },
         {
           "name": "Grosse Point Lighthouse",
           "nameCn": "格罗斯角灯塔",
-          "lat": 42.0639,
-          "lng": -87.676021,
-          "note": "1873年湖畔灯塔历史地标，旁边有海滩和公园，傍晚看湖拍照很出片。"
+          "lat": 42.0617,
+          "lng": -87.6682,
+          "rank": 3,
+          "tier": "必去",
+          "note": "建于1873年的国家历史地标灯塔，每年6–9月周末下午开放导览，毗邻蝴蝶野花园，是埃文斯顿历史与自然结合的标志景点。"
         },
         {
-          "name": "Baha'i House of Worship",
-          "nameCn": "巴哈伊灵曦堂",
-          "lat": 42.074435,
+          "name": "Downtown Chicago (Loop / Millennium Park / Navy Pier)",
+          "nameCn": "芝加哥市区（千禧公园·海军码头）",
+          "lat": 41.8826,
+          "lng": -87.6233,
+          "rank": 4,
+          "tier": "必去",
+          "note": "乘CTA紫线约35分钟即可抵达市区，千禧公园云门雕塑、海军码头摩天轮和密歇根大道购物街是国际学生必游之地。"
+        },
+        {
+          "name": "Chicago Chinatown (Wentworth Ave)",
+          "nameCn": "芝加哥中国城（温特沃斯大道）",
+          "lat": 41.8524,
+          "lng": -87.633,
+          "rank": 5,
+          "tier": "必去",
+          "note": "乘红线约45分钟可达的芝加哥中国城，正宗粤菜、港式茶楼、中式超市齐全，思乡时必去解馋之地。"
+        },
+        {
+          "name": "Merrick Rose Garden",
+          "nameCn": "梅里克玫瑰花园",
+          "lat": 42.0458,
+          "lng": -87.68,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "城市免费玫瑰园，百余品种在6–9月盛放，附有百年喷泉，步行可达，是春夏约会和拍照的小众宝藏地点。"
+        },
+        {
+          "name": "Dearborn Observatory Public Viewing Nights",
+          "nameCn": "迪尔本天文台公众观星夜",
+          "lat": 42.0582,
+          "lng": -87.6756,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "每周五夜间开放公众观星，可通过19世纪历史望远镜观测行星和星云，免费，是融入西北校园文化的独特体验。"
+        },
+        {
+          "name": "Evanston History Center",
+          "nameCn": "埃文斯顿历史中心",
+          "lat": 42.0423,
+          "lng": -87.6656,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "美国副总统道斯故居改建的博物馆，俯瞰密歇根湖，展览埃文斯顿历史与北岸文化，建筑本身即国家历史地标。"
+        },
+        {
+          "name": "Asia on Argyle (Chicago Uptown)",
+          "nameCn": "阿格尔街亚洲美食街（芝加哥城北）",
+          "lat": 41.9731,
+          "lng": -87.659,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "芝加哥越南华人文化街区，乘红线约20分钟，云吞面、烤鸭、越南河粉价格低廉，比中国城更接地气。"
+        },
+        {
+          "name": "Downtown Evanston Farmers Market",
+          "nameCn": "埃文斯顿农夫市集",
+          "lat": 42.0464,
           "lng": -87.6843,
-          "note": "邻镇Wilmette的白色穹顶圣殿，全美唯一，建筑精美、花园开放，值得专程一去。"
+          "rank": 10,
+          "tier": "推荐",
+          "note": "每周六早上在市区举办（5–11月），60余家本地农户和手工食品摊主，新鲜食材和特色小吃，是融入本地生活的好方式。"
+        },
+        {
+          "name": "Northwestern Sailing Center",
+          "nameCn": "西北大学帆船中心",
+          "lat": 42.057,
+          "lng": -87.669,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "校园内提供皮划艇、帆船和桨板租赁及培训，在密歇根湖上帆行是西北校园生活的独特体验，对在校生有优惠价。"
+        },
+        {
+          "name": "Block Museum Film Screenings",
+          "nameCn": "布洛克博物馆电影放映",
+          "lat": 42.0509,
+          "lng": -87.6744,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "布洛克博物馆附设电影院，常年放映艺术片、国际片和经典老片，票价低廉，是校内高质量文化娱乐首选。"
         }
       ]
     }

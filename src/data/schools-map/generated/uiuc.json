@@ -67,39 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Grainger College of Engineering (Engineering Hall)",
-          "nameCn": "格兰杰工程学院（工程大楼）",
-          "lat": 40.1115,
-          "lng": -88.2273,
-          "note": "工程方庭主楼，标志性穹顶建筑"
-        },
-        {
-          "name": "Lincoln Hall (Liberal Arts & Sciences)",
-          "nameCn": "林肯楼（文理学院）",
-          "lat": 40.1057,
-          "lng": -88.2293,
-          "note": "中央方庭西侧人文社科教学楼"
-        },
-        {
-          "name": "Gies College of Business (Wohlers Hall)",
-          "nameCn": "吉斯商学院（沃勒斯楼）",
-          "lat": 40.1036,
-          "lng": -88.2298,
-          "note": "南方庭商科核心楼"
-        },
-        {
-          "name": "Siebel Center for Computer Science",
+          "name": "Thomas M. Siebel Center for Computer Science",
           "nameCn": "西贝尔计算机科学中心",
           "lat": 40.1138,
           "lng": -88.2249,
-          "note": "工程区计算机系所在地"
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖CS系之一，选校必提的UIUC名片，也是最多中国留学生就读的院系。"
         },
         {
-          "name": "Coordinated Science Laboratory / Beckman Institute",
-          "nameCn": "贝克曼研究院",
-          "lat": 40.1159,
-          "lng": -88.2278,
-          "note": "北校区跨学科尖端科研中心"
+          "name": "Grainger College of Engineering — Engineering Hall",
+          "nameCn": "格兰杰工学院工程楼",
+          "lat": 40.1065,
+          "lng": -88.2276,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工学院旗舰楼，全美排名前五工程学院，ECE/CS/土木等顶级项目所在地。"
+        },
+        {
+          "name": "Loomis Laboratory of Physics",
+          "nameCn": "卢米斯物理实验室",
+          "lat": 40.1099,
+          "lng": -88.2281,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "物理系大楼，UIUC是美国物理学博士授予最多的大学之一，多位诺贝尔奖得主在此工作。"
+        },
+        {
+          "name": "Beckman Institute for Advanced Science and Technology",
+          "nameCn": "贝克曼高级科技研究所",
+          "lat": 40.116,
+          "lng": -88.227,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "跨学科顶级研究所，涵盖AI、神经科学、纳米技术，是UIUC科研实力的象征。"
+        },
+        {
+          "name": "Altgeld Hall (Mathematics & Statistics)",
+          "nameCn": "奥尔特格尔德厅（数学与统计系）",
+          "lat": 40.1057,
+          "lng": -88.2267,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "建于1897年的标志性砂岩哥特式建筑，数学与统计系所在地，校园最具历史感的学术楼之一。"
+        },
+        {
+          "name": "Gies College of Business — Business Instructional Facility (BIF)",
+          "nameCn": "吉斯商学院教学楼",
+          "lat": 40.1019,
+          "lng": -88.2268,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "商学院核心教学楼，全美网络商业教育排名第一，MBA和金融项目声誉极高。"
+        },
+        {
+          "name": "Natural History Building",
+          "nameCn": "自然史楼",
+          "lat": 40.1076,
+          "lng": -88.2258,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于主Quad东北角，1892年历史建筑，现为地球、社会与环境学院所在地，内含标本馆。"
+        },
+        {
+          "name": "Temple Hoyne Buell Hall (Architecture)",
+          "nameCn": "布尔厅（建筑学院）",
+          "lat": 40.1036,
+          "lng": -88.2231,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "建筑学院所在地，全美顶尖建筑项目之一，馆内有学生作品展示，值得参观。"
+        },
+        {
+          "name": "Wohlers Hall (Gies Business)",
+          "nameCn": "沃勒斯楼（商学院）",
+          "lat": 40.1022,
+          "lng": -88.2257,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "吉斯商学院行政与研究生教学中心，本科生商科课程的核心场所之一。"
+        },
+        {
+          "name": "Foellinger Auditorium",
+          "nameCn": "弗林格礼堂",
+          "lat": 40.1055,
+          "lng": -88.2272,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "主Quad中心地标讲堂，建于1907年，大型公开讲座和毕业典礼的传统场所。"
+        },
+        {
+          "name": "Harding Band Building (Illinois School of Music)",
+          "nameCn": "哈丁乐队楼（音乐学院）",
+          "lat": 40.1027,
+          "lng": -88.2265,
+          "rank": 11,
+          "tier": "可选",
+          "note": "音乐学院核心楼，内有索萨档案馆（美国音乐史文献中心），设有专业录音棚和排练厅。"
         }
       ],
       "defaultOn": true
@@ -112,18 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Main Library (Funk ACES adjacent)",
-          "nameCn": "主图书馆",
-          "lat": 40.1046,
-          "lng": -88.2287,
-          "note": "全美最大公立研究图书馆之一"
-        },
-        {
           "name": "Grainger Engineering Library Information Center",
           "nameCn": "格兰杰工程图书馆",
-          "lat": 40.1124,
-          "lng": -88.2266,
-          "note": "工程方庭北侧，斯普林菲尔德大道旁"
+          "lat": 40.1128,
+          "lng": -88.2267,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美最大的工程类图书馆，24小时开放，有1400+工程工作站，理工科学生的学习圣地。"
+        },
+        {
+          "name": "Main Library (University Library)",
+          "nameCn": "主图书馆",
+          "lat": 40.1046,
+          "lng": -88.2289,
+          "rank": 2,
+          "tier": "必去",
+          "note": "馆藏超1300万册，全美公立大学最大图书馆，人文社科研究的核心资源库。"
+        },
+        {
+          "name": "Undergraduate Library (UGL)",
+          "nameCn": "本科生图书馆",
+          "lat": 40.1044,
+          "lng": -88.2284,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "专为本科生设计的一站式学习空间，学期内部分时段24小时开放，有自习室和学习支持服务。"
+        },
+        {
+          "name": "Funk ACES Library (Agriculture, Consumer & Environmental Sciences)",
+          "nameCn": "芬克农业与环境科学图书馆",
+          "lat": 40.1021,
+          "lng": -88.2236,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "农业、食品与环境科学专业学生的专属资源库，馆藏涵盖农学、营养学等领域。"
+        },
+        {
+          "name": "Sousa Archives and Center for American Music",
+          "nameCn": "索萨美国音乐档案中心",
+          "lat": 40.1027,
+          "lng": -88.2265,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "哈丁乐队楼内的音乐档案馆，馆藏美国音乐史珍贵文献，对音乐专业学生意义重大。"
+        },
+        {
+          "name": "Map Library (Main Library)",
+          "nameCn": "地图图书馆",
+          "lat": 40.1046,
+          "lng": -88.2289,
+          "rank": 6,
+          "tier": "可选",
+          "note": "主图书馆内的地图专藏，馆藏数十万份历史地图与GIS数据，地理与历史研究者不可错过。"
         }
       ]
     },
@@ -135,18 +239,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Krannert Art Museum",
-          "nameCn": "克兰纳特美术馆",
-          "lat": 40.102,
-          "lng": -88.2314,
-          "note": "第六街与皮博迪路口，校内主美术馆"
-        },
-        {
           "name": "Spurlock Museum of World Cultures",
           "nameCn": "斯珀洛克世界文化博物馆",
+          "lat": 40.1047,
+          "lng": -88.2241,
+          "rank": 1,
+          "tier": "必去",
+          "note": "免费入场，九大永久展厅涵盖东亚、非洲、美洲等文明，是校园文化探索的首选目的地。"
+        },
+        {
+          "name": "Krannert Art Museum (KAM)",
+          "nameCn": "克兰纳特艺术博物馆",
+          "lat": 40.1022,
+          "lng": -88.2258,
+          "rank": 2,
+          "tier": "必去",
+          "note": "免费入场，馆藏超11000件艺术品，从古埃及到当代摄影，亚洲艺术和前哥伦比亚艺术尤为突出。"
+        },
+        {
+          "name": "Illinois Natural History Survey (INHS) Museum",
+          "nameCn": "伊利诺伊自然历史调查博物馆",
           "lat": 40.1076,
-          "lng": -88.2208,
-          "note": "厄巴纳一侧，世界文化与考古藏品"
+          "lng": -88.2258,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "自然史楼内，馆藏鸟类、昆虫等数百万件标本，是生态与生物多样性研究的重要资源。"
+        },
+        {
+          "name": "Sousa Archives and Center for American Music",
+          "nameCn": "索萨美国音乐档案馆（展览空间）",
+          "lat": 40.1027,
+          "lng": -88.2265,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "音乐档案馆兼展览空间，展示美国音乐史上的珍贵乐器、手稿与流行文化物件。"
         }
       ]
     },
@@ -158,46 +284,67 @@
       "icon": "place",
       "items": [
         {
+          "name": "Alma Mater Statue",
+          "nameCn": "母校女神雕像",
+          "lat": 40.1058,
+          "lng": -88.2271,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园最具标志性的雕塑，毕业照必拍地点，由著名雕塑家Lorado Taft创作，立于主广场中心。"
+        },
+        {
           "name": "Illini Union",
-          "nameCn": "伊利尼联合会",
-          "lat": 40.1093,
-          "lng": -88.2272,
-          "note": "方庭北端学生活动中心地标"
+          "nameCn": "伊利尼学生会大楼",
+          "lat": 40.1065,
+          "lng": -88.2285,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园最大的学生活动中心，含餐厅、保龄球馆、台球室、书店、会议室和校内酒店，日常聚集地。"
         },
         {
-          "name": "Altgeld Hall",
-          "nameCn": "阿尔特盖尔德楼",
-          "lat": 40.109,
-          "lng": -88.2287,
-          "note": "钟楼地标，数学系所在"
-        },
-        {
-          "name": "Foellinger Auditorium",
-          "nameCn": "福林格礼堂",
-          "lat": 40.1047,
-          "lng": -88.2272,
-          "note": "方庭南端圆顶礼堂"
-        },
-        {
-          "name": "Memorial Stadium",
+          "name": "Memorial Stadium (Gies Memorial Stadium)",
           "nameCn": "纪念体育场",
-          "lat": 40.0997,
-          "lng": -88.2362,
-          "note": "伊利尼橄榄球队主场"
+          "lat": 40.0936,
+          "lng": -88.2348,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Fighting Illini橄榄球队主场，建于1923年，可容纳60000+观众，秋季比赛日是校园最热闹的时刻。"
         },
         {
-          "name": "State Farm Center",
-          "nameCn": "州立农场中心",
-          "lat": 40.095,
-          "lng": -88.236,
-          "note": "篮球馆与大型活动场馆"
+          "name": "State Farm Center (Assembly Hall)",
+          "nameCn": "国家农场中心（篮球馆）",
+          "lat": 40.0963,
+          "lng": -88.2358,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "标志性穹顶竞技馆，可容纳15500人，是篮球赛和大型演唱会的举办地，建筑本身即为地标。"
         },
         {
           "name": "Krannert Center for the Performing Arts",
           "nameCn": "克兰纳特表演艺术中心",
-          "lat": 40.1082,
-          "lng": -88.2218,
-          "note": "五厅剧场综合体，校园文化地标"
+          "lat": 40.1045,
+          "lng": -88.2238,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "专业级表演艺术综合体，含五个剧院，每年演出200+场，是欣赏音乐会、戏剧和舞蹈的顶级场所。"
+        },
+        {
+          "name": "Main Quad (The Quad)",
+          "nameCn": "主广场（The Quad）",
+          "lat": 40.1063,
+          "lng": -88.2272,
+          "rank": 6,
+          "tier": "必去",
+          "note": "UIUC的心脏地带，四季皆美，学生晒太阳、打飞盘、散步的首选场所，周边环绕着最古老的校园建筑。"
+        },
+        {
+          "name": "UIUC Arboretum (Illini Grove & Meadow)",
+          "nameCn": "伊利诺伊大学植物园",
+          "lat": 40.0982,
+          "lng": -88.222,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "美丽的活体树木博物馆，是散步、拍照和放松的理想去处，春秋景色尤佳。"
         }
       ]
     },
@@ -210,24 +357,75 @@
       "items": [
         {
           "name": "H Mart Urbana",
-          "nameCn": "H Mart 韩亚龙超市（乌尔班纳店）",
-          "lat": 40.11484,
-          "lng": -88.20741,
-          "note": "2025年1月开业的大型亚洲连锁超市，海鲜、肉类、蔬果和中日韩调料齐全，是采购中餐食材的首选。"
+          "nameCn": "H Mart韩国超市（厄巴纳店）",
+          "lat": 40.1221,
+          "lng": -88.1988,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美最大韩国亚洲超市连锁，2025年初新开，内设食品广场，中韩日食材一站购齐，中国留学生必去。"
         },
         {
-          "name": "Far East Grocery",
-          "nameCn": "远东超市",
-          "lat": 40.11578,
-          "lng": -88.23218,
-          "note": "校园西侧第五街的老牌亚洲杂货店，中日越印尼食材和新鲜蔬菜都有，步行可达。"
+          "name": "Fresh International Market",
+          "nameCn": "新鲜国际市场",
+          "lat": 40.1157,
+          "lng": -88.2475,
+          "rank": 2,
+          "tier": "必去",
+          "note": "505 S Neil St，提供活海鲜、台湾烘焙、粤式熟食，亚洲食材最全的本地华人超市之一。"
         },
         {
           "name": "Asian Supermarket",
           "nameCn": "亚洲超市",
-          "lat": 40.12843,
-          "lng": -88.25804,
-          "note": "北Prospect大道上的综合亚超，中式干货、冷冻食品和调味料种类多，开到晚上9点。"
+          "lat": 40.1289,
+          "lng": -88.2413,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "1215 N Prospect Ave，家族经营，价格实惠，品类丰富，是中国留学生购买调味料和零食的热门去处。"
+        },
+        {
+          "name": "Meijer (North Prospect)",
+          "nameCn": "Meijer超市（北展望大道店）",
+          "lat": 40.149,
+          "lng": -88.2383,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2401 N Prospect Ave，中西部大型连锁超市，生鲜、日用品、药品一应俱全，24小时营业。"
+        },
+        {
+          "name": "Walmart Supercenter (North Prospect)",
+          "nameCn": "沃尔玛超级购物中心（北展望大道店）",
+          "lat": 40.1519,
+          "lng": -88.2409,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2610 N Prospect Ave，全品类一站式购物，价格最低，家电、服装、生鲜均有，适合大采购。"
+        },
+        {
+          "name": "Schnucks (Champaign)",
+          "nameCn": "施努克斯超市（香槟店）",
+          "lat": 40.1185,
+          "lng": -88.2633,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "109 N Mattis Rd，中西部连锁超市，生鲜品质好，有熟食区，近校园适合日常购物。"
+        },
+        {
+          "name": "Schnucks (Urbana)",
+          "nameCn": "施努克斯超市（厄巴纳店）",
+          "lat": 40.1174,
+          "lng": -88.2049,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "200 N Vine St Urbana，靠近厄巴纳住宅区，适合住在东侧的学生日常采购。"
+        },
+        {
+          "name": "ALDI (Champaign)",
+          "nameCn": "ALDI超市（香槟店）",
+          "lat": 40.1022,
+          "lng": -88.2791,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "德系折扣超市，价格极低，面包、奶酪、肉类性价比突出，适合预算有限的学生。"
         }
       ]
     },
@@ -239,46 +437,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Golden Harbor Authentic Chinese Cuisine",
-          "nameCn": "金海岸中餐馆",
-          "lat": 40.11153,
-          "lng": -88.24355,
-          "note": "Neil街上的正宗中餐，川菜和小笼包、脆皮豆腐口碑极好，是当地华人学生的聚餐据点。"
+          "name": "Northern Cuisine",
+          "nameCn": "北方菜（北方料理）",
+          "lat": 40.1115,
+          "lng": -88.2323,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "404 E Green St，2023年新开，正宗北方菜与点心，东北锅贴、川味牛肉远近闻名，是中国留学生最爱的校园中餐馆。"
         },
         {
-          "name": "Dim Sum House",
-          "nameCn": "点心轩",
-          "lat": 40.11032,
-          "lng": -88.23344,
-          "note": "就在校园Green街主街上，主打现做粤式点心和饺子，离教学楼很近。"
+          "name": "Sakanaya",
+          "nameCn": "肴屋（日本料理）",
+          "lat": 40.1115,
+          "lng": -88.2322,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "403 E Green St，校园区口碑最佳日料，主打创意寿司、拉面与居酒屋料理，夜间营业至深夜，评分极高。"
+        },
+        {
+          "name": "SGD Dubu (So Gong Dong Korean BBQ & Tofu)",
+          "nameCn": "SGD豆腐韩国烤肉",
+          "lat": 40.1092,
+          "lng": -88.2308,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "707 S 6th St，正宗韩式纯豆腐汤+韩国烤肉，Tripadvisor本地榜首，性价比极高，中韩留学生聚餐必选。"
+        },
+        {
+          "name": "Aroma Garden",
+          "nameCn": "香味花园（中餐）",
+          "lat": 40.117,
+          "lng": -88.2059,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "202 E University Ave Urbana，正宗川鲁融合，口碑好、摆盘精致，被评为当地最佳中餐之一。"
+        },
+        {
+          "name": "Golden Harbor Authentic Chinese Cuisine",
+          "nameCn": "金港正宗中餐厅",
+          "lat": 40.116,
+          "lng": -88.2472,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "505 S Neil St，家庭式广东粤菜，炒菜丰盛分量足，华人圈口碑极佳，是校区周边最有份量的中餐馆。"
+        },
+        {
+          "name": "Rainbow Garden",
+          "nameCn": "彩虹园（川菜）",
+          "lat": 40.1115,
+          "lng": -88.2455,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "1402 S Neil St，正宗四川菜，麻辣浓郁，宫保鸡丁和麻婆豆腐备受好评，本地华人聚集地之一。"
+        },
+        {
+          "name": "Bangkok Thai Restaurant & Pho 911",
+          "nameCn": "曼谷泰餐&越南河粉911",
+          "lat": 40.1113,
+          "lng": -88.2316,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "410 E Green St，绿街上最受学生欢迎的泰越融合餐厅，Pad Thai和越南河粉物美价廉，屡获最佳亚餐奖。"
         },
         {
           "name": "Peking Garden",
-          "nameCn": "北京花园",
-          "lat": 40.1174,
-          "lng": -88.2451,
-          "note": "深受UIUC学生喜爱的老馆子，锅贴和饺子是招牌。"
+          "nameCn": "北京园（中餐）",
+          "lat": 40.1201,
+          "lng": -88.245,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "206 N Randolph St，老牌中餐馆，锅贴饺子口碑极佳，多次入选当地最佳中餐榜单，适合想念家乡味道时前往。"
         },
         {
-          "name": "Golden Wok",
-          "nameCn": "金锅",
-          "lat": 40.11629,
-          "lng": -88.23344,
-          "note": "校园区人气外卖店，炒饭和泰式快炒便宜量足，适合日常吃饭。"
+          "name": "83 Vietnamese Cuisine",
+          "nameCn": "83越南料理",
+          "lat": 40.0951,
+          "lng": -88.247,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "2502 Village Green Place，评分4.8分，创意越南菜与经典河粉春卷，是香槟最受好评的越南餐厅之一。"
         },
         {
-          "name": "Papa Del's Pizza",
-          "nameCn": "Papa Del's 芝加哥深盘披萨",
-          "lat": 40.10339,
-          "lng": -88.24375,
-          "note": "1970年创立的UIUC标志性老店，厚底深盘披萨是必试的本地美食。"
+          "name": "Panda Express (Green & Wright)",
+          "nameCn": "熊猫快餐（绿街校园店）",
+          "lat": 40.111,
+          "lng": -88.2294,
+          "rank": 10,
+          "tier": "一般",
+          "note": "美式中餐连锁，就在绿街与莱特街路口，24小时营业区域最便利的快餐，深夜饥饿时的救星。"
         },
         {
-          "name": "Jarling's Custard Cup",
-          "nameCn": "Jarling's 蛋奶冰淇淋",
-          "lat": 40.09803,
-          "lng": -88.2468,
-          "note": "1983年至今的本地手工冰淇淋名店，每周限定口味，是香槟必打卡的甜品。"
+          "name": "Dos Reales Mexican Restaurant",
+          "nameCn": "多斯雷亚莱斯墨西哥餐厅",
+          "lat": 40.1278,
+          "lng": -88.2434,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1407 N Prospect Ave，本地人强烈推荐的正宗墨西哥餐厅，玉米卷与莫吉托必点，是校外日常打卡地。"
+        },
+        {
+          "name": "Mia Za's Italian Kitchen",
+          "nameCn": "米娅扎意大利厨房",
+          "lat": 40.111,
+          "lng": -88.2296,
+          "rank": 12,
+          "tier": "一般",
+          "note": "绿街与莱特街交口，现做意式披萨与意面，价格亲民，是绿街区学生聚会和外卖最多的西餐选择。"
+        },
+        {
+          "name": "Carle at the Fields Dining (Espresso Royale / campus cafes)",
+          "nameCn": "皇家浓缩咖啡馆（校园咖啡厅）",
+          "lat": 40.1095,
+          "lng": -88.2275,
+          "rank": 13,
+          "tier": "一般",
+          "note": "主Quad附近数家咖啡馆，Espresso Royale是留学生最常光顾的学习咖啡馆之一，早午餐备受好评。"
         }
       ]
     },
@@ -290,32 +563,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "U of I Community Credit Union (Illini Union Branch)",
-          "nameCn": "伊利诺伊大学社区信用合作社（Illini Union 校内点）",
-          "lat": 40.11032,
-          "lng": -88.22717,
-          "note": "就在校园中心Illini Union学生中心内，学生可凭学籍开户，办理银行账户最方便。"
+          "name": "Chase Bank (201 W University Ave)",
+          "nameCn": "摩根大通银行（大学大道校园店）",
+          "lat": 40.1167,
+          "lng": -88.243,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园最近的Chase网点，大学生免费开户，无需SSN，带护照+I-20即可办理，留学生开户首选。"
+        },
+        {
+          "name": "McKinley Health Center",
+          "nameCn": "麦金利健康中心（校医院）",
+          "lat": 40.1006,
+          "lng": -88.2193,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1109 S Lincoln Ave，UIUC官方校医，每年接诊10万人次，内含药房，在校生缴纳学生健康费后就诊。"
         },
         {
           "name": "Carle Foundation Hospital",
-          "nameCn": "Carle 基金会医院",
-          "lat": 40.11733,
-          "lng": -88.21464,
-          "note": "服务校园社区的主要综合医院，含急诊和门诊，生病或急症就医的首选。"
+          "nameCn": "卡尔基金会医院",
+          "lat": 40.1172,
+          "lng": -88.2142,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "611 W Park St Urbana，校医转诊首选大医院，设急诊，专科全面，是厄巴纳最大综合性医院。"
         },
         {
-          "name": "Walgreens (Green Street)",
-          "nameCn": "Walgreens 药房（Green街店）",
-          "lat": 40.11021,
-          "lng": -88.23338,
-          "note": "校园主街上的连锁药房，可取处方药、买非处方药和打疫苗，日常买药就近搞定。"
+          "name": "Walgreens Pharmacy (101 W University Ave)",
+          "nameCn": "沃尔格林药房（大学大道店）",
+          "lat": 40.1167,
+          "lng": -88.2462,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "紧邻Chase银行，处方药与OTC一应俱全，营业至深夜，是距校园最近的连锁药房。"
         },
         {
-          "name": "AT&T Store (Carriage Center)",
-          "nameCn": "AT&T 手机营业厅（Carriage Center店）",
-          "lat": 40.09178,
-          "lng": -88.2457,
-          "note": "离校园最近的运营商门店，办理美国手机卡和套餐、买手机可来这里。"
+          "name": "CVS Pharmacy (107 W Green St)",
+          "nameCn": "CVS药房（绿街校园店）",
+          "lat": 40.1111,
+          "lng": -88.2301,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于绿街校园核心区，步行即达，日常用药、护肤品、生活用品均可购买。"
+        },
+        {
+          "name": "T-Mobile (N Prospect Ave & Interstate Dr)",
+          "nameCn": "T-Mobile手机运营商（北展望大道店）",
+          "lat": 40.1483,
+          "lng": -88.2432,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "2504 N Prospect Ave，覆盖最广的运营商之一，留学生推荐T-Mobile Prepaid，开学前激活SIM的热门地点。"
+        },
+        {
+          "name": "OSF HealthCare Heart of Mary Medical Center",
+          "nameCn": "圣母医疗中心（OSF）",
+          "lat": 40.116,
+          "lng": -88.22,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1400 W Park St Urbana，210床综合医院，与Carle相距300米，提供急诊及各类专科服务。"
+        },
+        {
+          "name": "Wells Fargo Bank (Champaign)",
+          "nameCn": "富国银行（香槟分行）",
+          "lat": 40.1165,
+          "lng": -88.2464,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "大学大道附近，17-24岁留学生可开Clear Access无透支账户，ATM网络广，转账手续费低。"
         }
       ]
     },
@@ -327,32 +644,58 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Alma Mater Statue",
-          "nameCn": "母校女神像（Alma Mater）",
-          "lat": 40.1099,
-          "lng": -88.2284,
-          "note": "Green街与Wright街交口的UIUC标志雕像，毕业照和打卡必到之处。"
+          "name": "Downtown Champaign (The Boneyard District)",
+          "nameCn": "香槟市中心（骨场街区）",
+          "lat": 40.1195,
+          "lng": -88.2476,
+          "rank": 1,
+          "tier": "必去",
+          "note": "本地酒吧、独立餐厅、文艺小店聚集地，周五周六夜晚热闹非凡，毕业聚餐和周末放松的首选区域。"
         },
         {
-          "name": "Main Quad",
-          "nameCn": "中央草坪广场（Main Quad）",
-          "lat": 40.1075,
-          "lng": -88.2272,
-          "note": "校园核心的开阔草坪，被历史建筑环绕，春秋季拍照、晒太阳、活动的中心地带。"
+          "name": "Lincoln Square Mall (Downtown Urbana)",
+          "nameCn": "林肯广场商城（厄巴纳市中心）",
+          "lat": 40.1189,
+          "lng": -88.2055,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "美国第一批室内mall之一，现转型为独立小店+每周农夫市集，异域风情浓厚，打卡拍照好去处。"
         },
         {
-          "name": "Krannert Art Museum",
-          "nameCn": "克兰纳特艺术博物馆",
-          "lat": 40.10153,
-          "lng": -88.23179,
-          "note": "校内免费开放的艺术馆，藏有从古埃及到当代的逾万件作品，含亚洲艺术专区。"
+          "name": "Crystal Lake Park",
+          "nameCn": "水晶湖公园",
+          "lat": 40.1269,
+          "lng": -88.2462,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "香槟市北侧，有湖泊、森林步道和野餐区，晴天适合骑车或散步，是校区附近最受欢迎的城市公园。"
         },
         {
-          "name": "Memorial Stadium",
-          "nameCn": "纪念体育场",
-          "lat": 40.10025,
-          "lng": -88.23852,
-          "note": "Fighting Illini橄榄球主场，秋季比赛日体验美式校园文化和氛围的地方。"
+          "name": "UIUC Research Park & Innovation Hub",
+          "nameCn": "伊大研究园区",
+          "lat": 40.0975,
+          "lng": -88.2186,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "100+科技公司（含Amazon、Caterpillar、Apple）在此设立研发中心，了解实习机会的重要场所，也是参观未来就业环境的好去处。"
+        },
+        {
+          "name": "Champaign-Urbana Farmer's Market",
+          "nameCn": "香槟-厄巴纳农夫市集",
+          "lat": 40.1177,
+          "lng": -88.2451,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "每周六上午于市中心广场举办，当地新鲜蔬果、手工食品和本土工艺品，融入本地生活的最佳方式。"
+        },
+        {
+          "name": "Champaign County African American Heritage Trail",
+          "nameCn": "香槟郡非裔美国人文化遗产径",
+          "lat": 40.115,
+          "lng": -88.243,
+          "rank": 6,
+          "tier": "可选",
+          "note": "贯穿香槟市的文化壁画步行路线，通过艺术作品展现非裔美国人对本地教育、商业和音乐的贡献，适合人文探索。"
         }
       ]
     }

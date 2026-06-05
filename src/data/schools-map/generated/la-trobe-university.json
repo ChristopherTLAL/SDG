@@ -59,39 +59,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "David Myers Building",
-          "nameCn": "David Myers 大楼",
-          "lat": -37.7213,
-          "lng": 145.0469,
-          "note": "校区核心教学楼之一，标志性高架连廊建筑。"
+          "name": "La Trobe Institute for Molecular Science (LIMS1)",
+          "nameCn": "分子科学研究所1号楼",
+          "lat": -37.7196,
+          "lng": 145.0455,
+          "rank": 1,
+          "tier": "必去",
+          "note": "11,000㎡六层旗舰科研楼，含34个实验室，是校园内最具代表性的现代研究建筑，生化/化学/物理核心所在"
         },
         {
-          "name": "Martin Building",
-          "nameCn": "Martin 大楼",
-          "lat": -37.7201,
-          "lng": 145.05,
-          "note": "原始国际风格教学楼，人文社科院系所在。"
+          "name": "AgriBio Centre for AgriBiosciences",
+          "nameCn": "农业生物科学研究中心",
+          "lat": -37.7248,
+          "lng": 145.0508,
+          "rank": 2,
+          "tier": "必去",
+          "note": "31,000㎡超大农业生命科学研究综合体，容纳600+研究人员，是澳洲农业科研的旗舰基地之一"
         },
         {
-          "name": "Health Sciences Building",
-          "nameCn": "健康科学大楼",
-          "lat": -37.7203,
-          "lng": 145.0458,
-          "note": "护理、物理治疗与健康科学院系核心。"
+          "name": "Health Sciences 1 (HS1) — Medical Centre",
+          "nameCn": "健康科学1号楼（含医疗中心）",
+          "lat": -37.7205,
+          "lng": 145.0445,
+          "rank": 3,
+          "tier": "必去",
+          "note": "学校医疗中心（批量计费GP诊所）就在1层，公共卫生/护理/联合健康专业的教学核心楼"
+        },
+        {
+          "name": "David Myers Building (Chancellery)",
+          "nameCn": "大卫·迈尔斯楼（行政总部）",
+          "lat": -37.7208,
+          "lng": 145.0465,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1968年Sir Roy Grounds设计，校长办公室与行政核心所在，是校园标志性建筑之一"
+        },
+        {
+          "name": "Martin Building (Business & Law)",
+          "nameCn": "马丁楼（商学与法学院）",
+          "lat": -37.7215,
+          "lng": 145.0462,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "商学院、法学院与考古学院的教学主楼，也是文科类课程的重要上课场所"
         },
         {
           "name": "George Singer Building",
-          "nameCn": "George Singer 大楼",
-          "lat": -37.7189,
-          "lng": 145.0476,
-          "note": "心理学与行为科学教学研究楼。"
+          "nameCn": "乔治·辛格楼",
+          "lat": -37.7212,
+          "lng": 145.0468,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "人文与社会科学系主要教学楼，紧邻校园护城河（moat），建筑风格极具1960年代国际风格特色"
         },
         {
-          "name": "La Trobe Institute for Molecular Science (LIMS)",
-          "nameCn": "拉筹伯分子科学研究院（LIMS）",
-          "lat": -37.7199,
-          "lng": 145.0476,
-          "note": "生化、遗传、化学、物理与药学三栋研究建筑群。"
+          "name": "La Trobe Institute for Molecular Science (LIMS2)",
+          "nameCn": "分子科学研究所2号楼",
+          "lat": -37.72,
+          "lng": 145.045,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "LIMS配套研究楼，与LIMS1共同构成校园科研核心区，应用科学与跨学科合作的重要空间"
+        },
+        {
+          "name": "Peribolos East (Health & Wellbeing Centre)",
+          "nameCn": "Peribolos东翼（学生健康与福祉中心）",
+          "lat": -37.7218,
+          "lng": 145.0475,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "学生身心健康服务一站式中心，提供心理咨询、财务辅导、法律支持及LGBTBIQA+服务"
+        },
+        {
+          "name": "The Learning Commons (TLC)",
+          "nameCn": "学习公共空间（TLC）",
+          "lat": -37.7195,
+          "lng": 145.0452,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "2015年翻新的学习中心，紧邻Borchardt图书馆与LIMS1，配备协作学习空间与计算机设施"
+        },
+        {
+          "name": "Social Sciences Building",
+          "nameCn": "社会科学楼",
+          "lat": -37.722,
+          "lng": 145.046,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "人文与社会科学、法学、商学核心教学楼，适合社科专业学生熟悉的重要上课地点"
+        },
+        {
+          "name": "Education 1 & 2 Buildings",
+          "nameCn": "教育学院1、2号楼",
+          "lat": -37.7225,
+          "lng": 145.044,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "教育学院主要教学场所，提供教师培训与教育领导力课程，面向教育专业学生"
+        },
+        {
+          "name": "Health Sciences 2 & 3",
+          "nameCn": "健康科学2、3号楼",
+          "lat": -37.7203,
+          "lng": 145.0442,
+          "rank": 12,
+          "tier": "可选",
+          "note": "物理治疗、职业治疗、言语病理等联合健康专业的主要实验与教学楼"
         }
       ],
       "defaultOn": true
@@ -105,10 +178,102 @@
       "items": [
         {
           "name": "Borchardt Library",
-          "nameCn": "Borchardt 图书馆",
-          "lat": -37.72,
-          "lng": 145.0484,
-          "note": "主图书馆，藏书逾百万册，紧邻 Agora 广场。"
+          "nameCn": "博察特图书馆",
+          "lat": -37.7219,
+          "lng": 145.047,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校主图书馆，馆藏超百万册，24小时开放，三层分区（噪音递减至静音层），设有Ask La Trobe服务台及Writers Block咖啡厅"
+        },
+        {
+          "name": "State Library Victoria",
+          "nameCn": "维多利亚州立图书馆",
+          "lat": -37.8096,
+          "lng": 144.9644,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全澳最重要的公立图书馆，328 Swanston St，馆藏500万件，免费入场，乘86路电车约1小时可达CBD"
+        },
+        {
+          "name": "The Learning Commons (TLC)",
+          "nameCn": "学习公共空间",
+          "lat": -37.7195,
+          "lng": 145.0452,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "图书馆旁紧邻科研楼的现代协作学习空间，配备计算机、小组讨论室和安静自习区"
+        },
+        {
+          "name": "Glenn College 24hr Computer Lab",
+          "nameCn": "格伦学院24小时计算机室",
+          "lat": -37.724,
+          "lng": 145.049,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "校内学生宿舍格伦学院配备24小时计算机实验室与电竞室，考试周深夜也可使用"
+        },
+        {
+          "name": "Mill Park Library (Yarra Plenty Regional)",
+          "nameCn": "米尔帕克图书馆（雅拉普伦特地区图书馆）",
+          "lat": -37.6953,
+          "lng": 145.0618,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "394 Plenty Rd，距校约5km，周一至四开至20:30，是澳大利亚首个数字/纸质混合设计公共图书馆，凭当地地址免费办证"
+        },
+        {
+          "name": "Preston Library (Darebin Libraries)",
+          "nameCn": "普雷斯顿图书馆（达雷宾图书馆系统）",
+          "lat": -37.7397,
+          "lng": 145.0021,
+          "rank": 6,
+          "tier": "可选",
+          "note": "266 Gower St Preston，达雷宾市公共图书馆，乘公共交通约20分钟，提供自习空间与免费电子资源"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "LUMA — La Trobe University Museum of Art",
+          "nameCn": "拉筹伯大学美术馆（LUMA）",
+          "lat": -37.724,
+          "lng": 145.0488,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内格伦学院底层，免费入场，每六周更换一次当代澳大利亚艺术展览，周一至五10:00–17:00开放"
+        },
+        {
+          "name": "Bundoora Homestead Art Centre",
+          "nameCn": "班杜拉庄园艺术中心",
+          "lat": -37.7107,
+          "lng": 145.0213,
+          "rank": 2,
+          "tier": "必去",
+          "note": "7 Prospect Hill Drive，1900年联邦女王安妮风格历史豪宅，现为达雷宾市公立艺术画廊，免费参观，周四至日10:00–17:00"
+        },
+        {
+          "name": "La Trobe University Sculpture Park",
+          "nameCn": "拉筹伯大学雕塑公园",
+          "lat": -37.722,
+          "lng": 145.046,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "遍布校园绿地的户外雕塑步道，收藏自1960年代至今的澳大利亚当代雕塑，全年免费开放，可下载导览地图"
+        },
+        {
+          "name": "Melbourne Museum",
+          "nameCn": "墨尔本博物馆",
+          "lat": -37.803,
+          "lng": 144.9718,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Carlton，乘86路电车可直达，南半球最大博物馆，自然历史、原住民文化、科技馆应有尽有，学生优惠票价"
         }
       ]
     },
@@ -121,17 +286,66 @@
       "items": [
         {
           "name": "The Agora",
-          "nameCn": "Agora 中央广场",
-          "lat": -37.72185,
-          "lng": 145.0479,
-          "note": "校园心脏地带，餐饮、剧院与学生服务汇聚的中庭。"
+          "nameCn": "阿格拉广场（校园中心广场）",
+          "lat": -37.7219,
+          "lng": 145.047,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园核心聚集地，四周围绕咖啡馆与商铺，Borchardt图书馆和Commonwealth Bank均在此，是感受校园生活的第一站"
         },
         {
           "name": "Nangak Tamboree Wildlife Sanctuary",
-          "nameCn": "Nangak Tamboree 野生动物保护区",
-          "lat": -37.7174,
+          "nameCn": "南嘎克-坦波里野生动物保护区",
+          "lat": -37.716,
+          "lng": 145.043,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园内近30公顷原生林保护区，可见袋鼠、针鼹、蝙蝠等原生动物，是都市中最难得的自然体验，全年免费开放"
+        },
+        {
+          "name": "La Trobe Sports Park (Tony Sheehan Oval)",
+          "nameCn": "拉筹伯体育公园（谢汉椭圆形球场）",
+          "lat": -37.7235,
+          "lng": 145.053,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "1.5亿澳元综合体育设施，含AFL球场、FIFA一星级合成草坪、6场室内多功能馆及游泳池，学生凭学生证可享折扣"
+        },
+        {
+          "name": "Tram Stop 60 — La Trobe University / Plenty Rd",
+          "nameCn": "86路电车60站（拉筹伯大学/普伦蒂路）",
+          "lat": -37.7225,
+          "lng": 145.049,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "86路电车终点站，直达墨尔本CBD约1小时，是国际学生出行的核心节点；Myki卡在此充值最方便"
+        },
+        {
+          "name": "Polaris 3083 Town Centre",
+          "nameCn": "波拉里斯镇中心购物广场",
+          "lat": -37.7255,
+          "lng": 145.0497,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "步行约10分钟，Woolworths、Chemist Warehouse、Good & More亚洲超市、多家餐厅一站集中，学生日常首选"
+        },
+        {
+          "name": "Uni Hill Town Centre (DFO)",
+          "nameCn": "大学山镇中心（含DFO折扣奥特莱斯）",
+          "lat": -37.7198,
           "lng": 145.0553,
-          "note": "校区东南湖泊湿地保护区，校园绿色名片。"
+          "rank": 6,
+          "tier": "推荐",
+          "note": "5 Janefield Dr，Coles超市、亚洲杂货、餐厅、Nike/Adidas等品牌折扣店聚集地，86路电车70站即到"
+        },
+        {
+          "name": "Northland Shopping Centre",
+          "nameCn": "北地购物中心",
+          "lat": -37.7424,
+          "lng": 145.0023,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2-50 Murray Rd Preston，墨尔本最大单层购物中心之一，含Coles/Woolworths/ALDI、4大银行网点、Crown Asian超市及Telstra门店"
         }
       ]
     },
@@ -143,39 +357,76 @@
       "icon": "shopping_cart",
       "items": [
         {
+          "name": "Good & More Asian Grocery",
+          "nameCn": "Good & More亚洲超市",
+          "lat": -37.7254,
+          "lng": 145.0496,
+          "rank": 1,
+          "tier": "必去",
+          "note": "6/42 Copernicus Cres（Polaris内），距校步行10分钟，中式、韩式、日式食材齐全，是校区内最方便的亚洲食材店"
+        },
+        {
           "name": "Woolworths Polaris",
-          "nameCn": "Woolworths 超市（Polaris 店）",
-          "lat": -37.712821,
-          "lng": 145.047595,
-          "note": "距校园步行约10分钟，最近的主流大超市，日常生鲜杂货首选，旁边还有 Dan Murphy's 酒类。"
+          "nameCn": "Woolworths（波拉里斯店）",
+          "lat": -37.726,
+          "lng": 145.0502,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Polaris Town Centre内，距校约10分钟步行，是距离学校最近的主流大型超市，生鲜肉类蔬菜一站购齐"
         },
         {
-          "name": "Coles Uni Hill Town Centre",
-          "nameCn": "Coles 超市（Uni Hill 店）",
-          "lat": -37.7255,
-          "lng": 145.028105,
-          "note": "位于 Uni Hill 商业中心，另一大主流超市，常和 Aldi 一起比价采购。"
+          "name": "Coles at Uni Hill Town Centre",
+          "nameCn": "Coles（大学山镇中心店）",
+          "lat": -37.7198,
+          "lng": 145.0553,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Uni Hill Town Centre内，规格较大，生鲜自有品牌齐全，86路电车70站即到"
         },
         {
-          "name": "Good N More Asian Grocery",
-          "nameCn": "Good N More 亚洲超市",
-          "lat": -37.712815,
-          "lng": 145.048363,
-          "note": "Polaris 商圈内的亚洲超市，中餐调料、米面、火锅底料、亚洲零食都能买到，离校最近的亚超。"
+          "name": "Uni Hill Asian Grocer",
+          "nameCn": "大学山亚洲杂货店",
+          "lat": -37.72,
+          "lng": 145.0556,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Uni Hill Town Centre内，1-19 Janefield Dr，供应东亚、东南亚食材，与Coles同处一中心，购物最省时"
         },
         {
-          "name": "Agora IGA Xpress",
-          "nameCn": "Agora IGA 便利超市",
-          "lat": -37.720637,
-          "lng": 145.048772,
-          "note": "紧邻校园南侧的小型超市，临时缺米缺菜、深夜补货很方便。"
+          "name": "Crown Asian Supermarket (Northland Preston)",
+          "nameCn": "皇冠亚洲超市（北地普雷斯顿店）",
+          "lat": -37.7424,
+          "lng": 145.0023,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Northland购物中心W41号，墨尔本最大连锁亚洲超市之一，中日韩调料、冷冻食品、零食最为齐全"
         },
         {
-          "name": "ALDI Bundoora",
-          "nameCn": "ALDI 超市（Bundoora 店）",
-          "lat": -37.724802,
-          "lng": 145.028982,
-          "note": "Uni Hill 一带的平价超市，预算党囤货首选，自有品牌便宜量大。"
+          "name": "Woolworths Northland",
+          "nameCn": "Woolworths（北地店）",
+          "lat": -37.7426,
+          "lng": 145.0027,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Northland购物中心内，与Coles和ALDI同处一地，选择多价格有竞争力，适合周末大批采购"
+        },
+        {
+          "name": "Coles Northland",
+          "nameCn": "Coles（北地店）",
+          "lat": -37.7428,
+          "lng": 145.0024,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Northland内，与多家银行及Telstra共处同一购物中心，可顺路办理多项生活事务"
+        },
+        {
+          "name": "ALDI Northland",
+          "nameCn": "ALDI（北地店）",
+          "lat": -37.743,
+          "lng": 145.0026,
+          "rank": 8,
+          "tier": "可选",
+          "note": "Northland内的德系折扣超市，日用品及食品价格最低，适合预算有限的学生"
         }
       ]
     },
@@ -187,46 +438,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Mimi's / Polaris Dumpling Kitchen",
-          "nameCn": "水饺王（Polaris 饺子馆）",
-          "lat": -37.712815,
-          "lng": 145.048266,
-          "note": "Polaris 商圈高人气中餐饺子馆，手工水饺和家常小炒，留学生食堂级别的存在。"
+          "name": "Onni Korean BBQ",
+          "nameCn": "Onni韩式烤肉",
+          "lat": -37.7408,
+          "lng": 145.0021,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Level 1/501-509 High St Preston，Google 4.9分超过千条评价，超强排烟系统、宽敞包间，是墨尔本北区口碑最好的韩烤"
         },
         {
-          "name": "Pho 999",
-          "nameCn": "Pho 999 越南粉",
-          "lat": -37.712918,
-          "lng": 145.048363,
-          "note": "地道越南河粉店，一碗热汤粉性价比高，冬天暖胃刚需。"
+          "name": "Northern Delicious 馨雅食府",
+          "nameCn": "馨雅食府（北方菜）",
+          "lat": -37.7202,
+          "lng": 145.0553,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "LG01/1 Janefield Dr（Uni Hill），现做烤鸭、广式叉烧、四川菜，Google 4.3分，是留学生圈最常被推荐的中餐馆"
         },
         {
-          "name": "Mamak Mamak Rice & Noodle",
-          "nameCn": "Mamak 马来风味饭面",
-          "lat": -37.721001,
-          "lng": 145.048297,
-          "note": "紧靠校园的马来西亚/东南亚菜，叻沙、椰浆饭、海南鸡饭，亚洲胃救星。"
+          "name": "Polaris Dumpling Kitchen",
+          "nameCn": "波拉里斯饺子馆",
+          "lat": -37.7253,
+          "lng": 145.0495,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "11/42-44 Copernicus Cres，步行10分钟到校，锅贴/汤包/奶黄包是招牌，448条评价，价格实惠份量大"
         },
         {
-          "name": "Myoshi Sushi",
-          "nameCn": "Myoshi 寿司",
-          "lat": -37.71311,
-          "lng": 145.047611,
-          "note": "Polaris 内的日式寿司，午餐便当和寿司卷快捷实惠，适合课间快速解决。"
+          "name": "Golden Lanchow Soup Noodle 金城兰州牛肉面",
+          "nameCn": "金城兰州牛肉面",
+          "lat": -37.7248,
+          "lng": 145.049,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "D1B/20 Copernicus Cres，现拉面条、牛肉汤底，营业至零点，是中国学生宵夜首选，价格亲民"
         },
         {
-          "name": "Giorgio's Charcoal Chicken",
-          "nameCn": "Giorgio's 炭烤鸡",
-          "lat": -37.712818,
-          "lng": 145.047807,
-          "note": "澳式炭烤全鸡配薯角，本地人吃法，外带一只全家份量超划算。"
+          "name": "Hao Vinh Vietnamese BBQ",
+          "nameCn": "好荣越南烧烤",
+          "lat": -37.7401,
+          "lng": 145.0025,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "481-483 High St Preston，TripAdvisor 4.4分，正宗越南料理BYO，砂锅饭与BBQ最受好评，是普雷斯顿越南餐厅标杆"
         },
         {
-          "name": "Kingsbury Fish Shop",
-          "nameCn": "Kingsbury 炸鱼薯条店",
-          "lat": -37.719272,
-          "lng": 145.038082,
-          "note": "传统澳式 Fish & Chips 老店，体验本地国民快餐就来这儿。"
+          "name": "Narai Thai Restaurant",
+          "nameCn": "纳莱泰国餐厅",
+          "lat": -37.7318,
+          "lng": 145.0512,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "597 Grimshaw St Bundoora，家庭经营，咖喱泡芙与沙嗲口碑极好，正宗泰式口味，是附近评分最高的泰餐"
+        },
+        {
+          "name": "Peking Inn Chinese Restaurant",
+          "nameCn": "北京宾馆中餐厅",
+          "lat": -37.726,
+          "lng": 145.0508,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "Bundoora Square Shop 8/25-31 Plenty Rd，经营三十年老字号，炒饭与新加坡炒米粉最受好评，是当地华人家庭聚餐选择"
+        },
+        {
+          "name": "Vorea Polaris",
+          "nameCn": "Vorea现代西餐",
+          "lat": -37.725,
+          "lng": 145.0492,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "2-6 Copernicus Cres，TripAdvisor附近排名第2，现代澳大利亚料理配木炭烧烤，是招待家长与庆祝场合首选"
+        },
+        {
+          "name": "Mamak Rice and Noodle",
+          "nameCn": "马来美食馆（马马克米饭面条）",
+          "lat": -37.722,
+          "lng": 145.0472,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "The Agora校园内，马来西亚/中式融合，是最便捷的校内亚洲快餐选择，适合课间快速用餐"
+        },
+        {
+          "name": "Sensations Thai Restaurant",
+          "nameCn": "Sensations泰国餐厅",
+          "lat": -37.7256,
+          "lng": 145.0498,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "Polaris Town Centre内，步行10分钟，绿咖喱与泰式炒米粉评价稳定，性价比高，学生常客众多"
+        },
+        {
+          "name": "Thanh Thanh",
+          "nameCn": "青青亚洲美食",
+          "lat": -37.7219,
+          "lng": 145.0471,
+          "rank": 11,
+          "tier": "一般",
+          "note": "The Agora校园内，提供亚洲美食，是校园内价格最实惠的用餐选项之一，学生用餐高频场所"
+        },
+        {
+          "name": "Miyoshi Sushi",
+          "nameCn": "三好寿司",
+          "lat": -37.7258,
+          "lng": 145.0505,
+          "rank": 12,
+          "tier": "一般",
+          "note": "1056-1140 Plenty Rd（Polaris）内，提供日式寿司及便当，是Polaris主要的日料选择"
+        },
+        {
+          "name": "Lan Chow Asian",
+          "nameCn": "兰州亚洲餐厅",
+          "lat": -37.7255,
+          "lng": 145.05,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Polaris Town Centre内，提供多国亚洲菜系，学生日常快餐选择，距校步行约10分钟"
         }
       ]
     },
@@ -238,32 +564,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "ANZ Bank / ATM (Polaris)",
-          "nameCn": "ANZ 银行/ATM（Polaris）",
-          "lat": -37.720999,
-          "lng": 145.048195,
-          "note": "紧贴校园边的 ANZ 网点与 ATM，留学生开户、取现、汇款就近办理。"
+          "name": "Commonwealth Bank Bundoora (on-campus)",
+          "nameCn": "澳洲联邦银行班杜拉支行（校内）",
+          "lat": -37.7219,
+          "lng": 145.0471,
+          "rank": 1,
+          "tier": "必去",
+          "note": "8 The Agora，校园Agora广场内，国际学生开户只需学生证+入学证明，步行即达，BSB 063-575"
         },
         {
-          "name": "Bank of Melbourne (Uni Hill)",
-          "nameCn": "墨尔本银行（Uni Hill）",
-          "lat": -37.725085,
-          "lng": 145.028164,
-          "note": "Uni Hill 商业中心的银行网点，另一开户选择，旁边即 Commonwealth Bank。"
+          "name": "La Trobe University Medical Centre (GP Clinic)",
+          "nameCn": "拉筹伯大学医疗中心（全科诊所）",
+          "lat": -37.7205,
+          "lng": 145.0445,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Health Sciences 1楼1层，1 Kingsbury Dr，对学生提供批量计费（Bulk Billing）GP服务，接受无预约就诊，是学生看病首选"
+        },
+        {
+          "name": "La Trobe University Medical Centre Pharmacy",
+          "nameCn": "拉筹伯大学医疗中心药房",
+          "lat": -37.7207,
+          "lng": 145.0491,
+          "rank": 3,
+          "tier": "必去",
+          "note": "普伦蒂路与金斯伯里路交叉口，处方药与OTC药品齐全，紧邻诊所，看完病即可取药"
+        },
+        {
+          "name": "ANZ Branch Bundoora",
+          "nameCn": "澳新银行班杜拉支行",
+          "lat": -37.7265,
+          "lng": 145.0496,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1/33 Plenty Rd Bundoora，学生开户无月费（30岁以下），校园ATM（Agora广场内）即时取款"
         },
         {
           "name": "Chemist Warehouse Polaris",
-          "nameCn": "Chemist Warehouse 药房（Polaris）",
-          "lat": -37.712364,
-          "lng": 145.048443,
-          "note": "澳洲最大连锁平价药房，感冒药、处方药、维生素、日用品一站买齐。"
+          "nameCn": "Chemist Warehouse药房（波拉里斯）",
+          "lat": -37.7259,
+          "lng": 145.0501,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Polaris SC内，维生素、个人护理、OTC药品价格全澳最低之一，距校步行10分钟"
+        },
+        {
+          "name": "Telstra Store Northland",
+          "nameCn": "Telstra电信门店（北地购物中心）",
+          "lat": -37.7424,
+          "lng": 145.0023,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Shop B18 Northland SC，澳洲信号覆盖最广的运营商，国际学生抵澳首张SIM卡首选，可当场激活"
         },
         {
           "name": "La Trobe Private Hospital",
           "nameCn": "拉筹伯私立医院",
-          "lat": -37.71589,
-          "lng": 145.044497,
-          "note": "校园西侧最近的医院，看急诊/就医方便（校内另设 Medical Centre 学生健康中心）。"
+          "lat": -37.7209,
+          "lng": 145.049,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "920 Plenty Rd（普伦蒂路与金斯伯里路交叉口），53床私立外科医院，需海外留学生医疗保险（OSHC），紧急就医备选"
+        },
+        {
+          "name": "University Hill Medical Centre",
+          "nameCn": "大学山医疗中心",
+          "lat": -37.72,
+          "lng": 145.0554,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Uni Hill Town Centre内，Priceline药房同处，是除校内诊所以外最近的GP诊所备选"
         }
       ]
     },
@@ -275,32 +645,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Nangak Tamboree Wildlife Sanctuary",
-          "nameCn": "Nangak Tamboree 野生动物保护区（原拉筹伯野生动物园）",
-          "lat": -37.717368,
-          "lng": 145.055318,
-          "note": "校园东侧的湿地野生动物保护区，可看袋鼠、水鸟，散步观鸟拍照的世外桃源。"
+          "name": "Plenty Gorge Parklands",
+          "nameCn": "普伦蒂峡谷公园",
+          "lat": -37.69,
+          "lng": 145.065,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校约5km，可观袋鼠、徒步峡谷、骑行与皮划艇，是距La Trobe最近的自然野趣打卡地，免费开放"
         },
         {
-          "name": "La Trobe University Museum of Art (LUMA) & Sculpture Park",
-          "nameCn": "拉筹伯大学艺术博物馆（LUMA）与雕塑公园",
-          "lat": -37.720658,
-          "lng": 145.05123,
-          "note": "校内免费艺术博物馆＋户外雕塑公园，看展、晒太阳、出片两不误。"
+          "name": "Melbourne CBD (via Tram 86)",
+          "nameCn": "墨尔本市中心（86路电车直达）",
+          "lat": -37.8136,
+          "lng": 144.9631,
+          "rank": 2,
+          "tier": "必去",
+          "note": "86路电车约1小时直达联邦广场，CBD内电车免费乘坐，必逛：维多利亚女王市场、唐人街、Federation Square"
         },
         {
-          "name": "Bundoora Park",
-          "nameCn": "Bundoora 公园（含农场）",
-          "lat": -37.705625,
-          "lng": 145.040023,
-          "note": "大型城市公园带农场体验区，可喂动物、骑行、野餐，周末遛弯好去处。"
+          "name": "Chinatown Melbourne",
+          "nameCn": "墨尔本唐人街",
+          "lat": -37.8121,
+          "lng": 144.9695,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Little Bourke St，全球最古老的华人聚居地之一，集中最正宗的中餐馆与亚洲超市，是中国留学生必逛打卡地"
         },
         {
-          "name": "Mount Cooper Reserve Lookout",
-          "nameCn": "库珀山保护区观景点",
-          "lat": -37.700914,
-          "lng": 145.05066,
-          "note": "附近制高点，可俯瞰墨尔本北郊与远处 CBD 天际线，傍晚看日落很赞。"
+          "name": "Melbourne Zoo",
+          "nameCn": "墨尔本动物园",
+          "lat": -37.7847,
+          "lng": 144.9511,
+          "rank": 4,
+          "tier": "必去",
+          "note": "400 Royal Parade Parkville，成人$38，可见袋鼠/考拉/树袋熊，乘86路接Upfield线约1小时，VIC学生证享优惠"
+        },
+        {
+          "name": "Bundoora Homestead Art Centre",
+          "nameCn": "班杜拉庄园艺术中心",
+          "lat": -37.7107,
+          "lng": 145.0213,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "7 Prospect Hill Dr，百年历史庄园现为免费公立画廊，开车仅5分钟，是感受墨尔本北区历史文化的绝佳去处"
+        },
+        {
+          "name": "Edwardes Lake Park",
+          "nameCn": "爱德华兹湖公园",
+          "lat": -37.7222,
+          "lng": 145.0012,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Edwardes St Reservoir，1.6km环湖步道，可见黑天鹅与野鸭，有BBQ设施，适合周末骑行野餐放松"
+        },
+        {
+          "name": "Preston Market",
+          "nameCn": "普雷斯顿市场",
+          "lat": -37.7387,
+          "lng": 144.9995,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Cramer St Preston（毗邻普雷斯顿火车站），墨尔本第二大露天市场，ARC亚洲食材店就在旁边，新鲜食材最便宜"
+        },
+        {
+          "name": "Northland Shopping Centre",
+          "nameCn": "北地购物中心",
+          "lat": -37.7424,
+          "lng": 145.0023,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "2-50 Murray Rd Preston，墨尔本最大单层购物中心，Hoyts影院、Myer、H&M、Uniqlo，周末购物娱乐首选"
+        },
+        {
+          "name": "DFO Uni Hill (Factory Outlet)",
+          "nameCn": "大学山DFO奥特莱斯",
+          "lat": -37.7196,
+          "lng": 145.0557,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "5 Janefield Dr，步行10分钟或86路电车70站，Nike/Adidas/Calvin Klein等品牌折扣高达70%，开学必购"
+        },
+        {
+          "name": "Nangak Tamboree Wildlife Sanctuary (campus)",
+          "nameCn": "南嘎克-坦波里校园野生动物保护区",
+          "lat": -37.716,
+          "lng": 145.043,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校园内即可看到袋鼠、针鼹自由活动，每天清晨或傍晚效果最佳，是La Trobe独特体验必打卡"
+        },
+        {
+          "name": "Queen Victoria Market",
+          "nameCn": "维多利亚女王市场",
+          "lat": -37.8075,
+          "lng": 144.9569,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "Melbourne CBD，南半球最大露天市场，新鲜农产品、特色餐饮、手工艺品，乘86路约1小时"
         }
       ]
     }

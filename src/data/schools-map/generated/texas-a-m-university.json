@@ -59,39 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Academic Building",
-          "nameCn": "学术楼",
-          "lat": 30.6155,
-          "lng": -96.3401,
-          "note": "1914 年建成的标志性绿铜穹顶教学楼。"
-        },
-        {
-          "name": "College of Veterinary Medicine",
-          "nameCn": "兽医学院",
-          "lat": 30.6127,
-          "lng": -96.3535,
-          "note": "西校区，全美顶尖的兽医与生物医学学院。"
-        },
-        {
-          "name": "Mays Business School",
-          "nameCn": "梅斯商学院",
-          "lat": 30.6105,
-          "lng": -96.3508,
-          "note": "Wehner 楼，商科教学与研究中心。"
-        },
-        {
           "name": "Zachry Engineering Education Complex",
           "nameCn": "扎克里工程教育大楼",
-          "lat": 30.621,
-          "lng": -96.3415,
-          "note": "全美最大工程学院之一的主教学楼。"
+          "lat": 30.6212,
+          "lng": -96.3407,
+          "rank": 1,
+          "tier": "必去",
+          "note": "德州农工最大学术建筑，2018年落成，工程学院旗舰楼，位于Bizzell St与University Dr交叉口，国际生最多的学院之一。"
         },
         {
-          "name": "Bush School of Government & Public Service",
-          "nameCn": "布什政府与公共事务学院",
-          "lat": 30.598,
-          "lng": -96.351,
-          "note": "毗邻布什图书馆的公共政策学院。"
+          "name": "Academic Building",
+          "nameCn": "学术楼（铜顶圆顶标志建筑）",
+          "lat": 30.6181,
+          "lng": -96.3393,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1914年建成，绿铜穹顶是全校最具代表性的地标，Academic Plaza是多项传统仪式的举办地，包括Silver Taps悼念典礼。"
+        },
+        {
+          "name": "Mays Business School (Wehner Building)",
+          "nameCn": "梅斯商学院（韦纳楼）",
+          "lat": 30.6143,
+          "lng": -96.3504,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于西校区210 Olsen Blvd，德州农工商科旗舰院系，商科排名全美前20，MBA、会计、金融专业强。"
+        },
+        {
+          "name": "College of Veterinary Medicine & Biomedical Sciences",
+          "nameCn": "兽医与生物医学院",
+          "lat": 30.5973,
+          "lng": -96.3672,
+          "rank": 4,
+          "tier": "必去",
+          "note": "位于660 Raymond Stotzer Pkwy西校区，全美顶尖兽医学院之一，附属兽医教学医院对外开放，全国每年只录取约150名本校学生。"
+        },
+        {
+          "name": "College of Agriculture & Life Sciences (AGLS Building)",
+          "nameCn": "农业与生命科学学院（AGLS楼）",
+          "lat": 30.6121,
+          "lng": -96.3448,
+          "rank": 5,
+          "tier": "必去",
+          "note": "位于600 John Kimbrough Dr，德州农工建校根基学院，农学、食品科学、营养学等多个专业全美领先，绿色校园里规模最大的学院。"
+        },
+        {
+          "name": "Eller O&M Building (Atmospheric Sciences)",
+          "nameCn": "Eller O&M大楼（大气科学系）",
+          "lat": 30.6196,
+          "lng": -96.3368,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全校最高楼（建于1973年），15层顶部设有天文台，容纳地理、大气科学、海洋学等系，是校园天际线的重要组成部分。"
+        },
+        {
+          "name": "College of Architecture (HOLD Building)",
+          "nameCn": "建筑学院（Langford A楼）",
+          "lat": 30.6158,
+          "lng": -96.3418,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "建筑、景观建筑、城市规划及可视化多个专业汇聚，建筑学院全美排名长期前10，亦是出国留学生感兴趣的创意设计类院系。"
+        },
+        {
+          "name": "Harrington Tower (College of Education)",
+          "nameCn": "哈灵顿塔（教育学院）",
+          "lat": 30.6155,
+          "lng": -96.3388,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于540 Ross St，教育学院Dean办公室与教育心理、教学法等核心系所在地，是校园东区的高层地标之一。"
+        },
+        {
+          "name": "Jack K. Williams Administration Building",
+          "nameCn": "威廉姆斯行政楼（校长办公室）",
+          "lat": 30.6168,
+          "lng": -96.3443,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "1932年落成，爱奥尼亚柱式经典建筑，是TAMU行政核心，新生入学事务、注册官、奖学金等多个行政部门集中于此。"
+        },
+        {
+          "name": "Reed Arena",
+          "nameCn": "里德竞技馆",
+          "lat": 30.6056,
+          "lng": -96.3462,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "西校区多功能场馆，容纳1.2万人，举办篮球赛、大型演唱会及毕业典礼，是校园文化生活的重要场所。"
         }
       ],
       "defaultOn": true
@@ -104,18 +159,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Sterling C. Evans Library",
-          "nameCn": "埃文斯图书馆",
-          "lat": 30.6168,
-          "lng": -96.3388,
-          "note": "主校区中央图书馆，含 Annex 附楼。"
+          "name": "Sterling C. Evans Library & Annex",
+          "nameCn": "斯特林·埃文斯图书馆（主馆）",
+          "lat": 30.6183,
+          "lng": -96.3389,
+          "rank": 1,
+          "tier": "必去",
+          "note": "TAMU最大的综合性图书馆，位于400 Spence St，馆藏超过400万册，学习室、计算机机房、GIS地图室等设施一应俱全，是全校学生首选自习场所。"
         },
         {
-          "name": "George H.W. Bush Presidential Library",
-          "nameCn": "老布什总统图书馆",
-          "lat": 30.5966,
-          "lng": -96.3534,
-          "note": "西校区边缘，收藏老布什总统档案。"
+          "name": "Cushing Memorial Library & Archives",
+          "nameCn": "库欣纪念图书馆与档案馆",
+          "lat": 30.6178,
+          "lng": -96.3392,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "建于1930年，校园内第一座独立图书馆建筑，现为珍本书、大学档案及特藏馆，馆内有《哈利·波特》初版等稀本，历史爱好者必逛。"
+        },
+        {
+          "name": "West Campus Library",
+          "nameCn": "西校区图书馆",
+          "lat": 30.6142,
+          "lng": -96.3499,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于214 Olsen Blvd，毗邻梅斯商学院和兽医学院，专为西校区学生提供服务，有Business Library & Collaboration Commons（24/5开放）。"
+        },
+        {
+          "name": "Medical Sciences Library",
+          "nameCn": "医学科学图书馆",
+          "lat": 30.6138,
+          "lng": -96.3506,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于102 Olsen Blvd西校区，为医学、公共卫生及生命科学专业学生提供专业文献资源，紧邻医学院楼群。"
+        },
+        {
+          "name": "Policy Sciences & Economics Library (Annenberg Center)",
+          "nameCn": "政策科学与经济学图书馆（安南伯格中心）",
+          "lat": 30.5965,
+          "lng": -96.354,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于1002 George Bush Dr W，紧靠布什总统图书馆，收藏政治学、经济学、公共政策专业文献，布什政府学院学生常用。"
+        },
+        {
+          "name": "Maps & GIS Library (Evans Library Room 202B)",
+          "nameCn": "地图与GIS图书馆",
+          "lat": 30.6183,
+          "lng": -96.3389,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于Evans图书馆202B室，收藏历史地图、地形图及GIS数据，地理信息科学、城市规划、环境专业学生的专属资源库。"
         }
       ]
     },
@@ -127,11 +222,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "George H.W. Bush Presidential Museum",
-          "nameCn": "老布什总统博物馆",
-          "lat": 30.597,
-          "lng": -96.3528,
-          "note": "与总统图书馆同址的史料展馆。"
+          "name": "George H.W. Bush Presidential Library and Museum",
+          "nameCn": "乔治·H·W·布什总统图书馆与博物馆",
+          "lat": 30.5966,
+          "lng": -96.3534,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于1000 George Bush Dr W，收藏美国第41任总统全部档案3800万页，常设展览+冷战专题+9·11纪念，是全美最值得一去的总统博物馆之一，布什夫妇长眠于此。"
+        },
+        {
+          "name": "Sam Houston Sanders Corps of Cadets Center",
+          "nameCn": "军团历史博物馆（山姆·休斯顿·桑德斯军团中心）",
+          "lat": 30.6174,
+          "lng": -96.343,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于1511 Colorado St，展示A&M军团传统和数千件Aggie历史文物，包括Aggie乐队、银Taps等校园传统的完整历史档案，了解A&M文化必去。"
+        },
+        {
+          "name": "MSC Forsyth Center Galleries",
+          "nameCn": "学生中心福赛斯画廊",
+          "lat": 30.617,
+          "lng": -96.341,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于MSC学生活动中心内，收藏历史地图、油画及学生艺术作品，免费参观，是校园内少见的常设艺术展览空间。"
+        },
+        {
+          "name": "Museum of the American G.I.",
+          "nameCn": "美国大兵博物馆",
+          "lat": 30.5348,
+          "lng": -96.3231,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于19124 Highway 6 South，展有数十辆修复完好的二战及冷战时期真实军用车辆和坦克，每年举办活态历史周末活动，军事历史爱好者必看。"
+        },
+        {
+          "name": "Brazos Valley Museum of Natural History",
+          "nameCn": "布拉佐斯谷自然历史博物馆",
+          "lat": 30.672,
+          "lng": -96.3297,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Bryan市3232 Briarcrest Dr，化石、考古、本地野生动物标本及活体动物展区，学生票价实惠，是带家人或周末休闲的好去处。"
         }
       ]
     },
@@ -144,45 +277,66 @@
       "items": [
         {
           "name": "Kyle Field",
-          "nameCn": "凯尔球场",
+          "nameCn": "凯尔球场（12th Man传说圣地）",
           "lat": 30.6102,
           "lng": -96.3398,
-          "note": "可容纳逾10万人的橄榄球圣地「第12人」主场。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "容纳102,733人，SEC最大体育场，全美第四大，Aggie橄榄球主场。秋季主场比赛日气氛震撼，建议在读期间至少亲历一次午夜Yell Practice传统。"
         },
         {
-          "name": "Memorial Student Center",
-          "nameCn": "纪念学生中心",
-          "lat": 30.6122,
-          "lng": -96.3406,
-          "note": "被誉为「德州的客厅」的学生活动核心。"
+          "name": "Memorial Student Center (MSC)",
+          "nameCn": "纪念学生活动中心（MSC）",
+          "lat": 30.617,
+          "lng": -96.341,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于275 Joe Routt Blvd，1951年开放，被称为「A&M的客厅」，内设餐厅、书店、画廊、Panda Express、旅行社及学生组织办公室，是校园生活的核心枢纽。"
         },
         {
           "name": "Albritton Bell Tower",
-          "nameCn": "奥尔布里顿钟楼",
-          "lat": 30.6131,
-          "lng": -96.3447,
-          "note": "高约42米、含49口钟的校园地标钟塔。"
+          "nameCn": "阿尔布里顿钟楼",
+          "lat": 30.6162,
+          "lng": -96.3428,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于12 Old Main Dr，138英尺高，共49口钟，1984年落成，是校园西主入口的标志，每日定时演奏，是拍照打卡最受欢迎的地标之一。"
+        },
+        {
+          "name": "Bonfire Memorial",
+          "nameCn": "篝火纪念碑",
+          "lat": 30.6112,
+          "lng": -96.3502,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "纪念1999年篝火倒塌中罹难的12名Aggie学生，建于原事故发生地polo fields，是A&M最庄严深沉的传统与集体记忆，每年11月18日有悼念仪式。"
         },
         {
           "name": "Century Tree",
-          "nameCn": "百年橡树",
-          "lat": 30.6148,
-          "lng": -96.3409,
-          "note": "1898 年栽种、承载求婚传统的学术广场橡树。"
+          "nameCn": "百年橡树（情侣圣地）",
+          "lat": 30.6175,
+          "lng": -96.3398,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Academic Building旁，相传情侣同走树下必将结婚，是全校最浪漫的传统地标，每年毕业季拍照人潮不断。"
         },
         {
-          "name": "Reed Arena",
-          "nameCn": "里德体育馆",
-          "lat": 30.6058,
-          "lng": -96.3462,
-          "note": "西校区近1.3万座的篮球与活动场馆。"
+          "name": "Northgate District",
+          "nameCn": "北门区（学生娱乐街区）",
+          "lat": 30.6227,
+          "lng": -96.3395,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "University Dr沿线、紧邻校园北门，集中了Dixie Chicken、The Backyard等数十家酒吧餐厅，是Aggie学生课后聚集最多的娱乐商业区。"
         },
         {
-          "name": "Olsen Field at Blue Bell Park",
-          "nameCn": "奥尔森棒球场",
-          "lat": 30.6058,
-          "lng": -96.3413,
-          "note": "西校区 Aggies 棒球队主场。"
+          "name": "Rudder Tower & Rudder Theatre Complex",
+          "nameCn": "拉德尔塔（游客中心+剧场）",
+          "lat": 30.6165,
+          "lng": -96.3407,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "11层高塔，内有Appelt Aggieland游客接待中心，附属剧院定期举办百老汇巡演、音乐会及表演活动，新生报到可先来此领取资料。"
         }
       ]
     },
@@ -194,32 +348,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "BCS Asian Market",
-          "nameCn": "BCS 亚洲超市",
-          "lat": 30.59977,
-          "lng": -96.30445,
-          "note": "布莱恩-大学城地区最大的亚洲/中国超市，速冻饺子、火锅料、老干妈、奶茶原料和亚洲蔬菜肉类都能买到，留学生囤中餐食材首选。"
+          "name": "H-E-B (Texas Ave S)",
+          "nameCn": "H-E-B超市（德克萨斯大道店）",
+          "lat": 30.6042,
+          "lng": -96.3392,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于1900 Texas Ave S，德克萨斯本土最受欢迎的连锁超市，生鲜品质佳、价格亲民，内设药房，是绝大多数国际学生的首选日常购物超市。"
         },
         {
-          "name": "H-E-B (Texas Avenue)",
-          "nameCn": "H-E-B 超市（德州大道店）",
-          "lat": 30.61262,
-          "lng": -96.3189,
-          "note": "德州本土连锁大型超市，离校约2公里、营业到午夜，自带药房和加油站，日常采购最方便的主力超市。"
+          "name": "BCS Asian Market",
+          "nameCn": "BCS亚洲食品超市",
+          "lat": 30.6045,
+          "lng": -96.3378,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于2704 Texas Ave S #4，Yelp评分4.2（884条评论），覆盖中日韩越泰等亚洲食材，有新鲜蔬菜、冷冻食品、调味料及零食，是华人学生采购中式食材的主力超市。"
+        },
+        {
+          "name": "H-E-B Jones Crossing",
+          "nameCn": "H-E-B（Jones Crossing店）",
+          "lat": 30.5807,
+          "lng": -96.3183,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于11675 FM 2154（Wellborn Road），西南方向较新门店，靠近Rock Prairie和Wellborn社区，内设完整药房，是住在南区同学更近的选择。"
+        },
+        {
+          "name": "Spice World Market",
+          "nameCn": "香料世界亚洲超市",
+          "lat": 30.5923,
+          "lng": -96.2741,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于1381 Old Arrington Rd，BCS地区最大亚洲杂货店之一，主打印巴、清真及东南亚食材，店内附设Spice Express餐厅，口碑评分4.3。"
         },
         {
           "name": "Walmart Supercenter",
           "nameCn": "沃尔玛超级购物中心",
-          "lat": 30.59717,
-          "lng": -96.30008,
-          "note": "一站式大卖场，食品、日用品、家居、电子产品齐全，新生开学采购床品锅具等大件的去处。"
+          "lat": 30.5858,
+          "lng": -96.31,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于1815 Brothers Blvd，24小时营业，价格最低，除食品外还可购买家电、日用品、学习用具，新生入学置办宿舍用品的必去之地。"
         },
         {
-          "name": "Brookshire Brothers",
-          "nameCn": "Brookshire Brothers 超市",
-          "lat": 30.60026,
-          "lng": -96.34217,
-          "note": "离校最近的本地连锁生鲜超市（约1.4公里），临时补货、买牛奶鸡蛋果蔬步行可达。"
+          "name": "Target",
+          "nameCn": "塔吉特",
+          "lat": 30.6032,
+          "lng": -96.3341,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于2100 Texas Ave S，商品品质略高于Walmart，有Target Circle优惠程序，提供家居、服装、生鲜等一站式购物，是Walmart的优质替代。"
+        },
+        {
+          "name": "H-E-B Tower Point Market",
+          "nameCn": "H-E-B（Tower Point店）",
+          "lat": 30.5697,
+          "lng": -96.3015,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于949 William D. Fitch Pkwy，Rock Prairie方向大型门店，生鲜品类丰富，内有完整药房，适合住在College Station南区的同学。"
+        },
+        {
+          "name": "ALDI",
+          "nameCn": "奥乐齐折扣超市",
+          "lat": 30.5839,
+          "lng": -96.3117,
+          "rank": 8,
+          "tier": "可选",
+          "note": "德系低价折扣超市，主打自有品牌，面包、乳制品、冷冻食品价格极低，预算有限的留学生抢购基本食材的好选择。"
         }
       ]
     },
@@ -231,46 +429,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chef Cao's Chinese Restaurant",
-          "nameCn": "曹师傅中餐厅",
-          "lat": 30.63085,
-          "lng": -96.33149,
-          "note": "当地公认最地道的中餐馆之一，川菜湘菜为主，午市套餐实惠，离北门和校园都近，思乡时的食堂。"
+          "name": "BCS Asian Market - Shun De Mom Kitchen",
+          "nameCn": "BCS亚洲超市·顺德妈妈厨房（正宗粤菜）",
+          "lat": 30.6045,
+          "lng": -96.3378,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "位于BCS Asian Market内，是College Station华人留学生圈子里口耳相传的粤菜小厨，份量实在，最接近家乡味道，中午常有排队。"
         },
         {
-          "name": "Tanaka Ramen",
-          "nameCn": "田中拉面",
-          "lat": 30.61852,
-          "lng": -96.32058,
-          "note": "人气日式拉面店，豚骨拉面和小食评价高，离德州大道商圈近，想吃热汤面的好选择。"
+          "name": "T. Jin China Diner (Rock Prairie)",
+          "nameCn": "金记中国餐厅（绿竹园）",
+          "lat": 30.5745,
+          "lng": -96.3113,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于3515 Longmire Dr，TripAdvisor口碑最好的中餐之一，广式烹法、份量大、价格合理，外卖+堂食均有，留学生口碑极高。"
         },
         {
-          "name": "Aji Sushi",
-          "nameCn": "Aji 寿司（越南/日料）",
-          "lat": 30.61423,
-          "lng": -96.31706,
-          "note": "供应寿司与越南粉，亚洲口味聚餐选择，价格亲民、份量足。"
+          "name": "iWon Korean BBQ & Hot Pot",
+          "nameCn": "iWon韩式烤肉火锅",
+          "lat": 30.6214,
+          "lng": -96.3152,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "位于1704 George Bush Dr E，自助桌烤+火锅双模式，肉质新鲜，留学生群体强烈推荐，是中韩留学生最喜欢的聚餐首选，周末需排队。"
         },
         {
           "name": "Dixie Chicken",
-          "nameCn": "Dixie Chicken 酒吧餐厅",
-          "lat": 30.61781,
-          "lng": -96.34631,
-          "note": "北门最具传统的Aggie地标，著名的毕业戒指啤酒礼（Ring Dunk）发源地，炸鸡、汉堡配啤酒，必须打卡感受校园文化。"
+          "nameCn": "迪克西鸡（Aggie最老酒吧）",
+          "lat": 30.6227,
+          "lng": -96.3395,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于307 University Dr，1974年开业，Northgate最具传奇色彩的学生酒吧，必点汉堡+冰啤，多米诺骨牌游戏桌是特色，是每位Aggie必须打卡的文化符号。"
         },
         {
-          "name": "Layne's Chicken Fingers",
-          "nameCn": "Layne's 炸鸡条",
-          "lat": 30.62335,
-          "lng": -96.32941,
-          "note": "College Station 本地起家的炸鸡条名店，招牌秘制蘸酱，几美元一份，被Aggie视为成人礼般的必吃。"
+          "name": "40 Tempura Sushi Restaurant",
+          "nameCn": "40天妇罗寿司餐厅",
+          "lat": 30.592,
+          "lng": -96.2886,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "位于2551 Texas Ave S Suite D，TripAdvisor排名前30名，以松脆天妇罗和新鲜寿司闻名，服务一流，是本地亚洲餐厅的口碑标杆。"
+        },
+        {
+          "name": "Oishi Sushi Asian Fusion",
+          "nameCn": "Oishi寿司亚洲融合",
+          "lat": 30.5807,
+          "lng": -96.3183,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "位于11667 FM 2154 Ste 100，Yelp好评253条，寿司+传统中式料理双线，大份寿司卷性价比高，华人留学生常聚餐之选。"
         },
         {
           "name": "Fuego Tortilla Grill",
-          "nameCn": "Fuego 墨西哥卷餅",
-          "lat": 30.62737,
-          "lng": -96.33411,
-          "note": "学生最爱的德州墨西哥风味taco/breakfast burrito，常24小时营业，宵夜和早餐人气爆棚。"
+          "nameCn": "Fuego玉米饼烤架",
+          "lat": 30.6242,
+          "lng": -96.3464,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "位于108 Poplar St，24小时营业，Tex-Mex快餐式Tacos，深夜下课或聚会散场后饱腹首选，Aggie最爱的深夜食堂。"
+        },
+        {
+          "name": "Koppe Bridge Bar & Grill",
+          "nameCn": "Koppe Bridge酒吧烧烤",
+          "lat": 30.5448,
+          "lng": -96.3702,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于11777 Wellborn Rd，Aggie圈公认最佳汉堡之一，牛肉手打厚实、配料丰富，离校区稍远但回头率极高，值得专程驱车前往。"
+        },
+        {
+          "name": "The Republic Steakhouse",
+          "nameCn": "共和国牛排馆",
+          "lat": 30.6247,
+          "lng": -96.3258,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于701 University Dr E，College Station最受好评的正式牛排餐厅，USDA Prime等级牛排，适合庆祝生日或重要纪念日，需提前预约。"
+        },
+        {
+          "name": "Napa Flats Wood-Fired Kitchen",
+          "nameCn": "纳帕木柴烤炉厨房",
+          "lat": 30.6055,
+          "lng": -96.3232,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "位于1727 Texas Ave S，木炭烤炉出品的扁面包披萨和意大利面，氛围轻松，是留学生与朋友小聚的好选择，有啤酒和鸡尾酒。"
+        },
+        {
+          "name": "Hullabaloo Diner",
+          "nameCn": "Hullabaloo美式餐厅",
+          "lat": 30.549,
+          "lng": -96.3345,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "位于15045 FM 2154（Wellborn Road），农场直供食材的美式餐厅，松饼和早午餐闻名，离市区略远但一致好评，是周末休闲午餐的好去处。"
+        },
+        {
+          "name": "Grub Burger Bar",
+          "nameCn": "Grub汉堡吧",
+          "lat": 30.6253,
+          "lng": -96.327,
+          "rank": 12,
+          "tier": "一般",
+          "note": "位于980 University Dr E #400，精品汉堡+奶昔，主打多种口味变化，是Northgate附近评价最好的现代汉堡店，点餐时间稍长但值得等待。"
+        },
+        {
+          "name": "Panda Express (on campus, MSC)",
+          "nameCn": "熊猫快餐（校内MSC店）",
+          "lat": 30.617,
+          "lng": -96.341,
+          "rank": 13,
+          "tier": "一般",
+          "note": "位于MSC学生中心内，是校内最便捷的亚洲快餐，橙汁鸡、炒面等美式中餐定番，持Aggie card可使用餐饮计划，两餐间赶时间之选。"
+        },
+        {
+          "name": "Fusion Peru Restaurant",
+          "nameCn": "秘鲁融合餐厅",
+          "lat": 30.5928,
+          "lng": -96.2881,
+          "rank": 14,
+          "tier": "一般",
+          "note": "位于2501 Texas Ave C.111，提供秘鲁特色酸橘腌鱼（Ceviche）、Lomo Saltado等正宗秘鲁菜，是College Station少有的异域风味，值得一试。"
+        },
+        {
+          "name": "Shiraz Shish Kabob",
+          "nameCn": "Shiraz波斯烤肉",
+          "lat": 30.6165,
+          "lng": -96.3318,
+          "rank": 15,
+          "tier": "一般",
+          "note": "位于110 Dominik Dr，波斯/中东烤肉风格，Koobideh烤肉串和香料饭口碑颇佳，是中东/南亚留学生和喜欢异域风味同学的常去之处。"
         }
       ]
     },
@@ -282,32 +573,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Chase Bank (University Drive)",
-          "nameCn": "大通银行（University Dr 网点）",
-          "lat": 30.63333,
-          "lng": -96.3289,
-          "note": "离校约2.5公里的全国性大行网点，可办理学生支票账户、Debit卡和现金存取，开户首选。"
+          "name": "Wells Fargo Bank (on-campus, Joe Routt Blvd)",
+          "nameCn": "富国银行（校内Joe Routt Blvd支行）",
+          "lat": 30.6162,
+          "lng": -96.3414,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于454 Joe Routt Blvd，与TAMU有官方合作，学生开户免月费，校园ATM覆盖广，是国际学生到校后最优先考虑的开户行。"
+        },
+        {
+          "name": "Chase Bank (Texas Ave S Branch)",
+          "nameCn": "摩根大通银行（德克萨斯大道支行）",
+          "lat": 30.6042,
+          "lng": -96.3381,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "位于2000 Texas Ave S，ATM网络全美最广，国际转账方便，持学生签证材料可开学生账户，是除Wells Fargo外最受留学生欢迎的选择。"
+        },
+        {
+          "name": "A.P. Beutel Health Center",
+          "nameCn": "Beutel学生医疗中心",
+          "lat": 30.6186,
+          "lng": -96.342,
+          "rank": 3,
+          "tier": "必去",
+          "note": "位于311 Houston St，校内唯一学生专属医疗机构，提供全科门诊、妇科、心理咨询、疫苗接种等，持在校学生证即可就诊，是第一就医首选。"
+        },
+        {
+          "name": "Baylor Scott & White Convenient Care",
+          "nameCn": "贝勒斯科特怀特便捷诊所（校外急诊）",
+          "lat": 30.625,
+          "lng": -96.3183,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于1700 University Dr E Entrance 16，周一至周日全天营业，提供急症门诊（Urgent Care），无需预约，适合非危及生命的突发疾病。"
         },
         {
           "name": "CVS Pharmacy (University Drive)",
-          "nameCn": "CVS 药房（University Dr 店）",
-          "lat": 30.62125,
-          "lng": -96.34249,
-          "note": "离校最近的连锁药房（约1公里），处方药、感冒药、日用品都有，生病时步行可达。"
+          "nameCn": "CVS药店（大学大道店）",
+          "lat": 30.6256,
+          "lng": -96.3312,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于717 University Dr，紧邻校园，除处方药和OTC药品外还提供照片冲印、常用耳温计等，是校园周边最方便的药店。"
         },
         {
-          "name": "CHI St. Joseph Health Regional Hospital",
-          "nameCn": "圣约瑟夫地区医院（CHI）",
-          "lat": 30.65572,
-          "lng": -96.34688,
-          "note": "地区主要综合医院，设24小时急诊（ER），突发重病或受伤就近就医的去处；校内另有学生健康中心看小病。"
+          "name": "AT&T Store (Texas Ave S)",
+          "nameCn": "AT&T手机运营商（德克萨斯大道店）",
+          "lat": 30.602,
+          "lng": -96.338,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于1505 Texas Ave S Suite A，AT&T信号在College Station覆盖最好，支持激活国际学生SIM卡，购买预付费Prepaid套餐无需SSN。"
         },
         {
-          "name": "Cricket Wireless (Texas Avenue)",
-          "nameCn": "Cricket Wireless 通讯营业厅",
-          "lat": 30.61455,
-          "lng": -96.31906,
-          "note": "手机卡/套餐营业厅，落地后办美国号码、预付费套餐和实体SIM卡可来这里。"
+          "name": "T-Mobile (Texas Ave & Lincoln)",
+          "nameCn": "T-Mobile（德克萨斯大道店）",
+          "lat": 30.6075,
+          "lng": -96.3352,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于819 Texas Ave S，T-Mobile价格略低于AT&T，月付计划灵活，留学生中有一定人气，办理无需SSN的预付卡比较方便。"
+        },
+        {
+          "name": "Walgreens (Texas Ave S)",
+          "nameCn": "沃尔格林药店（德克萨斯大道店）",
+          "lat": 30.595,
+          "lng": -96.316,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于2322 Texas Ave S，24小时药店，处方药、非处方药、保健品及基本日用品均有，含药房窗口，深夜不适时的必备备选。"
         }
       ]
     },
@@ -319,32 +654,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Kyle Field",
-          "nameCn": "凯尔球场",
-          "lat": 30.6099,
-          "lng": -96.34039,
-          "note": "可容纳十万人的Aggie橄榄球圣地、全美最大的大学球场之一，秋季比赛日的「第12人」氛围必体验，紧邻校园核心。"
+          "name": "Kyle Field Game Day Experience",
+          "nameCn": "凯尔球场主场比赛日体验",
+          "lat": 30.6102,
+          "lng": -96.3398,
+          "rank": 1,
+          "tier": "必去",
+          "note": "秋季主场橄榄球赛日，全球大学体育氛围最震撼的体验之一，入场前一晚的午夜Yell Practice传统（1931年起）是任何Aggie不可错过的仪式感。"
         },
         {
           "name": "George H.W. Bush Presidential Library & Museum",
-          "nameCn": "老布什总统图书馆暨博物馆",
-          "lat": 30.59631,
-          "lng": -96.35312,
-          "note": "美国第41任总统纪念馆，含椭圆形办公室复制场景和一段真实柏林墙，校园西侧步行/骑行可达的必看人文景点。"
+          "nameCn": "布什总统图书馆与博物馆",
+          "lat": 30.5966,
+          "lng": -96.3534,
+          "rank": 2,
+          "tier": "必去",
+          "note": "德州农工西校区，常设展+冷战+9·11纪念馆，布什夫妇长眠园区内，入场费约$12学生票，是BCS地区最值得花时间的历史文化游览地。"
         },
         {
-          "name": "Memorial Student Center (MSC)",
-          "nameCn": "纪念学生中心（MSC）",
-          "lat": 30.61223,
-          "lng": -96.34122,
-          "note": "校园地标性学生活动中心，兼为阵亡校友纪念馆（进门需脱帽以示敬意），书店、餐饮、艺术展一应俱全。"
+          "name": "Northgate District (Bottlecap Alley & Bars)",
+          "nameCn": "北门区（瓶盖巷+学生酒吧街）",
+          "lat": 30.6227,
+          "lng": -96.3395,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园正北门对面，Bottlecap Alley（瓶盖小巷）是Aggie必拍打卡地，Dixie Chicken、The Backyard等酒吧汇聚，是感受A&M学生文化最直接的街区。"
         },
         {
-          "name": "Northgate District",
-          "nameCn": "北门街区",
-          "lat": 30.62089,
-          "lng": -96.34987,
-          "note": "紧邻校园北侧的餐饮娱乐一条街，酒吧、夜店、小吃和咖啡聚集，是Aggie夜生活与朋友聚会的中心。"
+          "name": "Lick Creek Park",
+          "nameCn": "利克溪公园（城市自然保护区）",
+          "lat": 30.549,
+          "lng": -96.2932,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于13600 Rock Prairie Rd，523英亩后橡树草原自然保护区，5英里步道，适合徒步、骑行、观鸟，是校园周边最受欢迎的户外放松地。"
+        },
+        {
+          "name": "Messina Hof Estate Winery",
+          "nameCn": "梅西纳·霍夫庄园酒庄",
+          "lat": 30.7015,
+          "lng": -96.3572,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于4545 Old Reliance Rd，Bryan，德州最获奖酒庄，20英亩葡萄园，有品酒体验、周五日落葡萄园散步+配餐飞行品酒，是周末约会出游的小众佳选。"
+        },
+        {
+          "name": "Aggieland Safari",
+          "nameCn": "Aggieland野生动物园",
+          "lat": 30.7395,
+          "lng": -96.2748,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于18075 FM 974，Bryan，450英亩驾车穿越式野生动物园+步入式动物园，可与长颈鹿、斑马近距离接触，适合朋友或家人来访时游览。"
+        },
+        {
+          "name": "Downtown Bryan Historic District",
+          "nameCn": "布莱恩历史老城区",
+          "lat": 30.6745,
+          "lng": -96.3702,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距TAMU约10分钟车程，红砖建筑群、独立书店、精酿啤酒厂（Blackwater Draw Brewing）和古董店，每月第一个周五有First Friday艺术夜市。"
+        },
+        {
+          "name": "Lake Bryan",
+          "nameCn": "布莱恩湖（户外休闲湖）",
+          "lat": 30.705,
+          "lng": -96.4518,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于8200 Sandy Point Rd（FM 1687），20英里徒步骑行步道+钓鱼+皮划艇出租，是College Station学生最喜欢的周末户外短途目的地。"
+        },
+        {
+          "name": "Brazos Valley Museum of Natural History",
+          "nameCn": "布拉佐斯谷自然历史博物馆",
+          "lat": 30.672,
+          "lng": -96.3297,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于Bryan市3232 Briarcrest Dr，化石、考古及活体动物展览，门票$5学生票，适合放松的周末博物馆午后之旅，距校区约15分钟车程。"
+        },
+        {
+          "name": "Museum of the American G.I.",
+          "nameCn": "美国大兵博物馆（军事车辆展）",
+          "lat": 30.5348,
+          "lng": -96.3231,
+          "rank": 10,
+          "tier": "可选",
+          "note": "位于19124 Highway 6 South，真实修复的二战坦克和军用车辆户外展，每年History in Motion活动时可亲眼看到坦克开动，军事迷的天堂。"
+        },
+        {
+          "name": "TAMU Campus Walking Tour (Military Walk & Academic Plaza)",
+          "nameCn": "校园步行打卡路线（Military Walk+学术广场）",
+          "lat": 30.6175,
+          "lng": -96.34,
+          "rank": 11,
+          "tier": "必去",
+          "note": "从Albritton钟楼经Military Walk到Academic Building，沿途经过百年橡树、Sully雕像、喷泉广场，是新生入学必走、访客必游的最美校园轴线。"
         }
       ]
     }

@@ -67,39 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Kirkland Hall",
-          "nameCn": "柯克兰大厅",
-          "lat": 36.1481,
-          "lng": -86.8035,
-          "note": "1874年建校首楼，今为校行政中枢与地标钟塔。"
-        },
-        {
-          "name": "Stevenson Center (Science)",
+          "name": "Stevenson Center (Sciences & Math Complex)",
           "nameCn": "史蒂文森科学中心",
-          "lat": 36.1452,
-          "lng": -86.8016,
-          "note": "理学院综合楼群，含物理、化学、数学系。"
+          "lat": 36.1448,
+          "lng": -86.8025,
+          "rank": 1,
+          "tier": "必去",
+          "note": "八栋楼组成的核心理科园区，涵盖数学、物理、化学、分子生物学及工程院长办公室，全校最密集的科研空间。"
         },
         {
-          "name": "Featheringill Hall (Engineering)",
-          "nameCn": "工程学院楼",
-          "lat": 36.1445,
-          "lng": -86.8045,
-          "note": "工程学院主楼，电子与计算机工程所在地。"
+          "name": "Featheringill-Jacobs Hall (School of Engineering)",
+          "nameCn": "费瑟林吉尔-雅各布斯工程楼",
+          "lat": 36.1433,
+          "lng": -86.806,
+          "rank": 2,
+          "tier": "必去",
+          "note": "工程学院旗舰楼（400 24th Ave S），含50+实验室和三层Adams中庭，CS、电气与机械系均在此。"
         },
         {
-          "name": "Wyatt Center (Peabody)",
-          "nameCn": "怀亚特中心",
-          "lat": 36.14,
-          "lng": -86.799,
-          "note": "皮博迪学院标志性圆顶楼，教育学科核心。"
+          "name": "Peabody College Main Hall",
+          "nameCn": "皮博迪学院主楼",
+          "lat": 36.1432,
+          "lng": -86.7985,
+          "rank": 3,
+          "tier": "必去",
+          "note": "教育与人类发展学院（230 Appleton Place），全美顶尖教育学院，楼群独具南方学院风格。"
         },
         {
           "name": "Owen Graduate School of Management",
           "nameCn": "欧文管理研究生院",
+          "lat": 36.1465,
+          "lng": -86.8018,
+          "rank": 4,
+          "tier": "必去",
+          "note": "商学院所在地（401 21st Ave S），提供MBA/EMBA项目，金融/咨询方向招聘旺季人气极高。"
+        },
+        {
+          "name": "Vanderbilt Law School",
+          "nameCn": "范德堡法学院",
+          "lat": 36.1479,
+          "lng": -86.801,
+          "rank": 5,
+          "tier": "必去",
+          "note": "法学院主楼（131 21st Ave S），全美T14法学院，校内最气派的法学建筑群之一。"
+        },
+        {
+          "name": "Blair School of Music",
+          "nameCn": "布莱尔音乐学院",
+          "lat": 36.1395,
+          "lng": -86.799,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "音乐学院（2400 Blakemore Ave），提供音乐表演与作曲本科教育，公开音乐会常年免费向学生开放。"
+        },
+        {
+          "name": "Divinity School",
+          "nameCn": "神学院",
           "lat": 36.1472,
           "lng": -86.7998,
-          "note": "范德堡商学院，颁授MBA等学位。"
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "神学院（411 21st Ave S），1875年创立，是美国南方最具影响力的神学研究机构之一。"
+        },
+        {
+          "name": "College of Arts and Science (Wilson Hall area)",
+          "nameCn": "文理学院（威尔逊楼区）",
+          "lat": 36.1484,
+          "lng": -86.8027,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "范德堡最大学院，人文社科类本科生的核心教学区，坐落于校园中心地带。"
+        },
+        {
+          "name": "Vanderbilt University Medical Center (VUMC)",
+          "nameCn": "范德堡大学医学中心",
+          "lat": 36.1405,
+          "lng": -86.8026,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "世界顶级学术医学中心（1211 Medical Center Drive），医学/护理/生物医学研究生的学习基地，附设教学医院。"
+        },
+        {
+          "name": "Sarratt Student Center & Rand Hall",
+          "nameCn": "萨拉特学生中心与兰德楼",
+          "lat": 36.1483,
+          "lng": -86.8033,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "校园学生活动核心（2301 Vanderbilt Place），含影院、艺廊、各类学生组织办公室，是文理学生的日常聚点。"
+        },
+        {
+          "name": "Ingram Commons (First-Year Residential College)",
+          "nameCn": "英格拉姆公共区（大一住宿学院）",
+          "lat": 36.151,
+          "lng": -86.7998,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "大一新生住宿学院（1300 21st Ave S区域），采用住宿学院制，每栋宿舍配驻院院士导师，是国际新生融入校园的起点。"
         }
       ],
       "defaultOn": true
@@ -112,18 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Central Library",
-          "nameCn": "中央图书馆",
-          "lat": 36.1457,
-          "lng": -86.8002,
-          "note": "Heard图书馆系统主馆，人文与社科藏书核心。"
+          "name": "Jean and Alexander Heard Central Library",
+          "nameCn": "赫德中央图书馆",
+          "lat": 36.1462,
+          "lng": -86.801,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校最大综合图书馆（419 21st Ave S），馆藏超300万册，24小时阅览室是期末冲刺的首选场地。"
         },
         {
-          "name": "Eskind Biomedical Library",
-          "nameCn": "埃斯坎德生物医学图书馆",
-          "lat": 36.1431,
-          "lng": -86.8025,
-          "note": "医学中心区图书馆，服务临床与生物医学研究。"
+          "name": "Sarah Shannon Stevenson Science & Engineering Library",
+          "nameCn": "史蒂文森理工图书馆",
+          "lat": 36.1449,
+          "lng": -86.8022,
+          "rank": 2,
+          "tier": "必去",
+          "note": "理工科专业图书馆，位于史蒂文森中心内，STEM学生日常查阅期刊和参考书的主要去处。"
+        },
+        {
+          "name": "Annette and Irwin Eskind Family Biomedical Library",
+          "nameCn": "埃斯金德生物医学图书馆",
+          "lat": 36.1408,
+          "lng": -86.802,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "医学中心图书馆（2209 Garland Ave），提供大量医学数据库与临床资源，医学/公卫学生必备。"
+        },
+        {
+          "name": "Divinity Library",
+          "nameCn": "神学图书馆",
+          "lat": 36.1468,
+          "lng": -86.7999,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "神学与宗教研究专业馆藏，与中央图书馆同楼区（419 21st Ave S），宗教/哲学研究资源丰富。"
+        },
+        {
+          "name": "Anne Potter Wilson Music Library",
+          "nameCn": "威尔逊音乐图书馆",
+          "lat": 36.1395,
+          "lng": -86.7988,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "布莱尔音乐学院内图书馆（2400 Blakemore Ave），收藏大量乐谱、录音及音乐学文献。"
+        },
+        {
+          "name": "Peabody Library (Education)",
+          "nameCn": "皮博迪教育图书馆",
+          "lat": 36.1435,
+          "lng": -86.7983,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "教育与人类发展学院专属馆藏，位于皮博迪校区，教育政策、心理学文献齐全。"
         }
       ]
     },
@@ -135,11 +239,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Vanderbilt Fine Arts Gallery",
-          "nameCn": "范德堡美术馆",
-          "lat": 36.1416,
-          "lng": -86.7994,
-          "note": "校内艺术馆，藏古典至现当代作品。"
+          "name": "Vanderbilt University Museum of Art (Cohen Memorial Hall)",
+          "nameCn": "范德堡大学艺术博物馆",
+          "lat": 36.1436,
+          "lng": -86.7993,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全市最大公共艺术收藏（1220 21st Ave S），逾6500件藏品涵盖亚非艺术、古典与文艺复兴绘画，免费入场。"
+        },
+        {
+          "name": "Tennessee State Museum",
+          "nameCn": "田纳西州立博物馆",
+          "lat": 36.1725,
+          "lng": -86.7902,
+          "rank": 2,
+          "tier": "必去",
+          "note": "免费州博物馆（1000 Rosa Parks Blvd），呈现1.3万年田纳西历史，规模宏大，强烈推荐给刚到纳什维尔的国际生。"
+        },
+        {
+          "name": "Country Music Hall of Fame and Museum",
+          "nameCn": "乡村音乐名人堂",
+          "lat": 36.1583,
+          "lng": -86.7761,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "纳什维尔最具代表性的收费博物馆（222 5th Ave S），展览面积35万平方英尺，理解本地文化的必到之处。"
+        },
+        {
+          "name": "Sarratt Gallery / Fine Arts Gallery (on campus)",
+          "nameCn": "萨拉特当代艺廊",
+          "lat": 36.1483,
+          "lng": -86.8034,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "学生中心大厅内的当代艺术展廊，展出中南部知名当代艺术家作品，入场免费，换展频繁。"
         }
       ]
     },
@@ -151,32 +284,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "FirstBank Stadium",
-          "nameCn": "第一银行体育场",
-          "lat": 36.1439,
-          "lng": -86.809,
-          "note": "橄榄球队Commodores主场，约3.5万座。"
+          "name": "Kirkland Hall",
+          "nameCn": "柯克兰楼（行政楼）",
+          "lat": 36.1484,
+          "lng": -86.803,
+          "rank": 1,
+          "tier": "必去",
+          "note": "建于1875年的范德堡地标钟楼，哥特复兴风格，校徽和官方宣传照首选背景，校园精神象征。"
         },
         {
-          "name": "Memorial Gymnasium",
-          "nameCn": "纪念体育馆",
-          "lat": 36.1445,
-          "lng": -86.8075,
-          "note": "篮球主场，独特两端球员席布局闻名。"
+          "name": "Vanderbilt Chapel",
+          "nameCn": "范德堡礼拜堂",
+          "lat": 36.147,
+          "lng": -86.8038,
+          "rank": 2,
+          "tier": "必去",
+          "note": "哥特风格砖石礼拜堂，全校最重要的仪式场所，常举办毕业典礼、音乐会和公开活动。"
         },
         {
-          "name": "Sarratt Student Center",
-          "nameCn": "萨拉特学生中心",
-          "lat": 36.1473,
-          "lng": -86.8045,
-          "note": "学生活动中心，含剧院、影院与餐饮。"
+          "name": "The Parthenon, Centennial Park",
+          "nameCn": "帕台农神庙（百年纪念公园）",
+          "lat": 36.1499,
+          "lng": -86.8121,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1897年建造的希腊帕台农神庙等比复制品（2500 West End Ave），内有42英尺雅典娜巨像，步行可从校园到达。"
         },
         {
-          "name": "Monroe Carell Jr. Children's Hospital",
-          "nameCn": "门罗·卡雷尔儿童医院",
-          "lat": 36.1388,
-          "lng": -86.8015,
-          "note": "彩色立面儿童医院，美国顶尖儿科机构之一。"
+          "name": "Rand Hall (Student Commons & Dining)",
+          "nameCn": "兰德楼（学生餐厅与中心）",
+          "lat": 36.1482,
+          "lng": -86.8036,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "主要学生餐厅所在地，是同学互相约饭、查邮件、自习的日常核心节点，学生组织聚会首选。"
+        },
+        {
+          "name": "David Williams II Recreation & Wellness Center",
+          "nameCn": "大卫·威廉姆斯二世健身中心",
+          "lat": 36.142,
+          "lng": -86.805,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "28.9万平方英尺的超大综合健身中心（2700 Children's Way），含游泳池、攀岩墙、篮球场、室内田径跑道。"
+        },
+        {
+          "name": "Alumni Lawn & The Commons",
+          "nameCn": "校友草坪与中央广场",
+          "lat": 36.1462,
+          "lng": -86.8025,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "连接各学院的中央草坪，是春秋季节学生晒太阳、飞盘、户外社交的经典场所。"
+        },
+        {
+          "name": "Hillsboro Village",
+          "nameCn": "希尔斯伯勒村",
+          "lat": 36.1368,
+          "lng": -86.798,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园南侧步行可达的独立街区，Fido咖啡馆、Pancake Pantry、独立书店Parnassus Books均在此，是下课后放松的好去处。"
         }
       ]
     },
@@ -188,32 +356,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Kroger (Midtown / Hillsboro)",
-          "nameCn": "克罗格超市（米德敦店）",
-          "lat": 36.13029,
-          "lng": -86.802117,
-          "note": "离校最近的美国主流连锁超市，位于范德堡与Belmont之间，店内带药房和寿司/熟食，留学生日常采买首选。"
+          "name": "Kroger (21st Ave S & Blair Blvd)",
+          "nameCn": "克罗格超市（21街店）",
+          "lat": 36.1338,
+          "lng": -86.7987,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园最近的连锁超市（2201 21st Ave S），生鲜、即食、药妆齐全，步行约15分钟，学生最常去。"
         },
         {
           "name": "Trader Joe's (Hillsboro Pike)",
-          "nameCn": "缺德舅超市",
-          "lat": 36.10479,
-          "lng": -86.814702,
-          "note": "性价比高、网红零食多的连锁超市，深受学生欢迎，约5公里需开车或打车前往。"
+          "nameCn": "乔氏超市（希尔斯伯勒店）",
+          "lat": 36.1094,
+          "lng": -86.8017,
+          "rank": 2,
+          "tier": "必去",
+          "note": "性价比极高的精品连锁（3909 Hillsboro Pike），自有品牌深受学生喜爱，适合周末采购冷冻食品和零食。"
         },
         {
-          "name": "K&S World Market",
-          "nameCn": "K&S世界市场（亚洲超市）",
-          "lat": 36.149076,
-          "lng": -86.8627,
-          "note": "纳什维尔规模最大的亚洲及国际食品超市，鲜活海鲜、亚洲蔬菜和中餐调料齐全，备中餐食材必去。"
+          "name": "Whole Foods Market (Green Hills)",
+          "nameCn": "全食超市（格林希尔斯店）",
+          "lat": 36.1064,
+          "lng": -86.8098,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "有机食品首选（4021 Hillsboro Pike），熟食区品质高，健身/素食人士常来，价格偏高但品质好。"
+        },
+        {
+          "name": "Pan-Asia Supermarket (Antioch Chinatown)",
+          "nameCn": "泛亚超市（安提阿中国城）",
+          "lat": 36.067,
+          "lng": -86.7015,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "纳什维尔最大亚洲超市（5255 Hickory Hollow Pkwy），内有美食广场，供应烤鸭、炒饭、烧麦，中文食材一网打尽。"
         },
         {
           "name": "InterAsian Market & Deli",
-          "nameCn": "InterAsian亚洲超市",
-          "lat": 36.128056,
-          "lng": -86.753696,
-          "note": "1994年开业的老牌亚超，米面、酱料、火锅料和东南亚/中国食材丰富，可补齐厨房所需。"
+          "nameCn": "泛亚市场与熟食店",
+          "lat": 36.108,
+          "lng": -86.763,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1994年开业的老牌东南亚杂货店（2160 Nolensville Pike），泰国/越南/中国食材齐备，自制熟食值得一试。"
+        },
+        {
+          "name": "K & S World Market (Charlotte Pike)",
+          "nameCn": "K&S世界超市（夏洛特大道店）",
+          "lat": 36.1601,
+          "lng": -86.8738,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "韩式主导的亚洲综合超市（5861 Charlotte Pike），韩国泡菜、日式调料、中式食材均有货，价格实惠。"
+        },
+        {
+          "name": "Target (West End / Midtown)",
+          "nameCn": "塔吉特超市（西端大道店）",
+          "lat": 36.149,
+          "lng": -86.815,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "综合型连锁（West End Ave区域），生活日用、食品、电子均有，日常补货方便，学生卡有折扣。"
         }
       ]
     },
@@ -226,38 +429,129 @@
       "items": [
         {
           "name": "Hattie B's Hot Chicken (Midtown)",
-          "nameCn": "Hattie B's 纳什维尔辣子鸡",
-          "lat": 36.151741,
-          "lng": -86.796951,
-          "note": "纳什维尔招牌美食辣炸鸡的网红店，步行可达校园，来Nashville必打卡，辣度可选。"
+          "nameCn": "哈蒂B纳什维尔辣鸡（中城店）",
+          "lat": 36.1514,
+          "lng": -86.7965,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "纳什维尔辣鸡最著名的连锁（112 19th Ave S），Shut the Cluck Up级别辣到极致，来纳什维尔必吃的本地名片。"
+        },
+        {
+          "name": "Sichuan Hot Pot & Asian Cuisine (蜀香园)",
+          "nameCn": "蜀香园四川火锅（诺兰斯维尔店）",
+          "lat": 36.092,
+          "lng": -86.762,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "田纳西州首家大型四川火锅（5680 Nolensville Pike），麻辣汤底正宗，日常还供应麻婆豆腐、夫妻肺片，中国学生强烈推荐。"
+        },
+        {
+          "name": "Shaokao",
+          "nameCn": "烧烤（中城店）",
+          "lat": 36.1528,
+          "lng": -86.7912,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "纳什维尔最受好评的中国街头小吃馆（1812 Hayes St，Music Row），面食汤底复杂、麻辣鲜香，是中国学生聚餐首选。"
+        },
+        {
+          "name": "Meet Noodles",
+          "nameCn": "遇见面馆",
+          "lat": 36.1328,
+          "lng": -86.799,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "希尔斯伯勒村内的中式面馆（2121 Belcourt Ave），Google评分4.6，兰州拉面风格，是校园附近最受华人学生认可的中餐之一。"
+        },
+        {
+          "name": "Noodle Essence",
+          "nameCn": "面的本质",
+          "lat": 36.087,
+          "lng": -86.755,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "兰州培训厨师主理（5539 Edmondson Pike），手工拉面纯正，被The Infatuation评为纳什维尔最佳中餐之一，值得驱车前往。"
+        },
+        {
+          "name": "Martin's Bar-B-Que Joint (Midtown)",
+          "nameCn": "马丁全猪BBQ（中城店）",
+          "lat": 36.1538,
+          "lng": -86.8055,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "纳什维尔全猪烧烤代表（2400 Elliston Pl），慢烤12小时，是体验正宗田纳西BBQ文化的标志性去处。"
+        },
+        {
+          "name": "Philippe Chow Nashville",
+          "nameCn": "菲利普·周中餐厅（纳什维尔）",
+          "lat": 36.1575,
+          "lng": -86.7855,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "来自纽约的精品中餐厅（209 10th Ave S，Gulch区），桌边雕刻北京烤鸭是招牌，适合庆生等特殊场合。"
+        },
+        {
+          "name": "Smiling Elephant",
+          "nameCn": "微笑大象泰国餐厅",
+          "lat": 36.1291,
+          "lng": -86.767,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "纳什维尔口碑最好的泰餐（2213 8th Ave S），Pad Thai和咖喱极受好评，Yelp 775条评论，是泰餐爱好者必访。"
+        },
+        {
+          "name": "Shabu Shabu / Korea House",
+          "nameCn": "韩国之家",
+          "lat": 36.162,
+          "lng": -86.8698,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "老牌正宗韩餐（6410 Charlotte Pike），banchan丰盛、韩式烤肉地道，是纳什维尔华人/韩人圈公认的聚餐好去处。"
+        },
+        {
+          "name": "Miss Saigon",
+          "nameCn": "西贡小姐越南餐厅",
+          "lat": 36.1582,
+          "lng": -86.8652,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "高评分越南河粉馆（5849 Charlotte Pike），汤底清醇正宗，是想换口味时的亚洲美食好选择。"
+        },
+        {
+          "name": "VN Pho & Deli",
+          "nameCn": "越南河粉与熟食店",
+          "lat": 36.159,
+          "lng": -86.8642,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "夏洛特大道上的实惠越南馆（5906 Charlotte Pike），河粉份量大、价格亲民，亚洲学生光顾率高。"
+        },
+        {
+          "name": "Gen Korean BBQ House (Midtown)",
+          "nameCn": "Gen韩国烤肉（中城店）",
+          "lat": 36.1498,
+          "lng": -86.7987,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "校园附近的韩式自助烤肉（212 21st Ave S），互动式桌边烤肉体验，性价比高，适合多人聚餐。"
         },
         {
           "name": "Pancake Pantry",
-          "nameCn": "煎饼小屋（Pancake Pantry）",
-          "lat": 36.136963,
-          "lng": -86.800761,
-          "note": "1961年开业的Hillsboro Village早餐地标，23种松饼远近闻名，周末常排长队。"
+          "nameCn": "煎饼厨房",
+          "lat": 36.1353,
+          "lng": -86.7998,
+          "rank": 13,
+          "tier": "一般",
+          "note": "创立于1961年的纳什维尔早餐地标（1796 21st Ave S），周末排队长但煎饼口碑极佳，是本地传统体验。"
         },
         {
-          "name": "Inchin's Bamboo Garden",
-          "nameCn": "竹园印中亚洲餐厅",
-          "lat": 36.15303,
-          "lng": -86.796097,
-          "note": "离校最近的亚洲/印中融合餐厅，正对Centennial公园，可解中餐/亚洲菜的馋。"
-        },
-        {
-          "name": "Otaku Ramen",
-          "nameCn": "Otaku 日式拉面",
-          "lat": 36.150941,
-          "lng": -86.782546,
-          "note": "位于The Gulch的人气日式拉面店，骨汤浓郁，想吃热乎面食时的好去处。"
-        },
-        {
-          "name": "Fido",
-          "nameCn": "Fido 咖啡馆",
-          "lat": 36.136477,
-          "lng": -86.80082,
-          "note": "Hillsboro Village全天供应早午餐的人气咖啡馆，范德堡学生扎堆，自习约饭皆宜。"
+          "name": "Fido (Coffee & All-Day Café)",
+          "nameCn": "Fido咖啡馆（希尔斯伯勒村）",
+          "lat": 36.136,
+          "lng": -86.7993,
+          "rank": 14,
+          "tier": "一般",
+          "note": "希尔斯伯勒村最具代表性的全天候咖啡/餐厅（1812 21st Ave S），学生写论文、约见导师的常用非正式场所。"
         }
       ]
     },
@@ -269,32 +563,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Blakemore Financial Center)",
-          "nameCn": "美国银行（Blakemore支行）",
-          "lat": 36.137705,
-          "lng": -86.802545,
-          "note": "紧邻校园的大行网点，可办理开户、借记卡和现金业务，新生落地办银行卡方便。"
+          "name": "Regions Bank (21st Ave S)",
+          "nameCn": "区域银行（21街南店）",
+          "lat": 36.1375,
+          "lng": -86.7993,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园步行圈内（1624 21st Ave S），接受Vanderbilt学生证代替SSN开户，是国际新生开立美国银行账户的首选。"
         },
         {
-          "name": "Vanderbilt University Medical Center",
-          "nameCn": "范德堡大学医学中心",
-          "lat": 36.142654,
-          "lng": -86.801327,
-          "note": "全美顶尖的大型综合医院，设急诊，校内学生看病/急症就医的主要去处。"
+          "name": "Bank of America (Blakemore Ave branch)",
+          "nameCn": "美国银行（布莱克摩尔大道支行）",
+          "lat": 36.1398,
+          "lng": -86.7988,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园南侧（2121 Blakemore Ave），中国学生开户认知度高，手机APP中文界面友好，可免费转账。"
         },
         {
-          "name": "Walgreens (West End Ave)",
-          "nameCn": "Walgreens 药店（西区大道）",
-          "lat": 36.143247,
-          "lng": -86.814832,
-          "note": "连锁药房，可取处方药、买非处方药与日用品，部分时段营业到很晚。"
+          "name": "CVS Pharmacy (21st Ave S)",
+          "nameCn": "CVS药房（21街南店）",
+          "lat": 36.1445,
+          "lng": -86.8002,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距校园最近的全服务药房（426 21st Ave S），含MinuteClinic门诊（7天营业），买药、打疫苗、看小病一站搞定。"
         },
         {
-          "name": "AT&T Store (West End Ave)",
-          "nameCn": "AT&T 通讯营业厅",
-          "lat": 36.15232,
-          "lng": -86.797546,
-          "note": "步行可达的手机运营商门店，办理美国手机号、SIM卡和套餐，落地通讯首站。"
+          "name": "Vanderbilt University Medical Center (VUMC) Emergency / Urgent Care",
+          "nameCn": "范德堡大学医疗中心急诊与门诊",
+          "lat": 36.1405,
+          "lng": -86.8026,
+          "rank": 4,
+          "tier": "必去",
+          "note": "世界级学术医院（1211 Medical Center Drive），含急诊和学生健康诊所，国际学生遭遇紧急医疗时的最可靠去处。"
+        },
+        {
+          "name": "T-Mobile (West End Ave – Vanderbilt)",
+          "nameCn": "T-Mobile手机店（西端大道-范德堡店）",
+          "lat": 36.15,
+          "lng": -86.8138,
+          "rank": 5,
+          "tier": "必去",
+          "note": "校园最近的运营商实体店（2014 West End Ave），国际学生到校第1天即可办理预付卡或月租套餐。"
+        },
+        {
+          "name": "Truist Bank (21st Ave S)",
+          "nameCn": "Truist银行（21街南店）",
+          "lat": 36.142,
+          "lng": -86.7994,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园步行圈内支行（1605 21st Ave S），开户流程对国际学生友好，ATM密集，适合需要多银行账户的学生。"
+        },
+        {
+          "name": "Walgreens Pharmacy (Hillsboro Pike)",
+          "nameCn": "沃尔格林药房（希尔斯伯勒大道店）",
+          "lat": 36.109,
+          "lng": -86.802,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "绿山区域的大型24小时药房（3901 Hillsboro Pike），离校园约10分钟车程，急需药品时的备选。"
         }
       ]
     },
@@ -306,32 +635,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Centennial Park & The Parthenon",
-          "nameCn": "百年纪念公园与帕特农神庙",
-          "lat": 36.1493,
-          "lng": -86.8133,
-          "note": "正对校园的大型公园，内有全球唯一全尺寸复刻的希腊帕特农神庙，散步拍照地标。"
+          "name": "The Parthenon & Centennial Park",
+          "nameCn": "帕台农神庙与百年纪念公园",
+          "lat": 36.1499,
+          "lng": -86.8121,
+          "rank": 1,
+          "tier": "必去",
+          "note": "范德堡隔壁的132英亩城市公园，1897年原尺寸希腊神庙复制品，免费入园，校园步行10分钟，是打卡No.1。"
         },
         {
-          "name": "Belcourt Theatre",
-          "nameCn": "Belcourt 历史影院",
-          "lat": 36.1358,
-          "lng": -86.7985,
-          "note": "Hillsboro Village内1925年的历史独立影院，放映艺术与经典电影，文艺打卡点。"
+          "name": "Ryman Auditorium",
+          "nameCn": "莱曼礼堂（乡村音乐母教堂）",
+          "lat": 36.1612,
+          "lng": -86.7784,
+          "rank": 2,
+          "tier": "必去",
+          "note": "纳什维尔最有历史感的演出场馆（116 5th Ave N），1943-1974年Grand Ole Opry原址，每晚有现场演出，体验南方音乐文化必到。"
+        },
+        {
+          "name": "Country Music Hall of Fame and Museum",
+          "nameCn": "乡村音乐名人堂博物馆",
+          "lat": 36.1583,
+          "lng": -86.7761,
+          "rank": 3,
+          "tier": "必去",
+          "note": "了解纳什维尔音乐DNA的最佳场所（222 5th Ave S），展览内容深度高，建议留出2-3小时参观。"
+        },
+        {
+          "name": "Broadway / Honky-Tonk Highway",
+          "nameCn": "百老汇街/乡村酒吧一条街",
+          "lat": 36.1594,
+          "lng": -86.7783,
+          "rank": 4,
+          "tier": "必去",
+          "note": "纳什维尔最著名的娱乐街区，酒吧全天免费现场演出、无消费门槛，来纳什维尔的必打卡地标。"
+        },
+        {
+          "name": "Grand Ole Opry House",
+          "nameCn": "乡村音乐大剧院",
+          "lat": 36.2068,
+          "lng": -86.6923,
+          "rank": 5,
+          "tier": "必去",
+          "note": "美国最著名的乡村音乐表演场馆（2804 Opryland Dr），每周二/五/六有演出，购票提前，是纳什维尔文化体验的顶点。"
+        },
+        {
+          "name": "Tennessee State Museum",
+          "nameCn": "田纳西州立博物馆",
+          "lat": 36.1725,
+          "lng": -86.7902,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "完全免费的大型历史博物馆（1000 Rosa Parks Blvd），呈现美洲原住民至南北战争全貌，适合文化探索周末游。"
+        },
+        {
+          "name": "12 South Neighborhood (Murals & Boutiques)",
+          "nameCn": "第12南街区（壁画与精品店）",
+          "lat": 36.1253,
+          "lng": -86.7857,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "\"I Believe in Nashville\"壁画所在的网红街区（2702 12th Ave S），独立咖啡馆、精品店、Five Daughters甜甜圈集中，适合拍照漫步。"
         },
         {
           "name": "Hillsboro Village",
-          "nameCn": "Hillsboro Village 街区",
-          "lat": 36.1365,
-          "lng": -86.7999,
-          "note": "范德堡旁的步行小店街区，咖啡、书店、餐厅与精品店云集，学生休闲逛街首选。"
+          "nameCn": "希尔斯伯勒村街区",
+          "lat": 36.1368,
+          "lng": -86.798,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "步行即达的大学周边文艺街区，含Parnassus独立书店、Belcourt复古影院、多家独立咖啡馆，是校园生活延伸的最佳去处。"
         },
         {
-          "name": "Frist Art Museum",
-          "nameCn": "Frist 艺术博物馆",
-          "lat": 36.1568,
-          "lng": -86.7857,
-          "note": "由历史邮政大楼改建的Art Deco风格美术馆，常设国际级特展，约3公里值得一访。"
+          "name": "Bicentennial Capitol Mall State Park",
+          "nameCn": "双百年国会广场州立公园",
+          "lat": 36.1683,
+          "lng": -86.7878,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "免费开放的历史纪念公园，嵌入式田纳西地图和音频历史台让漫步变成文化之旅，紧邻州博物馆。"
+        },
+        {
+          "name": "The Gulch Neighborhood",
+          "nameCn": "峡谷街区",
+          "lat": 36.1555,
+          "lng": -86.7878,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "纳什维尔最时髦的时尚餐饮区，\"What Lifts You Wings\"翅膀壁画是全市最多人打卡的网红地标之一。"
         }
       ]
     }

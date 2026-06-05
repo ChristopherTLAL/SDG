@@ -59,46 +59,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "College of Arts & Sciences",
-          "nameCn": "文理学院",
-          "lat": 42.3506,
-          "lng": -71.1059,
-          "note": "725联邦大道，校园学术心脏。"
-        },
-        {
-          "name": "Questrom School of Business (Hariri Bldg)",
-          "nameCn": "奎斯特罗姆商学院",
-          "lat": 42.3489,
-          "lng": -71.0997,
-          "note": "595联邦大道，东校区地标商学院楼。"
-        },
-        {
-          "name": "Center for Computing & Data Sciences",
+          "name": "Center for Computing & Data Sciences (CDS)",
           "nameCn": "计算与数据科学中心",
-          "lat": 42.3496,
-          "lng": -71.1024,
-          "note": "层叠错落的「叠叠乐」塔楼，2022年启用。"
+          "lat": 42.3498,
+          "lng": -71.1043,
+          "rank": 1,
+          "tier": "必去",
+          "note": "BU最新地标建筑，19层碳中和高塔，汇聚计算机科学、数学统计与AI研究，2022年开放。"
         },
         {
-          "name": "College of Engineering (Photonics Center)",
-          "nameCn": "工程学院·光子学中心",
-          "lat": 42.3492,
-          "lng": -71.1061,
-          "note": "圣玛丽街8号，工程与光子学研究重镇。"
+          "name": "Questrom School of Business (Rafik B. Hariri Building)",
+          "nameCn": "Questrom商学院",
+          "lat": 42.3509,
+          "lng": -71.1054,
+          "rank": 2,
+          "tier": "必去",
+          "note": "595 Commonwealth Ave，BU顶级商学院，MBA/本科商科核心校区，哈里里楼内含Pardee管理图书馆。"
         },
         {
-          "name": "Chobanian & Avedisian School of Medicine",
-          "nameCn": "乔巴尼安医学院",
-          "lat": 42.3356,
+          "name": "Boston University School of Law (Redstone Building)",
+          "nameCn": "BU法学院",
+          "lat": 42.3513,
+          "lng": -71.1073,
+          "rank": 3,
+          "tier": "必去",
+          "note": "765 Commonwealth Ave，全美Top 20法学院，Sumner Redstone楼设施现代，含两座法律图书馆。"
+        },
+        {
+          "name": "College of Arts & Sciences (CAS)",
+          "nameCn": "文理学院",
+          "lat": 42.3508,
+          "lng": -71.1087,
+          "rank": 4,
+          "tier": "必去",
+          "note": "BU规模最大的本科学院，人文/自然/社会科学均在此，主楼为哥特式历史建筑群。"
+        },
+        {
+          "name": "College of Communication (COM)",
+          "nameCn": "传播学院",
+          "lat": 42.3516,
+          "lng": -71.106,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "640 Commonwealth Ave，新闻、广播、影视、公关专业齐全，在美国传播院校中享有盛誉。"
+        },
+        {
+          "name": "Sargent College of Health & Rehabilitation Sciences",
+          "nameCn": "Sargent健康与康复科学学院",
+          "lat": 42.3514,
+          "lng": -71.1052,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "635 Commonwealth Ave，职业治疗、物理治疗、营养学等专业强校，临床实习资源丰富。"
+        },
+        {
+          "name": "Wheelock College of Education & Human Development",
+          "nameCn": "Wheelock教育与人类发展学院",
+          "lat": 42.3502,
+          "lng": -71.1065,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2 Silber Way，由历史悠久的Wheelock学院合并而来，教育学、社会工作、儿童发展方向突出。"
+        },
+        {
+          "name": "Photonics Center",
+          "nameCn": "光子学中心",
+          "lat": 42.3495,
+          "lng": -71.1028,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "8 Saint Mary's Street，BU工学院旗舰科研楼，10层，光电与工程实验室聚集，毕业生就业资源多。"
+        },
+        {
+          "name": "School of Theology",
+          "nameCn": "神学院",
+          "lat": 42.3506,
+          "lng": -71.1083,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "745 Commonwealth Ave，美国最古老的神学院之一，哥特式历史建筑，紧邻Marsh Chapel。"
+        },
+        {
+          "name": "College of Fine Arts (CFA)",
+          "nameCn": "艺术学院",
+          "lat": 42.3476,
+          "lng": -71.1115,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "855 Commonwealth Ave，音乐、戏剧、视觉艺术三位一体，含Stone Gallery等多个展览空间。"
+        },
+        {
+          "name": "Chobanian & Avedisian School of Medicine (BUSM)",
+          "nameCn": "医学院",
+          "lat": 42.3352,
           "lng": -71.0726,
-          "note": "南区医学院校区主楼，东康科德街72号。"
-        },
-        {
-          "name": "School of Public Health",
-          "nameCn": "公共卫生学院",
-          "lat": 42.3349,
-          "lng": -71.073,
-          "note": "塔波特楼，医学院校区内。"
+          "rank": 11,
+          "tier": "推荐",
+          "note": "715 Albany St，南端医学校区，美国最早男女同校医学院之一，与Boston Medical Center紧邻。"
         }
       ],
       "defaultOn": true
@@ -112,17 +169,66 @@
       "items": [
         {
           "name": "Mugar Memorial Library",
-          "nameCn": "穆加纪念图书馆",
-          "lat": 42.351,
-          "lng": -71.108,
-          "note": "771联邦大道，主校区中央总馆。"
+          "nameCn": "Mugar纪念图书馆",
+          "lat": 42.3503,
+          "lng": -71.1074,
+          "rank": 1,
+          "tier": "必去",
+          "note": "771 Commonwealth Ave，BU主图书馆，7层，全校最大电脑室，越高楼层越安静，含著名的Gotlieb档案研究中心。"
         },
         {
-          "name": "Alumni Medical Library",
-          "nameCn": "校友医学图书馆",
-          "lat": 42.336,
-          "lng": -71.072,
-          "note": "医学院校区图书馆，服务医牙公卫师生。"
+          "name": "Science & Engineering Library (SEL)",
+          "nameCn": "理工图书馆",
+          "lat": 42.349,
+          "lng": -71.1036,
+          "rank": 2,
+          "tier": "必去",
+          "note": "38 Cummington Mall，理工科学生首选自习场所，藏书专业集中，靠近CDS楼，氛围安静高效。"
+        },
+        {
+          "name": "Pardee Management Library",
+          "nameCn": "Pardee管理图书馆",
+          "lat": 42.3509,
+          "lng": -71.1054,
+          "rank": 3,
+          "tier": "必去",
+          "note": "595 Commonwealth Ave（Questrom楼内），商学院专属图书馆，金融/管理类资源丰富，自习座位舒适。"
+        },
+        {
+          "name": "Howard Gotlieb Archival Research Center",
+          "nameCn": "Gotlieb档案研究中心",
+          "lat": 42.3503,
+          "lng": -71.1074,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Mugar图书馆5楼，收藏大量名人手稿与历史文献，学术研究价值极高，适合人文社科研究生。"
+        },
+        {
+          "name": "School of Theology Library",
+          "nameCn": "神学图书馆",
+          "lat": 42.3506,
+          "lng": -71.1083,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "745 Commonwealth Ave二楼，神学/宗教学/圣经学专业藏书极为丰富，建筑哥特式典雅安静。"
+        },
+        {
+          "name": "Pickering Educational Resources Library",
+          "nameCn": "Pickering教育资源图书馆",
+          "lat": 42.3502,
+          "lng": -71.1065,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Wheelock学院内，专攻教育学与儿童发展文献，提供安静个人学习间，教育学生必去。"
+        },
+        {
+          "name": "Boston Public Library (Copley Square)",
+          "nameCn": "波士顿公共图书馆（科普利广场馆）",
+          "lat": 42.3495,
+          "lng": -71.0779,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "700 Boylston St，绿线Copley站步行可达，美国首个公共图书馆，阅览室宏伟壮观，BU学生持证可借阅。"
         }
       ]
     },
@@ -134,18 +240,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Stone Gallery (CFA)",
-          "nameCn": "斯通画廊",
-          "lat": 42.3517,
-          "lng": -71.1129,
-          "note": "855联邦大道艺术学院一层展厅。"
+          "name": "Museum of Fine Arts (MFA), Boston",
+          "nameCn": "波士顿美术馆",
+          "lat": 42.3394,
+          "lng": -71.094,
+          "rank": 1,
+          "tier": "必去",
+          "note": "465 Huntington Ave，波士顿最大美术馆，印象派、古埃及、亚洲艺术品均属世界顶级，BU学生免费入场。"
         },
         {
-          "name": "808 Gallery",
-          "nameCn": "808画廊",
-          "lat": 42.3514,
-          "lng": -71.1108,
-          "note": "富勒楼内，校园主要当代艺术展空间。"
+          "name": "Isabella Stewart Gardner Museum",
+          "nameCn": "伊莎贝拉·斯图尔特·加德纳博物馆",
+          "lat": 42.3382,
+          "lng": -71.0993,
+          "rank": 2,
+          "tier": "必去",
+          "note": "25 Evans Way，威尼斯宫殿风格建筑，300余件名作，史上最大艺术品盗窃事件发生地，25岁以下免费。"
+        },
+        {
+          "name": "BU Art Galleries (Stone Gallery & 808 Gallery)",
+          "nameCn": "BU艺术画廊（Stone画廊等）",
+          "lat": 42.3474,
+          "lng": -71.1115,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "855 Commonwealth Ave，CFA内免费画廊群，Stone/808/Commonwealth三馆轮换当代国际艺术展，周二至六开放。"
+        },
+        {
+          "name": "Boston University Photonics Center Gallery",
+          "nameCn": "光子学中心科学展示空间",
+          "lat": 42.3495,
+          "lng": -71.1028,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "8 Saint Mary's St，光电科技研究与科普展示空间，对工程/物理专业学生极具参考价值。"
+        },
+        {
+          "name": "Fenway Park (Historic Tour)",
+          "nameCn": "芬威球场（历史参观）",
+          "lat": 42.3467,
+          "lng": -71.0972,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "4 Yawkey Way，美国现存最古老职棒球场（1912年），每日开放参观，体验波士顿城市文化必到之地。"
         }
       ]
     },
@@ -157,39 +294,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Marsh Chapel",
-          "nameCn": "马什教堂",
-          "lat": 42.3505,
+          "name": "Marsh Chapel & Marsh Plaza",
+          "nameCn": "Marsh礼拜堂与广场",
+          "lat": 42.3501,
+          "lng": -71.1079,
+          "rank": 1,
+          "tier": "必去",
+          "note": "735 Commonwealth Ave，BU校园精神核心，哥特式礼拜堂（1950年），广场地砖暗藏校徽，毕业典礼与拍照首选地。"
+        },
+        {
+          "name": "George Sherman Union (GSU)",
+          "nameCn": "George Sherman学生活动中心",
+          "lat": 42.3501,
           "lng": -71.1066,
-          "note": "735联邦大道哥特式教堂，校园精神象征。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "775 Commonwealth Ave，学生生活核心枢纽，9家餐厅+两家银行+多个活动厅，布鲁塔利斯特风格标志建筑。"
         },
         {
-          "name": "Agganis Arena",
-          "nameCn": "阿加尼斯体育馆",
-          "lat": 42.3524,
-          "lng": -71.117,
-          "note": "学生村内冰球与大型活动场馆。"
-        },
-        {
-          "name": "Nickerson Field",
-          "nameCn": "尼克森体育场",
-          "lat": 42.3535,
-          "lng": -71.1185,
-          "note": "西校区足球与曲棍球主场。"
+          "name": "BU Beach (Alpert Mall)",
+          "nameCn": "BU海滩（Alpert草坪）",
+          "lat": 42.3512,
+          "lng": -71.1094,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Charles River边的草坪长廊，俯瞰河景+Point Counterpoint雕塑，是全校最受欢迎的休闲打卡点。"
         },
         {
           "name": "Warren Towers",
-          "nameCn": "沃伦塔宿舍",
-          "lat": 42.3491,
-          "lng": -71.1036,
-          "note": "联邦大道三塔大型本科生宿舍。"
+          "nameCn": "Warren宿舍楼群",
+          "lat": 42.3497,
+          "lng": -71.1056,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "700 Commonwealth Ave，三塔连体布鲁塔利斯特宿舍楼，容纳约1800名学生，BU最著名地标之一，正在翻修中。"
         },
         {
-          "name": "BU Central / BU East (Green Line)",
-          "nameCn": "BU绿线轻轨站",
-          "lat": 42.3499,
-          "lng": -71.1037,
-          "note": "联邦大道上的绿线B支地面轻轨站。"
+          "name": "Citgo Sign (Kenmore Square)",
+          "nameCn": "Citgo霓虹灯牌",
+          "lat": 42.3479,
+          "lng": -71.0972,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "660 Beacon St，波士顿最具辨识度的城市地标，芬威球赛背景必出现，步行10分钟即达校园。"
+        },
+        {
+          "name": "Agganis Arena & FitRec",
+          "nameCn": "Agganis体育馆与健身中心",
+          "lat": 42.3468,
+          "lng": -71.1147,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "915-925 Commonwealth Ave，学生村核心，大型曲棍球/演唱会场馆与全校最完善的健身中心比邻，学生可免费使用FitRec。"
+        },
+        {
+          "name": "BU Bridge",
+          "nameCn": "BU大桥",
+          "lat": 42.3529,
+          "lng": -71.1107,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "连接BU校园与剑桥市，是波士顿著名的\"三桥风景\"之一，清晨和傍晚跑步打卡胜地，景色绝佳。"
         }
       ]
     },
@@ -201,32 +366,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Star Market (1065 Commonwealth Ave)",
-          "nameCn": "Star Market 大型超市（西校区）",
-          "lat": 42.3522,
-          "lng": -71.1235,
-          "note": "紧邻 BU 西校区宿舍的主流大型连锁超市，含药房与星巴克，日常采买最方便。"
-        },
-        {
           "name": "Hong Kong Supermarket (Super 88)",
-          "nameCn": "香港超市（原 Super 88）",
+          "nameCn": "香港超级市场（Super 88）",
+          "lat": 42.353,
+          "lng": -71.1308,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1 Brighton Ave，Allston，中国/韩国/日本/越南食材一站购齐，生鲜海鲜丰富，华人留学生最常去的亚洲超市。"
+        },
+        {
+          "name": "Star Market (Allston/Commonwealth Ave)",
+          "nameCn": "Star Market（Allston店）",
+          "lat": 42.3499,
+          "lng": -71.1172,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1065 Commonwealth Ave，距BU西校区最近的大型连锁超市，日常食材齐全，内设药房，营业至深夜。"
+        },
+        {
+          "name": "Trader Joe's (Allston)",
+          "nameCn": "乔氏超市（Allston店）",
+          "lat": 42.3547,
+          "lng": -71.1313,
+          "rank": 3,
+          "tier": "必去",
+          "note": "199 N Harvard St，Allston，性价比极高的有机食品超市，自有品牌深受学生喜爱，每周换新品。"
+        },
+        {
+          "name": "H Mart (Brookline)",
+          "nameCn": "韩亚超市H Mart（Brookline店）",
+          "lat": 42.342,
+          "lng": -71.1209,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1028 Beacon St，Brookline，韩系亚超新店，选址前Whole Foods旧址，韩国/日本食材丰富，离BU绿线可达。"
+        },
+        {
+          "name": "Whole Foods Market (Brighton)",
+          "nameCn": "全食超市（Brighton店）",
           "lat": 42.3519,
-          "lng": -71.1253,
-          "note": "Comm Ave 上的大型华人/亚洲超市，中餐食材、米面酱料、冷冻品齐全，附设亚洲美食广场。"
+          "lng": -71.1573,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "15 Washington St，Brighton，波士顿最早的全食门店，有机蔬果与海鲜品质高，适合周末采购。"
         },
         {
-          "name": "H Mart Cambridge (Central Square)",
-          "nameCn": "H Mart 韩亚超市（剑桥中央广场）",
-          "lat": 42.3649,
-          "lng": -71.1027,
-          "note": "过河约 3 公里的大型韩国超市，泡面、韩日食材和速食最全，红线地铁可直达。"
+          "name": "Sunrise Market",
+          "nameCn": "旭日亚洲超市",
+          "lat": 42.3529,
+          "lng": -71.1279,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "152 Brighton Ave，Allston，小而精的亚洲及拉美食材超市，补货中式调料和特色食材的方便选择。"
         },
         {
-          "name": "Trader Joe's Brighton (Western Ave)",
-          "nameCn": "Trader Joe's 缺德舅超市",
-          "lat": 42.3608,
-          "lng": -71.1346,
-          "note": "高性价比网红超市，冷冻食品、零食和半成品出名，适合学生快手做饭。"
+          "name": "H Mart (Cambridge)",
+          "nameCn": "韩亚超市H Mart（Cambridge店）",
+          "lat": 42.3659,
+          "lng": -71.1036,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "581 Massachusetts Ave，Cambridge，规模较大的韩系超市，含食堂区，T绿线+公交约20分钟可达。"
         }
       ]
     },
@@ -238,39 +438,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Hokkaido Ramen Santouka",
-          "nameCn": "山头火北海道拉面",
-          "lat": 42.3532,
-          "lng": -71.1329,
-          "note": "Allston Brighton Ave 上的日本连锁名店，招牌豚骨盐味拉面，留学生聚集区代表。"
+          "name": "Szechuan Mountain House",
+          "nameCn": "四川山里人",
+          "lat": 42.353,
+          "lng": -71.1266,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "89 Brighton Ave，Allston，2025年波士顿最佳川菜公认第一，麻辣干锅/水煮鱼/夫妻肺片地道，排队1小时以上属正常。"
         },
         {
-          "name": "Pho Viet (Super 88 Food Court)",
-          "nameCn": "越南牛肉粉 Pho Viet",
-          "lat": 42.3523,
-          "lng": -71.1253,
-          "note": "亚洲美食广场里的越南粉老铺，一碗热汤粉便宜管饱，冬天救命。"
+          "name": "Dumpling Kingdom",
+          "nameCn": "饺子王国",
+          "lat": 42.354,
+          "lng": -71.1296,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "137 Harvard Ave，Allston，汤包和煎饺评分极高，午市套餐含蛋花汤+白饭性价比极佳，营业至深夜。"
         },
         {
-          "name": "Gyu-Kaku Japanese BBQ (Brookline)",
-          "nameCn": "牛角日式烤肉（Brookline 店）",
-          "lat": 42.3463,
-          "lng": -71.107,
-          "note": "人气日式自助烤肉连锁，朋友聚餐、约饭首选，距校园约 1.5 公里。"
+          "name": "Victoria Seafood Restaurant",
+          "nameCn": "Victoria海鲜餐厅",
+          "lat": 42.3488,
+          "lng": -71.1182,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "1029 Commonwealth Ave，正宗粤菜代表，煲仔饭/盐焗鱿鱼堪称波士顿一绝，营业至午夜，华人学生口碑最佳。"
+        },
+        {
+          "name": "Brown Sugar Cafe",
+          "nameCn": "红糖泰式咖啡馆",
+          "lat": 42.3487,
+          "lng": -71.1186,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "1033 Commonwealth Ave，BU学生最熟悉的泰餐厅，香兰叶/高良姜等新鲜香料入菜，咖喱和Khao Soi尤为惊艳。"
         },
         {
           "name": "Tasty Burger (Fenway)",
-          "nameCn": "Tasty Burger 经典美式汉堡",
-          "lat": 42.3446,
+          "nameCn": "Tasty汉堡（芬威店）",
+          "lat": 42.3455,
           "lng": -71.098,
-          "note": "芬威球场旁的本地网红汉堡店，平价美式快餐，看球后必打卡。"
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "1301 Boylston St，Kenmore区，波士顿本地最受欢迎的汉堡连锁，$8-10一个，深夜营业，赛后聚餐首选。"
         },
         {
-          "name": "Sweet Cheeks Q (Fenway)",
-          "nameCn": "Sweet Cheeks 美式烟熏烤肉",
-          "lat": 42.3445,
-          "lng": -71.101,
-          "note": "芬威区知名南方 BBQ，烟熏猪肉和现烤饼干招牌，体验地道美式风味。"
+          "name": "Little Tao",
+          "nameCn": "小陶川菜",
+          "lat": 42.3542,
+          "lng": -71.1302,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "Allston，川式家常菜小馆，孜然牛肉/宫保鸡丁/陶陶面评价极高，Infatuation特别推荐，价格实惠。"
+        },
+        {
+          "name": "Rod Thai Family Taste",
+          "nameCn": "Rod Thai家庭泰味",
+          "lat": 42.3437,
+          "lng": -71.0913,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "94 Peterborough St，Fenway，波士顿Magazine评选最佳泰餐之一，各式Pad Thai和炒饭高分，街边风格接地气。"
+        },
+        {
+          "name": "Anna's Taqueria (Fenway)",
+          "nameCn": "Anna墨西哥卷饼店",
+          "lat": 42.3454,
+          "lng": -71.0944,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Fenway区域，波士顿学生最爱的墨西哥卷饼连锁，超大份量超低价，全天营业，考试季救命神店。"
+        },
+        {
+          "name": "Noodle Street",
+          "nameCn": "面条街",
+          "lat": 42.3512,
+          "lng": -71.1054,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "627 Commonwealth Ave，校园旁亚洲快餐，面条/炒饭/炒粉快速出餐，价格学生友好，外卖也便捷。"
+        },
+        {
+          "name": "Panda Express (George Sherman Union)",
+          "nameCn": "熊猫快餐（学生中心店）",
+          "lat": 42.3501,
+          "lng": -71.1066,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "775 Commonwealth Ave，GSU学生中心内，最方便的校内中式快餐，用餐点可刷校园餐卡。"
+        },
+        {
+          "name": "Sunset Cantina",
+          "nameCn": "Sunset墨西哥餐厅",
+          "lat": 42.3484,
+          "lng": -71.1194,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "916 Commonwealth Ave，Brookline端，Taco Tuesday$3塔可+$5玛格丽特，BU学生周二必打卡的性价比神店。"
+        },
+        {
+          "name": "T. Anthony's Pizzeria",
+          "nameCn": "T.Anthony比萨",
+          "lat": 42.3482,
+          "lng": -71.12,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "1016 Commonwealth Ave，深夜营业至凌晨2点，$3.50一片纽约风披萨，BU学生熬夜写作业的万年据点。"
+        },
+        {
+          "name": "Punjab Palace",
+          "nameCn": "旁遮普宫印度餐厅",
+          "lat": 42.3533,
+          "lng": -71.1282,
+          "rank": 13,
+          "tier": "一般",
+          "note": "109 Brighton Ave，Allston，波士顿评分最高印餐之一，鸡肉tikka masala配手制烤馕超值，素食选项丰富。"
+        },
+        {
+          "name": "The Avenue Bar and Grill",
+          "nameCn": "大道酒吧烤肉",
+          "lat": 42.3481,
+          "lng": -71.128,
+          "rank": 14,
+          "tier": "一般",
+          "note": "1249 Commonwealth Ave，厨房营业至凌晨1:45，汉堡/塔可/鸡翅，读书聚会赛后深夜填肚子都来这里。"
         }
       ]
     },
@@ -282,32 +573,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (540 Commonwealth Ave)",
-          "nameCn": "美国银行 BoA（肯莫尔广场店）",
-          "lat": 42.3487,
-          "lng": -71.0966,
-          "note": "校园东侧肯莫尔广场的全国性大行网点，新生开户、办借记卡就近办理。"
+          "name": "BU Student Health Services",
+          "nameCn": "BU学生健康服务中心",
+          "lat": 42.3481,
+          "lng": -71.1145,
+          "rank": 1,
+          "tier": "必去",
+          "note": "881 Commonwealth Ave，BU在校生医疗中枢，提供初级诊疗/疫苗/心理咨询，无论持何种保险均可就诊。"
         },
         {
-          "name": "St. Elizabeth's Medical Center",
-          "nameCn": "圣伊丽莎白医疗中心（含急诊）",
-          "lat": 42.35,
-          "lng": -71.1475,
-          "note": "Brighton 区的综合医院，设 24 小时急诊室，急重病可挂号就医。"
-        },
-        {
-          "name": "CVS Pharmacy (Audubon Circle/Beacon St)",
-          "nameCn": "CVS 连锁药房",
-          "lat": 42.3441,
+          "name": "Boston University ISSO (International Students & Scholars Office)",
+          "nameCn": "BU国际学生与学者办公室",
+          "lat": 42.3481,
           "lng": -71.1148,
-          "note": "全美连锁药房，处方药、感冒药和日用品齐全，可打流感等疫苗。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "888 Commonwealth Ave 二楼，新生报到/签证/OPT/I-20等一切移民事务的权威办理窗口，留学生必须知晓。"
         },
         {
-          "name": "Verizon (Kenmore/540 Commonwealth Ave)",
-          "nameCn": "Verizon 通信营业厅",
-          "lat": 42.3487,
-          "lng": -71.0966,
-          "note": "主流运营商门店，落地办理美国手机号与套餐，信号覆盖稳定。"
+          "name": "Citizens Bank (BU Branch, GSU)",
+          "nameCn": "公民银行（BU学生中心支行）",
+          "lat": 42.3501,
+          "lng": -71.1066,
+          "rank": 3,
+          "tier": "必去",
+          "note": "771 Commonwealth Ave，校内开户首选，无外国学生开户门槛障碍，GSU内另有Bank of America支行，取款极方便。"
+        },
+        {
+          "name": "CVS Pharmacy (900 Commonwealth Ave)",
+          "nameCn": "CVS药房（Commonwealth大道店）",
+          "lat": 42.3481,
+          "lng": -71.1141,
+          "rank": 4,
+          "tier": "必去",
+          "note": "900 Commonwealth Ave，BU学生健康中心对面，处方药/非处方药/日用品齐全，SHS转单处方首选取药点。"
+        },
+        {
+          "name": "Boston Medical Center (Emergency Department)",
+          "nameCn": "波士顿医疗中心（急诊）",
+          "lat": 42.3354,
+          "lng": -71.0726,
+          "rank": 5,
+          "tier": "必去",
+          "note": "840 Harrison Ave，南端，BU医学院附属医院兼全市创伤中心，急诊24小时，提供医疗口译员服务。"
+        },
+        {
+          "name": "T-Mobile (Coolidge Corner, Brookline)",
+          "nameCn": "T-Mobile（Coolidge Corner店）",
+          "lat": 42.3428,
+          "lng": -71.1213,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "301 Harvard St，Brookline，离BU最近的T-Mobile门店，绿线C线直达，国际学生开通美国手机套餐首选。"
+        },
+        {
+          "name": "Star Market Pharmacy (Allston)",
+          "nameCn": "Star Market药房（Allston店）",
+          "lat": 42.3499,
+          "lng": -71.1172,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1065 Commonwealth Ave超市内附设药房，处方药常备，营业时间比独立CVS更灵活，日常急需取药备选。"
         }
       ]
     },
@@ -319,39 +645,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "BU Marsh Plaza & Charles River Campus",
-          "nameCn": "BU 马什广场与查尔斯河校区",
-          "lat": 42.3505,
-          "lng": -71.1054,
-          "note": "学校精神地标，哥特式 Marsh 礼拜堂与马丁·路德·金雕像，校园打卡中心点。"
-        },
-        {
-          "name": "Charles River Esplanade / BU Beach",
-          "nameCn": "查尔斯河滨步道（BU Beach）",
-          "lat": 42.3525,
-          "lng": -71.108,
-          "note": "校园北侧河滨绿地，散步跑步看帆船与波士顿天际线，日落超出片。"
+          "name": "Charles River Esplanade",
+          "nameCn": "查尔斯河滨公园",
+          "lat": 42.355,
+          "lng": -71.081,
+          "rank": 1,
+          "tier": "必去",
+          "note": "BU Bridge至博物馆区约5公里滨河绿道，慢跑/骑行/皮划艇，7月4日波士顿爱乐交响乐烟花地标。"
         },
         {
           "name": "Fenway Park",
           "nameCn": "芬威球场",
           "lat": 42.3467,
           "lng": -71.0972,
-          "note": "1912 年启用的红袜队主场，全美最老 MLB 球场，看球、拍“Green Monster”必去。"
-        },
-        {
-          "name": "Kenmore Square",
-          "nameCn": "肯莫尔广场",
-          "lat": 42.3489,
-          "lng": -71.0954,
-          "note": "校园门户商圈，标志性 CITGO 霓虹招牌，餐饮购物与地铁绿线枢纽。"
+          "rank": 2,
+          "tier": "必去",
+          "note": "4 Yawkey Way，1912年建成，全美最古老职业棒球场，观看Red Sox主场比赛/参加每日导览是波士顿文化精华。"
         },
         {
           "name": "Museum of Fine Arts (MFA)",
-          "nameCn": "波士顿美术馆 MFA",
-          "lat": 42.3385,
+          "nameCn": "波士顿美术馆",
+          "lat": 42.3394,
           "lng": -71.094,
-          "note": "全美顶级艺术博物馆，藏有大量亚洲与印象派精品，学生票优惠。"
+          "rank": 3,
+          "tier": "必去",
+          "note": "465 Huntington Ave，绿线E线MFA站，BU学生免费入场，莫奈睡莲/古埃及馆/亚洲珍藏不可错过。"
+        },
+        {
+          "name": "Isabella Stewart Gardner Museum",
+          "nameCn": "加德纳博物馆",
+          "lat": 42.3382,
+          "lng": -71.0993,
+          "rank": 4,
+          "tier": "必去",
+          "note": "25 Evans Way，威尼斯宫廷建筑中庭四季鲜花盛开，25岁以下免费，镇馆绘画被盗悬案世界闻名。"
+        },
+        {
+          "name": "Coolidge Corner (Brookline)",
+          "nameCn": "Coolidge Corner商业街区",
+          "lat": 42.3427,
+          "lng": -71.1219,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Brookline哈佛街核心商圈，独立书店/艺术影院/犹太熟食/咖啡馆聚集，绿线C线直达，周末闲逛首选。"
+        },
+        {
+          "name": "Coolidge Corner Theatre",
+          "nameCn": "Coolidge Corner艺术影院",
+          "lat": 42.3428,
+          "lng": -71.1224,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "290 Harvard St，1933年Art Deco独立影院，专映艺术片/纪录片/外语片，是波士顿文艺青年打卡圣地。"
+        },
+        {
+          "name": "Kenmore Square",
+          "nameCn": "Kenmore广场",
+          "lat": 42.349,
+          "lng": -71.0968,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "Commonwealth Ave与Beacon St交汇处，Citgo霓虹灯牌/赛前人潮/酒吧街构成波士顿独特大学城氛围。"
+        },
+        {
+          "name": "The Fens & Kelleher Rose Garden",
+          "nameCn": "沼泽公园与凯勒赫玫瑰园",
+          "lat": 42.3407,
+          "lng": -71.0921,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "奥姆斯特德\"翡翠项链\"公园带一环，二战胜利纪念花园与百年玫瑰园，秋季色彩绝美，慢跑必经之路。"
+        },
+        {
+          "name": "Allston Village",
+          "nameCn": "Allston村",
+          "lat": 42.3533,
+          "lng": -71.1312,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "Harvard Ave与Brighton Ave交汇区，多国移民聚居，川菜/泰餐/韩式/中东/墨西哥餐厅密集，BU校外最好玩的街区。"
+        },
+        {
+          "name": "Charles River Kayak & Canoe (BU Bridge area)",
+          "nameCn": "查尔斯河划船区",
+          "lat": 42.3534,
+          "lng": -71.1099,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "BU Bridge附近，春夏季可租独木舟/皮划艇或参加Community Boating项目，城市水上运动体验独特。"
+        },
+        {
+          "name": "Newbury Street (Back Bay)",
+          "nameCn": "纽伯里街（后湾）",
+          "lat": 42.349,
+          "lng": -71.0826,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "波士顿时尚购物街，精品店/咖啡馆/画廊云集，绿线Hynes站直达，BU学生周末逛街与拍照胜地。"
         }
       ]
     }

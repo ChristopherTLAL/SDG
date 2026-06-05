@@ -75,74 +75,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "The Oculus",
-          "nameCn": "Oculus 教学楼",
-          "lat": 52.38,
-          "lng": -1.5602,
-          "note": "旗舰共享教学楼,大型讲堂群。"
-        },
-        {
-          "name": "Warwick Business School",
+          "name": "Warwick Business School (WBS)",
           "nameCn": "华威商学院",
-          "lat": 52.3815,
-          "lng": -1.5648,
-          "note": "Scarman Road,英国顶尖商学院之一。"
-        },
-        {
-          "name": "Warwick Medical School (Gibbet Hill)",
-          "nameCn": "华威医学院",
-          "lat": 52.3749,
-          "lng": -1.551,
-          "note": "临床前教学位于吉贝特山校区。"
-        },
-        {
-          "name": "School of Engineering",
-          "nameCn": "工程学院",
-          "lat": 52.3825,
-          "lng": -1.5612,
-          "note": "主校区西北工科楼群。"
-        },
-        {
-          "name": "WMG (International Manufacturing Centre)",
-          "nameCn": "华威制造集团",
-          "lat": 52.3831,
-          "lng": -1.561,
-          "note": "先进制造与未来交通研究,国际制造中心。"
-        },
-        {
-          "name": "Department of Mathematics (Zeeman Building)",
-          "nameCn": "数学系(齐曼楼)",
-          "lat": 52.384,
-          "lng": -1.5596,
-          "note": "数学与统计所在的 Zeeman Building。"
-        },
-        {
-          "name": "Department of Physics",
-          "nameCn": "物理系",
-          "lat": 52.3828,
+          "lat": 52.382,
           "lng": -1.564,
-          "note": "理学院物理系楼,近数学楼。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "英国顶尖商学院之一，QS常年前50，MBA和MSc Finance享誉全球，是国际中国学生最热门的院系。"
         },
         {
-          "name": "Faculty of Arts Building",
-          "nameCn": "人文学部楼",
-          "lat": 52.3807,
-          "lng": -1.5595,
-          "note": "集中文史哲与文化研究的人文学部新楼。"
+          "name": "Warwick Medical School",
+          "nameCn": "华威医学院",
+          "lat": 52.368,
+          "lng": -1.557,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Gibbet Hill园区，英国顶级医学院之一，与UHCW医院深度合作，提供临床训练。"
+        },
+        {
+          "name": "WMG (Warwick Manufacturing Group)",
+          "nameCn": "华威制造业集团",
+          "lat": 52.384,
+          "lng": -1.569,
+          "rank": 3,
+          "tier": "必去",
+          "note": "工程与制造领域旗舰院系，与捷豹路虎等企业紧密合作，中国留学生众多，就业前景好。"
+        },
+        {
+          "name": "Department of Economics",
+          "nameCn": "经济学系",
+          "lat": 52.3791,
+          "lng": -1.5625,
+          "rank": 4,
+          "tier": "必去",
+          "note": "常年位列全英前5，与数学/统计紧密结合，研究产出和校友网络均属顶级。"
+        },
+        {
+          "name": "Department of Computer Science",
+          "nameCn": "计算机科学系",
+          "lat": 52.3804,
+          "lng": -1.56,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "开设AI、网络安全、数据科学等热门方向，近年排名大幅提升，毕业生薪资竞争力强。"
+        },
+        {
+          "name": "Zeeman Building (Mathematics & Statistics)",
+          "nameCn": "Zeeman楼（数学与统计系）",
+          "lat": 52.3834,
+          "lng": -1.5596,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "以Fields奖得主Zeeman命名，华威数学系全英前3，统计学研究世界一流。"
+        },
+        {
+          "name": "Warwick Law School",
+          "nameCn": "华威法学院",
+          "lat": 52.3788,
+          "lng": -1.562,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "位于社会科学楼内，以法律与社会交叉研究著称，LLM项目吸引大量海外学生。"
+        },
+        {
+          "name": "The Oculus Building",
+          "nameCn": "Oculus教学楼",
+          "lat": 52.38,
+          "lng": -1.5635,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "耗资2000万英镑的现代化综合教学楼，开放予全校各系，设备先进，是最繁忙的上课场所之一。"
+        },
+        {
+          "name": "Department of Psychology",
+          "nameCn": "心理学系",
+          "lat": 52.3795,
+          "lng": -1.561,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于人文楼，临床与认知心理研究均享有盛誉，本科生项目竞争激烈。"
         },
         {
           "name": "Social Sciences Building",
-          "nameCn": "社会科学楼",
-          "lat": 52.3809,
-          "lng": -1.5626,
-          "note": "经济、政治与国际研究等社科院系。"
+          "nameCn": "社会科学大楼",
+          "lat": 52.3785,
+          "lng": -1.5618,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "汇聚经济学、法学、政治与国际研究、社会学等多个院系，中心校区的学术核心之一。"
         },
         {
-          "name": "School of Life Sciences (Gibbet Hill)",
-          "nameCn": "生命科学学院",
-          "lat": 52.3755,
-          "lng": -1.5522,
-          "note": "吉贝特山校区生物与生命科学教研楼。"
+          "name": "Faculty of Arts Building (Humanities)",
+          "nameCn": "人文学院楼",
+          "lat": 52.3793,
+          "lng": -1.5615,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "文学、翻译、英语语言学等专业所在地，毗邻Arts Centre，学术氛围浓厚。"
+        },
+        {
+          "name": "International Manufacturing Centre (IMC)",
+          "nameCn": "国际制造业中心",
+          "lat": 52.3845,
+          "lng": -1.57,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "WMG旗舰研究设施，与捷豹路虎等合作，是全球顶尖的先进制造业研究中心之一。"
         }
       ],
       "defaultOn": true
@@ -155,18 +193,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "University of Warwick Library",
-          "nameCn": "大学主图书馆",
-          "lat": 52.3805,
-          "lng": -1.5615,
-          "note": "中央校区核心,藏书约 126 万册。"
+          "name": "The University of Warwick Library (Main Library)",
+          "nameCn": "华威大学主图书馆",
+          "lat": 52.3792,
+          "lng": -1.5617,
+          "rank": 1,
+          "tier": "必去",
+          "note": "5层通高，藏书逾125万册，是全校最核心的学习资源中心，有安静区、协作区和大量自习座位。"
+        },
+        {
+          "name": "Learning Grid (Rootes)",
+          "nameCn": "Learning Grid（Rootes学习区）",
+          "lat": 52.3783,
+          "lng": -1.5611,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于校园核心广场旁，24小时开放，适合小组讨论，经常举办文化和社区活动，新生最常用。"
+        },
+        {
+          "name": "Wolfson Research Exchange",
+          "nameCn": "Wolfson研究交流中心",
+          "lat": 52.3793,
+          "lng": -1.5616,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "主图书馆3楼附楼，仅限博士研究生和研究人员使用，24小时开放，跨学科协作氛围极佳。"
         },
         {
           "name": "Modern Records Centre",
           "nameCn": "现代档案中心",
-          "lat": 52.3813,
-          "lng": -1.5613,
-          "note": "英国工会与工业史档案馆,主图书馆旁。"
+          "lat": 52.3791,
+          "lng": -1.5615,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "毗邻主图书馆，收藏英国最大的劳工关系档案，历史与社会科学研究者的必访之地。"
+        },
+        {
+          "name": "BioMed Grid (Medical School)",
+          "nameCn": "生物医学学习中心",
+          "lat": 52.3685,
+          "lng": -1.5565,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Gibbet Hill园区医学院内，专为生物科学和医学生打造，有专属馆藏和灵活自习空间。"
+        },
+        {
+          "name": "Learning Grid (University House)",
+          "nameCn": "Learning Grid（University House）",
+          "lat": 52.3772,
+          "lng": -1.565,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "靠近Westwood园区，提供安静个人自习和小组自习两种区域，是远离中心喧嚣的安静选择。"
         }
       ]
     },
@@ -179,10 +257,48 @@
       "items": [
         {
           "name": "Mead Gallery (Warwick Arts Centre)",
-          "nameCn": "米德美术馆",
+          "nameCn": "Mead当代艺术馆",
+          "lat": 52.3798,
+          "lng": -1.5637,
+          "rank": 1,
+          "tier": "必去",
+          "note": "英国中部最重要的当代艺术画廊，免费入场，常设Jake & Dinos Chapman等大师级展览，校园内必打卡。"
+        },
+        {
+          "name": "Herbert Art Gallery & Museum",
+          "nameCn": "赫伯特艺术馆与博物馆",
+          "lat": 52.4082,
+          "lng": -1.5085,
+          "rank": 2,
+          "tier": "必去",
+          "note": "考文垂市区最大综合博物馆，免费入场，藏有本地历史、当代艺术及二战展览，年访客逾30万。"
+        },
+        {
+          "name": "Coventry Transport Museum",
+          "nameCn": "考文垂交通博物馆",
+          "lat": 52.4083,
+          "lng": -1.5128,
+          "rank": 3,
+          "tier": "必去",
+          "note": "世界上同类中规模最大的免费汽车博物馆，展有打破陆地速度纪录的赛车，值得专程前往。"
+        },
+        {
+          "name": "University of Warwick Art Collection & Sculpture Trail",
+          "nameCn": "华威大学艺术藏品与雕塑公园",
           "lat": 52.3797,
-          "lng": -1.5614,
-          "note": "华威艺术中心内的视觉艺术展馆。"
+          "lng": -1.564,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1965年建立的大学艺术珍藏散布全校，沿雕塑步道可欣赏Chapman兄弟等艺术家的户外雕塑。"
+        },
+        {
+          "name": "Coventry Cathedral (Ruins & New Cathedral)",
+          "nameCn": "考文垂大教堂（遗址与新教堂）",
+          "lat": 52.4083,
+          "lng": -1.5069,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "二战中被纳粹轰炸的旧教堂遗址与1962年建成的新教堂并立，是欧洲最震撼的和平与重建遗址。"
         }
       ]
     },
@@ -197,50 +313,64 @@
           "name": "Warwick Arts Centre",
           "nameCn": "华威艺术中心",
           "lat": 52.3798,
-          "lng": -1.5614,
-          "note": "英国最大校园文化艺术综合体之一,剧院音乐厅影院。"
+          "lng": -1.5637,
+          "rank": 1,
+          "tier": "必去",
+          "note": "伦敦巴比肯以外英国最大的艺术中心，含1500座音乐厅、剧场、三个电影院和Mead画廊，是校园文化灵魂。"
         },
         {
-          "name": "Warwick Students' Union (SUHQ)",
-          "nameCn": "华威学生会",
-          "lat": 52.3796,
-          "lng": -1.5605,
-          "note": "学生会总部,Copper Rooms 活动场地所在。"
+          "name": "The Piazza (Campus Central)",
+          "nameCn": "校园中心广场",
+          "lat": 52.3783,
+          "lng": -1.5611,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园社交中枢，Rootes楼、学生会、各餐厅咖啡馆在此汇聚，每周三有露天美食市集。"
         },
         {
-          "name": "Sports and Wellness Hub",
-          "nameCn": "体育健康中心",
-          "lat": 52.3774,
-          "lng": -1.5703,
-          "note": "Leighfield Road,含泳池健身房,距主校区约 10 分钟步行。"
+          "name": "Students' Union (SU / SUHQ)",
+          "nameCn": "学生会（SU）",
+          "lat": 52.378,
+          "lng": -1.5613,
+          "rank": 3,
+          "tier": "必去",
+          "note": "学生社交和行政中心，内设Copper Rooms夜店、各类学生组织办公室、SU超市及诸多餐饮选择。"
         },
         {
-          "name": "Canley Railway Station",
-          "nameCn": "坎利火车站",
-          "lat": 52.3992,
-          "lng": -1.5476,
-          "note": "最近的火车站,距主校区约 2 公里。"
+          "name": "University of Warwick Health Centre",
+          "nameCn": "华威大学医疗保健中心",
+          "lat": 52.381,
+          "lng": -1.562,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园内NHS全科诊所，分Blue Practice与Pink Practice，留学生首先要在此注册GP，不可错过。"
         },
         {
-          "name": "Cryfield Village",
-          "nameCn": "克莱菲尔德学生村",
-          "lat": 52.3735,
-          "lng": -1.564,
-          "note": "主校区南侧大型本科宿舍区。"
+          "name": "Rootes Social Building",
+          "nameCn": "Rootes社交楼",
+          "lat": 52.3785,
+          "lng": -1.561,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "含多家餐厅、超市、Fusion面条吧等，是一年级宿舍生的饮食核心，Learning Grid也在其中。"
         },
         {
-          "name": "Lakeside Residences",
-          "nameCn": "湖畔宿舍区",
-          "lat": 52.3807,
-          "lng": -1.5701,
-          "note": "校区西侧临湖宿舍,近 Heronbank。"
+          "name": "Warwick Sport (Sports Centre)",
+          "nameCn": "华威运动中心",
+          "lat": 52.376,
+          "lng": -1.561,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "综合体育中心，设游泳馆、健身房、球类场地，学生以优惠价可使用，是舒缓学业压力的好去处。"
         },
         {
-          "name": "Tocil Residences",
-          "nameCn": "托西尔宿舍",
-          "lat": 52.3814,
-          "lng": -1.5569,
-          "note": "邻 Tocil Wood 树林,近艺术中心与运动场。"
+          "name": "Cryfield Village & Lakeside",
+          "nameCn": "Cryfield村与校园湖区",
+          "lat": 52.373,
+          "lng": -1.557,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "校园南侧住宅区，湖边散步小径风景优美，秋冬季节尤为迷人，是留学生放松心情的安静角落。"
         }
       ]
     },
@@ -252,39 +382,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Tesco Superstore (Cannon Park)",
-          "nameCn": "乐购大型超市（坎农公园店）",
-          "lat": 52.3871,
-          "lng": -1.5544,
-          "note": "离校园步行可达的大型综合超市，营业到午夜，留学生采买日用与食材的首选。"
+          "name": "Tesco Extra (Cannon Park)",
+          "nameCn": "乐购超市（Cannon Park店）",
+          "lat": 52.3872,
+          "lng": -1.5543,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校园步行约20分钟，24小时营业，品类最全，是学生最常用的大型超市首选。"
         },
         {
-          "name": "Seoul Plaza (Korean & Asian grocery)",
+          "name": "Warwick Oriental Supermarket（华威超市）",
+          "nameCn": "华威中超",
+          "lat": 52.3817,
+          "lng": -1.549,
+          "rank": 2,
+          "tier": "必去",
+          "note": "位于Canley区Prior Deram Walk，距校步行可达，专供中日韩食材，是中国留学生的厨房命脉。"
+        },
+        {
+          "name": "Aldi (Cannon Park)",
+          "nameCn": "奥乐齐超市（Cannon Park店）",
+          "lat": 52.3862,
+          "lng": -1.5545,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Tesco旁，价格比Tesco便宜约20%，果蔬和日用品性价比高，预算有限的学生首推。"
+        },
+        {
+          "name": "Seoul Plaza (Cannon Park Shopping Centre)",
           "nameCn": "首尔广场亚洲超市",
-          "lat": 52.3868,
-          "lng": -1.5549,
-          "note": "坎农公园内的韩亚超市，备有韩日中泰食材、泡面、饺子和酱料，想做中餐就来这。"
+          "lat": 52.3872,
+          "lng": -1.5546,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Cannon Park商场内，专营韩国、日本、中国食材，泡菜、拉面、亚洲冷冻食品种类丰富。"
+        },
+        {
+          "name": "Wah Yan Hong（华人行）",
+          "nameCn": "华人行中超（考文垂市中心）",
+          "lat": 52.4068,
+          "lng": -1.5083,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Hertford Street，考文垂市区最大华人超市，逾2000种商品，需坐公交进城，但货源最全。"
         },
         {
           "name": "Iceland (Cannon Park)",
-          "nameCn": "Iceland 冷冻食品超市",
-          "lat": 52.3867,
-          "lng": -1.5546,
-          "note": "同在坎农公园，主打平价冷冻食品和速食，预算有限时很实用。"
+          "nameCn": "Iceland冷冻食品超市",
+          "lat": 52.387,
+          "lng": -1.5542,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Cannon Park商场内，以冷冻食品和海鲜见长，进口冷冻饺子、汤圆等亚洲冷冻食品也有售。"
         },
         {
-          "name": "Wah Yan Hong Chinese Supermarket",
-          "nameCn": "华人行中超（考文垂店）",
-          "lat": 52.4072,
-          "lng": -1.5106,
-          "note": "市中心赫特福德街上当地最大的中超，2000+种商品，米面调料一站买齐。"
-        },
-        {
-          "name": "China Mini Market (Fresh Oriental)",
-          "nameCn": "中国小超市（东方生鲜）",
-          "lat": 52.4085,
-          "lng": -1.5095,
-          "note": "市中心家庭经营的东方杂货店，主打新鲜亚洲果蔬和东南亚食材，价格实惠。"
+          "name": "Co-op (on Campus / SU)",
+          "nameCn": "校园内Co-op合作超市",
+          "lat": 52.378,
+          "lng": -1.5614,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "学生会楼内，营业至深夜，解决临时购物需求，价格略高但胜在便利，宿舍学生常用。"
         }
       ]
     },
@@ -296,46 +454,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Seoul Plaza Kitchen / Asian takeaway (Cannon Park)",
-          "nameCn": "坎农公园亚洲简餐",
-          "lat": 52.3869,
-          "lng": -1.5548,
-          "note": "紧挨校园的购物中心，韩亚现成熟食与简餐，下课顺路就能解决一顿亚洲胃。"
+          "name": "Wing Wah Chinese Restaurant",
+          "nameCn": "荣华中餐厅",
+          "lat": 52.3842,
+          "lng": -1.5498,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "位于Fletchamstead Highway，著名Chef Ken Hom加持的自助餐，可容纳300人，粤式点心和烧烤种类丰富，是中国学生聚餐首选。"
         },
         {
-          "name": "Greggs (Cannon Park)",
-          "nameCn": "Greggs 英式连锁烘焙",
-          "lat": 52.3866,
-          "lng": -1.5545,
-          "note": "英国国民级平价面包房，香肠卷（sausage roll）是必尝的本地日常快餐。"
+          "name": "Panda Mami (Warwick Arts Centre)",
+          "nameCn": "Panda Mami全球自助餐",
+          "lat": 52.3798,
+          "lng": -1.5637,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "开在校园Arts Centre内的全球自助餐，亚洲菜为主，午餐£12.99/晚餐£18.99，每周轮换菜单。"
         },
         {
-          "name": "Noodle Bar Coventry",
-          "nameCn": "面吧（考文垂）",
-          "lat": 52.4079,
-          "lng": -1.5099,
-          "note": "市中心老牌粤式中餐，价廉味正、出餐快，是华人和留学生的常去食堂。"
+          "name": "Teriyaki Japanese Kitchen & Bubble Tea Bar",
+          "nameCn": "Teriyaki日式料理和珍珠奶茶吧",
+          "lat": 52.4064,
+          "lng": -1.517,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "考文垂Spon Street，清真认证日料，寿司、拉面、炸鸡俱全，还有珍珠奶茶，Uber Eats好评1500+条。"
         },
         {
-          "name": "Chi-Bar",
-          "nameCn": "Chi-Bar 亚洲面馆",
-          "lat": 52.4081,
-          "lng": -1.5118,
-          "note": "市中心 Lady Godiva 雕像旁的潮流面馆，粤川韩日口味都有，学生气氛浓。"
+          "name": "Jinseon Korean BBQ Restaurant & Bar",
+          "nameCn": "进善韩国烤肉餐厅",
+          "lat": 52.4065,
+          "lng": -1.5083,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "考文垂市中心Fairfax Street，自烤韩式烤肉配韩国炸鸡，小红书和Reddit均有大量好评推荐。"
         },
         {
-          "name": "Kayal (South Indian) / city-centre curry",
-          "nameCn": "市中心印度咖喱餐厅",
-          "lat": 52.4071,
-          "lng": -1.5135,
-          "note": "英国必体验的咖喱文化，市中心多家印度餐厅，想换换口味时值得一试。"
+          "name": "To Pho Vietnamese Restaurant",
+          "nameCn": "To Pho越南河粉",
+          "lat": 52.4065,
+          "lng": -1.509,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "考文垂市中心Priory Street，现金支付，牛肉河粉汤底醇厚，烤猪肉越南法棍超受留学生推荐，评分4.7/5。"
         },
         {
-          "name": "Fish & chips (local chippy)",
-          "nameCn": "本地炸鱼薯条店",
-          "lat": 52.4076,
-          "lng": -1.5102,
-          "note": "英国头号国民美食，市中心多处可买，来英国一定要吃一次的地道炸鱼薯条。"
+          "name": "Oodles N'Oodles",
+          "nameCn": "Oodles泛亚面馆",
+          "lat": 52.3958,
+          "lng": -1.5418,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "位于Vanguard Avenue，泰国、马来西亚、中国菜融合，全清真，蒜香虾和马来西亚炒面是招牌，Rating 4.2/5。"
+        },
+        {
+          "name": "Fusion Noodle Bar (Rootes)",
+          "nameCn": "Fusion面条吧（Rootes餐厅）",
+          "lat": 52.3785,
+          "lng": -1.561,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "在校园Rootes楼内，亚洲风味面条快餐，价格亲民，上课间隙快速解决午饭的便捷选择。"
+        },
+        {
+          "name": "The Cross at Kenilworth",
+          "nameCn": "肯尼尔沃思十字餐厅",
+          "lat": 52.3423,
+          "lng": -1.5684,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "附近Kenilworth小镇米其林星级餐厅，三AA玫瑰评级，特殊纪念日值得专程前往，需提前预约。"
+        },
+        {
+          "name": "Benugo Bar & Kitchen (Warwick Arts Centre)",
+          "nameCn": "Benugo艺术中心餐厅",
+          "lat": 52.3798,
+          "lng": -1.5635,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "在校园Arts Centre内，TripAdvisor 4.6/5评分，提供新鲜轻食、咖啡和简餐，看演出前后用餐极佳。"
+        },
+        {
+          "name": "Turmeric Gold (Indian Fine Dining)",
+          "nameCn": "Turmeric Gold印度精品餐厅",
+          "lat": 52.4072,
+          "lng": -1.5165,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "考文垂Spon Street，精致印度料理，咖喱和融合创意菜口碑极好，值得和朋友一起前往。"
+        },
+        {
+          "name": "Varsity Warwick",
+          "nameCn": "Varsity英式餐酒馆",
+          "lat": 52.3786,
+          "lng": -1.5597,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "靠近校园的英式精品餐吧，Sunday Roast评价甚高，是体验地道英式周日烤肉传统的好地方。"
+        },
+        {
+          "name": "Ristorante Da Vinci (Italian, Earlsdon)",
+          "nameCn": "达芬奇意大利餐厅",
+          "lat": 52.3974,
+          "lng": -1.5299,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Earlsdon区经营逾30年的正宗意大利餐厅，手工意面和Pizza是招牌，适合周末放松聚餐。"
+        },
+        {
+          "name": "Cosy Club (Cathedral Lanes)",
+          "nameCn": "Cosy Club时髦餐吧",
+          "lat": 52.408,
+          "lng": -1.5093,
+          "rank": 13,
+          "tier": "一般",
+          "note": "考文垂市中心，装潢精美，菜单国际化（亚式鸡肉沙拉、泰绿咖喱等），适合朋友聚会打卡。"
+        },
+        {
+          "name": "Falafel Corner",
+          "nameCn": "法拉费角中东快餐",
+          "lat": 52.409,
+          "lng": -1.5098,
+          "rank": 14,
+          "tier": "一般",
+          "note": "考文垂市中心Broadgate，中东风味法拉费卷饼和沙拉碗，价格低廉，素食友好，留学生午餐常选。"
         }
       ]
     },
@@ -347,32 +589,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Coventry Building Society (Cannon Park)",
-          "nameCn": "考文垂房屋互助会（坎农公园支行）",
-          "lat": 52.3867,
-          "lng": -1.555,
-          "note": "校园旁购物中心内的本地金融机构，可办储蓄账户，距学生会最近的银行点。"
+          "name": "University of Warwick Health Centre (GP)",
+          "nameCn": "华威大学医疗保健中心（全科诊所）",
+          "lat": 52.381,
+          "lng": -1.562,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园内NHS诊所，分Blue/Pink两科室，所有在校或附近居住的学生必须在此注册GP，是就医第一入口。"
         },
         {
-          "name": "University of Warwick Health Centre (NHS GP)",
-          "nameCn": "华威大学校内 NHS 全科诊所",
-          "lat": 52.3805,
-          "lng": -1.5663,
-          "note": "校内 NHS 全科诊所（GP），到校后先在此注册，日常看病开药都靠它。"
+          "name": "Barclays Bank (Students' Union, on Campus)",
+          "nameCn": "巴克莱银行（校园学生会分行）",
+          "lat": 52.378,
+          "lng": -1.5613,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校内学生会楼内，是最方便的银行网点，国际学生开户推荐来此，也可网上预约同步办理。"
         },
         {
-          "name": "Boots Pharmacy (Cannon Park)",
-          "nameCn": "Boots 药妆店（坎农公园）",
-          "lat": 52.3867,
-          "lng": -1.5547,
-          "note": "校园旁的连锁药房，处方取药、常用药和个护用品，留学生最常用的药店。"
+          "name": "HSBC Bank (Coventry City Centre)",
+          "nameCn": "汇丰银行（考文垂市中心）",
+          "lat": 52.4088,
+          "lng": -1.5103,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Corporation Street 55号，提供国际学生专项账户，支持中文服务，中国学生开户首推。"
         },
         {
-          "name": "University Hospital Coventry (UHCW A&E)",
-          "nameCn": "考文垂大学医院（急诊 A&E）",
-          "lat": 52.4216,
-          "lng": -1.436,
-          "note": "本地大型医院和 24 小时急诊（A&E），突发重病或意外受伤来这里。"
+          "name": "Boots Pharmacy (Cannon Park Centre)",
+          "nameCn": "Boots药房（Cannon Park购物中心）",
+          "lat": 52.3872,
+          "lng": -1.5543,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "紧邻Tesco，配有处方药房，可凭GP开具的处方取药，也销售各类非处方药和个人护理品。"
+        },
+        {
+          "name": "University Hospital Coventry (UHCW) – A&E",
+          "nameCn": "考文垂大学附属医院（急诊）",
+          "lat": 52.4267,
+          "lng": -1.4642,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于Walsgrave区，24小时急诊中心，真正紧急情况才去急诊，否则先联系GP或拨打111。"
+        },
+        {
+          "name": "Michael W Phillips Chemists (on Campus / SU)",
+          "nameCn": "校园内菲利普斯药房（学生会内）",
+          "lat": 52.378,
+          "lng": -1.5613,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "学生会楼内的校园药房，最方便的日常取药地点，营业时间有限，紧急时需前往Boots Cannon Park。"
+        },
+        {
+          "name": "O2 Store (Coventry City Centre – The Precinct)",
+          "nameCn": "O2手机营业厅（市中心）",
+          "lat": 52.4085,
+          "lng": -1.5128,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "考文垂市区，销售SIM卡和手机套餐，学生首抵英国办SIM卡的好去处，也有EE、Vodafone选择。"
+        },
+        {
+          "name": "Lloyds Bank (Coventry High Street)",
+          "nameCn": "劳埃德银行（考文垂高街）",
+          "lat": 52.408,
+          "lng": -1.511,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "位于High Street 30号，英国主流银行，支持国际学生开户，也可线上申请后进店完成认证。"
         }
       ]
     },
@@ -384,39 +670,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Warwick Arts Centre",
-          "nameCn": "华威艺术中心",
-          "lat": 52.3796,
-          "lng": -1.5614,
-          "note": "就在校园核心，伦敦以外英国最大的多艺术形式中心，看戏看电影听音乐会全在此。"
+          "name": "Kenilworth Castle & Elizabethan Garden",
+          "nameCn": "肯尼尔沃思城堡",
+          "lat": 52.3482,
+          "lng": -1.5932,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校仅5公里，英国保存最完整的中世纪城堡遗址之一，1120年建造，伊丽莎白一世曾驻此，是学生周末最推荐的近郊景点。"
         },
         {
-          "name": "Kenilworth Castle & Elizabethan Garden",
-          "nameCn": "凯尼尔沃思城堡与伊丽莎白花园",
-          "lat": 52.3486,
-          "lng": -1.5871,
-          "note": "校园南侧约 4 英里的中世纪红砂岩城堡遗址，英格兰遗产名胜，绝佳出片打卡地。"
+          "name": "Warwick Castle",
+          "nameCn": "华威城堡",
+          "lat": 52.2782,
+          "lng": -1.5886,
+          "rank": 2,
+          "tier": "必去",
+          "note": "距校约15公里，英国保存最好的中世纪城堡，有活人表演和大型设施，适合一日游，网上购票更便宜。"
+        },
+        {
+          "name": "Stratford-upon-Avon (Shakespeare's Birthplace)",
+          "nameCn": "埃文河畔斯特拉特福（莎翁故居）",
+          "lat": 52.1939,
+          "lng": -1.7081,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距校约25公里，莎士比亚出生地，Royal Shakespeare Company驻地剧院，来英必去的文学圣地。"
+        },
+        {
+          "name": "Royal Leamington Spa (Jephson Gardens & Pump Rooms)",
+          "nameCn": "皇家莱明顿温泉（Jephson花园）",
+          "lat": 52.2913,
+          "lng": -1.5345,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距校约15分钟车程，维多利亚风情小城，Jephson花园和皇家泵房是拍照圣地，周末购物和逛咖啡馆的好去处。"
+        },
+        {
+          "name": "Coventry Cathedral (New & Ruins)",
+          "nameCn": "考文垂大教堂",
+          "lat": 52.4083,
+          "lng": -1.5069,
+          "rank": 5,
+          "tier": "必去",
+          "note": "二战轰炸遗址与1962年新教堂并立，Epstein雕塑和Sutherland挂毯享誉世界，免费进入，必打卡。"
+        },
+        {
+          "name": "FarGo Village",
+          "nameCn": "FarGo创意文化村",
+          "lat": 52.4105,
+          "lng": -1.5033,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "集装箱改造的创意市集，独立咖啡馆、手工艺店、街头美食汇聚，是考文垂最时髦的年轻人聚集地。"
+        },
+        {
+          "name": "Coombe Abbey Country Park",
+          "nameCn": "库姆修道院乡村公园",
+          "lat": 52.3956,
+          "lng": -1.4441,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "12世纪修道院改成的酒店和500英亩公园，湖边散步和下午茶极受留学生好评，离校约15分钟车程。"
         },
         {
           "name": "War Memorial Park",
           "nameCn": "战争纪念公园",
           "lat": 52.3901,
           "lng": -1.5231,
-          "note": "校园与市区之间凯尼尔沃思路上的大型城市公园，跑步、野餐、散心的好去处。"
-        },
-        {
-          "name": "Coventry Cathedral (ruins + new)",
-          "nameCn": "考文垂大教堂（旧址废墟与新堂）",
-          "lat": 52.4083,
-          "lng": -1.5071,
-          "note": "市中心地标，二战被炸的旧堂废墟与现代新堂并立，是和平与重生的象征，必看。"
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "考文垂最大城市公园，每年Godiva音乐节在此举行，平时是跑步、野餐和放松的好地方，从校步行或骑车可达。"
         },
         {
           "name": "Coventry Transport Museum",
           "nameCn": "考文垂交通博物馆",
-          "lat": 52.4093,
-          "lng": -1.5103,
-          "note": "市中心免费博物馆，藏有全英最大的英国汽车收藏，对车迷和拍照都很友好。"
+          "lat": 52.4083,
+          "lng": -1.5128,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "免费进场，全球最大城市汽车博物馆之一，展有多辆打破世界速度纪录的赛车，考文垂必游景点。"
+        },
+        {
+          "name": "Cannon Park Shopping Centre",
+          "nameCn": "Cannon Park购物中心",
+          "lat": 52.3872,
+          "lng": -1.5546,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "距校最近的购物商场，含Tesco、Aldi、Boots、Seoul Plaza、Iceland等30+店铺，学生日常购物核心。"
         }
       ]
     }

@@ -75,46 +75,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "University Hall",
-          "nameCn": "大学楼",
-          "lat": 41.8262,
-          "lng": -71.404,
-          "note": "1770年建成的最古老建筑，曾用作独立战争兵营，今为校长办公地。"
+          "name": "Barus & Holley / Engineering Research Center",
+          "nameCn": "工程学院 Barus & Holley 大楼",
+          "lat": 41.8267,
+          "lng": -71.4012,
+          "rank": 1,
+          "tier": "必去",
+          "note": "布朗工程学院主楼，220,000平方英尺、7层，容纳物理与工程系；新建ERC实验室紧邻其侧，拥有纳米洁净室与高性能成像套间。"
         },
         {
-          "name": "Sayles Hall",
-          "nameCn": "塞尔斯楼",
-          "lat": 41.826,
-          "lng": -71.403,
-          "note": "主草坪东侧礼堂，重要典礼与音乐演出场所。"
-        },
-        {
-          "name": "Sciences Library (SciLi)",
-          "nameCn": "科学图书馆楼",
-          "lat": 41.827,
-          "lng": -71.4001,
-          "note": "14层混凝土塔楼，理工科地标，亦设实验与学习空间。"
-        },
-        {
-          "name": "Barus & Holley",
-          "nameCn": "巴鲁斯-霍利楼",
-          "lat": 41.8265,
-          "lng": -71.3979,
-          "note": "工程与物理学院主楼，毗邻科学图书馆。"
-        },
-        {
-          "name": "Engineering Research Center",
-          "nameCn": "工程研究中心",
-          "lat": 41.8264,
-          "lng": -71.3985,
-          "note": "2017年启用的工程学院新楼，实验室与净化间集中地。"
-        },
-        {
-          "name": "Stephen Robert '62 Hall (Watson Institute)",
+          "name": "Watson Institute for International and Public Affairs",
           "nameCn": "沃森国际与公共事务研究所",
-          "lat": 41.8243,
-          "lng": -71.3992,
-          "note": "国际关系与公共政策研究重镇。"
+          "lat": 41.8251,
+          "lng": -71.4018,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球顶尖国际关系与公共政策智库，111 Thayer St，提供本科生国际关系方向及MPA硕士项目，国际生聚集地。"
+        },
+        {
+          "name": "Sidney Frank Hall for Life Sciences",
+          "nameCn": "西德尼·弗兰克生命科学楼",
+          "lat": 41.8278,
+          "lng": -71.4025,
+          "rank": 3,
+          "tier": "必去",
+          "note": "168,800平方英尺的生命科学综合体，神经科学与分子生物系主要教学科研场所，布朗生物医学部核心建筑。"
+        },
+        {
+          "name": "Carney Institute for Brain Science Headquarters",
+          "nameCn": "卡内基脑科学研究所总部",
+          "lat": 41.8283,
+          "lng": -71.401,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "布朗顶尖跨学科神经科学研究中心，与工程、医学、计算机深度交叉，吸引大量神经科学与认知科学学生。"
+        },
+        {
+          "name": "Warren Alpert Medical School",
+          "nameCn": "沃伦·阿尔珀特医学院",
+          "lat": 41.8186,
+          "lng": -71.4123,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "位于珠宝区222 Richmond St，由老珠宝厂翻建，全国排名前列的医学院，也是布朗University预医学生的标志性目的地。"
+        },
+        {
+          "name": "Perry and Marty Granoff Center for the Creative Arts",
+          "nameCn": "格拉诺夫创意艺术中心",
+          "lat": 41.8247,
+          "lng": -71.4042,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "154 Angell St，由DS+R事务所设计，集200座礼堂、录音室、展廊与多媒体实验室于一体，布朗艺术学生必打卡。"
+        },
+        {
+          "name": "Robinson Hall (Computer Science)",
+          "nameCn": "罗宾逊楼（计算机科学系）",
+          "lat": 41.8269,
+          "lng": -71.4034,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "69 Brown St，布朗CS系主要教学楼，全美顶尖计算机科学项目所在地，招牌走廊展示历届杰出校友。"
+        },
+        {
+          "name": "MacMillan Hall (Economics & Mathematics)",
+          "nameCn": "麦克米伦楼（经济与数学系）",
+          "lat": 41.8261,
+          "lng": -71.4004,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "167 Thayer St，经济学系与数学系共用主楼，紧邻SciLi，是文理学院学生出入频率最高的教学楼之一。"
+        },
+        {
+          "name": "Friedman Hall (Applied Mathematics)",
+          "nameCn": "弗里德曼楼（应用数学系）",
+          "lat": 41.8265,
+          "lng": -71.4008,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "布朗著名应用数学系所在楼，该系在全美顶尖，吸引众多理工科与跨学科研究生。"
+        },
+        {
+          "name": "List Art Center (Visual Arts)",
+          "nameCn": "李斯特艺术中心（视觉艺术系）",
+          "lat": 41.8237,
+          "lng": -71.4039,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Philip Johnson设计，含David Winton Bell Gallery，视觉艺术系主楼，与对街RISD博物馆遥遥相对。"
         }
       ],
       "defaultOn": true
@@ -127,25 +175,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "John D. Rockefeller Jr. Library",
-          "nameCn": "洛克菲勒图书馆",
-          "lat": 41.8257,
-          "lng": -71.4051,
-          "note": "1964年起的主图书馆，人文社科馆藏中心，俗称 The Rock。"
+          "name": "John D. Rockefeller Jr. Library (\"The Rock\")",
+          "nameCn": "洛克菲勒图书馆（Rock馆）",
+          "lat": 41.8252,
+          "lng": -71.403,
+          "rank": 1,
+          "tier": "必去",
+          "note": "10 Prospect St，布朗最主要的人文社科艺术研究图书馆，24小时自习室是考试季学生夜战圣地，全校最受欢迎的学习场所。"
+        },
+        {
+          "name": "Sciences Library (\"SciLi\")",
+          "nameCn": "科学图书馆（SciLi）",
+          "lat": 41.827,
+          "lng": -71.4002,
+          "rank": 2,
+          "tier": "必去",
+          "note": "201 Thayer St，180英尺高的粗野主义塔楼，理工科馆藏最全，含地图收藏与Friedman学习中心，校园地标建筑。"
         },
         {
           "name": "John Hay Library",
           "nameCn": "约翰·海图书馆",
-          "lat": 41.8262,
-          "lng": -71.404,
-          "note": "范威克尔门对面，珍本与特藏馆，校内第二古老图书馆。"
+          "lat": 41.8225,
+          "lng": -71.403,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "20 Prospect St，珍本与手稿专藏图书馆，藏有H.P.Lovecraft原稿等奇珍，气氛幽静庄严，历史研究者首选。"
         },
         {
-          "name": "Sciences Library",
-          "nameCn": "科学图书馆",
-          "lat": 41.827,
-          "lng": -71.4001,
-          "note": "理工医学科馆藏，标志性高塔可俯瞰全城。"
+          "name": "John Carter Brown Library",
+          "nameCn": "约翰·卡特·布朗图书馆",
+          "lat": 41.8248,
+          "lng": -71.4038,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "94 George St，坐落College Green，独立运营的美洲史与人文高级研究中心，1846年建馆，馆藏稀世地图与航海文献。"
+        },
+        {
+          "name": "Orwig Music Library",
+          "nameCn": "奥维格音乐图书馆",
+          "lat": 41.8244,
+          "lng": -71.4057,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "1 Young Orchard Ave，音乐系专属馆，收藏乐谱、录音与视频资料，附近有钢琴练习室，音乐生课余常驻。"
+        },
+        {
+          "name": "Champlin Memorial Library (Medical School)",
+          "nameCn": "钱普林纪念图书馆（医学院）",
+          "lat": 41.8186,
+          "lng": -71.4122,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于沃伦·阿尔珀特医学院内，提供海量医学电子期刊与教材数据库，预医学生与医学生必备资源。"
         }
       ]
     },
@@ -157,25 +238,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "RISD Museum (adjacent)",
-          "nameCn": "罗德岛设计学院博物馆（邻近）",
-          "lat": 41.8267,
-          "lng": -71.4086,
-          "note": "学院山西坡的综合艺术博物馆，与布朗共享街区。"
+          "name": "RISD Museum",
+          "nameCn": "罗德岛设计学院艺术博物馆",
+          "lat": 41.8232,
+          "lng": -71.411,
+          "rank": 1,
+          "tier": "必去",
+          "note": "20 N Main St，东南新英格兰唯一综合性艺术博物馆，馆藏逾10万件横跨古今，布朗学生凭证免费入场，强烈推荐。"
         },
         {
-          "name": "Haffenreffer Museum (Manning Hall)",
-          "nameCn": "哈芬雷弗人类学博物馆",
-          "lat": 41.8259,
-          "lng": -71.4033,
-          "note": "人类学博物馆校园展厅，设于曼宁楼。"
+          "name": "David Winton Bell Gallery (\"The Bell\")",
+          "nameCn": "大卫·温顿·贝尔画廊",
+          "lat": 41.8236,
+          "lng": -71.404,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "List Art Center内，布朗当代艺术展廊，永久馆藏7000+件含Frank Stella、Diego Rivera等大师之作，免费入场。"
         },
         {
-          "name": "Bell Gallery (List Art Center)",
-          "nameCn": "贝尔美术馆（李斯特艺术中心）",
-          "lat": 41.8265,
-          "lng": -71.4055,
-          "note": "校内当代艺术展览空间，位于李斯特艺术中心。"
+          "name": "Roger Williams Park Museum of Natural History",
+          "nameCn": "罗杰·威廉斯公园自然历史博物馆",
+          "lat": 41.7845,
+          "lng": -71.4201,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于Roger Williams Park内，建于1896年，是罗德岛最古老的博物馆，藏有古生物、人类学与地质标本，家庭出游首选。"
+        },
+        {
+          "name": "Providence Children's Museum",
+          "nameCn": "普罗维登斯儿童博物馆",
+          "lat": 41.8177,
+          "lng": -71.4145,
+          "rank": 4,
+          "tier": "可选",
+          "note": "100 South St，互动展览丰富，教育学与发展心理学专业学生有时在此实习或志愿，也是带家属周末的好去处。"
         }
       ]
     },
@@ -188,31 +284,75 @@
       "items": [
         {
           "name": "Van Wickle Gates",
-          "nameCn": "范威克尔门",
-          "lat": 41.8263,
-          "lng": -71.4044,
-          "note": "学院山正门铁门，开学与毕业仪式穿门而过的传统象征。"
+          "nameCn": "范·威克尔铁门",
+          "lat": 41.8266,
+          "lng": -71.4027,
+          "rank": 1,
+          "tier": "必去",
+          "note": "22 Prospect St，布朗最具标志性的入口，镀金狮子雕饰，全年仅开两次——新生入学与毕业典礼，是每位Brown人的仪式之门。"
         },
         {
-          "name": "Carrie Tower",
-          "nameCn": "凯莉钟楼",
-          "lat": 41.8265,
-          "lng": -71.4037,
-          "note": "1904年砖石钟塔，校园标志性轮廓之一。"
+          "name": "College Green / The Main Green",
+          "nameCn": "大学绿地（Main Green）",
+          "lat": 41.8262,
+          "lng": -71.403,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园核心草坪，四周围绕University Hall、John Carter Brown Library等历史建筑，春季晒太阳与各类活动的聚集地。"
+        },
+        {
+          "name": "University Hall (1770)",
+          "nameCn": "大学堂（1770年）",
+          "lat": 41.826,
+          "lng": -71.4033,
+          "rank": 3,
+          "tier": "必去",
+          "note": "布朗大学第一座建筑，建于1770年，殖民地时期曾作军营，现为行政楼，是College Hill最具历史感的标志。"
         },
         {
           "name": "Stephen Robert '62 Campus Center (Faunce House)",
-          "nameCn": "校园中心（方斯楼）",
-          "lat": 41.8259,
-          "lng": -71.4028,
-          "note": "主草坪东侧学生活动中心，餐饮与社团聚集地。"
+          "nameCn": "史蒂芬·罗伯特学生活动中心（范斯楼）",
+          "lat": 41.8258,
+          "lng": -71.4025,
+          "rank": 4,
+          "tier": "必去",
+          "note": "75 Waterman St，学生社团、餐饮与活动中心，布朗日常校园生活的枢纽，也是国际生找信息与社交的首发站。"
         },
         {
-          "name": "Meehan Auditorium",
-          "nameCn": "米汉冰球馆",
-          "lat": 41.8314,
-          "lng": -71.399,
-          "note": "埃里克森体育中心内的冰球场，主场赛事举办地。"
+          "name": "Sciences Library Tower (SciLi Tower)",
+          "nameCn": "科学图书馆塔楼",
+          "lat": 41.827,
+          "lng": -71.4002,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "201 Thayer St，180英尺高的粗野主义地标，顶层可俯瞰普罗维登斯全城，是College Hill天际线的标志性轮廓。"
+        },
+        {
+          "name": "Prospect Terrace Park",
+          "nameCn": "展望台公园",
+          "lat": 41.8273,
+          "lng": -71.4085,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "College Hill边缘的小公园，矗立Roger Williams纪念雕像，可360°俯瞰市政厅圆顶与普罗维登斯全景，日落必打卡。"
+        },
+        {
+          "name": "Thayer Street",
+          "nameCn": "塞耶街",
+          "lat": 41.8259,
+          "lng": -71.4005,
+          "rank": 7,
+          "tier": "必去",
+          "note": "Brown校门旁最热闹的商业街，书店、餐厅、咖啡馆、手机店一应俱全，71家店铺，是学生日常生活的主轴。"
+        },
+        {
+          "name": "Benefit Street (Mile of History)",
+          "nameCn": "班尼菲特街（历史一英里）",
+          "lat": 41.8245,
+          "lng": -71.4073,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "美国保存最完整的殖民地时期木构住宅群，18世纪建筑密集成排，紧邻布朗校园，秋叶季漫步极美。"
         }
       ]
     },
@@ -224,25 +364,58 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Whole Foods Market (University Heights)",
-          "nameCn": "全食超市（大学城店）",
-          "lat": 41.83772,
-          "lng": -71.40928,
-          "note": "离校园最近的大型综合超市，步行约15分钟，生鲜有机为主，国际货架也有部分亚洲调料。"
+          "name": "Whole Foods Market (Waterman St)",
+          "nameCn": "全食超市（滨水门店）",
+          "lat": 41.8266,
+          "lng": -71.3946,
+          "rank": 1,
+          "tier": "必去",
+          "note": "261 Waterman St，距校仅步行10分钟，有机食品与西式食材最全，有熟食区，是东侧学生最常去的高品质超市。"
         },
         {
-          "name": "Stop & Shop (Branch Ave)",
-          "nameCn": "Stop & Shop 超市（Branch Ave 店）",
-          "lat": 41.84829,
-          "lng": -71.41554,
-          "note": "本地连锁大超市，价格比全食实惠，店内带药房和 Citizens 银行网点，适合一次性囤货。"
+          "name": "Trader Joe's (Downtown Providence)",
+          "nameCn": "乔氏超市（市中心店）",
+          "lat": 41.8188,
+          "lng": -71.4089,
+          "rank": 2,
+          "tier": "必去",
+          "note": "425 S Main St，价格实惠、自有品牌零食备受学生追捧，步行或乘车20分钟可达，预算有限的国际生首选。"
         },
         {
-          "name": "V-Mart International Market",
-          "nameCn": "V-Mart 国际亚洲超市",
-          "lat": 41.7886,
-          "lng": -71.42338,
-          "note": "普罗维登斯主要的亚洲超市，中日韩越食材、活鲜、米面酱料齐全，想做中餐囤货来这里（需开车或公交）。"
+          "name": "Good Fortune Supermarket",
+          "nameCn": "好运超市（中式食材首选）",
+          "lat": 41.792,
+          "lng": -71.4158,
+          "rank": 3,
+          "tier": "必去",
+          "note": "101 Cadillac Dr，罗德岛规模最大的中国/东南亚食材超市，活鲜海鲜、豆腐、各类酱料一网打尽，中国留学生必备。"
+        },
+        {
+          "name": "Stop & Shop (West River St)",
+          "nameCn": "Stop & Shop 超市",
+          "lat": 41.8173,
+          "lng": -71.4274,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "333 West River St，美国本地大型连锁超市，品类完整价格适中，Brown提供穿梭车接送，日常采购主力之选。"
+        },
+        {
+          "name": "Asiana Food Market",
+          "nameCn": "亚洲食品市场（East Providence）",
+          "lat": 41.809,
+          "lng": -71.3802,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "92 Warren Ave, East Providence，韩国与日本食材专卖，泡菜、大酱、柴鱼片等一应俱全，爱吃韩料日料的同学必去。"
+        },
+        {
+          "name": "Maruichi Japanese Food & Deli",
+          "nameCn": "丸一日本食品熟食店",
+          "lat": 41.8192,
+          "lng": -71.4109,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "113 Washington St市中心，专营日本进口杂货与熟食便当，日系零食与酱料直运，日本留学生与美食爱好者常客。"
         }
       ]
     },
@@ -254,46 +427,112 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chinatown on Thayer",
-          "nameCn": "唐人街中餐馆（Thayer 街）",
-          "lat": 41.82994,
-          "lng": -71.40075,
-          "note": "就在 Thayer 主街上的中餐馆，川粤家常菜，离校园几步路，留学生想吃热乎中餐的首选。"
-        },
-        {
           "name": "Chengdu Taste",
           "nameCn": "成都味道（川菜）",
-          "lat": 41.83589,
-          "lng": -71.42713,
-          "note": "Yelp 高分正宗四川菜，水煮鱼、麻辣口味地道，被评为新英格兰最佳之一，约15分钟车程。"
+          "lat": 41.8101,
+          "lng": -71.4213,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "495 Smith St，Yelp全美第二最佳中餐、新英格兰第一，正宗麻辣川菜含担担面、口水鸡，中国留学生奉为神级打卡地。"
         },
         {
-          "name": "Heng Thai & Rotisserie",
-          "nameCn": "Heng 泰式餐厅",
-          "lat": 41.82802,
-          "lng": -71.4008,
-          "note": "藏在 Angell 街地下、紧邻 Thayer 的老牌泰餐，喂饱布朗学生多年，份量大价格友好。"
-        },
-        {
-          "name": "Den Den Café Asiana",
-          "nameCn": "Den Den 韩式简餐",
-          "lat": 41.82875,
-          "lng": -71.40811,
-          "note": "校园旁的韩式简餐，石锅拌饭、辣炒年糕、韩式炸鸡，适合快速一餐。"
-        },
-        {
-          "name": "Apsara Palace",
-          "nameCn": "Apsara Palace 亚洲菜（柬越泰中）",
-          "lat": 41.84807,
-          "lng": -71.39539,
-          "note": "Hope 街上的人气亚洲餐厅，柬埔寨/越南/泰/中式都有，份量足、午市套餐划算。"
+          "name": "Jahunger",
+          "nameCn": "贾洪儿（维吾尔菜）",
+          "lat": 41.8182,
+          "lng": -71.3976,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "333 Wickenden St，詹姆斯·比尔德基金会提名，手拉面与烤串是招牌，多次获罗德岛最佳餐厅，全美维吾尔菜的顶流代表。"
         },
         {
           "name": "East Side Pockets",
-          "nameCn": "East Side Pockets 中东快餐",
-          "lat": 41.82943,
-          "lng": -71.4009,
-          "note": "Thayer 街地标级小店，1997 年开到现在，falafel 卷和烤肉卷必点，常年排长队的本地必吃。"
+          "nameCn": "东区口袋饼",
+          "lat": 41.8257,
+          "lng": -71.3996,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "278 Thayer St，开业近三十年的Brown标志性小店，外酥里嫩的口袋饼与鹰嘴豆泥价格亲民，学生深夜填胃首选，排队常见。"
+        },
+        {
+          "name": "Chinatown on Thayer",
+          "nameCn": "塞耶街唐人街餐厅",
+          "lat": 41.8265,
+          "lng": -71.4003,
+          "rank": 4,
+          "tier": "很推荐",
+          "note": "277 Thayer St，校门口最便利的中餐，提供各类中式快餐与炒菜，外卖方便，想家的时候最近的慰藉。"
+        },
+        {
+          "name": "Chong Qing House",
+          "nameCn": "重庆食府",
+          "lat": 41.809,
+          "lng": -71.368,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "188 Taunton Ave, East Providence，正宗重庆麻辣风味，份量超大适合多人聚餐，是圈内公认最地道的中餐之一。"
+        },
+        {
+          "name": "Haruki East",
+          "nameCn": "春木寿司（东店）",
+          "lat": 41.8271,
+          "lng": -71.3885,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "172 Wayland Ave，Wayland Square日式料理代表，Red Dragon卷等特色卷物口碑极佳，环境精致适合犒劳自己。"
+        },
+        {
+          "name": "Den Den Korean Fried Chicken",
+          "nameCn": "登登韩式炸鸡",
+          "lat": 41.8252,
+          "lng": -71.4021,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "182 Angell St，塞耶街附近的正宗韩式双炸鸡，酱油蒜香与辣口味都是爆款，夜宵与团聚的绝佳选择。"
+        },
+        {
+          "name": "Oberlin Restaurant",
+          "nameCn": "欧柏林餐厅（新美式）",
+          "lat": 41.826,
+          "lng": -71.401,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "Brown附近的精致新美式小馆，主打时令海鲜与意面，cacio e pepe极受好评，适合重要场合或庆祝用餐。"
+        },
+        {
+          "name": "Al Forno",
+          "nameCn": "阿尔·福诺意大利餐厅",
+          "lat": 41.8175,
+          "lng": -71.4025,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "577 S Water St，普罗维登斯最具传奇色彩的意大利餐厅，据称是烤披萨的发明地之一，上过《纽约时报》美食榜，需提前订位。"
+        },
+        {
+          "name": "New Rivers",
+          "nameCn": "新河美式小馆",
+          "lat": 41.8227,
+          "lng": -71.4159,
+          "rank": 10,
+          "tier": "一般",
+          "note": "7 Steeple St，老磨坊改建的温馨美式小馆，主打本地可持续食材，自制意面季节性创意菜，是普罗维登斯必体验的高档本地餐厅。"
+        },
+        {
+          "name": "Heng Thai (Thayer Street)",
+          "nameCn": "恒泰餐厅（泰国菜）",
+          "lat": 41.8258,
+          "lng": -71.4005,
+          "rank": 11,
+          "tier": "一般",
+          "note": "Thayer St书店对面的地下泰国餐厅，Pad Thai与Tom Yum汤口碑稳定，价格亲民，是东南亚口味同学的日常选择。"
+        },
+        {
+          "name": "Angelo's Civita Farnese (Federal Hill)",
+          "nameCn": "安吉洛意大利家常菜（联邦山）",
+          "lat": 41.8196,
+          "lng": -71.4268,
+          "rank": 12,
+          "tier": "一般",
+          "note": "Federal Hill百年意餐，1924年开业第四代传承，经典肉丸与牛肉炖辣椒口味传统地道，价格平实，普罗维登斯本地人心中的No.1。"
         }
       ]
     },
@@ -305,32 +544,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Thayer St)",
-          "nameCn": "美国银行（Thayer 街支行）",
-          "lat": 41.82923,
-          "lng": -71.40072,
-          "note": "Thayer 主街上的大行网点，开学季办理学生账户/借记卡最方便，离校园步行可达。"
+          "name": "Citizens Bank (Brook & Waterman Branch)",
+          "nameCn": "公民银行（Brook & Waterman支行）",
+          "lat": 41.8248,
+          "lng": -71.3975,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园东侧Brook St与Waterman St交汇处，含双ATM，是Brown国际生开户最常推荐的本地银行，只需护照+I-20即可开户。"
         },
         {
-          "name": "Brown University Health Urgent Care (Providence)",
-          "nameCn": "布朗健康紧急护理中心（Branch Ave）",
-          "lat": 41.84329,
-          "lng": -71.40868,
-          "note": "无需预约的急诊/紧急护理点，发烧、外伤、急性小病可直接 walk-in，比去大医院急诊快。"
+          "name": "Brown University Student Health Services",
+          "nameCn": "布朗大学学生健康服务中心",
+          "lat": 41.8255,
+          "lng": -71.4015,
+          "rank": 2,
+          "tier": "必去",
+          "note": "450 Brook St，校内全科诊所，含药房、X光与24小时护士热线(401-863-3953)，在校生初次就医首选，费用随保险覆盖。"
         },
         {
-          "name": "CVS Pharmacy (291 Thayer St)",
-          "nameCn": "CVS 药店（Thayer 街店）",
-          "lat": 41.82994,
-          "lng": -71.40075,
-          "note": "校门口的连锁药妆店，买常用药、日用品、零食最近的一家（注意此店主营便利，处方药需确认）。"
+          "name": "The Miriam Hospital",
+          "nameCn": "米里亚姆医院",
+          "lat": 41.8335,
+          "lng": -71.3917,
+          "rank": 3,
+          "tier": "必去",
+          "note": "164 Summit Ave，布朗医学院附属教学医院，含急诊室，是需要专科或急诊时距校园最近的完整医院，步行约20分钟。"
         },
         {
-          "name": "Rhode Island Hospital",
-          "nameCn": "罗德岛医院",
-          "lat": 41.81107,
-          "lng": -71.409,
-          "note": "本州最大的综合医院兼布朗医学院教学医院，设24小时急诊，重病或住院来这里。"
+          "name": "CVS Pharmacy (Thayer Street)",
+          "nameCn": "CVS 药妆店（Thayer街）",
+          "lat": 41.8263,
+          "lng": -71.4001,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "291 Thayer St，校门口最近的CVS，OTC药品与日用品一应俱全，注意此门店无处方调配服务，需处方请去Walgreens。"
+        },
+        {
+          "name": "Walgreens (Pitman Street)",
+          "nameCn": "沃尔格林药房（Pitman街，含处方）",
+          "lat": 41.8264,
+          "lng": -71.3939,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "135 Pitman St，距Brown约15分钟步行，提供处方调配服务，是校外最近的完整药房，24小时自动续药方便。"
+        },
+        {
+          "name": "TD Bank (Westminster Street, Downtown)",
+          "nameCn": "道明银行（市中心店）",
+          "lat": 41.8221,
+          "lng": -71.4152,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "180 Westminster St，提供外汇兑换服务与24小时ATM，无SSN也可开基本账户，国际生银行开户备选方案之一。"
+        },
+        {
+          "name": "Verizon (229 Waterman St, Wireless Zone)",
+          "nameCn": "Verizon 授权零售店（Waterman街）",
+          "lat": 41.8258,
+          "lng": -71.3968,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "229 Waterman St，距Brown最近的Verizon授权店，覆盖全美最广，国际生购买SIM卡与手机套餐的热门选择。"
+        },
+        {
+          "name": "T-Mobile (North Main Street)",
+          "nameCn": "T-Mobile（北主街店）",
+          "lat": 41.8311,
+          "lng": -71.4115,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "633 N Main St，University Market Place内，T-Mobile价格实惠，国际生使用国际漫游套餐性价比高，开学季常有学生优惠。"
         }
       ]
     },
@@ -342,39 +625,85 @@
       "icon": "photo_camera",
       "items": [
         {
+          "name": "WaterFire Providence",
+          "nameCn": "普罗维登斯水火艺术节",
+          "lat": 41.8225,
+          "lng": -71.4135,
+          "rank": 1,
+          "tier": "必去",
+          "note": "4 N Main St，每年5月至10月周末点燃三河水面80余座火盆的户外艺术装置，配合音乐与贡多拉，是普罗维登斯最著名的文化活动。"
+        },
+        {
+          "name": "Roger Williams Park & Zoo",
+          "nameCn": "罗杰·威廉斯公园与动物园",
+          "lat": 41.7826,
+          "lng": -71.407,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1000 Elmwood Ave，435英亩城市公园内含全年开放的动物园、日本园、植物园与自然历史博物馆，周末放松的绝佳目的地。"
+        },
+        {
           "name": "RISD Museum",
-          "nameCn": "罗德岛设计学院艺术博物馆",
-          "lat": 41.82652,
-          "lng": -71.4077,
-          "note": "紧邻校园的顶级艺术馆，藏品10万+，周日及周四傍晚免费，布朗学生凭证可免费参观。"
+          "nameCn": "RISD 艺术博物馆",
+          "lat": 41.8232,
+          "lng": -71.411,
+          "rank": 3,
+          "tier": "必去",
+          "note": "20 N Main St，东南新英格兰最重要的综合艺术博物馆，Brown学生持证免费，古埃及、印象派至当代艺术应有尽有。"
         },
         {
-          "name": "Prospect Terrace Park",
-          "nameCn": "Prospect Terrace 观景公园",
-          "lat": 41.83013,
-          "lng": -71.40721,
-          "note": "College Hill 上的小观景台，可俯瞰普罗维登斯天际线和州议会大厦，看日落拍照的好地方。"
+          "name": "Federal Hill (Little Italy)",
+          "nameCn": "联邦山（小意大利街区）",
+          "lat": 41.8207,
+          "lng": -71.4268,
+          "rank": 4,
+          "tier": "必去",
+          "note": "Atwells Ave，普罗维登斯的意大利裔文化聚居区，松果拱门标志性，街边意餐、面包房与意大利进口食材店林立，步行即可游遍。"
         },
         {
-          "name": "Providence Athenaeum",
-          "nameCn": "普罗维登斯雅典娜图书馆",
-          "lat": 41.82581,
-          "lng": -71.4063,
-          "note": "Benefit 街上 1838 年的历史会员制图书馆，复古阅览室极出片，爱伦·坡曾在此流连。"
+          "name": "Rhode Island State House",
+          "nameCn": "罗德岛州议会大厦",
+          "lat": 41.8311,
+          "lng": -71.415,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "82 Smith St，新古典主义穹顶建筑，穹顶为全球第四大独立石制穹顶，内有镀金「独立人」雕像，步行至此可拍全景。"
         },
         {
-          "name": "John Brown House Museum",
-          "nameCn": "约翰·布朗故居博物馆",
-          "lat": 41.82323,
-          "lng": -71.40331,
-          "note": "Power 街上的18世纪豪宅博物馆，了解布朗家族与本地殖民史，校园南侧步行几分钟。"
+          "name": "Brown University Bookstore / Thayer Street Area",
+          "nameCn": "布朗书店及塞耶街逛街",
+          "lat": 41.826,
+          "lng": -71.3999,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Brown Bookstore与Thayer Street的独立书店、咖啡馆、文具店构成完整文化消费圈，闲逛与采购校园周边的首选区域。"
         },
         {
-          "name": "Roger Williams National Memorial",
-          "nameCn": "罗杰·威廉姆斯国家纪念园",
-          "lat": 41.82899,
-          "lng": -71.40971,
-          "note": "纪念罗德岛创建者、宗教自由倡导者罗杰·威廉姆斯的国家公园，山脚下的绿地与游客中心。"
+          "name": "Benefit Street & College Hill Walk",
+          "nameCn": "班尼菲特街历史散步道",
+          "lat": 41.8245,
+          "lng": -71.4073,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "全美最密集的殖民地时期历史建筑街道，从Brown校园南行即到，自导览地图可在普罗维登斯历史保护协会取得，秋季落叶绝美。"
+        },
+        {
+          "name": "Prospect Terrace Park (Roger Williams Statue)",
+          "nameCn": "展望台公园（罗杰·威廉斯雕像）",
+          "lat": 41.8273,
+          "lng": -71.4085,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "College Hill西缘的小山顶公园，Roger Williams纪念像居高临下，夕阳下俯瞰市政厅圆顶与Providence全景，免费且随时开放。"
+        },
+        {
+          "name": "Trinity Repertory Company",
+          "nameCn": "三一剧目剧团",
+          "lat": 41.8222,
+          "lng": -71.4129,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "201 Washington St，托尼奖得主地方剧团，全年演出经典与先锋戏剧，Brown学生凭证可享优惠票，是融入Providence文化生活的窗口。"
         }
       ]
     }

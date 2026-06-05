@@ -11,6 +11,14 @@ export interface PointItem {
   note?: string;
   /** Override the layer's default Material Symbol for this single point. */
   icon?: string;
+  /**
+   * 1-based "most-mentioned" order within its layer (1 = top pick). When EVERY item in a
+   * layer carries a rank, the engine treats the layer as ranked: numbered markers (like
+   * colleges), a ranked list, and the global Top-N filter all apply. Mixed/absent → classic.
+   */
+  rank?: number;
+  /** Short tier label shown in the popup/list, e.g. 绝对必吃 / 很推荐 / 一般. Display-only. */
+  tier?: string;
 }
 
 /** Generic toggleable layer of places (departments / museums / libraries / landmarks / campuses). */

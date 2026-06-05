@@ -59,32 +59,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Christopher W. Klaus Advanced Computing Building",
-          "nameCn": "克劳斯先进计算楼",
-          "lat": 33.7772,
-          "lng": -84.3962,
-          "note": "计算机学院核心，41万平方英尺研究楼。"
+          "name": "College of Computing Building (CCB) & Klaus Advanced Computing Building",
+          "nameCn": "计算学院大楼 & Klaus计算楼",
+          "lat": 33.7773,
+          "lng": -84.396,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全美顶尖CS院系，Klaus楼是计算学院核心教学楼，拥有大型协作空间和实验室，Tech Square研究楼(TSRB)毗邻。"
         },
         {
-          "name": "Scheller College of Business",
-          "nameCn": "舍勒商学院",
-          "lat": 33.7763,
-          "lng": -84.3879,
-          "note": "位于科技广场的商学院主楼。"
+          "name": "Van Leer Electrical Engineering & Computer Science Building",
+          "nameCn": "Van Leer 电气与计算机工程楼",
+          "lat": 33.774,
+          "lng": -84.3974,
+          "rank": 2,
+          "tier": "必去",
+          "note": "ECE学院主楼，全美排名前列的电气与计算机工程专业，实验室与教室密集。"
         },
         {
-          "name": "Technology Square Research Building (TSRB)",
-          "nameCn": "科技广场研究楼",
-          "lat": 33.7774,
-          "lng": -84.3901,
-          "note": "电气与计算机工程及计算机学院的教研办公楼。"
+          "name": "CODA Building (Tech Square Phase II)",
+          "nameCn": "CODA大楼（科技广场）",
+          "lat": 33.7749,
+          "lng": -84.3885,
+          "rank": 3,
+          "tier": "必去",
+          "note": "21层高科技商业与研究综合楼，可口可乐、达美航空等大企业Innovation Center入驻，食堂内有多家餐厅。"
         },
         {
-          "name": "Science Square Labs",
-          "nameCn": "科学广场实验楼",
-          "lat": 33.7698,
-          "lng": -84.4013,
-          "note": "13层湿/干实验室与洁净室的生物医药研究塔。"
+          "name": "George Tower & Scheller Tower (ISyE & Business, Tech Square Phase III)",
+          "nameCn": "George大楼 & Scheller商学院塔楼",
+          "lat": 33.7743,
+          "lng": -84.388,
+          "rank": 4,
+          "tier": "必去",
+          "note": "2026年初开放，全美排名第一的工业与系统工程(ISyE)及Scheller商学院新家，Tech Square最新地标。"
+        },
+        {
+          "name": "Howey Physics Building",
+          "nameCn": "Howey 物理楼",
+          "lat": 33.7765,
+          "lng": -84.3975,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "物理学院所在地，物理和天文学专业核心教学科研空间，中央校园历史建筑群一部分。"
+        },
+        {
+          "name": "Marcus Nanotechnology Building",
+          "nameCn": "Marcus 纳米技术楼",
+          "lat": 33.7757,
+          "lng": -84.4009,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全美顶尖纳米技术研究中心，拥有全球最先进的洁净室之一，材料科学与工程学生必熟悉。"
+        },
+        {
+          "name": "Krone Engineered Biosystems Building (EBB)",
+          "nameCn": "Krone 生物系统工程楼",
+          "lat": 33.778,
+          "lng": -84.397,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "生物医学工程与生命科学顶尖研究楼，由三个学院联合使用，提供顶级实验与协作空间。"
+        },
+        {
+          "name": "Skiles Classroom Building",
+          "nameCn": "Skiles 教学楼",
+          "lat": 33.7756,
+          "lng": -84.3952,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "数学与文学传媒文化学院所在地，GT本科生上数学必备课的主要课堂，Tech Green旁的学术核心。"
+        },
+        {
+          "name": "Boggs Chemistry Building",
+          "nameCn": "Boggs 化学楼",
+          "lat": 33.777,
+          "lng": -84.3955,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "化学与生物化学系主楼，地下室有鲜为人知的24小时自习室，化学专业学生必去。"
+        },
+        {
+          "name": "College of Design Building",
+          "nameCn": "设计学院楼",
+          "lat": 33.775,
+          "lng": -84.394,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "建筑与城市规划、工业设计等专业汇聚，校园内设计感最强的教学楼，设有展览空间。"
         }
       ],
       "defaultOn": true
@@ -97,18 +159,103 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Price Gilbert Memorial Library",
-          "nameCn": "普赖斯·吉尔伯特纪念图书馆",
-          "lat": 33.7744,
-          "lng": -84.3958,
-          "note": "校园主图书馆，与克罗斯兰塔相连。"
+          "name": "Price Gilbert Memorial Library (Crosland Tower)",
+          "nameCn": "Price Gilbert纪念图书馆（Crosland塔楼）",
+          "lat": 33.7748,
+          "lng": -84.3963,
+          "rank": 1,
+          "tier": "必去",
+          "note": "GT主图书馆，地址260 4th St NW，全天候开放，6楼有研究生专属安静学习区，藏书丰富、自习室可预约。"
         },
         {
-          "name": "G. Wayne Clough Undergraduate Learning Commons",
-          "nameCn": "克拉夫本科学习中心",
-          "lat": 33.7746,
-          "lng": -84.3964,
-          "note": "本科生学习与协作空间，紧邻主图书馆。"
+          "name": "G. Wayne Clough Undergraduate Learning Commons (CULC)",
+          "nameCn": "Clough本科生学习中心",
+          "lat": 33.7753,
+          "lng": -84.3965,
+          "rank": 2,
+          "tier": "必去",
+          "note": "266 4th St NW，本科生最爱的学习空间，现代化教室与协作区24小时对外，屋顶平台周一至周五开放，视野极佳。"
+        },
+        {
+          "name": "Archives & Special Collections (Price Gilbert 1F)",
+          "nameCn": "档案与特藏部",
+          "lat": 33.7748,
+          "lng": -84.3963,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "主图书馆一楼，收藏GT校史珍贵档案与稀有图书，周一至周五11:00-16:00开放，研究历史的必去之处。"
+        },
+        {
+          "name": "Library Exhibits Gallery (Price Gilbert Ground Floor)",
+          "nameCn": "图书馆展览画廊",
+          "lat": 33.7748,
+          "lng": -84.3963,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "1500平方英尺展览空间，定期展示GT师生科研成果与艺术创作，Cherry Street入口旁免费参观。"
+        },
+        {
+          "name": "Crosland Tower Terrace (Outdoor Study Area)",
+          "nameCn": "Crosland塔楼露台学习区",
+          "lat": 33.7748,
+          "lng": -84.3963,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "主图书馆露天自习台，早7点至晚9点开放，可以边读书边俯瞰校园绿地，是打卡和自习两用的好去处。"
+        },
+        {
+          "name": "Library Service Center (Off-Campus Branch)",
+          "nameCn": "图书馆服务中心（校外分馆）",
+          "lat": 33.7795,
+          "lng": -84.3506,
+          "rank": 6,
+          "tier": "可选",
+          "note": "1260 Briarcliff Rd，需预约才能进入，主要提供馆际互借与储存馆藏服务，普通学生一般无需前往。"
+        }
+      ]
+    },
+    {
+      "kind": "pointLayer",
+      "key": "museum",
+      "label": "博物馆 / 展馆",
+      "color": "#9333ea",
+      "icon": "museum",
+      "items": [
+        {
+          "name": "High Museum of Art",
+          "nameCn": "高等艺术博物馆",
+          "lat": 33.79,
+          "lng": -84.3855,
+          "rank": 1,
+          "tier": "必去",
+          "note": "美国东南部最重要的艺术博物馆，地址1280 Peachtree St NE，藏品超过1.8万件，距GT步行约20分钟，常有大型国际巡展。"
+        },
+        {
+          "name": "Robert C. Williams Museum of Papermaking",
+          "nameCn": "罗伯特·威廉姆斯造纸博物馆",
+          "lat": 33.7786,
+          "lng": -84.3985,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "GT校园内，500 10th St NW，全球最全面的造纸历史文物馆藏，藏品逾10万件，免费参观，极具特色。"
+        },
+        {
+          "name": "Atlanta Contemporary Art Center",
+          "nameCn": "亚特兰大当代艺术中心",
+          "lat": 33.7804,
+          "lng": -84.4044,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "535 Means St NW，GT旁边，免费入场，周二至周日开放，专注当代前沿艺术，展览质量高、值得常去。"
+        },
+        {
+          "name": "National Center for Civil and Human Rights",
+          "nameCn": "国家民权与人权中心",
+          "lat": 33.7614,
+          "lng": -84.3939,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "100 Ivan Allen Jr Blvd，步行或MARTA可达，记录马丁·路德·金等民权运动历史，是理解美国社会的必读场所。"
         }
       ]
     },
@@ -120,32 +267,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Tech Tower (Evans Administration Building)",
-          "nameCn": "科技塔（埃文斯行政楼）",
+          "name": "Tech Tower (Lettie Pate Whitehead Evans Administration Building)",
+          "nameCn": "Tech塔楼（GT行政大楼）",
           "lat": 33.7724,
           "lng": -84.3948,
-          "note": "1888年落成，校园现存最古老建筑与精神地标。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "GT最标志性建筑，屋顶\"TECH\"四字是校园最佳打卡点，每逢橄榄球比赛前夕有偷字母传统，照片必拍。"
         },
         {
-          "name": "Bobby Dodd Stadium at Historic Grant Field",
-          "nameCn": "鲍比·多德体育场",
-          "lat": 33.7725,
-          "lng": -84.393,
-          "note": "1913年建成，全美最古老的在校橄榄球场。"
+          "name": "Tech Green",
+          "nameCn": "科技绿地广场",
+          "lat": 33.773,
+          "lng": -84.395,
+          "rank": 2,
+          "tier": "必去",
+          "note": "GT核心草坪，学生野餐、户外活动、开学典礼的主会场，Tech Tower与图书馆之间，四季皆宜。"
         },
         {
-          "name": "McCamish Pavilion",
-          "nameCn": "麦卡米什篮球馆",
-          "lat": 33.7806,
-          "lng": -84.3928,
-          "note": "黄夹克队篮球主场，原亚历山大纪念馆。"
+          "name": "John Lewis Student Center",
+          "nameCn": "约翰·刘易斯学生中心",
+          "lat": 33.7727,
+          "lng": -84.3955,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2022年翻新重开，集美食广场、游戏室、电影院、邮局与社团活动于一体，是学生日常生活的核心枢纽。"
         },
         {
-          "name": "Bill Moore Student Success Center",
-          "nameCn": "比尔·摩尔学生成功中心",
-          "lat": 33.7724,
-          "lng": -84.394,
-          "note": "邻近体育场的学生服务与校友互动中心。"
+          "name": "Technology Square (Tech Square)",
+          "nameCn": "科技广场（Tech Square）",
+          "lat": 33.7749,
+          "lng": -84.3885,
+          "rank": 4,
+          "tier": "必去",
+          "note": "79 5th St NW，GT与中城科技创新生态圈的连接点，大型企业创新中心密集，Waffle House/星巴克等皆在此。"
+        },
+        {
+          "name": "Bobby Dodd Stadium (Grant Field)",
+          "nameCn": "博比·多德体育场",
+          "lat": 33.7715,
+          "lng": -84.3933,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "GT美式橄榄球主场，155 North Ave NW，全美最古老的现役大学球场，比赛日气氛火爆，留学生必体验。"
+        },
+        {
+          "name": "Kessler Campanile (The Shaft)",
+          "nameCn": "Kessler钟塔（\"烟囱\"）",
+          "lat": 33.775,
+          "lng": -84.396,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "GT图书馆旁的钟塔，是校园内的导航地标，每逢重要活动敲钟，是与Clough楼组成的校园经典景观之一。"
+        },
+        {
+          "name": "Centennial Olympic Park",
+          "nameCn": "百年奥林匹克公园",
+          "lat": 33.7601,
+          "lng": -84.3924,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "为1996年亚特兰大奥运会修建，约1英里至GT，音乐喷泉免费参观，夏季常有免费音乐节，是周末散步好去处。"
         }
       ]
     },
@@ -157,25 +339,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Publix (Plaza Midtown)",
-          "nameCn": "Publix 超市（Plaza Midtown 店）",
-          "lat": 33.7802,
-          "lng": -84.3874,
-          "note": "离校最近的美国主流连锁超市，步行/骑车可达，日常生鲜和生活用品都齐全。"
+          "name": "Publix Super Market (Midtown)",
+          "nameCn": "Publix超市（中城店）",
+          "lat": 33.7877,
+          "lng": -84.3876,
+          "rank": 1,
+          "tier": "必去",
+          "note": "950 W Peachtree St NW，距GT步行约15分钟，品质好、自有品牌实惠，南方连锁超市首选，熟食区很受学生欢迎。"
         },
         {
-          "name": "Wagaya Japanese Groceries",
-          "nameCn": "Wagaya 日本/亚洲食品超市",
-          "lat": 33.7862,
-          "lng": -84.3985,
-          "note": "西 Midtown 的日系亚超，泡面、火锅料、亚洲调料和速食一站买齐，离校约 1.2 公里。"
+          "name": "Trader Joe's (Midtown)",
+          "nameCn": "乔氏超市（中城店）",
+          "lat": 33.7878,
+          "lng": -84.3729,
+          "rank": 2,
+          "tier": "必去",
+          "note": "931 Monroe Dr NE，MARTA可达，特色自有品牌食品性价比极高，冷冻食品和零食口碑好，留学生特别喜爱。"
         },
         {
-          "name": "H Mart (Doraville flagship)",
-          "nameCn": "H Mart 韩亚超市（Doraville 旗舰店）",
-          "lat": 33.9061,
-          "lng": -84.2787,
-          "note": "大型韩亚超市，米面、肉类、青菜和中餐食材最全，约 20 分钟车程，适合周末大采购。"
+          "name": "Whole Foods Market (Midtown)",
+          "nameCn": "全食超市（中城店）",
+          "lat": 33.7774,
+          "lng": -84.3671,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "650 Ponce De Leon Ave NE，有机食品丰富，熟食区适合快速解决一餐，价格偏高但品质有保障。"
+        },
+        {
+          "name": "H Mart (Doraville)",
+          "nameCn": "H Mart韩国超市（多拉维尔店）",
+          "lat": 33.8979,
+          "lng": -84.2817,
+          "rank": 4,
+          "tier": "必去",
+          "note": "6035 Peachtree Rd Bldg B，MARTA红线Doraville站步行可达，华韩日食材应有尽有，内设食堂可吃正宗亚洲菜，中国留学生购物首选。"
+        },
+        {
+          "name": "Hong Kong Market (Buford Highway)",
+          "nameCn": "香港超市（布福公路店）",
+          "lat": 33.8297,
+          "lng": -84.319,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "3317 Buford Hwy NE，亚特兰大最大亚洲超市之一，中越泰食材齐全，生鲜品类丰富，兼营越南餐厅。"
+        },
+        {
+          "name": "Kroger (Midtown/Atlantic Station Area)",
+          "nameCn": "Kroger超市（大西洋站附近）",
+          "lat": 33.7907,
+          "lng": -84.4073,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "平价连锁大超市，自有品牌实惠，GT学生使用Kroger App数字优惠券可大幅省钱，日用+食材一站购齐。"
+        },
+        {
+          "name": "First Oriental Market (Decatur)",
+          "nameCn": "第一东方超市（迪卡特店）",
+          "lat": 33.7724,
+          "lng": -84.2919,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2774 E Ponce De Leon Ave，MARTA可达的中小型亚洲食材店，价格实惠，东亚食材较为齐全，适合购买调味料。"
         }
       ]
     },
@@ -187,39 +411,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "The Varsity",
-          "nameCn": "The Varsity 美式快餐",
-          "lat": 33.7716,
-          "lng": -84.389,
-          "note": "1928 年开到现在的亚特兰大地标、全球最大汽车餐厅，chili dog 和橙味冰沙是来 GT 必打卡。"
-        },
-        {
           "name": "Antico Pizza Napoletana",
           "nameCn": "Antico 那不勒斯披萨",
-          "lat": 33.7844,
-          "lng": -84.4058,
-          "note": "西区网红柴火窑披萨，米其林推荐、常年排队，正宗那不勒斯口味的本地名店。"
+          "lat": 33.783,
+          "lng": -84.4085,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "1093 Hemphill Ave NW，GT西侧步行可达，2023年米其林Bib Gourmand认证，正宗意大利木柴炉烤披萨，学生最爱，晚餐需早到排队。"
         },
         {
           "name": "Xi'an Gourmet House",
-          "nameCn": "西安美食（Midtown 店）",
-          "lat": 33.7811,
-          "lng": -84.389,
-          "note": "中国胃首选：手工拉面、孜然羊肉、肉夹馍，离校不到 1 公里，午餐性价比高。"
+          "nameCn": "西安美食馆",
+          "lat": 33.7851,
+          "lng": -84.3869,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "955 Spring St NW，中城学生必吃，手擀面条+肉夹馍，汤浓味正，停车方便，被誉为中城最正宗中餐之一。"
         },
         {
-          "name": "Tin Drum Asian Kitchen",
-          "nameCn": "Tin Drum 亚洲料理（Tech Square 店）",
-          "lat": 33.7768,
-          "lng": -84.3901,
-          "note": "就在 Tech Square，泰式/越式/中式快炒加奶茶，GT 学生最常去的平价亚洲餐。"
+          "name": "Urban Hai",
+          "nameCn": "城市嗨（四川菜）",
+          "lat": 33.7849,
+          "lng": -84.3826,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "77 12th St NE，中城核心，四川家常菜风格，铁锅炖鸡、麻婆豆腐、茄子烧鲤鱼均口碑极佳，适合聚餐。"
         },
         {
-          "name": "Sweet Hut Bakery & Cafe",
-          "nameCn": "Sweet Hut 台式烘焙奶茶",
-          "lat": 33.7804,
-          "lng": -84.3841,
-          "note": "台式面包房加珍珠奶茶，营业到很晚，赶due熬夜补糖的好去处。"
+          "name": "Gu's Kitchen (Buford Highway)",
+          "nameCn": "顾家厨房（布福公路）",
+          "lat": 33.8665,
+          "lng": -84.2941,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "4897 Buford Hwy NE，四川街头小吃风格，麻婆豆腐、成都凉面、四川薯条全都令人上瘾，被称为Atlanta最正宗川菜。"
+        },
+        {
+          "name": "Rreal Tacos",
+          "nameCn": "Rreal Tacos 墨西哥街头小吃",
+          "lat": 33.7769,
+          "lng": -84.3882,
+          "rank": 5,
+          "tier": "很推荐",
+          "note": "GT Tech Square旁，食材直接从墨西哥采购，玉米卷口感正宗、价格亲民，午餐快速解决的最佳选择之一。"
+        },
+        {
+          "name": "South City Kitchen (Midtown)",
+          "nameCn": "南城厨房（中城）",
+          "lat": 33.7895,
+          "lng": -84.3817,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "1144 Crescent Ave NE，享誉全城的精致南方菜，炸鸡饼干、鲶鱼等经典菜式，亚特兰大本地饮食体验必吃。"
+        },
+        {
+          "name": "Momonoki",
+          "nameCn": "桃木（日式咖啡餐厅）",
+          "lat": 33.78,
+          "lng": -84.395,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "95 8th St NW，中城日式风格咖啡+餐厅，抹茶糕点、日式brunch备受好评，周末排队，颜值高适合打卡。"
+        },
+        {
+          "name": "Pelicana Chicken",
+          "nameCn": "Pelicana 韩式炸鸡",
+          "lat": 33.7828,
+          "lng": -84.4059,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "420 14th St NW，GT旁韩式炸鸡连锁，蒜蓉酱和甜辣口味均广受好评，配炸鸡喝啤酒是学生晚间聚会常规。"
+        },
+        {
+          "name": "Waffle House (Tech Square)",
+          "nameCn": "华夫饼屋（科技广场店）",
+          "lat": 33.775,
+          "lng": -84.3893,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "GT Tech Square旁，24小时营业，亚特兰大本地传奇连锁，深夜或考试后来碗华夫饼是GT学生仪式感必备体验。"
+        },
+        {
+          "name": "Ten Seconds Yunnan Rice Noodle (Doraville)",
+          "nameCn": "十秒钟云南米线（多拉维尔）",
+          "lat": 33.8979,
+          "lng": -84.282,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "6035 Peachtree Rd（H Mart同一商场），过桥米线汤头浓郁、配料可自选，是Atlanta华人圈口碑极高的云南菜馆。"
+        },
+        {
+          "name": "Superica (Krog Street)",
+          "nameCn": "Superica 德式墨西哥菜（Krog街）",
+          "lat": 33.7519,
+          "lng": -84.3629,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "99 Krog St，Krog Street Market内，Tex-Mex融合，玛格丽特鸡尾酒和烤肉塔可均为亚特兰大网红级菜肴。"
+        },
+        {
+          "name": "PaoPao Ramen (West Midtown)",
+          "nameCn": "PaoPao拉面（西中城）",
+          "lat": 33.7831,
+          "lng": -84.4099,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "西中城区域，豚骨/味增/担担/咖喱等多种汤底，GT附近拉面选择中口碑最稳，价格适中，适合日常解馋。"
+        },
+        {
+          "name": "Insomnia Cookies (Tech Square)",
+          "nameCn": "失眠饼干（科技广场）",
+          "lat": 33.7747,
+          "lng": -84.3887,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Tech Square旁，凌晨营业，温热饼干和冰淇淋组合，GT学生期末考试季必备宵夜，深夜不想出远门的好选择。"
         }
       ]
     },
@@ -231,32 +537,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Bank of America (Midtown Financial Center)",
-          "nameCn": "美国银行 Midtown 支行",
-          "lat": 33.7842,
-          "lng": -84.3833,
-          "note": "可现场开户办借记卡，美国最大银行之一，离校约 1.5 公里、Peachtree 沿线。"
+          "name": "Wells Fargo Bank (Tech Parkway Branch)",
+          "nameCn": "富国银行（Tech Parkway支行）",
+          "lat": 33.7558,
+          "lng": -84.3995,
+          "rank": 1,
+          "tier": "必去",
+          "note": "645 State St NW，GT最近的Wells Fargo，持护照和I-20可为国际学生开户，无最低余额要求，学生账户免月费。"
         },
         {
-          "name": "Piedmont Urgent Care (Spring St)",
-          "nameCn": "Piedmont 紧急护理中心（Spring St 店）",
-          "lat": 33.7737,
-          "lng": -84.3889,
-          "note": "离校最近的 urgent care，发烧、外伤等急但不危及生命的情况免预约就诊。"
+          "name": "Bank of America (Midtown)",
+          "nameCn": "美国银行（中城支行）",
+          "lat": 33.781,
+          "lng": -84.3836,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Midtown区，美国第二大银行，Advantage SafeBalance账户国际学生友好，ATM网络全美最密，建议开户时携带护照+I-20。"
         },
         {
-          "name": "CVS Pharmacy (842 Peachtree)",
-          "nameCn": "CVS 药房（842 Peachtree 店）",
-          "lat": 33.7776,
-          "lng": -84.3845,
-          "note": "连锁药房，处方药、感冒药和日用品都有，营业到午夜，取药很方便。"
+          "name": "Chase Bank (Midtown)",
+          "nameCn": "摩根大通银行（中城支行）",
+          "lat": 33.7803,
+          "lng": -84.3831,
+          "rank": 3,
+          "tier": "必去",
+          "note": "Midtown区，Chase Total Checking为国际学生常见选择，全美ATM网络广，移动App功能齐全，可在线开户后到店激活。"
         },
         {
-          "name": "AT&T Store (West Peachtree)",
-          "nameCn": "AT&T 手机营业厅（West Peachtree 店）",
-          "lat": 33.7823,
-          "lng": -84.3879,
-          "note": "美国主流运营商门店，办手机卡/套餐、买 SIM，刚落地办号码可来这里。"
+          "name": "Stamps Health Services (GT On-Campus Clinic & Pharmacy)",
+          "nameCn": "Stamps健康服务中心（GT校内诊所+药房）",
+          "lat": 33.7757,
+          "lng": -84.4038,
+          "rank": 4,
+          "tier": "必去",
+          "note": "740 Ferst Dr NW，GT校内唯一诊所，含初级医疗、妇科、心理健康科及附属药房，国际学生缴学费后免费或低价就诊。"
+        },
+        {
+          "name": "Piedmont Atlanta Hospital",
+          "nameCn": "皮埃蒙特亚特兰大医院",
+          "lat": 33.8042,
+          "lng": -84.3869,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "1968 Peachtree Rd NW，GT学生遇到紧急医疗情况首选医院，急诊全天开放，设有国际患者服务支持。"
+        },
+        {
+          "name": "CVS Pharmacy (Midtown/Peachtree)",
+          "nameCn": "CVS药房（中城皮奇树路店）",
+          "lat": 33.7897,
+          "lng": -84.384,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "842 Peachtree St NE，GT周边最方便的连锁药房，非处方药、生活日用品一应俱全，Minutes Clinic可处理小病症。"
+        },
+        {
+          "name": "T-Mobile (5th Street Store, Tech Square)",
+          "nameCn": "T-Mobile（第五街科技广场店）",
+          "lat": 33.7749,
+          "lng": -84.3883,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "85 5th St NW，GT Tech Square正旁，T-Mobile为国际学生最常推荐的美国运营商，无需SSN即可办理部分套餐。"
+        },
+        {
+          "name": "AT&T Store (Midtown 5th Street)",
+          "nameCn": "AT&T手机店（中城第五街店）",
+          "lat": 33.7748,
+          "lng": -84.3878,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "62 5th St NW，GT步行可达，AT&T信号在亚特兰大全市覆盖极佳，国际学生办理Prepaid套餐无需SSN。"
         }
       ]
     },
@@ -268,39 +618,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Tech Tower (Georgia Tech)",
-          "nameCn": "Tech Tower 校园钟楼",
-          "lat": 33.7717,
-          "lng": -84.3944,
-          "note": "GT 最标志性的红砖钟楼，刻着 TECH 字样，校园合影第一打卡点。"
-        },
-        {
           "name": "Georgia Aquarium",
           "nameCn": "佐治亚水族馆",
-          "lat": 33.7624,
-          "lng": -84.3948,
-          "note": "全美最大水族馆之一，有鲸鲨和白鲸，离校约 1.5 公里，周末遛弯好去处。"
+          "lat": 33.7634,
+          "lng": -84.3951,
+          "rank": 1,
+          "tier": "必去",
+          "note": "225 Baker St NW，全美最大水族馆，逾12万只海洋生物，含鲸鲨展区、海豚秀，GT步行约1.5英里，留学生必打卡。"
+        },
+        {
+          "name": "Piedmont Park",
+          "nameCn": "皮埃蒙特公园",
+          "lat": 33.787,
+          "lng": -84.3733,
+          "rank": 2,
+          "tier": "必去",
+          "note": "中城最大绿地，步行约15分钟，周末市集、户外瑜伽、Atlanta Dogwood Festival等活动常年不断，是学生放松首选。"
+        },
+        {
+          "name": "Atlanta BeltLine (Eastside Trail)",
+          "nameCn": "亚特兰大环城绿道（东线）",
+          "lat": 33.7549,
+          "lng": -84.3627,
+          "rank": 3,
+          "tier": "必去",
+          "note": "22英里城市绿道改造项目，东线串联Piedmont Park与Krog Street Market，步行/骑行均宜，沿途涂鸦艺术精彩纷呈。"
         },
         {
           "name": "World of Coca-Cola",
           "nameCn": "可口可乐世界博物馆",
-          "lat": 33.7623,
-          "lng": -84.3909,
-          "note": "可口可乐主题馆，可试饮全球上百种口味汽水，亚特兰大经典景点。"
+          "lat": 33.7626,
+          "lng": -84.393,
+          "rank": 4,
+          "tier": "必去",
+          "note": "121 Baker St NW，可口可乐总部在Atlanta，博物馆展示品牌百年史，含全球百种口味试饮区，门票约$20，值得一去。"
         },
         {
-          "name": "High Museum of Art",
-          "nameCn": "高等艺术博物馆",
-          "lat": 33.7894,
-          "lng": -84.3845,
-          "note": "美国东南部最大的艺术博物馆，建筑本身就很出片，学生票优惠。"
+          "name": "Fox Theatre",
+          "nameCn": "福克斯剧院",
+          "lat": 33.7723,
+          "lng": -84.3843,
+          "rank": 5,
+          "tier": "必去",
+          "note": "660 Peachtree St NE，1929年开幕的摩尔式风格剧院，常年上演百老汇巡演、演唱会与喜剧，GT步行15分钟，浓厚文艺氛围。"
         },
         {
-          "name": "Centennial Olympic Park",
-          "nameCn": "百年奥林匹克公园",
-          "lat": 33.7601,
-          "lng": -84.3935,
-          "note": "1996 亚特兰大奥运会遗址公园，五环喷泉是市中心地标，散步野餐都合适。"
+          "name": "Krog Street Market",
+          "nameCn": "Krog街市场",
+          "lat": 33.7519,
+          "lng": -84.3629,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "99 Krog St NE，Atlanta最受欢迎的文创食品市场，多家网红餐厅、酒吧与手工品牌集聚，BeltLine出入口即在旁边。"
+        },
+        {
+          "name": "Atlanta Botanical Garden",
+          "nameCn": "亚特兰大植物园",
+          "lat": 33.791,
+          "lng": -84.3729,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "1345 Piedmont Ave NE，紧邻Piedmont Park，热带温室+玫瑰园+树顶步道令人叹为观止，学生票有折扣，春夏最美。"
+        },
+        {
+          "name": "College Football Hall of Fame",
+          "nameCn": "大学橄榄球名人堂",
+          "lat": 33.7595,
+          "lng": -84.3958,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "250 Marietta St NW，毗邻百年奥林匹克公园，互动展览丰富，GT校友名人堂单独成区，美式体育文化入门必去。"
+        },
+        {
+          "name": "Ponce City Market",
+          "nameCn": "庞斯城市市场",
+          "lat": 33.7718,
+          "lng": -84.3618,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "675 Ponce De Leon Ave NE，老西尔斯大楼改建的超大型文创市场，餐厅、精品店、屋顶游乐场尽有，BeltLine串联，周末必逛。"
+        },
+        {
+          "name": "Stone Mountain Park",
+          "nameCn": "石山公园",
+          "lat": 33.8081,
+          "lng": -84.144,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "距GT约25英里，亚特兰大最大州立公园，可乘缆车或徒步登顶花岗岩巨岩，节假日有激光秀，适合周末踏青出游。"
         }
       ]
     }

@@ -51,39 +51,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Faculty of Arts (Arts Precinct)",
-          "nameCn": "人文学院(艺术区)",
-          "lat": -33.7746,
-          "lng": 151.1135,
-          "note": "新建艺术区,人文社科教学核心。"
-        },
-        {
-          "name": "Faculty of Medicine, Health & Human Sciences",
-          "nameCn": "医学、健康与人类科学学院",
-          "lat": -33.7738,
-          "lng": 151.1178,
-          "note": "毗邻医院与听力中心的健康学科集群。"
-        },
-        {
-          "name": "Macquarie Business School",
+          "name": "Macquarie Business School (18 Wally's Walk)",
           "nameCn": "麦考瑞商学院",
-          "lat": -33.7758,
-          "lng": 151.1142,
-          "note": "商科与管理教学楼群。"
+          "lat": -33.7738,
+          "lng": 151.1115,
+          "rank": 1,
+          "tier": "核心必知",
+          "note": "全球顶级商学院之一，提供会计、金融、管理等热门专业，是留学生选择最多的学院"
         },
         {
-          "name": "Faculty of Science & Engineering",
-          "nameCn": "理学与工程学院",
-          "lat": -33.7768,
-          "lng": 151.1118,
-          "note": "理工科实验室与讲堂所在区域。"
+          "name": "Faculty of Science and Engineering (C5A – 12 Second Way)",
+          "nameCn": "理工学院（C5A楼）",
+          "lat": -33.7755,
+          "lng": 151.1135,
+          "rank": 2,
+          "tier": "核心必知",
+          "note": "理工科核心教学楼，涵盖计算机、数学、物理、工程等专业，是学生最密集的教学区"
         },
         {
-          "name": "Australian Hearing Hub",
-          "nameCn": "澳大利亚听力中心",
-          "lat": -33.7765,
-          "lng": 151.1118,
-          "note": "大学大道16号,听觉研究与临床合作枢纽。"
+          "name": "Faculty of Medicine, Health & Human Sciences (75 Talavera Rd)",
+          "nameCn": "医学、健康与人文科学学院",
+          "lat": -33.7715,
+          "lng": 151.1163,
+          "rank": 3,
+          "tier": "核心必知",
+          "note": "全澳排名靠前的医学院，与麦大医院紧密相连，是MBBS/心理学等专业的主要教学楼"
+        },
+        {
+          "name": "Michael Kirby Building – Law School (17 Wally's Walk)",
+          "nameCn": "迈克尔·柯比法律大楼",
+          "lat": -33.7744,
+          "lng": 151.1097,
+          "rank": 4,
+          "tier": "重点推荐",
+          "note": "2024年正式开放的全新法学院大楼，以澳大利亚著名大法官命名，设有全澳首创悬浮式模拟法庭"
+        },
+        {
+          "name": "Australian Hearing Hub (16 University Ave)",
+          "nameCn": "澳大利亚听力研究中心",
+          "lat": -33.7728,
+          "lng": 151.1128,
+          "rank": 5,
+          "tier": "重点推荐",
+          "note": "世界顶级听觉与语言学研究中心，汇聚语言学、认知科学等院系，建筑本身亦是亮点"
+        },
+        {
+          "name": "Faculty of Arts (25B Wally's Walk – Arts Precinct)",
+          "nameCn": "文学院（艺术区）",
+          "lat": -33.7748,
+          "lng": 151.1091,
+          "rank": 6,
+          "tier": "重点推荐",
+          "note": "2024年5月翻新开放的艺术区，涵盖历史、英语、哲学等院系，是西侧校园的文化核心"
+        },
+        {
+          "name": "Macquarie Business School Student Centre (4 Eastern Rd)",
+          "nameCn": "商学院学生服务中心",
+          "lat": -33.7735,
+          "lng": 151.1145,
+          "rank": 7,
+          "tier": "实用",
+          "note": "商学院学生日常办理学籍、课程等事务的主要窗口，紧邻东侧教学楼群"
+        },
+        {
+          "name": "Macquarie Medical School – Clinical Education Building (3 Technology Pl)",
+          "nameCn": "麦考瑞医学院临床教育楼",
+          "lat": -33.7706,
+          "lng": 151.117,
+          "rank": 8,
+          "tier": "实用",
+          "note": "紧邻麦大私立医院，是医学生临床见习与解剖教学的核心场所"
+        },
+        {
+          "name": "Department of Biological Sciences (E8A)",
+          "nameCn": "生命科学系（E8A楼）",
+          "lat": -33.7761,
+          "lng": 151.1152,
+          "rank": 9,
+          "tier": "实用",
+          "note": "生物、生态、遗传等理科专业的主要实验室与教学楼，位于东侧学术核心区"
+        },
+        {
+          "name": "Macquarie University Research Park (11 Talavera Rd precinct)",
+          "nameCn": "麦大科技研究园",
+          "lat": -33.7698,
+          "lng": 151.1182,
+          "rank": 10,
+          "tier": "实用",
+          "note": "毗邻校园东北侧，汇聚IBM、微软等科技企业，提供大量实习与产学合作机会"
         }
       ],
       "defaultOn": true
@@ -96,11 +151,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Macquarie University Library (Building C3C)",
-          "nameCn": "麦考瑞大学图书馆",
-          "lat": -33.775,
-          "lng": 151.1125,
-          "note": "配备机器人自动存取系统(ASRS)的中心馆。"
+          "name": "Waranara Library (16 Macquarie Walk, C3C)",
+          "nameCn": "瓦拉纳拉图书馆（主馆）",
+          "lat": -33.7748,
+          "lng": 151.1121,
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "麦大主图书馆，2011年建成，可容纳2200人，提供24小时学习空间和海量电子资源"
+        },
+        {
+          "name": "1CC Study Spaces (1 Central Courtyard)",
+          "nameCn": "中央庭院学习空间",
+          "lat": -33.7755,
+          "lng": 151.1118,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "紧邻图书馆的全新学习中心，有makerspaces和安静自习区，是课间学习首选"
+        },
+        {
+          "name": "Library Café (C3C Ground Floor)",
+          "nameCn": "图书馆咖啡厅",
+          "lat": -33.7748,
+          "lng": 151.1122,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "图书馆底层咖啡厅，公认校内最佳咖啡，室内外均有座位，适合边喝咖啡边自习"
+        },
+        {
+          "name": "Law Library Reading Room (Michael Kirby Building, 17 Wally's Walk)",
+          "nameCn": "法学图书馆阅读室",
+          "lat": -33.7744,
+          "lng": 151.1097,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "新落成的法学楼内专属法律阅读空间，配备法律文献数据库，适合法学生研究"
+        },
+        {
+          "name": "Arts Precinct Study Lounge (25B Wally's Walk)",
+          "nameCn": "艺术区自习室",
+          "lat": -33.7748,
+          "lng": 151.1091,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "2024年翻新艺术区内的安静学习空间，自然采光好，文科生首选的非正式学习区"
+        },
+        {
+          "name": "Macquarie University City Library (Level 24, 123 Pitt St, Sydney CBD)",
+          "nameCn": "麦大城市校区图书馆",
+          "lat": -33.8668,
+          "lng": 151.2091,
+          "rank": 6,
+          "tier": "可选",
+          "note": "商学院CBD校区的图书馆资源，距主校区约25分钟地铁，适合城区实习期间使用"
         }
       ]
     },
@@ -112,18 +214,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The Gale History Museum",
+          "name": "Gale History Museum (25C Wally's Walk)",
           "nameCn": "盖尔历史博物馆",
-          "lat": -33.7748,
-          "lng": 151.1122,
-          "note": "Wally's Walk 25C,合并古代文化与澳洲史馆藏。"
+          "lat": -33.7752,
+          "lng": 151.1087,
+          "rank": 1,
+          "tier": "绝对必去",
+          "note": "2021年开放，南半球最大古代纸草文献收藏地，涵盖古埃及、希腊、罗马、澳大利亚历史文物，免费入场"
         },
         {
-          "name": "Macquarie University Art Gallery",
-          "nameCn": "麦考瑞大学美术馆",
-          "lat": -33.7725,
+          "name": "Macquarie University Art Gallery (19 Eastern Rd, E11A/Chancellery)",
+          "nameCn": "麦考瑞大学艺术画廊",
+          "lat": -33.773,
           "lng": 151.115,
-          "note": "校内当代艺术展馆,馆藏丰富。"
+          "rank": 2,
+          "tier": "绝对必去",
+          "note": "1999年创立，藏品逾3991件，每年约六个展览，涵盖原住民艺术和后1960年代澳大利亚当代艺术，免费"
+        },
+        {
+          "name": "Macquarie University Sculpture Park (Entire Campus)",
+          "nameCn": "麦大校园雕塑公园",
+          "lat": -33.7753,
+          "lng": 151.1129,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "南半球规模最大的校园雕塑公园，近100件雕塑散落全校，边散步边欣迎艺术，可随时参观"
+        },
+        {
+          "name": "Macquarie University Astronomical Observatory (W16A, 5 Gymnasium Rd)",
+          "nameCn": "麦大天文台",
+          "lat": -33.7705,
+          "lng": 151.1107,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "每周五、六晚向公众开放，可通过专业望远镜观测行星、双星和星云，需提前网上购票"
+        },
+        {
+          "name": "Macquarie University Planetarium (School of Mathematical & Physical Sciences)",
+          "nameCn": "麦大天象厅",
+          "lat": -33.7756,
+          "lng": 151.1135,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "可欣赏星象投影放映，经常配合天文课程和公众活动开放，与天文台同在理工区"
         }
       ]
     },
@@ -135,32 +268,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Macquarie University Railway Station",
-          "nameCn": "麦考瑞大学火车站",
-          "lat": -33.7773,
-          "lng": 151.1181,
-          "note": "悉尼地铁西北线,澳洲唯一校内车站。"
-        },
-        {
-          "name": "Central Courtyard Precinct",
-          "nameCn": "中央庭院区",
+          "name": "1 Central Courtyard Building (1CC, 15-17 Gymnasium Rd)",
+          "nameCn": "中央庭院大楼（1CC）",
           "lat": -33.7755,
-          "lng": 151.113,
-          "note": "新落成的校园中心广场与学生集散地。"
+          "lng": 151.1118,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校园心脏地带，设有毕业礼堂、12家餐饮商铺、26间教室和Ubar酒吧，是学生社交与饮食的核心"
         },
         {
-          "name": "Macquarie University Sport & Aquatic Centre",
-          "nameCn": "麦考瑞大学体育与水上中心",
-          "lat": -33.7727,
-          "lng": 151.1108,
-          "note": "体育馆路10号,含50米FINA标准泳池。"
+          "name": "Waranara (Library Building, 16 Macquarie Walk)",
+          "nameCn": "瓦拉纳拉图书馆楼",
+          "lat": -33.7748,
+          "lng": 151.1121,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园最具标志性的现代建筑，外观以大量玻璃和自然光设计为特色，也是新生定向的集合点"
         },
         {
-          "name": "Macquarie University Observatory",
-          "nameCn": "麦考瑞大学天文台",
-          "lat": -33.7704,
-          "lng": 151.1111,
-          "note": "1978年建成的校园天文观测台。"
+          "name": "Macquarie University Metro Station",
+          "nameCn": "麦考瑞大学地铁站",
+          "lat": -33.7728,
+          "lng": 151.1133,
+          "rank": 3,
+          "tier": "必去",
+          "note": "悉尼地铁M1线校内站台，是往来CBD（约25分钟）和北郊最便捷的交通节点，也是入学报到的第一站"
+        },
+        {
+          "name": "Macquarie Lake & Ubar Terrace",
+          "nameCn": "麦大湖与Ubar湖边露台",
+          "lat": -33.7762,
+          "lng": 151.1118,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园中央人工湖，Ubar酒吧露台俯瞰湖面，是学生课后放松、拍照打卡的最佳地点"
+        },
+        {
+          "name": "Wally's Walk Boulevard",
+          "nameCn": "沃利步道林荫大道",
+          "lat": -33.7748,
+          "lng": 151.1103,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校园东西向主轴步道，两侧树木成荫，连接艺术区与研究园，是最受喜爱的校园散步路线"
+        },
+        {
+          "name": "Macquarie University Sport & Aquatic Centre – MUSAC (10 Gymnasium Rd)",
+          "nameCn": "麦大体育与水上运动中心",
+          "lat": -33.7765,
+          "lng": 151.111,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "设有50米室外泳池和25米室内泳池、健身房、篮球场等，学生年卡性价比极高"
+        },
+        {
+          "name": "Michael Kirby Building – Arts Precinct (17 Wally's Walk)",
+          "nameCn": "迈克尔·柯比大楼（艺术区）",
+          "lat": -33.7744,
+          "lng": 151.1097,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "2024年竣工，获奖建筑设计，以质朴的交叉层压木材（CLT）为特色，是麦大最新地标建筑"
+        },
+        {
+          "name": "The Chancellery / MQ Art Gallery Building (19 Eastern Rd)",
+          "nameCn": "校长楼 / 校园行政核心",
+          "lat": -33.773,
+          "lng": 151.115,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "大学行政总部与艺术画廊所在地，校园东侧地标，也是找管理部门和办理行政手续的地方"
         }
       ]
     },
@@ -172,39 +349,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Woolworths Macquarie Centre",
-          "nameCn": "Woolworths 超市（麦考瑞中心店）",
-          "lat": -33.7771,
-          "lng": 151.1212,
-          "note": "校园对面 Macquarie Centre 内的大型主流超市，步行约8分钟，日常生鲜采买首选。"
+          "name": "Woolworths Macquarie Centre (80 Waterloo Rd, North Ryde)",
+          "nameCn": "沃尔沃斯（麦考瑞购物中心店）",
+          "lat": -33.7754,
+          "lng": 151.119,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "距校园步行约10分钟，品类齐全、营业时间长，是日常采购肉蛋蔬果的首选连锁超市"
         },
         {
-          "name": "Coles Macquarie Centre",
-          "nameCn": "Coles 超市（麦考瑞中心店）",
-          "lat": -33.7773,
-          "lng": 151.1208,
-          "note": "同一商场内另一家主流连锁超市，与 Woolworths 比价方便，营业到晚上。"
+          "name": "Coles Macquarie Centre (197-223 Herring Rd, North Ryde)",
+          "nameCn": "科尔斯（麦考瑞购物中心店）",
+          "lat": -33.7759,
+          "lng": 151.1188,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "澳洲两大连锁之一，与Woolworths同在麦考瑞购物中心，价格竞争性好，熟食和自有品牌受好评"
         },
         {
-          "name": "Miracle Supermarket (Macquarie Centre)",
-          "nameCn": "美而廉亚洲超市（麦考瑞中心店）",
-          "lat": -33.777,
-          "lng": 151.1214,
-          "note": "商场内的亚洲超市，火锅料、酱料、亚洲蔬菜齐全，最近的中餐食材点。"
+          "name": "ALDI Macquarie Centre (Macquarie Centre lower level)",
+          "nameCn": "奥乐齐（麦考瑞购物中心店）",
+          "lat": -33.7757,
+          "lng": 151.1192,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "德国折扣超市，价格最实惠，适合学生日常购买面包、乳制品和基础食材"
         },
         {
-          "name": "Eastwood Asian groceries (Rowe St)",
-          "nameCn": "伊斯活罗街亚洲超市群",
-          "lat": -33.7916,
-          "lng": 151.0812,
-          "note": "伊斯活是悉尼著名华人/韩国食材区，距校约3公里，地铁/巴士可达，价格更实惠选择更多。"
+          "name": "Miracle Supermarket (Macquarie Centre, Herring Rd)",
+          "nameCn": "美乐华亚洲超市（麦考瑞购物中心）",
+          "lat": -33.7756,
+          "lng": 151.1186,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "校园旁最方便的亚洲超市，有新鲜亚洲蔬菜、各类酱料、粽子、豆腐、冷冻点心等中式食材"
         },
         {
-          "name": "Woolworths Eastwood",
-          "nameCn": "Woolworths 超市（伊斯活店）",
-          "lat": -33.7922,
-          "lng": 151.0815,
-          "note": "伊斯活商业区主流超市，逛完华人街可一并采购，距车站很近。"
+          "name": "Happigo Supermarket Eastwood (near Eastwood Station)",
+          "nameCn": "悉尼乐购超市（伊斯特伍德店）",
+          "lat": -33.7897,
+          "lng": 151.0843,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "专业中华超市，从东北城铁约5分钟抵达，食材丰富：活海鲜、火锅底料、国产零食一应俱全"
+        },
+        {
+          "name": "Eastwood Mart (Rowe St, Eastwood)",
+          "nameCn": "伊斯特伍德超市（Rowe Street）",
+          "lat": -33.7893,
+          "lng": 151.0839,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "东伍德唐人街内的综合亚洲超市，生鲜、韩国食品、东南亚食材齐全，周末特别热闹"
+        },
+        {
+          "name": "New Yen Yen Supermarket (Eastwood)",
+          "nameCn": "新仁仁超市（伊斯特伍德）",
+          "lat": -33.789,
+          "lng": 151.0836,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "伊斯特伍德历史悠久的华人超市，海鲜、蔬菜和各类中式调料品种繁多，价格实惠"
+        },
+        {
+          "name": "Woolworths Top Ryde City (Blaxland Rd, Ryde)",
+          "nameCn": "沃尔沃斯（莱德城市购物中心）",
+          "lat": -33.8144,
+          "lng": 151.1013,
+          "rank": 8,
+          "tier": "可选",
+          "note": "距校园约15分钟公交，与Coles和ALDI同在Top Ryde商场内，适合周末大采购"
         }
       ]
     },
@@ -216,39 +430,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Taste of Shanghai (Eastwood)",
-          "nameCn": "上海人家（伊斯活店）",
-          "lat": -33.7921,
-          "lng": 151.0799,
-          "note": "伊斯活排队名店，现包小笼包、生煎和上海面，最有人气的中餐之一。"
+          "name": "Chef's Gallery (Shop 407, Macquarie Centre)",
+          "nameCn": "厨苑（麦考瑞购物中心）",
+          "lat": -33.7754,
+          "lng": 151.1187,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "步行可达的当代中餐厅，现场手拉面是招牌，北京烤鸭卷饼和鲜虾猪肉饺子口碑极佳"
         },
         {
-          "name": "Sea Bay Hand-Made Noodle",
-          "nameCn": "海湾手工面",
-          "lat": -33.7916,
-          "lng": 151.0816,
-          "note": "新疆/西北手工拉面与饺子，分量足价格友好，留学生常去的暖胃面馆。"
+          "name": "The Panda Yum Cha (Macquarie Centre)",
+          "nameCn": "熊猫饮茶（麦考瑞购物中心）",
+          "lat": -33.7752,
+          "lng": 151.1183,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "校园最近的正宗港式饮茶，点心丰盛、用餐空间宽敞，周末建议早到或提前预订"
         },
         {
-          "name": "Macquarie Centre Food Court / 都会区餐饮",
-          "nameCn": "麦考瑞中心美食广场",
-          "lat": -33.7772,
-          "lng": 151.121,
-          "note": "校对面商场美食广场，韩餐、日料、东南亚、奶茶一应俱全，课间最方便的吃饭点。"
+          "name": "Lilong by Taste of Shanghai (Macquarie Centre)",
+          "nameCn": "里弄·上海味道（麦考瑞购物中心）",
+          "lat": -33.7753,
+          "lng": 151.1185,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "正宗沪菜与江南点心，小笼包、生煎、葱油面味道地道，是想家时的绝佳选择"
         },
         {
-          "name": "Eastwood Korean BBQ strip",
-          "nameCn": "伊斯活韩国烤肉街",
-          "lat": -33.7905,
-          "lng": 151.0844,
-          "note": "伊斯活车站东侧韩国城，烤肉、炸鸡、部队锅聚集，朋友聚餐的热门去处。"
+          "name": "Eastwood Garden Peking Restaurant (Eastwood)",
+          "nameCn": "东苑京华酒楼（伊斯特伍德）",
+          "lat": -33.7893,
+          "lng": 151.0845,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "伊斯特伍德最知名的粤菜馆之一，烧腊和点心多次获好评，是唐人街区最受推荐的老字号"
         },
         {
-          "name": "Guzman y Gomez (Macquarie Centre)",
-          "nameCn": "GYG 墨西哥卷（麦考瑞中心）",
-          "lat": -33.7774,
-          "lng": 151.1213,
-          "note": "澳洲国民级墨西哥快餐连锁，Burrito 和 taco 是本地学生日常快食代表。"
+          "name": "Hong Kong Recipe (Eastwood)",
+          "nameCn": "香港食谱（伊斯特伍德）",
+          "lat": -33.7898,
+          "lng": 151.0847,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Yelp和TripAdvisor东伍德中餐榜首推荐，港式茶餐厅，午市套餐价格实惠、排队常见"
+        },
+        {
+          "name": "257 Home Kitchen (Eastwood)",
+          "nameCn": "257家厨（伊斯特伍德）",
+          "lat": -33.7891,
+          "lng": 151.0838,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "以国内家常菜风格著称，各类炖菜和红烧肉被网友广泛推荐，晚餐人气旺，留学生聚餐常选"
+        },
+        {
+          "name": "Taiwan Night Market (178-182 Rowe St, Eastwood)",
+          "nameCn": "台湾夜市（伊斯特伍德）",
+          "lat": -33.7895,
+          "lng": 151.084,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "台式卤肉饭、鸡排和珍珠奶茶汇聚一堂，小吃物美价廉，配上旁边夜市气氛一流"
+        },
+        {
+          "name": "Marsfield Chinese Kitchen (1 Trafalgar Pl, Marsfield)",
+          "nameCn": "马斯菲尔德中国厨房",
+          "lat": -33.7794,
+          "lng": 151.1044,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "距校约1公里，超市旁的实惠粤菜小馆，分量足价格亲民，是校园附近最方便的中式快餐"
+        },
+        {
+          "name": "Motto Motto Japanese Kitchen (Level 3, Macquarie Centre)",
+          "nameCn": "Motto Motto日式餐厅",
+          "lat": -33.7756,
+          "lng": 151.1186,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "购物中心内人气最旺的日式快餐，拉面和丼饭口味正宗，学生用餐高峰期需排队"
+        },
+        {
+          "name": "Eastwood Night Markets (Rowe St West, Sat 4-10pm)",
+          "nameCn": "伊斯特伍德夜市（每周六）",
+          "lat": -33.7892,
+          "lng": 151.0836,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "每周六下午4点至晚10点，汇聚数十个亚洲街头小吃摊位，是体验悉尼华人夜市文化的最佳去处"
+        },
+        {
+          "name": "Ubar (1CC Ground Floor, Macquarie University)",
+          "nameCn": "麦大Ubar学生酒吧餐厅",
+          "lat": -33.7756,
+          "lng": 151.1116,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "校内核心娱乐餐饮场所，披萨、饮料、台球和湖景露台，是课后最受欢迎的学生聚会地点"
+        },
+        {
+          "name": "Globe Café (E3A International Building)",
+          "nameCn": "地球咖啡厅（留学生大楼）",
+          "lat": -33.7743,
+          "lng": 151.1127,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "有机公平贸易咖啡，校内唯一珍珠奶茶出售点，是国际学生最常光顾的校内咖啡角落"
+        },
+        {
+          "name": "Stoneage Korean BBQ (near North Ryde / Macquarie area)",
+          "nameCn": "石器时代韩式烤肉",
+          "lat": -33.7952,
+          "lng": 151.1198,
+          "rank": 13,
+          "tier": "一般",
+          "note": "附近口碑最好的韩式烤肉店，肉质新鲜配菜丰富，适合聚餐，建议提前预订"
+        },
+        {
+          "name": "PappaRich (Macquarie Centre)",
+          "nameCn": "爸爸富马来西亚餐厅",
+          "lat": -33.7755,
+          "lng": 151.1185,
+          "rank": 14,
+          "tier": "一般",
+          "note": "连锁马来西亚餐厅，叻沙、椰浆饭和炒河粉口味稳定，价格适中，适合换口味时选择"
         }
       ]
     },
@@ -260,32 +565,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Commonwealth Bank (Macquarie Centre)",
-          "nameCn": "联邦银行 CommBank（麦考瑞中心）",
-          "lat": -33.7773,
-          "lng": 151.1211,
-          "note": "澳洲最大银行之一，校对面商场设网点，新生开学生账户、办卡很方便。"
+          "name": "Commonwealth Bank – Macquarie Centre (Level 3, Macquarie Centre)",
+          "nameCn": "澳联邦银行（麦考瑞购物中心支行）",
+          "lat": -33.7756,
+          "lng": 151.1189,
+          "rank": 1,
+          "tier": "绝对必须",
+          "note": "澳最大商业银行，留学生开户首选，需带护照和CoE入学确认信，无月费学生账户广受好评"
         },
         {
-          "name": "MQ Health General Practice (Macquarie University)",
-          "nameCn": "麦考瑞大学全科诊所 / 大学医院",
-          "lat": -33.7738,
-          "lng": 151.118,
-          "note": "校内 Technology Place 的大学医院与全科门诊（GP），看病、体检就近解决。"
+          "name": "ANZ Bank – Macquarie Centre (Shop 2, Lower Ground)",
+          "nameCn": "澳新银行（麦考瑞购物中心支行）",
+          "lat": -33.7757,
+          "lng": 151.1191,
+          "rank": 2,
+          "tier": "推荐",
+          "note": "ANZ学生账户也很受欢迎，开户无月费、网银完善，是CBA的最佳替代选择"
         },
         {
-          "name": "Chemist Warehouse (Macquarie Centre)",
-          "nameCn": "Chemist Warehouse 药房（麦考瑞中心）",
-          "lat": -33.777,
-          "lng": 151.1209,
-          "note": "澳洲最大平价连锁药房，处方药、感冒药、保健品都齐，商场内即可买到。"
+          "name": "NAB – Macquarie Shopping Centre",
+          "nameCn": "澳国民银行（麦考瑞购物中心）",
+          "lat": -33.7757,
+          "lng": 151.1187,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "NAB Classic Transaction账户免月费，网上转账方便，是留学生三大开户选择之一"
         },
         {
-          "name": "Telstra & Optus (Macquarie Centre)",
-          "nameCn": "Telstra/Optus 电信营业厅（麦考瑞中心）",
-          "lat": -33.7772,
-          "lng": 151.1206,
-          "note": "商场内主流运营商门店，办本地手机卡/流量套餐，落地第一周办号首选。"
+          "name": "Westpac – Macquarie Centre (UC 10A, Level 1)",
+          "nameCn": "澳威斯特帕克银行（麦考瑞购物中心）",
+          "lat": -33.7755,
+          "lng": 151.1186,
+          "rank": 4,
+          "tier": "可选",
+          "note": "四大银行均在麦考瑞购物中心内，Westpac同样提供学生友好账户，国际汇款服务完善"
+        },
+        {
+          "name": "MQ Health GP Clinic (2 Technology Place, K26)",
+          "nameCn": "麦大健康全科诊所",
+          "lat": -33.7706,
+          "lng": 151.1167,
+          "rank": 5,
+          "tier": "绝对必须",
+          "note": "校园内的全科医生诊所，学生凭健保卡可享低收费，是处理日常疾病和开转介信的首选"
+        },
+        {
+          "name": "Macquarie University Hospital & Pharmacy (3 Technology Place)",
+          "nameCn": "麦考瑞大学私立医院与药房",
+          "lat": -33.7703,
+          "lng": 151.1169,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "澳首家建在大学校园内的私立医院，药房周一至周五9am-5pm，周六9am-12pm"
+        },
+        {
+          "name": "Optus World – Macquarie Centre (Shop 436A)",
+          "nameCn": "Optus手机店（麦考瑞购物中心）",
+          "lat": -33.7755,
+          "lng": 151.1184,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "留学生常用的Optus预付费SIM卡，信号覆盖好，月度套餐含大流量，现场激活快捷"
+        },
+        {
+          "name": "Telstra Store – Macquarie Centre (Shop 437)",
+          "nameCn": "Telstra手机店（麦考瑞购物中心）",
+          "lat": -33.7756,
+          "lng": 151.1183,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "澳洲最大运营商，信号最强但价格稍高，适合对网络质量要求高的同学，可购买预付SIM"
         }
       ]
     },
@@ -297,32 +646,112 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Lane Cove National Park",
-          "nameCn": "莱恩湾国家公园",
+          "name": "Macquarie Centre (Cnr Herring Rd & Waterloo Rd, North Ryde)",
+          "nameCn": "麦考瑞购物中心",
+          "lat": -33.7756,
+          "lng": 151.1187,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻校园的大型购物中心，三大连锁超市+数十家餐厅+溜冰场+电影院，是学生课余生活的第一站"
+        },
+        {
+          "name": "Macquarie Ice Rink (Level 4, Macquarie Centre)",
+          "nameCn": "麦考瑞溜冰场",
+          "lat": -33.7753,
+          "lng": 151.1186,
+          "rank": 2,
+          "tier": "必去",
+          "note": "购物中心内室内溜冰场，2025年底全面翻新重开，约$30含冰鞋，是悉尼北区必玩娱乐项目"
+        },
+        {
+          "name": "Eastwood Chinatown (Rowe St, Eastwood)",
+          "nameCn": "伊斯特伍德唐人街",
           "lat": -33.7895,
-          "lng": 151.1432,
-          "note": "校园东南侧的河谷国家公园，烧烤、划船、徒步，周末亲近自然的好去处。"
+          "lng": 151.0841,
+          "rank": 3,
+          "tier": "必去",
+          "note": "悉尼最知名的华人聚集地之一，中餐馆、亚洲超市、奶茶店云集，来麦大必逛，地铁T9线约5分钟"
         },
         {
-          "name": "Macquarie University Central Courtyard & Lake",
-          "nameCn": "麦考瑞大学中央广场与湖区",
-          "lat": -33.7757,
-          "lng": 151.1135,
-          "note": "校园核心绿地与人工湖，建筑与草坪环绕，最具代表性的校园打卡点。"
+          "name": "Lane Cove National Park",
+          "nameCn": "莱恩科夫国家公园",
+          "lat": -33.798,
+          "lng": 151.145,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "距校步行或骑车20分钟可达，有丛林步道、皮划艇、野餐区和本地野生动物，是逃离校园的首选"
         },
         {
-          "name": "Macquarie University Sport & Aquatic Centre",
-          "nameCn": "麦考瑞大学体育与水上运动中心",
-          "lat": -33.7726,
-          "lng": 151.111,
-          "note": "校内大型健身房与泳池，学生价办卡即可使用，课余运动主场地。"
+          "name": "Chatswood (via Metro, 3 stops)",
+          "nameCn": "查茨伍德商业区",
+          "lat": -33.7973,
+          "lng": 151.1814,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "悉尼第二大华人商圈，地铁10分钟直达，有大华超市、Westfield商场、卡拉OK和众多亚洲餐厅"
         },
         {
-          "name": "Eastwood Park",
-          "nameCn": "伊斯活公园",
-          "lat": -33.7889,
-          "lng": 151.082,
-          "note": "伊斯活华人区旁的社区公园，逛街吃饭后散步休憩，每年樱花/嘉年华活动热闹。"
+          "name": "Eden Gardens (310 Lane Cove Rd, Macquarie Park)",
+          "nameCn": "伊甸园花园（麦考瑞公园）",
+          "lat": -33.7832,
+          "lng": 151.1243,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "复合式园艺中心，有瀑布展示花园、雕塑公园、咖啡厅和DIY园艺工作坊，适合周末放松"
+        },
+        {
+          "name": "Macquarie University Astronomical Observatory Public Sessions",
+          "nameCn": "麦大天文台公众观星夜",
+          "lat": -33.7705,
+          "lng": 151.1107,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "每周五六晚向公众开放，用专业天文望远镜观看行星，是悉尼最特别的夜间校园体验之一"
+        },
+        {
+          "name": "Sydney CBD & Circular Quay (via Metro)",
+          "nameCn": "悉尼CBD与环形码头",
+          "lat": -33.8612,
+          "lng": 151.2103,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "麦大坐地铁约25分钟直达，悉尼歌剧院、海港大桥、当代艺术馆均步行可达，周末必游"
+        },
+        {
+          "name": "Ryde Aquatic Leisure Centre (Corner of Victoria Rd & Church St, Ryde)",
+          "nameCn": "莱德水上休闲中心",
+          "lat": -33.8182,
+          "lng": 151.1022,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "2000年悉尼奥运会水球比赛场馆，设施齐全，公交可达，比校内MUSAC更便宜的游泳选择"
+        },
+        {
+          "name": "Meadowbank Park & Parramatta River Walk",
+          "nameCn": "梅多班克公园与帕拉马塔河滨步道",
+          "lat": -33.8175,
+          "lng": 151.0899,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "T9城铁梅多班克站下，沿帕拉马塔河两岸12公里步行道，有船屋、草地和CBD天际线美景"
+        },
+        {
+          "name": "Top Ryde City Shopping Centre (Blaxland Rd, Ryde)",
+          "nameCn": "莱德城市购物中心",
+          "lat": -33.8143,
+          "lng": 151.1013,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "公交约15分钟，有Coles、Woolworths和ALDI三家超市，适合周末集中采购，餐饮选择也很多"
+        },
+        {
+          "name": "Sydney Olympic Park (Homebush)",
+          "nameCn": "悉尼奥林匹克公园",
+          "lat": -33.8453,
+          "lng": 151.0682,
+          "rank": 12,
+          "tier": "推荐",
+          "note": "2000年悉尼奥运遗址，有广阔公园、自行车道、Aquatic Centre和Newington军械库历史遗迹"
         }
       ]
     }

@@ -67,60 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Old Building",
-          "nameCn": "旧楼",
-          "lat": 51.5143,
-          "lng": -0.116,
-          "note": "1922年落成的历史主楼,Houghton街上的校园象征。"
+          "name": "Old Building (Houghton Street)",
+          "nameCn": "老楼（霍顿街）",
+          "lat": 51.5144,
+          "lng": -0.1164,
+          "rank": 1,
+          "tier": "必去",
+          "note": "LSE最具历史感的主楼，行政核心，内含Shaw图书馆和学生服务中心，是全校最具标志性的建筑。"
         },
         {
-          "name": "Centre Building (CBG)",
-          "nameCn": "中心楼",
-          "lat": 51.5147,
-          "lng": -0.1167,
-          "note": "2019年启用的核心教学楼,位于校园中央。"
+          "name": "Sir Arthur Lewis Building (32 Lincoln's Inn Fields)",
+          "nameCn": "亚瑟·刘易斯楼（原土地注册处）",
+          "lat": 51.5156,
+          "lng": -0.1183,
+          "rank": 2,
+          "tier": "必去",
+          "note": "经济学系和Centre for Economic Performance所在地，前身为土地注册处大楼，2023年以诺贝尔奖得主命名。"
         },
         {
-          "name": "Marshall Building",
-          "nameCn": "Marshall楼",
-          "lat": 51.5155,
-          "lng": -0.1178,
-          "note": "44 Lincoln's Inn Fields,2022年启用的旗舰新楼。"
+          "name": "Marshall Building (44 Lincoln's Inn Fields)",
+          "nameCn": "马歇尔楼",
+          "lat": 51.5159,
+          "lng": -0.1188,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2022年新开，管理学院、会计与金融系入驻，配有最先进运动设施，是LSE近年旗舰建筑。"
         },
         {
-          "name": "Sir Arthur Lewis Building (Economics)",
-          "nameCn": "经济系楼",
-          "lat": 51.5155,
-          "lng": -0.1149,
-          "note": "Lincoln's Inn Fields,经济系所在地。"
+          "name": "Saw Swee Hock Student Centre",
+          "nameCn": "萧瑞福学生中心",
+          "lat": 51.5142,
+          "lng": -0.1168,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校内最重要的学生活动中心，含学生会、健身房、酒吧、屋顶平台及媒体中心，建筑本身获建筑大奖。"
         },
         {
-          "name": "Cheng Kin Ku Building (Law School)",
-          "nameCn": "法学院楼",
-          "lat": 51.5153,
-          "lng": -0.1184,
-          "note": "54 Lincoln's Inn Fields,法学院主楼。"
-        },
-        {
-          "name": "Clement House",
-          "nameCn": "Clement楼",
-          "lat": 51.5135,
-          "lng": -0.1158,
-          "note": "99 Aldwych,大型教学与办公楼。"
-        },
-        {
-          "name": "Connaught House",
-          "nameCn": "Connaught楼",
-          "lat": 51.5133,
+          "name": "Centre Building",
+          "nameCn": "中心大楼",
+          "lat": 51.5148,
           "lng": -0.1163,
-          "note": "63-65 Aldwych,临Aldwych的院系楼。"
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "2019年开放，对面即图书馆，含办公室与学术空间，是校园视觉新地标。"
         },
         {
-          "name": "Columbia House",
-          "nameCn": "Columbia楼",
+          "name": "Clement House (99-101 Aldwych)",
+          "nameCn": "克莱门特楼",
+          "lat": 51.5137,
+          "lng": -0.1185,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "Grade II保护建筑，内有统计系与社会政策系，是LSE在Aldwych的历史地标。"
+        },
+        {
+          "name": "New Academic Building (54 Lincoln's Inn Fields)",
+          "nameCn": "新学术楼",
+          "lat": 51.5155,
+          "lng": -0.119,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "法学院和社会学系的核心教学楼，设有香港剧院（Hong Kong Theatre）大型讲堂。"
+        },
+        {
+          "name": "Connaught House (Aldwych)",
+          "nameCn": "康诺特楼",
           "lat": 51.5135,
-          "lng": -0.1167,
-          "note": "69 Aldwych,办公与教学楼。"
+          "lng": -0.118,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "LSE多个研究中心和教学支持办公室所在地，位于Aldwych校区。"
+        },
+        {
+          "name": "Firoz Lalji Global Hub (Lincoln's Inn Fields)",
+          "nameCn": "费罗兹·拉吉全球中枢",
+          "lat": 51.5161,
+          "lng": -0.1191,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "原皇家外科医学院，将于2027年完工，规划容纳数学与统计系及数据科学研究院。"
+        },
+        {
+          "name": "32A Lincoln's Inn Fields (STICERD)",
+          "nameCn": "STICERD研究楼",
+          "lat": 51.5157,
+          "lng": -0.1185,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "Suntory-Toyota国际经济与相关学科研究中心所在地，是LSE经济研究的重要阵地。"
         }
       ],
       "defaultOn": true
@@ -133,11 +167,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Lionel Robbins Building — LSE Library",
-          "nameCn": "LSE图书馆(Lionel Robbins楼)",
+          "name": "British Library of Political and Economic Science (LSE Library)",
+          "nameCn": "政治经济科学英国图书馆（LSE主图书馆）",
           "lat": 51.5141,
-          "lng": -0.117,
-          "note": "全球最大社科图书馆,Portugal街上。"
+          "lng": -0.1168,
+          "rank": 1,
+          "tier": "必去",
+          "note": "创建于1896年，馆藏逾400万件，是全球最权威的社会科学图书馆，考研备考必到之地，旺季24小时开放。"
+        },
+        {
+          "name": "Shaw Library (Old Building 6F)",
+          "nameCn": "萧图书馆（老楼六楼）",
+          "lat": 51.5144,
+          "lng": -0.1164,
+          "rank": 2,
+          "tier": "必去",
+          "note": "老楼顶层的学生公共阅览与休闲空间，由萧伯纳之妻捐助，风格典雅，适合安静自习。"
+        },
+        {
+          "name": "British Library",
+          "nameCn": "大英图书馆",
+          "lat": 51.5296,
+          "lng": -0.1265,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "距LSE约25分钟步行，馆藏1.5亿件全球第一，可申请读者证免费使用阅览室，适合深度研究。"
+        },
+        {
+          "name": "Senate House Library (University of London)",
+          "nameCn": "参议院图书馆（伦敦大学）",
+          "lat": 51.5219,
+          "lng": -0.1307,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "伦敦大学联盟图书馆，LSE生可凭学生证借阅，人文社科藏书丰富，步行约15分钟可达。"
+        },
+        {
+          "name": "Maughan Library (King's College London)",
+          "nameCn": "莫汉图书馆（伦敦国王学院）",
+          "lat": 51.5148,
+          "lng": -0.1107,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "哥特式复古建筑，毗邻皇家法院，KCL主馆，LSE生可通过InterLibrary Loan申请馆际互借。"
+        },
+        {
+          "name": "Inner Temple Library",
+          "nameCn": "内殿法学院图书馆",
+          "lat": 51.5125,
+          "lng": -0.1097,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专注英格兰与威尔士法律原始文献，法学方向学生可申请访问，内殿中庭环境极佳。"
         }
       ]
     },
@@ -149,11 +230,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The Women's Library @ LSE",
-          "nameCn": "女性图书馆",
-          "lat": 51.514,
-          "lng": -0.1169,
-          "note": "馆藏于LSE图书馆内的女性运动史专藏。"
+          "name": "Sir John Soane's Museum",
+          "nameCn": "约翰·索恩爵士博物馆",
+          "lat": 51.517,
+          "lng": -0.1193,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于林肯律师学院广场，藏有古埃及法老塞提一世石棺及大量霍加斯画作，免费入场，步行5分钟即达。"
+        },
+        {
+          "name": "The Courtauld Gallery (Somerset House)",
+          "nameCn": "科陶尔德画廊（萨默塞特宫）",
+          "lat": 51.5113,
+          "lng": -0.1173,
+          "rank": 2,
+          "tier": "必去",
+          "note": "世界级印象派与后印象派藏品，梵高《包扎耳朵的自画像》等名作在此，LSE学生凭证可享折扣。"
+        },
+        {
+          "name": "Hunterian Museum (Royal College of Surgeons)",
+          "nameCn": "亨特里安博物馆（皇家外科医师学院）",
+          "lat": 51.5163,
+          "lng": -0.1196,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "坐落于林肯律师学院广场，记录外科医学史的独特标本馆，免费但需预约，LSE步行5分钟可达。"
+        },
+        {
+          "name": "Museum of Freemasonry",
+          "nameCn": "共济会博物馆",
+          "lat": 51.5153,
+          "lng": -0.1218,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Great Queen Street的艺术装饰共济会堂，探索神秘共济会历史，免费开放，对面即LSE宿舍区。"
+        },
+        {
+          "name": "British Museum",
+          "nameCn": "大英博物馆",
+          "lat": 51.5194,
+          "lng": -0.127,
+          "rank": 5,
+          "tier": "必去",
+          "note": "步行约12分钟，馆藏800万件，免费开放，中国文物馆与埃及展厅必看，是全伦敦最值得打卡的博物馆之一。"
+        },
+        {
+          "name": "London Transport Museum (Covent Garden)",
+          "nameCn": "伦敦交通博物馆（科文特花园）",
+          "lat": 51.5116,
+          "lng": -0.1224,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "记录伦敦地铁与公交百年演变，视觉冲击强，需购票，适合课余周末游览。"
         }
       ]
     },
@@ -165,39 +293,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "Saw Swee Hock Student Centre",
-          "nameCn": "学生中心",
-          "lat": 51.5145,
-          "lng": -0.1172,
-          "note": "2014年启用的获奖学生会大楼,含LSESU。"
-        },
-        {
-          "name": "Peacock Theatre",
-          "nameCn": "Peacock剧院",
-          "lat": 51.5137,
-          "lng": -0.118,
-          "note": "Portugal街,兼作大型讲堂与西区剧场。"
-        },
-        {
-          "name": "Holborn Underground Station",
-          "nameCn": "Holborn地铁站",
-          "lat": 51.5174,
-          "lng": -0.12,
-          "note": "最近地铁站(中央线/皮卡迪利线),校园西北角。"
-        },
-        {
-          "name": "Temple Underground Station",
-          "nameCn": "Temple地铁站",
-          "lat": 51.5111,
-          "lng": -0.1141,
-          "note": "校园南侧近站,区域线/环线。"
-        },
-        {
           "name": "Lincoln's Inn Fields",
           "nameCn": "林肯律师学院广场",
-          "lat": 51.5165,
-          "lng": -0.1175,
-          "note": "伦敦最大广场绿地,环绕LSE北侧多栋楼。"
+          "lat": 51.5167,
+          "lng": -0.1187,
+          "rank": 1,
+          "tier": "必去",
+          "note": "伦敦最大历史广场，紧邻LSE，有网球场与绿地，午休常有学生在此休息，也是徒步法律区的起点。"
+        },
+        {
+          "name": "LSE Students' Union (LSESU) & Three Tuns Bar",
+          "nameCn": "LSE学生会与三桶酒吧",
+          "lat": 51.5142,
+          "lng": -0.1168,
+          "rank": 2,
+          "tier": "必去",
+          "note": "学生会位于萧瑞福学生中心，Three Tuns是校内最受欢迎的酒吧，各类社团活动均在此集中发布。"
+        },
+        {
+          "name": "Somerset House",
+          "nameCn": "萨默塞特宫",
+          "lat": 51.5113,
+          "lng": -0.1173,
+          "rank": 3,
+          "tier": "必去",
+          "note": "18世纪新古典主义宫殿，步行不足5分钟，节庆集市与户外电影常设于中庭，是LSE附近最美的公共空间。"
+        },
+        {
+          "name": "Royal Courts of Justice",
+          "nameCn": "皇家法院",
+          "lat": 51.5143,
+          "lng": -0.1131,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "维多利亚哥特式建筑，英国高等法院所在地，步行8分钟，法学生可旁听庭审，全伦敦最具历史感的法律地标。"
+        },
+        {
+          "name": "Temple and Inns of Court",
+          "nameCn": "圣殿法学院区",
+          "lat": 51.5125,
+          "lng": -0.1115,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "Inner Temple与Middle Temple是英国最古老的法学院，中世纪建筑与玫瑰花园隐于闹市，步行12分钟。"
+        },
+        {
+          "name": "Covent Garden Piazza",
+          "nameCn": "科文特花园广场",
+          "lat": 51.5122,
+          "lng": -0.1227,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "全伦敦最热闹的街头表演广场，购物、餐饮、文化汇聚，步行不超过10分钟，是国际生周末首选。"
+        },
+        {
+          "name": "Aldwych / LSE East Campus",
+          "nameCn": "奥尔德韦奇学术街区",
+          "lat": 51.5132,
+          "lng": -0.1183,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "LSE多栋学术楼沿Aldwych排列，整条街道汇聚高校、剧院与媒体机构，是伦敦最具学术氛围的街道之一。"
         }
       ]
     },
@@ -209,32 +365,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "SeeWoo Supermarket",
-          "nameCn": "泗和行超市",
-          "lat": 51.5117,
-          "lng": -0.1304,
-          "note": "中国城两层大型亚超，从中国到越南、韩国食材齐全，离学校步行约15分钟，是补给中餐食材的首选。"
-        },
-        {
-          "name": "Loon Fung Supermarket",
-          "nameCn": "龙凤行超市",
-          "lat": 51.5119,
-          "lng": -0.1303,
-          "note": "中国城老牌华人超市，1965年开业，鲜活水产、调味料、冷冻点心一应俱全。"
-        },
-        {
-          "name": "New Loon Moon Supermarket",
-          "nameCn": "新龙门超市",
-          "lat": 51.5119,
-          "lng": -0.1311,
-          "note": "位于Gerrard Street 9A，中国城最大三层亚超，3500多种远东商品，找老干妈、火锅底料来这里。"
-        },
-        {
-          "name": "Sainsbury's Local (Kingsway)",
-          "nameCn": "Sainsbury's 本地店（Kingsway店）",
-          "lat": 51.5174,
+          "name": "Sainsbury's Kingsway (Holborn)",
+          "nameCn": "森宝利超市 金斯威店",
+          "lat": 51.5173,
           "lng": -0.1206,
-          "note": "英国主流连锁超市，紧邻校园的Kingsway上，日常牛奶面包蔬果的步行5分钟补给点。"
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "距LSE步行约8分钟，是校区附近规模较大的英国主流超市，生鲜、熟食、日用品齐全，学生首选。"
+        },
+        {
+          "name": "Tesco Express (19-21 High Holborn)",
+          "nameCn": "乐购便利店 高霍尔本店",
+          "lat": 51.5171,
+          "lng": -0.1186,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Chancery Lane地铁站旁，营业时间长，适合随时补货，距LSE步行约5分钟。"
+        },
+        {
+          "name": "Waitrose (Brunswick Centre, Bloomsbury)",
+          "nameCn": "维特罗斯超市 布朗斯维克店",
+          "lat": 51.524,
+          "lng": -0.1235,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "步行约15分钟，品质最高的英国主流超市，蔬果和熟食质量上乘，适合精挑细选的采购。"
+        },
+        {
+          "name": "Co-op (Clare Market, LSE)",
+          "nameCn": "合作社超市 克莱尔市场店",
+          "lat": 51.5141,
+          "lng": -0.1169,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "距LSE最近的便利超市，位于Clare Market校区附近，适合紧急采购日常零食与餐食。"
+        },
+        {
+          "name": "Loon Fung Supermarket (Chinatown)",
+          "nameCn": "龙凤超市 唐人街",
+          "lat": 51.5119,
+          "lng": -0.1305,
+          "rank": 5,
+          "tier": "绝对必去（中式食材）",
+          "note": "创于1965年的唐人街老牌中国超市，粤港闽台东南亚食材一站搞定，步行或地铁约15分钟可达。"
+        },
+        {
+          "name": "New Loon Moon Supermarket (Chinatown)",
+          "nameCn": "新龙门行 唐人街",
+          "lat": 51.5121,
+          "lng": -0.1307,
+          "rank": 6,
+          "tier": "绝对必去（中式食材）",
+          "note": "Gerald Street三层楼的综合亚洲食品超市，超4000种商品，生鲜、调料、零食应有尽有，是华人留学生最常购物的地方。"
+        },
+        {
+          "name": "SeeWoo (Lisle Street, Chinatown)",
+          "nameCn": "义和行超市 唐人街",
+          "lat": 51.5113,
+          "lng": -0.1308,
+          "rank": 7,
+          "tier": "强烈推荐（中式食材）",
+          "note": "70年代起扎根唐人街，蔬菜肉类新鲜，地下室设炊具及家居区，专业厨具也可在此购买。"
+        },
+        {
+          "name": "Japan Centre (Shaftesbury Avenue)",
+          "nameCn": "日本中心超市",
+          "lat": 51.5103,
+          "lng": -0.133,
+          "rank": 8,
+          "tier": "强烈推荐（亚洲食材）",
+          "note": "莱斯特广场附近，日韩食材最全面的亚洲超市，日本进口拉面、清酒、零食丰富，也深受中国留学生喜爱。"
         }
       ]
     },
@@ -246,39 +446,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Four Seasons (Gerrard Street)",
-          "nameCn": "文兴酒家",
-          "lat": 51.5119,
-          "lng": -0.1309,
-          "note": "中国城烧腊名店，招牌脆皮烧鸭被誉为伦敦最好之一，想家时的粤式安慰餐。"
-        },
-        {
-          "name": "Din Tai Fung Covent Garden",
-          "nameCn": "鼎泰丰（柯芬园店）",
-          "lat": 51.5112,
-          "lng": -0.1233,
-          "note": "米其林一星小笼包，离校最近的台式精致点心，约会请客两相宜，步行10分钟。"
-        },
-        {
-          "name": "Plum Valley",
-          "nameCn": "翠园",
-          "lat": 51.5116,
-          "lng": -0.1318,
-          "note": "中国城装修考究的粤菜馆，XO酱炒萝卜糕和咸水角是必点，环境适合聚餐。"
-        },
-        {
-          "name": "Kowloon Restaurant & Bakery",
-          "nameCn": "九龙餐厅面包店",
-          "lat": 51.5116,
-          "lng": -0.1319,
-          "note": "中国城平价港式茶餐厅兼面包房，菠萝包、奶茶和烧味饭便宜管饱，学生党友好。"
-        },
-        {
-          "name": "Rules Restaurant",
-          "nameCn": "Rules 餐厅",
-          "lat": 51.5113,
+          "name": "Din Tai Fung (Covent Garden)",
+          "nameCn": "鼎泰丰 科文特花园",
+          "lat": 51.5117,
           "lng": -0.1228,
-          "note": "伦敦现存最古老餐厅（1798年），柯芬园旁的英式野味与派，体验地道伦敦老味道的打卡地。"
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "台湾顶级连锁，伦敦旗舰店，小笼包、汤面为招牌，可预订，是华人留学生必打卡的第一餐。"
+        },
+        {
+          "name": "Master Wei Xi'an Cuisine (Holborn)",
+          "nameCn": "魏师傅西安小吃 霍尔本",
+          "lat": 51.522,
+          "lng": -0.125,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "西安裤带面（biangbiang noodles）全伦敦最正宗之一，13 Cosmo Place，大量中国留学生和媒体强力推荐。"
+        },
+        {
+          "name": "Four Seasons (Chinatown)",
+          "nameCn": "四季烧鸭 唐人街",
+          "lat": 51.5119,
+          "lng": -0.1305,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "唐人街十年老店，秘制酱料烤鸭皮脆肉嫩，Timeout等媒体常年好评，是伦敦最佳粤式烧腊代表。"
+        },
+        {
+          "name": "Happy Lamb Hot Pot (Holborn)",
+          "nameCn": "快乐小羊火锅 霍尔本",
+          "lat": 51.5185,
+          "lng": -0.1258,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于New Oxford Street，大骨熬制白汤锅底，是LSE附近少有的正规中式火锅，中国学生聚餐首选。"
+        },
+        {
+          "name": "Canton Element (Holborn)",
+          "nameCn": "广东天地 霍尔本",
+          "lat": 51.5186,
+          "lng": -0.1186,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "48 Red Lion Street，被香港本地人评为「九成相似香港」，广式点心与烧味品质出众，荣获2024年点心服务奖。"
+        },
+        {
+          "name": "Cha Chaan Teng (Holborn)",
+          "nameCn": "茶餐厅 霍尔本",
+          "lat": 51.5173,
+          "lng": -0.119,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "36-38 Kingsway，紧邻LSE，港式东西融合菜单由「烹饪学校」创始人Jeremy Pang主理，下午茶和Happy Hour极受学生欢迎。"
+        },
+        {
+          "name": "HUS London (Holborn)",
+          "nameCn": "HUS伦敦中餐馆 霍尔本",
+          "lat": 51.5178,
+          "lng": -0.1188,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "现代中餐，东西文化融合菜单，装潢精致，适合接待家长或重要宴请，位于High Holborn附近。"
+        },
+        {
+          "name": "Golden Phoenix (Chinatown)",
+          "nameCn": "金凤凰 唐人街",
+          "lat": 51.512,
+          "lng": -0.1307,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "唐人街Gerrard Street，2025年Time Out伦敦最佳点心餐厅榜上有名，手工蒸饺、蟹肉蒸饺不容错过。"
+        },
+        {
+          "name": "Dumplings' Legend (Chinatown)",
+          "nameCn": "饺子传奇 唐人街",
+          "lat": 51.5118,
+          "lng": -0.1302,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "每日手工制作逾8000个饺子，玻璃橱窗内可观看制作过程，小笼包汤汁饱满，排队热门店。"
+        },
+        {
+          "name": "Hoa Sen (Holborn/Covent Garden)",
+          "nameCn": "荷花越南餐厅",
+          "lat": 51.5132,
+          "lng": -0.1215,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "22 Drury Lane，LSE官方学生博客力荐的越南餐厅，河粉与越南法棍口碑极佳，价格实惠。"
+        },
+        {
+          "name": "Dim Sum Library (Covent Garden)",
+          "nameCn": "点心图书馆 科文特花园",
+          "lat": 51.5115,
+          "lng": -0.1224,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "港式正宗点心，St Martin's Court，水晶虾饺与猪扒包均获好评，是Covent Garden区人气最高的粤式茶楼。"
+        },
+        {
+          "name": "RedFarm (Covent Garden)",
+          "nameCn": "红农场 科文特花园",
+          "lat": 51.512,
+          "lng": -0.123,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "美式创意中餐，招牌PacMan饺子外形可爱，芝士汉堡春卷令人惊喜，适合新奇体验型的聚餐。"
+        },
+        {
+          "name": "Plum Valley (Chinatown)",
+          "nameCn": "李子谷 唐人街",
+          "lat": 51.5117,
+          "lng": -0.1304,
+          "rank": 13,
+          "tier": "一般",
+          "note": "全天供应点心，萝卜糕配XO酱和炸糯米糍尤为推荐，是唐人街中少数正规Dim Sum全天供应餐厅。"
+        },
+        {
+          "name": "Kintan Japanese BBQ (Holborn)",
+          "nameCn": "Kintan日式烤肉 霍尔本",
+          "lat": 51.5165,
+          "lng": -0.1153,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Chancery Lane附近，午市超值，烤肉质量高，适合庆祝、家人来访等特殊场合，LSE学生认可度高。"
         }
       ]
     },
@@ -290,32 +581,67 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Metro Bank (High Holborn)",
-          "nameCn": "Metro 银行（高霍本店）",
-          "lat": 51.5177,
-          "lng": -0.1208,
-          "note": "距校步行5分钟，留学生圈口碑最好的开户银行，凭护照+录取信常可当天拿卡。"
+          "name": "HSBC (210 High Holborn)",
+          "nameCn": "汇丰银行 高霍尔本支行",
+          "lat": 51.5175,
+          "lng": -0.12,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "距LSE步行约7分钟，汇丰提供国际学生账户，中国学生开户便利，可直接与国内汇丰账户关联。"
         },
         {
-          "name": "Boots Pharmacy (Kingsway)",
-          "nameCn": "博姿药房（Kingsway店）",
+          "name": "Barclays (326-328 High Holborn / Chancery Lane)",
+          "nameCn": "巴克莱银行 高霍尔本支行",
+          "lat": 51.5174,
+          "lng": -0.1185,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "Chancery Lane旁，步行约5分钟，开户流程标准，学生账户含免费透支额度，是LSE学生常用银行之一。"
+        },
+        {
+          "name": "Holborn Medical Centre (Lamb's Conduit Street)",
+          "nameCn": "霍尔本医疗中心 NHS全科诊所",
+          "lat": 51.5216,
+          "lng": -0.1201,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "64-66 Lamb's Conduit Street，NHS全科诊所，专设学生注册通道（Holborn Student Health），到达后立即注册。"
+        },
+        {
+          "name": "Boots Pharmacy (122 Holborn)",
+          "nameCn": "博姿药房 霍尔本店",
+          "lat": 51.5176,
+          "lng": -0.1088,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "122 Holborn（Chancery Lane附近），伦敦最大连锁药房，处方取药、OTC药品及护肤品一站齐全。"
+        },
+        {
+          "name": "O2 Shop (Holborn, Procter Street)",
+          "nameCn": "O2手机店 霍尔本店",
+          "lat": 51.518,
+          "lng": -0.1202,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "1 Procter Street，步行约8分钟，O2提供学生SIM卡优惠套餐，是LSE学生开英国号码的首选。"
+        },
+        {
+          "name": "Three Store (315 High Holborn)",
+          "nameCn": "三网运营商 高霍尔本店",
           "lat": 51.5172,
-          "lng": -0.1205,
-          "note": "紧邻校园的大型连锁药房，可买非处方药、做流感疫苗和血压检查，还能取处方。"
+          "lng": -0.1185,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "高霍尔本正街，Three是国际学生间公认性价比最高的运营商，网络覆盖良好，无限流量套餐实惠。"
         },
         {
-          "name": "Holborn Medical Centre",
-          "nameCn": "霍本全科诊所",
-          "lat": 51.5222,
-          "lng": -0.1186,
-          "note": "校园附近的NHS全科医生（GP）诊所，注册后看病免费，到校后尽早登记。"
-        },
-        {
-          "name": "EE Store (Strand)",
-          "nameCn": "EE 电信营业厅（河岸街店）",
-          "lat": 51.5097,
-          "lng": -0.1227,
-          "note": "英国主流运营商门店，就在Strand上，办手机卡和套餐方便，信号覆盖好。"
+          "name": "University College Hospital (UCH) A&E",
+          "nameCn": "大学学院医院 急诊部",
+          "lat": 51.5252,
+          "lng": -0.1345,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Euston Road，是距LSE最近的大型NHS教学医院急诊，乘地铁约2站可达，重大突发伤病需前往此处。"
         }
       ]
     },
@@ -327,39 +653,103 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Somerset House",
-          "nameCn": "萨默塞特宫",
-          "lat": 51.5099,
-          "lng": -0.1176,
-          "note": "泰晤士河畔新古典宫殿，夏季喷泉冬季溜冰场，内含考陶尔德美术馆，离校仅5分钟。"
-        },
-        {
-          "name": "Covent Garden Market",
-          "nameCn": "柯芬园市集",
-          "lat": 51.512,
+          "name": "Covent Garden",
+          "nameCn": "科文特花园",
+          "lat": 51.5122,
           "lng": -0.1227,
-          "note": "伦敦最热闹的市集广场，街头艺人、精品店和餐厅云集，逛吃拍照的必到地。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "伦敦最著名的街头表演广场，购物、餐饮、皇家歌剧院汇聚，步行约10分钟，是国际学生最常打卡的第一站。"
         },
         {
-          "name": "Sir John Soane's Museum",
-          "nameCn": "约翰·索恩爵士博物馆",
-          "lat": 51.5171,
-          "lng": -0.1175,
-          "note": "林肯律师学院广场旁的免费博物馆，建筑师故居塞满古董珍藏，小众文艺打卡点。"
+          "name": "British Museum",
+          "nameCn": "大英博物馆",
+          "lat": 51.5194,
+          "lng": -0.127,
+          "rank": 2,
+          "tier": "必去",
+          "note": "步行约12分钟，免费入场，馆藏800万件，中国文物馆极为精彩，每个初来乍到的LSE学生必访。"
+        },
+        {
+          "name": "Somerset House & Thames Embankment",
+          "nameCn": "萨默塞特宫与泰晤士河堤",
+          "lat": 51.5113,
+          "lng": -0.1173,
+          "rank": 3,
+          "tier": "必去",
+          "note": "步行5分钟，沿河岸散步可远眺泰晤士，夏季花园电影节、冬季溜冰场均在此，是LSE最近的高颜值打卡地。"
+        },
+        {
+          "name": "South Bank (Tate Modern / National Theatre / Southbank Centre)",
+          "nameCn": "南岸文化区",
+          "lat": 51.5072,
+          "lng": -0.1055,
+          "rank": 4,
+          "tier": "必去",
+          "note": "步行约20分钟或骑共享单车可达，Tate Modern免费，国家剧院与南岸中心演出丰富，是学生文化生活核心。"
+        },
+        {
+          "name": "Lincoln's Inn Fields & Sir John Soane's Museum",
+          "nameCn": "林肯律师学院广场及博物馆",
+          "lat": 51.5167,
+          "lng": -0.1187,
+          "rank": 5,
+          "tier": "必去",
+          "note": "午休即可到达的绿肺广场与免费博物馆，适合书本之余放松，是LSE校园生活的天然延伸空间。"
         },
         {
           "name": "Royal Courts of Justice",
-          "nameCn": "皇家司法院",
-          "lat": 51.5142,
-          "lng": -0.1132,
-          "note": "哥特式法院建筑群，就在校门口的Strand上，气势恢宏，法学生尤其值得一看。"
+          "nameCn": "皇家法院",
+          "lat": 51.5143,
+          "lng": -0.1131,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "维多利亚哥特式法院建筑，步行8分钟，法学系学生可免费旁听庭审，建筑外观本身就是最佳拍照背景。"
         },
         {
-          "name": "Lincoln's Inn Fields",
-          "nameCn": "林肯律师学院广场",
-          "lat": 51.5162,
-          "lng": -0.1166,
-          "note": "伦敦最大的公共广场，紧挨校园的大片绿地，晴天午休晒太阳野餐的好去处。"
+          "name": "Temple Church & Inns of Court",
+          "nameCn": "圣殿教堂与律师学院区",
+          "lat": 51.513,
+          "lng": -0.1073,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "12世纪圆形神殿教堂与中世纪法学院庭院，远离游客，是伦敦最神秘的步行打卡路线，LSE法学生的朝圣地。"
+        },
+        {
+          "name": "Leicester Square & Chinatown",
+          "nameCn": "莱斯特广场与唐人街",
+          "lat": 51.5105,
+          "lng": -0.1308,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "电影首映广场与伦敦唐人街相邻，购买中国食材、聚餐、娱乐一体，是华人留学生最频繁光顾的区域。"
+        },
+        {
+          "name": "Trafalgar Square & National Gallery",
+          "nameCn": "特拉法加广场与国家美术馆",
+          "lat": 51.508,
+          "lng": -0.1281,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "步行约18分钟，国家美术馆免费，收藏梵高、提香、莫奈等大师原作，广场本身是伦敦最重要的公共集会地。"
+        },
+        {
+          "name": "Borough Market (London Bridge)",
+          "nameCn": "博罗市场 伦敦桥",
+          "lat": 51.5055,
+          "lng": -0.0909,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "英国最著名的食品市集，乘地铁约15分钟，周四至周六可品尝全球各地美食，是探索真实伦敦饮食文化的最佳地点。"
+        },
+        {
+          "name": "The Strand Walking Route",
+          "nameCn": "斯特兰德大街漫步路线",
+          "lat": 51.513,
+          "lng": -0.121,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "从LSE延伸至查令十字，两侧有萨沃伊酒店、辛普森餐厅等百年老店，是感受伦敦历史与精英文化的必走步道。"
         }
       ]
     }

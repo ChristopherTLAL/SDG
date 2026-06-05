@@ -67,46 +67,103 @@
       "icon": "school",
       "items": [
         {
-          "name": "Quadrangle Building",
-          "nameCn": "四方庭大楼",
+          "name": "UNSW Business School (Quadrangle Building E15)",
+          "nameCn": "商学院（四方楼）",
+          "lat": -33.917,
+          "lng": 151.2318,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳洲顶级商学院，含 AGSM MBA 项目，位于校园十字路口，是商科生最常驻扎的地方。"
+        },
+        {
+          "name": "UNSW Faculty of Engineering – Science & Engineering Building (E8)",
+          "nameCn": "工程学院（理工大楼 E8）",
+          "lat": -33.9173,
+          "lng": 151.2298,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全澳最大工程学院之一，E8 楼是工程与计算机专业学生的核心教学楼。"
+        },
+        {
+          "name": "Anita B. Lawrence Centre (Red Centre, H13)",
+          "nameCn": "红楼（H13）",
           "lat": -33.9168,
-          "lng": 151.2295,
-          "note": "主校区行政与人文核心建筑。"
+          "lng": 151.2315,
+          "rank": 3,
+          "tier": "必去",
+          "note": "标志性红砖建筑，位于主干道中央，内设数学与建筑环境学院，是校园最显眼的地标之一。"
         },
         {
-          "name": "Wallace Wurth Building (Medicine)",
-          "nameCn": "华莱士·沃斯楼（医学）",
-          "lat": -33.9171,
-          "lng": 151.236,
-          "note": "医学与健康学院基础医学教研楼。"
+          "name": "John Niland Scientia Building (G19)",
+          "nameCn": "西恩蒂亚大楼（G19）",
+          "lat": -33.9175,
+          "lng": 151.2325,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校园典礼与文化中心，含 Leighton Hall 礼堂和展览画廊，是毕业典礼和大型讲座举办地。"
         },
         {
-          "name": "Law Building",
-          "nameCn": "法学院大楼",
-          "lat": -33.9169,
-          "lng": 151.2278,
-          "note": "UNSW 法学与司法学院所在地。"
+          "name": "UNSW Law Building (F8)",
+          "nameCn": "法学院楼（F8）",
+          "lat": -33.9165,
+          "lng": 151.2312,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "世界百强法学院，含 24 小时法学图书馆，是法律专业学生学习的核心场所。"
         },
         {
-          "name": "Anita B. Lawrence Centre (Science/Maths)",
-          "nameCn": "安妮塔·劳伦斯中心",
-          "lat": -33.918,
-          "lng": 151.2301,
-          "note": "数学与理科教学楼，曾名 Red Centre。"
-        },
-        {
-          "name": "Electrical Engineering Building",
-          "nameCn": "电气工程大楼",
+          "name": "Tyree Energy Technologies Building (H6)",
+          "nameCn": "泰瑞能源技术楼（H6）",
           "lat": -33.9188,
-          "lng": 151.2305,
-          "note": "工程学院电气与电信教研楼。"
+          "lng": 151.2308,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "荣获六星绿星认证的可持续建筑，面朝 Anzac Parade，是能源工程研究的旗舰基地。"
         },
         {
-          "name": "UNSW Business School",
-          "nameCn": "商学院大楼",
-          "lat": -33.9168,
-          "lng": 151.2295,
-          "note": "AGSM 与商学院本科研究生教学楼。"
+          "name": "Wallace Wurth Medical Sciences Building (C27)",
+          "nameCn": "医学院大楼（C27）",
+          "lat": -33.9148,
+          "lng": 151.2302,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "医学院核心教学楼，与 Lowy 癌症研究中心相连，毗邻 Randwick 教学医院群。"
+        },
+        {
+          "name": "Lowy Cancer Research Centre",
+          "nameCn": "洛伊癌症研究中心",
+          "lat": -33.9145,
+          "lng": 151.2298,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "澳大利亚首个成人与儿童癌症联合研究设施，可容纳 400 名研究人员，建筑设计前卫。"
+        },
+        {
+          "name": "Mathews Building & Mathews Arcade (F23)",
+          "nameCn": "马修斯楼与美食广场（F23）",
+          "lat": -33.9163,
+          "lng": 151.2328,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "上校区核心食堂区和大教室所在地，含 Mathews Theatres，是人文社科学生最常上课的楼群。"
+        },
+        {
+          "name": "AGSM Building (G27)",
+          "nameCn": "澳洲管理研究院大楼（G27）",
+          "lat": -33.9155,
+          "lng": 151.2338,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "澳洲顶级 MBA 学院所在地，靠近 Gate 11 Botany Street，研究生商科教育重镇。"
+        },
+        {
+          "name": "Ainsworth Building (K17)",
+          "nameCn": "艾恩斯沃斯楼（K17）",
+          "lat": -33.9178,
+          "lng": 151.2323,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "内含多个阶梯大教室，是工程、理学院常用的大型讲座教学楼。"
         }
       ],
       "defaultOn": true
@@ -119,11 +176,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "UNSW Main Library",
-          "nameCn": "主图书馆",
-          "lat": -33.9175,
-          "lng": 151.2334,
-          "note": "图书馆草坪旁的中央图书馆，学习生活地标。"
+          "name": "UNSW Main Library (F21)",
+          "nameCn": "UNSW 主图书馆",
+          "lat": -33.9162,
+          "lng": 151.233,
+          "rank": 1,
+          "tier": "必去",
+          "note": "校内最大图书馆，含 Level 8 自习舱、可预约小组讨论室，Level 2 设学生服务中心 Nucleus。"
+        },
+        {
+          "name": "UNSW Law Library (F8)",
+          "nameCn": "法学院图书馆",
+          "lat": -33.9165,
+          "lng": 151.2312,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全年 24 小时向 UNSW 学生开放，法律专业的深夜备考圣地。"
+        },
+        {
+          "name": "Quadrangle Study Space / Library (E15)",
+          "nameCn": "四方楼自习室",
+          "lat": -33.917,
+          "lng": 151.2318,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "商学院配套自习空间，安静且方便，商科、经济学学生首选备考场所。"
+        },
+        {
+          "name": "Tyree Energy Technology Study Space (H6)",
+          "nameCn": "泰瑞楼自习室",
+          "lat": -33.9188,
+          "lng": 151.2308,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "理工科学生常用的现代化学习空间，自然采光好，有可预约小组室。"
+        },
+        {
+          "name": "Law Building Study Space (F8 Upper Floors)",
+          "nameCn": "法学楼高层自习区",
+          "lat": -33.9166,
+          "lng": 151.2311,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "法学院楼内配套自习区，宽敞安静，附带法律数据库访问终端。"
+        },
+        {
+          "name": "UNSW Paddington Library (Art & Design Campus)",
+          "nameCn": "帕丁顿图书馆（艺术设计校区）",
+          "lat": -33.8833,
+          "lng": 151.2227,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "专为艺术与设计专业学生服务，位于帕丁顿校区，校车每小时免费往返肯辛顿。"
         }
       ]
     },
@@ -135,11 +239,40 @@
       "icon": "museum",
       "items": [
         {
-          "name": "UNSW Galleries",
-          "nameCn": "UNSW 美术馆",
-          "lat": -33.8836,
-          "lng": 151.22,
-          "note": "帕丁顿校区当代艺术展览空间。"
+          "name": "Museum of Human Disease (Samuels Building, UNSW)",
+          "nameCn": "人类疾病博物馆",
+          "lat": -33.9153,
+          "lng": 151.2296,
+          "rank": 1,
+          "tier": "必去",
+          "note": "澳洲唯一公众开放的病理标本馆，收藏逾 1500 件人体组织，医学、生科学生必看。"
+        },
+        {
+          "name": "UNSW Galleries (Paddington Campus)",
+          "nameCn": "UNSW 当代艺术展馆",
+          "lat": -33.8835,
+          "lng": 151.223,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "2013 年开馆，专注当代艺术与设计展览，融合气候、身份等社会议题，靠近帕丁顿校区。"
+        },
+        {
+          "name": "Scientia Galleries (John Niland Scientia Building, G19)",
+          "nameCn": "西恩蒂亚展览厅",
+          "lat": -33.9175,
+          "lng": 151.2325,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "校园内核心展览空间，不定期举办学术成果与艺术展览，免费向公众开放。"
+        },
+        {
+          "name": "Kudos Gallery (UNSW Art & Design, Paddington)",
+          "nameCn": "Kudos 学生画廊",
+          "lat": -33.8837,
+          "lng": 151.2232,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "UNSW 艺术与设计学生作品展示空间，常举办期末毕业展，展示新锐创意。"
         }
       ]
     },
@@ -151,32 +284,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "John Niland Scientia Building",
-          "nameCn": "约翰·尼兰科学大楼",
-          "lat": -33.9176,
-          "lng": 151.2326,
-          "note": "标志性玻璃翼建筑，重大典礼场所。"
+          "name": "Arc UNSW Student Life (Basser Steps, D17)",
+          "nameCn": "Arc 学生会",
+          "lat": -33.9171,
+          "lng": 151.232,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UNSW 学生会总部，管理 300 余个社团，是国际生融入社交圈的最佳起点。"
         },
         {
-          "name": "The Roundhouse",
-          "nameCn": "圆顶剧场",
-          "lat": -33.9165,
-          "lng": 151.2269,
-          "note": "学生会演出与活动场地。"
+          "name": "Roundhouse (E6)",
+          "nameCn": "圆形会场",
+          "lat": -33.9162,
+          "lng": 151.2296,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园标志性演出与社交场所，内设啤酒花园和美食区，是学生派对和演唱会的聚集地。"
         },
         {
-          "name": "University Mall & Library Lawn",
-          "nameCn": "大学步道与图书馆草坪",
-          "lat": -33.9167,
-          "lng": 151.2336,
-          "note": "贯穿校园的中央步道与聚集草坪。"
+          "name": "Scientia Lawn & University Mall",
+          "nameCn": "西恩蒂亚草坪与校园步行街",
+          "lat": -33.9174,
+          "lng": 151.2322,
+          "rank": 3,
+          "tier": "必去",
+          "note": "校园中轴线绿草地，是晒太阳、野餐和户外集会的热门地点，也是新生定向的集合点。"
         },
         {
-          "name": "UNSW Light Rail Stop (Anzac Parade)",
-          "nameCn": "UNSW 轻轨站",
-          "lat": -33.9166,
-          "lng": 151.2259,
-          "note": "L2 线轻轨站，安扎克大道校门口。"
+          "name": "The Nucleus: Student Hub (Main Library, F21, Level 2)",
+          "nameCn": "Nucleus 学生服务中心",
+          "lat": -33.9162,
+          "lng": 151.233,
+          "rank": 4,
+          "tier": "必去",
+          "note": "一站式学籍、签证合规、国际学生支持服务窗口，每学期初务必来此办理入学手续。"
+        },
+        {
+          "name": "UNSW Village Green (Lower Campus)",
+          "nameCn": "校园绿地广场（下校区）",
+          "lat": -33.9185,
+          "lng": 151.2308,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "下校区开阔草坪，毗邻宿舍村，是课间休息、午餐聚会和各类 O-Week 活动的主要户外空间。"
+        },
+        {
+          "name": "UNSW Anzac Parade Light Rail Stop",
+          "nameCn": "Anzac 大道轻轨站",
+          "lat": -33.919,
+          "lng": 151.2304,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "L3 Kingsford 线，15 分钟直达悉尼 CBD，是国际学生出行最常用的交通枢纽。"
+        },
+        {
+          "name": "NIDA – National Institute of Dramatic Art",
+          "nameCn": "澳大利亚国家戏剧学院",
+          "lat": -33.9183,
+          "lng": 151.23,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "紧邻 UNSW，是凯特·布兰切特等知名演员的母校，Parade Theatres 常有高质量话剧公演。"
         }
       ]
     },
@@ -188,39 +356,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Royal Randwick Shopping Centre (Woolworths Metro + Harris Farm)",
-          "nameCn": "皇家兰德威克购物中心(Woolworths + Harris Farm)",
-          "lat": -33.9151,
-          "lng": 151.2409,
-          "note": "离上校区步行约10分钟,日常买菜买生活用品最方便的去处,内有Woolworths和Harris Farm生鲜超市。"
+          "name": "IGA Local Grocer UNSW (17 High St, Kensington)",
+          "nameCn": "IGA UNSW 校园超市",
+          "lat": -33.92,
+          "lng": 151.2313,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距下校区步行 5 分钟，营业时间长，是日常补给最方便的选择，含进口零食和亚洲调味料。"
         },
         {
-          "name": "Coles Randwick (Randwick Plaza)",
-          "nameCn": "Coles 超市(兰德威克广场)",
-          "lat": -33.9145,
-          "lng": 151.2419,
-          "note": "皇家兰德威克对面,澳洲两大主流超市之一,价格实惠、品类齐全,学生采购首选。"
+          "name": "Woolworths Metro Randwick (Royal Randwick Shopping Centre, 73 Belmore Rd)",
+          "nameCn": "Woolworths Metro 兰德威克店",
+          "lat": -33.9148,
+          "lng": 151.242,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Woolworths 便利超市，品类齐全，位于 Royal Randwick 购物中心内，是采购生活用品的首选。"
         },
         {
-          "name": "Tokyo Super",
-          "nameCn": "东京超市(日韩亚超)",
-          "lat": -33.9221,
-          "lng": 151.2271,
-          "note": "Anzac Parade上的日韩亚洲超市,买拉面、调料、零食和日韩食材很全,离校近。"
+          "name": "Coles Randwick (148 Belmore Rd, Randwick)",
+          "nameCn": "Coles 兰德威克店",
+          "lat": -33.9155,
+          "lng": 151.2432,
+          "rank": 3,
+          "tier": "必去",
+          "note": "大型超市，价格实惠，距 UNSW 高街轻轨站约 500 米，自有品牌物美价廉。"
         },
         {
-          "name": "Randwick Oriental Supermarket (Kingsford)",
-          "nameCn": "东方超市 金斯福德店",
-          "lat": -33.9239,
-          "lng": 151.2258,
-          "note": "Anzac Parade 500号的华人超市,酱料、香料、火锅料、中式调味一应俱全,解乡愁必备。"
+          "name": "Harris Farm Markets Randwick (Royal Randwick Shopping Centre, 73-109 Belmore Rd)",
+          "nameCn": "Harris Farm 精品生鲜超市",
+          "lat": -33.9148,
+          "lng": 151.2425,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "悉尼知名精品生鲜超市，新鲜蔬果和进口食材齐全，价格略高但品质出色。"
         },
         {
-          "name": "Kingsford Indonesian & Asian Grocery",
-          "nameCn": "金斯福德印尼亚洲杂货店",
-          "lat": -33.9215,
-          "lng": 151.2272,
-          "note": "主营东南亚和印尼食材,想做南洋菜或找特色香料调料可以来这里。"
+          "name": "Hidaka Asian Supermarket (UNSW campus area)",
+          "nameCn": "日高亚洲超市",
+          "lat": -33.9195,
+          "lng": 151.231,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "校区内亚洲食品超市，供应日韩中食材及零食，是国际学生补充家乡味道的便捷选择。"
+        },
+        {
+          "name": "IGA Local Grocer Kingsford (361 Anzac Pde, Kingsford)",
+          "nameCn": "IGA 金斯福德店",
+          "lat": -33.9238,
+          "lng": 151.2295,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "Anzac 大道上的社区超市，覆盖基本生活用品和部分亚洲食材，步行可达。"
+        },
+        {
+          "name": "Thai Kee IGA (Sydney Chinatown, Haymarket)",
+          "nameCn": "泰记 IGA 中华超市（唐人街）",
+          "lat": -33.8789,
+          "lng": 151.2053,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "悉尼唐人街最大华人超市，提供各类中式食材、鱼露、冷冻食品，周末与朋友同游首选。"
         }
       ]
     },
@@ -232,46 +428,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Xi'an Taste 大秦小味",
-          "nameCn": "大秦小味(西安风味)",
-          "lat": -33.9234,
-          "lng": 151.2261,
-          "note": "Anzac Parade上的西北菜馆,biangbiang面和手工水饺有名,分量足价格实在,留学生热门。"
-        },
-        {
-          "name": "It's Time for Thai",
-          "nameCn": "泰时泰泰国餐厅",
-          "lat": -33.922,
-          "lng": 151.2272,
-          "note": "紧挨UNSW和Kingsford轻轨站,UNSW学生最爱的泰餐,味道正、分量大、价格友好(清真)。"
-        },
-        {
-          "name": "Ayam Goreng 99",
-          "nameCn": "Ayam Goreng 99 印尼炸鸡",
-          "lat": -33.9252,
-          "lng": 151.2256,
-          "note": "悉尼数一数二的印尼餐厅,招牌炭烤鸡和炸鸡配辣椒酱,沙爹、炒饭炒面都很地道。"
-        },
-        {
-          "name": "We Wok (formerly Kingsford Chinese Restaurant)",
-          "nameCn": "We Wok(原金斯福德中餐馆)",
-          "lat": -33.9243,
-          "lng": 151.2258,
-          "note": "Anzac Parade 426号老牌粤式中餐,UNSW师生常去,炒菜烧腊家常味。"
-        },
-        {
-          "name": "Spureats Dumpling Noodle (Anzac Parade)",
-          "nameCn": "Spureats 川味面馆",
+          "name": "Zhou Mum Cafe (243-245 Anzac Pde, Kingsford)",
+          "nameCn": "周妈妈咖啡餐厅",
           "lat": -33.9228,
-          "lng": 151.2263,
-          "note": "Kingsford美食街上的川味小馆,辣味面食和小吃管饱,学生快餐之选。"
+          "lng": 151.2293,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "UNSW 留学生口耳相传的中餐老店，现金支付可享超低价套餐，豆豉鱼和蒸菜是招牌。"
         },
         {
-          "name": "The Spot, Randwick (cafes & The Ritz Cinema)",
-          "nameCn": "The Spot 美食娱乐区(含Ritz老电影院)",
-          "lat": -33.9168,
-          "lng": 151.2493,
-          "note": "兰德威克的咖啡馆与餐厅聚集地,周末早午餐(brunch)和复古Ritz电影院体验地道悉尼生活。"
+          "name": "Hoh Won Chinese Restaurant (134 Anzac Pde, Kensington)",
+          "nameCn": "合和中餐厅",
+          "lat": -33.9205,
+          "lng": 151.2305,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "开业数十年的家庭粤式餐厅，山东鸡和酸辣汤是招牌，永远爆满，建议提前订位。"
+        },
+        {
+          "name": "Alleyway Kitchen (Quad Food Court, UNSW)",
+          "nameCn": "胡同厨房（校内四方楼美食广场）",
+          "lat": -33.917,
+          "lng": 151.2316,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "校内最受欢迎的中式快餐，份量大、价格约 $15，米饭/面条任选，常常排长队。"
+        },
+        {
+          "name": "Chairman Mao Chinese Restaurant (189 Anzac Pde, Kensington)",
+          "nameCn": "毛主席湘菜馆",
+          "lat": -33.9213,
+          "lng": 151.2303,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "以湖南辣味菜系为主，红烧肉和剁椒口味深受留学生喜爱，性价比高。"
+        },
+        {
+          "name": "88 Asian Food (369 Anzac Pde, Kingsford)",
+          "nameCn": "88 亚洲美食",
+          "lat": -33.9243,
+          "lng": 151.2292,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "港式烧腊饭和叉烧饭，不足 $10 即可吃饱，留学生的高频廉价午餐选项。"
+        },
+        {
+          "name": "Chinese Dumpling and Noodle House (430 Anzac Pde, Kingsford)",
+          "nameCn": "中国饺子面条馆",
+          "lat": -33.9258,
+          "lng": 151.229,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "手工现包饺子，有水饺、蒸饺和煎饺多种选择，价格亲民，被学生评为 Anzac 大道必吃。"
+        },
+        {
+          "name": "Turpan Restaurant (240 Anzac Pde, Kensington)",
+          "nameCn": "吐鲁番餐厅",
+          "lat": -33.9222,
+          "lng": 151.2297,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "新疆维吾尔族清真餐厅，烤串、手抓羊肉和新疆大盘鸡风味独特，是 Anzac 大道最具特色的异域选择。"
+        },
+        {
+          "name": "Manpuku Kingsford (482 Anzac Pde, Kingsford)",
+          "nameCn": "满腹日式拉面",
+          "lat": -33.9265,
+          "lng": 151.2289,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "正宗日式拉面，持学生证可免费加面，黑蒜油豚骨汤底浓郁，学生聚餐热门选择。"
+        },
+        {
+          "name": "New Dong Dong Noodles (428 Anzac Pde, Kingsford)",
+          "nameCn": "新东东面馆",
+          "lat": -33.9257,
+          "lng": 151.229,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "开放式厨房粤式餐厅，提供火锅、炒面、肠粉和各式粥品，性价比高。"
+        },
+        {
+          "name": "Taste of Home – 湘聚 (486 Anzac Pde, Kingsford)",
+          "nameCn": "湘聚家乡菜",
+          "lat": -33.9267,
+          "lng": 151.2289,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "湖南家常菜馆，鱼香茄子和腊肉口碑极佳，节假日聚餐和生日庆祝的热门场所。"
+        },
+        {
+          "name": "Mamak Village (University Terraces, Lower Campus UNSW)",
+          "nameCn": "Mamak 马来西亚餐厅（下校区）",
+          "lat": -33.9187,
+          "lng": 151.2305,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "校内正宗马来西亚煎饼和咖喱饭，$12 起，是课间快速填饱肚子的好选择。"
+        },
+        {
+          "name": "Pho House / Tropical Green (Pavilions, Upper Campus UNSW)",
+          "nameCn": "越南河粉馆（上校区 Pavilions）",
+          "lat": -33.9162,
+          "lng": 151.2325,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "校内越南餐，河粉 $14 起，越南法棍不足 $10，国际留学生好评不断。"
+        },
+        {
+          "name": "Sharetea UNSW (Lower Campus)",
+          "nameCn": "歇脚亭珍珠奶茶（UNSW 店）",
+          "lat": -33.9192,
+          "lng": 151.2308,
+          "rank": 13,
+          "tier": "一般",
+          "note": "知名台式奶茶品牌，虎珍珠奶茶 $10 以内，课后饮品首选，常排长队。"
+        },
+        {
+          "name": "Coogee Pavilion (169 Dolphin St, Coogee)",
+          "nameCn": "库吉海滨酒吧餐厅",
+          "lat": -33.9218,
+          "lng": 151.2568,
+          "rank": 14,
+          "tier": "一般",
+          "note": "面朝库吉海滩的多层餐饮娱乐综合体，屋顶吧台景色绝佳，海鲜和披萨受学生欢迎。"
         }
       ]
     },
@@ -283,32 +563,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Prince of Wales Hospital (Emergency Department)",
-          "nameCn": "威尔士亲王医院(急诊)",
-          "lat": -33.9183,
-          "lng": 151.2406,
-          "note": "校区东侧Barker St,公立大医院带24小时急诊,生病或紧急情况就近就医。"
+          "name": "CommBank Randwick Branch (Ground Floor, 92-94 Belmore Rd, Randwick)",
+          "nameCn": "联邦银行 兰德威克支行",
+          "lat": -33.9147,
+          "lng": 151.244,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距 UNSW 最近的 CommBank 支行（校内原支行已关闭），国际学生首选开户银行，可提前 14 天在线预办理。"
         },
         {
-          "name": "Commonwealth Bank — Kingsford branch",
-          "nameCn": "联邦银行 金斯福德支行",
-          "lat": -33.9254,
-          "lng": 151.2262,
-          "note": "Anzac Parade上的CBA网点,办本地银行卡/开户、取现金方便,留学生常用银行。"
+          "name": "UNSW Health Service (Ground Floor, East Quadrangle, Kensington)",
+          "nameCn": "UNSW 校医服务中心",
+          "lat": -33.9167,
+          "lng": 151.2316,
+          "rank": 2,
+          "tier": "必去",
+          "note": "持 Medibank/Bupa OSHC 保险学生免费就诊，提供 GP、专科转诊及精神健康支持，预约电话 02 9385 5425。"
         },
         {
-          "name": "Chemist Warehouse Kingsford",
-          "nameCn": "Chemist Warehouse 药房 金斯福德店",
-          "lat": -33.924,
-          "lng": 151.2259,
-          "note": "澳洲连锁平价药房,买药、保健品、日用品和处方药都便宜,营业到晚。"
+          "name": "Prince of Wales Hospital (Barker St, Randwick)",
+          "nameCn": "威尔士亲王医院",
+          "lat": -33.9173,
+          "lng": 151.2405,
+          "rank": 3,
+          "tier": "必去",
+          "note": "UNSW 医学院附属教学医院，急诊 24 小时，是校园周边最近的综合性公立医院。"
         },
         {
-          "name": "Telstra / Optus phone shops (Royal Randwick)",
-          "nameCn": "Telstra/Optus 通讯店(皇家兰德威克)",
+          "name": "Pharmacy @ UNSW (Shop G039, Quadrangle Building, College Rd)",
+          "nameCn": "UNSW 校内药房",
+          "lat": -33.917,
+          "lng": 151.2317,
+          "rank": 4,
+          "tier": "必去",
+          "note": "校内唯一药房，处方药、OTC 药品及日用医疗用品一应俱全，国际学生生病首选。"
+        },
+        {
+          "name": "Westpac Randwick Branch (49-51 Belmore Rd, Randwick)",
+          "nameCn": "西太平洋银行 兰德威克支行",
           "lat": -33.915,
-          "lng": 151.241,
-          "note": "购物中心内运营商门店,办手机卡和电话套餐,落地先来这里开通本地号码。"
+          "lng": 151.2438,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "澳洲四大银行之一，提供免费学生账户，可与 ANZ、NAB、CBA 共用 ATM 免手续费。"
+        },
+        {
+          "name": "ANZ Bank Randwick (12-14 Belmore Rd, Randwick)",
+          "nameCn": "澳新银行 兰德威克支行",
+          "lat": -33.9148,
+          "lng": 151.2437,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "可在抵澳前通过 ANZ Plus App 开户，国际学生友好，Belmore Rd 银行集中区。"
+        },
+        {
+          "name": "Telstra Store Randwick (48 Belmore Rd, Randwick)",
+          "nameCn": "Telstra 电信门店 兰德威克",
+          "lat": -33.9149,
+          "lng": 151.2439,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "澳洲最大电信运营商实体店，购买预付 SIM 卡或办理月租套餐均可，信号覆盖最广。"
+        },
+        {
+          "name": "Optus Store Randwick (Shop 3, 57-63 Belmore Rd, Randwick)",
+          "nameCn": "Optus 门店 兰德威克",
+          "lat": -33.9153,
+          "lng": 151.244,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "Optus 提供专属学生 100GB 流量月租方案，性价比高，是 Telstra 替代选项。"
         }
       ]
     },
@@ -322,37 +646,101 @@
         {
           "name": "Coogee Beach",
           "nameCn": "库吉海滩",
-          "lat": -33.9205,
-          "lng": 151.2576,
-          "note": "离校约7分钟车程的人气海滩,沙细水清,海边步道和岩石泳池适合周末放松拍照。"
+          "lat": -33.9203,
+          "lng": 151.2581,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距 UNSW 乘公交仅 8 分钟，是悉尼最适合日常游泳和放松的海滩，留学生周末必打卡。"
         },
         {
-          "name": "Centennial Park",
-          "nameCn": "百年纪念公园",
-          "lat": -33.8979,
-          "lng": 151.2335,
-          "note": "校区北面189公顷大公园,湖泊草坪林荫道,跑步骑行野餐的好去处。"
+          "name": "Bondi to Coogee Coastal Walk",
+          "nameCn": "邦迪至库吉海岸步道",
+          "lat": -33.8908,
+          "lng": 151.2785,
+          "rank": 2,
+          "tier": "必去",
+          "note": "6 公里沿海步道，途经 Bronte、Clovelly 等美丽海滩，是悉尼最著名的户外徒步路线。"
         },
         {
-          "name": "Coogee to Bondi Coastal Walk",
-          "nameCn": "库吉至邦迪海岸步道",
-          "lat": -33.918,
-          "lng": 151.262,
-          "note": "悉尼最经典的海岸徒步路线起点,沿途悬崖海湾风景绝佳,必打卡。"
+          "name": "Bondi Beach",
+          "nameCn": "邦迪海滩",
+          "lat": -33.8908,
+          "lng": 151.2785,
+          "rank": 3,
+          "tier": "必去",
+          "note": "悉尼最著名的地标海滩，Bondi Icebergs 泳池是全球最上镜的打卡点之一。"
         },
         {
-          "name": "Royal Randwick Racecourse",
+          "name": "Centennial Parklands",
+          "nameCn": "百年公园",
+          "lat": -33.8981,
+          "lng": 151.232,
+          "rank": 4,
+          "tier": "必去",
+          "note": "360 公顷城市绿肺，骑行、野餐、慢跑均宜，是 UNSW 学生周末逃离城市的首选绿地。"
+        },
+        {
+          "name": "Royal Randwick Racecourse (77-97 Alison Rd, Randwick)",
           "nameCn": "皇家兰德威克赛马场",
-          "lat": -33.9056,
-          "lng": 151.2306,
-          "note": "校区旁的历史赛马场,赛马日和大型活动热闹,体验本地文化。"
+          "lat": -33.9058,
+          "lng": 151.2422,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "澳大利亚最古老赛马场（1833 年），The Everest 等顶级赛事在此举办，也是大型音乐节场地。"
         },
         {
-          "name": "Wylie's Baths",
+          "name": "Wylie's Baths (Neptune St, Coogee)",
           "nameCn": "怀利海水浴场",
-          "lat": -33.9241,
-          "lng": 151.2585,
-          "note": "库吉南端百年历史的海崖泳池,木栈道日落景观出片,夏天游泳好地方。"
+          "lat": -33.9238,
+          "lng": 151.2578,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "建于 1907 年的历史潮汐泳池，全年开放，提供瑜伽课和咖啡厅，是宁静的海滨休闲胜地。"
+        },
+        {
+          "name": "Allianz Stadium & Sydney Cricket Ground (Driver Ave, Moore Park)",
+          "nameCn": "联盟体育场与悉尼板球场",
+          "lat": -33.8891,
+          "lng": 151.2252,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "两大世界级体育场馆，轻轨直达，橄榄球、足球和板球比赛热闹非凡，国际学生体验澳洲体育文化必去。"
+        },
+        {
+          "name": "The Spot & Ritz Cinema (Perouse Rd / St Pauls St, Randwick)",
+          "nameCn": "The Spot 艺文区 & 里兹电影院",
+          "lat": -33.9138,
+          "lng": 151.245,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "兰德威克艺文商圈，含 1937 年建成的装饰艺术风格里兹电影院，独立影片和艺术片的放映圣地。"
+        },
+        {
+          "name": "Spice Alley, Chippendale (Kensington St, Chippendale)",
+          "nameCn": "香料巷（奇彭代尔）",
+          "lat": -33.892,
+          "lng": 151.1998,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "悬挂黄色灯笼的亚洲街头美食小巷，含日式、越南、马来西亚等六家摊位，轻轨即达，留学生的平价美食天堂。"
+        },
+        {
+          "name": "Chinatown Sydney (Dixon St, Haymarket)",
+          "nameCn": "悉尼唐人街",
+          "lat": -33.8789,
+          "lng": 151.2055,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "悉尼中华文化聚集地，Market City 内有大型亚洲超市，每逢春节热闹非凡，解思乡之情首选。"
+        },
+        {
+          "name": "Bronte Beach & Bronte Baths",
+          "nameCn": "布朗特海滩与海水浴场",
+          "lat": -33.9065,
+          "lng": 151.2682,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "邦迪－库吉步道中段的安静海滩，1887 年建成的天然潮汐泳池是悉尼最古老的公共泳池之一。"
         }
       ]
     }

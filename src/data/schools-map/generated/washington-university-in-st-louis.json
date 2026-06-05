@@ -67,46 +67,94 @@
       "icon": "school",
       "items": [
         {
-          "name": "Brookings Hall",
-          "nameCn": "布鲁金斯楼",
-          "lat": 38.6489,
-          "lng": -90.3055,
-          "note": "1900年代哥特式标志主楼，曾用于1904世博会"
+          "name": "McKelvey School of Engineering (McKelvey Hall & Cupples II)",
+          "nameCn": "麦克尔维工学院",
+          "lat": 38.6481,
+          "lng": -90.3111,
+          "rank": 1,
+          "tier": "必去",
+          "note": "WashU旗舰工学院，含计算机科学与工程系，中国留学生最集中的院系之一。"
         },
         {
-          "name": "Olin Business School (Simon & Knight Hall)",
+          "name": "Olin Business School (Simon Hall & Knight Hall)",
           "nameCn": "奥林商学院",
-          "lat": 38.6483,
-          "lng": -90.3115,
-          "note": "主校区东南，2019年 Simon Hall 新址"
+          "lat": 38.648,
+          "lng": -90.3118,
+          "rank": 2,
+          "tier": "必去",
+          "note": "顶级MBA与本科商科项目，校园西端四栋相连建筑，全美排名稳定前20。"
         },
         {
-          "name": "McKelvey School of Engineering",
-          "nameCn": "麦凯尔维工程学院",
+          "name": "Brookings Hall",
+          "nameCn": "布鲁金斯大厅（行政主楼）",
           "lat": 38.649,
-          "lng": -90.3023,
-          "note": "主校区西侧工程建筑群（Whitaker/Green Hall 等）"
+          "lng": -90.3053,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1904年世博会行政中心，哥特式石塔是WashU最标志性建筑，也是行政中枢。"
         },
         {
-          "name": "School of Medicine",
-          "nameCn": "医学院",
-          "lat": 38.6347,
-          "lng": -90.2638,
-          "note": "医学院校区核心，全美顶尖医研重镇"
+          "name": "Sam Fox School of Design & Visual Arts (Steinberg Hall)",
+          "nameCn": "萨姆·福克斯设计与视觉艺术学院",
+          "lat": 38.6466,
+          "lng": -90.3128,
+          "rank": 4,
+          "tier": "必去",
+          "note": "建筑、艺术、设计三系合一，Steinberg Hall由普利兹克得主槇文彦设计，馆内即Kemper艺术博物馆。"
         },
         {
-          "name": "Sam Fox School of Design & Visual Arts",
-          "nameCn": "山姆福克斯设计与视觉艺术学院",
-          "lat": 38.647,
-          "lng": -90.3027,
-          "note": "含建筑与艺术系，Steinberg Hall 一带"
+          "name": "George Warren Brown School of Social Work (Brown & Goldfarb Halls)",
+          "nameCn": "乔治·沃伦·布朗社会工作学院",
+          "lat": 38.6456,
+          "lng": -90.3098,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美排名第一的社会工作学院，Brown Hall建于1937年，是美国第一座专属社会工作教育的建筑。"
         },
         {
-          "name": "Brown School (Social Work & Public Health)",
-          "nameCn": "布朗社会工作与公共卫生学院",
-          "lat": 38.647,
-          "lng": -90.3057,
-          "note": "主校区东北 Brauer/Goldfarb Hall"
+          "name": "WashU School of Law (Anheuser-Busch Hall)",
+          "nameCn": "法学院（安豪泽-布希大厅）",
+          "lat": 38.6476,
+          "lng": -90.3063,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "法学院主楼，位于校园内雪道西侧，提供JD/LLM项目，对国际学生开设LLM项目。"
+        },
+        {
+          "name": "Seigle Hall (Econ / Political Science / Education)",
+          "nameCn": "塞格尔楼（经济、政治学、教育学系）",
+          "lat": 38.6499,
+          "lng": -90.3044,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2008年落成，全校最大课堂楼（15间教室），经济学、政治学、教育学系均在此。"
+        },
+        {
+          "name": "Cupples II Hall (Engineering, orig. 1901)",
+          "nameCn": "卡普尔斯二号楼（工学院历史楼）",
+          "lat": 38.6487,
+          "lng": -90.3101,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "奠基于1901年，工学院最古老建筑，保留哥特式外观并与现代实验室楼群相连。"
+        },
+        {
+          "name": "Danforth University Center (DUC)",
+          "nameCn": "丹福斯大学中心",
+          "lat": 38.6468,
+          "lng": -90.3082,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "校园核心学生活动中心，含餐厅、会议室、学生组织办公室，2008年开放。"
+        },
+        {
+          "name": "January Hall (East Asian Studies & East Asian Library)",
+          "nameCn": "贾纽瑞大厅（东亚研究系）",
+          "lat": 38.6489,
+          "lng": -90.3038,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "东亚研究系所在地，内设东亚图书馆，收藏16万余册中日韩文献，是中国留学生的精神家园。"
         }
       ],
       "defaultOn": true
@@ -120,17 +168,66 @@
       "items": [
         {
           "name": "John M. Olin Library",
-          "nameCn": "奥林图书馆",
-          "lat": 38.6483,
-          "lng": -90.3062,
-          "note": "主校区中央总馆，人文社科理工综合馆藏"
+          "nameCn": "约翰·奥林图书馆（主馆）",
+          "lat": 38.6485,
+          "lng": -90.3076,
+          "rank": 1,
+          "tier": "必去",
+          "note": "全校主图书馆，藏书530万册，美国高校馆藏第44位；Corner 17分店就在馆内，是学生最爱的学习+觅食地。"
         },
         {
-          "name": "Bernard Becker Medical Library",
+          "name": "East Asian Library (January Hall)",
+          "nameCn": "东亚图书馆",
+          "lat": 38.6489,
+          "lng": -90.3038,
+          "rank": 2,
+          "tier": "必去",
+          "note": "收藏16万余册中日韩文献，是校内唯一专门的中文资料库，中国留学生必到之处。"
+        },
+        {
+          "name": "Al & Ruth Kopolow Business Library (Simon Hall)",
+          "nameCn": "科波洛商学院图书馆",
+          "lat": 38.648,
+          "lng": -90.3118,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "商学院专属图书馆，收录金融、会计、管理等数据库，WRDS等专业数据应有尽有。"
+        },
+        {
+          "name": "Bernard Becker Medical Library (Medical Campus)",
           "nameCn": "贝克尔医学图书馆",
-          "lat": 38.6348,
-          "lng": -90.2629,
-          "note": "医学院校区主图书馆"
+          "lat": 38.6361,
+          "lng": -90.2626,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于医学院校区，医学/生命科学专业首选，提供PubMed高级检索与临床数据库。"
+        },
+        {
+          "name": "Kenneth & Nancy Kranzberg Art & Architecture Library",
+          "nameCn": "克兰茨贝格艺术与建筑图书馆",
+          "lat": 38.6466,
+          "lng": -90.3128,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "Sam Fox学院内的专业图书馆，建筑、艺术设计类资料与大型图册收藏丰富。"
+        },
+        {
+          "name": "Gaylord Music Library (Gaylord Hall, 6500 Forsyth Blvd)",
+          "nameCn": "盖洛德音乐图书馆",
+          "lat": 38.6449,
+          "lng": -90.3061,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Forsyth大道对面的独立音乐楼，收藏乐谱、录音及音乐学文献，对音乐系学生尤为重要。"
+        },
+        {
+          "name": "Brown School Library (Goldfarb Hall)",
+          "nameCn": "布朗学院图书馆",
+          "lat": 38.6456,
+          "lng": -90.3098,
+          "rank": 7,
+          "tier": "可选",
+          "note": "社会工作学院专属馆藏，含社会政策、公共卫生及非营利管理类文献，对相关专业学生开放。"
         }
       ]
     },
@@ -144,9 +241,47 @@
         {
           "name": "Mildred Lane Kemper Art Museum",
           "nameCn": "肯珀艺术博物馆",
-          "lat": 38.6472,
-          "lng": -90.3026,
-          "note": "山姆福克斯学院旗下，临 Skinker 大道"
+          "lat": 38.6466,
+          "lng": -90.3128,
+          "rank": 1,
+          "tier": "必去",
+          "note": "WashU校园内的一流大学美术馆，免费入场，常设西方现代艺术，与Sam Fox学院共建。"
+        },
+        {
+          "name": "Saint Louis Art Museum (SLAM)",
+          "nameCn": "圣路易斯艺术博物馆",
+          "lat": 38.6391,
+          "lng": -90.295,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Forest Park内全美顶级综合艺术博物馆，永久藏品3万件，全部免费开放，步行可达。"
+        },
+        {
+          "name": "Missouri History Museum",
+          "nameCn": "密苏里历史博物馆",
+          "lat": 38.6452,
+          "lng": -90.2859,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Forest Park北端，免费入场，详述圣路易斯与密苏里州历史，含1904年世博会特展。"
+        },
+        {
+          "name": "St. Louis Science Center",
+          "nameCn": "圣路易斯科学中心",
+          "lat": 38.631,
+          "lng": -90.2955,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "Forest Park东南角，700余件互动展品+OMNIMAX巨幕影院+天文馆，基础入场免费。"
+        },
+        {
+          "name": "City Museum",
+          "nameCn": "城市博物馆",
+          "lat": 38.6336,
+          "lng": -90.2008,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "市区独一无二的工业艺术装置乐园，旧鞋厂改建，巨型滑道与攀爬结构让成年人也尖叫不已。"
         }
       ]
     },
@@ -158,32 +293,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Francis Olympic Field",
-          "nameCn": "弗朗西斯奥林匹克体育场",
-          "lat": 38.6479,
-          "lng": -90.3138,
-          "note": "主校区西缘，1904年夏季奥运会主场馆"
+          "name": "Brookings Hall & Quad",
+          "nameCn": "布鲁金斯大厅与广场",
+          "lat": 38.649,
+          "lng": -90.3053,
+          "rank": 1,
+          "tier": "必去",
+          "note": "WashU最具代表性的哥特式石灰岩主楼，是官方拍照打卡第一站，录取通知书封面即为此处。"
         },
         {
-          "name": "Danforth University Center",
-          "nameCn": "丹佛斯学生中心",
-          "lat": 38.6478,
-          "lng": -90.3105,
-          "note": "学生活动与餐饮枢纽，临 Brookings 庭院"
+          "name": "Danforth University Center (DUC)",
+          "nameCn": "丹福斯大学中心",
+          "lat": 38.6468,
+          "lng": -90.3082,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园生活核心，含Bear's Den餐厅、Tisch Commons大厅、学生社团办公室，入学第一天必来。"
         },
         {
           "name": "Graham Chapel",
           "nameCn": "格雷厄姆礼拜堂",
-          "lat": 38.6482,
-          "lng": -90.3089,
-          "note": "哥特式礼拜堂，校园典礼与音乐会场地"
+          "lat": 38.6488,
+          "lng": -90.3091,
+          "rank": 3,
+          "tier": "必去",
+          "note": "1909年哥特式礼拜堂，彩色玻璃窗精美，用于毕业典礼、音乐会和每周Assembly系列讲座。"
         },
         {
-          "name": "South 40 Residential Area",
-          "nameCn": "South 40 学生宿舍区",
-          "lat": 38.6453,
-          "lng": -90.3136,
-          "note": "主校区南侧40英亩低年级住宿学院区"
+          "name": "Francis Field (1904 Olympic Site)",
+          "nameCn": "弗朗西斯奥林匹克运动场",
+          "lat": 38.6511,
+          "lng": -90.3025,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1904年圣路易斯奥运会田径赛场，国家历史地标，现为WashU田径队主场，400米跑道全塑胶。"
+        },
+        {
+          "name": "The Delmar Loop (Delmar Blvd, University City)",
+          "nameCn": "德尔马尔环路商业街",
+          "lat": 38.6534,
+          "lng": -90.3196,
+          "rank": 5,
+          "tier": "必去",
+          "note": "美国规划协会「全国十大最佳街道」，50+餐厅+酒吧+音乐+购物，圣路易斯名人星光大道所在地。"
+        },
+        {
+          "name": "Mallinckrodt Center / Edison Theatre",
+          "nameCn": "马林科特中心 / 爱迪生剧场",
+          "lat": 38.648,
+          "lng": -90.3094,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "校园内综合艺术中心，Edison Theatre承办百老汇巡演及本校戏剧、舞蹈演出，书店也在此楼。"
+        },
+        {
+          "name": "Art Hill (Forest Park)",
+          "nameCn": "艺术山（森林公园内）",
+          "lat": 38.639,
+          "lng": -90.295,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "圣路易斯艺术博物馆前的草坡，俯瞰大盆地全景，是晒太阳、野餐、看日落的标志性社交场所。"
+        },
+        {
+          "name": "Steinberg Skating Rink (Forest Park, seasonal)",
+          "nameCn": "斯坦因伯格溜冰场（冬季）",
+          "lat": 38.6365,
+          "lng": -90.2881,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "秋冬季节的Forest Park室外溜冰场，门票低廉，是WashU学生冬季必去的休闲打卡地。"
         }
       ]
     },
@@ -195,32 +374,76 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Olive Supermarket",
-          "nameCn": "Olive 亚洲超市",
-          "lat": 38.6724,
-          "lng": -90.3382,
-          "note": "University City「中国城」Olive 大道上最老牌的亚洲超市，2006 年开业，中餐食材、肉类海鲜最全，留学生采购首选。"
+          "name": "Schnucks University City (6920 Olive Blvd)",
+          "nameCn": "Schnucks 大学城店",
+          "lat": 38.6618,
+          "lng": -90.3229,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距校最近的大型连锁超市（约10分钟车程），本地品牌Schnucks，食材齐全，价格适中。"
         },
         {
-          "name": "China Town Market",
-          "nameCn": "中国城超市",
-          "lat": 38.6726,
-          "lng": -90.3434,
-          "note": "Olive 大道上另一家中式超市，调料、冷冻食品、速食面齐全，离 Olive 超市步行可达，可两家一起逛。"
+          "name": "Olive Supermarket (8041 Olive Blvd, University City)",
+          "nameCn": "橄榄亚洲超市",
+          "lat": 38.6648,
+          "lng": -90.3369,
+          "rank": 2,
+          "tier": "必去",
+          "note": "圣路易斯最大的中/东南亚超市，活鲜海鲜+中国调味料+亚洲蔬果一应俱全，华人学生必备。"
         },
         {
-          "name": "Seafood City",
-          "nameCn": "海鲜城亚超",
-          "lat": 38.6725,
-          "lng": -90.339,
-          "note": "Olive 中国城片区的亚洲超市，主打活鲜海鲜与生鲜，想吃鱼虾蟹时来这里。"
+          "name": "United Provisions (6241 Delmar Blvd)",
+          "nameCn": "联合食品店（Delmar Loop）",
+          "lat": 38.6538,
+          "lng": -90.3165,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "Korean-oriented国际食品超市，步行可从Delmar Loop到达，进口零食、韩国食材、亚洲调料均有。"
         },
         {
-          "name": "Schnucks University City",
-          "nameCn": "Schnucks 超市（大学城店）",
-          "lat": 38.6722,
-          "lng": -90.3175,
-          "note": "圣路易斯本地连锁大超市，离校最近的美式综合超市，日常生鲜、日用品一站买齐。"
+          "name": "Costco Wholesale University City (8685 Olive Blvd)",
+          "nameCn": "Costco 大学城店",
+          "lat": 38.668,
+          "lng": -90.3478,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "2022年新开，距校约15分钟，大包装食品+日用品价格最划算，需办会员卡（学生建议合买）。"
+        },
+        {
+          "name": "Whole Foods Market Central West End (4577 W Pine Blvd)",
+          "nameCn": "全食超市 中央西区店",
+          "lat": 38.6391,
+          "lng": -90.2637,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "有机食品和进口奶酪首选，距医学校区步行可达，价格偏高但品质稳定。"
+        },
+        {
+          "name": "Trader Joe's Brentwood (48 Brentwood Promenade Ct)",
+          "nameCn": "Trader Joe's 布伦特伍德店",
+          "lat": 38.6206,
+          "lng": -90.3488,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "性价比极高的美式精品超市，自有品牌食品口碑好，距校约15分钟，是买零食的不二之选。"
+        },
+        {
+          "name": "World Market – Cho Quoc Te (3900 S Grand Blvd)",
+          "nameCn": "世界市场越南超市",
+          "lat": 38.6065,
+          "lng": -90.2432,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "越南/东南亚食材为主的国际超市，鲜果蔬价格低廉，附带越南熟食外带，适合喜欢东南亚菜的学生。"
+        },
+        {
+          "name": "Panda Provisions (WashU South 40, Gregg Storefronts)",
+          "nameCn": "熊猫便利店（校内亚洲食品站）",
+          "lat": 38.6437,
+          "lng": -90.3054,
+          "rank": 8,
+          "tier": "可选",
+          "note": "WashU校内学生创业的亚洲食品/零食网购站点，提供即食亚洲小吃和零食配送到宿舍。"
         }
       ]
     },
@@ -232,39 +455,130 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Cate Zone Chinese Cafe",
-          "nameCn": "家乡味东北菜",
-          "lat": 38.6726,
-          "lng": -90.343,
-          "note": "Olive 中国城里人气东北菜馆，孜然烤串和家常菜出名，2016 年起本地华人最爱排队的店。"
+          "name": "Corner 17 (6623 Delmar Blvd)",
+          "nameCn": "Corner 17 中台风味餐厅",
+          "lat": 38.6534,
+          "lng": -90.3192,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "Delmar Loop最热门中餐，手工宽面、炒饭、珍珠奶茶，Yelp评价超1000条，WashU学生最爱第一名。"
         },
         {
-          "name": "Corner 17",
-          "nameCn": "拐角 17 号",
-          "lat": 38.6558,
-          "lng": -90.3093,
-          "note": "Delmar Loop 上的网红中餐，手工拉面、馄饨和奶茶招牌，离校步行可达，WashU 学生聚餐常去。"
+          "name": "ChiliSpot (7930 Olive Blvd, University City)",
+          "nameCn": "辣点四川料理",
+          "lat": 38.6637,
+          "lng": -90.3332,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "Olive大道正宗川菜餐厅，麻辣口味有保证，Yelp满分评价，STL华人圈口碑最高的川菜。"
         },
         {
-          "name": "Wonton King",
-          "nameCn": "馄饨大王",
-          "lat": 38.6727,
-          "lng": -90.347,
-          "note": "圣路易斯最地道的港式中餐之一，点心、馄饨、烧腊正宗，想吃粤式时来这家。"
+          "name": "Cate Zone Chinese Cafe (8148 Olive Blvd)",
+          "nameCn": "凯特中华餐厅",
+          "lat": 38.6649,
+          "lng": -90.3368,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "Olive大道上颇具代表性的中餐馆，粤式/北方菜兼顾，分量大价格亲民，中国留学生必去的「家常饭」。"
         },
         {
-          "name": "Blueberry Hill",
-          "nameCn": "蓝莓山餐厅",
-          "lat": 38.6558,
-          "lng": -90.3076,
-          "note": "Delmar Loop 地标老店（1972 年开业），汉堡和现场音乐出名，Chuck Berry 曾常驻 Duck Room，必打卡美式餐厅。"
+          "name": "Soup Dumplings STL (8106 Olive Blvd)",
+          "nameCn": "STL小笼包",
+          "lat": 38.6648,
+          "lng": -90.3361,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "小笼包专营店，手工现蒸，皮薄汤鲜，与Cate Zone毗邻，是华人圈最有名的点心打卡地。"
         },
         {
-          "name": "Fitz's Root Beer",
-          "nameCn": "Fitz's 手工汽水餐厅",
-          "lat": 38.6558,
-          "lng": -90.3081,
-          "note": "Loop 上的本地手工根汁汽水厂兼餐厅，现灌瓶汽水配汉堡薯条，体验圣路易斯特色甜饮。"
+          "name": "Umami Seasons Hotpot (6602 Delmar Blvd)",
+          "nameCn": "鲜季台式火锅",
+          "lat": 38.6535,
+          "lng": -90.3196,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "Delmar Loop 2024年新开的台式小火锅，个人锅底可选，食材新鲜，STL火锅界目前评价最高。"
+        },
+        {
+          "name": "Menya Rui (3453 Hampton Ave)",
+          "nameCn": "麺屋瑞（拉面）",
+          "lat": 38.5978,
+          "lng": -90.2813,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "2024年Yelp全美百佳餐厅第二名，手工制面日式拉面，需早去排队，南城区车程约20分钟但绝对值得。"
+        },
+        {
+          "name": "Nudo House (6105A Delmar Blvd)",
+          "nameCn": "Nudo House 越南拉面馆（Delmar店）",
+          "lat": 38.6532,
+          "lng": -90.3165,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "越南河粉与创意拉面结合，Delmar Loop店步行可到，过敏友好菜单，网红级别的汤头口感。"
+        },
+        {
+          "name": "Mai Lee (8396 Musick Memorial Dr, Brentwood)",
+          "nameCn": "美黎越南餐厅",
+          "lat": 38.6213,
+          "lng": -90.3518,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "圣路易斯最著名的越南餐厅，经营30年以上，河粉与春卷是招牌，STL食评榜常年前列。"
+        },
+        {
+          "name": "Chao Baan (4087 Chouteau Ave)",
+          "nameCn": "曹班泰式餐厅",
+          "lat": 38.6269,
+          "lng": -90.237,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "STL最受推崇的泰国家庭料理，接近正宗泰国口味，多次荣登城市最佳餐厅榜单。"
+        },
+        {
+          "name": "iNDO (1641D Tower Grove Ave)",
+          "nameCn": "iNDO 东南亚创意餐厅",
+          "lat": 38.6186,
+          "lng": -90.2423,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "精致东南亚融合料理，环境温馨适合约饭，多次获STL年度餐厅提名，需提前订位。"
+        },
+        {
+          "name": "Ted Drewes Frozen Custard (6726 Chippewa St)",
+          "nameCn": "泰德·德鲁斯冻奶（老字号）",
+          "lat": 38.594,
+          "lng": -90.2861,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "1929年创立的圣路易斯冻奶传奇，位于Route 66旧址，Concrete浓稠冰淇淋是来圣路易斯必吃的仪式感。"
+        },
+        {
+          "name": "Kaldi's Coffee (multiple WashU campus locations)",
+          "nameCn": "卡迪咖啡（校内多点）",
+          "lat": 38.6469,
+          "lng": -90.3075,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "本地精品咖啡品牌，Olin图书馆及DUC等多处有分店，是WashU学生日常自习标配。"
+        },
+        {
+          "name": "Session Taco / Mission Taco (The Loop)",
+          "nameCn": "任务墨西哥卷（Delmar Loop）",
+          "lat": 38.6533,
+          "lng": -90.3197,
+          "rank": 13,
+          "tier": "一般",
+          "note": "Delmar Loop人气墨西哥卷饼店，价格亲民，经典加州风格taco，深夜仍营业，学生聚餐常选。"
+        },
+        {
+          "name": "Blueberry Hill (6504 Delmar Blvd)",
+          "nameCn": "蓝莓山汉堡酒吧",
+          "lat": 38.6536,
+          "lng": -90.3192,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Delmar Loop地标性摇滚文化餐吧，流行文化收藏布满四壁，飞镖锦标赛发源地，猫王曾多次演出。"
         }
       ]
     },
@@ -276,25 +590,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Barnes-Jewish Hospital",
-          "nameCn": "Barnes-Jewish 医院",
-          "lat": 38.636,
-          "lng": -90.264,
-          "note": "WashU 医学院附属顶级综合医院，含急诊创伤中心，校东侧 Forest Park 旁，看病急诊的主力医院。"
+          "name": "Bank of America (8100 Forsyth Blvd, Clayton)",
+          "nameCn": "美国银行 克莱顿福赛斯支行",
+          "lat": 38.6454,
+          "lng": -90.3347,
+          "rank": 1,
+          "tier": "强烈推荐",
+          "note": "WashU官方推荐银行，校内有ATM机，步行可到Clayton支行开户，国际学生凭护照+I-20即可办理。"
         },
         {
-          "name": "CVS Pharmacy (Delmar Loop)",
-          "nameCn": "CVS 药房（Loop 店）",
-          "lat": 38.6558,
-          "lng": -90.3015,
-          "note": "Delmar Loop 上的连锁药房，可取处方药、买常备药和日用品，离校最近的药店。"
+          "name": "Commerce Bank (6633 Delmar Blvd, University City)",
+          "nameCn": "商业银行 大学城店",
+          "lat": 38.6535,
+          "lng": -90.3191,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "密苏里本地银行，Delmar Loop即有分行，开户手续简便，ATM手续费较低，是留学生常用选择。"
         },
         {
-          "name": "Metro by T-Mobile (Delmar)",
-          "nameCn": "T-Mobile 手机店（Delmar）",
-          "lat": 38.6557,
-          "lng": -90.2876,
-          "note": "Delmar 大道上的 T-Mobile/Metro 门店，办手机卡、选套餐，新生落地办号可来。"
+          "name": "Regions Bank (6680 Delmar Blvd, University City)",
+          "nameCn": "区域银行 大学城店",
+          "lat": 38.6536,
+          "lng": -90.3196,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "与Commerce Bank紧邻，南部大型商业银行，提供国际学生友好的开户服务和网上银行。"
+        },
+        {
+          "name": "WashU Student Health Center – Habif Medical Services (6643 Shepley Dr)",
+          "nameCn": "WashU学生健康中心（Habif内科）",
+          "lat": 38.644,
+          "lng": -90.3062,
+          "rank": 4,
+          "tier": "必去",
+          "note": "在校学生首选诊疗机构，可作为主治医生，不需要等急诊，学生医保直接报销，南40宿舍区内。"
+        },
+        {
+          "name": "Barnes-Jewish Hospital (1 Barnes-Jewish Hospital Plaza)",
+          "nameCn": "巴恩斯犹太医院（三甲医院）",
+          "lat": 38.6362,
+          "lng": -90.2626,
+          "rank": 5,
+          "tier": "必去",
+          "note": "全美顶级医院之一，WashU医学院附属医院，急症与专科就诊首选，急诊24小时。"
+        },
+        {
+          "name": "CVS Pharmacy (6211 Delmar Blvd, 24hr)",
+          "nameCn": "CVS药房（Delmar Loop，24小时）",
+          "lat": 38.6538,
+          "lng": -90.3169,
+          "rank": 6,
+          "tier": "必去",
+          "note": "Delmar Loop上的24小时CVS，Delmar Loop班车直达，处方药/OTC药物/日用品齐全，深夜也能取药。"
+        },
+        {
+          "name": "Walgreens (6733 Clayton Rd, Richmond Heights)",
+          "nameCn": "沃尔格林药房 里士满高地店",
+          "lat": 38.6288,
+          "lng": -90.323,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "南校区班车可达的Schnucks Richmond Center内设Walgreens，营业时间长，可打流感疫苗。"
+        },
+        {
+          "name": "T-Mobile Experience Store (6622 Clayton Rd, Richmond Heights)",
+          "nameCn": "T-Mobile 里士满体验店",
+          "lat": 38.629,
+          "lng": -90.3226,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "最靠近WashU的T-Mobile门店，可购置手机SIM/换号，T-Mobile覆盖圣路易斯最广，留学生首选运营商。"
         }
       ]
     },
@@ -308,30 +673,92 @@
         {
           "name": "Forest Park",
           "nameCn": "森林公园",
-          "lat": 38.6357,
-          "lng": -90.2854,
-          "note": "全美最大城市公园之一（1300 英亩），紧邻校园南侧，跑步野餐遛弯的日常去处，多个景点都在园内。"
+          "lat": 38.638,
+          "lng": -90.2855,
+          "rank": 1,
+          "tier": "必去",
+          "note": "面积比中央公园大500英亩，内含动物园、艺术博物馆、科学中心、历史博物馆，全部免费，WashU后花园。"
         },
         {
-          "name": "Saint Louis Art Museum",
-          "nameCn": "圣路易斯艺术博物馆",
-          "lat": 38.639,
-          "lng": -90.2946,
-          "note": "森林公园内的全美一流综合艺术馆，3 万多件藏品且常设展免费，周末看展好去处。"
-        },
-        {
-          "name": "Saint Louis Zoo",
+          "name": "Saint Louis Zoo (Government Dr, Forest Park)",
           "nameCn": "圣路易斯动物园",
-          "lat": 38.6351,
-          "lng": -90.2916,
-          "note": "森林公园内的世界知名动物园，600 多种动物且免费入园，离校骑车即到的热门打卡地。"
+          "lat": 38.6355,
+          "lng": -90.2905,
+          "rank": 2,
+          "tier": "必去",
+          "note": "全球十大免费动物园之一，1.8万只动物，USA Today评为全美最佳城市公园，周末必去。"
         },
         {
-          "name": "Delmar Loop",
-          "nameCn": "Delmar Loop 商业街",
-          "lat": 38.6558,
-          "lng": -90.3034,
-          "note": "WashU 北侧的文化娱乐街区，餐厅、唱片店、影院、Walk of Fame 星光大道云集，学生日常逛吃首选。"
+          "name": "Gateway Arch National Park (200 Washington Ave)",
+          "nameCn": "大拱门国家公园",
+          "lat": 38.6247,
+          "lng": -90.1848,
+          "rank": 3,
+          "tier": "必去",
+          "note": "630英尺不锈钢大拱门，圣路易斯和美国西进精神的象征，可乘小舱升顶俯瞰密西西比河。"
+        },
+        {
+          "name": "Missouri Botanical Garden (4344 Shaw Blvd)",
+          "nameCn": "密苏里植物园",
+          "lat": 38.6161,
+          "lng": -90.2581,
+          "rank": 4,
+          "tier": "必去",
+          "note": "全球三大植物园之一，79英亩，日本花园、玻璃温室、冬季Garden Glow灯展堪称惊艳，需购票。"
+        },
+        {
+          "name": "The Delmar Loop – St. Louis Walk of Fame",
+          "nameCn": "德尔马星光大道",
+          "lat": 38.6534,
+          "lng": -90.3196,
+          "rank": 5,
+          "tier": "必去",
+          "note": "Delmar大道人行道上的圣路易斯名人铜星（玛雅·安吉洛、蒂娜·特纳、查克·贝里），逛街时值得低头寻找。"
+        },
+        {
+          "name": "City Museum (750 N 16th St)",
+          "nameCn": "城市博物馆",
+          "lat": 38.6336,
+          "lng": -90.2008,
+          "rank": 6,
+          "tier": "必去",
+          "note": "全世界最奇特的「博物馆」——旧鞋厂变身巨型攀爬装置艺术，成年人也能玩一整天，夜场氛围更佳。"
+        },
+        {
+          "name": "The Fabulous Fox Theatre (527 N Grand Blvd)",
+          "nameCn": "华丽福克斯剧院",
+          "lat": 38.639,
+          "lng": -90.232,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "百年华丽剧院，每年200+场演出含百老汇巡演，是圣路易斯文化生活的代名词，需购票。"
+        },
+        {
+          "name": "Grant's Farm (10501 Gravois Rd, Affton)",
+          "nameCn": "格兰特农场（免费动物体验）",
+          "lat": 38.5428,
+          "lng": -90.3573,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "百威啤酒创始人布希家族的百年农场，5-10月免费入场，可看大象、羊驼，并享用免费Budweiser。"
+        },
+        {
+          "name": "The Muny (1 Theatre Dr, Forest Park)",
+          "nameCn": "莫尼露天剧场",
+          "lat": 38.6416,
+          "lng": -90.2776,
+          "rank": 9,
+          "tier": "强烈推荐",
+          "note": "全美最古老最大的露天音乐剧场，夏季7部百老汇风格演出，后排1500席永远免费，学生暑期必去。"
+        },
+        {
+          "name": "Ted Drewes Frozen Custard (6726 Chippewa St)",
+          "nameCn": "泰德·德鲁斯冻奶（Route 66打卡）",
+          "lat": 38.594,
+          "lng": -90.2861,
+          "rank": 10,
+          "tier": "强烈推荐",
+          "note": "Route 66历史地标，1929年老店，厚到倒扣不洒的Concrete冻奶是圣路易斯留学生的入学仪式。"
         }
       ]
     }

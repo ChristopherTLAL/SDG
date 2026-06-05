@@ -67,39 +67,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "School of Law",
+          "name": "The Rotunda",
+          "nameCn": "圆厅大楼",
+          "lat": 38.0357,
+          "lng": -78.5033,
+          "rank": 1,
+          "tier": "必去",
+          "note": "托马斯·杰斐逊亲自设计的UVA标志性建筑，是学术村的核心，已被列入UNESCO世界遗产，校园必打卡地标。"
+        },
+        {
+          "name": "Newcomb Hall (Student Center)",
+          "nameCn": "纽科姆学生中心",
+          "lat": 38.0334,
+          "lng": -78.5072,
+          "rank": 2,
+          "tier": "必去",
+          "note": "UVA最主要的学生中心，集餐饮、学生组织办公室、会议室、各类学生服务于一体，日常活动枢纽。"
+        },
+        {
+          "name": "Thornton Hall (School of Engineering)",
+          "nameCn": "索顿楼（工程学院）",
+          "lat": 38.032,
+          "lng": -78.511,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "UVA工程与应用科学学院主楼，位于麦科密克路，是工程专业学生的学习核心。"
+        },
+        {
+          "name": "Rice Hall (Computer Science & Engineering)",
+          "nameCn": "赖斯楼（计算机科学系）",
+          "lat": 38.0316,
+          "lng": -78.5105,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "UVA计算机科学与计算机工程系所在地，是技术类留学生的主要学习场所，设施现代化。"
+        },
+        {
+          "name": "McIntire School of Commerce (Rouss & Robertson Halls)",
+          "nameCn": "麦肯太尔商学院",
+          "lat": 38.0345,
+          "lng": -78.5015,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "UVA著名的商学院，本科商科项目全美顶尖，紧邻历史悠久的大草坪，新旧楼群均在此。"
+        },
+        {
+          "name": "School of Law (David A. Harrison III Law Grounds)",
           "nameCn": "法学院",
-          "lat": 38.0532,
-          "lng": -78.5093,
-          "note": "北校区，全美顶尖法学院之一。"
+          "lat": 38.0439,
+          "lng": -78.4912,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "位于北草坪（North Grounds），美国顶级法学院之一，校园独立完整，常年U.S. News前十。"
         },
         {
           "name": "Darden School of Business",
           "nameCn": "达顿商学院",
-          "lat": 38.0522,
+          "lat": 38.0441,
+          "lng": -78.4961,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "UVA MBA项目旗舰学院，全美商学院前15，以案例教学著称，靠近法学院北草坪区域。"
+        },
+        {
+          "name": "Gilmer Hall (Biology & Psychology)",
+          "nameCn": "吉尔默楼（生物与心理系）",
+          "lat": 38.0335,
+          "lng": -78.508,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "UVA生物学与心理学系所在地，位于麦科密克路中央草坪区，理科生重要课堂建筑。"
+        },
+        {
+          "name": "School of Data Science (1919 Ivy Road)",
+          "nameCn": "数据科学学院",
+          "lat": 38.0374,
+          "lng": -78.513,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "2024年新落成的ivy Corridor区域数据科学专属大楼，是UVA近年来最新锐的跨学科学院之一。"
+        },
+        {
+          "name": "McLeod Hall (School of Nursing)",
+          "nameCn": "麦克劳德楼（护理学院）",
+          "lat": 38.026,
+          "lng": -78.5001,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "UVA护理学院主楼，位于杰纳特·兰卡斯特路，护理与医学交叉学习的重要场所。"
+        },
+        {
+          "name": "Old Cabell Hall",
+          "nameCn": "老卡贝尔礼堂",
+          "lat": 38.0347,
+          "lng": -78.5032,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "大草坪南端的古典建筑，兼作音乐厅和大课堂，是UVA学术村历史格局的重要组成部分。"
+        },
+        {
+          "name": "Bavaro Hall (Curry School of Education)",
+          "nameCn": "巴瓦罗楼（柯里教育学院）",
+          "lat": 38.0312,
           "lng": -78.5135,
-          "note": "案例教学闻名的研究生商学院。"
-        },
-        {
-          "name": "School of Engineering (Thornton Hall)",
-          "nameCn": "工程学院（桑顿楼）",
-          "lat": 38.0331,
-          "lng": -78.5103,
-          "note": "中央校区西侧的工程与应用科学学院。"
-        },
-        {
-          "name": "McIntire School of Commerce",
-          "nameCn": "麦金太尔商学院",
-          "lat": 38.0331,
-          "lng": -78.5041,
-          "note": "本科商科名校，临近圆顶大厅。"
-        },
-        {
-          "name": "School of Medicine",
-          "nameCn": "医学院",
-          "lat": 38.0315,
-          "lng": -78.4997,
-          "note": "与医疗中心一体的临床医学教学区。"
+          "rank": 12,
+          "tier": "可选",
+          "note": "UVA柯里教育学院的现代化新楼，紧邻埃米特街，是教育专业和研究生的重要教学基地。"
         }
       ],
       "defaultOn": true
@@ -112,25 +185,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Shannon Library (Alderman)",
-          "nameCn": "香农图书馆（原奥尔德曼）",
-          "lat": 38.0364,
-          "lng": -78.5048,
-          "note": "翻新重启的主图书馆，人文社科馆藏中枢。"
+          "name": "The Edgar Shannon Library (formerly Alderman Library)",
+          "nameCn": "夏农图书馆（原奥尔德曼图书馆）",
+          "lat": 38.0358,
+          "lng": -78.5041,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UVA最大的主图书馆，2024年完成大规模翻新重开，馆藏社会科学、人文及政府文献，是学生学习首选。"
         },
         {
           "name": "Clemons Library",
           "nameCn": "克莱蒙斯图书馆",
-          "lat": 38.0359,
-          "lng": -78.5055,
-          "note": "24小时学习空间与多媒体资源。"
+          "lat": 38.0355,
+          "lng": -78.5048,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻夏农馆并有内部通道相连，以24小时学习空间著称，深夜备考神器，学生最爱的\"Club Clem\"。"
         },
         {
-          "name": "Albert and Shirley Small Special Collections Library",
-          "nameCn": "斯莫尔特藏图书馆",
-          "lat": 38.0368,
-          "lng": -78.5043,
-          "note": "珍本手稿与杰斐逊相关特藏。"
+          "name": "Charles L. Brown Science & Engineering Library",
+          "nameCn": "布朗理工图书馆",
+          "lat": 38.0324,
+          "lng": -78.5112,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于克拉克楼内，专门服务天文、生物、化学、数学、物理、心理等理工科专业，馆藏精准。"
+        },
+        {
+          "name": "Harrison Institute & Small Special Collections Library",
+          "nameCn": "哈里森研究院暨小特藏图书馆",
+          "lat": 38.0353,
+          "lng": -78.5038,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "收藏珍贵美国历史、文学与文化原始文献，研究生及研究人员必访；内含美国历史与文化研究所。"
+        },
+        {
+          "name": "Claude Moore Health Sciences Library",
+          "nameCn": "克劳德·摩尔医学图书馆",
+          "lat": 38.0237,
+          "lng": -78.4988,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "服务医学、护理和公共健康专业，位于杰斐逊公园大道，是医学生和健康科学研究者的重要资源。"
+        },
+        {
+          "name": "Music Library (Old Cabell Hall)",
+          "nameCn": "音乐图书馆",
+          "lat": 38.0347,
+          "lng": -78.5032,
+          "rank": 6,
+          "tier": "可选",
+          "note": "UVA音乐系附属图书馆，馆藏乐谱、录音资料及音乐学参考书，供音乐和艺术专业学生使用。"
         }
       ]
     },
@@ -142,18 +248,49 @@
       "icon": "museum",
       "items": [
         {
-          "name": "The Fralin Museum of Art",
+          "name": "The Fralin Museum of Art at UVA",
           "nameCn": "弗拉林艺术博物馆",
-          "lat": 38.0372,
-          "lng": -78.5028,
-          "note": "校园美术馆，藏古今与亚洲艺术。"
+          "lat": 38.037,
+          "lng": -78.5024,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UVA官方艺术博物馆，藏品近14000件，欧美绘画、非洲艺术、摄影均有，免费入场，极受好评。"
         },
         {
-          "name": "Kluge-Ruhe Aboriginal Art Collection",
-          "nameCn": "克鲁格-鲁厄澳洲原住民艺术馆",
-          "lat": 38.0253,
-          "lng": -78.4426,
-          "note": "美国唯一专藏澳洲原住民艺术的博物馆。"
+          "name": "Kluge-Ruhe Aboriginal Art Collection of UVA",
+          "nameCn": "克卢格-鲁厄澳大利亚原住民艺术馆",
+          "lat": 38.0461,
+          "lng": -78.4673,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "澳大利亚境外唯一展示并研究原住民艺术的博物馆，位于潘托普斯农场，馆藏全美最大，免费入场。"
+        },
+        {
+          "name": "Leander McCormick Observatory",
+          "nameCn": "利安德·麦科密克天文台",
+          "lat": 38.0329,
+          "lng": -78.523,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "每月第一、三个周五对公众开放，可通过26英寸历史折射望远镜观星，天文系科普活动场所，免费入场。"
+        },
+        {
+          "name": "Ruffin Gallery (UVA Arts)",
+          "nameCn": "鲁芬画廊",
+          "lat": 38.0363,
+          "lng": -78.5029,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "UVA当代艺术重要展览空间，每年举办4至6场展览，是UVA艺术专业学生作品展示的核心平台。"
+        },
+        {
+          "name": "McGuffey Art Center",
+          "nameCn": "麦加菲艺术中心",
+          "lat": 38.031,
+          "lng": -78.482,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于市区改建小学内，40个艺术工作室加三个画廊和礼品店，本地艺术家聚集，适合了解夏洛茨维尔艺术氛围。"
         }
       ]
     },
@@ -165,39 +302,67 @@
       "icon": "place",
       "items": [
         {
-          "name": "The Rotunda",
-          "nameCn": "圆顶大厅",
-          "lat": 38.0356,
+          "name": "The Academical Village & The Lawn",
+          "nameCn": "学术村与大草坪",
+          "lat": 38.0347,
           "lng": -78.5033,
-          "note": "杰斐逊设计的校园象征与世界遗产核心。"
+          "rank": 1,
+          "tier": "必去",
+          "note": "杰斐逊设计的UNESCO世界遗产，两排亭廊式建筑与大草坪构成UVA灵魂，是全美最美大学校园之一。"
         },
         {
-          "name": "The Lawn & Pavilions",
-          "nameCn": "草坪与亭阁",
-          "lat": 38.0348,
-          "lng": -78.5036,
-          "note": "梯台绿地两侧的列柱教授亭与学生宿舍。"
-        },
-        {
-          "name": "Scott Stadium",
-          "nameCn": "斯科特体育场",
-          "lat": 38.0312,
-          "lng": -78.5135,
-          "note": "可容六万人的橄榄球主场。"
+          "name": "The Corner (University Avenue district)",
+          "nameCn": "科纳学生街区",
+          "lat": 38.0358,
+          "lng": -78.507,
+          "rank": 2,
+          "tier": "必去",
+          "note": "紧邻UVA的七个街区商业区，餐厅、咖啡馆、书店密集，是学生日常聚集地和新生融入校园生活的起点。"
         },
         {
           "name": "John Paul Jones Arena",
           "nameCn": "约翰·保罗·琼斯球馆",
-          "lat": 38.046,
-          "lng": -78.5066,
-          "note": "篮球主场与大型演出场馆。"
+          "lat": 38.042,
+          "lng": -78.5078,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "UVA的大型室内体育馆，篮球赛及大型演唱会场地，看Cavaliers篮球是UVA校园文化必备体验。"
         },
         {
-          "name": "Newcomb Hall",
-          "nameCn": "纽科姆学生中心",
-          "lat": 38.0356,
-          "lng": -78.5061,
-          "note": "学生活动中心与餐饮社团枢纽。"
+          "name": "Scott Stadium",
+          "nameCn": "斯科特橄榄球场",
+          "lat": 38.0317,
+          "lng": -78.5126,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "容纳61,000人的UVA美式足球主场，秋季赛季合唱《Good Old Song》是每届新生难忘的校园记忆。"
+        },
+        {
+          "name": "Charlottesville Historic Downtown Mall",
+          "nameCn": "夏洛茨维尔历史步行商业街",
+          "lat": 38.0293,
+          "lng": -78.479,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "全美最长的步行购物街之一，120余家本地商店及餐厅，周五Fridays After Five户外音乐节是夏季必去。"
+        },
+        {
+          "name": "IX Art Park",
+          "nameCn": "IX艺术公园",
+          "lat": 38.0242,
+          "lng": -78.4784,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "本地涂鸦、演出、酿酒厂与周六农夫市集的综合文化空间，坐落Ramen酒吧及精酿酒厂，学生聚会热门地。"
+        },
+        {
+          "name": "Ting Pavilion (Sprint Pavilion)",
+          "nameCn": "叮铃户外音乐厅",
+          "lat": 38.0295,
+          "lng": -78.4786,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "Downtown Mall东端的露天表演场，夏季是全市最大户外音乐节场馆，容纳3500人，风景优美。"
         }
       ]
     },
@@ -209,39 +374,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Asian Market (亚洲超市)",
-          "nameCn": "亚洲超市",
-          "lat": 38.0561,
-          "lng": -78.4966,
-          "note": "校园北侧 Emmet St 上最近的综合亚超，中日韩泰食材齐全，周五到货最新鲜，骑车/公交 10 分钟可达。"
+          "name": "Kroger (Barracks Road / Emmet St)",
+          "nameCn": "克罗格超市（埃米特街店）",
+          "lat": 38.0426,
+          "lng": -78.5052,
+          "rank": 1,
+          "tier": "必去",
+          "note": "最靠近UVA校园的大型连锁超市，步行或骑车可达，生鲜、食材、日用品一站购齐，学生首选。"
         },
         {
-          "name": "C'ville Oriental",
-          "nameCn": "夏村东方亚超",
-          "lat": 38.0688,
-          "lng": -78.4853,
-          "note": "本地老牌华人亚超，中式调料、米面、火锅料和新鲜亚洲蔬菜最全，想做正经中餐来这里囤货。"
+          "name": "Wegmans",
+          "nameCn": "威格曼超市",
+          "lat": 38.0186,
+          "lng": -78.4825,
+          "rank": 2,
+          "tier": "必去",
+          "note": "100 Wegmans Way，美东最受欢迎的高端超市品牌，品种极全、熟食优秀，距校园约5分钟车程。"
+        },
+        {
+          "name": "Trader Joe's",
+          "nameCn": "乔氏超市",
+          "lat": 38.0605,
+          "lng": -78.4918,
+          "rank": 3,
+          "tier": "必去",
+          "note": "2025 Bond St，以平价优质自有品牌著称，冷冻食品、零食和进口食材丰富，是国际学生的购物心头好。"
+        },
+        {
+          "name": "Whole Foods Market",
+          "nameCn": "全食超市",
+          "lat": 38.058,
+          "lng": -78.4935,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "1797 Hydraulic Rd，注重有机与天然食品，选择健康饮食、购买进口调料的学生常来，品质有保障。"
+        },
+        {
+          "name": "Asian Market (Emmet St N)",
+          "nameCn": "亚洲超市（埃米特街）",
+          "lat": 38.0468,
+          "lng": -78.5034,
+          "rank": 5,
+          "tier": "必去",
+          "note": "1417 Emmet St N，校园步行圈最近的亚洲食材店，泰中日韩各类酱料、米粉、冷冻海鲜均有，周五货最全。"
+        },
+        {
+          "name": "C'ville Oriental 东方店",
+          "nameCn": "C城东方超市",
+          "lat": 38.0602,
+          "lng": -78.491,
+          "rank": 6,
+          "tier": "必去",
+          "note": "1195 Seminole Trail，扎根夏洛茨维尔20余年的中国/亚洲超市，选品最全、价格实惠，中国留学生必知。"
         },
         {
           "name": "Foods of All Nations",
-          "nameCn": "万国食品超市",
-          "lat": 38.0434,
-          "lng": -78.5128,
-          "note": "离学校仅 1.2km 的精品国际超市，亚洲调味料、酱油鱼露、香茅等难买食材都有，还带熟食热餐。"
-        },
-        {
-          "name": "Harris Teeter (Barracks Road)",
-          "nameCn": "哈里斯蒂特超市（兵营路店）",
-          "lat": 38.0503,
-          "lng": -78.5019,
-          "note": "Barracks Road 购物中心内的主流大型连锁超市，日常米面果蔬肉蛋一站式采购，步行约 20 分钟。"
-        },
-        {
-          "name": "Kroger (Barracks Road)",
-          "nameCn": "克罗格超市（兵营路店）",
-          "lat": 38.0512,
-          "lng": -78.5031,
-          "note": "兵营路上的平价大型超市，分量大价格友好，和 Harris Teeter 一条街，开学采买大件首选。"
+          "nameCn": "万国食品",
+          "lat": 38.0422,
+          "lng": -78.5048,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "紧邻Barracks Road购物中心内，进口食材涵盖亚洲、欧洲各地，鱼露、罗望子、泰式食材齐全。"
         }
       ]
     },
@@ -253,39 +446,139 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Marco & Luca Dumpling Store (Got Dumplings)",
-          "nameCn": "马可与卢卡饺子馆",
-          "lat": 38.0361,
-          "lng": -78.5004,
-          "note": "Corner 街上的传奇小店，手工水饺加招牌辣酱便宜管饱，是 UVA 学生公认的中式深夜食堂。"
+          "name": "Peter Chang China Grill",
+          "nameCn": "彼得·张中餐厅",
+          "lat": 38.042,
+          "lng": -78.5042,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "2162 Barracks Rd，大名鼎鼎的四川厨师彼得·张主理，正宗川菜与湘菜，炒辣肉饼被誉为弗吉尼亚最佳中餐。"
         },
         {
-          "name": "Bodo's Bagels (UVA Corner)",
-          "nameCn": "Bodo's 贝果（校角店）",
-          "lat": 38.0355,
-          "lng": -78.501,
-          "note": "1988 年至今的夏村招牌，现烤纽约水煮贝果三明治，5 美元搞定一顿，UVA 必打卡早午餐。"
+          "name": "Got Dumplings",
+          "nameCn": "来饺子中餐馆",
+          "lat": 38.034,
+          "lng": -78.5095,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "1395 W Main St，专注中式饺子与凉面，校区附近，UVA中国留学生圈子强力推荐，亲民价格。"
         },
         {
-          "name": "Take It Away Sandwich Shop",
-          "nameCn": "Take It Away 三明治店",
-          "lat": 38.0362,
-          "lng": -78.5003,
-          "note": "Elliewood 巷里的几代 UVA 学生情怀三明治店，招牌 House Dressing 酱汁是灵魂，主打外带。"
+          "name": "Emma's Bubble Tea & Dumplings",
+          "nameCn": "Emma奶茶饺子店",
+          "lat": 38.046,
+          "lng": -78.5034,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "1417 Emmet St N，校园区超高人气奶茶+饺子小馆，手作饺子与各式奶茶，学生聚餐和下午茶热门地。"
         },
         {
-          "name": "Peter Chang (Downtown)",
-          "nameCn": "张鹏亮中餐（市区店）",
-          "lat": 38.0299,
-          "lng": -78.4849,
-          "note": "名厨 Peter Chang 的正宗川菜，干煸豆角和鸡蛋泡饼出名（Barracks 老店已关，认准市区店）。"
+          "name": "Taste of China",
+          "nameCn": "中国美食餐厅",
+          "lat": 38.064,
+          "lng": -78.4882,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "612 Albemarle Sq，主打正宗四川菜与中式海鲜，当地华人和留学生好评极高，酸辣汤出名。"
         },
         {
-          "name": "Mochiko Cville",
-          "nameCn": "Mochiko 夏威夷亚洲快餐",
-          "lat": 38.0357,
-          "lng": -78.5006,
-          "note": "Corner 上人气夏威夷-亚洲风味快餐，炸鸡饭和 poke 碗份量足，学生午餐高频选择。"
+          "name": "Bad Luck Ramen Bar",
+          "nameCn": "倒霉拉面酒吧",
+          "lat": 38.0242,
+          "lng": -78.4784,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "522 2nd St SE，位于IX艺术公园内，手工骨汤拉面全城好评第一，和本地精酿搭配，氛围超好。"
+        },
+        {
+          "name": "Domoishi",
+          "nameCn": "道妙石（拉面·Poke·奶茶）",
+          "lat": 38.034,
+          "lng": -78.51,
+          "rank": 6,
+          "tier": "绝对必吃",
+          "note": "853 W Main St，位于西主街，Poke碗+拉面+韩式鸡翅+珍珠奶茶一店全有，UVA留学生圈极受追捧。"
+        },
+        {
+          "name": "Chang Thai",
+          "nameCn": "张泰餐厅",
+          "lat": 38.0447,
+          "lng": -78.5025,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "1232 Emmet St N，本地泰餐好评榜首，食材新鲜、厨艺精良，Yelp近5星，炒粉和绿咖喱是招牌。"
+        },
+        {
+          "name": "Chimm Thai & Southeast Asian",
+          "nameCn": "泰式东南亚街食餐厅",
+          "lat": 38.0192,
+          "lng": -78.4843,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "365 Merchant Walk Sq，泰越融合街头小吃风格，咖喱、炒面、炸鸡等充满烟火气，深受学生欢迎。"
+        },
+        {
+          "name": "Bodo's Bagels (Corner location)",
+          "nameCn": "博多贝果（科纳店）",
+          "lat": 38.0353,
+          "lng": -78.5074,
+          "rank": 9,
+          "tier": "绝对必吃",
+          "note": "1609 University Ave，创立于1988年的夏洛茨维尔经典，纽约水煮贝果不到5美元一份，UVA早餐神话。"
+        },
+        {
+          "name": "Roots Natural Kitchen",
+          "nameCn": "根源天然厨房",
+          "lat": 38.0345,
+          "lng": -78.5093,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "1329 W Main St，UVA商学院毕业生创立，可DIY谷物·蔬菜·蛋白质碗，健康、实惠，学生长队常见。"
+        },
+        {
+          "name": "Pho 3 Pho",
+          "nameCn": "第三碗越南河粉",
+          "lat": 38.042,
+          "lng": -78.4812,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "315 Rivanna Plaza Dr，夏洛茨维尔最受欢迎的越南河粉，汤底浓郁，牛腩粉和炸春卷是必点。"
+        },
+        {
+          "name": "Nguyen's Kitchen",
+          "nameCn": "阮家厨房（亚洲融合）",
+          "lat": 38.053,
+          "lng": -78.4855,
+          "rank": 12,
+          "tier": "很推荐",
+          "note": "900 Gardens Blvd，越日亚洲融合风格，Yelp 4.6星高分，寿司与越南菜同台，人均实惠。"
+        },
+        {
+          "name": "The Local",
+          "nameCn": "本地餐厅（农场直供）",
+          "lat": 38.0261,
+          "lng": -78.4764,
+          "rank": 13,
+          "tier": "很推荐",
+          "note": "Belmont区的农场直供标杆餐厅，以阿巴拉契亚经典菜式为特色，猪排和烤鳟鱼广受好评。"
+        },
+        {
+          "name": "C&O Restaurant",
+          "nameCn": "C&O法式料理",
+          "lat": 38.0298,
+          "lng": -78.479,
+          "rank": 14,
+          "tier": "一般",
+          "note": "Downtown Mall附近的法式精致餐厅，蜗牛、牛排胡椒酱汁经典，适合庆祝特殊场合。"
+        },
+        {
+          "name": "Bizou Bistro",
+          "nameCn": "比佐法式小馆",
+          "lat": 38.0296,
+          "lng": -78.4793,
+          "rank": 15,
+          "tier": "一般",
+          "note": "Downtown Mall上的法式乡村风格餐馆，柴火烤披萨和经典Margherita受到学生和游客好评。"
         }
       ]
     },
@@ -299,30 +592,83 @@
         {
           "name": "Bank of America (University Branch)",
           "nameCn": "美国银行（大学支行）",
-          "lat": 38.0355,
-          "lng": -78.501,
-          "note": "就在 Corner 上 1619 University Ave，新生开户、办借记卡最方便的大行网点，紧邻校园。"
+          "lat": 38.0352,
+          "lng": -78.5064,
+          "rank": 1,
+          "tier": "必去",
+          "note": "1619 University Ave，持护照和DS-2019即可开户，距UVA最近，学生开户友好，ATM随时可用。"
         },
         {
-          "name": "UVA Health University Hospital (ER)",
-          "nameCn": "UVA 大学医院（急诊）",
-          "lat": 38.026,
-          "lng": -78.4925,
-          "note": "校园南侧的大学附属医院，24 小时急诊，离主校区仅约 1.4km，突发就医的兜底去处。"
+          "name": "Chase Bank (The Corner)",
+          "nameCn": "摩根大通银行（科纳支行）",
+          "lat": 38.0354,
+          "lng": -78.5071,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1415 University Ave，国际学生常选银行之一，可开学生账户，位置在科纳区极便利，全国ATM网络广。"
         },
         {
-          "name": "CVS Pharmacy (The Corner)",
-          "nameCn": "CVS 药房（校角店）",
-          "lat": 38.0345,
-          "lng": -78.5002,
-          "note": "Corner 上的连锁药房，处方药、感冒药、日用品一应俱全，营业到晚上 11 点很救急。"
+          "name": "Wells Fargo (Emmet Street Branch)",
+          "nameCn": "富国银行（埃米特街支行）",
+          "lat": 38.044,
+          "lng": -78.5032,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "901 Emmet St N，学生开户友好，临近超市和购物中心，全国网络覆盖好，零售银行服务全面。"
         },
         {
-          "name": "Student Health & Wellness (UVA)",
-          "nameCn": "UVA 学生健康中心",
-          "lat": 38.0312,
-          "lng": -78.5096,
-          "note": "校内学生健康与心理咨询中心，看普通门诊（GP）、打疫苗、开转诊，持学生医保即可使用。"
+          "name": "UVA Health University Medical Center",
+          "nameCn": "UVA健康大学医学中心",
+          "lat": 38.0334,
+          "lng": -78.4988,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1215 Lee St，弗吉尼亚首屈一指的顶级医院，急诊24小时，紧急医疗首选，学生医保可报销。"
+        },
+        {
+          "name": "UVA Student Health and Wellness",
+          "nameCn": "UVA学生健康与健康中心",
+          "lat": 38.0301,
+          "lng": -78.5,
+          "rank": 5,
+          "tier": "必去",
+          "note": "550 Brandon Ave，UVA官方学生医疗机构，校医、心理咨询、药房一站集中，新生首先注册的健康机构。"
+        },
+        {
+          "name": "CVS Pharmacy (University Ave)",
+          "nameCn": "CVS药房（大学大道店）",
+          "lat": 38.0352,
+          "lng": -78.5072,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "1417-25 University Ave，24小时药房，距科纳学生区最近，感冒药、维生素、日常用品齐全。"
+        },
+        {
+          "name": "Verizon (Cellular Sales, Emmet St N)",
+          "nameCn": "Verizon电信（埃米特街授权店）",
+          "lat": 38.0463,
+          "lng": -78.5028,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1200 Emmet St N，Verizon授权经销商，覆盖Charlottesville信号最强的运营商，新生购号首选之一。"
+        },
+        {
+          "name": "T-Mobile (Seminole Trail)",
+          "nameCn": "T-Mobile（色米诺路店）",
+          "lat": 38.0601,
+          "lng": -78.4911,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "1240B Seminole Trail，T-Mobile全美无限流量套餐性价比高，国际学生常用，支持多国漫游。"
+        },
+        {
+          "name": "Sentara Urgent Care (Charlottesville)",
+          "nameCn": "森塔拉急诊诊所",
+          "lat": 38.0235,
+          "lng": -78.476,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "920 High St，非医院级别急诊，周一至日8am起诊，感冒、小外伤快速就医，等候时间短于ER。"
         }
       ]
     },
@@ -334,39 +680,76 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "The Rotunda & The Lawn (UVA)",
-          "nameCn": "圆顶大厅与草坪（UVA 学术村）",
-          "lat": 38.0356,
-          "lng": -78.5034,
-          "note": "Jefferson 设计的校园心脏，UNESCO 世界遗产，免费参观，是 UVA 最经典的拍照与散步地标。"
+          "name": "Monticello – Thomas Jefferson's Home",
+          "nameCn": "蒙蒂塞洛庄园（托马斯·杰斐逊故居）",
+          "lat": 38.0103,
+          "lng": -78.4524,
+          "rank": 1,
+          "tier": "必去",
+          "note": "UNESCO世界遗产，美国《独立宣言》起草者杰斐逊的故居和庄园，每年逾40万游客，距UVA仅5分钟车程。"
         },
         {
-          "name": "UVA Chapel",
-          "nameCn": "UVA 教堂",
-          "lat": 38.0364,
-          "lng": -78.5046,
-          "note": "紧邻圆顶大厅的哥特式石砌小教堂，建筑与彩窗很美，是校园里安静的出片角落。"
+          "name": "James Monroe's Highland",
+          "nameCn": "詹姆斯·门罗故居",
+          "lat": 38.0003,
+          "lng": -78.4636,
+          "rank": 2,
+          "tier": "强烈推荐",
+          "note": "2050 James Monroe Pkwy，美国第五任总统的历史庄园，距蒙蒂塞洛仅几分钟，独具历史感。"
         },
         {
-          "name": "Historic Downtown Mall",
-          "nameCn": "历史步行街",
-          "lat": 38.0304,
-          "lng": -78.4799,
-          "note": "离校约 2km 的砖砌步行街，餐厅、书店、电影院和市集云集，周末逛吃、看演出的好去处。"
+          "name": "Charlottesville City Market (Farmers Market)",
+          "nameCn": "夏洛茨维尔城市农夫市集",
+          "lat": 38.0242,
+          "lng": -78.4784,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "每周六上午IX艺术公园内，70多家摊位，本地新鲜蔬果、手工食品和工艺品，感受美国南方社区文化。"
         },
         {
-          "name": "Monticello",
-          "nameCn": "蒙蒂塞洛庄园",
-          "lat": 38.0052,
-          "lng": -78.4563,
-          "note": "Jefferson 故居、UNESCO 世界遗产（驾车约 15 分钟），与 UVA 同列名录，最值得一去的人文景点。"
+          "name": "King Family Vineyards",
+          "nameCn": "金氏家族葡萄酒庄",
+          "lat": 38.0622,
+          "lng": -78.7286,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "6550 Roseland Farm, Crozet，距UVA仅15分钟，蒙蒂塞洛酒庄之路上评分最高的酒庄之一，风景如画。"
         },
         {
-          "name": "Carter Mountain Orchard",
-          "nameCn": "卡特山果园",
-          "lat": 37.979,
-          "lng": -78.4897,
-          "note": "山顶果园（驾车约 15 分钟），秋季摘苹果、喝苹果酒，俯瞰夏村与蓝岭山脉的绝佳观景台。"
+          "name": "Pippin Hill Farm & Vineyards",
+          "nameCn": "皮平山农庄葡萄酒庄",
+          "lat": 37.936,
+          "lng": -78.606,
+          "rank": 5,
+          "tier": "强烈推荐",
+          "note": "5022 Plank Rd, North Garden，夏洛茨维尔以南20分钟，高档农庄品酒体验，搭配田园美景和精致餐食。"
+        },
+        {
+          "name": "Ting Pavilion & Fridays After Five",
+          "nameCn": "叮铃音乐节（五点后的周五）",
+          "lat": 38.0295,
+          "lng": -78.4786,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "夏春两季每周五下午5点在Downtown Mall举办的免费户外音乐节，本地文化体验必参加活动。"
+        },
+        {
+          "name": "Barracks Road Shopping Center",
+          "nameCn": "兵营路购物中心",
+          "lat": 38.0422,
+          "lng": -78.5048,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "1117 Emmet St，UVA最近的综合购物中心，含Barnes & Noble书店、Old Navy等50余家商铺及餐厅。"
+        },
+        {
+          "name": "Three Notch'd Brewing (Charlottesville)",
+          "nameCn": "三刻啤酒厂（夏洛茨维尔）",
+          "lat": 38.0242,
+          "lng": -78.4784,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "946 Grady Ave，本地精酿代表品牌，与Bad Luck Ramen同处IX艺术公园区，是UVA学生周末放松聚点。"
         }
       ]
     }

@@ -83,60 +83,112 @@
       "icon": "school",
       "items": [
         {
-          "name": "Firth Court",
-          "nameCn": "弗斯楼",
-          "lat": 53.3816,
-          "lng": -1.4892,
-          "note": "爱德华时期红砖楼,大学行政与生物科学所在。"
+          "name": "The Diamond",
+          "nameCn": "钻石楼（工程学院）",
+          "lat": 53.38154,
+          "lng": -1.4816,
+          "rank": 1,
+          "tier": "必去",
+          "note": "2015年开放的旗舰工程教学楼，耗资8100万英镑，内设专业实验室与开放学习空间，是谢大最具标志性的现代建筑之一。"
         },
         {
-          "name": "The Diamond",
-          "nameCn": "钻石楼",
-          "lat": 53.3816,
-          "lng": -1.4821,
-          "note": "2015年启用的工程教学楼,标志性外立面。"
+          "name": "Firth Court",
+          "nameCn": "弗斯法院（主楼/行政楼）",
+          "lat": 53.38131,
+          "lng": -1.48856,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1905年落成的红砖爱德华风格主楼，是全校行政中枢，也是生命科学学院的所在地，校徽与毕业典礼均以此为中心。"
+        },
+        {
+          "name": "Arts Tower",
+          "nameCn": "艺术塔（22层高塔）",
+          "lat": 53.38274,
+          "lng": -1.48729,
+          "rank": 3,
+          "tier": "必去",
+          "note": "22层高的二战后现代主义建筑，英国最高的大学建筑之一（Grade II*保护），是建筑与景观学院驻地，也是校园最醒目的地标。"
         },
         {
           "name": "Sir Frederick Mappin Building",
-          "nameCn": "马平工程楼",
-          "lat": 53.3819,
-          "lng": -1.4793,
-          "note": "工程学院主楼,圣乔治校区核心。"
+          "nameCn": "马平楼（工程心脏地带）",
+          "lat": 53.38196,
+          "lng": -1.47929,
+          "rank": 4,
+          "tier": "必去",
+          "note": "1904年建成的Grade II保护建筑，机械工程、电气工程、土木工程等核心理工科系均在此楼，毗邻Heartspace大厅。"
+        },
+        {
+          "name": "Hicks Building",
+          "nameCn": "希克斯楼（数理物理）",
+          "lat": 53.381,
+          "lng": -1.4861,
+          "rank": 5,
+          "tier": "必去",
+          "note": "物理、天文、数学与化学各系的教学研究中心，也是理学院学生日常上课与自习的主要场所之一。"
+        },
+        {
+          "name": "The Wave",
+          "nameCn": "波浪楼（社会科学学院）",
+          "lat": 53.3823,
+          "lng": -1.492,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "2023年正式启用的净零排放新楼，社会科学学院（含新闻、教育、社会学等系）旗舰校舍，设计别具一格。"
+        },
+        {
+          "name": "Jessop West",
+          "nameCn": "杰索普西楼",
+          "lat": 53.38133,
+          "lng": -1.48346,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "2009年建成，由柏林萨尔布吕肯·胡顿设计，彩色玻璃外立面极具视觉冲击力，驻有英语、语言与文化艺术各系。"
         },
         {
           "name": "Alfred Denny Building",
-          "nameCn": "阿尔弗雷德·丹尼楼",
-          "lat": 53.3819,
-          "lng": -1.4886,
-          "note": "生物科学系所在,内设动物学博物馆。"
+          "nameCn": "阿尔弗雷德·丹尼楼（生命科学）",
+          "lat": 53.38195,
+          "lng": -1.4878,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "7层红砖楼，动植物科学与生物医学科学系所在地，内设著名的阿尔弗雷德·丹尼动物学博物馆（每月第一个周六免费开放）。"
         },
         {
-          "name": "Royal Hallamshire Hospital",
-          "nameCn": "皇家哈勒姆郡医院",
-          "lat": 53.3787,
-          "lng": -1.4932,
-          "note": "主教学医院,毗邻医学院。"
+          "name": "Management School (SUMS)",
+          "nameCn": "管理学院（SUMS）",
+          "lat": 53.3792,
+          "lng": -1.488,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "位于Conduit Road，谢菲尔德大学管理学院驻地，提供MBA及各类商科研究生课程，邻近西南校区。"
         },
         {
-          "name": "School of Clinical Dentistry",
-          "nameCn": "临床口腔学院",
-          "lat": 53.3796,
-          "lng": -1.4933,
-          "note": "英国规模领先的口腔教学与诊疗中心。"
+          "name": "Dainton Building",
+          "nameCn": "丹顿楼（化学系）",
+          "lat": 53.3817,
+          "lng": -1.4862,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "位于Brook Hill 13号，化学系的教学与研究中心，毗邻希克斯楼，是理学院重要的教研楼之一。"
         },
         {
-          "name": "AMRC (Factory 2050)",
-          "nameCn": "先进制造研究中心",
-          "lat": 53.3943,
-          "lng": -1.3823,
-          "note": "与波音等合作的尖端制造研究基地。"
+          "name": "ICOSS Building",
+          "nameCn": "ICOSS社会科学研究中心",
+          "lat": 53.3805,
+          "lng": -1.4785,
+          "rank": 11,
+          "tier": "推荐",
+          "note": "位于Portobello 219号，跨学科社会科学研究中心，犯罪学、健康与社会关怀研究人员的聚集地。"
         },
         {
-          "name": "Clinical Skills Centre, Northern General",
-          "nameCn": "北总临床技能中心",
-          "lat": 53.4105,
-          "lng": -1.4574,
-          "note": "模拟病房与复苏教学设施所在。"
+          "name": "Bartolomé House",
+          "nameCn": "巴尔托洛梅楼（法学院）",
+          "lat": 53.383,
+          "lng": -1.487,
+          "rank": 12,
+          "tier": "可选",
+          "note": "Grade II保护建筑，法学院专属驻地，位于Winter Street，距主图书馆和城市法院步行可达，氛围安静学术。"
         }
       ],
       "defaultOn": true
@@ -149,18 +201,58 @@
       "icon": "local_library",
       "items": [
         {
-          "name": "Western Bank Library",
-          "nameCn": "西班克图书馆",
-          "lat": 53.3826,
-          "lng": -1.4881,
-          "note": "二级保护建筑,主校区核心藏书馆。"
+          "name": "Information Commons (IC)",
+          "nameCn": "信息共享空间（IC，24小时图书馆）",
+          "lat": 53.38142,
+          "lng": -1.48445,
+          "rank": 1,
+          "tier": "必去",
+          "note": "谢大最受学生欢迎的图书馆，24/7全天开放，1300个学习座位、500台电脑，毗邻有轨电车站，是备考与赶deadline首选。"
         },
         {
-          "name": "Information Commons",
-          "nameCn": "信息共享中心",
-          "lat": 53.3816,
-          "lng": -1.4847,
-          "note": "24小时开放的现代化学习与图书空间。"
+          "name": "Western Bank Library",
+          "nameCn": "西岸图书馆（主图书馆）",
+          "lat": 53.38264,
+          "lng": -1.48805,
+          "rank": 2,
+          "tier": "必去",
+          "note": "1959年由诺贝尔奖得主T.S.艾略特揭幕的Grade II*保护建筑，730个座位，珍本特藏丰富，是人文社科学生的学术圣地。"
+        },
+        {
+          "name": "Diamond Library (Study Space in The Diamond)",
+          "nameCn": "钻石楼图书馆（工程图书馆）",
+          "lat": 53.38154,
+          "lng": -1.4816,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "钻石楼内设有专业工程图书馆和开放式学习区，提供工科相关资料与群组讨论空间，理工科生常用。"
+        },
+        {
+          "name": "Health Sciences Library",
+          "nameCn": "健康科学图书馆",
+          "lat": 53.3795,
+          "lng": -1.491,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于Beech Hill Road，皇家哈拉姆郡医院旁，医学与护理专业学生的专属馆藏中心，提供临床相关数据库资源。"
+        },
+        {
+          "name": "St George's Library",
+          "nameCn": "圣乔治图书馆",
+          "lat": 53.3808,
+          "lng": -1.479,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Portobello街区的图书馆站点，服务圣乔治校区的学生，馆藏偏向工程与社会科学。"
+        },
+        {
+          "name": "Sheffield Central Library",
+          "nameCn": "谢菲尔德市中央图书馆",
+          "lat": 53.38063,
+          "lng": -1.46791,
+          "rank": 6,
+          "tier": "可选",
+          "note": "位于Surrey Street，市级公共图书馆，三楼即Graves Gallery，免费向公众开放，适合学生借阅社区馆藏或换个学习环境。"
         }
       ]
     },
@@ -172,18 +264,58 @@
       "icon": "museum",
       "items": [
         {
-          "name": "Alfred Denny Museum",
-          "nameCn": "阿尔弗雷德·丹尼博物馆",
-          "lat": 53.3819,
-          "lng": -1.4886,
-          "note": "校内动物学标本博物馆。"
+          "name": "Weston Park Museum",
+          "nameCn": "韦斯顿公园博物馆（Sheffield最大博物馆）",
+          "lat": 53.38172,
+          "lng": -1.49162,
+          "rank": 1,
+          "tier": "必去",
+          "note": "紧邻校园的Sheffield最大博物馆，免费入场，含古埃及文物、Sheffield工业史、自然史等七个展厅，是校园旁最值得打卡的文化场所。"
         },
         {
-          "name": "Turner Museum of Glass",
-          "nameCn": "特纳玻璃博物馆",
-          "lat": 53.3819,
-          "lng": -1.4793,
-          "note": "收藏19—20世纪玻璃艺术,位于工程区。"
+          "name": "Kelham Island Museum",
+          "nameCn": "克尔汉姆岛工业博物馆",
+          "lat": 53.3895,
+          "lng": -1.47235,
+          "rank": 2,
+          "tier": "必去",
+          "note": "坐落于900年历史人工岛上，展示Sheffield钢铁与刀具工业辉煌历史，有巨型蒸汽机实际运转演示，是全国最佳工业博物馆之一。"
+        },
+        {
+          "name": "Graves Gallery",
+          "nameCn": "格雷夫斯画廊",
+          "lat": 53.3807,
+          "lng": -1.4676,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于市中央图书馆三层，免费入场，收藏毕加索、雷诺阿等大师原作，是Sheffield市视觉艺术收藏的核心展馆。"
+        },
+        {
+          "name": "Millennium Gallery",
+          "nameCn": "千禧画廊",
+          "lat": 53.3799,
+          "lng": -1.466,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于市中心Arundel Gate，免费入场，常设John Ruskin收藏及Sheffield金属工艺特展，定期举办高水准巡回展览。"
+        },
+        {
+          "name": "Alfred Denny Museum",
+          "nameCn": "阿尔弗雷德·丹尼动物学博物馆",
+          "lat": 53.38195,
+          "lng": -1.4878,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "大学内部自然史博物馆，每月第一周六免费开放，馆内有\"恐怖鸟\"头骨模型、斯科特南极探险帝企鹅标本等稀世藏品。"
+        },
+        {
+          "name": "National Videogame Museum",
+          "nameCn": "国家电子游戏博物馆",
+          "lat": 53.3828,
+          "lng": -1.4613,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Castle House, Angel Street，英国唯一国家级电玩博物馆，馆内可试玩各年代游戏，深受学生和电竞爱好者喜爱。"
         }
       ]
     },
@@ -195,32 +327,76 @@
       "icon": "place",
       "items": [
         {
-          "name": "Arts Tower",
-          "nameCn": "艺术塔",
-          "lat": 53.3828,
-          "lng": -1.4873,
-          "note": "战后现代主义高楼,谢大地标。"
+          "name": "Sheffield Students' Union",
+          "nameCn": "学生会（SU）",
+          "lat": 53.3809,
+          "lng": -1.4886,
+          "rank": 1,
+          "tier": "必去",
+          "note": "位于Western Bank，连续多年荣获英国最佳学生会，内有酒吧、咖啡厅、Pearls奶茶、Santander网点，是学生社交与社团活动核心。"
         },
         {
-          "name": "Students' Union",
-          "nameCn": "学生会",
-          "lat": 53.3804,
-          "lng": -1.4872,
-          "note": "屡获全英最佳学生会,社团与活动中心。"
+          "name": "Weston Park",
+          "nameCn": "韦斯顿公园（校园绿心）",
+          "lat": 53.38172,
+          "lng": -1.49162,
+          "rank": 2,
+          "tier": "必去",
+          "note": "校园旁的5公顷免费市民公园，春夏季学生聚集野餐，毗邻Weston Park博物馆和儿童医院，是课余放松的首选绿地。"
+        },
+        {
+          "name": "Sheffield Winter Garden",
+          "nameCn": "谢菲尔德冬日花园",
+          "lat": 53.3808,
+          "lng": -1.4675,
+          "rank": 3,
+          "tier": "必去",
+          "note": "市中心Surrey Street上欧洲最大温带玻璃温室之一，免费入场，四季皆宜，紧邻千禧画廊与和平花园，是购物间隙打卡胜地。"
         },
         {
           "name": "Goodwin Sports Centre",
           "nameCn": "古德温体育中心",
-          "lat": 53.3822,
-          "lng": -1.4943,
-          "note": "主校区健身与室内运动中心。"
+          "lat": 53.384,
+          "lng": -1.491,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于Northumberland Road，大学官方体育中心，游泳池、健身房、球场一应俱全，国际生推荐尽早办理学生会员以享优惠。"
         },
         {
-          "name": "Sheffield railway station",
-          "nameCn": "谢菲尔德火车站",
-          "lat": 53.3784,
-          "lng": -1.4621,
-          "note": "距主校区约1.5公里的城际铁路枢纽。"
+          "name": "Octagon Centre",
+          "nameCn": "八角中心（音乐与会议厅）",
+          "lat": 53.3814,
+          "lng": -1.4892,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Clarkson Street，大学多功能表演与会议场馆，容纳1800人，毕业典礼及大型学生演出均在此举行。"
+        },
+        {
+          "name": "Crucible Theatre",
+          "nameCn": "坩埚剧院",
+          "lat": 53.38097,
+          "lng": -1.46688,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于Norfolk Street，世界斯诺克锦标赛举办地，也是英国最具影响力的话剧院之一，凭学生证可购优惠票。"
+        },
+        {
+          "name": "Endcliffe Park",
+          "nameCn": "恩德克利夫公园",
+          "lat": 53.369,
+          "lng": -1.507,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "距校区南约1.5公里的大型绿地，学生宿舍Endcliffe Village紧邻，夏日是学生集体烧烤、野餐的标志性场所。"
+        },
+        {
+          "name": "Kelham Island District",
+          "nameCn": "克尔汉姆岛创意街区",
+          "lat": 53.388,
+          "lng": -1.472,
+          "rank": 8,
+          "tier": "推荐",
+          "note": "由旧工厂改造的城市创意区，聚集Cutlery Works食品大厅、独立精酿酒馆、咖啡馆与艺术空间，是周末探索Sheffield文化的热门目的地。"
         }
       ]
     },
@@ -232,39 +408,67 @@
       "icon": "shopping_cart",
       "items": [
         {
-          "name": "Taste the Orient (Glossop Road)",
-          "nameCn": "东方超市（Glossop Road 店）",
-          "lat": 53.3799,
-          "lng": -1.4815,
-          "note": "离主校区步行几分钟的大型亚洲超市，中餐调料、火锅底料、速食、冷冻饺子和新鲜亚洲蔬菜齐全，是中国学生最常去的采购点。"
+          "name": "KH Oriental Supermarket",
+          "nameCn": "广兴超市（最大中式超市）",
+          "lat": 53.371,
+          "lng": -1.4675,
+          "rank": 1,
+          "tier": "绝对必逛",
+          "note": "位于New Era Square 12号，Sheffield最大、最老牌的中国/亚洲超市（经营近40年），中文食材、调味料、冻货一应俱全，中国留学生必备。"
         },
         {
-          "name": "KH Oriental Supermarket 广兴超市",
-          "nameCn": "广兴亚洲超市（New Era Square）",
-          "lat": 53.3723,
-          "lng": -1.4738,
-          "note": "谢菲尔德最大的华人超市，开了近40年，品类最全、价格实惠，米面酱料海鲜都能囤；位于 New Era Square 华人聚集区。"
+          "name": "Yi-Mart Oriental Supermarket",
+          "nameCn": "怡集东方超市",
+          "lat": 53.3789,
+          "lng": -1.4691,
+          "rank": 2,
+          "tier": "绝对必逛",
+          "note": "位于Matilda Street 8号，市中心另一家东方超市，距Noodle Inn步行可达，选购日韩食材和亚洲小吃非常方便。"
         },
         {
-          "name": "Tesco Express, West Street",
-          "nameCn": "乐购便利店（West Street 店）",
-          "lat": 53.3805,
-          "lng": -1.476,
-          "note": "校区核心 West Street 上的英国主流连锁超市，日常牛奶面包蔬果和应急采买最方便，营业时间长。"
+          "name": "Tesco Metro (Ecclesall Road)",
+          "nameCn": "乐购超市（Ecclesall Road店）",
+          "lat": 53.3717,
+          "lng": -1.4939,
+          "rank": 3,
+          "tier": "强烈推荐",
+          "note": "位于Berkeley Precinct，Ecclesall Road上距大学最近的主流超市，营业至23:00，学生日常采购首选，性价比高。"
         },
         {
-          "name": "Sainsbury's, The Moor",
-          "nameCn": "森宝利超市（The Moor 店）",
-          "lat": 53.3776,
-          "lng": -1.471,
-          "note": "市中心 The Moor 商业街上的英国大型连锁超市，紧邻 Moor Market 室内菜市场，适合一次性囤货。"
+          "name": "Waitrose (Ecclesall Road)",
+          "nameCn": "维特罗斯超市（Ecclesall Road）",
+          "lat": 53.3718,
+          "lng": -1.4942,
+          "rank": 4,
+          "tier": "强烈推荐",
+          "note": "位于1-3 Ecclesall Road，英国高品质连锁超市，自有品牌食材和有机产品丰富，适合改善伙食时采购。"
         },
         {
-          "name": "Panda Fresh, West Street",
-          "nameCn": "熊猫鲜亚超（West Street 店）",
-          "lat": 53.3808,
-          "lng": -1.4775,
-          "note": "就在 West Street 上的小型东方超市，零食、奶茶原料、泡面随手可买，离教学楼最近，应急补货首选。"
+          "name": "Sainsbury's Archer Road",
+          "nameCn": "赛百利大型超市（Archer Road）",
+          "lat": 53.3456,
+          "lng": -1.4928,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于S8 0TD，大型超市品类全，配有Argos柜台，适合每周大采购，可乘多路公交抵达。"
+        },
+        {
+          "name": "Lidl (High Street, City Centre)",
+          "nameCn": "利德超市（市中心High Street店）",
+          "lat": 53.382,
+          "lng": -1.4705,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于High Street，欧洲平价连锁超市，面包、日用品价格极低，适合预算有限的学生日常补货。"
+        },
+        {
+          "name": "Sainsbury's Local (Ecclesall Road)",
+          "nameCn": "赛百利便利店（Ecclesall Road）",
+          "lat": 53.3719,
+          "lng": -1.4935,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "紧邻Tesco Metro的便利超市，生鲜、面包、即食食品充足，晚间营业至22:00左右，买宵夜或临时补给很方便。"
         }
       ]
     },
@@ -276,46 +480,121 @@
       "icon": "restaurant",
       "items": [
         {
-          "name": "Chinatown / Noodle Inn (London Road)",
-          "nameCn": "唐人街·面馆（London Road）",
-          "lat": 53.369,
-          "lng": -1.479,
-          "note": "London Road 是谢菲的中餐一条街，这一带聚集了正宗粤式点心和大份量中餐，是中国学生解乡愁的大本营。"
+          "name": "Noodle Inn (London Road)",
+          "nameCn": "面馆（London Road老店）",
+          "lat": 53.3654,
+          "lng": -1.468,
+          "rank": 1,
+          "tier": "绝对必吃",
+          "note": "2004年开业、谢大中国留学生口碑最好的中餐馆，招牌大碗刀削面与烤鸭备受追捧，分量足、价格亲民，是必打卡的「家乡味」。"
+        },
+        {
+          "name": "Wong Ting",
+          "nameCn": "黄庭港式餐厅",
+          "lat": 53.3791,
+          "lng": -1.4668,
+          "rank": 2,
+          "tier": "绝对必吃",
+          "note": "位于Matilda Street 6-8号，2024年香港团队接管后主打精品港式点心与传统粤菜，周末早茶场爆满，是Sheffield目前最受认可的正宗港式餐厅。"
+        },
+        {
+          "name": "Pepper Greenhouse",
+          "nameCn": "胡椒温室（川菜/鱼锅）",
+          "lat": 53.3784,
+          "lng": -1.4932,
+          "rank": 3,
+          "tier": "绝对必吃",
+          "note": "位于Glossop Road 251号，主打四川风味烤鱼与川式小炒，是中国留学生最推荐的「解馋」之地，价格适中，分量充足。"
+        },
+        {
+          "name": "Ginseng Korean BBQ",
+          "nameCn": "高丽参韩国烤肉",
+          "lat": 53.3798,
+          "lng": -1.4722,
+          "rank": 4,
+          "tier": "绝对必吃",
+          "note": "位于Fitzwilliam Street 8号，Sheffield最知名的韩国烤肉餐厅，桌边自烤体验正宗，是国际学生聚会首选，需提前订座。"
+        },
+        {
+          "name": "Shuyo Korean Restaurant",
+          "nameCn": "守夜韩国餐厅",
+          "lat": 53.3708,
+          "lng": -1.4672,
+          "rank": 5,
+          "tier": "绝对必吃",
+          "note": "位于New Era Square旁，新兴韩国料理餐厅，提供韩式烤肉、炸鸡与石锅拌饭，评价极高，价格适中，深受亚洲留学生欢迎。"
         },
         {
           "name": "Noodle Inn Centro",
-          "nameCn": "面馆 Centro（市中心店）",
-          "lat": 53.3797,
-          "lng": -1.473,
-          "note": "市中心 Westfield Terrace 的人气中餐馆，川菜面食小炒地道、分量足，离校区很近，朋友聚餐常来。"
+          "nameCn": "面馆市中心分店",
+          "lat": 53.3807,
+          "lng": -1.4763,
+          "rank": 6,
+          "tier": "很推荐",
+          "note": "位于Westfield Terrace 15号，Noodle Inn市中心版，点心与粤式烧腊均可，位置更靠近校园，上下课顺路用餐极为方便。"
         },
         {
-          "name": "OISOI Bar & Restaurant",
-          "nameCn": "OISOI 现代中餐酒吧",
-          "lat": 53.376,
-          "lng": -1.469,
-          "note": "Matilda Street 上的现代中式餐酒馆，手工点心、面条和小炒摆盘精致，氛围适合朋友聚会和拍照。"
+          "name": "Cambridge Street Collective",
+          "nameCn": "剑桥街美食大厅",
+          "lat": 53.3816,
+          "lng": -1.4734,
+          "rank": 7,
+          "tier": "很推荐",
+          "note": "位于Backfields 11号，欧洲最大专建美食大厅之一（2025年获年度最佳美食大厅），20+摊档覆盖巴勒斯坦菜、亚洲街头小吃、尼泊尔菜等，屋顶可观城市全景。"
         },
         {
-          "name": "Marmadukes Cafe Deli (Norfolk Row)",
-          "nameCn": "Marmadukes 咖啡馆（Norfolk Row 店）",
-          "lat": 53.3805,
-          "lng": -1.468,
-          "note": "正对天主教堂的本地网红 brunch 咖啡馆，自家烘焙面包和早午餐是谢菲必打卡的英式小资体验。"
+          "name": "Cutlery Works",
+          "nameCn": "刀具工厂美食大厅（Kelham Island）",
+          "lat": 53.3883,
+          "lng": -1.4722,
+          "rank": 8,
+          "tier": "很推荐",
+          "note": "位于Neepsend Lane，由旧刀具工厂改造的Kelham Island地标美食集市，14家餐厅+3家酒吧，连续获评英国最佳美食大厅，周末必来打卡。"
         },
         {
-          "name": "Forum Kitchen & Bar (Devonshire Green)",
-          "nameCn": "Forum 餐吧（Devonshire Green）",
-          "lat": 53.3793,
-          "lng": -1.4775,
-          "note": "Devonshire Green 旁的本地餐吧，可吃到加了谢菲名产 Henderson's Relish 辣酱的招牌猪肉派，体验地道本地味。"
+          "name": "Ashoka",
+          "nameCn": "阿育王印度餐厅（1967年老店）",
+          "lat": 53.3684,
+          "lng": -1.4949,
+          "rank": 9,
+          "tier": "很推荐",
+          "note": "位于Ecclesall Road 307号，1967年开业的Sheffield传奇印度餐厅，上榜《泰晤士报》十大印度餐厅，素食选项出色，浓郁正宗。"
         },
         {
-          "name": "Tamper Coffee (Westfield Terrace)",
-          "nameCn": "Tamper 咖啡（新西兰风）",
-          "lat": 53.3796,
-          "lng": -1.4732,
-          "note": "新西兰风格精品咖啡店，brunch 和咖啡口碑极好，离校区步行可达，是泡馆写论文的好去处。"
+          "name": "Jöro Restaurant",
+          "nameCn": "约罗（米其林指南推荐北欧风）",
+          "lat": 53.3971,
+          "lng": -1.5388,
+          "rank": 10,
+          "tier": "很推荐",
+          "note": "迁址至Oughtibridge Mill，Luke French主厨的北欧风格品鉴餐厅，获Good Food Guide与米其林指南推荐，适合特殊场合慢用餐。"
+        },
+        {
+          "name": "Chatime Sheffield",
+          "nameCn": "日出茶太（Division Street）",
+          "lat": 53.3824,
+          "lng": -1.4747,
+          "rank": 11,
+          "tier": "很推荐",
+          "note": "位于Division Street 38号，全球连锁台湾奶茶品牌，靠近校园，课后排队不断，是中国学生缓解思乡之情的日常饮品站。"
+        },
+        {
+          "name": "Lucky Fox",
+          "nameCn": "幸运狐狸（炸鸡华夫饼）",
+          "lat": 53.3823,
+          "lng": -1.4759,
+          "rank": 12,
+          "tier": "一般",
+          "note": "位于Division Street 72号，Sheffield学生最热门的平价网红餐厅，炸鸡+华夫饼组合风靡社交媒体，周末需排队。"
+        },
+        {
+          "name": "Napoli Centro",
+          "nameCn": "那不勒斯中心（正宗拿坡里披萨）",
+          "lat": 53.3826,
+          "lng": -1.4745,
+          "rank": 13,
+          "tier": "一般",
+          "note": "近市中心的意大利拿坡里风格披萨店，披萨最低£8起，食材新鲜、烘焙正宗，是在欧洲美食之间寻求平衡的实惠之选。"
         }
       ]
     },
@@ -327,32 +606,76 @@
       "icon": "account_balance",
       "items": [
         {
-          "name": "Royal Hallamshire Hospital",
-          "nameCn": "皇家哈勒姆郡医院（NHS）",
-          "lat": 53.3791,
-          "lng": -1.492,
-          "note": "紧邻主校区 Glossop Road 上的 NHS 大型综合教学医院，设有急诊（A&E），生病急症就医首选。"
+          "name": "University Health Service (UHS)",
+          "nameCn": "大学健康服务中心（GP诊所）",
+          "lat": 53.3838,
+          "lng": -1.4852,
+          "rank": 1,
+          "tier": "必办",
+          "note": "位于Gell Street 53号，谢大官方NHS全科诊所，专为学生服务，注册免费且无需地址证明，新生到校后需优先注册，可处理各类内科问题。"
         },
         {
-          "name": "University Health Service (GP)",
-          "nameCn": "谢菲尔德大学校医 GP 诊所",
-          "lat": 53.3818,
-          "lng": -1.4905,
-          "note": "校内的 NHS 注册 GP 全科诊所，落地后第一件事就是来登记 GP，看小病、开处方、打疫苗都靠它。"
+          "name": "HSBC (Ecclesall Road)",
+          "nameCn": "汇丰银行（Ecclesall Road支行）",
+          "lat": 53.3726,
+          "lng": -1.4935,
+          "rank": 2,
+          "tier": "必办",
+          "note": "位于Ecclesall Road 427号，距校区步行约15分钟，汇丰在中国留学生中认知度高，持国际学生签证可开英国账户，需携带学校入学确认信。"
         },
         {
-          "name": "Boots Pharmacy, West Street",
-          "nameCn": "Boots 药房（West Street 店）",
-          "lat": 53.3807,
-          "lng": -1.4768,
-          "note": "252-254 West Street 上的英国连锁药妆店，取处方药、买感冒药和日用洗护最方便，就在校区主街上。"
+          "name": "Barclays Bank (City Centre)",
+          "nameCn": "巴克莱银行（市中心Pinstone Street）",
+          "lat": 53.37994,
+          "lng": -1.47061,
+          "rank": 3,
+          "tier": "推荐",
+          "note": "位于Pinstone Street 2-12号，市中心主要银行，周一至五9:30-16:30，周六营业至14:30，留学生可开立Student Current Account。"
         },
         {
-          "name": "Barclays Bank, Sheffield City Centre",
-          "nameCn": "巴克莱银行（市中心支行）",
-          "lat": 53.3808,
-          "lng": -1.47,
-          "note": "市中心主流银行支行，留学生可凭录取信和地址证明预约开本地学生账户，方便交房租和日常收付。"
+          "name": "Boots Pharmacy (High Street)",
+          "nameCn": "博姿药房（High Street）",
+          "lat": 53.382,
+          "lng": -1.4706,
+          "rank": 4,
+          "tier": "推荐",
+          "note": "位于High Street 4-6号，Sheffield市中心最大药房，药品、个人护理用品齐全，可凭处方拿药，也可直接购买非处方药品。"
+        },
+        {
+          "name": "Three Mobile (Fargate)",
+          "nameCn": "Three手机运营商（Fargate门店）",
+          "lat": 53.3827,
+          "lng": -1.4719,
+          "rank": 5,
+          "tier": "推荐",
+          "note": "位于Fargate 49-63号，Three是留学生性价比最高的手机套餐提供商之一，可购买SIM卡或预付套餐，支持国际漫游转换。"
+        },
+        {
+          "name": "EE Mobile (The Moor)",
+          "nameCn": "EE手机运营商（The Moor门店）",
+          "lat": 53.3799,
+          "lng": -1.4735,
+          "rank": 6,
+          "tier": "推荐",
+          "note": "位于The Moor 31-35号，EE是英国网络覆盖最广的运营商，适合需要稳定4G/5G信号的学生，可在此办理SIM及宽带套餐。"
+        },
+        {
+          "name": "Lloyds Pharmacy (Ecclesall Road)",
+          "nameCn": "劳埃德药房（Ecclesall Road）",
+          "lat": 53.3731,
+          "lng": -1.4931,
+          "rank": 7,
+          "tier": "推荐",
+          "note": "位于Ecclesall Road 421号，UHS电子处方首选合作药房之一，可无需亲自到诊就直接来此领取大学诊所开具的电子处方药物。"
+        },
+        {
+          "name": "Santander (Students' Union)",
+          "nameCn": "桑坦德银行（学生会网点）",
+          "lat": 53.3809,
+          "lng": -1.4886,
+          "rank": 8,
+          "tier": "可选",
+          "note": "位于学生会大楼内，Santander在英国高校网点中开户最为便利，提供学生专属账户（含4年铁路卡），但请提前确认营业状态。"
         }
       ]
     },
@@ -364,39 +687,94 @@
       "icon": "photo_camera",
       "items": [
         {
-          "name": "Sheffield Winter Garden",
-          "nameCn": "谢菲尔德冬季花园",
-          "lat": 53.3796,
-          "lng": -1.4695,
-          "note": "全欧洲最大的城市温室之一，免费开放，2500多种植物常年苍翠，市中心地标，雨天遛弯拍照的好去处。"
-        },
-        {
-          "name": "Peace Gardens",
-          "nameCn": "和平花园",
-          "lat": 53.38,
-          "lng": -1.4705,
-          "note": "市政厅前的喷泉广场，夏天喷泉是本地人晒太阳野餐的聚集地，谢菲市中心最出片的打卡点之一。"
-        },
-        {
           "name": "Sheffield Botanical Gardens",
           "nameCn": "谢菲尔德植物园",
-          "lat": 53.372,
-          "lng": -1.4972,
-          "note": "维多利亚式古典玻璃温室和19英亩花园，免费入园，春夏赏花散步、拍照野餐的绝佳去处，离校区不远。"
+          "lat": 53.37198,
+          "lng": -1.49716,
+          "rank": 1,
+          "tier": "必去",
+          "note": "距大学步行约15分钟，19英亩、5000种植物，免费入园，历史温室与玫瑰园尤为出色，春花秋叶时节是学生打卡和放松的天然去处。"
         },
         {
-          "name": "Crucible Theatre",
-          "nameCn": "坩埚剧院",
-          "lat": 53.381,
-          "lng": -1.4669,
-          "note": "世界斯诺克锦标赛的固定举办地，谢菲的文化名片；看戏看球或感受英国剧院氛围都值得一来。"
+          "name": "Peak District National Park (Stanage Edge)",
+          "nameCn": "峰区国家公园·斯坦尼奇崖",
+          "lat": 53.34734,
+          "lng": -1.64804,
+          "rank": 2,
+          "tier": "必去",
+          "note": "Sheffield近郊最经典的徒步攀岩胜地，距市区约40分钟车程，可乘公交至Hathersage后步行抵达，居高俯瞰Hope Valley，是新生必做的户外活动。"
         },
         {
-          "name": "Kelham Island",
-          "nameCn": "凯勒姆岛文创区",
-          "lat": 53.3892,
-          "lng": -1.4712,
-          "note": "由旧工业区改造的潮流文创街区，精酿酒吧、独立餐厅和周末市集云集，是体验谢菲年轻文化的必逛地。"
+          "name": "Padley Gorge (Peak District)",
+          "nameCn": "帕德利峡谷（峰区）",
+          "lat": 53.3119,
+          "lng": -1.61842,
+          "rank": 3,
+          "tier": "必去",
+          "note": "距Sheffield约20公里，古木参天的溪谷健行路线，可乘火车至Grindleford后步行进入，配合Longshaw庄园一日游，被《星期日泰晤士报》列为英国顶级步道。"
+        },
+        {
+          "name": "Chatsworth House",
+          "nameCn": "查兹沃斯庄园",
+          "lat": 53.22752,
+          "lng": -1.61143,
+          "rank": 4,
+          "tier": "必去",
+          "note": "距Sheffield约45分钟车程（可乘218路公交），英国最著名的贵族庄园之一，《傲慢与偏见》取景地，1800英亩园林与世界级艺术收藏，值得花一整天游览。"
+        },
+        {
+          "name": "Kelham Island Museum & Neepsend Quarter",
+          "nameCn": "克尔汉姆岛工业区与文创街区",
+          "lat": 53.3895,
+          "lng": -1.47235,
+          "rank": 5,
+          "tier": "必去",
+          "note": "步行或骑车可达的Sheffield最有活力的街区，工业博物馆、精酿啤酒厂、独立咖啡馆与美食市集密集，是周末本地体验的最佳路线。"
+        },
+        {
+          "name": "Sheffield Winter Garden & Peace Gardens",
+          "nameCn": "冬日花园与和平花园",
+          "lat": 53.3808,
+          "lng": -1.4675,
+          "rank": 6,
+          "tier": "强烈推荐",
+          "note": "市中心的免费玻璃温室与城市广场组合，四季可游，喷泉与雕塑吸引本地人与游客聚集，是逛街购物与参观博物馆之间的最佳休憩地。"
+        },
+        {
+          "name": "Endcliffe Park & Porter Valley",
+          "nameCn": "恩德克利夫公园与波特河谷",
+          "lat": 53.369,
+          "lng": -1.507,
+          "rank": 7,
+          "tier": "强烈推荐",
+          "note": "学生宿舍区旁的大型绿地公园，沿Porter河谷可延伸步行至更深的Forge Dam与麦克路轮磨坊，是日常跑步与野餐的学生最爱。"
+        },
+        {
+          "name": "New Era Square (新时代广场)",
+          "nameCn": "新时代广场（Sheffield华人聚集地）",
+          "lat": 53.371,
+          "lng": -1.4675,
+          "rank": 8,
+          "tier": "强烈推荐",
+          "note": "Sheffield的亚洲文化中心，内有KH广兴超市、Shuyo韩餐、中式小吃与亚洲商店，是中国留学生购买家乡食材、排解乡愁的核心目的地。"
+        },
+        {
+          "name": "Crucible Theatre & Tudor Square",
+          "nameCn": "坩埚剧院与都铎广场",
+          "lat": 53.38097,
+          "lng": -1.46688,
+          "rank": 9,
+          "tier": "推荐",
+          "note": "世界斯诺克锦标赛主场地，也是英国最重要的话剧场之一，学生票价优惠，Tudor Square周边聚集多家文化地标，是体验Sheffield艺术氛围的最佳场所。"
+        },
+        {
+          "name": "Hathersage & Hope Valley",
+          "nameCn": "哈瑟赛奇镇与希望谷",
+          "lat": 53.3296,
+          "lng": -1.6462,
+          "rank": 10,
+          "tier": "推荐",
+          "note": "从Sheffield火车站乘火车约15分钟可达的Peak District门户小镇，有室外泳池（夏季）、经典石屋与徒步起点，是最便捷的半日峰区体验。"
         }
       ]
     }
