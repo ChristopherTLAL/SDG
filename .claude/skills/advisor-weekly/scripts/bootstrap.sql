@@ -12,7 +12,13 @@ create table if not exists public.advisor_weekly_advice (
 );
 create index if not exists advisor_weekly_advice_by_advisor_desc
   on public.advisor_weekly_advice (advisor_name, week_start desc);
-alter table public.advisor_weekly_advice disable row level security;
+-- Per the project's new-table convention (memory: supabase_new_table_grant):
+-- service_role must be granted and RLS enabled. The website reads this table
+-- only via the service_role client (bypasses RLS), so enabling RLS with no
+-- policy locks out anon/authenticated without affecting the app. (Was wrongly
+-- `disable row level security` → flagged by Supabase advisor as rls_disabled_in_public.)
+grant all on public.advisor_weekly_advice to service_role;
+alter table public.advisor_weekly_advice enable row level security;
 
 -- 2. student_weekly_advice — one row per (student, week, advisor).
 --    Source of truth for the Excel export + any future per-student UI.
