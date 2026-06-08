@@ -18,6 +18,18 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const here = (p) => fileURLToPath(new URL(p, import.meta.url));
+
+// ⚠️ GUARD: universities.json is now the HAND-MAINTAINED single source of truth for ranks
+// (full official QS2026 baked in via scripts/ingest-qs-ranks.py). This seeder reseeds QS from
+// the partial vault Top-200 list and WOULD REVERT the official ranks / US backfills. It has
+// already done its one-time job — do not run it again unless you truly mean to reseed from
+// scratch (then re-run ingest-qs-ranks.py afterwards). Pass --reseed to override.
+if (!process.argv.includes('--reseed')) {
+  console.error('⚠️  build-universities.mjs is a one-time seeder; universities.json is now the source of truth.');
+  console.error('    Re-running reseeds QS from vault Top-200 and reverts official rank fills. Pass --reseed if you really mean it.');
+  process.exit(1);
+}
+
 const VAULT = process.env.OBSIDIAN_VAULT_ROOT || '/Users/shijie/Obsidian/规划看板';
 
 const budget = JSON.parse(readFileSync(here('../src/data/budget-data.json'), 'utf8'));

@@ -44,6 +44,20 @@ COUNTRY = {
     'Russian Federation': 'RU', 'South Africa': 'ZA',
 }
 
+# Canonical name -> official QS spelling, for schools QS lists under a different name.
+# Verified against the official QS2026 export.
+ALIAS = {
+    'Virginia Tech': 'Virginia Polytechnic Institute (Virginia Tech)',
+    'University of Minnesota, Twin Cities': 'University of Minnesota (System)',
+    'Binghamton University, State University of New York': 'Binghamton University SUNY',
+    'University at Buffalo, State University of New York': 'University at Buffalo SUNY',
+    'University of Tennessee, Knoxville': 'University of Tennessee',
+    'College of William & Mary': 'William & Mary',
+}
+# Confirmed NOT in QS2026 (US News schools QS does not rank) — left null intentionally:
+#   Texas Christian University, Pepperdine University, Villanova University, Gonzaga University
+
+
 def norm(s):
     # Only strip 'the' — keep university/college/of so "Boston University" != "Boston College"
     # and "University of Miami" != "Miami University" (those collisions mis-assign ranks).
@@ -92,7 +106,7 @@ def main():
 
     filled, changed, unchanged, unmatched = [], [], 0, []
     for u in data:
-        key = (norm(u['name']), u['country'])
+        key = (norm(ALIAS.get(u['name'], u['name'])), u['country'])
         new = lookup.get(key)
         if new is None:
             unmatched.append((u['country'], u['name']))
