@@ -16,6 +16,11 @@ const data = Array.isArray(raw) ? raw : (raw.result || []);
 const uniPath = here('../src/data/universities/universities.json');
 const uni = JSON.parse(readFileSync(uniPath, 'utf8'));
 
+// QS ranks come from the canonical QS source (vault rankings_top200.json — the same source
+// build-universities.mjs seeds from). Never hardcode qsRank:null, so "one data, many uses" holds.
+const VAULT = process.env.OBSIDIAN_VAULT_ROOT || '/Users/shijie/Obsidian/规划看板';
+const ranks = JSON.parse(readFileSync(VAULT + '/_agents/skills/school-plan/references/rankings_top200.json', 'utf8'));
+
 const norm = (s) => s.toLowerCase().replace(/\(.*?\)/g, ' ').replace(/['’`.,&\-–:]/g, ' ').replace(/\b(the|university|college|of|at|and)\b/g, ' ').replace(/\s+/g, ' ').trim();
 const slug = (s) => s.toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'school';
 
@@ -33,6 +38,14 @@ const tagsFor = (rec, type) => {
   return t;
 };
 
+const qsByCn = new Map(), qsByEn = new Map();
+for (const r of ranks) {
+  if (r.qs_rank == null || r.qs_rank === '') continue;
+  if (!qsByCn.has(r.university_cn)) qsByCn.set(r.university_cn, r.qs_rank);
+  const k = norm(r.university); if (!qsByEn.has(k)) qsByEn.set(k, r.qs_rank);
+}
+const qsFor = (nameCn, name) => qsByCn.get(nameCn) ?? qsByEn.get(norm(name)) ?? null;
+
 let updated = 0, added = 0;
 for (const s of data) {
   if (typeof s.lat !== 'number' || typeof s.lng !== 'number') continue;
@@ -40,6 +53,7 @@ for (const s of data) {
   if (existing) {
     existing.lat = s.lat; existing.lng = s.lng;
     existing.usnewsRank = String(s.usNewsRank);
+    if (existing.qsRank == null || existing.qsRank === '') existing.qsRank = qsFor(existing.nameCn, existing.name);
     existing.tags = tagsFor(existing, s.type || existing.type);
     if (s.state && !/,\s*[A-Z]{2}$/.test(existing.city)) existing.city = `${s.city}, ${s.state}`;
     updated++;
@@ -47,7 +61,7 @@ for (const s of data) {
     const rec = {
       id: uniqueId(slug(s.name)), name: s.name, nameCn: s.nameCn,
       country: 'US', countryCn: '美国', city: s.state ? `${s.city}, ${s.state}` : s.city,
-      lat: s.lat, lng: s.lng, qsRank: null, arwuRank: null, usnewsRank: String(s.usNewsRank),
+      lat: s.lat, lng: s.lng, qsRank: qsFor(s.nameCn, s.name), arwuRank: null, usnewsRank: String(s.usNewsRank),
       ranksYear: 2026, type: s.type || '', tags: [],
     };
     rec.tags = tagsFor(rec, s.type);
