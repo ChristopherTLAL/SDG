@@ -22,6 +22,7 @@ single JSON array manifest ({name,email,variant,subject,body[,papers]}).
 """
 import argparse, json, re, sys, os, glob
 import urllib.request, urllib.parse, unicodedata, time
+import concurrent.futures
 
 
 def load_drafts(path):
@@ -167,6 +168,61 @@ def _doi_of(paper):
 
 
 _CR_CACHE = {}
+# CrossRef is reachable China-direct; do NOT route it through the HTTPS_PROXY env
+# var (that proxy exists only for Anthropic's geo-unblock and makes 150 sequential
+# API calls crawl). This opener ignores all env proxies → fast direct requests.
+_OPENER = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+# CrossRef from China is ~4s/request, so 150 sequential calls = ~10min. Persist the
+# cache to disk (re-runs instant) and pre-warm it in parallel (~8x speedup).
+_CACHE_FILE = os.path.join(os.path.expanduser("~"), ".phd_crossref_cache.json")
+
+
+def _cache_load():
+    try:
+        _CR_CACHE.update(json.load(open(_CACHE_FILE, encoding="utf-8")))
+    except Exception:
+        pass
+
+
+def _cache_save():
+    # persist only SUCCESSFUL lookups; never cache 'ERR' (a transient network blip
+    # would otherwise permanently mark a DOI unresolved). Failures retry next run.
+    def ok(v):
+        if v == "ERR":
+            return False
+        if isinstance(v, (list, tuple)) and len(v) == 3 and v[1] == "ERR":
+            return False
+        return True
+    try:
+        keep = {k: v for k, v in _CR_CACHE.items() if ok(v)}
+        json.dump(keep, open(_CACHE_FILE, "w", encoding="utf-8"), ensure_ascii=False)
+    except Exception:
+        pass
+
+
+def _prewarm(drafts, doi_only):
+    """Fetch every unique DOI (and, unless doi_only, every no-DOI citation's title
+    resolution) concurrently to fill the cache before the gate loop reads it.
+    Turns a ~10min sequential crawl into ~1-2min."""
+    dois, cites = set(), []
+    for d in drafts:
+        if not _name_cands(d["name"]):
+            continue
+        for p in d["papers"]:
+            doi = _doi_of(p)
+            if doi:
+                if doi not in _CR_CACHE:
+                    dois.add(doi)
+            elif not doi_only:
+                cites.append(p.get("citation", "") if isinstance(p, dict) else str(p))
+    jobs = len(dois) + len(cites)
+    if not jobs:
+        return
+    print(f"  …pre-warming CrossRef cache: {len(dois)} DOIs + {len(cites)} title-searches (parallel)", flush=True)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+        futs = [ex.submit(_crossref_authors, doi) for doi in dois]
+        futs += [ex.submit(_crossref_resolve, c) for c in cites]
+        concurrent.futures.wait(futs)
 
 
 def _crossref_authors(doi):
@@ -177,7 +233,7 @@ def _crossref_authors(doi):
         req = urllib.request.Request(
             f"https://api.crossref.org/works/{urllib.parse.quote(doi)}",
             headers={"User-Agent": "phd-cold-mail-refcheck/1.0 (mailto:noreply@example.com)"})
-        with urllib.request.urlopen(req, timeout=20) as r:
+        with _OPENER.open(req, timeout=20) as r:
             m = json.load(r)["message"]
         fams = [_deaccent(a.get("family", "")) for a in m.get("author", [])]
         _CR_CACHE[doi] = fams
@@ -227,7 +283,7 @@ def _crossref_resolve(citation):
         req = urllib.request.Request(
             f"https://api.crossref.org/works?{q}",
             headers={"User-Agent": "phd-cold-mail-refcheck/1.0 (mailto:noreply@example.com)"})
-        with urllib.request.urlopen(req, timeout=25) as r:
+        with _OPENER.open(req, timeout=25) as r:
             items = json.load(r)["message"].get("items", [])
         if items:
             best = items[0]
@@ -241,14 +297,21 @@ def _crossref_resolve(citation):
     return res
 
 
-def crossref_attribution_gate(drafts):
+def crossref_attribution_gate(drafts, doi_only=False):
     """DETERMINISTIC attribution gate: for every research.papers[] entry that has a
     DOI, confirm the supervisor is actually in the author list. Catches the worst
     failure mode the local gate misses — a REAL, on-topic paper attributed to the
     wrong author (e.g. a 2023 Nature Communications ML paper credited to Saiani
     that is actually by a different group). The local gate only checks the body
-    title appears in research.papers[]; it cannot tell if that paper is theirs."""
-    print("\n=== CROSSREF GATE: is the supervisor actually an author of EVERY cited paper? ===")
+    title appears in research.papers[]; it cannot tell if that paper is theirs.
+
+    doi_only=True skips the (slow, network-heavy) no-DOI title resolution: papers
+    with no DOI go straight to the hand-verify bucket. Fast full-corpus pass for
+    dual-track work; the no-DOI papers are then cleared by the web subagents."""
+    mode = "DOI-only" if doi_only else "DOI + no-DOI title resolution"
+    print(f"\n=== CROSSREF GATE ({mode}): is the supervisor actually an author of EVERY cited paper? ===")
+    _cache_load()
+    _prewarm(drafts, doi_only)
     misattrib, unresolved, manual, ok = [], [], [], 0
     SIM = 0.45   # title-match confidence needed to trust a no-DOI resolution
     for d in drafts:
@@ -266,6 +329,8 @@ def crossref_attribution_gate(drafts):
                     misattrib.append((d["name"], searched, doi, cit, fams[:6]))
                 else:
                     ok += 1
+            elif doi_only:
+                manual.append((d["name"], cit, "no DOI (--doi-only: web-verify authorship)"))
             else:
                 # NO DOI — don't skip. Try to resolve the title on CrossRef and
                 # check authorship anyway; if we can't, surface it as hand-verify.
@@ -293,6 +358,7 @@ def crossref_attribution_gate(drafts):
             print(f"     {name} | {doi} | {cit}")
     if not misattrib and not manual and not unresolved:
         print("  ✅ every cited paper is correctly attributed to its supervisor")
+    _cache_save()
     # misattribution is hard-blocking; no-DOI-manual is must-clear-before-ship (unconfirmed)
     return len(misattrib), len(manual)
 
@@ -303,6 +369,7 @@ def main():
     ap.add_argument("--batch", type=int, default=10)
     ap.add_argument("--out", default="/tmp")
     ap.add_argument("--no-crossref", action="store_true", help="skip the CrossRef author-attribution gate (offline)")
+    ap.add_argument("--doi-only", action="store_true", help="fast: only check DOI'd papers directly; no-DOI papers go to the hand-verify bucket (no slow title resolution). Use for full-corpus dual-track passes.")
     args = ap.parse_args()
 
     drafts = load_drafts(args.path)
@@ -339,7 +406,7 @@ def main():
     cr_block = cr_manual = 0
     if not args.no_crossref:
         try:
-            cr_block, cr_manual = crossref_attribution_gate(drafts)
+            cr_block, cr_manual = crossref_attribution_gate(drafts, doi_only=args.doi_only)
         except Exception as e:
             print(f"\n  🟠 CrossRef gate skipped (network?): {e}")
     # both count as must-clear-before-ship: misattribution = proven wrong;
