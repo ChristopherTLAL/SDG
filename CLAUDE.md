@@ -15,7 +15,7 @@ Astro 5 SSR (`output: 'server'`) · React 19 (interactive bits via `client:load`
 - `npm run build` — production build (local builds are flaky on this machine; prefer pushing to Vercel and letting it build)
 - `npm run preview` — preview production build
 - `npm run sync-students` — pull Obsidian vault YAML + 沟通记录 → Supabase. See "Cron / scheduling" below for how it actually runs.
-- `npm run reconcile-cf-access` — sync `advisors.emails[]` → Cloudflare Access OTP allowlist.
+- `npm run reconcile-cf-access` — sync `advisors.emails[]` **+ `access_viewers.email`** → Cloudflare Access OTP allowlist.
 
 ## Routes
 - **Top-level public pages** — [src/pages/](src/pages/): `{index, about, team, contact, publications, search, privacy, terms, 404}.astro` (plus `rss.xml.ts`, `sitemap.xml.ts`).
@@ -25,7 +25,7 @@ Astro 5 SSR (`output: 'server'`) · React 19 (interactive bits via `client:load`
 
 ## Data layers
 - **Sanity** (public site): types `post`, `project`, `dialogue`, `author`. Schemas live in cloud-hosted Studio (no local `sanity-studio/`); the website consumes already-shaped `{ en, zh }` objects — the `localizedString` / `localizedText` / `localizedBlockContent` types are Studio-side, not in this repo. Reads via [src/lib/sanity/client.ts](src/lib/sanity/client.ts); the **one website→Sanity write path** is [src/pages/api/mdpa-submit.json.ts](src/pages/api/mdpa-submit.json.ts) using `writeClient` for MDPA result persistence.
-- **Supabase** (internal): tables `students`, `student_notes`, `submissions`, `advisors`, `daily_reports`. [db/supabase-schema.sql](db/supabase-schema.sql) is partial — `advisors` and `daily_reports` were added live via Supabase MCP and never backported, so recreating the DB from that file alone leaves auth broken. End-to-end setup in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md).
+- **Supabase** (internal): tables `students`, `student_notes`, `submissions`, `advisors`, `daily_reports`, `access_viewers` (non-advisor guest allowlist for the CF gate — read only by `reconcile-cf-access.mjs`). [db/supabase-schema.sql](db/supabase-schema.sql) is partial — `advisors` and `daily_reports` were added live via Supabase MCP and never backported, so recreating the DB from that file alone leaves auth broken. End-to-end setup in [db/INTERNAL_SETUP.md](db/INTERNAL_SETUP.md).
 - **Obsidian vault** at `/Users/shijie/Obsidian/规划看板` is the source of truth. YAML + main `<name>.md` body + `沟通记录/*.md` + `02_Project Manager/顾问/<name>.md` get synced to Supabase. Web pages are read-only views; never write back to vault from web — vault writes are done from a foreground Claude session on this Mac (inline, see Pattern B below), not from the web app.
 - **Static data** — [src/data/contract-sops.ts](src/data/contract-sops.ts) (合同模板 + deliverable email bodies + `substitute()` helper for `{{学生姓名}}` / `{{中期顾问}}`), [src/data/student-tools.ts](src/data/student-tools.ts) (顾问对学生的话术), `guides-meta.ts`, `publications-meta.ts`, `budget-data.json`, `oxbridge-interview-questions.json`, plus [src/data/guides/](src/data/guides/) (~40 per-guide content `.ts` files).
 
@@ -50,7 +50,7 @@ If this Mac is asleep, all of these stall. The 30-min sync cadence is documented
 - [src/lib/auth.ts](src/lib/auth.ts) resolves the email to `Astro.locals.viewer` with a 5-min in-memory cache (per Vercel instance — admin demotions take up to 5 min × N warm instances to propagate).
 - **Identity match:** CF email looked up against `advisors.emails text[]` via Postgres array-contains. The vault YAML `邮箱` field accepts a scalar (legacy) or an array (primary + aliases); sync normalizes both into `emails[]` so an advisor can log in via any address and resolve to the same row.
 - **Admin status** comes from the `advisors.is_admin` column. There's no hardcoded admin allowlist — set `admin: true` in the vault YAML to grant.
-- **Three viewer states:** `null` (no CF header — only the exempted bare `/internal`); guest (CF-authenticated XDF colleague with no advisor row, sees dashboard + roster but no submit, 私单 hidden); full advisor (matched a row).
+- **Three viewer states:** `null` (no CF header — only the exempted bare `/internal`); guest (CF-authenticated colleague with no advisor row — sees dashboard + roster + student detail, but **no submit / 日报 / 私单**); full advisor (matched a row). Guests are usually `@xdf.cn` colleagues; a **non-xdf** guest (e.g. an iCloud/personal email) gets gate access via the `access_viewers` table (`reconcile-cf-access` unions it into the CF allowlist). **Never** add a non-advisor viewer to `advisors` — `active=true` wrongly makes them a full advisor; `active=false` makes reconcile drop them from the gate. They get guest perms automatically *by having no advisor row*.
 - **Private contracts (私单)** filtered unless `viewer.isAdmin || viewer.name === '王世杰'`. The 王世杰 name check is hardcoded inline in 8 pages (the roster/overview/kanban/contracts set plus `students/[id].astro`, `students/[id]/notes/[anchor].astro`, `advisors/[name].astro`, `advisors/[name]/weekly.astro`) — if 王世杰's name changes in the vault, `grep -rl "viewer.name === '王世杰'" src/pages/internal/` and update all of them.
 
 ## Design tokens
