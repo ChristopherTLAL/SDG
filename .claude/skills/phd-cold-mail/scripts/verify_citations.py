@@ -278,15 +278,27 @@ def _crossref_resolve(citation):
     if ck in _CR_CACHE:
         return _CR_CACHE[ck]
     res = (None, "ERR", 0.0)
+    # CrossRef indexes Supporting-Info ('component', DOI ...s001), peer-review
+    # reports ('peer-review', DOI .../v1/review3), datasets, grants — all SHARE the
+    # article title but carry no/foreign author lists. Skip them or they false-flag
+    # the real article's author as a misattribution. Keep only real work types.
+    GOOD_TYPES = {"journal-article", "proceedings-article", "book-chapter", "book",
+                  "monograph", "posted-content", "reference-entry", "report",
+                  "dissertation", "reference-book", "other"}
+    def _is_subrecord(doi):
+        return bool(re.search(r"\.s\d+$|/v\d+/(review|decision|author-response)", doi or "", re.I))
     try:
-        q = urllib.parse.urlencode({"query.bibliographic": title, "rows": 3})
+        q = urllib.parse.urlencode({"query.bibliographic": title, "rows": 5})
         req = urllib.request.Request(
             f"https://api.crossref.org/works?{q}",
             headers={"User-Agent": "phd-cold-mail-refcheck/1.0 (mailto:noreply@example.com)"})
         with _OPENER.open(req, timeout=25) as r:
             items = json.load(r)["message"].get("items", [])
-        if items:
-            best = items[0]
+        # first item that is a real work record (not SI / review / dataset)
+        best = next((it for it in items
+                     if it.get("type", "") in GOOD_TYPES and not _is_subrecord(it.get("DOI", ""))),
+                    None)
+        if best:
             fams = [_deaccent(a.get("family", "")) for a in best.get("author", [])]
             sim = _title_sim(title, (best.get("title") or [""])[0])
             res = (best.get("DOI", ""), fams, sim)
@@ -312,7 +324,11 @@ def crossref_attribution_gate(drafts, doi_only=False):
     print(f"\n=== CROSSREF GATE ({mode}): is the supervisor actually an author of EVERY cited paper? ===")
     _cache_load()
     _prewarm(drafts, doi_only)
-    misattrib, unresolved, manual, ok = [], [], [], 0
+    # misattrib = DOI-based, DETERMINISTIC, hard-blocking (the DOI pins the exact
+    # paper). review = no-DOI title-resolution flags — LOW confidence (the title
+    # search can land on a different same-titled paper, esp. for generic titles), so
+    # these are "web-check", NOT auto-blocking. manual = no-DOI, couldn't resolve.
+    misattrib, review, unresolved, manual, ok = [], [], [], [], 0
     SIM = 0.45   # title-match confidence needed to trust a no-DOI resolution
     for d in drafts:
         if not _name_cands(d["name"]):
@@ -332,21 +348,25 @@ def crossref_attribution_gate(drafts, doi_only=False):
             elif doi_only:
                 manual.append((d["name"], cit, "no DOI (--doi-only: web-verify authorship)"))
             else:
-                # NO DOI — don't skip. Try to resolve the title on CrossRef and
-                # check authorship anyway; if we can't, surface it as hand-verify.
+                # NO DOI — try to resolve the title on CrossRef and check authorship.
                 rdoi, fams, sim = _crossref_resolve(p.get("citation", "") if isinstance(p, dict) else str(p))
                 if fams == "ERR" or sim < SIM:
                     manual.append((d["name"], cit, f"no DOI; CrossRef title-search inconclusive (sim={sim:.2f})"))
                 elif not _supervisor_is_author(d["name"], fams):
-                    misattrib.append((d["name"], searched, f"{rdoi} (resolved-by-title sim={sim:.2f})", cit, fams[:6]))
+                    review.append((d["name"], searched, f"{rdoi} (sim={sim:.2f})", cit, fams[:6]))
                 else:
                     ok += 1
     print(f"  ✅ author-confirmed: {ok}  (incl. no-DOI papers resolved by title)")
     if misattrib:
-        print(f"  🔴 MISATTRIBUTION ({len(misattrib)}) — supervisor NOT in author list (BLOCKING):")
+        print(f"  🔴 MISATTRIBUTION ({len(misattrib)}) — DOI's author list does NOT contain the supervisor (BLOCKING):")
         for name, fam, doi, cit, fams in misattrib:
             print(f"     {name} (searched: {fam}) | {doi}")
             print(f"        actual authors: {fams}")
+            print(f"        our citation:   {cit}")
+    if review:
+        print(f"  🟡 REVIEW ({len(review)}) — no-DOI paper title-resolved to a record WITHOUT this author (LOW confidence: title-search may have hit a different same-titled paper; web-check, not auto-blocking):")
+        for name, fam, doi, cit, fams in review:
+            print(f"     {name} | resolved {doi} | authors {fams}")
             print(f"        our citation:   {cit}")
     if manual:
         print(f"  ⚠️ NO-DOI, not machine-confirmable ({len(manual)}) — MUST web-verify authorship by hand:")
@@ -356,11 +376,12 @@ def crossref_attribution_gate(drafts, doi_only=False):
         print(f"  🟠 DOI unresolved on CrossRef ({len(unresolved)}) — verify by hand (wrong DOI, arXiv, or not indexed):")
         for name, doi, cit in unresolved:
             print(f"     {name} | {doi} | {cit}")
-    if not misattrib and not manual and not unresolved:
+    if not misattrib and not review and not manual and not unresolved:
         print("  ✅ every cited paper is correctly attributed to its supervisor")
     _cache_save()
-    # misattribution is hard-blocking; no-DOI-manual is must-clear-before-ship (unconfirmed)
-    return len(misattrib), len(manual)
+    # misattribution (DOI) is hard-blocking; review + no-DOI-manual are must-verify
+    # (unconfirmed) — surfaced together so nothing ships author-unchecked.
+    return len(misattrib), len(review) + len(manual)
 
 
 def main():
@@ -431,7 +452,7 @@ def main():
         if cr_block:
             bits.append(f"{cr_block} misattribution")
         if cr_manual:
-            bits.append(f"{cr_manual} no-DOI unconfirmed")
+            bits.append(f"{cr_manual} need-verify (no-DOI / low-confidence)")
         extra = f" [{', '.join(bits)}]" if bits else ""
         print(f"\n🔴 {blocking} blocking citation issue(s){extra} — every cited work must be author-confirmed (DOI or title-resolved or hand-verified) before shipping, regardless of web-verification results.")
         sys.exit(2)
