@@ -1,11 +1,14 @@
 // Reconcile the Cloudflare Access "Allowed Employees" policy against the
-// `advisors` table.
+// `advisors` table PLUS the `access_viewers` table (non-advisor guest viewers).
 //
 // What this does:
-//   1. Reads every active advisor's `emails` array from Supabase
-//   2. Drops anything `@xdf.cn` (already covered by the email_domain wildcard)
-//   3. PUTs the policy include list = email_domain(xdf.cn) + one entry per
-//      remaining (non-xdf) personal-account email
+//   1.  Reads every active advisor's `emails` array from Supabase
+//   1b. Reads `access_viewers.email` — non-advisor viewers who need gate access
+//       but NO advisors row (→ src/lib/auth.ts resolves them to guest: view
+//       student info, but no 日报 / 私单 / submit)
+//   2.  Drops anything `@xdf.cn` (already covered by the email_domain wildcard)
+//   3.  PUTs the policy include list = email_domain(xdf.cn) + one entry per
+//       remaining (non-xdf) personal-account email
 //
 // Run after editing a vault advisor md when:
 //   - You add/remove a personal-account alias on someone's `邮箱` array
@@ -58,6 +61,25 @@ for (const r of rows ?? []) {
     if (em.endsWith('@xdf.cn')) continue;   // covered by wildcard
     desired.add(em);
   }
+}
+
+// ── 1b. Pull extra non-advisor viewer emails from access_viewers ─────────────
+// People who should pass the CF Access OTP gate as *guests* (view student info;
+// no 日报 / 私单 / submit) but are NOT advisors. They have no advisors row, so
+// src/lib/auth.ts resolves them to a guest viewer automatically. Personal-domain
+// emails can't ride the @xdf.cn wildcard, so we allowlist them at the gate here.
+// Add/remove a viewer = INSERT/DELETE in the access_viewers table, then re-run --apply.
+const { data: viewerRows, error: viewerErr } = await supabase
+  .from('access_viewers')
+  .select('email');
+
+if (viewerErr) { console.error('access_viewers query failed:', viewerErr.message); process.exit(1); }
+
+for (const v of viewerRows ?? []) {
+  const em = String(v.email ?? '').trim().toLowerCase();
+  if (!em.includes('@')) continue;
+  if (em.endsWith('@xdf.cn')) continue;   // covered by wildcard
+  desired.add(em);
 }
 
 // ── 2. Read current CF policy ───────────────────────────────────────────────

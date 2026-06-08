@@ -102,3 +102,22 @@ create index if not exists submissions_type_idx       on public.submissions (typ
 --                    application/vnd.openxmlformats-officedocument.*
 -- Note: audio uploads are disabled at the application layer to stay
 -- within the Supabase free 1 GB storage tier.
+
+-- ─── ACCESS VIEWERS (non-advisor guest allowlist) ───
+-- Emails that should pass the Cloudflare Access OTP gate as *guest* viewers:
+-- they can view student info but NOT 日报 / 私单 / submit. They intentionally
+-- have NO row in `advisors`, so src/lib/auth.ts resolves them to a guest viewer
+-- (isAdvisor=false, isAdmin=false — no advisor row matched). Consumed ONLY by
+-- scripts/reconcile-cf-access.mjs, which unions these into the CF policy include
+-- list alongside advisors' personal emails. Add/remove a viewer = INSERT/DELETE
+-- here, then `node scripts/reconcile-cf-access.mjs --apply`.
+create table if not exists public.access_viewers (
+  email      text primary key,
+  label      text,                         -- human note, e.g. "非顾问观察者"
+  created_at timestamptz not null default now()
+);
+-- public-schema new tables get no default grant (since 2026-10-30); the
+-- server-side reconcile script uses the service_role key. RLS on + no policy =
+-- locked to service_role (bypass) only — the allowlist is never exposed to anon.
+grant select, insert, update, delete on public.access_viewers to service_role;
+alter table public.access_viewers enable row level security;
