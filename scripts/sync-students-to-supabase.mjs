@@ -187,6 +187,18 @@ async function loadStudents() {
     const attachments = await loadAttachmentNames(folder);
     const commNotes = await loadCommunicationNotes(folder, entry.name);
 
+    // last_contact_at MUST be derived from a real 沟通记录 — the latest dated note —
+    // NOT the YAML `最后沟通时间` field. That field was getting batch-filled (e.g. a
+    // bulk sync stamp), which falsely "refreshed" the contact radar with zero actual
+    // contact. No dated note → null, so the radar honestly shows the student as
+    // long-/never-contacted instead of green. (note_date is `YYYY-MM-DD`, so a plain
+    // lexicographic sort is chronological.)
+    const lastContactAt = commNotes
+      .map(n => n.note_date)
+      .filter(Boolean)
+      .sort()
+      .at(-1) ?? null;
+
     const studentName = pickString(fm, '姓名') || entry.name;
 
     // Multi-select fields — YAML may have scalar OR array; pickArray normalizes both.
@@ -211,7 +223,7 @@ async function loadStudents() {
       major_current: pickString(fm, '专业'),
       current_school: pickString(fm, '目前就读学校'),
       client_email: pickString(fm, '客户邮箱'),
-      last_contact_at: parseDate(fm['最后沟通时间']),
+      last_contact_at: lastContactAt,
       obsidian_path: `01_Student/${entry.name}`,
       body_md: body,
       attachments,
