@@ -136,6 +136,12 @@ DISAMBIG = {
     '胡斌':             'P24AABpPeLNxmUc92018',
     '李想 (钟婷婷)':    'P24AAB2YSCFxmUc95258',  # vault folder 后缀，避免每次跑都尝试 re-onboard
     '王思涵':           'P24AAB73Y11xmUc94528',  # vault 实际只有 27F (古淑婷线)，另一个 23F cid 是误绑
+    '杨阳':             'P24AABA7789xmUc94681',  # 26F 古淑婷线；另一 c90535=23 已终止别人 (260611 dedup)
+    '李家乐':           'P24AABeGnzhxmUc90051',  # 26F 钟婷婷线；另一 c90415=22 别人 (260611 dedup)
+    '张凯':             'P24AABQWuHFxmUc93532',  # 27F 古淑婷线；另一 c93818=25 葛倩别人 (260611 dedup)
+    '周佳怡':           'P24AABRpaUdxmUc93521',  # 24F 钟婷婷线；另一 c92526=27F 张文心新人,待前期确认 (260611 dedup)
+    '彭涛':             'P24AABzWrV9xmUc90018',  # 27F 现役；另一 c90115=21 加拿大已完成别人 (260611)
+    '周晨阳':           'P24AABYdP0ZxmUc90013',  # 25F；另一 c9225X=21 英国别人 (260611)
 }
 
 # 私单 detection is now YAML-driven (2026-05-17 onward).
