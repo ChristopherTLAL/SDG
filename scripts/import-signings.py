@@ -279,6 +279,14 @@ def read_signings():
     wins per 合同编号); a CLI path forces a single file. Rows are normalized to a
     canonical column order (by header name) so exports with slightly different
     column layouts still union correctly. Keeps rows with 客户姓名+客户ID+合同编号."""
+    # 新版「Sign_Archiving_Details_dept」自助导出表的列名 → 旧版 canonical 列名。
+    # 仅当该文件里 canonical 名不存在时才改名（避免与旧大表已有列冲突）；
+    # 旧表列名不在 map → 原样通过，所以新旧文件能无缝 union。
+    HEADER_ALIAS = {
+        '合同号': '合同编号', '日期': '签约时间', '签约金额': '签约金额（实时）',
+        '合同模板': '合同模板名称', '留学申请': '是否包含留学申请',
+        '语言培训': '是否包含语言培训', '申请入学年': '入学年',
+    }
     files = [EXPLICIT_FILE] if EXPLICIT_FILE else _all_signing_xlsx()
     label = 'single file' if EXPLICIT_FILE else f'{len(files)}-file union'
     print(f'📖 Reading {label}: ' + ', '.join(f.name for f in files))
@@ -289,7 +297,18 @@ def read_signings():
     for f in files:
         wb = openpyxl.load_workbook(f, read_only=True, data_only=True)
         ws = wb['签约明细']
-        fheader = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
+        try:
+            ws.reset_dimensions()   # 部门自助导出表 dimension 元信息常坏 → read_only 只读到首列；强制按真实单元格重扫
+        except Exception:
+            pass
+        fheader_raw = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
+        _present = {str(h).strip() for h in fheader_raw if h}
+        fheader = [
+            HEADER_ALIAS[str(h).strip()]
+            if (h and str(h).strip() in HEADER_ALIAS and HEADER_ALIAS[str(h).strip()] not in _present)
+            else h
+            for h in fheader_raw
+        ]
         fcol = {h: i for i, h in enumerate(fheader) if h}
         for h in fheader:                       # extend canonical with new columns
             if h and h not in COL:
@@ -979,7 +998,7 @@ def main():
             'early_advisor':   r[COL['前期顾问']] if r[COL['前期顾问']] else None,
             'mid_advisor':     r[COL['中期顾问']] if r[COL['中期顾问']] else None,
             'late_advisor':    r[COL['后期顾问']] if r[COL['后期顾问']] else None,
-            'copywriter':      r[COL['文案顾问']] if r[COL['文案顾问']] else None,
+            'copywriter':      (r[COL['文案顾问']] if r[COL['文案顾问']] else None) if '文案顾问' in COL else None,
             'source_type':     r[COL.get('来源类型', -1)] if '来源类型' in COL else None,
             'channel_category': r[COL.get('渠道分类', -1)] if '渠道分类' in COL else None,
             'channel_detail':  r[COL.get('渠道明细', -1)] if '渠道明细' in COL else None,
