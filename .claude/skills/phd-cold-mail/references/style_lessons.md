@@ -388,4 +388,9 @@ end repeat
 - **DOI 指错(论文真是他们的,但 papers[] 里的 DOI 落到别人论文)**: Dreiss、Harlen、Curk、Yethiraj、To Ngai;Mandadapu 的 CrossRef 作者列表疑似残缺需人工。
 - 另有约 13 个 DOI 在 CrossRef 查不到(占位 `XXXXX`/`01xxx`、**arXiv 预印本 CrossRef 不收录**、老 Elsevier 截断 DOI)—— 落 `🟠 unresolved` 桶人工核,不全是错。
 
-**局限诚实**: 这个 py gate 只覆盖**带 DOI** 的 `papers[]` 条目。正文里**无 DOI 的具名引用**仍要靠联网 verify 子代理 + 人工。已发 46 封的**全量正文引用扫还没做**(待办) —— Saiani/Ran Ni 是顺手抓到的,不代表已穷尽。
+**局限 + 全量扫已补做(2026-06-11)**: py gate 只覆盖**带 DOI** 的条目、且只验**作者归属**;正文里无 DOI 的具名引用、以及**真论文被错误转述**(characterization),gate 都看不见。2026-06-11 对全部 132 封跑了一遍**联网正文扫**(7 个 Sonnet 子代理,authorship-first)。结果很说明问题:
+- 6 个 DOI-flagged 里 **5 个正文其实没问题** —— Kermode/Falk 是 arXiv 预印本(CrossRef 不收录)= 假警报;Harlen/Mandadapu/Yethiraj 的正文引对了论文,只是 `papers[]` 的 DOI 元数据错(没进正文)。**只有 To Ngai 正文真错**(把 Harrer 的 Langmuir 论文当成他的)。
+- 抓到 gate **结构上抓不到的新一类错 = MISCHARACTERIZED(真论文、作者对、但转述错)**:Stefan Bon(把他 GO 模板矿化论文说成"酶/金属螯合可编程水凝胶")、Matthew Tirrell(把他一篇**实验**论文说成"你的粗粒化框架")。CrossRef 作者 gate 对这类完全无效(作者没错)。
+- 3 封未发的(To Ngai/Bon/Tirrell)已**逐字改正**(只动错的那句、其余保留);Ran Ni 那封已发、撤不回。
+
+**教训:两道闸都要跑 —— CrossRef 作者 gate 挡 misattribution(真论文安错人),联网正文扫挡 characterization(真论文转述错)。前者确定性、零成本、防最致命;后者才能盖住"作者对但描述错"这一层。**
