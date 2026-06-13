@@ -65,11 +65,13 @@ Structure (this skill's own shape, written for a middle-schooler, "好接受"):
 This feedback is a client deliverable in the shared 王世杰 微信口吻 (register B). Produce it that way by DEFAULT, not as a formatted display doc:
 - **Flowing paragraphs, like a tutor talking.** No `###` headers, no emoji, no one-line-per-point.
 - **No markdown bold** (WeChat will not render it). **Zero em-dash.**
+- **Full-width Chinese punctuation** (，：；。、！？), not half-width `,` `:`; only English-internal punctuation stays half-width.
 - **Few double quotes**: set English examples on their own line instead of quoting them; use 「」 only if truly needed; state Chinese emphasis plainly.
+- **No conceptual metaphor in your OWN writing.** You teach clarity, so practice it: do not write things like 落差一出来结尾就有力气 / 句子质感往上走. Say it plainly (更清楚、更好记). See `../_shared/wechat-voice.md` rule 8 + memory `ps_writing_craft_principles`.
+- **No sign-off.** This is relayed to the student, so do NOT sign 世杰 (that is only for A-register messages 王世杰 sends as himself).
 - The 先肯定 → 招式 → 小习惯 → 小知识 → 范文 → 下一步 flow is the internal order; render it as a handful of connected paragraphs, NOT a checklist.
-- Sign off with a bare `世杰`.
 
-Only produce a markdown / emoji-formatted layout if the user explicitly asks for an on-screen / doc version. When in doubt, plain WeChat paragraphs. (2026-06-13: an emoji/markdown/choppy first attempt was rejected as "差很多"; the WeChat plain form is what the user wants.)
+Only produce a markdown / emoji-formatted layout if the user explicitly asks for an on-screen / doc version. When in doubt, plain WeChat paragraphs. (2026-06-13: an emoji/markdown/choppy first attempt was rejected as 差很多; the WeChat plain form, full-width, no sign-off, no conceptual metaphor, is what the user wants.)
 
 ### 6. Tune to the learner
 
