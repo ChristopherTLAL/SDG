@@ -28,7 +28,7 @@ The student reproduced the model answer's content almost perfectly, but folded `
 >
 > 先说大家一眼会想到的那一层，也就是新歌，再说出它更重要的意思，也就是一个承诺。这样收尾比直接给一句结论更清楚，读的人也更容易记住。这个 is more than 后面接 it is 的写法，以后写读后感、写作文结尾都用得上，你只差把前半句补回去。
 >
-> 开头也可以再讲究一点。你写 Fans love their cool story，意思没问题，但读起来有点随意。课文给的说法更稳：Part of what makes the group special is their story。加一个 part of，等于在说原因不止一个，显得你想得更周全，开头也更正式。
+> 开头也可以再讲究一点。你写 Fans love their cool story，意思没问题，但读起来有点随意。课文给的说法更正式：Part of what makes the group special is their story。加一个 part of，等于在说原因不止一个，显得你想得更周全，开头也更正式。
 >
 > 还有一个最快见效的小习惯：英文标点后面要空一格。你有几处连在一起了，比如 group 后面那个逗号、rapper 后面那个句号、还有 May 和 Fans 中间。中文标点不空格，但英文的句号、逗号后面都要空一格，改完整段看起来会整齐很多。
 >
