@@ -60,11 +60,16 @@ Structure (this skill's own shape, written for a middle-schooler, "好接受"):
 6. **范文**: a lightly polished version of **their own writing**, bilingual. 🚨 **Iron rule: keep the student's own words and content.** Fix spacing/grammar, restore the taught pattern, swap a weak word, but do NOT rewrite their sentences wholesale, invent new content, or change any facts/data. The goal is "your words, nudged up a notch", so they see the small distance. (See assistant memory `do_not_modify_student_content`.)
 7. **CEFR 定位 + 下一步**: one concrete thing to practice next ("每段结尾试一次 'is more than... It is...'").
 
-### 5. Output format
+### 5. Output = WeChat style by default
 
-Default deliverable = a **formatted feedback** for the teacher to read / show on screen / paste into a doc: markdown headers + sparing emoji section markers are fine here, and read nicely. Keep the zero-em-dash rule regardless.
+This feedback is a client deliverable in the shared 王世杰 微信口吻 (register B). Produce it that way by DEFAULT, not as a formatted display doc:
+- **Flowing paragraphs, like a tutor talking.** No `###` headers, no emoji, no one-line-per-point.
+- **No markdown bold** (WeChat will not render it). **Zero em-dash.**
+- **Few double quotes**: set English examples on their own line instead of quoting them; use 「」 only if truly needed; state Chinese emphasis plainly.
+- The 先肯定 → 招式 → 小习惯 → 小知识 → 范文 → 下一步 flow is the internal order; render it as a handful of connected paragraphs, NOT a checklist.
+- Sign off with a bare `世杰`.
 
-If the feedback is going **out as a WeChat message** to the student/parent, also offer a plain-text version per the canonical hard rules: no markdown bold (WeChat will not render it), 段标题用【】或▍, bare `世杰` sign-off, zero em-dash. End the round with: *"要发微信的话,我把它转成纯文本版?"*
+Only produce a markdown / emoji-formatted layout if the user explicitly asks for an on-screen / doc version. When in doubt, plain WeChat paragraphs. (2026-06-13: an emoji/markdown/choppy first attempt was rejected as "差很多"; the WeChat plain form is what the user wants.)
 
 ### 6. Tune to the learner
 

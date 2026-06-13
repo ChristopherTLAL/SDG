@@ -5,7 +5,7 @@ After a reply-handling round (sweep inbox → classify → reply → update trac
 Validated on 潘喆 2026-06-06, then **leaned out on 2026-06-11** when the user edited a draft. Keep it dense on *facts* (every positive: last-contact date + content + next step; declines listed, including ones *we* judge unsuitable like funding) but **cut all editorial padding** — see Tone below. Follow-up rounds can be incremental ("接着上次同步，这两天的新进展：" + only the leads that moved), not a full re-dump.
 
 ## Voice
-Uses the shared **王世杰 微信口吻** — full voice + hard rules in [`../../_shared/wechat-voice.md`](../../_shared/wechat-voice.md) (第一人称王世杰 / 零破折号(range 用顿号) / 签名 bare `世杰` / 无 markdown 加粗 / 段标题 【】或 ▍ / emoji 克制 / 不用比喻式口语). Don't restate the voice here; if it changes, edit the shared file.
+Uses the shared **王世杰 微信口吻** — full voice + hard rules in [`../../_shared/wechat-voice.md`](../../_shared/wechat-voice.md) (第一人称王世杰 / 零破折号(range 用顿号) / 签名 bare `世杰` / 无 markdown 加粗 / 段标题 【】或 ▍ / 不放 emoji / 少用双引号 / 不用比喻式口语). Don't restate the voice here; if it changes, edit the shared file.
 
 This deliverable is the canonical's **事实同步型** register (§二·A): lean, facts-only, under-comment (validated 潘喆 2026-06-06, leaned out 2026-06-11 from the user's own edits). 套磁-specific application:
 - Per-person fact line: `Name（校，方向）。{日期} 回信：{要点}`. Ranges use 、 (明年 3、4 月).
