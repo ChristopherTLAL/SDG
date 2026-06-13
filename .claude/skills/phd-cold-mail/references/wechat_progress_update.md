@@ -2,34 +2,36 @@
 
 After a reply-handling round (sweep inbox → classify → reply → update tracker), the student (and the parent/student) usually wants a **plain-language WeChat summary** of where the campaign stands. **Always offer one**: end the round with *"要不要我整理成一条微信消息发给 {学生}？"* — the user (advisor 王世杰's voice) forwards it.
 
-Validated on 潘喆 2026-06-06. The user's explicit ask: information-dense, every positive explained with **last-contact date + content**, earlier rounds included, declines listed (including the ones *we* judge unsuitable, e.g. funding).
+Validated on 潘喆 2026-06-06, then **leaned out on 2026-06-11** when the user edited a draft. Keep it dense on *facts* (every positive: last-contact date + content + next step; declines listed, including ones *we* judge unsuitable like funding) but **cut all editorial padding** — see Tone below. Follow-up rounds can be incremental ("接着上次同步，这两天的新进展：" + only the leads that moved), not a full re-dump.
 
 ## Voice
-First person as the **advisor** (王世杰), warm + direct, no hype. Sign with just `世杰` (no name dash). Plain text, no markdown bold (WeChat won't render it). Section headers with 【】 or ▍. Emoji sparingly OK.
+Uses the shared **王世杰 微信口吻** — full voice + hard rules in [`../../_shared/wechat-voice.md`](../../_shared/wechat-voice.md) (第一人称王世杰 / 零破折号(range 用顿号) / 签名 bare `世杰` / 无 markdown 加粗 / 段标题 【】或 ▍ / emoji 克制 / 不用比喻式口语). Don't restate the voice here; if it changes, edit the shared file.
 
-**🚫 No 破折号 (em-dash `——`) anywhere, and no en-dash `–` in ranges.** The user explicitly dislikes them (潘喆 2026-06-06). Restructure with 句号 / 逗号 / 冒号: `Name（校，方向）。{日期} 回信：{要点}`. Ranges use 、 (e.g. 明年 3、4 月), not `3–4 月`. Sign-off is bare `世杰`, never `——世杰`. This mirrors the English-side zero-em-dash hard rule and applies to Chinese deliverables for this user too.
+This deliverable is the canonical's **事实同步型** register (§二·A): lean, facts-only, under-comment (validated 潘喆 2026-06-06, leaned out 2026-06-11 from the user's own edits). 套磁-specific application:
+- Per-person fact line: `Name（校，方向）。{日期} 回信：{要点}`. Ranges use 、 (明年 3、4 月).
+- **Cut**: chatty preambles, campaign-internal strategy the student doesn't need (剔除美国/中国大陆, earlier-batch hard-rejects, "更早一轮 N 位" meta-counts), editorial labels ("按热度", "最实的"), reassuring parentheticals ("套磁里很正常").
+- **Keep**: every per-person fact + factual parentheticals (dates, places, "NUS 线 Jan 2027"). A strategic judgment affecting the student's own decisions ("学位 10 月才到手 → 主攻 2027") is fact, keep it.
 
 ## Structure (4 blocks)
 
-**【一、总体进度】** — honest headline numbers. The trap: handling each reply individually makes it *feel* like everyone replied. State it plainly:
-- 发出 `N`（注明已剔除的地区/类别，如美国/中国大陆）
-- 回信 `R`（其中正面 `P` / 婉拒 `D`）
-- 退信 `B`（**bounces are NOT silent-no-reply** — split them out; see below）
-- 暂未回 `N-R-B`（点明"发出才几天，长尾正常"）
-- 早一轮仍在跟的正面线索 `E` 位
+**【一、总体进度】** — honest headline numbers (the trap: handling each reply one by one makes it *feel* like everyone replied). Plain counts only, no internal strategy:
+- 发出 `N` (do NOT add region-exclusion meta like 已剔除美国/中国大陆 — that is our strategy, not the student's concern)
+- 回信 `R`（正面 `P` / 婉拒 `D`）
+- 退信 `B`（split out; one phrase on the cause — a bounce never reached the prof）
+- 暂未回 `N-R-B`
 
-**【二、正面回复】** — tier by *heat/actionability*, NOT by reply date. For each: name (校, 一句方向) — `日期`：回信内容要点 + 下一步。Cover earlier-round leads too (mark "更早一轮…，已再去信待回").
-- ▍最实的（明确愿意带）
-- ▍方向认可 + 有明确下一步（含具体时间窗，如"年底 call""8 月再联系""每年 3/1 一次 call"）
-- ▍弱正面 / 走流程（公开招聘、程序性引导、鼓励性 — 保持联系别抱大期望）
+**【二、正面回复】** — tier by actionability, NOT by reply date. For each: `Name（校，方向）。{日期} 回信：{要点}。{下一步}`. Cover earlier-round leads too. Plain category headers, no editorial labels:
+- ▍明确愿意带
+- ▍方向认可 + 有明确下一步（含具体时间窗，如"年底 call""8 月再谈""每年 3/1 call"）
+- ▍弱正面 / 走流程
 
-**【三、婉拒 / 我们判断不合适】** — a name list with one-phrase reasons. Include:
-- 明确婉拒（名额满 / 方向差一点 / 无名额 — 注明"套磁里很正常"）
-- **我们判断不划算**：positive-sounding but practically dead — funding blockers (no PhD funding / self-fund only), timing-out cycles, etc. The user wants these HERE, not inflating the positive list.
-- 退信核查结果（已离任 / 荣休 / 转业界 → 非在岗博导，剔除不补发）
-- 更早批次硬拒一句带过
+**【三、婉拒 / 我们判断不合适】** — a name list, one-phrase reason each, no "套磁里很正常"-style reassurance:
+- 明确婉拒：`{名单 + 一句原因}`
+- **我们判断不划算**：positive-sounding but practically dead (funding blockers, timing-out cycles). Goes HERE, not the positive list.
+- 退信核查：已离任 / 荣休 / 转业界 → 非在岗博导，剔除。
+- (Skip old-batch hard-rejects entirely; the student does not need them.)
 
-**【四、需要你做的】** — the single highest-priority action for the student, stated concretely (e.g. "确认 Vesala 的贡献框定对不对，点头我就发回信 + 安排 RP 修订"). One ask beats five.
+**【四、需要你做的】** — the single highest-priority action, concrete. One ask beats five.
 
 ## Hard rules for the numbers
 1. **Show dates.** Distinguish "newly arrived" (by `date received`) from "newly handled by us". A 3-day-old reply we just processed is NOT "new" — say its real date.
@@ -39,18 +41,17 @@ First person as the **advisor** (王世杰), warm + direct, no hype. Sign with j
 
 ## Template skeleton
 ```
-{学生}，套磁整体进展同步（截至 {日期}），信息量有点大，你慢慢看：
+{学生}，套磁整体进展同步（截至 {日期}）：
 
 【一、总体进度】
-本轮共发出 {N} 封（已剔除 {地区}）。
-· 回信：{R} 封（正面 {P}、婉拒 {D}）
-· 退信 {B} 封——{核查结论}
-· 暂未回：{X} 封（长尾正常）
-另有更早一轮仍在跟的正面线索 {E} 位。
+本轮共发出 {N} 封。
+· 回信：{R} 封（正面 {P}、婉拒 {D}）。
+· 退信 {B} 封：{核查结论}。
+· 暂未回：{X} 封。
 
-【二、正面回复】（按热度）
-▍最实的（明确愿意带）
-1. {Name}（{校}，{方向}）—— {日期}：{要点} + {下一步}。
+【二、正面回复】
+▍明确愿意带
+1. {Name}（{校}，{方向}）。{日期} 回信{要点}。{下一步}。
 …
 ▍方向认可 + 有明确下一步
 …
