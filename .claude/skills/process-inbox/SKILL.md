@@ -9,7 +9,7 @@ description: Archive the unprocessed entries in the internal dashboard's submiss
 
 `/internal/submissions` collects employee entries (沟通记录 / 重要comment / 状态更新 / 会议 / 录音 / 其他, + optional attachments) into Supabase `submissions`. Each unprocessed row gets archived into the Obsidian vault with the vault's own intelligence (meeting-minutes for STT, summarize for long content).
 
-**You run this INLINE, in the current foreground Claude session.** Do NOT spawn subagents / headless `claude -p` / TeamCreate — that whole orchestration (and the launchd `com.sdg.inbox-auto` auto-archiver) is **dead since the 2026-04-04 OAuth ban** (memory `headless_claude_oauth_broken.md`). The live trigger is `com.sdg.inbox-sentinel` (no-LLM Bark push to Shijie's iPhone on new IDs); after the push, Shijie runs this skill inline.
+**You run this INLINE, in the current foreground Claude session.** Don't spawn subagents / TeamCreate / vault `claude -p` for this — inline is simpler, fully visible, and avoids env-inheritance surprises. (The launchd `com.sdg.inbox-auto` auto-archiver IS dead: its `claude -p` 403s under the 2026-04-04 OAuth ban. Note `claude -p` itself still works from an *interactive* Desktop session — only launchd/remote contexts are banned — but the per-student subagent orchestration is removed regardless as unnecessary overhead. Memory: `headless_claude_oauth_broken.md`.) The live trigger is `com.sdg.inbox-sentinel` (no-LLM Bark push to Shijie's iPhone on new IDs); after the push, Shijie runs this skill inline.
 
 Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md` + the relevant `_agents/skills/<skill>/SKILL.md`, then execute the steps yourself with Read/Edit/Write on vault paths.
 
@@ -177,5 +177,5 @@ morning-digest reads `student_notes` (synced from `沟通记录/`) for per-stude
 
 ## Dead paths (do NOT use)
 
-- **Headless subagent → vault `claude -p`** (the old Step 1-9 orchestration, TeamCreate, per-student payloads, reviewer agent): DEAD since 2026-04-04 OAuth ban. The old design lives in git history if ever needed.
+- **Headless subagent → vault `claude -p`** (the old Step 1-9 orchestration, TeamCreate, per-student payloads, reviewer agent): **removed** — inline is simpler/more reliable. (`claude -p` works from an interactive Desktop session, but a subagent-spawned one may not inherit the first-party env, and the orchestration was overhead either way.) Old design is in git history if ever needed.
 - **launchd `com.sdg.inbox-auto`** auto-archiver (`scripts/process-inbox-auto.sh`, `--tools Read,Edit,Write` paranoid sandbox): superseded by `com.sdg.inbox-sentinel` (no-LLM Bark push). Its `claude -p` would 403 on the next real run. Pause with `touch ~/Code/sdg-html/.inbox-auto-paused`.
