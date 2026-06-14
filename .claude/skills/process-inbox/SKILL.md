@@ -19,7 +19,7 @@ Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md
 - **Vault `CLAUDE.md`**: vault root — 三条铁律 + skill 触发表 (not auto-loaded here; Read it when doing vault-skill work)
 - **meeting-minutes SKILL**: `_agents/skills/meeting-minutes/SKILL.md`
 - **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (run it, must be 0 ERROR — it catches format breakage that silently eats content)
-- **TickTick CLI** (bundled): `.claude/skills/process-inbox/scripts/ticktick.py {lookup|add|find|complete|delete|checklist-add}` — 录音归属 + 归档闭环 + 提醒建任务；走 MCP `mcp.dida365.com`（含已完成、无 ±18 天窗口限制）；token 从 `.env` `TICKTICK_API_TOKEN` 读（**勿写进本 public repo**）
+- **TickTick = `dida365` 原生 MCP**（connector 已接，每会话加载全部 47 工具——直接用，别再调脚本/裸 HTTP）。录音归属：`list_completed_tasks_by_date` + `list_undone_tasks_by_date`（含已完成、无 ±18 天窗口）；闭环/排期：`complete_task` / `create_task` / `update_task`。默认项目 `中期带案25fall`(id `65f7a21df346910636fcf4c1`)、时区 Asia/Shanghai。工具没出现就 `claude mcp add --transport http dida365 https://mcp.dida365.com --header "Authorization: Bearer <dp_token>"`
 - **Supabase**: project `sdcubejyamnghhhxzvco`; query/update via `mcp__supabase__execute_sql`
 - **.env** (Supabase keys etc.): `~/Code/sdg-html/.env`
 - **sync script**: `~/Code/sdg-html/scripts/sync-students-to-supabase.mjs` (run from MAIN repo — worktrees lack .env)
@@ -80,10 +80,10 @@ Must be `✅ 无 ERROR`. The lint catches: single-line callouts (正文被吃), 
 
 ### 5. TickTick 闭环（处理完一条录音 / 沟通时）
 
-把这次沟通对应的 TickTick 约谈收尾（用 `scripts/ticktick.py`，token 在 `.env`）：
-- 找当天那条约谈并打勾：`ticktick.py find --date <会话日> --contains <学生名>` 拿 taskId/projectId → `ticktick.py complete --project-id <PID> --task-id <TID>`
-- 当天还要「给 X 发 Y」的（发实习证明模板 / 发选校表等）→ `ticktick.py checklist-add "给 X 发 Y"`（进当天「📋下班前清单」，下班前一次过）
-- **不同日期**的 action（如「8/30 前交文书素材」）→ meeting-minutes 的 SOP 闭环步骤 7 已自动建（`ticktick.py add --due`），这里不重复
+把这次沟通对应的 TickTick 约谈收尾（用 dida365 原生 MCP）：
+- 找当天那条约谈并打勾：`list_undone_tasks_by_date`（会话日范围）里按学生名匹配，拿 taskId/projectId → `complete_task`
+- 当天还要「给 X 发 Y」的（发实习证明模板 / 发选校表等）→ 进当天「📋下班前清单」：`search_task "📋下班前清单"` 找今天那条 CHECKLIST 任务；没有就 `create_task`(kind=CHECKLIST、startDate 今天 17:00、project 中期带案25fall)，有就 `get_task_by_id` 取 `items[]` 追加一项再 `update_task`
+- **不同日期**的 action（如「8/30 前交文书素材」）→ meeting-minutes 的 SOP 闭环步骤 7 已自动建（`create_task` + dueDate），这里不重复
 
 ### 6. Mark processed
 
@@ -119,13 +119,11 @@ n8n「自动录音转文字」ships Apple Voice Memos → Dashscope ASR (speaker
 
 ### Attribution: TickTick calendar (PRIMARY method — don't just guess from content)
 
-The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot, so the appointment covering the recording time IS the student. Look up that day:
+The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot, so the appointment covering the recording time IS the student. 用 **dida365 原生 MCP** 查会话日的预约——`list_undone_tasks_by_date` + `list_completed_tasks_by_date`（startDate 当日范围），取覆盖录音时刻的那条（如 `[14:15] 李梓萱` 对上 14:11 的录音）。
 
-```bash
-python .claude/skills/process-inbox/scripts/ticktick.py lookup 2026-06-13
-#  [10:00] 张佳琰 ○未完成   [13:00] 陈梓媛 ○未完成   [14:15] 李梓萱 ○未完成 ...
-```
-(The script queries the TickTick **MCP** — `list_completed_tasks_by_date` + `list_undone_tasks_by_date` — so it returns appointments **including ones already marked 完成**, which the old published-ICS feed silently dropped, and it has no ±18-day rolling-window limit. Token from `.env` `TICKTICK_API_TOKEN`, never inline it — this repo is public.) 🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
+> ⚠️ 必须用 MCP（含已标**完成**的预约）。别用旧的 ICS 发布 feed / `read_cal.py`——ICS 会把完成项静默丢掉、且只有 ±18 天滚动窗口；录音常事后补处理、那时会议早标完成 → ICS 抓空。
+
+🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
 
 If TickTick has no match and content is unidentifiable → ask the user (per the `【待确定，请和主管确认】` literal).
 
