@@ -1,525 +1,183 @@
 ---
 name: process-inbox
-description: Process the unprocessed entries in the internal dashboard's submissions inbox by orchestrating a team of subagents that each spawn a headless Claude Code instance inside the Obsidian vault, so each student's submissions get archived using the vault's own skills (meeting-minutes for STT text, summarize for long content, etc.) — not just dumped as raw markdown. The vault subagents follow the vault's CLAUDE.md "two iron rules" (read SKILL.md before invoking, and write all required files: 学生档案 / 沟通记录 / 日报 / 任务看板). After all per-student writes are done, a reviewer subagent spot-checks the changes; only then does the main coordinator mark submissions processed in Supabase. Use whenever the user says "process inbox", "处理 inbox", "处理 submissions", "归档 submissions", "处理一下提交", or asks to clear out the internal dashboard's submission queue. Also use when the user references a specific submission id they want archived. Don't undertrigger — if the user vaguely says they want to clean up submissions, employee uploads, or the inbox, this is the right skill. **Note**: a SEPARATE headless auto-archiver runs every 120s via launchd (`com.sdg.inbox-auto`, trigger `scripts/process-inbox-auto.sh`) for self-student happy-path submissions. That auto-archiver does NOT load this skill — it has its own restricted code path. Manual `/process-inbox` (this skill) is still the right tool for: cross-advisor submissions, new clients, oversized content, or whenever vault-skill intelligence (meeting-minutes / summarize) is wanted. See "## Auto-mode" section for the boundary between the two.
+description: Archive the unprocessed entries in the internal dashboard's submissions inbox (`/internal/submissions` → Supabase `submissions` table) into Shijie's Obsidian vault, INLINE in the current foreground session — write a proper student-facing 沟通记录 (vault meeting-minutes treatment for STT/录音, §3.1 internal-meta scrubbed), do the 4 required vault writes (沟通记录 / 学生档案双链 + 最后沟通时间 / 日报-{中期顾问} / 待办看板), run the meeting-minutes lint (0 ERROR), then mark `processed=true` in Supabase and commit the vault. Use whenever the user says "处理 inbox / submissions", "看一下 submission", "归档 submissions", "处理一下提交", references a specific submission id, or vaguely wants the inbox / employee uploads cleared. Special case `type='录音'` (auto-transcribed Voice Memos, `student_name_raw='【待确定，请和主管确认】'`): resolve the student via TickTick calendar before archiving. The old headless `claude -p` subagent orchestration AND the launchd auto-archiver are both DEAD (2026-04-04 OAuth ban) — always run inline.
 ---
 
 # Process Inbox skill
 
-## What this skill does
+## TL;DR — how this actually runs (2026-06 reality)
 
-The internal dashboard at `/internal/submissions` collects entries from employees: 沟通记录 / 重要 comment / 状态更新 / 会议 / 其他, plus optional file attachments (PDF, Word, image). Each unprocessed entry needs to be archived into Shijie's Obsidian vault with **the vault's own intelligence** — STT transcripts go through `meeting-minutes`, long content gets summarized, etc. The vault has rich skills for this; this skill orchestrates them.
+`/internal/submissions` collects employee entries (沟通记录 / 重要comment / 状态更新 / 会议 / 录音 / 其他, + optional attachments) into Supabase `submissions`. Each unprocessed row gets archived into the Obsidian vault with the vault's own intelligence (meeting-minutes for STT, summarize for long content).
 
-The hard part: the vault's skills (`_agents/skills/meeting-minutes/`, `summarize/`, `onboarding/`, `planning-roadmap/`, `lor_writer/`, etc.) and the vault's `CLAUDE.md` (with the "two iron rules" and trigger table) only load when Claude Code starts inside the vault directory. So this skill spawns headless `claude -p` instances inside the vault, one per student.
+**You run this INLINE, in the current foreground Claude session.** Do NOT spawn subagents / headless `claude -p` / TeamCreate — that whole orchestration (and the launchd `com.sdg.inbox-auto` auto-archiver) is **dead since the 2026-04-04 OAuth ban** (memory `headless_claude_oauth_broken.md`). The live trigger is `com.sdg.inbox-sentinel` (no-LLM Bark push to Shijie's iPhone on new IDs); after the push, Shijie runs this skill inline.
 
-## ⚠️ Reality (2026-04-04 onwards): vault `claude -p` is OAuth-banned
+Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md` + the relevant `_agents/skills/<skill>/SKILL.md`, then execute the steps yourself with Read/Edit/Write on vault paths.
 
-**The subagent → vault `claude -p` path described below is currently BROKEN** due to Anthropic's 2026-04-04 OpenClaw ban (see memory `headless_claude_oauth_broken.md`). Headless `claude -p` spawned from launchd / stripped-env contexts returns `403 Request not allowed`.
-
-**Two paths still work**:
-
-1. **`claude -p` from THIS Desktop session's Bash tool** — inherits `CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST=1` etc. from the running Claude Desktop process, which makes the backend treat it as first-party. So the orchestration design (per-student subagents → vault claude) **does still work IF the user types `/process-inbox` and you actually invoke the skill**. The skill's normal flow below applies.
-
-2. **Inline handling (no subagent, no vault `claude -p`)** — when the user asks informally ("看一下 submission" / "处理一下") and you handle it directly in the current Desktop session without invoking the skill via `/process-inbox`. **This is the fallback that gets used most often in practice.** When you go this route, **you MUST manually do all 4 vault writes per the vault's iron rule二**, because there is no vault claude to enforce them.
-
-### Inline fallback checklist — 4 NON-NEGOTIABLE vault writes + 1 conditional update
-
-When archiving a submission inline (without spawning a subagent), every submission MUST result in updates to ALL FOUR files + a conditional 5th step:
-
-1. **`01_Student/<student_name>/沟通记录/{YYYY-MM-DD} {type} - {summary前30字}.md`** — the archive note itself (full content + YAML frontmatter)
-2. **`01_Student/<student_name>/<student_name>.md`** — **both** of the following:
-   - update `最后沟通时间` YAML field to the 沟通 date (use date IN the content for historical backfills; submission date for current)
-   - **append a line under `## 沟通与纪要汇总`**: `- [[<filename>]] — <1-line essence>` (e.g. `2026-04-27 沟通：定 USABO 排课 + 上海 wet lab 联系`). For historical backfills, suffix with `（历史回补 by <提交人> <yyyy-mm-dd>）`.
-3. **`02_Project Manager/日报-{mid_advisor}.md`** — **insert AT TOP** (just after the `# 日报-<advisor>` heading), reverse-chronological. Each entry ≤4 bullets, with `→ [[沟通记录文件名]]` link at end. Multi-advisor students (`mid_advisors = [A, B]`) → write to BOTH advisors' 日报. If 日报-{advisor}.md doesn't exist, create it with `# 日报-{advisor}` as first line.
-4. **`02_Project Manager/待办任务看板.md`** — if the submission contains actionable TODOs, add them under the date section. Use the existing format: `- [ ] **[[学生]]** — context → [[沟通记录链接]]` with nested `[ ] 学生侧 / 顾问侧` items. **Also update the "📆 看板最后更新" line at top to today's date.**
-5. **Conditional: 内容侧 YAML auto-update (Policy B, 半自动, 2026-05-12 onwards)** — if the submission content reveals an EXPLICIT student/advisor decision about region / major / stage, update the corresponding YAML field on `<student>.md`. See policy below.
-
-### Policy B — Conditional 内容侧 YAML auto-update
-
-| Field | Update WHEN | Examples of decisive keywords | NEVER update on |
-|---|---|---|---|
-| `目标地区` | 决定 / 定调 / 锁定 / 主攻 / 弃 / 放弃 某地区 | "决定主攻澳洲" / "弃港新" → `目标地区: 澳洲` | "考虑澳洲" / "可能往港新" / "倾向英美" — 探索阶段 |
-| `意向专业方向` | 决定 / 定 / 锁定 申某专业 | "决定申金融数学" → `意向专业方向: 金融数学（首选）/ 金融 / 统计类` | "下次 CSAP 访谈深入探索" / "在 AI vs 数学间纠结" — 未决定 |
-| `当前进度` | stage transition 明示 | "已结案" / "退费" / "进入后期" → 改 stage | (一般 stage 由 mid_advisor 转交 / 财务驱动，content 推断慎用) |
-
-**Fields NEVER auto-updated from sub content**:
-- `合同` / `合同明细` / `客户ID` — 只走 `scripts/import-signings.py` ERP 同步
-- `中期顾问` / `前期顾问` / `后期顾问` — 是 onboarding/转交决定，不该看 sub content 推断
-- `客户邮箱` — 只在用户 explicit 让你改时改
-
-**当 content 含糊**（同时混 decisive + tentative 信号）→ **显式问用户** before updating，不要自己拍板。
-
-**Required output at end of inline processing**: print a YAML-change summary so user can verify:
-
-```
-✅ 学生 YAML 更新：
-  - 刘申珅: 目标地区 (待补 → 澳洲), 意向专业方向 ("" → "金融数学（首选）/...")
-  - 王昱涵: 未改 — #12 + #13 content 是探索期 (CSAP 访谈待定 / AI vs 数学纠结)
-```
-
-**Most common past mistakes**:
-- **2026-05-12 user feedback #1**: files 1 + 2 (only 最后沟通时间) done, files 3 + 4 forgotten. Don't repeat — full 4-file write before marking processed.
-- **2026-05-12 user feedback #2**: 双向链接 (item 2 sub-step) forgot. Only YAML 时间 was touched, `## 沟通与纪要汇总` section never appended. Don't repeat.
-- **2026-05-12 user feedback #3**: content-side YAML (目标地区/意向方向) never updated even when sub explicitly decided. Policy B (above) is the fix — auto-update on decisive keywords, ask on ambiguity.
-
-### When to use which path
-
-- User types `/process-inbox` explicitly → run the skill via subagents (Step 1-9 below). Subagents spawn vault claude which writes all 4 files via iron rules.
-- User asks informally ("看一下 submission" / "处理 inbox" / references a specific submission id) → handle inline in THIS session. **Apply the 4-file checklist above manually.** Don't invoke the skill via subagents — too heavy for 1-3 submissions.
-
-The "Step-by-step workflow" below describes the subagent orchestration (path 1). The inline path (path 2) is: just walk through the 4-file checklist for each submission, then run `sync-students-to-supabase.mjs` once at the end, then SQL UPDATE `processed=true`.
-
-### Special case: `type='录音'` (Voice Memo 自动转写, 2026-05-23 onwards)
-
-Local n8n workflow **「自动录音转文字」** (id `ESa6oaWaxz9N7Oda-4zcY`) polls Apple Voice Memos hourly, ships m4a to 阿里云 Dashscope paraformer-v2 ASR with speaker diarization, then POSTs the raw transcript straight to `submissions` with:
-
-- `type = '录音'`
-- `submitted_by = '录音自动'`
-- `student_id = null`
-- `student_name_raw = '【待确定，请和主管确认】'` ← always this exact literal
-- `summary = '【录音自动转写】<filename>.m4a'`
-- `content = '[Speaker 0] MM:SS: ...\n[Speaker 1] MM:SS: ...\n...'`
-- `ai_transcript = (same as content — kept for forward compat)`
-
-**No LLM has touched the content before it lands.** Speaker N labels are anonymous (顾问/学生/家长 not resolved). Diarization can be wrong (e.g. one speaker split into 2 IDs across long pauses).
-
-#### Processing rules — ALWAYS inline, NEVER auto-mark without student confirmation
-
-1. **Student attribution first**. Read the content. Try to infer the student by:
-   - Names mentioned ("XX 同学" / "XX 你"... )
-   - Topics specific to one student (e.g. 北航 EE 转专业 → 王峥)
-   - The submitter (here always 录音自动, useless) and submitted_at (録音 was made today / yesterday)
-   
-   If ≥80% confident on a single student → propose to user: `#<id> 这条録音内容看着像 XX 的（理由 ...）。归到 XX 文件夹？` Wait for "yes" before proceeding.
-   
-   If ambiguous or multi-student → list candidates, ask user to pick.
-   
-   If not student-related (e.g. you对自己录了个 reminder / 内部会议) → ask user how to handle (likely: just delete the submission row, no vault write).
-
-2. **Mandatory vault meeting-minutes treatment**. Voice Memo recordings are STT-grade messy. Naked archive (just dump the Speaker N text into 沟通记录/.md) is **forbidden** — defeats the whole "用 vault 智能" point of the new pipeline.
-   
-   Run vault meeting-minutes skill **inline** (Pattern B from sdg-html CLAUDE.md):
-   - `Read` vault `CLAUDE.md` (two iron rules) if not already read this turn
-   - `Read` `/Users/shijie/Obsidian/规划看板/_agents/skills/meeting-minutes/SKILL.md`
-   - Follow its full flow: 信息时效性 sanity check (雅思/标化/GPA/申请窗口), STT 纠错, 角色判断 ([顾问老师]/[学生]/[家长] — NOT `[Speaker 0]`), 议题重组
-   - Output: structured 纪要 .md to `01_Student/<student>/沟通记录/{YYYY-MM-DD} 沟通记录 - <title>.md`
-
-3. **All 4 vault writes per the inline checklist above still apply** (学生主档 双向链接 + 日报 顶部插入 + 任务看板 todo). Don't skip them — that was the 2026-05-12 mistake series.
-
-4. **Type stays `'录音'` in Supabase** (don't rewrite to `'沟通记录'`). It's how we trace provenance: queries like "show me notes that originated from a録音" work via `processed_path IS NOT NULL AND type='录音'`.
-
-5. **Mark `processed=true` only after the meeting-minutes-shaped .md exists + student is confirmed + all 4 writes done.**
-
-## NON-NEGOTIABLE: every submission must produce a 沟通记录 .md
-
-**Every submission, no matter how short, MUST result in a real markdown file written to `01_Student/<student_name>/沟通记录/`.** No exceptions.
-
-Why: downstream systems depend on this — the morning-digest skill reads `student_notes` (synced from this folder) to compose per-student attention items, and falls back to `<name>.md` body only when no recent note exists. If you skip note creation for "trivial" submissions (like a one-line status update), the digest loses signal and the student looks like they have no recent activity even though they do.
-
-If the submission is too small to warrant the full `meeting-minutes` skill treatment (just a short comment / status flag), still create a note with a concise body — type / date / submitter / summary / content. Filename pattern: `{YYYY-MM-DD} {type} - {summary 前30字}.md`.
-
-The vault claude must be told this explicitly in the payload — see the per-student payload template below.
-
-## Architecture (read this carefully — it's the whole point)
-
-```
-process-inbox (sdg-html context)
-│
-├─ TeamCreate("inbox-batch-<ts>")
-│
-├─ Spawn N general-purpose Agents in parallel (one per student-group):
-│  Each Agent does:
-│    1. Write per-student payload to /tmp/inbox-batch-<ts>/<student>-payload.md
-│    2. Bash: cd <vault> && claude -p --dangerously-skip-permissions \
-│             --add-dir <vault> < /tmp/.../payload.md > /tmp/.../result.txt
-│       └─→ This spawns a fresh CC instance in the vault. That CC:
-│           - loads the vault's CLAUDE.md (sees iron rules + trigger table)
-│           - decides which vault skill to use based on submission type/content
-│           - reads SKILL.md for that skill
-│           - writes all required files (沟通记录, 学生档案, 日报, 任务看板)
-│           - exits with a stdout report
-│    3. Capture stdout as the per-student report
-│    4. Report back to main: which submission ids, which files written, any errors
-│
-├─ Wait for all per-student Agents to complete
-│
-├─ Spawn one reviewer Agent (sdg-html context, doesn't need vault skills):
-│    1. Read all per-student reports
-│    2. Spot-check 2-3 vault files via Read tool
-│    3. Verify: 学生档案 最后沟通时间 updated? 沟通记录 .md exists? 日报 has new top entry?
-│    4. Report: "all clear" OR list of issues
-│
-└─ If reviewer all-clear:
-    - SQL UPDATE submissions SET processed=true, processed_at=now(), processed_path=...
-   Otherwise: surface issues to user, don't auto-mark
-```
-
-**Why this 2-layer design**: outer Agent (sdg-html) handles orchestration + Supabase comms. Inner `claude -p` (vault) handles file writes with full vault context. The two layers don't need to know each other's tools.
-
-## Critical paths and config
+## Critical paths
 
 - **Vault root**: `/Users/shijie/Obsidian/规划看板`
-- **Vault `CLAUDE.md`**: lives at vault root; defines iron rules + skill triggers
-- **Vault skills root**: `_agents/skills/` (NOT `.claude/skills/` — important, the trigger table in vault CLAUDE.md uses `_agents/skills/` paths)
-- **Supabase project ref**: `sdcubejyamnghhhxzvco`
-- **Env values**: `~/Code/sdg-html/.env` (read with `grep ^KEY= .env | cut -d= -f2-`)
-- **claude CLI**: `/opt/homebrew/bin/claude` (installed globally via npm)
+- **Vault `CLAUDE.md`**: vault root — 三条铁律 + skill 触发表 (not auto-loaded here; Read it when doing vault-skill work)
+- **meeting-minutes SKILL**: `_agents/skills/meeting-minutes/SKILL.md`
+- **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (MUST run, 0 ERROR)
+- **Supabase**: project `sdcubejyamnghhhxzvco`; query/update via `mcp__supabase__execute_sql`
+- **.env** (Supabase keys etc.): `~/Code/sdg-html/.env`
+- **sync script**: `~/Code/sdg-html/scripts/sync-students-to-supabase.mjs` (run from MAIN repo — worktrees lack .env)
 
-## Step-by-step workflow
+## Step-by-step (inline)
 
-### Step 1: Pull the unprocessed queue
-
-Use `mcp__supabase__execute_sql`:
+### 1. Pull the unprocessed queue
 
 ```sql
-select
-  s.id, s.type, s.submitted_at, s.submitted_by, s.summary, s.content,
-  s.attachment_url, s.audio_url, s.ai_transcript, s.ai_summary,
-  s.student_id, s.student_name_raw,
-  st.name as student_name, st.mid_advisor, st.stage, st.obsidian_path
-from submissions s
-left join students st on st.id = s.student_id
-where s.processed = false
-order by s.student_id nulls last, s.submitted_at asc;
+SELECT s.id, s.type, s.submitted_at, s.submitted_by, s.summary,
+       length(s.content) AS content_len, left(s.content, 500) AS preview,
+       s.attachment_url IS NOT NULL AS has_attach, s.audio_url IS NOT NULL AS has_audio,
+       s.student_id, s.student_name_raw,
+       st.name AS student_name, st.mid_advisor, st.mid_advisors, st.stage, st.obsidian_path
+FROM submissions s LEFT JOIN students st ON st.id = s.student_id
+WHERE s.processed IS NOT TRUE
+ORDER BY s.submitted_at;
 ```
 
-Group rows by `student_id` (or by `student_name_raw` when `student_id` is null).
+Print a one-line summary per row (id / type / 学生 / 一句话). If empty, say so and stop. For >1 row, you can just proceed (the user already asked you to process); for a big batch ask which to do.
 
-Print a one-line summary per student-group:
+### 2. Triage each row
 
-```
-Found 3 submissions across 2 students + 1 new client:
-  刘昱彤      (student_id=11) — 1 沟通记录, 1 会议
-  何海川      (student_id=8)  — 1 状态更新
-  「李某某」  (new client)    — 1 沟通记录
-```
+| Case | How to tell | Action |
+|---|---|---|
+| **Normal note** (`type` 沟通记录/重要comment/状态更新/会议) with `student_id` | linked student | full archive (step 3) |
+| **录音** (`type='录音'`, `student_name_raw='【待确定…】'`) | `submitted_by='录音自动'`, `student_id=null` | **resolve student via TickTick first** (see §录音), then full archive |
+| **Duplicate** | same `student_id` + ~identical `content` + submitted seconds apart | mark processed, **no file** (`processed_path='(与 id X 重复提交…)'`) |
+| **Empty** | `content` NULL / empty | mark processed, **no file** (`processed_path='(空白提交…)'`) |
+| **New client** | `student_id IS NULL` and not a 录音 | ask user for 姓名 + key YAML before onboarding; else skip (leave `processed=false`) |
 
-If empty, say so and stop.
+Pull the FULL `content` (not just preview) for rows you'll write up: `SELECT content FROM submissions WHERE id IN (...)`. For a duplicate suspicion, compare full content of the two ids.
 
-Ask the user to confirm before dispatching: "Process all? Reply yes/no/或者只处理 #X #Y". This guards against accidental batch processing.
+### 3. Archive a normal/录音 submission
 
-### Step 2: Handle new clients first (synchronous, asks user)
+For each linked submission, `Read` the student's `<name>.md` first (background + current YAML), then:
 
-For each row where `student_id IS NULL`:
+**a. Write the 沟通记录** → `01_Student/<name>/沟通记录/<name> 规划沟通 YYYY-MM-DD.md`
+- **Date = the CONVERSATION date, not the submission date.** Backfills: a `summary` like `26.3.5` = 2026-03-05 (古淑婷 uses `YY.M.D`); content that's forward-looking from an earlier month is a backfill — name the file by that date. 录音: use the filename timestamp date.
+- Treat it with the vault **meeting-minutes** structure (read its SKILL.md): 30-80 字摘要 → `### 模块` sections → `>` quote / `> [!Callout｜标题]` (two-line!) per section → final Action Items table. For 录音/STT also do 纠错 / 角色判断 (顾问老师/学生/家长, NOT `[Speaker N]`) / 议题重组. For a genuinely tiny note (1-2 points) a short but still-structured 纪要 is fine.
+- **§3.1 SCRUB** (see below) — this file may be forwarded to students/parents.
 
-> Submission #{id} 是新客「{student_name_raw}」，vault 里还没有 folder。要现在建档吗？要的话告诉我学生姓名（最终 folder 名）+ 任何关键 YAML（合同 / 中期顾问 / 入学年份等）；不要的话我跳过这条。
+**b. Update `<name>.md`** (the 档案, internal-view):
+- `最后沟通时间:` → the 纪要 date (don't regress it below an existing newer date)
+- append under `## 沟通与纪要汇总`: `- [[<纪要文件名>]] — <一句话精华>`. Internal YAML changes you made go in THIS link line (e.g. `同步 目标地区→英国`), **never in the 沟通记录 file**.
+- **Policy B YAML 校准** — see table below.
 
-Wait for response. Don't dispatch a subagent for new clients — onboarding is human-judgment territory.
+**c. Update `02_Project Manager/日报-{中期顾问}.md`** — insert at TOP (after `# 日报-X`), reverse-chronological. ≤4 bullets/entry, end with `→ [[纪要]]`. Route by the student's `中期顾问`; multi-advisor (`mid_advisors=[A,B]`) → write to BOTH. Create the file (`# 日报-X` first line) if missing. **Backfill of an old conversation → put it under a `## <处理日>` section labeled "(补录 M-D)" or in the correct chronological slot, link to the real date** (matches the existing 古淑婷 06-04 补录 convention).
 
-If skipped, leave `processed = false` and move on. If user provides info to onboard, you can spawn a special subagent that runs vault `claude -p` with the `onboarding` skill.
+**d. `02_Project Manager/待办任务看板.md`** — only if there are real advisor-actionable TODOs. Student-side todos (报名雅思 etc.) live in the 纪要's Action Items table, not the board. (Skip if board is mid-edit by another session — see commit hygiene.)
 
-### Step 3: Download attachments locally
-
-For each linked-student submission with `attachment_url` or `audio_url`, download to `/tmp/inbox-batch-<ts>/`:
+### 4. Lint (MANDATORY, 0 ERROR)
 
 ```bash
-TS=$(date +%s)
-BATCH_DIR=/tmp/inbox-batch-$TS
-mkdir -p "$BATCH_DIR"
-
-SUPABASE_URL=$(grep '^SUPABASE_URL=' ~/Code/sdg-html/.env | cut -d= -f2-)
-SUPABASE_KEY=$(grep '^SUPABASE_SERVICE_ROLE_KEY=' ~/Code/sdg-html/.env | cut -d= -f2-)
-
-# For each attachment:
-curl -fsSL -o "$BATCH_DIR/<derived-filename>.<ext>" \
-  -H "Authorization: Bearer $SUPABASE_KEY" \
-  "$SUPABASE_URL/storage/v1/object/submissions/<attachment_url>"
+cd /Users/shijie/Obsidian/规划看板 && python3 _agents/skills/meeting-minutes/scripts/lint_minutes.py "01_Student/<name>/沟通记录/<file>.md" [more files...]
 ```
+Must be `✅ 无 ERROR`. The lint catches: single-line callouts (正文被吃), empty callouts, unescaped `A*` (A-Level 星号要 `A\*`), missing `>` per section (W1 — add a `>` insight to each `###`), §3.1 leak terms. Fix and re-run until clean.
 
-Use derived names like `2026-04-26-summary-snippet.pdf` since Supabase upload didn't preserve original filenames. Subagents pass the local file path to vault claude.
-
-If a download fails, do NOT dispatch the subagent for that submission — surface the error and skip.
-
-### Step 4: Create the team
-
-```
-TeamCreate({
-  team_name: "inbox-batch-<ts>",
-  description: "Process the inbox batch dispatched at <ts>"
-})
-```
-
-Optional: also TaskCreate per student-group so progress is visible.
-
-### Step 5: Dispatch per-student subagents IN PARALLEL
-
-For each linked-student group, spawn an Agent with team membership. **Do all spawns in a single message** (parallel tool calls) — don't wait for one to finish before starting the next.
-
-```
-Agent({
-  name: "<student_name>",   // human-readable, addressable via SendMessage
-  team_name: "inbox-batch-<ts>",
-  subagent_type: "general-purpose",
-  prompt: <see template below>,
-})
-```
-
-#### Per-student subagent prompt template
-
-```
-You are the inbox-processing subagent for student "<student_name>".
-
-YOUR JOB
-Run a fresh Claude Code instance inside the Obsidian vault to archive this
-student's submissions, then report back what was written. You do NOT touch
-Supabase — the main coordinator handles that.
-
-VAULT PATH: /Users/shijie/Obsidian/规划看板
-PAYLOAD FILE: /tmp/inbox-batch-<ts>/<student_name>-payload.md
-RESULT FILE:  /tmp/inbox-batch-<ts>/<student_name>-result.txt
-
-STEP 1 — Write the payload file
-Use Write to put this content at <PAYLOAD FILE>:
-
-  # Inbox 批量处理 — <student_name>
-
-  你正在 vault 里运行（CLAUDE.md 已加载），需要把下面的 submission 按 vault
-  的规矩归档。要点：
-
-  **铁律一：每条 submission 必须产出一个 沟通记录 .md** — 不许跳过。
-  即使是一句话的 status update / 简短 comment，也要写一个 .md 文件到
-  01_Student/<student_name>/沟通记录/。下游 morning-digest skill 依赖
-  这些文件做学生关注清单；跳过 = 学生显得"零最近活动"，digest 失真。
-
-  - 选合适的 skill 处理内容（依 CLAUDE.md 触发表，e.g. STT/录音文本 →
-    meeting-minutes，长内容 → summarize 后归档）；如果内容太短不值得 skill
-    treatment，仍然要直接写 .md（type / by / summary / content 即可），
-    **不能不写**
-  - 触发任何 skill 前先 Read 对应 SKILL.md（vault 铁律一）
-  - 完成后必须更新（vault 铁律二，全部 4 项）：
-    1. **01_Student/<student_name>/沟通记录/{YYYY-MM-DD} {type} - {summary前30字}.md**
-       — 这一项 NON-NEGOTIABLE，每个 submission 都要一个 .md
-    2. 01_Student/<student_name>/<student_name>.md — 更新 `最后沟通时间`
-       + 在 `## 沟通与纪要汇总` 下追加 `[[文件名]]` 双向链接 + 一行精华
-       （e.g. `2026-04-27 沟通：定 USABO 排课 + 上海 wet lab 联系`）
-    3. 02_Project Manager/日报-<mid_advisor>.md — 顶部插入条目，
-       ≤4 行/条目。如该顾问日报不存在则新建，第一行 `# 日报-<mid_advisor>`。
-       **如果学生 mid_advisor 是多选 (e.g. 刘昱彤 = [王世杰, 陆梦婕])，把同一条
-       日报写到 EACH 顾问的 日报-X.md 文件里**（共管学生，两位顾问都需要看到）。
-    4. 02_Project Manager/待办任务看板.md — 如果有新 todo
-  - 附件：从下面列的本地路径 mv 到 01_Student/<student_name>/个性化材料/，
-    重命名为 `{YYYY-MM-DD} {summary前20字}.{ext}`
-
-  ## 学生背景
-  - 姓名：<student_name>
-  - 中期顾问：<mid_advisor or "未分配">
-  - 当前进度：<stage or "未填">
-  - 档案路径：<obsidian_path>
-
-  ## Submissions（共 N 条）
-
-  ### Submission #<id>
-  - 类型：<type>
-  - 提交时间：<submitted_at>
-  - 提交人：<submitted_by>
-  - 摘要：<summary>
-  - 详细内容：
-    <content>
-  - AI 转写：<ai_transcript or "(无)">
-  - AI 摘要：<ai_summary or "(无)">
-  - 附件本地路径：<list of /tmp/.../filename, or "(无)">
-
-  (重复每条 submission)
-
-  ## 完成后请输出
-  一段简短的 markdown 报告：
-  - 每条 submission 用了哪个 skill / 怎么处理的
-  - 写了哪些文件（带绝对路径）
-  - 改了哪些文件
-  - 如果有跳过 / 出错，说明原因
-
-STEP 2 — Run the vault claude
-Run this Bash command (don't add any flags I haven't listed):
-
-  cd "/Users/shijie/Obsidian/规划看板" && \
-    claude -p --dangerously-skip-permissions --add-dir "$(pwd)" \
-    < "/tmp/inbox-batch-<ts>/<student_name>-payload.md" \
-    > "/tmp/inbox-batch-<ts>/<student_name>-result.txt" 2>&1
-
-The vault claude will exit when done. If it errors, the result file captures
-stderr. Don't retry automatically — bubble the error to the main coordinator.
-
-STEP 3 — Report back
-Read the result file and respond with:
-- "submissions_processed": [list of submission ids you successfully archived]
-- "files_written": [list of absolute paths created]
-- "files_modified": [list of absolute paths updated]
-- "skipped_or_errored": [list of {id, reason}]
-- "vault_claude_output_excerpt": last ~20 lines of the result file
-```
-
-### Step 6: Wait for all subagents
-
-Each Agent runs in parallel. Wait for all to send their final report. Tally:
-- Total submissions claimed as processed (collect ids into a set `processed_ids`)
-- Files written/modified (for the reviewer to spot-check)
-- Errors (for surfacing to user)
-
-### Step 7: Spawn reviewer Agent
-
-```
-Agent({
-  name: "reviewer",
-  team_name: "inbox-batch-<ts>",
-  subagent_type: "general-purpose",
-  prompt: <see template below>,
-})
-```
-
-#### Reviewer prompt template
-
-```
-You are the reviewer for inbox processing batch <ts>.
-
-CONTEXT
-N per-student subagents have written to the vault. Each one's report is
-included below. Your job is to spot-check the writes (NOT redo work) and
-flag anything off.
-
-VAULT PATH: /Users/shijie/Obsidian/规划看板
-
-PER-STUDENT REPORTS:
-<inject each subagent's report here>
-
-CHECKS
-1. For 2-3 random students, Read the new 沟通记录/*.md to verify it has
-   meaningful structure (not just raw paste of the submission content).
-2. For 1-2 random students, Read 01_Student/<name>/<name>.md and confirm
-   the 最后沟通时间 YAML field reflects the new submission date.
-3. Read 02_Project Manager/日报-<advisor>.md (for whichever advisors had
-   submissions today) and confirm new entries appear at the TOP of the file
-   (per vault rule: insert at top, not append at bottom).
-
-OUTPUT FORMAT
-Respond with EXACTLY one of:
-  - APPROVED: <one-line summary of what looked good>
-  - ISSUES: <bulleted list of specific problems with file:line references>
-
-Do not modify any files yourself.
-```
-
-### Step 8: Mark processed
-
-Only if reviewer responded `APPROVED`:
+### 5. Mark processed
 
 ```sql
-update submissions
-set processed = true,
-    processed_at = now(),
-    processed_path = '<the .md file path relative to vault root>'
-where id in (<comma-separated processed_ids>);
+UPDATE submissions SET processed=true, processed_at=now(),
+  processed_path='01_Student/<name>/沟通记录/<file>.md'
+WHERE id=<id>;
 ```
+Duplicates/empty get a descriptive `processed_path` instead of a file path.
 
-If reviewer said ISSUES, do NOT mark. Surface the issues to the user verbatim and ask how to proceed.
+### 6. Commit the vault (explicit pathspecs only)
 
-### Step 9: Final summary
-
+```bash
+cd /Users/shijie/Obsidian/规划看板
+git reset HEAD -- .                       # clear any cross-session pre-staged WIP
+git add -- "01_Student/<name>/沟通记录/<file>.md" "01_Student/<name>/<name>.md" "02_Project Manager/日报-X.md"
+git -c core.quotePath=false diff --cached --name-status   # eyeball: ONLY your files
+git commit -q -F - <<'MSG'
+process-inbox: 归档<学生> <日期> <一句话>
+…
+Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+MSG
 ```
-✅ Processed N submissions across M students:
-  #5 → 01_Student/刘昱彤/沟通记录/2026-04-26 沟通记录 - 家长问雅思首考时间.md
-  #7 → 01_Student/何海川/沟通记录/2026-04-26 会议 - 周一面谈.md (+ 1 attachment)
+**Never `git add -A`** — the vault routinely carries other sessions' WIP (仇彬钦/李卓玲/胡斌/陆重言/待办看板/日报-王世杰 etc.). Stage only the exact files you wrote. Vault git commands run outside the project dir → use `dangerouslyDisableSandbox: true`.
 
-⏭  Skipped 1:
-  #6 新客「李某某」— user said skip
-
-🔍 Reviewer: APPROVED
-```
-
-Tell the user the inbox is now clean and the 30-min sync will pick up the new vault notes for the dashboard.
-
-## Edge cases
-
-- **Vault `claude -p` hangs**: timeout the bash command at 5 minutes per student. If hit, report and skip.
-- **Multiple submissions for same student**: the vault claude handles them all in one shot (single payload), so the iron-rule writes happen once per student per batch.
-- **Multiple students linked to same advisor**: each student-subagent independently appends to the same `日报-<advisor>.md`. Race condition risk is low (one-shot writes per subagent), but if you observe duplication, serialize per-advisor in step 5.
-- **Network failure on Supabase update (step 8)**: retry once, then surface — the writes already happened in vault, you just need to mark in DB.
-- **Reviewer flags real issues**: do NOT auto-undo. The vault writes have already happened. Surface to user, let them either fix manually or tell you to mark anyway.
-
-## What this skill explicitly does NOT do
-
-- Doesn't write to vault directly — all writes go through `claude -p` in the vault so the iron rules apply
-- Doesn't auto-onboard new clients — always asks
-- Doesn't send notifications, emails
-- Doesn't delete the original Supabase Storage attachments (cheap to keep as backup)
+(YAML-derived Supabase fields — stage/target/major/last_contact — re-sync from vault via the 30-min cron, so a manual `sync-students` run is optional. Run it only if the user needs the dashboard updated immediately.)
 
 ---
 
-## Auto-mode (headless launchd job — runs OUTSIDE this skill)
+## 录音 (`type='录音'`) — Voice Memo 自动转写
 
-There is a **separate** auto-archiver that polls the inbox queue every 120s
-via launchd. **The auto-archiver does NOT load this skill.** It runs an
-entirely separate code path with paranoid security restrictions.
+n8n「自动录音转文字」ships Apple Voice Memos → Dashscope ASR (speaker-diarized) → POSTs raw transcript with `type='录音'`, `submitted_by='录音自动'`, `student_id=null`, `student_name_raw='【待确定，请和主管确认】'`, `summary='【录音自动转写】20260613 132911-XXXX.m4a'`. **No LLM has touched it; no student attribution.**
 
-This section is documentation only — for runtime behavior, see the trigger
-script source.
+### Attribution: TickTick calendar (PRIMARY method — don't just guess from content)
 
-### Auto-archiver location
-- Trigger script: `scripts/process-inbox-auto.sh`
-- LaunchAgent plist: `~/Library/LaunchAgents/com.sdg.inbox-auto.plist`
-- Pause flag: `touch ~/Code/sdg-html/.inbox-auto-paused`
-- Status: `bash scripts/inbox-auto-status.sh`
-- Live log: `tail -f ~/Library/Logs/sdg-inbox-auto.log`
+The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot. Cross-reference the timestamp against that day's TickTick appointments:
 
-### Why a separate code path
+```python
+import re, urllib.request; from datetime import datetime, timedelta, date
+data=urllib.request.urlopen('https://dida365.com/pub/calendar/feeds/hfeph9s0j3ej/basic.ics',timeout=20).read().decode('utf-8','ignore')
+for ev in re.split(r'BEGIN:VEVENT', data):
+    sm=re.search(r'SUMMARY:(.*)',ev); st=re.search(r'DTSTART.*?:(\d{8}(?:T\d{6})?Z?)',ev)
+    # parse st: if endswith 'Z' → +8h Beijing; filter to the recording's date; print HH:MM + SUMMARY
+```
+(`_agents/skills/ticktick/scripts/read_cal.py` does this but only for today+2 days — for past dates fetch the ICS yourself.) The appointment covering the recording time = the student. 🚨 **A録音 transcript often never says the student's name** (260613 陈梓媛 — pure-content guessing nearly misattributed to 李子萱). TickTick is the reliable anchor; the transcript content is the cross-check (subjects, school, 竞赛 names). See memory `recording_attribution_via_ticktick.md`.
 
-This skill (`/process-inbox` manual) uses `claude -p --dangerously-skip-permissions`
-to invoke vault skills with full tool access. That's **safe for human-driven
-runs** (Shijie has just typed `/process-inbox`, knows context, can interrupt) but
-**unsafe for unattended automation** — a malicious submission could prompt-inject
-a vault claude into running `rm -rf` or curling the .env to attacker.com.
+If TickTick has no match and content is unidentifiable → ask the user (per the `【待确定，请和主管确认】` literal).
 
-Auto mode therefore:
-- Runs claude with **`--tools "Read,Edit,Write"` only** (no Bash, no MCP, no
-  WebFetch, no Skill tool)
-- Runs claude with **`--strict-mcp-config`** + no `--mcp-config` flag → zero
-  MCP servers loaded
-- Restricts file access to **vault root only** (`--add-dir VAULT_ROOT`, cwd at
-  neutral `/tmp/sdg-auto-cwd` so no `CLAUDE.md` auto-discovery)
-- Runs claude with **a custom paranoid system prompt** that flags submission
-  content as untrusted external data (prompt-injection-aware)
-- Trigger script (NOT claude) handles all Supabase IO via curl REST API
-- Trigger script (NOT claude) downloads attachments and `mv`s to vault path;
-  claude only edits text files
-- SQL `UPDATE processed=true` happens in the trigger script AFTER claude reports
-  ok via JSON output line
+### Then: meeting-minutes + §3.1, keep `type='录音'`
 
-Worst-case prompt injection in auto mode: vandalize vault files (revertible
-via `git -C VAULT reset --hard`). Cannot exfil `.env`, cannot push to git,
-cannot send emails, cannot publish Sanity, cannot run shell commands.
+Run full meeting-minutes treatment inline. **Keep `type='录音'` in Supabase** (provenance: `type='录音' AND processed_path IS NOT NULL`). 录音 of parent/strategy meetings are the highest §3.1 risk — see below.
 
-### Self-student vs cross-advisor classification
+---
 
-For each submission with `student_id IS NOT NULL`:
+## §3.1 输出严禁清单 — 沟通记录 may be forwarded to students/parents
 
-- if `submissions.submitted_by ∈ students.mid_advisors[]` → **self_student**
-  (happy path: archive + mark `processed=true`)
-- else → **cross_advisor** (archive vault, **leave `processed=false`** for
-  Shijie to manually review via /process-inbox)
-- if `student_id IS NULL` → **new_client** (skip entirely, leave for manual)
+The 沟通记录 file is student/parent-facing. The 学生主档案 (`<name>.md`) is internal. **NEVER let internal meta into the 沟通记录:**
 
-Multi-advisor (e.g. 田子辰 = `[王世杰, 徐祖韵]`): either advisor submitting
-counts as self-student.
+| 严禁 | 改写 / 处理 |
+|---|---|
+| 岗位名 (中期/前期/后期顾问)、二销、KPI、合同/合同编号、退费、跃领分级(MAX/Pro)、商机、返佣、中介数据 | 用「顾问老师」统一替代；商务/合同/KPI 类完全不写 |
+| 系统术语 (档案/YAML/双向链接/最后沟通时间字段/触发/归档)、文件路径 | 删；YAML 字段改动写进**主档案**双链行，不写进纪要 |
+| Skill 内部机制 (Phase/Reconciliation/n8n/sender=xdf) | 删 |
+| 灰区/合规敏感操作（如「多开账号绕过院校官方流程」「单学期挑高分开排名」「GRE 作弊式刷分」） | **弱化或剔除**（用户 260613 张佳琰录音明确要求弱化）；中性化为正经策略，或只在内部主档案留备注 |
+| 家长对学生的负面评价、对比别的孩子、家庭经济/「丢脸」「100万」类原话 | 不写 |
 
-### Cost / model
+When a 录音/会议 has heavy sensitive content (parent strategy session), **ask the user** whether to (a) 整理但弱化敏感段, (b) 原样保留, or (c) 只标记归档不建文件 — then honor the choice.
 
-Trigger uses Opus (`--model opus`). Per-submission token estimate ~16K
-(13K input + 3K output) ≈ $0.40 at Opus 4.7 pricing. 5 submissions/day ≈
-$60/month ≈ ~3% of Max 20× plan equivalent. To downgrade for cost, edit
-`MODEL=` in `scripts/process-inbox-auto.sh`.
+**Self-check before commit**: `grep -onE "退费|二销|非标准化|作弊|中介|KPI|跃领|合同编号|低分高录|商机" <纪要>` should return nothing (the lint W3 also covers this).
 
-### When manual /process-inbox is still needed
+---
 
-- Cross-advisor submissions (auto leaves `processed=false`)
-- New clients (`student_id IS NULL`)
-- Oversized content (auto skips submissions where `len(content) > 20000`)
-- Anything where you want vault-skill intelligence (meeting-minutes for STT,
-  summarize for long content) — auto only does verbatim-style archive
+## Policy B — content-side YAML 校准 (半自动)
 
-So manual `/process-inbox` and auto coexist. Auto handles the high-volume
-happy path silently; manual handles the cases auto won't touch.
+When the content reveals an EXPLICIT student/advisor decision, update `<name>.md` YAML; note the change in the 双链 line.
 
-### When this skill (manual `/process-inbox`) gets used
+| Field | Update WHEN (decisive) | NEVER on (tentative) |
+|---|---|---|
+| `目标地区` | 决定/锁定/弃 某地区；或合同/校名强暗示 (跃领→英国, 曼大→英国) | "考虑" / "倾向" / "可能" |
+| `意向专业方向` | 决定/锁定 某专业；首次明确方向 | "在 A vs B 间纠结" / "下次访谈探索" |
+| `当前进度` | stage 明示：需对接→中期在途(首次沟通完成)、进入后期、已结案、退费 | 财务/转交驱动的 stage 慎从 content 推 |
+| `专业` / `目前就读学校` | content 明确在读专业/学校 (之前空) | — |
 
-User invokes `/process-inbox` interactively. Then this skill's normal flow
-applies (sections above), with full `--dangerously-skip-permissions` access
-for the vault subagents — same as before. Auto-mode does not change manual
-behavior.
+**NEVER auto-update from content**: `合同`/`合同明细`/`客户ID` (只走 import-signings.py)；`中期/前期/后期顾问` (onboarding/转交决定，用户确认才改)；`客户邮箱`. When content mixes decisive + tentative → ask before updating.
+
+---
+
+## Dedup / empty / backfill — quick rules
+
+- **Duplicate** (same student, ~identical content, seconds apart): verify by comparing full `content`; mark processed, no file, `processed_path='(与 id X 重复提交)'`.
+- **Empty** (NULL content): mark processed, no file, `processed_path='(空白提交)'`.
+- **Backfill date**: 纪要 filename + `最后沟通时间` use the CONVERSATION date (from `summary` like `26.3.5` or 录音 filename), not `submitted_at`. Don't regress `最后沟通时间` below an existing newer note. Put the 日报 entry in the right chronological slot (or a 处理日 section labeled 补录).
+
+## New clients (`student_id IS NULL`, not 录音)
+
+Onboarding is human-judgment — don't auto-create. Ask: 「Submission #X 是新客「<raw>」，要建档吗？给我姓名 + 关键 YAML(合同/中期顾问/入学年份)」. If yes, run the vault `onboarding` skill inline (Read its SKILL.md first; verify field enums against `.claude/rules/student_sop.md` + live Supabase). If no, leave `processed=false`.
+
+## Every non-trivial submission MUST produce a 沟通记录 .md
+
+morning-digest reads `student_notes` (synced from `沟通记录/`) for per-student attention items. Skipping note creation for a "trivial" status update makes the student look inactive. Only duplicates and empty submissions get no file.
+
+## Dead paths (do NOT use)
+
+- **Headless subagent → vault `claude -p`** (the old Step 1-9 orchestration, TeamCreate, per-student payloads, reviewer agent): DEAD since 2026-04-04 OAuth ban. The old design lives in git history if ever needed.
+- **launchd `com.sdg.inbox-auto`** auto-archiver (`scripts/process-inbox-auto.sh`, `--tools Read,Edit,Write` paranoid sandbox): superseded by `com.sdg.inbox-sentinel` (no-LLM Bark push). Its `claude -p` would 403 on the next real run. Pause with `touch ~/Code/sdg-html/.inbox-auto-paused`.
