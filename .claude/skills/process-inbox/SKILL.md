@@ -19,7 +19,7 @@ Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md
 - **Vault `CLAUDE.md`**: vault root — 三条铁律 + skill 触发表 (not auto-loaded here; Read it when doing vault-skill work)
 - **meeting-minutes SKILL**: `_agents/skills/meeting-minutes/SKILL.md`
 - **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (run it, must be 0 ERROR — it catches format breakage that silently eats content)
-- **TickTick lookup** (bundled): `.claude/skills/process-inbox/scripts/ticktick_lookup.py <YYYY-MM-DD>` — 录音 归属；查当天 TickTick 预约（**含已完成**，走 MCP `mcp.dida365.com`，无 ±18 天窗口限制）；token 从 `.env` `TICKTICK_API_TOKEN` 读（**勿写进本 public repo**）
+- **TickTick CLI** (bundled): `.claude/skills/process-inbox/scripts/ticktick.py {lookup|add|find|complete|delete|checklist-add}` — 录音归属 + 归档闭环 + 提醒建任务；走 MCP `mcp.dida365.com`（含已完成、无 ±18 天窗口限制）；token 从 `.env` `TICKTICK_API_TOKEN` 读（**勿写进本 public repo**）
 - **Supabase**: project `sdcubejyamnghhhxzvco`; query/update via `mcp__supabase__execute_sql`
 - **.env** (Supabase keys etc.): `~/Code/sdg-html/.env`
 - **sync script**: `~/Code/sdg-html/scripts/sync-students-to-supabase.mjs` (run from MAIN repo — worktrees lack .env)
@@ -78,7 +78,14 @@ cd /Users/shijie/Obsidian/规划看板 && python3 _agents/skills/meeting-minutes
 ```
 Must be `✅ 无 ERROR`. The lint catches: single-line callouts (正文被吃), empty callouts, unescaped `A*` (A-Level 星号要 `A\*`), missing `>` per section (W1 — add a `>` insight to each `###`), §3.1 leak terms. Fix and re-run until clean.
 
-### 5. Mark processed
+### 5. TickTick 闭环（处理完一条录音 / 沟通时）
+
+把这次沟通对应的 TickTick 约谈收尾（用 `scripts/ticktick.py`，token 在 `.env`）：
+- 找当天那条约谈并打勾：`ticktick.py find --date <会话日> --contains <学生名>` 拿 taskId/projectId → `ticktick.py complete --project-id <PID> --task-id <TID>`
+- 当天还要「给 X 发 Y」的（发实习证明模板 / 发选校表等）→ `ticktick.py checklist-add "给 X 发 Y"`（进当天「📋下班前清单」，下班前一次过）
+- **不同日期**的 action（如「8/30 前交文书素材」）→ meeting-minutes 的 SOP 闭环步骤 7 已自动建（`ticktick.py add --due`），这里不重复
+
+### 6. Mark processed
 
 ```sql
 UPDATE submissions SET processed=true, processed_at=now(),
@@ -87,7 +94,7 @@ WHERE id=<id>;
 ```
 Duplicates/empty get a descriptive `processed_path` instead of a file path.
 
-### 6. Commit the vault (explicit pathspecs only)
+### 7. Commit the vault (explicit pathspecs only)
 
 ```bash
 cd /Users/shijie/Obsidian/规划看板
@@ -115,7 +122,7 @@ n8n「自动录音转文字」ships Apple Voice Memos → Dashscope ASR (speaker
 The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot, so the appointment covering the recording time IS the student. Look up that day:
 
 ```bash
-python .claude/skills/process-inbox/scripts/ticktick_lookup.py 2026-06-13
+python .claude/skills/process-inbox/scripts/ticktick.py lookup 2026-06-13
 #  [10:00] 张佳琰 ○未完成   [13:00] 陈梓媛 ○未完成   [14:15] 李梓萱 ○未完成 ...
 ```
 (The script queries the TickTick **MCP** — `list_completed_tasks_by_date` + `list_undone_tasks_by_date` — so it returns appointments **including ones already marked 完成**, which the old published-ICS feed silently dropped, and it has no ±18-day rolling-window limit. Token from `.env` `TICKTICK_API_TOKEN`, never inline it — this repo is public.) 🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
