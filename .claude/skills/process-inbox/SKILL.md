@@ -19,7 +19,7 @@ Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md
 - **Vault `CLAUDE.md`**: vault root — 三条铁律 + skill 触发表 (not auto-loaded here; Read it when doing vault-skill work)
 - **meeting-minutes SKILL**: `_agents/skills/meeting-minutes/SKILL.md`
 - **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (run it, must be 0 ERROR — it catches format breakage that silently eats content)
-- **TickTick lookup** (bundled): `.claude/skills/process-inbox/scripts/ticktick_lookup.py <YYYY-MM-DD>` — 录音 归属用；feed URL 从 `.env` `TICKTICK_ICS_FEED` 读，**别写进本 public repo**
+- **TickTick lookup** (bundled): `.claude/skills/process-inbox/scripts/ticktick_lookup.py <YYYY-MM-DD>` — 录音 归属；查当天 TickTick 预约（**含已完成**，走 MCP `mcp.dida365.com`，无 ±18 天窗口限制）；token 从 `.env` `TICKTICK_API_TOKEN` 读（**勿写进本 public repo**）
 - **Supabase**: project `sdcubejyamnghhhxzvco`; query/update via `mcp__supabase__execute_sql`
 - **.env** (Supabase keys etc.): `~/Code/sdg-html/.env`
 - **sync script**: `~/Code/sdg-html/scripts/sync-students-to-supabase.mjs` (run from MAIN repo — worktrees lack .env)
@@ -116,9 +116,9 @@ The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13
 
 ```bash
 python .claude/skills/process-inbox/scripts/ticktick_lookup.py 2026-06-13
-#  [10:00] 张佳琰   [13:00] 陈梓媛   [14:15] 李梓萱   [16:45] 金梓屹
+#  [10:00] 张佳琰 ○未完成   [13:00] 陈梓媛 ○未完成   [14:15] 李梓萱 ○未完成 ...
 ```
-(The script reads the feed URL from `.env` `TICKTICK_ICS_FEED` — keep it there, never inline the URL: this repo is public. The vault's `read_cal.py` only covers today+2 days; this one takes any date.) 🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
+(The script queries the TickTick **MCP** — `list_completed_tasks_by_date` + `list_undone_tasks_by_date` — so it returns appointments **including ones already marked 完成**, which the old published-ICS feed silently dropped, and it has no ±18-day rolling-window limit. Token from `.env` `TICKTICK_API_TOKEN`, never inline it — this repo is public.) 🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
 
 If TickTick has no match and content is unidentifiable → ask the user (per the `【待确定，请和主管确认】` literal).
 
