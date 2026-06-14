@@ -1,6 +1,6 @@
 ---
 name: process-inbox
-description: Archive the unprocessed entries in the internal dashboard's submissions inbox (`/internal/submissions` → Supabase `submissions` table) into Shijie's Obsidian vault, INLINE in the current foreground session — write a proper student-facing 沟通记录 (vault meeting-minutes treatment for STT/录音, §3.1 internal-meta scrubbed), do the 4 required vault writes (沟通记录 / 学生档案双链 + 最后沟通时间 / 日报-{中期顾问} / 待办看板), run the meeting-minutes lint (0 ERROR), then mark `processed=true` in Supabase and commit the vault. Use whenever the user says "处理 inbox / submissions", "看一下 submission", "归档 submissions", "处理一下提交", references a specific submission id, or vaguely wants the inbox / employee uploads cleared. Special case `type='录音'` (auto-transcribed Voice Memos, `student_name_raw='【待确定，请和主管确认】'`): resolve the student via TickTick calendar before archiving. The old headless `claude -p` subagent orchestration AND the launchd auto-archiver are both DEAD (2026-04-04 OAuth ban) — always run inline.
+description: Archive the unprocessed entries in the internal dashboard's submissions inbox (`/internal/submissions` → Supabase `submissions` table) into Shijie's Obsidian vault, INLINE in the current foreground session — write a proper student-facing 沟通记录 (vault meeting-minutes treatment for STT/录音, §3.1 internal-meta scrubbed), do the 4 required vault writes (沟通记录 / 学生档案双链 + 最后沟通时间 / 日报-{中期顾问} / 待办看板), run the meeting-minutes lint (0 ERROR), then mark `processed=true` in Supabase and commit the vault. Use whenever the user says "处理 inbox / submissions", "看一下 submission", "归档 submissions", "处理一下提交", references a specific submission id, or vaguely wants the inbox / employee uploads cleared. Special case `type='录音'` (auto-transcribed Voice Memos, `student_name_raw='【待确定，请和主管确认】'`): resolve the student via the TickTick calendar (recording filename timestamp ↔ that day's appointment) before archiving. Always run inline — the old headless-subagent and launchd-auto paths are dead post-OAuth-ban.
 ---
 
 # Process Inbox skill
@@ -18,7 +18,8 @@ Pattern B (sdg-html CLAUDE.md): for vault skills you `Read` the vault `CLAUDE.md
 - **Vault root**: `/Users/shijie/Obsidian/规划看板`
 - **Vault `CLAUDE.md`**: vault root — 三条铁律 + skill 触发表 (not auto-loaded here; Read it when doing vault-skill work)
 - **meeting-minutes SKILL**: `_agents/skills/meeting-minutes/SKILL.md`
-- **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (MUST run, 0 ERROR)
+- **meeting-minutes lint**: `_agents/skills/meeting-minutes/scripts/lint_minutes.py` (run it, must be 0 ERROR — it catches format breakage that silently eats content)
+- **TickTick lookup** (bundled): `.claude/skills/process-inbox/scripts/ticktick_lookup.py <YYYY-MM-DD>` — 录音 归属用；feed URL 从 `.env` `TICKTICK_ICS_FEED` 读，**别写进本 public repo**
 - **Supabase**: project `sdcubejyamnghhhxzvco`; query/update via `mcp__supabase__execute_sql`
 - **.env** (Supabase keys etc.): `~/Code/sdg-html/.env`
 - **sync script**: `~/Code/sdg-html/scripts/sync-students-to-supabase.mjs` (run from MAIN repo — worktrees lack .env)
@@ -111,16 +112,13 @@ n8n「自动录音转文字」ships Apple Voice Memos → Dashscope ASR (speaker
 
 ### Attribution: TickTick calendar (PRIMARY method — don't just guess from content)
 
-The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot. Cross-reference the timestamp against that day's TickTick appointments:
+The `summary` filename embeds a **timestamp** (`20260613 132911` = 2026-06-13 13:29:11 Beijing). Shijie schedules big/long student meetings in TickTick by time slot, so the appointment covering the recording time IS the student. Look up that day:
 
-```python
-import re, urllib.request; from datetime import datetime, timedelta, date
-data=urllib.request.urlopen('https://dida365.com/pub/calendar/feeds/hfeph9s0j3ej/basic.ics',timeout=20).read().decode('utf-8','ignore')
-for ev in re.split(r'BEGIN:VEVENT', data):
-    sm=re.search(r'SUMMARY:(.*)',ev); st=re.search(r'DTSTART.*?:(\d{8}(?:T\d{6})?Z?)',ev)
-    # parse st: if endswith 'Z' → +8h Beijing; filter to the recording's date; print HH:MM + SUMMARY
+```bash
+python .claude/skills/process-inbox/scripts/ticktick_lookup.py 2026-06-13
+#  [10:00] 张佳琰   [13:00] 陈梓媛   [14:15] 李梓萱   [16:45] 金梓屹
 ```
-(`_agents/skills/ticktick/scripts/read_cal.py` does this but only for today+2 days — for past dates fetch the ICS yourself.) The appointment covering the recording time = the student. 🚨 **A録音 transcript often never says the student's name** (260613 陈梓媛 — pure-content guessing nearly misattributed to 李子萱). TickTick is the reliable anchor; the transcript content is the cross-check (subjects, school, 竞赛 names). See memory `recording_attribution_via_ticktick.md`.
+(The script reads the feed URL from `.env` `TICKTICK_ICS_FEED` — keep it there, never inline the URL: this repo is public. The vault's `read_cal.py` only covers today+2 days; this one takes any date.) 🚨 **A録音 transcript often never names the student** (260613 陈梓媛 — pure-content guessing nearly misattributed her to 李子萱). TickTick is the reliable anchor; transcript content (subjects, school, 竞赛 names) is the cross-check. Memory: `recording_attribution_via_ticktick.md`.
 
 If TickTick has no match and content is unidentifiable → ask the user (per the `【待确定，请和主管确认】` literal).
 
