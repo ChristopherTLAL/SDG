@@ -59,7 +59,7 @@ For each linked submission, `Read` the student's `<name>.md` first (background +
 
 **a. Write the 沟通记录** → `01_Student/<name>/沟通记录/<name> 规划沟通 YYYY-MM-DD.md`
 - **Date = the CONVERSATION date, not the submission date.** Backfills: a `summary` like `26.3.5` = 2026-03-05 (古淑婷 uses `YY.M.D`); content that's forward-looking from an earlier month is a backfill — name the file by that date. 录音: use the filename timestamp date.
-- Treat it with the vault **meeting-minutes** structure (read its SKILL.md): 30-80 字摘要 → `### 模块` sections → `>` quote / `> [!Callout｜标题]` (two-line!) per section → final Action Items table. For 录音/STT also do 纠错 / 角色判断 (顾问老师/学生/家长, NOT `[Speaker N]`) / 议题重组. For a genuinely tiny note (1-2 points) a short but still-structured 纪要 is fine.
+- Treat it with the vault **meeting-minutes** structure (read its SKILL.md): 30-80 字摘要 → `### 模块` sections → `>` quote / `> [!Callout｜标题]` (two-line!) per section → final Action Items table. For 录音/STT also do 纠错 / 角色判断 (顾问老师/学生/家长, NOT `[Speaker N]`) / 议题重组 — **STT 必含专名错，按下方「STT 主动校正」节查我们自己的库还原，别照抄字面**. For a genuinely tiny note (1-2 points) a short but still-structured 纪要 is fine.
 - **§3.1 SCRUB** (see below) — this file may be forwarded to students/parents.
 
 **b. Update `<name>.md`** (the 档案, internal-view):
@@ -130,6 +130,18 @@ If TickTick has no match and content is unidentifiable → ask the user (per the
 ### Then: meeting-minutes + §3.1, keep `type='录音'`
 
 Run full meeting-minutes treatment inline. **Keep `type='录音'` in Supabase** (provenance: `type='录音' AND processed_path IS NOT NULL`). 录音 of parent/strategy meetings are the highest §3.1 risk — see below.
+
+---
+
+## STT 主动校正（录音 / 会议 必做，别照抄转写）
+
+录音 / 会议 content 是 STT 原始输出，**必含同音 / 谐音 / 英文字母音译 / 专名识别错误**。写进纪要前用领域知识 + **查我们自己的库**主动还原；校正不了的标 `【待确认：X？】`，别自信填一个错的。三类高频错：
+
+- **人名**（顾问 + 学生）→ 查 Supabase `advisors` / `students` 表核对：徐祖蕴→「组运」、陆梦婕→「陆梦洁」、李子萱↔「李梓萱」、陈梓媛（曾差点错）。
+- **缩写**（英文字母被读成中文）：G5→「黄金五」、TMUA→「天 / 天喵 / 天目 V」、UCAS→「优卡 / 尤卡」、KCL→「k」、LSE→「excel / sell」、IC / 帝国理工、John Locke→「绿花乐」、EPQ→「一 Q」、ESAT、AMC→「mc」。
+- **校名 / 专业** → 按该生**既往纪要 / 档案**（他聊过的校 / 专业 / 考试就是字典）+ 申请语境还原。
+
+依据 = 该生既往档案 + `advisors` / `students` / 合同 等我们的结构化数据。完整版见 vault `meeting-minutes` SKILL §2「识别与修正」。**将来若再走 subagent：prompt 里必须显式要求"先读该生档案 + 查 advisors/students 表再定专名"**，别让 subagent 凭音直写。
 
 ---
 
