@@ -34,6 +34,7 @@ import json
 import os
 import re
 import sys
+import time
 import zipfile
 import urllib.request
 import urllib.error
@@ -838,33 +839,54 @@ def supabase_upsert_contracts(env, contract_rows):
     # Batch in chunks of 500
     BATCH = 500
     total_ok = 0
+    failed_batches = []
+    n_batches = (len(contract_rows) + BATCH - 1) // BATCH
     for i in range(0, len(contract_rows), BATCH):
         chunk = contract_rows[i:i + BATCH]
+        bn = i // BATCH + 1
         body = json.dumps(chunk, ensure_ascii=False, default=str).encode('utf-8')
-        req = urllib.request.Request(
-            f'{url}/rest/v1/contracts',
-            data=body,
-            method='POST',
-            headers={
-                'apikey': key,
-                'Authorization': f'Bearer {key}',
-                'Content-Type': 'application/json',
-                'Prefer': 'resolution=merge-duplicates,return=minimal',
-            },
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                if resp.status in (200, 201, 204):
-                    total_ok += len(chunk)
-                    print(f'   ✓ pushed batch {i // BATCH + 1}: {len(chunk)} rows')
-                else:
-                    print(f'   ⚠ batch {i // BATCH + 1} status {resp.status}: {resp.read()[:200]}')
-        except urllib.error.HTTPError as e:
-            print(f'   ✗ batch {i // BATCH + 1} HTTP {e.code}: {e.read()[:300]}')
-            return total_ok
-        except Exception as e:
-            print(f'   ✗ batch {i // BATCH + 1} error: {e}')
-            return total_ok
+        # Retry each batch on transient network errors (e.g. a keep-alive drop —
+        # "Remote end closed connection without response"). Previously a single
+        # blip did `return total_ok`, aborting the loop and SILENTLY dropping
+        # every remaining batch (8500/10643 pushed, 2143 lost on 2026-06-17).
+        last_err = None
+        for attempt in range(1, 4):
+            req = urllib.request.Request(
+                f'{url}/rest/v1/contracts',
+                data=body,
+                method='POST',
+                headers={
+                    'apikey': key,
+                    'Authorization': f'Bearer {key}',
+                    'Content-Type': 'application/json',
+                    'Prefer': 'resolution=merge-duplicates,return=minimal',
+                },
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=60) as resp:
+                    if resp.status in (200, 201, 204):
+                        total_ok += len(chunk)
+                        print(f'   ✓ pushed batch {bn}/{n_batches}: {len(chunk)} rows')
+                    else:
+                        print(f'   ⚠ batch {bn} status {resp.status}: {resp.read()[:200]}')
+                        failed_batches.append(bn)
+                last_err = None
+                break
+            except urllib.error.HTTPError as e:
+                # 4xx/5xx with a body = usually a data problem; retry won't help.
+                last_err = f'HTTP {e.code}: {e.read()[:300]}'
+                break
+            except Exception as e:
+                last_err = str(e)
+                if attempt < 3:
+                    print(f'   … batch {bn} attempt {attempt} failed ({e}); retrying')
+                    time.sleep(2 * attempt)
+        if last_err is not None:
+            print(f'   ✗ batch {bn} failed after retries: {last_err}')
+            failed_batches.append(bn)
+    if failed_batches:
+        print(f'   ⚠ {len(failed_batches)} batch(es) FAILED {failed_batches} — '
+              f'{len(contract_rows) - total_ok} contracts NOT pushed. Re-run to retry.')
     return total_ok
 
 
