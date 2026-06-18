@@ -29,7 +29,10 @@ from openpyxl import load_workbook
 HERE = os.path.dirname(os.path.abspath(__file__))
 CANON = os.path.join(HERE, '..', 'src', 'data', 'universities', 'universities.json')
 VAULT = os.environ.get('OBSIDIAN_VAULT_ROOT', '/Users/shijie/Obsidian/规划看板')
-XLSX = os.environ.get('QS_XLSX', os.path.join(VAULT, '附件', '2026 QS World University Rankings 1.3 (For qs.com).xlsx'))
+XLSX = os.environ.get('QS_XLSX', os.path.join(VAULT, '附件', '2027 QS World University Rankings 1.1 (For qs.com).xlsx'))
+# Edition year baked into every touched row's `ranksYear` (drives the "QS{year}" UI label
+# on the schools map). Bump this together with XLSX each new QS release.
+YEAR = int(os.environ.get('QS_YEAR', '2027'))
 
 # QS "Country/Territory" string -> our 2-letter country code (covers every code in canonical)
 COUNTRY = {
@@ -45,17 +48,55 @@ COUNTRY = {
 }
 
 # Canonical name -> official QS spelling, for schools QS lists under a different name.
-# Verified against the official QS2026 export.
+# Verified against the official QS2027 export. QS rewrites display names year to year
+# (local-language spellings, merged institutions, added suffixes) — re-verify each edition.
+# The match is by norm(VALUE) == norm(QS Name), so the value must be the EXACT QS string
+# (diacritics included); norm() then collapses case/punctuation/parentheticals on both sides.
 ALIAS = {
-    'Virginia Tech': 'Virginia Polytechnic Institute (Virginia Tech)',
+    # SUNY / multi-campus US (stable across editions)
     'University of Minnesota, Twin Cities': 'University of Minnesota (System)',
     'Binghamton University, State University of New York': 'Binghamton University SUNY',
     'University at Buffalo, State University of New York': 'University at Buffalo SUNY',
-    'University of Tennessee, Knoxville': 'University of Tennessee',
     'College of William & Mary': 'William & Mary',
+    # US — QS2027 spellings
+    'Virginia Tech': 'Virginia Polytechnic Institute and State University',
+    'University of Illinois at Urbana-Champaign': 'University of Illinois Urbana-Champaign',
+    'University of North Carolina, Chapel Hill': 'University of North Carolina at Chapel Hill',
+    'Stony Brook University': 'Stony Brook University, State University of New York',
+    # UK
+    'University College London': 'UCL',
+    # Australia (QS2027: Adelaide merged → "Adelaide University"; long official names)
+    'University of Adelaide': 'Adelaide University',
+    'UNSW Sydney': 'The University of New South Wales (UNSW Sydney)',
+    'CQUniversity': 'Central Queensland University (CQUniversity Australia)',
+    'University of New England': 'University of New England Australia',
+    # Continental Europe — local-language / restructured names
+    'Universite de Montreal': 'Université de Montréal',
+    'EPFL': 'EPFL – École polytechnique fédérale de Lausanne',
+    'Ludwig Maximilian University of Munich': 'Ludwig-Maximilians-Universität München',
+    'Heidelberg University': 'Universität Heidelberg',
+    'Freie Universitat Berlin': 'Freie Universitaet Berlin',
+    'Karlsruhe Institute of Technology': 'KIT, Karlsruhe Institute of Technology',
+    'Humboldt University of Berlin': 'Humboldt-Universität zu Berlin',
+    'Technical University of Berlin': 'Technische Universität Berlin (TU Berlin)',
+    'Vienna University of Technology': 'Technische Universität Wien',
+    'University of Barcelona': 'Universitat de Barcelona',
+    'Universidad Complutense de Madrid': 'Complutense University of Madrid',
+    'Paris Sciences et Lettres University': 'Université PSL',
+    'Trinity College Dublin': 'Trinity College Dublin, The University of Dublin',
+    'Alma Mater Studiorum – University of Bologna': 'Alma Mater Studiorum - Università di Bologna',
+    # Asia — merged / rebranded institutions
+    'Tokyo Institute of Technology': 'Institute of Science Tokyo',  # merged 2024
+    'Osaka University': 'The University of Osaka',
+    'Korea Advanced Institute of Science and Technology': 'KAIST',
+    'Nanyang Technological University': 'Nanyang Technological University, Singapore (NTU Singapore)',
+    'National Tsing Hua University': 'National Tsing Hua University - NTHU',
 }
-# Confirmed NOT in QS2026 (US News schools QS does not rank) — left null intentionally:
-#   Texas Christian University, Pepperdine University, Villanova University, Gonzaga University
+# Confirmed NOT ranked in QS2027 — left at their last-known qsRank (ranksYear stays 2026):
+#   US News schools QS never ranks: Texas Christian, Pepperdine, Villanova, Gonzaga (qsRank null)
+# Removed from the canonical dataset entirely after QS2027 (no longer ranked standalone):
+#   King Fahd University of Petroleum & Minerals (SA) — dropped out of QS2027 (was 67)
+#   École Polytechnique (FR) — replaced by its parent "Institut Polytechnique de Paris" (#43)
 
 
 def norm(s):
@@ -77,7 +118,9 @@ def lowbound(raw):
 
 def build_lookup():
     wb = load_workbook(XLSX, read_only=True, data_only=True)
-    ws = wb['QS']
+    # Sheet name drifts between editions (QS2026 = 'QS', QS2027 = 'Sheet1'); the column
+    # layout is stable (data from row 4: rank=col1, name=col3, country=col4).
+    ws = wb['QS'] if 'QS' in wb.sheetnames else wb[wb.sheetnames[0]]
     lookup = {}
     dups = []
     for r in ws.iter_rows(min_row=4, values_only=True):
@@ -111,6 +154,8 @@ def main():
         if new is None:
             unmatched.append((u['country'], u['name']))
             continue
+        # Matched in this edition → stamp the edition year (even if the rank is unchanged).
+        if apply: u['ranksYear'] = YEAR
         old = u.get('qsRank')
         if old in (None, ''):
             filled.append((u['country'], u['nameCn'], u['name'], new))

@@ -4,7 +4,8 @@
 // Everything downstream (schools map, budget calculator, vault rankings export)
 // reads from here, so a rank change in one place propagates everywhere.
 //
-// Seeded once by scripts/build-universities.mjs (merge of budget-data + vault QS2026).
+// Seeded once by scripts/build-universities.mjs (merge of budget-data + vault QS).
+// QS numbers are refreshed each edition by scripts/ingest-qs-ranks.py (currently QS2027).
 
 import data from './universities.json';
 import type { University, RankTier } from './types';
