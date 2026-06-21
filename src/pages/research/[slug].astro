@@ -14,6 +14,9 @@ const [post, allSlugs] = await Promise.all([
   getPostBySlug(slug!),
   getAllPostSlugs(),
 ]);
+// Missing slug → redirect to listing (consistent with projects/[slug] + dialogues/[slug];
+// was a soft-404 that rendered an error block with a 200 status — bad for SEO/crawlers).
+if (!post) return Astro.redirect('/research');
 // Find this post's chronological index to match the list page illustration
 const postIndex = allSlugs.indexOf(slug!);
 const illustrationIndex = postIndex >= 0 ? postIndex : 0;
