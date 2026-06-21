@@ -11,10 +11,16 @@ const BUCKET = 'submissions';
 // Mirror the <select> options in submit.astro. '录音' is intentionally excluded
 // (handled separately below — uploads disabled).
 const ALLOWED_TYPES = new Set(['沟通记录', '重要comment', '状态更新', '会议', '其他']);
+// Attachment allowlist — reject HTML/SVG/JS/etc. that could carry active content,
+// plus a hard size cap.
+const ALLOWED_EXTS = new Set(['pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'heic', 'txt', 'md']);
+const MAX_ATTACH_BYTES = 25 * 1024 * 1024; // 25 MB
 
 async function uploadFile(file: File, subdir: string): Promise<string | null> {
   if (!file || file.size === 0) return null;
+  if (file.size > MAX_ATTACH_BYTES) throw new Error('附件过大（上限 25MB）');
   const ext = file.name.split('.').pop()?.toLowerCase() || 'bin';
+  if (!ALLOWED_EXTS.has(ext)) throw new Error(`不支持的附件类型: .${ext}`);
   const key = `${subdir}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
 
   const { error } = await supabase.storage
@@ -50,7 +56,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const studentIdRaw = fd.get('student_id')?.toString().trim() ?? '';
     const studentNameRaw = fd.get('student_name_raw')?.toString().trim() || null;
     const type = fd.get('type')?.toString().trim();
-    const submittedBy = fd.get('submitted_by')?.toString().trim() || null;
+    // Attribution comes from the authenticated viewer, not a spoofable form field —
+    // otherwise anyone could post 沟通记录 under another advisor's name (wrong 日报 routing).
+    const submittedBy = viewer.name;
     const summary = fd.get('summary')?.toString().trim() || null;
     const content = fd.get('content')?.toString().trim() || null;
 

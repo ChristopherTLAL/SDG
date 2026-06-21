@@ -78,7 +78,8 @@ const allStudentsTagged: (StudentRow & { daysSince: number | null; tier: RadarTi
     return { ...s, daysSince: ds, tier: tierFor(ds, s.stage) };
   });
 
-const inactiveCount = allStudentsTagged.filter(s => isInactive(s.stage)).length;
+// VIP-shielded: the 已结案 badge must not count VIP students for viewers who can't see them.
+const inactiveCount = filterVIP(allStudentsTagged.filter(s => isInactive(s.stage)), viewer).length;
 
 // Stage filter (closed / refunded / completed)
 let students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));

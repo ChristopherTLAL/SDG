@@ -7,5 +7,6 @@ export const client = createClient({
   apiVersion: '2024-10-01', // 固定一个日期字符串
   useCdn: false, // `false` if you want to ensure fresh data
   token: process.env.SANITY_API_TOKEN,
+  perspective: 'published', // never serve draft docs to the public site (token can read drafts otherwise)
   stega: { enabled: false },
 });
