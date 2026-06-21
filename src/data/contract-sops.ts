@@ -1197,14 +1197,14 @@ export const SOPS: ContractSOP[] = [
   // 后续做 "产品 donut" 时直接读 vault YAML 合同 list 项，不依赖 SOP groupName。
   // 当某个 add-on 需要专门 deliverable 流程时，再在这里加对应 SOP（matchPatterns 用清理后的合同名）。
 
-  // ── 私单（公司外部合同，不在 ERP 财务表中） ──
+  // ── VIP（公司外部合同，不在 ERP 财务表中；旧称「私单」） ──
   {
     id: 'sidan',
-    displayName: '私单',
-    groupName: '私单',
-    matchPatterns: ['私单'],
+    displayName: 'VIP',
+    groupName: 'VIP',
+    matchPatterns: ['VIP', '私单'],  // match both the new label and legacy data
     deliverables: [],
-    description: '私单（非公司合同）— 王世杰个人接触的体系外服务。具体 variant 待王世杰另行设计。',
+    description: 'VIP（非公司合同）— 王世杰个人接触的体系外服务。具体 variant 待王世杰另行设计。',
     pricing: 'TBD',
     targetAudience: '非公司合同体系学生',
   },

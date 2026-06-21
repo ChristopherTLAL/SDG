@@ -16,6 +16,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
+import { isVIP } from '../../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer?.isAdmin) return Astro.redirect('/internal');
@@ -30,7 +31,6 @@ function mondayOfThisWeek(d = new Date()): string {
 const weekStart = mondayOfThisWeek();
 // '待对接' is the kickoff bucket — was missing from the old filter, so kickoff was always empty.
 const ACTIVE_STAGES = ['中期在途', '后期在途', '需对接', '待对接'];
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
 
 // 1) Active 中期 advisors
 const { data: advisorRows } = await supabase
@@ -89,7 +89,6 @@ function deriveBucket(stage: string | null, days: number | null): BKey {
 }
 const LABEL: Record<BKey, string> = { urgent: '🔴 紧急', normal: '🟠 常规', kickoff: '🆕 待对接', ok: '✅ 正常' };
 const RANK: Record<BKey, number> = { urgent: 0, normal: 1, kickoff: 2, ok: 3 };
-const isPrivate = (c: string[] | null) => Array.isArray(c) && c.some((x) => PRIVATE_CONTRACTS.includes(x));
 function sumAmount(details: ContractDetail[] | null): number {
   if (!Array.isArray(details)) return 0;
   let total = 0;
@@ -125,7 +124,7 @@ const overview: Array<Record<string, string | number>> = [];
 for (const adv of advisors) {
   const name = adv.name;
   let mine = allStudents.filter((s) => s.mid_advisors?.includes(name));
-  if (name !== '王世杰') mine = mine.filter((s) => !isPrivate(s.contracts));
+  if (name !== '王世杰') mine = mine.filter((s) => !isVIP(s.contracts));
 
   // Compose per-student metadata
   const meta = mine.map((s) => {

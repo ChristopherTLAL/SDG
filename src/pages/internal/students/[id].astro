@@ -4,6 +4,7 @@
 // attachments list. Wikilinks `[[xxx]]` are resolved against the student-scope index.
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
+import { isVIP, canSeeVIP } from '../../../utils/vip';
 import { resolveWikilinks, noteAnchor } from '../../../utils/wikilinks';
 import { getWikilinkIndex } from '../../../lib/wikilink-index';
 import { daysSinceToday, tierFor, tierStyle } from '../../../utils/contact-radar';
@@ -17,9 +18,6 @@ import { marked } from 'marked';
 const { id } = Astro.params;
 const studentId = Number(id);
 const viewer = Astro.locals?.viewer ?? null;
-
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 if (!Number.isFinite(studentId)) {
   return Astro.redirect('/internal/students');
@@ -35,11 +33,9 @@ if (studentErr || !student) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
-// 私单 students are visible only to admin / 王世杰. Return 404 (not 403) so a
+// VIP students are visible only to admin / 王世杰. Return 404 (not 403) so a
 // non-privileged viewer can't use the response to confirm the student exists.
-const studentIsPrivate = Array.isArray(student.contracts)
-  && student.contracts.some((c: string) => PRIVATE_CONTRACTS.includes(c));
-if (studentIsPrivate && !canSeePrivate) {
+if (isVIP(student.contracts) && !canSeeVIP(viewer)) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
@@ -57,7 +53,7 @@ marked.setOptions({ gfm: true, breaks: true });
 
 function renderMarkdown(md: string | null | undefined): string {
   if (!md || !md.trim()) return '';
-  const withWikilinks = resolveWikilinks(md, wikiIndex, canSeePrivate);
+  const withWikilinks = resolveWikilinks(md, wikiIndex, canSeeVIP(viewer));
   const withCallouts = preprocessCallouts(withWikilinks);
   return sanitizeHtml(marked.parse(withCallouts) as string);
 }

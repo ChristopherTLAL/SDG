@@ -2,6 +2,7 @@
 // src/pages/internal/submit.astro — employee submission form
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
+import { filterVIP } from '../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 
@@ -15,11 +16,12 @@ if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
 // the students you've touched recently float to the top.
 const { data: studentsRaw, error } = await supabase
   .from('students')
-  .select('id, name, stage, mid_advisor, last_contact_at')
+  .select('id, name, stage, mid_advisor, last_contact_at, contracts')
   .order('last_contact_at', { ascending: false, nullsFirst: false })
   .limit(500);
 
-const students = studentsRaw ?? [];
+// VIP students never appear in the picker unless the viewer may see them.
+const students = filterVIP(studentsRaw ?? [], viewer);
 const dbError = error?.message ?? null;
 ---
 

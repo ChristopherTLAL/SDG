@@ -8,6 +8,7 @@ import {
   tierFor, tierStyle, daysSinceToday, INACTIVE_STAGES, type RadarTier,
 } from '../../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
+import { filterVIP } from '../../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 const canClickAny = !!viewer && (viewer.isAdmin || viewer.isAdvisor);
@@ -27,15 +28,20 @@ const advisorNames = advisors.map((a: any) => a.name as string);
 // 所有 in-scope 学生（含已结案，用于"已结案 / 退费"列；inactive 之外的入 active 集合）
 const { data: rawStudents } = await supabase
   .from('students')
-  .select('id, stage, last_contact_at, mid_advisors, enroll_years');
+  .select('id, stage, last_contact_at, mid_advisors, enroll_years, contracts');
 type Stu = {
   id: number;
   stage: string | null;
   last_contact_at: string | null;
   mid_advisors: string[] | null;
   enroll_years: string[] | null;
+  contracts: string[] | null;
 };
-const students = ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years));
+// VIP students must not inflate any advisor's counts/tier strip for viewers who can't see them.
+const students = filterVIP(
+  ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years)),
+  viewer,
+);
 
 // 每位顾问的统计：active count + tier 分布
 type AdvisorStat = {
