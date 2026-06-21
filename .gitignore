@@ -46,3 +46,6 @@ __pycache__/
 
 # Generated English-book narration (local cache; hosted on Supabase Storage)
 public/audio/
+
+# Overnight book-goal runtime markers + log (scripts/overnight/ harness IS tracked)
+.overnight/

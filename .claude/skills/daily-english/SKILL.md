@@ -9,6 +9,24 @@ A skill that takes a curated news topic and produces a fully-built English-learn
 
 The skill is built for **batch production**. The end goal is hundreds of articles. Per invocation it can do one article or a batch of 10+. Each article goes through a 7-step pipeline; quality safeguards (no em-dashes, schema validity, vocab regex matches) are enforced by an automated validator before the file is written.
 
+## Two execution engines
+
+There are two ways to drive the pipeline. Pick by the kind of work:
+
+- **Book chapters → dynamic Workflow (preferred).** When producing chapters of a
+  themed book under `src/data/english/books/<id>/`, use the Workflow engine in
+  [references/workflow-mode.md](references/workflow-mode.md) +
+  [workflows/book-pipeline.mjs](workflows/book-pipeline.mjs). It is **resumable**:
+  a network drop (the recurring VPN problem on this machine) only costs the one
+  in-flight chapter, which re-runs on resume while finished chapters return from
+  cache. This is the engine to reach for now.
+- **Flat daily-article backfill → Agent-tool fan-out (legacy).** The
+  `data/english-topics.json` queue still uses the parallel-subagent orchestration
+  described under "Architecture" and "Orchestration loop" below. Same `Article`
+  schema; just a different driver.
+
+Both engines share every `references/*` contract (schema, style-guide, vocab/grammar/pattern design) and `scripts/validate.py`. Only the orchestration differs.
+
 ## When the user invokes you
 
 The user typically calls this skill in one of three ways:
@@ -142,6 +160,9 @@ Don't auto-commit or auto-deploy. The user runs `/deploy` separately when they'r
 | [references/vocab-tagging.md](references/vocab-tagging.md) | When tagging vocabulary |
 | [references/grammar-design.md](references/grammar-design.md) | When designing grammar entries |
 | [references/pattern-design.md](references/pattern-design.md) | When designing pattern entries |
+| [references/workflow-mode.md](references/workflow-mode.md) | **Producing book chapters** — the resumable Workflow engine (preferred) |
+| [references/book-mode.md](references/book-mode.md) | Book-chapter deltas (import path, meta.date, listening) |
+| [references/c-level-writing.md](references/c-level-writing.md) | C1/C2 books — overrides the B-level calibration |
 | [references/topics-db.md](references/topics-db.md) | When reading or updating `data/english-topics.json` |
 
 The pipeline subagent reads these as it goes — they are the substantive instructions per step. SKILL.md (this file) is just the orchestration shell.
