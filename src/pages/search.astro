@@ -65,6 +65,12 @@ const lang = 'en';
 
   function getSnippet(text: any, query: string) {
     if (!text) return '';
+    // unwrap a localized {en, zh} Sanity field (plain string OR block-content array)
+    // so it never stringifies to "[object Object]"
+    if (!Array.isArray(text) && typeof text === 'object') {
+      text = text.en ?? text.zh ?? '';
+      if (!text) return '';
+    }
     const textAsString = Array.isArray(text)
       ? text.map((block: any) => block.children?.map((child: any) => child.text).join('')).join('\n')
       : String(text);
