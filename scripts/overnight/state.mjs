@@ -1,73 +1,73 @@
 #!/usr/bin/env node
-// Overnight book-goal state: pure local facts (disk + git + clock). NO network,
-// so it is reliable even while the VPN is down. Prints one JSON object.
+// Overnight book-goal state (MULTI-BOOK): pure local facts (disk + git + clock).
+// NO network beyond a quiet git fetch, so it is reliable even while the VPN flaps.
+// Source of truth is the filesystem + git, never conversation memory: a drop or
+// restart anywhere is safe because the next tick recomputes ground truth.
 //
-// Every overnight tick runs this FIRST to decide what to do. Source of truth is
-// the filesystem + git, never conversation memory, so a drop/restart anywhere is
-// safe: the next tick recomputes ground truth and continues.
+// Walks scripts/overnight/queue.json in order. A book's TARGET chapters come from
+// its workflow script scripts/overnight/wf/<id>.mjs; a chapter is DONE when its
+// .ts is committed in git. The CURRENT book is the first incomplete one.
 
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 
 const ROOT = '/Users/shijie/Code/sdg-html';
-const BOOK_ID = 'jay-chou';
-const BOOK_DIR = `src/data/english/books/${BOOK_ID}`;
-const PIPELINE = '.claude/skills/daily-english/workflows/book-pipeline.mjs';
-
-// Hard deadlines (epoch seconds, local CST). 06:20 = absolute hard stop.
-const HARD_STOP = 1782080400; // 2026-06-22 06:20:00 CST
+const HARD_STOP = 1782080400; // 2026-06-22 06:20:00 CST — absolute hard stop
 const GOAL = 1782079200;      // 2026-06-22 06:00:00 CST
-
 const now = Math.floor(Date.now() / 1000);
 
-function sh(cmd) {
-  try { return execSync(cmd, { cwd: ROOT, encoding: 'utf8' }).trim(); }
-  catch { return ''; }
-}
+const sh = (c) => { try { return execSync(c, { cwd: ROOT, encoding: 'utf8' }).trim(); } catch { return ''; } };
 
-// Chapters the workflow targets this run (parsed from the pipeline DATA block).
-const pipelineSrc = readFileSync(`${ROOT}/${PIPELINE}`, 'utf8');
-const targetSlugs = [...pipelineSrc.matchAll(/slug: '([0-9]{2}-[a-z-]+)'/g)].map((m) => m[1]);
+let queue = [];
+try { queue = JSON.parse(readFileSync(`${ROOT}/scripts/overnight/queue.json`, 'utf8')); } catch { queue = ['jay-chou']; }
 
-// All chapter files currently on disk (exclude book.ts).
-const onDisk = existsSync(`${ROOT}/${BOOK_DIR}`)
-  ? readdirSync(`${ROOT}/${BOOK_DIR}`).filter((f) => /^[0-9]{2}-.*\.ts$/.test(f)).map((f) => f.replace(/\.ts$/, ''))
-  : [];
-
-// Which chapter files are committed (git-tracked) = fully done + shipped.
-const trackedRaw = sh(`git ls-files ${BOOK_DIR}/*.ts`);
-const tracked = trackedRaw ? trackedRaw.split('\n').map((p) => p.split('/').pop().replace(/\.ts$/, '')) : [];
-
-const missing = targetSlugs.filter((s) => !onDisk.includes(s));          // not generated yet
-const untracked = onDisk.filter((s) => !tracked.includes(s));            // generated but not committed/pushed
-const allChaptersTracked = onDisk.length >= 18 && untracked.length === 0 && missing.length === 0;
-
-// Are we behind origin (committed locally but not pushed)?
 sh('git fetch origin main --quiet');
 const aheadOfOrigin = parseInt(sh('git rev-list --count origin/main..HEAD') || '0', 10);
 
+function bookState(id) {
+  const dir = `src/data/english/books/${id}`;
+  const wf = `${ROOT}/scripts/overnight/wf/${id}.mjs`;
+  const ready = existsSync(wf);
+  const targets = ready
+    ? [...readFileSync(wf, 'utf8').matchAll(/slug:\s*['"]([0-9]{2}-[a-z0-9-]+)['"]/g)].map((m) => m[1])
+    : [];
+  const onDisk = existsSync(`${ROOT}/${dir}`)
+    ? readdirSync(`${ROOT}/${dir}`).filter((f) => /^[0-9]{2}-.*\.ts$/.test(f)).map((f) => f.replace(/\.ts$/, ''))
+    : [];
+  const trackedRaw = sh(`git ls-files ${dir}/*.ts`);
+  const tracked = trackedRaw ? trackedRaw.split('\n').map((p) => p.split('/').pop().replace(/\.ts$/, '')) : [];
+  const missing = targets.filter((s) => !onDisk.includes(s));
+  const untracked = onDisk.filter((s) => !tracked.includes(s));
+  const complete = ready && missing.length === 0 && untracked.length === 0;
+  return { id, ready, targets: targets.length, onDisk: onDisk.length, tracked: tracked.length, missing, untracked, complete };
+}
+
+const books = queue.map(bookState);
+const anyUntracked = books.some((b) => b.untracked.length > 0);
+const current = books.find((b) => !b.complete) || null;
+
 let nextAction;
 if (now >= HARD_STOP) nextAction = 'STOP_HARD_DEADLINE';
-else if (allChaptersTracked && aheadOfOrigin === 0) nextAction = 'BOOK_COMPLETE_IDLE';
-else if (untracked.length > 0 || aheadOfOrigin > 0) nextAction = 'PUSH_THEN_MAYBE_LAUNCH';
-else if (missing.length > 0) nextAction = 'LAUNCH_WORKFLOW';
-else nextAction = 'BOOK_COMPLETE_IDLE';
+else if (anyUntracked || aheadOfOrigin > 0) nextAction = 'PUSH';
+else if (!current) nextAction = 'ALL_COMPLETE_IDLE';
+else if (!current.ready) nextAction = 'BOOK_NOT_READY';
+else if (current.missing.length > 0) nextAction = 'LAUNCH';
+else nextAction = 'ALL_COMPLETE_IDLE';
 
 console.log(JSON.stringify({
   now,
   nowHuman: new Date(now * 1000).toLocaleString('en-CA', { timeZone: 'Asia/Shanghai', hour12: false }),
   HARD_STOP,
-  GOAL,
   deadlinePassed: now >= HARD_STOP,
   goalTimePassed: now >= GOAL,
   minutesToHardStop: Math.round((HARD_STOP - now) / 60),
-  book: BOOK_ID,
-  targetSlugs,
-  onDisk: onDisk.sort(),
-  tracked: tracked.sort(),
-  missing,
-  untracked,
   aheadOfOrigin,
-  allChaptersTracked,
+  queue,
+  currentBook: current ? current.id : null,
+  currentScript: current ? `scripts/overnight/wf/${current.id}.mjs` : null,
+  currentReady: current ? current.ready : null,
+  currentMissing: current ? current.missing : [],
+  untrackedByBook: books.filter((b) => b.untracked.length).map((b) => ({ id: b.id, untracked: b.untracked })),
+  books: books.map((b) => ({ id: b.id, ready: b.ready, targets: b.targets, tracked: b.tracked, missing: b.missing.length, untracked: b.untracked.length, complete: b.complete })),
   nextAction,
 }, null, 2));

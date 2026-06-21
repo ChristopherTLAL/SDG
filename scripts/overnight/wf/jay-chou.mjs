@@ -31,7 +31,6 @@ export const meta = {
 // DATA BLOCK -- REPLACE PER RUN. Inline everything; do NOT use `args`.
 // (Currently: Jay Chou ch.5-18, the full remaining batch on Sonnet + fact-check.)
 // ===========================================================================
-// >>>OVERNIGHT-DATA-START
 const BOOK = {
   id: 'jay-chou',
   cefr: 'B2',
@@ -174,7 +173,6 @@ const CHAPTERS = [
     avoidConstructions: AV('a modal perfect of speculation ("might have ...", "would never have ...")', 'a "what X understood, and others did not, was Y" reveal'),
   },
 ];
-// >>>OVERNIGHT-DATA-END
 // ===========================================================================
 
 // Light, flat report schema (scalars + one string array). Deliberately NOT the
