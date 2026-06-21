@@ -77,7 +77,7 @@ def read_vault():
                 mid = v.strip('"').strip("'")
         # 私单?
         cm2 = re.search(r'^合同:[ \t]*(.*?)$', yaml, re.MULTILINE)
-        is_priv = bool(cm2 and '私单' in cm2.group(1))
+        is_priv = bool(cm2 and ('VIP' in cm2.group(1) or '私单' in cm2.group(1)))
         # intake
         intm = re.search(r'^入学年份:[ \t]*(.*?)$', yaml, re.MULTILINE)
         intake = intm.group(1).strip() if intm else ''

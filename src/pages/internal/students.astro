@@ -4,6 +4,7 @@
 import InternalLayout from '../../layouts/InternalLayout.astro';
 import { supabase } from '../../lib/supabase/client';
 import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES } from '../../utils/contact-radar';
+import { canSeeVIP, VIP_CONTRACTS } from '../../utils/vip';
 
 const url = new URL(Astro.request.url);
 // Multi-select filters — values are comma-separated in the URL (?stage=已结案,中期在途).
@@ -17,8 +18,7 @@ const cohortFilter  = parseMulti(url.searchParams.get('cohort'));
 const includeInactive = url.searchParams.get('include_inactive') === '1';
 const viewer = Astro.locals?.viewer ?? null;
 
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+const vipArrayLiteral = `{${VIP_CONTRACTS.join(',')}}`;
 
 let q = supabase
   .from('students')
@@ -44,26 +44,29 @@ if (!includeInactive && !stageHasInactive) {
   q = q.not('stage', 'in', `(${Array.from(INACTIVE_STAGES).join(',')})`);
 }
 
-// Hide private-contract students from anyone who shouldn't see them. Silent — no UI mention.
-if (!canSeePrivate) {
-  q = q.not('contracts', 'ov', `{${PRIVATE_CONTRACTS.join(',')}}`);
+// Hide VIP students from anyone who shouldn't see them. Silent — no UI mention.
+if (!canSeeVIP(viewer)) {
+  q = q.not('contracts', 'ov', vipArrayLiteral);
 }
 
 const { data: studentsRaw, error } = await q.order('last_contact_at', { ascending: false, nullsFirst: false }).limit(500);
 const students = studentsRaw ?? [];
 
-// Counts for header badges
-const { count: inactiveCount } = await supabase
+// Counts for header badges — same VIP gate as the main query so the inactive
+// badge doesn't silently count VIP students for viewers who can't see them.
+let inactiveQ = supabase
   .from('students')
   .select('id', { count: 'exact', head: true })
   .in('stage', Array.from(INACTIVE_STAGES));
+if (!canSeeVIP(viewer)) inactiveQ = inactiveQ.not('contracts', 'ov', vipArrayLiteral);
+const { count: inactiveCount } = await inactiveQ;
 
 // ── Chip option lists ──
 // Compute from the FULL student set (no filters applied) so chips don't
 // shrink as you select. Same private-contract gate as the main query.
 let chipQ = supabase.from('students').select('stage, mid_advisors, enroll_years');
-if (!canSeePrivate) {
-  chipQ = chipQ.not('contracts', 'ov', `{${PRIVATE_CONTRACTS.join(',')}}`);
+if (!canSeeVIP(viewer)) {
+  chipQ = chipQ.not('contracts', 'ov', vipArrayLiteral);
 }
 const { data: chipRows } = await chipQ.limit(2000);
 const chipPool = chipRows ?? [];

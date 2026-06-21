@@ -5,6 +5,7 @@
 import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { resolveWikilinks } from '../../../utils/wikilinks';
+import { canSeeVIP } from '../../../utils/vip';
 import { getWikilinkIndex } from '../../../lib/wikilink-index';
 import { preprocessCallouts } from '../../../utils/callouts';
 import { sanitizeHtml } from '../../../lib/sanitize';
@@ -43,14 +44,12 @@ if (error || !report) {
 
 // Wikilink resolver (scope: students + their notes — same as detail page); cached.
 const wikiIndex = await getWikilinkIndex();
-// 私单 wikilinks resolve only for admin / 王世杰; others see them as unresolved.
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
-
+// VIP wikilinks resolve only for admin / 王世杰; others see them as unresolved.
 marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const body = report.body_md ?? '';
   if (!body.trim()) return '';
-  const withWikilinks = resolveWikilinks(body, wikiIndex, canSeePrivate);
+  const withWikilinks = resolveWikilinks(body, wikiIndex, canSeeVIP(viewer));
   const withCallouts = preprocessCallouts(withWikilinks);
   return sanitizeHtml(marked.parse(withCallouts) as string);
 })();

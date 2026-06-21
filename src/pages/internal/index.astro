@@ -13,21 +13,12 @@ import {
   inTriage, tierRank, isInactive, type RadarTier,
 } from '../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../utils/cohort-filter';
+import { filterVIP } from '../../utils/vip';
 
 const url = new URL(Astro.request.url);
 const includeInactive = url.searchParams.get('include_inactive') === '1';
 const advisorFilter = url.searchParams.get('advisor') || '';
 const viewer = Astro.locals?.viewer ?? null;
-
-const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
-function isPrivate(contracts: string[] | null | undefined): boolean {
-  if (!contracts) return false;
-  return contracts.some(c => PRIVATE_CONTRACTS.has(c));
-}
-
-// Only 王世杰 (admin / explicit name match) sees private-contract students,
-// and only when they overlap his caseload.
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
 
 // Parallel fetches
 const [
@@ -92,11 +83,8 @@ const inactiveCount = allStudentsTagged.filter(s => isInactive(s.stage)).length;
 // Stage filter (closed / refunded / completed)
 let students = includeInactive ? allStudentsTagged : allStudentsTagged.filter(s => !isInactive(s.stage));
 
-// Private-contract students: only visible to authenticated viewers who can see them
-// (王世杰 / admin). Everyone else has them filtered out — silently, no UI mention.
-if (!canSeePrivate) {
-  students = students.filter(s => !isPrivate(s.contracts));
-}
+// VIP students: only visible to viewers who may see them (王世杰 / admin).
+students = filterVIP(students, viewer);
 
 // 全局入学届地板 — 早于 EARLIEST_TRACKED_COHORT 的学生不算（同 kanban / 周报）。
 // 单一来源在 src/utils/cohort-filter.ts，每年王世杰说升地板时改那一处。

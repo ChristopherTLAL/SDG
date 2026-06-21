@@ -10,16 +10,12 @@ import InternalLayout from '../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../lib/supabase/client';
 import { tierFor, tierStyle, tierLabel, daysSinceToday, INACTIVE_STAGES, type RadarTier } from '../../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
+import { filterVIP } from '../../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
   return Astro.redirect('/internal');
 }
-
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
-const isPrivate = (contracts: string[] | null | undefined) =>
-  Array.isArray(contracts) && contracts.some(c => PRIVATE_CONTRACTS.includes(c));
 
 const { name } = Astro.params;
 const advisorName = decodeURIComponent(name ?? '');
@@ -54,10 +50,11 @@ type Stu = {
   contracts: string[] | null;
 };
 // 全局入学届地板 — 早于 EARLIEST_TRACKED_COHORT 的学生不算（同 kanban / overview）
-// 私单 students are hidden from advisors who aren't admin / 王世杰.
-const allStudents = ((rawStudents ?? []) as Stu[])
-  .filter(s => studentHasInScopeCohort(s.enroll_years))
-  .filter(s => canSeePrivate || !isPrivate(s.contracts));
+// VIP students are hidden from advisors who aren't admin / 王世杰.
+const allStudents = filterVIP(
+  ((rawStudents ?? []) as Stu[]).filter(s => studentHasInScopeCohort(s.enroll_years)),
+  viewer,
+);
 
 const active = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));

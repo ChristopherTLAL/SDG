@@ -1,9 +1,8 @@
 import { supabase } from './supabase/client';
 import { buildWikilinkIndex } from '../utils/wikilinks';
+import { isVIP } from '../utils/vip';
 
 type WikilinkIndex = ReturnType<typeof buildWikilinkIndex>;
-
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
 
 // The wikilink index (every student + every note, for resolving [[links]]) is the
 // same for all viewers and rarely changes, but the three pages that render student
@@ -29,7 +28,7 @@ export async function getWikilinkIndex(): Promise<WikilinkIndex> {
       id: s.id,
       name: s.name,
       attachments: s.attachments,
-      isPrivate: Array.isArray(s.contracts) && s.contracts.some((c: string) => PRIVATE_CONTRACTS.includes(c)),
+      isPrivate: isVIP(s.contracts),
     })),
     notes: notes.data ?? [],
   });

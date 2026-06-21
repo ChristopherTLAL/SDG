@@ -9,20 +9,18 @@ import InternalLayout from '../../../../layouts/InternalLayout.astro';
 import { supabase } from '../../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../../utils/contact-radar';
 import { findSOPByContract, substitute, variantsForGroup, type ContractSOP } from '../../../../data/contract-sops';
+import { canSeeVIP, isVIP, VIP_CONTRACTS } from '../../../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
   return Astro.redirect('/internal');
 }
 
-const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
-
 const { name } = Astro.params;
 const contractName = decodeURIComponent(name ?? '');
 if (!contractName) return Astro.redirect('/internal/kanban');
 
-if (!canSeePrivate && PRIVATE_CONTRACTS.has(contractName)) {
+if (!canSeeVIP(viewer) && (VIP_CONTRACTS as readonly string[]).includes(contractName)) {
   return Astro.redirect('/internal/kanban');
 }
 
@@ -66,6 +64,10 @@ if (isGroupView) {
     .order('last_contact_at', { ascending: false, nullsFirst: false });
   allStudents = (rawStudents ?? []) as Stu[];
 }
+
+// A non-VIP contract page must not leak the names of students who ALSO hold a
+// VIP contract. Drop them unless the viewer may see VIP.
+if (!canSeeVIP(viewer)) allStudents = allStudents.filter(s => !isVIP(s.contracts));
 
 const active   = allStudents.filter(s => !(s.stage && INACTIVE_STAGES.has(s.stage)));
 const inactive = allStudents.filter(s => s.stage && INACTIVE_STAGES.has(s.stage));

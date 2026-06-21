@@ -13,6 +13,7 @@ import { supabase } from '../../../lib/supabase/client';
 import { INACTIVE_STAGES } from '../../../utils/contact-radar';
 import { studentHasInScopeCohort } from '../../../utils/cohort-filter';
 import { findSOPByContract } from '../../../data/contract-sops';
+import { isVIP, VIP_CONTRACTS } from '../../../utils/vip';
 
 const viewer = Astro.locals?.viewer ?? null;
 if (!viewer || (!viewer.isAdvisor && !viewer.isAdmin)) {
@@ -24,13 +25,8 @@ const url = new URL(Astro.request.url);
 // /internal/advisors/[name]. URL param `?advisor=` is now ignored.
 const _ignored = url.searchParams.get('advisor');
 
-// 私单 是王世杰的个人 tag，不属于任何看板聚合 — 任何 viewer 在 kanban 都看不到。
-// 学生详情页 / roster 不受此影响（管理员仍然可访问）。
-const PRIVATE_CONTRACTS = new Set(['私单', '私单（非公司合同）']);
-function isPrivate(contracts: string[] | null | undefined): boolean {
-  if (!contracts) return false;
-  return contracts.some(c => PRIVATE_CONTRACTS.has(c));
-}
+// VIP (私单) is 王世杰's personal tag — never part of any kanban aggregate, hidden
+// from every viewer here. Student detail / roster are unaffected (admin still sees).
 
 // Load every active student. Inactive (已结案/退费/已完成) excluded by default —
 // these are historical and would skew the live business picture.
@@ -143,7 +139,7 @@ const activeContracts = allContracts.filter(c =>
 // 每年王世杰说升地板就改 utils/cohort-filter.ts 那一处。
 const students = allStudents.filter(s => {
   if (s.stage && INACTIVE_STAGES.has(s.stage)) return false;
-  if (isPrivate(s.contracts)) return false;
+  if (isVIP(s.contracts)) return false;
   if (!studentHasInScopeCohort(s.enroll_years)) return false;
   return true;
 });
@@ -917,7 +913,7 @@ for (const s of students) {
   for (const c of s.contracts ?? []) {
     const v = c.trim();
     if (!v) continue;
-    if (PRIVATE_CONTRACTS.has(v)) continue;  // 私单 不进 donut（虽然学生层级已经过滤了）
+    if ((VIP_CONTRACTS as readonly string[]).includes(v)) continue;  // VIP 不进 donut（学生层级已过滤）
     const sop = findSOPByContract(v);
     if (sop && sop.groupName) {
       liuxueCounts.set(sop.groupName, (liuxueCounts.get(sop.groupName) ?? 0) + 1);

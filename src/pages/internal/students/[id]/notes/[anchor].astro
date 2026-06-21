@@ -3,6 +3,7 @@
 // 左侧 panel 调参，中间 A4 预览，「导出 PDF」按 当前参数 走 window.print()
 // 多页自动 flow（@page 控制每页 margin，内容超过单页自动断页）
 import { supabase } from '../../../../../lib/supabase/client';
+import { isVIP, canSeeVIP } from '../../../../../utils/vip';
 import { resolveWikilinks, noteAnchor } from '../../../../../utils/wikilinks';
 import { getWikilinkIndex } from '../../../../../lib/wikilink-index';
 import { preprocessCallouts } from '../../../../../utils/callouts';
@@ -16,8 +17,8 @@ if (!Number.isFinite(studentId) || !anchor) {
 }
 
 const viewer = Astro.locals?.viewer ?? null;
-const PRIVATE_CONTRACTS = ['私单', '私单（非公司合同）'];
-const canSeePrivate = !!viewer && (viewer.isAdmin || viewer.name === '王世杰');
+// Block anonymous requests (no CF header — only reachable if the gate is bypassed).
+if (!viewer) return new Response('Not found', { status: 404 });
 
 const { data: student, error: studentErr } = await supabase
   .from('students')
@@ -28,10 +29,8 @@ if (studentErr || !student) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
-// 私单 students' notes are exportable only by admin / 王世杰. 404 to avoid leaking existence.
-const studentIsPrivate = Array.isArray(student.contracts)
-  && student.contracts.some((c: string) => PRIVATE_CONTRACTS.includes(c));
-if (studentIsPrivate && !canSeePrivate) {
+// VIP students' notes are exportable only by admin / 王世杰. 404 to avoid leaking existence.
+if (isVIP(student.contracts) && !canSeeVIP(viewer)) {
   return new Response(`Student ${studentId} not found`, { status: 404 });
 }
 
@@ -50,7 +49,7 @@ marked.setOptions({ gfm: true, breaks: true });
 const html = (() => {
   const md = targetNote.body_md ?? '';
   if (!md.trim()) return '';
-  return sanitizeHtml(marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex, canSeePrivate))) as string);
+  return sanitizeHtml(marked.parse(preprocessCallouts(resolveWikilinks(md, wikiIndex, canSeeVIP(viewer)))) as string);
 })();
 const advisor = (student.mid_advisors ?? [])[0] ?? '—';
 ---

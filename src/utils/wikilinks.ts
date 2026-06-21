@@ -78,7 +78,7 @@ export function resolveWikilinks(markdown: string, index: WikilinkIndex, canSeeP
     const hit = index.get(targetTrim);
     const isEmbed = embed === '!';
 
-    // Unresolved, OR a 私单 target the viewer may not see: render a greyed pill with no
+    // Unresolved, OR a VIP target the viewer may not see: render a greyed pill with no
     // link / no "tracked student" styling, so it can't confirm the name is a real student
     // or navigate to the (404-guarded) detail page. The display text is the advisor's own
     // note text, already visible — so this leaks nothing new.

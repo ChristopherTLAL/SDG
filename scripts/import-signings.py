@@ -145,11 +145,12 @@ DISAMBIG = {
     '周晨阳':           'P24AABYdP0ZxmUc90013',  # 25F；另一 c9225X=21 英国别人 (260611)
 }
 
-# 私单 detection is now YAML-driven (2026-05-17 onward).
-# vault .md frontmatter `合同` 字段含 `私单` 或 `私单（非公司合同）` 的学生会
-# 被识别为私单并跳过 ERP 匹配 / 不被 import-signings.py 改写 YAML。
-# 不要再 hardcode 名字 list — 在 vault YAML 改 `合同: [私单]` 即可。
-PRIVATE_CONTRACT_LABELS = ('私单', '私单（非公司合同）')
+# VIP (private-contract; 旧称「私单」) detection is YAML-driven (2026-05-17 onward).
+# vault .md frontmatter `合同` 字段含 `VIP` / `VIP（非公司合同）`（或 legacy `私单`）的学生
+# 被识别为 VIP 并跳过 ERP 匹配 / 不被 import-signings.py 改写 YAML。
+# 不要再 hardcode 名字 list — 在 vault YAML 改 `合同: [VIP]` 即可。
+# 同时保留 legacy 私单 值以兼容尚未迁移的数据。
+PRIVATE_CONTRACT_LABELS = ('VIP', 'VIP（非公司合同）', '私单', '私单（非公司合同）')
 
 # Onboard new vault folders for these advisors' uncovered students:
 ONBOARD_ADVISORS = ['钟婷婷', '古淑婷', '高幸玲', '王姝琰']
