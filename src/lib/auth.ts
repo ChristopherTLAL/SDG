@@ -15,6 +15,23 @@
 // his outlook fallback resolves to the same advisor row as his xdf email.
 
 import { supabase } from './supabase/client';
+import { createRemoteJWKSet, jwtVerify } from 'jose';
+
+// ── Cloudflare Access JWT verification ──────────────────────────────────────
+// The custom domain (sdg.undp.ac.cn) is gated by CF Access, but the raw Vercel
+// origin (*.vercel.app) is NOT — so without verifying CF's signed assertion,
+// anyone hitting the origin directly could forge the Cf-Access-Authenticated-
+// User-Email header and impersonate any user (confirmed exploitable 2026-06-21).
+// We verify the Cf-Access-Jwt-Assertion against the team's public keys (JWKS);
+// a forged email header with no CF-signed JWT is rejected. Team domain `sw985`
+// is stable and hardcoded so a missing env var can never lock everyone out.
+const JWKS = createRemoteJWKSet(
+  new URL('https://sw985.cloudflareaccess.com/cdn-cgi/access/certs'),
+);
+// Optional hardening: the /internal/* CF app's AUD tag is
+// cd69c115452f22e75a5e0ad7e4c1bdd73419527aee96bf12e6a99e40481d8522 — set
+// CF_AUD to additionally pin the audience claim (signature+exp already suffice).
+const CF_AUD: string | undefined = undefined;
 
 export type Viewer = {
   email: string;
@@ -39,6 +56,19 @@ function cleanEmail(raw: string | null | undefined): string | null {
 export async function resolveViewer(request: Request): Promise<Viewer | null> {
   const email = cleanEmail(request.headers.get('cf-access-authenticated-user-email'));
   if (!email) return null;
+
+  // The email header is only trustworthy if backed by a CF-signed JWT. CF Access
+  // always pairs the two on a gated path; a direct origin hit has neither a valid
+  // assertion nor (legitimately) the email header. Reject anything unverifiable.
+  const assertion = request.headers.get('cf-access-jwt-assertion');
+  if (!assertion) return null;
+  try {
+    const { payload } = await jwtVerify(assertion, JWKS, CF_AUD ? { audience: CF_AUD } : {});
+    const jwtEmail = cleanEmail(typeof payload.email === 'string' ? payload.email : undefined);
+    if (!jwtEmail || jwtEmail !== email) return null;
+  } catch {
+    return null;
+  }
 
   const cached = CACHE.get(email);
   const now = Date.now();
