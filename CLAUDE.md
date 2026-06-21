@@ -83,6 +83,7 @@ Skills handle multi-step workflows; user invokes them via slash command. Don't r
 - **add-illustration** — import + integrate new hand-drawn PNGs
 - **write-article** — draft long-form English articles for News / Research / Policy Brief
 - **skill-creator** — author / optimize / benchmark new skills
+- **learn**（博学伴读）— 一个 element 的深度学习，产出一篇平实的深挖随笔（fan-out 深搜 workflow 挖分档素材 → 主窗口按 `references/voice.md` 挑一条主线写成文，一条线、一个完整认识，引用走 APA7、不留没解释的疑点）。**触发铁律：凡是跟本 vault / 留学业务无关的「知识性」提问——想搞懂一个词 / 人 / 茶 / 电影 / 概念 / 地点 / 任何事物的来龙去脉——默认就调用这个 skill，别自己随口给浅答。** 反过来：学生 / 顾问 / 合同 / 网站 / 运营这类业务问题不走它；纯一行事实速查（几点了、单位换算）也不必。
 
 Each skill has its own `SKILL.md` with full triggers and behavior.
 
