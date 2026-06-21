@@ -13,22 +13,29 @@ export const POST: APIRoute = async ({ params, request, locals }) => {
   }
 
   const id = Number(params.id);
-  if (!Number.isFinite(id)) {
+  if (!Number.isInteger(id) || id <= 0) {
     return new Response('invalid id', { status: 400 });
   }
   const body = await request.json().catch(() => ({}));
   const processed = Boolean(body?.processed);
 
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('submissions')
     .update({
       processed,
       processed_at: processed ? new Date().toISOString() : null,
     })
-    .eq('id', id);
+    .eq('id', id)
+    .select('id');
 
   if (error) {
     return new Response(error.message, { status: 500 });
+  }
+  if (!data || data.length === 0) {
+    return new Response(JSON.stringify({ error: 'not found' }), {
+      status: 404,
+      headers: { 'content-type': 'application/json' },
+    });
   }
   return new Response(JSON.stringify({ ok: true, id, processed }), {
     status: 200,
