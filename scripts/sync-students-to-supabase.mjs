@@ -264,34 +264,48 @@ async function syncStudentNotes(studentIdByName, notesByStudentName) {
     if (!studentId) continue;
     totalStudents++;
 
-    // Replace strategy: delete all this student's notes, then insert current set.
-    // Simpler than diffing and keeps the table free of orphans when files get renamed/deleted.
+    // Safe replace strategy (was delete-then-insert: an insert failure left the student
+    // with ZERO notes until the next successful run). Now: UPSERT the current set first on
+    // the (student_id, note_name) unique key, then prune rows this run didn't touch.
+    // An upsert failure keeps the existing notes intact; worst case is a stale row lingering
+    // until the next run — never a gap.
+    const syncedAt = new Date().toISOString();
+
+    // De-dupe by note_name (keep last) so a same-named pair in the vault can't trip the
+    // unique constraint / "ON CONFLICT cannot affect row a second time".
+    const byName = new Map();
+    for (const n of notes) byName.set(n.note_name, n);
+
+    if (byName.size) {
+      const rows = [...byName.values()].map(n => ({
+        student_id: studentId,
+        note_name: n.note_name,
+        body_md: n.body_md,
+        obsidian_path: n.obsidian_path,
+        note_date: n.note_date,
+        synced_at: syncedAt,
+      }));
+
+      const { error: upErr } = await supabase
+        .from('student_notes')
+        .upsert(rows, { onConflict: 'student_id,note_name' });
+      if (upErr) {
+        console.warn(`  ⚠  ${studentName}: upsert notes failed (existing notes kept) — ${upErr.message}`);
+        continue; // do NOT prune — leave the student's current notes untouched
+      }
+      totalNotes += rows.length;
+    }
+
+    // Prune the previous generation: rows for this student that this run didn't re-stamp
+    // (renamed/deleted vault files). If byName is empty this clears all of them (correct).
     const { error: delErr } = await supabase
       .from('student_notes')
       .delete()
-      .eq('student_id', studentId);
+      .eq('student_id', studentId)
+      .lt('synced_at', syncedAt);
     if (delErr) {
-      console.warn(`  ⚠  ${studentName}: delete old notes failed — ${delErr.message}`);
-      continue;
+      console.warn(`  ⚠  ${studentName}: prune stale notes failed (transient dupes possible) — ${delErr.message}`);
     }
-
-    if (!notes.length) continue;
-
-    const rows = notes.map(n => ({
-      student_id: studentId,
-      note_name: n.note_name,
-      body_md: n.body_md,
-      obsidian_path: n.obsidian_path,
-      note_date: n.note_date,
-      synced_at: new Date().toISOString(),
-    }));
-
-    const { error: insErr } = await supabase.from('student_notes').insert(rows);
-    if (insErr) {
-      console.warn(`  ⚠  ${studentName}: insert notes failed — ${insErr.message}`);
-      continue;
-    }
-    totalNotes += rows.length;
   }
 
   return { totalNotes, totalStudents };
