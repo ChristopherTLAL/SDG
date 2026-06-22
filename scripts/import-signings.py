@@ -355,15 +355,25 @@ def _yaml_scalar(yaml_text, key):
 
 
 def _yaml_is_private(text):
-    """True iff frontmatter `合同` 字段含 PRIVATE_CONTRACT_LABELS 中的任一标签.
-    驱动私单识别 — 取代之前 hardcode 的 PRIVATE_NO_SIGNING name list。"""
+    """True iff frontmatter `合同` 字段的某个 list 条目 *精确等于* PRIVATE_CONTRACT_LABELS
+    中的任一标签. 驱动私单识别 — 取代之前 hardcode 的 PRIVATE_NO_SIGNING name list。
+
+    必须 per-item 精确匹配, 不能拿整串做 substring: 否则像
+    「新东方国际竞赛学术指导VIP小班（面授落地）」这种【产品名】里含 "VIP" 子串的普通合同
+    会被误判成私单 (2026-06-22 茅晨曦 bug: 被误跳过 ERP 匹配 → cid 不绑 → onboard 又
+    重建 "茅晨曦 (王姝琰)" 空壳重复档)."""
     m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
     if not m:
         return False
     val = _yaml_scalar(m.group(1), '合同')
     if not val:
         return False
-    return any(label in val for label in PRIVATE_CONTRACT_LABELS)
+    val = val.strip()
+    if val.startswith('[') and val.endswith(']'):
+        items = [s.strip().strip('"').strip("'") for s in val[1:-1].split(',')]
+    else:
+        items = [val.strip('"').strip("'")]
+    return any(item in PRIVATE_CONTRACT_LABELS for item in items)
 
 
 def _yaml_advisor_fields(text):
