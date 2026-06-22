@@ -148,8 +148,8 @@ export const article: Article = {
       sentences: [
         {
           id: 's21',
-          en: 'John Rawls understood this when he recast the device in 1971 as the "veil of ignorance": choosers stripped not of civilization but of self-knowledge, unable to know their place in the society they are designing.',
-          zh: '约翰·罗尔斯在1971年将这一装置重新铸造为"无知之幕"时，理解了这一点：选择者被剥夺的不是文明，而是自我认知，无法知晓自己在其所设计的社会中所处的位置。',
+          en: 'John Rawls understood this when he recast the device in 1971 as the "original position": choosers stripped not of civilization but of self-knowledge, unable to know their place in the society they are designing.',
+          zh: '约翰·罗尔斯在1971年将这一装置重新铸造为"原初状态"时，理解了这一点：选择者被剥夺的不是文明，而是自我认知，无法知晓自己在其所设计的社会中所处的位置。',
         },
         {
           id: 's22',

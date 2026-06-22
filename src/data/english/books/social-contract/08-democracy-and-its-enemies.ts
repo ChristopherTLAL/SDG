@@ -63,8 +63,8 @@ export const article: Article = {
       sentences: [
         {
           id: 's8',
-          en: 'The political theorist Ronald Dworkin gave this intuition its sharpest jurisprudential edge in 1977, when he described individual rights as trumps over collective goals.',
-          zh: '政治理论家罗纳德·德沃金于1977年将这一直觉磨砺至最为锋利的法理形态，他将个人权利描述为优先于集体目标的「王牌」。',
+          en: 'The legal philosopher Ronald Dworkin gave this intuition its sharpest jurisprudential edge in 1977, when he described individual rights as trumps over collective goals.',
+          zh: '法哲学家罗纳德·德沃金于1977年将这一直觉磨砺至最为锋利的法理形态，他将个人权利描述为优先于集体目标的「王牌」。',
         },
         {
           id: 's9',

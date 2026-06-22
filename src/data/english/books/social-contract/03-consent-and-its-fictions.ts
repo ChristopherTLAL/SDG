@@ -28,8 +28,8 @@ export const article: Article = {
         },
         {
           id: 's3',
-          en: 'John Locke stated the argument most plainly in the Second Treatise of Government, published in 1689: every person who enjoys any part of a territory, he wrote, from owning an estate down to merely travelling a highway, thereby gives tacit consent to the government that rules it.',
-          zh: '约翰·洛克在 1689 年出版的《政府论》下篇中，将这一论证说得最为直截了当：他写道，任何人只要享用某片领土上的任何部分（从拥有地产到仅仅行走于公路之上），便由此对管辖该领土的政府给予了默示同意。',
+          en: 'John Locke stated the argument most plainly in the Second Treatise of Government, published in 1690: every person who enjoys any part of a territory, he wrote, from owning an estate down to merely travelling a highway, thereby gives tacit consent to the government that rules it.',
+          zh: '约翰·洛克在 1690 年出版的《政府论》下篇中，将这一论证说得最为直截了当：他写道，任何人只要享用某片领土上的任何部分（从拥有地产到仅仅行走于公路之上），便由此对管辖该领土的政府给予了默示同意。',
         },
         {
           id: 's4',

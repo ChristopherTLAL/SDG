@@ -118,8 +118,8 @@ export const article: Article = {
       sentences: [
         {
           id: 's17',
-          en: 'Philip Pettit, the Irish-Australian philosopher, pressed on a further problem that neither concept had resolved.',
-          zh: '爱尔兰裔澳大利亚哲学家菲利普·佩迪特进一步追问了两个概念都未能解决的问题。',
+          en: 'Philip Pettit, the Irish philosopher, pressed on a further problem that neither concept had resolved.',
+          zh: '爱尔兰哲学家菲利普·佩迪特进一步追问了两个概念都未能解决的问题。',
         },
         {
           id: 's18',
