@@ -656,7 +656,7 @@ export const article: Article = {
         },
         {
           context: '思想散文：关于在个人关系中诚实与善意之间的张力',
-          text: 'The trouble with always saying what you think is that honesty can be a weapon wearing the mask of virtue. The trouble with always sparing people's feelings is equally corrosive: it denies others the information they need to grow.',
+          text: 'The trouble with always saying what you think is that honesty can be a weapon wearing the mask of virtue. The trouble with always sparing people\'s feelings is equally corrosive: it denies others the information they need to grow.',
           zh: '总是直说想法的问题，在于诚实可以成为戴着美德面具的武器。总是顾及他人感受的问题同样具有腐蚀性：它剥夺了他人成长所需的信息。',
         },
       ],

@@ -478,7 +478,7 @@ export const article: Article = {
         '英语有一类分裂句，专门把强调点从动词移到原因或条件上。正常写法是 The device works conceptually, not historically, because it never existed。这个说法完全正确，却把「因果关系」埋在后半句里，当成附属说明。一旦改写成 It is precisely because it never existed that its work is conceptual，「从未真实存在」这件事就被推到了聚光灯下，成了论证的关键枢纽，不是辅助，而是主轴。',
         '本文第1句做的正是这一步：It is precisely because the state of nature never existed that its work in the argument is conceptual, not historical。加一个 precisely，还进一步收紧了这种强调：它说的不只是「因为」，而是「正因为，恰恰因为」，暗示这个理由出乎意料、甚至反直觉。这是开篇"颠覆预期"的常用手法，你以为从未存在的东西对论证没用，这句话偏偏反转，并立刻给出解释。',
         '什么时候该用：当你要把某件"看起来是缺陷"的东西翻转成"恰恰是优势"，或者把反直觉之处变成论证起点时，这一结构几乎不可替代。议论文开头、批驳对手逻辑的段落、以及引入思想实验时，都是绝好的时机。它自带"揭谜"的感觉，读者读到 It is precisely because X 便会屏息，等待 that 之后的答案。',
-        '技术提醒：it is...that 分裂的强调对象是 because-从句，be 动词须与句子时态保持一致（现在时用 is，过去时用 was）。不要写成 It was precisely because... that it's...，时态混乱会让句子摇晃。another trap：把 precisely 漏掉也行，但少了那个词，强调就减弱了一档。',
+        '技术提醒：it is...that 分裂的强调对象是 because-从句，be 动词须与句子时态保持一致（现在时用 is，过去时用 was）。不要写成 It was precisely because... that it\'s...，时态混乱会让句子摇晃。another trap：把 precisely 漏掉也行，但少了那个词，强调就减弱了一档。',
       ],
       examples: [
         { en: 'It is precisely because the contract was never signed that we must ask what people would have signed.', zh: '正因为契约从未被签署，我们才必须追问人们会签署什么。', note: '用 precisely because 把「没有签署」这一显而易见的缺陷，翻转为追问合法性的起点。' },

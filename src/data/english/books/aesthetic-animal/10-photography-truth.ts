@@ -500,11 +500,11 @@ export const article: Article = {
     },
     {
       id: 'g2',
-      title: '把时间线和反转打包成一句：用「much of X's history」开头，再转折「only now」',
+      title: '把时间线和反转打包成一句：用「much of X\'s history」开头，再转折「only now」',
       pattern: 'For much of [domain]\'s history, [old state]; [technology/event] [disruption]; [consequence] has become genuinely [quality].',
       sentenceIds: ['s15'],
       explanationZh: [
-        '叙述一个领域的「历史惯性被打破」时，有一种非常高效的句式：用 for much of [X]'s history 开头来设定漫长的旧常态，再引入打破它的技术或事件，最后落脚在「由此引发的不稳定状态」。这一结构把历史纵深、技术转折和当下后果全部压进一两个长句，读来密实有节奏，是严肃散文中叙述「范式转移」的惯用手法。',
+        '叙述一个领域的「历史惯性被打破」时，有一种非常高效的句式：用 for much of [X]\'s history 开头来设定漫长的旧常态，再引入打破它的技术或事件，最后落脚在「由此引发的不稳定状态」。这一结构把历史纵深、技术转折和当下后果全部压进一两个长句，读来密实有节奏，是严肃散文中叙述「范式转移」的惯用手法。',
         '看第 15 句：For much of photography\'s history, the effort required to manipulate a film negative kept tampering at the margins of professional practice; Photoshop, and then smartphone filters, democratised it so thoroughly that the question of what counts as an unaltered image has become genuinely unstable。这一句做了三件事：先描述旧平衡（篡改被技术难度压制在边缘），再命名改变它的力量（Photoshop + 手机滤镜），最后说出新现实（「未经修改」这个概念本身已不稳定）。注意分号把历史旧态和新局隔开，比用两个句子更有力，因为对比的张力被保留在同一视野之内。',
         '这个句式特别适合写「一个领域的缓慢稳定被某一技术颠覆」的段落，在历史论文、政策报告和个人陈述的背景部分都很有用。关键是 for much of... 必须诚实地承认旧常态的真实逻辑（不是单纯「以前很落后」），新状态的描述也需要落实到一个可观察的、具体的后果，而非空泛地说「一切都变了」。',
         '在标点上，这种三段式长句惯用分号（而非逗号或句号）来分隔「旧常态」和「颠覆力量 + 后果」，因为两者在逻辑上属于同一论证，分号保留了统一感，又允许读者在巨大的信息块之间短暂换气。',

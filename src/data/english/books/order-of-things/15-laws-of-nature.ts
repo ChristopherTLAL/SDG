@@ -759,7 +759,7 @@ export const article: Article = {
         'Cartwright\'s capacities framework supersedes both the Humean and the necessitarian tradition and should be adopted as the standard view.',
       ],
       answer: 2,
-      explanation: 'The essay's structure presents Humeanism, necessitarianism, and Cartwright's capacities view in parallel, assigning each genuine virtues and genuine costs, without declaring a winner. That is option C. A and D each champion one position as victorious; the essay consistently refrains from this. B is flatly contradicted by paragraph 8, which insists the question shapes scientific practice in a specific and traceable way.',
+      explanation: 'The essay\'s structure presents Humeanism, necessitarianism, and Cartwright\'s capacities view in parallel, assigning each genuine virtues and genuine costs, without declaring a winner. That is option C. A and D each champion one position as victorious; the essay consistently refrains from this. B is flatly contradicted by paragraph 8, which insists the question shapes scientific practice in a specific and traceable way.',
       sentenceId: 's16',
     },
   ],

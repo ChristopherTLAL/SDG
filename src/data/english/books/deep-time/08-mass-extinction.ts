@@ -692,7 +692,7 @@ export const article: Article = {
         'Geological timescales make the current extinction crisis less significant than environmentalists claim.',
       ],
       answer: 2,
-      explanation: 'The essay's pivot comes at paragraph 6, where Kolbert's work is introduced, and at paragraphs 7 and 8, where the distinction between an "indifferent universe" and a species "that has the capacity to understand what it is doing" is made the moral crux. Option A mistakes scale for the essay's actual claim. B is exactly the geological-comfort move the essay warns against (paragraph 5). D misreads the essay's tone, which treats the geological perspective as a dangerous misapplication, not a reassurance.',
+      explanation: 'The essay\'s pivot comes at paragraph 6, where Kolbert\'s work is introduced, and at paragraphs 7 and 8, where the distinction between an "indifferent universe" and a species "that has the capacity to understand what it is doing" is made the moral crux. Option A mistakes scale for the essay\'s actual claim. B is exactly the geological-comfort move the essay warns against (paragraph 5). D misreads the essay\'s tone, which treats the geological perspective as a dangerous misapplication, not a reassurance.',
       sentenceId: 's19',
     },
     {
