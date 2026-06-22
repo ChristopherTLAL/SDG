@@ -126,10 +126,13 @@ python3 .claude/skills/daily-english/scripts/validate.py src/data/english/<slug>
 ```
 
 The validator checks:
+- **Real esbuild parse** — the file must actually compile (catches unescaped quotes / malformed strings that the regex checks below would pass but the Astro/Vercel build would reject). This is the gate that matters most; the regex checks are not a parser.
 - No em-dashes (`—` or `——`) anywhere in the file
 - Schema integrity: required fields present, vocab levels in {1,2,3,4}, sentenceIds match
 - Vocab regex: each `vocab.word` value, when used as `\bword\b`, must match its target sentence's `en` text (otherwise the front-end frontmatter renderer won't wrap it in a `<span class="vocab">`)
 - CEFR matches request (the top-level `meta.cefr` must equal the requested level)
+
+When shipping a **book**, always stage the book's `book.ts` manifest alongside its chapters (`git add src/data/english/books/<id>/*.ts`) — a chapter committed without its manifest deploys but 404s, because the loader registers books by `book.ts`.
 
 On validation failure, spawn a fixer subagent (Opus, `general-purpose`) and pass the file path + error list. The fixer reads the file, applies the minimal fix, and rewrites it.
 

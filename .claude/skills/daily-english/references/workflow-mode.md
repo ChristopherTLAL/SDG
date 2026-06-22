@@ -106,10 +106,23 @@ at ~5x the cost; with Opus you can usually drop the fact-check stage.
    chapter's *content* is wrong rather than the agent having died, edit that
    chapter's entry or just re-run the single chapter with a one-element `CHAPTERS`
    array.)
-3. **Ship.** Commit + push the new chapter files (per CLAUDE.md, prefer GitHub MCP;
-   `git reset HEAD -- .` first). The book loader auto-discovers chapters by folder,
-   so no index edits. Vercel builds; confirm the chapter renders at
-   `/tools/english/books/<id>/<slug>`.
+3. **Ship.** Commit + push the new chapters **and the book's `book.ts` manifest**
+   (`git reset HEAD -- .` first, then stage `src/data/english/books/<id>/*.ts` so the
+   manifest goes with them). The `*.ts` glob matters: a chapter committed **without**
+   its `book.ts` deploys but **404s**, because the loader registers books by their
+   `book.ts` and `getStaticPaths` only prerenders chapters of registered books. (This
+   bit us once: 7 manifests were left unstaged by an `NN-*.ts`-only pathspec and every
+   new book 404'd despite a green build.)
+4. **Verify on production, not just the build.** A green Vercel build is NOT proof the
+   page is live — a prerendered page can still 404 if its `book.ts` was unstaged or a
+   sibling chapter failed to parse. `curl` the live URL and expect `200`:
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}" https://sdg.undp.ac.cn/tools/english/books/<id>/<slug>
+   ```
+
+Note: `validate.py` now runs a **real esbuild parse** (step 9 in the script), so the
+agents' self-validate already rejects files the build would reject. The old regex-only
+checks once passed a whole batch of malformed files that broke the build 11 times.
 
 ## Resume cheat-sheet
 

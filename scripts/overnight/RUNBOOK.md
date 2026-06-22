@@ -45,9 +45,12 @@ For every untracked slug (all books), validate first:
 python3 .claude/skills/daily-english/scripts/validate.py src/data/english/books/<bookId>/<slug>.ts
 ```
 Stage ONLY chapters that print `{"ok": true}` (explicit pathspecs, never `-A`).
-Then commit + push, resilient to the parallel session's pushes:
+**Always stage the book's `book.ts` manifest too** — a chapter committed without its
+`book.ts` deploys but 404s (the loader registers books by their manifest). Then
+commit + push, resilient to the parallel session's pushes:
 ```bash
 git reset HEAD -- .
+git add src/data/english/books/<bookId>/book.ts          # the manifest — or the whole book 404s
 git add src/data/english/books/<bookId>/<valid-slug>.ts   # repeat per valid file; also: git add scripts/overnight .claude/skills/daily-english if ahead
 git commit -m "feat(english/<bookId>): overnight batch — <slugs> (Sonnet + fact-check)
 

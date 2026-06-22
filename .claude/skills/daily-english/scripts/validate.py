@@ -8,12 +8,53 @@ Exits 0 if valid, 1 if errors. Prints JSON {"ok": bool, "errors": [...]}.
 """
 import json
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
 
 VALID_CEFR = {"A2", "B1", "B2", "C1", "C2"}
 VALID_LEVELS = {1, 2, 3, 4}
+
+
+def esbuild_parse_check(path: Path):
+    """Run a REAL esbuild parse on the file.
+
+    The regex checks elsewhere in this script can PASS malformed TypeScript — e.g.
+    an unescaped quote inside a single-quoted string (`'essay's pivot'`) or straight
+    quotes around Chinese (`'品味'`). esbuild is exactly what the Astro/Vercel build
+    uses, so this gate catches what the deploy would reject. (Learned the hard way:
+    a whole overnight batch of malformed files passed the regex checks and broke the
+    build 11 times in a row.)
+
+    Returns (checked: bool, error: str | None). If esbuild is not installed, returns
+    (False, None) and the gate is skipped rather than hard-failing.
+    """
+    esb = None
+    rp = path.resolve()
+    for parent in [rp.parent, *rp.parents]:
+        cand = parent / "node_modules" / ".bin" / "esbuild"
+        if cand.exists():
+            esb = str(cand)
+            break
+    if esb is None:
+        esb = shutil.which("esbuild")
+    if esb is None:
+        return (False, None)
+    try:
+        r = subprocess.run([esb, str(path), "--log-level=error"],
+                           capture_output=True, timeout=60)
+    except Exception:
+        return (False, None)
+    if r.returncode == 0:
+        return (True, None)
+    err = r.stderr.decode("utf-8", "replace")
+    lines = [ln.strip() for ln in err.splitlines() if ln.strip()]
+    keep = [ln for ln in lines
+            if "Expected" in ln or "Unexpected" in ln or "Unterminated" in ln
+            or re.search(r":\d+:\d+", ln)]
+    return (True, " | ".join((keep or lines)[:3]) or "esbuild parse failed")
 
 
 def main():
@@ -145,6 +186,13 @@ def main():
         if wc < lo or wc > hi:
             errors.append(f"wordCount {wc} outside soft range {lo}-{hi} for {cefr}")
 
+    # 9. REAL esbuild parse — the regex checks above are NOT a parser and can pass
+    #    files the Astro/Vercel build rejects (unescaped quotes, etc.). This is the
+    #    gate that actually compiles the file.
+    esbuild_checked, esbuild_err = esbuild_parse_check(path)
+    if esbuild_err:
+        errors.append(f"esbuild parse error (the build WILL fail): {esbuild_err}")
+
     # Output
     if errors:
         print(json.dumps({"ok": False, "errors": errors}, indent=2, ensure_ascii=False))
@@ -157,6 +205,7 @@ def main():
             "vocab": vocab_count,
             "cefr": cefr_match.group(1) if cefr_match else None,
             "wordCount": int(word_count_match.group(1)) if word_count_match else None,
+            "esbuildChecked": esbuild_checked,
         }
     }, indent=2))
     sys.exit(0)
