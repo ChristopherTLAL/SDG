@@ -179,33 +179,68 @@ def parse_shortlist_xlsx(path: Path):
 def parse_faculty_xlsx(path: Path):
     """Parse `faculty-deep-dive` Excel.
 
-    Layout: A=导师姓名, B=学校, C=院系/方向, D=导师背景 (all merged across N
-    paper rows), E=论文 (APA, one per row), F=论文解读 (one per row).
+    Column order is resolved BY HEADER NAME (not position), so this tolerates
+    both the legacy layout (A=导师姓名, B=学校, C=院系, D=背景, E=论文, F=解读)
+    and the tier-first layout (A=契合度, B=学校, C=导师姓名, ...). Merged group
+    cells (tier / school / professor) are forward-filled. A new professor record
+    starts whenever the 导师姓名 column is non-empty; papers accumulate from the
+    论文/论文解读 columns until the next professor.
     """
     wb = load_workbook(path, data_only=True)
     ws = wb.active
+
+    def _txt(v):
+        return v.strip() if isinstance(v, str) else ""
+
+    # Resolve column indices from the header row (row 1).
+    HDR = {
+        "name": ("导师姓名", "导师", "姓名", "name", "professor", "supervisor"),
+        "school": ("学校", "机构", "机构/学校", "university", "school"),
+        "department": ("院系/方向", "院系", "方向", "department", "dept"),
+        "background": ("导师背景", "背景", "background"),
+        "paper": ("论文 (apa)", "论文(apa)", "论文", "citation", "papers", "重要论文"),
+        "expl": ("论文解读", "解读", "explanation"),
+    }
+    col = {}
+    for c in range(1, ws.max_column + 1):
+        h = _txt(ws.cell(1, c).value).lower()
+        if not h:
+            continue
+        for field, aliases in HDR.items():
+            if field not in col and h in aliases:
+                col[field] = c
+    # Fallback to legacy fixed positions if headers are missing.
+    col.setdefault("name", 1)
+    col.setdefault("school", 2)
+    col.setdefault("department", 3)
+    col.setdefault("background", 4)
+    col.setdefault("paper", 5)
+    col.setdefault("expl", 6)
+
     rows = []
     current = None
+    cur_school = ""
     for r in range(2, ws.max_row + 1):
-        a, b, c, d, e, f = (ws.cell(r, col).value for col in range(1, 7))
-        if isinstance(a, str) and a.strip():
+        school_cell = _txt(ws.cell(r, col["school"]).value)
+        if school_cell:
+            cur_school = school_cell  # forward-fill across the school block
+        name = _txt(ws.cell(r, col["name"]).value)
+        if name:
             if current:
                 rows.append(current)
             current = {
                 "source": "faculty",
-                "name": a.strip(),
-                "school": (b.strip() if isinstance(b, str) else ""),
-                "department": (c.strip() if isinstance(c, str) else ""),
-                "background": (d.strip() if isinstance(d, str) else ""),
+                "name": name,
+                "school": cur_school,
+                "department": _txt(ws.cell(r, col["department"]).value),
+                "background": _txt(ws.cell(r, col["background"]).value),
                 "papers": [],
                 "skip": False,
             }
-        if current and isinstance(e, str) and e.strip():
+        cite = _txt(ws.cell(r, col["paper"]).value)
+        if current and cite and cite != "未找到论文":
             current["papers"].append(
-                {
-                    "citation": e.strip(),
-                    "explanation": (f.strip() if isinstance(f, str) else ""),
-                }
+                {"citation": cite, "explanation": _txt(ws.cell(r, col["expl"]).value)}
             )
     if current:
         rows.append(current)
