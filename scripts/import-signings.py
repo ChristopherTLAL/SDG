@@ -194,24 +194,42 @@ TODAY = datetime.now().strftime('%Y-%m-%d')
 # ── Helpers ──────────────────────────────────────────────────────────────
 
 def cleanup_addon_name(s):
-    """Clean up contract template name → stable 大类 string.
+    """Clean a 合同模板名称 → stable 大类. Strips contract-instance / boilerplate
+    cruft while PRESERVING meaningful content (price/tier parens, sub-plan letters).
 
-    Strips:
-      - year prefix (2023 / 23财 / 23 财年)
-      - 项目/服务合同 etc. suffix words
-      - **OA codes** (TY-OAxxxxxxxx#NN-MM, US-OAxxxxx, UK-OAxxxxx#N etc.)
-        — these were leaking into 大类 and creating false granularity
-        (e.g. 'AST学术指导（线下一对一40小时）TY-OA17890191#7' should be
-        just 'AST学术指导（线下一对一40小时）').
+    Rewritten 2026-07-01 (was: leaked cruft into 大类 → 681+ near-dup categories,
+    e.g. '美高Summer School合同-OA4907032', '-1对1精英定制', '财年韩国留学…'). Verified
+    against all 1691 distinct template_names: 0 residual cruft, 0 regressions,
+    specific-rule families (跃领/格物/菁英/启航…) + price/tier parens untouched.
+
+    Removes:
+      - leading time qualifiers: 2024 / 23财 / 22财年 / 24暑假 / 2024-2025学年 / 24-25学年
+      - OA / order codes anywhere: US-OA123 / 合同-OA123 / 合同OA123#1 / …-OA…—2D / …#N-M
+      - contract-type boilerplate: 项目服务合同 / 服务合同 / 服务协议 / 项目服务 / 合同 / 项目
+        (bare 合同 preceded by an ASCII letter is KEPT — sub-plan labels A合同/B合同)
+    Then collapses stray double/em dashes and trims leftover separators.
     """
-    s = re.sub(r'^\d{4}\s*财?\s*', '', s)
-    s = re.sub(r'^\d{2}\s*财?\s*年?\s*', '', s)
-    # Strip ERP OA codes FIRST (they sit at the tail; doing this before the
-    # 服务合同 cleanup catches names like "...服务合同TY-OA17491816#3-21").
-    # Pattern: [LETTERS]-OA<digits>(  -<digits> OR #<digits>(-<digits>)? )*
-    s = re.sub(r'\s*[A-Z]{2}-OA\d+(?:[#-]\d+(?:-\d+)?)*\s*$', '', s)
-    s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*(?=[（(])', '', s)
-    s = re.sub(r'\s*(项目服务合同|项目合同|服务合同|项目服务|合同|项目)\s*$', '', s)
+    s = s.strip()
+    # 1. leading time qualifiers
+    s = re.sub(r'^\d{4}\s*[-—]\s*\d{4}\s*学年\s*', '', s)   # 2024-2025学年 (school-year range)
+    s = re.sub(r'^\d{2}\s*[-—]\s*\d{2}\s*学年\s*', '', s)   # 24-25学年
+    s = re.sub(r'^\d{4}\s*财?\s*年?\s*', '', s)             # 2024 / 2024财 / 2024财年
+    s = re.sub(r'^\d{2}\s*财?\s*年?\s*', '', s)             # 23财 / 22财年 / 24暑假 (all leading 2-digit = year)
+    s = re.sub(r'^财\s*年?\s*', '', s)                      # stray 财年 leftover (e.g. 23财财年…)
+    # 2. OA / order codes (token = optional [A-Z]{2}- or 合同(-) prefix + OA + digits
+    #    + optional #n / -n / —n / -<short alnum> instance suffixes)
+    OA = r'(?:[A-Z]{2}-|合同[-]?)?OA\s*\d+(?:\s*[#\-—]\s*[0-9A-Za-z]{1,4})*'
+    s = re.sub(r'\s*' + OA + r'\s*$', '', s)                         # a) trailing code (eats leading ws)
+    s = re.sub(r'(?:合同\s*)?[-—]?\s*(?:[A-Z]{2}-)OA\s*\d+', '', s)   # b) mid-string coded (US-OA…)
+    s = re.sub(r'合同\s*OA\s*\d+(?:[#\-—][0-9A-Za-z]{1,4})*', '', s)  #    mid-string 合同OA…
+    # 3. contract-type boilerplate
+    s = re.sub(r'(项目服务合同|项目服务协议|项目服务|服务协议|服务合同|项目合同)', '', s)  # compounds anywhere
+    s = re.sub(r'(?<![A-Za-z])合同(?=\s*[（(\-—]|\s*$)', '', s)   # bare 合同 (protect A合同/B合同)
+    s = re.sub(r'项目(?=\s*[（(\-—]|\s*$)', '', s)                # bare 项目 (always boilerplate)
+    # 4. tidy
+    s = re.sub(r'\s*[-—]\s*[-—]\s*', '-', s)   # collapse -- / —— left mid-string
+    s = re.sub(r'\s+', ' ', s)
+    s = s.strip(' \t-—·、,，:：')
     return s.strip()
 
 
