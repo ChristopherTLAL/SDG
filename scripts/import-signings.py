@@ -2,10 +2,11 @@
 """
 import-signings.py — single source of truth for contract data.
 
-Finds every signing export by SCHEMA (any .xlsx containing a 签约明细 sheet — filename-
-agnostic) across ~/Downloads + ~/Downloads/_工作运营/ and unions contracts by 合同编号
-(newest file wins), so weekly slices named anything + old backfills all contribute and
-nothing is dropped. Pass an explicit path for single-file.
+Source (default, 2026-06-30 onward): the newest SINGLE .xlsx with a 签约明细 sheet in
+~/Downloads (+ _工作运营/). Workflow now exports one full 2023-06→今 book each time —
+全量自带每条合同的最新状态（退费/终止/完成），取最新那份即可。Pass an explicit path to
+force a specific file; pass --union for the OLD multi-file-union behavior (union every
+signing xlsx by 合同编号, newest file wins) as a fallback.
 
 Three things it does, all idempotent:
 
@@ -22,7 +23,10 @@ Three things it does, all idempotent:
    - if name collides with existing vault folder → suffix with " (中期顾问)"
    - intake-year-based 当前进度 (2025F or earlier = 已结案, 2026F = 后期在途, 2027F+ = 中期在途)
 
-3. **Push full signing data to Supabase contracts table** (UPSERT by 合同编号).
+3. **Push signing data to Supabase contracts table** (UPSERT by 合同编号), NARROWED
+   to「在库学生的全部合同」+「全公司非留学产品合同 (is_application=false)」. The latter
+   feeds the kanban 月度产品节奏 widget (company-wide, 2026-05-09 directive). 别部门的
+   【留学】合同不入库 (nothing reads them). 此口径与 kanban widget + purge SQL 三者一致。
 
 After running this, also rerun:
    /usr/local/bin/python3 scripts/import-erp-comms.py
@@ -88,6 +92,23 @@ def _all_signing_xlsx():
     # oldest → newest by mtime, so the newest file wins on union.
     return sorted(cands, key=lambda p: p.stat().st_mtime)
 
+def _newest_signing_xlsx():
+    """Default source (2026-06-30 onward): the SINGLE newest .xlsx with a 签约明细
+    sheet. Workflow changed to「每次导出一份 2023-06→今 的全量」——全量自带每条合同
+    的最新状态（退费/终止/完成），取最新那一份即可，不必再 union 一堆旧切片（旧并集
+    会把恰好躺在 ~/Downloads 的历史大表也卷进来）。用 --union 恢复旧的多文件并集行为。"""
+    cands = []
+    for d in (Path.home() / 'Downloads', Path.home() / 'Downloads' / '_工作运营'):
+        if not d.exists():
+            continue
+        for p in d.glob('*.xlsx'):
+            if not p.name.startswith('~$') and _has_signing_sheet(p):
+                cands.append(p)
+    if not cands:
+        raise FileNotFoundError(
+            'No .xlsx with a 签约明细 sheet found in ~/Downloads or ~/Downloads/_工作运营')
+    return [max(cands, key=lambda p: p.stat().st_mtime)]
+
 # Flags:
 #   --dry-run    : read everything, compute changes, print summary, NO writes.
 #   --rewrite    : AUTHORITATIVE — REPLACE each vault 合同明细 from the file union,
@@ -97,10 +118,13 @@ def _all_signing_xlsx():
 #                  (file wins on conflict, vault-only contracts are KEPT). This is
 #                  the safe weekly behavior — it never loses a vault 档案 contract.
 #   --incremental: accepted for back-compat but now a NO-OP (merge IS the default).
+#   --union      : OLD default — scan ~/Downloads + _工作运营 and union every signing
+#                  xlsx by 合同编号. Now opt-in only; default = newest single full-export.
 DRY_RUN     = '--dry-run' in sys.argv
 REWRITE     = '--rewrite' in sys.argv
+UNION       = '--union' in sys.argv
 INCREMENTAL = not REWRITE          # merge-into-vault default; --rewrite opts out
-_FLAGS = ('--dry-run', '--incremental', '--rewrite')
+_FLAGS = ('--dry-run', '--incremental', '--rewrite', '--union')
 _pos_args = [a for a in sys.argv[1:] if a not in _FLAGS]
 
 EXPLICIT_FILE = None               # set when a CLI path arg forces single-file mode
@@ -111,10 +135,12 @@ if _pos_args and _pos_args[0] not in ('-h', '--help'):
         sys.exit(1)
 elif _pos_args:
     print(__doc__)
-    print(f'\nUsage: {sys.argv[0]} [--dry-run] [--rewrite] [path/to/*客户签约明细*.xlsx]')
-    print(f'\nNo arg  → MULTI-FILE UNION of every .xlsx with a 签约明细 sheet in ~/Downloads + _工作运营/')
-    print(f'          (filename-agnostic; newest file wins per 合同编号; nothing dropped).')
+    print(f'\nUsage: {sys.argv[0]} [--dry-run] [--rewrite] [--union] [path/to/full-export.xlsx]')
+    print(f'\nNo arg  → newest SINGLE .xlsx with a 签约明细 sheet in ~/Downloads (+ _工作运营/).')
+    print(f'          Workflow: 每次导出一份 2023-06→今 全量；全量自带最新状态，取最新那份。')
     print(f'path    → use EXACTLY that one file (single-file override).')
+    print(f'--union → OLD behavior: union EVERY signing xlsx in ~/Downloads by 合同编号')
+    print(f'          (filename-agnostic; newest file wins). Opt-in fallback only.')
     print(f'--dry-run → preview changes without writing to vault or Supabase.')
     print(f'--rewrite → authoritative: REPLACE vault 合同明细 from files, dropping vault')
     print(f'            contracts absent from all files. Default = merge (never drops).')
@@ -295,8 +321,15 @@ def read_signings():
         '合同模板': '合同模板名称', '留学申请': '是否包含留学申请',
         '语言培训': '是否包含语言培训', '申请入学年': '入学年',
     }
-    files = [EXPLICIT_FILE] if EXPLICIT_FILE else _all_signing_xlsx()
-    label = 'single file' if EXPLICIT_FILE else f'{len(files)}-file union'
+    if EXPLICIT_FILE:
+        files = [EXPLICIT_FILE]
+        label = 'single file (explicit path)'
+    elif UNION:
+        files = _all_signing_xlsx()
+        label = f'{len(files)}-file union (--union)'
+    else:
+        files = _newest_signing_xlsx()
+        label = 'newest single full-export'
     print(f'📖 Reading {label}: ' + ', '.join(f.name for f in files))
     canonical = []          # header names, first-seen order
     COL = {}                # header name → canonical index
@@ -337,6 +370,21 @@ def read_signings():
             n += 1
         wb.close()
         print(f'   · {f.name}: {n} rows')
+    # 全量哨兵：默认工作流期望一份 2023-06→今 的全量导出。日期跨度过短 = 多半误传了
+    # 月度切片；merge 模式不会丢数据，但旧合同状态不会被刷新，故提醒一声。
+    _sidx = COL.get('签约时间')
+    if _sidx is not None:
+        _ds = [str(r[_sidx])[:10] for r in by_contract.values()
+               if _sidx < len(r) and r[_sidx]]
+        if _ds:
+            _lo, _hi = min(_ds), max(_ds)
+            print(f'   📅 签约时间跨度: {_lo} → {_hi}')
+            try:
+                if (date.fromisoformat(_hi) - date.fromisoformat(_lo)).days < 365:
+                    print('   ⚠ 跨度 < 1 年 —— 看起来像月度切片而非 2023-06 起的全量导出；'
+                          '确认是否误传（merge 不丢数据，但旧合同状态不刷新）。')
+            except Exception:
+                pass
     width = len(canonical)
     rows = [tuple(row) + (None,) * (width - len(row)) for row in by_contract.values()]
     print(f'   = {len(rows)} unique contracts (unioned by 合同编号 across {len(files)} file[s])')
@@ -1082,6 +1130,10 @@ def main():
             onboarded += 1
     print(f'   {onboarded} new folders created')
 
+    # 新 onboard 的学生纳入"在库"集合 → 其合同也进推送白名单（见下方推送收窄）。
+    for c in candidates:
+        cid_to_folder.setdefault(c['cid'], c['target_folder'])
+
     # ── Push to Supabase contracts table ──
     print(f'\n📤 Push to Supabase contracts table:')
     db_rows = []
@@ -1109,6 +1161,18 @@ def main():
         if adv.get('late')  and row.get('late_advisor')  != adv['late']:
             row['late_advisor']  = adv['late']
     print(f'   🔁 vault override: {override_n} 行 mid_advisor 改写 (前期/后期 同步覆盖)')
+
+    # ── 推送收窄 (2026-06-30) ──────────────────────────────────────────────
+    # 只入「在库学生的全部合同」+「全公司非留学产品合同」。后者喂看板『月度产品节奏』
+    # widget（2026-05-09 全公司口径，src/pages/internal/kanban/index.astro 的
+    # rawMonthlyContracts 查询，is_application=false 无 student_id 过滤）。别部门的
+    # 【留学】合同看板任何地方都不读 → 不推；DB 里的历史死行由 purge SQL 同口径清理。
+    # 改这条口径要同步看 kanban 那个 widget 和 purge 谓词，三者必须一致。
+    _before = len(db_rows)
+    db_rows = [c for c in db_rows
+               if c['customer_id'] in cid_to_folder or not c.get('is_application')]
+    print(f'   🔎 推送收窄: {_before} → {len(db_rows)} 行'
+          f'（在库 {len(cid_to_folder)} cid 全部合同 + 全公司非留学产品）')
 
     n_pushed = supabase_upsert_contracts(env, db_rows)
     print(f'   ✓ pushed {n_pushed} contracts')
